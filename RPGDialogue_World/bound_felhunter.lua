@@ -9,14 +9,14 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 P:Pool {
   id = "my_felhunter", role = "my_felhunter",
   greetings = {
-    { id = "g_default", text = "*{npc} pads to your side and swings its tendrils toward you, tasting the air around your hands as if checking you're still yourself.*" },
+    { id = "g_default", text = "*{npc} pads to your side and swings its tendrils toward you, tasting the air around your hands before it will settle.*" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "*In the dark, {npc}'s tendrils give off a faint green shimmer, and it presses its heavy head against your knee without being told.*" },
-    { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "*{npc} is sitting exactly where you left it, facing the sunrise with its tendrils curled tight, like a dog that doesn't trust the morning.*" },
-    { id = "g_back", when = { metBefore = true }, text = "*{npc} lifts its head the moment you turn toward it, and its spiked tail thumps twice against the ground.*" },
-    { id = "g_often", when = { timesTalked = 6 }, text = "*{npc} sits down before you've said a word, settling in with the patience of a hound that knows you're about to talk for a while.*" },
-    { id = "g_dead", when = { deaths = 15 }, text = "*{npc} sniffs you over from boots to collar, slowly and thoroughly, the way it always does now after you've come back from the dead.*" },
-    { id = "g_drunk", when = { drunk = true }, text = "*{npc} sniffs your breath, sneezes violently, and backs off a step with its tendrils drawn back in what can only be disgust.*" },
-    { id = "g_party", when = { party = { class = "MAGE" } }, text = "*{npc} keeps one tendril pointed at the mage in your party at all times, trembling slightly, like a hound in sight of a roast.*" },
+    { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "*{npc} is sitting exactly where you left it, its blind face turned from the sunrise and its tendrils curled tight against its skull, like a dog that doesn't trust the morning.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*{npc} lifts its head the moment you turn toward it, and its spiked tail sweeps twice across the ground.*" },
+    { id = "g_often", when = { timesTalked = 6 }, text = "*{npc} sits down before you've said a word, and settles its haunches with the patience of a hound that has heard you talk for a long while before.*" },
+    { id = "g_dead", when = { deaths = 15 }, text = "*{npc} noses you over from boots to collar, slowly and thoroughly, the way it always does now after you've come back from the dead.*" },
+    { id = "g_drunk", when = { drunk = true }, text = "*{npc} gets one whiff of your breath, sneezes violently, and backs off a step with its feelers drawn tight against its skull.*" },
+    { id = "g_party", when = { party = { class = "MAGE" } }, text = "*{npc} keeps one feeler stretched toward the mage in your party at all times, quivering, and a thread of green drool hangs from its jaw like a hound in sight of a roast.*" },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "*{npc} noses at the gap in your ribs where the Plague left you open, then settles down, satisfied that whatever keeps you walking hasn't gone anywhere.*" },
   },
   tier = "quest",
@@ -24,31 +24,31 @@ P:Pool {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "*{npc} sits back on its haunches and watches your face, its tendrils swaying slowly, waiting to see whether you mean to give an order or simply to talk.*" },
-        { id = "h_low", when = { maxLevel = 35 }, text = "*{npc} is still new to you, and it keeps glancing at your hands as if it expects the binding to slip, but it waits all the same.*" },
+        { id = "h_default", text = "*{npc} sits back on its haunches with its tendrils turned toward your face, swaying slowly, and waits to see whether you mean to give an order or simply to talk.*" },
+        { id = "h_low", when = { maxLevel = 35 }, text = "*{npc} is still new to you, and its feelers keep creeping toward your hands, testing the binding like a dog worrying at a new collar, but it waits all the same.*" },
         { id = "h_high", when = { minLevel = 50 }, text = "*{npc} lies down at your feet with a long, rattling sigh, as easy with you now as a hound that has followed one master through a great many bad places.*" },
-        { id = "h_dusk", when = { timeOfDay = "dusk" }, text = "*As the light goes, {npc} lifts its head and sniffs toward the horizon, tendrils flaring, then turns back to you with its whole attention.*" },
-        { id = "h_gnome", when = { race = "Gnome" }, text = "*{npc} lowers its head to look you level in the eye, which it seems to find funny, because its tail starts swishing.*" },
+        { id = "h_dusk", when = { timeOfDay = "dusk" }, text = "*As the light goes, {npc} lifts its head and tastes the wind from the horizon, then turns back to you with its whole attention.*" },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "*{npc} lowers its great head until its tendrils hang level with your face, and its tail starts sweeping back and forth.*" },
       },
       again = {
-        { id = "a_again", text = "*{npc} is still sitting there, still listening, its tendrils curled loosely over its back.*" },
-        { id = "a_again2", text = "*{npc} scratches behind one spiked shoulder with a hind leg, then looks back up at you expectantly.*" },
+        { id = "a_again", text = "*{npc} is still sitting there, still listening, its feelers hanging loose and easy.*" },
+        { id = "a_again2", text = "*{npc} scratches behind one spiked shoulder with a hind leg, then turns its head back up to you and waits.*" },
         { id = "a_again3", text = "*{npc} yawns, showing far too many teeth, and waits for you to go on.*" },
       },
       choices = {
         { text = "Heel, {npc}. Let me have a look at you.", next = "inspect" },
         { text = "Good hunting today. You earned your keep.", next = "praise" },
-        { text = "You ate my Shadow Bolt earlier. Explain yourself.", next = "scold" },
+        { text = "You ate my Shadow Bolt earlier, you greedy mutt.", next = "scold" },
         { text = "Do you remember the day I bound you?", next = "binding" },
         { text = "I need to talk, and you're the only one who'll listen.", next = "confide" },
         { text = "What do you make of the others I could summon?", next = "others" },
-        { text = "Smell anything out there? Go on, hunt.", next = "track" },
+        { text = "Do you smell anything out there? Go on, then, hunt.", next = "track" },
         { text = "Here, sniff this soul shard. Don't eat it.", next = "shard" },
         { text = "We're both things this world would rather saw dead.", next = "xforsaken", when = { race = "Scourge" } },
         { text = "My people drank the blood that made your masters strong.", next = "xorc", when = { race = "Orc" } },
-        { text = "Dalaran would hang us both, you know.", next = "xhuman", when = { race = "Human" } },
+        { text = "Dalaran would see us both burned at the stake, you know.", next = "xhuman", when = { race = "Human" } },
         { text = "Gnomeregan's engineers would love to take you apart.", next = "xgnome", when = { race = "Gnome" } },
-        { text = "That's all. Back on watch.", next = "END" },
+        { text = "That's all for now, so get back on watch.", next = "END" },
       },
     },
 
@@ -58,66 +58,66 @@ P:Pool {
     inspect = {
       narr = "You run a hand down the hound's flank, and the hide is hot and dry and ridged like old leather.",
       lines = {
-        { id = "in_default", text = "*{npc} stands still and lets you look, though its tendrils keep twitching toward the shards in your bag, and one hind leg is held a little off the ground.*" },
+        { id = "in_default", text = "*{npc} stands still and lets you look, though its feelers keep twitching toward the shards in your bag, and one hind leg is held a little off the ground.*" },
         { id = "in_high", when = { minLevel = 50 }, text = "*{npc} stands for inspection like an old soldier, and you can count the scars on its hide, every one of them from a fight you started.*" },
       },
       choices = {
-        { text = "Your leg. Who did that to you?", next = "inspect_leg" },
-        { text = "Those tendrils. What are they actually tasting?", next = "inspect_tendrils" },
-        { text = "You're a hideous thing, and I'm fond of you.", next = "BACK", reply = "*{npc} snorts a puff of sulphur at you and leans its full weight against your leg, which nearly knocks you over.*", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Who did that to your leg, boy?", next = "inspect_leg" },
+        { text = "What are those tendrils of yours actually tasting?", next = "inspect_tendrils" },
+        { text = "You're a hideous thing, and I'm fond of you.", next = "BACK", reply = "*{npc} snorts a puff of sulphur at you and leans its full weight against your leg, rumbling, and nearly knocks you over.*", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     inspect_leg = {
       lines = {
-        { id = "il_default", text = "*{npc} looks away when you touch the joint, and there's a burn there, white and clean, the kind holy fire leaves. It remembers the priest who did it; you can tell from the low growl.*" },
+        { id = "il_default", text = "*{npc} flinches when you touch the joint, where an old burn has healed white and clean, the kind holy fire leaves, and a growl starts somewhere deep in its chest.*" },
       },
       choices = {
         { text = "That priest is dead now. I made sure of it.", next = "inspect_vengeance" },
-        { text = "Hold still. I'll mend it as best I can.", next = "BACK", reply = "*{npc} whines once while you work, then licks your wrist with a cold, sticky tendril, which you choose to take as thanks.*", fx = { affinity = 1 } },
+        { text = "Hold still. I'll mend it as best I can.", next = "BACK", reply = "*{npc} whines once while you work, then curls a cold, sticky feeler around your wrist and holds on until you've finished.*", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     inspect_vengeance = {
       big = true,
       lines = {
-        { id = "iv_default", text = "*{npc}'s ears flatten and its tail goes still, and it looks at you for a long time with those blank, burning eyes, as if weighing what that means about the hand on its leash.*" },
+        { id = "iv_default", text = "*{npc}'s tendrils go flat and its tail goes still, and it keeps its eyeless face turned on you for a long time, the way a dog studies a hand it isn't sure of.*" },
       },
       choices = {
-        { text = "Nobody harms what's mine. Nobody.", next = "BACK", reply = "*{npc} rumbles deep in its chest and presses its head under your hand, satisfied, a hound that understands a pack.*", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
-        { text = "Truthfully, he was in my way. Your leg was an excuse.", next = "BACK", reply = "*{npc} huffs and turns its head away, and you'd swear it looks almost disappointed, though demons aren't meant to be.*", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Nobody harms what's mine. Nobody.", next = "BACK", reply = "*{npc} rumbles deep in its chest and shoves its head under your hand, the way a hound does with the leader of its pack.*", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Truthfully, he was in my way. Your leg was an excuse.", next = "BACK", reply = "*{npc} huffs and turns its head away, and it keeps it turned away until you take your hand off its leg.*", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     inspect_tendrils = {
       lines = {
-        { id = "it_default", text = "*{npc} lifts its tendrils one by one and waves them slowly through the air toward you, and where they pass, your skin prickles the way it does just before you cast.*" },
-        { id = "it_caster", when = { party = { class = { "MAGE", "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } }, text = "*{npc}'s tendrils sweep past you and stretch toward your companions instead, quivering at the magic in them, until you click your tongue and they snap back.*" },
+        { id = "it_default", text = "*{npc} lifts its feelers one by one and drifts them slowly through the air toward you, and where they pass, your skin prickles the way it does just before you cast.*" },
+        { id = "it_caster", when = { party = { class = { "MAGE", "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } }, text = "*{npc}'s tendrils sweep past you and stretch toward your companions instead, quivering and dripping, until you click your tongue and they snap back.*" },
       },
       choices = {
-        { text = "So you smell the magic, not the man.", next = "inspect_magic" },
+        { text = "So you smell the magic in a man, not the man.", next = "inspect_magic" },
         { text = "Don't you dare sniff at my companions like that.", next = "BACK", reply = "*{npc} draws its tendrils in tight and lies flat with its chin on its paws, the very picture of innocence, and fools nobody.*", fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     inspect_magic = {
       lines = {
-        { id = "im_default", text = "*{npc} turns its tendrils on you and holds them there, and you feel it searching through the fel in your blood, the threads of your bindings, the little cold knot where your shards hang, as if reading a ledger.*" },
+        { id = "im_default", text = "*{npc} turns its feelers on you and holds them there, and you feel them pass over the fel in your blood, the threads of your bindings, and the cold knot where your shards hang, one after another.*" },
       },
       choices = {
-        { text = "And what do you see, when you look at me?", next = "inspect_ledger" },
+        { text = "And what do you smell, when you taste me like that?", next = "inspect_ledger" },
         { text = "Something else.", next = "BACK" },
       },
     },
     inspect_ledger = {
       big = true,
       lines = {
-        { id = "ile_default", text = "*{npc} stares a while longer, then turns its back on you, walks three paces off and lies down facing away. It isn't sulking, exactly; it looks more like a hound that has smelt something on its master it doesn't want to name.*" },
-        { id = "ile_light", when = { alignment = { axis = "light", max = -5 } }, text = "*{npc} doesn't stop looking. It sits closer instead, tail sweeping, with the easy contentment of a hound lying beside a fire it knows very well.*" },
+        { id = "ile_default", text = "*{npc} holds still a while longer, then turns its back on you, walks three paces off and lies down facing away, with its tendrils drawn in tight like a hound that has caught a bad smell on its master.*" },
+        { id = "ile_light", when = { alignment = { axis = "light", max = -5 } }, text = "*{npc} doesn't draw back at all. It sits closer instead, tail sweeping, with the easy contentment of a hound lying beside a fire it knows very well.*" },
       },
       choices = {
         { text = "Fine. I don't need a hound's good opinion.", next = "BACK", fx = { trait = { stern = 1 } } },
-        { text = "Come back here. Please.", next = "BACK", reply = "*After a long moment {npc} gets up, pads back and lies down against your boots, and its weight there is warmer than you expected.*", fx = { affinity = 1 } },
+        { text = "Come back here, please.", next = "BACK", reply = "*After a long moment {npc} gets up, pads back and lies down against your boots, and its weight there is warmer than you expected.*", fx = { affinity = 1 } },
       },
     },
 
@@ -126,13 +126,13 @@ P:Pool {
     ------------------------------------------------------------------
     praise = {
       lines = {
-        { id = "pr_default", text = "*{npc}'s tail lashes back and forth and its tendrils fan out proudly, and it trots a tight circle around you like a hunting hound after a good day in the field.*" },
-        { id = "pr_dead", when = { deaths = 30 }, text = "*{npc} wags, but it also noses pointedly at the spot on your chest where the last killing blow landed, as if to say the day could have gone better.*" },
+        { id = "pr_default", text = "*{npc}'s tail sweeps back and forth and it trots a tight circle around you, rumbling, like a hunting hound after a good day in the field.*" },
+        { id = "pr_dead", when = { deaths = 30 }, text = "*{npc}'s tail sweeps, but it also noses pointedly at the spot on your chest where the last killing blow landed, and keeps nosing it until you push its head away.*" },
       },
       choices = {
-        { text = "That Spell Lock on the shaman was perfect.", next = "praise_lock" },
-        { text = "You want a treat? Here, a sip of mana.", next = "praise_treat" },
-        { text = "Don't let it go to your head. You're a tool.", next = "praise_tool" },
+        { text = "That Spell Lock on the shaman was perfect, you know.", next = "praise_lock" },
+        { text = "Do you want a treat? Here's a sip of mana.", next = "praise_treat" },
+        { text = "Don't let it go to your head; you're only a tool.", next = "praise_tool" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,13 +142,13 @@ P:Pool {
       },
       choices = {
         { text = "That's what the Legion built you for, isn't it?", next = "praise_legion" },
-        { text = "Do it again next time and you'll eat well.", next = "BACK", reply = "*{npc}'s tendrils curl in anticipation, and a thread of glowing drool runs off its jaw and sizzles in the grass.*", fx = { affinity = 1 } },
+        { text = "Do it again next time and you'll eat well.", next = "BACK", reply = "*{npc}'s tendrils stretch and quiver, and a thread of glowing drool runs off its jaw and sizzles in the grass.*", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     praise_legion = {
       lines = {
-        { id = "pleg_default", text = "*{npc} goes very still at the word Legion, and its tendrils lift and point, all together, at nothing you can see, somewhere far beyond the sky.*" },
+        { id = "pleg_default", text = "*{npc} goes very still at the word Legion, and the spines along its back rise, and its tendrils point, all together, at something far beyond the sky.*" },
       },
       choices = {
         { text = "You hunted wizards for them, on other worlds.", next = "praise_worlds" },
@@ -158,11 +158,11 @@ P:Pool {
     praise_worlds = {
       big = true,
       lines = {
-        { id = "pw_default", text = "*{npc} lowers its head and growls, long and soft, and for a moment you can almost see it: towers burning under strange skies, and the Legion's hounds loosed in packs on every mage who tried to stand against them.*" },
+        { id = "pw_default", text = "*{npc} lowers its head and growls, long and soft, and you can't help picturing it: towers burning under strange skies, and the Legion's hounds loosed in packs on every mage who stood against them.*" },
       },
       choices = {
-        { text = "Now you hunt for me. That's a better master.", next = "BACK", reply = "*{npc} looks at you sidelong, as if it has heard that from a good many masters before, and then, grudgingly, it wags.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "I wonder what it would take to hunt like that.", next = "BACK", reply = "*{npc}'s eyes flare bright, and it pushes its nose into your palm, hungry and eager, which is not the reassurance you were hoping for.*", fx = { align = { light = -1 } } },
+        { text = "Now you hunt for me. That's a better master.", next = "BACK", reply = "*{npc} turns its head aside and holds it there a while, and then, grudgingly, its tail begins to sweep.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "I wonder what it would take to hunt like that.", next = "BACK", reply = "*{npc}'s tendrils flare bright, and it pushes its snout into your palm, drooling and eager, which is not the reassurance you were hoping for.*", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -177,11 +177,11 @@ P:Pool {
     },
     praise_tool = {
       lines = {
-        { id = "ptl_default", text = "*{npc}'s tail stops mid-wag, and it sits down very upright, the way a soldier stands when an officer has decided to be unpleasant.*" },
+        { id = "ptl_default", text = "*{npc}'s tail stops mid-sweep, and it sits down very upright, the way a soldier stands when an officer has decided to be unpleasant.*" },
       },
       choices = {
         { text = "A good tool deserves care, all the same.", next = "BACK", reply = "*{npc}'s tail starts up again, slowly, as if it's prepared to accept that as an apology.*", fx = { align = { order = 1 } } },
-        { text = "Tools that grow proud get broken.", next = "BACK", reply = "*{npc} doesn't growl, but it doesn't look at you again for a long while, and its tendrils stay curled tight.*", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "Tools that grow proud get broken.", next = "BACK", reply = "*{npc} doesn't growl, but it doesn't turn its head to you again for a long while, and its tendrils stay curled tight.*", fx = { align = { order = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -195,27 +195,27 @@ P:Pool {
       },
       choices = {
         { text = "That spell was meant for the enemy, not your supper.", next = "scold_supper" },
-        { text = "Sit. Bad hound. Very bad hound.", next = "scold_bad" },
+        { text = "Sit. You're a bad hound, a very bad hound.", next = "scold_bad" },
         { text = "Do you even know my magic from theirs?", next = "scold_know" },
         { text = "Something else.", next = "BACK" },
       },
     },
     scold_supper = {
       lines = {
-        { id = "ss_default", text = "*{npc} wanders to the place where the bolt went astray and sniffs at the scorched earth, then looks back at you with something close to an apology, though it's still licking its lips.*" },
+        { id = "ss_default", text = "*{npc} wanders to the place where the bolt went astray and noses at the scorched earth, then slinks back to you with its head low, though it's still licking its lips.*" },
       },
       choices = {
         { text = "You'll go hungry tonight for that.", next = "BACK", reply = "*{npc} whines, low and piteous, and lies down with its chin on its paws in the most theatrical sulk you've ever seen from a demon.*", fx = { trait = { stern = 1 } } },
-        { text = "Fine, fine. I suppose it smelled delicious.", next = "BACK", reply = "*{npc} perks up at once and wags hard enough to shake its whole back end.*", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Fine, fine. I suppose it smelled delicious.", next = "BACK", reply = "*{npc} perks up at once, and its tail sweeps hard enough to shake its whole back end.*", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     scold_bad = {
       lines = {
-        { id = "sb_default", text = "*{npc} sits, slowly, and keeps its eyes on yours the whole way down, the way a wolf sits for a man it hasn't quite decided to obey.*" },
+        { id = "sb_default", text = "*{npc} sits, slowly, and keeps its blind face turned up to yours the whole way down, the way a wolf sits for a man it hasn't quite decided to obey.*" },
       },
       choices = {
-        { text = "Down. All the way down.", next = "scold_down" },
+        { text = "Down, I said, all the way down.", next = "scold_down" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -227,13 +227,13 @@ P:Pool {
       },
       choices = {
         { text = "Every demon tests its chain. Never test mine.", next = "BACK", reply = "*{npc} keeps its head down, and when you finally release it, it stays down a heartbeat longer than it needs to.*", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "I'd test my chain too, if I wore one.", next = "BACK", reply = "*{npc} lifts its head at your tone, and for a moment the two of you look at each other like conspirators.*", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I'd test my chain too, if I wore one.", next = "BACK", reply = "*{npc} lifts its head at your tone, and its tail gives one slow sweep, and for a moment the two of you are conspirators.*", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     scold_know = {
       lines = {
-        { id = "sk_default", text = "*{npc} sniffs at your hands, then at the air where the enemy stood, and then at your hands again, and its tendrils droop. As far as it's concerned, magic is magic, and all of it is food.*" },
+        { id = "sk_default", text = "*{npc} sniffs at your hands, then at the air where the enemy stood, and then at your hands again, and its tendrils droop in confusion before it licks your fingers anyway.*" },
       },
       choices = {
         { text = "You're a hound, not a scholar. I forget that.", next = "BACK", fx = { affinity = 1 } },
@@ -246,8 +246,8 @@ P:Pool {
     ------------------------------------------------------------------
     binding = {
       lines = {
-        { id = "bi_default", text = "*{npc}'s hackles lift at the memory, and it scratches once at the ground as if drawing a circle in the dirt, the way you drew one to hold it the first time it came through.*" },
-        { id = "bi_low", when = { maxLevel = 35 }, text = "*{npc} glances down at the chalk dust still caught in the claws of its forepaws, because the binding wasn't long ago at all, and it plainly remembers every word.*" },
+        { id = "bi_default", text = "*The spines along {npc}'s back lift, and it scratches once at the ground, dragging a curve through the dirt like the circle you drew to hold it the first time it came through.*" },
+        { id = "bi_low", when = { maxLevel = 35 }, text = "*{npc} glances down at the chalk dust still caught in the claws of its forepaws, because the binding wasn't long ago at all, and it still flinches when you raise your hand to cast.*" },
       },
       choices = {
         { text = "Strahad Farsan made me earn you, page by page.", next = "binding_tome" },
@@ -258,35 +258,35 @@ P:Pool {
     },
     binding_tome = {
       lines = {
-        { id = "bt_default", text = "*{npc} tilts its head as you talk about the Tome of the Cabal and its torn-out pages, and the long road chasing them, and when you mention Ratchet it sneezes, as if it remembers the smell of the harbour.*" },
+        { id = "bt_default", text = "*{npc} lies still while you talk about the Tome of the Cabal and its torn-out pages and the long road chasing them, and when you mention Ratchet it sneezes, like a dog at the smell of brine.*" },
       },
       choices = {
-        { text = "Farsan calls his students acolytes, as if he's a priest.", next = "binding_farsan" },
+        { text = "Farsan called his students acolytes, as if he were a priest.", next = "binding_farsan" },
         { text = "Every page I found, I wondered what I'd summon.", next = "binding_wonder" },
         { text = "Something else.", next = "BACK" },
       },
     },
     binding_farsan = {
       lines = {
-        { id = "bf_default", text = "*{npc} curls its lip in a way that looks very much like a sneer, and you remember it straining toward Farsan's grimoires the whole time you stood in his tower.*" },
+        { id = "bf_default", text = "*{npc} curls its lip off its teeth, and you remember it straining toward Farsan's grimoires the whole time you stood in his house.*" },
       },
       choices = {
-        { text = "You'd have eaten his whole library, given the chance.", next = "BACK", reply = "*{npc} doesn't deny it. It licks its chops slowly and thoughtfully, like a hound dreaming of a butcher's shop.*", fx = { trait = { witty = 1 } } },
+        { text = "You'd have eaten his whole library, given the chance.", next = "BACK", reply = "*{npc} licks its chops, slowly and thoroughly, like a hound dreaming of a butcher's shop.*", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     binding_wonder = {
       lines = {
-        { id = "bw_default", text = "*{npc} nudges your hand with its snout and holds still under it, as if to say this is what you got, for better or worse, and there's no giving it back.*" },
+        { id = "bw_default", text = "*{npc} nudges your hand with its snout and then holds still under it, heavy and patient, and makes no move to go anywhere at all.*" },
       },
       choices = {
-        { text = "I got a hound. I could have done worse.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I got a hound, and I could have done far worse.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     binding_fight = {
       lines = {
-        { id = "bfi_default", text = "*{npc} rolls its tendrils and gives a short, rough bark that sounds horribly like a laugh, and it shows you the gap in its teeth where the circle's edge burned it.*" },
+        { id = "bfi_default", text = "*{npc} gives a short, rough bark, and peels back its lip to show you the gap in its teeth where the circle's edge burned it.*" },
       },
       choices = {
         { text = "You nearly ate the spell holding you. I was terrified.", next = "binding_terror" },
@@ -297,7 +297,7 @@ P:Pool {
       big = true,
       narr = "Your hand goes to the scar on your own palm without your meaning it to.",
       lines = {
-        { id = "bte_default", text = "*{npc} looks at your hand, and at the scar, and then sets its chin down on your knee and leaves it there, heavy and warm, which is as close as a felhunter comes to saying it remembers too.*" },
+        { id = "bte_default", text = "*{npc} noses at your hand, and at the scar, and then sets its chin down on your knee and leaves it there, heavy and warm, for as long as you keep your hand on its head.*" },
       },
       choices = {
         { text = "Fear is how a warlock learns. I'm glad I learned it.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -307,11 +307,11 @@ P:Pool {
     binding_hate = {
       big = true,
       lines = {
-        { id = "bh_default", text = "*{npc} doesn't answer, because it can't, but it doesn't look away either. Its eyes burn steady and blank, and you realise you've never once been able to tell what it thinks of you.*" },
+        { id = "bh_default", text = "*{npc} doesn't move, and it doesn't turn away either; its eyeless face stays on you, and you realise you've never once been able to tell what it thinks of you.*" },
       },
       choices = {
-        { text = "Hate me if you like. You'll still obey.", next = "BACK", reply = "*{npc} rumbles low, a sound with no anger in it and no warmth either, only the acknowledgement of a fact.*", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
-        { text = "I hope you don't. I've tried to treat you fairly.", next = "BACK", reply = "*{npc} blinks, slowly, and its tail sweeps once across the dirt, and you decide that will have to do.*", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Hate me if you like. You'll still obey.", next = "BACK", reply = "*{npc} rumbles low, with no growl in it and no warmth either, and lies down where it is.*", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I hope you don't. I've tried to treat you fairly.", next = "BACK", reply = "*{npc} huffs softly, and its tail sweeps once across the dirt, and you decide that will have to do.*", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -322,12 +322,12 @@ P:Pool {
     confide = {
       narr = "You sit down on the nearest stone, and the hound comes and sits beside you without being asked.",
       lines = {
-        { id = "co_default", text = "*{npc} settles down at your side and turns one tendril toward you, the way another dog might cock an ear, and waits.*" },
-        { id = "co_night", when = { timeOfDay = "night" }, text = "*{npc} lies down beside you in the dark, close enough that you can feel its heat, and keeps its eyes on the shadows while you talk.*" },
+        { id = "co_default", text = "*{npc} settles down at your side and turns one feeler toward you, the way another dog might cock an ear, and waits.*" },
+        { id = "co_night", when = { timeOfDay = "night" }, text = "*{npc} lies down beside you in the dark, close enough that you can feel its heat, and keeps its tendrils turned to the shadows while you talk.*" },
       },
       choices = {
         { text = "Sometimes I wonder what I'm becoming.", next = "confide_becoming" },
-        { text = "I want power. Real power. Is that so wrong?", next = "confide_power" },
+        { text = "I want real power. Is that so wrong?", next = "confide_power" },
         { text = "Everyone I meet looks at me like I'm the Plague.", next = "confide_lonely" },
         { text = "I'm afraid of what waits when I finally die.", next = "confide_death" },
         { text = "Something else.", next = "BACK" },
@@ -335,22 +335,22 @@ P:Pool {
     },
     confide_becoming = {
       lines = {
-        { id = "cb_default", text = "*{npc} sniffs at your fingertips, where the skin has gone a little grey from handling shards, and then licks them, slowly, as if trying to take the taint back out.*" },
+        { id = "cb_default", text = "*{npc} noses at your fingertips, where the skin has gone a little grey from handling shards, and then licks them, slowly and carefully, the way a dog licks a cut.*" },
       },
       choices = {
         { text = "Gul'dan started out as a frightened shaman, they say.", next = "confide_guldan" },
-        { text = "I'm still me. Aren't I?", next = "confide_still" },
+        { text = "I'm still me, aren't I?", next = "confide_still" },
         { text = "Something else.", next = "BACK" },
       },
     },
     confide_guldan = {
       big = true,
       lines = {
-        { id = "cg_default", text = "*{npc}'s hackles rise at the name, and it gives a low, ugly growl into the dark, the way a hound growls at a house where something bad once happened.*" },
+        { id = "cg_default", text = "*The spines on {npc}'s back rise at the name, and it gives a low, ugly growl into the dark, the way a hound growls at a house where something bad once happened.*" },
       },
       choices = {
-        { text = "I'll never sell my people the way he sold his.", next = "BACK", reply = "*{npc} lowers its hackles slowly and leans against you, as if it means to hold you to that.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "He was a fool, but he wasn't wrong about power.", next = "BACK", reply = "*{npc} stops growling and turns to look at you instead, steadily, and its tail doesn't move at all.*", fx = { align = { light = -1 } } },
+        { text = "I'll never sell my people the way he sold his.", next = "BACK", reply = "*{npc}'s spines settle slowly, and it leans its whole weight against you and stays there.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "He was a fool, but he wasn't wrong about power.", next = "BACK", reply = "*{npc} stops growling and turns its head to you instead, very still, and its tail doesn't move at all.*", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -366,8 +366,8 @@ P:Pool {
     },
     confide_power = {
       lines = {
-        { id = "cp_default", text = "*{npc}'s eyes flare, and its tendrils stiffen and lift, and for a moment the hunger in it is so plain that you can feel it through the binding like a second pulse.*" },
-        { id = "cp_high", when = { minLevel = 55 }, text = "*{npc} looks east, toward the Plaguelands and the dark halls of Scholomance, and back to you, as if it already knows where your ambitions have been leading.*" },
+        { id = "cp_default", text = "*{npc}'s tendrils stiffen and stretch, quivering, and green drool gathers at its jaw, and for a moment you can feel its hunger through the binding like a second pulse.*" },
+        { id = "cp_high", when = { minLevel = 55 }, text = "*{npc} turns its tendrils east, toward the Plaguelands and the dark halls of Scholomance, and then back to you, where your ambitions have been leading you both.*" },
       },
       choices = {
         { text = "Power to protect the people I care about.", next = "confide_protect" },
@@ -378,17 +378,17 @@ P:Pool {
     confide_protect = {
       big = true,
       lines = {
-        { id = "cpr_default", text = "*{npc} looks at you a long while with those burning eyes, and you realise every warlock who ever fell into the Legion's hands probably said the same thing to a hound just like this one.*" },
+        { id = "cpr_default", text = "*{npc} keeps its eyeless face turned on you a long while, and it occurs to you that every warlock who ever fell into the Legion's hands probably said the same thing to a hound just like this one.*" },
       },
       choices = {
         { text = "Then I'll be the one who means it.", next = "BACK", reply = "*{npc} huffs, hot and smoky, and settles down to wait and see, which is all a hound can do.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "Fine. Power for its own sake, then. I'll own it.", next = "BACK", reply = "*{npc}'s tail sweeps once, slow and approving, and that frightens you more than any growl would have.*", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Fine, power for its own sake, then, and I'll own it.", next = "BACK", reply = "*{npc}'s tail sweeps once, slow and approving, and that frightens you more than any growl would have.*", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     confide_contempt = {
       lines = {
-        { id = "ccn_default", text = "*{npc} snaps at a moth that comes too close to your face, catches it, and swallows it, and then looks at you as if to say that's what happens to small things that get too close to the fire.*" },
+        { id = "ccn_default", text = "*{npc} snaps at a moth that strays too close to your face, catches it and swallows it, and then licks its chops at you, tail sweeping slowly.*" },
       },
       choices = {
         { text = "Ha. You're a terrible influence, do you know that?", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -409,7 +409,7 @@ P:Pool {
     confide_guards = {
       big = true,
       lines = {
-        { id = "cgu_default", text = "*{npc} turns its head toward the nearest town and lets out a single low growl, then looks back to you, as though offering, quite seriously, to go and eat the guard's lantern.*" },
+        { id = "cgu_default", text = "*{npc} turns its head toward the nearest town and lets out a single low growl, then swings back to you with its tendrils pricked, waiting to be sent.*" },
       },
       choices = {
         { text = "They're right to fear us. Fear keeps the peace.", next = "BACK", reply = "*{npc} settles its chin on its paws, content with any arrangement that keeps it fed.*", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -419,8 +419,8 @@ P:Pool {
     },
     confide_death = {
       lines = {
-        { id = "cd_default", text = "*{npc} stops moving altogether, and its tendrils go limp, and in the quiet you can hear the soul shards in your bag clicking softly against each other like teeth.*" },
-        { id = "cd_dead", when = { deaths = 20 }, text = "*{npc} sniffs at you the way it always does after the spirit healers send you back, as if checking that the right soul came home in the right body.*" },
+        { id = "cd_default", text = "*{npc} stops moving altogether, and its feelers go limp, and in the quiet you can hear the soul shards in your bag clicking softly against each other like teeth.*" },
+        { id = "cd_dead", when = { deaths = 20 }, text = "*{npc} noses you over the way it always does after the spirit healers send you back, slowly, chest and hands and face, before it will lie down again.*" },
       },
       choices = {
         { text = "I've trapped so many souls. Who traps mine?", next = "confide_souls" },
@@ -445,7 +445,7 @@ P:Pool {
     ------------------------------------------------------------------
     others = {
       lines = {
-        { id = "ot_default", text = "*{npc}'s ears go back at once, and it plants itself squarely in front of you, as if the question itself were a rival trying to get past.*" },
+        { id = "ot_default", text = "*{npc}'s tendrils flatten at once, and it plants itself squarely in front of you, like a hound blocking a rival from the hearth.*" },
       },
       choices = {
         { text = "The imp, then. You can't stand the imp.", next = "others_imp" },
@@ -456,25 +456,25 @@ P:Pool {
     },
     others_imp = {
       lines = {
-        { id = "oi_default", text = "*{npc} growls, low and long, and its tendrils twitch with obvious longing. You remember the time it tried to devour the imp's Firebolt mid-air, and the imp's shrieking, which went on for an hour.*" },
+        { id = "oi_default", text = "*{npc} growls, low and long, and its feelers twitch toward the empty air beside you. You remember the time it devoured the imp's Firebolt mid-air, and the imp's shrieking, which went on for an hour.*" },
       },
       choices = {
-        { text = "You are not allowed to eat the imp. Not even a bit.", next = "BACK", reply = "*{npc} sighs heavily through its nose, as though you have denied it the one small joy in an otherwise hard life.*", fx = { trait = { witty = 1 } } },
+        { text = "You are not allowed to eat the imp, not even a bit.", next = "BACK", reply = "*{npc} sighs heavily through its nose, as though you have denied it the one small joy in an otherwise hard life.*", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     others_void = {
       lines = {
-        { id = "ov_default", text = "*{npc} sniffs at the shadow under your feet, where the voidwalker usually waits, and then looks up at you with flat disdain, as if to say the void has no nose and therefore no opinion worth having.*" },
+        { id = "ov_default", text = "*{npc} sniffs at the shadow under your feet, where the voidwalker usually waits, finds nothing there worth eating, and sneezes on it with flat disdain.*" },
       },
       choices = {
-        { text = "At least it doesn't eat my spells.", next = "BACK", reply = "*{npc} licks its lips pointedly and looks the other way.*", fx = { trait = { witty = 1 } } },
+        { text = "At least it doesn't eat my spells.", next = "BACK", reply = "*{npc} licks its lips pointedly and turns its head the other way.*", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     others_succ = {
       lines = {
-        { id = "os_default", text = "*{npc} doesn't growl at the mention of her. It goes quiet instead, and presses close against your legs, and keeps watching the place where she usually stands, the way a dog watches a cat it has lost to before.*" },
+        { id = "os_default", text = "*{npc} doesn't growl at the mention of her. It goes quiet instead, and presses close against your legs with its tendrils drawn tight, facing the place where she usually stands, the way a dog watches a cat it has lost to before.*" },
       },
       choices = {
         { text = "Smart hound. She frightens me too, sometimes.", next = "others_fear" },
@@ -484,11 +484,11 @@ P:Pool {
     others_fear = {
       big = true,
       lines = {
-        { id = "of_default", text = "*{npc} lifts its head and looks at you, really looks, and then puts itself between you and the empty place where she would stand, and stays there.*" },
+        { id = "of_default", text = "*{npc} lifts its head to you for a long moment, and then puts itself between you and the empty place where she would stand, and stays there.*" },
       },
       choices = {
-        { text = "A warlock rules by fear. Mine and theirs.", next = "BACK", reply = "*{npc} doesn't move from its post, but its tail goes still, as if it has heard that before from someone it no longer serves.*", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
-        { text = "I keep every bargain I make with them. That's my shield.", next = "BACK", reply = "*{npc} grunts and sits back down at last, apparently willing to trust a bargain, so long as it can stand guard over it.*", fx = { align = { honor = 1 } } },
+        { text = "A warlock rules by fear. Mine and theirs.", next = "BACK", reply = "*{npc} doesn't move from its post, but its tail goes still, and its spines lift a little along its back.*", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "I keep every bargain I make with them, and that's my shield.", next = "BACK", reply = "*{npc} grunts and sits back down at last, though it stays between you and that empty place.*", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -498,19 +498,19 @@ P:Pool {
     ------------------------------------------------------------------
     track = {
       lines = {
-        { id = "tr_default", text = "*{npc} lifts its head and sweeps its tendrils in a slow arc, and stops, and points, quivering, toward something a long way off that you can't see at all.*" },
+        { id = "tr_default", text = "*{npc} lifts its head and sweeps its tendrils in a slow arc, then stops dead and points, quivering, toward something a long way off that you can't see at all.*" },
         { id = "tr_night", when = { timeOfDay = "night" }, text = "*{npc}'s tendrils light up faintly as they sweep the dark, and they all swing the same way at once, toward a glow on the hills that might be a campfire or might be something worse.*" },
       },
       choices = {
-        { text = "A mage? Go on, then, how strong?", next = "track_mage" },
-        { text = "Is that fel? Another warlock out there?", next = "track_lock" },
-        { text = "Leave it. We're not hunting tonight.", next = "BACK", reply = "*{npc} lowers its tendrils with visible reluctance and sits, though one of them keeps creeping back toward the horizon when it thinks you aren't looking.*", fx = { trait = { stern = 1 } } },
+        { text = "Is it a mage? How strong is the magic on them?", next = "track_mage" },
+        { text = "Is that fel you're smelling? Is another warlock out there?", next = "track_lock" },
+        { text = "Leave it. We're not hunting tonight.", next = "BACK", reply = "*{npc} lowers its tendrils with a whine and sits, though one of them keeps creeping back toward the horizon whenever you turn away.*", fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     track_mage = {
       lines = {
-        { id = "tm_default", text = "*{npc} drools, a long string of green spit that hisses where it lands, and its whole body trembles with eagerness, which tells you all you need to know about the size of the meal.*" },
+        { id = "tm_default", text = "*{npc} drools, a long string of green spit that hisses where it lands, and its whole body trembles from snout to tail, which tells you all you need to know about the size of the meal.*" },
       },
       choices = {
         { text = "A Kirin Tor mage, out here? They'd hang us both.", next = "track_kirin" },
@@ -520,33 +520,33 @@ P:Pool {
     track_kirin = {
       big = true,
       lines = {
-        { id = "tk_default", text = "*{npc} looks at you, tense from nose to tail, waiting for the word. The Legion made felhunters for exactly this, to run down wizards in their towers, and every line of it says so.*" },
+        { id = "tk_default", text = "*{npc} turns to you, tense from snout to tail and waiting for the word, as ready as any hound the Legion ever loosed on a wizard's tower.*" },
       },
       choices = {
-        { text = "No. We leave the mage be. We're not the Legion.", next = "BACK", reply = "*{npc} whines, long and bitter, but it lies down, and the binding stays quiet.*", fx = { align = { light = 1 } } },
+        { text = "No, we leave the mage be. We're not the Legion.", next = "BACK", reply = "*{npc} whines, long and thin, but it lies down, and the binding stays quiet.*", fx = { align = { light = 1 } } },
         { text = "Dalaran banished us. Let them learn what that cost.", next = "BACK", reply = "*{npc} is gone into the dark before you've finished the sentence, and somewhere ahead, a ward goes out like a snuffed candle.*", fx = { align = { light = -1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     track_lock = {
       lines = {
-        { id = "tl_default", text = "*{npc} sniffs harder, and its lip curls, and it gives a single sharp bark of warning. Whoever it smells out there has the same brimstone on them that you do, and a great deal more of it.*" },
-        { id = "tl_horde", when = { race = { "Orc", "Troll", "Scourge" } }, text = "*{npc} snarls toward the canyons, where the Burning Blade keep their camps, and the smell of them is so thick it makes its tendrils shudder.*" },
+        { id = "tl_default", text = "*{npc} tastes the wind again, and its lip curls, and it gives a single sharp bark of warning, the bark it saves for anything that reeks of brimstone the way you do.*" },
+        { id = "tl_horde", when = { race = { "Orc", "Troll", "Scourge" } }, text = "*{npc} snarls toward the canyons, where the Burning Blade keep their camps, and its tendrils shudder and draw in tight against its skull.*" },
         { id = "tl_ally", when = { race = { "Human", "Gnome" } }, text = "*{npc} snarls toward the hills, and you think of the Shadow Council's cultists in their black robes, and of how much they'd like a warlock's hound for their own.*" },
       },
       choices = {
-        { text = "The Burning Blade. They'd sell the world to the Legion.", next = "track_cult" },
+        { text = "The Burning Blade would sell this whole world to the Legion.", next = "track_cult" },
         { text = "Something else.", next = "BACK" },
       },
     },
     track_cult = {
       big = true,
       lines = {
-        { id = "tc_default", text = "*{npc} looks from the horizon back to you, and back again, as if comparing the two scents, and you don't much like how long it takes to decide.*" },
+        { id = "tc_default", text = "*{npc} swings its tendrils from the horizon back to you, and back again, comparing the two scents, and you don't much like how long it takes about it.*" },
       },
       choices = {
-        { text = "We hunt them. Every last cultist.", next = "BACK", reply = "*{npc} sets off at once, nose low, and you follow the green glow of its tendrils through the dark.*", fx = { align = { order = 1 }, trait = { brave = 1 } } },
-        { text = "Their business is theirs. I don't police other warlocks.", next = "BACK", reply = "*{npc} turns away from the horizon with a sniff, as if it never much cared either way.*", fx = { align = { order = -1 } } },
+        { text = "We hunt them down, every last cultist.", next = "BACK", reply = "*{npc} sets off at once, nose low, and you follow the green glow of its tendrils through the dark.*", fx = { align = { order = 1 }, trait = { brave = 1 } } },
+        { text = "Their business is theirs. I don't police other warlocks.", next = "BACK", reply = "*{npc} turns away from the horizon with a snort, scratches once behind its shoulder, and lies down.*", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -556,30 +556,30 @@ P:Pool {
     ------------------------------------------------------------------
     shard = {
       lines = {
-        { id = "sh_default", text = "*{npc} sniffs the shard with enormous care, the tips of its tendrils barely touching it, and the purple light inside flickers and pulls away from it like a fish from a shadow.*" },
+        { id = "sh_default", text = "*{npc} sniffs the shard with enormous care, the tips of its feelers barely touching it, and the purple light inside flickers and pulls away from it like a fish from a shadow.*" },
       },
       choices = {
-        { text = "Can you smell who it was?", next = "shard_who" },
-        { text = "Don't you dare. That's for summoning, not snacking.", next = "BACK", reply = "*{npc} pulls back its tendrils and looks at you with deep injury, though a thin thread of drool gives it away.*", fx = { trait = { witty = 1 } } },
+        { text = "Can you smell who it was, before I took it?", next = "shard_who" },
+        { text = "Don't you dare eat it. That's for summoning, not snacking.", next = "BACK", reply = "*{npc} pulls back its tendrils and lies down with an injured sigh, though a thin thread of green drool gives it away.*", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     shard_who = {
       lines = {
-        { id = "sw_default", text = "*{npc} sniffs again, then whines and backs off a pace, shaking its head as if to clear it, and paws twice at its own muzzle.*" },
+        { id = "sw_default", text = "*{npc} tries once more, then whines and backs off a pace, shaking its head hard, and paws twice at its own muzzle.*" },
       },
       choices = {
-        { text = "That bad? It was only a bandit.", next = "shard_bandit" },
+        { text = "Is it that bad? It was only a bandit.", next = "shard_bandit" },
         { text = "Something else.", next = "BACK" },
       },
     },
     shard_bandit = {
       big = true,
       lines = {
-        { id = "sb2_default", text = "*{npc} looks at the shard, and at you, and lies down with its head on its paws, and something in the way it lies there tells you the bandit had someone waiting for him at home.*" },
+        { id = "sb2_default", text = "*{npc} turns from the shard to you and lies down with its head on its paws, and gives one low whine, like a dog outside a house where someone has just died.*" },
       },
       choices = {
-        { text = "A soul is a resource. I won't weep over it.", next = "BACK", reply = "*{npc} sighs, and doesn't look at the shard again, and you put it away more quickly than you meant to.*", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "A soul is a resource. I won't weep over it.", next = "BACK", reply = "*{npc} sighs and won't turn its head toward the shard again, and you put it away more quickly than you meant to.*", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "I'll use it well, at least. I owe him that.", next = "BACK", reply = "*{npc} lifts its head and nudges your hand closed around the shard, carefully, as if it were something fragile.*", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -590,10 +590,10 @@ P:Pool {
     ------------------------------------------------------------------
     xforsaken = {
       lines = {
-        { id = "xf_default", text = "*{npc} sniffs at your sunken chest, at the place where the Lich King's chill still lingers, and growls at it, not at you, as if it would happily eat that too.*" },
+        { id = "xf_default", text = "*{npc} noses at your sunken chest, where the Lich King's chill still lingers, and growls at it, not at you, with its feelers stretched and dripping.*" },
       },
       choices = {
-        { text = "The Lich King's leash, or yours. Choose your chain.", next = "xforsaken_chain" },
+        { text = "The Lich King's leash or mine: which chain would you choose?", next = "xforsaken_chain" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -603,14 +603,14 @@ P:Pool {
         { id = "xfc_default", text = "*{npc} sits down, quite deliberately, at your side and facing outward, and you understand: it has a chain, and you once had one, and now you're the one holding it.*" },
       },
       choices = {
-        { text = "The Dark Lady freed us. I'll free no one.", next = "BACK", reply = "*{npc} rumbles, unbothered, a hound with no particular wish to be anywhere but here.*", fx = { align = { order = 1 }, trait = { stern = 1 } } },
-        { text = "Maybe every chain is wrong. Even this one.", next = "BACK", reply = "*{npc} looks at you for a long time, and then it lies down at your feet anyway, by choice or by binding you can't say.*", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The Dark Lady freed us. I'll free no one.", next = "BACK", reply = "*{npc} rumbles, unbothered, and leans its weight against your shin.*", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Maybe every chain is wrong. Even this one.", next = "BACK", reply = "*{npc} keeps its head turned to you a long time, and then it lies down at your feet anyway, by choice or by binding you can't say.*", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xorc = {
       lines = {
-        { id = "xo_default", text = "*{npc} lifts its nose and sniffs at you hard, and you wonder if it can still smell Mannoroth's blood in your people, faint and old, like smoke caught in a cloak.*" },
+        { id = "xo_default", text = "*{npc} lifts its snout and breathes you in hard, and you wonder if it can still smell Mannoroth's blood in your people, faint and old, like smoke caught in a cloak.*" },
       },
       choices = {
         { text = "Thrall would rather I never summoned you at all.", next = "xorc_thrall" },
@@ -620,17 +620,17 @@ P:Pool {
     xorc_thrall = {
       big = true,
       lines = {
-        { id = "xot_default", text = "*{npc} looks toward Orgrimmar, and the Cleft of Shadow beneath it where your kind are tolerated and not much more, and then back at you, waiting.*" },
+        { id = "xot_default", text = "*{npc} turns its head toward Orgrimmar, and the Cleft of Shadow beneath it where your kind are tolerated and not much more, and then back to you, waiting.*" },
       },
       choices = {
-        { text = "I serve the Horde, not the Legion. That will never change.", next = "BACK", reply = "*{npc} grunts and settles, as though that suits it well enough.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
-        { text = "The old Horde was strong. Thrall forgets that.", next = "BACK", reply = "*{npc}'s eyes burn a little brighter, and it pants, hot and eager, like a hound remembering an old master.*", fx = { align = { light = -1 } } },
+        { text = "I serve the Horde, not the Legion, and that will never change.", next = "BACK", reply = "*{npc} grunts and settles, as though that suits it well enough.*", fx = { align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "The old Horde was strong. Thrall forgets that.", next = "BACK", reply = "*{npc}'s tendrils glow a little brighter, and it pants, hot and eager, like a hound that has caught an old master's scent.*", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhuman = {
       lines = {
-        { id = "xh_default", text = "*{npc} cocks its head at the name Dalaran, and its tendrils quiver as if remembering an enormous feast laid out behind glass.*" },
+        { id = "xh_default", text = "*{npc} cocks its head at the name Dalaran, and its tendrils stretch and quiver, and green drool gathers at the corners of its jaw.*" },
       },
       choices = {
         { text = "They cast us out, and now they're half in ruins.", next = "xhuman_ruin" },
@@ -640,28 +640,28 @@ P:Pool {
     xhuman_ruin = {
       big = true,
       lines = {
-        { id = "xhr_default", text = "*{npc} sits beside you and stares north, toward Alterac and the shattered violet city, with its tendrils flat and still.*" },
+        { id = "xhr_default", text = "*{npc} sits beside you facing north, toward Alterac and the shattered violet city, with its tendrils flat and still.*" },
       },
       choices = {
-        { text = "They were right to ban us. I'll prove them wrong anyway.", next = "BACK", reply = "*{npc} snorts and leans against your leg, as if to say it'll come along for the proving.*", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
-        { text = "I'll take what I need from their libraries. Bans be damned.", next = "BACK", reply = "*{npc} wags hard, which is unsurprising, given what's in those libraries.*", fx = { align = { honor = -1 } } },
+        { text = "They were right to ban us. I'll prove them wrong anyway.", next = "BACK", reply = "*{npc} snorts and leans its weight against your leg, and its tail sweeps the dirt.*", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I'll take what I need from their libraries. Bans be damned.", next = "BACK", reply = "*{npc}'s tail sweeps hard and a string of drool hits the dirt, which is unsurprising, given what's in those libraries.*", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "*{npc} looks down at you from its considerable height, then sniffs your pockets for loose arcane batteries, which, to be fair, it found last week.*" },
+        { id = "xg_default", text = "*{npc} looms over you from its considerable height, then noses through your pockets for the pouch of enchanting dust it raided last week.*" },
       },
       choices = {
-        { text = "Stop eating my mana crystals! I need those for experiments.", next = "BACK", reply = "*{npc} licks the last blue crumbs off its jaw and sits looking very innocent indeed.*", fx = { trait = { witty = 1 } } },
+        { text = "Stop eating my enchanting dust! I need that for experiments.", next = "BACK", reply = "*{npc} licks the last glittering grains off its jaw and sits very still and very innocent indeed.*", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
-    burning_legion = { { id = "t_bl", text = "*{npc}'s tendrils lift and point at the sky, and it growls very quietly, the way a hound growls at thunder far off.*" } },
-    background = { { id = "t_bg", text = "*{npc} scratches a circle in the dirt with one claw, then sits in the middle of it and looks at you.*" } },
+    burning_legion = { { id = "t_bl", text = "*{npc}'s spines lift and its tendrils point at the sky, and it growls very quietly, the way a hound growls at thunder far off.*" } },
+    background = { { id = "t_bg", text = "*{npc} scratches a circle in the dirt with one claw, then sits in the middle of it and turns its blind face up to you.*" } },
     advice = { { id = "t_ad", text = "*{npc} sniffs at your bag of shards, then at you, and nudges the bag shut with its nose.*" } },
-    _none = { { id = "t_none", text = "*{npc} tilts its head at you, tendrils swaying, and waits for an order it can actually follow.*" } },
+    _none = { { id = "t_none", text = "*{npc} tilts its head at you, feelers swaying, and waits for an order it can actually follow.*" } },
   },
 }
