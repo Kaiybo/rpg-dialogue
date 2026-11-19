@@ -1532,8 +1532,12 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, and I don't touch what you touch. Keep that little thing out of my hut, please, because it be eyeing my scrolls." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, in the mage's hut. You lost, or you come to see what real power look like?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon, and a beast with you. The beasts don't like the smell of my spells, but they get used to it." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "I be Un'Thuwa, and you be one of mine while you walk this coast. Mai'ah teach the little ones in the valley, and Un'Thuwa get them once they learn to keep their eyebrows." },
       },
       choices = {
+        { text = "Where does the mage's road lead from Sen'jin?", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm an orc mage. How do I face my people?", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "I'm Forsaken. Dalaran trained me, once.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
         { text = "Do the arcane and the loa ever work together, Un'Thuwa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The arcane seems safer than what the spirits give.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you think arcane magic harms the land, Un'Thuwa?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -1550,6 +1554,71 @@ P:NPC {
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more, mon? Ask, the fire can wait." } },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "From Sen'jin the road run up to Orgrimmar for your spells and out across the Barrens for your lessons, mon. Un'Thuwa know the first stretch well and the rest only by what the students tell him when they come home." },
+        { id = "mr_high", when = { minLevel = 30 }, text = "You walk further than Un'Thuwa ever did, mon, and it show on you. Still, ask, and maybe this old troll surprise you." },
+      },
+      again = {
+        { id = "mr_again", text = "What else on the road, mon? The tide be out, I got time." },
+        { id = "mr_again2", text = "Go on. Un'Thuwa like the questions better than the answers, most days." },
+      },
+      choices = {
+        { text = "Polymorph looks a lot like a witch doctor's hex.", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Could my magic help against Zalazane?", next = "m_zala" },
+        { text = "I can step home to Orgrimmar now.", next = "m_twenty", when = { minLevel = 20 } },
+        { text = "The trainers send me to a human in Dustwallow.", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "Enough of the road, Un'Thuwa.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_default", text = "It do, mon, and that be why the witch doctors hate it. A hex be a bargain with the loa, and a polymorph be a pattern with nobody else's say in it, so the shape come back when the pattern break. Zalazane's hexes don't come back, and that be the difference worth knowing." } },
+      choices = {
+        { text = "Then mine will always be the kind that comes back.", next = "m_road", reply = "Good, mon. A mage who keep that promise sleep well, and Un'Thuwa sleep very well.", fx = { align = { light = 1 } } },
+        { text = "A hex that lasts is stronger. Maybe he's right.", next = "m_road", reply = "Stronger, mon, and that be exactly how Zalazane talk himself into madness. Don't you start.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_zala = {
+      lines = { { id = "mz_default", text = "Fire burn his puppets the same as anything else, and frost hold a hexed raptor long enough for a hunter to free it. But his hold on the isles be voodoo, not arcane, so Master Gadrin and Vol'jin must break it, and we only clear the road for them." } },
+      choices = {
+        { text = "Then I'll clear the road for them.", next = "m_road", reply = "That be the right work for a mage, mon. Burn the puppets and leave the puppet-master to the ones who know him.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather face Zalazane myself.", next = "m_road", reply = "Bold, mon, and maybe foolish, because his hex take the strong minds first. Ask Gadrin before you try.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_twenty = {
+      lines = { { id = "mt_default", text = "Then you can step back to Orgrimmar from anywhere with a rune from Magenius in the Drag and one breath. Un'Thuwa still walk to Sen'jin, because the sea road remind me why I fight, but you do as you like, mon." } },
+      choices = {
+        { text = "I'll walk when I can. The road teaches.", next = "m_road", reply = "It do, mon. The road teach you where everything be, and the rune only teach you where home be.", fx = { align = { order = 1 } } },
+        { text = "Walking is for those who can't step.", next = "m_road", reply = "Ha! Then Un'Thuwa be a walker by choice, and proud of it.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "Tabetha, yes. Un'Thuwa never meet her, but every student come back from that marsh speaking more carefully, so she must be doing something right. A human mage who teach the Horde be a strange thing, mon, and I like strange things." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "Face them with patience, mon. Your shaman frown because the last orcs who wanted power without the spirits sold their whole people to demons, and they not wrong to remember it. But you learn the arcane from a troll in a hut by the sea, and no demon ever come to Sen'jin for supper." } },
+      choices = {
+        { text = "I'll prove the arcane clean, spell by spell.", next = "BACK", reply = "Then come back and tell Un'Thuwa when the first old orc nod at you. That be a good day.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their memories are their problem, not mine.", next = "BACK", reply = "Their memories be why there still be a Horde, mon. Don't be so quick.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mfo_default", text = "Dalaran, mon! Un'Thuwa would give a tusk to see those libraries. But they shut the gates on you when you died, I hear, and now their mages hunt your kind in the pines, so tell me what you feel when you think of the Violet Citadel." } },
+      choices = {
+        { text = "Nothing. Dalaran died to me when it shut its gates.", next = "BACK", reply = "Cold, mon, and fair. Un'Thuwa would be cold too.", fx = { align = { light = -1 } } },
+        { text = "Grief. It was home, and part of me still serves it.", next = "BACK", reply = "Then you be more loyal than they deserve, and Un'Thuwa respect that a great deal.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     learn = {
       lines = { { id = "l_default", text = "Trolls been working magic since the humans were still herding goats, mon, whatever the elves say about it. Mine came from old scraps and a lot of burned fingers, and the Horde gave me a place to teach it." } },
@@ -1575,8 +1644,8 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "Un'Thuwa knows spells, not that. Ask Master Gadrin, he knows everyone's business." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the demons burned it. The humans are building it again, I hear, though they're not letting anyone in to see." } },
-    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the human mages who used to run Dalaran. They never let a troll into their school, so I taught myself." } },
-    darkspear = { { id = "tp_darkspear", text = "A Darkspear learns what they need to survive, and right now the Horde needs mages. I'm happy to oblige, and I'm quietly proud I'm better than most of the orcs." } },
-    the_elements = { { id = "tp_the_elements", text = "The spirits and the arcane don't always agree, and the shaman like to remind me of it. I tell them the fire spirits don't mind my fireballs, and that seems to end the argument." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor be the human mages who run Dalaran, mon. They never let a troll through their gates, so Un'Thuwa teach himself from scraps, and he think he do all right." } },
+    darkspear = { { id = "tp_darkspear", text = "A Darkspear learn what the tribe need to survive, mon, and right now the Horde need mages. Un'Thuwa be happy to oblige, and quietly proud he cast cleaner than most of the orcs." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits and the arcane don't always agree, and the shaman like to remind Un'Thuwa of it. I tell them the fire spirits never once complain about my fireballs, and that usually end the argument." } },
   },
 }

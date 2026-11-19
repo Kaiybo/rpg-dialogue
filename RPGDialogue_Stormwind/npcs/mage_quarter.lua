@@ -31,6 +31,126 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mg_poly = {
+      big = true,
+      lines = { { id = "mgp_default", text = "It should feel wrong, and I'd worry about you if it didn't. Polymorph doesn't hurt the creature; it persuades its body for a while that it was always a sheep, and the mind inside goes on thinking its own thoughts in a very small skull. We chose the sheep because nothing in the world is less dangerous, and that's the kindest thing I can tell you about it." } },
+      choices = {
+        { text = "It's a mercy, Master Dumas. Nobody has to die.", next = "BACK", reply = "Often, yes, and that is why the Kirin Tor taught it to students before they taught them fire. Remember it when you're tempted to reach for the fireball first.", fx = { align = { light = 1 } } },
+        { text = "It's a weapon like any other. The sheep gets no say.", next = "BACK", reply = "No, it doesn't, and you're honest to say so. Only don't let honesty turn into indifference, because that is how a great many clever mages began their fall.", fx = { align = { light = -1 } } },
+        { text = "Does the creature remember it afterwards?", next = "mg_poly2" },
+      },
+    },
+    mg_poly2 = {
+      lines = { { id = "mgp2_default", text = "Some do, I'm sorry to say. A gnoll I once held for an hour on the Westfall road fled from every flock it saw for the rest of that summer, and a farmer there swore to me it was the most useful thing a mage had ever done for him." } },
+      choices = {
+        { text = "Then I'll use it with care.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_evoc = {
+      big = true,
+      lines = { { id = "mge_default", text = "Then you've learned the spell I wrote my book for. Evocation draws mana back into you from the currents that run through everything, and it's the nearest a mage comes to drinking straight from the river, so mind how deep you drink. The quel'dorei built a kingdom on a fountain they could never stop drinking from, and you've only to watch Elsharin's face when she speaks of it to know how that ended." } },
+      choices = {
+        { text = "I'll take only what I need, and stop.", next = "BACK", reply = "Then you've learned it properly, which most never do. Come back in a year and tell me whether you still can.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the river's there, I'll drink as deep as I please.", next = "BACK", reply = "So did half the students I've buried. I'll not stop you, but I'll ask you to remember that I warned you.", fx = { align = { order = -1 } } },
+        { text = "Which book of yours is this, Master Dumas?", next = "mg_book" },
+      },
+    },
+    mg_book = {
+      lines = { { id = "mgb_default", text = "The Flows of Magic, in two volumes, and I'm told the second is very good for pressing flowers. Read the chapter on the currents beneath Elwynn if you read nothing else, because Jennea Cannon believes they've shifted since the wars, and I'm beginning to fear she's right." } },
+      choices = {
+        { text = "I'll find a copy and read it.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_school = {
+      lines = { { id = "mgs_default", text = "Every mage chooses sooner or later, though the Kirin Tor pretended for years that the best of us never had to. Tell me which you've chosen, and I'll tell you what it will cost you." } },
+      choices = {
+        { text = "Fire, because it ends things quickly.", next = "mg_fire" },
+        { text = "Frost, because control comes first.", next = "mg_frost" },
+        { text = "The arcane itself, as Dalaran taught it.", next = "mg_arcane" },
+      },
+    },
+    mg_fire = {
+      big = true,
+      lines = { { id = "mgf_default", text = "Fire ends things quickly, yes, including libraries, forests and the mage who forgets how hungry it is. The orc warlocks of the Second War loved fire too, and of all the schools it's the one I watch most closely in a student." } },
+      choices = {
+        { text = "Fire is honest. It does exactly what I ask.", next = "BACK", reply = "It does what you ask and then a little more, every time, and that little more is what I watch for. Go carefully.", fx = { align = { order = -1 } } },
+        { text = "Then I'll keep it on a short leash.", next = "BACK", reply = "Good, and check the leash every morning. Fire is patient about finding the frayed places.", fx = { align = { order = 1 } } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_frost = {
+      big = true,
+      lines = { { id = "mgfr_default", text = "A sensible choice and an unfashionable one, so I approve of it. Frost buys you time, and time is the only thing a mage is ever truly short of, but don't let a cool head turn into a cold heart, because I've watched that happen too." } },
+      choices = {
+        { text = "I'll keep the cold in my hands, not my heart.", next = "BACK", reply = "That's well put, and I may steal it for a lecture. You'll be a better mage for meaning it.", fx = { align = { light = 1 } } },
+        { text = "A cold heart keeps a mage alive.", next = "BACK", reply = "Alive, perhaps, and very lonely. I've known frost mages who won every fight and lost every friend.", fx = { align = { light = -1 } } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_arcane = {
+      big = true,
+      lines = { { id = "mga_default", text = "The purest school and the most dangerous, because there is nothing between you and the power but your own discipline. Dalaran's finest were arcanists, and so was Kel'Thuzad, so you'll forgive me if I congratulate you and worry about you in the same breath." } },
+      choices = {
+        { text = "Discipline will be enough. It has to be.", next = "BACK", reply = "It has to be, and it often is, so long as you never mistake it for something you've finished learning.", fx = { align = { order = 1 } } },
+        { text = "The arcane is meant to be pushed, not feared.", next = "BACK", reply = "That's what the bright ones always say, and some of them are right. I'd simply like to meet more of the ones who were right and lived.", fx = { align = { order = -1 } } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_tabetha = {
+      lines = { { id = "mgt_default", text = "She's the finest maker of wands alive outside Dalaran, and she lives in a swamp so that nobody can ask her to sit on a committee. Go west of Theramore, past the Stonemaul ruins, and when she tells you to be quiet, be quiet, because she'll be in the middle of something that matters." } },
+      choices = {
+        { text = "Why does a mage need a wand at all?", next = "mg_wand" },
+        { text = "I'll go when I'm ready.", next = "BACK" },
+      },
+    },
+    mg_wand = {
+      lines = { { id = "mgw_default", text = "Because mana runs out and a wand doesn't, and when you're empty in the middle of a fight, a wand is the difference between a mage and a corpse. Tabetha will make you gather the makings yourself, and she's right to, because a wand you gathered is a wand you understand." } },
+      choices = { { text = "Something else, Master Dumas.", next = "BACK", fx = { learn = { "dalaran" } } } },
+    },
+    mg_sixty = {
+      big = true,
+      lines = { { id = "mg60_default", text = "There's always more, but not in this building, and you're right to have noticed. Go and wait at Dalaran's walls, or go to Azshara and annoy Xylem, or go and stand between the Alliance and whatever comes next, which is the one lesson I never managed to teach from a chair." } },
+      choices = {
+        { text = "I'll serve the Alliance where it needs me.", next = "BACK", reply = "Then the Sanctum will be proud to have trained you, and I'll say so to anyone at court who'll listen.", fx = { align = { order = 1 } } },
+        { text = "I'll seek knowledge wherever it's kept, sealed or not.", next = "BACK", reply = "Then come back and tell me what you find, and let me be the one to decide whether it stays sealed. That's all an old man asks.", fx = { align = { order = -1 } } },
+        { text = "Did you never want to leave the Sanctum yourself?", next = "mg_stay" },
+      },
+    },
+    mg_stay = {
+      lines = { { id = "mgst_default", text = "Every spring, and every spring a new crop of apprentices arrives who'll set the city alight if nobody stops them. I tell myself that's duty, and on good days I believe it." } },
+      choices = { { text = "Something else, Master Dumas.", next = "BACK" } },
+    },
+    mg_dwarf = {
+      lines = { { id = "mgd_default", text = "Then you're rarer than an apology from the Kirin Tor, and twice as welcome. Your people never wanted much to do with the arcane, so the dwarves who study it do so out of sheer stubbornness, which is the best reason I know." } },
+      choices = {
+        { text = "Stubbornness got me this far.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_nelf = {
+      big = true,
+      lines = { { id = "mgn_default", text = "They might, and they'd be thinking of Zin-Azshari when they said it, which is no small thing to carry. I've read every history of the Highborne the Sanctum owns, and I'd say the difference between them and you is that you know how the story ended." } },
+      choices = {
+        { text = "I study it so my people needn't fear it forever.", next = "BACK", reply = "That's a burden and a brave one, and I'll help you carry it where I can. Bring me your questions first, before you bring them to a book.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My elders' fear wasted ten thousand years.", next = "BACK", reply = "Perhaps it did, but their fear also kept the Legion out of the world for most of them. I'd not throw it all away in one generation.", fx = { align = { order = -1 } } },
+        { text = "Something else, Master Dumas.", next = "BACK" },
+      },
+    },
+    mg_learn = {
+      big = true,
+      lines = { { id = "mgl_default", text = "Some can and most can't, and the ones who can usually find out as children, because things catch fire around them. If you've reached your years without once singeing a curtain by accident, I'd say the arcane has passed you by, and I'd say you were lucky." } },
+      choices = {
+        { text = "Then I'll leave magic to those it chose.", next = "BACK", reply = "A sensible answer, and a rarer one than you'd think. The world needs people who don't want to be wizards.", fx = { align = { order = 1 } } },
+        { text = "Nobody should be told what they can't learn.", next = "BACK", reply = "Perhaps not, but magic has never asked my permission, and it won't ask yours. I'd sooner tell you the truth than flatter you into a fire.", fx = { align = { order = -1 } } },
+        { text = "What do mages owe the rest of us, then?", next = "mg_owe" },
+      },
+    },
+    mg_owe = {
+      lines = { { id = "mgo_default", text = "Protection, honesty about what we're doing, and a warning when we've made a mess. Dalaran forgot the second, and the whole of Lordaeron paid for it." } },
+      choices = { { text = "Something else, Master Dumas.", next = "BACK" } },
+    },
     xpt_maginor = {
       big = true,
       lines = { { id = "xpt_maginor_default", text = "That they will read every book you find before you can sell it, and that they will be right about the dangerous ones, so let them. A mage in a company can turn a whole fight, provided someone else is minding the door while they're thinking." } },
@@ -123,6 +243,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_mg_poly", when = { class = "MAGE", minLevel = 8, maxLevel = 19 },
+          text = "You've learned to turn a living creature into a sheep, I'm told, and I hope it troubled you a little the first time. If it didn't, come and talk to me, because it should have." },
+        { id = "h_mg_tele", when = { class = "MAGE", minLevel = 20, maxLevel = 39 },
+          text = "You can step home to this city in the space of a breath now, which makes you the first sort of student who can't blame the weather for missing a lesson. Sit down, and tell me what the road taught you before you stopped walking it." },
+        { id = "h_mg_sixty", when = { class = "MAGE", minLevel = 60 },
+          text = "There is very little left in this building that I can teach you, and I find I'm not sorry about it. Come and sit a while, and tell me how the world looks from where you stand now." },
         { id = "h_pt_maginor", tags = { "news" }, when = { party = { class = "MAGE" } },
           text = "Your companion {companion} is one of ours, I see; I'd know those singed cuffs anywhere. Do keep them from setting anything alight in the Quarter, because the last time a visiting mage lost their temper here we spent a month replacing the gutters." },
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep" },
@@ -170,6 +296,14 @@ P:NPC {
         { text = "Arugal is dead, Master Dumas, but his worgen still prowl Silverpine.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep" } },
         { text = "What should I know about travelling with a mage?", next = "xpt_maginor", when = { party = { class = "MAGE" } } },
         { text = "I was a student in Dalaran when it fell, Master Dumas.", next = "xorig_dalstray", when = { origin = "human_dalaran_stray" } },
+        { text = "Polymorph felt wrong, Master Dumas, turning a living thing into a sheep.", next = "mg_poly", when = { class = "MAGE", minLevel = 8 } },
+        { text = "I've begun to learn Evocation.", next = "mg_evoc", when = { class = "MAGE", minLevel = 20 } },
+        { text = "I've settled on a school of magic at last.", next = "mg_school", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Jennea says I should seek out Tabetha in Dustwallow.", next = "mg_tabetha", when = { class = "MAGE", minLevel = 30 } },
+        { text = "There's nothing left in the Sanctum for me to learn.", next = "mg_sixty", when = { class = "MAGE", minLevel = 60 } },
+        { text = "Dwarves don't take to magic, they say. I did.", next = "mg_dwarf", when = { race = "Dwarf", class = "MAGE" } },
+        { text = "My people would call me Highborne for studying this.", next = "mg_nelf", when = { race = "NightElf", class = "MAGE" } },
+        { text = "Could someone like me ever learn magic, Master Dumas?", next = "mg_learn", when = { ["not"] = { class = "MAGE" } } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -317,6 +451,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    el_conj = {
+      lines = { { id = "elc_default", text = "It tastes of nothing because you asked it for nothing, only for water. The magisters of Silvermoon used to flavour theirs with a thought of spring rain, and I never managed it in three hundred years of trying, but you're welcome to try." } },
+      choices = {
+        { text = "I'll try thinking of the canals.", next = "BACK", reply = "Please don't, because I've tasted the canals. Think of Elwynn after a storm instead.", fx = { trait = { witty = 1 } } },
+        { text = "Water is water. I'll drink it and be grateful.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    el_nova = {
+      big = true,
+      lines = { { id = "eln_default", text = "Because you cast it out of fright, and frightened frost melts. Hold the shape in your mind the way you'd hold your breath under water, steady and quite still, and the ice will hold until you choose to let it go." } },
+      choices = {
+        { text = "Steadiness over strength, then. I'll practise it.", next = "BACK", reply = "Good, and practise it when you're calm, so that it's there when you're not.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather hit harder and run faster.", next = "BACK", reply = "Most young mages would, and the gnolls of Westfall are very grateful to them. Run fast, at least.", fx = { align = { order = -1 } } },
+        { text = "How long did it take you to learn?", next = "el_nova2" },
+      },
+    },
+    el_nova2 = {
+      lines = { { id = "eln2_default", text = "Forty years, near enough, but I'm an elf, and we learn slowly because we believe we have time. You'll learn it in a season, because you know you haven't, and that's the one advantage your people have over mine." } },
+      choices = { { text = "Something else, Elsharin.", next = "BACK" } },
+    },
+    el_blink = {
+      big = true,
+      lines = { { id = "elb_default", text = "Every apprentice asks me that, and I'll tell you what my own teacher told me: you won't, because the spell refuses to set you down anywhere solid, and it will drop you short of the wall rather than inside it. What it won't refuse you is the edge of a roof, so look before you leap, as the humans say." } },
+      choices = {
+        { text = "I'll trust the spell and learn by doing.", next = "BACK", reply = "Then do your learning in an open field, please, and not in my classroom.", fx = { align = { order = -1 } } },
+        { text = "I'll measure every Blink before I cast it.", next = "BACK", reply = "You'll be slower than the others for a month and alive for a great deal longer. I approve.", fx = { align = { order = 1 } } },
+        { text = "Has anyone ever blinked off a roof?", next = "el_blink2" },
+      },
+    },
+    el_blink2 = {
+      lines = { { id = "elb2_default", text = "One of mine, from the top of the Sanctum, and he caught himself with Slow Fall just above the canal and landed in a barge full of cabbages. The bargeman still won't carry anything for the Quarter, and I think that's entirely fair." } },
+      choices = { { text = "Something else, Elsharin.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    el_nelf = {
+      big = true,
+      lines = { { id = "eln3_default", text = "Then you know better than anyone why your elders sent mine away, and you've chosen the arcane anyway, which takes a particular courage among the kaldorei. Be gentle with yourself, and be very careful with the Well's old habits, because they live in all of us still." } },
+      choices = {
+        { text = "I'll study it with the restraint the Highborne never had.", next = "BACK", reply = "Then you'll honour both our peoples, and shame neither. Come to me whenever the habits stir.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My elders' fear was a mistake, and I'll prove it.", next = "BACK", reply = "Perhaps you will, cousin, but prove it slowly. The last kaldorei who hurried to prove something drowned a continent.", fx = { align = { order = -1 } } },
+        { text = "Something else, Elsharin.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not as you are, no. We had our magisters and our Sunwell, and we lost much of both, so I would not dismiss any path that might heal." } },
@@ -397,6 +573,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_el_frost", when = { class = "MAGE", maxLevel = 15 },
+          text = "Show me your hands when you call the frost, because that's where the fear shows first in a young mage, and I'd like to watch it leave." },
+        { id = "h_el_tele", when = { class = "MAGE", minLevel = 20 },
+          text = "You can walk home through the air now, I see. The first time I did it I arrived so dizzy that I curtsied to a lamp post, so be kind to yourself for a week or two." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. In Quel'Thalas the priests of the Light served alongside our magisters, and I find I miss the sound of their prayers more than I expected." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order's founders fought beside my people's rangers in the Second War, and I have not forgotten it, though many of my kin have." },
         { id = "h_default", text = "I am Elsharin. I teach the apprentices of the Sanctum their first spells, and I try to teach them patience, which is harder. Humans are always in such a hurry." },
@@ -416,7 +596,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My people learned the arcane from careful study, and I confess spirits seem strange to me. But I have learned patience with strange things." },
       },
       again = {
-        { id = "h_again", text = "Yes? There is no hurry." },
+        { id = "h_again", text = "Yes? Take your time, because there is no hurry in this room, whatever the humans outside believe." },
       },
       choices = {
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -436,6 +616,10 @@ P:NPC {
         { text = "Might our two peoples ever be one again, Elsharin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did Quel'Thalas know any shamans, Elsharin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My masters never stopped talking about Dalaran. Were they right to?", next = "xorig_mq", when = { origin = "human_mage_quarter" } },
+        { text = "Conjured water tastes of nothing, Elsharin.", next = "el_conj", when = { class = "MAGE", maxLevel = 30 } },
+        { text = "My Frost Nova never holds anything for long.", next = "el_nova", when = { class = "MAGE", minLevel = 10, maxLevel = 35 } },
+        { text = "Blink frightens me. What if I land inside a wall?", next = "el_blink", when = { class = "MAGE", minLevel = 20 } },
+        { text = "I'm kaldorei, Elsharin, and I've chosen the arcane.", next = "el_nelf", when = { race = "NightElf", class = "MAGE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -558,7 +742,7 @@ P:NPC {
 
   greetings = {
     { id = "g_doubt", text = "I don't believe you possess the acuity for portal magic, but do go on." },
-    { id = "g_mage", when = { class = "MAGE" }, text = "A mage. Then perhaps we have something to discuss." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage, then, and perhaps we have something to discuss after all." },
   },
 
   notice = {
@@ -570,6 +754,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    la_tele = {
+      big = true,
+      lines = { { id = "lat_default", text = "It always will, a little, because your body knows perfectly well it hasn't walked anywhere and resents being lied to. The Rune of Teleportation pins the far end to a place charted long ago, so you can't miss it, but you'll still arrive feeling like a letter that's been posted." } },
+      choices = {
+        { text = "Then I'll save it for need, not convenience.", next = "BACK", reply = "A disciplined answer, and the right one. The world is smaller than it used to be, and that's no reason to stop respecting it.", fx = { align = { order = 1 } } },
+        { text = "If it saves a week's ride, I'll gladly be sick.", next = "BACK", reply = "Then be sick outside my tower, please, and not on the anchoring stones.", fx = { align = { order = -1 } } },
+        { text = "Who charted the far ends?", next = "la_chart" },
+      },
+    },
+    la_chart = {
+      lines = { { id = "lac_default", text = "Dalaran's portal masters, before the Second War, when they still thought every kingdom ought to be a step away from every other. Stormwind and Ironforge are fixed, and lately Darnassus, and I'd very much like to fix Theramore, if Lady Proudmoore would only answer my letters." } },
+      choices = { { text = "Something else, Larimaine.", next = "BACK", fx = { learn = { "dalaran" } } } },
+    },
+    la_wait = {
+      big = true,
+      lines = { { id = "law_default", text = "Because a teleport moves only you, and if you get it wrong, only you pay for it. A portal holds the door for anyone who steps through, a friend, a stranger, a child who wandered too close, and until you're strong enough to hold it steady I won't let you gamble with them." } },
+      choices = {
+        { text = "That's fair. I'll be patient.", next = "BACK", reply = "Thank you, and I mean that. Patience is the first thing I teach and the last thing most students learn.", fx = { align = { order = 1 } } },
+        { text = "I'm strong enough now. You're simply cautious.", next = "BACK", reply = "Everyone who has ever said that to me was wrong, and I have a very long memory for names.", fx = { align = { order = -1 } } },
+        { text = "Something else, Larimaine.", next = "BACK" },
+      },
+    },
+    la_strangers = {
+      big = true,
+      lines = { { id = "las_default", text = "You will, constantly, and in Ironforge they'll queue for you. People will press silver into your hand and ask for Stormwind as though you were a ferry, and you'll have to decide whether a mage's gift is a service or a favour." } },
+      choices = {
+        { text = "A service, freely given to anyone who needs it.", next = "BACK", reply = "Then you'll be very popular and very tired, and the Alliance will be the better for both.", fx = { align = { honor = 1 } } },
+        { text = "A favour, and favours carry a price.", next = "BACK", reply = "A practical view, and a common one among the goblin-minded. I only ask that you never strand anyone for want of a coin.", fx = { align = { honor = -1 } } },
+        { text = "Do you charge for yours?", next = "la_charge" },
+      },
+    },
+    la_charge = {
+      lines = { { id = "lach_default", text = "I charge the Sanctum, in ledgers, which is worse than silver because ledgers last forever. I've opened exactly four portals for private citizens in my life, and three of them were for my mother." } },
+      choices = { { text = "Something else, Larimaine.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    la_darn = {
+      lines = { { id = "lad_default", text = "In Darnassus itself, from Elissa Dumas in the Temple of the Moon, because the kaldorei won't have the anchoring taught anywhere but under their own tree. She's very good and very lonely, so take her a decent tin of Stormwind tea when you go." } },
+      choices = { { text = "Something else, Larimaine.", next = "BACK" } },
+    },
+    la_gnome = {
+      big = true,
+      lines = { { id = "lag_default", text = "With machines that worked splendidly, I'm told, until they didn't, and then a number of gnomes arrived in a number of pieces. I'll grant your people were bold, but a portal held in a trained mind is still more reliable than any engine." } },
+      choices = {
+        { text = "Gnomish engineering was simply ahead of its time.", next = "BACK", reply = "Ahead of its time and behind on its safety records, if what I read was true. Still, I'd like to see the schematics.", fx = { align = { order = -1 } } },
+        { text = "You're right. A mind is steadier than a machine.", next = "BACK", reply = "Thank you, and I'll thank you not to tell your cousins in Tinker Town I said it so smugly.", fx = { align = { order = 1 } } },
+        { text = "Something else, Larimaine.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "For most people, yes. It requires precision and patience, and I imagine your spirits have little use for either. I mean that kindly." } },
@@ -650,6 +882,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_la_young", when = { class = "MAGE", maxLevel = 19 },
+          text = "You're too young for portals and too old to pretend you aren't curious, so ask what you like, and I'll answer what I can without encouraging you." },
+        { id = "h_la_tele", when = { class = "MAGE", minLevel = 20, maxLevel = 39 },
+          text = "You've learned to teleport, I see, because you have that faintly seasick look about the eyes. A teleport carries one mage and a portal carries anyone who'll step through, and the difference between the two is about twenty years of my life." },
+        { id = "h_la_rune", when = { class = "MAGE", minLevel = 40, carrying = 17032 },
+          text = "You've runes of portals in your pack already, which is good, because a mage who buys the reagents before the lesson is a mage who means to pass it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, here for portals? No, I suppose you're here about someone who stepped through one badly, which happens more often than the Sanctum likes to admit." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I'm afraid I can't teach you to fold the world, {class}, but if you're ever in a hurry to reach Ironforge, I could find you a student who's practising." },
         { id = "h_default", text = "Larimaine Purdue. I teach the conjuring of portals, which is to say I teach a select few mages how to fold the world in half and step across the crease. I don't believe you're one of them." },
@@ -667,7 +905,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I doubt you'd grasp portal theory, but then I doubt you'd want to. Spirits must be terribly simple by comparison." },
       },
       again = {
-        { id = "h_again", text = "Something further? Concisely, please." },
+        { id = "h_again", text = "Something further? Do put it concisely, please, because I have a circle to redraw before the next class." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
@@ -681,6 +919,11 @@ P:NPC {
         { text = "Would you trust a student's portal yourself, Larimaine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could your portals ever reach Darnassus, Larimaine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is portal magic truly so difficult, Larimaine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Teleporting home still turns my stomach.", next = "la_tele", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Why must I wait before you'll teach me portals?", next = "la_wait", when = { class = "MAGE", maxLevel = 39 } },
+        { text = "I'll be opening portals for strangers now, won't I?", next = "la_strangers", when = { class = "MAGE", minLevel = 40 } },
+        { text = "Where do I learn the portal to Darnassus?", next = "la_darn", when = { class = "MAGE", minLevel = 40 } },
+        { text = "Gnomeregan built teleporters, you know, with machines.", next = "la_gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -1054,6 +1297,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ur_mg1 = {
+      big = true,
+      lines = { { id = "urm_default", text = "It differs in one place only, and it's the place that matters: when you lose your grip, your fire goes out, and when I lose mine, something steps through and doesn't go home. Dumas teaches his students to fear power, and I teach mine to fear themselves, and I know which lesson lasts longer." } },
+      choices = {
+        { text = "Then I'll keep my fire, and your doors can stay shut.", next = "BACK", reply = "A sensible arrangement, and one the Sanctum has kept with me for years. Go back up the stairs with my blessing, such as it is.", fx = { align = { light = 1 } } },
+        { text = "Perhaps the Sanctum ought to teach your sort of fear.", next = "BACK", reply = "Perhaps it should, but Dumas would sooner eat his book than admit a cellar taught him anything.", fx = { align = { light = -1 } } },
+        { text = "Have you ever taught a mage who came downstairs?", next = "ur_mg2" },
+      },
+    },
+    ur_mg2 = {
+      lines = { { id = "urm2_default", text = "Two, and both came down for the same reason, because the Sanctum had told them there was a door they mustn't open. One went home again within the week, and the other is in Zardeth's records under a name I won't say aloud, so draw your own conclusions." } },
+      choices = { { text = "Something else, Ursula.", next = "BACK" } },
+    },
+    ur_morg = {
+      big = true,
+      lines = { { id = "urmo_default", text = "He did, and the Sanctum likes to forget that he learned upstairs and only came looking for us once they'd thrown him out. Ur's Treatise was a mage's book written by a mage, so don't stand on my stairs and tell me shadow is something that only happens in cellars." } },
+      choices = {
+        { text = "The Sanctum should have watched its own more closely.", next = "BACK", reply = "Yes, it should, and Andromath knows it, which is why he looks so grey these days.", fx = { align = { order = 1 } } },
+        { text = "Morganth chose his road. Nobody else is to blame.", next = "BACK", reply = "That's the warlock's creed, and I'll not argue with it. A choice made is a choice owned.", fx = { align = { order = -1 } } },
+        { text = "Something else, Ursula.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think anything that relies on another's goodwill is fragile. The elements may refuse you, but my power answers when I call, and I'd ask you to think about which of us sleeps better." } },
@@ -1174,6 +1439,8 @@ P:NPC {
         { text = "Why should a paladin leave you in peace, Ursula?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think a druid could ever be corrupted, Ursula?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think shamanism makes a person weak, Ursula?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A mage's discipline can't be so different from yours, Ursula.", next = "ur_mg1", when = { class = "MAGE" } },
+        { text = "Morganth studied upstairs before he ever came down here.", next = "ur_morg", when = { class = "MAGE", minLevel = 18 } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1359,6 +1626,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    sp_mg1 = {
+      lines = { { id = "spm_default", text = "That's because they are, by the very same binder! There's a fellow on the canal who does the Sanctum's spellbooks on Mondays and my grimoires on Thursdays, and he charges me extra because he says mine bite, though only the one ever did, and it was a very small bite." } },
+      choices = {
+        { text = "Does the Sanctum know they share a binder?", next = "sp_mg2" },
+        { text = "Something else, Spackle.", next = "BACK" },
+      },
+    },
+    sp_mg2 = {
+      big = true,
+      lines = { { id = "spm2_default", text = "Oh, I do hope not, because Master Dumas would have the poor man's licence, and then where would either of us be? I think mages and warlocks have far more in common than you lot upstairs like to admit, since we all read the same old Dalaran footnotes and only disagree about which ones to underline." } },
+      choices = {
+        { text = "There's a world of difference. You call things in.", next = "BACK", reply = "We do, and you set them on fire when they arrive, so I'd say we're a very tidy partnership, really.", fx = { align = { light = 1 } } },
+        { text = "You're right. It's one art, underlined differently.", next = "BACK", reply = "Exactly! I'll write that on the shop sign, though perhaps on the inside, where Master Dumas won't see it.", fx = { align = { light = -1 } } },
+        { text = "Something else, Spackle.", next = "BACK" },
+      },
+    },
+    sp_gn = {
+      lines = { { id = "spg_default", text = "Shared a floor, a kettle and a great many arguments, and I miss every single one of them! The Academy drew a chalk line down the middle of our corridor that nobody ever respected, and I've never heard better debates than the ones we had standing on either side of it." } },
+      choices = {
+        { text = "I miss those arguments too.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Spackle.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Fond is a strong word, but they're excellent company! Elementals must be similar, I'd think, only less likely to eat the neighbours." } },
@@ -1478,6 +1768,8 @@ P:NPC {
         { text = "Who decides what's legal to sell down here, Spackle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever sold a book a druid might want, Spackle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you really fond of your demons, Spackle?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your grimoires are bound just like spellbooks, Spackle.", next = "sp_mg1", when = { class = "MAGE" } },
+        { text = "Gnomeregan's mages and warlocks shared a floor, didn't they?", next = "sp_gn", when = { race = "Gnome", class = "MAGE" } },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },

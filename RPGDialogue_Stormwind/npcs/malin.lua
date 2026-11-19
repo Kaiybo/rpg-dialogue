@@ -41,9 +41,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ml_master = {
+      big = true,
+      lines = { { id = "mlm_default", text = "Keep a master as long as you can stand one, and then keep their letters. Trelane taught me for thirty years and I disagreed with him for twenty-nine of them, and I've not had an original thought since he died that he didn't argue with in my head first." } },
+      choices = {
+        { text = "A master's voice is worth keeping, even when it argues.", next = "BACK", reply = "Especially when it argues, I'd say. Find yours, and write down everything they tell you, even the parts you're sure are wrong.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather find my own way, Archmage.", next = "BACK", reply = "Then you'll find it slower and own it more, which is a fair trade. Trelane would have called you insufferable and lent you his books anyway.", fx = { align = { order = -1 } } },
+        { text = "What did you argue about?", next = "ml_argue" },
+      },
+    },
+    ml_argue = {
+      lines = { { id = "mla_default", text = "Whether a mage owes anything to the kingdom that shelters him, mostly. He said Stromgarde had given him a tower and he'd give it his last breath, and he did, more or less, so I suppose he won." } },
+      choices = { { text = "Something else, Archmage.", next = "BACK" } },
+    },
+    ml_teach = {
+      big = true,
+      lines = { { id = "mlt_default", text = "Copying, which nobody teaches because it's dull. Copy out a spell you know by hand, every stroke of it, and you'll find three things you never noticed, because the hand is slower than the eye and a great deal more honest." } },
+      choices = {
+        { text = "I'll copy Frostbolt out tonight, every stroke.", next = "BACK", reply = "Good, and bring it to me when you're done. I'll show you the stroke Trelane always said was a mistake in the Kirin Tor's own primer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Copying is a scribe's work, not a mage's.", next = "BACK", reply = "Trelane would have set you two hundred pages for saying that, and he'd have been right to. Still, it's your hand.", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    ml_gem = {
+      lines = { { id = "mlg_default", text = "Then you're keeping mana in a stone for later, which is very much what Trelane did with that phylactery of his, though he'd have bristled at the comparison. Mind you don't come to rely on the gem more than on yourself, because a mage who's empty without his agate is only half a mage." } },
+      choices = {
+        { text = "The gem's a reserve, not a crutch.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
+        { id = "h_ml_mage", when = { class = "MAGE" },
+          text = "A mage, and one who reads, by the ink on your cuff. Trelane always said you could tell a real student by the cuffs, and he was usually right, though he said the same of cooks." },
         { id = "h_default", key = true, text = "Archmage Malin, of the Wizard's Sanctum. I teach a little, write far too much, and spend more of my evenings than I'd like worrying about the Arathi Highlands." },
         { id = "h_before", key = true, tags = { "news" }, when = { questBefore = Q, minLevel = 28 },
           text = "You look like someone who has been north and lived to complain of it. I have a matter in the Arathi Highlands, if you'll hear it, and it concerns my old master's tower." },
@@ -81,6 +112,9 @@ P:NPC {
         { text = "Your master's things are safe. The tower's done.", next = "xtower", when = { questDone = TOWER } },
         { text = "You don't trust people like me, then, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you have work for me?", next = "BUSINESS" },
+        { text = "Should a mage keep a master, Archmage, or study alone?", next = "ml_master", when = { class = "MAGE" } },
+        { text = "Teach me something the Sanctum's trainers don't.", next = "ml_teach", when = { class = "MAGE", minLevel = 20 } },
+        { text = "I've begun conjuring mana gems.", next = "ml_gem", when = { class = "MAGE", minLevel = 28 } },
         { text = "I'll leave you to your books.", next = "END" },
       },
     },

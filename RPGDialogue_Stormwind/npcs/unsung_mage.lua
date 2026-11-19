@@ -31,6 +31,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    li_mana = {
+      lines = { { id = "lim_default", text = "The ones you've brewed yourself, if you can, because then you'll know what's in the flask and what it will do to you. My sisters would be scandalised to hear me say it, but a mage who runs dry in Ashenvale is a mage the Sentinels must carry home, and I would rather you stood on your own feet." } },
+      choices = {
+        { text = "Do your sisters truly hate mages so much?", next = "li_mana2" },
+        { text = "Then teach me to brew them.", next = "BUSINESS" },
+        { text = "Something else, Lilyssia.", next = "BACK" },
+      },
+    },
+    li_mana2 = {
+      lines = { { id = "lim2_default", text = "Not hate, but remember, which among my people is worse. When a kaldorei looks at a mage she sees Zin-Azshari for a moment, and then the moment passes, and it is your task to make it pass quickly." } },
+      choices = { { text = "I'll do my best. Something else.", next = "BACK", fx = { learn = { "highborne" } } } },
+    },
+    li_nelf = {
+      big = true,
+      lines = { { id = "lin_default", text = "I will, and I will pray for you while I do it, which you may take however you like. The Highborne were our grandmothers' grandmothers, and I would rather see one of us learn the arcane carefully in Stormwind than carelessly where nobody is watching." } },
+      choices = {
+        { text = "I'll be careful, for all our sakes.", next = "BACK", reply = "Then Elune go with you, and I mean that more kindly than it sounds.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your prayers. I know what I'm doing.", next = "BACK", reply = "So did they, sister, every one of them. I will pray anyway, quietly.", fx = { align = { light = -1 } } },
+        { text = "Something else, Lilyssia.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I wish it every day, but someone must teach, and duty does not bend because a heart is restless. Your spirits must understand that better than most." } },
@@ -156,6 +177,8 @@ P:NPC {
         { text = "Does the Circle trust humans to keep the Alliance's promises, Lilyssia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your poisons interest someone in my trade, Lilyssia?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you wish you were out fighting, Lilyssia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Which mana potions should a mage carry, Lilyssia?", next = "li_mana", when = { class = "MAGE", minLevel = 15 } },
+        { text = "I'm kaldorei and a mage. Will you still teach me?", next = "li_nelf", when = { race = "NightElf", class = "MAGE" } },
         { text = "Farewell, Lilyssia.", next = "END" },
       },
     },
@@ -392,6 +415,13 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ge_mage = {
+      lines = { { id = "gem_default", text = "Gladly, darling, and it's the best thing you'll ever do for your casting, because a sleeve that doesn't pull at the elbow lets the hand finish the gesture. Half the miscasts in the Sanctum are bad tailoring, and I've told Master Dumas so, and he doesn't believe me." } },
+      choices = {
+        { text = "Then teach me.", next = "BUSINESS" },
+        { text = "Something else, Georgio.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I could make anything elegant, darling, and I'd love the challenge. Come back when you can stand still for an afternoon." } },
@@ -503,6 +533,8 @@ P:NPC {
         { text = "Does a paladin's tabard really matter, Georgio?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can a proper cut survive a druid changing shape, Georgio?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could you make something elegant for a shaman, Georgio?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Would you teach a mage to sew her own robes?", next = "ge_mage", when = { class = "MAGE", gender = "female" } },
+        { text = "Would you teach a mage to sew his own robes?", next = "ge_mage", when = { class = "MAGE", gender = "male" } },
         { text = "Good day, Georgio.", next = "END" },
       },
     },
@@ -561,6 +593,13 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    al_mage = {
+      lines = { { id = "alm_default", text = "The best and the worst, because they cut cloth with a spell when they grow impatient, and a spell doesn't know where the chalk line is. The ones who sew by hand make robes that fit, and the ones who don't come back to me for more mageweave." } },
+      choices = {
+        { text = "I'll sew by hand, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Alexandra.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I feel it in every stitch, because the good thread came from Dalaran, and now we make do with what the elves sell us. Your spirits might know where better thread grows." } },
@@ -666,7 +705,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't mind Georgio fussing; do you need thread? The good thread comes from Teldrassil now that Dalaran's gone." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else you need while I've the ledger open?" },
         { id = "h_again2", text = "Go on, Georgio won't miss me for a minute." },
       },
       choices = {
@@ -682,6 +721,7 @@ P:NPC {
         { text = "Where do your dyes come from, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "How can you tell the quiet ones, Alexandra?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is Dalaran's loss still felt here, Alexandra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do mages make good tailors, Alexandra?", next = "al_mage", when = { class = "MAGE" } },
         { text = "Thank you, Alexandra.", next = "END" },
       },
     },
@@ -911,6 +951,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ar_tab = {
+      lines = { { id = "art_default", text = "Is she! Then don't buy one of mine, because you'll only compare it to hers forever and be sad about it. I sold her a box of cores once, years ago, and she sent half of them back with a note saying they had no character, which I've had framed." } },
+      choices = {
+        { text = "What gives a wand its character?", next = "ar_char" },
+        { text = "Something else, Ardwyn.", next = "BACK" },
+      },
+    },
+    ar_char = {
+      big = true,
+      lines = { { id = "arc_default", text = "Whoever made it, mostly, because a wand remembers the hand that bound it. Hers come out a little cross and very loyal, and mine come out polite, and I've never decided which a mage ought to want." } },
+      choices = {
+        { text = "Polite. A tool should do as it's told.", next = "BACK", reply = "Then you'll like my stock, and I'll like you, which is a happy ending for a shopkeeper.", fx = { align = { order = 1 } } },
+        { text = "Cross and loyal. A tool with spirit serves better.", next = "BACK", reply = "Spoken like one of Tabetha's, and I'll not argue. Just keep it away from my polite ones.", fx = { align = { order = -1 } } },
+        { text = "Something else, Ardwyn.", next = "BACK" },
+      },
+    },
+    ar_frost = {
+      lines = { { id = "arf_default", text = "A frost wand, if you're a frost mage, though everyone will tell you to buy the opposite to cover your weakness. I say play to your strength and let your weakness learn to keep up." } },
+      choices = {
+        { text = "I'll buy fire, all the same, to cover myself.", next = "BACK", reply = "Then you're more careful than I am, and I'll sell it to you with my blessing." },
+        { text = "Something else, Ardwyn.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Terribly, for the workshops and the materials and the gossip, though not the politics. Your spirits must have politics too." } },
@@ -1020,6 +1083,8 @@ P:NPC {
         { text = "Do you still grieve for Dalaran's workshops, Ardwyn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you know where your wands' wood was grown, Ardwyn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you miss Dalaran's workshops, Ardwyn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Tabetha in Dustwallow is making me a wand.", next = "ar_tab", when = { class = "MAGE", minLevel = 30 } },
+        { text = "Which wand suits a frost mage?", next = "ar_frost", when = { class = "MAGE" } },
         { text = "Good day, Ardwyn.", next = "END" },
       },
     },
@@ -1074,6 +1139,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ch_rune = {
+      lines = { { id = "chr_default", text = "Every mage needs runes, and none of them want to know where they come from, which suits me. They're cut by a mason in the Dwarven District who doesn't know what they're for and inscribed by a gnome in Ironforge who does, and I mark them up for the walk." } },
+      choices = {
+        { text = "Why not inscribe them yourself?", next = "ch_rune2" },
+        { text = "Something else, Charys.", next = "BACK" },
+      },
+    },
+    ch_rune2 = {
+      big = true,
+      lines = { { id = "chr2_default", text = "Because a rune that's wrong by a hair sets you down a hair to the left of Ironforge, which is inside a mountain. I'd rather pay the gnome and sleep at night, and so would you, if you thought about it for long." } },
+      choices = {
+        { text = "Paying a master is worth every copper.", next = "BACK", reply = "It is, and it's the one thing in this shop I'll never haggle over.", fx = { align = { order = 1 } } },
+        { text = "I'd rather learn to cut my own and save the coin.", next = "BACK", reply = "Then send me a letter from inside the mountain, and I'll frame it beside the others.", fx = { align = { order = -1 } } },
+        { text = "Something else, Charys.", next = "BACK" },
+      },
+    },
+    ch_feather = {
+      lines = { { id = "chf_default", text = "Light feathers, yes, and a mage buys them by the dozen after the first cliff. You'll want them for Slow Fall, and for impressing apprentices by stepping off the Sanctum's roof, which I'm told is frowned upon." } },
+      choices = {
+        { text = "Have you ever seen it done from the roof?", next = "BACK", reply = "Twice, and once it worked. The other one landed on the bargeman, and we don't speak of it." },
+        { text = "Something else, Charys.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some of them do, I swear it. Every one has a story, and a story is a little like a spirit, so I think your elements would understand." } },
@@ -1180,7 +1268,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Have you another question for me, or for the curios?" },
-        { id = "h_again2", text = "Ask softly, and I'll answer." },
+        { id = "h_again2", text = "Ask softly, and I'll answer, because some of the older pieces wake at loud voices." },
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
@@ -1195,6 +1283,8 @@ P:NPC {
         { text = "What have you got that came from Kalimdor, Charys?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your trinkets ever go missing, Charys?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your trinkets really listen, Charys?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I need runes of teleportation, Charys.", next = "ch_rune", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Do you sell light feathers?", next = "ch_feather", when = { class = "MAGE", minLevel = 12 } },
         { text = "Good day, Charys.", next = "END" },
       },
     },
@@ -1251,6 +1341,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    wy_andro = {
+      lines = { { id = "wya_default", text = "Then you'll need the carrion recluse silk from Duskwood, and you'll need to bring it to me yourself, because Thurman faints at spiders. Andromath's robes are always the same cut, plain and dark and very slightly too long, and I've stopped arguing with him about it." } },
+      choices = {
+        { text = "Why slightly too long?", next = "wy_long" },
+        { text = "Something else, Wynne.", next = "BACK" },
+      },
+    },
+    wy_long = {
+      lines = { { id = "wyl_default", text = "He says it hides the feet, and a mage's feet tell an enemy which way he means to step. I think he simply likes the swish of it, but I'd never say so to his face." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    wy_mage = {
+      big = true,
+      lines = { { id = "wym_default", text = "Deep sleeves for reagents, a collar that won't catch a spark and a hem they can run in, though they never ask for that last one until they've had to run. The Kirin Tor wore violet so the world would know them, and I always ask a mage whether she wants to be known or wants to get home." } },
+      choices = {
+        { text = "Violet. Let them know a mage is coming.", next = "BACK", reply = "Then I'll cut it bold and line it well, and I'll pray it's fireproof enough for the attention.", fx = { align = { honor = 1 } } },
+        { text = "Plain cloth. Nobody should see me coming.", next = "BACK", reply = "A sensible choice, and a rogue's one, though I'd never say so in the Sanctum.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wynne.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Teaching Thurman teaches me patience, mostly. A shaman must have patience too, or the elements would never answer." } },
@@ -1360,6 +1470,8 @@ P:NPC {
         { text = "Do paladins ever wear robes, Wynne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you sew for someone who sleeps under the stars, Wynne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What is it like teaching Thurman, Wynne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "High Sorcerer Andromath says you'll sew my new robe.", next = "wy_andro", when = { class = "MAGE" } },
+        { text = "What do mages ask for in a robe, Wynne?", next = "wy_mage", when = { class = "MAGE" } },
         { text = "Good day, Wynne.", next = "END" },
       },
     },

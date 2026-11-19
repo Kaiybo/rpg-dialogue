@@ -106,7 +106,35 @@ P:NPC {
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "Do you cast anything yourself?", next = "cast" },
         { text = "Who buys the most from you?", next = "buys" },
+        { text = "I need runes for my teleports.", next = "m_runes", when = { class = "MAGE", minLevel = 20 } },
+        { text = "I'm an orc and a mage. What do you make of that?", next = "m_orcmage", when = { class = "MAGE", race = "Orc" } },
         { text = "Farewell, Magenius.", next = "END" },
+      },
+    },
+    m_runes = {
+      lines = {
+        { id = "mr_default", text = "Second row, beside the light feathers and the arcane powder, because a mage always wants all three at once and always on the way out of the door. Each rune is spent the moment you step, so buy more than you think you need." },
+        { id = "mr_portal", when = { minLevel = 40 }, text = "Second row for the teleportation runes, and the portal runes beside them, which cost more because they carry more than one of you. I sell a great many on the eve of a muster, when every mage in the Valley of Spirits remembers at once." },
+      },
+      choices = {
+        { text = "Where do the runes come from?", next = "m_runes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_runes2 = {
+      lines = { { id = "mr2_default", text = "They come by zeppelin in crates from the Undercity, packed in straw, with no letter and no maker's mark. I ask every mage who buys one what it feels like when it breaks, and no two have ever given me the same answer, so tell me yours." } },
+      choices = {
+        { text = "Like a door slamming shut behind me.", next = "BACK", reply = "A door. That is the third door this month. I shall have to start keeping a tally.", fx = { affinity = 1 } },
+        { text = "I've never noticed anything at all.", next = "BACK", reply = "Then you are either very gifted or very busy, and I shall not ask which." },
+      },
+    },
+    m_orcmage = {
+      big = true,
+      lines = { { id = "mo_default", text = "I think you are braver than I was. I wanted the spirits, and when they would not answer I sold powders rather than reach for anything else, and you know what happened to the orcs who did reach, long ago. An orc who takes up the arcane in daylight, with no bargain in it, is what we should have been the first time." } },
+      choices = {
+        { text = "Then I'll carry it in daylight, always.", next = "BACK", reply = "Then come and buy your runes where the elders can see you do it. It does them good.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. I don't care who it frightens.", next = "BACK", reply = "That is very nearly what my grandfather's warlock said. I hope you will forgive me for not liking it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cast = {
