@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-19)
+- Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
+
 ## 1.28.0 (2026-11-19)
 - Tyrande, Fandral, the Enclave, the Temple and the Sentinels deepened with night elf-only branches; hunter trainers Jocaste, Dorion and Jeen'ra follow the hunter's road; Story endings at Dorion and Tyrande; 29 doubled NPCs removed.
 
