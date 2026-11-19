@@ -69,3 +69,7 @@ Sources read: the wiki pages for McBride, A Threat Within, Kobold Camp Cleanup, 
 
 ## 0.34.0
 - McBride (Persuade, `garrison_letters`): he wrote twice; the first reply came from the Highlord's clerk ('will consider'), the second from Lady Prestor's office ('the valley must make do').
+
+## Humans (human patch)
+- Human recruits get `hum_g1` and a hello line about Northshire as where "Stormwind's own learn their trade". Branches: `hu_valley` (why recruits start at the Abbey; the Defias in the vineyards are Stormwind men; stance order +/-1) and `hu_expect` (he expects more of humans: "run from his own front door"; stance order +/-1).
+- Non-humans: `hu_what`, a short dry answer about human hurry.

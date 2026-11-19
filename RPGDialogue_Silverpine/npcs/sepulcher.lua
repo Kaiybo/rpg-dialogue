@@ -114,6 +114,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_hadrec = {
+      lines = {
+        { id = "hm_default", key = true,
+          text = "Humans surround the Sepulcher on three sides, and I like none of them. Gilneas has walled itself off to the south and left Pyrewood to rot with whatever curse it carries, Dalaran's wizards dig at Ambermill as if Silverpine were theirs, and Southshore's militia shoots our deathstalkers on sight." },
+      },
+      choices = {
+        { text = "Which of them worries you most?", next = "hu_hadrec_2" },
+        { text = "Is there any human you'd trust?", next = "hu_hadrec_2" },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    hu_hadrec_2 = {
+      big = true,
+      lines = {
+        { id = "hm2_default",
+          text = "Dalaran, because the Kirin Tor remember exactly what we were and are clever enough to want it back. Gilneas hides, and Southshore is merely angry, but a wizard at Ambermill wants to know how the Dark Lady broke the Lich King's hold, and I'll not have him learn it from one of my patrols." },
+      },
+      choices = {
+        { text = "Drive them out of Silverpine. Ambermill and Pyrewood both.", next = "BACK",
+          reply = "That is the order I would give, if I had the deathstalkers to spare. Bring me heads from Ambermill and you'll find the Sepulcher grateful.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Watch them, but don't start a war the Horde can't finish.", next = "BACK",
+          reply = "Prudent, and very like a living strategist. I'll watch them, and when the Dark Lady decides the time has come, I'll stop watching.",
+          fx = { align = { order = 1 }, opinion = { humans = "dangerous" } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "o_wgpity", tags = { "news" }, when = { gossip = { topic = "worgen", stance = "pity" } }, text = "Renferrel tells me you pity the worgen. Pity them from a distance, then, and with your blade drawn." },
@@ -152,6 +179,7 @@ P:NPC {
         { text = "Give my demons one of your fronts, High Executor. They're starving.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Where should a paladin stand in Silverpine, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Shadowfang Keep has no master now, High Executor.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
+        { text = "What do you make of humans, High Executor?", next = "hu_hadrec" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { sepulcher = 1 } } },
       },
       again = {
@@ -275,6 +303,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Humans surround the Sepulcher: Gilneas behind its wall, Dalaran's wizards at Ambermill, and Southshore's militia shooting at my deathstalkers. I trust none of them, and the Kirin Tor least of all." } },
     knows = {
       { id = "tp_knows", text = "Every deathstalker report in Silverpine ends on my desk. Ask what you need to know, and I'll tell you what they found." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get the short version, since I've no time for the long one with you." },
@@ -597,6 +626,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_dalar = {
+      lines = {
+        { id = "hm_default", key = true,
+          text = "The Kirin Tor are the finest minds humanity ever produced and the slowest to listen, which is a remarkable combination. I warned the council about Kel'Thuzad, I stood in the courtyard when he called Archimonde down, and they still had the gall to call me reckless." },
+        { id = "hm_scourge", when = { race = "Scourge" },
+          text = "The finest minds humanity ever produced and the slowest to listen, as you may remember yourself, depending on what you were. I warned them about Kel'Thuzad, I watched Dalaran fall exactly as I'd said it would, and now their apprentices dig at Ambermill and call me an abomination." },
+      },
+      choices = {
+        { text = "Would you go back to them if they asked?", next = "hu_dalar_2" },
+        { text = "Do you blame them for your death?", next = "hu_dalar_2" },
+        { text = "Something else, Dalar.", next = "BACK" },
+      },
+    },
+    hu_dalar_2 = {
+      big = true,
+      lines = {
+        { id = "hm2_default",
+          text = "Go back? They'd sooner dissect me, and honestly, if I were still living, I'd want to dissect me too. No, I'll prove my worth to the Dark Lady instead, and one day the Kirin Tor will read my work and wish very much that they'd listened while I still had a pulse." },
+      },
+      choices = {
+        { text = "The Kirin Tor's arrogance killed thousands. They deserve your scorn.", next = "BACK",
+          reply = "Scorn is the only thing I have in abundance, so I'll gladly spend it on them. Arugal was theirs too, you know, and look what he made of Shadowfang.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "They were wrong, but they were your colleagues. That still means something.", next = "BACK",
+          reply = "It means I know precisely where they'll make their next mistake, which is a kind of fondness, I suppose. Don't tell Hadrec I said so.",
+          fx = { align = { honor = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Dalar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "o_ktblame", tags = { "news" }, when = { opinion = { topic = "kirin_tor", stance = { "blame", "hate" } } }, text = "You've no love for the Kirin Tor, from what I hear, and I can't say you're wrong. Sit, and I'll tell you what they did right, so you've the whole account." },
@@ -631,6 +689,7 @@ P:NPC {
         { text = "How should I hunt Arugal's worgen, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What did you warn the Kirin Tor about the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Arugal is dead, Archmage. I was there.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep", faction = "Horde" } },
+        { text = "What do you think of the humans of the Kirin Tor?", next = "hu_dalar" },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
         { text = "You knew the Weaver, Dalar? Tell me about him.", next = "dd_weaver", when = { questDone = TODO_QUEST("The Weaver") } },
       },
@@ -717,6 +776,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "The Kirin Tor are the finest human minds alive and the slowest to listen. I warned them about Kel'Thuzad, and now their apprentices at Ambermill call me an abomination." } },
     worgen = { { id = "tp_worgen", text = "The worgen are Arugal's mess, and a fool with power is the most dangerous creature in any forest." } },
     dalaran = { { id = "tp_dalaran", text = "I was an archmage of Dalaran, and I warned the Kirin Tor of what was coming, and nobody listened. Now they rebuild behind their shields and send their apprentices to squat in Ambermill, and they still don't listen." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor stopped calling me Archmage the moment I died, which I find extraordinarily rude. I haven't forgotten a single one of their names." } },

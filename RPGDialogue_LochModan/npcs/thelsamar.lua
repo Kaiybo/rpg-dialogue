@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human on my road! Ye'll be lost, then, for yer kingdom's never once sent anyone up this way on purpose." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "kadrell_human_soft" }, priority = 10,
+      text = "My human friend! Ye're the only one o' yer kind I've seen on this road twice, an' I've stopped askin' if ye're lost." },
     { id = "g_town", text = "Welcome tae Thelsamar, friend, an' make yerself comfortable! While ye're at it, have a look at that poster by the League's door." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the loch, an' good tae see ye! The tunnel rats have been askin' after ye, though no' fondly." },
     { id = "g_away", when = { away = 14 }, text = "Back on the loch after {away}, an' a fine sight ye are! The poster by the League's door has a few new faces on it since ye left." },
@@ -33,6 +37,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets kadrell_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I'll tell ye straight: when the Horde came through Khaz Modan, it was humans who helped us push them out, an' I'll no' forget it. But when the Dark Irons came back an' the troggs came up, it was Ironforge alone holdin' this road, an' Stormwind was too busy wi' its own nobles tae send a single patrol." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Straight, then: yer folk helped push the Horde out o' Khaz Modan, an' I'm grateful. But this road's been held by dwarves alone since, an' Stormwind's never sent a patrol." },
+      },
+      choices = {
+        { text = "Has Ironforge asked Stormwind for soldiers?", next = "hu_view2" },
+        { text = "You sound like you're still waiting for them.", next = "hu_view2" },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Asked, aye, an' been asked back for soldiers o' our own, for their war in the north an' their Alliance Front. That's the way of it wi' human kingdoms, {g:lad|lass}: they remember ye fondly when they need guns, an' forget ye when ye need hands." },
+      },
+      choices = {
+        { text = "Allies owe each other help both ways. Stormwind has failed you.", next = "BACK",
+          reply = "Aye, an' I'd say it tae the Highlord's face, if he ever came this far north, which he won't.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Stormwind's stretched thin. Ironforge can guard its own roads.", next = "BACK",
+          reply = "Aye, we can, an' we do. I'd only like a thank ye now an' then, an' maybe a few spare boots.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Abandoned's a strong word, an' I'll use it anyway. We sent riflemen tae every war yer kings fought, an' when the troggs came up out o' the ground an' the Dark Irons broke the Thandol Span, we got letters, an' no' many o' them." },
+      },
+      choices = {
+        { text = "Then let me be the help Stormwind didn't send.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = { "WARRIOR", "PALADIN", "HUNTER" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarves love a grievance more than they love ale.", next = "BACK",
+          reply = "That's a lie, an' a slander, an' I'll have ye know we love them about equally.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "kadrell_human_soft" } } },
+          text = "Will ye? Well, there's a thing. Ye can start wi' the troggs in Stonesplinter Valley, an' if ye come back wi' all yer fingers, I'll tell the lads Stormwind sent one after all." },
+      },
+      choices = {
+        { text = "I'll be back with all my fingers.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Ye'll help today, an' tomorrow ye'll be off tae Westfall, for that's how yer folk are. Show me ye'll stay, an' then talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Mountaineer.", next = "END" },
+      },
+    },
     dw_kin = {
       lines = {
         { id = "dw_kin_default", text = "Ye're a dwarf after my own heart, then! What I need is that Dark Iron spy in irons, an' what Thelsamar needs is fewer troggs, an' what I want is a pint o' Hearthstove's stout. Two out o' three would do me fine." },
@@ -199,6 +266,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "kadrell_human_soft" } },
+          text = "Mountaineer Kadrell, keepin' the road through Thelsamar for the King, an' keepin' it alone, since yer kingdom stopped sendin' help about the time it stopped needin' ours." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "kadrell_human_soft" },
+          text = "Back on my road! The lads have started callin' ye 'the human who stayed', an' they mean it kindly, for once." },
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman", faction = "Alliance" },
           text = "I hear ye went down intae Uldaman an' came out the far end. The troggs in my hills are the same breed as the ones in there, so ye've my thanks, an' the thanks o' every farmer on the loch." },
         { id = "h_default", key = true,
@@ -255,6 +326,8 @@ P:NPC {
         { text = "I went down into Uldaman, Kadrell.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Those carts are behind me, Mountaineer. Mostly.", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
         { text = "Kin should look after kin, Kadrell. What do you need?", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "What do you make of humans, Mountaineer?", next = "hu_view" },
+        { text = "You talk as if Stormwind abandoned you, Mountaineer.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "kadrell_human_soft" } } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -1625,6 +1698,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human! Ye're no' here tae take another o' my men for the Front, are ye? Because I've none left tae take, an' I'm countin' the bolts myself." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "hinderweir_human_soft" }, priority = 10,
+      text = "Oh, it's you, thank the stone! Come an' look at the eastern ramp wi' me; ye're the only human who's ever asked if the dam was standin'." },
     { id = "g_dam", text = "Careful on the walkway, {g:lad|lass}! It's perfectly safe, mostly safe, engineered to be safe, but please hold the rail." },
     { id = "g_away", when = { away = 14 }, text = "Oh, you're back after {away}! The dam held the whole time, of course it held, it was engineered to hold." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown rather sturdy since your last visit. Do be gentle on the walkway, though, because it's rated for sturdy, but only just." },
@@ -1640,6 +1717,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets hinderweir_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Oh, I've nothin' against them, nothin' at all, only that my best inspector an' half my security detail were reassigned tae the Alliance Front, which is a human war, an' now I've Dark Iron sappers on the eastern ramp an' a dam full o' water an' nobody tae watch it but me." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Nothin' against ye, nothin' at all, only my best inspector was sent off tae fight yer kingdom's war, an' now there's Dark Irons on my ramp an' nobody tae watch them but me." },
+      },
+      choices = {
+        { text = "Who decided to send your inspector away?", next = "hu_view2" },
+        { text = "That sounds like Ironforge's choice, not Stormwind's.", next = "hu_view2" },
+        { text = "Something else, Chief Engineer.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Ironforge signed the order, aye, an' I know it, but it was Stormwind that asked, an' Stormwind always asks, an' Ironforge always says yes because the Second War made us say yes. Seven generations my family's tended this dam, an' not once has a human come tae ask if it was standin'." },
+      },
+      choices = {
+        { text = "Ironforge should put its own dam before human wars.", next = "BACK",
+          reply = "Thank the stone, someone agrees! I'll write that tae the Senate, though they'll file it wi' the other twelve letters.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "The Alliance Front matters. Every ally must send men.", next = "BACK",
+          reply = "Aye, aye, I know, I know, it matters, only so does this dam, an' if it goes, half o' Loch Modan goes wi' it.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Blame? I don't blame, I just count, an' I've counted my security detail goin' off tae the Alliance Front an' no' a single human comin' back up the road the other way. A dam doesnae care whose war it is when the sappers come." },
+      },
+      choices = {
+        { text = "Then let me watch the eastern ramp for a while.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { profession = { "Engineering", "Mining" } }, { class = { "WARRIOR", "HUNTER" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "A dam's not much next to a war, Chief Engineer.", next = "BACK",
+          reply = "Not much? Not much! Tell that tae Thelsamar when it's at the bottom o' the loch.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "hinderweir_human_soft" } } },
+          text = "Would ye? Oh, thank the stone, thank the very stone. Mind the seaforium, it's harmless dry an' it's no' harmless wet, an' if ye see a Dark Iron, shout loud, for my ears aren't what they were." },
+      },
+      choices = {
+        { text = "I'll shout loud, Chief Engineer.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's kind, very kind, but ye'll be off tae the Front yerself next week, I expect, like the rest. I'll manage, I always manage." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Chief Engineer.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I don't know, and that's what frightens me. The dam's stood for generations, but every engineer of my line has listened to the stone at night and sworn it was straining. If the water's pushing, I'd like to know before the Dark Irons give it a push of their own." } },
@@ -1729,6 +1869,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "hinderweir_human_soft" } },
+          text = "Chief Engineer Hinderweir, seventh o' my name, an' if Stormwind's sent ye tae ask for more men, ye can tell them the dam's held together wi' worry an' I've none tae spare." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "hinderweir_human_soft" },
+          text = "Back again, an' just in time! The ramp's holdin', the Dark Irons have been quiet, an' I've told the lads there's at least one human who cares whether it does." },
         { id = "h_default", key = true,
           text = "I'm Hinderweir the Seventh, Chief Engineer of the Stonewrought Dam. I'm seventh o' the name, an' I'll not be the one remembered for the day she fell, not while there's a beard on my chin." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("A Dark Threat Looms") },
@@ -1774,6 +1918,8 @@ P:NPC {
         { text = "My uncle taught me the rifle on your dam, Engineer.", next = "xorig_damrifle", when = { origin = "dwarf_dam_rifleman" } },
         { text = "Do night elves ever come by to see the dam?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
         { text = "Your dam is impressive, for something so young.", next = "ne_x", when = { race = "NightElf" } },
+        { text = "What do you make of humans, Chief Engineer?", next = "hu_view" },
+        { text = "You seem to blame my people for your missing men, Chief Engineer.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "hinderweir_human_soft" } } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
       },
     },

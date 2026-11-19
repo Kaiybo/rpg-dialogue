@@ -35,3 +35,7 @@ background, advice, burning_blade (Taiga), _none.
 - Taiga: got the demon pick from a cultist the trolls caught on the coast road (sent to Orgrimmar at his request); keeps the Hand in a chest under his bed; Mannoroc Coven's name tied to Mannoroth by the Blade's belief, not his knowledge (Mannoroth died in Ashenvale).
 - Vark: twenty years fighting centaur; named for a Kolkar spear scar; the vial's coating made by tauren shaman (Talendria credits the Circle's druids: they disagree, or both make it); went grey on hate; would work beside the night elves in Maraudon.
 - Roon: the white kodo bull tracked nine days that Hemet chose not to shoot; Hemet taught him to read a trail backwards; Roon taught Hemet to thank the beast; Gurda is "Wildmane, like me"; troll sea stories (great turtle, sharks).
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Vark Battlescar (authored): old human-sword scars from the Second War, but has learned a warrior picks his enemies; humans at Nijel's Point treat Desolace like bad soil.

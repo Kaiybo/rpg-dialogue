@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "Shut the door, shut it, sugar, I know how you humans are with doors! There, that's better, and don't you dare tell me Stormwind inns are warmer." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "vizzie_human_soft" }, priority = 10,
+      text = "Oh, it's my door-shutting human! Come in, come in, sugar; you're the only one of your kind who never lets the bugs in." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Come in, shut the door, and oh, look at you, sugar, with frost in your hair like somethin' carved for a trade prince's mantelpiece! You didn't bring any bugs in, did you? Not on a face like that, surely." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "Sugar, you came back! I warmed the seat by the fire for you and checked it twice for beetles, which you should know is the nicest thing I do for anybody." },
     { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Shut the door, sugar, and come get warm. I'll keep my chatter to the price list, like you wanted, and the price list is very short." },
@@ -166,8 +170,81 @@ P:NPC {
         { text = "Something else, Vizzie.", next = "BACK" },
       },
     },
+    hu_vizzie = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans? Oh, sugar, humans are my most dramatic guests! They come up the Felwood road half frozen, they complain about the cold, then about the price of firewood, and then they leave the door open and let in the bugs, and do you know what a bug does in a warm inn?" },
+      },
+      choices = {
+        { text = "What does a bug do in a warm inn?", next = "hu_vizzie_2" },
+        { text = "Surely they're not all that bad.", next = "hu_vizzie_2" },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
+    hu_vizzie_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "It stays, sugar, it stays and it multiplies! And then the human who left the door open tells me Stormwind inns are cleaner, and I'd like to see a Stormwind inn keep warm halfway up a mountain with yetis on the roof. Everlook's neutral, so I let 'em all in, but I count my blankets after the humans leave." },
+      },
+      choices = {
+        { text = "Humans just miss home. Be patient with them, Vizzie.", next = "BACK",
+          reply = "Patient! Sugar, I'm the most patient goblin on this mountain, and I've got the chewed fingernails to prove it. But all right, I'll give the next one a cup of something hot before I count the blankets.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Count the blankets twice. Humans always take extra.", next = "BACK",
+          reply = "Twice! Oh, sugar, I count them three times, and the spoons four. It's nice to finally have a guest who understands the hospitality business.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
+    hu_vizzie_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not glaring, sugar, watching, and there's a difference! The last human who sat where you're sitting left with two of my blankets, a candle and the spoon, and then he told the gate guard that goblins overcharge." },
+      },
+      choices = {
+        { text = "Did you ever get the spoon back?", next = "BACK",
+          reply = "No, sugar, and it was my good spoon! I like to think he's somewhere in Elwynn right now, stirring his porridge and feeling just awful about it." },
+        { text = "I'll shut the door and leave the spoon, Vizzie. I promise.", tag = "Persuade", next = "hu_vizzie_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { trait = "kind" } } } },
+          fail = { next = "hu_vizzie_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
+    hu_vizzie_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "vizzie_human_soft" } } },
+          text = "Oh, sugar, that's all I ask, the door and the spoon, and you'd be amazed how few people manage both! All right, no more watching; you're one of my regulars now." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
+    hu_vizzie_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "Promises, promises, sugar, and the last one promised too. I'll believe it when the spoon's still here in the morning." },
+      },
+      choices = {
+        { text = "Something else, Vizzie.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_vizzie_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "I counted it this morning, sugar, and I nearly cried. You're the best human guest Everlook's ever had, and I've told the yeti hunters so." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "A human, sugar, and from the look of you, you came up from Felwood with no proper coat. Your people never pack for the snow, and I swear that on my firewood bill." },
         { id = "h_dd_pamela", tags = { "news" }, when = { questDone = TODO_QUEST("Sister Pamela") },
           text = "Jessica's been humming behind the bar all week, sugar, and she never hums. She says you found word of her little niece down in the Plaguelands, and if that's true, your next bowl of stew comes with my very best wishes." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } },
@@ -221,6 +298,9 @@ P:NPC {
         { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Someone like me stayed at your inn, Vizzie?", next = "xalt_vizzie", when = { alt = true } },
         { text = "You're blushing, Vizzie. Or is that the fire?", next = "flirt", when = { flirt = true } },
+        { text = "What do you make of humans, Vizzie?", next = "hu_vizzie" },
+        { text = "You keep glaring at me, Vizzie. Is it because I'm human?", next = "hu_vizzie_x", when = { race = "Human" } },
+        { text = "The spoon's still where you left it, Vizzie.", next = "hu_vizzie_ns", when = { race = "Human", npcFlagBefore = "vizzie_human_soft" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -257,6 +337,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "Humans come up from Felwood half frozen, complain about the firewood and leave the door open for the bugs. One took my good spoon, sugar, and I haven't forgiven his whole kingdom." } },
     background = { { id = "tp_ba", text = "Tanaris girl, bug survivor, innkeeper at the top of the world. I followed the cold, sugar, and the cold was hiring." } },
     advice = { { id = "tp_ad", text = "Shake out your bedroll before you sleep in it, sugar. Up here it's yetis; anywhere else, it's worse." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel set this place up for trade, and I set up the inn because traders need beds and beds pay by the night. It's good business, sugar, if cold business." } },

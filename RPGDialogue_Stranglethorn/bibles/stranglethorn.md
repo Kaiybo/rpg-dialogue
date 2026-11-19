@@ -128,3 +128,12 @@ Sources: Ian Strom (Rogue Trainer, Salty Sailor Tavern, trains both factions; ca
 
 ## Night elves (authored, not canon)
 - Krazek: night elves are the worst customers (no lumber, no explosives, haggle forever); the Sentinels do pay for Venture Company camp locations.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Aggro'gosh: the humans of Stranglethorn (Nesingwary's hunters, the Rebel Camp, Booty Bay's customers) and Grom'gol pretend not to see each other while the caravans move; grudging nod to the rebels who walked away from a mad colonel.
+- Nimboya: humans are troll-killers who forged Trol'kalar just for trolls; hates Nesingwary's trophy hunters but has no time for them before Yenniku.
+- Mok'thardin: Thrall's restraint. Humans take without asking 'as we once did'; the orcs burned Stormwind before any camp was built; an orc who forgets that 'is only waiting to become Blackmoore'.
+- Revilgaz: humans the best customers and worst debtors; Stormwind noble houses owe him twenty years of interest; flag revilgaz_human_soft.
+- Seahorn: the Bloodsail are mostly humans out of Kul Tiras and Stormwind; watches human sleeves for cutlasses; his best navigator was a Lordaeron girl (authored); flag seahorn_human_soft.
+- Krazek: humans buy the most gossip (Varian's disappearance); 'charges humans double' for reputation damage; flag krazek_human_soft.

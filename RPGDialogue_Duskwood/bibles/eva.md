@@ -49,3 +49,6 @@ A repeat-visit line (night line for some) in the voice above.
 ## Depth pass (Duskwood 1.3.0)
 Branches: a reading (doubt, a second deal, one card), what waits in the night (which men; the restless dead), Blind Mary, Alyssa (during The Legend of Stalvan), the thread (after Return the Comb; regret after Translation to Ello), a priest's challenge (do the dead answer you?), a warlock's cards.
 Authored, not canon: every card name (the Traveller, Tower, Raven, Sun, Knife, Death, Needle, Spider, Knight, Wind); that Alyssa isn't told; that Eva chose not to ask what the thread was for.
+
+## Humans (human patch)
+- Her authored reading for humans: the Crown, the Hearth and the Grave, always in that order; no card after the Grave, so we shuffle and build again. Non-humans: humans are the best customers because they always hope.

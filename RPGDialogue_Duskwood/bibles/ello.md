@@ -54,3 +54,6 @@ Authored, not canon: the count of letters ("eleven this year", the framed two-li
 
 ## 0.34.0
 - Ello (Persuade, `solomon_whole`): he counted the Watch the night Solomon's letter came and found no number he could spare; his eleventh letter to the Crown was written for Lakeshire, came back with the same two lines, and he never told Solomon.
+
+## Humans (human patch)
+- Prejudice (authored, not canon): looks down on Lordaeron as the kingdom that 'raised an Arthas' and grumbles at feeding northern mouths. A Lordaeron-refugee human's `[Persuade]` (his family fed Stormwind's refugees after the first war) sets npcFlag `ello_hu_soft`. Non-humans: humans are unbearable about rebuilding Stormwind, himself included.

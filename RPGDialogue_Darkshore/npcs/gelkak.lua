@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "Ahoy, a human! Before you ask, yes, I am the captain, no, I'm not lost, and no, I don't want a biscuit." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "gelkak_human_soft" }, priority = 10,
+      text = "Ahoy, my good human! You're the one who calls me Captain without smirking, and the crew, what's left of it, approves." },
     { id = "g_hello", text = "Ahoy, landlubber! Mind yer step; that's me ship's wheel ye're standin' on, or what's left of it." },
     { id = "g_key", when = { questActive = TODO_QUEST("Gyromast's Retrieval") }, text = "Have ye found me broke-down key yet? Three pieces, landlubber, and the beasties have every one." },
     { id = "g_mate", when = { questActive = TODO_QUEST("Gyromast's Revenge") }, text = "Where be me first mate? Bring him round, and quick, or it's shackles and sharks for ye!" },
@@ -31,6 +35,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets gelkak_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Humans? Grand sailors, terrible shipwrights, and not one of them will believe a gnome can captain a vessel! I've had harbourmasters in Menethil ask where my captain was while I was standing on the deck in my hat." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your people are grand sailors and terrible shipwrights, and not one of you believes a gnome can captain a ship. Menethil's harbourmaster asked where my captain was while I stood there in my hat!" },
+      },
+      choices = {
+        { text = "What did you tell the harbourmaster?", next = "hu_view2" },
+        { text = "Perhaps it was the size of the hat, Captain.", next = "hu_view2" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "I told him I was the captain, the gnome who'd built the first mate and the hull besides, and he patted my shoulder and asked if I'd like a biscuit. That's humans for you: kind, generous, and utterly certain a gnome is somebody's little nephew." },
+      },
+      choices = {
+        { text = "He owed you a captain's respect. That was an insult.", next = "BACK",
+          reply = "It was! And I've written it in the log in red ink.",
+          fx = { align = { honor = 1 }, opinion = { humans = "distrust" } } },
+        { text = "He meant it kindly. Take the biscuit and move on, Captain.", next = "BACK",
+          reply = "I did take the biscuit, and very good it was, but I'm still cross about it.",
+          fx = { align = { honor = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not every one, but near enough that I keep a tally! Your people see a gnome on a deck and think of a cabin boy, and the fact that I built half the ship myself never quite gets through." },
+      },
+      choices = {
+        { text = "Then I'll salute you properly, Captain. Permission to come aboard?", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 40 } }, { profession = { "Engineering", "Fishing" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "A shipwrecked captain isn't much of a captain, is he?", next = "BACK",
+          reply = "Well, that's below the waterline, that is! I'll thank you to leave my wreck out of it.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "gelkak_human_soft" } } },
+          text = "Permission granted! Oh, that's done it, you've a captain's manners and I'll say so to any harbourmaster in Menethil. Mind the wreck, she's not as sound as she was." },
+      },
+      choices = {
+        { text = "Aye, aye, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That was very nearly a salute, but there was a smirk in it, I'm sure of it. Try again when I'm in a better mood." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Captain.", next = "END" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -62,6 +129,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "gelkak_human_soft" } },
+          text = "Captain Gelkak Gyromast, and yes, that's 'Captain', not 'little fellow'. Your people do confuse the two." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "gelkak_human_soft" },
+          text = "Back aboard, as it were! I've told my first mate there's one human who salutes properly, and he's very nearly impressed." },
         { id = "h_default", key = true,
           text = "Cap'n Gelkak Gyromast, late of a fine ship now restin' on the bottom just off this shore. Them pesky Threshadons sank her and left me first mate in pieces, and a pirate's life ain't all plunderin' and booze, I'll tell ye that for nothin'." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Gyromast's Retrieval") },
@@ -86,6 +157,8 @@ P:NPC {
         { text = "You look like a sailor without a ship.", next = "ship" },
         { text = "How did you build a machine like that?", next = "eng_g", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need, Captain?", next = "BUSINESS" },
+        { text = "What do you make of humans, Captain?", next = "hu_view" },
+        { text = "Every human calls you little fellow, Captain?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "gelkak_human_soft" } } },
         { text = "Fair winds, Captain.", next = "END" },
       },
     },

@@ -30,6 +30,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "The spirits say very little about anyone, {class}, but I remember what the camps did to us. When the demon blood left our veins, many orcs simply sat down in the mud and stopped, and the humans thought it was their walls that held us." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were human once, so perhaps you will hear this without anger. When the demon blood left our veins, many orcs sat down in the camps' mud and stopped, and your old people thought it was their walls that held us." },
+      },
+      choices = {
+        { text = "What held you, then?", next = "hu_stance" },
+        { text = "That sickness was called the lethargy, wasn't it?", next = "BACK", reply = "It was, and the humans gave it the name, as they give everything a name. We had no word for it, only a silence where the spirits used to be.", fx = { learn = { "humans" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Our own shame held us, and the empty place where our shamans had been before Gul'dan. The humans were cruel jailers, but they did not make us sick; we did that ourselves, and Thrall cured it by bringing the spirits back, not by killing humans." },
+      },
+      choices = {
+        { text = "Then the healing matters more than vengeance.", next = "BACK", reply = "It does, and the spirits answer those who think so. Go gently through Stonetalon, and you'll hear them answer you.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "They still built the camps. I won't excuse that.", next = "BACK", reply = "Nor should you, young one, and I don't. I only ask you to remember who was sick, and who merely held the key.", fx = { align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Zor Lonetree, Elder Far Seer of this hall. I listen to the spirits for the Warchief, and lately they have been complaining very loudly." },
@@ -45,6 +67,7 @@ P:NPC {
         { id = "h_again2", text = "What more would you hear?" },
       },
       choices = {
+        { text = "What do the spirits say of humans?", next = "hu_view" },
         { text = "Something seems to be wrong in Stonetalon.", next = "stonetalon" },
         { text = "They say you know the Alliance well.", next = "alliance" },
         { text = "I've never known what a far seer does.", next = "farseer" },

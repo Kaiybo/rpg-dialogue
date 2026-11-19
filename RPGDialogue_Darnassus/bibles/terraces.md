@@ -58,3 +58,7 @@ Thyn'tel's "more ink" line; Elanaria's "plant your feet"; Mathiel naming his fut
 - Thyn'tel (hawk): would burn the Warsong lumber camps at Splintertree and carry the war south; obeys Tyrande's "hold" and burns the orders she'd give. Names Mathrengyl as the other side. Welcomes human/dwarf/gnome allies at the front; rebuts Raedon's "the Alliance brought the orcs" (exposes `raedon_alliance_brought_horde`).
 - Elanaria (hostile to the Alliance's "older blood"): fine with dwarves and gnomes, but the high elves are Dath'Remar's Highborne exiles' children and human mages learned from them; saw the exiles sail. Watches mages, kaldorei mages most.
 - Mathiel (embraces the Alliance): argues against Raedon, Erion and the old Sentinels; "sixty honest years over ten thousand polite ones". Comforts outsiders who get glared at; names Arynia and Erion as the hardest.
+
+
+## Humans (human patch)
+- mathiel: Admiring, warm: admires human smiths' work-made-to-be-used; kaldorei on the Terrace see a fire waiting to happen. Softens if a human offers to show they can work gently. Flag `mathiel_human_soft`.

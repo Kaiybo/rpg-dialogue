@@ -36,3 +36,7 @@ Reliable.
 
 ## Topics
 background, advice, venture_company
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Zor Lonetree: the lethargy as the orcs' own sickness, not the humans' doing; humans were cruel jailers who 'merely held the key'. Thrall cured it with the spirits, not by killing humans.

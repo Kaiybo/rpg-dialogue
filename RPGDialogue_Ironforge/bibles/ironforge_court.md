@@ -62,3 +62,8 @@
 
 ## Prejudice (0.80.0, authored, not canon)
 - Senator Mehr Stonehallow (prejudice, NightElf): counts the Kaldorei as allies who never paid for the Second War; grumbles that Darnassus wants dwarven rifles at Auberdine.
+
+
+## Humans (human patch)
+- mekkatorque: Torn diplomat: humans are the oldest surface friends, but Stormwind has refused three proposals to retake Gnomeregan. Softens if a human urges a fourth letter framed as a debt of honour. Flag `mekkatorque_human_soft`.
+- magellas: Admiring but wry: humans are brave Explorers, impatient, and want the titans' story to be about Arathor. Softens if a human asks to read the stones as they are. Flag `magellas_human_soft`.

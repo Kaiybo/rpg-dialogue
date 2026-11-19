@@ -46,3 +46,9 @@ Authored, not canon: Turak was a hunter who put the bow down after a stag found 
 - Turak: grateful to the kaldorei but quietly resents Moonglade's condescension (the Earth Mother spoke to the tauren first); Fandral was against teaching tauren and some of his students still are; complains to Hamuul about Sentinels shooting Horde druids in Ashenvale.
 - Magatha: scorns the elves' claim to every forest and Hamuul's bowed horns, yet half-admires their isolation and spine; the Grimtotem want the high places and resent the Circle on Stonetalon Peak.
 - Zamah: cold scholarly interest in moonwell water (first wells filled from the Well of Eternity; the druids credit Nordrassil for the lost immortality, she distrusts that); Forsaken who strayed into Ashenvale report priestesses' silver light burning them like Scourge.
+
+## Humans (human patch)
+- Cairne: fair; fought beside Jaina's humans on Hyjal, saw Daelin's fleet attack Durotar; humans are 'two peoples wearing one face'; grieves Northwatch raids on the Gold Road.
+- Hamuul: curious, little contact; humans a hurried people; weighs kaldorei warnings about Dalaran against Hyjal.
+- Magatha: bitter; humans bred the orcs' hatred in their camps and loosed it on Kalimdor; Theramore a stone in the land's mouth.
+- Pala: hospitable; served a nervous Theramore trader under truce while braves glared over Northwatch's kodo killings.

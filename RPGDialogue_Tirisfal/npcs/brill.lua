@@ -124,6 +124,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_zygand = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I make what the Scarlet Crusade makes of me: a target. They call themselves the last pure men of Lordaeron, and they ride out of the monastery to burn our farms in the name of a Light that never once troubled itself to save them from the plague." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "You know the answer already, because they've tried to burn you too. They call themselves the last pure men of Lordaeron, and they'd put you on a pyre beside your own grandmother and sing hymns while she burned." },
+      },
+      choices = {
+        { text = "Are all humans the Crusade, though?", next = "hu_zygand_2" },
+        { text = "What about the humans who aren't Scarlet?", next = "hu_zygand_2" },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
+    hu_zygand_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Southshore sets its dogs on us, Stormwind calls us Scourge, and Dalaran won't open its gates, so the Crusade is merely the honest version. The rest of them would like us burned just the same; they only want somebody else to carry the torch." },
+      },
+      choices = {
+        { text = "The Crusade must be destroyed. All of it, without quarter.", next = "BACK",
+          reply = "Without quarter, and without hymns. Report to the Deathguard if you mean it, because I've a long list of farms that need burning back.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "Fight the Crusade, Executor, but spare the ones who surrender.", next = "BACK",
+          reply = "Spare them, so they can tell the monastery how many of us hold Brill? Your conscience is noted, and so is the cost of it.",
+          fx = { affinity = -1, align = { honor = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -162,6 +191,7 @@ P:NPC {
         { text = "I've been through the Scarlet Monastery, Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "I marched with the Crusade once, Executor, before I died.", next = "xorig_scarlet", when = { origin = "forsaken_scarlet_turned" } },
         { text = "The night elves fought the Legion too, Executor.", next = "ne_zygand" },
+        { text = "What do you make of humans, Executor?", next = "hu_zygand" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
         { text = "Do the Deathguard trust the Horde, Executor?", next = "op_horde" },
       },
@@ -346,6 +376,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "The Scarlet Crusade calls itself the last pure men of Lordaeron, and the rest of humanity simply wants us burned by somebody else. I keep the Deathguard on the walls, and I don't take prisoners for conversation." } },
     knows = {
       { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You've served Brill well, so I'll tell you what the reports actually say, rather than what we announce." },
@@ -681,6 +712,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_johaan = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I think they're very fragile, which is useful, and very loud about it, which isn't. I was a human apothecary once in this very town, mixing cough syrups for the Barovs' tenants, and I'm far better at my trade now that I've stopped caring who coughs." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "The same thing you think, I imagine, when you see your old village through the trees. I mixed cough syrups for the Barovs' tenants in this very town, and now I study poisons in the same cellar, which has a certain tidiness." },
+      },
+      choices = {
+        { text = "That's cold, even for the Society.", next = "hu_johaan_2" },
+        { text = "Do you remember your old patients?", next = "hu_johaan_2" },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
+    hu_johaan_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "I remember every one of them, which is exactly the trouble. The miller's daughter who came to me with a fever the week the grain arrived, the plague in the bread, the way they looked at me when my own cures failed; and their kin in Southshore still say the apothecaries brought the sickness, when we only failed to stop it." },
+      },
+      choices = {
+        { text = "They blame you because they can't blame the Lich King. Ignore them.", next = "BACK",
+          reply = "I do ignore them, mostly, the way one ignores a draught in a cold room. And the Dark Lady has given us a much better use for our time than their good opinion.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { humans = "rivals" } } },
+        { text = "You failed your patients once. Don't make them your subjects now.", next = "BACK",
+          reply = "Ah, a conscience, and a sharp one. I'll let it sit in the jar beside the others; I find they keep remarkably well in the dark.",
+          fx = { align = { order = 1 }, opinion = { humans = "kin" } } },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "o_npkeen", tags = { "news" }, when = { opinion = { topic = "new_plague", stance = "necessary" } }, text = "Ah, the one who wants the plague finished yesterday! The Apothecarium has a long memory for its friends, and so do I." },
@@ -713,6 +773,7 @@ P:NPC {
         { text = "Could your bottles do a rogue's work, Apothecary?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warrior must be of some use to you here, Apothecary.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I doubt the Light would approve of your brewing, Johaan.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What does an apothecary think of living humans?", next = "hu_johaan" },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
         { text = "Holland's doom weed. What does the Society want with it?", next = "dd_doom", when = { questDone = TODO_QUEST("Doom Weed") } },
       },
@@ -791,6 +852,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "I mixed cough syrups for this town's living once, and now I mix poisons in the same cellar. Their kin in Southshore still say we apothecaries brought the plague, when all we did was fail to stop it." } },
     forsaken = { { id = "tp_forsaken", text = "We are a people with graves still to settle and a kingdom to take back, and very little patience left for the living who stand in our way. The Royal Apothecary Society is doing its part." } },
     scourge = { { id = "tp_scourge", text = "The Scourge's plague is a crude and clumsy thing, and the Society means to make something better, purely for use against the Scourge, of course. I'll say no more than that, because Master Faranell prefers discretion." } },
     new_plague = { { id = "tp_new_plague", text = "Oh, it's coming along very nicely, and it's all in the service of the Dark Lady's war on the Scourge. Bring me the reagents I ask for, and don't stand quite so close to the green ones." } },
@@ -1253,6 +1315,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_renee = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I think they're frightened, love, more than anything, and I know because I was one of the frightened ones. I carried a Scarlet tabard and a torch, and I burned barns with families inside them because a man in a red hood told me the Light wanted it." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "I think they're frightened, love, and I'd know, because I was one of the people they're frightened for. I carried a Scarlet tabard and a torch in this very valley, and if you'd come stumbling out of a grave in front of me then, I'd have burned you without a second thought." },
+      },
+      choices = {
+        { text = "How did you come to leave?", next = "hu_renee_2" },
+        { text = "Do you hate them now?", next = "hu_renee_2" },
+        { text = "Something else, Renee.", next = "BACK" },
+      },
+    },
+    hu_renee_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "I left the night a little girl walked out of a barn I'd set alight, and she was one of the dead, and she asked me why. I've no hate left for them, love, only a great tiredness, because every zealot who comes up the road was me once, and I don't know how to make the next one stop." },
+      },
+      choices = {
+        { text = "They're frightened children. Some can still be turned, as you were.", next = "BACK",
+          reply = "I hope so, love, because if I could be, anyone could. I keep a chair by the fire for the first one who walks in here asking.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { humans = "forgive" } } },
+        { text = "Fear doesn't excuse burning people. The Crusade should pay.", next = "BACK",
+          reply = "It doesn't excuse it, and I paid for mine, and I'm still paying. Only I'd ask you not to drink to it at my bar, because some debts aren't for toasting.",
+          fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else, Renee.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
@@ -1287,6 +1378,7 @@ P:NPC {
         { text = "Will you serve someone with fire at their heel, Renee?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do you ask paladins how sure they are, Renee?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "You keep looking over here, Renee.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "ren_fl_rebuff" } } },
+        { text = "You were Scarlet once, Renee. What do you think of humans?", next = "hu_renee" },
         { text = "Just a room, thanks.", next = "END" },
         { text = "I hear the gravediggers were celebrating Maggot Eye's end.", next = "dd_maggot", when = { questDone = TODO_QUEST("Wanted: Maggot Eye") } },
       },
@@ -1370,6 +1462,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "Humans are frightened, love, and fear makes them cruel; I know because I carried a Scarlet torch once. Every zealot who comes up the road was me, and I keep a chair by the fire in case one of them walks in." } },
     scarlet_crusade = { { id = "tp_crusade", text = "I know them better than I'd like. Let's leave it there, love." } },
     forsaken = { { id = "tp_forsaken", text = "Most of my regulars are Forsaken, love, and they're the best customers I've ever had, since they don't fall over drunk or start fights about the bill. They just sit and remember, and I let them." } },
     scourge = { { id = "tp_scourge", text = "The Scourge came through here before my time behind this bar. My guests talk about it some nights, quiet-like, and I don't make them stop." } },

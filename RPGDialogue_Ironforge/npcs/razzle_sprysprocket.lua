@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "Oh, a human! No, I don't need help reaching anything, and no, I'm not lost; I'm working, which is a very different thing." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "razzle_human_soft" }, priority = 10,
+      text = "My human friend! You talk to me like an engineer, and I've been telling everyone in Kharanos it's not impossible." },
     { id = "g_shop", text = "Careful, that's live! No, not that one, the other one, though that one's only mostly fine." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you! Good, good, I've had three new ideas since you left and only one of them caught fire." },
     { id = "g_op", when = { questActive = TODO_QUEST("Operation Recombobulation") }, text = "Cogs and gears, cogs and gears! The Recombobulator won't recombobulate itself." },
@@ -33,8 +37,75 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets razzle_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "They're very good at being tall, and very good at hiring gnomes, and not very good at the bit in between where you treat us like grown folk. A human merchant once offered me a sugar cake for fixing his pocketwatch, and I think he meant it kindly, which was the worst part." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your people are very kind, mostly, in the way one is kind to a child who's fixed something clever, and I've had three sugar cakes offered for repairs this year alone." },
+      },
+      choices = {
+        { text = "Did Stormwind take in gnomish refugees?", next = "hu_view2" },
+        { text = "A sugar cake is better than nothing, surely.", next = "hu_view2" },
+        { text = "Something else, Razzle.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Stormwind took the engineers, the ones with patents, and they gave them very nice workshops by the harbour. The rest of us, the burned and the sick and the ones who only had their hands, were told Ironforge was closer, and Ironforge was, and Ironforge took us." },
+      },
+      choices = {
+        { text = "Stormwind should have opened its gates to every gnome.", next = "BACK",
+          reply = "That's what I think too, and I'm going to have it engraved on my machine, very small, where only a gnome can read it.",
+          fx = { align = { light = 1 }, opinion = { humans = "distrust" } } },
+        { text = "A kingdom can't take everyone. Stormwind did what it could.", next = "BACK",
+          reply = "Perhaps, but they found room for the gnomes who could make them money, and that's the sort of sum even a sugar cake can't sweeten.",
+          fx = { align = { light = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Expect? I've measured it! Seven of the last ten humans through Kharanos crouched down to speak to me, and two asked if my parents knew where I was, and I'm forty-one." },
+      },
+      choices = {
+        { text = "Then I'll stand up straight and ask about your machine properly.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { profession = "Engineering" }, { class = "MAGE" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Maybe gnomes should stop building things that explode.", next = "BACK",
+          reply = "Maybe humans should stop building things that burn, and then we'll compare notes.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "razzle_human_soft" } } },
+          text = "Properly? With questions about tolerances and output? Oh, that's very nice, and you're welcome to look, only don't touch the blue lever, because I genuinely don't know what it does yet." },
+      },
+      choices = {
+        { text = "I'll leave the blue lever alone, Razzle.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's very sweet, but it sounded rather like a sugar cake, if you see what I mean. Ask me about tolerances some time and we'll see." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Razzle.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "razzle_human_soft" } },
+          text = "Razzle Sprysprocket, and yes, I'm building it myself, and no, I'm not anybody's little helper. Your people do ask the most remarkable questions." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "razzle_human_soft" },
+          text = "Welcome back! The machine's nearly calibrated, and I've stopped hiding it under a tarp when humans pass, mostly because of you." },
         { id = "h_default", key = true, text = "Razzle Sprysprocket, at your service, and that's Ozzie Togglevolt with his head in the gearbox. Between the two of us, we're going to put the gnomish race back together." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Operation Recombobulation") },
           text = "Upon further analysis, the High Tinker's plan didn't only fail to get rid of the troggs, it turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
@@ -59,6 +130,8 @@ P:NPC {
         { text = "Do you think the lepers can really be saved?", next = "saved", when = { race = "Gnome" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "My brother is one of the lepers outside Gnomeregan, Razzle.", next = "xorig_leperkin", when = { origin = "gnome_leper_kin" } },
+        { text = "What do you make of humans, Razzle?", next = "hu_view" },
+        { text = "You expect every human to talk down to you, Razzle.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "razzle_human_soft" } } },
         { text = "Good luck, Razzle.", next = "END" },
       },
     },

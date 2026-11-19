@@ -225,6 +225,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Better than recruits want to hear, and that's why I tell them. A human footman is half an orc's strength, but he'll hold a shield wall in a hailstorm and step over his dead brother to keep it closed." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You'd know, since you stood in their lines once, before the plague. They're half an orc's strength, but they'll hold a shield wall in a hailstorm, and I'd guess that habit never died with you." },
+      },
+      choices = {
+        { text = "So you respect them?", next = "hu_stance" },
+        { text = "They broke the Horde, didn't they?", next = "BACK", reply = "They broke a Horde drunk on demon blood and led by Gul'dan's fools. I'd like to see them try it against orcs who fight with clear eyes.", fx = { learn = { "humans" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "I respect what they did to us, which is not the same as liking them. Their knights rode us down at Blackrock Spire, and their jailers had us fighting in pits for wagers, so I teach every orc in this valley to fight like the next human line won't break." },
+      },
+      choices = {
+        { text = "A worthy enemy deserves honest respect. I'll give it.", next = "BACK", reply = "Good. Respect the shield and break it anyway, and you'll be the kind of warrior the Valley of Honor remembers.", fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "Respect is wasted on jailers. I'll break them, nothing more.", next = "BACK", reply = "Then break them, but don't come crying to me when the first line holds. Contempt has killed more orcs than human steel ever did.", fx = { align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_defense", when = { questDone = TODO_QUEST("Path of Defense") },
@@ -254,6 +276,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You won't need my lessons, but you'll need my warriors in front of you, so treat them well." },
       },
       choices = {
+        { text = "What do you make of humans as fighters?", next = "hu_view" },
         { text = "Do your warriors respect a priest who never swings an axe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Some would call it dishonorable to strike with lightning.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a druid's strength honorable, Grezz?", next = "druid_q", when = { class = "DRUID" } },

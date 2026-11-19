@@ -119,3 +119,7 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## Race voice (0.80.0)
 - Garush: orc; plain, martial, "the way orcs always have"; the camps and Thrall. Mulgris: tauren; the Earth Mother, the plains, closing blessings. Bibilfaz and Lightspark: gnomes; numbers, measurements, Gnomeregan.
+
+## Humans (human patch)
+- Valorfist, humans: Stormwind bleeds for Lordaeron because Lordaeron bled first; the Scourge are plagued farmers from Andorhal's grain; believes the priests that the dead don't remember.
+- MacDonnell, humans: these fields were the north's breadbasket, poisoned on purpose; turning the plague back is her justice for families like the Dalsons. Non-humans: humans won't leave their dead.

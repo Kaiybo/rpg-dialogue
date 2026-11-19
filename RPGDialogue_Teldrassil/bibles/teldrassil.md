@@ -73,3 +73,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 ## Kaldorei factions (authored, not canon)
 - Corithras: bitter and afraid at the loss of immortality ("ten thousand years of never counting"); thinks the young treat mortality as a holiday, Lyreena worst of all.
 - Lyreena: was young at Hyjal and never felt eternal; wants to spend her years everywhere (Ironforge, Stormwind's harbor, goblin towns); dwarves taught her songs on the Darkshore road. Brings Corithras berries, doesn't agree with him. Welcomes outsiders at her fire.
+
+
+## Humans (human patch)
+- ilthalaine: Admiring, delighted: humans plant orchards they'll never eat from; sisters remember Warsong axes and Jaina's crossing. Softens if a human offers to plant something. Flag `ilthalaine_human_soft`.

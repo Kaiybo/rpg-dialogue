@@ -31,3 +31,7 @@ Honest, but she makes Sarilus' motive personal (her guess).
 
 ## Topics
 background, advice, sentinels, _none.
+
+
+## Humans (human patch)
+- velene: Bitter, impatient: humans let the orcs loose; Theramore sits on kaldorei land and makes treaties with the Warchief. Softens if a human offers to fight the Warsong beside her. Flag `velene_human_soft`.

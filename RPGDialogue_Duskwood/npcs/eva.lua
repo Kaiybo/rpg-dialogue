@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Ah, one of my own kind, with a short life and a long shadow. Sit down, dear; the cards have been restless all evening, and now I see why." },
     { id = "g_op_light_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "The sceptic returns. Sit, sit; the Blade has been turning up all week, and I suspected it was waiting for you." },
     { id = "g_op_necro_eva", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "The cards turned up the Needle when you walked in, and the Lovers reversed beside it. Somewhere, you told someone you'd bring back the dead. Be careful who heard you." },
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
@@ -124,8 +126,58 @@ P:NPC {
         { text = "Something else, madame.", next = "BACK" },
       },
     },
+    hu_eva = {
+      narr = "She turns three cards onto the cloth without looking at them.",
+      lines = {
+        { id = "huev_default", key = true,
+          text = "The Crown, the Hearth and the Grave, my dear, and in that order, every time I deal for our kind. We build a kingdom, we sit by its fire and grow comfortable, and then something we ought to have seen coming walks in through the door." },
+      },
+      choices = {
+        { text = "That's the whole of human history in three cards?", next = "hu_eva_2" },
+        { text = "The Grave came for Lordaeron, then.", next = "hu_eva_2" },
+      },
+    },
+    hu_eva_2 = {
+      big = true,
+      lines = {
+        { id = "huev2_default",
+          text = "It came for Lordaeron, and for Stormwind before that, and it walks in these woods every night of the year. The north buried its dead and the plague dug them up again, and the cards don't care whether a man was a king or a ploughman; they only care that he didn't look up from the fire." },
+      },
+      choices = {
+        { text = "Then we're doomed to repeat it. The cards say so.", next = "BACK",
+          reply = "I said the cards say it, dear, and I'm paid to say what the cards say. Whether you listen to them is your own affair, and always has been.",
+          fx = { align = { order = 1 }, opinion = { humans = "doomed" } } },
+        { text = "Cards don't decide anything. People do.", next = "BACK",
+          reply = "Spoken like a true human, and that, my dear, is exactly the card I'd have drawn for you.",
+          fx = { align = { order = -1 }, opinion = { humans = "free" } } },
+        { text = "And the card after the Grave?", next = "hu_eva_3" },
+      },
+    },
+    hu_eva_3 = {
+      lines = {
+        { id = "huev3_default",
+          text = "There isn't one in my deck, which used to frighten me. Now I think it means the deck runs out before we do, and that we simply shuffle the cards and start building the Crown again, which is either the bravest or the stupidest thing about us." },
+      },
+      choices = {
+        { text = "I'll take brave, Madame.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Madame.", next = "BACK" },
+      },
+    },
+    hu_eva_x = {
+      lines = {
+        { id = "huevx_default", key = true,
+          text = "They'll read anyone who pays, dear, though I confess they're happiest with humans. We're short-lived and quick to hope, and a people who always believe tomorrow will be better is the best customer a fortune-teller could ask for." },
+      },
+      choices = {
+        { text = "That sounds rather sad, Madame.", next = "BACK",
+          reply = "Sad? It's the only reason anyone in Darkshire gets out of bed, dear, so I'd call it useful." },
+        { text = "Something else, Madame.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Human fortunes are the easiest to read and the hardest to tell, because the cards always say the same thing and nobody ever listens." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The cards turned up the Knight this morning, and I wondered which way he would be facing when he came in." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "The wood speaks to you too, then. It has been screaming for years, druid, and few enough have ears to hear it." },
@@ -175,6 +227,8 @@ P:NPC {
         { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I dug graves at Raven Hill, Madame. The dead talked back.", next = "xorig_gravedigger", when = { origin = "human_raven_hill_gravedigger" } },
         { text = "Did your cards say anything else about me, Madame?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "eva_flirt_no" } } },
+        { text = "What do the cards say about our people, Madame?", next = "hu_eva", when = { race = "Human" } },
+        { text = "Do your cards read other races, or only humans?", next = "hu_eva_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll go.", next = "END" },
       },
     },

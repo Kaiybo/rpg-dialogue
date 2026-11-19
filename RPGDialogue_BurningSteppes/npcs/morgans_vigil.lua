@@ -525,6 +525,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "Ishnu-alah, human. You're the third new face this month; I'll try to remember yours." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "helendis_human_soft" }, priority = 10,
+      text = "Ishnu-alah, friend. I remember your name, which I can't say for most of your people." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My people bled at Mount Hyjal to drive your masters from this world. Do not ask me to smile at what walks behind you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel the fel on you from across the ridge. Say what you came to say, and keep your distance." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have earned some measure of my respect on this ridge, and I did not expect to give it. That does not mean I have forgotten Hyjal." },
@@ -553,6 +557,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets helendis_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I live among them here at Morgan's Vigil, so I have had time to think on it. They are brave and loud and they die so quickly that I've stopped learning the names of the new recruits, and I am not proud of that." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I live among your people here, and you are brave and loud and gone so quickly that I've stopped learning the recruits' names. I'm not proud of that." },
+      },
+      choices = {
+        { text = "Do the humans here treat you well?", next = "hu_view2" },
+        { text = "That's a sad thing to admit, Helendis.", next = "hu_view2" },
+        { text = "Something else, Helendis.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "The Marshal treats me well enough, and the soldiers treat me as a curiosity, which is better than an enemy. But they speak of my people's lands as if they were empty before Theramore came, and they speak of magic as if Dalaran invented it, and I bite my tongue so often I fear I'll lose it." },
+      },
+      choices = {
+        { text = "Human arrogance about the world is dangerous. Speak up.", next = "BACK",
+          reply = "Perhaps I should, though I think they'd only laugh. I'll consider it.",
+          fx = { align = { light = 1 }, opinion = { humans = "arrogant" } } },
+        { text = "They're young. They'll learn, given time and patience.", next = "BACK",
+          reply = "Time is exactly what they don't have, but you're right that patience costs me less than it costs them.",
+          fx = { align = { light = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Forgive me, but that is what you are, to us. I've watched a great many of the Marshal's men die on this ridge since I came, and each new recruit is braver and younger than the last, and none of them know a single thing about the world before Stormwind." },
+      },
+      choices = {
+        { text = "Then teach me what came before. I'll remember it.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "PRIEST", "DRUID", "MAGE" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Mayflies built Stormwind twice. What has Darnassus built lately?", next = "BACK",
+          reply = "A tree, and a city on it, and we'll still be in it long after you've gone. But that was well struck.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "helendis_human_soft" } } },
+          text = "You'd listen? Then sit, and I'll tell you of Hyjal and the first fall of the Legion, and you'll know more than any Marshal on this ridge. It's an odd comfort, being remembered by someone so young." },
+      },
+      choices = {
+        { text = "I'll remember all of it, Helendis.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "You'd listen until the next battle, and then you'd be gone. Forgive me; it's not you, it's the ridge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Helendis.", next = "END" },
+      },
+    },
     op_kaldorei = {
       lines = {
         { id = "opk_default", text = "Some of my elders think so. We hid behind our trees for ten thousand years, and it took the Legion at Hyjal to bring us out. The young races have opinions about that, so tell me yours." },
@@ -652,6 +719,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "helendis_human_soft" } },
+          text = "I am Helendis Riverhorn, sent from Darnassus to watch the Steppes. I live among your people now, and I've learned to love them a little and to mourn them often." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "helendis_human_soft" },
+          text = "You've come back. Good, I'd begun to worry; I've grown attached to you, which for a kaldorei among humans is unwise." },
         { id = "h_pt_kaldorei", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
           text = "{companion} is of my people, and far from the forests, as I am. It is strange to meet a kaldorei among the ash, but I am glad of it, for the humans here do not understand why I flinch when the mountain breathes fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
@@ -699,6 +770,8 @@ P:NPC {
         { text = "Should the Blackrock orcs be fought, or only watched, Helendis?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do you see the Blackrock orcs, Helendis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Why did you come so far from Kalimdor?", next = "xpt_kaldorei", when = { party = { race = "NightElf" }, faction = "Alliance" } },
+        { text = "What do you make of humans, Helendis?", next = "hu_view" },
+        { text = "You speak of us like mayflies, Helendis.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "helendis_human_soft" } } },
         { text = "Elune keep you, Helendis.", next = "END" },
       },
     },

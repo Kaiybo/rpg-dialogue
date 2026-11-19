@@ -302,6 +302,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Elwynn folk! Good, then you'll know a pig in the carrots is no laughing matter, whatever the Brackwells say." },
     { id = "g_field", text = "If you're here for the vegetables, there aren't many left. Ask the pig." },
     { id = "g_princess", when = { questActive = TODO_QUEST("Princess Must Die!") }, text = "Is she dead? Is that great sow dead yet?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Princess Must Die!") }, text = "My cabbages thank you, and so do I. Wherever the Brackwells are, I hope they never hear of it." },
@@ -399,8 +401,36 @@ P:NPC {
         { text = "Something else, Ma.", next = "BACK" },
       },
     },
+    hu_farm = {
+      lines = {
+        { id = "hum_farm", key = true,
+          text = "It's always hard, but it's harder with the gnolls in the woods and half the young ones gone to the army or the city. My Tommy Joe would sooner make eyes at a Maclure than pull a turnip, and there's the next generation of Elwynn farming for you." },
+      },
+      choices = {
+        { text = "The Westfall farms had it worse, I hear.", next = "hu_farm2" },
+        { text = "Something else, Ma.", next = "BACK" },
+      },
+    },
+    hu_farm2 = {
+      big = true,
+      lines = {
+        { id = "hum_farm2",
+          text = "They did, and I've had Westfall families stop on this road with everything they owned on one cart. I gave them bread and sent them on to the city, and I've wondered since whether the city gave them anything at all." },
+      },
+      choices = {
+        { text = "Elwynn should take them in, Ma. They're our people.", next = "BACK",
+          reply = "Easy to say with someone else's barn, but you're not wrong, and I've a loft that's stood empty since the last harvest. Don't you tell the Maclures I said so.",
+          fx = { align = { light = 1 } } },
+        { text = "Elwynn can barely feed itself. Send them on.", next = "BACK",
+          reply = "That's what I told myself, and I'll not pretend it wasn't true. It only sits badly when a little one waves at you from the back of the cart.",
+          fx = { align = { light = -1 } } },
+        { text = "I'll let you get back to the field.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You're from round here, or near enough, because I can tell by your boots. City boots don't last a week in this mud." },
         { id = "dd_escape_ma", tags = { "news" }, when = { questDone = TODO_QUEST("The Escape") },
           text = "My Tommy Joe's gone off with that Maclure girl, and Gramma tells me you had a hand in it. I'll not say I'm happy, but I'll not say I'm surprised, either." },
         { id = "dd_hogger_ma", when = { killed = { name = "Hogger" } },
@@ -445,6 +475,7 @@ P:NPC {
         { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage do anything about the Brackwells' pig, Ma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is Princess really eating your whole crop, Ma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Farming's hard in Elwynn these days, isn't it, Ma?", next = "hu_farm", when = { race = "Human" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },

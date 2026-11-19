@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Ah, one of the Regent's own subjects, come to see how the kingdom is run. Do keep your voice down, little one; the Keep has excellent acoustics and very little patience." },
     { id = "g_op_prestor", when = { opinion = { topic = "prestor", stance = "distrust" } }, text = "Ah, the one who thinks the Regent listens to me too much. Do come closer, darling; I've been longing to know what else you think." },
     { id = "g_op_jaina", when = { gossip = { topic = "jaina", stance = "trust" } }, text = "I hear you've taken Lady Proudmoore's side, little hero. How sweet. Her father never trusted an orc in his life, and she let them kill him; such a devoted daughter." },
     { id = "g_cool", text = "Yes?" },
@@ -142,8 +144,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_starve = {
+      lines = {
+        { id = "hum_starve", key = true,
+          text = "And the people of Lakeshire are overrun, and the people of Darkshire are haunted, and the people of the Wetlands have orcs in their marshes. Every one of them is a loyal subject, little one, and every one of them expects the treasury to love them best." },
+      },
+      choices = {
+        { text = "They're our own people. The crown owes them.", next = "BACK",
+          reply = "The crown owes a great many things, and it pays them in the order I recommend. Do write it down; the Regent's clerks adore a petition.",
+          fx = { align = { light = 1 } } },
+        { text = "You're right. The treasury can't save everyone.", next = "BACK",
+          reply = "How refreshing. If more of our citizens were as sensible as you, the Regent would sleep a great deal better, and so would I.",
+          fx = { align = { light = -1 } } },
+        { text = "Who decides which of them waits, my lady?", next = "hu_starve2" },
+      },
+    },
+    hu_starve2 = {
+      lines = {
+        { id = "hum_starve2",
+          text = "The Regent decides, little one, after I advise him, and he is always so grateful for the advice. A king's absence leaves a great many decisions lying about, and someone must tidy them away." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+        { text = "Excuse me, my lady.", next = "END" },
+      },
+    },
+    hu_contempt = {
+      lines = {
+        { id = "hum_contempt", key = true,
+          text = "I think a great deal of them, in the way one thinks of the weather. They are numerous and loud, they forget everything within a generation, and a sensible woman learns to plan around them." },
+      },
+      choices = {
+        { text = "That's no way for a lady of the court to speak.", next = "BACK",
+          reply = "Is it not? Then I shall speak more prettily in court and think exactly the same. Run along, little one.",
+          fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "Our people are fickle, I'll grant you that.", next = "BACK",
+          reply = "You see? Some of you do learn. Do try to keep it up, because it rarely lasts past a harvest.",
+          fx = { align = { honor = -1 } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "To be human is to be in a very great hurry, little one, and to call the hurry ambition. We build and quarrel and build again on the ashes, and I confess I never tire of watching it." },
+      },
+      choices = {
+        { text = "Something else, my lady.", next = "BACK" },
+        { text = "Excuse me.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Stormwind's people do so love a petition. Every one of them seems to believe the crown is a well, and that if they only lower the bucket politely enough, something will come up." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "How curious. A {altrace} called {alt} was presented to me only recently, and you have quite the same face, unless all of your sort simply look alike to me; do forgive me, I'm sure yours is a family of great distinction." },
         { id = "h_alt_class", when = { alt = { sameClass = true }, metBefore = false },
@@ -199,6 +253,9 @@ P:NPC {
         { text = "What does the court think of the night elves, my lady?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the court trust shamans, Lady Prestor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What does the court make of companies like ours, my lady?", next = "xpt_katrana", when = { party = true } },
+        { text = "The people of Westfall are starving, my lady.", next = "hu_starve", when = { race = "Human" } },
+        { text = "You don't think much of our people, my lady.", next = "hu_contempt", when = { race = "Human" } },
+        { text = "What does it mean to be human, my lady?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Excuse me.", next = "END" },
       },
     },

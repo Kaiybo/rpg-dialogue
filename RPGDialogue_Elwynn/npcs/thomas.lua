@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "A Stormwind citizen. Keep to the road, and if you see anything east of this bridge, report it to me before you tell the inn." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died in the Second War under fire the Horde's warlocks called down. You'll stay on the east side of this bridge, and that's my last word." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Two of my footmen went upriver and never came back, and I'll not lose a third to whatever walks behind you. Keep your distance." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've helped on this bridge more than once, and I've not forgotten it. I still don't like what you carry, and I'll still be watching it." },
@@ -129,8 +131,36 @@ P:NPC {
         { text = "Something else, Thomas.", next = "BACK" },
       },
     },
+    hu_men = {
+      lines = {
+        { id = "hum_men", key = true,
+          text = "They were, the sort who'd stand you a drink at the Lion's Pride and tell you it was nothing. Both of them went into the east because I sent them, and that's the army for you: you send your own neighbours into the dark and wait to see who comes back." },
+      },
+      choices = {
+        { text = "You can't carry that alone, Thomas.", next = "hu_men2" },
+        { text = "Something else, guard.", next = "BACK" },
+      },
+    },
+    hu_men2 = {
+      big = true,
+      lines = {
+        { id = "hum_men2",
+          text = "Somebody has to, and the Marshal's got all of Elwynn on his back already. When the city stops sending soldiers, the ones left on the line start carrying each other, and that's the only thing the Second War taught us that I'm still glad of." },
+      },
+      choices = {
+        { text = "Then I'll carry some of it. Give me the next patrol.", next = "BACK",
+          reply = "I'll hold you to that, citizen. The murlocs at Stone Cairn Lake could use counting, and I could use the report.",
+          fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It isn't my weight, guard. I've my own to carry.", next = "BACK",
+          reply = "Fair enough, and I'll not ask it of you. Keep to the road, then, and if you see anything in the east, you tell me first.",
+          fx = { align = { honor = -1 } } },
+        { text = "Carry on, guard.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You'll have had family in the army, most of us did, so you'll know why I don't leave this bridge. The men I lost were Elwynn men, the same as half the ones still standing." },
         { id = "dd_murlocs", when = { killed = { name = "Murloc", min = 30 } },
           text = "The fishermen at Stone Cairn Lake say the murlocs have pulled back from the shore, and they say a stranger did it. I'd like to buy that stranger a drink, and I think I'm looking at them." },
         { id = "dd_linen", when = { questDone = TODO_QUEST("Red Linen Goods") },
@@ -195,6 +225,7 @@ P:NPC {
         { text = "What makes the forest east of here so unfriendly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "You wouldn't trust someone like me on your bridge, I'd wager.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What happened to your men, Guard Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Your men were Stormwind folk, weren't they, guard?", next = "hu_men", when = { race = "Human" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },

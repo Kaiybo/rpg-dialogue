@@ -36,3 +36,6 @@ Never says: real-world references (his canon jokes are not copied)
 
 ## Topics
 - argent_dawn, background, advice
+
+## Humans (human patch)
+- Human players: keeps a box of keepsakes from the pit (a ring, a tin soldier, a Stratholme baker's mark) to return or bury with names (authored). Non-humans: a name on a stone is all of a human that lasts.

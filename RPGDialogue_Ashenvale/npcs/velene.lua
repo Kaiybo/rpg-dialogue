@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human, in Ashenvale. Speak quickly; the orcs your kings set loose are still cutting our trees, and I have work." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "velene_human_soft" }, priority = 10,
+      text = "You again, human. Good; you've proven useful, and that is more than I can say for most of your kind." },
     { id = "g_hello", text = "Ishnu-alah. Have you seen the elementals in our lake? It is a sorry sight, and I mean to know who put them there." },
     { id = "g_bracers", when = { questActive = TODO_QUEST("Elemental Bracers") }, text = "The bracers, {class}. Pry them off the elementals in the lake, and we'll learn who's pulling their strings." },
     { id = "g_sarilus", when = { questActive = TODO_QUEST("Mage Summoner") }, text = "Dreadmist Peak, in the Barrens, and mind the Horde on the way. Bring me that smirking head." },
@@ -32,8 +36,75 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets velene_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I make of them what Ashenvale makes of them. The orcs who cut our trees came across the sea because the humans had caged them and lost their grip on them, and now Theramore sits in the marsh on land we never gave and calls itself our ally." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I make of your people what Ashenvale makes of you. The orcs who cut our trees came across the sea because your kingdoms couldn't keep them caged." },
+      },
+      choices = {
+        { text = "Theramore fought beside you at Hyjal.", next = "hu_view2" },
+        { text = "You sound like you've thought about this a long time.", next = "hu_view2" },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "They did, and I do not forget it, though I will not pretend that a battle buys a nation's land. Their settlers cut the Dustwallow forests for their walls, their captains sign treaties with the Warchief who burns Ashenvale, and Proudmoore calls it peace." },
+      },
+      choices = {
+        { text = "Theramore's treaty with the orcs betrays every Sentinel.", next = "BACK",
+          reply = "That is how many of my sisters see it, and I've stopped arguing with them.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Peace with the orcs spares Ashenvale too. Proudmoore is right.", next = "BACK",
+          reply = "Perhaps, if the Warsong honoured it, but they don't. Still, I'll grant you she means well.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not you, perhaps, but your kind. Your kings caged the orcs, lost the camps, and the orcs sailed to Kalimdor, and when we fight them, Theramore sends envoys to the Warchief instead of soldiers to us." },
+      },
+      choices = {
+        { text = "Then let me fight the Warsong beside you.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = { "WARRIOR", "HUNTER", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Your Sentinels lose ground every season. Perhaps blame yourselves.", next = "BACK",
+          reply = "Get out of my sight before I forget we are allies.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "velene_human_soft" } } },
+          text = "Fight beside us? Then go to Mystral Lake and prove it, and if you come back with the summoner's blood on your blade, I'll tell my sisters a human stood with Ashenvale." },
+      },
+      choices = {
+        { text = "I'll go to Mystral Lake.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Words. Every human who comes here has words. Bring me deeds, and we'll speak again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Sentinel.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "velene_human_soft" } },
+          text = "Sentinel Velene Starstrike. Your people let the orcs loose on the world, and Ashenvale is still paying for it, so do not expect a warm welcome here." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "velene_human_soft" },
+          text = "Back again. I've told the Sentinels at the Refuge that not every human is Theramore, and they're listening, if not agreeing." },
         { id = "h_default", key = true,
           text = "I am Velene Starstrike of the Sentinels, and I hold Silverwind Refuge above Mystral Lake. Something has fouled the water elementals in our lake, and before anything else we must learn who controls them." },
         { id = "h_bracers_before", when = { questBefore = TODO_QUEST("Elemental Bracers") },
@@ -57,6 +128,8 @@ P:NPC {
         { text = "Tell me about Silverwind Refuge.", next = "refuge" },
         { text = "Could my magic cleanse the elementals?", next = "mage_v", when = { class = { "MAGE", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What do you make of humans, Sentinel?", next = "hu_view" },
+        { text = "You blame me for the Warsong, Sentinel?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "velene_human_soft" } } },
         { text = "Goodbye, Sentinel.", next = "END" },
       },
     },

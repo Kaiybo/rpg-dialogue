@@ -48,3 +48,6 @@ murlocs_east, lost_footmen, eastvale, defias
 - Worry goes up the chain in writing "and stops somewhere".
 - Gated: priest says the footmen's names at the bridge (no grave; the lake has them), human_westfall_farmhand, Find the Lost Guards done; heardClaim murlocs_in_elwynn line.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("Elwynn men, the same as half the ones still standing"), and `hu_men`: his dead were neighbours; when the city stops sending soldiers, the line carries each other. Stance honor +/-1. Still never says how they died.

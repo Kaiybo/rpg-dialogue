@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human, in Darnassus! You'll want a guide, I expect, and a map, and someone to hold onto your notes for you." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "greywhisker_human_soft" }, priority = 10,
+      text = "My careful human! Come and see, I've finally got the Darkshore notes in order, and I thought of you the whole time." },
     { id = "g_hello", text = "Ah, good, someone who looks like they've held a shovel. Come over, come over, {g:lad|lass}." },
     { id = "g_trouble", when = { questActive = TODO_QUEST("Trouble in Darkshore?") }, text = "Go to Auberdine, {g:lad|lass}, and look for any sign of my crew. Remtravel forgets most things, but he's never gone weeks without a letter." },
     { id = "g_found", when = { questDone = TODO_QUEST("The Absent Minded Prospector") }, text = "Remtravel's safe and his fossil's on its way to Ironforge, thanks to you. I may even forgive him for not writing." },
@@ -31,6 +35,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets greywhisker_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Oh, the League's had a few, and they're brave as you like, but they will lose their field notes! I had a human assistant at a dig in Loch Modan who wrote everything on loose sheets and used half of them to light his pipe." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "The League's had a few of your folk, and they're very brave, only you will lose your field notes! I had a human assistant who lit his pipe with half of his." },
+      },
+      choices = {
+        { text = "Do the elves here like humans any better?", next = "hu_view2" },
+        { text = "Every dwarf I meet has a story like that.", next = "hu_view2" },
+        { text = "Something else, Chief Archaeologist.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "The kaldorei like humans about as much as they like me, which is to say they're very polite and they count the trees after we leave. Mind you, the humans in Auberdine are a sight more careful than the ones in Ironforge, and I suspect the elves have frightened them into it." },
+      },
+      choices = {
+        { text = "Brave but careless. That's humans, Chief Archaeologist.", next = "BACK",
+          reply = "That's very fair, and you can put that in my report, with a footnote about the pipe.",
+          fx = { align = { order = 1 }, opinion = { humans = "careless" } } },
+        { text = "A lost page or two is nothing next to their courage.", next = "BACK",
+          reply = "You're kinder than I am, and maybe right, but you didn't have to rewrite the Loch Modan survey from memory.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Well, I don't mean it unkindly, but your people have cost me a survey, two maps and a very good brush. You're brave, all of you, I'll say it to any senator, but you don't keep things the way a dwarf does." },
+      },
+      choices = {
+        { text = "Give me your notes to copy. I'll return them spotless.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 45 } }, { class = { "MAGE", "PRIEST" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarves lose things too. Ironforge just doesn't admit it.", next = "BACK",
+          reply = "We don't lose things, we misplace them on purpose. That's different, and I'll thank you to remember it.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "greywhisker_human_soft" } } },
+          text = "Spotless? Well, that would make you the first. Here, take this page, only the one, and if it comes back clean, I'll let you see the rest." },
+      },
+      choices = {
+        { text = "It'll come back clean, I promise.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's what the pipe fellow said, word for word. Show me you can keep a single page, and then we'll talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Chief Archaeologist.", next = "END" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -77,6 +144,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "greywhisker_human_soft" } },
+          text = "Chief Archaeologist Greywhisker, Explorers' League. Welcome, and do keep your papers in a satchel while you're here, there's a good human." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "greywhisker_human_soft" },
+          text = "Back again! You're the only human I've met who files his papers, and I tell everyone so." },
         { id = "h_dd_amethaaran", tags = { "news" }, when = { questDone = TODO_QUEST("The Fall of Ameth'Aran") }, text = "Hollee wrote from Auberdine that you read the tablets at Ameth'Aran for the elves, every last one of them! Do you know how many League scholars would give their beards for a look at those ruins?" },
         { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
           text = "You think the League should leave the ruins alone, I'm told. You're welcome to the opinion, so long as you don't preach it to my crew." },
@@ -107,6 +178,8 @@ P:NPC {
         { text = "Tell me about Prospector Remtravel.", next = "remtravel" },
         { text = "I'm of Ironforge. Did you lecture there?", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
         { text = "I'll look for your crew.", next = "BUSINESS" },
+        { text = "What do you make of humans, Chief Archaeologist?", next = "hu_view" },
+        { text = "You treat me as if I'll lose your whole excavation, Chief Archaeologist.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "greywhisker_human_soft" } } },
         { text = "Good day, Archaeologist.", next = "END" },
       },
     },

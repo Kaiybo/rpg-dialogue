@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.95.0 (2026-11-19): Sons of Lothar
+The human patch. No new files: a /reload is enough.
+- **Humans talk to humans.** About thirty human NPCs have branches only a human player hears: Dughan, Gryan Stoutmantle, Salma, Bolvar, Katrana Prestor, Anduin, Archbishop Benedictus, Baros, Solomon, Althea, Magistrate Maleb, Jaina, Nials, Valorfist, Tyrosus and more. They talk about the Second War, Lordaeron's fall and its refugees, the missing king, the Defias and the Stonemasons, Westfall's hunger, Stromgarde's decline, Alterac's treachery and Gilneas behind its wall, and what humans owe each other. Many also tell a dwarf, gnome or night elf what they think being human means.
+- **Nobody else is sure about humans.** About seventy dwarves, gnomes, night elves, orcs, trolls, tauren, Forsaken and goblins now say what they think of them: Stormwind's unpaid debts, Gnomeregan left to fall, axes in Ashenvale, the internment camps and Blackmoore, Daelin Proudmoore's fleet, Northwatch Hold, and the Forsaken's grief for what they were. Some are bitter, some wry, a few admiring. Alliance and neutral NPCs say it to a human player's face, and a good Persuade can soften many of them.
+- **The crowds join in.** Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Razor Hill, Kharanos and the goblin ports grumble about humans; Stormwind, Goldshire, Lakeshire, Darkshire, Sentinel Hill, Menethil, Southshore and Theramore talk among themselves. The Humans topic now fills in wherever they come up, with new views to take.
+- Not seen in game yet.
+
 ## 0.94.0 (2026-11-19): The Moon and the Hunt
 The night elf and hunter patch. **New files in the World pack (`hunter_notice.lua`, `my_beast.lua`, `claims_kaldorei_frontier.lua`, `claims_darkshore_ashenvale.lua`): restart the game fully (a /reload won't load them).**
 - **Talk to your own beast.** Right-click your pet (or target it and talk) for a full conversation, answered in its actions: look it over, praise or scold it, feed it, remember the day you tamed it, teach it a trick, talk about the dead, the druids and where you're headed next. Every beast family behaves its own way.

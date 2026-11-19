@@ -31,3 +31,7 @@ Boastful; his piracy is mostly talk.
 
 ## Topics
 background, advice, gnomeregan, _none.
+
+
+## Humans (human patch)
+- gelkak: Wry, blustering: humans are grand sailors who won't believe a gnome can captain a ship; Menethil's harbourmaster offered him a biscuit. Softens if a human salutes him properly. Flag `gelkak_human_soft`.

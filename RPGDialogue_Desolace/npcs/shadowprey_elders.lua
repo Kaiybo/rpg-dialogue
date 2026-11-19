@@ -231,6 +231,27 @@ P:NPC {
         { text = "Something else, Vark.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them a long way off, which is how I like them. There are a few at Nijel's Point with the elves, and they look at Desolace like a farmer looks at bad soil, as if they could fix it with a plough and a prayer." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were human once, so maybe you can tell me why they come to a dead land like this. There are a few at Nijel's Point with the elves, looking at Desolace as if they could fix it with a plough and a prayer." },
+      },
+      choices = {
+        { text = "Are they a threat to Shadowprey?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Not yet, and I'd keep it that way. I've scars from human swords from the Second War, but I've scars from centaur and nagas since, and I've learned a warrior picks his enemies or they pick him." },
+      },
+      choices = {
+        { text = "Leave them be. Desolace has enemies enough.", next = "BACK", reply = "That's my thinking, and it's kept Shadowprey alive. Let the elves and their humans dig at the dust, it won't grow anything for them either.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Strike them before they dig in at Nijel's Point.", next = "BACK", reply = "Bold talk for a village of fishermen and trappers. If you want a war, {class}, go and start it somewhere I don't live.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_deaths", when = { deaths = { min = 10 } },
@@ -251,6 +272,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. I've a vial to guard and nothing else to do." },
       },
       choices = {
+        { text = "What do you make of humans, Vark?", next = "hu_view" },
         { text = "How many times have you died, Vark?", next = "dd_deaths", when = { deaths = { min = 10 } } },
         { text = "What is Maraudon?", next = "maraudon" },
         { text = "Who is Vyletongue?", next = "vyletongue" },

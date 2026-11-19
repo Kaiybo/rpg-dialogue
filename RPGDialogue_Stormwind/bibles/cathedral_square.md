@@ -170,3 +170,6 @@ Never says: invented history.
 
 ## Prejudice (0.80.0, authored, not canon)
 - Orphan Matron Nightingale (prejudice, WARLOCK): a Slaughtered Lamb warlock's imp set the orphanage linen alight two winters back; she keeps warlocks on the step.
+
+## Humans (human patch)
+- Farthing (human patch): `hum_g1` greeting for human players, plus two branches: `hu_duskwood` (the city has forgotten Darkshire; "we humans are very good at not looking at what frightens us"; stance light +/-1) and `hu_expect` (a child of Stormwind who passes a beggar has passed a neighbour).

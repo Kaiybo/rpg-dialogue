@@ -47,3 +47,6 @@ A repeat-visit line (and a night line for some), in the voice above: small daily
 Hub branches: Blanchy, bad luck (what Elwynn means to her), the stew (whose recipe; the friendly argument with Salma), Theodore (brave once).
 Replies only some characters get: hunters and druids (look Blanchy over), priests and paladins (a prayer for a horse).
 Authored, not canon: Theodore got her out the back door before his boots were on; "a farm isn't a coat"; she disagrees with Salma that the city will suit her.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("we humans do seem to make a habit of" losing homes). Branch `hu_home`: losing and rebuilding homes as a human habit; what she packed when the thieves came. Stance honor +/-1 (leave vs stand and fight).

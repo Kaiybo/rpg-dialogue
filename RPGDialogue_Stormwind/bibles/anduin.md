@@ -38,3 +38,7 @@ westfall, defias, tome_of_divinity
 
 ## 0.34.0
 - Anduin (Persuade, `prestor_true`): he dislikes how Lady Prestor looks at him 'as if I were a sum', and she goes very still when his father's return is mentioned. Bolvar says he's only tired (dramatic irony).
+
+## Humans (human patch)
+- Human players get `hum_g1` (learning his subjects' faces) and a hello line. Branches: `hu_lordaeron` (Terenas took in his father and his people; refugees treated unkindly now; stance light +/-1) and `hu_people` (brave, kind, not hungry).
+- Non-humans: `hu_what`, a child's honest answer: a human king's people don't live long, so wasted years frighten him.

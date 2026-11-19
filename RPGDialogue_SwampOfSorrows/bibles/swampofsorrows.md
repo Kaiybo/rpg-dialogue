@@ -58,3 +58,8 @@ Sources read (warcraft.wiki.gg, Classic sections): Stonard (NPC list), Dar, Lack
 ### Authored, not canon
 Dar born in an internment camp and his "threat from the sea" hint (the chain continues with Tok'Kar); Breyk and Gorrik's hot-versus-wet argument; Greshka's quarrel with Fel'zerul and warlocks drawn to the Portal; Malosh's mud yard. Karakul's regulars (Dar, Breyk, Greshka, Bengor's bowl) and a tauren reply.
 Left out as unsure or thin: Zun'dartha (no quests or gossip on record), Ogromm, Grokor, Kartosh, Thultash, Thralosh and the other vendors.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Ruag: Stonard is surrounded by human banners (Redridge patrols, Nethergarde); admits the Horde came as invaders and burned Stormwind, and expects no forgiveness for Stonard standing.
+- Helgrum (authored): humans clank through the swamp like a pot cart; a Redridge sergeant once let him run, and he can't decide if he owes the man a drink or an axe.

@@ -43,3 +43,6 @@ Authored, not canon: he thinks about the compass more than the Cathedral; he sle
 
 ## Night elves (prejudice pass)
 - Envy and exasperation: they grew a city without a mason and won't sell Ashenvale timber even to allies. A kaldorei player can make him see the forest as their cathedral (`[Persuade]`, npcFlag `baros_nelf_soft`).
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("every one of those stones was laid by a Stormwind man"). Branch `hu_stones`: who paid for the city; his choice vs Edwin's; "every human in Stormwind thinks someone else will pay" (stance honor +/-1). `[Persuade]` "The Stonemasons deserve their names on these walls" sets npcFlag `baros_hu_soft`: masons' marks, his ledger of them; softer greeting `hum_g2` and hub reply `hu_marks`. The masons' marks and his ledger are our invention (plausible craft detail, not sourced).

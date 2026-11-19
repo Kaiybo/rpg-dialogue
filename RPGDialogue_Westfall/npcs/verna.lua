@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Oh, you've the look of an Elwynn child, dear. Mind Blanchy, she's tired, but she'll still have your sleeve if you stand too close." },
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
     { id = "g_oats", when = { questActive = TODO_QUEST("Poor Old Blanchy") }, text = "Any oats? She's been looking at me like I've forgotten her." },
     { id = "g_after", when = { questDone = TODO_QUEST("Poor Old Blanchy") }, text = "Blanchy's put on a little weight, thanks to you. Don't tell her I said so." },
@@ -106,8 +108,36 @@ P:NPC {
         { text = "Something else, Verna.", next = "BACK" },
       },
     },
+    hu_home = {
+      lines = {
+        { id = "hum_home", key = true,
+          text = "I mean to, dear, and so does Theodore, though he'd sooner eat his hat than say it plainly. Our people have been losing homes and building them again since before Stormwind had walls, and I don't see why the Furlbrows should be any different." },
+      },
+      choices = {
+        { text = "Does losing a home ever get easier?", next = "hu_home2" },
+        { text = "Something else, Verna.", next = "BACK" },
+      },
+    },
+    hu_home2 = {
+      big = true,
+      lines = {
+        { id = "hum_home2",
+          text = "No, dear, it never does, but you learn to pack lighter. When the thieves came, I took the good pot, my mother's quilt and Blanchy, and I'd do it again in that order, though don't you tell Blanchy she came third." },
+      },
+      choices = {
+        { text = "Some things are worth more than any farm, Verna.", next = "BACK",
+          reply = "Blanchy, mostly, and Theodore on a good day. You've a sensible head on you, dear.",
+          fx = { align = { honor = -1 } } },
+        { text = "I'd have stayed and fought for the farm.", next = "BACK",
+          reply = "Theodore said the same, dear, and he'd have been killed for it, and I'd have had a farm and no husband. Fight when you must, and pack the pot when you mustn't.",
+          fx = { align = { honor = 1 } } },
+        { text = "Goodbye for now, Verna.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You'll know how it is, dear, to have a home you can't go back to. Half the folk in the kingdom do these days, between the Horde and the plague and the thieves, and we humans do seem to make a habit of it." },
         { id = "dd_heirloom_v", when = { questDone = TODO_QUEST("The Forgotten Heirloom") },
           text = "Theodore has his pocket watch back, and he winds it every evening by the wagon as though the farm were still ours. My father gave him that watch, and I can't tell you how much it means to see it in his hand again." },
 
@@ -151,6 +181,7 @@ P:NPC {
         { text = "Shall I take your farm back from the thieves, Verna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "My sort seems to frighten you, Verna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could my spirits calm Blanchy, Verna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You'll go home to your farm one day, Verna.", next = "hu_home", when = { race = "Human" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

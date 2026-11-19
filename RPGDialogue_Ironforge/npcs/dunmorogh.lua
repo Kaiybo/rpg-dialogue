@@ -966,7 +966,7 @@ P:NPC {
 
 P:NPC {
   key = "ragnar", id = TODO_NPC("Ragnar Thunderbrew"), name = "Ragnar Thunderbrew",
-  prejudice = { race = "Gnome", amount = 6, why = "Fond grumble: refugees rewired his mash tun to stir itself at three in the morning." },
+  prejudice = { { race = "Gnome", amount = 6, why = "Fond grumble: refugees rewired his mash tun to stir itself at three in the morning." }, { race = "Human", amount = 4, why = "Stormwind's taverns water his ale and sell it under his name." } },
   bible = "bibles/dunmorogh.md", role = "citizen", tier = "quest",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "proud", "generous" },
   notices = { "drink", "craft", "lock_shadow" },
@@ -977,8 +977,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "Another gnome in my brewhouse, and I'll ask you the same as the last forty: please don't touch the copper, don't tune the kettles, and don't ask if it could be made to go faster." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite gnome! You've not improved a single one of my kettles in all this time, and I've decided that makes you the finest of your people." },
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in Kharanos! Have a proper ale, {g:lad|lass}, no' the watered stuff yer folk sell in Goldshire, an' try no' tae fall over." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "ragnar_human_soft" }, priority = 10,
+      text = "Ah, my human taster! Pull up a stool; the new batch is in, an' ye're the only human I'd let near it undiluted." },
+    { id = "g_prej", when = { race = "Gnome", prejudiced = true }, text = "Another gnome in my brewhouse, and I'll ask you the same as the last forty: please don't touch the copper, don't tune the kettles, and don't ask if it could be made to go faster." },
+    { id = "g_prej_over", when = { race = "Gnome", prejudiced = "overcome" }, text = "Ah, my favourite gnome! You've not improved a single one of my kettles in all this time, and I've decided that makes you the finest of your people." },
     { id = "g_distillery", text = "Welcome to the Thunderbrew! It's the best ale in Dun Morogh, an' I'll fight anyone who says otherwise, politely." },
   },
 
@@ -993,6 +997,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets ragnar_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "They're fine drinkers an' terrible brewers, {g:lad|lass}, an' I'll say that tae any human's face. I sent a barrel o' Thunder Ale tae Goldshire once, an' by the time it reached the Lion's Pride they'd watered it twice an' were sellin' it under my name." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Ye're grand drinkers, all o' ye, an' dreadful brewers. I sent a barrel tae Goldshire once, an' yer folk watered it twice an' still sold it under my name." },
+      },
+      choices = {
+        { text = "What did you do about the watered ale?", next = "hu_view2" },
+        { text = "Perhaps they just can't handle dwarven strength.", next = "hu_view2" },
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "I wrote tae the innkeeper, an' he wrote back that his customers preferred it lighter, which is like a smith sayin' his customers prefer their swords bendy. That's humans for ye: they'll take a good thing an' water it down so it lasts, because they're never sure they'll be around tae finish it." },
+      },
+      choices = {
+        { text = "A brewer's name deserves respect. They should have asked.", next = "BACK",
+          reply = "That's the spirit! Ye'd make a fine Thunderbrew, if ye had the beard for it.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Humans can drink their ale however they please.", next = "BACK",
+          reply = "They can, aye, but no' wi' my name on the barrel. Call it Goldshire Puddle an' I'll say nothin'.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Against human brewers, an' innkeepers, an' anyone in Elwynn wi' a jug o' water near my barrels. I've had my name on a lot o' watered ale south o' the mountains, an' a brewer's name is all he's got." },
+      },
+      choices = {
+        { text = "Pour me a real Thunder Ale. I'll judge it without water.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { profession = "Cooking" }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarven ale is just bread with a temper.", next = "BACK",
+          reply = "Bread wi' a temper! I like that, an' I'll forgive ye for it, but only because it's true.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "ragnar_human_soft" } } },
+          text = "Without water? Now there's a human who knows what he's askin' for! Get that down ye, an' if ye're still standin' I'll tell the whole of Kharanos there's hope for yer kind yet." },
+      },
+      choices = {
+        { text = "Still standing, Ragnar. Mostly.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Aye, an' then ye'll cough an' ask for a jug o' water like the rest. Come back when ye've a dwarven throat on ye." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Ragnar.", next = "END" },
+      },
+    },
     prej = {
       big = true,
       lines = { { id = "prej_default", text = "Like them? I took in half of Gnomeregan the winter it fell, and I'd do it again, but three of them rewired my mash tun to stir itself, and now it stirs itself at three in the morning and nobody can find the off lever." } },
@@ -1150,6 +1217,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "ragnar_human_soft" } },
+          text = "Ragnar Thunderbrew, an' yes, I'm the Thunderbrew. If ye've had Thunder Ale in Goldshire, I apologise, for ye've never had Thunder Ale at all." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "ragnar_human_soft" },
+          text = "Back for another? Good, for I've told the lads there's a human who can drink a proper pint an' still find the door." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll bless the vats, will ye? No? Well, a dwarf can ask, an' the Barleybrews have a priest come round every spring, or so they claim." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll have a pint before ye go, or at least smell one, for it's bad luck tae leave the Thunderbrew Distillery dry." },
         { id = "h_default", key = true,
@@ -1179,7 +1250,7 @@ P:NPC {
       },
       choices = {
         { text = "About your cellar, Ragnar...", next = "dd_rg_cellar", when = { questDone = TODO_QUEST("Distracting Jarven") } },
-        { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { prejudiced = true } },
+        { text = "You don't much like gnomes, do you, Ragnar?", next = "prej", when = { race = "Gnome", prejudiced = true } },
         { text = "What's in the famous ribs?", next = "ribs" },
         { text = "Your supplier seems to have let you down.", next = "supplier" },
         { text = "This distillery looks older than you.", next = "family" },
@@ -1197,6 +1268,8 @@ P:NPC {
         { text = "My family brews, but I'd rather see where the barrels go.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
         { text = "What makes a proper dwarven ale, Ragnar?", next = "dw_ale" },
         { text = "Pour me something from home, Ragnar. I've been gone too long.", next = "dw_home", when = { race = "Dwarf" } },
+        { text = "What do you make of humans, Ragnar?", next = "hu_view" },
+        { text = "You've a grudge against human drinkers, Ragnar?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "ragnar_human_soft" } } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },

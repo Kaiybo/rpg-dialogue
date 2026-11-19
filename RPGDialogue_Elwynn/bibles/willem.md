@@ -45,3 +45,7 @@ Sources read: the wiki pages Willem, A Threat Within, Eagan Peltskinner (quest),
 - Canon used: he'd normally be out on the beat as a Stormwind guard, deputized because so many guards fight in other lands (gossip); more wolves in the valley lately; Eagan around the side of the Abbey; Milly is his friend, with her wagon by the stable, and says his duties keep him stuck at the Abbey; the Defias were "seen across the river to the east" and he doesn't know what they're up to; Garrick Padfoot, a cutthroat with a gang of thugs, shack east of the vineyards across the bridge, plaguing farmers and merchants for weeks.
 - Branches: the thieves (Garrick; why anyone joins), the valley (Milly; Eagan, whose pelts go to his wife Helene's orders), his beat (a city guard, deputized), and replies for Westfall farmhands and players from far away (dwarf, gnome, night elf, Skyborne). Abbey-novice and veteran lines.
 - Authored, not canon: "a shirt and a stick"; his fear of knowing faces under the bandanas.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a proud-of-Northshire hello line. Branches: `hu_home` (the valley vs the city, hungry folk put on masks; stance order +/-1) and `hu_masks` (the Defias look like his cousins; stance order +/-1).
+- Non-humans: `hu_what`, his cheerful answer about knowing your valley and wanting the next hill.

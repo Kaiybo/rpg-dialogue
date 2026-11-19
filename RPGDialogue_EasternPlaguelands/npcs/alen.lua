@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Oh, wonderful, another human. Most of my customers in the pit are human too, but they're a lot quieter than you're about to be." },
     { id = "g_pit", text = "They hand the corpses to me, and I toss them in the pit. Want something, or are you volunteering?" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Good, you're not a corpse, because I'm full up today." },
     { id = "g_zaeldarr", when = { questActive = TODO_QUEST("Zaeldarr the Outcast") }, text = "The Undercroft, to the west. Big dead troll, lots of stolen bodies, can't miss him." },
@@ -45,8 +47,47 @@ P:NPC {
         { text = "Something else, Alen.", next = "BACK" },
       },
     },
+    hu_alen = {
+      lines = {
+        { id = "hual_default", key = true,
+          text = "Because I'm human, and so were they, and because I keep finding things in there. A wedding ring, a tin soldier, a Stratholme baker's mark on a belt buckle, and I can't burn those, so I put them in a box under the cart." },
+      },
+      choices = {
+        { text = "What do you mean to do with the box?", next = "hu_alen_2" },
+        { text = "You're softer than you let on, Alen.", next = "hu_alen_2" },
+      },
+    },
+    hu_alen_2 = {
+      big = true,
+      lines = {
+        { id = "hual2_default",
+          text = "Don't tell anyone, I've a reputation to keep. I suppose I'll give it all back one day, if anyone's left in Lordaeron to give it to, and if not, I'll bury it proper, with a stone and a name on it, which is more than the plague gave them." },
+      },
+      choices = {
+        { text = "They deserve a name and a stone, not a pit.", next = "BACK",
+          reply = "That's what I keep telling the paladins, and they keep handing me a shovel. Thanks for agreeing with me, anyway; it doesn't happen often.",
+          fx = { align = { light = 1 }, opinion = { undeath = "mourn" } } },
+        { text = "Dead is dead. Burn it all and move on.", next = "BACK",
+          reply = "Spoken like someone who's never had to do the burning. You're probably right, mind, and I'm still keeping the box.",
+          fx = { align = { light = -1 }, opinion = { undeath = "burn" } } },
+        { text = "Something else, Alen.", next = "BACK" },
+      },
+    },
+    hu_alen_x = {
+      lines = {
+        { id = "hualx_default", key = true,
+          text = "We do, and we're right to. A human gets sixty years if he's lucky, so a name on a stone is the only bit of him that lasts; take that away, as the plague did, and it's like he was never here at all." },
+      },
+      choices = {
+        { text = "I hadn't thought of it that way.", next = "BACK", fx = { affinity = 1 },
+          reply = "Nobody does, until they're the one with the shovel. Now, are you buying anything, or just making me sentimental?" },
+        { text = "Something else, Alen.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Every one of those down in the pit was somebody's somebody, and most of them were human, because that's who lived here. Somebody's got to keep count, and the Dawn doesn't pay me enough to forget." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } },
           text = "You again, and still upright! I keep a list of folk I reckon I'll be tossing in the pit before the month's out, and your name's been on it more than once." },
         { id = "h_default", key = true, text = "Alen, caretaker, which is a fancy word for the fellow with the shovel. I keep the pit, I sell the bandages, and I don't get paid near enough for either." },
@@ -73,6 +114,8 @@ P:NPC {
         { text = "You don't seem to hate the Scourge's victims.", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
         { text = "Can I bless the pit before you fill it again?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Show me what you're selling.", next = "BUSINESS" },
+        { text = "Why does the pit trouble you so, Alen?", next = "hu_alen", when = { race = "Human" } },
+        { text = "Humans make a great fuss about burial, don't they?", next = "hu_alen_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },

@@ -48,3 +48,7 @@ Priest trainer by the altar at the back of the Cathedral of Light (warcraft.wiki
 - Taught at Northshire Abbey as a boy who'd rather fish; watches first light through the east window daily, sleeps afternoons.
 - Teaches "look at the face, not the wound", then "rest"; a student who lost her prayer at Andorhal now tends the side-chapel candles.
 - Visited a Canals widow when her name "came to him" in prayer; uneasy about Brother Crowley's Crusade; sees Benedictus as kind and tired.
+
+## Humans (human patch)
+- Human players get `hum_g1` ("welcome home, child") and a hello line on what the people have borne. Branches: `hu_light` (honest doubt: silent mornings since Lordaeron fell, Faol's teaching; stance light +/-1) and `hu_masons` (the Church blessed the walls and stayed silent on the masons' pay; stance order +/-1). Written straight; no Twilight hint.
+- Non-humans: `hu_what`, "our lives are short and our griefs are long".

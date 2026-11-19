@@ -57,3 +57,6 @@ No personal memories put in Baine's mouth about the walk itself (his age then is
 
 ## Night elves (authored, not canon)
 - Baine: knows the elves through Hamuul's stories and the Warsong's complaints; hopes the Horde could ask the Circle where to cut and the forest could feed both, as his father's peace with Theramore shows.
+
+## Humans (human patch)
+- Baine: knows humans mostly from Northwatch stories; would talk first, then break tools (as at Bael'dun), never men.

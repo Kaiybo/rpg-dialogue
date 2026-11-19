@@ -127,3 +127,7 @@ Food and goods
 ### What they notice
 - Class and craft above all: each trainer notices their own class or trade (a mage's scorched hand, a hunter's string fingers, a smith's wrist burn) and one other (warlocks, warriors, shaman, tauren, trolls, Forsaken replies).
 - Merchants: worn gear (Tumi, Kiro, Morgum, Sana, Okothos, Shayis), thin purses (Soran, Wabang, Grimful, Urtharo, Asoran, Trak'gen, Sovik), hunger (Borstan, Olvia), hunters' pets (Olvia, Xan'tish, Sian'dur, Xor'juul), stealth (Ormok, Kareth), guild membership (Garyl), travel (Gotri).
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Nazgrel: distrust as a security matter. Theramore's envoys count the grunts on the walls; he trusts Thrall, not Jaina's successors. Forsaken: 'you were one of them'; orcs: the camp guards counted us every morning.

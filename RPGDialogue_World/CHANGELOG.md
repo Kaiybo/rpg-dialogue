@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.47.0 (2026-11-19)
+- Human patch: the `humans` topic now links wherever humans come up; town crowds in Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Razor Hill, Kharanos and the goblin ports grumble about humans, and human towns talk among themselves; new views on humans; banker, auctioneer and reagent vendor lines for human players.
+
 ## 1.46.0 (2026-11-19)
 - New files `hunter_notice.lua` and `my_beast.lua` (restart the game fully). People notice a hunter and their beast; talk to your own pet; the hunter trainer's road from 1 to 60; four new Stories (two for hunters by faction, Rhok'delar, and a night elf one).
 

@@ -67,3 +67,7 @@ Sources: Classic NPC roster of Theramore Isle as remembered (wiki pages Baldruc,
 
 ## Night elves (prejudice pass)
 - Vimes, night elves: wary neighbours since Hyjal ('we don't borrow sugar'); finds kaldorei hard to read; says the Sentinels hold Ashenvale alone (exposes Solomon's claim).
+
+## Humans (human patch)
+- Jaina, humans: why Lordaeron's people followed her west; humans remember the orc wars with their whole bodies; Hyjal. Kept off Arthas and Stratholme (private). Non-humans: humans are good at starting over.
+- Vimes, humans (authored prejudice): looks twice at humans off the Menethil boat because Daelin's men looked just like them; `[Persuade]` sets npcFlag `vimes_hu_soft`.

@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "A Stormwind citizen in the Architect's office, and not to complain about a drain, I hope. Sit, if you can find a chair under the plans." },
+    { id = "hum_g2", when = { race = "Human", npcFlagBefore = "baros_hu_soft" }, priority = 10,
+      text = "Ah, the one who gave me the idea about the ledger. I've been reading masons' marks on my walk to work, and I'm late every morning now." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "Careful of the plans, friend; those are the Mage Quarter's new drains, which I gather your city has no need of. Ishnu-alah, is it? I've been practising." },
     { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "baros_nelf_soft" }, priority = 10,
@@ -233,8 +237,67 @@ P:NPC {
         { text = "I'll let you work.", next = "END" },
       },
     },
+    hu_stones = {
+      lines = {
+        { id = "hum_stones", key = true,
+          text = "Lordaeron's gold paid for the first of it, the House of Nobles promised the rest, and the masons were last in line when the purse ran dry. I took the city's post when it was offered, Edwin took his men west, and both of us have been living with that choice since." },
+      },
+      choices = {
+        { text = "You could have stood with the masons.", next = "hu_stones2" },
+        { text = "It wasn't your purse to open, Architect.", next = "hu_stones2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stones2 = {
+      big = true,
+      lines = {
+        { id = "hum_stones2",
+          text = "I could have, and I didn't, and I tell myself a city needs an architect more than a riot needs another mason. The trouble is that every human in Stormwind thinks the same way, friend: someone else will see to it, someone else will pay, and the masons are still waiting." },
+      },
+      choices = {
+        { text = "Then pay your debt now. Speak for them at the House.", next = "BACK",
+          reply = "To the House of Nobles? They'd hear me out and then commission a fountain. Still, I'll write again, and this time I'll sign it plainly.",
+          fx = { align = { honor = 1 } } },
+        { text = "You chose the safe road. Most of us would.", next = "BACK",
+          reply = "Most of us would, which I find is no comfort at all. Thank you for not pretending otherwise.",
+          fx = { align = { honor = -1 } } },
+        { text = "The Stonemasons deserve their names on these walls.", tag = "Persuade", next = "hu_stones_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { questDone = TODO_QUEST("The Unsent Letter") }, { townStanding = { town = "stormwind", min = 30 } } } } },
+          fail = { next = "hu_stones_fail", fx = { affinity = -1 } } },
+      },
+    },
+    hu_stones_soft = {
+      lines = {
+        { id = "hum_soft", key = true, fx = { npcFlag = { set = { "baros_hu_soft" } } },
+          text = "That's a thought I should have had years ago. Every mason marks his stone low down, where the nobles never look, and I keep a ledger of whose mark is whose that I've only ever treated as accounts." },
+      },
+      choices = {
+        { text = "Then it's a roll of honour. Keep it safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stones_fail = {
+      lines = {
+        { id = "hum_fail", text = "A pretty sentiment, and the House would carve it in marble and send the masons the bill. Come back when you've seen Westfall, and we'll speak of debts." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll let you work, Architect.", next = "END" },
+      },
+    },
+    hu_marks = {
+      lines = {
+        { id = "hum_marks", text = "There's a hammer and star on the Cathedral steps that belonged to a man I trained, and I stood on it for ten years without knowing. I've started copying the marks into a clean book, for whatever good it does." },
+      },
+      choices = {
+        { text = "It does some good. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You walk these streets every day, I expect, and never look at them, which is the highest compliment a citizen can pay an architect. Every one of those stones was laid by a Stormwind man, and too many of those men went unpaid." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "A kaldorei in the Architect's office. I'd ask how Darnassus was built, but I'm told it wasn't built at all, which is the sort of thing that keeps an architect up at night." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -298,6 +361,8 @@ P:NPC {
         { text = "What does an architect make of the night elves?", next = "bx_nelf" },
         { text = "You seem to have a grievance with Darnassus, Architect.", next = "bx_xnelf", when = { race = "NightElf" } },
         { text = "Still dreaming of Ashenvale oak, Architect?", next = "bx_nsoft", when = { race = "NightElf", npcFlagBefore = "baros_nelf_soft" } },
+        { text = "You built this city, Architect. Who paid for it?", next = "hu_stones", when = { race = "Human" } },
+        { text = "Still reading the masons' marks, Architect?", next = "hu_marks", when = { race = "Human", npcFlagBefore = "baros_hu_soft" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

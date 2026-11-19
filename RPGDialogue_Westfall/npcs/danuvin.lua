@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Another one from the city. I'll judge you by the patrol and not the accent, but I'll warn you now that the accent starts you behind." },
+    { id = "hum_g2", when = { race = "Human", npcFlagBefore = "danuvin_hu_soft" }, priority = 10,
+      text = "The city one who argued with me and wasn't wrong. Don't let it go to your head, because I've still got patrols for you." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The orcs' warlocks burned Stormwind with my father inside it, and you carry the same stink. Stand away from my recruits." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I know a demon-caller when one walks up my hill. Say what you want and keep that thing on a short leash." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the work, and my recruits have stopped staring at you. I haven't stopped watching you, but I'll take your help." },
@@ -125,8 +129,67 @@ P:NPC {
         { text = "Something else, Captain.", next = "BACK" },
       },
     },
+    hu_blame = {
+      lines = {
+        { id = "hum_blame", key = true,
+          text = "I do, and I've earned the right to. My volunteers are farmers who were too stubborn to leave, and every one of them has a brother or a cousin who went to the city looking for work and came back in a mask, or didn't come back at all." },
+      },
+      choices = {
+        { text = "Then blame the nobles, not every citizen.", next = "hu_blame2" },
+        { text = "Some of us in the city still care, Captain.", tag = "Persuade", next = "hu_blame_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { questDone = TODO_QUEST("Patrolling Westfall") }, { townStanding = { town = "sentinel_hill", min = 30 } } } } },
+          fail = { next = "hu_blame_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    hu_blame2 = {
+      big = true,
+      lines = {
+        { id = "hum_blame2",
+          text = "The nobles never set foot west of the Elwynn gate, so who else is there to blame but the citizens who let them get away with it? You've a vote in nothing and a voice in less, I know, but you've a voice, and I've never once heard the city use it for us." },
+      },
+      choices = {
+        { text = "You're right. We should have shouted louder.", next = "BACK",
+          reply = "Then start now, and start at the House of Nobles, where the walls are thick enough to need it.",
+          fx = { align = { order = -1 } } },
+        { text = "Shouting doesn't end a famine. Patrols do.", next = "BACK",
+          reply = "Now that's a soldier's answer, and I can't argue with it. Get out on the road, then, and we'll see if you patrol as well as you talk.",
+          fx = { align = { order = 1 } } },
+        { text = "I'll be on my way, Captain.", next = "END" },
+      },
+    },
+    hu_blame_soft = {
+      lines = {
+        { id = "hum_soft", key = true, fx = { npcFlag = { set = { "danuvin_hu_soft" } } },
+          text = "Hm. You've walked my roads and bled on them, which is more than any speech from the Keep ever did. Fine, then, I'll tell my farmers some of the city cares, and you'll have to keep proving me right." },
+      },
+      choices = {
+        { text = "I will, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_blame_fail = {
+      lines = {
+        { id = "hum_fail", text = "Caring's cheap in the city, and I've had my fill of it. Walk a patrol for me first, and then tell me again." },
+      },
+      choices = {
+        { text = "Then I'll walk one. Something else.", next = "BACK" },
+        { text = "I'll be on my way, Captain.", next = "END" },
+      },
+    },
+    hu_soft_again = {
+      lines = {
+        { id = "hum_again", text = "I told them, and one of my volunteers laughed so hard he had to sit down. Then he asked me your name, which I'd call progress, so keep at it." },
+      },
+      choices = {
+        { text = "I will. Something else, Captain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "City folk come out here with their noses wrinkled at the dust, and they go home with stories about Westfall's thieves. My farmers are the ones holding this hill, and I'd like that in the stories for once." },
         { id = "dd_bandanas_danu", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
           text = "Galiaan's sack of bandanas came through my hands on the way to Gryan, and I counted yours twice to be sure. That's honest militia work, and you'll find the patrols treat you as one of their own now." },
 
@@ -170,6 +233,8 @@ P:NPC {
         { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your militia must take Defias prisoners now and then, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your militia fight beside a shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You blame Stormwind for all of this, Captain.", next = "hu_blame", when = { race = "Human" } },
+        { text = "Still telling your farmers the city cares, Captain?", next = "hu_soft_again", when = { race = "Human", npcFlagBefore = "danuvin_hu_soft" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },

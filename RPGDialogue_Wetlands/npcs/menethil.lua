@@ -1496,6 +1496,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Mind the rope there, friend. You've the look of someone who came through Menethil the hard way once, going south with everyone else." },
     { id = "g_dock", text = "Careful of the ropes, and the nets, and the crates... actually, just stand still a moment, would you?" },
     { id = "g_back", when = { metBefore = true }, text = "There you are. The work never stops, but the company's better." },
   },
@@ -1596,8 +1598,38 @@ P:NPC {
         { text = "Something else, Karl.", next = "BACK" },
       },
     },
+    hu_karl = {
+      lines = {
+        { id = "huka_default", key = true,
+          text = "It was King Terenas's house, and the harbour was named for him after the second war, when the name meant something good. Then his son came home from the north and murdered him on his throne, and now folk read the gate and go quiet." },
+      },
+      choices = {
+        { text = "Did you see the refugees come through, after?", next = "hu_karl_2" },
+        { text = "It's a hard name to carry now.", next = "hu_karl_2" },
+      },
+    },
+    hu_karl_2 = {
+      big = true,
+      lines = {
+        { id = "huka2_default",
+          text = "I saw them, all of them, it felt like: carts and children and old men carrying their grandfathers' swords, all trying to get on any boat that would take them anywhere south. Some of the dockhands wanted the name off the gate after that, and some wanted it painted fresh." },
+        { id = "huka2_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "I saw them, and I'd wager I saw you, among the carts and the children and the old men carrying their grandfathers' swords. Some of the dockhands wanted the name off the gate after that, and some wanted it painted fresh." },
+      },
+      choices = {
+        { text = "Keep the name. Terenas earned it, whatever his son did.", next = "BACK",
+          reply = "That's how I see it, and Captain Stoutfist says the same, though he says it louder. One bad son doesn't undo a good king.",
+          fx = { align = { order = 1 }, opinion = { lordaeron = "remember" } } },
+        { text = "Take it down. That name belongs to a murderer now.", next = "BACK",
+          reply = "I've heard that said on these docks, and I can't fault the folk who said it, not after what they'd seen. It stays up for now, all the same.",
+          fx = { align = { order = -1 }, opinion = { lordaeron = "forget" } } },
+        { text = "Something else, Karl.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "This harbour carries the old king's name, and every human who comes down the docks looks up at the gate when they read it. You did too, I saw you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ships come in with sick men aboard more often than the harbourmaster likes to admit, so I'm glad to see one of you on the docks." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Murlocs and marsh don't care about holy hammers, but my dockhands might, so stand where they can see you." },
         { id = "h_default", text = "Karl Boran, merchant marine. I keep cargo moving through this harbour, which is harder than it sounds with half the marsh trying to eat it." },
@@ -1638,6 +1670,7 @@ P:NPC {
         { text = "Who protects the cargo bound for Ironforge, Karl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does anything for my trade come through your docks, Karl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you hire a shaman to guard your cargo, Karl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Menethil was the royal house's name, wasn't it?", next = "hu_karl", when = { race = "Human" } },
         { text = "Good luck with the cargo.", next = "END" },
       },
     },

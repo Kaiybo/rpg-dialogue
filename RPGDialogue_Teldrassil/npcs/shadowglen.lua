@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human, in Shadowglen! How marvellous, and how strange; do mind the saplings, they've never seen anyone so quick." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "ilthalaine_human_soft" }, priority = 10,
+      text = "My human friend! The orchard you asked about is in bloom, and I thought of you when the first petals opened." },
     { id = "g_glade", text = "Look at the light through the leaves. Every morning it's new, and after more centuries than I can count, I am still glad of it." },
     { id = "g_back", when = { metBefore = true }, text = "In the glade again. Does it still take your breath? It still takes mine." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the glade {away}, and the cubs have grown in that time, just as you have. Come and look at the light with me." },
@@ -32,6 +36,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): admiring view of humans; Persuade softener sets ilthalaine_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Oh, I find them wonderful, though I'd not say it too loudly to my sisters! They live a single season, as we count it, and they still plant orchards they'll never eat from, which is either the bravest thing I've ever heard or the most foolish." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I find your people wonderful, though my sisters disagree. You live a single season, as we count it, and still plant orchards you'll never eat from." },
+      },
+      choices = {
+        { text = "Why do your sisters disagree?", next = "hu_view2" },
+        { text = "That sounds like admiration and pity in one breath.", next = "hu_view2" },
+        { text = "Something else, Conservator.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "They remember the Warsong's axes in Ashenvale, and the humans who came with Jaina across the sea, and they say that where humans go, the trees fall. That's true, I'll admit, but I've watched a human farmer kneel to look at a seedling, and I'd swear by Elune he loved it as much as I do." },
+      },
+      choices = {
+        { text = "Humans love the land, in their way. They deserve patience.", next = "BACK",
+          reply = "That is my hope as well, and I'll keep watching for proof.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Where humans go, the trees fall. Your sisters are right.", next = "BACK",
+          reply = "Perhaps they are, and I am too fond of small things. Still, a seedling doesn't care who planted it.",
+          fx = { align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "No, and I'm sorry for it. My people see an axe in every human hand, because the last humans they met came with the orcs and the war at Hyjal, and Ashenvale still bears the scars." },
+      },
+      choices = {
+        { text = "Let me plant something here, then, before I leave.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 40 } }, { class = { "DRUID", "PRIEST" } }, { profession = "Herbalism" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Their manners need work, then. I've done nothing to them.", next = "BACK",
+          reply = "You haven't, and you're quite right to say so, though I'd not say it too loudly here.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "ilthalaine_human_soft" } } },
+          text = "Plant something? Oh, that's wonderful, and exactly the right answer! There's a patch by the moonwell that needs a sapling, and I'll tell everyone a human put it there." },
+      },
+      choices = {
+        { text = "I'll tend it until I go.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "A lovely thought, but the glade needs a little more trust before it lets a stranger dig. Come back when the wisps know you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Conservator.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They know the forest, which may be near enough. They play in the light and sleep in the shade, and I think your spirits would like them." } },
@@ -122,6 +189,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "ilthalaine_human_soft" } },
+          text = "Ishnu-alah! I'm Conservator Ilthalaine. Forgive the wisps if they flit around you; they've never met a human, and nor, if I'm honest, have most of my sisters." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "ilthalaine_human_soft" },
+          text = "Welcome back! I told my sisters about the human who asked to plant something, and they've stopped frowning, mostly." },
         { id = "h_dd_iverron", tags = { "news" }, when = { questDone = TODO_QUEST("Iverron's Antidote") }, text = "Dirania tells me Iverron is on his feet again, thanks to you. The glade is small, and a life saved in it is felt by every one of us who keeps it." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "You remind me of {alt}, a young {altclass} who learned the balance here in Shadowglen and thinned the boars without any malice in it. If that one is kin to you, I hope you were taught the same gentleness." },
@@ -167,6 +238,8 @@ P:NPC {
         { text = "Do the nightsaber cubs know the spirits, Conservator?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Why did we plant a new World Tree at all, Conservator?", next = "ne_why_tree", when = { race = "NightElf" } },
         { text = "Some days I can't believe we're mortal now.", next = "ne_mortal", when = { race = "NightElf" } },
+        { text = "What do you make of humans, Conservator?", next = "hu_view" },
+        { text = "The other kaldorei here won't meet my eyes, Conservator.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "ilthalaine_human_soft" } } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },

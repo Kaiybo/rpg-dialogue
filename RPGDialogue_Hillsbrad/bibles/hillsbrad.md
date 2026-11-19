@@ -69,3 +69,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Night elves (prejudice pass)
 - Redpath, night elves: remembers the Quel'Thalas rangers fondly; holds an unreasonable grudge that 'the world' (kaldorei included) looked away from Lordaeron. `[Persuade]` sets npcFlag `redpath_nelf_soft`.
+
+## Humans (human patch)
+- Redpath, humans: stood on the beach when Lothar's boats landed; bitter that Stormwind sent 'three men and a cook' when Lordaeron's refugees came south; the ones who stayed are Southshore folk now.
+- Maleb, humans: the Syndicate are Alterac's nobility, Perenolde's houses; the other kings carved Alterac up; Gilneas walled itself in, Stromgarde marched home. Non-humans: short lives, long grudges.

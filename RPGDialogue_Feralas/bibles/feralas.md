@@ -47,3 +47,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Night elves (authored, not canon)
 - Hadoken (Camp Mojache): neither trusts nor hates Feathermoon; grants the elves' old claim to Feralas but not to every tree from here to Darkshore; twice Sentinels planted warning arrows before Mojache hunters near the coast.
+
+
+## Humans (human patch)
+- shandris: Torn general: fought beside Proudmoore's soldiers at Hyjal; resents Theramore building on land never offered; fears humans will cover Kalimdor. Softens if a human offers to carry her words to Theramore. Flag `shandris_human_soft`.

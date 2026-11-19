@@ -632,3 +632,25 @@ P:Views { topic = "the_elements", views = {
     { id = "b", text = "Bold, and foolish. The Twilight's Hammer think the same thing, and you've seen what they've become." },
   } },
 } }
+
+-- Human patch: what the player says back about humans, wherever someone has an opinion of them.
+P:Views { topic = "humans", views = {
+  { id = "judge", text = "Judge each human by their deeds, not by their kings.", fx = { opinion = { humans = "fair" }, trait = { kind = 1 }, align = { light = 1 } }, replies = {
+    { id = "a", text = "Fairly said, {class}, and harder done than said. I've met a few worth the trouble, and I'll grant you that much.", fx = { affinity = 1 } },
+    { id = "b", when = { faction = "Horde" }, text = "Their deeds built the camps, so I've judged plenty. Still, a human woman died helping Thrall escape, and I'll not forget her either." },
+    { id = "c", when = { race = "Human" }, text = "You would say that, being one. Still, you're right, and I've no answer to it that I'm proud of." },
+  } },
+  { id = "grudge", text = "Humans have earned every grudge held against them.", fx = { opinion = { humans = "distrust" }, trait = { stern = 1 }, align = { light = -1 } }, replies = {
+    { id = "a", text = "Every one, and they'd add more if they lived long enough to manage it. I'm glad somebody else says it aloud.", fx = { affinity = 1 } },
+    { id = "b", text = "Some of them, maybe. Say it in Stormwind, though, and see how many friends you leave with." },
+    { id = "c", when = { race = "Human" }, text = "Strange words from one of their own. Somebody back home must have done you a very bad turn." },
+  } },
+  { id = "brief", text = "They live short lives and waste none of them. I admire that.", fx = { opinion = { humans = "admire" }, trait = { curious = 1 } }, replies = {
+    { id = "a", text = "Waste none? You've not watched the House of Nobles at work. But they're quick, I'll give them that, and quick counts for something.", fx = { affinity = 1 } },
+    { id = "b", text = "Admire them while you can, then. They'll be gone before you've finished deciding." },
+  } },
+  { id = "proud", when = { race = "Human" }, text = "We've rebuilt everything the world burned. Say what you like.", fx = { opinion = { humans = "proud" }, trait = { proud = 1 } }, replies = {
+    { id = "a", text = "Rebuilt it, and sent the bill to someone else. But aye, the walls are standing, and that's more than some can say." },
+    { id = "b", text = "You have, and I'll not pretend otherwise. Stubbornness is the one thing nobody ever accused your people of lacking.", fx = { affinity = 1 } },
+  } },
+} }

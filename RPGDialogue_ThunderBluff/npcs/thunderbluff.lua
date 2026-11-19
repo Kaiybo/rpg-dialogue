@@ -456,6 +456,40 @@ P:NPC {
         { text = "Something else, Chieftain.", next = "BACK" },
       },
     },
+    hu_cairne = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I fought beside them once, on the slopes of Hyjal, when Lady Proudmoore's soldiers held the line beside our braves and nobody asked whose blood was whose. Then her own father brought his warships to Durotar and would have burned every orc in their homes, and I learned that humans can be two peoples wearing one face." },
+        { id = "hu_tauren", when = { race = "Tauren" },
+          text = "You'll meet them soon enough, young one, at Northwatch or on the road to Theramore. I fought beside their Lady Proudmoore on Hyjal, and I watched her father's ships try to burn Durotar a few seasons later, so I tell every calf the same thing: judge the one in front of you, never the banner behind them." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "You were one of them, so I'll speak carefully. I fought beside Lady Proudmoore's soldiers on Hyjal, and I watched her father's fleet try to burn Durotar not long after, and I've come to think the humans are two peoples wearing one face." },
+      },
+      choices = {
+        { text = "Which face do you see more often now?", next = "hu_cairne_2" },
+        { text = "And Northwatch Hold, in the Barrens?", next = "hu_cairne_2" },
+        { text = "Something else, High Chieftain.", next = "BACK" },
+      },
+    },
+    hu_cairne_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Northwatch, these days, and that grieves me. Their soldiers ride out from the hold and harry our caravans on the Gold Road, and the young braves come back to Thunder Bluff wanting war, while Lady Proudmoore writes to Thrall about peace. I believe her, but I can't make the young ones believe her too." },
+      },
+      choices = {
+        { text = "Lady Proudmoore kept faith once. Give her people the same.", next = "BACK",
+          reply = "That is what I tell the council, and what Thrall tells the orcs, and some days only the two of us are listening. Still, a herd that never trusts the grass again will starve on good land.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { humans = "forgive" } } },
+        { text = "Northwatch spills tauren blood. Answer it with the spear.", next = "BACK",
+          reply = "The spear has its season, and I won't pretend it never comes. But I've buried enough braves to know that a war started for pride is the kind that never finishes.",
+          fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "I was human once. Their kindness didn't save me from them.", next = "BACK", when = { race = "Scourge" },
+          reply = "No, and I won't tell you it should have. Keep your grief, young one, but don't let it choose your enemies for you; the Lich King would like that very much.",
+          fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else, High Chieftain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -512,6 +546,7 @@ P:NPC {
         { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "My companion is Forsaken. Was the Horde right to take them?", next = "xpt_cairne", when = { party = { race = "Scourge" } } },
         { text = "I've fought the Grimtotem, Chieftain. Many of them.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
+        { text = "What do you make of humans, High Chieftain?", next = "hu_cairne" },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -670,6 +705,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "I fought beside humans on Hyjal and against their admiral in Durotar, so I've seen both faces. Lady Proudmoore keeps the peace in Theramore, and I pray to the Earth Mother that her soldiers at Northwatch learn it from her." } },
     _gated = {
       { id = "gt1", text = "That's a matter I keep for those I know well, and we've only begun to know each other. Walk with us a while longer, and I'll speak of it gladly." },
       { id = "gt2", text = "I'll not answer that today, young one. Some things an old chief shares only with those who've stood beside his people." },
@@ -883,6 +919,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_hamuul = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I've met very few of them, I confess, and most of those across a battlefield. They seem a hurried people, always building and always clearing land to build on, as if they knew how few winters they have and meant to fill every one of them." },
+        { id = "hu_tauren", when = { race = "Tauren" },
+          text = "Fewer than you'd think, young one, for they rarely come up the lifts. They seem a hurried people to me, always building and clearing ground, as though they feel their short winters snapping at their heels." },
+      },
+      choices = {
+        { text = "Is their hurry a bad thing?", next = "hu_hamuul_2" },
+        { text = "The elves say humans cut the forests bare.", next = "hu_hamuul_2" },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
+    hu_hamuul_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "The kaldorei say the humans' wizards in Dalaran meddled with the same magic that once broke the world, and that men cut Lordaeron's forests bare for their ships and farms. Perhaps so, but I've also heard that a human woman led her people across the sea to stand with us at Hyjal, and a hasty people does not do that." },
+      },
+      choices = {
+        { text = "They're young. Young things learn, given time and patience.", next = "BACK",
+          reply = "So the Earth Mother says of every calf, and so Malfurion once said of us. I would be a poor druid if I gave the humans less patience than I was given.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "A hasty people with axes and wizards needs watching.", next = "BACK",
+          reply = "Watching, yes, as you'd watch a grass fire on the horizon, without hating the grass. The elves watched for ten thousand years, and I'm not sure it taught them kindness.",
+          fx = { align = { order = 1 }, opinion = { humans = "dangerous" } } },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -931,6 +996,7 @@ P:NPC {
         { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into the Wailing Caverns to wake Naralex, Arch Druid.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "My companion is a druid. Where should they go to learn more?", next = "xpt_hamuul", when = { party = { class = "DRUID" } } },
+        { text = "What do you make of humans, Arch Druid?", next = "hu_hamuul" },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -1035,6 +1101,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "A hurried people, who build as if winter were always coming. The kaldorei fear their wizards, but some of them stood with us on Hyjal, and I try to remember that." } },
     _gated = {
       { id = "gt1", text = "That's not a thing I speak of with one I've only just met. Give it time, and let me come to know your heart first." },
       { id = "gt2", text = "Forgive me, but I'll keep my own counsel on that for now. There are matters the Circle shares only with proven friends." },
@@ -1544,6 +1611,40 @@ P:NPC {
         { text = "And what do the Grimtotem want?", next = "want" },
       },
     },
+    hu_magatha = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "The humans are where all of this began, child. They penned the orcs in their camps and fed them on hate, and when the orcs broke loose, where did they come? Here, to Kalimdor, and now Cairne calls them brothers and the humans have planted a stone city in the Dustwallow to watch us all." },
+        { id = "hu_tauren", when = { race = "Tauren" },
+          text = "A daughter or son of the plains ought to know already. The humans bred the orcs' hatred in their camps and loosed it across the sea onto our land, and now they sit in Theramore watching the mess they made, while Cairne tells us all to be grateful." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "Ask yourself, corpse, since you were one. Your people caged the orcs, and the orcs came here, and here your people followed, and now their stone city squats in the Dustwallow while your own kin up north would burn you on sight." },
+      },
+      choices = {
+        { text = "You blame the humans for the orcs, then?", next = "hu_magatha_2" },
+        { text = "What is Theramore to the Grimtotem?", next = "hu_magatha_2" },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
+    hu_magatha_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Theramore is a stone in the mouth of the land, child, and Cairne swallows around it because Thrall tells him to. The Grimtotem remember that the humans' Admiral Proudmoore landed his soldiers on this continent to finish what his camps began, and his daughter's smiles don't wash that out." },
+      },
+      choices = {
+        { text = "The humans are a plague. Kalimdor should be rid of them.", next = "BACK",
+          reply = "Finally, some sense from the low country. Say it louder in the Barrens and see how many braves nod; more than Cairne would like, I promise you.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Theramore keeps the peace. Proudmoore's daughter isn't her father.", next = "BACK",
+          reply = "Daughters inherit more than they admit, child. Still, keep your soft heart; someone in Cairne's tent will be glad of the company.",
+          fx = { affinity = -1, align = { light = 1 }, opinion = { humans = "forgive" } } },
+        { text = "They'd burn me too. On that, at least, we agree.", next = "BACK", when = { race = "Scourge" },
+          reply = "There, you see? Even the dead know better than Cairne. Mind you, child, I'm not sure the Grimtotem want you either, but we'll speak of that another day.",
+          fx = { opinion = { humans = "hate" } } },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_any", tags = { "news" }, when = { alt = true },
@@ -1593,6 +1694,7 @@ P:NPC {
         { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
         { text = "Your Grimtotem were raiding Horde caravans, Elder Crone.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
         { text = "What do the Grimtotem think of the night elves?", next = "ne_magatha" },
+        { text = "What do the Grimtotem make of humans, Elder Crone?", next = "hu_magatha" },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -1737,6 +1839,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "They caged the orcs, and the orcs came here, and now the humans have followed the mess they made to Kalimdor. Cairne calls it peace, and I call it waiting." } },
     _gated = {
       { id = "gt1", text = "That's a matter for those I trust, child, and I trust very few. You aren't yet among them." },
       { id = "gt2", text = "I'll keep that behind my teeth for now. Show me you're worth the telling, and perhaps I'll think again." },
@@ -1893,6 +1996,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_pala = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Not many, and the ones who do come up under a trader's flag from Theramore tend to sit with their backs to the wall and eat with one hand on their purse. One of them told me he'd been warned we'd trample him, and I told him only if he complained about the stew." },
+      },
+      choices = {
+        { text = "Did he complain about the stew?", next = "hu_pala_2" },
+        { text = "Why do you let them in at all?", next = "hu_pala_2" },
+        { text = "Something else, Pala.", next = "BACK" },
+      },
+    },
+    hu_pala_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "He ate three bowls and asked for the recipe, which I didn't give him. The Earth Mother never turned a traveller from her fire, and I won't either, though the braves stared at him the whole night because Northwatch's soldiers had shot two kodo off the Gold Road that very week." },
+      },
+      choices = {
+        { text = "Then the braves were right to stare.", next = "BACK",
+          reply = "Perhaps, but staring never filled a belly or stopped an arrow. He paid in good silver and he left the bowl clean, and that's all I ask of anyone.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "A guest is a guest. Northwatch isn't his fault.", next = "BACK",
+          reply = "That's what I told them, and they grumbled and went to bed. A traveller who's welcomed tells it in Theramore, and that does more good than a dozen spears.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else, Pala.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -1934,6 +2064,7 @@ P:NPC {
         { text = "I've been down the Wailing Caverns, Pala.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Should a company keep to its own kind, Pala?", next = "xpt_pala", when = { party = { kin = true } } },
         { text = "Auld seemed lighter, after Razorflank. Did you notice?", next = "dd_auld", when = { questDone = TODO_QUEST("A Vengeful Fate") } },
+        { text = "Do humans ever come up the lifts, Pala?", next = "hu_pala" },
         { text = "Just resting.", next = "END" },
       },
       again = {

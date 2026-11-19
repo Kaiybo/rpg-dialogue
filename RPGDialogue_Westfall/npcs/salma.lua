@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Oh, a Stormwind face! Sit down, sit down, because you look like you've walked the whole road from Elwynn on an empty stomach." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "Come in, come in, and mind your head, love, because this door wasn't made for anyone your height! There's always a pot on, though I've no idea whether your people eat stew." },
     { id = "g_op_leave_go", when = { opinion = { topic = "westfall_leave", stance = "go" } }, text = "There you are! I told Theodore you said go while there's a road, and he looked so relieved I gave him a second bowl." },
@@ -183,8 +185,60 @@ P:NPC {
           reply = "Oh, you wicked thing, he'll lie awake for a week. I'll do it, too." },
       },
     },
+    hu_stay = {
+      lines = {
+        { id = "hum_stay", key = true,
+          text = "Every winter, and every spring I plant again anyway. The Furlbrows left and the Molsens left, and somebody has to be here when they come home, so that somebody might as well be the one with the stewpot." },
+      },
+      choices = {
+        { text = "Verna Furlbrow wants to come back, you know.", next = "hu_stay2" },
+        { text = "Something else, Salma.", next = "BACK" },
+      },
+    },
+    hu_stay2 = {
+      lines = {
+        { id = "hum_stay2",
+          text = "Verna's said as much, and Theodore pretends he hasn't. That's Westfall for you, friend: we curse the land and then we can't stop missing it, and I think it's the most human thing about us." },
+      },
+      choices = {
+        { text = "That's worth holding on to. Westfall will come back.", next = "BACK",
+          reply = "From your mouth to the Light's ear, friend. Now take a bowl with you, because hope is thin on an empty stomach.",
+          fx = { align = { light = 1 } } },
+        { text = "Sometimes you have to let land go, Salma.", next = "BACK",
+          reply = "Maybe you do, and maybe Verna was wiser than me to go. But someone's got to keep the stove warm, and I've never been any good at letting go.",
+          fx = { align = { light = -1 } } },
+        { text = "Thank you for the stew, Salma.", next = "END" },
+      },
+    },
+    hu_rumor = {
+      lines = {
+        { id = "hum_rumor", key = true,
+          text = "Do they, now? Then they've never eaten at a table where the farmer said grace over gruel and still set a place for a stranger. There are Defias in the hills, true, but they're our own lads gone wrong, and that's a sorrow, not a reason to write off a whole province." },
+      },
+      choices = {
+        { text = "They chose the mask. They're not our lads anymore.", next = "BACK",
+          reply = "Maybe so, and Saldean would agree with you over his pitchfork. I'll still feed the hungry one who comes down from the hills at night, and I'll not stop.",
+          fx = { align = { light = -1 } } },
+        { text = "Then I'll tell them otherwise in the city, Salma.", next = "BACK",
+          reply = "Would you? Tell them about the stew, too, because nobody ever believes a farmer about the soup.",
+          fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else, Salma.", next = "BACK" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Cling? I'd call it remembering. We don't live long enough to have a hundred homes, so we hold on to the one we've got and bury our people in it, and then we can't leave even when we ought to." },
+      },
+      choices = {
+        { text = "Something else, Salma.", next = "BACK" },
+        { text = "I'd best be off.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "City folk always look at my kitchen as though they'd forgotten what a farm smells like, and I suppose some of them have. Never mind, there's stew, and stew reminds everybody where they came from." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Saldean swears your people don't sleep, don't eat meat and don't get old. I told him that sounds more like the dead than elves, but he says yours are purple, so it's different." },
         { id = "dd_fields_salma", when = { questDone = TODO_QUEST("The Killing Fields") },
@@ -242,6 +296,9 @@ P:NPC {
         { text = "I tended the Militia's wounded, Salma. You fed them.", next = "xorig_militiahealer", when = { origin = "human_sentinel_hill_healer" } },
         { text = "What do Westfall folk say about night elves?", next = "sm_nelf" },
         { text = "We eat, Salma, and we do sleep now and then.", next = "sm_xnelf", when = { race = "NightElf" } },
+        { text = "Do you ever think of leaving Westfall, Salma?", next = "hu_stay", when = { race = "Human" } },
+        { text = "Folk in the city say Westfall's all thieves now.", next = "hu_rumor", when = { race = "Human" } },
+        { text = "Why do humans cling to their farms so, Salma?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'd best be off.", next = "END" },
       },
     },

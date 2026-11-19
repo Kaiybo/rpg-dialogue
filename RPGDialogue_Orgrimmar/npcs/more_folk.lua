@@ -1371,6 +1371,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them dangerous, and I say it as the one who has to guard the Warchief's hall. Theramore sends envoys up the road with smiles and sealed letters, and every one of them counts our grunts on the walls while he waits to be received." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You'd know them better than I would, since you were one of them before the plague took you. Tell me, then, whether a human ever comes to Orgrimmar without counting the grunts on our walls, because none has yet." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "You're old enough to remember the camps, or your parents are, so you know the answer already. They kept us behind palisades for years, and now they keep a fortress in Dustwallow a few days' march from this hall." },
+      },
+      choices = {
+        { text = "Do you trust the Warchief's truce with Theramore?", next = "hu_stance" },
+        { text = "The camp guards counted us too, once.", next = "BACK", when = { race = "Orc" }, reply = "They did, every morning, and they whipped whoever came up short. I count them now, and I don't use a whip, but I don't lose count either.", fx = { opinion = { humans = "distrust" } } },
+        { text = "I was human once. Most of them are just frightened.", next = "BACK", when = { race = "Scourge" }, reply = "Frightened men with swords are the ones I watch closest. Your living cousins taught me that in Durnholde's shadow, and the lesson took.", fx = { opinion = { humans = "dangerous" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "I trust Thrall, and that's a different thing. Lady Proudmoore keeps her word, by all accounts, but her father came to Durotar with a fleet, and she can't promise what the next admiral will do." },
+      },
+      choices = {
+        { text = "The truce is the Warchief's will. We keep it, whatever we feel.", next = "BACK", reply = "That's a guard's answer, and the right one. Keep your feelings off the walls and your eyes on the road, and we'll get along.", fx = { align = { order = 1 }, opinion = { humans = "distrust" }, affinity = 1 } },
+        { text = "One day we'll pull Theramore down. The truce only buys time.", next = "BACK", reply = "Say that in the Valley of Strength and you'll find friends; say it in this hall and you'll find me. The Warchief chose peace, and I guard his choices.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Peace with humans is worth guarding. Not all are Blackmoore.", next = "BACK", reply = "No, not all. Taretha Foxton died for the Warchief, and he has never let any of us forget it, which is why I'll guard his peace even while I watch theirs.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Nazgrel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Nazgrel of the Frostwolves. I rode at the Warchief's side when this land was won, and now I stand at it, and I will tell you plainly that I liked the riding better." },
@@ -1385,6 +1411,7 @@ P:NPC {
         { id = "h_again3", text = "Go on. The Warchief likes his people to be heard, and so I hear them." },
       },
       choices = {
+        { text = "What do you make of humans, Nazgrel?", next = "hu_view" },
         { text = "What does the Warchief's advisor advise?", next = "advise" },
         { text = "You speak of the Frostwolves as if they stood apart.", next = "frostwolf" },
         { text = "You don't seem to trust anyone who walks in here.", next = "trust" },

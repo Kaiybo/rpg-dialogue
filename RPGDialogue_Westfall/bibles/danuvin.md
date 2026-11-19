@@ -46,3 +46,6 @@ A repeat-visit line (and a night line for some), in the voice above: small daily
 Hub branches: why fight (wheat, dignity, the farmer he means to be again), the gnolls (who feeds them), Stormwind (the Highlord's regret, a noble's apology, the city's own wars), drilling farmers (when to stop).
 Replies only some characters get: warriors and paladins (drill the recruits), Westfall farmhand (come home), minor noble (not all of Stormwind forgot), heard Bolvar's Westfall line.
 Authored, not canon: he teaches farmers to stop and tie a thief up because Gryan wants prisoners (fits the captured traitor of The Defias Brotherhood); his wish never to hold a spear again; "I'd forgive a company."
+
+## Humans (human patch)
+- Human players get `hum_g1` ("the accent starts you behind") and a hello line. Branch `hu_blame`: Stormwind left Westfall, and its citizens let the nobles do it (stance order +/-1). `[Persuade]` "Some of us in the city still care" (disposition 60, Patrolling Westfall done, or Sentinel Hill standing 30) sets npcFlag `danuvin_hu_soft`: softer greeting `hum_g2` and a follow-up hub reply `hu_soft_again`.

@@ -57,3 +57,6 @@ Authored, not canon: the watchers' trades (farmers, bakers, a tanner, two brothe
 
 ## Night elves (prejudice pass)
 - Admires the Sentinels (women in command, a forest held with too few) and argues with Darkshire's 'aloof tree-folk' talk; steals their patrol rotations from reports.
+
+## Humans (human patch)
+- Human players: Raven Hill's rising dead set beside Lordaeron's; Lordaeron refugees in the Watch are her steadiest watchers and worst sleepers (authored). Origin line for human_darkshire_watch. Non-humans: humans fear being forgotten.

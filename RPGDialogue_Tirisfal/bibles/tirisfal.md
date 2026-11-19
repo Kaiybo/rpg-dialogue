@@ -59,3 +59,8 @@ Repeat-visit and night lines for the innkeepers and thin quest givers (habits, s
 ## Night elves (authored, not canon)
 - Sarvis: contempt for a people who mourn losing forever; Elune's priestesses burn the dead and the Sentinels never asked which corpses had minds.
 - Zygand: claim `zygand_kaldorei_silence` (declared in brill.lua, partly true, open): the elves knew the Legion and warned no one while Lordaeron died; pressed, he admits the Prophet warned Terenas.
+
+## Humans (human patch)
+- Zygand: the Crusade is just the honest version of all humans; no quarter.
+- Johaan: once mixed cough syrups for the Barovs' tenants in Brill (authored); Southshore blames apothecaries for the plague.
+- Renee: ex-Scarlet; humans are frightened, not evil; quit after a dead girl walked out of a barn she burned (authored).

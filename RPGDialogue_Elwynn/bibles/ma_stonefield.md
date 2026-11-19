@@ -43,3 +43,6 @@ A repeat-visit line in the voice above.
 - b_default, g_after and h_active rewritten to the Classic facts: the Brackwells are gone, not haughty neighbours, and Princess is at their patch with two hogs.
 - Gated: hunter pet, human_westfall_farmhand, Princess Must Die! done (the collar over the door); Manhunt done line.
 - Voice pass (2026-11-15): every line rewritten as whole spoken sentences (no stacked fragments); meaning, ids and conditions unchanged.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line about Elwynn boots. Branch `hu_farm`: young ones leaving the land, Westfall families on the road with one cart; stance light +/-1 on taking them in.

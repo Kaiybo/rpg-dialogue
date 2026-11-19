@@ -131,6 +131,28 @@ P:NPC {
         { text = "They come gladly. They want us home.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Gadrin make them loud, mon, and quick, and very sure of themselves for people who live no longer than a raptor. The Kul Tiran ships came to the Echo Isles with guns and drums, and Gadrin watched the young ones fall on the sand before Thrall came." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You heard Gadrin tell it at the fire, little one, but you hear it again. The Kul Tiran ships came to the isles with guns and drums, and Gadrin watched our young ones fall on the sand before Thrall came." },
+      },
+      choices = {
+        { text = "Do the loa have anything to say about them?", next = "hu_stance" },
+        { text = "The Amani fought humans long before that, didn't they?", next = "BACK", reply = "For a thousand years, Arathor against the forest trolls, and the Amani still sing about it. Darkspear be jungle folk, though, and we only met the humans when they came looking for us.", fx = { learn = { "humans" } } },
+        { text = "Something else, Master.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Bwonsamdi say he take humans the same as trolls, and he never once complain about the taste. Gadrin hate the ones who shot his students, mon, but hate be a heavy bag for an old troll, so he only carry it on the bad days." },
+      },
+      choices = {
+        { text = "Put the bag down, Master. You've carried it long enough.", next = "BACK", reply = "You sound like Vol'jin when he was small, telling his teacher what to do. Maybe you be right, and maybe Gadrin put it down tomorrow.", fx = { align = { light = 1 }, opinion = { humans = "mixed" }, affinity = 1 } },
+        { text = "Carry it, and pass it on. The tribe should remember.", next = "BACK", reply = "The tribe remember, don't you worry, because Gadrin tell it at every fire. But remembering and hating be two different spirits, little one.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_drowned", when = { deathCause = "drowning" },
@@ -161,6 +183,7 @@ P:NPC {
         { id = "h_echo", when = { origin = "troll_echo_isles" }, text = "You born on the isles, child, I remember, and you cry the whole way across the water when we leave. Now you come back with a weapon on your back, and Gadrin think maybe the isles be crying for you instead." },
       },
       choices = {
+        { text = "What do you make of humans, Master Gadrin?", next = "hu_view" },
         { text = "I've died more than once, Master. Does it change me?", next = "dd_deaths", when = { deaths = { min = 8 } } },
         { text = "You look at me the way you'd look at Zalazane's puppets.", next = "prej_gadrin", when = { prejudiced = true } },
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

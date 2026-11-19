@@ -50,3 +50,7 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## Night elves (authored, not canon)
 - Tammra: wants to plant beside the Circle on Stonetalon Peak; Sentinels on the ridge shoot Sun Rock braves who go too far up, since a tauren with a totem looks like an orc with a saw; she leaves seedlings below the Peak and they are always taken.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Jin'Zil: curiosity. Never had a human in a cage and wonders what they dream; calls caging one 'fair turnabout' for the Kul Tiran chains, but would feed it better.

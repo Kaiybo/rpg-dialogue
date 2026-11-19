@@ -6,6 +6,7 @@ local TODO_NPC = P.TODO_NPC
 -- Bengus Deepforge: blacksmithing trainer at the center of the Great Forge.
 P:NPC {
   key = "if_bengus", id = TODO_NPC("Bengus Deepforge"), name = "Bengus Deepforge",
+  prejudice = { race = "Human", amount = 5, why = "Lent Stormwind's quartermasters a cartload of blades after the Second War and was never paid for half of them." },
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "proud", "practical" },
   notices = { "craft", "lock_taint" },
@@ -16,6 +17,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human at the Great Forge, is it? If ye've come tae borrow a hammer, I'll want it back before ye leave the hall, an' I'll want it back sharp." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "bengus_human_soft" }, priority = 10,
+      text = "There's the human who asked tae learn instead o' borrow! Come in, an' bring yer hands; I've been tellin' the lads ye're the exception that keeps me honest." },
     { id = "g_default", text = "If ye've only come in tae warm yer hands, stand back from the anvil while ye do it." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the forge, are ye? Show me yer hands, then; let's see if they've hardened." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
@@ -33,6 +38,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets bengus_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Lend a human a hammer an' ye'll never see it again, that's what my father said, an' he lent Stormwind's quartermasters a good many after the Second War. Brave folk, mind, an' quick tae learn, but they live so short a while they think every debt dies wi' the man who signed for it." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Ye'll no' like the answer, but ye asked. My father lent Stormwind's quartermasters a cartload o' blades after the Second War, an' the crown's still thinkin' about payin' for half o' them." },
+      },
+      choices = {
+        { text = "Did Stormwind ever pay what it owed?", next = "hu_view2" },
+        { text = "You sound like a dwarf who's been stiffed.", next = "hu_view2" },
+        { text = "Something else, Bengus.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Some of it came back, in coin an' in apologies, an' the rest went the way o' the House o' Nobles' promises. They couldnae even pay their own masons for raisin' the city, so I'll no' pretend I was surprised, but I'll no' pretend I've forgotten either." },
+      },
+      choices = {
+        { text = "A debt's a debt. Stormwind should honour it.", next = "BACK",
+          reply = "Aye, an' if ye ever meet a lord in Stormwind who agrees wi' ye, send him down tae my anvil wi' his purse.",
+          fx = { align = { honor = 1 }, opinion = { humans = "distrust" } } },
+        { text = "They paid in blood at Grim Batol. Call it settled.", next = "BACK",
+          reply = "Hmph. They did bleed, I'll grant ye, an' there's dwarves alive because o' it. But blood doesnae buy iron, {g:lad|lass}.",
+          fx = { align = { honor = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Aye, I am, an' I'll no' apologise for it. Yer folk walked off wi' half the Great Forge's work after the Second War, an' never once came back tae settle the bill, so ye'll forgive a smith for countin' his tongs." },
+      },
+      choices = {
+        { text = "Then teach me to make my own, and I'll never need yours.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { profession = "Blacksmithing" }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Keep your tongs, then. I've no use for dwarven grudges.", next = "BACK",
+          reply = "Good, for I've no use for human promises, so we're well matched.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "bengus_human_soft" } } },
+          text = "Make yer own? Well, by my beard, that's the first sensible thing a human's said at this anvil in twenty years. Pick up the hammer, then, an' if ye can hold a rhythm I'll stop countin' my tongs while ye're here." },
+      },
+      choices = {
+        { text = "I'll hold it. You'll see.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "So ye can carry it back tae Stormwind an' forget where ye learned it? No, I've taught enough humans who went home an' never wrote." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Bengus.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think it's the oldest workin' fire in the world, an' I've never once called it alive. But I've worked it since I was a lad, an' there's days it draws hot an' eager an' days it sulks, an' I'll no' pretend that's only the bellows. If ye tell me there's somethin' in there listenin', I might just believe ye." } },
@@ -115,6 +183,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "bengus_human_soft" } },
+          text = "Bengus Deepforge, an' this is the Great Forge. Yer folk come down here for blades on credit, an' I've a ledger o' Stormwind names as long as my beard tae prove it." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "bengus_human_soft" },
+          text = "Back at my anvil, are ye? Good, for I've told the whole hall there's one human who pays what he owes, an' I'd hate tae be made a liar." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Great Forge! Ye'll want tae stand back from the heat, for I've seen yer robes catch before, an' I'd rather no' see it again." },
         { id = "h_default", key = true,
           text = "Bengus Deepforge, an' this is the Great Forge, the fire at the heart o' Ironforge, which has never once gone out. If ye want tae learn tae work metal, there's no better place on this world tae learn it." },
@@ -150,6 +222,8 @@ P:NPC {
         { text = "What do you think the Great Forge's fire is, Bengus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What do you make of the night elves, Bengus?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
         { text = "Your forge eats the mountain's heart, Bengus.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "bengus_soft" } } },
+        { text = "What do you make of humans, Bengus?", next = "hu_view" },
+        { text = "You keep watching my hands, Bengus. Afraid I'll walk off with something?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "bengus_human_soft" } } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

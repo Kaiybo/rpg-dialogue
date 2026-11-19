@@ -720,6 +720,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human on the Warrior's Terrace! Tell me, do you know a good smith in Stormwind? I've a question about tempering that no kaldorei can answer." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "mathiel_human_soft" }, priority = 10,
+      text = "My human friend! I've been telling the Terrace about you, and only one of my sisters has rolled her eyes." },
     { id = "g_smith", text = "Come in, come in! Mind the coals; they bite harder than they look." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Your gear holding up? Let me look at the edges." },
   },
@@ -737,6 +741,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): admiring view of humans; Persuade softener sets mathiel_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I admire their smiths more than I'd say in the Temple, and their soldiers too. They live so short a while that they make everything to be used rather than kept, and there's a kind of honesty in that, though I could wish they didn't use quite so many trees to fire their forges." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I admire your smiths, truly; you make everything to be used, not kept. I only wish your forges didn't burn quite so many trees." },
+      },
+      choices = {
+        { text = "Have you worked with a human smith?", next = "hu_view2" },
+        { text = "Most kaldorei seem to find humans tiresome.", next = "hu_view2" },
+        { text = "Something else, Mathiel.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Only by letter, through a dwarf in Ironforge who passes notes along, and the human's work was rough and strong and never meant to last a thousand years. My sisters on the Terrace think that's a failing, but a blade that breaks in a century still saves a life today." },
+      },
+      choices = {
+        { text = "Short lives make good work. They have no time to waste.", next = "BACK",
+          reply = "Yes, that's exactly it, and I wish more of my people understood it.",
+          fx = { align = { order = 1 }, opinion = { humans = "respect" } } },
+        { text = "A thing made to break is careless, however strong.", next = "BACK",
+          reply = "There's truth in that, and my teacher would agree with you. I still think the work has its own kind of beauty.",
+          fx = { align = { order = -1 }, opinion = { humans = "careless" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "They do, and I'm sorry for it. My people remember human axes in Ashenvale and human mages in their history, and they see a forest burning before they see the person standing before them." },
+      },
+      choices = {
+        { text = "Then let me show them a human can work gently.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 45 } }, { profession = "Blacksmithing" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Let them stare, then. I won't apologise for my people.", next = "BACK",
+          reply = "Nor should you, though it won't help them stop staring, I'm afraid.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "mathiel_human_soft" } } },
+          text = "I'd like that very much. Come and stand at my anvil, and if you can work elunite without scorching it, I'll make sure every Sentinel on the Terrace hears of it." },
+      },
+      choices = {
+        { text = "I'll be careful with the elunite.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "I believe you mean it, but the others won't believe it from a word. Bring something you've made, and let the work speak." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Mathiel.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I do, and gladly, because a dwarven colleague taught me a new technique. Your spirits might teach me another." } },
@@ -828,6 +895,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "mathiel_human_soft" } },
+          text = "I'm Mathiel, smith of the Terrace. Forgive the others if they stare; they think a human near a forge is a fire waiting to happen, though I'd rather hear how your smiths work." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "mathiel_human_soft" },
+          text = "Welcome back! I've been working your Stormwind temper into elunite, and the Sentinels have stopped asking why it smells of iron." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I always say a little prayer to Elune over my best work, so I like to think we're in the same line of business." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, let me see your hammer, because I've only seen Silver Hand work in drawings, and I've wanted to look at the real thing for years." },
         { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. When someone brings me elunite I work that too, and every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
@@ -870,6 +941,8 @@ P:NPC {
         { text = "Do you work elunite with dwarven methods, Mathiel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not everyone in Darnassus is as fond of outsiders as you.", next = "allies" },
         { text = "Some on these terraces look at me like a stray dog.", next = "stray", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "What do you make of humans, Mathiel?", next = "hu_view" },
+        { text = "Your fellow smiths look at me like I'll set the Terrace alight.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "mathiel_human_soft" } } },
         { text = "Good luck at the forge.", next = "END" },
       },
     },

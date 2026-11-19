@@ -32,3 +32,7 @@ Hopeful beyond the evidence.
 
 ## Topics
 gnomeregan
+
+
+## Humans (human patch)
+- razzle_sprysprocket: Wry: humans treat gnomes like clever children (sugar cakes for repairs); Stormwind took engineers but not the poor refugees. Softens if a human asks about his machine properly. Flag `razzle_human_soft`.

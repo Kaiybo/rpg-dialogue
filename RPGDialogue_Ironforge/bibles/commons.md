@@ -125,3 +125,8 @@ Authored, not canon: the cart and the goat.
 
 ## What they notice
 Stealth (stealthed players), priests.
+
+
+## Humans (human patch)
+- marblesten: Wry, jovial: humans quarry the best stone and keep wrecking it; Alterac's betrayal; Stormwind's unpaid masons. Softens if reminded that Lothar's men bled beside dwarves. Flag `marblesten_human_soft`.
+- karnik: Torn historian: humans move faster than his quill; Lordaeron spent Khaz Modan's sons then the Alliance fell apart over the camps. Softens if reminded of Turalyon and the men who stayed. Flag `karnik_human_soft`.

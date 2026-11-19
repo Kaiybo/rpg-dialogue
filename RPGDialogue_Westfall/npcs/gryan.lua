@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Another of Stormwind's children, come to see what the kingdom left behind. Welcome to Sentinel Hill, and I mean it, even if the welcome's thinner than it ought to be." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what demon magic did to the Horde's own lands, and I fought the men it made in the Second War. Westfall has troubles enough without a demon-caller at my map table." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll not pretend I can't tell what you are. Say what you need from the Militia, and keep that creature of yours outside the tower." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Westfall more than once, and I've told the farmers so. I still don't care for what you carry, but I'll shake your hand." },
@@ -110,8 +112,66 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    hu_famine = {
+      lines = {
+        { id = "hum_famine", key = true,
+          text = "One small decision at a time, friend, which is how most kingdoms fail their own. The crown bled the province for the Alliance's war and its debts, the harvests failed, the masons went unpaid, and by the time anyone in the Keep looked west, Westfall had stopped looking east." },
+      },
+      choices = {
+        { text = "And the House of Nobles let it happen?", next = "hu_famine2" },
+        { text = "Something else, Stoutmantle.", next = "BACK" },
+      },
+    },
+    hu_famine2 = {
+      big = true,
+      lines = {
+        { id = "hum_famine2",
+          text = "Lady Prestor tells the Regent that Westfall can wait, and the House agrees with her, because waiting costs them nothing. I don't hate the nobles, friend, but I've learned that the folk who never miss a meal are the slowest to believe anyone else might." },
+      },
+      choices = {
+        { text = "Then we stop waiting for them. The Militia's enough.", next = "BACK",
+          reply = "It has to be, for now, and I'm proud of every farmer on this hill. But I'd still trade a royal speech for one company of footmen, and I'll keep asking for it.",
+          fx = { align = { order = -1 }, opinion = { stormwind = "abandoned_its_own" } } },
+        { text = "The crown will come back to Westfall. Keep faith.", next = "BACK",
+          reply = "I hope you're right, and I've not stopped writing. Keep faith if you can, friend, because some of my farmers have lost theirs, and someone on this hill ought to hold it for them.",
+          fx = { align = { order = 1 }, opinion = { stormwind = "patience" } } },
+        { text = "I'll be on my way, Stoutmantle.", next = "END" },
+      },
+    },
+    hu_north = {
+      lines = {
+        { id = "hum_north", key = true,
+          text = "I did, under the Silver Hand's teachers and later in the Alliance's ranks. I'll not talk about the end of Lordaeron, friend, because I've no words for it that I'd want a farmer to overhear." },
+      },
+      choices = {
+        { text = "Then tell me what it was like before.", next = "hu_north2" },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    hu_north2 = {
+      lines = {
+        { id = "hum_north2",
+          text = "Green, and proud, and full of people who'd have laughed at the idea of a famine. King Terenas fed Stormwind's refugees for years after the First War without counting the cost, and when I see Lordaeron's folk begging at our gates now, I remember who fed whom first." },
+      },
+      choices = {
+        { text = "Our people should remember that too. Something else.", next = "BACK" },
+        { text = "I'll be on my way, Stoutmantle.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "To my mind it means you don't get long, so you'd best spend it on someone else. My farmers have nothing, and still they stand watch on this hill for neighbours who've already fled, and if that isn't what we're for, I don't know what is." },
+      },
+      choices = {
+        { text = "Something else, Stoutmantle.", next = "BACK" },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You'll have heard the talk in the city, that Westfall's all thieves now and the land's gone to dust. Look around you and judge for yourself, because these are our own people, and the city's half forgotten it." },
         { id = "dd_murkeye_gryan", when = { questDone = TODO_QUEST("The Coastal Menace") },
           text = "Captain Grayson's light burns a little steadier, they tell me, now that Old Murk-Eye is gone from the shore. I don't pretend to understand a ghost keeping a lighthouse, but I understand a coast made safe, and that's your work." },
         { id = "dd_bandanas_gryan", when = { questDone = TODO_QUEST("Red Leather Bandanas") },
@@ -183,6 +243,9 @@ P:NPC {
         { text = "The Sentinels would never abandon a province like this.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I studied in Stormwind's Mage Quarter, Gryan.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What follows me fights for Westfall now, Stoutmantle. Don't ask what it is.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How did Stormwind let Westfall come to this?", next = "hu_famine", when = { race = "Human" } },
+        { text = "You served in Lordaeron, didn't you, Stoutmantle?", next = "hu_north", when = { race = "Human" } },
+        { text = "What does being human mean to you, Stoutmantle?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll help, but I answer to no militia.", next = "END", reply = "That's your right, and I'll not hold it against you. Help however you will, and the farmers will remember it.", fx = { align = { order = -1 } } },
       },
     },

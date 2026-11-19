@@ -138,6 +138,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_sylvanas = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I was never human, though most of my people were, and I've watched what their living kin do with that knowledge. The Scarlet Crusade burns them in the fields, the Alliance calls them Scourge, and their own mothers would bar the door, so you'll forgive me if I don't weep for humanity." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "You were human, as most of my people were, and you've seen how your living kin welcome you home. The Crusade burns us in the fields, Southshore sets dogs on us, and your own family would bar the door, so tell me what you owe them." },
+      },
+      choices = {
+        { text = "Do you hate them, then, my lady?", next = "hu_sylvanas_2" },
+        { text = "Arthas was human. Is that where it began?", next = "hu_sylvanas_2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    hu_sylvanas_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "A human prince murdered my people and made me this, and the humans who survived him have never once asked what became of their own dead. I don't hate them, not as you mean it; I simply expect nothing from them, and they rarely disappoint me." },
+      },
+      choices = {
+        { text = "The living abandoned you. They deserve nothing in return.", next = "BACK",
+          reply = "Then you understand the Forsaken better than most of the Horde does. Remember it when Thrall speaks of peace with Theramore.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Not every human is Arthas, my lady.", next = "BACK",
+          reply = "No, most of them are smaller than he was, and more frightened. I'll keep your mercy in mind, and I'll keep the Deathguard on the walls all the same.",
+          fx = { affinity = -1, align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "I owe them nothing. My loyalty is to you, my lady.", next = "BACK", when = { race = "Scourge" },
+          reply = "Good. Grieve your old life if you must, but never mistake the people who buried you for the people who freed you.",
+          fx = { affinity = 1, opinion = { humans = "rivals" } } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
@@ -186,6 +218,7 @@ P:NPC {
         { text = "How did you break free of the Lich King?", next = "past" },
         { text = "You don't seem to think much of the Horde, my lady.", next = "horde" },
         { text = "What would you have of me, my lady?", next = "ask_me" },
+        { text = "What are the living humans to you, my lady?", next = "hu_sylvanas" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 2 } },
         { text = "Hillsbrad burned, my lady. Is that what you wanted?", next = "dd_hillsbrad", when = { questDone = TODO_QUEST("Battle of Hillsbrad") } },
       },
@@ -624,6 +657,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Most of my people were human once, and their living kin have answered them with torches and the Crusade's pyres. I expect nothing from humanity, and so far it has never disappointed me." } },
     knows = {
       { id = "tp_knows", text = "Little happens in my kingdom that does not reach me, one way or another. Ask, and I will decide how much of it you need." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have been useful, and I reward usefulness, so ask what you will, and I'll answer more plainly than is my habit." },
@@ -1068,6 +1102,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_faranell = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Oh, humans are wonderful, my friend, absolutely wonderful, in the way a well-stocked larder is wonderful! They breed quickly, they bleed predictably, and the Scarlet Crusade keeps sending us fresh ones, which saves the Society a fortune in field trips." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "We were all humans once, weren't we, and I must say I've never felt better about it. They breed quickly, they bleed predictably, and the Crusade keeps marching fresh ones into Tirisfal for us, which is remarkably generous of them." },
+      },
+      choices = {
+        { text = "You speak of them like livestock.", next = "hu_faranell_2" },
+        { text = "Weren't you human yourself once?", next = "hu_faranell_2" },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
+      },
+    },
+    hu_faranell_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "I was a human chemist in Lordaeron once, and I remember my old colleagues with great clarity, mostly the ones who laughed at my notes. A living human has a pulse, a soul and a terrible opinion of me, my friend, and only the first two are of any scientific use." },
+      },
+      choices = {
+        { text = "They hunt us. Whatever the Society does, they earned it.", next = "BACK",
+          reply = "My thought precisely, though I'd never have put it so warmly. The captured zealots in Brill are doing marvellous work for us, and only a little of it voluntary.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "They're people, Faranell, not reagents. Remember that.", next = "BACK",
+          reply = "People, reagents; the distinction gets so blurry after the third distillation. Still, I've written your objection down, and I'll read it to the next zealot, if he's still listening.",
+          fx = { affinity = -1, align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Master Apothecary.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -1110,6 +1173,7 @@ P:NPC {
         { text = "I've been to the bottom of the Scarlet Monastery, Master Apothecary.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "My companion is a priest. What do you want with them?", next = "xpt_faranell", when = { party = { class = "PRIEST" } } },
         { text = "Have you ever dealt with the night elves, Faranell?", next = "ne_faranell" },
+        { text = "What does the Society make of humans, Master Apothecary?", next = "hu_faranell" },
         { text = "I'll leave you to your work.", next = "END" },
         { text = "Lydon's elixir worked, then. What's it for?", next = "dd_pain", when = { questDone = TODO_QUEST("Elixir of Pain") } },
       },
@@ -1252,6 +1316,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Humans are the finest reagent in Lordaeron, my friend, and the Scarlet Crusade keeps delivering them right to our door. I was one once, and I can say with authority that it's overrated." } },
     knows = {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },
     },
@@ -1360,6 +1425,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_bethor = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Miss them? I studied beside them for twenty years, and when the Scourge took the city the survivors fled, and now they sit behind their shield in Alterac rebuilding their towers. I wrote to an old friend there once, and the letter came back unopened, burned at the edges." },
+      },
+      choices = {
+        { text = "Burned? On purpose?", next = "hu_bethor_2" },
+        { text = "Perhaps they were afraid of you.", next = "hu_bethor_2" },
+        { text = "Something else, Bethor.", next = "BACK" },
+      },
+    },
+    hu_bethor_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Of course they were afraid; I'd be afraid of me. But I sat their examinations and shared their libraries and mourned their dead, and they decided in a single afternoon that I was a thing to be put down. Thule went to the Lich King, Gunther went mad, and I went to the Dark Lady, and the Kirin Tor think all three of us are the same." },
+      },
+      choices = {
+        { text = "Dalaran betrayed you. Let the Kirin Tor rot behind their shield.", next = "BACK",
+          reply = "That is the easy answer, and on cold nights I find it very comfortable. They taught me everything I know, and I suspect I'll spend my unlife proving them wrong about me.",
+          fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Fear isn't hatred. Perhaps one day they'll open the letter.", next = "BACK",
+          reply = "Perhaps, and perhaps Thule will apologise. I'll keep the copy, at least, since it's the only thing of mine Dalaran ever kept for me.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { humans = "mixed" } } },
+        { text = "My family would burn my letters too, if I sent any.", next = "BACK", when = { race = "Scourge" },
+          reply = "Then don't send them. Write them, by all means, and keep them in a drawer; it costs nothing, and the dead have very few comforts.",
+          fx = { opinion = { humans = "kin" } } },
+        { text = "Something else, Bethor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_mage", tags = { "news" }, when = { party = { class = "MAGE" } },
@@ -1395,6 +1490,7 @@ P:NPC {
         { text = "A warrior might be of use against a lich, Bethor.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Has any power ever kept faith with the dead, Bethor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My companion is a mage. Do you miss Dalaran?", next = "xpt_bethor", when = { party = { class = "MAGE" } } },
+        { text = "Do you miss the humans of Dalaran, Bethor?", next = "hu_bethor" },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -1478,6 +1574,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "I studied beside humans in Dalaran for twenty years, and they decided in an afternoon that I was a thing to be put down. Their wizards sit behind a shield in Alterac now, and they don't open my letters." } },
     dalaran = { { id = "tp_dalaran", text = "I swore an oath in Dalaran as an apprentice, with friends who swore it beside me, and I still carry the wand. The city is rising again, but it isn't my city anymore, and I doubt it would have me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me everything I know, and then they watched the plague take Lordaeron and did nothing useful about it. I've grown cold, and they deserve most of the credit." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad walked the halls of the Violet Citadel when I was young, and the masters thought him a genius. They were right, and that's the terrible part." } },
@@ -1597,6 +1694,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_norman = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "More than's healthy, which for us is saying something. I kept a little inn in Lordaeron before the plague, and I sometimes catch myself setting out bread for guests who'd scream if they saw who was pouring their ale." },
+        { id = "hu_scourge", when = { race = "Scourge" },
+          text = "You too, eh? I kept a little inn up top before the plague, and some nights I still catch myself setting out bread that none of us can taste for guests who'd scream if they saw the landlord." },
+      },
+      choices = {
+        { text = "Do you hate them for it?", next = "hu_norman_2" },
+        { text = "Would you go back, if you could?", next = "hu_norman_2" },
+        { text = "Something else, Norman.", next = "BACK" },
+      },
+    },
+    hu_norman_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Hate them? No, I envy them, and that's worse. They get to taste the stew and complain about the rain and grow old in their beds, and all they ever do with it is march into Tirisfal with torches to burn the likes of me." },
+      },
+      choices = {
+        { text = "Envy's wasted on them. They'd never share what they have.", next = "BACK",
+          reply = "No, I don't suppose they would, and I'd not share my chair either, now I think of it. Pull it up, then, and we'll both sit in it out of spite.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "rivals" } } },
+        { text = "Some of them grieve the dead too, Norman. Their dead are you.", next = "BACK",
+          reply = "That's a strange kind of comfort, and I'll take it, because it's the only kind on the menu. Somewhere up north, perhaps, somebody's still setting out bread for me.",
+          fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Norman.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
@@ -1637,6 +1763,7 @@ P:NPC {
         { text = "The regulars seem to mind a paladin among them, Norman.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do many living folk travel with the Forsaken, Norman?", next = "xpt_norman", when = { party = { race = "Scourge" } } },
         { text = "What's the talk at your tables, Norman?", next = "op_peace" },
+        { text = "Do you ever think about the living, Norman?", next = "hu_norman" },
         { text = "Just resting.", next = "END" },
         { text = "The Deathguard drink to my Scarlet kills, Norman?", next = "dd_scarlet", when = { killed = { name = "Scarlet", min = 100 } } },
       },
@@ -1718,6 +1845,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "I kept an inn up top before the plague, and I envy the living more than I hate them. They get to taste the stew, and all they ever do with it is come at us with torches." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need beds, but we need a place of our own, and a chair that nobody else will take. That's what I keep for them, and I keep it well." } },
     lordaeron = { { id = "tp_lordaeron", text = "I kept an inn in the capital before it fell, and some of my regulars still find their way down here. They sit in their old chairs, and I don't ask what they remember." } },
     thrall = { { id = "tp_thrall", text = "Orcs come through now and then, and they look about my common room like they expect to be eaten. I give them a chair by the door, and they seem grateful." } },

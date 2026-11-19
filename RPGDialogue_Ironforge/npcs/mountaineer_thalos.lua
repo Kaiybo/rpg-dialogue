@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human, out here in the snow! Ye'll be cold, then; yer folk always are, but ye're welcome on my road all the same." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "thalos_human_soft" }, priority = 10,
+      text = "There's my human friend! Ye've earned yer place at the fire, an' I'll say so tae any dwarf who grumbles." },
     { id = "g_pass", text = "Hold there. Nobody goes through the pass without a reason, an' a good one." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which is more than I can say fer some who've gone through." },
     { id = "g_obs", when = { questActive = TODO_QUEST("Senir's Observations") }, text = "Mountaineer Grelin's report fer Senir Whitebeard? Then ye've a reason, an' I'll no' stand in yer way." },
@@ -35,8 +39,75 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): admiring view of humans; Persuade softener sets thalos_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I fought beside them in the Second War, so I'll no' hear a word against their courage. A human footman stood his ground at Grim Batol when I'd have bet my axe he'd run, an' he took a Dragonmaw spear meant for me." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Ye'll get no grumblin' from me, {g:lad|lass}. I fought beside yer folk at Grim Batol, an' a human footman took a spear there that was meant for my ribs." },
+      },
+      choices = {
+        { text = "What happened to that footman?", next = "hu_view2" },
+        { text = "Most dwarves I've met aren't so generous.", next = "hu_view2" },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "He lived, an' he went home tae Lordaeron after, an' I've no idea if the plague took him or no', which sits heavy. Most o' my kin grumble about debts an' broken treaties, an' they're no' wrong, but no treaty ever stepped in front o' a spear for me." },
+      },
+      choices = {
+        { text = "Courage shared in battle outweighs any broken treaty.", next = "BACK",
+          reply = "Aye, that's how I see it, an' I'll stand a round for anyone who says so in Kharanos.",
+          fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "One brave footman doesn't excuse the kings who sent him.", next = "BACK",
+          reply = "No, maybe no'. But I'll leave the kings tae the senators an' remember the footman, if it's all the same tae ye.",
+          fx = { align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I'd trust a human footman wi' my life, for I've done it. But I'll no' tell ye the grumblers are lyin', for yer kings did take a deal o' dwarven blood an' then left Khaz Modan tae clean up after the war by itself." },
+      },
+      choices = {
+        { text = "Then let me be the footman they remember, not the kings.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarves complain about everyone. Why should humans be special?", next = "BACK",
+          reply = "Ha, fair enough, we do! But ye did ask, an' I've given ye the kindest answer ye'll get in this valley.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "thalos_human_soft" } } },
+          text = "Well said, an' I'll hold ye tae it. When the grumblers start in Kharanos, I'll tell them about Grim Batol an' then about ye, an' see if they've the nerve tae argue." },
+      },
+      choices = {
+        { text = "I won't let you down, Mountaineer.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Ye've a fine way wi' words, but the footman never made a speech, he just stood there. Show me on the road, an' then we'll talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Mountaineer.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "thalos_human_soft" } },
+          text = "Mountaineer Thalos. I've known some brave humans, an' some daft ones, an' most o' the daft ones came up this pass in light boots, so mind yer feet." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "thalos_human_soft" },
+          text = "Back on my road! I've been tellin' the troggs ye're comin', an' they've been very quiet about it." },
         { id = "h_default", key = true, text = "I'm Mountaineer Thalos, an' my job's tae keep folk out o' Coldridge Pass unless their business is worth the risk, for the troggs in there have no hesitation at all about attackin' travellers." },
         { id = "h_obs_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Senir's Observations"), days = 3 } },
           text = "So Grelin's report on the trolls went through after all. Just keep followin' the road out the far side, an' it'll run right intae Kharanos." },
@@ -56,6 +127,8 @@ P:NPC {
         { text = "Mountaineer Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "Any errands before I go through?", next = "BUSINESS" },
         { text = "Did you come through Coldridge as a recruit yourself?", next = "dw_recruit", when = { race = "Dwarf" } },
+        { text = "What do you make of humans, Mountaineer?", next = "hu_view" },
+        { text = "Your kin say humans can't be trusted, Mountaineer. Do you agree?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "thalos_human_soft" } } },
         { text = "I'll be on my way.", next = "END" },
       },
     },

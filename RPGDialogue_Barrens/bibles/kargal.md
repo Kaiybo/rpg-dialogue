@@ -38,3 +38,7 @@ Speaks from their own post and biases.
 
 ## Topics
 background, sergra, burning_blade
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Kargal Battlescar: watches the Southfury for Kul Tiran sails because Proudmoore's ships once ran up this coast; Sergra laughs at him for it.

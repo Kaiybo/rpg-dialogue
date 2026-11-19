@@ -63,3 +63,11 @@ Kaltunk greets new blood because someone once greeted him (out of the camps, acr
 ## Horde views of the kaldorei (authored, not canon)
 - Gar'Thok: held a line at the foot of Mount Hyjal with Thrall's Horde (Sentinels on the ridge above). Respects that Tyrande kept the truce until Archimonde fell; would hang any Sentinel caught killing woodcutters, but nobody calls them cowards in his barracks.
 - Gadrin: the troll memory of the kaldorei from before the Sundering, when the troll empires ruled and the young elves pushed against them; the elves broke the world with their well and act as if it were someone else's fault. Tells the young to remember old enemies.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Gar'Thok: the Kul Tirans in Tiragarde Keep are the enemy on his coast; believes Jaina may be honest but kills her father's men until she calls them home.
+- Orgnil: humans are a real enemy but one 'you can see coming over a hill'; the Burning Blade is worse. Never found a human among the cultists.
+- Kaltunk (authored): born in a camp, owned a human's cast-off boot; now welcomes orcs who never wore a chain.
+- Gornek: saw strong orcs sit in the camp mud and never rise; that's why his Den says 'get back up'. The lethargy was the orcs' own demon blood; the humans were glad to keep them sick.
+- Gadrin: watched his students fall to Kul Tiran guns on the Echo Isles; Bwonsamdi takes humans and trolls alike; hate is 'a heavy bag' he carries on bad days. Arathor and the Amani is the forest trolls' song, not the Darkspear's.

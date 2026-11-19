@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human! If ye're here for work, I'll pay ye when it's done, no' a copper before, an' if ye don't like that, the road tae Westfall's that way." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "bluntnose_human_soft" }, priority = 10,
+      text = "Ah, the human who finished the job! Come in, take a seat; yer mark's the only clean one in my book." },
     { id = "o_orcs_pity", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "pity" } },
       text = "Mountaineer Kadrell tells me ye've a soft word for the orcs in the camps. I'll thank ye no' tae repeat it at the Stoutlager, for I've enough fights on my ledger." },
     { id = "g_default", text = "I'm Magistrate Bluntnose. If ye've a complaint, take a number, an' if ye've an axe, come straight in." },
@@ -34,6 +38,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets bluntnose_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I hire them, when they'll come, an' they're good wi' a blade an' bad wi' a ledger. Every human mercenary who's taken coin in Thelsamar has wanted payment in advance, an' half o' them went back tae Westfall before the work was done." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I hire yer kind when they'll come, an' ye're grand wi' a blade an' poor wi' a promise. Half the humans I've paid in advance went home before the work was done." },
+      },
+      choices = {
+        { text = "Why hire humans at all, then?", next = "hu_view2" },
+        { text = "Westfall's in a bad way, Magistrate. They had reasons.", next = "hu_view2" },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Because Ironforge's soldiers are slow tae come an' the troggs are quick, an' a human wi' a sword's better than no sword. I'll grant Westfall's a misery, an' I'll grant a short life makes a man hurry, but a contract's a contract whatever's burnin' back home." },
+      },
+      choices = {
+        { text = "A contract is a contract. Those humans broke their word.", next = "BACK",
+          reply = "Aye, an' I've got their marks in my book, every one, in case any o' them ever come back.",
+          fx = { align = { honor = 1 }, opinion = { humans = "distrust" } } },
+        { text = "They had families starving. Your contract can wait.", next = "BACK",
+          reply = "Ye've a soft heart, an' I'll no' say it's wrong, but the troggs dinnae wait on families either.",
+          fx = { align = { honor = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I pay humans last because I've learned tae, {g:lad|lass}. I've a whole page o' names in my book from Westfall an' Redridge, all paid in advance, an' I've seen about a third o' the work they were paid for." },
+      },
+      choices = {
+        { text = "Pay me at the end, then. I'll prove the book wrong.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "WARRIOR", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Maybe they ran because you paid poorly, Magistrate.", next = "BACK",
+          reply = "I pay fair, an' I'll have that on my stone when I'm buried. Watch yer tongue in my hall.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "bluntnose_human_soft" } } },
+          text = "At the end, no complaint? Well, that's a first, an' I'll write it down. Bring me ten trogg ears an' I'll write ye in my book as a dwarf's equal, which is as high a praise as Thelsamar gives." },
+      },
+      choices = {
+        { text = "Ten trogg ears it is, Magistrate.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Pretty words, an' I've heard them from every name on that page. Do the work first an' then we'll talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Magistrate.", next = "END" },
+      },
+    },
     dw_kin = {
       lines = {
         { id = "dw_kin_default", text = "Aye, an' I'll know yer clan by yer beard braids if ye stand still long enough. Thelsamar's Bronzebeard tae the bone, but I've Wildhammer cousins in the Wetlands an' a grandmother who never once said a kind word about either lot." },
@@ -138,6 +205,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "bluntnose_human_soft" } },
+          text = "Magistrate Bluntnose. I hire blades, an' I'll hire yers, but humans get paid on finish, for I've had too many o' yer kind take the coin an' run home." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "bluntnose_human_soft" },
+          text = "Back again! I've written 'finishes the work' next tae yer name, which is more than I've written for any other human in Thelsamar." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
           text = "Ye'll forgive me starin', but ye've the look o' {alt}, a {altclass} who sorted out a deal o' trouble round the loch for me an' never once asked when the soldiers were comin'. If that's kin o' yers, Thelsamar's glad tae see the family again." },
         { id = "h_alt_any", when = { alt = true, metBefore = true }, cooldown = "5d",
@@ -171,6 +242,8 @@ P:NPC {
         { text = "The dam is vital. Who guards it?", next = "dam", when = { race = { "Dwarf", "Gnome" } } },
         { text = "You'll know the old clan quarrels, Magistrate. I'm a dwarf too.", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Has Thelsamar always been a Bronzebeard town?", next = "dw_hist" },
+        { text = "What do you make of humans, Magistrate?", next = "hu_view" },
+        { text = "You pay humans last because you don't trust us, Magistrate?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "bluntnose_human_soft" } } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },

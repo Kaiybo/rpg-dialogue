@@ -56,3 +56,6 @@ Authored, not canon: Gor'mul's view of Drum and of Thrall, the camp-born advice;
 
 ## Night elves (prejudice pass)
 - Nials, night elves: compares them unfavourably with the quel'dorei who kept faith with Arathor; a kaldorei player can point out Stromgarde also left the Alliance (`[Persuade]`, npcFlag `nials_nelf_soft`).
+
+## Humans (human patch)
+- Nials, humans: Strom the first city of men, Arathor the first kingdom; Stromgarde left the Alliance and nobody marched for it. Prejudice (authored): southern humans who 'stayed warm'; `[Persuade]` sets npcFlag `nials_hu_soft`. Origin greeting for human_stromgarde_sellsword.

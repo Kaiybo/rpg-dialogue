@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-19)
+- Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
+
 ## 1.24.0 (2026-11-19)
 - Night elves and hunter trainers deepened (Ayanna, Dazalar, Keldas and Shadowglen and Dolanaar folk, with night elf-only branches); 17 doubled NPCs removed.
 

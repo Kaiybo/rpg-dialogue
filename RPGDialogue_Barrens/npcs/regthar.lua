@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them soft, and slow, and better at walls than at fighting in the open. Out here the Kolkar would eat a column of Theramore's footmen in an afternoon, and I'd sit on my stockade and watch." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You Darkspear fought them in your jungle, so you know they're better at walls than at open ground. Out here the Kolkar would eat a column of Theramore's footmen in an afternoon, and I'd watch from my stockade." },
+      },
+      choices = {
+        { text = "Soft? They beat the Horde in the Second War.", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "They beat a Horde that was rotten with Gul'dan's treachery and fighting itself, and they'll tell you otherwise in every song they sing. I've fought the centaur for years now, and the centaur fight harder than any knight I faced at Blackrock." },
+      },
+      choices = {
+        { text = "Don't belittle them. That's how warriors die.", next = "BACK", reply = "Hmph. You sound like Belgrom, and I don't say that kindly. Fine, I'll watch for their footmen as closely as I watch the Kolkar.", fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "They needed Gul'dan's help to win. They're nothing.", next = "BACK", reply = "That's how I see it, and the Kolkar agree with me, in their way. Go on and bring me bracers, and we'll talk about humans when there's one worth killing.", fx = { align = { honor = -1 }, opinion = { humans = "contempt" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Regthar Deathgate. I command the Horde's fight against the Kolkar in these lands, and I've scouts at every oasis from here to the Stagnant Pool. If a centaur sneezes in the northern Barrens, I hear of it." },
@@ -58,6 +79,7 @@ P:NPC {
         { id = "h_again2", text = "Speak. The centaur don't wait, and neither do I, and my boots are full of sand besides." },
       },
       choices = {
+        { text = "What do you make of humans, Regthar?", next = "hu_view" },
         { text = "Who leads the Kolkar?", next = "leaders" },
         { text = "The centaur seem better organized than they used to be.", next = "why" },
         { text = "This is your headquarters? A burrow and a pig farm?", next = "camp" },

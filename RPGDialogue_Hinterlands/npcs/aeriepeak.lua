@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "noble", tier = "major",
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
   likesTone = "blunt", race = "Dwarf",
-  prejudice = { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." },
+  prejudice = { { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." }, { race = "Human", amount = 5, why = "Lordaeron's lords treated the Wildhammer as savages until they needed gryphons, then left Aerie Peak alone when their kingdom fell." } },
   notices = { "race", "class", "lock_shadow", "lock_shards" },
 
   impression = {
@@ -16,9 +16,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej1", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ironforge! I can smell the forge-smoke an' the paperwork on ye from here. Come in anyway, for Aerie Peak's never shut its gate on a cousin, even one who lives in a hole." },
-    { id = "g_prej2", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Another Bronzebeard come tae see how the wild folk live! Mind the gryphon dung, for we've no royal servants here tae sweep it." },
-    { id = "g_prej_over", when = { prejudiced = "overcome", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ye're a Bronzebeard, an' ye've fought trolls in my hills like a Wildhammer born, so I'll stop teasin' ye. Mostly." },
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human at Aerie Peak! Now that's rare as hen's teeth, these days. Last time yer folk came up here in numbers, they wanted our gryphons an' no' our company." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "falstad_human_soft" }, priority = 10,
+      text = "There's the human who flew wi' us! Come in, come in; the Wildhammer remember a friend, an' we remember ye." },
+    { id = "g_prej1", when = { race = "Dwarf", prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ironforge! I can smell the forge-smoke an' the paperwork on ye from here. Come in anyway, for Aerie Peak's never shut its gate on a cousin, even one who lives in a hole." },
+    { id = "g_prej2", when = { race = "Dwarf", prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Another Bronzebeard come tae see how the wild folk live! Mind the gryphon dung, for we've no royal servants here tae sweep it." },
+    { id = "g_prej_over", when = { race = "Dwarf", prejudiced = "overcome", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ye're a Bronzebeard, an' ye've fought trolls in my hills like a Wildhammer born, so I'll stop teasin' ye. Mostly." },
     { id = "g_keep", text = "Ha! A visitor tae Wildhammer Keep! Come in, come in, an' tell me ye're here tae fight trolls!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, good! I like a face that keeps comin' back, for it means the trolls didnae get it." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "Ha, there ye are, after {away} away! I'd started tae think the trolls had finally got ye, an' I'm glad tae be wrong." },
@@ -41,6 +45,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets falstad_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I flew beside Turalyon an' Lothar's knights in the Second War, an' there were braver men than I'd have guessed among them. But Lordaeron's lords looked at us like savages wi' feathers in our beards, right up until they needed gryphons over the Hinterlands." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I flew beside yer knights in the Second War, an' some were braver than I'd have guessed. Yer lords, though, looked at us like savages until they needed gryphons." },
+      },
+      choices = {
+        { text = "And after Lordaeron fell?", next = "hu_view2" },
+        { text = "Lordaeron's lords are mostly dead now, High Thane.", next = "hu_view2" },
+        { text = "Something else, High Thane.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "After, there was nobody left in Lordaeron tae look down on us, an' nobody left tae stand wi' us either. The plague came, the kingdom went, an' Aerie Peak was left alone between the trolls an' the dead, an' not one human crown sent so much as a rider tae ask how we fared." },
+      },
+      choices = {
+        { text = "The knights who flew with you deserve remembering, High Thane.", next = "BACK",
+          reply = "Aye, they do, an' I'll drink tae Turalyon's lads any night ye like. It's the lords I'll no' drink tae.",
+          fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "They used the Wildhammer and left you. Don't forgive it.", next = "BACK",
+          reply = "I've no' forgiven it, an' I'll no' pretend tae. The Wildhammer have long memories an' longer grudges.",
+          fx = { align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "A grudge? Aye, a long one, an' the Wildhammer are known for it. Lordaeron's lords called us wild an' kept us out o' their halls, an' when the plague took their kingdom, they left Aerie Peak alone between the Witherbark an' the Scourge." },
+      },
+      choices = {
+        { text = "Then let one human stand with Aerie Peak now.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = { "WARRIOR", "HUNTER", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "The Wildhammer always preferred to fly alone anyway.", next = "BACK",
+          reply = "We do prefer it, an' that's our choice, no' yer kings' tae make for us.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "falstad_human_soft" } } },
+          text = "Stand wi' us, is it? Then go an' put a few Witherbark trolls in the ground, an' I'll tell the riders there's a human worth the name. We'll remember it, an' the Wildhammer forget nothin'." },
+      },
+      choices = {
+        { text = "I'll go, High Thane.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Ye'll stand wi' us till the next ship leaves Menethil, I expect. Come back wi' troll blood on yer boots an' I'll believe it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, High Thane.", next = "END" },
+      },
+    },
     dd_trolls = {
       lines = { { id = "dd_trolls_default", text = "Leave? They were here long before Aerie Peak, an' they'll be here when my grandsons are grey, for this was their empire once. The best we can hope is tae keep them in their ruins, an' ye've been doin' a fine job of it." } },
       choices = {
@@ -171,6 +238,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "falstad_human_soft" } },
+          text = "Falstad Wildhammer, High Thane o' Aerie Peak. We flew for yer kings once, an' when yer kingdom fell, not one o' them flew back for us." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "falstad_human_soft" },
+          text = "Back again, an' welcome! I've told the riders there's one human who came up here for our sake an' no' our birds, an' they nearly fell off their perches." },
         { id = "h_pt_dwarf", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
           text = "You've brought {companion} up to the Peak, and a Bronzebeard by the cut of that beard. Magni and I keep the peace well enough these days, but I'll warn you that half my riders still mutter about Grim Batol when one of Ironforge's lot walks in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Ha! An Ironforge dwarf wi' the storm in yer hands! Magni's lot always called the spirits Wildhammer superstition, {class}, an' here ye are provin' 'em wrong in my own hall!" },
@@ -223,7 +294,9 @@ P:NPC {
         { text = "Am I welcome here, High Thane, as a shaman of Ironforge?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I was in Zul'Gurub when Hakkar fell, High Thane.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "The Wildhammer and Ironforge still seem at odds, Thane.", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
-        { text = "You've a mouth on you about Ironforge, Falstad.", next = "prej", when = { prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
+        { text = "You've a mouth on you about Ironforge, Falstad.", next = "prej", when = { race = "Dwarf", prejudiced = true, ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
+        { text = "What do you make of humans, High Thane?", next = "hu_view" },
+        { text = "You seem to hold a grudge against my people, High Thane.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "falstad_human_soft" } } },
         { text = "I'm here to fight trolls.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { aerie_peak = 1 } } },
         { text = "Will the trolls ever leave the Hinterlands, Falstad?", next = "dd_trolls", when = { killed = { name = { "Vilebranch", "Witherbark" }, min = 60 } } },
       },
@@ -430,7 +503,7 @@ P:NPC {
   key = "talonaxe", id = TODO_NPC("Gryphon Master Talonaxe"), name = "Gryphon Master Talonaxe",
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
-  prejudice = { race = "Gnome", amount = 8, why = "Gnomish flying machines spook his gryphons." },
+  prejudice = { { race = "Gnome", amount = 8, why = "Gnomish flying machines spook his gryphons." }, { race = "Human", amount = 5, why = "His gryphons carried Lordaeron's knights in the Second War, and no human came back for the birds when the kingdom fell." } },
   notices = { "class", "lock_armor" },
 
   impression = {
@@ -439,9 +512,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej1", when = { prejudiced = true }, text = "A gnome. Keep yer tools in yer pack an' nothin' that ticks near my birds, for the last one o' yer folk who came up here brought a flyin' machine, an' I'm still pickin' feathers off the walls." },
-    { id = "g_prej2", when = { prejudiced = true }, text = "Gnome, is it? Stand downwind o' the aviary, if ye please. The gryphons can smell engine oil a mile off, an' they hate it worse than I do." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ye've been round my birds an' not one o' them has bolted, so I'll admit ye're no' like the rest o' yer tinkerin' lot. Come in." },
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human at the aviary! Keep yer hands tae yerself; my birds remember yer kind, an' they remember the dragonfire better." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "talonaxe_human_soft" }, priority = 10,
+      text = "Ah, it's ye! The birds have stopped hissin' when ye come up the stair, an' so have I, near enough." },
+    { id = "g_prej1", when = { race = "Gnome", prejudiced = true }, text = "A gnome. Keep yer tools in yer pack an' nothin' that ticks near my birds, for the last one o' yer folk who came up here brought a flyin' machine, an' I'm still pickin' feathers off the walls." },
+    { id = "g_prej2", when = { race = "Gnome", prejudiced = true }, text = "Gnome, is it? Stand downwind o' the aviary, if ye please. The gryphons can smell engine oil a mile off, an' they hate it worse than I do." },
+    { id = "g_prej_over", when = { race = "Gnome", prejudiced = "overcome" }, text = "Ye've been round my birds an' not one o' them has bolted, so I'll admit ye're no' like the rest o' yer tinkerin' lot. Come in." },
     { id = "g_aviary", text = "Aye, what is it? I'd rather be up in the air than down here talkin', but the gryphons won't take orders from the ground, so somebody has tae." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the gryphons noticed before I did, which tells ye somethin'. Right, what is it?" },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear ye talked someone at the Peak intae somethin'. Dinnae try it wi' me, for I answer tae gryphons, an' they dinnae listen tae reason either." },
@@ -456,6 +533,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets talonaxe_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "My gryphons carried human knights in the Second War, an' some o' those birds never came home. The humans built statues tae their knights after, an' not a one o' them had a gryphon on it." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "My birds carried yer knights in the Second War, an' some never came home. Yer folk built statues after, an' not a one had a gryphon on it." },
+      },
+      choices = {
+        { text = "Did the humans ever honour the gryphons?", next = "hu_view2" },
+        { text = "You've a long memory for birds, Gryphon Master.", next = "hu_view2" },
+        { text = "Something else, Gryphon Master.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Honour them? They sent a letter thankin' the Wildhammer for our 'mounts', as if a gryphon were a pony wi' wings. A gryphon chooses its rider, an' those birds chose tae carry humans intae dragonfire, an' they deserved better than tae be called mounts." },
+      },
+      choices = {
+        { text = "The gryphons deserved a place on those statues.", next = "BACK",
+          reply = "Aye, they did, an' I'll carve one maself if I ever live tae see Lordaeron cleared o' the dead.",
+          fx = { align = { light = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Humans honour their dead their own way. Let it go.", next = "BACK",
+          reply = "Let it go? I'd sooner let go o' my own beard, {g:lad|lass}, though I'll grant ye yer own folk have died aplenty.",
+          fx = { align = { light = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Partly. A gryphon learns from its master, an' I've no' much good tae say o' humans since yer kings called my birds 'mounts' an' left them off every statue in Lordaeron." },
+      },
+      choices = {
+        { text = "Let me bring the birds meat. They can judge me themselves.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = "HUNTER" }, { class = "DRUID" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "They're animals. Why would a king carve them in stone?", next = "BACK",
+          reply = "Animals! Get off my aerie before I let one o' those animals show ye what it thinks.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "talonaxe_human_soft" } } },
+          text = "Let the birds judge, eh? That's a Wildhammer answer from a human mouth, an' I didnae expect it. Fetch me some owlbeast meat, an' if they take it from yer hand, I'll stop tellin' them about Lordaeron." },
+      },
+      choices = {
+        { text = "Owlbeast meat. I'll bring plenty.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "The birds'll take meat from anyone, {g:lad|lass}. It's what ye do after that matters, an' I've no' seen it yet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Gryphon Master.", next = "END" },
+      },
+    },
     dw_bronze = {
       narr = "He looks you up and down, beard first, and sniffs.",
       lines = {
@@ -578,6 +718,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "talonaxe_human_soft" } },
+          text = "Gryphon Master Talonaxe. My gryphons carried yer knights intae the Second War, an' yer kings called them mounts. Mind yer tongue near the aerie." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "talonaxe_human_soft" },
+          text = "Welcome back tae the aerie! The birds have been askin' after ye, in their way, which mostly means they've left yer boots alone." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Four friends behind you, and all of you wanting a ride, I'll wager, though my birds are trained to carry one rider each and they'll tell you so with their beaks." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman o' Ironforge? The birds knew afore I did, {class}, for they've been rufflin' their feathers since ye came up the path, an' that's how they greet a friend o' the wind." },
@@ -625,9 +769,11 @@ P:NPC {
         { text = "Would Keenclaw really go for my throat, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The gryphons seem to sense the spirits, Talonaxe.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "A gryphon could surely carry two riders, Gryphon Master.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
-        { text = "You don't care much for gnomes, Talonaxe.", next = "prej", when = { prejudiced = true } },
+        { text = "You don't care much for gnomes, Talonaxe.", next = "prej", when = { race = "Gnome", prejudiced = true } },
         { text = "Would you ever let a Bronzebeard ride one of your gryphons?", next = "dw_bronze", when = { race = "Dwarf", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
         { text = "My kin flew from this aviary once, Gryphon Master.", next = "dw_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } },
+        { text = "What do you make of humans, Gryphon Master?", next = "hu_view" },
+        { text = "Your birds hiss at me, Gryphon Master. Is that your doing?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "talonaxe_human_soft" } } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },

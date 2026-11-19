@@ -40,3 +40,7 @@ Biased: inflates his role, downplays the mistake.
 
 ## Topics
 background, advice, rimtori, silithid
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Belgrom: hatred, ambition. Counsels Thrall to strike Theramore first; won't break the truce himself. Concedes the orcs came through the Portal as invaders but thinks the camps paid that debt.

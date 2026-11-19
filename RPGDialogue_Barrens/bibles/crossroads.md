@@ -48,3 +48,10 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ## Authored, not canon
 - Helbrim's prejudice (0.80.0): tauren druids have written to Thunder Bluff about him eleven times this season; he doesn't know what the Society does with his spores.
 - Gazlowe's prejudice (0.80.0): night elves are bad customers (one bandage, an hour of complaints, a letter to Astranaar about the Venture Company).
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Thork: Northwatch Hold's soldiers raid the Crossroads' caravans despite the truce; he holds the road and reports, and would carry the torch if Thrall ordered it.
+- Mankrik (authored): Olgra told him to judge humans one at a time (a guard gave her a blanket and beat an old orc the next day); his grief has left no anger over for humans.
+- Gazlowe: Theramore ships pay; Northwatch soldiers 'inspect' (steal) cargo on the beach; flag gazlowe_human_soft.
+- Dizzywig: Kul Tiran merchant captains, cut loose since the admiral died, are the human 'Will Pay Next Voyage' column; flag dizzywig_human_soft.

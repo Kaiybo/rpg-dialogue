@@ -72,3 +72,8 @@ Tharnariun sitting with the caged bear each evening, the sickness worse at the d
 ## Kaldorei factions (authored, not canon)
 - Elissa: values the Alliance by her ledgers (dwarven iron, Delgren's paladins, gnomish lamp oil) and argues with Glynda and Tysha. Thundris: has made peace with mortality since Hyjal and argues that mortal peoples need each other; names Auberdine's banks (Glynda, Tysha, Elissa, Barithras, Allyndia).
 - Night elves (0.94.0 work): Remtravel thinks the kaldorei forbid digs to hide their past, not out of reverence (claim `remtravel_elves_hide_history`, partly, open); admits the lintel-and-cookpot business with Glynda. A night elf can send him to Thundris (`[Persuade]`, npcFlag `remtravel_soft`), after which every crate goes past Thundris first.
+
+
+## Humans (human patch)
+- terenthis: Bitter, intent: humans caged then freed the orcs, and a human necromancer called the Legion into Dalaran; concedes the Highborne first called the Legion. Softens if a human offers to help heal the ground. Flag `terenthis_human_soft`.
+- remtravel: Wry, scatterbrained: humans are splendid diggers who never look; two Westfall lads shovelled through a titan carving. Softens if a human promises to go slowly. Flag `remtravel_human_soft`.

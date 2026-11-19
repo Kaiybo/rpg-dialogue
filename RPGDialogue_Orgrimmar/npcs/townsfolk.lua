@@ -695,6 +695,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "They split them, which was cleverer than killing them. A Warsong in one camp, a Blackrock in the next, a Frostwolf nowhere at all, and after ten years behind a palisade half our young ones couldn't tell you which banner their grandfathers bled under." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "Ask your elders which camp they were held in, and you'll see it on their faces. The humans split us, a Warsong here and a Blackrock there, until half our young ones couldn't name their grandfathers' banners." },
+      },
+      choices = {
+        { text = "Is that why you register clans now?", next = "hu_stance" },
+        { text = "My people were never in the camps.", next = "BACK", when = { race = { "Troll", "Tauren", "Scourge" } }, reply = "Then count yourself lucky, and listen to those who were. A name is a small thing until someone takes it from you.", fx = { learn = { "humans" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "It's why I do anything at all, {class}. Every clan written in my ledger is one more name the humans couldn't take, and I'd like the whole world to see the Horde gathering itself back together under its own banners." },
+      },
+      choices = {
+        { text = "Then every new clan is a blow against them.", next = "BACK", reply = "That's how I see it, though I'd never say it to a Theramore envoy. Write your name in my ledger, and let them count it.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "The clans should serve the Warchief, not old grudges.", next = "BACK", reply = "They do, every one of them, and the Warchief signs the charters himself. But a grudge keeps a clan's name warm on cold nights, and I won't apologize for that.", fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The old clans would never have known what to make of you, and I am not sure I do either, but the Horde has room for strange guilds now." },
@@ -709,6 +731,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Ask, and I'll answer like a clan elder." } },
       choices = {
+        { text = "What did the humans do to the clans?", next = "hu_view" },
         { text = "Did the old clans ever have priests among them, Urtrun?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Every guild should keep a shaman, as the clans did.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd guess the tauren keep clans as the orcs do.", next = "druid_q", when = { class = "DRUID" } },

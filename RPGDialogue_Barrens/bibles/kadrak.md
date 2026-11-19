@@ -42,3 +42,7 @@ Biased toward the Horde's claim to Ashenvale.
 
 ## Topics
 background, advice, warsong, sentinels
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Kadrak: the Warsong never forget that Grom sat in a human camp with the lethargy until Thrall woke him; keeps Thrall's peace with humans and saves his axe for the forest.

@@ -74,3 +74,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## Kaldorei factions (Rivern)
 Openly contemptuous of the "young races" (humans, dwarves, gnomes): loud, hurried, careless with fire and steel (node `loud`). Grudge source, authored not canon: an Explorers' League party blasted open a frostsaber den two winters ago. Grants that Jaron is careful. Human/dwarf/gnome players get `xloud`; [Persuade] passes at Wintersaber Trainers honored and sets `rivern_soft`. Never: "lesser" or slurs.
+
+## Humans (human patch)
+- Vizzie: humans leave the door open for bugs and stole her good spoon; flag vizzie_human_soft.

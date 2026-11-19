@@ -39,3 +39,9 @@ Gryshka sends Zargh's bones back clean after Meats to Orgrimmar and is still won
 
 ## Authored, not canon
 - Kardris's prejudice (0.80.0): hard on orc warlocks in particular (the old sin twice); gentler with warlocks of other races.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Gryshka (authored): cooked for human guards in a camp outside Lordaeron; the lethargy was worse than the whip; an old guard slipped her salt. Mixed, warm, bitter underneath.
+- Vol'jin: met humans as Kul Tiran ships off the Echo Isles before he met orcs; Sen'jin died in that fight; keeps his hate on a short leash for Thrall. Arathor/Amani is 'the Amani's grudge, not ours'.
+- Grezz: grudging warrior respect. A footman is half an orc's strength but holds a shield wall in a hailstorm; the pits and Blackrock Spire. Respect the shield and break it anyway.

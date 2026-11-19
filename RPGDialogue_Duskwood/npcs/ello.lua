@@ -17,6 +17,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "A son of Stormwind in Darkshire! Or near enough, at any rate. Come in, come in, and tell me the Keep still remembers it has a town in these woods." },
+    { id = "g_hu_north", when = { race = "Human", origin = "human_lordaeron_refugee" }, priority = 6,
+      text = "Ah. You've the north in your voice, I think. Darkshire has taken in a good many of Lordaeron's people, and I am sure they are very grateful." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "ello_hu_soft" }, priority = 10,
+      text = "There you are, my friend from the north. I have been practising a speech to the council about Lordaeron's debt, and I would value your ear on it." },
     { id = "g_op_watch_soldiers", when = { opinion = { topic = "night_watch", stance = "needs_soldiers" } }, text = "Ah, my ally in correspondence! The twelfth letter has gone, with your opinion in it underlined, and I await the Crown's thirteenth refusal with great interest." },
     { id = "g_mayor", text = "The mayor's time is precious, {class}, and Darkshire's is more precious still." },
     { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Please, tell me that Stormwind has finally sent you." },
@@ -123,8 +129,85 @@ P:NPC {
         { text = "Tell me about the Night Watch.", next = "watch" },
       },
     },
+    hu_ello = {
+      lines = {
+        { id = "hue_default", key = true,
+          text = "Fell, yes, though not as Stormwind fell, if you'll pardon the distinction. We fell to orcs, which is a calamity; Lordaeron fell to its own prince, which is something else entirely, and one does wonder what sort of court raises an Arthas." },
+      },
+      choices = {
+        { text = "Any kingdom might raise an Arthas, my lord.", next = "hu_ello_2" },
+        { text = "You think Stormwind's nobles are better men?", next = "hu_ello_2" },
+      },
+    },
+    hu_ello_2 = {
+      big = true,
+      narr = "He tugs at his collar and lowers his voice, though there is nobody else in the hall.",
+      lines = {
+        { id = "hue2_default",
+          text = "Better men? I sit on a council of farmers in a haunted wood, my dear, so I am hardly one to boast. But I will say that Stormwind's line has held, mostly, and that Darkshire has fed a great many northern mouths, and I do sometimes wonder whether they appreciate it." },
+      },
+      choices = {
+        { text = "Lordaeron housed Stormwind's refugees first. The debt runs north, my lord.", next = "BACK",
+          reply = "Does it? I was a boy then, and one forgets which way the boats went. I shall have to think about that, which is never comfortable.",
+          fx = { align = { honor = 1 }, opinion = { lordaeron = "debt" } } },
+        { text = "Stormwind owes the north nothing. Let them earn their bread.", next = "BACK",
+          reply = "Well, I'd not put it quite so baldly in front of the council, but I confess the sentiment has occurred to me on long evenings.",
+          fx = { align = { honor = -1 }, opinion = { lordaeron = "burden" } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    hu_ello_x = {
+      lines = {
+        { id = "huex_default", key = true,
+          text = "Coolly? I am sure I spoke with every courtesy. I only meant that the north had its troubles, and that some of us in the south have had to pay for them, which is a perfectly ordinary thing for a councillor to say." },
+      },
+      choices = {
+        { text = "My family fed Stormwind's refugees after the first war, my lord.", tag = "Persuade", next = "hu_ello_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { townStanding = { town = "darkshire", min = 30 } }, { questDone = TODO_QUEST("Translation to Ello") } } } },
+          fail = { next = "hu_ello_fail", fx = { affinity = -1 } } },
+        { text = "The north paid with everything it had, my lord.", next = "BACK",
+          reply = "I am sure it did, and I am sorry for it. Now, was there some other matter?",
+          fx = { affinity = -1 } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    hu_ello_soft = {
+      lines = {
+        { id = "hues_default", key = true, fx = { npcFlag = { set = { "ello_hu_soft" } } },
+          text = "Did they? Then I owe you an apology, and your family a good deal more than that. I was a boy when the boats went north, and I suppose I chose to remember Stormwind's grief and nobody else's, which is a thing a councillor ought to be ashamed of." },
+      },
+      choices = {
+        { text = "Then we're square, my lord.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_ello_fail = {
+      lines = {
+        { id = "huef_default", text = "That's very touching, I'm sure, and every refugee in the inn has a story much like it. Do something for Darkshire first, and perhaps the council will listen to stories." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    hu_ello_n = {
+      lines = {
+        { id = "huen_default", key = true,
+          text = "Oh, a great many things, and most of them foolish. Our kingdoms, our old names, a good hall with a fire in it; we fell to the orcs and built Stormwind again inside a generation, and we have been unbearable about it ever since, myself included." },
+      },
+      choices = {
+        { text = "A people that rebuilds a city has earned some pride.", next = "BACK",
+          reply = "You are very generous, and I shall tell the council you said so. They will not believe me, but I shall tell them.",
+          fx = { align = { order = 1 }, opinion = { humans = "admire" } } },
+        { text = "Pride is what brought your northern kingdom down, my lord.", next = "BACK",
+          reply = "That is a harsh thing to say to a man in his own hall, and the worst of it is that I can't think how to answer it.",
+          fx = { align = { order = -1 }, opinion = { humans = "arrogant" } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "One forgets, out here, what it is to see a proper citizen of the kingdom, and not a woodcutter or a watcher or something with too many legs. Forgive me if I seem pleased." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "I'm told you've been down through Stormwind's Stockade and put its riot to rest. If you passed a cell with Dextren Ward in it, I hope you looked him in the eye for Darkshire, because the House of Nobles never will." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -186,6 +269,9 @@ P:NPC {
         { text = "Your town fears me, Lord Ebonlocke.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stormwind doesn't seem to answer your requests, Lord Ebonlocke.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade is quiet now, my lord. Does Darkshire care?", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
+        { text = "Lordaeron fell too, my lord. Darkshire isn't alone.", next = "hu_ello", when = { race = "Human" } },
+        { text = "You speak of the north rather coolly, my lord.", next = "hu_ello_x", when = { race = "Human", origin = "human_lordaeron_refugee", ["not"] = { npcFlag = "ello_hu_soft" } } },
+        { text = "What makes a human proud, my lord?", next = "hu_ello_n", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Good day, my lord.", next = "END" },
       },
     },

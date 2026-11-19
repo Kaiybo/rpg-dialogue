@@ -34,3 +34,7 @@ Honest.
 
 ## Topics
 troggs
+
+
+## Humans (human patch)
+- mountaineer_thalos: Admiring veteran: a human footman took a Dragonmaw spear for him at Grim Batol; still grants the kings left Khaz Modan alone. Softens if a human wants to be remembered like the footman. Flag `thalos_human_soft`.

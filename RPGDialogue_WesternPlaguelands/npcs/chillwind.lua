@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Stormwind steel, and on its feet in the Plaguelands. Good. Stormwind sent me north to fight for a kingdom that isn't ours any more, and I'm glad of every countryman who comes to share the honour." },
+    { id = "g_hu_north", when = { race = "Human", origin = "human_lordaeron_refugee" }, priority = 6,
+      text = "You're Lordaeron's, I can hear it. You've come home, soldier, and I'm sorry for what you're coming home to." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I buried good men who trusted a demon-caller at Andorhal. Fight the Scourge if you must, but you'll do it where I can see you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You're a warlock, and every soldier in this camp knows it by now. Keep your conjuring outside my palisade, or I'll have you walked out of it." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've bled for Chillwind and kept your demons out of my camp, and I've noticed both. I'll still post a guard on you, but he can stand a little further back." },
@@ -116,8 +120,49 @@ P:NPC {
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
+    hu_val = {
+      lines = {
+        { id = "huval_default", key = true,
+          text = "Because Lordaeron bled for Stormwind first. When the orcs burned our city, Terenas took in every survivor who reached his shores and raised an Alliance to win our home back, and I don't intend to be the generation that forgets it." },
+      },
+      choices = {
+        { text = "There's nothing left here to save, Commander.", next = "hu_val_2" },
+        { text = "Who are we fighting for, then? The dead?", next = "hu_val_2" },
+      },
+    },
+    hu_val_2 = {
+      big = true,
+      narr = "He spreads his gloved hand flat on the map, over Andorhal.",
+      lines = {
+        { id = "huval2_default",
+          text = "In a way, yes. Kel'Thuzad's cult shipped plagued grain out of Andorhal to every village in the north, and the people who ate it are the Scourge we fight today: farmers, millers and their children, raised against their own neighbours. Putting them down is the last service anyone will ever do them." },
+      },
+      choices = {
+        { text = "Stormwind owes this fight. We finish what Lordaeron started.", next = "BACK",
+          reply = "That's the spirit of the Alliance, soldier, the one that won the second war. Report to MacDonnell and she'll find you a cauldron.",
+          fx = { align = { honor = 1 }, opinion = { lordaeron = "debt" } } },
+        { text = "Lordaeron's lost. Hold the south and let the north burn.", next = "BACK",
+          reply = "I hear that from the High Command more than I'd like. Maybe it's sense, but I'll not be the one to tell those dead farmers they're on their own.",
+          fx = { align = { honor = -1 }, opinion = { lordaeron = "lost" } } },
+        { text = "Do the dead remember who they were?", next = "hu_val_3" },
+      },
+    },
+    hu_val_3 = {
+      lines = {
+        { id = "huval3_default",
+          text = "The priests say no, and I choose to believe them, because the other answer would make this work impossible. The Forsaken at the Bulwark say otherwise, and I've found it easiest not to ask them." },
+        { id = "huval3_north", when = { origin = "human_lordaeron_refugee" },
+          text = "The priests say no, and if you're asking because you've family out there, soldier, then believe the priests. The Forsaken at the Bulwark say otherwise, and I've found it easiest not to ask them." },
+      },
+      choices = {
+        { text = "I'll believe the priests, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Every farm between here and Andorhal belonged to a human family once, and most of those families are walking around out there now. Keep that in mind when you swing, and then swing anyway." },
         { id = "o_fkhate", tags = { "news" }, when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "The High Priestess says you'd put every Forsaken back in the ground. Do it on the far side of the field, if you must, and don't start a war I can't afford." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, and each one looking like they can hold a line, which I can't say of most volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
@@ -179,6 +224,7 @@ P:NPC {
         { text = "Can a shaman be of use against Andorhal, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Darkmaster Gandling is dead, Commander. The Scholomance has no master.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "We're here to fight the Scourge as a company, Commander.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
+        { text = "Why should Stormwind bleed for Lordaeron, Commander?", next = "hu_val", when = { race = "Human" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -438,6 +484,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Ah, one of our own! The Light's been short of human faces up here since the Crusade took most of them, so you're doubly welcome." },
     { id = "g_light", text = "The Light keep you, friend, and keep you upwind of the farms while it's at it." },
     { id = "g_xsquire", when = { origin = "human_paladin_squire" }, text = "A squire of the old Order, still keeping the oaths with nobody left to swear them to? The Light keep you, friend, and point you at a cauldron, because that's the finest prayer I know." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Tell me a cauldron coughed and choked out there, and you'll have made my whole day." },
@@ -555,8 +603,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_mac = {
+      lines = {
+        { id = "humac_default", key = true,
+          text = "I'd like to think so, though I'll not live to see it. These were Lordaeron's granaries, the fields that fed the whole north, and the cult chose them on purpose; they knew that if you poison a human kingdom's bread, you poison its heart." },
+      },
+      choices = {
+        { text = "Then the cauldrons are a kind of revenge for you.", next = "hu_mac_2" },
+        { text = "Who were the families on these farms?", next = "hu_mac_2" },
+      },
+    },
+    hu_mac_2 = {
+      big = true,
+      lines = {
+        { id = "humac2_default",
+          text = "Ordinary folk, the Dalsons and their neighbours, who went to chapel and paid their tithes and never once thought the Light would let this happen. Turning the Scourge's own plague back on it is the nearest I'll come to giving them justice, and I confess I enjoy it more than a priestess should." },
+      },
+      choices = {
+        { text = "The Light can heal even this, given time.", next = "BACK",
+          reply = "That's the faith I was taught in Lordaeron's chapels, and I'll hold to it, even if all I can do today is break a cauldron.",
+          fx = { align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "Salt it and leave it. Nothing good will grow here again.", next = "BACK",
+          reply = "You may be right, and some mornings I think it myself. But I'll not tell the dead that their fields were good for nothing but salt.",
+          fx = { align = { light = -1 }, opinion = { the_light = "doubt" } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
+    hu_mac_x = {
+      lines = {
+        { id = "humacx_default", key = true,
+          text = "Because it's where our dead are, and humans can't bear to leave their dead behind; we'd sooner fight over a graveyard than move to a safer one. It's sentimental, I'll grant you, but it's also why we're here at all, holding a camp in a dead kingdom." },
+      },
+      choices = {
+        { text = "My people understand that more than you'd think.", next = "BACK", fx = { affinity = 1 },
+          reply = "I thought you might, and I'm glad of it. Grief's easier when it's shared, even across a border." },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "This was the best farmland in Lordaeron, you know, the breadbasket of the whole north. Now it grows plague, and I grow very cross about it." },
         { id = "h_dd_termites", when = { questDone = TODO_QUEST("A Plague Upon Thee") },
           text = "Nathaniel tells me you set his termites loose on the Scarlet mill at Northridge. I can't say I approve of the method, but I watched the smoke from the hill and I didn't pray for it to stop." },
         { id = "o_swdistrust", tags = { "news" }, when = { gossip = { topic = "prestor", stance = "distrust" } }, text = "The Commander says you've doubts about Lady Prestor. Pray on them, by all means, but keep them out of his letters home." },
@@ -610,6 +697,8 @@ P:NPC {
         { text = "Does a shaman's fire offend the Light, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Stratholme, High Priestess.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Alliance" } },
         { text = "My companion is a paladin. What became of the Silver Hand?", next = "xpt_pala", when = { party = { class = "PALADIN" }, faction = "Alliance" } },
+        { text = "Can this land ever be healed, High Priestess?", next = "hu_mac", when = { race = "Human" } },
+        { text = "Why do humans fight so hard for dead land?", next = "hu_mac_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },

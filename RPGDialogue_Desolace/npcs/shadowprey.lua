@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Humans? They swim like rocks, mon, all armor and no sense! I seen Kul Tiran sailors go over the side in the old days, and they sink before they even finish yelling." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You remember the isles, eh, cousin? The Kul Tiran sailors went over the side in their armor and sank before they even finish yelling, and we laughed all the way to the reef." },
+      },
+      choices = {
+        { text = "You fought them on the Echo Isles?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Fought them, ran from them, hid in the reef from them, mon, all of it. My brother never came out of the water that day, so Jinar'Zillen laughs at them now, because laughing be easier than the other thing." },
+      },
+      choices = {
+        { text = "Laugh, then. They don't deserve your tears.", next = "BACK", reply = "Ha! That be the spirit, mon. Now go check my traps, and if you find a Kul Tiran down there, leave him.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Grieve him properly. Laughing won't hold forever.", next = "BACK", reply = "Hmm. You be a serious one, eh? Maybe tonight Jinar'Zillen light a candle for him on the dock, but don't you tell nobody.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -44,6 +65,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, mon, I'm not going anywhere. I'm never going anywhere." },
       },
       choices = {
+        { text = "What do you make of humans, Jinar'Zillen?", next = "hu_view" },
         { text = "Why don't you check your own traps?", next = "lazy" },
         { text = "How can I breathe that deep?", next = "secret" },
         { text = "What's a Bloodbelly fish?", next = "fish" },

@@ -50,3 +50,8 @@
 ## Prejudice (0.80.0, authored, not canon)
 - Prospector Ironband (prejudice, NightElf): his cousin Durn's Darkshore dig, permitted by Magni, was abandoned after a druid sat humming in the trench for a week.
 - Night elves (0.94.0 work): Hinderweir: a kaldorei on the walkway told him kindly the loch would outlast the dam; seven generations of pride, patted on the head. He hasn't slept well since.
+
+
+## Humans (human patch)
+- kadrell: Bitter soldier: humans helped free Khaz Modan, but since then Stormwind sends letters, not patrols, and asks for dwarven riflemen. Softens if a human offers to be the help Stormwind didn't send. Flag `kadrell_human_soft`.
+- hinderweir: Anxious, bitter: his inspector and security detail went to the Alliance Front, a human war, leaving Dark Iron sappers at the dam. Softens if a human offers to watch the eastern ramp. Flag `hinderweir_human_soft`.

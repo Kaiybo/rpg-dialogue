@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Another Elwynn recruit. Good, because you'll already know which end of a kobold is dangerous, and I won't have to explain it." },
     { id = "g_brief", text = "Speak up, recruit, and make it quick. I've a valley to hold." },
     { id = "g_reports", text = "If it's the mine, I've read the reports. If it isn't, speak up." },
     { id = "g_regular", when = { timesTalked = { min = 4 } }, text = "You again, recruit? Good, that means you're still alive, and I like my recruits that way." },
@@ -113,12 +115,75 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    hu_valley = {
+      lines = {
+        { id = "hum_valley", key = true,
+          text = "Because the Abbey's been teaching the Light longer than most of the noble houses have had names, recruit, and the kingdom likes its soldiers to start near the Light. It also likes them to start somewhere the kobolds can't kill too many of them, though nobody says that part aloud." },
+      },
+      choices = {
+        { text = "And the Defias by the vineyards, Marshal?", next = "hu_valley2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    hu_valley2 = {
+      lines = {
+        { id = "hum_valley2",
+          text = "Those are what stick in my throat, recruit. Thieves in Northshire, a stone's throw from the Abbey, and every one of them a Stormwind man who used to tip his cap to the brothers, so see Deputy Willem if you want to do something about it." },
+      },
+      choices = {
+        { text = "They chose the mask, Marshal. They're traitors now.", next = "BACK",
+          reply = "They did, and the law will treat them so. I only find I can't hate a man I might have stood beside at a christening, which is a poor habit in a marshal.",
+          fx = { align = { order = 1 } } },
+        { text = "They're our own, Marshal. Someone failed them first.", next = "BACK",
+          reply = "Somebody did, and it wasn't the brothers. Say so in the valley if you like, but take the bounty anyway, because failed men still put knives in farmers.",
+          fx = { align = { order = -1 } } },
+        { text = "That's all, Marshal.", next = "END" },
+      },
+    },
+    hu_expect = {
+      lines = {
+        { id = "hum_expect", key = true,
+          text = "I do, and I won't apologise for it. A dwarf who runs from a kobold has run from someone else's war, recruit, but a human who runs from one has run from his own front door." },
+      },
+      choices = {
+        { text = "That's not fair to us, Marshal.", next = "hu_expect2" },
+        { text = "Then I won't run. Something else.", next = "BACK" },
+      },
+    },
+    hu_expect2 = {
+      big = true,
+      lines = {
+        { id = "hum_expect2",
+          text = "No, it isn't, and neither is the valley. The kingdom's stretched from Redridge to the Wetlands and the King hasn't come home, so the ones whose country it is carry the extra weight, and you'll carry it too, recruit, or you'll go back to Goldshire." },
+      },
+      choices = {
+        { text = "I'll carry it. It's my kingdom too.", next = "BACK",
+          reply = "Good. Echo Ridge first, and the kingdom after.",
+          fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll carry what I choose, Marshal, not what I'm handed.", next = "BACK",
+          reply = "Then choose well and choose quickly, recruit, because the kobolds won't wait while you decide.",
+          fx = { align = { order = -1 } } },
+        { text = "That's all, Marshal.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "We're short-lived and we know it, so we build in a hurry, fight in a hurry and pray in between. The brothers would say we're the Light's stubbornest children, and I'd say we're too busy to be anything else." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+        { text = "That's all, Marshal.", next = "END" },
+      },
+    },
     hello = {
       narr = {
         { text = "He looks you over from boots to collar, the way he checks a sentry's kit before the night watch.", when = { metBefore = false } },
         { text = "He glances up from the map spread across the courtyard table, a stub of charcoal still between his fingers." },
       },
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You'll have grown up hearing about Northshire, recruit, so you'll know the Abbey's more than a church. Stormwind's own learn their trade in this valley, and I'd like you to learn it properly." },
         { id = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
           text = "Dughan wrote to me about Rolf and his men at the murloc camp by the lake, and that you were the one who found them. I trained two of those footmen myself, recruit, so I thank you for bringing them home in word, if not in body." },
         { id = "dd_hogger_mcb", when = { killed = { name = "Hogger" } },
@@ -259,6 +324,9 @@ P:NPC {
         { text = { normal = "The monks of Northshire seem to welcome travellers like us.",
                  polite = "The monks of Northshire have been very kind to travellers like us, sir.",
                  blunt = "The Northshire monks welcome travellers like us." }, next = "xpt_mcbride", when = { party = true } },
+        { text = "Why does Stormwind start its recruits in Northshire, Marshal?", next = "hu_valley", when = { race = "Human" } },
+        { text = "You expect more of humans than the others, Marshal.", next = "hu_expect", when = { race = "Human" } },
+        { text = "What are humans like, Marshal, from the inside?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = { normal = "That's all, Marshal.",
                  polite = "That's all, Marshal. Thank you for your time.",
                  blunt = "That's all." }, next = "END" },

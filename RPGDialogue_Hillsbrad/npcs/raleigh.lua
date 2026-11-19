@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "You're of Lordaeron's blood, or Stormwind's; it makes no difference to the Crusade, which will call you pure until the day it calls you plagued." },
     { id = "g_prej1", when = { prejudiced = true }, text = "There's something cold about you. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Close the door, and forgive me if I sit nearer the candle than you. Part of me still counts the steps to the pyre whenever a warlock walks in, and I hate that part of me." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, and sit wherever you like. I caught myself defending a warlock to the innkeeper last night, and I think the warlock was you." },
@@ -201,8 +203,58 @@ P:NPC {
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
+    hu_ral = {
+      lines = {
+        { id = "hural_default", key = true,
+          text = "It's not a lie, which is what makes it so dangerous. They truly believe they're all that stands between humankind and the plague, and so they trust no elf, no dwarf and no stranger, and in the end they stopped trusting their own." },
+      },
+      choices = {
+        { text = "They turned on their own people?", next = "hu_ral_2" },
+        { text = "After Lordaeron, I can see why they're afraid.", next = "hu_ral_2" },
+      },
+    },
+    hu_ral_2 = {
+      big = true,
+      narr = "He rests a hand on the table, and for a moment it doesn't quite stay still.",
+      lines = {
+        { id = "hural2_default",
+          text = "Humans, farmers and their children, called plagued because they came from the wrong village or coughed at the wrong time. I saw what was done to them in the Light's name, and I'll not say more than that, but I'll say this: fear of losing mankind made the Crusade forget what mankind was for." },
+      },
+      choices = {
+        { text = "The Light belongs to everyone, not only to men.", next = "BACK",
+          reply = "That's what Uther's paladins believed, and it's what I believe again now. It took me longer than it should have.",
+          fx = { align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "The Crusade's methods are cruel, but trusting only our own is sense.", next = "BACK",
+          reply = "That's how it begins, friend, and I'd ask you to remember you said it. I said much the same, once, before I went to the Monastery.",
+          fx = { align = { light = -1 }, opinion = { scarlet_crusade = "understand" } } },
+        { text = "What did the Silver Hand believe, before?", next = "hu_ral_3" },
+      },
+    },
+    hu_ral_3 = {
+      lines = {
+        { id = "hural3_default",
+          text = "That the Light was given to serve, and that a paladin's hammer belonged to anyone who needed it, human or not. Uther fought beside dwarves and elves in the second war, and he'd have been ashamed to see his order counting ears and beards at the gate." },
+      },
+      choices = {
+        { text = "Then the Hand isn't dead while you remember it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_ral_x = {
+      lines = {
+        { id = "huralx_default", key = true,
+          text = "The Crusade would tell you so, and I believed them for a while. But the dwarves took up the Light beside us in the second war, and I've known elves who prayed better than any bishop, so no, I don't think the Light keeps a list of races." },
+      },
+      choices = {
+        { text = "Not every human believes that.", next = "BACK",
+          reply = "No, and the ones in red tabards believe the opposite with all their hearts. Be careful on the road north." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "The Crusade would welcome you, you know. They welcome every human who'll take the tabard, and they never tell you what the welcome costs until you're inside the walls." },
         { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
           text = "You travel with {companion}, and I'd know a fellow priest by the way they bow their head at my door. Southshore has buried too many lately, and I find I'm glad of every healer who passes through." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. The Crusade would have named you a heretic before you'd finished speaking, {class}, and once I'd have agreed with them, so sit down and let me hear what I'd have condemned." },
@@ -244,6 +296,8 @@ P:NPC {
         { text = "I've been through the cathedral, Raleigh. Whitemane has fallen.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Alliance" } },
         { text = "My companion tends our wounds. Have you advice for them?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "You flinch every time I move, Raleigh.", next = "prej", when = { prejudiced = true } },
+        { text = "The Crusade says it guards mankind. Is that a lie?", next = "hu_ral", when = { race = "Human" } },
+        { text = "Does the Light favour humans above other peoples?", next = "hu_ral_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

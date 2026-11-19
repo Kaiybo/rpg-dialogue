@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-19)
+- Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
+
 ## 1.29.0 (2026-11-19)
 - Astranaar, Raene's Cleft and the Silverwing deepened; hunter branches for Alenndaar, Danlaar, Caelyb and Senani; doubled NPCs removed.
 

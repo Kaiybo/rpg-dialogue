@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in the Badlands. Ye'll be stayin' long, or are ye passin' through like the last one?" },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "ryedol_human_soft" }, priority = 10,
+      text = "Ah, the human who stayed. Sit down, {g:lad|lass}; I've no' much, but I'll share it." },
     { id = "g_hill", text = "Easy, easy! Ye're no' a troll or an ogre or a Dark Iron? Good, that's three things off my list." },
   },
 
@@ -26,6 +30,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets ryedol_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "They're quick tae help an' quick tae leave, {g:lad|lass}, an' I've never decided which matters more. When Hammertoe went intae the digsite, it was a human hunter from Lakeshire who went in after him first, an' it was the same hunter who went home a week later an' never asked if we'd found him." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Yer folk are quick tae help an' quick tae leave. A human from Lakeshire went in after Hammertoe first, an' went home a week later without askin' if we'd found him." },
+      },
+      choices = {
+        { text = "Why did the hunter leave?", next = "hu_view2" },
+        { text = "He went in first. That counts for something.", next = "hu_view2" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "He had a family in Redridge, an' the gnolls were at the bridge, so I dinnae blame him. That's the thing wi' humans: everythin' they love is far away an' dyin' young, an' they're always runnin' back tae it, so ye can never quite count on them stayin'." },
+      },
+      choices = {
+        { text = "He went in first. Courage like that deserves gratitude.", next = "BACK",
+          reply = "Aye, it does, an' I've never said otherwise. I just wish he'd written.",
+          fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "Help that doesn't stay isn't much help at all.", next = "BACK",
+          reply = "Maybe no', though I'll no' speak ill o' a man who walked intae that digsite.",
+          fx = { align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I expect it, aye, though I'll no' hold it against ye. Yer kind have a lot o' places tae be an' no' much time tae get there, an' the Badlands are never at the top o' the list." },
+      },
+      choices = {
+        { text = "I'll stay until Hammertoe's fate is known.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "WARRIOR", "HUNTER", "PALADIN" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Maybe your partner should have stayed out of the digsite.", next = "BACK",
+          reply = "Aye, maybe he should. That's a cruel thing tae say tae a man who's grievin', though.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "ryedol_human_soft" } } },
+          text = "Will ye, now? Then ye'll be the first who's said it an' meant it, an' I'll hold ye tae it. Go intae the digsite, an' bring me back whatever ye find o' him." },
+      },
+      choices = {
+        { text = "I'll find him, Prospector.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Ye mean it now, an' ye'll mean somethin' else next week. Go an' do the work, an' then I'll believe it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Prospector.", next = "END" },
+      },
+    },
     dw_word = {
       lines = {
         { id = "dw_word_default", text = "That's good of ye, kin. Hammertoe's got a sister in Kharanos who sends a letter every month askin' when he'll be home, an' I've no' had the stomach tae answer the last three." },
@@ -151,6 +218,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "ryedol_human_soft" } },
+          text = "Prospector Ryedol. The last human who came out here went intae the digsite after my partner, an' then went home before we'd buried the matter, so forgive me if I wonder how long ye'll last." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "ryedol_human_soft" },
+          text = "Back again. Ye stayed when ye said ye would, an' that's more than I've had from most, human or dwarf." },
         { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" }, faction = "Alliance" },
           text = "Is that a gnome with you? Grand, because {companion} might be able to tell me what the carved lock on the old vault door wants, and I've been staring at it for three days." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
@@ -193,6 +264,8 @@ P:NPC {
         { text = "The League looks like it could use help at the dig.", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
         { text = "The League sent me into Uldaman as its priest, Prospector.", next = "xorig_chaplain", when = { origin = "dwarf_league_chaplain" } },
         { text = "Hammertoe's kin will want word of him, Ryedol. I'm a dwarf; I'll carry it.", next = "dw_word", when = { race = "Dwarf" } },
+        { text = "What do you make of humans, Prospector?", next = "hu_view" },
+        { text = "You expect me to leave before the work's done, Prospector?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "ryedol_human_soft" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

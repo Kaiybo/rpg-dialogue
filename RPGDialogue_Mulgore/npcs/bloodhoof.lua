@@ -172,6 +172,38 @@ P:NPC {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
       },
     },
+    hu_baine = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Less than I'd like to, honestly, because I've met so few. The Alliance I know best is the dwarves digging at Bael'dun, and the humans I hear about are Northwatch's soldiers raiding our caravans in the Barrens, so I try to remember that I'm hearing about the worst of them." },
+        { id = "hu_tauren", when = { race = "Tauren" },
+          text = "I know them mostly from the braves' stories, and those stories are about Northwatch soldiers raiding the Gold Road. My father fought beside humans at Hyjal, though, so I try to remember that the stories only tell me about the worst of them." },
+      },
+      choices = {
+        { text = "Do you think the peace with Theramore will hold?", next = "hu_baine_2" },
+        { text = "What would you do about Northwatch?", next = "hu_baine_2" },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
+    hu_baine_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "I'd send someone to talk to their captain before I sent anyone to burn his walls, as I did with the dwarves at Bael'dun, and if talking failed I'd break his tools and not his men. The braves call that soft, but my father taught me that a war is easy to start and nearly impossible to finish." },
+      },
+      choices = {
+        { text = "Talk first. Lady Proudmoore would likely listen.", next = "BACK",
+          reply = "I hope so, and so does my father. If Theramore and Thunder Bluff can keep one honest word between them, perhaps the braves will stop sharpening spears for a war nobody wants.",
+          fx = { affinity = 1, align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "Talking is for the strong. Burn Northwatch first, then talk.", next = "BACK",
+          reply = "You sound like the young braves, and I understand them. But a burned fort makes a hundred angry humans for every one you kill, and Mulgore has only so many sons.",
+          fx = { align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "My own kin in Lordaeron would burn me. Don't trust them.", next = "BACK", when = { race = "Scourge" },
+          reply = "I'm sorry for that, truly, and I won't tell you your grief is wrong. But the humans in Theramore never knew you, and I'd rather judge them by what they do here.",
+          fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else, Baine.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -223,6 +255,7 @@ P:NPC {
         { text = "I stood with your braves against the Venture machines, Baine.", next = "xorig_brave", when = { origin = "tauren_bloodhoof_brave" } },
         { text = "The Venture Company has fewer hands in Mulgore now, Baine.", next = "dd_venture", when = { killed = { name = "Venture", min = 30 } } },
         { text = "What do you make of the night elves, Baine?", next = "ne_baine" },
+        { text = "What do you make of humans, Baine?", next = "hu_baine" },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -462,6 +495,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "I've heard more about humans than I've met, and most of it is Northwatch raiding the Gold Road. My father fought beside them at Hyjal, so I try to keep both stories in mind." } },
     _gated = {
       { id = "gt1", text = "That's something I'd share with a friend of the village, and I hope you'll become one. For now I'll keep it to myself." },
       { id = "gt2", text = "Forgive me, but I'll not speak of that yet. I owe my people some care in what I tell to those I've only just met." },

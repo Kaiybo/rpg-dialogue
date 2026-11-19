@@ -37,3 +37,7 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 
 ## Authored, not canon
 - Hadrec's prejudice (0.80.0): distrusts mages for Arugal's worgen and Dalaran's people at Ambermill, whose apprentices have killed three deathguards.
+
+## Humans (human patch)
+- Hadrec: humans on three sides (Gilneas wall, Pyrewood, Dalaran at Ambermill, Southshore); fears the Kirin Tor most.
+- Dalar: the Kirin Tor are the finest minds and slowest to listen; scorn edged with fondness.
