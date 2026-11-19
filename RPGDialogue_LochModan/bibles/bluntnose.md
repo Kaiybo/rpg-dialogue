@@ -33,3 +33,7 @@ Honest; exaggerates his workload.
 
 ## Topics
 stonewrought_dam, dark_iron.
+
+
+## Humans (human patch)
+- lm_bluntnose: Wry, sharp: hires human mercenaries who took coin in advance and went home; pays humans only on finish. Softens if a human agrees to be paid at the end. Flag `bluntnose_human_soft`.

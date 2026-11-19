@@ -504,6 +504,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in Auberdine. You'll forgive me if I keep working; the ground here is sick, and your people's wars had a hand in it." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "terenthis_human_soft" }, priority = 10,
+      text = "Ishnu-alah, friend. You were right, and I've thought on it since; come and see the moss, it's thinner where you helped." },
     { id = "g_moss", text = "Careful where you step, friend; that moss on your boots is exactly what I came here to stop." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the moss has grown back twice over in that time. I'm still burning it, mind, so watch your boots." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you first helped me with the furbolgs. Strong enough to remember they're sick, I hope, and not simply wicked." },
@@ -517,6 +521,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets terenthis_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "They burn brightly, as the dwarves say, and they burn what's around them. The orcs came to Ashenvale because the humans had caged them and then let them loose, and the Legion's lord walked into the world through Dalaran because a human necromancer called him there." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your people burn brightly, and you burn what's around you. The orcs came to Ashenvale because your kingdoms caged them and let them loose." },
+      },
+      choices = {
+        { text = "That seems a harsh way to tell the story.", next = "hu_view2" },
+        { text = "The Legion came for Kalimdor regardless of humans.", next = "hu_view2" },
+        { text = "Something else, Terenthis.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Perhaps it is, and I'll grant the Highborne first called the Legion ten thousand years ago. But my work here is cleaning a sickness from the ground, and every sickness I've traced in this world in my lifetime has a human hand somewhere near the start of it." },
+      },
+      choices = {
+        { text = "Humans should answer for what their wars brought here.", next = "BACK",
+          reply = "That is the first step, and I see too few of them taking it.",
+          fx = { align = { light = 1 }, opinion = { humans = "distrust" } } },
+        { text = "They didn't summon the Legion. Your people did, once.", next = "BACK",
+          reply = "That's fair, and it stings to hear. I'll grant it, though it doesn't clean the ground any faster.",
+          fx = { align = { light = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not every one, but enough. Your kingdoms raised the orcs from the camps, a necromancer of your own called the Legion's lord into Dalaran, and your mages taught themselves what my people unlearned ten thousand years ago." },
+      },
+      choices = {
+        { text = "Then let a human help heal this ground.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "DRUID", "PRIEST", "PALADIN" } }, { profession = "Herbalism" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Your people drowned a continent. Don't lecture me.", next = "BACK",
+          reply = "We did, and we've had ten thousand years to learn humility. Your people have barely had ten.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "terenthis_human_soft" } } },
+          text = "Heal it? Well, I didn't expect that from a human, and I'm glad to be wrong. Gather what you can of the fel moss to the east, and we'll see whether your hands are gentler than your kings'." },
+      },
+      choices = {
+        { text = "I'll be gentle with it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Many offer to help, and many leave when it becomes dull. Come back when you've done the dull part." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Terenthis.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I must believe it, or I am only killing old friends. The fel moss poisons them, and the earth itself suffers for it. Your spirits of the earth must feel that." } },
@@ -598,6 +665,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "terenthis_human_soft" } },
+          text = "I am Terenthis, and I'm here to heal what's been poisoned. Your people have poisoned a great deal, so you'll understand if I'm wary." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "terenthis_human_soft" },
+          text = "You've come back. Good, I'd hoped you would, and the ground seems a little less sick for it, though perhaps I'm imagining that." },
         { id = "h_default", key = true,
           text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and now even Volcor, who walks these hills with a great bear, has fallen foul of the furbolgs it maddens." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("How Big a Threat?") },
@@ -634,6 +705,8 @@ P:NPC {
         { text = "Is there anything a priest can do for the furbolgs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin deal with the corrupted furbolgs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really believe the furbolgs can be saved, Terenthis?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do you make of humans, Terenthis?", next = "hu_view" },
+        { text = "You blame humans for every sickness in the world, Terenthis?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "terenthis_human_soft" } } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

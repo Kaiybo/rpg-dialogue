@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "Ah, a human! Please don't pick anything up, and please don't pat anything, myself included; I've had a trying week." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "overspark_human_soft" }, priority = 10,
+      text = "Ah, my favourite human! You can touch the prototypes today, the small ones, and only with gloves, which is more than I allow most gnomes." },
     { id = "g_stand", text = "Yes, yes, how may I help? I've nothing but time, standing about in Tinker Town while our dear city sits under its green poison cloud." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Seeing a fellow engineer brightens even a terrible day, and they're all terrible lately." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
@@ -35,6 +39,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets overspark_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Humans pat me on the head, {name}, quite literally on one occasion, and that was a Stormwind captain who later asked me to repair his rifle. They'll take a gnome's invention gladly and a gnome's opinion never, as though our brains shrank to fit our boots." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your people are very fond of gnomes, the way one is fond of a clever dog, and I say that as someone who's been asked whether I'm lost in the Trade District four separate times." },
+      },
+      choices = {
+        { text = "Did Stormwind help when Gnomeregan fell?", next = "hu_view2" },
+        { text = "Surely not every human treats you like a child.", next = "hu_view2" },
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Stormwind sent its sympathies and a very polite letter, and then sent an envoy to ask whether any of our engineers might care to work on their harbour. They wanted our minds, you see, but they didn't want the refugees attached to them, and not one human soldier went down into the radiation with us." },
+      },
+      choices = {
+        { text = "That's shameful. They owed you more than letters.", next = "BACK",
+          reply = "Thank you, and do say it louder in Stormwind, because I've stopped expecting anyone else to.",
+          fx = { align = { honor = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Gnomeregan was your folly. Stormwind had its own wars.", next = "BACK",
+          reply = "Oh, it was a folly, I'll write that on any wall you like. But allies who only turn up for the inventions aren't allies, they're customers.",
+          fx = { align = { honor = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Well, your people have form, haven't they? Stormwind came round after Gnomeregan fell asking for engineers, and when I asked about the refugees in Tinker Town they suddenly remembered an appointment in the Cathedral." },
+      },
+      choices = {
+        { text = "Some of us would have marched on Gnomeregan with you.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { profession = "Engineering" }, { class = "MAGE" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Perhaps gnomes shouldn't irradiate their own city.", next = "BACK",
+          reply = "Perhaps not, and perhaps humans shouldn't let orcs burn theirs twice. We all have our little failures.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "overspark_human_soft" } } },
+          text = "Would you, now? I believe you might, which is a sentence I didn't expect to say to a human this decade. Very well, I'll file you under 'promising' and stop hiding the good wrenches when you come in." },
+      },
+      choices = {
+        { text = "I'll take 'promising', Tinkmaster.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Everyone says they would have, afterwards, and nobody came at the time. Words are cheap, {name}, and gnomes are rather good at pricing things." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Tinkmaster.", next = "END" },
+      },
+    },
     opn_goblins = {
       lines = {
         { id = "opn_goblins_q", text = "Trust one? I'd sooner trust a steam boiler with no valve, and at least the boiler doesn't send you an invoice afterwards. But you've been out among them, I expect, in Booty Bay and Ratchet. What do you think of the little profiteers?" },
@@ -191,6 +258,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "overspark_human_soft" } },
+          text = "Tinkmaster Overspark, master of gnome engineering, and no, I'm not anyone's apprentice and I'm not lost. Your people do ask, and they ask in that very slow voice, as if I might not follow the words." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "overspark_human_soft" },
+          text = "Welcome back! I told Castpipe there was a human who spoke to me at eye level on purpose, and he made me draw a diagram of it." },
         { id = "o_gnomeregan_abandon", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = { "abandon", "seal" } } },
           text = "Ah, you're the one who told the High Tinker to give up on Gnomeregan. Bold of you, and wrong, but bold, and Tinker Town's been talking about nothing else." },
         { id = "o_gnomeregan_retake2", tags = { "news" }, when = { gossip = { topic = "gnomeregan", stance = "retake" } },
@@ -247,6 +318,8 @@ P:NPC {
         { text = "What do you make of the night elves, Tinkmaster?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
         { text = "You keep glancing at me as if I'll break something.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "overspark_soft" } } },
         { text = "Did Darnassus ever answer your letters, Tinkmaster?", next = "ne_xsoft", when = { npcFlagBefore = "overspark_soft" } },
+        { text = "What do you make of humans, Tinkmaster?", next = "hu_view" },
+        { text = "You talk to me as if I'll steal your blueprints, Tinkmaster.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "overspark_human_soft" } } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -727,6 +800,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human! Don't touch the crucible, please, and no, it isn't a toy, though thank you for asking before you didn't ask, if you see what I mean." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "klockmort_human_soft" }, priority = 10,
+      text = "My human apprentice! I've kept a stool by the anvil for you, adjusted for height, which took me most of an afternoon." },
     { id = "g_day", text = "Hello, whatever time of day it is up there; it's always the same down here. Have you brought me business?" },
     { id = "g_quest", text = "I'm on a quest! A quest for new alloys and harder metals for the greatest invention of all!" },
   },
@@ -742,6 +819,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets klockmort_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Oh, they're lovely, really, but they work iron like they're angry at it! A human smith will beat a blade for an hour that a gnome could temper in ten minutes with the right alloy, and then he'll look at my apparatus and ask whether it's a toy." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "You're lovely, all of you, but your smiths work iron like they're angry at it, and every one who's come through Tinker Town has asked whether my apparatus was a toy." },
+      },
+      choices = {
+        { text = "Do human smiths ever learn from you?", next = "hu_view2" },
+        { text = "Maybe they just don't trust gadgets.", next = "hu_view2" },
+        { text = "Something else, Klockmort.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "One did, a journeyman from Goldshire, and he went home with a notebook full of my quench ratios and never wrote back, which I'm told is very human of him. They're quick, I'll give them that, but they never stay long enough to finish learning anything properly." },
+      },
+      choices = {
+        { text = "They live short lives. Of course they hurry, Klockmort.", next = "BACK",
+          reply = "I suppose that's fair, and rather sad when you put it that way. I'll try to think of it as efficiency rather than rudeness.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "They take your secrets and give you nothing back.", next = "BACK",
+          reply = "Exactly, exactly! I'm starting a list, and the Goldshire fellow is at the top in red ink.",
+          fx = { align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Well, it is, rather! Your smiths hit everything harder than it needs, and then they look at gnomish work and assume that because it's small it must be simple, which is how I've lost three good formulas to Goldshire." },
+      },
+      choices = {
+        { text = "Then teach me properly. I'll stay long enough to finish.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { profession = { "Blacksmithing", "Engineering" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Small work for small people, I suppose.", next = "BACK",
+          reply = "Oh, that's very witty, and also exactly what the Goldshire fellow said, so you're in good company.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "klockmort_human_soft" } } },
+          text = "Finish? Really finish, all twelve stages, even the boring ones with the cooling tables? Well, I'll believe it when I see it, but I'll put the kettle on in hope." },
+      },
+      choices = {
+        { text = "All twelve stages. I promise.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's what they all say, right before they leave with a notebook and a wave. Come back in a month, and if you're still interested, I'll take you seriously." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Klockmort.", next = "END" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "In a heartbeat! The dwarves tell me the seams have voices, and if you can hear which one's iron and which one's mithril, I'd save years of digging. Though Bengus says it's cheating and Geofram says it's rude to the mountain, so I'd have to keep it quiet." } },
@@ -846,6 +986,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "klockmort_human_soft" } },
+          text = "Klockmort Spannerspan, smith, and before you ask, yes, a gnome can lift a hammer, and no, the apparatus is not a toy. Your people always ask both, usually in that order." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "klockmort_human_soft" },
+          text = "Back again! I've told everyone in Tinker Town about the human who asked for my quench ratios and then actually wrote them down correctly." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh my, you'll forgive the mess, I'm sure, because priests forgive everything, or so I've heard, and my workshop needs all the forgiving it can get." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your plate's lovely, but I'll wager I could make it lighter and stronger, if you've a few months and don't mind being a test subject." },
         { id = "h_cl_gnome", tags = { "news" }, when = { cleared = "Gnomeregan", faction = "Alliance" },
@@ -895,6 +1039,8 @@ P:NPC {
         { text = "Would you have a shaman find ore for your alloys, Klockmort?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Gnomeregan to the end, Klockmort.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "I go back into Gnomeregan for parts. What do you need?", next = "xorig_scav", when = { origin = "gnome_scavenger" } },
+        { text = "What do you make of humans, Klockmort?", next = "hu_view" },
+        { text = "You keep calling human smithing 'angry', Klockmort.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "klockmort_human_soft" } } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },

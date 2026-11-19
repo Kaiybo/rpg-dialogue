@@ -496,6 +496,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human visitor to the League's library! Do be careful with the shelves; your people's histories are on the bottom row, and they keep needing revision." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "karnik_human_soft" }, priority = 10,
+      text = "Ah, my human correspondent! I've added a footnote on Lothar's dwarven allies because of you, and the Curator says it's the best thing in the chapter." },
     { id = "g_busy", text = "Welcome tae the Explorers' League. If ye need information an' it's in book form, I might be able tae help ye." },
     { id = "g_brisk", when = { disposition = { max = 34 } }, text = "Another traveler wantin' somethin'. I've nae time for meaningless questions just now." },
   },
@@ -509,6 +513,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets karnik_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "As a historian, I find them exhausting, because by the time I've written down what a human kingdom did, it's done something else. Lordaeron called us to the Alliance, spent Khaz Modan's sons at Grim Batol and Blackrock, and then the whole Alliance fell apart over who'd pay for the orc camps." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Honestly? Your people move faster than my quill, and I've given up trying to keep a single human kingdom's history straight from one decade to the next." },
+      },
+      choices = {
+        { text = "Did the dwarves regret joining the Alliance?", next = "hu_view2" },
+        { text = "You sound more tired than angry, Historian.", next = "hu_view2" },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Tired is the word, aye. Without Lothar the Horde would have held Ironforge, and I'll write that down plainly, but when Gilneas and Stromgarde walked away and Lordaeron fell to the plague, it was Ironforge left holding the Dark Irons and the Dragonmaw on its own doorstep." },
+      },
+      choices = {
+        { text = "The Alliance saved Khaz Modan. That debt runs one way.", next = "BACK",
+          reply = "Well argued, and I'll grant it's the version most of our veterans would sign. I only wish it ran both ways a little more often.",
+          fx = { align = { order = 1 }, opinion = { humans = "respect" } } },
+        { text = "Human kings use allies, then forget them. History proves it.", next = "BACK",
+          reply = "You'd make a sour historian and a fair one, I think. The records do lean your way, though I'd not say so to a Stormwind envoy.",
+          fx = { align = { order = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "My records are hard on everyone, but I'll admit yours fill more pages. Lordaeron took our gunners and our gryphon riders for its war, and when the Alliance came apart, not one human crown asked what became of the dwarves who'd held the line for them." },
+      },
+      choices = {
+        { text = "Then record the humans who stayed. Turalyon didn't walk away.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = "PALADIN" }, { class = "PRIEST" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Perhaps dwarves should write less and fight more.", next = "BACK",
+          reply = "We did plenty of both, and we wrote it down, which is why I can tell you you're wrong.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "karnik_human_soft" } } },
+          text = "No, he didn't, and neither did the men who followed him through the Portal and never came back. That's a fair correction, and a historian who won't take one isn't worth his ink, so I'll write them in." },
+      },
+      choices = {
+        { text = "I'd be glad to read that chapter, Historian.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Turalyon's one name against a whole shelf of treaties, and I've read every one of them. Bring me a better source and I'll listen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Historian.", next = "END" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Badlands are full o' troggs an' Dark Irons, an' the League keeps sendin' scholars out there wi' a pick an' a notebook an' no' enough else. Next time a team goes tae Uldaman, I'll see they go wi' someone like you." } },
@@ -581,6 +648,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "karnik_human_soft" } },
+          text = "Historian Karnik, of the Explorers' League. I keep the records of Khaz Modan, which means I keep a long list of promises your kings made us and a shorter list of the ones they kept." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "karnik_human_soft" },
+          text = "Welcome back! The Lothar chapter is coming along nicely, and I've stopped writing 'as usual' beside every human treaty, which the Curator says is growth." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, ye'll want tae hear about the Shadowforge, for the Dark Irons in Uldaman are no' the sort a polite word will move." },
         { id = "h_default", text = "Karnik, historian o' the Explorers' League, an' partner tae Hammertoe Grez in the Uldaman work. I'm sorry, but I've a mountain o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
         { id = "h_amulet", tags = { "news" }, when = { questActive = TODO_QUEST("Prospect of Faith") },
@@ -621,6 +692,8 @@ P:NPC {
         { text = "Would you buy relics from a rogue, Historian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Shadowforge are dwarves, Historian. Our own kin.", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "What does a League historian actually do all day?", next = "kn_day" },
+        { text = "What do you make of humans, Historian?", next = "hu_view" },
+        { text = "Your records seem very hard on my people, Historian.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "karnik_human_soft" } } },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -1070,6 +1143,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in the Commons! Mind ye dinnae lean on my granite, {g:lad|lass}; it came all the way from Alterac, an' yer kin have done enough damage up there already." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "marblesten_human_soft" }, priority = 10,
+      text = "My human stonecutter! Come an' look at the memorial; I've been thinkin' o' Lothar's men while I chisel, an' the work's the better for it." },
     { id = "g_stone", text = "Good day tae ye! Mind the chisels, for they're sharper than they seem, an' they seem very sharp." },
     { id = "g_back", when = { metBefore = true }, text = "{name}, {name}, {name}! Have ye brought me stone?" },
   },
@@ -1083,6 +1160,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets marblesten_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Oh, I like them well enough, {g:lad|lass}! They quarry the finest granite in the world up in Lordaeron, an' then they fight over it, an' plague it, an' leave it in such shambles that I've tae send a body clear tae Darrow Hill tae fetch a block for the King's memorial." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I like yer folk well enough, an' I'll tell ye why: ye sit on the best stone in the world. It's only a shame ye keep knockin' down everythin' ye build on it." },
+      },
+      choices = {
+        { text = "What's wrong with how they build?", next = "hu_view2" },
+        { text = "Stormwind looks well enough built to me.", next = "hu_view2" },
+        { text = "Something else, Grand Mason.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Nothin' wrong wi' the buildin', only the keepin'! They raise a city, burn it, raise it again an' then refuse tae pay the masons who raised it, an' up north a human king sold the whole Alliance tae the orcs from Alterac. Fine stone, short memories, that's humans in a sentence." },
+      },
+      choices = {
+        { text = "They rebuild every time. That's worth admiring, Grand Mason.", next = "BACK",
+          reply = "It is, it is! I'll admit there's nobody on this world better at startin' over, an' maybe that's the trick o' livin' short.",
+          fx = { align = { order = 1 }, opinion = { humans = "respect" } } },
+        { text = "A people who won't pay their masons don't deserve stone.", next = "BACK",
+          reply = "Ha! Now ye sound like the Stonemasons' Guild, an' I'll no' say they're wrong, though I'll no' say it near a Stormwind envoy either.",
+          fx = { align = { order = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I speak of it as it happened, {g:lad|lass}. One o' yer kings sold the Alliance tae the Horde, an' another took dwarven guns tae win the war an' then left Khaz Modan tae dig itself out o' the rubble, so dinnae look so wounded when an old mason grumbles." },
+      },
+      choices = {
+        { text = "Perenolde was a traitor. Lothar's men bled beside your kin.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = "PALADIN" }, { profession = "Mining" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarves have short memories of their own, it seems.", next = "BACK",
+          reply = "Short? I'll have ye know my memory's carved in granite, an' it says ye owe us.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "marblesten_human_soft" } } },
+          text = "Aye, they did, an' some o' those men are carved on the walls o' this very hall, if ye know where tae look. Perenolde was one human, an' Lothar was another, an' I'll try tae remember the second one as often as the first." },
+      },
+      choices = {
+        { text = "That's all I ask, Grand Mason.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Bled beside us, aye, an' then went home an' sent us a bill for the honour. Come back when ye've a better argument than a history lesson." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Grand Mason.", next = "END" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Soldiers from the Wetlands an' Loch Modan, mostly, an' a good few from the Badlands, an' every one o' them was somebody's son or daughter. I've a fine imagination, so they tell me, but I'd much rather carve a king than a list." } },
@@ -1162,6 +1302,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "marblesten_human_soft" } },
+          text = "Grand Mason Marblesten, an' that's Alterac granite ye're standin' beside. Yer folk quarried it, plagued the hills it came from an' then forgot where they'd left it, so I've had tae send for it like a beggar." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "marblesten_human_soft" },
+          text = "Ah, there ye are! The memorial's comin' along, an' I've stopped grumblin' about Alterac in front o' the apprentices, mostly on yer account." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want tae see the memorials, then, for I carve the names an' somebody ought tae say the words over them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye've the walk o' a dwarf who's stood in a shield wall, an' I've carved too many o' those for my likin'." },
         { id = "h_default", text = "Marblesten, Grand Mason o' Ironforge. If it's stone an' it's standin' in this city, chances are I carved it, or I've complained about whoever did." },
@@ -1199,6 +1343,8 @@ P:NPC {
         { text = "Do the families ask for prayers carved on the memorials?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "There must be paladins among the names you've carved.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would my little companion really harm your granite, Grand Mason?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you make of humans, Grand Mason?", next = "hu_view" },
+        { text = "You speak of Alterac as if every human sold the Alliance out.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "marblesten_human_soft" } } },
         { text = "Good day, Grand Mason.", next = "END" },
       },
     },

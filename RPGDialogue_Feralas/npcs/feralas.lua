@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human, at Feathermoon. You're far from Theramore, which I'll count in your favour." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "shandris_human_soft" }, priority = 10,
+      text = "Ishnu-alah. You've earned your place at Feathermoon, human, and the Sentinels know it." },
     { id = "g_pj_lock", when = { prejudiced = true, class = "WARLOCK" }, text = "Warlock. The sisters on the dock have orders to let you pass, and they will, but every bow on Feathermoon will know where you're standing until you leave it." },
     { id = "g_pj_mage", when = { prejudiced = true, class = "MAGE" }, text = "A mage, at my gate. The Highborne who ruled my people were mages too, and they spoke as softly as you will, right up until the sky burned." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "I've watched you closely since you first came, and I meant to keep watching until you gave me a reason. You never gave me one, and the High Priestess would tell me to say so aloud." },
@@ -42,6 +46,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets shandris_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I fought beside them on Hyjal's slopes, and Proudmoore's soldiers held their line when many would have broken. I respect that, but I've also watched her settlers cut the Dustwallow for timber and build on land my people never offered, and I've stopped calling it a misunderstanding." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I fought beside your people at Hyjal, and Proudmoore's soldiers held well. But her settlers cut the Dustwallow and built on land we never offered." },
+      },
+      choices = {
+        { text = "Have you spoken to Proudmoore about it?", next = "hu_view2" },
+        { text = "Respect and resentment, both at once, General?", next = "hu_view2" },
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "I've sent word, and she replies with courtesy and does not move her walls. Humans are brave and they are many and they grow faster than any forest, and I fear that in a few hundred years they will cover Kalimdor as they covered Lordaeron, and call it the Alliance." },
+      },
+      choices = {
+        { text = "Kaldorei land must be defended, even from allies.", next = "BACK",
+          reply = "Yes, and I'll do it gently while I can and less gently when I must.",
+          fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Theramore is a refuge, not a conquest. Give them room.", next = "BACK",
+          reply = "A refuge with walls and harbours, but I hear you. I'll try to remember what they fled from.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not an invader, not yet, but a guest who has never asked to stay. Proudmoore's people came fleeing a war, and I don't grudge them shelter, but they cut, and build, and multiply, and they have never once asked whose land it was." },
+      },
+      choices = {
+        { text = "Let me carry your words to Theramore myself.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = { "WARRIOR", "PALADIN", "HUNTER" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Kalimdor's big enough for everyone, General.", next = "BACK",
+          reply = "It is today. My people have seen many todays, and they do not last.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "shandris_human_soft" } } },
+          text = "You'd carry them? Then tell Proudmoore the Sentinels remember Hyjal, and that we'd rather keep remembering it as friends. That's as gentle as I can make it, and you'll tell her I said so." },
+      },
+      choices = {
+        { text = "I'll tell her exactly that, General.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Kind of you, but Theramore doesn't listen to messengers, it listens to armies. Come back when you've a voice they'd hear." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, General.", next = "END" },
+      },
+    },
     pj_shandris = {
       lines = { { id = "pj_shandris_default", text = "I judge it by what it did. I was a girl when the Highborne opened the way for the Legion, and I lost my family in the burning that followed, so forgive me if I don't wait to learn which kind of {class} you are." } },
       choices = {
@@ -227,6 +294,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "shandris_human_soft" } },
+          text = "I am Shandris Feathermoon. Your people fought well at Hyjal, and they have been building on my people's land ever since, so forgive me if I don't smile." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "shandris_human_soft" },
+          text = "Welcome back. I've written to Theramore again, more gently this time, because of what you told me." },
         { id = "h_pt_shandris", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
           text = "You ride with one of my people, I see. I trust {companion} has told you that the forests of Feralas do not forgive carelessness, and that the Sentinels expect better than that from their friends." },
         { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul", faction = "Alliance" }, text = "My scouts say you went into the ruins of Eldre'Thalas, the place the ogres call Dire Maul, and came back out of its depths. Few of my Sentinels have walked those halls and lived, and I find I must look at you more carefully now." },
@@ -275,6 +346,8 @@ P:NPC {
         { text = "You were at Hyjal, General. What do you remember?", next = "kal_hyjal", when = { race = "NightElf" } },
         { text = "Shen'dralar Highborne still live in Dire Maul. Should we treat with them?", next = "kal_shendralar", when = { race = "NightElf", minLevel = 50 } },
         { text = "Since Nordrassil, we age. Does it frighten you?", next = "kal_age", when = { race = "NightElf", disposition = { min = 60 } } },
+        { text = "What do you make of humans, General?", next = "hu_view" },
+        { text = "You seem to see Theramore as an invader, General.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "shandris_human_soft" } } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },

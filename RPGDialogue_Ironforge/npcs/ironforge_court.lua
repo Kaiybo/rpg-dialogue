@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A visitor from Stormwind? Splendid, splendid; do tell your nobles I'm still waiting on a reply, and that I'm a very patient gnome, though not infinitely." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "mekkatorque_human_soft" }, priority = 10,
+      text = "My friend from the human kingdoms! I've drafted a fourth proposal with your phrasing in it, and I'm cautiously optimistic, which for me is practically cheering." },
     { id = "g_tinker", text = "Hello, hello! Mind the floor, there's a gear loose somewhere; there's always a gear loose somewhere." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! Good, good. Are you eating properly, and sleeping? Someone has to ask, and it may as well be me." },
     { id = "g_back", when = { metBefore = true }, text = "Splendid, you came back! I've had four ideas since you left, and only three of them were terrible." },
@@ -36,6 +40,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): torn view of humans; Persuade softener sets mekkatorque_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I'm a diplomat as well as a tinker, so I'll say they're our oldest friends on the surface, which is true. I'll also say, as a tinker, that I've sent Stormwind three proposals for retaking Gnomeregan and received three very handsome letters declining to read them." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your people are our oldest friends on the surface, and I mean that sincerely. I only wish your House of Nobles read our proposals with half the attention it gives our invoices." },
+      },
+      choices = {
+        { text = "Why won't Stormwind help retake Gnomeregan?", next = "hu_view2" },
+        { text = "Three refusals. That must sting, High Tinker.", next = "hu_view2" },
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "They have the Defias, the Scourge in the north and an empty throne, and they'll tell you all three before you've finished asking. I understand it, truly I do, but I've a city full of my people's ghosts and a few thousand survivors sleeping in Tinker Town, and understanding doesn't feed them." },
+      },
+      choices = {
+        { text = "They have their own troubles. Gnomes must save themselves.", next = "BACK",
+          reply = "Spoken like a councillor in Stormwind, and not wrongly, which is the most irritating kind of right.",
+          fx = { align = { order = 1 }, opinion = { humans = "respect" } } },
+        { text = "Allies who won't help in your darkest hour aren't allies.", next = "BACK",
+          reply = "I wouldn't put it so sharply in public, but I'll confess I've written those words on a draft and then burned it.",
+          fx = { align = { order = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I expect courtesy, and Stormwind provides it beautifully. What I've stopped expecting is help, because three times I've asked for a few hundred swords to clear the troggs from our city, and three times your nobles have found a reason to be elsewhere." },
+      },
+      choices = {
+        { text = "Write a fourth. Make the case as a debt of honour.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { profession = "Engineering" }, { class = { "PALADIN", "WARRIOR" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Gnomeregan is your problem, not my kingdom's.", next = "BACK",
+          reply = "That's the answer I usually get, though not usually to my face. I appreciate the efficiency.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "mekkatorque_human_soft" } } },
+          text = "A debt of honour, yes, gnomish engineers fixed half the Alliance's cannon in the Second War, and nobody's ever thanked us in writing. You'd make a fine diplomat, and I'll draft it tonight with your name in the margin." },
+      },
+      choices = {
+        { text = "I hope they listen this time, High Tinker.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "A debt of honour? I've tried that, and the House of Nobles has a remarkable gift for not hearing the word 'debt'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, High Tinker.", next = "END" },
+      },
+    },
     opn_gnomeregan = {
       lines = {
         { id = "opn_gnomeregan_q", text = "Half my council says we must go home, and the other half says we ought to build somewhere new and let the old city keep its ghosts. I'm the High Tinker, so I'm obliged to say 'home', but you're not obliged to anything. What would you do?" },
@@ -163,6 +230,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "mekkatorque_human_soft" } },
+          text = "High Tinker Mekkatorque, at your service, and at Stormwind's, in theory. Your nobles are very gracious about Gnomeregan, which is to say they've sent condolences in a very fine hand and not one company of soldiers." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "mekkatorque_human_soft" },
+          text = "Welcome back! I keep your words on my desk, next to the plans for retaking Gnomeregan, as a reminder that some humans do read to the end of a page." },
         { id = "h_alt_gnome", when = { alt = { race = "Gnome" }, metBefore = false },
           text = "Have we met? No, no, I'm thinking of {alt}, a splendid gnome {altclass} who helped me test a pressure valve, and you have exactly the same posture of someone ready to dive for cover. I take that as a mark of good sense!" },
         { id = "h_alt_back", when = { alt = { days = 14 }, metBefore = true }, cooldown = "5d",
@@ -225,6 +296,8 @@ P:NPC {
           when = { thread = { id = "gnomeregan_lost", beat = "b5_mekkatorque", state = { "stirring", "unfolding" } } } },
         { text = "Who's this other helper of yours, High Tinker?", next = "xalt_mekkatorque", when = { alt = true } },
         { text = "I kept Thermaplugg's ledgers, High Tinker. I saw where the money went.", next = "xorig_ledger", when = { origin = "gnome_thermaplugg_clerk" } },
+        { text = "What do you make of humans, High Tinker?", next = "hu_view" },
+        { text = "You seem to expect nothing from Stormwind at all, High Tinker.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "mekkatorque_human_soft" } } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -1028,6 +1101,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in the Hall of Explorers! Welcome, welcome, and please don't tell me the titans built Stormwind; I've heard it three times this month." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "magellas_human_soft" }, priority = 10,
+      text = "My human Explorer! Come in, come in; I've a new rubbing from Uldaman and I'd value your eye on it, which is not a thing I say to many humans." },
     { id = "g_league", text = "This is the Hall o' Explorers, so touch nothing with a label on it, and nothing without one either, until ye've asked." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, ye've come back! Have ye seen anything worth writing down, or digging up?" },
   },
@@ -1043,6 +1120,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): admiring view of humans; Persuade softener sets magellas_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Some of my best Explorers are human, and I'll say that to any senator who'll listen! They haven't the patience for a long dig, mind, and they're forever wanting the titans to have built everything for their own kings' glory, but they'll walk into a tomb a dwarf would think twice about." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Your folk are some of my best Explorers, truly, though you've no patience at all for a long dig and you're always hoping the titans left something with your king's name on it." },
+      },
+      choices = {
+        { text = "What's wrong with their view of the titans?", next = "hu_view2" },
+        { text = "A human in a tomb sounds like trouble.", next = "hu_view2" },
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "They think it's all about them, you see; every human scholar who comes to the Hall wants Uldaman to prove that Arathor was blessed by the Makers. The truth is we dwarves were shaped in the earth by the titans themselves, and the humans don't care for a story where they're not the heroes." },
+      },
+      choices = {
+        { text = "Every people wants a place in the titans' story.", next = "BACK",
+          reply = "That's generous of you, and maybe it's right. The Makers made a great deal, after all, and I'm sure there's room for everyone in the footnotes.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Humans think the world was made for them.", next = "BACK",
+          reply = "Ha! I wouldn't say it at the Senate, but I'd not argue in the Stonefire Tavern either.",
+          fx = { align = { light = -1 }, opinion = { humans = "arrogant" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Not a fool, no, only impatient and a wee bit vain. Your scholars come to Uldaman wanting proof that the Makers loved Arathor best, and they go home cross when the stones say otherwise." },
+      },
+      choices = {
+        { text = "Then teach me to read the stones as they are.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { class = { "MAGE", "PRIEST" } } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Dwarves invented a few legends of their own, I hear.", next = "BACK",
+          reply = "We did, and we put them on the walls, and they're all true, so you'll find no help there.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "magellas_human_soft" } } },
+          text = "As they are! Now that's the right question, and I'll grant it's one few of my own dwarves ask. Come by the Hall when you've time, and I'll show you a rubbing that doesn't flatter anyone, dwarves included." },
+      },
+      choices = {
+        { text = "I'd like that, High Explorer.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's a fine sentiment, but I've had human scholars say the same and then publish a pamphlet about Arathor. Come back with dirt under your nails." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, High Explorer.", next = "END" },
+      },
+    },
     opn_league = {
       lines = {
         { id = "opn_league_q", text = "Some do, and some of them sit in the Senate and say it every season. The troggs came up out of our digs, I'll grant them that much, but I'd like to hear it from someone who isn't counting the coin. What do you make of the League?" },
@@ -1186,6 +1326,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "magellas_human_soft" } },
+          text = "High Explorer Magellas, and welcome to the Hall. We take humans in the League gladly, so long as you understand that the titans did not, in fact, carve anything in honour of Arathor." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "magellas_human_soft" },
+          text = "Back again! I've told the Senate there's a human who reads the runes before deciding what they mean, and they didn't believe me either." },
         { id = "h_pt_magellas", tags = { "news" }, when = { party = { size = { min = 2 } } },
           text = "A full digging crew, by the look of you! If any of your friends knows a pick from a trowel, send them up to me, because the League always needs more hands in the Badlands and more eyes in Uldaman." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Hall of Explorers! Do mind the cases, and if you could tell me whether that relic on my desk is cursed, I'd sleep much better." },
@@ -1239,6 +1383,8 @@ P:NPC {
         { text = "Where do you think we really came from, High Explorer?", next = "dw_origin", when = { race = "Dwarf" } },
         { text = "Did the League ever map Gnomeregan before it fell?", next = "gn_map", when = { race = "Gnome" } },
         { text = "You dwarves dig up a great deal of history for a young people.", next = "ne_young", when = { race = "NightElf" } },
+        { text = "What do you make of humans, High Explorer?", next = "hu_view" },
+        { text = "You think every human scholar is a fool, High Explorer?", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "magellas_human_soft" } } },
         { text = "Good luck with your work.", next = "END" },
       },
     },

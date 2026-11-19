@@ -64,3 +64,7 @@ Weary: broken armor.
 Anxious, secretive, then talkative. Speech: gnomish, no burr; wards, calibrations, ciphers and exact figures. Authored, not canon: lost ten years of notes in Gnomeregan; keeps three copies.
 ## What they notice
 Arcane: mages and warlocks.
+
+
+## Humans (human patch)
+- if_bengus: Bitter, practical: Stormwind's quartermasters took blades on credit after the Second War and paid half; respects that they bled at Grim Batol. Softens if a human asks to learn rather than borrow. Flag `bengus_human_soft`.

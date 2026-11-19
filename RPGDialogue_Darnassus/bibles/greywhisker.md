@@ -32,3 +32,7 @@ Honest; his "makers" talk is League theory.
 
 ## Topics
 background, advice, explorers_league, uldaman, _none.
+
+
+## Humans (human patch)
+- greywhisker: Wry, fussy: humans in the League are brave but lose their field notes (one lit his pipe with them). Softens if a human offers to copy his notes spotless. Flag `greywhisker_human_soft`.

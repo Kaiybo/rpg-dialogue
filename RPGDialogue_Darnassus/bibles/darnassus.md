@@ -61,3 +61,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Kaldorei factions (authored, not canon)
 - Mathrengyl: restraint against Thyn'tel's war ("a fire set in anger never knows where to stop"); some of the Circle would wake Ashenvale's ancients, the Arch Druid says they sleep for good reason. On the old shape (daughters to Elune and the Sentinels, sons to the Circle): it held, and it chafes; the Sisterhood grumbles that the Circle slept while Sentinels bled. Encourages female druids.
+
+
+## Humans (human patch)
+- mathrengyl: Bitter but measured: humans are hungry without patience; Medivh, Dalaran's mages walk the Highborne road; their wars bled into Ashenvale. Softens if a human asks to learn balance. Flag `mathrengyl_human_soft`.

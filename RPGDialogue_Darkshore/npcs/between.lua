@@ -206,6 +206,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "Ah, a human! Mind the trench, {g:lad|lass}, and don't shovel anything until I've had a look at it first, if you please." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "remtravel_human_soft" }, priority = 10,
+      text = "Ah, it's you! The careful one! Come and look, I've found another fragment, and I want your eyes on it before mine wander off." },
     { id = "g_default", text = "Ah, a visitor! Mind the trench, {g:lad|lass}, I've only just dug it and I'd hate to lose another one in there." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face, I'm nearly sure of it, which puts you ahead of half my notes!" },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
@@ -221,6 +225,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): wry view of humans; Persuade softener sets remtravel_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "Humans? Oh, splendid diggers, the lot of them, only they never stop to look at what they've dug! I had two from Westfall on a dig once, and they shovelled straight through a titan carving because they thought it was a funny-shaped rock." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "Splendid diggers, your lot, only you never stop to look at what you've dug! Two of your Westfall folk shovelled straight through a titan carving once." },
+      },
+      choices = {
+        { text = "What happened to the titan carving?", next = "hu_view2" },
+        { text = "That sounds more like bad luck than bad people.", next = "hu_view2" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "I've got the pieces in a crate, somewhere, and one day I'll fit them back together, if I can find the crate. They weren't bad lads, only in a hurry, and humans are always in a hurry; I suppose if I had their years I'd shovel fast too." },
+      },
+      choices = {
+        { text = "Hurry is no excuse for breaking something priceless.", next = "BACK",
+          reply = "Quite right, quite right, and I told them so, though I may have shouted a little.",
+          fx = { align = { order = 1 }, opinion = { humans = "careless" } } },
+        { text = "They work hard with the time they have. That's admirable.", next = "BACK",
+          reply = "It is, I suppose, and I'd rather a fast digger than a lazy one. Still, I miss that carving.",
+          fx = { align = { order = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Well, not certain, but your people do have a habit of it! You dig like you're racing the sunset, and you hardly ever stop to look, and a titan carving doesn't care how fast you meant to be." },
+      },
+      choices = {
+        { text = "I'll go slowly. Show me how you'd like it done.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 40 } }, { profession = "Mining" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "You lost the crate yourself, Prospector. Hardly the humans' fault.", next = "BACK",
+          reply = "Well, that's true, and very rude, and I'll pretend I didn't hear it.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "remtravel_human_soft" } } },
+          text = "Slowly! Oh, that's the word I've been waiting to hear from a human! Come here, kneel down, and I'll show you the brush, and we'll make a proper archaeologist of you yet." },
+      },
+      choices = {
+        { text = "Slowly, then. Show me the brush.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "That's what the Westfall lads said, too, right before the carving went. Let's start you on plain dirt, I think." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Prospector.", next = "END" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -337,6 +404,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "remtravel_human_soft" } },
+          text = "Prospector Remtravel, Explorers' League! Welcome, welcome, only please don't touch anything; the last humans I had on a dig broke something terribly old." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "remtravel_human_soft" },
+          text = "Back again! I've told the whole of Auberdine there's a human who looks before he digs, and nobody believed me." },
         { id = "o_explorers_league_wrong", tags = { "news" }, when = { opinion = { topic = "explorers_league", stance = "wrong" } },
           text = "You're the one who thinks the League should leave the ruins be, aren't you? You're welcome to the opinion, so long as you keep it out of my trenches." },
         { id = "h_default", text = "Remtravel's the name, prospector for the Explorers' League, and these old elven ruins are the finest dig I've had in years. If only I could remember where I left the bloody fossil." },
@@ -375,6 +446,8 @@ P:NPC {
         { text = "The Sentinels don't seem fond of your dig.", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
         { text = "You are digging up our dead, Prospector.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "remtravel_soft" } } },
         { text = "Has Thundris sent back any more crates?", next = "ne_xsoft", when = { npcFlagBefore = "remtravel_soft" } },
+        { text = "What do you make of humans, Prospector?", next = "hu_view" },
+        { text = "You seem certain I'll break something, Prospector.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "remtravel_human_soft" } } },
         { text = "Good luck with the digging.", next = "END" },
       },
     },

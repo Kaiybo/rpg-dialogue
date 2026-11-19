@@ -81,3 +81,8 @@ Kin: refugee gnomes; dwarves (whose digging woke the troggs).
 
 ## Topics
 knows, background, advice, troggs, gnomeregan
+
+
+## Humans (human patch)
+- overspark: Bitter: humans pat gnomes on the head; Stormwind wanted Gnomeregan's engineers but not its refugees, and sent no soldiers. Softens if a human says they would have marched with them. Flag `overspark_human_soft`.
+- klockmort: Wry, eager: humans work iron like they're angry at it and assume small means simple; a Goldshire journeyman took his ratios and never wrote. Softens if a human promises to stay and finish. Flag `klockmort_human_soft`.

@@ -89,3 +89,7 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 - Maxwell (Persuade, `windsor_self`): Windsor left him to hold the ridge while he rode in; Maxwell wonders whether one more sword would have mattered, and his scorn for John is partly aimed at himself (authored).
 - Helendis (Persuade, `dragons_guess`): his unprovable guess is that something of great age commands the Spire's upper halls and the Blackrock are only the first people it means to use (no name).
 - Ragged John (Intimidate, `st_truth`): he watched from behind a rock far off and never heard Thaurissan speak (he pieced that part together), but saw Ironfoe and Windsor go separate ways, Windsor alive.
+
+
+## Humans (human patch)
+- helendis: Torn: lives among humans at Morgan's Vigil, has stopped learning recruits' names; bites her tongue when they treat Kalimdor as empty and magic as Dalaran's. Softens if a human asks to learn what came before. Flag `helendis_human_soft`.

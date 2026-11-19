@@ -1468,6 +1468,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
+      text = "A human in the Enclave. Walk gently here; the roots of this tree remember every axe that crossed the sea." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "mathrengyl_human_soft" }, priority = 10,
+      text = "Ishnu-alah, friend. You walk more gently than you did, and the Enclave has noticed." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent ten thousand years mending what the fel does to living things, and you carry it by choice. Keep your distance from my students." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come to the Enclave often enough without harm, and I'll admit as much. I still smell the fel on you, though, and I've not stopped minding it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
@@ -1488,6 +1492,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    -- Humans (human patch): bitter view of humans; Persuade softener sets mathrengyl_human_soft.
+    hu_view = {
+      lines = {
+        { id = "huv_default", key = true,
+          text = "I have watched them for a very short time, as my people count it, and in that time they have cut their own forests bare, opened a gate for the orcs through one of their own mages, and carried their wars across the sea to Ashenvale. They are not wicked, I think, only hungry, and hunger without patience does great harm." },
+        { id = "huv_human", when = { race = "Human" },
+          text = "I have watched your people for a short time, as we count it, and you have cut your forests bare and opened a gate for the orcs through a mage of your own. You are hungry, I think, and hunger without patience does great harm." },
+      },
+      choices = {
+        { text = "You mean Medivh and the Dark Portal?", next = "hu_view2" },
+        { text = "That's a heavy charge to lay on a whole people.", next = "hu_view2" },
+        { text = "Something else, Mathrengyl.", next = "BACK" },
+      },
+    },
+    hu_view2 = {
+      big = true,
+      lines = {
+        { id = "huv2_default",
+          text = "Medivh, yes, and the mages of Dalaran after him, who played with the arcane as the Highborne once did and never asked what the Highborne paid for it. When their kingdoms fell, their wars came to Kalimdor with them, and Ashenvale bled for a quarrel begun on the far side of the sea." },
+      },
+      choices = {
+        { text = "Humans must learn restraint with magic before it ruins them.", next = "BACK",
+          reply = "That is my hope, and I fear my people once said the same of ourselves, far too late.",
+          fx = { align = { light = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Humans also stood with you at Hyjal. That matters more.", next = "BACK",
+          reply = "It does matter, and I will not forget it. I only wish their courage were matched by their patience.",
+          fx = { align = { light = -1 }, opinion = { humans = "respect" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "You are not the Highborne, but you walk the same road with shorter legs. Your mages reach for power they do not understand, your kings cut forests to build ships, and when it all falls, the rest of the world is left to tend the ash." },
+      },
+      choices = {
+        { text = "Then teach me balance. Not every human is deaf to it.", tag = "Persuade", next = "hu_x_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { class = { "DRUID", "PRIEST" } }, { profession = "Herbalism" } } } },
+          fail = { next = "hu_x_fail", fx = { affinity = -1 } } },
+        { text = "Your people sank a continent. Spare me the lecture.", next = "BACK",
+          reply = "We did, and we have spent ten thousand years learning from it. Your people have not yet begun.", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_soft = {
+      lines = {
+        { id = "huxs_default", key = true, fx = { npcFlag = { set = { "mathrengyl_human_soft" } } },
+          text = "That is the wisest thing a human has said in this Enclave, and I will hold you to it. Walk the forests of Teldrassil with open eyes, and come back to tell me what you saw there." },
+      },
+      choices = {
+        { text = "I'll walk them gladly, Mathrengyl.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_x_fail = {
+      lines = {
+        { id = "huxf_default", text = "Many have asked to learn, and few have stayed long enough to listen. Return when you have patience, and we shall speak again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, Mathrengyl.", next = "END" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -1646,6 +1713,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hu_prej", when = { race = "Human", ["not"] = { npcFlagBefore = "mathrengyl_human_soft" } },
+          text = "I am Mathrengyl Bearwalker. Your people came to Kalimdor fleeing a war you made, and Ashenvale has paid for it since, so you will forgive us our caution." },
+        { id = "h_hu_soft", when = { race = "Human", npcFlagBefore = "mathrengyl_human_soft" },
+          text = "Welcome back. I have thought often of what you said, and I find I watch your people with a little more patience than before." },
         { id = "h_dd_oben", tags = { "news" }, when = { questDone = TODO_QUEST("Druid of the Claw") }, text = "Word came from Starbreeze that Oben Rageclaw's spirit is at rest, and that his stolen body no longer walks among the Gnarlpine. You did a hard and merciful thing there, and the Druids of the Claw will not forget it." },
         { id = "h_pt_mathrengyl", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "{companion} is a druid, I think; I felt the bear in them before I saw them. Druids travel well with others, though they'll go quiet for days and then speak to a tree, so be patient." },
@@ -1704,6 +1775,8 @@ P:NPC {
         { text = "Thyn'tel wants to burn the Warsong lumber camps.", next = "restraint" },
         { text = "Why are the Sentinels daughters and the druids sons?", next = "roles" },
         { text = "The old druids look at me oddly, being a woman.", next = "roles_f", when = { class = "DRUID", gender = "female" } },
+        { text = "What do you make of humans, Mathrengyl?", next = "hu_view" },
+        { text = "You speak of my people as if we were the Highborne, Mathrengyl.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "mathrengyl_human_soft" } } },
         { text = "Farewell.", next = "END" },
       },
     },

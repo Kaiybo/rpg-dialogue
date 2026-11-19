@@ -48,3 +48,7 @@
 
 ## Prejudice (0.80.0, authored, not canon)
 - Ragnar Thunderbrew (prejudice, Gnome, mild and comic): refugees he sheltered rewired his mash tun, which now stirs itself at three in the morning; nobody can find the off lever.
+
+
+## Humans (human patch)
+- ragnar: Wry, jovial: Goldshire watered his ale and sold it under his name; humans are fine drinkers and dreadful brewers. Softens if a human asks for Thunder Ale undiluted. Flag `ragnar_human_soft`.
