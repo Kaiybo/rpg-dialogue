@@ -397,6 +397,8 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "You walk softly enough, like a hunter who respects the grass. Good, because the plainstriders hear everything." },
+    { id = "g_pet", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Let {pet} come forward and smell the grass with me. A beast that walks easy in Bloodhoof is a beast that is well kept." },
+    { id = "g_young", when = { class = "HUNTER", minLevel = 10, maxLevel = 11, ["not"] = { pet = { type = "Beast" } } }, text = "You have reached your tenth season and still walk alone. Come, the plains have teachers waiting for you." },
   },
   start = "hello",
   nodes = {
@@ -448,6 +450,7 @@ P:NPC {
         { text = "I mean it. I take only what I need.", next = "BACK", reply = "Then I'll watch you walk the plains, rogue, and I hope to be proven wrong about your kind.", fx = { align = { light = 1 } } },
         { text = "I take what I can. The plains won't miss it.", next = "BACK", reply = "The plains miss everything, rogue, they just don't say so. Take only what you need, or find somewhere else to hunt.", fx = { align = { light = -1 } } },
         { text = "What makes a good hunter?", next = "good" },
+        { text = "Where does the hunter's road lead from Bloodhoof?", next = "y_road", when = { class = "HUNTER" } },
       },
     },
     xmage = {
@@ -487,6 +490,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. My hunters take only what they need. I wonder what the Light takes from you." },
         { id = "h_default", key = true, text = "I am Yaw Sharpmane, and I teach the hunters of Bloodhoof. The plains feed us, so we take only what we need and thank the beast that gives it." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Your companion looks well fed, hunter, and that tells me more about you than your aim." },
+        { id = "h_taming", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Taming the Beast") }, text = "You still carry my taming rod, so the plains still hold a teacher for you. Go gently, and thank each beast when you let it go." },
+        { id = "h_tamed", tags = { "news" }, when = { class = "HUNTER", questRecent = { TODO_QUEST("Taming the Beast"), days = 3 } }, text = "The plainstrider, the stalker and the swoop, all bound and all set free. Now go up to Holt Thunderhorn on Hunter Rise, and learn to train the companion you will keep." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. You'll understand why we thank the beast after a hunt, because you've heard the spirits that walk beside it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You could learn something from the hunters of Bloodhoof, if you're willing to slow down long enough to listen." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, one of mine. Show me how your bow arm has grown, and let me see whether your companion still trusts you." },
@@ -524,6 +529,112 @@ P:NPC {
     plains_big = {
       lines = { { id = "pb_default", text = "Ask Harken Windtotem about the old wolves, because he tells those stories better than I do. Then come back and tell me if you believed him." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_road = {
+      hub = true,
+      narr = "He runs a hand along the grass at the edge of the path, as if reading something written there.",
+      lines = {
+        { id = "yr_default", text = "The hunter's road begins on these plains and runs out across the whole of Kalimdor, and every step of it is a debt to the Earth Mother. I will tell you what I can of it, so that you walk it knowing what you owe." },
+        { id = "yr_low", when = { maxLevel = 9 }, text = "You have not yet come to the place where a hunter takes a companion, so your road is still short. Learn the plainstriders and the wolves near the village, and come to me at ten seasons, and we will go further together." },
+        { id = "yr_mid", when = { minLevel = 20 }, text = "You have walked far from Bloodhoof since I first saw you, and the beasts of the Barrens have left their marks on you. Ask what you will, and I will tell you what I know of the road ahead." },
+      },
+      again = {
+        { id = "yr_again", text = "What else would you know of the road? The plains have time, and so do I." },
+        { id = "yr_again2", text = "Ask on, young hunter. A question is a lighter thing to carry than a mistake." },
+      },
+      choices = {
+        { text = "I am ready to take a companion, Yaw.", next = "y_tame", when = { minLevel = 10 } },
+        { text = "Should I thank the beast I tame, as I thank the kill?", next = "y_thanks" },
+        { text = "Hunters speak of a wolf west of the village.", next = "y_chak" },
+        { text = "Are there hunts beyond Mulgore I should seek?", next = "y_far", when = { minLevel = 16 } },
+        { text = "The Grimtotem hunt too. Are they still our people?", next = "y_grim", when = { race = "Tauren", minLevel = 14 } },
+        { text = "My people camp at Gev'rek. We hunt differently.", next = "y_sky", when = { race = "Skyborne" } },
+        { text = "Enough of the road for now.", next = "BACK" },
+      },
+    },
+    y_tame = {
+      lines = {
+        { id = "yt_default", text = "Then take this rod and go out onto the plains, and bind three beasts, one after the other: an adult plainstrider, a prairie stalker, and a swoop from the sky. Keep none of them, for they are your teachers, and let each go with thanks when it has taught you." },
+        { id = "yt_active", when = { questActive = TODO_QUEST("Taming the Beast") }, text = "You carry my rod, so a teacher is still waiting for you out on the grass. Be gentle with the binding, and if the beast fights you, let it go and try another, for the Earth Mother made more than one." },
+        { id = "yt_done", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "The plainstrider, the stalker and the swoop have all walked with you and gone free again. Now go up to Thunder Bluff, to Holt Thunderhorn on Hunter Rise, and he will teach you to train the companion you choose to keep." },
+        { id = "yt_trained", when = { questDone = TODO_QUEST("Training the Beast") }, text = "Holt has taught you to train, so you know what I know now, and more. Tame widely and keep one, and let every beast you bind for a day leave a lesson behind for your companion." },
+      },
+      choices = {
+        { text = "Why must I let them go?", next = "y_tame2" },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_tame2 = {
+      big = true,
+      lines = { { id = "yt2_default", text = "Because the first beast that walks beside you is not yet your companion, only your lesson. A companion must be chosen, and it must choose you, and that takes more than a rod and an afternoon on the plains." } },
+      choices = {
+        { text = "Then I'll wait for the beast that chooses me.", next = "y_road", reply = "The Earth Mother will send it, when you are both ready. Watch for the one that does not run.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll choose the strongest. Choosing is the hunter's right.", next = "y_road", reply = "It is your right, and many hunters use it. But the strongest beast may not stay, and the faithful one always does.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_thanks = {
+      lines = { { id = "yth_default", text = "You should, though in a different way. When you take a life you thank the beast for its gift, and when you take a companion you thank it for its trust, and you keep thanking it every day with food and with care, for trust is a gift that must be given again each morning." } },
+      choices = {
+        { text = "My father says words over every kill.", next = "y_thanks2", when = { race = "Tauren" } },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_thanks2 = {
+      lines = { { id = "yth2_default", text = "Then he taught you well, and you should say them too, even when you are tired, even when the kill was hard. The day a hunter forgets the words is the day he begins hunting for himself and not for the herd, and Cairne himself would tell you the same." } },
+      choices = {
+        { text = "I'll not forget them. Back to the road.", next = "y_road", fx = { affinity = 1 } },
+      },
+    },
+    y_chak = {
+      lines = {
+        { id = "yc_default", text = "Chakuyak, a great prairie wolf who roams west of Bloodhoof and does not fear us as the others do. He has taken calves from the herds, and I would see him returned to the Earth Mother by a hunter who will thank him for it." },
+        { id = "yc_done", when = { questDone = TODO_QUEST("Chakuyak") }, text = "You brought me Chakuyak's pelt, and the herds graze easier for it. I hope you said the words over him, for he was a fine wolf, whatever he took from us." },
+      },
+      choices = {
+        { text = "A wolf that takes calves deserves no thanks.", next = "y_chak2" },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_chak2 = {
+      big = true,
+      lines = { { id = "yc2_default", text = "He took what the Earth Mother put in his path, as we do. He is not wicked, young one, only hungry and bold, and a hunter who cannot honor a bold wolf will one day fail to honor something greater." } },
+      choices = {
+        { text = "Then I'll honor him even as I hunt him.", next = "y_road", reply = "That is the whole of the hunter's way, in one sentence. Go well.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The herd comes first. I'll not mourn a thief.", next = "y_road", reply = "The herd comes first, yes, and he must be stopped. Mourn him a little anyway, for your own sake.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_far = {
+      lines = { { id = "yf_default", text = "Sergra Darkthorn at the Crossroads sets hunters after the beasts of the Barrens, and at the end of her hunts she calls up a white lion named Echeyakee, whose name means whitemist. Jorn Skyseer at Camp Taurajo sends hunters after greater game still, the thunder lizards and the great kodo of the south." } },
+      choices = {
+        { text = "And after the Barrens?", next = "y_far2" },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_far2 = {
+      lines = {
+        { id = "yf2_default", text = "Melor Stonehoof on Hunter Rise sends the strongest of us out across the world, to the Needles and the swamps and the cold mountains of Alterac, for the hunts that teach the most. At thirty you will learn to fall as if dead, at forty to wear mail, and after that, the road is yours to tell me about." },
+      },
+      choices = {
+        { text = "I'll come back and tell you, Yaw.", next = "y_road", fx = { affinity = 1 } },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_grim = {
+      lines = { { id = "yg_default", text = "They are tauren, and they hunt well, but they have forgotten why. They take more than they need and leave the rest to rot, and they say the land is ours alone, and that the orcs and trolls should be driven from it. Magatha Grimtotem sits in Thunder Bluff and smiles at Cairne, and I do not trust the smile." } },
+      choices = {
+        { text = "Cairne should drive them from the Bluff.", next = "y_road", reply = "Cairne is wiser than I am, and he keeps them close to watch them. I only hope he watches closely enough.", fx = { align = { order = -1 } } },
+        { text = "Cairne keeps the tribes together. I'll trust his way.", next = "y_road", reply = "So will I, though my bow arm itches whenever a Grimtotem passes. Walk with the Earth Mother.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Back to the road.", next = "y_road" },
+      },
+    },
+    y_sky = {
+      lines = { { id = "ysk_default", text = "I have heard so, and I have seen your people at Camp Gev'rek giving thanks to the wind before they draw. The Earth Mother and the winds are not strangers to each other, I think, so tell me, what do your hunters say over a kill?" } },
+      choices = {
+        { text = "We give the kill's thanks to the wind spirits.", next = "y_road", reply = "Then the wind carries it to the Earth Mother, and she hears it all the same. Hunt well beside us.", fx = { affinity = 1 } },
+        { text = "Nothing. Our spirits have gone quiet.", next = "y_road", reply = "Then say the words of the plains until yours wake again. She will not mind the borrowing.", fx = { trait = { kind = 1 } } },
+      },
     },
     xhsham = {
       big = true,

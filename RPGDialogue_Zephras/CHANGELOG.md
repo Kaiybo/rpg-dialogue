@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-19)
+- Quel'ana Quickgale and Tai'ree Farsight deepened for hunters.
+
 ## 1.18.0 (2026-11-19)
 - Seena Skybreaker has a word for warriors leaving Zephras.
 

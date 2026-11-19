@@ -74,7 +74,7 @@
 One or two repeat-visit or night lines each for the thinnest NPCs here: small habits and running jokes (a salvaged kettle, a beetle truce, a parrot paying rent, glowing ink). Places they mention are already sourced in this bible or LORE_NOTES.
 
 ## Expansion (Stranglethorn 1.2.0)
-- Nesingwary's Expedition: Hemet (gruff, terse, lives to hunt; "still here" every morning), Barnil (patient keeper of camp and book; too many words about the rifle), Ajeck (focused, her father's student, Sin'Dall's tracks), Erlgadin (bitter ex-count who burns letters from Stormwind).
+- Nesingwary's Expedition: Hemet (a dwarf who left the mountain after the war; gruff, terse, lives to hunt, a big-game hunter in the Hemingway mould; speaks plain English with only a light touch, an "aye" now and then, no burr; "still here" every morning), Barnil (patient keeper of camp and book; too many words about the rifle), Ajeck (focused, her father's student, Sin'Dall's tracks), Erlgadin (bitter ex-count who burns letters from Stormwind).
 - Booty Bay: Smotts (stubborn, two crews drowned), Shaky (terrified debtor), Crazz (eager Bloodsail-hater), Crank Fizzlebub (shifty profiteer; his arrangement with Kravel), Whiskey Slim (toasts with threats), Drizzlik (boastful leathercrafter).
 - Authored, not canon: Smotts's mother stitched the sash; Erlgadin burns the summons; Drizzlik's paid-in-advance order; Hemet's "still here"; Ajeck sleeps by day; all the repeat-visit and night lines on the earlier NPCs.
 - More Booty Bay and the Rebel Camp: Sprogger (Smotts's cook, the other survivor; https://warcraft.wiki.gg/wiki/Sprogger; The Captain's Cutlass, Facing Negolash), Fin Fizracket (Blackwater Raiders; Stranglethorn Fever, cured by Mokk the Savage's heart; https://warcraft.wiki.gg/wiki/Fin_Fizracket), Wharfmaster Lozgil (watches who comes and goes, unsure whom to trust; Goblin Sponsorship, Warsong Supplies for the Horde's axe crate; https://warcraft.wiki.gg/wiki/Wharfmaster_Lozgil), Private Thorsen (Rebel Camp spy who infiltrated Kurzen's force and nearly died; Jungle Secrets, Supplies to Private Thorsen; https://warcraft.wiki.gg/wiki/Private_Thorsen). Authored: Sprogger survived under a pot; Fin's verdict on the heart; Lozgil's fishmonger; Thorsen reaching for the wrong uniform. Never: Fin's later illnesses, Undermine; who betrayed Thorsen.
@@ -121,3 +121,10 @@ Sources: Ian Strom (Rogue Trainer, Salty Sailor Tavern, trains both factions; ca
 - Elril: female; temple-trained in Ashenvale without vows, carried water for the Sentinels, plate from a Menethil Harbor dwarf who charged double for the legs; the paladin question is a running joke she keeps alive (a sailors' song, Krazek's ten-gold offer); knelt once beside a human paladin and felt "something warm" answer, never sure whose. No night-elf paladin order is claimed.
 - Never: confirming Elril as a paladin; Illari's fate or capture; anything about the chain's later rewards.
 - Krazek: grumbles about gnomes (`prejudice`, race Gnome) as a business grudge: they give their plans away; his uncle lost a Ratchet winch contract to a gnome who drew the plans on a napkin.
+
+## Horde views of the kaldorei (authored, not canon)
+- Aggro'gosh: the grunts say Grom'gol was named for Grom Hellscream (not confirmed; he never corrects them). Proud of Grom killing Cenarius, "the first blow the Horde struck for its own survival in Kalimdor"; the elves have every right to their grudge, and so do the orcs.
+- Mok'thardin: the elves' grudge is fair; the Horde's first great deed in Kalimdor was done with a demon's strength, and he carries that shame like the warlock years. Grom's death freed the orcs but repaid nothing to the elves.
+
+## Night elves (authored, not canon)
+- Krazek: night elves are the worst customers (no lumber, no explosives, haggle forever); the Sentinels do pay for Venture Company camp locations.

@@ -989,6 +989,7 @@ P:NPC {
         { text = "What do you hunt in Desolace, Rexxar?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "You seem to travel with no one but Misha.", next = "b1_1" },
         { text = "Tell me about Misha.", next = "b2_1" },
+        { text = "I walk with a beast too, Rexxar.", next = "r_beast", when = { class = "HUNTER" } },
         { text = "Is the Horde worth fighting for?", next = "s_1" },
         { text = "What brings you to Desolace?", next = "ds_1" },
         { text = "You fought for Thrall. Tell me about it.", next = "war" },
@@ -1025,6 +1026,49 @@ P:NPC {
       },
     },
     -- 0.71.0 depth: Misha, Desolace, the wars he fought for Thrall, the wild.
+    r_beast = {
+      hub = true,
+      narr = "Misha lifts her great head from her paws and looks at your companion for a long moment before settling again.",
+      lines = {
+        { id = "rb_default", text = "You walk with a beast, so we have something to speak of, you and I. I was taught by no trainer in any city, so I will tell you only what the wilds taught me, and you can weigh it against what the halls of Orgrimmar say." },
+        { id = "rb_pet", when = { pet = { type = "Beast" } }, text = "Misha has looked at {pet} and decided it is worth her time, which is more than she decides about most hunters. Ask what you would, and I will answer as one who walks with beasts to another." },
+      },
+      again = {
+        { id = "rb_again", text = "What else? Misha is patient, and I am learning to be." },
+        { id = "rb_again2", text = "Ask. The wind is from the south, and nothing is coming." },
+      },
+      choices = {
+        { text = "How did you come to walk with beasts?", next = "r_mok" },
+        { text = "The trainers say a hunter should tame many beasts.", next = "r_many" },
+        { text = "What in Desolace is worth hunting?", next = "r_deso" },
+        { text = "Falling as if dead feels shameful to me.", next = "r_feign", when = { minLevel = 30 } },
+        { text = "Enough, Rexxar. Misha's waiting.", next = "BACK" },
+      },
+    },
+    r_mok = {
+      lines = { { id = "rm_default", text = "My father's people, the Mok'Nathal, have always been hunters and beastmasters, and the beasts came to me before the words did. I have called hawks and boars to my side as well as Misha, but she is the one who stayed, and the rest I sent back to the wild with thanks." } },
+      choices = { { text = "Back to the beasts.", next = "r_beast" } },
+    },
+    r_many = {
+      lines = { { id = "rmy_default", text = "Let them say it, for they train hunters by the hundred and must teach what works for most. I have tamed many and kept one, and if you ask Misha, she will tell you that is the right number." } },
+      choices = {
+        { text = "One companion, for life. That's my way too.", next = "r_beast", reply = "Then you and Misha would get along, and you will learn things about your beast that the trainers never will.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The trainers know their craft. I'll heed them.", next = "r_beast", reply = "They do, and you should. Only do not let the halls teach you that a beast is a set of tricks.", fx = { align = { order = 1 } } },
+        { text = "Back to the beasts.", next = "r_beast" },
+      },
+    },
+    r_deso = {
+      lines = { { id = "rd_default", text = "Little that is clean. The scorpashi in the canyons, the great kodo that come here to die, and the centaur, who hunt each other with more hatred than any beast. The goblins at the Graveyard trap the living kodo for coin, and I have told them what I think of that, and they did not listen." } },
+      choices = {
+        { text = "Trapping kodo for coin is beneath a hunter.", next = "r_beast", reply = "It is beneath anyone. But the goblins are not hunters, so I suppose it is beneath only them.", fx = { align = { light = 1 } } },
+        { text = "A kodo in a pen beats a kodo in the bone yard.", next = "r_beast", reply = "Perhaps, if you ask the kodo. I have not, and neither have the goblins.", fx = { align = { light = -1 } } },
+        { text = "Back to the beasts.", next = "r_beast" },
+      },
+    },
+    r_feign = {
+      lines = { { id = "rf_default", text = "Then you have never watched a possum outlive a wolf. Misha has played dead beside me in the Stonemaul hills with ogres stamping past, and she is the proudest creature I know. Pride that kills you is not pride, it is only a hurry to be buried." } },
+      choices = { { text = "Back to the beasts.", next = "r_beast" } },
+    },
     lonely = {
       lines = {
         { id = "lo_default", text = "Kin is a word for people who stay. My father's people were few when I was born and fewer when I left them, and I've stopped looking for another face like mine on the road." },

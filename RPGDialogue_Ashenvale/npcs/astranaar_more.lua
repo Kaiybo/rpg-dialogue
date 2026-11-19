@@ -184,6 +184,7 @@ P:NPC {
         { text = "Do the Sentinels and the Circle agree about the Warsong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Your Sentinels must have orders about things like mine.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where would you post a shaman, Thenysil?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The druids are awake now. Do the Sentinels still lead?", next = "kal_lead", when = { race = "NightElf" } },
         { text = "Elune keep the watch.", next = "END", fx = { standing = { astranaar = 1 } } },
       },
     },
@@ -250,6 +251,14 @@ P:NPC {
       choices = {
         { text = "Then I'll do enough.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_lead = {
+      big = true,
+      lines = { { id = "kle_d", text = "We lead where we have always led, on the borders, and the druids lead in the groves, and the High Priestess decides where the one ends and the other begins. For ten thousand years the men slept and we held Kalimdor, and some of the Circle forget that when they speak of how things ought to be." } },
+      choices = {
+        { text = "Then the Sentinels should keep command. They earned it.", next = "BACK", reply = "We did, and Tyrande will not give it up lightly. I am glad you see it.", fx = { align = { order = 1 }, standing = { astranaar = 1 } } },
+        { text = "Both should share it. The old divisions don't serve us.", next = "BACK", reply = "Perhaps not, and the young say so more every year. I only ask that the druids learn to stand a watch first.", fx = { align = { order = -1 } } },
       },
     },
   },

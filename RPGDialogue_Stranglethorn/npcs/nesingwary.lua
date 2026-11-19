@@ -17,21 +17,21 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_camp", text = "Quiet, now, ye'll scare the game. Sit, if ye must, an' then make yerself useful." },
-    { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer limbs, good. The jungle doesnae give many second chances." },
-    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? That doesnae matter, for a good shot's a good shot, whatever colors it's wearin'." },
-    { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the game's been jumpy the whole while. Sit quiet, now, an' tell me what ye bagged out there." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've become a far better hunter since we last spoke, I can see it in how ye hold yer weapon. Ye'll make the list yet." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been sayin' ye've done right by us. That's a trophy o' sorts, an' one I'd hang on the wall." },
+    { id = "g_camp", text = "Quiet, now, you'll scare the game. Sit, if you must, and then make yourself useful." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back with all your limbs, good. The jungle doesn't give many second chances." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? That doesn't matter, for a good shot's a good shot, whatever colors it's wearing." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the game's been jumpy the whole while. Sit quiet, now, and tell me what you bagged out there." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've become a far better hunter since we last spoke, I can see it in how you hold your weapon. You'll make the list yet." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been saying you've done right by us. That's a trophy of sorts, and one I'd hang on the wall." },
   },
 
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter, an' a proper one, by the look o' yer kit! Then ye'll understand what this place is: the finest huntin' ground in the world." },
+      text = "A hunter, and a proper one, by the look of your kit! Then you'll understand what this place is: the finest hunting ground in the world." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Yer {pet} is a fine animal, but keep it close here, for every beast in this jungle would love tae make a meal o' yer friend." },
+      text = "Your {pet} is a fine animal, but keep it close here, for every beast in this jungle would love to make a meal of your friend." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Somethin' had a go at ye, raptors by the look of it. They hunt in packs, so learn that, if ye learn nothin' else." },
+      text = "Something had a go at you, raptors by the look of it. They hunt in packs, so learn that, if you learn nothing else." },
     { id = "n_druid_cat", cat = "class", when = { class = "DRUID", form = { "cat" } },
       text = "Easy there. I've a rifle and a lifetime of habit, and you look rather a lot like what I came here to hunt." },
   },
@@ -40,7 +40,7 @@ P:NPC {
   nodes = {
     op_alliance = {
       lines = {
-        { id = "opa_default", text = "Och, I'm too old an' too fond o' my rifle tae lend it out. An' folk say the Alliance is comin' apart, wi' Gilneas behind its wall an' Stromgarde sulkin' in the hills. What d'ye make o' it?" },
+        { id = "opa_default", text = "Ah, I'm too old and too fond of my rifle to lend it out. And folk say the Alliance is coming apart, with Gilneas behind its wall and Stromgarde sulking in the hills. What d'ye make of it?" },
       },
       choices = {
         { text = "The Alliance held once, and it'll hold again.", next = "op_all_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { alliance = "trust" } } },
@@ -52,25 +52,25 @@ P:NPC {
     },
     op_all_trust = {
       lines = {
-        { id = "opat_default", text = "Aye, I'll drink tae that, an' I'll drink tae it twice if it's true. It took the orcs tae make us friends the first time; I hope it doesnae take somethin' worse the second." },
+        { id = "opat_default", text = "Aye, I'll drink to that, and I'll drink to it twice if it's true. It took the orcs to make us friends the first time; I hope it doesn't take something worse the second." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_all_broken = {
       lines = {
-        { id = "opab_default", text = "Ye're a harder sort than I took ye for, an' maybe ye're right. Still, a name's worth somethin', the way a trophy is, because it reminds ye of what ye once did." },
+        { id = "opab_default", text = "You're a harder sort than I took you for, and maybe you're right. Still, a name's worth something, the way a trophy is, because it reminds you of what you once did." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_all_mixed = {
       lines = {
-        { id = "opam_default", text = "Ironforge did, an' I've an Ironforge barrel on my rifle tae prove it. I'll no' argue wi' a dwarf about dwarves; Barnil's taught me better." },
+        { id = "opam_default", text = "Ironforge did, and I've an Ironforge barrel on my rifle to prove it. I'll not argue with a dwarf about dwarves; Barnil's taught me better." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_all_hate = {
       lines = {
-        { id = "opah_default", text = "Aye, it did, an' I'll no' pretend I lost sleep over it then. I'm older now, an' I've seen what a cage does tae a beast, so I'll say only that ye've a right tae yer anger." },
+        { id = "opah_default", text = "Aye, it did, and I'll not pretend I lost sleep over it then. I'm older now, and I've seen what a cage does to a beast, so I'll say only that you've a right to your anger." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -78,53 +78,53 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_nesingwary_default", text = "It depends on the quarry, my friend. A panther is best hunted alone, one hunter against one beast, but a raptor pack would eat a lone hunter for breakfast, and there's no shame in bringing friends to that sort of party." } },
       choices = {
-        { text = "A fair hunt is one hunter against one beast.", next = "BACK", reply = "Aye, an' that's the purest hunt there is, though I'd no' face a raptor pack wi' that creed. Ye'd make a fine panther hunter, friend.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A clean kill matters, not how many hands it took.", next = "BACK", reply = "Practical, an' no' wrong, though the book wants a better story than that. Clean is the first rule, mind, so we agree on what matters.", fx = { align = { honor = -1 } } },
+        { text = "A fair hunt is one hunter against one beast.", next = "BACK", reply = "Aye, and that's the purest hunt there is, though I'd not face a raptor pack with that creed. You'd make a fine panther hunter, friend.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clean kill matters, not how many hands it took.", next = "BACK", reply = "Practical, and not wrong, though the book wants a better story than that. Clean is the first rule, mind, so we agree on what matters.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I think about them every time I write a trophy into the book. A hunter honors his quarry by takin' it clean, an' if the spirits mind, they've never said so tae me." } },
+      lines = { { id = "xdsham_default", text = "I think about them every time I write a trophy into the book. A hunter honors his quarry by taking it clean, and if the spirits mind, they've never said so to me." } },
       choices = {
-        { text = "A hunt with rules honors the beast. I'll hunt as you do.", next = "BACK", reply = "Then ye're welcome at my fire, shaman, an' I'll show ye how tae read the trails. Clean an' fair, an' the spirits can come an' check my work.", fx = { align = { order = 1 } } },
-        { text = "Beasts aren't trophies, Hemet. The spirits want them free.", next = "BACK", reply = "Free tae eat the next traveller, aye, an' the spirits can explain that tae his widow. I'll no' quarrel wi' ye, but I'll no' stop either.", fx = { align = { order = -1 } } },
+        { text = "A hunt with rules honors the beast. I'll hunt as you do.", next = "BACK", reply = "Then you're welcome at my fire, shaman, and I'll show you how to read the trails. Clean and fair, and the spirits can come and check my work.", fx = { align = { order = 1 } } },
+        { text = "Beasts aren't trophies, Hemet. The spirits want them free.", next = "BACK", reply = "Free to eat the next traveller, aye, and the spirits can explain that to his widow. I'll not quarrel with you, but I'll not stop either.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I'd hunt wi' anyone who walks quiet an' shoots fair, an' I've no quarrel wi' the dead so long as they dinnae scare the cats. The Light's a strange companion on a hunt, but I'll take a steady hand over a pretty face any day." } },
+      lines = { { id = "xfpala_default", text = "I'd hunt with anyone who walks quiet and shoots fair, and I've no quarrel with the dead so long as they don't scare the cats. The Light's a strange companion on a hunt, but I'll take a steady hand over a pretty face any day." } },
       choices = {
-        { text = "Face the quarry fair. That's a paladin's way too.", next = "BACK", reply = "It is, an' I'm glad tae hear it from one o' yer kind. Walk quiet an' face the cat, an' ye'll be welcome on any hunt o' mine.", fx = { align = { honor = 1 } } },
-        { text = "A clean kill is a kill. Fair doesn't come into it.", next = "BACK", reply = "Fair comes intae everythin' out here, friend, or ye're just a butcher wi' a gun. I'll take the clean kill, but I want it fair as well.", fx = { align = { honor = -1 } } },
+        { text = "Face the quarry fair. That's a paladin's way too.", next = "BACK", reply = "It is, and I'm glad to hear it from one of your kind. Walk quiet and face the cat, and you'll be welcome on any hunt of mine.", fx = { align = { honor = 1 } } },
+        { text = "A clean kill is a kill. Fair doesn't come into it.", next = "BACK", reply = "Fair comes into everything out here, friend, or you're just a butcher with a gun. I'll take the clean kill, but I want it fair as well.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Aye, when the beast turns, which a great cat sometimes does, an' then ye want someone who'll stand an' take the charge while the rest of us reload. I lost a bearer tae a panther once because naebody would hold the line, so I'll no' mock a stout shield." } },
+      lines = { { id = "xwarcl_default", text = "Aye, when the beast turns, which a great cat sometimes does, and then you want someone who'll stand and take the charge while the rest of us reload. I lost a bearer to a panther once because nobody would hold the line, so I'll not mock a stout shield." } },
       choices = {
-        { text = "I'd hold the line so the hunters can take their shot.", next = "BACK", reply = "That's the warrior I want when the cat turns, an' I'll buy ye a drink for it. Stand fast, an' the rifles will do the rest.", fx = { align = { order = 1 } } },
-        { text = "I'd charge the beast first and finish it myself.", next = "BACK", reply = "Ha! Brave, an' maybe a wee bit daft, but I've seen worse. Just don't spoil the hide, or Barnil will have words.", fx = { align = { order = -1 } } },
+        { text = "I'd hold the line so the hunters can take their shot.", next = "BACK", reply = "That's the warrior I want when the cat turns, and I'll buy you a drink for it. Stand fast, and the rifles will do the rest.", fx = { align = { order = 1 } } },
+        { text = "I'd charge the beast first and finish it myself.", next = "BACK", reply = "Ha! Brave, and maybe a little bit daft, but I've seen worse. Just don't spoil the hide, or Barnil will have words.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "It's use, aye, but it's no sport. I watched a mage freeze a tiger once an' then stroll up tae it like it was a statue, an' there's no glory in that, only a cold cat an' a smug mage." } },
+      lines = { { id = "xhcast_default", text = "It's use, aye, but it's no sport. I watched a mage freeze a tiger once and then stroll up to it like it was a statue, and there's no glory in that, only a cold cat and a smug mage." } },
       choices = {
-        { text = "A fair fight's the only fight worth having.", next = "BACK", reply = "Spoken like a true hunter, an' I'm proud tae hear it. The tiger deserves its chance, an' so do ye.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A dead tiger's a dead tiger. Glory doesn't skin it.", next = "BACK", reply = "No, but it makes a poor story in the book, an' the book's what lasts. Skin it if ye like, I'll no' be writin' it down.", fx = { align = { honor = -1 } } },
+        { text = "A fair fight's the only fight worth having.", next = "BACK", reply = "Spoken like a true hunter, and I'm proud to hear it. The tiger deserves its chance, and so do you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A dead tiger's a dead tiger. Glory doesn't skin it.", next = "BACK", reply = "No, but it makes a poor story in the book, and the book's what lasts. Skin it if you like, I'll not be writing it down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, an' I've a chewed ear tae prove it, so if their spirits want a word, they know where tae find me. I reckon a tiger respects a hunter more than a farmer, an' I'll settle for that." } },
+      lines = { { id = "xhsham_default", text = "Every beast I've taken was a fair fight, and I've a chewed ear to prove it, so if their spirits want a word, they know where to find me. I reckon a tiger respects a hunter more than a farmer, and I'll settle for that." } },
       choices = {
-        { text = "A fair fight honors the beast. I can respect that.", next = "BACK", reply = "Good, then we understand each other. A chewed ear's the price o' respect, an' I paid it gladly.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Trophies are trophies. Spirits don't enter into it.", next = "BACK", reply = "Ye sound like a Venture man, an' that's no' a compliment in this camp. The trophy's only worth somethin' if the fight was.", fx = { align = { honor = -1 } } },
+        { text = "A fair fight honors the beast. I can respect that.", next = "BACK", reply = "Good, then we understand each other. A chewed ear's the price of respect, and I paid it gladly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trophies are trophies. Spirits don't enter into it.", next = "BACK", reply = "You sound like a Venture man, and that's not a compliment in this camp. The trophy's only worth something if the fight was.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,37 +138,37 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "A fine one, if they learned tae love the hunt as much as the kill. Most rogues I've met are in too much of a hurry, an' the great cats o' Stranglethorn will make a meal o' anyone who rushes them." } },
+      lines = { { id = "xrogue_default", text = "A fine one, if they learned to love the hunt as much as the kill. Most rogues I've met are in too much of a hurry, and the great cats of Stranglethorn will make a meal of anyone who rushes them." } },
       choices = {
-        { text = "Then I'll learn patience from the master.", next = "BACK", reply = "Ha! That's the spirit, {g:lad|lass}, an' ye'll learn faster than most. Patience first, an' the kill will follow when it's ready.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A kill is a kill. The love of it doesn't matter.", next = "BACK", reply = "Then ye'll be a fine rogue an' a poor hunter, an' I'll leave ye tae it. Just dinnae rush a panther, for it's the last mistake most folk make.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn patience from the master.", next = "BACK", reply = "Ha! That's the spirit, friend, and you'll learn faster than most. Patience first, and the kill will follow when it's ready.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A kill is a kill. The love of it doesn't matter.", next = "BACK", reply = "Then you'll be a fine rogue and a poor hunter, and I'll leave you to it. Just don't rush a panther, for it's the last mistake most folk make.", fx = { align = { honor = -1 } } },
         { text = "Something else, Nesingwary.", next = "BACK" },
       },
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Never, though I'll admit I've been tempted since King Bangalash, the great white tiger, slipped away from me at dusk. A hunt is a contest between the hunter an' the beast, an' magic would spoil it, so I'll keep my rifle an' my patience." } },
+      lines = { { id = "xmage_default", text = "Never, though I'll admit I've been tempted since King Bangalash, the great white tiger, slipped away from me at dusk. A hunt is a contest between the hunter and the beast, and magic would spoil it, so I'll keep my rifle and my patience." } },
       choices = {
-        { text = "You're right. A fair hunt is the only hunt.", next = "BACK", reply = "Good, I'll write ye down as one o' the decent ones. Bangalash will get his day, an' it'll be a fair one.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Use every advantage. The beast would.", next = "BACK", reply = "The beast would, aye, but the beast isnae writin' a book. I'll take the long way, an' be proud o' the trophy at the end.", fx = { align = { honor = -1 } } },
+        { text = "You're right. A fair hunt is the only hunt.", next = "BACK", reply = "Good, I'll write you down as one of the decent ones. Bangalash will get his day, and it'll be a fair one.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Use every advantage. The beast would.", next = "BACK", reply = "The beast would, aye, but the beast isn't writing a book. I'll take the long way, and be proud of the trophy at the end.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Cruelty, no, for I take my game clean an' quick, though there's those in Stormwind who'd call it sport an' turn up their noses. A hunt's a kind o' respect, I'd say, between the hunter an' the hunted, an' the great cat understands that better than most men." } },
+      lines = { { id = "xapriest_default", text = "Cruelty, no, for I take my game clean and quick, though there's those in Stormwind who'd call it sport and turn up their noses. A hunt's a kind of respect, I'd say, between the hunter and the hunted, and the great cat understands that better than most men." } },
       choices = {
-        { text = "Killing for a trophy isn't respect. Hunt only what you need.", next = "BACK", reply = "Ye've a good heart, priest, an' I'll no' laugh at it. But a hunter's trophy is a way o' rememberin', an' I remember every one.", fx = { align = { light = 1 } } },
-        { text = "The jungle's a hunt. The strong take what they will.", next = "BACK", reply = "Strong words, an' the jungle would agree wi' ye. But the strong take clean, or they're just the jungle wi' a gun.", fx = { align = { light = -1 } } },
+        { text = "Killing for a trophy isn't respect. Hunt only what you need.", next = "BACK", reply = "You've a good heart, priest, and I'll not laugh at it. But a hunter's trophy is a way of remembering, and I remember every one.", fx = { align = { light = 1 } } },
+        { text = "The jungle's a hunt. The strong take what they will.", next = "BACK", reply = "Strong words, and the jungle would agree with you. But the strong take clean, or they're just the jungle with a gun.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "There is, an' more than ye'd think, for a good hunter faces his quarry fair an' takes it clean. The great cat deserves a proper endin', an' when I find him, I mean tae look him in the eye before the shot." } },
+      lines = { { id = "xapala_default", text = "There is, and more than you'd think, for a good hunter faces his quarry fair and takes it clean. The great cat deserves a proper ending, and when I find him, I mean to look him in the eye before the shot." } },
       choices = {
-        { text = "Face the quarry fair. Anything else is butchery.", next = "BACK", reply = "Aye, ye understand it, paladin, an' that's rarer than ye'd think. Fair an' clean, an' the great cat gets its proper end.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A trap's as good as a shot. The cat won't know.", next = "BACK", reply = "The cat won't, but I will, an' so will the book. A trap's for meat, friend, no' for a trophy.", fx = { align = { honor = -1 } } },
+        { text = "Face the quarry fair. Anything else is butchery.", next = "BACK", reply = "Aye, you understand it, paladin, and that's rarer than you'd think. Fair and clean, and the great cat gets its proper end.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A trap's as good as a shot. The cat won't know.", next = "BACK", reply = "The cat won't, but I will, and so will the book. A trap's for meat, friend, not for a trophy.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,37 +180,37 @@ P:NPC {
           text = "I hear you've been doing business with that Kebok fellow in Booty Bay. Mind his tiger fangs, because I've seen the tusks they're carved from, and no tiger ever wore them." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
           text = "Kebok has been running my name down at the bar, I'm told, and yours along with it. A man who sells false trophies should be careful whom he calls a cheat." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Well now, a priest, an' a quiet one I hope, for the game in this jungle hears a footfall from a hundred paces an' a hymn from twice that." },
-        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin! Now there's a fine sight in this camp, for I've hunted wi' warriors an' rangers, but I've never had one o' the Silver Hand stalk a tiger wi' me." },
-        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde in my camp. Pray all ye like, so long as ye do it quiet, for the game hears everythin'." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but no beside a demon, so keep yer wee beastie well away from my trophies." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Well now, a priest, and a quiet one I hope, for the game in this jungle hears a footfall from a hundred paces and a hymn from twice that." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin! Now there's a fine sight in this camp, for I've hunted with warriors and rangers, but I've never had one of the Silver Hand stalk a tiger with me." },
+        { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? Your folk talk to the spirits of beasts, I hear, so you can tell the great cat I'm coming for him." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde in my camp. Pray all you like, so long as you do it quiet, for the game hears everything." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I'll hunt beside near anybody, but not beside a demon, so keep your little beastie well away from my trophies." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Splendid. You'll appreciate the beasts here better than any man in my camp, though I daresay we appreciate them rather differently." },
         { id = "h_default", key = true,
-          text = "Hemet Nesingwary. I came tae Stranglethorn for the huntin', an' I'm stayin' for the huntin': raptors, panthers, tigers, an' the great cat himself. There's nothin' else worth the trip." },
+          text = "Hemet Nesingwary. I came to Stranglethorn for the hunting, and I'm staying for the hunting: raptors, panthers, tigers, and the great cat himself. There's nothing else worth the trip." },
         { id = "h_welcome", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Welcome to the Jungle") }, { questActive = TODO_QUEST("Hunting in Stranglethorn") }, { questActive = TODO_QUEST("Hemet Nesingwary") } } },
-          text = "Somebody sent ye tae me? Good. I've more beasts than hunters, an' I like it that way, but even I cannae shoot them all." },
+          text = "Somebody sent you to me? Good. I've more beasts than hunters, and I like it that way, but even I can't shoot them all." },
         { id = "h_raptors", when = { questActive = TODO_QUEST("Raptor Mastery") },
-          text = "Raptors are fast an' clever, an' they never come alone. Thin them out, an' ye'll start tae think like one, which is the point." },
+          text = "Raptors are fast and clever, and they never come alone. Thin them out, and you'll start to think like one, which is the point." },
         { id = "h_bangalash", when = { questActive = TODO_QUEST("Big Game Hunter") },
-          text = "King Bangalash, the great cat o' the jungle. I've seen him once, at dusk, an' I've thought o' nothin' else since, so bring me his head." },
+          text = "King Bangalash, the great cat of the jungle. I've seen him once, at dusk, and I've thought of nothing else since, so bring me his head." },
         { id = "h_dusk", when = { timeOfDay = "night" },
-          text = "Listen, d'ye hear that? Somethin' big, west o' camp, movin' slow. We'll go after it tomorrow; tonight we drink." },
+          text = "Listen, do you hear that? Something big, west of camp, moving slow. We'll go after it tomorrow; tonight we drink." },
         { id = "h_cat", when = { form = "cat" },
-          text = "Dinnae move, dinnae... ach, it's only a druid! Ye nearly had a bullet for yer trouble, so turn back intae yerself before Ajeck, my best shot, sees ye." },
+          text = "Don't move, don't... ah, it's only a druid! You nearly had a bullet for your trouble, so turn back into yourself before Ajeck, my best shot, sees you." },
         { id = "h_king_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Big Game Hunter"), days = 3 } },
-          text = "The King's head, on my wall. I've wanted that for years, an' now I've got it I keep lookin' west anyway. There's always somethin' bigger." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet, quiet! Ah, a rogue, which is the next best thing tae a hunter, since ye ken how tae move without scarin' the game." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I don't suppose ye could freeze a panther in its tracks long enough for a proper shot? It'd make a dull story, but a very fine trophy." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? Ye'll scare the game clean out o' the valley wi' all that clankin', so stand still a moment an' let the cats come back." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! An' one o' the Forsaken, by my eyes, which I'll admit I didnae expect tae see stalkin' through my camp. Keep downwind o' the game, if ye'd be so kind." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've hunted wi' a great many dwarves, but never one who talks tae the beasts' spirits, so ye can tell the great cat I'm comin' for him." },
+          text = "The King's head, on my wall. I've wanted that for years, and now I've got it I keep looking west anyway. There's always something bigger." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet, quiet! Ah, a rogue, which is the next best thing to a hunter, since you know how to move without scaring the game." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I don't suppose you could freeze a panther in its tracks long enough for a proper shot? It'd make a dull story, but a very fine trophy." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? You'll scare the game clean out of the valley with all that clanking, so stand still a moment and let the cats come back." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! And one of the Forsaken, by my eyes, which I'll admit I didn't expect to see stalking through my camp. Keep downwind of the game, if you'd be so kind." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've hunted with a great many dwarves, but never one who talks to the beasts' spirits, so you can tell the great cat I'm coming for him." },
       },
       again = {
-        { id = "h_again", text = "Aye? Out wi' it, then, for the light's goin'." },
-        { id = "h_again2", text = "Somethin' else? Quick, then, for I'm cleanin' the rifle." },
-        { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yerself one an' ask away. Barnil willnae mind, though Barnil always minds." },
+        { id = "h_again", text = "Aye? Out with it, then, for the light's going." },
+        { id = "h_again2", text = "Something else? Quick, then, for I'm cleaning the rifle." },
+        { id = "h_again3", when = { timeOfDay = "night" }, text = "Pour yourself one and ask away. Barnil won't mind, though Barnil always minds." },
       },
       choices = {
         { text = "Do you ever think about the spirits of what you hunt?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
@@ -234,41 +234,70 @@ P:NPC {
         { text = "Would you really use magic in a hunt, Nesingwary?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you hunt alongside a Forsaken paladin, Nesingwary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you ever think about the spirits of what you hunt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Would you ever tame a cat like that, instead of shooting it?", next = "hn_tame", when = { class = "HUNTER" } },
+        { text = "Hunters back home talk of the Beaststalker mail. Ever seen it?", next = "hn_end", when = { class = "HUNTER", minLevel = 45 } },
+        { text = "Another dwarf with a rifle, so far from the mountain.", next = "hn_dwarf", when = { race = "Dwarf" } },
         { text = "Good hunting.", next = "END" },
+      },
+    },
+    hn_tame = {
+      big = true,
+      lines = {
+        { id = "hnt_default", text = "I've thought about it, on long nights, and I'll tell you honestly I haven't the patience. A tamed cat is a friend for life, and I've seen hunters walk out of this camp with a tiger at their heel that I'd been tracking for a month, and I was glad for them and sorry for me." },
+        { id = "hnt_pet", when = { pet = { type = "Beast" } }, text = "Like your {pet}, you mean? I've thought about it on long nights, and I haven't the patience, for a tamed beast is a friend for life and I've only ever known how to be its enemy. You've chosen the harder road, and I'll not pretend otherwise." },
+      },
+      choices = {
+        { text = "A beast at your side beats one on your wall.", next = "BACK", reply = "It does, I'll grant you, and I'd say so in the book if Barnil let me. But the wall doesn't need feeding.", fx = { align = { light = 1 } } },
+        { text = "A trophy is honest. A tamed beast never chose you.", next = "BACK", reply = "Ha! Now there's a hunter after my own heart, though I'd not say that in front of Ajeck.", fx = { align = { light = -1 } } },
+        { text = "Something else, Hemet.", next = "BACK" },
+      },
+    },
+    hn_end = {
+      lines = { { id = "hne_default", text = "Seen it, aye, on a hunter who came through on his way to the Blackrock spire, and he'd pulled the pieces off things in Scholomance and Stratholme that I'll not describe at supper. Fine mail, and he moved in it like it was leather, but I'll keep my old coat and my rifle." } },
+      choices = {
+        { text = "I mean to wear the whole set one day.", next = "BACK", reply = "Then come back in it and let Barnil sketch you for the book, for he's run out of tigers to draw.", fx = { trait = { brave = 1 } } },
+        { text = "A good coat and a true rifle are enough.", next = "BACK", reply = "Spoken like a hunter, and I'll pour you one for it.", fx = { affinity = 1 } },
+      },
+    },
+    hn_dwarf = {
+      lines = { { id = "hnd_default", text = "Far, and getting farther every year. I left the mountain after the war because the beasts under Ironforge had all been named and shot by somebody's grandfather, and here every cat is a new one. Do you miss the snow?" } },
+      choices = {
+        { text = "Every day, in this heat.", next = "BACK", reply = "So do I, every afternoon, and then a tiger walks past at dusk and I forget the snow entirely.", fx = { affinity = 1 } },
+        { text = "Not once. The jungle suits me.", next = "BACK", reply = "Then you're a better dwarf than I am, or a worse one, and I can't decide which.", fx = { trait = { witty = 1 } } },
       },
     },
 
     why = {
       big = true,
       lines = {
-        { id = "w_default", text = "Because a man finds out what he is when somethin' bigger than him is lookin' back. Most never find out, but in the jungle everybody does, an' usually quick." },
+        { id = "w_default", text = "Because a man finds out what he is when something bigger than him is looking back. Most never find out, but in the jungle everybody does, and usually quick." },
       },
       choices = {
         { text = "And what are you?", next = "what" },
         { text = "Seems a lot of killing just to find that out.", next = "why_killing", fx = { align = { light = 1 } } },
-        { text = "I'll find out, then.", next = "BACK", reply = "Good, an' I hope ye like what's lookin' back. Most do, in the end, once they've had a fright or two.", fx = { align = { light = -1 }, affinity = 2, trait = { brave = 1 } } },
+        { text = "I'll find out, then.", next = "BACK", reply = "Good, and I hope you like what's looking back. Most do, in the end, once they've had a fright or two.", fx = { align = { light = -1 }, affinity = 2, trait = { brave = 1 } } },
       },
     },
     what = {
       lines = {
-        { id = "wt_default", text = "Still here. That's the answer every mornin', an' it's a good one, so write it down, the way Barnil does." },
+        { id = "wt_default", text = "Still here. That's the answer every morning, and it's a good one, so write it down, the way Barnil does." },
       },
       choices = { { text = "Ha. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     why_killing = {
       lines = {
-        { id = "wk_default", text = "Aye, it is. But I eat what I shoot, an' I never take a beast that didnae have a fair chance at me. The trolls an' the Venture boys cannae say that." },
+        { id = "wk_default", text = "Aye, it is. But I eat what I shoot, and I never take a beast that didn't have a fair chance at me. The trolls and the Venture boys can't say that." },
       },
       choices = {
-        { text = "Fair chance. I can respect that.", next = "BACK", reply = "Aye, an' I respect ye for sayin' so. Fair chance is the whole o' my creed, an' few enough live by it.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Fair or not, a kill's a kill.", next = "BACK", reply = "Then ye'll never write a book worth readin', friend. The kill's the end, but the fair chance is the story.", fx = { align = { honor = -1 } } },
+        { text = "Fair chance. I can respect that.", next = "BACK", reply = "Aye, and I respect you for saying so. Fair chance is the whole of my creed, and few enough live by it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair or not, a kill's a kill.", next = "BACK", reply = "Then you'll never write a book worth reading, friend. The kill's the end, but the fair chance is the story.", fx = { align = { honor = -1 } } },
         { text = "A fair chance, against a rifle? I doubt that.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
 
     danger = {
       lines = {
-        { id = "d_default", text = "Not the King, an' not the tigers. The raptors, because there's always one more than ye counted, an' the trolls, because they count too." },
+        { id = "d_default", text = "It's not the King, and it's not the tigers, either. It's the raptors, because there's always one more than you counted, and the trolls, because they count too." },
       },
       choices = {
         { text = "And the King? Who is he?", next = "danger_king" },
@@ -278,15 +307,15 @@ P:NPC {
     },
     danger_king = {
       lines = {
-        { id = "dk_default", text = "Old, white an' patient, an' he lets ye see him exactly once. I've had a place on the wall for him for years." },
+        { id = "dk_default", text = "Old, white and patient, and he lets you see him exactly once. I've had a place on the wall for him for years." },
         { id = "dk_done", when = { questDone = TODO_QUEST("Big Game Hunter") },
-          text = "On my wall, thanks tae you. I look at him every mornin', an' he looks back, an' I'm no' sure which of us won." },
+          text = "On my wall, thanks to you. I look at him every morning, and he looks back, and I'm not sure which of us won." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger_venture = {
       lines = {
-        { id = "dv_default", text = "Cuttin' the jungle down tae find what's under it, an' every tree they fell sends the beasts somewhere else. Usually here, an' usually at supper." },
+        { id = "dv_default", text = "They're cutting the jungle down to find what's under it, and every tree they fell sends the beasts somewhere else, usually here and usually at supper." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "venture_company" } } } },
     },
@@ -294,9 +323,9 @@ P:NPC {
     hero = {
       big = true,
       lines = {
-        { id = "hr_default", text = "Barnil talks when I'm out o' earshot. I fought when the Alliance asked, like plenty did, an' came home tae find I'd rather be shot at by a tiger." },
+        { id = "hr_default", text = "Barnil talks when I'm out of earshot, the old gossip. I fought when the Alliance asked, like plenty did, and came home to find I'd rather be shot at by a tiger." },
         { id = "hr_horde", when = { faction = "Horde" },
-          text = "Barnil says too much. Aye, I fought yer lot once, an' ye fought mine, but out here it's the beasts that keep score, an' they dinnae care what color yer tabard is." },
+          text = "Barnil says too much, as usual. Aye, I fought your lot once, and you fought mine, but out here it's the beasts that keep score, and they don't care what color your tabard is." },
       },
       choices = {
         { text = "What war?", next = "hero_war", fx = { trait = { curious = 1 } } },
@@ -305,7 +334,7 @@ P:NPC {
     },
     hero_war = {
       lines = {
-        { id = "hw_default", text = "The one with the orcs in it, the first or the second, for they blur. Ask Barnil an' he'll tell ye I was magnificent, but I was mostly wet." },
+        { id = "hw_default", text = "The one with the orcs in it, the first or the second, for they blur. Ask Barnil and he'll tell you I was magnificent, but I was mostly wet." },
       },
       choices = {
         { text = "Would you fight for the Alliance again?", next = "op_alliance" },
@@ -315,7 +344,7 @@ P:NPC {
 
     students = {
       lines = {
-        { id = "st_default", text = "Ajeck's the best shot in camp an' knows it. Erlgadin's the best-born an' wishes he wasnae. Barnil's no' a student, he's a saint. Pick one an' ask." },
+        { id = "st_default", text = "Ajeck's the best shot in camp and knows it, and Erlgadin's the best-born and wishes he wasn't. Barnil's not a student at all but a saint, so pick one of the other two and ask." },
       },
       choices = {
         { text = "Ajeck.", next = "students_ajeck" },
@@ -324,17 +353,17 @@ P:NPC {
       },
     },
     students_ajeck = {
-      lines = { { id = "sa_default", text = "Her father taught her tigers; I just gave her somewhere tae practise. She'll take Sin'Dall, the great tiger o' the north, one day, an' I hope I'm awake for it." } },
+      lines = { { id = "sa_default", text = "Her father taught her tigers; I just gave her somewhere to practise. She'll take Sin'Dall, the great tiger of the north, one day, and I hope I'm awake for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     students_erlgadin = {
-      lines = { { id = "se_default", text = "Came out here tae forget Stormwind, an' talks about it every night. He's good with a blade an' better wi' a grudge, so leave him his letters." } },
+      lines = { { id = "se_default", text = "He came out here to forget Stormwind, and he talks about it every night. He's good with a blade and better with a grudge, so leave him his letters." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } } },
     },
 
     shot = {
       lines = {
-        { id = "sh_default", text = "A raptor, mid-leap, through the gap between two of its friends, an' Barnil wrote it down. I've no' been able tae do it since, though I've tried every week." },
+        { id = "sh_default", text = "A raptor, mid-leap, through the gap between two of its friends, and Barnil wrote it down. I've not been able to do it since, though I've tried every week." },
       },
       choices = {
         { text = "Mine was luckier than that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -342,15 +371,15 @@ P:NPC {
       },
     },
     shot_teach = {
-      lines = { { id = "sht_default", text = "Ye dinnae aim where it is, ye aim where it's decided tae be. Raptors decide early, an' seein' that is yer gift, so use it." } },
+      lines = { { id = "sht_default", text = "You don't aim where it is, you aim where it's decided to be. Raptors decide early, and seeing that is your gift, so use it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
 
     rifle = {
       lines = {
-        { id = "rf_default", text = "Ironforge barrel, Stormwind stock, an' a sight I bought from a gnome who swore it'd make me famous. It did, but the sight's terrible." },
+        { id = "rf_default", text = "Ironforge barrel, Stormwind stock, and a sight I bought from a gnome who swore it'd make me famous. It did, but the sight's terrible." },
         { id = "rf_gnome", when = { race = "Gnome" },
-          text = "Ironforge barrel, an' a sight from one o' yer people that I'll swear is made o' lies. Ye wouldnae know a tinker named after a cheese, would ye?" },
+          text = "Ironforge barrel, and a sight from one of your people that I'll swear is made of lies. You wouldn't know a tinker named after a cheese, would you?" },
       },
       choices = {
         { text = "May I hold it?", next = "rifle_hold" },
@@ -358,7 +387,7 @@ P:NPC {
       },
     },
     rifle_hold = {
-      lines = { { id = "rh_default", text = "No, but ye may admire it from there, or a wee bit closer, but no further than the rug. Barnil'll have tae clean it again just from you lookin'." } },
+      lines = { { id = "rh_default", text = "No, but you may admire it from there, or a little bit closer, but no further than the rug. Barnil'll have to clean it again just from you looking." } },
       choices = { { text = "Fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     k_druid = {
@@ -369,8 +398,8 @@ P:NPC {
           text = "Your people say that of every cat in the world, I've heard, but I can't bring myself to believe Sin'Dall is a druid in disguise. I take a beast fairly and face to face, and that's all the honor I know." },
       },
       choices = {
-        { text = "A fair hunt is still a death. Spare the old ones.", next = "BACK", reply = "Spare the old ones, ye say? Druid, the old ones are the whole hunt, but I'll mind yer words when I find him. That's as much as I'll promise.", fx = { align = { order = -1 }, affinity = -1 } },
-        { text = "The hunt is part of the balance. I accept it.", next = "BACK", reply = "Then we're kin o' a sort, druid, an' I'm glad o' it. The hunt keeps the jungle honest, an' so do ye.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "A fair hunt is still a death. Spare the old ones.", next = "BACK", reply = "Spare the old ones, you say? Druid, the old ones are the whole hunt, but I'll mind your words when I find him. That's as much as I'll promise.", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "The hunt is part of the balance. I accept it.", next = "BACK", reply = "Then we're kin of a sort, druid, and I'm glad of it. The hunt keeps the jungle honest, and so do you.", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Why hunt at all?", next = "why" },
       },
     },
@@ -387,7 +416,7 @@ P:NPC {
     },
     k_human = {
       lines = {
-        { id = "xhu_default", text = "Fewer than there ought tae be, for most Stormwinders think a rifle's somethin' ye buy, no' somethin' ye earn. If ye earned yers, ye're welcome at my fire." },
+        { id = "xhu_default", text = "Fewer than there ought to be, for most Stormwinders think a rifle's something you buy, not something you earn. If you earned yours, you're welcome at my fire." },
         { id = "xhu_eastvale", when = { origin = "human_eastvale_woodsman" },
           text = "Eastvale, by the cut of that coat. Those woods breed the only human hunters worth the name, and I learned half my tracking from an old Eastvale man, so you're welcome at my fire." },
       },
@@ -401,54 +430,54 @@ P:NPC {
   persuade = {
     admire = {
       success = {
-        { id = "s1", text = "Well now, that's kindly said, an' I'll not pretend a hunter doesnae like tae hear it. Ye've a good eye, an' a good eye is half o' the hunt." },
-        { id = "s2", text = "Ha! Barnil's forever tellin' me my head's swelled past my hat, an' ye've just made his job harder. Sit down, then, for I like the company o' folk wi' sense." },
+        { id = "s1", text = "Well now, that's kindly said, and I'll not pretend a hunter doesn't like to hear it. You've a good eye, and a good eye is half of the hunt." },
+        { id = "s2", text = "Ha! Barnil's forever telling me my head's swelled past my hat, and you've just made his job harder. Sit down, then, for I like the company of folk with sense." },
       },
       fail = {
-        { id = "f1", text = "Save yer breath, for I've had lords from Stormwind tae Ironforge butter me up over trophies they never shot themselves. Out here a hunter's judged by what's hangin' on the rack, an' not by pretty words." },
-        { id = "f2", text = "Flattery scares off no game an' brings none in either, so it's no use tae me. Go an' bag somethin' worth the powder, an' then we'll talk." },
+        { id = "f1", text = "Save your breath, for I've had lords from Stormwind to Ironforge butter me up over trophies they never shot themselves. Out here a hunter's judged by what's hanging on the rack, and not by pretty words." },
+        { id = "f2", text = "Flattery scares off no game and brings none in either, so it's no use to me. Go and bag something worth the powder, and then we'll talk." },
       },
     },
     taunt = {
       success = {
-        { id = "s1", text = "Ha! Ye've got some bite tae ye, an' I like a beast that snaps back when ye prod it. There's not many who'd cheek a dwarf wi' a loaded rifle across his knees." },
-        { id = "s2", text = "Oh, is that how it is? Well, ye've a steady nerve, I'll grant ye, an' a steady nerve is what keeps yer hands still when the tiger's comin' straight at ye." },
+        { id = "s1", text = "Ha! You've got some bite to you, and I like a beast that snaps back when you prod it. There's not many who'd cheek a dwarf with a loaded rifle across his knees." },
+        { id = "s2", text = "Oh, is that how it is? Well, you've a steady nerve, I'll grant you, and a steady nerve is what keeps your hands still when the tiger's coming straight at you." },
       },
       fail = {
-        { id = "f1", text = "I've been roared at by beasts that could swallow ye whole, so yer yappin' doesnae trouble me. Mind yer manners in my camp, or go an' hunt somewhere else." },
-        { id = "f2", text = "Keep yer voice down, for ye're scarin' the game an' botherin' me, an' I'm not sure which I mind more. A mouth like that gets a hunter killed out here." },
+        { id = "f1", text = "I've been roared at by beasts that could swallow you whole, so your yapping doesn't trouble me. Mind your manners in my camp, or go and hunt somewhere else." },
+        { id = "f2", text = "Keep your voice down, for you're scaring the game and bothering me, and I'm not sure which I mind more. A mouth like that gets a hunter killed out here." },
       },
     },
     intimidate = {
       success = {
-        { id = "s1", text = "Easy, now. I've looked enough big cats in the eye tae know when one's about tae spring, an' ye've that same look about ye. I'll not test it, so say yer piece.", narr = "Hemet's thumb rests on the hammer of his rifle, though he keeps the barrel pointed at the ground." },
-        { id = "s2", text = "Hm, there's teeth behind that, an' I'm too old a hunter tae poke at somethin' wi' teeth just for the sport of it. Ye've made yer point, so let's have it plainly." },
+        { id = "s1", text = "Easy, now. I've looked enough big cats in the eye to know when one's about to spring, and you've that same look about you. I'll not test it, so say your piece.", narr = "Hemet's thumb rests on the hammer of his rifle, though he keeps the barrel pointed at the ground." },
+        { id = "s2", text = "Hm, there's teeth behind that, and I'm too old a hunter to poke at something with teeth just for the sport of it. You've made your point, so let's have it plainly." },
       },
       fail = {
-        { id = "f1", text = "I've stood my ground wi' a pack o' raptors comin' through the brush, an' ye're not half so quick nor so hungry. Sit down before ye embarrass yerself." },
-        { id = "f2", text = "Ye'll not frighten me in my own camp, for I've a rifle, a steady hand an' a lifetime o' things far uglier than ye glarin' at me. Try that on the trolls an' see how ye fare." },
+        { id = "f1", text = "I've stood my ground with a pack of raptors coming through the brush, and you're not half so quick nor so hungry. Sit down before you embarrass yourself." },
+        { id = "f2", text = "You'll not frighten me in my own camp, for I've a rifle, a steady hand and a lifetime of things far uglier than you glaring at me. Try that on the trolls and see how you fare." },
       },
     },
   },
   topics = {
     knows = {
-      { id = "tp_knows", text = "I've hunted every corner o' this jungle, an' I know it better than any map. Ask, an' I'll tell ye what I've learned." },
+      { id = "tp_knows", text = "I've hunted every corner of this jungle, and I know it better than any map. Ask, and I'll tell you what I've learned." },
     },
-    background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spellin'.", next = "hero" } },
-    advice = { { id = "tp_ad", text = "Shoot what's chargin' ye first, then shoot what's watchin' ye, an' then have a drink." } },
-    second_war = { { id = "tp_second_war", text = "I fought in the Second War, laddie, an' I've seen orcs charge, an' a tiger in full stride is a finer sight. I'll not say that in front of the veterans, mind." } },
-    magni = { { id = "tp_magni", text = "King Magni's a fine king, an' a fine hunter in his day, I'm told. I've half a mind to send him a copy of my book when Barnil finishes the spellin'." } },
-    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the nearest port with a decent pint, an' Barnil goes for supplies every week. I don't care for the place myself, too many folk an' not enough game." } },
-    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub, they say, bred by the trolls an' fed on blood, an' I'd give my best rifle to hunt one. Barnil says I'm mad, an' he may be right." } },
-    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's a waste of good fighting, laddie, men killin' each other over a box when the jungle's full of finer prey. Still, it's a fine place to find a strong arm for a hunting party." } },
+    background = { { id = "tp_bg", text = "Soldier, then hunter, then writer, Light help us all. Barnil does the spelling.", next = "hero" } },
+    advice = { { id = "tp_ad", text = "Shoot what's charging you first, then shoot what's watching you, and then have a drink." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, my friend, and I've seen orcs charge, and a tiger in full stride is a finer sight. I'll not say that in front of the veterans, mind." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king, and a fine hunter in his day, I'm told. I've half a mind to send him a copy of my book when Barnil finishes the spelling." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's the nearest port with a decent pint, and Barnil goes for supplies every week. I don't care for the place myself, too many folk and not enough game." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "There are tigers in Zul'Gurub, they say, bred by the trolls and fed on blood, and I'd give my best rifle to hunt one. Barnil says I'm mad, and he may be right." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena's a waste of good fighting, my friend, men killing each other over a box when the jungle's full of finer prey. Still, it's a fine place to find a strong arm for a hunting party." } },
     onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? Now there's a trophy, but I've a feeling she'd mount my head first. I'll leave that one to braver men." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting gallery, an' I've never once lost at it. They've asked me not to come back, which I take as a compliment." } },
-    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon back, an' I've seen one drop a boar from a hundred feet up. Finest hunters in the Alliance, after me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting gallery, and I've never once lost at it. They've asked me not to come back, which I take as a compliment." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon back, and I've seen one drop a boar from a hundred feet up. Finest hunters in the Alliance, after me." } },
     _gated = {
-      { id = "gt1", text = "That's a story I keep for huntin' companions, an' ye've not yet brought a single trophy back tae this camp. Earn yer place at the fire first." },
-      { id = "gt2", text = "I'll not be tellin' ye that, for I dinnae know ye well enough. Go an' hunt a while, an' ask me again." },
+      { id = "gt1", text = "That's a story I keep for hunting companions, and you've not yet brought a single trophy back to this camp. Earn your place at the fire first." },
+      { id = "gt2", text = "I'll not be telling you that, for I don't know you well enough. Go and hunt a while, and ask me again." },
     },
-    _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
+    _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldn't care less." } },
   },
 }
 
@@ -877,7 +906,36 @@ P:NPC {
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I've heard Sin'Dall can smell demons, Ajeck.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why not tame Sin'Dall instead of killing him?", next = "aj_tame", when = { class = "HUNTER" } },
+        { text = "How do you survive when a tiger turns on you?", next = "aj_feign", when = { class = "HUNTER", minLevel = 30 } },
+        { text = "My people walk beside the great cats, not against them.", next = "aj_elf", when = { race = "NightElf" } },
         { text = "Good hunting.", next = "END" },
+      },
+    },
+    aj_tame = {
+      big = true,
+      lines = {
+        { id = "ajt_default", text = "Because he'd never come to the rod, and I'd never ask him to. Some beasts are meant to be companions and some are meant to be the hunt itself, and my father taught me to tell the difference by the eyes; Sin'Dall's eyes have never belonged to anyone." },
+        { id = "ajt_pet", when = { pet = { family = "Cat" } }, text = "You've a cat of your own, I see, so you know what it is to have one choose you. Sin'Dall will never choose anyone, and I'd never shame him by asking; some beasts are the hunt itself, and my father taught me to know them by the eyes." },
+      },
+      choices = {
+        { text = "A beast like that deserves to stay free.", next = "BACK", reply = "Free until I find him, yes, and then he'll get the cleanest shot I've got.", fx = { align = { light = 1 } } },
+        { text = "Then take him, and take him clean.", next = "BACK", reply = "That's all I want, and all my father ever wanted for me.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aj_feign = {
+      lines = { { id = "ajf_default", text = "I drop and lie still, and I let the cat lose interest, which a tiger does faster than you'd think, because a still thing isn't prey. Then I put a trap between us before it remembers me, and I've done it so often Hemet calls me the dead girl." } },
+      choices = {
+        { text = "I'll practise it until it's second nature.", next = "BACK", reply = "Do, because the first time you need it, there's no time to think.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aj_elf = {
+      lines = { { id = "aje_default", text = "So I've heard, and I've seen a Kaldorei hunter's nightsaber, and it was more beautiful than anything in this jungle. But a tiger of Stranglethorn isn't a nightsaber, and the ones here would take your friend's throat as quick as yours." } },
+      choices = {
+        { text = "Every cat deserves respect, even these.", next = "BACK", reply = "I agree, and I respect them more than I respect most people.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -1115,7 +1173,24 @@ P:NPC {
         { text = "Why didn't you trust the court's mages, Sir Erlgadin?", next = "xmage", when = { class = "MAGE" } },
         { text = "This camp must need to take a good many panthers, Sir Erlgadin.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Would Stormwind's nobles fear a dwarf shaman, Sir Erlgadin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Not many humans hunt with a beast at their side.", next = "er_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "Would you ever keep a panther, Sir?", next = "er_panther", when = { class = "HUNTER" } },
         { text = "Good day, Sir.", next = "END" },
+      },
+    },
+    er_human = {
+      lines = { { id = "erh_default", text = "No, and in my day it would have been thought rather common. The nobles of Stormwind hunted with hounds and beaters and a dozen servants to carry the wine, and not one of them would have shared his supper with a wolf, which is precisely why you're a better hunter than any of them." } },
+      choices = {
+        { text = "The old ways had their dignity, Sir.", next = "BACK", reply = "They had their costumes, which isn't the same thing, though I wore them gladly enough once.", fx = { align = { order = 1 } } },
+        { text = "Good riddance to hounds and beaters.", next = "BACK", reply = "Hear, hear. I'd drink to that, if Barnil hadn't hidden the wine again.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_panther = {
+      lines = { { id = "erp_default", text = "I've considered it, I'll admit, but a panther would know me for what I was the first night. A hunter's beast wants a master who keeps faith, and I broke faith with a whole House, so I hunt them and leave the keeping to better people than me." } },
+      choices = {
+        { text = "You're harder on yourself than they'd be.", next = "BACK", reply = "Perhaps, but someone has to be, and the House certainly won't.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

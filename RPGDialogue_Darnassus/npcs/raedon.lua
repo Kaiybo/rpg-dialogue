@@ -3,6 +3,16 @@
 local P = RPGDialogueAPI:Pack("rpgd.darnassus")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
+-- Raedon's grudge (authored, not canon): he signs the Alliance's manifests because Tyrande asked it,
+-- and thinks joining was her mistake. Courteous, never rude; a player can soften him (npcFlag raedon_soft).
+P:Claim {
+  id = "raedon_alliance_brought_horde", by = "raedon", truth = "partly",
+  text = "The Alliance's wars brought the Horde to Kalimdor, and now Stormwind asks the kaldorei to bleed for it.",
+  truthNote = "The orcs did flee the human internment camps and Lordaeron to Kalimdor (canon), but Thrall sailed west at the Prophet's urging, and humans and orcs both fought beside the kaldorei at Hyjal. Raedon counts the cost and leaves out the debt.",
+  tell = "true",
+  exposedBy = { "thyntel.wa_default" },
+}
+
 P:NPC {
   key = "raedon", id = TODO_NPC("Raedon Duskstriker"), name = "Raedon Duskstriker", title = "Alliance Cloth Quartermaster",
   bible = "bibles/raedon.md", role = "questgiver", tier = "quest",
@@ -20,6 +30,10 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and the shelves are as bare as ever. I'm glad to see you all the same." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 10 }, text = "You've grown since your first bundle of wool, friend, and I expect your bags have grown with you." },
     { id = "g_word_helped", when = { word = "helped" }, text = "They tell me on the Terrace that you've been helping folk about the city. That's the same work as mine, really, only with fewer bolts of linen." },
+    { id = "g_human", when = { race = "Human" }, priority = 5,
+      text = "Ishnu-alah, friend of Stormwind. You'll forgive me if I count your bundle twice; it's nothing personal, only a habit I learned from your king's quartermasters." },
+    { id = "g_soft", when = { npcFlagBefore = "raedon_soft" }, priority = 10,
+      text = "Ah, my honest donor. I've stopped counting your bundles twice, and my assistant has written that in the ledger as though it were news from the front." },
   },
 
   notice = {
@@ -51,6 +65,10 @@ P:NPC {
         { text = "That's a great deal of cloth.", next = "where" },
         { text = "Why should I give cloth away?", next = "why" },
         { text = "I'm a tailor. I could sew instead of giving.", next = "tailor_r", when = { profession = "Tailoring" } },
+        { text = "You say \"Alliance\" as though it tastes of something.", next = "alliance" },
+        { text = "Is cloth from a human welcome here, quartermaster?", next = "xhuman_r", when = { race = "Human" } },
+        { text = "Between kaldorei, Raedon, was joining the Alliance wise?", next = "xnelf_r", when = { race = "NightElf" } },
+        { text = "Still counting the Alliance's share, Raedon?", next = "xsoft_r", when = { npcFlagBefore = "raedon_soft" } },
         { text = "I'd like to donate.", next = "BUSINESS" },
         { text = "Good day, quartermaster.", next = "END" },
       },
@@ -123,6 +141,109 @@ P:NPC {
       choices = {
         { text = "I'll leave it there. Something else.", next = "BACK" },
         { text = "Goodbye, quartermaster.", next = "END" },
+      },
+    },
+
+    alliance = {
+      big = true,
+      lines = {
+        { id = "al_default", key = true,
+          text = "Does it? I'm a courteous elf, friend, so I'll put it courteously: I think the High Priestess made a mistake when she set our name beside Stormwind's, and I count the cost of it in cloth every day." },
+        { id = "al_human", when = { race = "Human" },
+          text = "You've a sharp ear for a human. I'll be as courteous as you are, then: I think the High Priestess erred when she set our name beside your king's, and I count the cost of it in cloth every day." },
+      },
+      choices = {
+        { text = "What cost? The Alliance sends you cloth as well.", next = "alliance_cost" },
+        { text = "Tyrande has led your people since the Sundering. Trust her.", next = "BACK",
+          reply = "I do trust her, friend, in everything but this, and that is exactly why it troubles me so. Even the moon has a dark side.", fx = { align = { order = 1 } } },
+        { text = "Then say so to her face, not over bolts of linen.", next = "BACK",
+          reply = "Wiser elves than I have said it to her face, and she heard them out. I say it over linen because linen is what I have.", fx = { align = { order = -1 } } },
+      },
+    },
+    alliance_cost = {
+      lines = {
+        { id = "ac_default", fx = { hear = "raedon_alliance_brought_horde" },
+          text = "The orcs came to Kalimdor fleeing human camps and human wars, and now the Warsong cut Ashenvale while Stormwind asks us for archers besides. We bled at Hyjal for a world the younger races broke, and I would rather our bandages stayed on our own wounds." },
+      },
+      choices = {
+        { text = "Without the Alliance, Archimonde would have taken Hyjal.", next = "BACK",
+          reply = "Without Thrall's orcs too, friend, and nobody asks me to send runecloth to Orgrimmar. Hyjal was a battle shared, not a debt that never ends.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "You're right. Let Stormwind fight its own wars.", next = "BACK",
+          reply = "Quietly, friend, quietly, for I still have to press the Alliance's seal on every crate. But I'm glad someone else can do the arithmetic.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Where does the Alliance's share go?", next = "alliance_share" },
+      },
+    },
+    alliance_share = {
+      lines = {
+        { id = "as_default", text = "Some to Theramore, whose lady at least pays her debts, and some to Stormwind's quartermasters for fronts I'll never see. I sign the manifests with a steady hand because the High Priestess asked it of me, and I keep my opinion folded in a drawer." },
+      },
+      choices = {
+        { text = "Mathiel on the Warrior's Terrace would argue with you.", next = "BACK",
+          reply = "He would, cheerfully and at length, and then he'd write a letter to a dwarf about it. Mathiel trusts everyone, which is a fine quality in a smith and a poor one in a quartermaster." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman_r = {
+      lines = {
+        { id = "xh_default", text = "Welcome, and I'll take it with thanks, because a Sentinel's wound doesn't care whose sheep the wool came from. Only don't expect me to love your king for it; I have watched humans make promises to my people since Hyjal, and I have watched them keep about half." },
+      },
+      choices = {
+        { text = "Stormwind has kept faith with you. Give it time.", next = "BACK",
+          reply = "Time is the one thing I have more of than you, friend, so I'll give it gladly. I simply don't expect to be surprised.", fx = { align = { order = 1 } } },
+        { text = "Fair enough. Kings make promises; people keep them.", next = "BACK",
+          reply = "That I can believe, and it's why I'll still take your wool. People I can count; kings I can only endure.", fx = { align = { order = -1 } } },
+        { text = "Then judge me by my cloth, not my king.", tag = "Persuade", next = "xsoft_set",
+          check = { pass = { any = { { disposition = { min = 60 } }, { questDone = TODO_QUEST("A Donation of Silk") }, { questDone = TODO_QUEST("A Donation of Runecloth") }, { trait = "generous" } } } },
+          fail = { next = "xhuman_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xsoft_set = {
+      lines = {
+        { id = "xs_default", key = true, fx = { npcFlag = { set = { "raedon_soft" } } },
+          text = "Well, that's fair, and it's my own ledger that proves it. Your bundles have never come short and never come with a speech, so perhaps I've been judging Stormwind by its seals and not by its people, and I'll think on that." },
+      },
+      choices = {
+        { text = "That's all I ask, quartermaster.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman_fail = {
+      lines = {
+        { id = "xf_default", text = "Fine words, friend, and Stormwind's envoys say them better every season. Bring me cloth for a while, and we'll see what the words weigh." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Good day, quartermaster.", next = "END" },
+      },
+    },
+    xnelf_r = {
+      lines = {
+        { id = "xn_default", text = "Between us, no. We kept the Legion out of this world alone for ten thousand years, and now the Alliance asks for our archers in lands we had never heard of while Ashenvale burns at home." },
+      },
+      choices = {
+        { text = "We swore to the Alliance. Kaldorei keep their oaths.", next = "BACK",
+          reply = "We do, and that is the trap of it: we keep oaths for a thousand years that humans make for one lifetime. I'll keep this one, though it chafes.", fx = { align = { honor = 1 } } },
+        { text = "Then we should leave it and keep our archers home.", next = "BACK",
+          reply = "Say that in the Temple and you'll get a long look from the priestesses. Say it to the old Sentinels and you'll get a drink.", fx = { align = { honor = -1 } } },
+        { text = "Does the High Priestess know you feel this way?", next = "xnelf_tyr" },
+      },
+    },
+    xnelf_tyr = {
+      lines = {
+        { id = "xt_default", text = "She knows half the Terrace feels it, and she has heard it from wiser elves than me. She answered that we fought alone once already and lost the world anyway, and in all these years I have not found a reply." },
+      },
+      choices = {
+        { text = "Perhaps there isn't one.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsoft_r = {
+      lines = {
+        { id = "xso_default", text = "Still counting, though I count yours only once now. I sent a bale of silk to Theramore last month without grumbling, and my assistant has not stopped staring at me since." },
+      },
+      choices = {
+        { text = "Progress, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

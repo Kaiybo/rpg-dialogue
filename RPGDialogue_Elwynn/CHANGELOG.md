@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.39.0 (2026-11-19)
+- Josephine Carson and Tordrin Sternblade deepened for hunters.
+
 ## 1.38.0 (2026-11-19)
 - Llane Beshere, Lyria Du Lac and Marshal Haggard rewritten for warriors.
 

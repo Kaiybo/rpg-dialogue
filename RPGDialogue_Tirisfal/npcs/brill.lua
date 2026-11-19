@@ -2,6 +2,15 @@
 local P = RPGDialogueAPI:Pack("rpgd.tirisfal")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
+-- Zygand's grudge against the kaldorei (authored, not canon): he blames the elves' long silence for Lordaeron.
+P:Claim {
+  id = "zygand_kaldorei_silence", by = "zygand", truth = "partly",
+  text = "The night elves knew the Burning Legion for ten thousand years and warned no one, and Lordaeron died for their silence.",
+  truthNote = "The kaldorei did fight the Legion in the War of the Ancients and then kept apart from the world (canon). But they knew nothing of the Scourge or of the human kingdoms; the warning to flee west came from the Prophet, and King Terenas would not hear it. Zygand blames the distant for what the near ignored.",
+  tell = "true",
+  open = true,
+}
+
 P:NPC {
   key = "zygand", id = TODO_NPC("Executor Zygand"), name = "Executor Zygand",
   prejudice = { origin = "forsaken_scarlet_turned", amount = 12, why = "He fights the Crusade daily; a Forsaken who once wore Scarlet is, to him, a spy until proven otherwise." },
@@ -152,6 +161,7 @@ P:NPC {
         { text = "Shall I track the Crusade's scouts through the woods, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I've been through the Scarlet Monastery, Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "I marched with the Crusade once, Executor, before I died.", next = "xorig_scarlet", when = { origin = "forsaken_scarlet_turned" } },
+        { text = "The night elves fought the Legion too, Executor.", next = "ne_zygand" },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
         { text = "Do the Deathguard trust the Horde, Executor?", next = "op_horde" },
       },
@@ -205,6 +215,39 @@ P:NPC {
           text = "Dalaran-trained, and now on our side of the wall. Bethor Iceshard in the Undercity would want to know you; he was Kirin Tor too, before." },
       },
       choices = { { text = "Their fields, then, not ours.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    ne_zygand = {
+      lines = {
+        { id = "ne_default", text = "Once, ten thousand years ago, and then they sat in their forests and told no one what was still out there. The Scourge was the Legion's plague, and Lordaeron burned while the kaldorei slept under their trees, so you'll forgive me if I light no candles for their sacrifice at Hyjal.",
+          fx = { hear = "zygand_kaldorei_silence" } },
+        { id = "ne_tauren", when = { race = "Tauren" },
+          text = "Your Arch Druid's teachers, yes, and I'm sure they were very wise about it. They fought the Legion ten thousand years ago and then hid in their forests and told no one, and the Scourge, the Legion's own plague, came to Lordaeron while they slept under their trees.",
+          fx = { hear = "zygand_kaldorei_silence" } },
+      },
+      choices = {
+        { text = "They didn't even know Lordaeron existed, Executor.", next = "ne_zygand_knew" },
+        { text = "Hindsight is cheap. They bled at Hyjal for everyone.", next = "BACK",
+          reply = "They bled at Hyjal for their tree, and the rest of the world happened to be standing behind it. I'll grant you they bled, though, and the Deathguard respects anyone who holds a line.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "Then they share the blame for Lordaeron.", next = "BACK",
+          reply = "They do, in my ledger, and the Dark Lady keeps a longer one than mine. Remember that if a Sentinel ever tells you how much the kaldorei have suffered.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
+    },
+    ne_zygand_knew = {
+      lines = {
+        { id = "nk_default", text = "Perhaps not, and perhaps a prophet did come to King Terenas and tell him to flee west, and the king had him turned out of court. I know that story as well as you do, and I also know where I was standing when the plague came to Brill." },
+      },
+      choices = {
+        { text = "Blame the Lich King, Executor, and leave the elves be.", next = "BACK",
+          reply = "The Lich King has my blade already, and he'll have it to the end. You're right that I've only so much hatred to spend, and I'd be a fool to waste it on a forest.",
+          fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Blame them all. The living owe us for Lordaeron.", next = "BACK",
+          reply = "They do, every one of them, and don't let anyone tell you the dead have short memories. We have nothing else left to keep.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Executor.", next = "BACK" },
+      },
     },
     crusade = {
       big = true,

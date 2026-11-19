@@ -270,6 +270,11 @@ P:NPC {
         { text = "Do the Sentinels trust outsiders who travel with your people, General?", next = "xpt_shandris", when = { party = { race = "NightElf" }, faction = "Alliance" } },
         { text = "You judge my craft before you've seen what I do with it.", next = "pj_shandris", when = { prejudiced = true } },
         { text = "I grew up on this isle, General. You may not remember me.", next = "xorig_fmoon", when = { origin = "nightelf_feathermoon_raised" } },
+        { text = "They say you are the finest archer of our people.", next = "hnt_finest", when = { class = "HUNTER" } },
+        { text = "What do you teach a hunter that the trainers don't?", next = "hnt_teach", when = { class = "HUNTER", minLevel = 40 } },
+        { text = "You were at Hyjal, General. What do you remember?", next = "kal_hyjal", when = { race = "NightElf" } },
+        { text = "Shen'dralar Highborne still live in Dire Maul. Should we treat with them?", next = "kal_shendralar", when = { race = "NightElf", minLevel = 50 } },
+        { text = "Since Nordrassil, we age. Does it frighten you?", next = "kal_age", when = { race = "NightElf", disposition = { min = 60 } } },
         { text = "Elune guide your arrows.", next = "END", fx = { affinity = 1, standing = { feathermoon = 1 } } },
       },
     },
@@ -424,6 +429,59 @@ P:NPC {
         { id = "f1", text = "I was a child when the Legion burned Kalimdor, and nothing has frightened me as much since. You're a long way short of that, and every bow on this isle is strung." },
         { id = "f2", text = "Threaten me again on Sardor Isle and my sisters will settle it before I've raised a hand. Stand down, and I'll forget that you tried." },
       },
+    },
+    hnt_finest = {
+      big = true,
+      lines = { { id = "hfi_d", text = "They say a great many things in Darnassus, and most of them are said by people who have never stood a watch. I have had ten thousand years to practise, which is not talent, only time, and I would trade every arrow I ever loosed straight for the ones I loosed too late." } },
+      choices = {
+        { text = "Too late? At Hyjal?", next = "kal_hyjal" },
+        { text = "Humility suits the best archer alive.", next = "BACK", reply = "It is not humility, it is arithmetic. But I will take the compliment, since you mean it kindly.", fx = { affinity = 1 } },
+        { text = "Ten thousand years of practice is still mastery.", next = "hnt_finest2" },
+      },
+    },
+    hnt_finest2 = {
+      lines = { { id = "hfi2_d", text = "Then here is what ten thousand years taught me, hunter. Loose at the one who gives the orders, never at the one who shouts loudest, because they are rarely the same, and the battle ends a great deal faster when the right one falls." } },
+      choices = {
+        { text = "Strike the head and the body follows. I'll remember.", next = "BACK", reply = "Good, and do not take pleasure in it, for that is how the Legion fights.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "I'd rather face the loud ones openly, General.", next = "BACK", reply = "Then you will have a short and honourable career, and I will mourn you properly.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+      },
+    },
+    hnt_teach = {
+      lines = { { id = "hte_d", text = "Patience in the rain, which no trainer can give you. In Feralas the canopy is so thick that you hear your quarry long before you see it, so close your eyes on the next hunt, count the steps of whatever walks below you, and loose only when you could have drawn it with your eyes shut." } },
+      choices = {
+        { text = "And my companion, General?", next = "hnt_teach2" },
+        { text = "Eyes shut. I'll try it. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hnt_teach2 = {
+      lines = { { id = "hte2_d", text = "Let it hunt the way it was born to hunt, and follow it, not the other way round. The Sentinels' sabers find the naga on the shore before any of my scouts do, and the scouts who learned to read their saber's ears are the ones who come home." } },
+      choices = { { text = "Read its ears. Thank you, General.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    kal_hyjal = {
+      big = true,
+      lines = { { id = "khy_d", text = "I remember the humans and the orcs falling back up the mountain to us, which I had never thought to see, and Tyrande's archers on the slopes loosing until our fingers bled. I remember the wisps rising, and the World Tree giving everything, and after Archimonde fell I remember sitting down in the ashes for the first time in a year and not being able to stand." } },
+      choices = {
+        { text = "We owe the humans and orcs for that day.", next = "BACK", reply = "We owe the humans, and I will say so in any court. The orcs paid a debt that day, and I will not call it a gift.", fx = { align = { honor = 1 } } },
+        { text = "We won that war ourselves. The outsiders only slowed him.", next = "BACK", reply = "Spoken with a Sentinel's pride, and it is not entirely wrong. Do not say it in front of Jaina Proudmoore, though.", fx = { align = { honor = -1 } } },
+        { text = "Thank you for telling me. Something else.", next = "BACK" },
+      },
+    },
+    kal_shendralar = {
+      big = true,
+      lines = { { id = "ksh_d", text = "The Shen'dralar hid in Eldre'Thalas behind their wards for ten thousand years, feeding something they will not name, and now that the ogres have broken in, they smile at adventurers and offer them old books. I have no quarrel with a book, but I remember what the last Highborne who smiled at us did with their learning." } },
+      choices = {
+        { text = "They have suffered too. They deserve a chance.", next = "BACK", reply = "Perhaps, and the High Priestess may agree with you one day. Until then, I will keep my bow strung when their emissaries come to Feathermoon.", fx = { align = { light = 1 } } },
+        { text = "Highborne cannot be trusted. Not now, not ever.", next = "BACK", reply = "That is the lesson my family paid for with their lives, so I will not argue it.", fx = { align = { light = -1 } } },
+        { text = "What do they feed in Eldre'Thalas?", next = "kal_shendralar2" },
+      },
+    },
+    kal_shendralar2 = {
+      lines = { { id = "ksh2_d", text = "Power, from a demon they bound long ago, so my scouts tell me, and the ogres who broke in have found it too. Whatever it is, it keeps the Prince and his scholars alive, and anything that keeps a Highborne alive for ten thousand years is not a thing I want loosed in Feralas." } },
+      choices = { { text = "Then someone should go down there. Something else.", next = "BACK", fx = { learn = { "dire_maul" } } } },
+    },
+    kal_age = {
+      lines = { { id = "kag_d", text = "Frighten me? No, but it changes the arithmetic. I had all the time in the world to watch over Tyrande, and now I do not, so every watch I stand matters more, and I find I like the weight of it more than I expected." } },
+      choices = { { text = "Every watch matters more. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

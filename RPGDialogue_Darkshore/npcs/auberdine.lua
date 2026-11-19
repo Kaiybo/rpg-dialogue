@@ -26,6 +26,7 @@ P:NPC {
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "It has been {away} since you last stood in Auberdine, and you return far stronger than you left. The village has troubles still, and I think you are equal to them now." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The village speaks of the help you have given these past days, and I listen to everything the village says. Auberdine is grateful, and so am I." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told someone in Auberdine saw through a falsehood of yours. I listen more than I speak, traveller, so I would rather hear the truth from you." },
+    { id = "g_kal", when = { race = "NightElf" }, text = "Ishnu-alah, child of the moon. Auberdine is glad of every kaldorei who still comes north, now that so many of our people look only to Teldrassil." },
   },
 
   notice = {
@@ -220,6 +221,7 @@ P:NPC {
       choices = {
         { text = "Tharnariun's bears were sick with something unnatural, Elder.", next = "dd_plague", when = { questDone = TODO_QUEST("Cleansing of the Infected") } },
         { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
+        { text = "Your people seem divided about outsiders, Elder.", next = "divided" },
         { text = "The land here looks sick.", next = "sick" },
         { text = "Why trust the Silver Hand?", next = "silverhand", when = { class = "PALADIN" } },
         { text = "There are old ruins all along this coast, I've noticed.", next = "ruins" },
@@ -235,7 +237,32 @@ P:NPC {
         { text = "You feel the sickness too, Elder? What do you make of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the people of Auberdine fear most, Thundris?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Blackfathom Deeps is cleared, Elder. I've seen the bottom of it.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
+        { text = "You must remember the War of the Ancients, Elder.", next = "kal_war", when = { race = "NightElf" } },
+        { text = "Since Hyjal, I have begun to feel the years.", next = "kal_mortal", when = { race = "NightElf" } },
+        { text = "The Blackwood furbolgs were our friends once.", next = "kal_furbolg", when = { race = "NightElf" } },
+        { text = "I've read the tracks along the coast, Elder. Something drives the beasts.", next = "hnt_tracks", when = { class = "HUNTER" } },
         { text = "I'll help Auberdine.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
+      },
+    },
+    -- Kaldorei factions: Thundris has made peace with mortality, and with mortal allies.
+    divided = {
+      lines = {
+        { id = "dv_default", key = true,
+          text = "Divided as a forest is divided by a river, traveller, and both banks are green. Glynda and Tysha remember what outsiders have broken, Elissa remembers what they have mended, Barithras fears the years, and the young like Allyndia only want to see the far shore." },
+      },
+      choices = {
+        { text = "And you, Elder? Which bank are you on?", next = "divided2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    divided2 = {
+      lines = {
+        { id = "dv2_default", text = "Since Hyjal I count my years as the humans count theirs, and it has made me kinder toward them, not more afraid. We are a mortal people now, and mortal peoples need one another; those who would close the harbour forget that the Legion did not spare us for standing alone." },
+      },
+      choices = {
+        { text = "You're right. No one survives the Legion alone.", next = "BACK", reply = "No one ever has, though a great many have tried. Say it to Glynda, gently, if you pass her on the beach.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Close the harbour. Outsiders bring their wars with them.", next = "BACK", reply = "They do, and they bring their hands to fight them, too. I would rather share a war than face one alone.", fx = { align = { honor = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sick = {
@@ -381,6 +408,59 @@ P:NPC {
       fail = {
         { id = "f1", text = "I have stood on this shore through storms that tore the docks from their pilings. A raised voice will not move me, and it will not win you a single friend in Auberdine." },
         { id = "f2", text = "Threats are for the naga and the Twilight's Hammer, and we have quite enough of those already. If you mean to behave as they do, the Sentinels will treat you as they do." },
+      },
+    },
+    kal_war = {
+      big = true,
+      lines = { { id = "kw_d", text = "I remember the night the sky burned, as every elder does, though I was no hero of it. I was a keeper of boats on the Well's eastern shore, and I watched the Queen's palace drink the light out of the stars until there was nothing left above us but green fire." } },
+      choices = {
+        { text = "What did you do when the Well broke?", next = "kal_war2" },
+        { text = "Do you blame the Highborne still?", next = "kal_war3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    kal_war2 = {
+      lines = { { id = "kw2_d", text = "I rowed, which is all a boatman can do, and I took on anyone who reached the side. The sea came up the hills behind us, and when it stopped, Zin-Azshari was gone, and so was every shore I had ever known, so I have kept boats ever since because I do not know how to stop." } },
+      choices = { { text = "Then Auberdine's harbour is your answer to the Sundering.", next = "BACK", reply = "I had never put it so, but yes. Every boat that leaves here full and comes back full is a small mending of that night.", fx = { learn = { "highborne" } } } },
+    },
+    kal_war3 = {
+      big = true,
+      lines = { { id = "kw3_d", text = "Some days I do, and I am not proud of those days. Azshara and her court opened the door, but it was all of us who loved the Well too much to see what it was doing to them, and the ruins of Ameth'Aran on this very coast are full of Highborne ghosts who still cannot see it." } },
+      choices = {
+        { text = "The guilt was theirs. We have paid enough for it.", next = "BACK", reply = "Perhaps, and the young say so often. I only wish the ghosts in Ameth'Aran agreed, for they have not stopped paying.", fx = { align = { light = -1 } } },
+        { text = "We all loved the Well. We all owe the world for it.", next = "BACK", reply = "That is what Malfurion taught us, and what the Sentinels still live by. I am glad to hear it from one so young.", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
+    kal_mortal = {
+      big = true,
+      lines = { { id = "km_d", text = "So have I, and I will not pretend otherwise. When Nordrassil gave its strength to destroy Archimonde, the gift the Dragon Aspects placed in it went with the blast, and now our people grow old, and sicken, and some of the elders in Auberdine are frightened in a way I have never seen them frightened." } },
+      choices = {
+        { text = "Mortality makes every season matter. I don't mourn it.", next = "BACK", reply = "Then you have learned in a year what some of us will not learn in a thousand.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Our eternity was the price of the world. I'll bear it.", next = "BACK", reply = "Spoken like a Sentinel, and like a kaldorei who knows what a vow is.", fx = { align = { order = 1 } } },
+        { text = "Is there no way to restore what was lost?", next = "kal_mortal2" },
+      },
+    },
+    kal_mortal2 = {
+      lines = { { id = "km2_d", text = "The Archdruid has not said there is, and I have learned not to hope where Malfurion has not, since he still sleeps in the Dream and speaks to no one. Fandral Staghelm says the new tree on Teldrassil will mend everything, but I am old enough to wait and see, and perhaps not old enough to see it." } },
+      choices = { { text = "Then we spend our years well. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } } },
+    },
+    kal_furbolg = {
+      lines = { { id = "kf_d", text = "They were, and that is what grieves me most about the Blackwood camps. Furbolg tribes stood beside us against the Legion ten thousand years ago, and they traded honey and furs at our gates when Auberdine was young, and now something has put a poison in their stores that turns a gentle people into raiders." } },
+      choices = {
+        { text = "Can they be brought back?", next = "kal_furbolg2" },
+        { text = "A raider is a raider, whatever made him.", next = "BACK", reply = "Then you will find plenty of work in the Blackwood camps, and none of it will be pleasant. I pray you are wrong, for their sake.", fx = { align = { light = -1 } } },
+        { text = "They were poisoned. They deserve our help, not our blades.", next = "BACK", reply = "That is why I ask the young to carry moonwell water into their camps, and not only arrows. Thank you.", fx = { align = { light = 1 }, affinity = 1 } },
+      },
+    },
+    kal_furbolg2 = {
+      lines = { { id = "kf2_d", text = "Some of them, if the poison is caught early, and that is why I sent travellers to cleanse their food with water from our moonwell. The Timbermaw of Felwood have kept themselves clean, I am told, so it is not in the furbolg blood to fall, and that gives me hope." } },
+      choices = { { text = "Hope is worth keeping. Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    hnt_tracks = {
+      lines = { { id = "ht_d", text = "Then you read better than most who come to me. The bears go mad in the north, the moonkin turn on our Sentinels in the east, and the furbolgs raid from the Blackwood, and Tharnariun and Glynda each think their trouble is separate, but a hunter who has walked between them may see the thread that ties them." } },
+      choices = {
+        { text = "The thread runs north, toward Felwood.", next = "BACK", reply = "So I fear, and the Cliffspring River carries it down to us. Bring me proof and I will take it to Darnassus myself.", fx = { trait = { curious = 1 } } },
+        { text = "I'll walk the coast again and look closer.", next = "BACK", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
     },
   },
@@ -1047,6 +1127,7 @@ P:NPC {
         { text = "I've been to the bottom of Blackfathom, Sentinel.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "You glare at me like I've robbed a tomb, Sentinel.", next = "pj_glynda", when = { race = "Dwarf", prejudiced = true } },
         { text = "You Sentinels always looked the other way at my cargo. Why?", next = "xorig_smug", when = { origin = "nightelf_auberdine_smuggler" } },
+        { text = "The Sentinels held Hyjal. Now we hold beaches.", next = "kal_sent", when = { race = "NightElf" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -1090,6 +1171,15 @@ P:NPC {
       lines = { { id = "th_default", text = "Everywhere outside the lamplight. We guard the village, the road south and even the Bravery on her crossings to Menethil, and there are never enough of us." } },
       choices = {
         { text = "I'll do what I can.", next = "BACK", fx = { affinity = 1, standing = { auberdine = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_sent = {
+      big = true,
+      lines = { { id = "ks_d", text = "We hold whatever needs holding, {g:brother|sister}, and I will not hear the beach called beneath us. For ten thousand years the Sentinels kept watch while the men slept in the Dream, and when the Legion came back, it was Tyrande's women on the walls, so a beach full of murlocs is not the worst duty I have stood." } },
+      choices = {
+        { text = "The druids are awake now. Let them share the watch.", next = "BACK", reply = "They are, and some of them think the watch is theirs again. The High Priestess will decide that, not me.", fx = { align = { order = -1 } } },
+        { text = "The watch is ours. It always was.", next = "BACK", reply = "It is, and I am glad you know it. Elune keep your arm steady.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

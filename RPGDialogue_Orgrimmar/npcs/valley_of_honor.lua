@@ -756,6 +756,7 @@ P:NPC {
         { text = "Is this crocolisk anything like yours was?", next = "croc", when = { pet = { family = "Crocolisk" } } },
         { text = "My boar charges at everything. Is that normal?", next = "boar", when = { pet = { family = "Boar" } } },
         { text = "Teach my beast something new.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Tell me how my beast learns, Xao'tsu.", next = "z_beast", when = { class = "HUNTER" } },
         { text = "Farewell, Xao'tsu.", next = "END" },
       },
     },
@@ -766,6 +767,72 @@ P:NPC {
         { text = "Trust is stronger than fear. I treat my beast well.", next = "BACK", reply = "That be the way, mon, and your beast stand by you forever for it. Patience and meat, dat be all the secret there is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should fear its master a little.", next = "BACK", reply = "A little fear, maybe, but fear turns, mon. Feed it more, and fear it less.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    z_beast = {
+      hub = true,
+      narr = "He kneels so that he is level with your beast's eyes, and talks to it before he talks to you.",
+      lines = {
+        { id = "zb_default", text = "Your beast learns two ways, mon: from me, and from every other beast you bind for a day. Ask what you want about its learning, and I'll answer for it, since it can't answer for itself." },
+        { id = "zb_pet", when = { pet = { type = "Beast" } }, text = "{pet} has more to learn, and it be keen, I can see it in the ears. Ask what you want about its learning, and I'll answer for it, since it can't answer for itself." },
+      },
+      again = {
+        { id = "zb_again", text = "What else about your beast? It be listening too, you know." },
+        { id = "zb_again2", text = "Go on, mon. The beasts be patient, so I be patient." },
+      },
+      choices = {
+        { text = "Why can't my beast learn everything at once?", next = "z_points" },
+        { text = "What can you teach that the wild can't?", next = "z_growl" },
+        { text = "Which beasts learn the strangest tricks?", next = "z_families", when = { minLevel = 20 } },
+        { text = "My beast is far behind me in strength.", next = "z_level", when = { minLevel = 12, pet = { type = "Beast" } } },
+        { text = "I'm thinking of setting my beast free.", next = "z_free", when = { minLevel = 12, pet = { type = "Beast" } } },
+        { text = "Enough about the beast, Xao'tsu.", next = "BACK" },
+      },
+    },
+    z_points = {
+      lines = { { id = "zp_default", text = "Because a beast's head only holds so much, mon, and it holds more the more it trusts you. A new beast has room for a bite and a growl, and a beast that would die for you has room for much more, so feed it and fight beside it, and its mind grows with its loyalty." } },
+      choices = {
+        { text = "So loyalty is strength, for a beast.", next = "z_beast", reply = "For a beast, and for a hunter too, though hunters argue about it more.", fx = { affinity = 1 } },
+        { text = "Back to the beast.", next = "z_beast" },
+      },
+    },
+    z_growl = {
+      lines = { { id = "zg_default", text = "Growl, first and always, so it pulls the enemy's eyes off you. A thicker hide, and the will to shrug off fire and frost and shadow, which the wild never needed to teach it. But listen: when you go into the deep places with other fighters, tell your beast to keep its growl in its throat, or the warrior will curse you both." } },
+      choices = {
+        { text = "My beast protects me first, whatever the warrior says.", next = "z_growl2" },
+        { text = "Back to the beast.", next = "z_beast" },
+      },
+    },
+    z_growl2 = {
+      big = true,
+      lines = { { id = "zg2_default", text = "Your beast protects whoever you tell it to, mon, and that be the hard part of being a hunter in a group. A beast that steals the fight from the warrior gets the whole pack on it, and then you be feeding a dead beast and apologizing to a live warrior." } },
+      choices = {
+        { text = "Then I'll hold its growl and let the warrior lead.", next = "z_beast", reply = "Good, and your beast lives longer for it, and the warrior buys you a drink. Everyone wins.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My beast answers to me, not to a warrior's pride.", next = "z_beast", reply = "Then go into the deep places with only your beast, and see how far the two of you get. I'll keep a spot warm.", fx = { align = { order = -1 } } },
+        { text = "Back to the beast.", next = "z_beast" },
+      },
+    },
+    z_families = {
+      lines = { { id = "zf_default", text = "The wind serpents of the Needles breathe lightning, the owls screech to frighten, and the bats dive like a hunter's arrow. The great apes of the south stomp the ground, the boars charge like orcs, and every cat in the world knows how to creep up on you. Tame one of each, if you can, and your own beast will watch and learn." } },
+      choices = {
+        { text = "Which would you keep, Xao'tsu?", next = "z_mine" },
+        { text = "Back to the beast.", next = "z_beast" },
+      },
+    },
+    z_mine = {
+      lines = { { id = "zm_default", text = "A raptor, mon, because I be a Darkspear and I can't help it. They be clever and they be loyal once they decide you be family, and they bite harder than anything else in Durotar, which be useful when you train crocolisks for a living." } },
+      choices = { { text = "A fine choice. Back to the beast.", next = "z_beast", fx = { affinity = 1 } } },
+    },
+    z_level = {
+      lines = { { id = "zl_default", text = "Then it be young, or you tamed it below your strength, and either way it catches up by fighting beside you. Don't send it into fights it can't win, and let it learn from the ones it can, and in a few seasons it'll be close behind you again." } },
+      choices = { { text = "I'll be patient with it. Back to the beast.", next = "z_beast" } },
+    },
+    z_free = {
+      lines = { { id = "zfr_default", text = "Then do it in the wild, mon, where it can hunt, and not in the middle of Orgrimmar where it'll be eating somebody's goats by sundown. And think hard first, because a beast set free doesn't come back when you change your mind." } },
+      choices = {
+        { text = "A beast that doesn't suit me should go free.", next = "z_beast", reply = "That be your choice to make. I only ask you to do it kindly, and somewhere with food.", fx = { align = { light = -1 } } },
+        { text = "You're right. It stays with me.", next = "z_beast", reply = "Good. It won't ever know how close it came, and that be best.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Back to the beast.", next = "z_beast" },
       },
     },
     worst = {

@@ -35,3 +35,6 @@
 
 ### What they notice
 - Nixxrak: plate wearers, cloth wearers. Blixxrak: cloth and leather wearers. Xizzer: engineers, gnomes. Daleohm: smiths, night elves, Forsaken. Syurana: crafters, eastern allies. Lyranne: the hungry, night elves.
+
+## Kaldorei factions (Lyranne)
+One of the young who want to see the world now that kaldorei age (node `world`): Ironforge's cooking, Stormwind's harbour; the elders (and Wynd) disapprove. Answers Rivern's grudge with Jaron at her brazier.

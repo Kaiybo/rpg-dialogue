@@ -585,7 +585,41 @@ P:NPC {
         { text = "Can a priest help you mend the land, Tammra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you fear a mage's fire, Tammra?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can the Light heal burned ground, Tammra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do the druids on Stonetalon Peak ever help you?", next = "ne_tammra" },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    ne_tammra = {
+      lines = {
+        { id = "ne_default", text = "Not with their hands, though I think some of them would like to. The Circle's elves on the Peak want the same living mountain I want, but their Sentinels watch the ridge, and when a Sun Rock brave walks too far up the path he comes home with an arrow in his shoulder and a warning in his ears." },
+      },
+      choices = {
+        { text = "Why do they shoot at tauren who mean no harm?", next = "ne_tammra_why" },
+        { text = "You'd plant beside them, if they let you?", next = "ne_tammra_plant" },
+        { text = "Something else, Tammra.", next = "BACK" },
+      },
+    },
+    ne_tammra_why = {
+      lines = {
+        { id = "nw_default", text = "Because we walk with the Horde, and the Horde's axes are in Ashenvale, and from up on the Peak a tauren with a totem looks very like an orc with a saw. I can't blame them for fearing the saw, when I've seen what the goblins' shredders did to the vale below us." },
+      },
+      choices = {
+        { text = "They're frightened, not cruel. I'd forgive them.", next = "BACK",
+          reply = "So would I, and most days I do. Fear makes everyone a poor gardener, and the Earth Mother is patient with poor gardeners, so I try to be as well.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Fear is no excuse. An arrow deserves an arrow back.", next = "BACK",
+          reply = "And then the ridge burns again, and I'm back to counting shoots in the ash. Please, not up here; this mountain has had enough of everyone's anger.",
+          fx = { affinity = -1, align = { light = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Tammra.", next = "BACK" },
+      },
+    },
+    ne_tammra_plant = {
+      lines = {
+        { id = "np_default", text = "I would, gladly. I've left a bundle of seedlings on the stones below the Peak more than once, in case one of their druids wants to see what Sun Rock can grow, and they're always gone by morning, and no one has ever put an arrow through the bundle, so I take that as a kind of answer." },
+      },
+      choices = {
+        { text = "That sounds like a yes, Tammra, said quietly.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tammra.", next = "BACK" },
       },
     },
     land = {

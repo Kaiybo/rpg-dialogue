@@ -49,6 +49,7 @@ P:NPC {
       choices = {
         { text = "Tell me about the three kinds of hunt.", next = "three" },
         { text = "What made Steelsnap different?", next = "steelsnap" },
+        { text = "Tell me of the great hunts beyond Mulgore.", next = "m_hunts", when = { class = "HUNTER" } },
         { text = "Who is Sergra Darkthorn?", next = "sergra", when = { heardLine = "melor.h_sergra" } },
         { text = "Teach me something about hunting with a companion.", next = "pet", when = { class = "HUNTER" } },
         { text = "What hunt do you have for me?", next = "BUSINESS" },
@@ -96,6 +97,74 @@ P:NPC {
     sergra = {
       lines = { { id = "se_default", text = "An orc hunter at the Crossroads, and a good teacher, though she'd laugh to hear me say it. She takes the young out into the Barrens and teaches them there's more to hunting than finding and killing." } },
       choices = { { text = "I'll seek her out.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    m_hunts = {
+      hub = true,
+      narr = "He unrolls a hide marked with charcoal, the edges of Kalimdor and the lands beyond drawn in a careful, old-fashioned hand.",
+      lines = {
+        { id = "mh_default", text = "The great hunts of our people do not stay on the plains, young one. I send hunters wherever a beast has stepped outside the Earth Mother's blessing, and every one of those hunts teaches something the Barrens could not." },
+        { id = "mh_low", when = { maxLevel = 24 }, text = "You are young for the great hunts, and I would rather send you to Sergra and to Jorn a while longer. Still, ask, and know what waits for you when you are ready." },
+        { id = "mh_high", when = { minLevel = 45 }, text = "You have walked many of my hunts already, I think, for I see the cold of Alterac and the mud of Dustwallow on you. Ask, and tell me how the land fared after." },
+      },
+      again = {
+        { id = "mh_again", text = "Which hunt would you hear of next? The hide is long." },
+        { id = "mh_again2", text = "Ask on. I would rather you knew the beast before you met it." },
+      },
+      choices = {
+        { text = "Why must the young go first to Sergra?", next = "m_way" },
+        { text = "What lives in the swamps of Dustwallow?", next = "m_deadmire", when = { minLevel = 30 } },
+        { text = "Tell me of the yeti Frostmaw.", next = "m_frostmaw", when = { minLevel = 30 } },
+        { text = "Do the great hunts ever end?", next = "m_end", when = { minLevel = 50 } },
+        { text = "I hunted with the Darkspear before I came here.", next = "m_troll", when = { race = "Troll" } },
+        { text = "Enough of the hunts, Melor.", next = "BACK" },
+      },
+    },
+    m_way = {
+      lines = {
+        { id = "mw_default", text = "Because the hunter's way begins with the beasts that feed us, and Sergra Darkthorn knows them better than any orc I have met. She will teach you the plainstrider and the zhevra and the great white cat, and Jorn Skyseer at Taurajo will teach you the four elders of the Barrens. Only after that do I send you farther." },
+        { id = "mw_done", when = { questDone = TODO_QUEST("The Hunter's Way") }, text = "You have walked the hunter's way already, so you know why. A hunter who has not learned the beasts that feed us cannot be trusted to judge the beasts that have gone astray." },
+      },
+      choices = { { text = "Back to the hunts.", next = "m_hunts" } },
+    },
+    m_deadmire = {
+      lines = {
+        { id = "md_default", text = "Deadmire, a crocolisk older than any hunter living, who lies in the black water and takes whatever comes to drink, beast or traveler. He does not eat half of what he takes, and that is how I know he has gone wrong." },
+        { id = "md_done", when = { questDone = TODO_QUEST("Deadmire") }, text = "You brought me Deadmire's tooth, and the folk who draw water in that swamp sleep easier. Did you thank him, at the end? He was very old, and he had once been a good beast." },
+      },
+      choices = { { text = "Back to the hunts.", next = "m_hunts" } },
+    },
+    m_frostmaw = {
+      lines = {
+        { id = "mf_default", text = "Frostmaw is a great yeti in the mountains of Alterac, far to the north across the sea, where the snow never leaves the peaks. He has killed hunters who went to test themselves on him, and the snow keeps their bones, and I would not send you if I thought you would join them." },
+        { id = "mf_done", when = { questDone = TODO_QUEST("Frostmaw") }, text = "You went into the cold and came back with Frostmaw's mane, which is more than three hunters before you managed. Sit by the fire a while; I can still see the snow in your fur." },
+      },
+      choices = {
+        { text = "Why send a tauren so far from the Earth Mother's plains?", next = "m_far" },
+        { text = "Back to the hunts.", next = "m_hunts" },
+      },
+    },
+    m_far = {
+      big = true,
+      lines = { { id = "mfa_default", text = "The Earth Mother's plains run beneath every land, young one, even under the snow and the human kingdoms. The Grimtotem say the tauren should stay in Mulgore and let the world rot, and Cairne says we are part of the world, and I send my hunters where Cairne would." } },
+      choices = {
+        { text = "Cairne is right. Every land is hers.", next = "m_hunts", reply = "Then go into the snow with an easy heart, and come home with stories.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Our own land needs us more than distant ones.", next = "m_hunts", reply = "That is fairly said, and there are elders who agree. But a beast gone wrong is a wound anywhere, and wounds spread.", fx = { align = { order = -1 } } },
+        { text = "Back to the hunts.", next = "m_hunts" },
+      },
+    },
+    m_end = {
+      lines = { { id = "me2_default", text = "No, for the land always makes another beast that loses its way. But a hunter's part in them ends, and the best of us finish by teaching. When you are done, come back to this rise and sit where I sit, and send the young ones out, and you will understand why I am so slow." } },
+      choices = {
+        { text = "I'll come back and teach, Melor.", next = "m_hunts", fx = { affinity = 1 } },
+        { text = "Back to the hunts.", next = "m_hunts" },
+      },
+    },
+    m_troll = {
+      lines = { { id = "mt_default", text = "Then you know already that some beasts must be hunted for the good of the rest. Your people hunted the Echo Isles with care, I am told, for an island hunted bare does not grow back. Tell me, do the Darkspear thank the beast, as we do?" } },
+      choices = {
+        { text = "We thank the loa who sent it.", next = "m_hunts", reply = "Then the thanks goes where it is due, I think. The Earth Mother and the loa must know each other well by now.", fx = { affinity = 1 } },
+        { text = "We thank it by wasting nothing.", next = "m_hunts", reply = "That is the best thanks of all, and the one most hunters forget. Hunt well, friend.", fx = { trait = { practical = 1 } } },
+      },
     },
     pet = {
       lines = { { id = "p_default", text = "Feed it before you feed yourself, and never ask it to fight something you wouldn't. A companion follows you because it trusts you, and the Earth Mother gave you that trust to keep, not to spend." } },

@@ -60,3 +60,6 @@
 
 ### What they notice
 - Troyas: mages, druids, night elves, Elven Legends done. Runethorn: mages, tauren. Rockbiter: gnomes and dwarves, plate wearers. Kylanna: alchemists, herbalists, druids. Brannock: fishers, dwarves. Mardrack: the hungry, eastern allies. Hahrana: leatherworkers, skinners, hunters. Cawind: hunters, melee fighters. Bronk: alchemists, herbalists. Thyssiana: eastern allies, druids.
+
+## Kaldorei factions (Runethorn)
+Disdains the quel'dorei as the Highborne exiles' children who built a second Well (node `quel`), though she chases one of them; she knows it looks like envy and says so. Wants to question the Shen'dralar of Eldre'Thalas, which the Sentinels would rather burn (node `shendralar`).

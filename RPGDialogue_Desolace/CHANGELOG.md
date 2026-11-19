@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-19)
+- Melor-era hunt givers and Shadowprey elders deepened.
+
 ## 1.33.0 (2026-11-19)
 - Kreldig Ungor on dwarven salvage.
 

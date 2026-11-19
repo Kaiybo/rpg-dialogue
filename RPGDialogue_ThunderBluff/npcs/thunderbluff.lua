@@ -1203,11 +1203,55 @@ P:NPC {
         { text = "Could someone holding back a hungry thing ever keep the balance?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Am I out of balance, Turak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Princess Theradras is defeated, Turak.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
+        { text = "Do the night elves treat tauren druids as equals, Turak?", next = "ne_turak" },
+        { text = "Their Sentinels shot at me in Ashenvale, Turak.", next = "ne_turak_ash", when = { faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Another question? Good; a druid who asks is a druid who's learning." },
         { id = "h_again2", text = "Sit a while longer. The Balance can wait for one more question." },
+      },
+    },
+    ne_turak = {
+      lines = {
+        { id = "ne_default", text = "Most are courteous, and a few are kind, as Malfurion was kind to Hamuul. But many of them speak to us the way an old bull speaks to a calf that has only just found its legs, slowly and very patiently, as if the Earth Mother had not spoken to the tauren long before any elf came to teach us." },
+        { id = "ne_tdruid", when = { race = "Tauren", class = "DRUID" },
+          text = "You'll meet them in Moonglade soon enough, and they'll call you Hamuul's pupil as if that were the whole of you. Smile, young one, and remember that our shamans heard the earth speak long before any elf set hoof, or foot, in Mulgore." },
+      },
+      choices = {
+        { text = "Then why does Hamuul honour them so?", next = "ne_turak_hamuul" },
+        { text = "They earned that patience. They kept the druid's way for ten thousand years.", next = "BACK",
+          reply = "They did, and I won't pretend otherwise, because without them there would be no Hamuul and no Turak on this rise. But a gift handed down with a lowered head is still heavy, and I've watched young ones carry it home like a debt.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "The tauren needed no teachers. The Earth Mother taught us first.", next = "BACK",
+          reply = "So I believe, in my quieter hours, and I said it once in Moonglade, which made me no friends there. Still, the bear's shape came to us through Malfurion's hand, and balance asks me to remember both halves of that.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Turak.", next = "BACK" },
+      },
+    },
+    ne_turak_hamuul = {
+      lines = {
+        { id = "nh_default", text = "Because Malfurion said yes when other elves would have said no, and Hamuul has never forgotten the shape of that yes. Fandral Staghelm was against teaching us at all, I'm told, and some of his students in Moonglade still wear that opinion like a cloak." },
+      },
+      choices = {
+        { text = "Fandral's students will come round, given time.", next = "BACK",
+          reply = "Elves have a great deal of time, so perhaps they will, and I'll be very old when they do. I'd still rather wait for them than shut the door, because a closed door teaches nothing on either side of it.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them sulk. The tauren don't need their blessing.", next = "BACK",
+          reply = "We don't, and they know it, which may be the very thing they can't forgive. But I would ask you not to say it on Elder Rise, where Hamuul can hear; it would grieve him.",
+          fx = { align = { light = -1 } } },
+        { text = "Something else, Turak.", next = "BACK" },
+      },
+    },
+    ne_turak_ash = {
+      lines = {
+        { id = "na_default", text = "They shoot at anything that walks with the Horde beneath their trees, and they don't stop to ask whether it carries an axe or a totem. I've told the Circle that a tauren in the bear's shape is still a druid, and they've told me the arrow is already loosed by the time anyone thinks to ask." },
+      },
+      choices = {
+        { text = "Then the Circle should answer for its Sentinels.", next = "BACK",
+          reply = "The Circle and the Sentinels are not one thing, though from the wrong end of a bow they look it. I've carried that same complaint to Hamuul more than once, for whatever an old trainer's word is worth in Moonglade.",
+          fx = { opinion = { night_elves = "distrust" } } },
+        { text = "Something else, Turak.", next = "BACK" },
       },
     },
     forms = {
@@ -1548,11 +1592,54 @@ P:NPC {
         { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
         { text = "Your Grimtotem were raiding Horde caravans, Elder Crone.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
+        { text = "What do the Grimtotem think of the night elves?", next = "ne_magatha" },
         { text = "I'll go.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Still here? Then ask, and be quick about it; the Grimtotem were never a herd that waited on stragglers." },
         { id = "h_again2", text = "Well? I've no time for children who stand about thinking." },
+      },
+    },
+    ne_magatha = {
+      lines = {
+        { id = "ne_default", text = "Less than they think of themselves, which is a great deal. The elves sat on their mountain for ten thousand years calling every forest from Ashenvale to Feralas their own, and now Runetotem trots off to Moonglade with his horns bowed to learn what our grandmothers already knew." },
+        { id = "ne_tauren", when = { race = "Tauren" },
+          text = "A child of the plains should know this already. The elves gave Runetotem a few tricks with claws and antlers, and now half of Elder Rise bows toward Moonglade as though the Earth Mother were a night elf's handmaid." },
+      },
+      choices = {
+        { text = "You almost sound as if you admire them.", next = "ne_magatha_admire" },
+        { text = "Do the Grimtotem want the elves' forests?", next = "ne_magatha_land" },
+        { text = "Hamuul learned a great deal from them. A teacher is no shame.", next = "BACK",
+          reply = "No shame, child, only a leash, and a very pretty one woven out of leaves. Runetotem may wear it if he likes; the Grimtotem will not.",
+          fx = { affinity = -1, align = { order = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "The tauren were here first. Let the elves keep their island.", next = "BACK",
+          reply = "Well said, and more sensibly than anything I hear from the High Rise. Their island is welcome to them, and the high places of the mountains are welcome to us.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
+    ne_magatha_admire = {
+      lines = {
+        { id = "nad_default", text = "Admire them? A little, perhaps, and I'll deny it if you repeat it. They never let a stranger tell them how to live, they shoot whoever wanders into their woods uninvited, and they kept their own counsel for ten thousand years, which is more spine than Cairne has shown since the day he shook Thrall's hand." },
+      },
+      choices = {
+        { text = "Then the Grimtotem and the elves aren't so different.", next = "BACK",
+          reply = "Careful, child. Say that in the hills and my own people will throw you off a cliff, and I'm not certain I'd trouble myself to stop them." },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
+    ne_magatha_land = {
+      lines = {
+        { id = "nl_default", text = "We want the high places, where the earth is close and the sky is closer, and the elves' Circle sits on Stonetalon Peak as though the mountain were theirs by right. They would call the Grimtotem poachers on our own grandmothers' hunting grounds, and Runetotem would apologise to them for it." },
+      },
+      choices = {
+        { text = "The mountains belong to no tribe and no people.", next = "BACK",
+          reply = "Spoken like someone who has never had to fight for one. A mountain belongs to whoever stands on it longest, child, and the elves know that as well as I do.",
+          fx = { align = { honor = 1 } } },
+        { text = "Then take the peak from them, if you want it.", next = "BACK",
+          reply = "Ha! Not today, and not with Cairne's braves watching the bridges. But you have a better sense of things than most of the young ones who climb up here to gawk.",
+          fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, Elder Crone.", next = "BACK" },
       },
     },
     dd_grimtotem = {

@@ -305,6 +305,10 @@ P:NPC {
         { text = "Why does it matter to you that we travel with a druid?", next = "xpt_remulos", when = { party = { class = "DRUID" } } },
         { text = "You spoke of someone who came here before me, Keeper.", next = "xalt_remulos", when = { alt = true } },
         { text = "The Circle sent me to Felwood, Keeper. The sickness has spread.", next = "xorig_grove", when = { origin = "nightelf_moonglade_keeper" } },
+        { text = "Where is Malfurion, Keeper? Our people need him.", next = "kal_malf", when = { race = "NightElf" } },
+        { text = "You fought in the War of the Ancients.", next = "kal_war", when = { race = "NightElf" } },
+        { text = "Tauren druids sleep in the same glade as ours. Is that wise?", next = "kal_truce", when = { race = "NightElf" } },
+        { text = "Horde and Alliance hunters share your glade. How?", next = "hnt_truce", when = { class = "HUNTER" } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -551,6 +555,42 @@ P:NPC {
         { id = "f1", text = "I am a son of Cenarius, and I have stood before the Legion in its strength. Put aside your threats, little one, for they have no place here and no power over me." },
         { id = "f2", text = "No blade is drawn in Moonglade and no hand is raised, and that law binds you as it binds every creature here. Remember it, or the glade's wardens will remind you." },
       },
+    },
+    kal_malf = {
+      big = true,
+      lines = { { id = "kma_d", text = "Walking the Dream, as he has walked it since the War of the Ancients, though the druids who sleep beside him say his footsteps have grown harder to follow. He woke for Hyjal when Tyrande called him, and then he went back, and I do not know whether he is lost or only very far away." } },
+      choices = {
+        { text = "Then someone should go into the Dream and find him.", next = "kal_malf2" },
+        { text = "He woke once when we needed him. He'll wake again.", next = "BACK", reply = "I believe it, little one, and I hold to it on the nights the Dream feels coldest.", fx = { align = { order = 1 } } },
+        { text = "Our people can't wait forever for one sleeping druid.", next = "BACK", reply = "No, and Fandral says the same in Darnassus, with less patience. I only ask that you do not stop waiting entirely.", fx = { align = { order = -1 } } },
+      },
+    },
+    kal_malf2 = {
+      lines = { { id = "kma2_d", text = "Many have tried, and some have come back troubled, and a few have not come back. There is something in the Dream lately that the green dragons do not name, and until we know what it is, I will not send anyone after him who is not ready to be lost too." } },
+      choices = { { text = "Then I'll make myself ready. Something else.", next = "BACK", fx = { learn = { "emerald_dream" } } } },
+    },
+    kal_war = {
+      lines = { { id = "kwa_d", text = "I did, little one, at my father's side and at Malfurion's, when he was young and certain and the Highborne had flung open the door for the Legion. I remember Tyrande's priestesses holding the line at the forest's edge, and I remember the night the Well collapsed, and the silence afterward, which was worse than the battle." } },
+      choices = {
+        { text = "What was Malfurion like then?", next = "kal_war2" },
+        { text = "Something else, Keeper.", next = "BACK" },
+      },
+    },
+    kal_war2 = {
+      lines = { { id = "kwa2_d", text = "Stubborn, brave, and a little afraid of what my father was teaching him, which was the right thing to be afraid of. He gave up a great deal for the druidic path, including years at Tyrande's side, and I think he still wonders, when he walks in the Dream, whether it was worth the price." } },
+      choices = { { text = "It was. We are still here. Something else.", next = "BACK", fx = { affinity = 1, learn = { "malfurion" } } } },
+    },
+    kal_truce = {
+      big = true,
+      lines = { { id = "ktr_d", text = "Wise or not, it is right. The tauren came to the Circle with a love for the land older than their quarrel with your people, and Moonglade belongs to the druids, not to any banner, so they sleep in my father's glade as you would, under the same moon." } },
+      choices = {
+        { text = "The land is above our wars. I'll keep the truce.", next = "BACK", reply = "Thank you, little one. The glade will remember who kept it.", fx = { align = { honor = 1 }, standing = { nighthaven = 1 } } },
+        { text = "Their allies cut Ashenvale. The truce shelters them.", next = "BACK", reply = "It does, and it shelters you as well. I do not ask you to forget Ashenvale, only to leave it outside the hills.", fx = { align = { honor = -1 } } },
+      },
+    },
+    hnt_truce = {
+      lines = { { id = "htr_d", text = "By leaving the war at the edge of the hills, as everyone does. The hunters of both banners come here to be still for a while, and their beasts lie down together by the lake with less fuss than their masters, which I have always found instructive." } },
+      choices = { { text = "Beasts make better neighbours. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -817,6 +857,8 @@ P:NPC {
         { text = "Do the spirits and the Circle work together?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do the spirits and the Circle work together?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Is Moonglade truly safe for Horde and Alliance alike?", next = "xpt_rabine", when = { party = { size = 4 } } },
+        { text = "How does the truce hold, with Horde druids sleeping here?", next = "truce" },
+        { text = "You are kaldorei. Do you resent the Horde druids?", next = "kal_resent", when = { race = "NightElf" } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -916,6 +958,18 @@ P:NPC {
         { text = "I'll keep it close.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    truce = {
+      lines = { { id = "tru_d", text = "Because the Keeper wills it and the Circle agrees, and because I write down every name that crosses the hills and make certain everyone knows I do. A druid of Thunder Bluff and a druid of Darnassus may hate each other's banners, but here they share a moonwell, and the ledger has not yet recorded a single drawn blade." } },
+      choices = {
+        { text = "The truce is a fine thing. It should spread.", next = "BACK", reply = "Perhaps one day. For now, I am content to keep it from shrinking.", fx = { align = { honor = 1 } } },
+        { text = "It holds because no one dares cross you.", next = "BACK", reply = "That is a good half of it, yes. I am not offended.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_resent = {
+      lines = { { id = "kre_d", text = "I resented the first ones, if I am honest, because they came the year the orcs were felling Ashenvale and I had cousins at Astranaar. Then a tauren elder sat by our moonwell for three nights mourning Cenarius as if he had been her own father, and I put the resentment away and have not found it since." } },
+      choices = { { text = "That's a hard thing to put away. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -1392,6 +1446,8 @@ P:NPC {
         { text = "What brought you to Nighthaven?", next = "why" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Balance seems hard to find these days.", next = "balance" },
+        { text = "Do you trust the tauren more than our allies?", next = "kin" },
+        { text = "Narianna says the Circle gives its secrets to the Horde.", next = "kin_narianna", when = { heardLine = "narianna.ci_default" } },
         { text = "In Darnassus they call Moonglade's druids fools.", next = "darnassus_lg", when = { race = "NightElf", class = "DRUID" } },
         { text = "Can a priest of shadow keep the balance?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could someone like me find balance just by sitting still?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1403,6 +1459,61 @@ P:NPC {
         { text = "What does balance mean to a druid?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You flinch when you look at me, druid.", next = "pj_logan", when = { race = "Scourge", prejudiced = true } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    kin = {
+      big = true,
+      lines = {
+        { id = "kin_default", key = true,
+          text = "Trust is a large word, but I'll tell you honestly which I'd sooner sit with. A tauren druid comes to Nighthaven to listen, and a human envoy comes to ask how much timber Ashenvale can spare for Theramore's walls, and I know which of the two has learned anything about balance." },
+        { id = "kin_human", when = { race = "Human" },
+          text = "I'll answer honestly, since you've asked it honestly. The tauren listen to the land before they build on it, and your people build first and listen afterwards, if at all, so yes, I'm easier on a bench beside a tauren." },
+        { id = "kin_tauren", when = { race = "Tauren" },
+          text = "Between us, yes, and I'd say it in Darnassus if anyone there asked me. Your people came to the Circle asking to learn, which no other people has done in ten thousand years, and that has earned you a bench beside me." },
+        { id = "kin_gnome", when = { race = { "Gnome", "Dwarf" } },
+          text = "I'll be honest, since honesty sits easier here than politeness. The tauren learned the land by walking it for a thousand generations, and your people learned it by tunnelling under it, and I'm easier on a bench beside the ones who walked." },
+      },
+      choices = {
+        { text = "What have the humans done to earn that?", next = "kin_why" },
+        { text = "The tauren listen. Allies should be chosen by heart, not banner.", next = "BACK",
+          reply = "That's the whole of the Circle in one sentence, and I wish I'd said it so neatly. The banners change; the forest doesn't.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { tauren = "kin" } } },
+        { text = "The humans bled with us at Hyjal. The tauren are still Horde.", next = "BACK",
+          reply = "They did bleed with us, and I honour them for it, though Cairne's braves bled on that mountain too. I'll grant that a druid of balance ought to weigh both, and I may have let my bench decide for me.",
+          fx = { align = { order = 1 }, opinion = { alliance = "loyal" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_why = {
+      lines = {
+        { id = "kw_default", text = "Nothing cruel, only hurried. They live a single breath, so they fell a grove to build a keep and never stay long enough to see what the hillside does without it, and the next generation builds again on the mud." },
+      },
+      choices = {
+        { text = "That's harsh, for a druid of balance.", next = "kin_harsh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_harsh = {
+      lines = {
+        { id = "kh_default", text = "It is, and you're right to say it. I'm old enough to remember that my own people burned the world for the Highborne's pride, and the humans have never done anything half so foolish, so perhaps I should sit with one of them before I judge." },
+      },
+      choices = {
+        { text = "Perhaps you should.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin_narianna = {
+      lines = {
+        { id = "kn_default", text = "She does, and she has every right; she stood two hundred years in Ashenvale while I sat by this lake. But I'd rather teach a tauren to feel what an axe does to a forest than leave the Horde with nobody who knows it." },
+      },
+      choices = {
+        { text = "You're planting seeds in the Horde, then.", next = "BACK",
+          reply = "Seeds, yes, and they're slow, and some will never come up. The Circle has always been patient with seeds.",
+          fx = { align = { light = 1 } } },
+        { text = "And while they grow, Ashenvale burns.", next = "BACK",
+          reply = "It does, and I'll not pretend otherwise to someone who's seen it. I've no better answer than seeds, and I've looked for one.",
+          fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     balance = {
@@ -1423,6 +1534,7 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Home, for those of us who've no other, and for some who have." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is stillness itself, and that's why the young druids find it so hard to reach. They try too hard, and it slips away from them." } },
+    tauren = { { id = "tp_tauren", text = "They came to the Circle asking to learn, and they listen better than most of my own people. I'd sooner share a bench with a tauren than with most envoys.", next = "kin" } },
     earth_mother = { { id = "tp_earth_mother", text = "The tauren call her the Earth Mother, and the way they speak of her has taught me more of stillness than many a druid has. Peace, friend, by any name." } },
     elune = { { id = "tp_elune", text = "Elune's moon over the lake is the best teacher of stillness I know. Sit, and watch it, and let it teach you." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil's roots go deeper than any of us can feel, and I find that comforting. Some things are steady whatever happens." } },

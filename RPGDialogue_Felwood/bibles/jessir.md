@@ -43,3 +43,6 @@ silver_hand, burning_legion, cenarion_circle, background, advice.
 - How Arko and Trey met "over a fight"; Trey's "two names for the same lamp" saying.
 - Della refusing to drink from the streams.
 - Arko wanting proof before going to the Sentinels; Jessir lighting a candle for Trey.
+
+## Kaldorei factions
+Defends humans because of Trey (node `humans`): her uncle, a Feathermoon Sentinel, says humans only take; she answers with Trey. Authored, not canon: the uncle.

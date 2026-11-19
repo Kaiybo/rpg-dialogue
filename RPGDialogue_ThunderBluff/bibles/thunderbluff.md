@@ -41,3 +41,8 @@ Authored, not canon: Turak was a hunter who put the bow down after a stag found 
 
 ## Authored, not canon
 - Magatha's prejudice (0.80.0): resents orcs, trolls and Forsaken as Thrall's strays; the elders were told of the alliance, never asked.
+
+## Night elves (authored, not canon)
+- Turak: grateful to the kaldorei but quietly resents Moonglade's condescension (the Earth Mother spoke to the tauren first); Fandral was against teaching tauren and some of his students still are; complains to Hamuul about Sentinels shooting Horde druids in Ashenvale.
+- Magatha: scorns the elves' claim to every forest and Hamuul's bowed horns, yet half-admires their isolation and spine; the Grimtotem want the high places and resent the Circle on Stonetalon Peak.
+- Zamah: cold scholarly interest in moonwell water (first wells filled from the Well of Eternity; the druids credit Nordrassil for the lost immortality, she distrusts that); Forsaken who strayed into Ashenvale report priestesses' silver light burning them like Scourge.

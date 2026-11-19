@@ -163,7 +163,45 @@ P:NPC {
         { text = "Which beasts around the loch make good companions?", next = "beasts" },
         { text = "Those are a lot of scars.", next = "scars" },
         { text = "What can you teach my companion?", next = "teach", when = { class = "HUNTER" } },
+        { text = "How do I keep my beast loyal, Claude?", next = "hp", when = { class = "HUNTER" } },
+        { text = "Train my companion, Claude.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Does a dwarf's beast differ from anyone else's?", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "Good day, Claude.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Ye feed it, ye keep it alive, an' ye dinnae let it go hungry, an' then ye wait a long while. A beast's loyalty grows slower than a beard an' falls out quicker, an' a beast that's been neglected too long will walk off one night an' no' come back." },
+        { id = "hp_pet", when = { pet = { type = "Beast" } }, text = "Give {pet} here a moment, an' let me look at its eyes. Aye, it's fed, an' it trusts ye some, so keep doin' what ye're doin' an' it'll trust ye more, for loyalty grows slow an' falls out quick." },
+      },
+      again = { { id = "hp_again", text = "What else? Mind the bench." } },
+      choices = {
+        { text = "What should I feed it here at the Loch?", next = "hp_feed" },
+        { text = "Can my beast learn tricks from wild beasts?", next = "hp_wild" },
+        { text = "Something else, Claude.", next = "hello" },
+      },
+    },
+    hp_feed = {
+      lines = { { id = "hpf_default", text = "Fish from the loch for a bear or a crocolisk, an' mutton or boar for a cat or a wolf, an' bread only if it's starvin'. Buy from the Stoutlager if ye must, but the best meat's what ye hunt yerself, an' the beast knows the difference." } },
+      choices = {
+        { text = "I'll hunt its food myself.", next = "BACK", reply = "Good, an' share the best bits wi' it, no' the gristle.", fx = { align = { light = 1 } } },
+        { text = "Bread's cheaper, and it'll eat when it's hungry.", next = "BACK", reply = "It will, an' it'll think less o' ye every time.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_wild = {
+      lines = { { id = "hpw_default", text = "Aye, though no' directly. Ye tame a wild beast that knows the trick an' ye learn it off them, an' then ye let it go an' teach yer own. The owl that took my hearin' knew a trick or two, an' I'd no' recommend tamin' it." } },
+      choices = {
+        { text = "I'll leave the owls alone.", next = "BACK", reply = "Wise. The owls will thank ye, an' so will yer ears.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpd_default", text = "No' in the beast, but in the hunter. A dwarf keeps a beast like he keeps a rifle, oiled an' fed an' never lent tae anyone, an' the beast picks up on it an' gets possessive, so dinnae be surprised when yer boar bites the next dwarf who pats it." } },
+      choices = {
+        { text = "That's the way it should be.", next = "BACK", reply = "Aye, it is, though my fingers would argue.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     beasts = {

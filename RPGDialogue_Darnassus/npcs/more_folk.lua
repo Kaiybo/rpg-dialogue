@@ -733,6 +733,7 @@ P:NPC {
         { text = "The trainers here must send you their recruits.", next = "trainers" },
         { text = "I guard the wall myself. What do you make of our issue?", next = "xnelf", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "I smith armor too. Why so little metal?", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "I'll be wearing mail soon, as a hunter.", next = "hunt_mail", when = { class = "HUNTER", minLevel = 35 } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -761,6 +762,21 @@ P:NPC {
     light = {
       lines = { { id = "li_default", text = "It's light because we fight in forests, where you must move quietly and climb when you have to. A dwarf in full plate is a fine wall, but you'll hear him coming from Astranaar." } },
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
+    },
+    hunt_mail = {
+      lines = {
+        { id = "hml_default", text = "Then come to me first and not to the dwarves, who will sell you something built for a mine shaft. I make mail with the links laid flat and the shoulders cut loose, so a hunter can draw a bow at full stretch without the rings biting." },
+      },
+      choices = {
+        { text = "Will it be quiet enough to stalk in?", next = "hunt_mail2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt_mail2 = {
+      lines = {
+        { id = "hml2_default", text = "Quieter than you would think, once you learn to walk in it, and never as quiet as leather. Wrap the links at the hips in cloth for the first month, and after that your body will have learned the trick on its own." },
+      },
+      choices = { { text = "Cloth at the hips. Thank you.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -979,6 +995,7 @@ P:NPC {
         { text = "What comes up on the boats from Rut'theran?", next = "rut" },
         { text = "I fish too. What's biting at dusk?", next = "xfish", when = { profession = "Fishing" } },
         { text = "I've stood watch in Ashenvale as well.", next = "xsoldier", when = { class = { "WARRIOR", "HUNTER" }, faction = "Alliance" } },
+        { text = "Do the fish here remember the Well, do you think?", next = "ne_fish", when = { race = "NightElf" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -1002,6 +1019,12 @@ P:NPC {
     ashenvale = {
       lines = { { id = "as_default", text = "Nothing that doesn't happen to everyone who stands there long enough. The Horde came, and we pushed them back, and they came again, and one day I found I'd had my fill of it. Buy a fish, friend, and let's leave it there." } },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    ne_fish = {
+      lines = {
+        { id = "nfs_default", text = "The old fishers in Auberdine say the deep ones out past the Veiled Sea still glow a little, as if the Well were in their blood. I sell what swims in shallower water, and those only remember the bait, which suits me fine." },
+      },
+      choices = { { text = "Shallow water it is. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -2886,6 +2909,7 @@ P:NPC {
     { id = "g_hello", text = "Good day! You have come to learn tailoring? Sit here, take this needle, and tell me about yourself while you thread it." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, good, it is you. Come and look at what I have made since you left, and tell me truly what you think." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "You sew! Then let me see what you are wearing. No, turn around, for I want the back seam." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") }, text = "You have the look of someone who has been sleeping on bare roots. Did they send you to me to learn how to furnish a camp?" },
   },
 
   notice = {
@@ -2913,6 +2937,7 @@ P:NPC {
         { text = "Elynna says you rush your black.", next = "black" },
         { text = "You can study this collar, if you like.", next = "xhuman", when = { race = { "Human", "Gnome", "Dwarf" } } },
         { text = "Do our own old patterns bore you?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "I was told you teach camp craft.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
         { text = "Farewell, Trianna.", next = "END" },
       },
     },
@@ -2986,6 +3011,10 @@ P:NPC {
       choices = {
         { text = "Perhaps I would, at that. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
+    },
+    camp = {
+      lines = { { id = "ca_default", text = "I do, and gladly! A cook can give you a fire, but somebody must still sew the bedroll you lie on and the cloth that keeps the rain off your face, so start with a plain bolt of linen and you will be furnishing a camp of your own before long.", fx = { learn = { "camping" } } } },
+      choices = { { text = "A bolt of linen first. Something else.", next = "BACK" } },
     },
   },
 

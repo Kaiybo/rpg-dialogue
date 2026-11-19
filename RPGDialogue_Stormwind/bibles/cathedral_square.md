@@ -100,6 +100,7 @@ Never says: the later-era lines about void elves or Lightforged.
 3. Priests coming home.
 
 ---
+- Sarno, night elves: frets a little, with the brothers, over moon-worship, but follows Benedictus ('slow to call her a stranger'). A kaldorei player's `[Persuade]` sets npcFlag `sarno_nelf_soft`: he lights a lamp by the east window for Elune.
 
 # Thomas  (key: thomas_altar)
 

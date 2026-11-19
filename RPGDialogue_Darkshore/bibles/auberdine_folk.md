@@ -28,3 +28,6 @@
 
 ## Never
 Auberdine's destruction or anything Cataclysm and later; no retaking of Gnomeregan; no Lor'danel.
+
+## Kaldorei factions (authored, not canon)
+- Gershala: distrusts the arcane in the Alliance. Dalaran learned from the high elves, who descend from Highborne exiles; fears the quel'dorei starving for magic since the Sunwell fell. Argues with his brother Argos (Stormwind), who values the Alliance.

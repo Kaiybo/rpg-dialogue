@@ -1494,6 +1494,7 @@ P:NPC {
         { text = "Do soldiers bound for Ashenvale buy from you, Jaeana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a rogue really steal your venison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is venison really so prized here, Jaeana?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What does a hunter's companion like best?", next = "hunt_food", when = { class = "HUNTER" } },
         { text = "Goodbye, Jaeana.", next = "END" },
       },
     },
@@ -1524,6 +1525,22 @@ P:NPC {
         { text = "That's kind of you.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    hunt_food = {
+      lines = {
+        { id = "hfd_default", text = "Depends on the beast, and I'll tell you what I tell every hunter in Darnassus. Cats and wolves want meat and nothing else, bears and boars will eat almost anything, and owls are fussier than the High Priestess's cook, so ask before you buy." },
+        { id = "hfd_pet", when = { pet = { named = true } }, text = "Let me guess what {pet} likes. Cats and wolves want meat, bears and boars will eat almost anything, and owls are fussier than the High Priestess's cook, so tell me what it turns its nose up at and I'll find it something better." },
+      },
+      choices = {
+        { text = "Does it matter so much what it eats?", next = "hunt_food2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt_food2 = {
+      lines = {
+        { id = "hfd2_default", text = "It matters more than anything else you do for it. A well-fed companion is a happy one, and a happy one grows loyal faster, and I've sold meat to enough sorry hunters whose beasts walked off into the woods to know the difference." },
+      },
+      choices = { { text = "Then I'll buy the good cuts.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

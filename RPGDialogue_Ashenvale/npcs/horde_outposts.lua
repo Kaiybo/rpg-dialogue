@@ -68,6 +68,7 @@ P:NPC {
         { text = "Who are the Twilight's Hammer?", next = "twilight" },
         { text = "Why do the naga want those sapphires?", next = "sapphires" },
         { text = "Why should the Horde care about elf ruins?", next = "xwhy", when = { faction = "Horde" } },
+        { text = "The elves pray to their moon. Does anything answer?", next = "moon" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -113,6 +114,41 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
+    moon = {
+      lines = {
+        { id = "mo_default", text = "Somet'ing answer, mon, I won't lie to you. I feel it on da strand at night when da tide come up silver, and it be no loa I know, but it be no demon either." },
+        { id = "mo_troll", when = { race = "Troll" },
+          text = "Somet'ing answer, cousin, and you feel it too if you stand on da strand when da tide come up silver. It be no loa our grandmothers named, but it be no demon either, and dat be more dan I say for some of what da elves call holy." },
+        { id = "mo_nelf", when = { race = "NightElf" },
+          text = "Your goddess answer, elf, I won't pretend she don't. I feel her on da strand when da tide come up silver, and she be no loa I know, but no demon either, which be more dan your Sentinels ever say of my spirits." },
+      },
+      choices = {
+        { text = "Elune is just the elves' name for a loa.", next = "moon_loa" },
+        { text = "Then why do the elves treat us as enemies?", next = "moon_enemies" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon_loa = {
+      lines = {
+        { id = "ml_default", text = "Maybe, and maybe a loa be just a troll's name for somet'ing older. My grandmother would slap me for sayin' it, but da spirits don't argue about names, mon, only people do." },
+      },
+      choices = {
+        { text = "Then we've less to fight over than we think.", next = "BACK", reply = "Less over gods, ya, but still plenty over trees. One fight at a time, mon, and maybe dat one get easier.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Their goddess didn't stop their arrows. Names matter.", next = "BACK", reply = "Dey matter to da ones holdin' da bows, I grant you. Keep your shield up, then, and leave da gods to argue by demselves.", fx = { align = { light = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon_enemies = {
+      lines = {
+        { id = "me_default", fx = { learn = { "elune" } },
+          text = "Because dey remember trolls from da old empires and orcs from Grom's axe, and dey forget nothin'. Yet dey left a temple to deir own goddess drowned in Blackfathom for ten thousand years, mon, and still dey call us da ones who don't respect sacred places." },
+      },
+      choices = {
+        { text = "They abandoned their own temple. They've no right to lecture us.", next = "BACK", reply = "Dat be how I feel on a bad night, mon. Da naga and da cultists keep it now, and no Sentinel ever came to take it back.", fx = { align = { honor = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "The sea took that temple, not the elves. Be fair.", next = "BACK", reply = "Fair, mon, you catch me, because it was da sea dat took it. I still say dey should have come back for it, but I'll say it softer.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwhy = {
       lines = { { id = "xw_default", text = "Because da sea don't care whose ruin it be, and when da water go sick, it be sick at Zoram'gar too. Da elves and us, we drink from da same coast, whether we like it or not." } },
       choices = {
@@ -938,6 +974,7 @@ P:NPC {
         { text = "What do you sing to them?", next = "song" },
         { text = "How did a Darkspear end up in Ashenvale?", next = "home" },
         { text = "My pet's been off its food lately.", next = "pet_sick", when = { class = "HUNTER" } },
+        { text = "What does a hunter's beast need in elf country?", next = "hnt_elf", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -995,6 +1032,10 @@ P:NPC {
     pet_sick = {
       lines = { { id = "ps_default", text = "Den you let it drink from da wrong stream, maybe, or it eat somet'ing from near da furbolg camps, where da water go bad. Give it clean meat and clean water for three days, and if it still sad, bring it to Qeeju and I sing to it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    hnt_elf = {
+      lines = { { id = "hel_d", text = "Quiet, mon, more than anything. The elves' cats can hear a wolf pant from across the river, so teach yours to lie still in the brush, and feed it before you go out, because a hungry beast be a noisy beast." } },
+      choices = { { text = "Fed and quiet. Thanks, Qeeju.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
 

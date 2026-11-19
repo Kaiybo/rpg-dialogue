@@ -81,3 +81,9 @@ Thenysil's way of judging the proven (Raene, Faldreas, Pelturas talk to her); Da
 - Voice: tauren, first person, slow and calm; Earth Mother, the herd's long view; dry warmth about his sister. Bears his captors no anger: the Felwood sickness creeping south took their minds.
 - Never: a furbolg, speaking of himself in third person, blaming the Thistlefur, post-Classic Felwood or Ashenvale.
 - Authored, not canon: the chieftain's cage key on a cord; staying in bear shape because he was too tired to change back.
+
+## Kaldorei factions (authored, not canon)
+- Raene: bitter at the Alliance. Stormwind sent a sealed letter of thanks and no soldiers; she has buried eleven scouts since. Claim `stormwind_sends_nothing` (partly true; Haljan and Shindrell answer it). Not an isolationist: she wants Stormwind to fight beside her. Outlanders can soften her (`raene_soft`).
+
+## Horde views of the kaldorei (authored, not canon)
+- Kuray'bin: troll memory older than Grom; the troll empires ruled before the kaldorei pushed them back. Some Darkspear hate them ("dey act like de forest be theirs alone"); he watches without hating. Exposes Kadrak's claim `kadrak_elves_pay_kolkar`: the Kolkar shoot elf outrunners too.

@@ -1234,7 +1234,68 @@ P:NPC {
         { text = "The Hall of Arms is full of beasts as well as blades.", next = "hall" },
         { text = "What do you make of my companion?", next = "mypet", when = { pet = { type = "Beast" } } },
         { text = "What's the hardest beast you ever trained?", next = "hardest" },
+        { text = "Grif sent me to learn how to keep a beast.", next = "hp_tb", when = { class = "HUNTER", questActive = TODO_QUEST("Training the Beast") } },
+        { text = "What does a beast need from me, as the years go on?", next = "hp", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "How do humans fare with beasts, Belia?", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "The beasts of my isle were different from these.", next = "hp_sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Farewell, Belia.", next = "END" },
+      },
+    },
+    hp_tb = {
+      lines = { { id = "hptb_default", text = "Did he, now! Then ye've tamed somethin' on his hill an' come all this way wi' it, an' I'm glad tae see ye both. I'll teach yer beast new tricks for a few coppers, an' I'll teach you tae feed it right an' keep it happy, which is the half Grif forgets tae mention." } },
+      choices = {
+        { text = "What does a beast need most?", next = "hp" },
+        { text = "Thank you, Belia. I'll look after it.", next = "BACK", reply = "Ye will, I can see it in how ye stand next tae it. Off ye go, then, an' come back when it's learned somethin'.", fx = { affinity = 1 } },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Food, an' the right food, an' a hunter who notices when it's unhappy. A beast learns tae trust ye a wee bit every day ye keep it fed an' alive, an' if ye neglect it, it'll leave ye, an' there's nae gettin' it back." },
+        { id = "hp_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet}'s ears, now, for that's where a beast tells ye how it's feelin'. Food, the right food an' a hunter who notices when it's unhappy, that's all it needs, an' ye'd be amazed how many forget the third." },
+      },
+      again = { { id = "hp_again", text = "What else? Mind the cages." } },
+      choices = {
+        { text = "What's the right food?", next = "hp_food" },
+        { text = "How does my beast learn new tricks?", next = "hp_tricks" },
+        { text = "What if my beast dies in a fight?", next = "hp_dies" },
+        { text = "Something else, Belia.", next = "hello" },
+      },
+    },
+    hp_food = {
+      lines = { { id = "hpf_default", text = "Depends on the beast. A boar'll eat anythin' ye drop, a bear likes fish an' fruit an' bread, an' a cat or a wolf wants meat an' looks at ye like ye've insulted its mother if ye offer it a biscuit. Feed it somethin' near its own strength, too, for a beast that's grown past wolf meat won't thank ye for it." } },
+      choices = {
+        { text = "I'll carry what it likes, even if it costs me.", next = "BACK", reply = "That's a good hunter, an' yer beast will know it, even if ye never see it say so.", fx = { align = { light = 1 } } },
+        { text = "It'll eat what I have, or go hungry.", next = "BACK", reply = "Then it'll go hungry, an' then it'll go, an' ye'll have only yerself tae blame.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_tricks = {
+      lines = { { id = "hpt_default", text = "Two ways. I can teach it, for a few coppers an' a bit o' patience, or ye can tame a wild beast that knows the trick already an' learn it from them yourself, an' then teach yer own. Either way, the more yer beast trusts ye, the more it can learn, for a wary beast won't take instruction." } },
+      choices = {
+        { text = "Then I'll earn its trust first.", next = "BACK", reply = "Aye, an' the rest follows, as it always does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dies = {
+      lines = { { id = "hpd_default", text = "Then ye revive it, for ye'll have learned how, an' ye say sorry, an' ye mean it. It'll come back, but each time it dies on ye it trusts ye a little less, an' a beast that's been dropped too often learns no' tae trust anyone again." } },
+      choices = {
+        { text = "Then I'll never let it die for my mistakes.", next = "BACK", reply = "That's a promise I like tae hear, an' I hope ye keep it.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "Better than I expected, an' I'll say so tae anyone. There were nae human hunters when I was a girl, an' the first ones I met handled their beasts like plough horses, but the ones comin' through now are gentler, an' the beasts like them for it." } },
+      choices = {
+        { text = "We learned from dwarves, so it's your credit.", next = "BACK", reply = "Ha! Flatterer. I'll take it, though, an' tell Regnus.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_sky = {
+      lines = { { id = "hps_default", text = "I'd expect so, an' I'd love tae hear about them some day, for I've never seen anythin' that lived on a cloud. But a beast's a beast wherever it comes from, an' it wants food an' a kind word, so the old lessons should hold." } },
+      choices = {
+        { text = "They held on the isle. They'll hold here.", next = "BACK", reply = "Then ye'll do grand, an' so will yer beast.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     train = {

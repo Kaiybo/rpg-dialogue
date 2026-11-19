@@ -201,11 +201,46 @@ P:NPC {
         { text = "Why does the Society keep notes on paladins, Zamah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of the Wailing Caverns, Zamah.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "You wanted the Fang druids alive, Zamah?", next = "dd_fang", when = { questDone = TODO_QUEST("Leaders of the Fang") } },
+        { text = "Have you studied the night elves' moonwells, Zamah?", next = "ne_zamah" },
         { text = "I'll be going.", next = "END" },
       },
       again = {
         { id = "h_again", text = "More questions? I do like a curious mind, while it lasts." },
         { id = "h_again2", text = "Ask what you will. The pools are patient, and so, I've found, is the grave." },
+      },
+    },
+    ne_zamah = {
+      lines = {
+        { id = "ne_default", text = "Studied them? I've never been allowed within a bowshot of one, which is precisely what makes them so interesting. Hamuul's students speak of moonwell water as though it were holy, and the Society would very much like to know whether it is holy, or merely very old, or simply very good at frightening the dead." },
+      },
+      choices = {
+        { text = "Frightening the dead?", next = "ne_zamah_dead" },
+        { text = "Why would the Society want moonwell water?", next = "ne_zamah_why" },
+        { text = "Something else, Zamah.", next = "BACK" },
+      },
+    },
+    ne_zamah_dead = {
+      lines = {
+        { id = "nd_default", text = "Oh, yes. The few of our people who strayed into Ashenvale and came home again say the elves' priestesses called down a silver light that burned worse than the Light ever did, and they made no distinction at all between a Forsaken and a Scourge ghoul while they did it. I'd give a great deal to know whether it's the moon or the water that does it, purely for science, of course." },
+      },
+      choices = {
+        { text = "To an elf, a Forsaken looks no different from the Scourge.", next = "BACK",
+          reply = "A fair point, and an unflattering one. They fought the Scourge at Hyjal while we were still marching in it, so I can't fault their eyesight, only their manners.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Then the elves are no better than the Scarlet Crusade.", next = "BACK",
+          reply = "Kinder words than I'd have chosen, but yes, a torch is a torch whether a zealot lights it or a moon priestess. The Society keeps a list of such people, and the kaldorei are on it, somewhere below the Crusade and above the gnolls.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else, Zamah.", next = "BACK" },
+      },
+    },
+    ne_zamah_why = {
+      lines = {
+        { id = "nw_default", text = "Because the first of those wells was filled from the Well of Eternity, if the druids' stories are right, and the elves lived ten thousand years beside them without growing a day older. The druids insist it was their great tree that kept them young and not the water, but I've never trusted a druid's account of anything I couldn't put in a flask." },
+      },
+      choices = {
+        { text = "Hamuul would never let you near a moonwell.", next = "BACK",
+          reply = "Hamuul would never let me near his teapot, my dear, so I don't take it personally. One day the Circle will want something from the Society, and on that day I'll name my price in water." },
+        { text = "Something else, Zamah.", next = "BACK" },
       },
     },
     dd_fang = {
@@ -282,6 +317,8 @@ P:NPC {
     third = "{name} met Holt Thunderhorn, the hunter trainer on Thunder Bluff's Hunter Rise.",
   },
   greetings = {
+    { id = "g_garra_resolved", when = { class = "HUNTER", thread = { id = "hun_horde", state = "resolved" } }, text = "Garra Steelgaze climbed the Rise last moon, and she listened longer than I expected. Walk with the Earth Mother, friend." },
+    { id = "g_garra_soured", when = { class = "HUNTER", thread = { id = "hun_horde", state = "soured" } }, text = "The wagons still roll north out of the Barrens. I count them, as I said I would." },
     { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "Every beast on this rise has its hackles up, and so have I. Say your business and then go back down the lift." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "My students keep their beasts on short leads when you come up the ramp, and I told them to. A hunter trusts what his animals tell him." },
@@ -289,6 +326,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    garra_end = {
+      big = true,
+      narr = "He looks east, toward the Barrens, as though he could count the herds from here.",
+      lines = { { id = "garra_end_default", key = true,
+        text = "Ormak is not wrong, and that is the trouble, for a hungry city is as real as a thin herd. You have walked between them both, hunter, so tell me: should Garra learn our rites, or should the herds bear the Horde's hunger?" } },
+      again = { { id = "garra_end_again", text = "You have answered me, and I remember it." } },
+      choices = {
+        { text = "Teach her the rites. Take only what the herds can spare.", next = "garra_rites",
+          fx = { thread = { id = "hun_horde", state = "resolved" }, align = { order = 1 }, affinity = 1 },
+          journal = { first = "I told Holt Thunderhorn that Garra should learn the old rites.", third = "{name} told Holt Thunderhorn that Garra Steelgaze should learn the old rites." } },
+        { text = "Orgrimmar has to eat. The herds will have to bear it.", next = "garra_hunger",
+          fx = { thread = { id = "hun_horde", state = "soured" }, align = { order = -1 } },
+          journal = { first = "I told Holt Thunderhorn that the Horde's hunger comes before the herds.", third = "{name} told Holt Thunderhorn that the Horde's hunger came first." } },
+        { text = "I need to think on it, elder.", next = "BACK" },
+      },
+    },
+    garra_rites = {
+      lines = { { id = "garra_rites_default",
+        text = "Then I will teach her myself, if she will climb the Rise to hear it, and I think she will, for a good hunter always wants to know where her prey will be next year. May the Earth Mother bless the counting." } },
+      choices = { { text = "Walk with the Earth Mother, elder.", next = "END" } },
+    },
+    garra_hunger = {
+      lines = { { id = "garra_hunger_default",
+        text = "Perhaps it does, and perhaps the plains will forgive it. But the plains will remember who said so, long after the Horde has forgotten." } },
+      choices = { { text = "Then let them remember.", next = "END" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd hunt beside anyone who respects the beast. The tauren never needed the Light, but I'm curious what it does to a hunter's patience. If it makes you steady, it may do you more good than you think." } },
@@ -379,6 +442,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on Hunter Rise? You're welcome here, though my students will want to know if you can call the wind to steady an arrow." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise. Stay a while, because the Thunderhorns have taught more than hunters to read the plains." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
+        { id = "h_trainbeast", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Training the Beast") }, text = "Yaw Sharpmane sent you up from Bloodhoof, I see. Come stand by the targets, and I'll teach you to train the companion you've chosen." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Walk slowly on Hunter Rise, stranger. My students' beasts are bristling already, and I'd like to know why." },
@@ -387,6 +451,9 @@ P:NPC {
         { id = "h_narache", when = { origin = "tauren_narache_hunter" }, text = "Narache blood, by the way you came up the ramp, slow and watching the ground for tracks. Your mother tracked the mesa for the Hawkwind's camp, I think, and the old hunters still argue over whether she or a Thunderhorn took the most plainstriders in a season." },
       },
       choices = {
+        { text = "Ormak says he counts orcs, not zhevra.", next = "garra_end",
+          when = { class = "HUNTER", thread = { id = "hun_horde", beat = "b2_sergra", state = "unfolding" },
+                   any = { { thread = { id = "hun_horde", beat = "b3_ormak" } }, { thread = { id = "hun_horde", beat = "b3_holt" } } } } },
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Are there other Thunderhorns besides you?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
@@ -395,12 +462,112 @@ P:NPC {
         { text = "Magic could make an arrow fly truer.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would a Thunderhorn teach a warrior, Holt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Tell me of the hunter's road from Hunter Rise.", next = "t_road", when = { class = "HUNTER" } },
         { text = "I'd guess the druids tell your hunters how to hunt.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why do the beasts bristle at me, Holt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would a Thunderhorn hunt beside a paladin, Holt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening, as the plains listen for rain." } },
+    },
+    t_road = {
+      hub = true,
+      narr = "He nocks an arrow without looking at it and lets it fly at the far target, then turns back to you as if nothing had happened.",
+      lines = {
+        { id = "tr_default", text = "The hunter's road leaves this rise in every direction, and every Thunderhorn has walked some part of it. I will tell you the shape of it, though the plains will tell you the rest in their own time." },
+        { id = "tr_young", when = { maxLevel = 14 }, text = "Your road is young, and your companion younger. Ask me what you will, and I will answer as my father answered me, slowly and twice if needed." },
+        { id = "tr_far", when = { minLevel = 40 }, text = "You've come far since Mulgore, and the dust on you is from lands I've only heard of. Ask anyway, for even a Thunderhorn learns something from the questions." },
+      },
+      again = {
+        { id = "tr_again", text = "What else? The wind's still steady, so we've time." },
+        { id = "tr_again2", text = "Ask on. A question costs nothing, and a wasted arrow costs a supper." },
+      },
+      choices = {
+        { text = "Yaw sent me to learn to train my companion.", next = "t_train", when = { minLevel = 10 } },
+        { text = "Bow, beast or blade? Which path should I take?", next = "t_paths", when = { minLevel = 10 } },
+        { text = "Why must I carry so many arrows?", next = "t_ammo" },
+        { text = "Where do the great hunts lead after the Barrens?", next = "t_hunts", when = { minLevel = 25 } },
+        { text = "What waits at the very end of the road?", next = "t_end", when = { minLevel = 50 } },
+        { text = "Does Cairne still hunt, Holt?", next = "t_cairne", when = { race = "Tauren" } },
+        { text = "The orcs ride wolves to war. Do you approve?", next = "t_orc", when = { race = "Orc" } },
+        { text = "Enough of the road, Holt.", next = "BACK" },
+      },
+    },
+    t_train = {
+      lines = {
+        { id = "tt_default", text = "Then stand by me and watch your companion, not me. Every beast you bind leaves a lesson behind in the one you keep, and I will teach you how to draw that lesson out, so that your companion grows with every beast you meet on the plains." },
+        { id = "tt_active", when = { questActive = TODO_QUEST("Training the Beast") }, text = "Yaw's word came up the lift before you did, and he says you were gentle with the plainstriders. Good. Stand here, and I'll teach you to train what you tame, and then you'll be a hunter of the Bluff in truth." },
+        { id = "tt_done", when = { questDone = TODO_QUEST("Training the Beast") }, text = "You've learned it already, from me, so I'll only remind you: tame widely, keep one, and bring your companion to Hesuwa when it's ready to learn what the wild can't teach." },
+      },
+      choices = { { text = "Back to the road.", next = "t_road" } },
+    },
+    t_paths = {
+      lines = { { id = "tp_default", text = "Some hunters give themselves to the beast and grow fierce together, some to the bow and learn the aimed shot that goes through a kodo's hide, and some to the wild itself, to traps and blades and surviving where others die. The Thunderhorns are archers, so you can guess which I'd tell you." } },
+      choices = {
+        { text = "The bow, then, as the Thunderhorns do.", next = "t_road", reply = "Then come to the targets at dawn, and I'll show you how my grandfather held his breath. The family will be pleased.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find my own path, whatever my teachers did.", next = "t_road", reply = "So did Kary, who chose the trail over the bow, and she's never once let me forget she was right. Find it, then.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_ammo = {
+      lines = { { id = "ta_default", text = "Because an arrow that's loosed is an arrow you must make or buy again, and the hunter who runs out on the plains is a hunter with a stick. Carry a full quiver, or a pouch of shot if you favor the dwarves' rifles, and a little more than you think, because the Barrens never end when you expect." } },
+      choices = {
+        { text = "A rifle is loud. Does the Earth Mother mind?", next = "t_rifle" },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_rifle = {
+      lines = { { id = "tri_default", text = "She has never said so to me, though the plainstriders certainly mind. My cousin Mull swears by a goblin rifle and I swear by a bow, and we have argued about it at every feast for twenty years, which I think is what the Earth Mother intended." } },
+      choices = { { text = "I'll stay out of that argument. Back to the road.", next = "t_road", fx = { trait = { witty = 1 } } } },
+    },
+    t_hunts = {
+      lines = { { id = "th_default", text = "Melor Stonehoof sets the great hunts, and he'll send you far: to the Needles after the hyena Steelsnap, to the swamps of Dustwallow, and up into the cold of Alterac for the yeti Frostmaw. Before that you'll learn at thirty to fall as if dead, and at forty to wear mail, and both will keep you alive on his hunts." } },
+      choices = {
+        { text = "Why send hunters so far from Mulgore?", next = "t_hunts2" },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_hunts2 = {
+      big = true,
+      lines = { { id = "th2_default", text = "Because a hunter who knows only his own plains thinks the whole world is grass. Melor wants you to learn that the Earth Mother's children are many and strange, and that some of them have gone wrong and must be given back to her." } },
+      choices = {
+        { text = "Then I'll hunt only the beasts that have gone wrong.", next = "t_road", reply = "That's Melor's teaching exactly, and he'll be glad to hear it. Tell him I said so.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A great hunt is for glory. Let the songs follow.", next = "t_road", reply = "Songs follow the dead more often than the living, hunter. Go for the land, and let glory find you if it wants.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_end = {
+      lines = {
+        { id = "te_default", text = "Armor, for one thing: the Beaststalker's, scattered in pieces through Stratholme and Scholomance and Blackrock Spire, and every hunter who wears it earned each piece. And a bow I've only heard about in whispers, Rhok'delar, which an ancient in Felwood makes for hunters who face its trials alone." },
+        { id = "te_sixty", when = { minLevel = 60 }, text = "You know what waits, I think: the Beaststalker's armor in the dead cities and the Spire, and the whispers of Rhok'delar, the bow an ancient in Felwood grants to hunters who face four demons alone. If you find it, bring it up the lift so I can see it once before I die." },
+      },
+      choices = {
+        { text = "I'll bring it up the lift for you, Holt.", next = "t_road", fx = { affinity = 1 } },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_cairne = {
+      lines = { { id = "tc_default", text = "Not as often as he'd like, for a chieftain's days are full of the other tribes and their quarrels. But when he does, he takes no bow, only his spear and a few braves, and he walks the plains for days, and the hunters of the Bluff all find excuses to be out on the same trail." } },
+      choices = {
+        { text = "I'd give anything to walk one of his hunts.", next = "t_cairne2" },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_cairne2 = {
+      big = true,
+      lines = { { id = "tc2_default", text = "Many would, and he knows it, so he walks slowly and lets the young keep up. The Grimtotem say a chieftain should hunt alone to show his strength, and Cairne says a chieftain who hunts alone has forgotten whom he hunts for." } },
+      choices = {
+        { text = "Cairne is right. The hunt belongs to the herd.", next = "t_road", reply = "It does, and he's never once let us forget it. The Thunderhorns would follow him off the edge of the bluff.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A chieftain alone shows a strength the tribes respect.", next = "t_road", reply = "The Grimtotem would agree with you, and that alone would make me think twice. Watch who you agree with on this rise.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "t_road" },
+      },
+    },
+    t_orc = {
+      lines = { { id = "to_default", text = "I approve of any hunter who loves his beast, and the orcs I've met love their wolves more than their own kin. What I don't approve of is a beast sent to die for something it can't understand, but then, I've never had to fight for my people's freedom, so I try not to judge." } },
+      choices = {
+        { text = "Our wolves understand freedom better than you'd think.", next = "t_road", fx = { affinity = 1 } },
+        { text = "Fair enough. Back to the road.", next = "t_road" },
+      },
     },
     kin = {
       lines = { { id = "k_default", text = "Plenty, and my cousin Mull is one, though he prefers Bloodhoof Village to the bluffs. He keeps an eye on the young braves there, and I keep an eye on him." } },

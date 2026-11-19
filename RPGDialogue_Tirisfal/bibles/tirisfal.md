@@ -55,3 +55,7 @@ Repeat-visit and night lines for the innkeepers and thin quest givers (habits, s
 
 ## Authored, not canon
 - Zygand's prejudice (0.80.0): a Forsaken who once wore Scarlet is a spy until proven otherwise; four Scarlet spies caught this season, and two Forsaken who went back to the Monastery were burned and their ashes sent to Brill.
+
+## Night elves (authored, not canon)
+- Sarvis: contempt for a people who mourn losing forever; Elune's priestesses burn the dead and the Sentinels never asked which corpses had minds.
+- Zygand: claim `zygand_kaldorei_silence` (declared in brill.lua, partly true, open): the elves knew the Legion and warned no one while Lordaeron died; pressed, he admits the Prophet warned Terenas.

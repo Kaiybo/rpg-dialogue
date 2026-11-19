@@ -62,66 +62,6 @@ P:NPC {
   },
 }
 
--- Anishar: rogue trainer in the Cenarion Enclave, beside Syurna and Erion Shadewhisper.
-P:NPC {
-  key = "dar_anishar", id = TODO_NPC("Anishar"), name = "Anishar", title = "Rogue Trainer", gender = "male",
-  bible = "bibles/missed.md", role = "trainer", tier = "service",
-  communities = { "darnassus" }, temper = { "wry", "guarded" }, values = { "cunning", "discretion" },
-  notices = { "class" },
-  impression = {
-    first = "Anishar trains rogues in the shadowed hollow beneath the Cenarion Enclave, and he is the least forbidding of the three who teach there. He smiles more than Syurna does, though it would be a mistake to take that for trust.",
-    third = "{name} met Anishar, a rogue trainer in the Cenarion Enclave.",
-  },
-  greetings = {
-    { id = "g_default", text = "Well met, stranger. You have wandered rather far down for someone who is only looking at the trees." },
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one of ours, and I did not hear you until the last stair. That is better than most manage, so come in." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. I shall begin to think you like the dark." },
-  },
-  notice = {
-    { id = "n_notrogue", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
-      text = "All that armor, and you came down the stair like a rockslide. I mean no offence, friend, but we felt you coming through the floor." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_rogue", when = { class = "ROGUE" }, text = "I am Anishar. Syurna will teach you and say six words while she does it, Erion will teach you and tell you whom not to trust, and I will teach you and let you ask why, so choose as suits your temper." },
-        { id = "h_default", text = "I am Anishar, and I teach those who work unseen. You are not one of them, so I can offer you nothing but conversation, though I will say that mine is better than Syurna's." },
-      },
-      again = {
-        { id = "h_again", text = "What else is on your mind?" },
-        { id = "h_again2", text = "Go on. Nobody here is listening who should not be." },
-      },
-      choices = {
-        { text = "Train me, Anishar.", next = "BUSINESS", when = { class = "ROGUE" } },
-        { text = "Why do night elves need rogues?", next = "need" },
-        { text = "An odd place for your kind, among druids.", next = "druids" },
-        { text = "I'll leave you to the shadows.", next = "END" },
-      },
-    },
-    need = {
-      lines = { { id = "n_default", text = "For the same reason a forest needs owls. The Sentinels are the eagles, seen and feared, and there is always work that must be done by something quiet which is not seen at all." } },
-      choices = {
-        { text = "What sort of work?", next = "work" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    work = {
-      lines = { { id = "w_default", text = "Watching, for the most part, which is duller than the stories have it. We learn who is cutting in Ashenvale and who is paying them, and now and then a camp wakes to find its axes gone and its foreman very frightened.", fx = { learn = { "warsong" } } } },
-      choices = { { text = "Frightened is better than dead. Something else.", next = "BACK" } },
-    },
-    druids = {
-      lines = { { id = "d_default", text = "The druids tolerate us because we ask for nothing and make no noise, and the roots down here keep a secret well. I think it amuses the Arch Druid to have us underfoot, though I would not care to ask him." } },
-      choices = { { text = "Wise not to ask. Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I have worked unseen for a long time, and I teach it now. More than that I do not tell." } },
-    warsong = { { id = "tp_ws", text = "Loud, strong and careless with their camps at night. We learn a good deal from them." } },
-    _none = { { id = "tp_none", text = "If I knew, friend, I might not say. As it happens, I do not know." } },
-  },
-}
-
 -- Corand: a quiet tracker who keeps to the Cenarion Enclave.
 P:NPC {
   key = "dar_corand", id = TODO_NPC("Corand"), name = "Corand", gender = "male",
@@ -231,65 +171,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I walk, and I sit by the lake, and I am glad of the company that passes." } },
     _none = { { id = "tp_none", text = "I could not tell you, friend. Sit down a moment anyway, for it may come to one of us." } },
-  },
-}
-
--- Cyroen: reagent vendor in the Cenarion Enclave.
-P:NPC {
-  key = "dar_cyroen", id = TODO_NPC("Cyroen"), name = "Cyroen", title = "Reagents", gender = "male",
-  bible = "bibles/missed.md", role = "vendor", tier = "service",
-  communities = { "darnassus" }, temper = { "earthy", "unhurried" }, values = { "nature", "balance" },
-  notices = { "class" },
-  impression = {
-    first = "Cyroen sells seeds, thorns and other reagents in the Cenarion Enclave, and he has soil worked into the lines of his hands. He talks about a wild thornroot as other merchants talk about fine silk.",
-    third = "{name} met Cyroen, who sells reagents in the Cenarion Enclave.",
-  },
-  greetings = {
-    { id = "g_default", text = "Ishnu-alah. Everything I sell grew somewhere not far from here, and I can tell you where if you ask." },
-    { id = "g_back", when = { metBefore = true }, text = "You are back, and I hope that what I sold you was put to good use." },
-  },
-  notice = {
-    { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid, and welcome to the Enclave. I keep seeds for you that are still living, since the old workings will not answer to a dead one." },
-    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "I have nothing for whatever craft you practice, and I would ask you to stand clear of the seed trays. Some of them wilt in that kind of company." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = { { id = "h_default", text = "I am Cyroen. The druids here use up seeds and thorns in their workings, and I see that they never have to stop in the middle of one to go digging for more." } },
-      again = {
-        { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Speak on. Nothing here grows quickly, and that includes me." },
-      },
-      choices = {
-        { text = "Show me your reagents.", next = "BUSINESS" },
-        { text = "What does a druid need with a seed?", next = "seed" },
-        { text = "How fares the Enclave?", next = "enclave" },
-        { text = "May your garden thrive.", next = "END" },
-      },
-    },
-    seed = {
-      lines = { { id = "s_default", text = "A seed is a promise that something will live, and the greatest of the druids can call on that promise for one who has fallen. I do not understand it more deeply than that, for I only grow them, and I grow them with great care." } },
-      choices = {
-        { text = "Do seeds grow well on Teldrassil?", next = "grow" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    grow = {
-      lines = { { id = "g_default", text = "Most do, but not all, and fewer than in the first years. I lose a tray now and then to a blight I cannot name, and the druids look grave when I show them and say very little.", fx = { learn = { "teldrassil" } } } },
-      choices = { { text = "That is troubling to hear. Something else.", next = "BACK" } },
-    },
-    enclave = {
-      lines = { { id = "e_default", text = "It is busy, and not always of one mind. The Arch Druid has his plans for the tree and the elder druids have their doubts about them, and I keep to my seed trays, which have never once raised their voices at me.", fx = { learn = { "cenarion_circle" } } } },
-      choices = { { text = "Seeds are better company. Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I grow what the druids need and sell it in the Enclave. I am no druid myself, only a gardener." } },
-    teldrassil = { { id = "tp_tel", text = "Something in the soil is not right. I am a gardener and not a healer, but any gardener can tell." } },
-    cenarion_circle = { { id = "tp_cc", text = "The druids keep the balance, or they try to. They do not always agree on how." } },
-    _none = { { id = "tp_none", text = "That does not grow in my garden, friend. Ask one of the druids." } },
   },
 }
 
@@ -438,6 +319,7 @@ P:NPC {
       choices = {
         { text = "What do you watch for, inside the city?", next = "watch" },
         { text = "Darnassus seems peaceful enough.", next = "peace" },
+        { text = "Your saber trusts you completely. How?", next = "hunt_saber", when = { class = "HUNTER" } },
         { text = "Ride on, Huntress.", next = "END" },
       },
     },
@@ -455,6 +337,12 @@ P:NPC {
     peace = {
       lines = { { id = "p_default", text = "It is peaceful because somebody rides this round every hour of the day and the night. Enjoy it, {class}, and do not mistake it for something that happens without being kept." } },
       choices = { { text = "Then I thank you for keeping it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunt_saber = {
+      lines = {
+        { id = "hsb_default", text = "I raised her from a cub, and she has never once gone hungry while I ate. That is the whole of it, hunter, and you know it already if your own companion is worth anything." },
+      },
+      choices = { { text = "Fed first, always. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -493,6 +381,7 @@ P:NPC {
       choices = {
         { text = "That is a fine nightsaber.", next = "saber" },
         { text = "What is Huntress Ravenoak like?", next = "ravenoak" },
+        { text = "Do Sentinel sabers and hunters' cats ever quarrel?", next = "hunt_quarrel", when = { class = "HUNTER" } },
         { text = "Safe patrol, Huntress.", next = "END" },
       },
     },
@@ -513,6 +402,12 @@ P:NPC {
     ravenoak = {
       lines = { { id = "r_default", text = "She is sterner than I am, and the better rider, though I will deny having said it. We have shared this round for many years, and I have never once found her post empty when I reached it." } },
       choices = { { text = "High praise among Sentinels. Something else.", next = "BACK" } },
+    },
+    hunt_quarrel = {
+      lines = {
+        { id = "hqr_default", text = "Only over who gets the sunny stretch of walkway, and the Sentinel cats always win, because they were here first and they know it. Keep yours close on the paths, and nobody needs to lose any fur." },
+      },
+      choices = { { text = "I'll keep mine close.", next = "BACK" } },
     },
   },
   topics = {
@@ -677,6 +572,7 @@ P:NPC {
         { text = "Why do you guard the Temple?", next = "temple" },
         { text = "The Sentinels seem stretched thin.", next = "thin" },
         { text = "I am kaldorei. How may I serve?", next = "serve", when = { race = "NightElf" } },
+        { text = "What does a Sentinel gather word about?", next = "ne_word", when = { race = "NightElf" } },
         { text = "Elune keep your watch.", next = "END" },
       },
     },
@@ -722,69 +618,17 @@ P:NPC {
       lines = { { id = "s_default", text = "You may serve by going out and by coming back. See the lands that we hold and the lands that we are losing, and bring what you learn to a Sentinel, for there has been too little of that among our young." } },
       choices = { { text = "I will be your eyes. Something else.", next = "BACK" } },
     },
+    ne_word = {
+      lines = {
+        { id = "nwd_default", text = "Warsong movements in Ashenvale, satyrs in Felwood, the naga on the Darkshore coast who still wear Highborne faces under their scales. The High Priestess wants to know everything that moves near our borders, and I would rather she learn it from me than from a funeral." },
+      },
+      choices = { { text = "Then I'll bring you word when I have it.", next = "BACK", fx = { affinity = 1, learn = { "queen_azshara" } } } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I am a Sentinel of the Sunblade family, and my post is the Temple of the Moon. I ask for no other." } },
     sentinels = { { id = "tp_sen", text = "We are the watch of our people, and we see only as far as our eyes reach. That is why I ask travellers to look for us." } },
     warsong = { { id = "tp_ws", text = "They fell our forests in Ashenvale. I would know their numbers better than I do." } },
     _none = { { id = "tp_none", text = "I have no word of that, {class}. If you learn something, bring it to me." } },
-  },
-}
-
--- Voloren: fishing supplies in the Temple Gardens.
-P:NPC {
-  key = "dar_voloren", id = TODO_NPC("Voloren"), name = "Voloren", title = "Fishing Supplies", gender = "male",
-  bible = "bibles/missed.md", role = "vendor", tier = "service",
-  communities = { "darnassus" }, temper = { "placid", "wry" }, values = { "patience", "quiet" },
-  notices = { "craft" },
-  impression = {
-    first = "Voloren sells lines, hooks and bait beside the water in the Temple Gardens, and he speaks in a low voice so as not to disturb the fish. He regards the lake as a temple in its own right.",
-    third = "{name} met Voloren, who sells fishing supplies in the Temple Gardens.",
-  },
-  greetings = {
-    { id = "g_default", text = "Softly, friend, for they can feel a heavy step through the bank. What do you need, a line or a lure?" },
-    { id = "g_back", when = { metBefore = true }, text = "Ah, you are back. Did they bite, or did they only laugh at you?" },
-  },
-  notice = {
-    { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
-      text = "You have the squint of someone who has watched a float for hours. Then you already know the best thing I could teach you, which is to wait." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = { { id = "h_default", text = "I am Voloren, and I sell what a fisher needs. Talaelar across the garden sells the fish, and it is no secret between us that he owes his whole trade to my hooks." } },
-      again = {
-        { id = "h_again", text = "Something else? Softly, mind." },
-        { id = "h_again2", text = "Go on, friend, though quietly." },
-      },
-      choices = {
-        { text = "Show me your supplies.", next = "BUSINESS" },
-        { text = "Is fishing allowed in the Temple's lake?", next = "allowed" },
-        { text = "Where is the best fishing on Teldrassil?", next = "best" },
-        { text = "Tight lines, Voloren.", next = "END" },
-      },
-    },
-    allowed = {
-      lines = { { id = "a_default", text = "I would say that it is not forbidden, which is a different thing. The Sisters prefer the water left in peace, and so I sell the lines here and suggest most firmly that they be cast elsewhere." } },
-      choices = {
-        { text = "Talaelar doesn't seem to take the suggestion.", next = "talaelar" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    talaelar = {
-      lines = { { id = "t_default", text = "He does not, and he supposes that nobody has noticed. The priestesses noticed long ago, and they have decided to consider it a form of contemplation, which is more mercy than he deserves and precisely as much as I should want." } },
-      choices = { { text = "I won't tell him. Something else.", next = "BACK" } },
-    },
-    best = {
-      lines = {
-        { id = "b_fish", when = { profession = "Fishing" }, text = "Try Lake Al'Ameth, south of Dolanaar, at dusk and from the western bank. You will know what to do once you are there, and I ask only that you leave the small ones to grow." },
-        { id = "b_default", text = "Lake Al'Ameth, south of Dolanaar, is the best of it, and the pools at Rut'theran if you care for salt water. Go at dusk, sit still, and do not speak to the fish, because it only encourages them." },
-      },
-      choices = { { text = "Dusk at Al'Ameth. Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I have fished these waters since they were first filled. Now I mostly sell the hooks and watch other people try." } },
-    _none = { { id = "tp_none", text = "I have not caught wind of that, friend. Ask someone who spends less time looking at water." } },
   },
 }

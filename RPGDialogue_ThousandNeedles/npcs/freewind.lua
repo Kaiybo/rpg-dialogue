@@ -793,6 +793,7 @@ P:NPC {
         { text = "You want me to steal an egg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What if the egg's mother comes looking, Hagar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Something big must hatch from that egg, Hagar.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a hunter tame one of these wind serpents?", next = "h_serp", when = { class = "HUNTER" } },
         { text = "Am I really as surprising as your egg, Hagar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with your egg.", next = "END" },
       },
@@ -840,6 +841,25 @@ P:NPC {
       },
       choices = {
         { text = "I'm on my way.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    h_serp = {
+      lines = {
+        { id = "hs_default", text = "Oh, they can, and some of the hunters at Freewind keep one, and it spits lightning at anything that frightens it, which is most things. Their eggs are a different matter, because the mothers here guard them like a chieftain guards his totem, and a hunter who wants a serpent should tame a grown one and leave the nests alone." },
+        { id = "hs_pet", when = { pet = { family = "Wind Serpent" } }, text = "You already have one! Oh, may I look? The wing-frills are so much finer up close, and look how it watches the canyon wind, as if it were listening to somebody. I think it may be." },
+      },
+      choices = {
+        { text = "Why would a hunter leave the nests alone, Hagar?", next = "h_serp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    h_serp2 = {
+      big = true,
+      lines = { { id = "hs2_default", text = "Because a serpent that hatches in a hunter's hand never learns the wind, and grows up strange, or so the Freewind elders say. And yet here I am, chasing an egg myself, so perhaps I'm the last tauren who should say it. What do you think a hunter owes the nest?" } },
+      choices = {
+        { text = "A hunter takes grown beasts and leaves the young.", next = "BACK", reply = "That is the old way, and I believe it, mostly, even while I go egg hunting. I'll try to be a better tauren tomorrow.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A beast raised from the egg is the most loyal of all.", next = "BACK", reply = "The Darkspear would agree with you, with their raptors. I suppose the wind serpents haven't been asked.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

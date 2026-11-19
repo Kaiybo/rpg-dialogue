@@ -64,3 +64,6 @@ Sources: Classic NPC roster of Theramore Isle as remembered (wiki pages Baldruc,
 
 ## Prejudices (0.80.0, authored, not canon)
 - Overlord Mok'Morokk resents orc bosses (`prejudice` Orc 10): they call ogres stupid behind their hands, Nazeer Bloodpike most of all, though he tolerates them because the Stonemaul need Brackenwall.
+
+## Night elves (prejudice pass)
+- Vimes, night elves: wary neighbours since Hyjal ('we don't borrow sugar'); finds kaldorei hard to read; says the Sentinels hold Ashenvale alone (exposes Solomon's claim).

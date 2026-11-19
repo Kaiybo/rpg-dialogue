@@ -191,6 +191,8 @@ P:NPC {
       },
       choices = {
         { text = "Which should I face first?", next = "hunter_first" },
+        { text = "What does the thunderhawk teach?", next = "j_hawk" },
+        { text = "And when all four are behind me?", next = "j_after", when = { minLevel = 20 } },
         { text = "I'll face them to honor the land.", next = "BACK", reply = "Then the land will see it, and the four will test you fairly. Come home to me with their stories, and you'll be a hunter of the Barrens in truth.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I'll face them for the trophies, teacher.", next = "BACK", reply = "Trophies fade and crack on the wall, young one, but the lesson stays in your hands. I hope you bring home both.", fx = { affinity = -1, align = { honor = -1 } } },
       },
@@ -198,6 +200,44 @@ P:NPC {
     hunter_first = {
       lines = { { id = "hf_default", text = "Ishamuhale, the thunder lizard, because he'll teach you to read the ground before he charges. Then the kodo for patience, the hawk for the sky, and the serpent last, because she teaches humility, and that lesson hurts." } },
       choices = { { text = "I'll start with the lizard.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    j_hawk = {
+      lines = {
+        { id = "jh_default", text = "That not every danger comes along the ground. The thunderhawks nest on the cliffs of the southern Barrens and strike from a sky a hunter forgets to watch, and Owatanka is the oldest of them, with lightning in his wings. Bring me his talon, and you'll never forget to look up again." },
+        { id = "jh_done", when = { questDone = TODO_QUEST("Owatanka") }, text = "You've already learned it, and I can see it in you, the way your eyes go to the sky every few breaths. Owatanka's talon hangs by my fire, and I thank him each morning for the lesson he gave you." },
+      },
+      choices = {
+        { text = "Must the hunt end in a death to teach?", next = "j_hawk2" },
+        { text = "Something else, teacher.", next = "hunter" },
+      },
+    },
+    j_hawk2 = {
+      big = true,
+      lines = { { id = "jh2_default", text = "Not always, and the young ones never believe me. A hunter can learn the hawk by watching it for a season, but the Barrens are short of seasons and long on Kolkar, so I send you after the old ones, who have lived long enough and taught us much." } },
+      choices = {
+        { text = "Then I'll take only the old ones, and give thanks.", next = "hunter", reply = "That is the way of Taurajo, and you walk it well. The Earth Mother sees.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A lesson that kills nothing is soon forgotten.", next = "hunter", reply = "Sometimes, young one, and that is why I send you. But I hope you remember the watching too.", fx = { align = { light = -1 } } },
+        { text = "Something else, teacher.", next = "hunter" },
+      },
+    },
+    j_after = {
+      lines = {
+        { id = "ja_default", text = "Then the Barrens have taught you what they can, and you go where the hunt is harder. My sister Mahren hunts the southern shore where the land meets the sea, and Senani Thunderheart at Splintertree Post keeps the Ashenvale hunt, where the beasts are guarded by night elves who would rather you didn't." },
+        { id = "ja_all", when = { questDone = TODO_QUEST("Washte Pawne") }, text = "They are behind you, all four, and Washte Pawne's feather is proof enough. Go south to my sister Mahren on the shore, or north to Senani Thunderheart at Splintertree for the Ashenvale hunt, and later up to Melor Stonehoof on Hunter Rise, who sets the great hunts of our people." },
+      },
+      choices = {
+        { text = "Hunting in Ashenvale will anger the night elves.", next = "j_ash" },
+        { text = "Something else, teacher.", next = "hunter" },
+      },
+    },
+    j_ash = {
+      big = true,
+      lines = { { id = "jas_default", text = "It will, and they have reason, for the forest is sacred to them as Mulgore is to us. But the Horde needs the timber and the game, and the night elves would rather we starved, so we hunt there carefully, and I teach my hunters to take only what they need, even there." } },
+      choices = {
+        { text = "Their forest is theirs. We should hunt elsewhere.", next = "hunter", reply = "There are tauren who say the same, and I respect them. But the Horde must eat, young one, and the Barrens are not enough.", fx = { align = { order = -1 } } },
+        { text = "The Horde must eat. We hunt where we must.", next = "hunter", reply = "So we do, and quietly, and with thanks. Remember that the elves are watching, and so is the Earth Mother.", fx = { align = { order = 1 } } },
+        { text = "Something else, teacher.", next = "hunter" },
+      },
     },
     pet = {
       lines = {

@@ -309,6 +309,8 @@ P:NPC {
         { text = "A sick beast should be put down. It's kinder.", next = "kinder" },
         { text = "Is there any beast here worth taming?", next = "taming", when = { class = "HUNTER" } },
         { text = "Do the wild ones here still know themselves?", next = "wild", when = { class = "DRUID" } },
+        { text = "My companion drank from a stream here. Will it sicken?", next = "hnt_water", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "The furbolgs here were never meant to be enemies.", next = "kal_furb", when = { race = "NightElf" } },
         { text = "Elune watch your charges, Nalesette.", next = "END" },
       },
     },
@@ -382,6 +384,17 @@ P:NPC {
       choices = {
         { text = "Then some of them still remember.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_water = {
+      lines = { { id = "hwa_d", text = "Bring it here and let me see its eyes. Clear, good, and its nose is cold, so it likely drank from the clean runoff above the glade and not from a fel pool. Next time, carry water for it, and let it see you drink first, because it trusts what you trust." } },
+      choices = { { text = "I'll carry water for us both. Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    kal_furb = {
+      lines = { { id = "kfu_d", text = "No, they were not, and the Deadwood still wear charms our grandmothers gave theirs. The Timbermaw to the north kept themselves clean, and they will trade with any who prove a friend, so not every furbolg is lost, only the ones who drank too long from Felwood's cup." } },
+      choices = {
+        { text = "Then we should earn the Timbermaw's friendship.", next = "BACK", reply = "Yes, and slowly, because they have little reason to trust anyone now. Their gate is north of the Glade.", fx = { align = { honor = 1 } } },
+        { text = "The Deadwood chose their cup. I'll not mourn them.", next = "BACK", reply = "They did not choose it, they were poisoned, but I see you have made up your mind. Be quick about it, then, and clean.", fx = { align = { honor = -1 } } },
       },
     },
   },

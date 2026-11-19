@@ -151,6 +151,7 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Walk me down the hunter's road, Lanka.", next = "l_road", when = { class = "HUNTER" } },
         { text = "What makes a good hunter?", next = "good" },
         { text = "Tell me about the beasts of Red Cloud Mesa.", next = "mesa" },
         { text = "Why should a hunter serve the tribe?", next = "tribe" },
@@ -193,6 +194,58 @@ P:NPC {
         { text = "I'll serve the tribe first.", next = "BACK", reply = "Then you will be remembered, young one. That is the only reward worth having.", fx = { align = { order = 1 } } },
         { text = "I'll hunt for myself and share what I choose.", next = "BACK", reply = "Then you will eat well and die alone. I hope you change your mind before then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    l_road = {
+      hub = true,
+      lines = {
+        { id = "lr_default", text = "The hunter's road starts at this camp, where the grass is short and the beasts forgive mistakes. I walk the first part of it with every young hunter of Narache, and then I send them down the hill to Bloodhoof and let the plains do the rest." },
+        { id = "lr_ten", when = { minLevel = 10 }, text = "You have outgrown this camp, and I can see the hill road in your stride. Still, ask, for a hunter does well to remember where the trail began." },
+      },
+      again = {
+        { id = "lr_again", text = "What else? The plainstriders are not going anywhere, and neither am I." },
+        { id = "lr_again2", text = "Ask on. I would rather answer now than bury a student later." },
+      },
+      choices = {
+        { text = "What should I learn first?", next = "l_first" },
+        { text = "When will I hunt with a companion?", next = "l_ten" },
+        { text = "Must I really fight the Bristleback with a bow?", next = "l_quil" },
+        { text = "My people came to Mulgore from the sky.", next = "l_sky", when = { race = "Skyborne" } },
+        { text = "Enough of the road, Lanka.", next = "BACK" },
+      },
+    },
+    l_first = {
+      lines = { { id = "lf_default", text = "To take on the nature of the monkey, so that the blows of a wolf miss you, and to put the serpent's poison into your prey so it weakens as it runs. Then the hunter's mark and the arcane shot, and by then you will be ready for the plains below." } },
+      choices = {
+        { text = "Poison seems a cruel gift to give a beast.", next = "l_first2" },
+        { text = "Back to the road.", next = "l_road" },
+      },
+    },
+    l_first2 = {
+      big = true,
+      lines = { { id = "lf2_default", text = "It is cruel if you waste it, and merciful if it ends the hunt before the beast can suffer worse at your clumsy hands. The young always think the sting is the cruel part, and the old know it is the second arrow, the one that misses." } },
+      choices = {
+        { text = "Then I'll practise until I never need the second arrow.", next = "l_road", reply = "Good. That is what I wanted to hear, and I will hold you to it at the butts tomorrow.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunt is a hunt. I'll use whatever brings it down.", next = "l_road", reply = "You will, and so do I, when I must. Only remember the beast felt every arrow.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "l_road" },
+      },
+    },
+    l_ten = {
+      lines = {
+        { id = "lt_default", text = "At ten seasons, not before, I will send you to Yaw Sharpmane in Bloodhoof Village, and he will put a taming rod in your hand. The plainstrider, the stalker and the swoop will teach you to bind a beast, and then you will choose a companion for yourself." },
+        { id = "lt_path", when = { questActive = TODO_QUEST("The Hunter's Path") }, text = "Now, for that is why I sent you on the hunter's path. Go down the hill to Yaw Sharpmane at Bloodhoof, and walk gently, for you go to meet the first beast that will ever walk beside you." },
+      },
+      choices = { { text = "I'll be ready. Back to the road.", next = "l_road" } },
+    },
+    l_quil = {
+      lines = { { id = "lq_default", text = "You must fight them with whatever you carry, and a bow keeps their tusks farther from your belly. The Bristleback grow bolder every season on the western edge of the mesa, and Grull Hawkwind will set you against them when you are ready, so learn to shoot before you learn to be brave." } },
+      choices = { { text = "Shoot first, then be brave. Back to the road.", next = "l_road", fx = { trait = { witty = 1 } } } },
+    },
+    l_sky = {
+      lines = { { id = "ls_default", text = "So the elders tell us, and Thunder Bluff has welcomed you, so you are welcome at my fire. I would like to know what you hunted up there, though I suspect there was not much grass to read tracks in." } },
+      choices = {
+        { text = "We hunted by the wind, not the ground.", next = "l_road", reply = "Then you will learn the ground here, and teach me something of the wind in return.", fx = { affinity = 1 } },
+        { text = "I'd rather learn the plains than speak of it.", next = "l_road", reply = "Then learn them, and I will not ask again. The grass does not care where you were born.", fx = { trait = { cautious = 1 } } },
       },
     },
     tame = {
@@ -2288,7 +2341,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "{pet} holds its ground beside you and watches my hands. That is a beast that trusts you and nobody else, which is how it should be." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "You carry yourself as Yaw Sharpmane teaches, with your weight ready to move. She shapes the hunter, and I am left the easier task of the beast." },
+      text = "You carry yourself as Yaw Sharpmane teaches, with your weight ready to move. He shapes the hunter, and I am left the easier task of the beast." },
     { id = "n_other", cat = "class", when = { class = { "WARRIOR", "SHAMAN", "DRUID" } },
       text = "You are no hunter, so I have nothing to teach you. Even so, you are welcome to sit and watch the swoops with me." },
   },
@@ -2307,6 +2360,7 @@ P:NPC {
       },
       choices = {
         { text = "Train my companion.", next = "BUSINESS" },
+        { text = "Teach me the keeping of a companion.", next = "r_keep", when = { class = "HUNTER" } },
         { text = "How do you teach a wild beast anything?", next = "teach" },
         { text = "A tamed beast is still a captive, Reban.", next = "captive" },
         { text = "Which of Mulgore's beasts make good companions?", next = "beasts" },
@@ -2378,6 +2432,77 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_keep = {
+      hub = true,
+      lines = {
+        { id = "rk_default", text = "Taming is a moment, young one, and keeping is a life, and it is the keeping I teach. Ask me what you will about it, and I will answer as the beasts have taught me." },
+        { id = "rk_pet", when = { pet = { type = "Beast" } }, text = "{pet} looks to you before it looks anywhere else, so you have begun the keeping well. Ask me what you will about the rest of it." },
+      },
+      again = {
+        { id = "rk_again", text = "What else would you ask about the keeping?" },
+        { id = "rk_again2", text = "Ask on. The swoops overhead are in no hurry, and neither am I." },
+      },
+      choices = {
+        { text = "What does a plainstrider eat, or a swoop?", next = "r_feed" },
+        { text = "How do I know my companion has come to trust me?", next = "r_loyal" },
+        { text = "How does a companion learn to dive or to claw?", next = "r_learn", when = { minLevel = 10 } },
+        { text = "Why may no hunter tame a kodo?", next = "r_kodo" },
+        { text = "What happens when a companion falls?", next = "r_fall", when = { minLevel = 10 } },
+        { text = "Enough of the keeping, Reban.", next = "BACK" },
+      },
+    },
+    r_feed = {
+      lines = {
+        { id = "rf_default", text = "A plainstrider wants fruit and the soft mushrooms of the caves, and it will turn its beak up at meat however hungry it is. A swoop wants meat and fish, a wolf wants meat, and a cougar wants meat and wants you to know it deserved better. Learn what your companion would eat on the plains, and carry that." },
+        { id = "rf_strider", when = { pet = { family = "Tallstrider" } }, text = "Yours wants fruit and the soft mushrooms of the caves, and it will look at a strip of meat as if you had insulted its mother. Carry apples from the village, and it will follow you to the end of Kalimdor." },
+      },
+      choices = { { text = "I'll carry what it likes. Back to the keeping.", next = "r_keep" } },
+    },
+    r_loyal = {
+      lines = { { id = "rl_default", text = "It will stop testing you. A new companion pulls at the bond the way a calf pulls at its tether, and as the seasons pass, fed and happy and fighting beside you, it pulls less, until one day you notice it has not pulled in a long while. That is the day it became yours." } },
+      choices = {
+        { text = "And if I keep it unhappy?", next = "r_loyal2" },
+        { text = "Back to the keeping.", next = "r_keep" },
+      },
+    },
+    r_loyal2 = {
+      big = true,
+      lines = { { id = "rl2_default", text = "Then it will grow no closer, and one morning it will be gone into the grass, and no rod will bring it back. Some hunters say that is the beast's betrayal, and I say it is the hunter's, for the beast only did what the Earth Mother made it to do." } },
+      choices = {
+        { text = "The hunter's betrayal. A beast owes us nothing.", next = "r_keep", reply = "Then you understand the keeping better than most who come to me. It owes you nothing, and gives you everything.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A tamed beast made a bargain. It should keep it.", next = "r_keep", reply = "It made a bargain, yes, and you made one too, and the one who breaks it first is rarely the beast.", fx = { align = { light = -1 } } },
+        { text = "Back to the keeping.", next = "r_keep" },
+      },
+    },
+    r_learn = {
+      lines = { { id = "rln_default", text = "From the wild, as all beasts learn. Bind a swoop that knows how to dive, or a cougar that knows how to claw, and while it walks with you your own companion watches, and when you let the stranger go, the lesson stays. I teach the rest here: the growl, the thicker hide, the will to shrug off frost and fire." } },
+      choices = { { text = "Back to the keeping.", next = "r_keep" } },
+    },
+    r_kodo = {
+      lines = {
+        { id = "rko_default", text = "Because the kodo walk with all the tauren, not with one. They carry our homes and our elders across the plains, and they will not be bound to a single hunter's will, for they are bound already to the herd. Many have tried with the rod, and the kodo only looks at them kindly and goes on grazing." },
+        { id = "rko_tauren", when = { race = "Tauren" }, text = "You know why, I think, for you grew up beside them. The kodo carry our homes and our elders, and they belong to every tauren, not to one, and the rod has no hold on a beast that already has a herd." },
+      },
+      choices = {
+        { text = "I'd have liked a kodo at my side, all the same.", next = "r_keep", reply = "So would every calf in Bloodhoof. Ride one, then, and leave the binding to beasts who wish it.", fx = { trait = { kind = 1 } } },
+        { text = "Back to the keeping.", next = "r_keep" },
+      },
+    },
+    r_fall = {
+      lines = { { id = "rfa_default", text = "Then you kneel and call it back with the words Yaw taught you, while there is still warmth in it, and it rises unhappy and in need of feeding, so feed it. But one day, if you keep it long enough, it will grow old in a way no words can mend, and that is a different falling." } },
+      choices = {
+        { text = "What do the tauren do, when that day comes?", next = "r_fall2" },
+        { text = "Back to the keeping.", next = "r_keep" },
+      },
+    },
+    r_fall2 = {
+      narr = "He looks away toward the low hills west of the village for a moment before he answers.",
+      lines = { { id = "rfa2_default", text = "We give it back to the Earth Mother as we would one of our own, under the grass and facing the morning sun, and the hunter fasts for a day. My first wolf lies out by the Venture Company's road, and I still stop there when I pass, though she has been gone twenty summers." } },
+      choices = {
+        { text = "I'd do the same for mine.", next = "r_keep", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Back to the keeping.", next = "r_keep" },
       },
     },
     obey = {

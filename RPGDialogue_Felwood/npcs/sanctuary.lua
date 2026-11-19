@@ -958,6 +958,8 @@ P:NPC {
         { text = "I don't see how this is harder than war.", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
         { text = "Does anyone else work to cleanse this forest?", next = "maybess" },
+        { text = "Ten thousand years of stubbornness. Does it feel that long?", next = "years" },
+        { text = "Since Hyjal, do you feel the years now?", next = "years_nelf", when = { race = "NightElf" } },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Stormwind looks the other way often enough. Why can't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd guess the Alliance sends its spies into Felwood.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -973,6 +975,61 @@ P:NPC {
         { text = "Does the curse here go deeper than the trees?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'm not the one who poisoned Felwood, Arathandris.", next = "pj_arath", when = { prejudiced = true } },
         { text = "I'll leave the salving to you, because it isn't my fight.", next = "END", reply = "As you like, shaman, and the forest will manage without you. Go well, all the same.", fx = { align = { light = -1 } } },
+      },
+    },
+    years = {
+      big = true,
+      lines = {
+        { id = "yr_default", key = true,
+          text = "It did, until Hyjal. When Nordrassil gave up its blessing to destroy Archimonde, my people began to age like everyone else, and now I salve a forest that will take three hundred years to heal, knowing I may not be here to see the end of it." },
+        { id = "yr_human", when = { race = "Human" },
+          text = "It did, until Hyjal, and I say that to you without blame, though I know some of my people would not. We gave up the World Tree's blessing to stop the Legion, and now we grow old like you, and I find I have not your people's gift for hurrying." },
+        { id = "yr_young", when = { maxLevel = 30 },
+          text = "It did, until Hyjal. You're young, so perhaps you don't know that my people gave up their long lives to destroy Archimonde, and that every one of us now counts the years the way you always have." },
+      },
+      choices = {
+        { text = "Does it make you bitter?", next = "years_bitter" },
+        { text = "It was a worthy price. The world lives because you paid it.", next = "BACK",
+          reply = "It was, and I'd pay it again, and I'll still mourn it every morning I wake a little stiffer. Both can be true, as you'll find when you're older.",
+          fx = { align = { light = 1 }, opinion = { kaldorei_immortality = "worth_it" } } },
+        { text = "It was a theft, not a price. Your people deserved better.", next = "BACK",
+          reply = "Careful; that's the kind of thing the old ones whisper in Darnassus when the priestesses can't hear. I've thought it myself, and it has never once made a plant grow.",
+          fx = { align = { light = -1 }, opinion = { kaldorei_immortality = "loss" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years_bitter = {
+      lines = {
+        { id = "yb_default", text = "Some days, yes, and not at the Legion, which was always going to be cruel. It's the young ones who make me bitter, who came out of Hyjal glad of short lives and now want to sail to Stormwind and see everything at once, as though the forests here could heal themselves while they're away." },
+      },
+      choices = {
+        { text = "Perhaps they've earned the right to see the world.", next = "years_young" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years_young = {
+      big = true,
+      lines = {
+        { id = "yy_default", text = "Perhaps, and I know I sound like the oldest tree in the grove. But we used to have forever to mend what we broke, and now we have a few hundred years, and I can't make myself forgive anyone who spends them in a human harbour instead of here." },
+      },
+      choices = {
+        { text = "The young should go. A people that never leaves forgets how to change.", next = "BACK",
+          reply = "That's what my niece said when she sailed for Menethil, nearly word for word. I suppose I'll have to forgive her eventually, if there's time.",
+          fx = { align = { order = -1 } } },
+        { text = "You're right. Their duty is here, mending Kalimdor.", next = "BACK",
+          reply = "Thank you. Tell that to the next young Sentinel you see buying a ship's passage at Auberdine, and see how kindly she takes it.",
+          fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years_nelf = {
+      lines = {
+        { id = "yn_default", text = "In my knees in the mornings, and in my hands when the salve is cold, and that is a thing no kaldorei had to say before Hyjal. You feel it too, I expect, or you will, and the young ones laugh about it as if it were a new kind of weather." },
+      },
+      choices = {
+        { text = "I don't laugh about it. I mourn it too.", next = "BACK", fx = { affinity = 1, opinion = { kaldorei_immortality = "loss" } } },
+        { text = "I'd rather live a short life than an endless vigil.", next = "BACK", reply = "Then you're one of the young ones, whatever your age. Live it well, at least, and don't leave too much mending for the rest of us.", fx = { opinion = { kaldorei_immortality = "freed" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     harder = {
@@ -1009,6 +1066,7 @@ P:NPC {
     cenarion_circle = { { id = "tp_circle", text = "We are the Circle's hands in this forest, where few others would come." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows Felwood healthy, every leaf of it, and I refuse to believe that can't be made real. That's why the Circle calls me stubborn." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw kept their minds when the rest of their people fell, and I admire that more than I can say. We work with them where we can." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree gave up its blessing to end Archimonde, and my people began to age that night. I'd make the same choice, and I still feel it in my knees.", next = "years" } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's fel is in the soil, the water and the trees. I'll pull it out root by root if I have to." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess sends her Sentinels to Ashenvale, but nobody to Felwood. I don't blame her, but I'd like a few more hands." } },
     _none = { { id = "tp_none", text = "That I don't know, though the curse I know, and I have known it since the Legion left it here." } },

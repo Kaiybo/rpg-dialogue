@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-19)
+- Grif Wildheart rewritten with the dwarf taming quests; Ironforge and Dun Morogh hunter and pet trainers deepened along the hunter's road.
+
 ## 1.30.0 (2026-11-19)
 - Dwarves of Ironforge and Dun Morogh deepened (Magni, Magellas, Stormpike, the senators, Archesonus, Karnik and Dun Morogh folk), with dwarf-only branches. Warrior trainers and the Defensive Stance chain (Muren Stormpike, Tormus Deepforge) rewritten. 25 doubled NPCs are now one each.
 

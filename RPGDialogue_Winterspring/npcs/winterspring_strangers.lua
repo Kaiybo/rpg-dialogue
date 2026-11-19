@@ -321,3 +321,98 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask Wynd; he knows the old things." } },
   },
 }
+
+-- Artorius the Amiable: a smiling traveller on Winterspring's high road who is really Artorius the Doombringer, a
+-- doomguard and one of the four corrupters Vartrus the Ancient sets hunters against (Stave of the Ancients). His
+-- disguise is cheerful; only hunters on the Stave hunt (and observant beasts) see through it. No fight is started here.
+P:NPC {
+  key = "artorius", id = TODO_NPC("Artorius the Amiable"), name = "Artorius the Amiable",
+  bible = "bibles/winterspring_strangers.md", role = "citizen", tier = "quest", gender = "male",
+  communities = { "winterspring_wilds" }, temper = { "cheerful", "smooth" }, values = { "ambitious", "cruel" },
+  notices = { "class", "pet" },
+
+  impression = {
+    first = "Artorius the Amiable stands on the snow road as though he owned it, wishing everyone a pleasant morning in a voice like warm honey. Something about his smile goes on a little too long.",
+    third = "{name} met Artorius the Amiable, a very friendly traveller on Winterspring's high road.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Good morning, good morning! Splendid weather for it, whatever it is you are out here doing." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! I do so enjoy a familiar face on a lonely road, and yours is very familiar now." },
+    { id = "g_hunter_stave", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") }, text = "Ah, a hunter, and alone, too. How very brave, and how very convenient." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Your animal does not like me, I see, it has put its ears back and its tail down. Animals are such poor judges of character, don't you find?" },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You look at me the way hunters look at tracks in the snow, friend, and I'm not sure I care for it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Artorius, at your service, and they call me the Amiable, which I think is very kind of them. I walk the high road between the springs and Everlook and wish good morning to everyone I meet, for there is so little kindness in the world, and somebody must spread it about." },
+        { id = "h_hunter_stave", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") }, text = "You have been talking to trees, I think, old dead trees in Felwood who remember things they ought to have forgotten. Never mind, friend, never mind; let us be civil for a little while longer, since we are both so far from home." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I have all the time in the world, quite literally." },
+        { id = "h_again2", text = "Go on, go on. I do love a conversation." },
+      },
+      choices = {
+        { text = "What brings you to Winterspring?", next = "why" },
+        { text = "The beasts here flee from you.", next = "beasts" },
+        { text = "You don't seem to feel the cold.", next = "cold" },
+        { text = "I know what you are, Artorius.", next = "know", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
+        { text = "Something about you smells of brimstone.", next = "lock", when = { class = "WARLOCK" } },
+        { text = "The Sentinels would want a word with you.", next = "kal", when = { race = "NightElf" } },
+        { text = "Good day to you, Artorius.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_d", text = "Oh, the views, the air, the hot springs, the company of the furbolgs, who have become so lively lately! I find the north very restful, and there are so few people up here to disturb one's work, whatever one's work happens to be." } },
+      choices = {
+        { text = "The furbolgs are poisoned, not lively.", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      lines = { { id = "w2_d", text = "Are they? How dreadful, and how quickly a whole people can change when they are given the right drink. I am sure whoever is responsible is very sorry, or at any rate very busy." } },
+      choices = { { text = "That's an odd thing to say. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    beasts = {
+      lines = { { id = "b_d", text = "They do, the silly things, and I have tried everything, sweets, songs, standing very still. Perhaps they smell the road on me, or perhaps they simply know something about me that I have not had the chance to tell you yet." } },
+      choices = { { text = "Beasts are rarely wrong about such things.", next = "BACK", reply = "Rarely, friend, but not never. Let us hope this is one of the rare times, for your sake.", fx = { trait = { cautious = 1 } } } },
+    },
+    cold = {
+      lines = { { id = "c_d", text = "I run warm, I always have, it is something of a family trait. My relations live somewhere much, much hotter than this, and I am afraid they would find Winterspring terribly dull." } },
+      choices = { { text = "Somewhere hotter. I see. Something else.", next = "BACK" } },
+    },
+    know = {
+      big = true,
+      lines = { { id = "k_d", text = "Do you? Then you are cleverer than you look, and much less clever than you think, because a doomguard who has walked this world since before your grandmother's grandmother was born does not fear one hunter and a dead tree's grudge. Turn around and walk away, and I will let you keep smiling back at me." } },
+      choices = {
+        { text = "I'll keep my distance, demon, and my arrows ready.", next = "END", reply = "Distance! Yes, keep that, if you can. Few ever manage it for long.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "I'll face you openly. No tricks, demon.", next = "END", reply = "Openly! How charming, and how short your story will be.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "I am not ready to face you yet.", next = "END", reply = "Wise, friend, very wise. I will be here whenever you are ready, which is the most terrible thing about me." },
+      },
+    },
+    lock = {
+      lines = { { id = "l_d", text = "Does it? Then you of all people should know better than to mention it, friend, for those who smell brimstone usually carry a little of it themselves. Let us say nothing more about each other's perfume, shall we?" } },
+      choices = { { text = "Agreed, for now. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    kal = {
+      lines = { { id = "ka_d", text = "Oh, the Sentinels! Fierce women, beautiful bows, and such long memories, which is a pity, because your people remember a great deal about my people, and so little of it is flattering. Run along and tell them, if you like, and see how long it takes them to come this far north." } },
+      choices = { { text = "Long enough. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "The road, the springs, the weather, and a little about everybody I meet, which is a hobby of mine." } },
+    background = { { id = "tp_bg", text = "Oh, I come from far away and I have been travelling a very long time, and that is all very dull, so let us talk about you." } },
+    winterfall = { { id = "tp_winterfall", text = "The furbolgs? Charming creatures, and so very thirsty lately." } },
+    burning_legion = { { id = "tp_legion", text = "What an unpleasant subject, friend, and such an unfair reputation they have, I always think." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend, and I wouldn't want to gossip, though I do love to hear it." } },
+  },
+}

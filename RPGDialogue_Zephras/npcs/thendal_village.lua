@@ -634,7 +634,51 @@ P:NPC {
         { text = "Train me, Tai'ree.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How should I look after my companion?", next = "xpet", when = { class = "HUNTER" } },
         { text = "Nobody at home expected a human hunter.", next = "xhuman", when = { race = "Human", class = "HUNTER" } },
+        { text = "What should a hunter learn before leaving the isle?", next = "hp", when = { class = "HUNTER" } },
+        { text = "I'm a dwarf, and dwarves hunt with rifles.", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "My people are elves of the forest, like yours once were.", next = "hp_elf", when = { race = "NightElf" } },
         { text = "Farewell, Tai'ree.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Everything I can teach you before you leave the isle, and then everything the world below can teach you after. The Monkey, the Serpent Sting, how to track the vuldren in the grass, and a beast of your own when you're ready, and after that you'll keep learning until someone better tells you to stop." },
+      },
+      again = { { id = "hp_again", text = "Anything else?" } },
+      choices = {
+        { text = "Why the Serpent Sting first?", next = "hp_sting" },
+        { text = "What makes a good hunter, in your eyes?", next = "hp_good" },
+        { text = "Something else, Tai'ree.", next = "hello" },
+      },
+    },
+    hp_sting = {
+      lines = { { id = "hps_default", text = "Because it keeps working while you don't, and on Zephras you'll always be doing three things at once. Put it on the vuldren, then shoot, then step back, and by the time it reaches you, it's half dead from the sting alone." } },
+      choices = {
+        { text = "Let the poison do the work. Smart.", next = "BACK", reply = "Smart is the only kind of hunter that grows old here.", fx = { align = { honor = -1 } } },
+        { text = "Poison feels like a coward's weapon.", next = "BACK", reply = "The vuldren don't care how you feel, and neither will the ones waiting below.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_good = {
+      lines = { { id = "hpg_default", text = "Nerve, and not wasting it. My teacher said a good hunter has as much courage as anyone else and spends it more carefully, and I didn't understand her until I'd been bitten enough times to agree." } },
+      choices = {
+        { text = "I'll spend my courage carefully.", next = "BACK", reply = "Good. Start now, and stop looking at the ursera dens like you mean to go in.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpd_default", text = "So I've heard, and so I heard, from the docks, the first time one of you fired one. I can't teach you the rifle, but I can teach you where to stand and when to shoot, and that holds for a bow or a thunderbolt." } },
+      choices = {
+        { text = "That's all I need from you.", next = "BACK", reply = "Then stand still and listen, if a dwarf can do either.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe_default", text = "So the elders tell us, and I'd like to know what that means some day. For now, I'll tell you the beasts of this isle don't know your people any better than they know mine, and you'll find the wind here hunts with you or against you, never neither." } },
+      choices = {
+        { text = "Then I'll learn the wind.", next = "BACK", reply = "Good. It'll teach you faster than I can.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wilds = {

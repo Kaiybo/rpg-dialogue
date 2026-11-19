@@ -53,3 +53,6 @@ Authored, not canon: Gor'mul's view of Drum and of Thrall, the camp-born advice;
 ## Authored, not canon (prejudices, 0.80.0)
 - Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of his lookouts this season; he "reads boots".
 - Gor'mul: can't look at the Forsaken without wondering which of them kept the Hammerfall camp (`prejudice`, race Scourge); the guards talking over the prisoners like cattle is what he still hears.
+
+## Night elves (prejudice pass)
+- Nials, night elves: compares them unfavourably with the quel'dorei who kept faith with Arathor; a kaldorei player can point out Stromgarde also left the Alliance (`[Persuade]`, npcFlag `nials_nelf_soft`).

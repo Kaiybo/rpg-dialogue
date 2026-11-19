@@ -1824,6 +1824,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Make friends with a mage, I always say, because we're both very good at keeping things at a distance." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You do realise that if you set the Hall on fire as a bear, it's still my bucket of sand that puts it out?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please tell me you're better with fire than my students. I've used two buckets of sand already this morning." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "A kaldorei, in the Hall of Mysteries! Oh, I've a thousand questions and I've promised myself I'll only ask three, so do stop me at four, because I won't stop myself." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before the frost melts, because I timed it at four minutes and I've already lost two to chatting." },
@@ -1844,6 +1846,8 @@ P:NPC {
         { text = "Why are paladins rude about your lightning, Bink?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do mages and druids draw on the same magic, Bink?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are a shaman's flames anything like a mage's, Bink?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Have you ever studied a moonwell, Bink?", next = "ne_well", when = { ["not"] = { race = "NightElf" } } },
+        { text = "Our moonwells are Elune's gift, Bink, not an engine.", next = "ne_x", when = { race = "NightElf" } },
         { text = "Farewell, Bink.", next = "END" },
       },
     },
@@ -1924,6 +1928,46 @@ P:NPC {
         { text = "A stove is too slow for what's coming.", next = "BACK", reply = "Too slow, perhaps, but a stove doesn't burn the house down, and I'd rather be warm than right, if it comes to that.", fx = { align = { light = -1 } } },
         { text = "I'll take care not to burn the house.", next = "BACK", reply = "Thank you! And if you ever want to learn a little stove magic, my door's always open, and so is the biscuit tin.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Night elves (0.94.0 work): a gnome mage who wants to measure a moonwell and is never allowed.
+    ne_well = {
+      lines = {
+        { id = "new_default", text = "Studied? I've begged! A pool that glows all night, every night, for longer than anyone can remember, and never once needs refuelling, and by my sums that's the steadiest source of power I've ever heard of. And not one kaldorei in Darnassus will let me near one with so much as a thermometer." },
+      },
+      choices = {
+        { text = "Why won't they let you?", next = "ne_well2" },
+        { text = "Some things are holy. Leave their wells alone, Bink.", next = "BACK",
+          reply = "I know, I know, and I do try to, honestly. But you can't stop a gnome wondering, any more than you can stop a moonwell glowing, and at least my wondering doesn't glow.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "If it's power, it can be measured. Keep asking.", next = "BACK",
+          reply = "That's what I keep telling them! I've sent four letters to the Temple of the Moon, each one politer than the last, and the fourth one had a drawing of a very small, very respectful thermometer.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "secretive" } } },
+      },
+    },
+    ne_well2 = {
+      lines = {
+        { id = "nw2_default", text = "Because it's Elune's, they say, and because a gnome mage asking about it is two sins at once. The kaldorei don't hold with the arcane at all, not since something very old went very badly for them, and every time I ask what it was, a priestess looks at me as if I'd asked to weigh her grandmother." },
+      },
+      choices = {
+        { text = "Maybe you should learn what happened before asking for the wells.", next = "BACK", reply = "That's very sensible, and it's precisely the order I'd tell a student to work in, so I'm a little embarrassed. History first, thermometers second." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x = {
+      narr = "Her ears go pink, and she tucks a notebook behind her back.",
+      lines = {
+        { id = "nex_default", text = "Oh, I know, I do know, and I'm sorry if it sounds as if I want to put a crank on it! But your goddess has kept those wells shining since before Ironforge had a door, and you can't blame a mage for wanting to know how, can you? It's the most beautiful working I've never been allowed to see." },
+      },
+      choices = {
+        { text = "Come and see one, then. Leave the instruments behind.", next = "BACK",
+          reply = "No instruments at all? Not even a wee one? Oh, all right, yes, I'd love to, and I'll keep my hands in my sleeves the whole time, I promise.",
+          fx = { affinity = 2, align = { light = 1 }, opinion = { gnomes = "curious" } } },
+        { text = "Mages broke the world once. You'll get no wells from us.", next = "BACK",
+          reply = "That's fair, I suppose, though it does seem hard to blame a gnome born last century for it. I'll keep asking, very quietly, from a respectful distance.",
+          fx = { affinity = -1, align = { light = -1 }, opinion = { gnomes = "reckless" } } },
+        { text = "That was your three questions.", next = "BACK", reply = "Was it? Oh, bother, it was. Then I'll save the fourth for next time, and it's a good one." },
       },
     },
   },

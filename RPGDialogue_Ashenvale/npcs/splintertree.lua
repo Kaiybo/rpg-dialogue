@@ -161,6 +161,9 @@ P:NPC {
         { text = "I'm a hunter. Where should I start?", next = "start", when = { class = "HUNTER" } },
         { text = "The Earth Mother would weep at this war.", next = "mother", when = { race = "Tauren" } },
         { text = "My kin cut these trees. Does that make me your enemy?", next = "orc_s", when = { race = "Orc" } },
+        { text = "I've tamed a beast of this forest. Is that wrong?", next = "hnt_tamed", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "The elf hunters here are good. They track us like prey.", next = "hnt_elves", when = { class = "HUNTER", minLevel = 22 } },
+        { text = "When I finish the Hunt, what comes after?", next = "hnt_after", when = { class = "HUNTER", questDone = TODO_QUEST("The Hunt Completed") } },
         { text = "I'll take on the Hunt.", next = "END", fx = { affinity = 1 } },
         { text = "Why should a warrior care how beautiful this forest is?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can the Horde take wood here without wounding the forest?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -198,6 +201,25 @@ P:NPC {
     mother = {
       lines = { { id = "mo_default", text = "She would, and I think she does, every time an axe bites. But she also made both the hunter and the hunted, and I try to honour them both." } },
       choices = { { text = "May she watch over us.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } } },
+    },
+    hnt_tamed = {
+      lines = { { id = "hta_d", text = "Not wrong, if the beast chose you as much as you chose it. The Earth Mother made the hunter and the hunted to walk together sometimes, and a beast that leaves this forest beside you is still a child of it, so let it rest under trees when you can and it will thank you." } },
+      choices = {
+        { text = "It came to me freely. I'm sure of it.", next = "BACK", reply = "Then you are blessed, and so is it. Walk with the Earth Mother, both of you.", fx = { affinity = 1 } },
+        { text = "I took it because I needed it.", next = "BACK", reply = "That is honest, and honesty is a beginning. Need can become friendship, if you feed it well and ask little.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    hnt_elves = {
+      big = true,
+      lines = { { id = "hel_d", text = "They are, and I will not pretend otherwise, because I have watched a kaldorei huntress stalk a Warsong scout for an hour without a leaf moving. They have hunted this forest for longer than my people have had a name, and I think they see us as the orcs once saw the humans, as something that came to take." } },
+      choices = {
+        { text = "Then we should respect them as hunters, even in war.", next = "BACK", reply = "That is what I believe. Respect does not mean you lower your bow, only that you never stop seeing who is at the end of it.", fx = { align = { honor = 1 } } },
+        { text = "Then we must hunt them first, and better.", next = "BACK", reply = "Spoken like an orc of the Warsong. I will not stop you, but I will not cheer, either.", fx = { align = { honor = -1 } } },
+      },
+    },
+    hnt_after = {
+      lines = { { id = "haf_d", text = "After the Hunt comes the long quiet, when you know the forest knows your name and you must decide what you will do with that. Some hunters go home to Mulgore and never shoot again, and some go to Feralas, where the beasts are even older than these, and I think you are the second kind." } },
+      choices = { { text = "Feralas, then. Thank you, Senani.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -505,6 +527,7 @@ P:NPC {
         { text = "What could a spellcaster do on your watch paths?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you miss the islands?", next = "islands" },
         { text = "The fighting looks bad from here.", next = "fighting" },
+        { text = "How do the Darkspear see the night elves?", next = "kaldorei" },
         { text = "The outrunners seem to be after something.", next = "outrun" },
         { text = "Echo Isles born, cousin?", next = "cousin", when = { race = "Troll" } },
         { text = "I can slip past their scouts.", next = "rogue_k", when = { class = "ROGUE" } },
@@ -512,6 +535,49 @@ P:NPC {
         { text = "Stay sharp.", next = "END" },
         { text = "A warrior can't catch an elf runner on foot, Kuray'bin.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "The forest is angry at the axes. Will Splintertree ever listen?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+      },
+    },
+    kaldorei = {
+      lines = {
+        { id = "ka_default", text = "Longer than anybody, mon. Before de kaldorei had a single city, trolls ruled this land from the jungles to the cold north, and the elves be the young ones who pushed us back, so we remember them from long before any orc came over the sea." },
+        { id = "ka_orc", when = { race = "Orc" },
+          text = "You orcs think this war start with Grom and his axe, mon, but trolls been fighting elves since before the world broke. The old songs name them, and none of the names be kind." },
+        { id = "ka_tauren", when = { race = "Tauren" },
+          text = "Your people walked with them once, so you hear a gentler story, mon. Ours be older, from when the troll empires ruled this land and the elves be the young ones pushing us back." },
+      },
+      choices = {
+        { text = "So the Darkspear hate them?", next = "kaldorei_hate" },
+        { text = "You don't sound angry about it.", next = "kaldorei_calm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_hate = {
+      lines = {
+        { id = "kh_default", text = "Some do, mon, and they say the elves act like de forest be theirs alone, like nobody ever walked under these trees before them. Me, I watch their runners come down the creek at dusk and I think they be just as scared of losing home as we were on the Echo Isles." },
+      },
+      choices = {
+        { text = "They took troll land once. Let them lose some now.", next = "BACK", reply = "Ha, you sound like my uncle, mon, and he never lose an argument or a grudge. Watch the creek, then, and let the old songs keep your spear warm.", fx = { align = { light = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Old wars stay old. We fight for today's reasons.", next = "BACK", reply = "Ya, mon, timber and arrows be reason enough without digging up the dead. Better to hate the elf in front of you than the one your grandmother sang about.", fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Kadrak swears the elves pay the centaur to raid us.", next = "kaldorei_kolkar", when = { heardClaim = "kadrak_elves_pay_kolkar" } },
+      },
+    },
+    kaldorei_kolkar = {
+      lines = {
+        { id = "kk_default", fx = { expose = "kadrak_elves_pay_kolkar" },
+          text = "Kadrak got a long memory and a short list of enemies, mon. I've watched that creek two seasons, and the Kolkar shoot elf outrunners as quick as they shoot ours, so whoever be paying them, it ain't the Sentinels." },
+      },
+      choices = {
+        { text = "I'll tell Kadrak, if he'll listen.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei_calm = {
+      lines = {
+        { id = "kc_default", text = "Angry be for the young, mon. The loa teach that every people get a season, and the elves had a long one, and I don't need to hate them to watch the paths; I only need to see them first." },
+      },
+      choices = {
+        { text = "That's a wise way to fight a war.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fighting = {

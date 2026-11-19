@@ -221,6 +221,7 @@ P:NPC {
         { text = "What brought trolls up into these mountains?", next = "why" },
         { text = "Who else lives at Malaka'jin?", next = "camp" },
         { text = "How do you hunt up here?", next = "hunt" },
+        { text = "Do the night elves hunt these mountains too?", next = "huntress" },
         { text = "How do things stand on the Echo Isles?", next = "xtroll", when = { race = "Troll" } },
         { text = "Show me the work.", next = "BUSINESS" },
         { text = "I'll be on my way, Xen'Zilla.", next = "END" },
@@ -292,6 +293,37 @@ P:NPC {
       },
     },
 
+    huntress = {
+      lines = {
+        { id = "hs_default", text = "Ya, mon, up on Stonetalon Peak where the Sentinels keep their eyries, and their huntresses be the best I ever saw. Once I tracked a stag three days up the north slope and found a kaldorei woman already standin' over it, with a cat beside her as big as a raptor." },
+        { id = "hs_hunter", when = { class = "HUNTER", pet = { type = "Beast" } },
+          text = "Ya, hunter, up on Stonetalon Peak, and you gonna want to see their huntresses work before you meet one. Once I tracked a stag three days up the north slope and found a kaldorei woman already standin' over it, with a cat beside her as big as {pet}, maybe bigger." },
+      },
+      choices = {
+        { text = "What happened?", next = "huntress_stag" },
+        { text = "The elves act like these mountains are theirs alone.", next = "huntress_theirs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    huntress_stag = {
+      lines = {
+        { id = "hst_default", text = "She looked at me and I looked at her, and then she cut the stag in half and walked off with the front end. I never heard of a Sentinel sharing before or since, mon, and my cousins still say I made it up." },
+      },
+      choices = {
+        { text = "A hunter's respect runs deeper than any war.", next = "BACK", reply = "Dat be what I think every time I tell it, mon. The war be the chiefs' business, but the hunt belong to everybody who walk quiet.", fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "You should have taken the whole stag, and her too.", next = "BACK", reply = "Maybe, mon, if that cat let me, and I don't think it would. Some fights you don't start just because you could win half of them.", fx = { align = { honor = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    huntress_theirs = {
+      lines = {
+        { id = "ht_default", text = "They do, mon, and it make my teeth ache. They tell the Horde to keep out of Ashenvale, and then they sit up on the Peak like a nest of owls while the Venture Company chew the whole valley down below them, and no Sentinel ever come down to stop it." },
+      },
+      choices = {
+        { text = "Maybe they're stretched too thin to fight everyone.", next = "BACK", reply = "Could be, mon, could be. Then they should stop actin' like every tree be theirs to guard, if they can't guard half of them." },
+        { text = "Then the forest isn't theirs to forbid us.", next = "BACK", reply = "Dat be what the orcs say too, mon, and I'm startin' to agree. A forest belong to whoever look after it, and the goblins sure ain't doin' that." },
+      },
+    },
     xtroll = {
       lines = { { id = "xt_default", text = "Not good, mon. Vol'jin leads us from Orgrimmar now, and Zalazane still holds the Isles with his hexed slaves. Some day I go home and put a spear through that one, after the spiders." } },
       choices = {

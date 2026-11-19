@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.46.0 (2026-11-19)
+- New files `hunter_notice.lua` and `my_beast.lua` (restart the game fully). People notice a hunter and their beast; talk to your own pet; the hunter trainer's road from 1 to 60; four new Stories (two for hunters by faction, Rhok'delar, and a night elf one).
+
 ## 1.45.0 (2026-11-19)
 - New warrior_notice.lua (full restart): people notice warriors. Warrior trainer pool follows the warrior's road. Four new Stories: Harry's list, The fever in the blood, The unbeaten, A Bronzebeard in the Gorge.
 

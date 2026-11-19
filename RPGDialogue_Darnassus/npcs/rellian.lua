@@ -59,6 +59,7 @@ P:NPC {
         { text = "Could the Circle heal them in their dreaming?", next = "druid_r", when = { class = "DRUID" } },
         { text = "I've seen fel moss on the grells and furbolgs too.", next = "felmoss", when = { any = { { questDone = TODO_QUEST("Gnarlpine Corruption") }, { topicKnown = "fel_moss" } } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "The Archdruid says the tree is young, and will heal.", next = "ne_fandral", when = { race = "NightElf" } },
         { text = "Goodbye, Rellian.", next = "END" },
       },
     },
@@ -148,6 +149,16 @@ P:NPC {
       choices = {
         { text = "Good. Somebody needs to put it together.", next = "BACK", fx = { affinity = 1, learn = { "fel_moss" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_fandral = {
+      big = true,
+      lines = {
+        { id = "nfd_default", text = "He does, and I hope he is right, and I will keep burning tumors until he is. I owe the Archdruid my place at the Enclave, and I would not say a word against him, but a tree planted without the dragons' blessing may need more help than any of us expected." },
+      },
+      choices = {
+        { text = "Then we should tell him plainly, and keep telling him.", next = "BACK", reply = "Denalan does, every season, and gets very little thanks. Perhaps it will sound different from you.", fx = { align = { order = -1 } } },
+        { text = "Trust the Archdruid. He grew it; he'll mend it.", next = "BACK", reply = "I do trust him. I only wish trust made the timberlings any less sick.", fx = { align = { order = 1 } } },
       },
     },
   },

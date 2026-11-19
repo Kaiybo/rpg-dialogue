@@ -69,6 +69,7 @@ P:NPC {
         { text = "What's wrong with helping Zenn?", next = "zenn" },
         { text = "How bad are things in Teldrassil?", next = "trouble" },
         { text = "I didn't know he was a satyr.", next = "excuse", when = { questDone = TODO_QUEST("Zenn's Bidding") } },
+        { text = "How does one become a Sentinel?", next = "ne_sentinel", when = { race = "NightElf" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -106,12 +107,37 @@ P:NPC {
         { text = "A satyr's coin spends like any other.", next = "BACK", reply = "It spends, and it buys you nothing but the Council's attention. I would get rid of it before it gets rid of you.", fx = { align = { honor = -1 } } },
       },
     },
+    ne_sentinel = {
+      lines = {
+        { id = "nst_default", text = "You ask the High Priestess, and she sends you to a captain, and the captain sends you to a tree branch for a season to learn how to sit still. The Sentinels began as priestesses who picked up bows when the Legion came, and we still pray before we shoot." },
+      },
+      choices = {
+        { text = "Are there men among the Sentinels?", next = "ne_sentinel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_sentinel2 = {
+      lines = {
+        { id = "nst2_default", text = "A few now, since the war, and more every year, but it has always been the daughters who stood watch while the sons went to the druids and slept in the Dream. Since the Dream took so many of them, we take whoever has the patience, and very few do." },
+      },
+      choices = { { text = "I have patience. Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
   },
 }
 
 ---------------------------------------------------------------------------
 -- Sentinel Arynia Cloudsbreak
+-- Authored, not canon: openly contemptuous of outsiders (humans cut, dwarves dig, gnomes poisoned
+-- their own city) and sure the mainland brought every sickness; a player can soften her (npcFlag arynia_soft).
 ---------------------------------------------------------------------------
+P:Claim {
+  id = "arynia_sickness_from_mainland", by = "arynia", truth = "false",
+  text = "Every sickness on Teldrassil came over the water with the boats and the outsiders.",
+  truthNote = "The harpies may well have come from the mainland, but the twisted timberlings and the soured moonwells began before outsiders came, and the druids suspect the tree itself (Denalan, Corithras). Arynia believes it sincerely.",
+  tell = "true",
+  exposedBy = { "denalan.bl_default", "corithras.w2_default" },
+}
+
 P:NPC {
   key = "arynia", id = TODO_NPC("Sentinel Arynia Cloudsbreak"), name = "Sentinel Arynia Cloudsbreak",
   bible = "bibles/teldrassil_folk.md", role = "soldier", tier = "quest",
@@ -128,6 +154,14 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back in the glade. Did you bring harpy belts, or only bruises?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Enchanted Glade") },
       text = "The nests are thinner since you came. The Oracle Tree is grateful, and so am I." },
+    { id = "g_human", when = { race = "Human" }, priority = 5,
+      text = "A human in the Oracle's glade. Keep your axe on your belt and your fire in your pack, and don't so much as lean on the trees." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, priority = 5,
+      text = "A dwarf. There's nothing under this glade worth digging for, so keep your pick on your back and your powder dry and far from me." },
+    { id = "g_gnome", when = { race = "Gnome" }, priority = 5,
+      text = "A gnome. If anything you carry ticks, hums or smokes, it stays out on the road where the harpies can have it." },
+    { id = "g_soft", when = { npcFlagBefore = "arynia_soft" }, priority = 10,
+      text = "You again. I've struck you off the list of outsiders I curse at dawn, so don't make me write you back on it." },
   },
 
   notice = {
@@ -145,6 +179,8 @@ P:NPC {
           text = "I am Sentinel Arynia Cloudsbreak. I was sent here with a few Sentinels to protect the Oracle Tree from the harpies that have nested all around this glade, and little by little we're pushing them back." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Enchanted Glade") },
           text = "The Bloodfeather harpies nest along the glade's edges. Bring me six of their belts as proof, and every one you bring is one less shrieking at the Oracle Tree's roots." },
+        { id = "h_outsider", when = { race = { "Human", "Dwarf", "Gnome" }, ["not"] = { npcFlagBefore = "arynia_soft" } },
+          text = "I'll say it plainly, since I've no patience for courtly lies: I didn't ask for you, and neither did the Oracle Tree. The harpies at least had the honesty to come shrieking." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your eyes on the branches." },
@@ -158,6 +194,10 @@ P:NPC {
         { text = "You can't have many Sentinels here.", next = "few" },
         { text = "The nests are thinner now. What next?", next = "after", when = { questDone = TODO_QUEST("The Enchanted Glade") } },
         { text = "I'd like to be a Sentinel one day.", next = "join", when = { race = "NightElf", gender = "female" } },
+        { text = "What do the Sentinels think of the Watchers?", next = "ne_watch", when = { race = "NightElf" } },
+        { text = "You blame the mainland for a great deal, Sentinel.", next = "mainland" },
+        { text = "You don't want me here, do you?", next = "xout_a", when = { race = { "Human", "Dwarf", "Gnome" }, ["not"] = { npcFlagBefore = "arynia_soft" } } },
+        { text = "Still cursing the mainland every dawn, Arynia?", next = "xsoft_a", when = { npcFlagBefore = "arynia_soft" } },
         { text = "I'll thin the nests.", next = "END" },
       },
     },
@@ -234,9 +274,93 @@ P:NPC {
       lines = { { id = "af_default", text = "Now we hold what you've won, and I write to Darnassus asking for two more Sentinels, which they'll refuse. The harpies will come back in spring, but fewer, and you've bought the Oracle Tree some quiet." } },
       choices = { { text = "Glad to help. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    mainland = {
+      big = true,
+      lines = {
+        { id = "ml_default", key = true, fx = { hear = "arynia_sickness_from_mainland" },
+          text = "Of course I do. Everything wrong on this tree came over the water: the harpies, the visitors, the sickness in the Gnarlpine, and before the boats began running from Auberdine we had none of it." },
+        { id = "ml_nelf", when = { race = "NightElf" }, fx = { hear = "arynia_sickness_from_mainland" },
+          text = "Someone has to, {g:brother|sister}. Everything wrong on this tree came over the water, the harpies and the visitors and the sickness in the Gnarlpine, and before the boats began running from Auberdine we had none of it." },
+      },
+      choices = {
+        { text = "Keep the docks open. Teldrassil can't stand alone.", next = "BACK",
+          reply = "So the High Priestess says, and I obey her. I don't have to like the cargo.", fx = { align = { order = 1 } } },
+        { text = "Then close the docks, and let Teldrassil heal.", next = "BACK",
+          reply = "Finally, someone with sense. Tell it to the Council in Dolanaar, because they've stopped listening to me.", fx = { align = { order = -1 } } },
+        { text = "Denalan says the sickness began before outsiders came.", next = "mainland2" },
+      },
+    },
+    mainland2 = {
+      lines = {
+        { id = "ml2_default", text = "So the druids keep telling me, and Denalan knows his seeds better than I know anything. But it's easier to aim an arrow at a harpy than at a tree, and I'm a Sentinel, not a druid." },
+      },
+      choices = {
+        { text = "That's more honest than I expected.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout_a = {
+      big = true,
+      lines = {
+        { id = "xa_default", key = true,
+          text = "No, and I'll not pretend otherwise. Your kind cut and dig and burn wherever you settle, the same as the orcs in Ashenvale, and the only difference I can see is that you ask permission first and then do it anyway." },
+        { id = "xa_human", when = { race = "Human" },
+          text = "No. Your people cleared their own forests for wheat and timber until there was nothing left of them but farms, and now you come to ours with the same axes and smile while you measure the trees." },
+        { id = "xa_dwarf", when = { race = "Dwarf" },
+          text = "No. Your Explorers' League has been digging through the ruins of our old cities in Darkshore and calling it scholarship, and I've seen what crawls out of the holes you leave behind." },
+        { id = "xa_gnome", when = { race = "Gnome" },
+          text = "No. Your people poisoned their own city so badly they had to flee it, and I'll not have anyone who did that to a mountain near a tree that's already sick." },
+      },
+      choices = {
+        { text = "We stood beside your people at Hyjal. That should count.", next = "BACK",
+          reply = "Some of you did, and they're dead, and the ones who came after were never there. I'll honour your dead and watch your living.", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. Plenty of my people deserve that.", next = "BACK",
+          reply = "At least you're honest, which is more than your envoys manage. Keep your hands to yourself and we'll get along.", fx = { align = { honor = -1 } } },
+        { text = "I've cut nothing and dug nothing. Judge me by my deeds.", tag = "Persuade", next = "arynia_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { questDone = TODO_QUEST("The Enchanted Glade") }, { killed = { name = "Bloodfeather", min = 30 } } } } },
+          fail = { next = "xout_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xout_fail = {
+      lines = {
+        { id = "xf_default", text = "I've heard that before, from a man who paced out the Oracle Tree's trunk while he said it. Bring me harpy belts, and we'll see what your deeds are worth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll go and thin the nests.", next = "END" },
+      },
+    },
+    arynia_soft = {
+      lines = {
+        { id = "as_default", key = true, fx = { npcFlag = { set = { "arynia_soft" } } },
+          text = "Hm. You've bled for this glade and never once asked what the Oracle's wood would fetch, which is more than I expected of anyone off the boat. I still don't love your people, but I'll grant you aren't the ones I've been cursing." },
+      },
+      choices = {
+        { text = "That's enough for me, Sentinel.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsoft_a = {
+      lines = {
+        { id = "xs_default", text = "Every dawn, and I've no plans to stop. But I've started saying \"most of the mainland\" instead of \"the mainland\", and my Sentinels say that's your fault." },
+      },
+      choices = {
+        { text = "I'll take the blame gladly.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     join = {
       lines = { { id = "jo_default", text = "Then go to Darnassus when you're ready and speak to the Sentinels on the Warrior's Terrace, and don't expect them to be gentle. Learn to stand a night watch without yawning first; that's harder than any glaive." } },
       choices = { { text = "I will. Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
+    ne_watch = {
+      lines = {
+        { id = "nwc_default", text = "We do not think of them much, if we can help it. They kept the Barrow Deeps for ten thousand years and saw nothing of the sky, and when one of them passes through Darnassus she looks at us as if we were children playing at guard duty." },
+      },
+      choices = {
+        { text = "Perhaps they've earned that look.", next = "BACK", reply = "Perhaps. But we are the ones standing at the gate, not them.", fx = { learn = { "sentinels" } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
@@ -313,6 +437,7 @@ P:NPC {
         { text = "Can men serve Elune too?", next = "men", when = { gender = "male", class = "PRIEST" } },
         { text = "You always seem to have the kettle on.", next = "kettle" },
         { text = "Is a priest of the Light welcome here?", next = "light", when = { race = { "Human", "Dwarf" }, class = "PRIEST" } },
+        { text = "Did Elune's priestesses heal at Hyjal?", next = "ne_hyjal", when = { race = "NightElf" } },
         { text = "Thank you, Laurna.", next = "END" },
       },
     },
@@ -382,6 +507,21 @@ P:NPC {
     light = {
       lines = { { id = "li_default", text = "Welcome, and needed, for wounds don't care which prayer closes them. I've no lessons for you in Elune's ways, but you may sit with my students, and I suspect they'll learn more from you than you will from them." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "holy_light" } } } },
+    },
+    ne_hyjal = {
+      lines = {
+        { id = "nhy_default", text = "We did, all night and all day, until our hands were too tired to hold the bandages and we prayed over the wounded instead. When the World Tree gave its strength to end Archimonde, I felt it go out of me too, the way you feel the tide go out, and I have been mortal ever since." },
+      },
+      choices = {
+        { text = "Do you miss it, the long life?", next = "ne_hyjal2" },
+        { text = "Something else, Laurna.", next = "BACK" },
+      },
+    },
+    ne_hyjal2 = {
+      lines = {
+        { id = "nhy2_default", text = "I miss never being tired. I do not miss watching everyone outside our people grow old while I stayed the same, and now at least I grow old beside them, which feels more like being alive than I expected." },
+      },
+      choices = { { text = "Something else, Laurna.", next = "BACK", fx = { affinity = 1, learn = { "nordrassil" } } } },
     },
   },
 
@@ -586,6 +726,7 @@ P:NPC {
         { text = "You seem to know every animal by name.", next = "names" },
         { text = "How should I look after my companion?", next = "care", when = { class = "HUNTER" } },
         { text = "Have you ever stabled a ram?", next = "rams", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Will you keep my companion while I take another?", next = "hunt_stable", when = { class = "HUNTER", minLevel = 10 } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -657,6 +798,21 @@ P:NPC {
       lines = { { id = "ra_default", text = "Once, a dwarf's, who'd brought it across on the boat from Auberdine, and it ate half my hay and butted the stable door until Moonpaw sat on it. I liked it very much, but I don't think it liked trees." } },
       choices = { { text = "Rams prefer mountains. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    hunt_stable = {
+      lines = {
+        { id = "hs_default", text = "Gladly, if you buy a stall first, and I will feed it and talk to it and tell it you will be back. Do come back, though, because a stabled companion keeps its loyalty well enough but it misses you, and I can tell when one has given up hoping." },
+      },
+      choices = {
+        { text = "How do you tell?", next = "hunt_stable2" },
+        { text = "Something else, Seriadne.", next = "BACK" },
+      },
+    },
+    hunt_stable2 = {
+      lines = {
+        { id = "hs2_default", text = "It stops lifting its head when the door opens. Most of them never get there, because most hunters come back, but I have had to send a few home to the forest when nobody did, and I cried every time." },
+      },
+      choices = { { text = "I'll come back for mine.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
   },
 
   topics = {
@@ -716,6 +872,8 @@ P:NPC {
         { text = "Why don't you travel yourself?", next = "travel" },
         { text = "What's in Feralas: A History?", next = "feralas" },
         { text = "What should I see in Winterspring?", next = "winterspring", when = { minLevel = 50 } },
+        { text = "What do the lore keepers record of the Highborne remnants?", next = "ne_shen", when = { race = "NightElf" } },
+        { text = "Is it true the Archdruid lost a son in Silithus?", next = "ne_valstann", when = { race = "NightElf" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -755,6 +913,30 @@ P:NPC {
     winterspring = {
       lines = { { id = "wi_default", text = "Starfall, and the old elven ruins in the snow, and Wynd Nightchaser, who'll tell you more than I could. It's a harsh land, but it holds secrets, and I haven't been able to go back for a very long time." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_shen = {
+      lines = {
+        { id = "nsh_default", text = "Very little that flatters them. A part of Azshara's court fled to Feralas after the Sundering and built Eldre'Thalas, and the last of them, the Shen'dralar, still haunt its libraries and trade their old knowledge to anyone bold enough to bring them what they want." },
+      },
+      choices = {
+        { text = "What do they want?", next = "ne_shen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_shen2 = {
+      lines = {
+        { id = "nsh2_default", text = "Their prince bound a demon beneath the city to feed their magic, and it ate his people one by one until only a handful were left. What they want now, I think, is to be remembered as scholars and not as cowards, and their books are almost good enough to manage it.", fx = { learn = { "dire_maul" } } },
+      },
+      choices = { { text = "Almost good enough. Something else.", next = "BACK" } },
+    },
+    ne_valstann = {
+      lines = {
+        { id = "nva_default", text = "It is true, and it is written in our oldest war records, though nobody here reads it aloud. Valstann Staghelm fell at the gates of Ahn'Qiraj a thousand years ago, during the War of the Shifting Sands, and his father has never once spoken of it in my hearing." },
+      },
+      choices = {
+        { text = "Then I'll not ask him either.", next = "BACK", reply = "Wise. Some books are best left closed in front of their authors.", fx = { learn = { "ahn_qiraj" } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 }

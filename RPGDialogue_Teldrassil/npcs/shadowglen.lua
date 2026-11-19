@@ -165,6 +165,8 @@ P:NPC {
         { text = "Is there any evil in Shadowglen a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do I upset the balance of Shadowglen, Mardant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the nightsaber cubs know the spirits, Conservator?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why did we plant a new World Tree at all, Conservator?", next = "ne_why_tree", when = { race = "NightElf" } },
+        { text = "Some days I can't believe we're mortal now.", next = "ne_mortal", when = { race = "NightElf" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
     },
@@ -206,6 +208,31 @@ P:NPC {
     stranger = {
       lines = { { id = "st_default", text = "Then welcome twice over. The glade doesn't mind who walks in it, so long as they walk gently." } },
       choices = { { text = "I'll walk gently.", next = "BACK", fx = { affinity = 1, standing = { shadowglen = 1 } } } },
+    },
+    ne_why_tree = {
+      lines = {
+        { id = "nwt_default", text = "Because Nordrassil gave up its strength to end Archimonde, and our long years went with it, and a people suddenly mortal will reach for anything that might give them back. The Archdruid reached highest, and here we stand on what he grew." },
+      },
+      choices = {
+        { text = "You sound unsure of it.", next = "ne_why_tree2" },
+        { text = "Something else, Conservator.", next = "BACK" },
+      },
+    },
+    ne_why_tree2 = {
+      lines = {
+        { id = "nwt2_default", text = "I am sure the tree stands, and sure that this glade is lovely, and sure that the grells in the Fel Rock should not be here at all. The rest I leave to wiser heads, and I keep the balance in my own small corner, which is all a conservator is for." },
+      },
+      choices = { { text = "Then I'll help keep this corner.", next = "BACK", fx = { affinity = 1, learn = { "teldrassil" } } } },
+    },
+    ne_mortal = {
+      big = true,
+      lines = {
+        { id = "nmr_default", text = "Nor can I, some mornings, and I have had ten thousand years to grow used to being otherwise. The young ones born since the mountain never knew any different, and I think they will be braver than we were, because they know the days are counted." },
+      },
+      choices = {
+        { text = "Then we spend the days well, and without fear.", next = "BACK", reply = "Yes. That is the balance too, now, and harder than the old one.", fx = { align = { light = 1 } } },
+        { text = "I'll take back what we lost, whatever it costs.", next = "BACK", reply = "Careful, young one. That is the same hunger that drew the Highborne to the Well.", fx = { align = { light = -1 } } },
+      },
     },
   },
 
@@ -377,6 +404,7 @@ P:NPC {
         { text = "Does Aldrassil mind the arcane, Melithar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can Aldrassil really feel what walks with me, Melithar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Aldrassil actually hear us, Melithar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does Aldrassil remember Nordrassil, do you think?", next = "ne_remember", when = { race = "NightElf" } },
         { text = "I'll leave you to the roots.", next = "END", fx = { affinity = 1 } },
         { text = "Does Aldrassil mind warriors training beneath it?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a young hunter of Shadowglen learn first?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -420,6 +448,21 @@ P:NPC {
     druid_m = {
       lines = { { id = "dm_default", text = "I'm no trainer; Mardant upstairs is. But I will tell you something he won't: the bear is easy to learn, and patience is not." } },
       choices = { { text = "I'll work on patience.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } } },
+    },
+    ne_remember = {
+      lines = {
+        { id = "nrm_default", text = "I think it remembers something, because it hums the same way the old druids say Nordrassil hummed before the Legion came. It grows from Teldrassil, and Teldrassil was grown in Nordrassil's image, so perhaps every tree in this glade is a little homesick." },
+      },
+      choices = {
+        { text = "Homesick for a mountain it never saw.", next = "ne_remember2" },
+        { text = "Something else, Melithar.", next = "BACK" },
+      },
+    },
+    ne_remember2 = {
+      lines = {
+        { id = "nrm2_default", text = "We are all homesick for places we never saw, if we were born after the Sundering. I put my hands on these roots every morning and try to give it something to remember besides the mountain, and some mornings I think it listens." },
+      },
+      choices = { { text = "I think it does. Something else.", next = "BACK", fx = { affinity = 1, learn = { "nordrassil" } } } },
     },
   },
 
@@ -638,6 +681,7 @@ P:NPC {
         { text = "What does a paladin owe the young elves of Shadowglen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will you bless a druid's road, Tenaron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you hope every young one returns, Tenaron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Tell me what our people were, before the Sundering.", next = "ne_were", when = { race = "NightElf", maxLevel = 15 } },
         { text = "I'll go when I'm ready.", next = "END" },
       },
     },
@@ -736,6 +780,21 @@ P:NPC {
       choices = {
         { text = "Of course.", next = "BACK" },
       },
+    },
+    ne_were = {
+      lines = {
+        { id = "nwr_default", text = "Proud, brilliant and deathless, and dangerously fond of magic. We built cities of marble on the shores of the Well of Eternity, and a queen named Azshara drew something terrible through it, and the world broke under our feet. Everything you see here is what came after." },
+      },
+      choices = {
+        { text = "Why does no one tell the young ones this?", next = "ne_were2" },
+        { text = "Something else, Tenaron.", next = "BACK" },
+      },
+    },
+    ne_were2 = {
+      lines = {
+        { id = "nwr2_default", text = "We do, but we tell it gently, because the young ones were not there and the old ones were, and the old ones still wake some nights to the sound of the sea. Ask the High Priestess in Darnassus when you are older; she remembers it better than any of us." },
+      },
+      choices = { { text = "I'll ask her one day.", next = "BACK", fx = { learn = { "highborne" } } } },
     },
   },
 
@@ -1152,6 +1211,7 @@ P:NPC {
         { text = "Are the Webwood spiders really part of the balance, Gilshalan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you afraid of my companion, Gilshalan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why study the spiders from a distance, Gilshalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Highborne kept rare beasts, didn't they? Did they study them too?", next = "ne_study", when = { race = "NightElf" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
@@ -1190,6 +1250,12 @@ P:NPC {
     alch = {
       lines = { { id = "a_default", text = "Then you know a venom that kills can cure, measured right. Dirania's antidote uses their ichor for exactly that reason." } },
       choices = { { text = "I'll keep a sac or two.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    ne_study = {
+      lines = {
+        { id = "nsd_default", text = "They kept them in cages for the court to admire, and when they studied them it was to find which parts could be put to magical use. I study the Webwood spiders of Shadowthread Cave so that we may live beside them, which I like to think is the difference, though the spiders may not agree." },
+      },
+      choices = { { text = "Living beside them is better. Something else.", next = "BACK", fx = { learn = { "highborne" } } } },
     },
   },
 

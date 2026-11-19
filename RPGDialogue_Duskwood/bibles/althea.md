@@ -54,3 +54,6 @@ Authored, not canon: the watchers' trades (farmers, bakers, a tanner, two brothe
 
 ## Prejudice (0.80.0, authored, not canon)
 - Commander Althea Ebonlocke (prejudice, ROGUE): two winters ago a smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits on the Westfall road; three watchmen died.
+
+## Night elves (prejudice pass)
+- Admires the Sentinels (women in command, a forest held with too few) and argues with Darkshire's 'aloof tree-folk' talk; steals their patrol rotations from reports.

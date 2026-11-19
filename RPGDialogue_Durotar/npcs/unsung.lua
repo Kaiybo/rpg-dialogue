@@ -849,6 +849,153 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    h_road = {
+      hub = true,
+      narr = "He crouches and draws a line in the red dust with one finger, then a fork in it, then another.",
+      lines = {
+        { id = "hr_default", text = "Every hunter of the Horde walks the same road, though each walks it with a different beast. It starts here with a bow and a sting, it turns at the first beast you tame, and it ends somewhere I have never been, so listen while I can still guide you." },
+        { id = "hr_low", when = { maxLevel = 9 }, text = "Your road is short yet, and it runs no farther than this hill. Learn your aspects and your stings, and when you have ten seasons of the hunt in your arms, come back, because then I will send you out to tame." },
+        { id = "hr_tame", when = { minLevel = 10, maxLevel = 19 }, text = "You have reached the turn in the road, where a hunter stops walking alone. Everything you learn after this, you learn with a beast beside you, so choose it with care." },
+        { id = "hr_high", when = { minLevel = 30 }, text = "You have walked most of the road already, and farther than this old orc has. Still, sit, because a hunter who stops asking where the road goes has usually stopped looking at the ground." },
+      },
+      again = {
+        { id = "hr_again", text = "What else about the road? The dust will keep my lines until we are done." },
+        { id = "hr_again2", text = "Ask. A hunter who asks once saves himself three bad hunts." },
+      },
+      choices = {
+        { text = "What should I master before I tame anything?", next = "tr_aspect" },
+        { text = "I'm ready to tame a beast, Thotar.", next = "tr_tame", when = { minLevel = 10 } },
+        { text = "My beast sulks and won't fight well.", next = "tr_loyal", when = { minLevel = 10, pet = { type = "Beast" } } },
+        { text = "Sergra speaks of a white lion in the Barrens.", next = "tr_white", when = { minLevel = 16 } },
+        { text = "They say a hunter learns to die at thirty.", next = "tr_feign", when = { minLevel = 26 } },
+        { text = "Orcs rode wolves before they ever drew bows.", next = "tr_orc", when = { race = "Orc" } },
+        { text = "Darkspear hunters learned on the Echo Isles, not here.", next = "tr_troll", when = { race = "Troll" } },
+        { text = "Enough of the road, Thotar.", next = "BACK" },
+      },
+    },
+    tr_aspect = {
+      lines = {
+        { id = "tra_default", text = "Your aspects first, because a hunter who cannot take on the nature of a beast will never understand one. The monkey teaches you to slip a blow, the hawk to see the shot, and your serpent sting teaches you that a wound can keep fighting after your arrow has fallen." },
+        { id = "tra_low", when = { maxLevel = 9 }, text = "Your aspects and your stings, before anything with teeth. Take on the monkey's quickness and you will slip the boars, and put a serpent sting in a scorpid and let the poison work while you step back, because patience kills more than arrows do." },
+      },
+      choices = {
+        { text = "A sting that kills slowly seems cruel to me.", next = "tr_sting" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_sting = {
+      big = true,
+      lines = { { id = "trs_default", text = "Cruel to the beast, maybe, but kind to the hunter who would otherwise be standing in its reach. I teach the sting because a hunter alone must win without bleeding, and I teach the clean shot because the beast deserves to die quickly when you can manage it." },
+      },
+      choices = {
+        { text = "A clean kill comes first. The sting is for need.", next = "h_road", reply = "Then you will kill fewer beasts badly, which is all I ask. The scorpids will not thank you, but the land will.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever wins the fight is the right tool.", next = "h_road", reply = "It is a tool, and you will use it, so use it well. Only remember that the beast felt every moment of it.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_tame = {
+      lines = {
+        { id = "trt_default", text = "Then I will give you a taming rod and three beasts to try it on: a dire mottled boar in the scrub, a surf crawler on the coast to the east, and an armored scorpid out by the rocks. You will keep none of them, because they are lessons, and the beast you keep should be one you choose." },
+        { id = "trt_active", when = { questActive = TODO_QUEST("Taming the Beast") }, text = "You have the rod, so go and use it, and do not hurry the binding. If the beast breaks free and goes for your throat, it was not ready, and neither were you, so let it go and find another." },
+        { id = "trt_done", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "You have tamed the boar, the crab and the scorpid and set them all free again, which is harder than it sounds. Now take what you learned to Orgrimmar, to Ormak Grimshot in the Valley of Honor, and he will teach you to train what you tame." },
+        { id = "trt_trained", when = { questDone = TODO_QUEST("Training the Beast") }, text = "You have tamed, and Ormak has taught you to train, so there is nothing more of mine to give you at the start of the road. Every beast you tame from now on teaches your companion something, so tame widely even if you keep only one." },
+      },
+      choices = {
+        { text = "Why set them free? I worked hard for them.", next = "tr_free" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_free = {
+      big = true,
+      lines = { { id = "trf_default", text = "Because a scorpid you tamed to pass a lesson is not your companion, it is your trophy, and trophies do not guard your back. The beast you keep should be the one you would grieve, and you will not grieve a crab." } },
+      choices = {
+        { text = "Then I'll wait for the beast I'd grieve.", next = "h_road", reply = "Good. You will know it when you see it, because it will be watching you before you draw.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A strong beast is worth keeping, grief or not.", next = "h_road", reply = "Strong is useful, and I will not pretend otherwise. But the day it falls, you will learn whether you chose well.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_loyal = {
+      lines = {
+        { id = "trl_default", text = "Then it is hungry or it does not trust you yet, and most often both. A new beast is rebellious, and it grows loyal only if it is fed what it likes and kept close, so feed {pet} before every hunt and never let it go to sleep unhappy." },
+        { id = "trl_boar", when = { pet = { family = "Boar" } }, text = "A boar will eat anything you put in front of it, so if yours is sulking, the trouble is not in its belly. It is learning whether you stand your ground, and every time you run, it learns the wrong answer." },
+      },
+      choices = {
+        { text = "And if it never grows loyal?", next = "tr_loyal2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_loyal2 = {
+      lines = { { id = "trl2_default", text = "Then one morning it will be gone, back to the wild where nobody starves it, and you will have earned that. I have seen it happen to three of my students, and every one of them swore the beast was ungrateful." } },
+      choices = {
+        { text = "I'll feed it well. Back to the road.", next = "h_road" },
+      },
+    },
+    tr_white = {
+      lines = {
+        { id = "trw_default", text = "Echeyakee, the white lion, whose name the tauren say means whitemist. Sergra Darkthorn at the Crossroads keeps a horn that calls him, and she gives it only to hunters who have already thinned the plainstriders and the zhevra and the prowlers for her." },
+        { id = "trw_done", when = { killed = { name = "Echeyakee" } }, text = "You have already taken him, I hear, and brought his hide to Sergra. Then you know what I would have told you, that the white coat hides in the grass better than any beast has a right to." },
+      },
+      choices = {
+        { text = "Are there other beasts like him?", next = "tr_rare" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_rare = {
+      lines = { { id = "trr_default", text = "Humar the Pridelord, a black lion who lies under a lone tree west of Ratchet, and he roars for his whole pride when he is hurt. Hunters wait days to tame him, and in the Badlands there is a mountain cat called Broken Tooth who strikes faster than any beast I know of, and hunters wait weeks for him." } },
+      choices = {
+        { text = "A rare beast is the finest prize a hunter has.", next = "h_road", reply = "A fine beast, maybe, but no finer a companion than the boar who stands by you. Tame him if you can, and love him for more than his coat.", fx = { align = { order = -1 } } },
+        { text = "I'd sooner keep the beast that has stood with me.", next = "h_road", reply = "Then you will never wait under a tree for three days, and your beast will never wonder if it was second best.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_feign = {
+      lines = {
+        { id = "trfd_default", text = "They do, and it is the strangest thing I teach. When the fight turns, you fall as if dead, and the beast that was tearing at you loses interest and wanders off, so long as your own beast is not still biting it." },
+        { id = "trfd_high", when = { minLevel = 30 }, text = "You have learned it already, so you know how strange it feels to lie in the dust while something sniffs at your face. Do not lean on it, because the Scourge and the clever ones learn to wait for you to stand up." },
+      },
+      choices = {
+        { text = "Playing dead feels like cowardice, Thotar.", next = "tr_feign2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_feign2 = {
+      big = true,
+      lines = { { id = "trfd2_default", text = "Every orc says that, and every orc who has learned it is still alive to say it. A possum does it and a beetle does it, and nobody calls the beetle a coward when it walks home afterwards." } },
+      choices = {
+        { text = "A hunter who lives can hunt again tomorrow.", next = "h_road", reply = "That is all the wisdom there is in it. Lie still, live, and come back for the beast later.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather fall fighting than lie in the dirt.", next = "h_road", reply = "Then you will fall fighting, and your beast will be left alone in the wild. Learn it anyway, and choose when you need it.", fx = { align = { honor = 1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_orc = {
+      lines = { { id = "tro_default", text = "We did, on Draenor, and the Frostwolves still do in the mountains of Alterac, where the Warchief's father was chieftain. In the camps the humans took our wolves from us, and some of us learned to hunt with a bow because there was nothing left to ride." } },
+      choices = {
+        { text = "A wolf is a beast of war, not a pet.", next = "tr_orc2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_orc2 = {
+      big = true,
+      lines = { { id = "tro2_default", text = "The old Horde thought so, and they rode their wolves into human spears until there were almost none left. A Frostwolf will tell you the wolf chooses its rider as surely as a hunter's beast chooses its hunter, and that the clan that forgets this loses both." } },
+      choices = {
+        { text = "Then I'll treat a wolf as kin, as the Frostwolves do.", next = "h_road", reply = "The Warchief rides a wolf he speaks to like a brother, so you are in good company.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "War made us strong. The wolves served it well.", next = "h_road", reply = "They served it, and they died for it, and nobody asked them. Remember that when you ask yours.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_troll = {
+      lines = { { id = "trtr_default", text = "They did, and I will not pretend to teach a Darkspear anything about raptors. Your people raised them from the egg on the islands, and the ones you brought to Sen'jin still let no one but a troll near the pens." } },
+      choices = {
+        { text = "Then what can an orc teach me?", next = "tr_troll2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    tr_troll2 = {
+      lines = { { id = "trtr2_default", text = "Durotar, which is not the islands. Here the game is thin and the water is thinner, so you cannot take the old and the lame and leave the rest, because some years there is no rest. Learn to go hungry with dignity, and to share when you are not." } },
+      choices = {
+        { text = "That's a lesson worth having. Back to the road.", next = "h_road", fx = { affinity = 1 } },
+      },
+    },
     xorig_track = {
       lines = { { id = "xtr_default", text = "Then you know Durotar hides its game the way a miser hides coin, and you have the scars to show for it. Which beast tracked you back, the time you nearly did not come home?" } },
       choices = {
@@ -862,6 +1009,9 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My hunters patch up their own beasts, mostly badly, so I'd be glad if you showed them how it's done." },
         { id = "h_default", key = true, text = "I am Thotar, and I teach the hunters of Razor Hill to read the land and to trust a beast at their side. In Durotar the land is mostly rock and the beasts are mostly angry, so there is plenty to learn." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "You have come for training, I think, and maybe for advice about your companion. Ask, and I will help with both." },
+        { id = "h_path", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("The Hunter's Path") }, text = "Jen'shan sent you up from the valley, and she says you can wait in the dust without fidgeting. Good, because the next lesson is a beast, and beasts can smell a fidget." },
+        { id = "h_taming", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Taming the Beast") }, text = "You still have my taming rod, so there is still a beast out there waiting to be asked. Go gently, and if it fights the binding, let it go." },
+        { id = "h_tamed", tags = { "news" }, when = { class = "HUNTER", questRecent = { TODO_QUEST("Taming the Beast"), days = 3 } }, text = "Boar, crab and scorpid, all tamed and all set free again. You have hands for it, so now go to Orgrimmar and let Ormak Grimshot teach you what to do with a beast you mean to keep." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, I think, and from Mulgore by the look of you. You will find the beasts of Durotar leaner and meaner than your plainstriders, but they are honest, and they will teach you if you let them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, I think. You and I listen to the same land, though you hear the spirits in it and I hear the beasts, so tell me what Durotar says to you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like a cat on rock, rogue, and the scorpids don't even notice you. That's a skill worth having in Durotar." },
@@ -874,6 +1024,7 @@ P:NPC {
         { text = "Your beasts must sense the spirits, Thotar.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you hunt the beasts or befriend them, Thotar?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Where does a hunter's road lead, Thotar?", next = "h_road", when = { class = "HUNTER" } },
         { text = "What beasts are worth taming here?", next = "beasts" },
         { text = "How do you choose a companion?", next = "choose" },
         { text = "What could a hunter teach a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },

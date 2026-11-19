@@ -145,6 +145,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },
+        { id = "h_human", when = { race = "Human" },
+          text = "A human, at the last clean moonwell in Felwood. Drink if you must, and forgive me if I don't rise; the last time your people's wars reached this forest, it never recovered." },
+        { id = "h_soft", when = { npcFlagBefore = "golhine_soft" },
+          text = "You again, the one who reminded an old druid that a plague has more than one set of victims. Sit by the well; I've kept the bench clear." },
         { id = "h_hood", when = { metBefore = true },
           text = "You're wondering about the hood, as everyone does. It keeps the ash off, and that's all, though people prefer a better story." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -159,6 +163,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why teach here?", next = "why" },
         { text = "Talonbranch Glade seems to have held out well.", next = "glade" },
+        { text = "You remember Felwood green. What happened to it?", next = "before" },
+        { text = "You speak of my people as if we poisoned this forest.", next = "xhuman", when = { race = "Human" } },
+        { text = "You've softened toward humans, Golhine.", next = "xsoft", when = { npcFlagBefore = "golhine_soft" } },
         { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
         { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the arcane help keep the moonwell clean?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -197,6 +204,87 @@ P:NPC {
       choices = {
         { text = "A healer has to bear the pain. That is strength.", next = "BACK", reply = "Thank you, that's the answer I hope for on my better nights. I'll tell the young ones you said it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them weep. A druid who stops feeling is lost.", next = "BACK", reply = "That's my fear too, and I'll keep your words in mind. I'd rather have a student in tears than one who's stopped noticing.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "be_default", key = true, fx = { hear = "humans_brought_the_war" },
+          text = "The Legion's servants happened to it, and the orcs before them, and both came to Kalimdor out of the humans' war. The humans fought the Horde for a generation and penned it in camps, then lost their own kingdom to the plague, and every piece of that quarrel crossed the sea and fell on my forest." },
+        { id = "be_nelf", when = { race = "NightElf" }, fx = { hear = "humans_brought_the_war" },
+          text = "The humans' war happened to it, {g:brother|sister}. They fought the orcs for a generation and lost their kingdom to the plague, and the orcs, the dead and the demons who drove them all crossed the sea after them and came down on Ashenvale's northern woods." },
+      },
+      choices = {
+        { text = "So you blame the Alliance for Felwood?", next = "before_alliance" },
+        { text = "The humans didn't summon the Legion. The Highborne did.", next = "before_highborne" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_alliance = {
+      big = true,
+      lines = {
+        { id = "ba_default", key = true,
+          text = "I blame them for not keeping their wars at home, and now the High Priestess has bound us to their Alliance, so their next war will be ours as well. My people stood alone for ten thousand years, and I would sooner we stood alone again than bleed for kings who will be dust before this moonwell runs clear." },
+        { id = "ba_horde", when = { faction = "Horde" },
+          text = "I blame the war that brought your people west, and the Alliance that fought it, and I've no great love for either banner. My people stood alone for ten thousand years, and I'd sooner we did again than be dragged into the next round of a quarrel that began across the sea." },
+      },
+      choices = {
+        { text = "Standing alone is how Felwood fell. Allies held Hyjal.", next = "BACK",
+          reply = "Allies held Hyjal, and Felwood was the price of the road there, which is a hard sum to call a victory. Still, I'll grant that we did not hold it alone.",
+          fx = { align = { order = 1 }, opinion = { alliance = "necessary" } } },
+        { text = "Then stand alone. Let the humans fight their own wars.", next = "BACK",
+          reply = "That's what I'd tell the High Priestess, if she ever came this far north to ask. She won't, and I'll keep teaching druids in the meantime.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_highborne = {
+      lines = {
+        { id = "bh_default", fx = { expose = "humans_brought_the_war" },
+          text = "That is true, and it is what the priestesses tell me whenever I say this aloud. But the Highborne are ten thousand years drowned, and the humans are in Auberdine buying passage on our ships, so forgive an old druid for aiming at the target he can still see." },
+      },
+      choices = {
+        { text = "That's not fair, and you know it.", next = "BACK", reply = "I know it, and I'll go on saying it all the same, because the forest needs someone to be angry for it. Fairness I leave to the Sanctuary.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xh_default", text = "Not you, and not by your own hand, but your kingdom's war came here and never left. You're welcome to the shade of the moonwell, but I'll not pretend I'm glad your people found their way west." },
+      },
+      choices = {
+        { text = "Then judge me by what I do for Felwood.", next = "BACK", reply = "That I can do, and the forest will judge with me. Bring something green back from the south and we'll speak again.", fx = { align = { honor = 1 } } },
+        { text = "Your grudge is your own business. I'll drink and go.", next = "BACK", reply = "Then drink, and mind the edge of the well. Honest dislike is easier to live beside than false welcome.", fx = { align = { honor = -1 } } },
+        { text = "The plague took Lordaeron from my people too. We both lost to it.", tag = "Persuade", next = "xhuman_soft",
+          check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Purified!") }, { class = { "PALADIN", "PRIEST" } } } } },
+          fail = { next = "xhuman_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xhuman_soft = {
+      lines = {
+        { id = "xs_default", key = true, fx = { npcFlag = { set = { "golhine_soft" } } },
+          text = "It did, didn't it, and I've spent so long counting what came west that I never counted what was left behind in Lordaeron. Very well; I'll keep my anger for the war, and not for those who fled it." },
+      },
+      choices = {
+        { text = "That's all I ask.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman_fail = {
+      lines = {
+        { id = "xf_default", text = "Victims, perhaps, but you went home again and the forest didn't. Come back when you've done something for Felwood, and I'll listen more kindly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Farewell, then.", next = "END" },
+      },
+    },
+    xsoft = {
+      lines = {
+        { id = "xso_default", text = "Toward you, at least, and that's further than I meant to go in this lifetime. I still curse the war every time the river stinks, but I've stopped cursing everyone who came out of it." },
+      },
+      choices = {
+        { text = "That's a start.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -498,6 +498,8 @@ P:NPC {
   greetings = {
     { id = "g_hunter", when = { class = "HUNTER" }, text = "Welcome to the Cenarion Circle, hunter. Is your companion fed and well?" },
     { id = "g_other", text = "You've come to the Enclave. Speak plainly, and I'll answer plainly." },
+    { id = "g_road20", when = { class = "HUNTER", minLevel = 20, maxLevel = 39 }, text = "There you are, with your companion fat and your quiver light. Sit down and tell me where the road has taken you, hunter." },
+    { id = "g_road40", when = { class = "HUNTER", minLevel = 40 }, text = "I hear mail on you, hunter, and you've learned to make it whisper. That took me fifty years, so do not tell me how long it took you." },
   },
 
   notice = {
@@ -682,6 +684,8 @@ P:NPC {
         { text = "Do hunters and druids keep the same balance, Jocaste?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a mage respect the balance, Jocaste?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think shamans upset the balance, Jocaste?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Where does the hunter's road go from here, Jocaste?", next = "hr_road", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "Why do kaldorei hunters still walk beside beasts?", next = "ne_why", when = { race = "NightElf" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -732,6 +736,94 @@ P:NPC {
       choices = {
         { text = "A stern teacher is a good one.", next = "BACK", reply = "It is, but Dorion's kindness teaches lessons I never could. The young ones need both of us.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Kindness teaches too.", next = "BACK", reply = "It does, and Dorion is living proof of it, though I would never tell him so. Shadow is the best-behaved wolf on Teldrassil.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+      },
+    },
+    hr_road = {
+      hub = true,
+      lines = {
+        { id = "hr_default", text = "Further than you can see from Teldrassil's roots, and it will change you on the way. Ask me about what lies ahead, and I'll tell you what I tell every hunter of the Enclave who asks." },
+        { id = "hr_far", when = { minLevel = 50 }, text = "You're near the end of what I can teach, and I'm glad of it. Ask what you will, and I'll tell you what little lies beyond." },
+      },
+      again = {
+        { id = "hr_again", text = "What else about the road? I have time, and so does the balance." },
+        { id = "hr_again2", text = "Ask on. Your companion seems to be listening too." },
+      },
+      choices = {
+        { text = "What comes after the taming?", next = "hr_aspects" },
+        { text = "They say I'll learn to feign death.", next = "hr_feign", when = { minLevel = 24 } },
+        { text = "Hunters wear mail later. Isn't that heavy for us?", next = "hr_mail", when = { minLevel = 34 } },
+        { text = "I've heard of a bow the Ancients give.", next = "hr_rhok", when = { minLevel = 50 } },
+        { text = "That's enough of the road.", next = "hello" },
+      },
+    },
+    hr_aspects = {
+      lines = {
+        { id = "hra_default", text = "More aspects, each a lesson from a beast: the hawk for a steady eye, the cheetah for the long road, and later the beast and the pack, when you've earned the right to share what you've learned with others. Then traps, which the Sentinels taught us, and shots that slow or sting." },
+      },
+      choices = {
+        { text = "The pack's aspect. Do others really run faster?", next = "hr_aspects2" },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_aspects2 = {
+      lines = {
+        { id = "hra2_default", text = "They do, and they'll curse you for it when something leaps out of the brush and they're too quick to dodge. Use it on the road and drop it in a fight, and your friends will keep trusting you." },
+      },
+      choices = { { text = "Run together, fight wary. I'll remember.", next = "hr_road" } },
+    },
+    hr_feign = {
+      big = true,
+      lines = {
+        { id = "hrf_default", text = "You will, and it's the strangest gift on the whole road: you fall, and stop breathing, and let your enemy believe it has won, and then you rise when it turns away. The Sentinels laughed when they first saw us do it, and then they asked us to teach them." },
+      },
+      choices = {
+        { text = "It's cunning, and cunning keeps a hunter alive.", next = "hr_road", reply = "It does, and the owl and the opossum agree with you. Use it well.", fx = { align = { honor = -1 } } },
+        { text = "It feels dishonest, falling without a wound.", next = "hr_road", reply = "Then use it only to save your companion or your friends, and never to save your pride. That is honour enough.", fx = { align = { honor = 1 } } },
+        { text = "Does it ever fail?", next = "hr_feign2" },
+      },
+    },
+    hr_feign2 = {
+      lines = {
+        { id = "hrf2_default", text = "Against the clever ones, yes, and against things that do not care whether you are dead before they eat you. Ogres fall for it every time, and the Warsong rarely do anymore, so don't stake your life on it twice in one day." },
+      },
+      choices = { { text = "Something else about the road.", next = "hr_road" } },
+    },
+    hr_mail = {
+      lines = {
+        { id = "hrm_default", text = "It is, at first, and the leather-wearers will pity you for a season. But the beasts you'll face in Feralas and the Hinterlands bite through leather like bark, and a hunter in mail lives long enough to learn to move quietly in it." },
+        { id = "hrm_ne", when = { race = "NightElf" }, text = "For us more than most, since our people were made to move like wind through leaves. But the beasts of Feralas and the Hinterlands bite through leather like bark, and a kaldorei in mail lives long enough to learn to move quietly in it, which I promise you can be done." },
+      },
+      choices = {
+        { text = "Then I'll learn to move quietly in mail.", next = "hr_road", fx = { affinity = 1 } },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_rhok = {
+      lines = {
+        { id = "hrr_default", text = "Rhok'delar, the longbow of the Ancient Keepers. Vartrus the Ancient guards the old groves of Felwood, and they say he will shape it for a hunter who brings him a petrified leaf from the deepest fires under Blackrock and proves herself against the demons that hunt hunters." },
+      },
+      choices = {
+        { text = "Demons that hunt hunters?", next = "hr_rhok2" },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_rhok2 = {
+      lines = {
+        { id = "hrr2_default", text = "Four of them, wearing fair faces, who have killed better hunters than either of us. Vartrus asks you to face each one with only your companion beside you, because a bow of the Ancients is not given to someone who needed an army to earn it." },
+      },
+      choices = {
+        { text = "Then I'll face them, when I'm ready.", next = "hr_road", fx = { affinity = 1 } },
+        { text = "That sounds like a fine way to die.", next = "hr_road", reply = "It is. Go anyway, when the time comes." },
+      },
+    },
+    ne_why = {
+      big = true,
+      lines = {
+        { id = "nwy_default", text = "Because the beasts walked with us before there was any magic in our hands, and they kept walking with us after we threw the magic away. The druids became the forest's shapes, the priestesses the moon's servants, and we hunters stayed what our grandmothers were, which is the forest's friends." },
+      },
+      choices = {
+        { text = "That's worth keeping, whatever the druids say.", next = "BACK", reply = "It is, and the wiser druids agree, quietly, when the Archdruid is not listening.", fx = { align = { order = -1 } } },
+        { text = "The Circle guides us all. Hunters should heed it.", next = "BACK", reply = "Heed it, yes, but do not let it tell you that your companion is only a lesser kind of shape. That would be the balance broken.", fx = { align = { order = 1 } } },
       },
     },
   },
@@ -947,6 +1039,8 @@ P:NPC {
         { text = "Is iron really at war with the forest, Denatharion?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Cenarius bless rogues as well, Denatharion?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the druids argue about shamans, Denatharion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why do the old druids sleep in the barrow dens?", next = "ne_barrow", when = { race = "NightElf" } },
+        { text = "Hunters and druids both live with beasts. Are we rivals?", next = "hunt_d", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -994,6 +1088,31 @@ P:NPC {
       choices = {
         { text = "A leader needs that drive.", next = "BACK", reply = "It does, and Fandral has more drive than the rest of the Circle put together. I only wish it came with a little more rest.", fx = { align = { order = 1 }, learn = { "cenarion_circle" } } },
         { text = "A leader needs to listen, too.", next = "BACK", reply = "It does, and I have told him so more than once, gently, on a rested day. Perhaps you could try on a tired one.", fx = { align = { order = -1 }, learn = { "cenarion_circle" } } },
+      },
+    },
+    ne_barrow = {
+      lines = {
+        { id = "nbr_default", text = "Because the Emerald Dream is the world as Cenarius dreamed it before we spoiled it, and someone must walk there and keep it whole. Malfurion taught the first of us to sleep for centuries and wake when the waking world needs us, and in the barrow dens beneath Moonglade and Hyjal they sleep still." },
+      },
+      choices = {
+        { text = "Would you take that sleep yourself?", next = "ne_barrow2" },
+        { text = "Something else, Denatharion.", next = "BACK" },
+      },
+    },
+    ne_barrow2 = {
+      lines = {
+        { id = "nbr2_default", text = "One day, perhaps, when I have taught enough young druids that I am not needed here. But I have seen what the long sleep did to Oben Rageclaw, and I would like to be sure of my own heart before I lie down and leave it unguarded for a hundred years.", fx = { learn = { "emerald_dream" } } },
+      },
+      choices = { { text = "Sure of your heart first. Something else.", next = "BACK" } },
+    },
+    hunt_d = {
+      big = true,
+      lines = {
+        { id = "hd_default", text = "Rivals? No, though I know some in the Enclave speak as if we were. A druid learns the beast from inside its skin and a hunter from beside it, and Cenarius blessed both, so long as neither of you treats the forest as a larder." },
+      },
+      choices = {
+        { text = "Then we're kin in the same work.", next = "BACK", reply = "Cenarius bless you for saying so. Come and argue with my students about it some evening.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A hunter answers to the wild, not to the Circle.", next = "BACK", reply = "The wild and the Circle want the same thing more often than you would think, but I will not quarrel with you.", fx = { align = { order = -1 } } },
       },
     },
   },

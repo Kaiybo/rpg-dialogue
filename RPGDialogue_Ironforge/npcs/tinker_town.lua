@@ -18,6 +18,10 @@ P:NPC {
   greetings = {
     { id = "g_stand", text = "Yes, yes, how may I help? I've nothing but time, standing about in Tinker Town while our dear city sits under its green poison cloud." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Seeing a fellow engineer brightens even a terrible day, and they're all terrible lately." },
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Oh! A night elf, in Tinker Town. Do mind the workbench, and please don't look at it like that, because it's perfectly safe, very nearly entirely." },
+    { id = "g_soft", when = { npcFlagBefore = "overspark_soft" }, priority = 10,
+      text = "My kaldorei correspondent, in person! I've written to Darnassus twice since we spoke, with real questions this time, and only one of them about the roots." },
   },
 
   notice = {
@@ -240,6 +244,9 @@ P:NPC {
         { text = "What would you ask the earth about Gnomeregan, Tinkmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I came back from the bottom of Gnomeregan, Tinkmaster.", next = "xcl_gnome", when = { cleared = "Gnomeregan", faction = "Alliance" } },
         { text = "I tried to wire the arcane into our machines, Tinkmaster.", next = "xorig_arcaneeng", when = { origin = "gnome_arcane_engineer" } },
+        { text = "What do you make of the night elves, Tinkmaster?", next = "ne_elves", when = { ["not"] = { race = "NightElf" } } },
+        { text = "You keep glancing at me as if I'll break something.", next = "ne_x", when = { race = "NightElf", ["not"] = { npcFlagBefore = "overspark_soft" } } },
+        { text = "Did Darnassus ever answer your letters, Tinkmaster?", next = "ne_xsoft", when = { npcFlagBefore = "overspark_soft" } },
         { text = "I'll leave you to it, Tinkmaster.", next = "END" },
       },
     },
@@ -338,6 +345,94 @@ P:NPC {
       choices = {
         { text = "Dwarven gear works the first time. That's elegance.", next = "BACK", reply = "Works the first time, yes, and then never does anything surprising ever again, which I suppose some people find comforting.", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "You're right. Improbable is better.", next = "BACK", reply = "Oh, I knew you'd come round to it, a mind like yours could never be satisfied with a pipe that simply carries steam.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Night elves (0.94.0 work): a dangerous toy in their eyes, and a maddening silence in his.
+    ne_elves = {
+      lines = {
+        { id = "nee_default", text = "Forgive my melodrama, but they look at a gnome the way you'd look at a toddler holding a lit fuse, and when Gnomeregan fell, a very polite envoy from Darnassus told the High Tinker that this is what comes of building faster than one understands. She was quite kind about it, which made it so much worse." },
+        { id = "nee_gnome", when = { race = "Gnome" },
+          text = "Oh, you'll have had the look, surely, the one that says you're a dangerous toy someone forgot to put away. When Gnomeregan fell, their envoy told the High Tinker it was what comes of building faster than one understands, and she said it so gently that nobody could even shout at her." },
+      },
+      choices = {
+        { text = "Was she wrong?", next = "ne_balance" },
+        { text = "After Gnomeregan, they've a point about haste.", next = "BACK",
+          reply = "They have, and I hate that they have, and I've lain awake doing the sums on it more than once. But a fallen city is a reason to build better, not to stop building.",
+          fx = { align = { order = 1 }, opinion = { night_elves = "wise" } } },
+        { text = "They've never built anything worth a toolbox.", next = "BACK",
+          reply = "Oh, now, that's not fair, either, because they grew a tree the size of a mountain and put a city in it, and I'd give my good spanner to know how. They simply won't tell anyone.",
+          fx = { align = { order = -1 }, opinion = { night_elves = "backward" } } },
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    ne_balance = {
+      lines = {
+        { id = "neb_default", text = "Wrong? No, not entirely, but not right either. I wrote to Darnassus to ask how they keep Teldrassil's roots supplied with water at that height, which is a perfectly reasonable engineering question, and four months later I received one line back, which said 'Through balance', and I have read it every day since and it still contains no numbers at all." },
+      },
+      choices = {
+        { text = "You keep gnomish secrets under a pledge, Tinkmaster.", next = "ne_pledge" },
+        { text = "Some knowledge is too dangerous to hand out.", next = "BACK",
+          reply = "Yes, well, I can hardly argue with that, can I, standing in a borrowed town with my city glowing green behind me. I simply wish they'd let me be the judge of what's dangerous.",
+          fx = { align = { light = 1 } } },
+        { text = "Hoarding knowledge is how a people stops growing.", next = "BACK",
+          reply = "Exactly so, exactly! Ten thousand years and the same bows, the same robes and the same proverbs, while we've invented the steam tonk in thirty.",
+          fx = { align = { light = -1 }, opinion = { night_elves = "secretive" } } },
+      },
+    },
+    ne_pledge = {
+      narr = "He opens his mouth, closes it, and looks at the Pledge of Secrecy framed above the bench.",
+      lines = {
+        { id = "nep_default", text = "That's, well, that's entirely different, because our secrets are... ah. Our secrets are all we carried out of Gnomeregan, and theirs are all they carried out of whatever they lived through, and I suppose I'd send a very short letter too, if a stranger asked me for my schematics." },
+      },
+      choices = {
+        { text = "Write to them again, as one keeper to another.", next = "BACK", reply = "I might, at that. I'll leave out the roots this time and ask after their health, which is apparently how one starts with elves.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    ne_x = {
+      lines = {
+        { id = "nex_default", text = "Oh dear, was I? I do apologise, it's only that your people tend to stand very still near my machines and then say something wise and terrible about the Highborne, and the last kaldorei who visited asked whether my steam tonk had a soul. It didn't, but now I'm not sure." },
+      },
+      choices = {
+        { text = "We've seen what power without wisdom does. That's all.", next = "BACK",
+          reply = "And we've seen it too, forgive my melodrama, from the inside of a poisoned city. Perhaps we ought to compare notes, if your people would ever write any down.",
+          fx = { align = { order = 1 } } },
+        { text = "Your machines are clever. My elders are too proud to say so.", next = "BACK",
+          reply = "Oh! Oh, that's the nicest thing a night elf has ever said to me, and I'm going to write it on the wall above the bench, with your permission or without it.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { night_elves = "proud" } } },
+        { text = "We fear what we've lived through, not what you are.", tag = "Persuade", next = "ne_x_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { profession = "Engineering" }, { class = "MAGE" } } } },
+          fail = { next = "ne_x_fail", fx = { affinity = -1 } } },
+      },
+    },
+    ne_x_soft = {
+      lines = {
+        { id = "nexs_default", key = true, fx = { npcFlag = { set = { "overspark_soft" } } },
+          text = "Not what we are, but what you've lived through. Well, that's a very different sum, isn't it, and I've been working it out with the wrong numbers all along. I'll write to Darnassus again, and this time I'll ask what happened to them, before I ask how their tree drinks." },
+      },
+      choices = {
+        { text = "They may even answer.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_x_fail = {
+      lines = {
+        { id = "nexf_default", text = "That's very poetic, and I'm sure it's true, but it's exactly the sort of thing the envoy said, and she still wouldn't tell us anything useful. I'll keep my workbench where it is, thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Good day, Tinkmaster.", next = "END" },
+      },
+    },
+    ne_xsoft = {
+      lines = {
+        { id = "nexso_default", text = "Once, and it was a full page, which by Darnassian measure is very nearly a novel! It said nothing about roots, but a great deal about patience, and I've decided to treat that as a design principle and see what happens." },
+      },
+      choices = {
+        { text = "That's progress, Tinkmaster.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "A kaldorei, in Goldshire. Your people were a long while finding their way to the Alliance, so you'll forgive an old soldier if he's slow finding his way to a welcome." },
+    { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "dughan_nelf_soft" }, priority = 10,
+      text = "Ah, the night elf who set me straight. I've told the story at the Lion's Pride twice now, and I only got it wrong the once." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what you are, and I know where you sleep, under the Lion's Pride. I'm told to leave that cellar alone, so I will, but don't mistake an order for a welcome." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "In the Second War I saw what the Horde's warlocks did to the men on the line. You'll forgive me if I keep my hand near my sword while we talk." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Goldshire, and I've counted every time. I still don't like what follows you, and I'll still be watching it." },
@@ -178,8 +182,93 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    dg_nelf = {
+      lines = {
+        { id = "dgn_default", key = true,
+          text = "I fought the Horde from Lordaeron's coast to Blackrock Spire, and I buried friends in every county between. In all those years I never once saw a night elf on the line, and I'd be lying if I said that doesn't still sit badly with me." },
+        { id = "dgn_dwarf", when = { race = "Dwarf" },
+          text = "Your folk and mine held the passes of Khaz Modan together in the Second War, so you'll understand me. In all those years I never once saw a night elf on the line, and that still sits badly with me." },
+      },
+      choices = {
+        { text = "They didn't know the Horde existed, Marshal. Different continent.", next = "dg_nelf_2" },
+        { text = "Where were they when Elwynn burned?", next = "dg_nelf_2" },
+      },
+    },
+    dg_nelf_2 = {
+      big = true,
+      lines = {
+        { id = "dgn2_default",
+          text = "That's what the envoys say, and I suppose it's true, since nobody sailed to Kalimdor before Lady Proudmoore did. But they had ten thousand years behind their trees to look about them, and now the city fawns over Darnassus while I've six guards for a whole county." },
+      },
+      choices = {
+        { text = "They fought the Legion at Hyjal. That's debt enough.", next = "BACK",
+          reply = "Maybe so, and I'll grant they fought something worse than orcs. I only wish they'd fought a little of it closer to Goldshire.",
+          fx = { align = { honor = 1 }, opinion = { night_elves = "respect" } } },
+        { text = "You're right. They joined when it suited them.", next = "BACK",
+          reply = "Don't say it too loudly in the city, because the House of Nobles is very fond of their envoys this year. But aye, that's how it looks from a desk in Goldshire.",
+          fx = { align = { honor = -1 }, opinion = { night_elves = "distrust" } } },
+        { text = "What would you have them do now, Marshal?", next = "dg_nelf_3" },
+      },
+    },
+    dg_nelf_3 = {
+      lines = {
+        { id = "dgn3_default",
+          text = "Send a few of those Sentinels down to the Redridge line for a season and let them see what we've been holding. I'd stand a round at the Lion's Pride for the first one who came, and I'd mean it." },
+      },
+      choices = {
+        { text = "I'll hold you to that round. Something else.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    dg_xnelf = {
+      lines = {
+        { id = "dgx_default", key = true,
+          text = "I don't, and I'll not insult you by pretending otherwise. While my company buried men from Lordaeron to the Redridge hills, your people were asleep under their trees, and the first I heard of you was a herald telling me we were allies now." },
+      },
+      choices = {
+        { text = "We bled at Hyjal for your world too, Marshal.", next = "BACK",
+          reply = "So the envoys tell us, and I've no reason to doubt them. Hyjal's a long way from Goldshire, but I'll mind my tongue about it.",
+          fx = { align = { honor = 1 } } },
+        { text = "Then don't look to my people for friendship, Marshal.", next = "BACK",
+          reply = "I wasn't, and I'll not start now. Do your work and keep the peace, and you'll get fair dealing from me, if nothing warmer.",
+          fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "Judge me by what I do for Goldshire, not my people.", tag = "Persuade", next = "dg_xnelf_soft",
+          check = { pass = { any = { { disposition = { min = 60 } }, { questDone = TODO_QUEST("WANTED: \"Hogger\"") }, { townStanding = { town = "goldshire", min = 30 } } } } },
+          fail = { next = "dg_xnelf_fail", fx = { affinity = -1 } } },
+      },
+    },
+    dg_xnelf_soft = {
+      lines = {
+        { id = "dgxs_default", key = true, fx = { npcFlag = { set = { "dughan_nelf_soft" } } },
+          text = "That's a soldier's answer, and I've no reply to it but the honest one. You've done more for this county than most of the men Stormwind sends me, so I'll judge you by that and keep my grudge for the envoys." },
+      },
+      choices = {
+        { text = "That's all I ask, Marshal.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg_xnelf_fail = {
+      lines = {
+        { id = "dgxf_default", text = "Fine words, and I've heard the envoys say them in better cloth. Take a few jobs off that board by the door, and we'll see what they weigh." },
+      },
+      choices = {
+        { text = "Then I'll take a job. Something else.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    dg_nsoft = {
+      lines = {
+        { id = "dgns_default", text = "Twice, and the second time I had Hyjal right. Guard Thomas asked me whether your people really sleep for years on end, and I told him to ask you himself, because I'm done speaking for elves I don't understand." },
+      },
+      choices = {
+        { text = "Tell Thomas only the druids do. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Kaldorei don't often come down the Goldshire road, and the ones who do look at our fields as if we'd skinned something. Say your business, and I'll try to be fair about it." },
         { id = "dd_kobolds_mcbride", when = { questDone = TODO_QUEST("Kobold Camp Cleanup") },
           text = "Marshal McBride's report came down from Northshire with your name in it, which is rare, because McBride doesn't name recruits unless he means to remember them. The kobold camps are quieter, he says, and that's one less worry on my desk." },
         { id = "dd_defias_dughan", when = { questDone = TODO_QUEST("Bounty on Garrick Padfoot") },
@@ -326,6 +415,9 @@ P:NPC {
         { text = { normal = "Who's this other one you compare me to, Marshal?",
                  polite = "Who is this other one you compare me to, if I may ask, Marshal?",
                  blunt = "Who's this other one you compare me to?" }, next = "xalt_dughan", when = { alt = true } },
+        { text = "What do you make of the night elves, Marshal?", next = "dg_nelf" },
+        { text = "You don't care much for my people, Marshal.", next = "dg_xnelf", when = { race = "NightElf" } },
+        { text = "Still telling my story at the inn, Marshal?", next = "dg_nsoft", when = { race = "NightElf", npcFlagBefore = "dughan_nelf_soft" } },
         { text = { normal = "Good day, Marshal.",
                  polite = "Good day to you, Marshal, and thank you.",
                  blunt = "Good day." }, next = "END" },
@@ -899,6 +991,7 @@ P:NPC {
     },
   },
   topics = {
+    kaldorei = { { id = "tp_kaldorei", text = "The night elves are our allies now, and I keep the peace with anyone the crown names a friend. I'd only like to have seen one of them on the line before the war was won." } },
     _gated = {
       { id = "gt1", text = "That's garrison business, and I don't share it with folk I've no reason yet to trust. Do right by Goldshire, and we'll speak again." },
       { id = "gt2", text = "I'll keep that to myself for the present. You'll find me freer with my words once I know what you're made of." },

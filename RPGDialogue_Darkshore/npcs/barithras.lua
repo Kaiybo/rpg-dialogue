@@ -43,6 +43,8 @@ P:NPC {
           text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he asks for you quickly, it must be urgent." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid. Then you may hear what the Ancients hear better than I can, and perhaps you will tell me whether I was a coward to stay away from that cave." },
+        { id = "h_human", when = { race = "Human" },
+          text = "A human, and young, as your people always are. Forgive me if I stare; I have begun to study how your kind carries its short years, and I have not yet learned the trick of it." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask it, by all means, and I will answer if I can." },
@@ -54,6 +56,8 @@ P:NPC {
         { text = "Why not go yourself?", next = "coward" },
         { text = "Tell me about Onu.", next = "onu_b" },
         { text = "I found naga in the cave.", next = "naga", when = { questDone = TODO_QUEST("Cave Mushrooms") } },
+        { text = "You guard your life more closely than most elves I've met.", next = "mortal" },
+        { text = "Do you feel the years now, Barithras, since Hyjal?", next = "xyears", when = { race = "NightElf" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Good day, Barithras.", next = "END" },
       },
@@ -128,6 +132,49 @@ P:NPC {
       },
     },
 
+    -- Kaldorei factions: an elder who has not made peace with the immortality lost at Hyjal.
+    mortal = {
+      lines = {
+        { id = "mo_default", key = true,
+          text = "I do, and I'll tell you why, since so few of my people will say it aloud. When Nordrassil gave up its power to destroy Archimonde, we lost the immortality it had granted us, and I woke on the slopes of Hyjal knowing that one day I would be as dead as any human." },
+      },
+      choices = {
+        { text = "Are you afraid?", next = "mortal_fear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mortal_fear = {
+      lines = {
+        { id = "mf_default", text = "Every day. I made potions for thousands of years without once wondering how many I had left, and now I count them. The young ones shrug and take ship for Menethil, but I was here when the world was young, and I am not ready to leave it." },
+      },
+      choices = {
+        { text = "Then live, rather than count. That's what short-lived folk do.", next = "BACK", reply = "So Allyndia tells me every morning, across the square. It's easier advice to give when you never had forever to lose.", fx = { align = { order = -1 } } },
+        { text = "Caution is wisdom. Guard the years you have.", next = "BACK", reply = "Thank you; I hear that far less often than the other. I'll keep to the top shelf and the safe paths, then, and let the young laugh.", fx = { align = { order = 1 } } },
+        { text = "Has it changed how you see the humans?", next = "mortal_humans" },
+      },
+    },
+    mortal_humans = {
+      lines = {
+        { id = "mh_default", text = "It has, and not as I'd like. I used to pity them for living so briefly, and now I watch them with something nearer envy, because they're born knowing what I learned at Hyjal, and they laugh at the inn anyway." },
+        { id = "mh_human", when = { race = "Human" },
+          text = "It has, and I'll say it to your face. I used to pity your people for living so briefly, and now I envy you, because you were born knowing what I learned at Hyjal, and you still laugh at the inn as if the night will never end." },
+      },
+      choices = {
+        { text = "We laugh because there isn't time not to.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xyears = {
+      lines = {
+        { id = "xy_default", text = "I feel them in my hands, {g:brother|sister}, when the pestle slips. Tell me honestly whether you feel it too, or whether you're young enough that it means nothing to you." },
+      },
+      choices = {
+        { text = "I feel it. I'm afraid too.", next = "BACK", reply = "Then we can be afraid together, quietly, which is better than alone. Don't tell the Sentinels; they think fear is a foreign custom.", fx = { affinity = 1 } },
+        { text = "It means freedom. Every day matters now.", next = "BACK", reply = "Freedom; that's Allyndia's word for it too. I wish I could hear it without hearing a door close.", fx = { align = { honor = -1 } } },
+        { text = "It means duty. Our years must be spent well.", next = "BACK", reply = "Spent well, yes, and not thrown away on a boat to Menethil. I think you and I would agree on most things.", fx = { align = { honor = 1 } } },
+      },
+    },
+
     naga = {
       big = true,
       lines = {
@@ -146,6 +193,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When the Ancients warn you away from a place, believe them. Then, if you must go, go carefully." } },
     fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and a dull alchemist lives longer than a bold one." } },
     blackfathom = { { id = "tp_blackfathom", text = "The water near Blackfathom is fouled with something I can't name, and I don't want to name it. I keep my vials far from that coast." } },
+    hyjal = { { id = "tp_hyjal", text = "I was on the mountain when the World Tree gave up its strength. We won, and we have been growing old ever since." } },
     highborne = { { id = "tp_highborne", text = "Highborne alchemy was brilliant and reckless, and the ruins prove both. I've found their vials, and I've put them back where I found them." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the Grove of the Ancients, if you have the patience for the answer." } },
   },

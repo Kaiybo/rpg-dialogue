@@ -73,6 +73,7 @@ P:NPC {
         { text = "Pray with me before I go up the path.", next = "pray_a", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "I've never seen Darnassus. What's it like?", next = "darnassus", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll clear the ambushers.", next = "BUSINESS" },
+        { text = "You're a priestess and a soldier both. How?", next = "ne_both", when = { race = "NightElf" } },
         { text = "Elune keep you, Priestess.", next = "END" },
       },
     },
@@ -164,6 +165,21 @@ P:NPC {
         { text = "I'll walk slowly, then.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    ne_both = {
+      lines = {
+        { id = "nbo_default", text = "The same way the High Priestess is, and every priestess since the Legion came to Zin-Azshari: Elune asked us to protect, and some days protecting means a prayer and some days it means an arrow. I carry both and use whichever the night demands." },
+      },
+      choices = {
+        { text = "Which comes more often?", next = "ne_both2" },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
+    ne_both2 = {
+      lines = {
+        { id = "nbo2_default", text = "On this road, the arrow, and I am not proud of how good I have become at it. But I say the prayer after every one, for whatever I have struck, because Elune's light falls on the Gnarlpine too, and they did not ask to go mad." },
+      },
+      choices = { { text = "I'll say the prayer too. Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
   },
 

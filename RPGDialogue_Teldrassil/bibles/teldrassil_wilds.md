@@ -14,3 +14,6 @@
 - Anything Cataclysm or later (no burning of Teldrassil, no foreshadowing). Denalan's doubt about the tree is hinted, never stated as fact.
 
 ## Voices
+
+## Unease (authored, not canon; dramatic irony only)
+- Denalan: the timberlings twisted before the first boat came, so outsiders aren't to blame (exposes Arynia's claim). Nordrassil had the dragons' blessing; Teldrassil strains "toward something it was never promised". Prays the Arch Druid sees further than he does. Never accuses anyone.

@@ -453,6 +453,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. What did the glade teach you today?" },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Etched Sigil") },
       text = "The Etched Sigil. I carved it myself, you know, and I'm glad it found a steady hand." },
+    { id = "g_ready", when = { class = "HUNTER", minLevel = 8, maxLevel = 12 }, text = "Look at you, standing like a hunter at last. You're nearly ready for Dazalar, and I find I'm a little sorry about it." },
   },
 
   notice = {
@@ -465,6 +466,8 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
+        { id = "h_old", when = { class = "HUNTER", minLevel = 20 },
+          text = "You came back up the tree! I trained you when you couldn't string a bow without swearing, and now look at you, with the whole of Kalimdor in your boots." },
         { id = "h_default", key = true,
           text = "I'm Ayanna Everstride, and I teach the hunters of Shadowglen. Up here I can see every trail in the glade, and I like to know where my students are going wrong before they do." },
         { id = "h_hunter", when = { class = "HUNTER" },
@@ -482,6 +485,8 @@ P:NPC {
         { text = "What do you see from up here?", next = "view" },
         { text = "You carved the sigil yourself?", next = "sigil" },
         { text = "Do your people hunt with guns at all?", next = "guns", when = { race = "Dwarf" } },
+        { text = "What lies ahead on the hunter's road, Ayanna?", next = "hr_road", when = { class = "HUNTER" } },
+        { text = "Why do our people hunt beside beasts at all?", next = "ne_beasts", when = { race = "NightElf" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -545,6 +550,90 @@ P:NPC {
     guns = {
       lines = { { id = "gu_default", text = "Never, and the sabers would never forgive us the noise. But I've seen a dwarf drop a bear at a hundred paces, so I'll teach you what I know and you can keep your thunder-stick." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hr_road = {
+      hub = true,
+      lines = {
+        { id = "hr_default", text = "A long road, and a good one, and I'll tell you the first part of it, since the first part is mine to teach. Ask, and I'll answer as plainly as I can." },
+        { id = "hr_old", when = { minLevel = 20 }, text = "You're well along it already, so I'll tell you what I tell the young ones, and you can laugh at how simple it sounds from where you stand now." },
+      },
+      again = {
+        { id = "hr_again", text = "What else about the road? I like this part of teaching best." },
+        { id = "hr_again2", text = "Go on, ask. I'll tell you if you're getting ahead of yourself." },
+      },
+      choices = {
+        { text = "Tell me about my first bow.", next = "hr_bow" },
+        { text = "What's this Aspect of the Monkey you teach?", next = "hr_aspect" },
+        { text = "What happens when I'm ready for a companion?", next = "hr_ten" },
+        { text = "What do the druids think of hunters?", next = "hr_druids" },
+        { text = "That's enough of the road for now.", next = "hello" },
+      },
+    },
+    hr_bow = {
+      lines = {
+        { id = "hrb_default", text = "It will be a poor thing, bent from a branch someone else chose, and you'll love it more than any bow you ever own after. Keep it when you trade it in, and hang it over wherever you sleep, because every hunter I know still has her first." },
+      },
+      choices = {
+        { text = "Do you still have yours?", next = "hr_bow2" },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_bow2 = {
+      lines = {
+        { id = "hrb2_default", text = "I do, and it's older than Teldrassil, cut from a sapling on the slopes of Hyjal before the Legion came. The string's rotted three times over, and Jeena Featherbow in Dolanaar restrings it for me every spring without being asked." },
+      },
+      choices = { { text = "Then I'll keep mine too.", next = "hr_road", fx = { affinity = 1 } } },
+    },
+    hr_aspect = {
+      lines = {
+        { id = "hra_default", text = "An aspect is a way of standing in the world that you borrow from a beast, and the monkey's is the first, because it teaches you to slip aside from a blow you didn't see coming. Later there'll be the hawk for your aim and the cheetah for the road, and each one asks you to be a little less yourself for a while." },
+      },
+      choices = {
+        { text = "Is that the same as a druid's shapes?", next = "hr_aspect2" },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_aspect2 = {
+      lines = {
+        { id = "hra2_default", text = "No, and don't say so in Dolanaar, or Athridas will explain the difference at length. A druid becomes the bear; a hunter only borrows the way the bear stands, and gives it back when the fight is done." },
+      },
+      choices = { { text = "Borrow it and give it back. I understand.", next = "hr_road" } },
+    },
+    hr_ten = {
+      lines = {
+        { id = "hrt_default", text = "When you're strong enough, I'll send you down the road to Dazalar in Dolanaar, and he'll hand you a taming rod and three beasts to try it on. You'll tame each one and let each one go, and then he'll let you choose your own, and that one will stay with you longer than most friends do." },
+      },
+      choices = {
+        { text = "Why let the first ones go?", next = "hr_ten2" },
+        { text = "Something else about the road.", next = "hr_road" },
+      },
+    },
+    hr_ten2 = {
+      lines = {
+        { id = "hrt2_default", text = "Because a companion you keep because you can is not the same as one you keep because you chose it. Dazalar wants you to learn that a beast can be won and released and won again, so you never think of one as a thing you own." },
+      },
+      choices = { { text = "Then I'll choose carefully.", next = "hr_road", fx = { affinity = 1 } } },
+    },
+    hr_druids = {
+      big = true,
+      lines = {
+        { id = "hrd_default", text = "Some of them think we take too much from the forest, and some of them think we're the only ones who still remember how to live in it. The Archdruid's people mostly think we should all have been druids, and the Sentinels mostly think we should all have been Sentinels." },
+      },
+      choices = {
+        { text = "A hunter keeps the balance as well as any druid.", next = "hr_road", reply = "We do, and better than some, because we live off what we keep. Say it to Athridas and watch him frown.", fx = { align = { order = -1 } } },
+        { text = "The druids are wiser. I'll learn from them.", next = "hr_road", reply = "Learn from them, by all means, and then come and tell me what they got wrong.", fx = { align = { order = 1 } } },
+      },
+    },
+    ne_beasts = {
+      big = true,
+      lines = {
+        { id = "neb_default", text = "Because we always have, since before the Sundering, when the forest's demigods still walked among us and the nightsabers came to our hunters of their own accord. Cenarius's children taught us that the beasts were our kin and not our servants, and a kaldorei hunter who forgets that is no hunter of mine." },
+      },
+      choices = {
+        { text = "Then my companion will be my kin, not my tool.", next = "BACK", reply = "Good. Say that to your companion as well, someday, and mean it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Kin or not, a beast still fights where it's sent.", next = "BACK", reply = "So do Sentinels, and they'd not thank you for calling them tools either. Mind how you think of it.", fx = { align = { light = -1 } } },
+        { text = "Did the Highborne hunt this way too?", next = "respect_forgot" },
+      },
     },
   },
 

@@ -71,3 +71,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## Prejudices (0.80.0, authored, not canon)
 - Wixxrak has a gunsmith's grudge against dwarves (`prejudice` Dwarf 8): they all praise Ironforge's rifles in his shop, and a sealed keg of Ironforge powder took his cousin's eyebrows.
+
+## Kaldorei factions (Rivern)
+Openly contemptuous of the "young races" (humans, dwarves, gnomes): loud, hurried, careless with fire and steel (node `loud`). Grudge source, authored not canon: an Explorers' League party blasted open a frostsaber den two winters ago. Grants that Jaron is careful. Human/dwarf/gnome players get `xloud`; [Persuade] passes at Wintersaber Trainers honored and sets `rivern_soft`. Never: "lesser" or slurs.

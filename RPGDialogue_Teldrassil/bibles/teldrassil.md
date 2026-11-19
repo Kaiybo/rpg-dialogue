@@ -69,3 +69,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Prejudice (0.80.0, authored, not canon)
 - Corithras Moonrage (prejudice, Human/Dwarf/Gnome, mild): thinks Teldrassil was planted for the Kaldorei and half-blames outsiders for its sickness, though he suspects the truth lies closer to home.
+
+## Kaldorei factions (authored, not canon)
+- Corithras: bitter and afraid at the loss of immortality ("ten thousand years of never counting"); thinks the young treat mortality as a holiday, Lyreena worst of all.
+- Lyreena: was young at Hyjal and never felt eternal; wants to spend her years everywhere (Ironforge, Stormwind's harbor, goblin towns); dwarves taught her songs on the Darkshore road. Brings Corithras berries, doesn't agree with him. Welcomes outsiders at her fire.

@@ -297,56 +297,184 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "mf_grif", id = TODO_NPC("Grif Wildheart"), name = "Grif Wildheart", title = "Hunter Trainer",
-  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
   communities = { "kharanos" }, temper = { "gruff", "wild" }, values = { "nature", "honest" },
   notices = { "pet", "class" },
   impression = {
     first = "Grif Wildheart trains hunters on the hill above Kharanos and is happier with beasts than with dwarves. The guards say he spends too much time with animals, and he would agree that it is nowhere near enough.",
-    third = "{name} met Grif Wildheart, the hunter trainer at Kharanos in Dun Morogh.",
+    third = "{name} met Grif Wildheart, the hunter trainer at Kharanos who sets Dun Morogh's young hunters their first taming.",
   },
   greetings = {
     { id = "g_hi", text = "Hrm, ye walk loud, so stand still a moment an' let the hill get used tae ye." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again, an' quieter this time, which is good, for the hill notices." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Daera sent ye, I'd wager. Sit, an' tell me what ye saw on the road up, an' I'll ken how much ye've got tae learn." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Daera sent ye, I'd wager, so sit an' tell me what ye saw on the road up, an' I'll ken how much ye've got tae learn." },
+    { id = "g_tame", tags = { "news" }, when = { questActive = TODO_QUEST("Taming the Beast") }, text = "Well? Did it come tae the rod, or did it come for yer throat?" },
+    { id = "g_tamed", when = { class = "HUNTER", pet = { type = "Beast" }, questDone = TODO_QUEST("Taming the Beast") }, text = "Hrm, there's the pair o' ye, an' the beast's walkin' on yer left like it means tae stay." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Yer {pet}'s favourin' a back leg. Look between the toes for ice, it packs in an' cuts." },
+      text = "Yer {pet}'s favourin' a back leg, so look between the toes for ice, for it packs in an' cuts." },
     { id = "n_nopet", cat = "class", when = { class = "HUNTER", maxLevel = 9 },
-      text = "Nae beast at yer side yet. Ye're no' ready, an' the beast would ken it. Come back when ye've ten seasons o' sense." },
+      text = "There's nae beast at yer side yet, an' that's right, for ye're no' ready an' the beast would ken it. Come back when ye've ten seasons o' sense." },
   },
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
-        { id = "h_default", text = "Grif Wildheart. I teach huntin', out here, where there's somethin' tae hunt. The others teach under Belm's roof wi' a mug in hand, an' I've nae quarrel wi' that, but ye cannae learn tae track on floorboards." },
+        { id = "h_default", key = true, text = "Grif Wildheart. I teach huntin' out here, where there's somethin' tae hunt; the others teach under Belm's roof wi' a mug in hand, an' I've nae quarrel wi' that, but ye cannae learn tae track on floorboards." },
+        { id = "h_young", when = { class = "HUNTER", maxLevel = 9 },
+          text = "Ye're keen, an' I like keen, but ye're no' ready for a beast o' yer own. Go an' shoot wolves till ye've ten seasons on ye, an' then come up the hill an' we'll talk." },
+        { id = "h_ready", when = { class = "HUNTER", minLevel = 10, questBefore = TODO_QUEST("Taming the Beast") },
+          text = "Hrm, ye've the look o' somebody ready for a beast at last. I've a rod here that'll make a wild thing listen for as long as it takes tae decide about ye, an' three beasts on this mountain I'll have ye try it on." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Taming the Beast") },
+          text = "Use the rod an' stand yer ground while it works, for the beast'll fight ye the whole time an' then all at once it'll stop. When it does, ye'll feel it, an' then let it go an' come back tae me." },
+        { id = "h_done", when = { class = "HUNTER", questDone = TODO_QUEST("Taming the Beast"), questBefore = TODO_QUEST("Training the Beast") },
+          text = "Boar, leopard an' bear, an' ye're still standin'. Ye've got the knack, so the next lesson isnae mine; go tae Belia Thundergranite in the Hall o' Arms, an' she'll teach ye tae keep what ye catch." },
+        { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("Training the Beast") },
+          text = "Ye're still here? Belia's in the Hall o' Arms, in the city, an' she'll no' come up the hill tae find ye." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
-        { id = "h_again2", text = "Hrm. Ask." },
+        { id = "h_again", text = "What else? The light's goin', an' so are the tracks." },
+        { id = "h_again2", text = "Hrm. Ask, then, an' I'll answer if I can." },
+        { id = "h_again3", when = { class = "HUNTER" }, text = "Go on, hunter. I've talked more today than in a week." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS" },
+        { text = "I'm ready for a beast of my own, Grif.", next = "tame", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "When will I be ready for a beast?", next = "tame_wait", when = { class = "HUNTER", maxLevel = 9 } },
+        { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What comes after taming, for a hunter?", next = "road", when = { class = "HUNTER", questDone = TODO_QUEST("Taming the Beast") } },
         { text = "They say you spend too long with animals.", next = "animals" },
         { text = "How does a hunter earn a beast's trust?", next = "trust" },
         { text = "What's worth hunting in Dun Morogh?", next = "game" },
         { text = "What signs should I watch for on the trail?", next = "signs" },
+        { text = "Why do so many dwarves carry a rifle instead of a bow?", next = "dw_rifle", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "Humans don't often come up here to learn the hunt.", next = "hu_hunter", when = { race = "Human", class = "HUNTER" } },
+        { text = "These snows are colder than any forest of my people.", next = "ne_snow", when = { race = "NightElf" } },
+        { text = "I came a long way to learn from the mountain.", next = "sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Good hunting, Grif.", next = "END" },
       },
     },
+    tame_wait = {
+      lines = { { id = "tw_default", text = "When ye've ten seasons on ye an' ye've stopped jumpin' at yer own shadow. A beast can smell fear an' it can smell green, an' just now ye smell o' both, so go an' shoot wolves an' come back." } },
+      choices = {
+        { text = "I'll come back when I'm ready.", next = "BACK", reply = "Good, an' I'll ken it when ye do, for ye'll walk up the hill quieter.", fx = { trait = { cautious = 1 } } },
+        { text = "I could tame one now, if you'd let me.", next = "BACK", reply = "Ye could try, an' the beast would eat ye, an' I'd have tae tell Daera. Ten seasons.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    tame = {
+      lines = {
+        { id = "ta_default", text = "Then take this rod. It doesnae make a beast love ye; it only makes it listen long enough tae decide, an' while it's decidin' it'll fight ye wi' everythin' it's got. I want ye tae try it on a large crag boar first, then a snow leopard, then an ice claw bear, each one harder than the last." },
+        { id = "ta_done", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "Ye've done it, all three, an' I watched ye from the ridge on the bear, which ye didnae know. Ye held still when it went for ye, an' that's the whole o' the trick." },
+      },
+      choices = {
+        { text = "Why make me tame three and let them go?", next = "tame_three" },
+        { text = "What if the beast fights back?", next = "tame_fight" },
+        { text = "Which one should I keep?", next = "tame_keep" },
+      },
+    },
+    tame_three = {
+      lines = { { id = "tt_default", text = "Because the first one ye tame, ye'll think ye did it. By the third ye'll ken the beast did most o' the work, an' that's when ye're fit tae keep one. An' they go back tae the hill because they're the hill's, no' mine, an' no' yers either." } },
+      choices = {
+        { text = "That's fair to the beasts. I'll let them go.", next = "BACK", reply = "Hrm, aye. They'll remember ye, after, an' they'll no' bother ye on the road.", fx = { align = { light = 1 } } },
+        { text = "It's a waste of a good beast, if you ask me.", next = "BACK", reply = "Nobody did ask ye, an' the beast didnae ask tae be tamed either. Ye'll see it different by the third.", fx = { align = { light = -1 } } },
+        { text = "Something else, Grif.", next = "BACK" },
+      },
+    },
+    tame_fight = {
+      lines = { { id = "tf2_default", text = "It will, an' ye let it. Stand where ye are an' keep yer hands where it can see them, an' dinnae hit it back, whatever it does tae ye. If ye flinch the rod breaks its hold, an' then ye've an angry bear an' nae rod." } },
+      choices = {
+        { text = "I won't flinch.", next = "BACK", reply = "They all say that, but I'll believe it when I see yer boots still in the same snow.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tame_keep = {
+      lines = { { id = "tk_default", text = "Whichever one looks at ye after, an' no' through ye. A boar's stubborn an' hard tae kill, a cat's quick an' cunnin', an' a bear'll stand in front o' ye when things go wrong. Dwarves tend tae keep the boar, for reasons I'll leave ye tae work out." } },
+      choices = {
+        { text = "A boar, then. Stubborn suits me.", next = "BACK", reply = "Hrm, it would. Feed it well an' it'll walk intae a trogg cave for ye.", fx = { trait = { stern = 1 } } },
+        { text = "A cat. I'd rather strike first.", next = "BACK", reply = "Then ye'll want tae keep it fed an' happy, for a hungry cat goes its own way.", fx = { trait = { brave = 1 } } },
+        { text = "A bear, to stand in front of me.", next = "BACK", reply = "Sensible. A bear won't win ye glory, but it'll get ye home.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    road = {
+      hub = true,
+      lines = {
+        { id = "rd_default", text = "A long road, an' I've walked most of it. Ye keep the beast, ye learn yer aspects an' yer stings, an' somewhere around thirty seasons ye learn tae fall down dead an' get up again, which I'll explain if ye ask." },
+        { id = "rd_high", when = { minLevel = 40 }, text = "Ye've come a long way since the boar, I can see it in the mail on yer back an' the way the beast watches yer hands. What d'ye want tae know from an old dwarf on a hill?" },
+      },
+      again = { { id = "rd_again", text = "What else about the road?" } },
+      choices = {
+        { text = "How do I keep my beast loyal?", next = "loyal" },
+        { text = "What's this about falling down dead?", next = "feign", when = { minLevel = 24 } },
+        { text = "I've heard of an ancient who grows a bow in Felwood.", next = "rhok", when = { minLevel = 55 } },
+        { text = "That's enough of the road. Something else.", next = "hello" },
+      },
+    },
+    loyal = {
+      lines = { { id = "lo_default", text = "Feed it what it likes an' feed it often, an' dinnae let it die on ye more than ye must. Every beast starts out wary an' learns tae trust ye a wee bit at a time, an' if it goes hungry long enough it'll leave ye, an' it'll be right tae." } },
+      choices = {
+        { text = "A hungry beast that leaves is only being honest.", next = "BACK", reply = "Aye, it is, an' I'd rather an honest beast than a loyal one I havnae earned.", fx = { align = { order = -1 } } },
+        { text = "A beast that leaves its hunter wasn't trained well.", next = "BACK", reply = "Hrm. Or its hunter wasnae. Ye'll learn which, one day.", fx = { align = { order = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    feign = {
+      lines = { { id = "fe_default", text = "Ye drop where ye stand an' ye stop breathin', an' whatever's chasin' ye loses interest. It's an old trick, older than dwarves; a fox does it, an' so does a beetle, an' if a beetle can manage it, so can ye. Learn it when yer trainer offers it, an' practise it where nobody's watchin', for the first few times ye'll look a fool." } },
+      choices = {
+        { text = "There's no shame in living to hunt again.", next = "BACK", reply = "None at all. The proud ones are under the snow.", fx = { align = { honor = -1 } } },
+        { text = "Playing dead feels like cowardice to me.", next = "BACK", reply = "Then ye'll die proud, an' I'll say somethin' nice over ye. It's no' cowardice if ye get up again an' finish the job.", fx = { align = { honor = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    rhok = {
+      big = true,
+      lines = { { id = "rk_default", text = "Hrm. I've heard the tale an' I believe it, for the night elves dinnae lie about trees. They say an old ancient in Felwood, Hastat, will grow a bow for a hunter who's proved himself against the worst the world can throw, but it's a tale for the best of ye, no' for an old dwarf who likes his hill." } },
+      choices = {
+        { text = "Then I'll prove myself and bring the bow home.", next = "BACK", reply = "Bring it up the hill an' let me hold it, an' I'll die a happy dwarf.", fx = { trait = { brave = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    dw_rifle = {
+      lines = { { id = "dr_default", text = "Because a rifle's a dwarven thing, built in a dwarven forge, an' it makes a noise that tells the whole mountain who's huntin'. I carry a bow myself, for the beasts hate the bang, but I'll no' tell a dwarf what tae carry." } },
+      choices = {
+        { text = "The rifle, then. Let the mountain hear me.", next = "BACK", reply = "Aye, it will. Mind ye dinnae frighten off yer own beast.", fx = { trait = { brave = 1 } } },
+        { text = "A bow, then. I'd rather hunt quiet.", next = "BACK", reply = "Hrm, good. Ye'll see more o' the hill that way.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hu_hunter = {
+      lines = { { id = "hh_default", text = "They don't, an' I didnae expect tae see one. I hear Stormwind's lettin' its folk take the bow an' the beast these days, an' the forest down there's gentle. Up here the beasts dinnae ken what a human is, so they'll judge ye on yer own." } },
+      choices = {
+        { text = "Then I'll give them a good first impression.", next = "BACK", reply = "Hrm, stand still an' dinnae shout, an' ye'll be ahead o' most dwarves.", fx = { affinity = 1 } },
+        { text = "Something else, Grif.", next = "BACK" },
+      },
+    },
+    ne_snow = {
+      lines = { { id = "ns_default", text = "Aye, they would be. Yer folk hunt among the great trees, I'm told, an' ye walk soft enough tae make my wolves jealous. Up here the snow tells everythin' ye've done, so ye'll have tae learn tae walk where the wind's already been." } },
+      choices = {
+        { text = "I'll learn the snow, as I learned the forest.", next = "BACK", reply = "Hrm, I believe ye will. Ye've the patience for it, an' that's more than most.", fx = { affinity = 1 } },
+        { text = "Something else, Grif.", next = "BACK" },
+      },
+    },
+    sky = {
+      lines = { { id = "sk_default", text = "Hrm, ye have, by the look o' ye. I dinnae ken yer island or yer beasts, an' I'll no' pretend tae, but the snow doesnae care where ye were born, an' neither does a boar." } },
+      choices = {
+        { text = "Then teach me as you'd teach a dwarf.", next = "BACK", reply = "I will, an' ye'll complain as much as one, I expect.", fx = { affinity = 1 } },
+        { text = "Something else, Grif.", next = "BACK" },
+      },
+    },
     animals = {
-      lines = { { id = "an_default", text = "The guards say that. The guards also stand in one spot all day an' call it work. A boar never lied tae me, an' a wolf never asked me how I was keepin' when it didnae care tae hear." } },
+      lines = { { id = "an_default", text = "The guards say that, an' the guards also stand in one spot all day an' call it work. A boar never lied tae me, an' a wolf never asked how I was keepin' when it didnae care tae hear." } },
       choices = {
         { text = "People aren't all bad.", next = "animals_people" },
         { text = "Something else.", next = "BACK" },
       },
     },
     animals_people = {
-      lines = { { id = "ap_default", text = "No. Daera Brightspear's all right, she can sit an hour wi'out speakin'. An' Belm sends up a pot o' stew when the snow's bad an' never mentions it after. That's two. I'm still thinkin' about a third." } },
+      lines = { { id = "ap_default", text = "No, they're no'. Daera Brightspear's all right, for she can sit an hour wi'out speakin', an' Belm sends up a pot o' stew when the snow's bad an' never mentions it after. That's two, an' I'm still thinkin' about a third." } },
       choices = { { text = "I'll try to be the third.", next = "BACK", reply = "Hrm, ye've stopped fidgetin', an' that's a start, for a beast reads yer hands before yer face.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     trust = {
-      lines = { { id = "tr_default", text = "Ye dinnae earn it, ye wait for it. Find the beast, sit where it can see ye, an' come back the next day an' the next. When it stops watchin' ye, it's decided. Ye cannae hurry it, an' ye cannae buy it." } },
+      lines = { { id = "tr_default", text = "Ye dinnae earn it, ye wait for it. Find the beast, sit where it can see ye, an' come back the next day an' the next, an' when it stops watchin' ye, it's decided; ye cannae hurry it, an' ye cannae buy it." } },
       choices = {
         { text = "Some hunters tame by force.", next = "trust_force" },
         { text = "Something else.", next = "BACK" },
@@ -354,34 +482,35 @@ P:NPC {
     },
     trust_force = {
       big = true,
-      lines = { { id = "tf_default", text = "Aye, they beat it down till it obeys. It works, an' quick. Ye get a beast that'll fight for ye till the day ye're weak, an' then ye find out what it thought o' ye all along." } },
+      lines = { { id = "tf_default", text = "Aye, they beat it down till it obeys, an' it works, an' quick. Ye get a beast that'll fight for ye till the day ye're weak, an' then ye find out what it thought o' ye all along." } },
       choices = {
-        { text = "Then they deserve what they get.", next = "BACK", reply = "They do. I'll no' train them, an' I tell them why.", fx = { align = { light = 1 } } },
-        { text = "A beast is a weapon. Use what's quickest.", next = "BACK", reply = "Then ye've nae business on my hill. Think on it before ye come back.", fx = { align = { light = -1 } } },
+        { text = "Then they deserve what they get.", next = "BACK", reply = "They do, an' I'll no' train them, an' I tell them why.", fx = { align = { light = 1 } } },
+        { text = "A beast is a weapon. Use what's quickest.", next = "BACK", reply = "Then ye've nae business on my hill, so think on it before ye come back.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     game = {
-      lines = { { id = "ga_default", text = "Crag boar, for meat. Snow leopard on the high ground, if ye're patient, an' ice claw bear by the lake at Brewnall. Leave the wolves be, unless they've come for the rams. They were here before us." } },
+      lines = { { id = "ga_default", text = "Crag boar for meat, snow leopard on the high ground if ye're patient, an' ice claw bear by the lake at Brewnall. Leave the wolves be unless they've come for the rams, for they were here before us." } },
       choices = { { text = "I'll leave the wolves.", next = "BACK", fx = { trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     signs = {
-      lines = { { id = "x1_default", text = "Look at what isnae there. Nae birds means somethin's huntin'. Nae tracks at a waterhole means somethin's watchin' it. Folk look for prints, an' the prints are the last thing ye'll find." } },
+      lines = { { id = "x1_default", text = "Look at what isnae there. Nae birds means somethin's huntin', an' nae tracks at a waterhole means somethin's watchin' it; folk look for prints, an' the prints are the last thing ye'll find." } },
       choices = {
         { text = "And if I find fresh prints?", next = "signs_fresh" },
         { text = "Something else.", next = "BACK" },
       },
     },
     signs_fresh = {
-      lines = { { id = "x2_default", text = "Then put yer hand in one. If the edge is sharp an' the snow inside is soft, it's close. Stop walkin', an' start thinkin' about which of ye is the hunter." } },
+      lines = { { id = "x2_default", text = "Then put yer hand in one. If the edge is sharp an' the snow inside is soft, it's close, so stop walkin' an' start thinkin' about which o' ye is the hunter." } },
       choices = { { text = "I'll check the edges.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     daera = { { id = "tp_daera", text = "Daera Brightspear, in the Hall o' Arms. She sends me the young ones before the city ruins their ears." } },
-    kharanos = { { id = "tp_kharanos", text = "Too many chimneys. But the stew's good, an' it's a short walk from there tae where the tracks begin." } },
+    belia = { { id = "tp_belia", text = "Belia Thundergranite trains the beasts in the Hall o' Arms, an' I send my hunters tae her once they've tamed somethin'. She talks tae them like bairns, an' they love her for it." } },
+    kharanos = { { id = "tp_kharanos", text = "Too many chimneys, but the stew's good, an' it's a short walk from there tae where the tracks begin." } },
     peria = { { id = "tp_peria", text = "Peria Lamenur trains the beasts down by the inn. She's kind tae them, so I've nothin' tae say against her." } },
-    background = { { id = "tp_bg", text = "Born in the high valleys. Came down for the stew. That's all." } },
+    background = { { id = "tp_bg", text = "I was born in the high valleys an' came down for the stew, an' that's all ye'll get out o' me." } },
     _none = { { id = "tp_none", text = "Dinnae ken. Ask somebody who likes talkin'." } },
   },
 }
@@ -1263,7 +1392,52 @@ P:NPC {
         { text = "Which Dun Morogh beasts make good companions?", next = "beasts" },
         { text = "That young bear looks nervous.", next = "bear" },
         { text = "What should I feed a beast in this cold?", next = "feed" },
+        { text = "How do I keep a beast happy once I have it?", next = "hp", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "I'm not ready for a beast yet. What should I learn?", next = "hp_young", when = { class = "HUNTER", maxLevel = 9 } },
+        { text = "I've seen what wolves are like in my own forests.", next = "hp_elf", when = { race = "NightElf" } },
         { text = "Farewell, Peria.", next = "END" },
+      },
+    },
+    hp_young = {
+      lines = { { id = "hpy_default", text = "Learn tae watch beasts before ye ever think o' keepin' one. Sit outside the inn at dusk an' watch the wolves come down tae the bins, an' see which ones lead an' which ones wait, an' by the time Grif hands ye his rod ye'll ken more than most." } },
+      choices = {
+        { text = "I'll go and watch them tonight.", next = "BACK", reply = "Take a blanket, for they come late an' the cold doesnae.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Peria.", next = "BACK" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Feed it, keep it warm, an' dinnae let it die on ye, an' then do all three again tomorrow. A beast's loyalty grows slow, like a beard, an' it falls out a great deal faster if ye neglect it." },
+        { id = "hp_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}, now. Aye, it's eatin' well enough, but it's cold, an' a cold beast is a cross one; feed it, keep it warm, an' dinnae let it die on ye, an' it'll love ye the rest o' its days." },
+      },
+      again = { { id = "hp_again", text = "Anythin' else, softly?" } },
+      choices = {
+        { text = "My beast sulks when I've been away long.", next = "hp_sulk" },
+        { text = "Can my beast learn new things?", next = "hp_learn" },
+        { text = "Something else, Peria.", next = "hello" },
+      },
+    },
+    hp_sulk = {
+      lines = { { id = "hps_default", text = "It would, for it's been waitin' on ye. Feed it somethin' it likes an' sit wi' it a while, an' it'll forgive ye, but dinnae make a habit o' it, for a beast's patience runs out like anyone's, an' one day it simply willnae be there." } },
+      choices = {
+        { text = "It's right to sulk. I'll make it up to it.", next = "BACK", reply = "That's the answer o' somebody worth bein' sulked at.", fx = { align = { light = 1 } } },
+        { text = "A beast ought to wait without complaint.", next = "BACK", reply = "Would ye? Nobody waits forever wi'out complaint, an' a beast's honest enough tae show it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_learn = {
+      lines = { { id = "hpl_default", text = "It can, from me or from the wild. Bring it here an' I'll teach it tae growl an' tae bite harder, an' as ye travel ye'll meet beasts who know tricks I cannae teach, an' if ye tame them a while ye'll learn the trick yerself." } },
+      choices = {
+        { text = "Then I'll bring it back often.", next = "BACK", reply = "Do, for I like tae see how they grow.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe_default", text = "Have ye? Then ye'll know wolves are no' cruel, only hungry an' careful, same as us. The ones up here are leaner than any in yer forests, I'd guess, for the snow takes a toll, an' they're bolder for it." } },
+      choices = {
+        { text = "Hunger makes every creature bold.", next = "BACK", reply = "Aye, it does, an' that's worth rememberin' when ye meet a hungry troll.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wrong = {
@@ -1271,15 +1445,15 @@ P:NPC {
       choices = { { text = "What else?", next = "wrong_else" }, { text = "Something else.", next = "BACK" } },
     },
     wrong_else = {
-      lines = { { id = "wrong_else_default", text = "Shoutin'. A wolf hears ye whisper at fifty paces. Every command I teach can be given under yer breath, an' the day ye need a beast tae hold still wi' a Frostmane scout ten feet off, ye'll be glad I was stubborn about it." } },
+      lines = { { id = "wrong_else_default", text = "Shoutin', for a wolf hears ye whisper at fifty paces, an' every command I teach can be given under yer breath, an' the day ye need a beast tae hold still wi' a Frostmane scout ten feet off, ye'll be glad I was stubborn about it." } },
       choices = { { text = "Quiet commands. I'll practise.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     grif = {
       lines = { { id = "grif_default", text = "We are, an' we're no'. He cannae abide people an' I rather like them, but we'd both sooner sit wi' a boar than a senator. He sends me every beast his students tame, an' I've never once had tae undo somethin' he taught." } },
-      choices = { { text = "He said he had nothing to say against you.", next = "BACK", reply = "From Grif, that's a love letter. I'll treasure it.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "He said he had nothing to say against you.", next = "BACK", reply = "From Grif, that's a love letter, an' I'll treasure it.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     beasts = {
-      lines = { { id = "beasts_default", text = "A crag boar, for a beginner. They're stubborn an' greedy an' loyal as stone, which is tae say they're dwarves wi' tusks. The snow leopard's bonnier, but she'll test ye every day o' her life. The ice claw bear's for somebody wi' patience an' a deep larder." } },
+      lines = { { id = "beasts_default", text = "A crag boar, for a beginner, for they're stubborn an' greedy an' loyal as stone, which is tae say they're dwarves wi' tusks. The snow leopard's bonnier, but she'll test ye every day o' her life, an' the ice claw bear's for somebody wi' patience an' a deep larder." } },
       choices = { { text = "And wolves?", next = "beasts_wolves" }, { text = "Something else.", next = "BACK" } },
     },
     beasts_wolves = {
@@ -1288,15 +1462,15 @@ P:NPC {
     },
     bear = {
       big = true,
-      lines = { { id = "bear_default", text = "He is. A hunter brought him in last week, thin, an' flinchin' at a raised hand. The hunter wants him made fierce by spring. I can do it, an' quickly, the way it was done tae him before. Or I can take the time tae do it right, an' send the hunter away angry." } },
+      lines = { { id = "bear_default", text = "He is, poor lad. A hunter brought him in last week, thin an' flinchin' at a raised hand, an' wants him made fierce by spring; I can do it quickly, the way it was done tae him before, or I can take the time tae do it right an' send the hunter away angry." } },
       choices = {
-        { text = "Take your time. A beast broken by fear is no companion.", next = "BACK", reply = "That's what I mean tae do. He can be as angry as he likes. The bear's no' his tae ruin twice.", fx = { align = { light = 1 } } },
+        { text = "Take your time. A beast broken by fear is no companion.", next = "BACK", reply = "That's what I mean tae do, an' he can be as angry as he likes, for the bear's no' his tae ruin twice.", fx = { align = { light = 1 } } },
         { text = "Do as he asks. It's his beast, and his coin.", next = "BACK", reply = "It's his coin, aye. I've never thought a beast was anybody's the way a rifle is.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     feed = {
-      lines = { { id = "feed_default", text = "Fat, an' plenty. Boar belly for a wolf or a cat, an' never straight out o' the snow, for frozen meat chills a beast from the inside. Carry it under yer own coat for an hour first. If ye'll no' do that much for it, ye've nae business keepin' one." } },
+      lines = { { id = "feed_default", text = "Fat, an' plenty of it: boar belly for a wolf or a cat, an' never straight out o' the snow, for frozen meat chills a beast from the inside. Carry it under yer own coat for an hour first, an' if ye'll no' do that much for it, ye've nae business keepin' one." } },
       choices = { { text = "I'll carry it warm.", next = "BACK" } },
     },
   },

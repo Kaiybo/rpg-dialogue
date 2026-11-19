@@ -3178,6 +3178,7 @@ P:NPC {
       },
       choices = {
         { text = "Train me, Sian'dur.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Teach me to follow the trail, Sian'dur.", next = "s_trail", when = { class = "HUNTER" } },
         { text = "What did you hunt on the Echo Isles?", next = "isles" },
         { text = "What do you make of how orcs hunt?", next = "orcs" },
         { text = "Who shares this hall with you?", next = "hall" },
@@ -3239,6 +3240,79 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    s_trail = {
+      hub = true,
+      lines = {
+        { id = "st_default", text = "Ormak tells you where de road goes, and I tell you how to follow it, because a road be only a trail somebody else walked first. Ask me about de tracks and the country, mon, and I will tell you what I learned walkin' it." },
+        { id = "st_low", when = { maxLevel = 19 }, text = "You still track with your eyes, mon, like a child lookin' for a dropped coin. By de time you reach Stonetalon you will track with your nose and your feet as well, if you listen to me now." },
+        { id = "st_high", when = { minLevel = 40 }, text = "You track better dan most who come through dis hall, I can see it in how you walked in. Still, ask, because even old hunters lose a trail now and then." },
+      },
+      again = {
+        { id = "st_again", text = "What else, mon? De trail be still warm." },
+        { id = "st_again2", text = "Go on. I be listenin' and watchin' de door." },
+      },
+      choices = {
+        { text = "How do you find a beast that doesn't want finding?", next = "s_track" },
+        { text = "When will I be quick enough to keep up with the game?", next = "s_cheetah" },
+        { text = "Where should I hunt after the Barrens?", next = "s_country", when = { minLevel = 18 } },
+        { text = "Do you still keep a raptor, Sian'dur?", next = "s_raptor", when = { race = "Troll" } },
+        { text = "I've seen the Grimtotem hunting near Stonetalon.", next = "s_grim", when = { race = "Tauren", minLevel = 18 } },
+        { text = "That's enough trail for now, Sian'dur.", next = "BACK" },
+      },
+    },
+    s_track = {
+      lines = { { id = "stk_default", text = "You stop lookin' for de beast and start lookin' for what it be doin'. A boar roots, a cat drags, a raptor runs on its toes and leaves half a print, and when you learn to see de beasts' ways in the dirt, the hunter's sense comes on you and you feel them before you see them." } },
+      choices = {
+        { text = "That sense feels more like magic than skill.", next = "s_track2" },
+        { text = "Back to the trail.", next = "s_trail" },
+      },
+    },
+    s_track2 = {
+      big = true,
+      lines = { { id = "stk2_default", text = "Maybe it be a little of both, mon. My mother said de loa give it to hunters who pay attention, and Ormak says it be only practice wearin' a mask. Which do you think it be?" } },
+      choices = {
+        { text = "Practice. Nobody gives a hunter anything.", next = "s_trail", reply = "Ormak would like you, mon. Keep practisin', and maybe de loa will give it to you anyway, out of spite.", fx = { align = { light = -1 } } },
+        { text = "A gift from the spirits, and I'll honor it.", next = "s_trail", reply = "Den you and my mother would have got along. Leave a little of every kill for de loa, the way she did.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Back to the trail.", next = "s_trail" },
+      },
+    },
+    s_cheetah = {
+      lines = {
+        { id = "sch_default", text = "At twenty you learn de cheetah, and den you run like one, as long as nothin' hits you, because the first blow leaves you dazed and slow as a kodo. Later you learn the pack, and everyone near you runs too, and every one of them gets dazed together if you be careless." },
+        { id = "sch_high", when = { minLevel = 30 }, text = "You have de cheetah and de pack both, so you already know the joke: you be fast until somethin' touches you. Switch to the hawk before the fight starts, not after, and your friends will stop cursin' your name." },
+      },
+      choices = {
+        { text = "Back to the trail.", next = "s_trail" },
+      },
+    },
+    s_country = {
+      lines = { { id = "sco_default", text = "Stonetalon for de cats and de spiders and the Venture Company makin' a mess of everything, then Thousand Needles and the wind serpents on the mesas. Past that, Dustwallow and Feralas and Desolace, where the beasts be old and the kodo go to die, and you will tame things there I never saw." } },
+      choices = {
+        { text = "Wind serpents? Can those be tamed?", next = "s_serpent" },
+        { text = "Back to the trail.", next = "s_trail" },
+      },
+    },
+    s_serpent = {
+      lines = { { id = "sse_default", text = "Dey can, and dey spit lightning like a shaman with a bad temper. The tauren of Freewind say the serpents be cousins of the wind spirits, so be polite when you tame one, mon, and do not let it near your arrows when it be wet." } },
+      choices = {
+        { text = "I'll be polite. Back to the trail.", next = "s_trail", fx = { trait = { witty = 1 } } },
+      },
+    },
+    s_raptor = {
+      lines = { { id = "sra_default", text = "Not since de isles, mon. I raised one from de egg there, and when we fled she would not get on the boats, and I left her on the beach because there was no time. Every raptor I see in the Barrens, I look for her stripes, and I know it be foolish." } },
+      choices = {
+        { text = "It isn't foolish. She'd look for you too.", next = "s_trail", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Then tame a new one. She'd want you hunting.", next = "s_trail", reply = "Maybe she would, mon. Maybe when we take de isles back, I will see who be waitin' on dat beach.", fx = { affinity = 1 } },
+      },
+    },
+    s_grim = {
+      lines = { { id = "sgr_default", text = "Den you know dey hunt like your people and give no thanks for it. They kill a beast and leave half of it, and they say the land belongs to the tauren alone, and they look at a troll like I be somethin' to clear off it. I hope your people be not all so friendly." } },
+      choices = {
+        { text = "The Grimtotem are not my people's way. Cairne knows it.", next = "s_trail", reply = "I be glad to hear it, mon. Your Cairne be a patient bull, but I think de Grimtotem test him.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "They're tauren still. Their grievances are real.", next = "s_trail", reply = "Maybe dey be, but a grievance does not make you waste half a kill. Watch dem, mon, the way they watch you.", fx = { align = { order = -1 } } },
+        { text = "Back to the trail.", next = "s_trail" },
+      },
+    },
     tauren = {
       lines = {
         { id = "tauren_default", text = "I know it, and I learned it from your people, mon. Before de Horde we took what we needed and said nothin'. Now I say a word over de kill, de way a brave showed me in Mulgore, and I find I track better de next day. I cannot tell you why." },
@@ -3296,6 +3370,7 @@ P:NPC {
       },
       choices = {
         { text = "Teach me the close work, Xor'juul.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What happens when a beast gets too close, Xor'juul?", next = "x_close", when = { class = "HUNTER" } },
         { text = "You're short a fingertip.", next = "finger" },
         { text = "What makes a good trap?", next = "trap" },
         { text = "Sian'dur says you're soft on the animals.", next = "soft" },
@@ -3356,6 +3431,90 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_close = {
+      hub = true,
+      narr = "He sets the spring down on the bench, wipes his hands, and holds up the short finger again.",
+      lines = {
+        { id = "xc_default", text = "Every hunter thinks de fight be won at forty paces, and every hunter learns it be lost at four. Too close for de bow and too far for the beast to save you, that be where I teach, so ask, mon." },
+        { id = "xc_low", when = { maxLevel = 15 }, text = "You still fight with your bow and run with your feet, and dat be fine for boars. Ask me now about de close work, before you meet somethin' in the Barrens that runs faster than you." },
+        { id = "xc_high", when = { minLevel = 40 }, text = "You have lived dis long, so somebody taught you de close work, or you taught yourself with blood. Ask anyway, mon, an old trap-setter always has one more trick." },
+      },
+      again = {
+        { id = "xc_again", text = "What else? Mind de bench, I set nothin' on it, probably." },
+        { id = "xc_again2", text = "Go on, mon. I be oilin' and listenin'." },
+      },
+      choices = {
+        { text = "What do I do when a beast is too close to shoot?", next = "x_dead" },
+        { text = "Which traps should I learn first?", next = "x_traps", when = { minLevel = 14 } },
+        { text = "Ormak says you can teach a hunter to die.", next = "x_feign", when = { minLevel = 26 } },
+        { text = "I'd rather my beast took the close work.", next = "x_beast" },
+        { text = "Trolls set snares before they walk, you said.", next = "x_troll", when = { race = "Troll" } },
+        { text = "Enough about the close work, Xor'juul.", next = "BACK" },
+      },
+    },
+    x_dead = {
+      lines = { { id = "xd_default", text = "You strike like de raptor, mon, with de blade you carry, and then you clip its wing so it cannot follow, and then you step back to where your bow works. Later you learn to leap clear and to bite back like the mongoose when it misses you, but it all be the same lesson: never stay where it wants you." } },
+      choices = {
+        { text = "So a hunter never stands and fights?", next = "x_dead2" },
+        { text = "Back to the close work.", next = "x_close" },
+      },
+    },
+    x_dead2 = {
+      big = true,
+      lines = { { id = "xd2_default", text = "A hunter stands and fights when she has to, and she be dead if she makes a habit of it. De orcs in de next hall say a hunter who steps back be a coward, and I say a hunter who steps back be shootin' the orc's enemy while it chews on his shield." } },
+      choices = {
+        { text = "Then I'll step back and keep shooting.", next = "x_close", reply = "Good. Let de warriors have de glory, mon, you have the supper.", fx = { align = { honor = -1 } } },
+        { text = "When it comes to it, I'll stand my ground.", next = "x_close", reply = "Den carry a good blade and learn to use it, because your bow will not help you dere.", fx = { align = { honor = 1 } } },
+        { text = "Back to the close work.", next = "x_close" },
+      },
+    },
+    x_traps = {
+      lines = {
+        { id = "xt_default", text = "Fire first, because it be simple: de beast steps on it and burns. At twenty you learn de freezing trap, and that be the best friend a hunter ever had, because it holds one beast still while you deal with the other. Frost after, to slow a pack, and last the one that explodes, which I do not set indoors." },
+        { id = "xt_twenty", when = { minLevel = 20 }, text = "You have de freezing trap now, so here be de secret they do not tell you: lay it before the fight, not during it, and lead the second beast across it while your own beast holds the first. Ice be patient, mon, more patient than you." },
+      },
+      choices = {
+        { text = "And if I must lay one mid-fight?", next = "x_traps2" },
+        { text = "Back to the close work.", next = "x_close" },
+      },
+    },
+    x_traps2 = {
+      lines = { { id = "xt2_default", text = "Den you fall down dead, and while de beast be sniffin' at you and decidin' you be not worth eatin', you get up and lay the trap at your feet. Every good hunter in Orgrimmar learned that trick from a bad day, and I be tellin' you so you can learn it from a good one." } },
+      choices = { { text = "I'll remember. Back to the close work.", next = "x_close" } },
+    },
+    x_feign = {
+      lines = {
+        { id = "xf_default", text = "I can, at thirty, and it be de most useful lie in de world. You fall, the beast loses interest, and everythin' that was chasin' you forgets you be there. It does not work on the clever ones every time, so do not stake your life on it twice in a row." },
+        { id = "xf_high", when = { minLevel = 30 }, text = "You learned it already, so you know how it feels to lie still with your heart poundin' while somethin' breathes on your neck. Use it before de fight be lost, mon, not after, because de dead do not get up." },
+      },
+      choices = {
+        { text = "Lying down to live seems shameful.", next = "x_feign2" },
+        { text = "Back to the close work.", next = "x_close" },
+      },
+    },
+    x_feign2 = {
+      big = true,
+      lines = { { id = "xf2_default", text = "Shame be for de livin', mon, and de livin' be who I want you to be. The Darkspear did not survive the sea witch and the murlocs and the humans by standin' tall, we survived by bein' clever. What do you care about more, how you look or what you bring home?" } },
+      choices = {
+        { text = "What I bring home. Pride doesn't feed anyone.", next = "x_close", reply = "Now you be a hunter, mon. Lie in de dust, and get up with your supper.", fx = { align = { honor = -1 } } },
+        { text = "How I stand. A hunter shouldn't grovel.", next = "x_close", reply = "Den stand, and I will say good words over you. But learn it anyway, in case you change your mind.", fx = { align = { honor = 1 } } },
+        { text = "Back to the close work.", next = "x_close" },
+      },
+    },
+    x_beast = {
+      lines = {
+        { id = "xb_default", text = "So would everybody, and so it should, most of de time. But beasts fall, and when yours does, de thing that killed it be close and angry, and you have only your blade and your feet. Learn the close work for the day your beast cannot do it." },
+        { id = "xb_pet", when = { pet = { type = "Beast" } }, text = "So would {pet}, I think, by de look of it, and most days it can. But one day it falls, and de thing that felled it be close and angry, and on that day you will want to know what I know." },
+      },
+      choices = { { text = "Fair. Back to the close work.", next = "x_close" } },
+    },
+    x_troll = {
+      lines = { { id = "xtr_default", text = "We did, cousin. On de islands every child set snares for crabs and lizards before dey could swim, and the best ones set them for each other. My sister caught me by the ankle when I was six, and I hung from a palm all afternoon, and I never stepped on a loop of vine again." } },
+      choices = {
+        { text = "My cousins caught me the same way.", next = "x_close", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I never fell for the vine trick.", next = "x_close", reply = "Den you be lyin', cousin, or you had no sisters.", fx = { trait = { witty = 1 } } },
       },
     },
     skinner = {

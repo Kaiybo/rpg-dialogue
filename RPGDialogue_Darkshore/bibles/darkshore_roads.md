@@ -18,3 +18,6 @@
 
 ## Never
 Cataclysm-era Darkshore (Mathystra relocation, Shatterspear quests, Lor'danel).
+
+## Kaldorei factions (authored, not canon)
+- Tysha: quiet contempt for the younger races as "children who break things" (humans lose kingdoms to fire, dwarves dig, gnomes poisoned their city). Keeps a gnome's ticking box dropped at Ameth'Aran. Outlanders can change her mind (`tysha_soft`, Persuade after reading the tablets). Named by Elissa and Thundris; she names Glynda as sharing her view.

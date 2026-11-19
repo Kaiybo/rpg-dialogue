@@ -50,3 +50,6 @@ Sources read for this pass (warcraft.wiki.gg): Magistrate_Solomon, Messenger_to_
 
 ## 0.34.0
 - Solomon (Persuade, `amiss_record`): he has kept every reply from the Keep; four different hands all use the word 'patience'. He has sealed copies in a box with instructions for the court should anything befall him, and believes the Regent isn't the one writing.
+
+## Night elves (prejudice pass)
+- Envies Darnassus's quick answers from Stormwind; believes a clerk's rumour that the crown keeps soldiers in Ashenvale (claim `solomon_ashenvale_soldiers`, false; exposed by Vimes or a kaldorei player's `[Persuade]`, npcFlag `solomon_nelf_soft`).

@@ -1804,6 +1804,7 @@ P:NPC {
       },
       choices = {
         { text = "Teach me, Jen'shan.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Walk me down the hunter's road, Jen'shan.", next = "h_road", when = { class = "HUNTER" } },
         { text = "What do you make of the game in this valley?", next = "game" },
         { text = "A troll teaching orcs to hunt must take patience.", next = "orcs" },
         { text = "When does a young hunter earn a beast?", next = "beast" },
@@ -1849,6 +1850,81 @@ P:NPC {
     hanazua = {
       lines = { { id = "ha_default", text = "He was, and he will be again if de loa are kind. I told him to watch de tail and he watched de claw, and Sarkoth taught de rest of de lesson better dan I could. I bring him water at night, mon, but don't tell him I worry." } },
       choices = { { text = "I won't say a word. Something else.", next = "BACK" } },
+    },
+    h_road = {
+      hub = true,
+      lines = {
+        { id = "hr_default", text = "De hunter's road, mon, starts right here in de dust, with a bow you can barely pull and a beast you don't have yet. I can walk you the first stretch of it, and then Thotar takes the next, and after that the road be yours." },
+        { id = "hr_note", when = { questActive = TODO_QUEST("Etched Parchment") }, text = "You read de parchment I left for you, so you already know de first lesson: a hunter goes lookin' for what she needs. The rest of the road starts here, mon, so sit." },
+        { id = "hr_ten", when = { minLevel = 10 }, text = "You be past my stretch of de road already, mon, and I can see de next one on you. Still, sit and tell me what you learned, because a teacher likes to hear she got somethin' right." },
+      },
+      again = {
+        { id = "hr_again", text = "What else, young one? De road be long, but we be in no hurry." },
+        { id = "hr_again2", text = "Go on, ask. I answer slow, like a good shot." },
+      },
+      choices = {
+        { text = "Why do you teach the stings so early?", next = "jr_sting" },
+        { text = "The monkey aspect makes me feel foolish.", next = "jr_monkey" },
+        { text = "What happens when I'm ready for a beast?", next = "jr_next" },
+        { text = "You learned on the Echo Isles. Tell me of them.", next = "jr_isles", when = { race = "Troll" } },
+        { text = "Orcs don't lie in the dust. We charge.", next = "orcs", when = { race = "Orc" } },
+        { text = "Enough of the road, Jen'shan.", next = "BACK" },
+      },
+    },
+    jr_sting = {
+      lines = { { id = "jrs_default", text = "Because you be small and alone, mon, and de scorpid be neither. Put de serpent's poison in it and step back, and let it chase you while it dies, and you learn the first truth of the hunt: the wound does the work, and the hunter only has to stay alive." } },
+      choices = {
+        { text = "That seems a slow way to kill.", next = "jr_sting2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    jr_sting2 = {
+      big = true,
+      lines = { { id = "jrs2_default", text = "Slow be de point, young one. On de islands we hunted with poisoned darts long before any of us saw a bow, and nobody went hungry for bein' patient. The orcs call it sly, and the orcs eat what we bring back." } },
+      choices = {
+        { text = "Sly or not, the hunter who lives is right.", next = "h_road", reply = "Ha! Now you talk like a Darkspear, mon. Stay alive, and let de poison argue.", fx = { align = { honor = -1 } } },
+        { text = "I'd still rather face the beast and end it clean.", next = "h_road", reply = "Den learn to shoot clean, and use de sting when you can't. A good hunter keeps both in her quiver.", fx = { align = { honor = 1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    jr_monkey = {
+      narr = "She grins, drops into a crouch and sways on her heels, quick as a lizard, without her hands leaving her knees.",
+      lines = { { id = "jrm_default", text = "It should, mon, and dat be how you know it be workin'. De monkey don't stand and take a blow, he be somewhere else when it lands. Later you learn the hawk for shootin' and the cheetah for runnin', and you feel foolish in all of them, until a raptor misses you." } },
+      choices = {
+        { text = "I'll wear the foolish face, then. Back to the road.", next = "h_road", fx = { trait = { witty = 1 } } },
+      },
+    },
+    jr_next = {
+      lines = {
+        { id = "jrn_default", text = "When you be ten seasons strong, I send you up to Thotar in Razor Hill with word dat you be ready. He gives you a rod and sends you after a boar and a crab and a scorpid, and you tame each one and let each one go, and only den do you choose." },
+        { id = "jrn_path", when = { questActive = TODO_QUEST("The Hunter's Path") }, text = "Now, mon, dat be why I sent you on de hunter's path. Go up to Thotar in Razor Hill, and he puts a taming rod in your hand, and the valley will be very quiet without you." },
+      },
+      choices = {
+        { text = "Why tame them only to let them go?", next = "jr_next2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    jr_next2 = {
+      lines = { { id = "jrn2_default", text = "Because de first beast you ever bind be not de best one, only the nearest. Thotar wants your hands to learn the binding before your heart picks a friend, and I want the same, so when you find the beast that looks back at you, you be ready for it." } },
+      choices = {
+        { text = "That's wise. Back to the road.", next = "h_road", fx = { affinity = 1 } },
+      },
+    },
+    jr_isles = {
+      lines = { { id = "jri_default", text = "Tigers in de long grass and raptors on de ridges, and the sea so loud you hunt by your eyes and never your ears. Zalazane holds the isles now with his hexed ones, and every Darkspear hunter in this valley be keepin' one good arrow for the day Vol'jin says we go home." } },
+      choices = {
+        { text = "When that day comes, I'll be there with my bow.", next = "jr_isles2" },
+        { text = "Back to the road.", next = "h_road" },
+      },
+    },
+    jr_isles2 = {
+      big = true,
+      lines = { { id = "jri2_default", text = "Dat be a fine promise, mon, and I hear it from every young Darkspear. De hard part be keepin' it while the Horde asks you to fight everywhere else first. What do you owe more, the isles or the Warchief who gave us this land?" } },
+      choices = {
+        { text = "The isles. They're our home, whatever the Horde needs.", next = "h_road", reply = "Spoken like your grandmother, young one. Keep dat arrow, den, and keep it sharp.", fx = { align = { order = -1 } } },
+        { text = "The Warchief. Vol'jin gave our word, and we keep it.", next = "h_road", reply = "Vol'jin would like to hear dat, and so would Thrall. De isles will wait, mon, they be good at it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Back to the road.", next = "h_road" },
+      },
     },
     close = {
       lines = { { id = "cl_default", text = "Den meet dem up close, mon, and I will put an arrow in de one comin' up behind you. Dat be how de Horde hunts now, orc in front and troll at de back, and it has worked from Hyjal to here." } },
@@ -3252,6 +3328,7 @@ P:NPC {
       },
       choices = {
         { text = "Train my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Teach me how to keep a beast, Harruk.", next = "k_keep", when = { class = "HUNTER" } },
         { text = "How does a beast come to trust a hunter?", next = "trust" },
         { text = "Which of Durotar's beasts makes the best companion?", next = "beasts" },
         { text = "You like wolves better than people, I think.", next = "wolves" },
@@ -3296,6 +3373,100 @@ P:NPC {
     wolves = {
       lines = { { id = "wv_default", text = "I do, and I'll not pretend otherwise. A wolf has never lied to me. Orcs and wolves have run together since Draenor, and when the clans lost nearly everything else, the wolves were still there, which is more than I can say for our honor." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_keep = {
+      hub = true,
+      narr = "He takes a strip of dried boar from the pouch at his belt and turns it over in his fingers while he talks.",
+      lines = {
+        { id = "kk_default", text = "Taming a beast takes a moment, and keeping one takes the rest of your life, or the rest of its. Ask me what you like about the keeping, because that is the half Thotar leaves to me." },
+        { id = "kk_new", when = { maxLevel = 14, pet = { type = "Beast" } }, text = "Your {pet} is new to you, and it is still deciding whether you are worth staying for. Ask me what you like about the keeping, and listen well, because it is listening to you." },
+        { id = "kk_nopet", when = { maxLevel = 9 }, text = "You have no beast yet, so this is all talk to you. Listen anyway, because the hunters who listen before their first taming lose fewer beasts after it." },
+      },
+      again = {
+        { id = "kk_again", text = "What else about the keeping? The wolf is asleep, so we have time." },
+        { id = "kk_again2", text = "Go on. Every question you ask me is one your beast does not have to answer the hard way." },
+      },
+      choices = {
+        { text = "What should I feed it?", next = "k_feed" },
+        { text = "How does a beast grow loyal?", next = "k_loyal" },
+        { text = "How does my beast learn new tricks?", next = "k_learn" },
+        { text = "My beast fell in a fight. I left it there.", next = "k_left", when = { minLevel = 10 } },
+        { text = "Orcs and wolves go back to Draenor, you said.", next = "k_wolf", when = { race = "Orc" } },
+        { text = "Enough about the keeping, Harruk.", next = "BACK" },
+      },
+    },
+    k_feed = {
+      lines = {
+        { id = "kf_default", text = "What it would eat in the wild, and never what is easiest for you. A boar eats anything, a wolf or a cat wants meat, a crab wants fish, and a scorpid wants meat and does not care how old it is, which is the only easy thing about a scorpid." },
+        { id = "kf_cat", when = { pet = { family = "Cat" } }, text = "Meat, and fish when you have it, and never the same tough strip every day, because a cat sulks over its supper like a chieftain over his tribute. A well-fed cat fights twice as hard as a hungry one, and it knows the difference before you do." },
+        { id = "kf_raptor", when = { pet = { family = "Raptor" } }, text = "Meat, and plenty of it, because a raptor's hunger does not stop at its belly. Feed it before every fight, and if you ever see it watching you over a cookfire, feed it then too." },
+      },
+      choices = {
+        { text = "And if I run out of food in the wild?", next = "k_feed2" },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_feed2 = {
+      big = true,
+      lines = { { id = "kf2_default", text = "Then you hunt for it before you hunt for yourself, and you go to sleep hungry if you must. A hunter who eats while his beast watches has told it plainly which of them matters, and beasts remember that sort of thing longer than we do." } },
+      choices = {
+        { text = "My beast eats first. Always.", next = "k_keep", reply = "Then it will follow you into fire, and one day it will have to. That is the bargain.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunter who starves can't protect anything.", next = "k_keep", reply = "That is true, and it is also what every hunter says on the night he eats first. Be honest about which night it is.", fx = { align = { light = -1 } } },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_loyal = {
+      lines = { { id = "kl_default", text = "Slowly, from rebellious to unruly to something you can trust, and it only moves forward while it is happy. Keep it fed, keep it fighting beside you, and never let it go long unhappy, because an unhappy beast stops growing loyal and starts thinking about the hills." } },
+      choices = {
+        { text = "Has a beast ever left you, Harruk?", next = "k_loyal2" },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_loyal2 = {
+      lines = { { id = "kl2_default", text = "One, a young wolf, when I was not much older than you and thought a beast should feed itself between fights. I woke one morning and the rope was chewed through, and I have kept scraps in this pouch every day since." } },
+      choices = {
+        { text = "That's a hard lesson. Back to the keeping.", next = "k_keep", fx = { affinity = 1 } },
+      },
+    },
+    k_learn = {
+      lines = {
+        { id = "kln_default", text = "Two ways. Some things I teach it here, like the growl that draws an enemy off you and the hide that turns a blade, and the rest it learns from other beasts. Tame a wild animal that already knows a bite or a claw, and while it is bound to you, your own beast learns it by watching." },
+        { id = "kln_trained", when = { questDone = TODO_QUEST("Training the Beast") }, text = "You already know how, because Ormak taught you to train what you tame. So go and tame the beasts that bite harder than yours, keep them a day, let them go, and bring what they taught you back to me." },
+      },
+      choices = {
+        { text = "Taming a beast just to let it go seems cold.", next = "k_learn2" },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_learn2 = {
+      big = true,
+      lines = { { id = "kln2_default", text = "It is not kind, I will grant you, and some hunters will not do it at all. The wild beast loses a day and gains nothing, and your companion gains a lesson that might save both your lives in the Barrens." } },
+      choices = {
+        { text = "My beast's life matters more than a stranger beast's day.", next = "k_keep", reply = "That is how most hunters see it, and I have never turned one away for it. Let them go gently, at least.", fx = { align = { order = 1 } } },
+        { text = "I'll not bind a beast I don't mean to keep.", next = "k_keep", reply = "Then your beast will learn slower, and you will both be the better for the slowness, in your own way. I respect it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_left = {
+      lines = { { id = "kle_default", text = "Then go back for it, if you can still reach it, because a fallen beast can be called back with the right words and a little time. A hunter who leaves his companion on the field and calls a new one the next morning will find the next one does not trust him either." } },
+      choices = {
+        { text = "I'll go back for it.", next = "k_keep", reply = "Good. It would have come back for you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It was only a beast. There are others.", next = "k_keep", reply = "There are, and every one of them can smell what you just said. Keep that in mind when the next one sulks.", fx = { align = { honor = -1 } } },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_wolf = {
+      lines = { { id = "kw_default", text = "They do, and in Alterac the Frostwolves still raise their pups beside their children, so that each knows the other's smell before either can walk. The Warchief was raised by humans, but he went to the Frostwolves to find himself, and he came back riding one of their wolves." } },
+      choices = {
+        { text = "Should every orc hunter keep a wolf?", next = "k_wolf2" },
+        { text = "Back to the keeping.", next = "k_keep" },
+      },
+    },
+    k_wolf2 = {
+      lines = { { id = "kw2_default", text = "No, and I would be a poor trainer if I said so. A wolf will not stand still for you, and a scorpid will, and some orcs need a beast that holds the line more than one that runs with them. Keep the beast that suits the hunter you are, not the one your grandfather would have kept." } },
+      choices = {
+        { text = "Sound counsel. Back to the keeping.", next = "k_keep" },
+      },
     },
     hold = {
       lines = { { id = "ho_default", text = "Then it has seen you step back at the wrong moment, and it has learned from you. A beast holds as long as its hunter does. Stand your ground the next three fights, whatever it costs you, and watch what {pet} does on the fourth." } },

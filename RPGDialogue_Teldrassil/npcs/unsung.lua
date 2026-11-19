@@ -151,6 +151,9 @@ P:NPC {
         { text = "Does the Circle mind that you sell bows to hunters, Jeena?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What should I do when the spells run dry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What am I doing wrong with my bow, Jeena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've just strung my first bow.", next = "hr_first", when = { class = "HUNTER", maxLevel = 15 } },
+        { text = "Have you ever seen Rhok'delar, the Ancients' bow?", next = "hr_rhok", when = { class = "HUNTER", minLevel = 50 } },
+        { text = "Did bowyers work this way before the Sundering?", next = "ne_bowyer", when = { race = "NightElf" } },
         { text = "Farewell, Jeena.", next = "END" },
       },
     },
@@ -188,6 +191,36 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
       },
+    },
+    hr_first = {
+      lines = {
+        { id = "jhf_default", text = "Let me see it. It pulls left and the string is too tight, and it is the finest bow you will ever own, because it is the one you learned on. Loosen the string a quarter turn at night, and wax it when it rains, and it will last you until Darnassus." },
+      },
+      choices = {
+        { text = "And after Darnassus?", next = "hr_first2" },
+        { text = "Something else, Jeena.", next = "BACK" },
+      },
+    },
+    hr_first2 = {
+      lines = {
+        { id = "jhf2_default", text = "After that you will buy better bows, and loot better still, and in time you will look at this one and laugh. Don't throw it away when you do. Every hunter I know keeps her first, and Ayanna up in Aldrassil keeps hers over her bed." },
+      },
+      choices = { { text = "I'll keep it, then.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hr_rhok = {
+      lines = {
+        { id = "jrk_default", text = "Never, and I have made bows for three hundred years. Rhok'delar is not made by any bowyer; the Ancient Vartrus in Felwood grows it from a living stave for a hunter who has earned it, and I would give everything in this shop just to hold one for an afternoon." },
+      },
+      choices = {
+        { text = "If I earn it, I'll bring it to you.", next = "BACK", reply = "Then I will close the shop for the day, and tell everyone in Dolanaar why.", fx = { affinity = 2 } },
+        { text = "Something else, Jeena.", next = "BACK" },
+      },
+    },
+    ne_bowyer = {
+      lines = {
+        { id = "jnb_default", text = "Some did, and some cut the arcane right into the wood, so that the arrows never missed and the hunter never had to learn anything. My teacher refused that magic, and her bows were the ones that still worked after the Well was gone, and I have tried to be worthy of her." },
+      },
+      choices = { { text = "A bow you have to learn. That's better.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

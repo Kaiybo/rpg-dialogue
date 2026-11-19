@@ -92,6 +92,8 @@ P:NPC {
         { text = "There must be other ruins up here.", next = "ruins" },
         { text = "Why give the crystal to Fandral?", next = "crystal", when = { questDone = TODO_QUEST("Remorseful Highborne") } },
         { text = "Couldn't a mage use the crystal properly?", next = "xmage", when = { class = "MAGE", questDone = TODO_QUEST("Remorseful Highborne") } },
+        { text = "The Highborne of Kel'Theril regret what they did. Should we forgive them?", next = "kal_forgive", when = { race = "NightElf", questDone = TODO_QUEST("Remorseful Highborne") } },
+        { text = "Our elders don't speak of the Highborne. Why?", next = "kal_silence", when = { race = "NightElf" } },
         { text = "Farewell, Wynd.", next = "END" },
       },
     },
@@ -178,6 +180,25 @@ P:NPC {
         { text = "Then the wise mage leaves it alone.", next = "BACK", reply = "Yes, and that is the hardest wisdom of all, to leave a power in its box when you know you could use it well. I have watched good mages fail at it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Some mages really are worthy of it.", next = "BACK", reply = "Perhaps, and the Highborne were certain they were among them, every last one. Forgive me if ten thousand years have made me slow to believe anyone again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_silence = {
+      lines = { { id = "ksi_d", text = "Because every elder you know either served them or envied them, once, and that is not a thing anyone enjoys remembering. When the Well was lost, the Highborne who survived were cast out across the sea, and the rest of us found it easier to speak as though we had always been druids and Sentinels." } },
+      choices = {
+        { text = "Cast out where?", next = "kal_silence2" },
+        { text = "Something else, Wynd.", next = "BACK" },
+      },
+    },
+    kal_silence2 = {
+      lines = { { id = "ksi2_d", text = "East, over the sea, to lands we do not speak of, and some were left behind in places like Kel'Theril and Eldre'Thalas, still clinging to their magic in the ruins. You will find their ghosts here, and in Feralas some say a few still live, which is a stranger thing than any ghost." } },
+      choices = { { text = "Strange indeed. Something else.", next = "BACK", fx = { learn = { "highborne" } } } },
+    },
+    kal_forgive = {
+      big = true,
+      lines = { { id = "kfo_d", text = "That is a question I have asked myself every night since you brought the crystal back. They are sorry, I believe it, but sorrow did not raise the drowned shores of the old world, and our people paid for their hunger for ten thousand years." } },
+      choices = {
+        { text = "Regret is the beginning of mending. We should forgive.", next = "BACK", reply = "Then you are kinder than I am, and perhaps wiser. I will try to keep your words in mind when I walk past the lake.", fx = { align = { light = 1 } } },
+        { text = "Some debts can't be forgiven, only remembered.", next = "BACK", reply = "That is the older view, and the Sentinels' view. I do not think it is wrong, only very heavy.", fx = { align = { light = -1 } } },
       },
     },
   },

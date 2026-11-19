@@ -25,3 +25,6 @@ Hellscream's Watch, Silverwind Refuge, Cataclysm-era Splintertree NPCs (Yama Sno
 
 ## Added later (deepening)
 Locke, Marukai, Mitsuwa gained branches about their work and neighbours (Mastok and Kuray'bin; Karang, Je'neu, the naga digging on the strand; the sea-grass knot over Mitsuwa's door). Authored, not canon: Locke's years in the internment camps; Mitsuwa's sister's boat songs.
+
+## Horde views of the kaldorei (authored, not canon)
+- Je'neu: something answers the elves' prayers to the moon, and it is no loa he knows but no demon either; spirits don't argue over names, people do. His grudge: the kaldorei forget nothing and still let their own drowned temple in Blackfathom rot, then call others careless of sacred places.

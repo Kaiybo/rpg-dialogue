@@ -140,7 +140,48 @@ P:NPC {
         { text = "Are the timberlings evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could something darker be what's twisting the timberlings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What is wrong with the plants, Denalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Was Teldrassil ever meant to sicken like this?", next = "ne_sick", when = { race = "NightElf" } },
+        { text = "Some say outsiders brought the sickness to Teldrassil.", next = "blame" },
+        { text = "Why would the dragons refuse to bless a tree?", next = "dragons" },
         { text = "Elune guide your work.", next = "END" },
+      },
+    },
+    blame = {
+      big = true,
+      lines = {
+        { id = "bl_default", key = true, fx = { expose = "arynia_sickness_from_mainland" },
+          text = "Some do, Sentinel Arynia loudest of all, and I understand why, for it is easier to blame a stranger than a seed. But the timberlings were twisting before the first boat from Auberdine tied up at Rut'theran, and I have the seeds in my satchel to prove it." },
+        { id = "bl_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, fx = { expose = "arynia_sickness_from_mainland" },
+          text = "Some do, and I'm sorry if someone has said it to your face, because it isn't true. The timberlings were twisting before the first boat from Auberdine tied up at Rut'theran, and I have the seeds in my satchel to prove it." },
+      },
+      choices = {
+        { text = "Then say so in Darnassus, plainly and loudly.", next = "BACK",
+          reply = "Loudly is not how a scholar is heard in Darnassus, I'm afraid. Proof is, and I'm gathering it seed by seed.", fx = { align = { order = -1 } } },
+        { text = "Wiser to say nothing until you're certain.", next = "BACK",
+          reply = "That has been my course, though some nights it feels more like cowardice than wisdom. The seeds will speak when they're ready.", fx = { align = { order = 1 } } },
+        { text = "Then what do you think is wrong?", next = "dragons" },
+      },
+    },
+    dragons = {
+      lines = {
+        { id = "dr_default", text = "Nordrassil was blessed by the great dragons themselves, and it gave our people ten thousand years of life. Teldrassil was grown without that blessing, and when I hold one of these seeds I feel a tree straining as hard as it can toward something it was never promised." },
+      },
+      choices = {
+        { text = "Is it dangerous?", next = "dragons2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons2 = {
+      big = true,
+      lines = {
+        { id = "dr2_default", text = "To the timberlings already, and to the Gnarlpine, perhaps. To the rest of us I cannot say, and I pray each night that the Arch Druid sees further into this tree than I do, for he planted it and I only study its leaves." },
+      },
+      choices = {
+        { text = "Tell the young elves the truth about the tree.", next = "BACK",
+          reply = "And frighten them, when they've only just lost forever? Perhaps you're right, but I'd want the truth whole before I gave them half of it.", fx = { align = { honor = 1 } } },
+        { text = "Let them believe in the tree. Hope matters more.", next = "BACK",
+          reply = "Hope matters a great deal to a people who've just learned they can die. I'll keep my doubts at the lake, then, and let the city keep its tree.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     timber = {
@@ -173,6 +214,16 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "Then you feel what I feel, and I am glad not to be alone in it. Listen to the timberlings; they will tell you more than I can." } },
       choices = { { text = "I will listen.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    ne_sick = {
+      big = true,
+      lines = {
+        { id = "nsk_default", text = "No tree is meant to sicken, but a tree grown in a hurry may not have the strength to fight it off. Nordrassil grew with the Aspects' blessing and its roots went down into a world that welcomed it, and Teldrassil's roots go down into the sea, and I do not think the sea has decided to welcome anything." },
+      },
+      choices = {
+        { text = "Then the Archdruid should have waited.", next = "BACK", reply = "Perhaps, though I would never say so in the Enclave. I only study what the tree tells me.", fx = { align = { order = 1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "It will grow strong. It just needs our help.", next = "BACK", reply = "That is my hope as well, and the reason I spend my days at this lake. Help me, then.", fx = { align = { order = -1 }, opinion = { teldrassil_tree = "hope" } } },
+      },
     },
   },
 

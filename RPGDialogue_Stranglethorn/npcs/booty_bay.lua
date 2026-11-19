@@ -1432,10 +1432,40 @@ P:NPC {
         { text = "What will you write about me, Krazek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "You've got a problem with gnomes, Krazek?", next = "prej", when = { prejudiced = true } },
         { text = "What do your notes say about my look-alike, Krazek?", next = "xalt_krazek", when = { alt = true } },
+        { text = "Do night elves buy your gossip, Krazek?", next = "ne_krazek" },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
 
+    ne_krazek = {
+      lines = {
+        { id = "ne_default", text = "Night elves? Pal, they're the worst customers in the world, and I've sold rumours to kobolds. They won't buy lumber, they won't buy explosives, they won't buy so much as a bottle rocket, and when they do buy something they look at my coin like it's been somewhere unsanitary." },
+        { id = "ne_nelf", when = { race = "NightElf" },
+          text = "Don't take this personal, sweetheart, but your people are the worst customers I've got. You won't buy lumber because you're friends with the trees, you won't buy explosives because of the noise, and you haggle over the rest like you've got ten thousand years to wait for a better price, which, from what I hear, you used to." },
+      },
+      choices = {
+        { text = "They must buy something, Krazek.", next = "ne_krazek_buy" },
+        { text = "Good. Some things shouldn't be for sale.", next = "BACK",
+          reply = "Spoken like somebody who's never had to make rent in Booty Bay, pal. Everything's for sale, and the only question is whether the seller's honest about it, which I always am, more or less.",
+          fx = { align = { honor = 1 } } },
+        { text = "Then sell them something they can't refuse.", next = "BACK",
+          reply = "Now you're talkin' my language! I've got a crate of genuine moonwell water out back, all natural, collected fresh off the Baron's roof the last time it rained.",
+          fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "We don't need anything you're selling, Krazek.", next = "BACK", when = { race = "NightElf" },
+          reply = "Everybody says that until they need it, sweetheart. The day a Sentinel wants to know which crew is cutting where, she comes to Krazek, and she pays like anybody else." },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    ne_krazek_buy = {
+      lines = {
+        { id = "nb_default", text = "Information, now and then, and only one kind: who's cutting trees where. The Sentinels pay for the Venture Company's camp locations in Stonetalon and Ashenvale, and they pay in good silver, so I'll admit the kaldorei have one redeeming quality, pal, which is a grudge they're willing to fund." },
+      },
+      choices = {
+        { text = "So you sell out other goblins?", next = "BACK",
+          reply = "The Venture Company ain't goblins, pal, they're a business plan with teeth. Selling them out is just what we call a market correction." },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
     word = {
       lines = {
         { id = "w_default", text = "The Venture Company's cutting up the north, Kurzen's men have gone strange, and the trolls are still trolls. It's the same as ever, pal: dangerous, and very, very good for business." },

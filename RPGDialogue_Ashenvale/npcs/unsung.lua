@@ -138,6 +138,8 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do supplies reach Astranaar?", next = "supply" },
         { text = "Astranaar seems safe enough.", next = "safe" },
+        { text = "Who keeps your carts coming, these days?", next = "helpers" },
+        { text = "Do Astranaar's folk mind outlanders like me?", next = "xout_h", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Do you really think I'd rob a village under siege?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there a spell that could help your carts?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The Warsong seem to be raiding your supply carts, Haljan.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -166,6 +168,45 @@ P:NPC {
       choices = {
         { text = "The Horde should pay for every cart.", next = "BACK", reply = "It should, and I'd send them the bill if I could. But they'd laugh at it.", fx = { align = { light = -1 }, learn = { "warsong" } } },
         { text = "Lives first. You chose rightly.", next = "BACK", reply = "I think so too, and it helps to hear it. Flour can be bought again; drivers can't.", fx = { align = { light = 1 }, affinity = 1, learn = { "warsong" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Kaldorei factions: Haljan is grateful for the outlanders who keep Astranaar fed.
+    helpers = {
+      lines = {
+        { id = "hp_default", key = true,
+          text = "Outlanders, mostly, and I'll say it louder than some here would like. Feero Ironhand walks my carts up from Maestra's Post when no Sentinel can be spared, a dwarf from the Wetlands sent me new harness when the Warsong burned mine, and half the travelers who cross that bridge stop to help unload." },
+      },
+      choices = {
+        { text = "Not everyone in Astranaar sounds so grateful.", next = "helpers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    helpers2 = {
+      lines = {
+        { id = "hp2_default", text = "No, and I understand them. Raene has buried scouts and Xai'ander his brother, and Aeolynn would have the whole forest empty again if she could. But I watched a human carter take a Warsong arrow meant for my driver, and I'll not hear a word against his people in my shop." },
+      },
+      choices = {
+        { text = "Grief is no excuse for ingratitude.", next = "BACK", reply = "That's harder than I'd put it, but I'll not argue. Gratitude costs nothing, and it buys a great deal.", fx = { align = { honor = 1 }, opinion = { alliance = "trust" } } },
+        { text = "Grief earns them their anger. Let them keep it.", next = "BACK", reply = "It earns them that, and I don't begrudge them a drop of it. I only ask that they save it for the Warsong.", fx = { align = { honor = -1 } } },
+        { text = "What happened to the carter?", next = "helpers3" },
+      },
+    },
+    helpers3 = {
+      lines = {
+        { id = "hp3_default", text = "He lived, thanks to Kimlya's broth and a priestess from the moonwell, and he went home to Stormwind with a limp and a story. He writes at the turn of every season to ask after my driver, and I read the letters aloud at the counter whether anyone asks me to or not." },
+      },
+      choices = {
+        { text = "That's a good story to keep telling.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout_h = {
+      lines = {
+        { id = "xo_default", text = "Some do, and they'll be perfectly polite to your face, which is how kaldorei mind things. Me, I'd rather have you on the bridge than not, because the Sentinels can't be everywhere and the Warsong very nearly are." },
+      },
+      choices = {
+        { text = "Glad to hear it, Haljan.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -208,6 +249,10 @@ P:NPC {
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've paid honestly and never once called up that creature in my shop. Fine. I'll sell to you without glaring, mostly." },
     { id = "g_default", text = "If you're fighting for Ashenvale, I'll arm you. If you're not, there are other shops, though none this side of the Falfarren that the Sentinels trust." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. How many orcs did that blade see?" },
+    { id = "g_human", when = { race = "Human", ["not"] = { class = "WARLOCK" } }, priority = 5,
+      text = "A human. Your kings caged the orcs and then let them loose on us, so forgive me if I sell to you with my jaw tight." },
+    { id = "g_soft", when = { npcFlagBefore = "xaiander_soft" }, priority = 10,
+      text = "The human who came to pay the kings' debt. Come in; I've set aside a blade that's better than the ones on the wall." },
   },
 
   notice = {
@@ -311,6 +356,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I am Xai'ander, and I sell weapons in Astranaar. Every blade I sell might be the one that keeps an orc axe off a tree that was old when the Well of Eternity still shone, so I don't sell bad ones." },
+        { id = "h_human", when = { race = "Human" },
+          text = "I am Xai'ander, and I sell weapons in Astranaar. I'll sell them to you too, human, though I'd like it understood that your kings are the reason I sell so many." },
+        { id = "h_soft", when = { npcFlagBefore = "xaiander_soft" },
+          text = "Back from the eastern road, I hope, with a few Warsong fewer behind you. I've told Raene there's one human I'd trust with a Sentinel's glaive, and she didn't argue, which is rare." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You carry yourself like a rogue, and that suits me, because an orc can't swing an axe at what he never sees coming. I've daggers in the back sharp enough for the work." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -332,6 +381,8 @@ P:NPC {
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "You sound angry about the orcs.", next = "angry" },
+        { text = "You blame more than the orcs, I think.", next = "blame" },
+        { text = "You don't look kindly on humans either, smith.", next = "xhuman", when = { race = "Human" } },
         { text = "What weapon suits Ashenvale?", next = "suits" },
         { text = "Do you care how an orc dies, Xai'ander?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A mage would be useful beside your Sentinels.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -362,6 +413,59 @@ P:NPC {
         { text = "The orcs must be driven from the forest.", next = "BACK", reply = "They must, and I'll forge the blades to do it. Elune grant us the strength.", fx = { align = { honor = -1 }, affinity = 1, learn = { "warsong" } } },
         { text = "Peace needs someone to try first.", next = "BACK", reply = "Perhaps it does, but not with an axe in its hand. I'll wait until the camps go quiet.", fx = { align = { honor = 1 }, affinity = -1, learn = { "warsong" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Kaldorei factions: Xai'ander blames the humans for the orcs, and wants open war.
+    blame = {
+      lines = {
+        { id = "bl_default", key = true, fx = { hear = "humans_brought_orcs" },
+          text = "I blame the humans who lost to them, then caged them, then let them go. When their war ended, Lordaeron penned the orcs in camps instead of making peace or finishing it, and when the camps broke, the orcs sailed west to the one land that had nothing to do with any of it." },
+      },
+      choices = {
+        { text = "The Legion brought the orcs, not the humans.", next = "BACK", reply = "The Legion opened the door, I'll grant you. The humans held it open for twenty years and then looked away, and I'll not forgive that for Elune herself.", fx = { align = { light = 1 } } },
+        { text = "You're right. Their failure is written in our stumps.", next = "BACK", reply = "In our stumps, and in the graves behind the moonwell. I'm glad someone outside Astranaar can read it.", fx = { align = { light = -1 } } },
+        { text = "Should Astranaar march on the Warsong, then?", next = "war" },
+      },
+    },
+    war = {
+      lines = {
+        { id = "wa_default", text = "Yes, and today, while their camps are still small. Shindrell talks of a fragile peace and Tyrande's orders, and every week we wait another grove comes down, and the Warsong grow bolder because they know we'll wait." },
+      },
+      choices = {
+        { text = "Open war would bring the whole Horde down on Astranaar.", next = "BACK", reply = "Then let it come here, where every tree is ours to fight from. I'd sooner face the whole Horde now than watch it eat us one grove at a time.", fx = { align = { order = 1 }, opinion = { peace = "peace" } } },
+        { text = "Then strike. Every day we wait, they cut.", next = "BACK", reply = "Now you sound like a Sentinel. Say it to Shindrell, because she listens to outlanders more than she listens to me.", fx = { align = { order = -1 }, opinion = { peace = "war" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xh_default", text = "Not very, and you may as well hear why. Your kings lost a war to the orcs, kept them as prisoners when they should have made peace or ended it, and when they broke loose they came here, to my brother's lumber camp." },
+      },
+      choices = {
+        { text = "Lordaeron paid for those camps. The Scourge took it.", next = "BACK", reply = "It did, and I'm not so bitter that I'd wish the Scourge on anyone. But the bill for the camps came to Ashenvale too, and no one in Stormwind has paid it.", fx = { align = { honor = 1 } } },
+        { text = "Fair. My people left you this mess.", next = "BACK", reply = "You're the first human who's said so in my shop. I'll sell you the good steel, then, and not the second-best.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Then let me fight the debt off beside you.", tag = "Persuade", next = "xhuman_soft",
+          check = { pass = { any = { { disposition = { min = 65 } }, { honorKills = { min = 25 } }, { class = "PALADIN" } } } },
+          fail = { next = "xhuman_fail", fx = { affinity = -1 } } },
+      },
+    },
+    xhuman_soft = {
+      lines = {
+        { id = "xhs_default", key = true, fx = { npcFlag = { set = { "xaiander_soft" } } },
+          text = "Then fight them, and I'll forge for you as I'd forge for a Sentinel. A human who comes this far to pay a debt his kings ran up is worth more than the kings were, I suppose." },
+      },
+      choices = {
+        { text = "I'll make the steel count.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman_fail = {
+      lines = {
+        { id = "xhf_default", text = "Every human says that, until the Warsong come over the hill and they remember an appointment in Theramore. Show me out on the eastern road, not in my shop." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Then I'll see you after the road.", next = "END" },
       },
     },
     suits = {
@@ -520,6 +624,8 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What was Ashenvale like before the war?", next = "before" },
+        { text = "What would make Ashenvale whole again, Aeolynn?", next = "whole" },
+        { text = "Do outlanders like me make it worse?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Your cloth must come from somewhere far off.", next = "cloth" },
         { text = "The Sentinels seem to stare at mages.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Did Ashenvale need warriors before the orcs came?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -550,6 +656,45 @@ P:NPC {
         { text = "I'll do my part to set it right.", next = "BACK", reply = "Thank you, and I'll hope a little harder because of it. Every pair of hands helps.", fx = { align = { order = 1 }, affinity = 2, trait = { kind = 1 } } },
         { text = "The forest has to save itself. I'm passing through.", next = "BACK", reply = "Then go well, friend, and I hope the road is kind to you. The forest will try.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "satyrs" } } },
+      },
+    },
+    -- Kaldorei factions: Aeolynn, a gentle isolationist, would have every outsider leave the forest.
+    whole = {
+      lines = {
+        { id = "wh_default", key = true,
+          text = "If you want my honest answer, everyone leaving it. The orcs with their saws, yes, but also the Explorers' League with their spades, the soldiers with their cookfires and the goblins selling the Warsong their blades, because the forest was whole when it was only us and the furbolgs and the moon." },
+      },
+      choices = {
+        { text = "Even the Alliance?", next = "whole2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    whole2 = {
+      lines = {
+        { id = "wh2_default", text = "Even them, gently, and with thanks. I don't hate anyone, I promise you; I only think Ashenvale has been a battlefield for other peoples' wars since the Sundering, and none of those wars began here." },
+      },
+      choices = {
+        { text = "Without allies, the Warsong would take it all.", next = "BACK", reply = "Perhaps they would, and I'd grieve every tree. But a forest that needs an army to keep it is already half lost, I think.", fx = { align = { order = 1 }, opinion = { alliance = "useful" } } },
+        { text = "You're right. Let the forest close behind them all.", next = "BACK", reply = "I knew someone would understand. The forest would heal faster than anyone believes, if only everyone would stop helping it.", fx = { align = { order = -1 }, opinion = { alliance = "distrust" } } },
+        { text = "Raene says Stormwind sends too little, not too much.", next = "whole3" },
+      },
+    },
+    whole3 = {
+      lines = {
+        { id = "wh3_default", text = "Raene wants more outsiders and fewer orcs, and I want fewer of both, so we argue over the same table at Kimlya's most evenings. She calls me a dreamer and I call her a general, and I suspect we're both right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout = {
+      lines = {
+        { id = "xo_default", text = "Not you yourself, no, and I'd be ashamed if you thought so. But every outlander who comes to help brings a fire to cook on and a road to walk, and the forest has to make room for both, and it has made room for so very much already." },
+      },
+      choices = {
+        { text = "Then I'll go home when the war ends.", next = "BACK", reply = "That's kinder than you know, and I'll hold you to it. Come back afterward as a guest, then, and not as a soldier.", fx = { align = { light = 1 } } },
+        { text = "Wars need soldiers. The forest can spare a footpath.", next = "BACK", reply = "It can spare one, I suppose, but it's been asked for a thousand. Forgive me; I'm sure you're one of the gentle ones.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cloth = {

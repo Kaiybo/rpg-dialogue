@@ -1398,6 +1398,7 @@ P:NPC {
         { text = "Why kill every satyr?", next = "satyrs" },
         { text = "Does the Horde have other worries out here?", next = "relations" },
         { text = "You must miss home, out here.", next = "home" },
+        { text = "The night elves say orcs still carry the demons' taint.", next = "taint" },
         { text = "What did the demon lord do to Maurin?", next = "corrupter", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
         { text = "Not everyone who walks my road is the Blade.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do you trust the Forsaken who fight beside you?", next = "forsaken", when = { race = "Scourge" } },
@@ -1461,6 +1462,27 @@ P:NPC {
       },
     },
 
+    taint = {
+      lines = {
+        { id = "ta_default", text = "They say it, and they're half right, because I spend my days hunting the orcs who never stopped kneeling to the fire. But every satyr in those hills was a night elf once, a Highborne who sold himself to the Legion long before my people ever heard its name, so the kaldorei can sweep their own house first." },
+        { id = "ta_troll", when = { race = "Troll" },
+          text = "They say it of us, and your people they call savages, so neither of us comes off well in their songs. But every satyr in those hills was a night elf once, a Highborne who sold himself to the Legion, so the kaldorei can sweep their own house first." },
+      },
+      choices = {
+        { text = "Do the elves admit what the satyrs were?", next = "taint_admit" },
+        { text = "Something else, Takata.", next = "BACK" },
+      },
+    },
+    taint_admit = {
+      lines = {
+        { id = "tad_default", text = "Some do, and the Sentinels in Ashenvale kill satyrs with more hate than they spend on us, which tells me they know whose children those satyrs are. The rest pretend the Highborne never happened and call every orc a demon's dog." },
+      },
+      choices = {
+        { text = "Then we share an enemy with them. That's worth something.", next = "BACK", reply = "It was worth a truce at Hyjal, once. It hasn't been worth one since, but I'll grant you it's a better start than an axe.", fx = { align = { honor = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Their hypocrisy is reason enough to fight them.", next = "BACK", reply = "Reason enough for some, and I won't argue it's untrue. But I've demons to kill first, so the elves will have to wait their turn.", fx = { align = { honor = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     relations = {
       lines = {
         { id = "r_default", text = "As the Alliance pushes deeper into Kalimdor, they see the Blade and the satyrs and conclude the Horde has made pacts with the Legion. Keldran won't allow that, and with the Warchief's blessing, neither will I." },

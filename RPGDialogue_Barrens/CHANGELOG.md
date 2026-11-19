@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-19)
+- Sergra Darkthorn and Taurajo's hunters deepened.
+
 ## 1.29.0 (2026-11-19)
 - Warrior road: Uzzek, Ruga Ragetotem and Klannoc Macleod (The Islander, the Affray, the Windwatcher). Thun'grim Firegaze is now the near-blind orc smith he should be. Story endings at Uzzek and Klannoc.
 

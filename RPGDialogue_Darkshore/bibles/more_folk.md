@@ -49,3 +49,7 @@ Cataclysm Darkshore (Lor'danel, Deathwing, Auberdine's ruin), boats to Azuremyst
 
 ### Authored, not canon
 Wizbang's lost eyebrow incident and the box by the moonwell; Delfrum teaching Harlon; Grondal's letter from a former student; Gorbold reselling Darnassian thread and his grandmother's scales; Valdaron's last jar of silver dye; Jaelysia's three-year owl. Deepened entries (Allyndia, Harlon, Kyndri, Mavralyn, Shaldyn, Thamarian): neighbours, trade and the coast's troubles only.
+
+## Kaldorei factions (authored, not canon)
+- Allyndia: barely two centuries old, the young who want to see the world (Stormwind's cathedral, Ironforge). Has packed twice; her mother and Barithras hold her back.
+- Night elves (0.94.0 work): Wizbang has measured it: kaldorei stand eleven paces from a buzzbox. Maddened that the druids won't give him a baseline of the shore before the sickness ('the land remembers'), but never hostile; to a night elf he admits the look stings.

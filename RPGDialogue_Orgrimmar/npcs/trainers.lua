@@ -312,6 +312,9 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Mind the beasts. Most of them bite, and the rest are thinking about it." },
+    { id = "g_hunter", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Bring {pet} in where I can see it. I'll judge the beast first and you after, the same as always." },
+    { id = "g_nopet", when = { class = "HUNTER", minLevel = 12, ["not"] = { pet = { type = "Beast" } } }, text = "A hunter walking in alone. Either your beast is with the stable master or you've lost it, and I'd like to know which before we talk." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you came back smelling of somewhere I haven't hunted. Come and tell me where." },
   },
   start = "hello",
   nodes = {
@@ -416,6 +419,142 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    o_road = {
+      hub = true,
+      lines = {
+        { id = "or_default", text = "The Hunter's Hall sends hunters out by the hundred, and the road they take hardly changes: Durotar, the Barrens, Stonetalon and the Needles, then the far places where the beasts are older than the Horde. Ask what you like about it, and I'll tell you what I'd want told." },
+        { id = "or_young", when = { maxLevel = 14 }, text = "You've only just got a beast at your heel, so most of the road is still ahead of you. That's the best part of it, though you won't believe me until you've walked the rest." },
+        { id = "or_mid", when = { minLevel = 30, maxLevel = 49 }, text = "You've learned to fall down dead and get up again, so you're past the middle of the road. From here the beasts get cleverer and the trainers get fewer, so ask while I'm still useful." },
+        { id = "or_high", when = { minLevel = 55 }, text = "There's not much road left that I've walked myself. I'll tell you what the hunters who came back have told me, which is the best a trainer can do at the end." },
+      },
+      again = {
+        { id = "or_again", text = "What else? The wolves can wait a little longer, though they'll tell you otherwise." },
+        { id = "or_again2", text = "Go on. Every hunter who stood where you are asked me something I'd not heard before." },
+      },
+      choices = {
+        { text = "Thotar sent me to learn to train my beast.", next = "o_train", when = { minLevel = 10 } },
+        { text = "Wolf, cat or boar? Which should I keep?", next = "o_keep", when = { minLevel = 10 } },
+        { text = "What beasts in the Barrens are worth the chase?", next = "o_barrens", when = { minLevel = 12 } },
+        { text = "When do hunters stop wearing leather?", next = "o_mail", when = { minLevel = 34 } },
+        { text = "Is there anything left to hunt at the end?", next = "o_end", when = { minLevel = 50 } },
+        { text = "How does an orc hunter honor the old ways?", next = "o_orc", when = { race = "Orc" } },
+        { text = "The tauren say to thank every kill.", next = "o_tauren", when = { race = "Tauren" } },
+        { text = "The Skyborne hunt too, Ormak.", next = "o_sky", when = { race = "Skyborne" } },
+        { text = "That's enough of the road, Ormak.", next = "BACK" },
+      },
+    },
+    o_train = {
+      lines = {
+        { id = "otr_default", text = "He did, and he sent you to the right orc. You've tamed and you've let go, and now I'll teach you to train, so that every beast you bind for a day leaves something behind in the one you keep. Xao'tsu down the hall will teach it the rest, if you bring him meat." },
+        { id = "otr_active", when = { questActive = TODO_QUEST("Training the Beast") }, text = "Thotar's word reached me before you did, and he says your hands are steady on the rod. Stand there and I'll teach you to train what you've tamed, and then you'll be a hunter and not just a child with a pet." },
+        { id = "otr_done", when = { questDone = TODO_QUEST("Training the Beast") }, text = "You learned it from me already, so I'll only remind you: every beast you tame can teach yours something, so tame widely and keep one. Xao'tsu will teach the rest, and he likes hunters who bring their beasts in fed." },
+      },
+      choices = {
+        { text = "What's the first thing I should teach it?", next = "o_train2" },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_train2 = {
+      lines = { { id = "otr2_default", text = "To growl, so the boar comes at your beast and not at you, because a hunter who's being bitten isn't shooting. After that, whatever it needs most for the beast it is: a bite for a wolf, a claw for a cat, and a thick hide for anything that's going to stand in front of you." } },
+      choices = {
+        { text = "Good. Back to the road.", next = "o_road" },
+      },
+    },
+    o_keep = {
+      lines = {
+        { id = "ok_default", text = "A wolf if you like to run, a cat if you like to strike first, and a boar if you'd rather it took the beating than you. I've kept all three, and I'd tell you the boar, but my students never listen, because a cat looks better at the Drag." },
+        { id = "ok_cat", when = { pet = { family = "Cat" } }, text = "You've already chosen a cat, so I'll only say she'll strike harder than anything else in the hall and complain louder about her supper. Feed her fish now and then, and she'll forgive you most things." },
+        { id = "ok_wolf", when = { pet = { family = "Wolf" } }, text = "You've chosen a wolf, which pleases the old orc in me. He'll run with you and howl you into the next fight, and he'll never forgive you for leaving him in the stables." },
+      },
+      choices = {
+        { text = "I'll keep one beast for life.", next = "o_road", reply = "Then you'll know it better than any hunter knows a bow. That's how my first boar and I lived.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep whatever beast suits the hunt.", next = "o_road", reply = "The stable master will be glad of the work. Just don't let the one at your heel see you eyeing the next.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_barrens = {
+      lines = {
+        { id = "ob_default", text = "Sergra will set you on the plainstriders and the zhevra and the prowlers, and then give you the horn that calls Echeyakee, the white lion. West of Ratchet there's Humar the Pridelord, a black lion under a lone tree, and hunters camp there for days to tame him, because there's no other cat like him on the plains." },
+        { id = "ob_humar", when = { pet = { family = "Cat" }, minLevel = 20 }, text = "Sergra's white lion and Humar the Pridelord, the black one west of Ratchet, and by the colour of your cat I wonder if you didn't go and sit under that tree yourself. If you did, I'll not ask how long you waited." },
+      },
+      choices = {
+        { text = "And beyond the Barrens?", next = "o_badlands" },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_badlands = {
+      lines = { { id = "obd_default", text = "In the Badlands there's a mountain cat the hunters call Broken Tooth, and he strikes quicker than any beast I've ever seen, so quick that some hunters say he's the best companion in the world. The road there is long and full of ogres, so be past forty before you go looking." } },
+      choices = {
+        { text = "A swift beast is worth any journey.", next = "o_road", reply = "Then go and find him, and send me word of it. I've wanted to see that cat since before you were born.", fx = { align = { order = -1 } } },
+        { text = "My beast has bled beside me. I'll not trade it.", next = "o_road", reply = "Good. Broken Tooth is a fast cat, but he's never once guarded your back, and yours has.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_mail = {
+      lines = {
+        { id = "om_default", text = "Near forty, when you're strong enough to carry links and still draw a bow all day. Leather is quiet and mail is loud, so you'll scare off half the game the first week, and you'll be glad of it the first time a raptor gets past your beast." },
+        { id = "om_forty", when = { minLevel = 40 }, text = "Now, if you haven't already, and by the sound of you walking in, I'd say you have. Mail turns teeth that leather only slows, and you'll forgive the noise the first time something bites you and doesn't get through." },
+      },
+      choices = {
+        { text = "And before forty, what should I learn?", next = "o_feign" },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_feign = {
+      lines = { { id = "of_default", text = "To fall down dead at thirty and stand up again when the danger's passed, which is the trick that keeps old hunters old. And your traps, frost and fire, laid where the beast must step, so that you choose where the fight happens before it starts." } },
+      choices = {
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_end = {
+      lines = {
+        { id = "oe_default", text = "There's armor that hunters wear at the end of the road, the Beaststalker's, made in pieces and scattered through Stratholme and Scholomance and Blackrock Spire, and you'll have to take it back one piece at a time. And there's a bow I've heard of but never seen." },
+        { id = "oe_sixty", when = { minLevel = 60 }, text = "There's the Beaststalker's armor, scattered through Stratholme, Scholomance and the Spire, and I hope you've started taking it back. And there's a bow, and you're the first of my students I'd tell about it." },
+      },
+      choices = {
+        { text = "What bow?", next = "o_bow" },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_bow = {
+      narr = "He lowers his voice, though there is nobody near enough to hear but the wolves.",
+      lines = { { id = "obw_default", text = "Rhok'delar, the bow of the ancient keepers. The story goes that a leaf of an ancient lies deep in the Molten Core, and an ancient in Felwood called Vartrus will make a bow of it for any hunter who can face four demons hiding in mortal shapes, alone, with nothing but a beast for company." } },
+      choices = {
+        { text = "Alone? Why must the hunter fight alone?", next = "o_bow2" },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_bow2 = {
+      big = true,
+      lines = { { id = "obw2_default", text = "Because the ancients want to know the hunter, not her friends. Any warrior can win with a shaman behind him, but a hunter is meant to be enough alone, with a beast that trusts the hand that feeds it and nothing else. I'd like to think I trained one who could do it." } },
+      choices = {
+        { text = "Then I'll go alone, with my beast, and prove it.", next = "o_road", reply = "Then I've trained you well. Come back and show me the bow, and I'll show it to every recruit in this valley.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A bow isn't worth dying alone for.", next = "o_road", reply = "Maybe it isn't, and you're alive to say so. Still, think on it when you've nothing left to hunt.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_orc = {
+      lines = { { id = "oo_default", text = "By remembering that the clans hunted before they ever made war. On Draenor the Frostwolves and the Warsong rode wolves to the hunt, not to battle, and it was the demon's blood that made them beasts of war. Keep your wolf for the hunt first, and for the Horde after, and you'll be closer to the old ways than most." } },
+      choices = {
+        { text = "The wolves were born for war. We made them strong.", next = "o_road", reply = "We made them dead, mostly, in their thousands at Blackrock. Hunt with yours before you fight with it.", fx = { align = { light = -1 } } },
+        { text = "Then I'll hunt as the clans did before the blood.", next = "o_road", reply = "So will I, as long as I live. That's the best honour I know to give our fathers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Back to the road.", next = "o_road" },
+      },
+    },
+    o_tauren = {
+      lines = { { id = "ota_default", text = "They do, and I laughed at it the first time I saw Holt Thunderhorn kneel over a plainstrider. Then I watched his hunters for a season, and they never once came home empty, and I stopped laughing and started kneeling. Tell me, do you thank the beast or the Earth Mother?" } },
+      choices = {
+        { text = "The beast. It's the one that gave its life.", next = "o_road", fx = { trait = { kind = 1 } } },
+        { text = "The Earth Mother, who made it and takes it back.", next = "o_road", fx = { affinity = 1 } },
+      },
+    },
+    o_sky = {
+      lines = { { id = "osk_default", text = "So I hear, and the Bluff vouches for you, which is good enough for this hall. I'd like to know what beasts hunt on the winds where your people came from, though I don't suppose many of them could be coaxed down to a stable in Orgrimmar." } },
+      choices = {
+        { text = "Some could. We'd have to ask the wind first.", next = "o_road", fx = { trait = { witty = 1 } } },
+        { text = "I'd rather not speak of the old places, Ormak.", next = "o_road", reply = "Then I'll not ask again. A hunter's past is his own trail to walk.", fx = { affinity = 1 } },
+      },
+    },
     xorig_raptor = {
       lines = { { id = "xrp_default", text = "Good, that's how a raptor ought to be. The Darkspear raise them from the egg and they never forget the first hand that fed them, and a wolf would bite that same hand the first lean winter. Has she ever bitten you?" } },
       choices = {
@@ -435,6 +574,8 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the hunters' range. You hunt with your own teeth instead of a bow, which I respect, though I'd like to see you tame a boar that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' range? Stay a while, because you could do worse than learn to throw an axe straight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine, and with a beast in tow. Show me how it heels, because a pet that doesn't heel is a pet that gets you killed." },
+        { id = "h_trainbeast", tags = { "news" }, when = { class = "HUNTER", questActive = TODO_QUEST("Training the Beast") }, text = "Thotar sent you down from Razor Hill, so you've tamed and let go, and now you want to learn to train. Good, stand over there where the wolves can see you, and we'll begin." },
+        { id = "h_sixty", when = { class = "HUNTER", minLevel = 60 }, text = "Look at you, a hunter with nothing left in this hall to learn. Sit a moment anyway, because there are things at the end of the road I only tell the ones who reach it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Something walks at your heel that was never a beast. I won't ask to see it, but I'll ask how you treat it." },
       },
       choices = {
@@ -448,6 +589,7 @@ P:NPC {
         { text = "My polymorph tames a beast faster than you can.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from a hunter, Ormak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Tell me where the hunter's road goes from here.", next = "o_road", when = { class = "HUNTER" } },
         { text = "How would you judge a companion that was never a beast, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Hunters can't think much of the Light, I'd guess.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My raptor's from the Sen'jin pens. She bites everyone but me.", next = "xorig_raptor", when = { origin = "troll_raptor_rider" } },

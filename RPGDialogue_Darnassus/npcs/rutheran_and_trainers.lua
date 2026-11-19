@@ -14,6 +14,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the roots of Teldrassil. Where will the wind take you this time?" },
+    { id = "g_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, priority = 5,
+      text = "Another face off the boat from Auberdine. The hippogryphs will carry you, traveler, though I confess I've stopped trying to learn all your names." },
   },
   start = "hello",
   nodes = {
@@ -124,6 +126,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My hippogryphs have never carried so much armor, {class}, but they're stronger than they look, and they won't let you fall." },
         { id = "h_default", text = "I am Vesprystus, keeper of the hippogryphs. They carry our people from the roots of Teldrassil to Auberdine across the water, and from there to the rest of a world that has grown very large since the Sundering." },
         { id = "h_cond", when = { race = "Human" }, text = "A human, here at the roots of our tree! Our hippogryphs are gentler than your gryphons, I think, though I would not say so in Ironforge." },
+        { id = "h_nelf", when = { race = "NightElf" }, text = "Elune-adore, child of the kaldorei. It is a comfort to see one of our own on this dock, for most of the faces coming off the boat these days have never seen a moonwell." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "My hippogryphs are fond of you, rogue, which is odd, since they're usually wary of anyone who walks that quietly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, flying on to Auberdine? Hold on tight and don't lean, because armor makes the birds nervous." },
@@ -140,6 +143,8 @@ P:NPC {
         { text = "I've had a bad fall before. How safe is the flight?", next = "dd_fall", when = { deathCause = "falling" } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Why live at the roots, not in the city?", next = "a" },
+        { text = "Many strangers must come through Rut'theran now.", next = "gate" },
+        { text = "Do you wish my kind hadn't come, Vesprystus?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Are the hippogryphs hard to train?", next = "b" },
         { text = "Why would a hippogryph trust someone who walks quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the kaldorei ever travel by magic instead?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -150,6 +155,8 @@ P:NPC {
         { text = "Do your hippogryphs know a druid when they carry one?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why do your hippogryphs remember the Legion?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the hippogryphs feel the sea wind, Vesprystus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did our people fly hippogryphs in the old world?", next = "ne_hippo", when = { race = "NightElf" } },
+        { text = "Could a hunter ever tame a hippogryph?", next = "hunt_hippo", when = { class = "HUNTER" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -168,9 +175,92 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    gate = {
+      big = true,
+      lines = {
+        { id = "gt_default", key = true,
+          text = "More every season, off the boat from Auberdine, and the ships from Menethil before that. Each one climbs up to my roost smelling of coal smoke and powder, and I swear the young tree shivers a little more with every boatload." },
+      },
+      choices = {
+        { text = "Strangers bring trade and allies. That's good for Darnassus.", next = "BACK",
+          reply = "Trade and allies, yes, and their wars and their sicknesses folded in among the cloth. I hope you are right, and I watch the boats in case you are not.", fx = { align = { order = 1 } } },
+        { text = "Strangers bring their troubles with them.", next = "BACK",
+          reply = "They do, and they never declare those at the dock. The birds smell it on them before I do.", fx = { align = { order = -1 } } },
+        { text = "Would you turn them away?", next = "gate2" },
+      },
+    },
+    gate2 = {
+      lines = {
+        { id = "gt2_default", text = "I would close the gate to all of them, and I mean all: the humans and the dwarves and the gnomes, and the orcs and the tauren too, if they ever came asking. For ten thousand years the world forgot we existed, and in all that time no axe was ever raised against our trees." },
+      },
+      choices = {
+        { text = "Hiding didn't stop the Legion. You said so yourself.", next = "BACK",
+          reply = "I did, and it is the stone in my shoe every night. But the Legion came for the Well, and the Well is gone, so perhaps this time the world would leave us be.", fx = { align = { order = 1 } } },
+        { text = "Then speak for it. Others in Darnassus feel the same.", next = "BACK",
+          reply = "Some do, and they speak more loudly than an old bird-keeper. I keep my gate the only way I can, by watching every face that comes up from the water.", fx = { align = { order = -1 } } },
+        { text = "Who else feels as you do?", next = "gate3" },
+      },
+    },
+    gate3 = {
+      lines = {
+        { id = "gt3_default", text = "Half the old ones who never wanted to leave Hyjal, and Sentinels like Arynia at the Oracle Glade, who blames the mainland for every harpy on the tree. Raedon Duskstriker on the Craftsmen's Terrace would shut the gate on Stormwind and leave it open for Theramore's coin, though, and that is only half a gate." },
+      },
+      choices = {
+        { text = "And who would keep it open?", next = "gate4" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate4 = {
+      lines = {
+        { id = "gt4_default", text = "Mathiel the smith, who writes to dwarves, and the young ones who camp by the Dolanaar road and dream of Ironforge. And the High Priestess, which is the end of the argument for most, though not, I'm afraid, for me." },
+      },
+      choices = {
+        { text = "You'd disagree with Tyrande herself?", next = "BACK",
+          reply = "Quietly, and with love, as one disagrees with the moon for setting. She has never once asked me to stop." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout = {
+      big = true,
+      lines = {
+        { id = "xo_default", text = "I wish none of you had needed to, which is not the same thing, and I'll fly you as gently as any kaldorei. But every stranger who learns the way here teaches it to ten more, and one day the wrong ten will come." },
+        { id = "xo_dwarf", when = { race = "Dwarf" },
+          text = "I'll fly you as gently as any kaldorei, so don't fear the birds. But your Explorers' League has been digging in Darkshore's hills for our oldest ruins, and I wonder what the next dwarf off the boat will want to dig up." },
+        { id = "xo_gnome", when = { race = "Gnome" },
+          text = "I'll fly you as gently as any kaldorei, and I am sorry for the city you lost. But a people who lost a mountain to their own machines will forgive me for keeping them far from a young tree." },
+      },
+      choices = {
+        { text = "Then I'll be one who keeps your secrets.", next = "BACK",
+          reply = "That is a kind promise, and I'll hold you to it for longer than you'll live, which is the trouble with promising a kaldorei anything.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The way is already known. Closing it now helps no one.", next = "BACK",
+          reply = "You may be right, and that is what frightens me. A secret can't be unlearned, only outlived.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     b = {
       lines = { { id = "b_default", text = "No, only patient work, and baskets of fish. They choose their riders more than we choose them, so I let them sniff you first." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_hippo = {
+      lines = {
+        { id = "nhp_default", text = "We did, and the Sentinels rode them into battle against the Legion before the Sundering. Their grandmothers' grandmothers flew over the Well of Eternity, and some of them still shy from the sea as if they remember what lies beneath it." },
+      },
+      choices = {
+        { text = "Do you think they remember?", next = "ne_hippo2" },
+        { text = "Something else, Vesprystus.", next = "BACK" },
+      },
+    },
+    ne_hippo2 = {
+      lines = {
+        { id = "nhp2_default", text = "I think beasts remember more than we credit, and hippogryphs more than most. Aviana's children were never fools, and they have kept faith with us through everything we have done to the world, which is more than we deserve." },
+      },
+      choices = { { text = "Then I'll treat them as allies.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunt_hippo = {
+      lines = {
+        { id = "hh_default", text = "No, and please do not try on mine. A hippogryph gives its trust to the Sentinels and to Aviana's line, and it does not follow a hunter home however steady the hand. Tame an owl, if you want wings beside you, and leave my flock to the sky." },
+      },
+      choices = { { text = "An owl it is, then. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -319,6 +409,7 @@ P:NPC {
         { text = "Why should a druid learn weapons when the claws do the work?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why should someone with my gifts bother learning a weapon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a shaman learn proper footwork, Ilyenia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Should a hunter learn the bow or the gun first?", next = "hunt_bow", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -340,6 +431,17 @@ P:NPC {
     b = {
       lines = { { id = "b_default", text = "Arias'ta Bladesinger trains our warriors, and I teach any of them a new weapon once she says they are ready. Few are as ready as they think." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunt_bow = {
+      big = true,
+      lines = {
+        { id = "hb_default", text = "Whichever you will practise with every day, which for a kaldorei is the bow, because the forest hears a gun from a league away. I can teach you bows, and crossbows as well, though the dwarves will tell you a rifle is the only honest weapon in the world." },
+        { id = "hb_dwarf", when = { race = "Dwarf" }, text = "You'll tell me the gun, and you'll be right for you, because you have practised with it since you could walk. I teach bows and crossbows here, and I would only ask that you not fire it within the city, because the sabers take it very personally." },
+      },
+      choices = {
+        { text = "The bow, then. Silence is a weapon too.", next = "BACK", reply = "It is the best weapon. Come back when you can split a string at fifty paces.", fx = { align = { honor = -1 } } },
+        { text = "I'll use whatever strikes hardest, noise or no.", next = "BACK", reply = "A plain answer, and an honest one. I respect it, even if the sabers will not.", fx = { align = { honor = 1 } } },
+      },
     },
   },
   topics = {
@@ -514,6 +616,8 @@ P:NPC {
         { text = "Why do the beasts settle for a druid, Jeen'ra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why does your cat dislike the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the beasts trust shamans, Jeen'ra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "When will I learn to cheat death, Jeen'ra?", next = "hr_feign", when = { class = "HUNTER", minLevel = 20 } },
+        { text = "What did hunting mean in the old forests?", next = "ne_oldforest", when = { race = "NightElf" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },
     },
@@ -535,6 +639,26 @@ P:NPC {
     b = {
       lines = { { id = "b_default", text = "Into the forest around Dolanaar, where the nightsabers prowl, and then across the sea to Darkshore. The wild will teach you more than I can." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hr_feign = {
+      lines = {
+        { id = "jhf_default", text = "Soon, if you live long enough to learn it, which is the joke every trainer in Darnassus tells. When you are ready, I will teach you to fall as though struck and lie as still as a log, and to trust your companion to keep the wolves off while you do." },
+        { id = "jhf_has", when = { minLevel = 30 }, text = "You already know how, so I'll tell you what most hunters learn too late: falling is easy, and getting up again at the right moment is the art. Wait for the enemy to turn away, and wait a breath longer than feels right." },
+      },
+      choices = {
+        { text = "A breath longer than feels right.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Jeen'ra.", next = "BACK" },
+      },
+    },
+    ne_oldforest = {
+      big = true,
+      lines = {
+        { id = "jno_default", text = "Everything, before the Sundering. The forests of the old world stretched from sea to sea, and hunters walked them for a year at a time with only a beast for company. Teldrassil is beautiful, but I can walk it in a week, and I miss the old distances." },
+      },
+      choices = {
+        { text = "Then we'll make Kalimdor our forest again.", next = "BACK", reply = "One grove at a time, as the Archdruid says. I hope he's right.", fx = { align = { order = -1 } } },
+        { text = "We should guard what we have, not reach for more.", next = "BACK", reply = "That's the Temple's teaching, and it has kept us alive. Perhaps it's wiser.", fx = { align = { order = 1 } } },
+      },
     },
   },
   topics = {

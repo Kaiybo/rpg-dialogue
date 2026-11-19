@@ -988,7 +988,87 @@ P:NPC {
         { text = "How should a paladin treat a mount, Daera?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is my companion so different from a hunter's beast, Daera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hunters' beasts behave differently around shamans, Daera?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What lies ahead on the hunter's road, Daera?", next = "hp", when = { class = "HUNTER" } },
+        { text = "I've come from the sky isle to learn the hunt here.", next = "hp_sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "A long one, an' every dwarf who's walked it has a different tale, but the stones o' it are the same. Ye learn yer aspects an' yer stings, ye tame a beast an' keep it, ye learn tae play dead when the fight's lost, an' if ye live long enough, ye earn yer mail an' go after the old legends." },
+        { id = "hp_low", when = { maxLevel = 9 }, text = "Ye're at the start o' it, so I'll no' fill yer head wi' the end. Learn the Aspect o' the Monkey an' yer Serpent Sting first, an' then go tae Grif Wildheart when ye've ten seasons on ye." },
+        { id = "hp_high", when = { minLevel = 40 }, text = "Ye're well down the road already, an' there's mail on yer back tae prove it. Ask what ye like, an' I'll tell ye what I know o' the stretch ahead." },
+      },
+      again = { { id = "hp_again", text = "What else about the road?" }, { id = "hp_again2", text = "Go on, I've time for a hunter." } },
+      choices = {
+        { text = "Which aspect should I keep up most?", next = "hp_aspect" },
+        { text = "How do I keep my beast from leaving me?", next = "hp_loyal", when = { minLevel = 10 } },
+        { text = "When do I learn Feign Death?", next = "hp_feign", when = { minLevel = 20 } },
+        { text = "When can I trade leather for mail?", next = "hp_mail", when = { minLevel = 30 } },
+        { text = "Tell me about the Beaststalker armour.", next = "hp_end", when = { minLevel = 50 } },
+        { text = "That's enough of the road, Daera.", next = "hello" },
+      },
+    },
+    hp_aspect = {
+      lines = {
+        { id = "hpa_default", text = "Monkey when ye're green an' things are bitin' ye, Hawk once ye learn it at ten, for it puts weight behind every shot, an' Cheetah for the long roads. Every young hunter forgets tae switch back from Cheetah before a fight, an' every one o' them learns why only once." },
+        { id = "hpa_sting", when = { maxLevel = 15 }, text = "Monkey for now, for the wolves are bitin' ye an' it'll save yer skin, an' put a Serpent Sting on whatever ye're shootin' so it bleeds while ye work. Hawk comes at ten, an' then ye'll wonder how ye ever managed." },
+      },
+      choices = {
+        { text = "I'd rather hit hard than dodge well.", next = "BACK", reply = "Then Hawk's yer friend, an' yer beast had better be a good one, for it'll be takin' the bites for ye.", fx = { align = { order = -1 } } },
+        { text = "Dodging keeps me alive. Glory can wait.", next = "BACK", reply = "Aye, a live hunter shoots more arrows than a dead one, an' I'll take that kind o' sense over glory any day.", fx = { align = { order = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    hp_loyal = {
+      lines = {
+        { id = "hpl_default", text = "Feed it, an' feed it what it likes, for a boar'll eat near anythin' but a cat wants meat an' turns its nose up at bread. A beast's loyalty grows slow, an' it shrinks fast if ye let it go hungry or get it killed too often, an' if it gets bad enough the beast'll run off an' ye'll never see it again." },
+        { id = "hpl_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet} an' tell me when it last ate. Ye'll know by its ears an' how close it walks, for a hungry beast lags an' a happy one walks right at yer heel; feed it before every hunt, no' after." },
+      },
+      choices = {
+        { text = "My beast eats before I do. Always.", next = "BACK", reply = "That's the right answer, an' I've heard dwarves say it who didnae mean it, but ye look like ye do.", fx = { align = { light = 1 } } },
+        { text = "If it won't stay, I'll tame another.", next = "BACK", reply = "Ye could, an' plenty do, but ye'll never have a beast that knows ye, an' ye'll wonder why yer hunts go sour.", fx = { align = { light = -1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = {
+        { id = "hpf_default", text = "At thirty, from any hunter trainer, an' it'll be the best lesson ye ever pay for. Ye fall down an' stop breathin', an' whatever's on ye loses interest an' wanders off tae chew on yer beast or yer friends instead." },
+        { id = "hpf_have", when = { minLevel = 30 }, text = "Ye'll have it by now, an' I hope ye've learned tae use it before the healer's down an' no' after. Drop, wait for the beast tae lose interest, an' then stand up an' lay a trap where it'll walk." },
+      },
+      choices = {
+        { text = "A good trick is worth more than pride.", next = "BACK", reply = "Spoken like a hunter. The warriors in the next hall would choke on that, but they're no' the ones still breathin' at the end.", fx = { align = { honor = -1 } } },
+        { text = "I'll stand and fight, whatever it costs.", next = "BACK", reply = "Then stand, an' I'll be sorry tae lose ye. There's nae shame in livin', whatever Kelv says next door.", fx = { align = { honor = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    hp_mail = {
+      lines = {
+        { id = "hpm_default", text = "At forty ye'll be fit tae wear it, an' ye'll want it, for leather stops nothin' a troll swings. Get yer first coat from the armourers in the Military Ward, an' have it fitted proper, for mail that pulls at the shoulder throws yer aim off by a hand's width." },
+        { id = "hpm_dwarf", when = { race = "Dwarf" }, text = "At forty, an' ye'll find it sits on a dwarf like it was made for us, which it mostly was. Mind the shoulders, though, for mail that pulls there throws a rifle's aim off by a hand's width at a hundred paces." },
+      },
+      choices = {
+        { text = "I'll miss moving light in leather.", next = "BACK", reply = "Ye will for a week, an' then a gnoll's axe will bounce off yer chest an' ye'll forget leather ever existed." },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = {
+        { id = "hpe_default", text = "The Beaststalker set's found in pieces in the worst places in the world, Scholomance an' Stratholme an' the spire in Blackrock, on the bodies o' things that didnae want tae part with it. An' there's a tale o' an ancient in Felwood who'll grow a bow for a hunter worth it, though I've never met anyone who's held it." },
+      },
+      choices = {
+        { text = "I'll find every piece, however long it takes.", next = "BACK", reply = "Then come back an' show me, an' I'll stand ye a drink in the Stonefire for it.", fx = { trait = { brave = 1 } } },
+        { text = "Pretty armour isn't why I hunt.", next = "BACK", reply = "Good, for it's no' why I trained ye. But ye'll wear it anyway, if ye find it, an' look grand in it.", fx = { trait = { reserved = 1 } } },
+        { text = "Something else on the road.", next = "BACK" },
+      },
+    },
+    hp_sky = {
+      lines = { { id = "hps_default", text = "Have ye, now? I've heard there's an isle o' elves come down out o' the sky, an' I didnae believe it till I saw ye. I cannae tell ye what beasts ye left behind, but the ones here bite the same as anywhere, so let's see what ye've learned." } },
+      choices = {
+        { text = "The beasts here are heavier and slower than ours.", next = "BACK", reply = "Heavier, aye, but no' slower when they're angry, so dinnae count on it." },
+        { text = "Then test me, Daera.", next = "BACK", reply = "I will, an' ye'll no' enjoy it, but ye'll thank me in Loch Modan.", fx = { affinity = 1 } },
       },
     },
     beast = {

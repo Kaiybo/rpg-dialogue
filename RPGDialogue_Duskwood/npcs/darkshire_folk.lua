@@ -385,7 +385,27 @@ P:NPC {
         { text = "The dead out there could serve me instead.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "This forest feels wrong, Calor, right down to the roots.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Did you see many dead on Night Watch, Calor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My beast won't go near the worgen. Why?", next = "cl_beast", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "How does a hunter survive a worgen pack?", next = "cl_pack", when = { class = "HUNTER" } },
         { text = "Later, Calor.", next = "END" },
+      },
+    },
+    cl_beast = {
+      lines = { { id = "clb_default", text = "Because it knows what they are better than we do. I've seen hounds of the Night Watch whine and hide under the carts when the worgen howled, and I've never seen a beast that wanted to fight one, so keep your {pet} close and don't send it into the trees ahead of you." } },
+      choices = {
+        { text = "Then I'll trust my beast's instincts.", next = "BACK", reply = "Good. In Duskwood the beast's nose is worth more than any watchman's eyes.", fx = { align = { order = -1 } } },
+        { text = "It'll fight when I tell it to.", next = "BACK", reply = "It will, I expect, but it won't thank you for it, and neither will its hide.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cl_pack = {
+      lines = {
+        { id = "clp_default", text = "You fight at the edge of the trees and never in them, with a trap laid behind you and your beast in front. If they get past it, drop and lie still, for I've watched hunters play dead in Brightwood while the pack ran on after something louder, and live to tell me about it." },
+        { id = "clp_low", when = { maxLevel = 29 }, text = "You fight at the edge of the trees and never in them, with a trap laid behind you and your beast in front. And come back when you've learned to drop and play dead, because a worgen pack doesn't stop for a hunter who can only run." },
+      },
+      choices = {
+        { text = "Edge of the trees, trap behind me. Understood.", next = "BACK", reply = "Good. Say it again in Brightwood, when your heart's in your throat.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     watch = {

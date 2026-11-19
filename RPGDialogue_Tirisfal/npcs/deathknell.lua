@@ -305,12 +305,45 @@ P:NPC {
         { text = "I studied magic in life. I doubt it matters now.", next = "mage", when = { class = "MAGE" } },
         { text = "I'd rather work where nobody's looking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you make of the night elves, Sarvis?", next = "ne_sarvis" },
+        { text = "Would the elves of Darnassus ever accept the Forsaken?", next = "ne_sarvis_accept", when = { race = "Scourge" } },
         { text = "I'll get to work.", next = "END" },
         { text = "What happens to us if the gift frays, Sarvis?", next = "dd_deaths", when = { deaths = { min = 5 } } },
       },
       again = {
         { id = "h_again", text = "More questions? Death has made you chatty. Go on." },
         { id = "h_again2", text = "Yes? I have eternity, more or less, so I suppose I can spare a minute." },
+      },
+    },
+    ne_sarvis = {
+      lines = {
+        { id = "ne_default", text = "I'm told they were deathless for ten thousand years, that they gave it up at Hyjal to stop the Legion, and that now they mourn every grey hair. Forgive me if I find it hard to pity a people who grieve for the loss of forever, when I'd hand them mine tomorrow for one warm night's sleep." },
+        { id = "ne_forsaken", when = { race = "Scourge" },
+          text = "You and I have both lost a life, so you'll appreciate the joke. The elves lived ten thousand years without dying, gave it up at Hyjal, and now they mourn the gift of an ending as though it were a curse, which is a rich complaint to bring to the likes of us." },
+      },
+      choices = {
+        { text = "Would they ever accept the Forsaken?", next = "ne_sarvis_accept" },
+        { text = "Losing forever is a real grief. I pity them.", next = "BACK",
+          reply = "Pity is a luxury of the living, and you're welcome to it. I'd only note that they still get to die in their beds when it's over, and I'd call that a fair trade.",
+          fx = { align = { light = 1 }, opinion = { night_elves = "mixed" } } },
+        { text = "Everyone dies. The elves just learned it late.", next = "BACK",
+          reply = "Precisely, and I'm told they're taking the lesson very badly. Everyone dies, my friend; the kaldorei simply took the long way round to finding out.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { night_elves = "arrogant" } } },
+        { text = "Something else, Sarvis.", next = "BACK" },
+      },
+    },
+    ne_sarvis_accept = {
+      lines = {
+        { id = "nsa_default", text = "Accept us? Their priestesses serve a moon goddess whose light burns the dead, and their Sentinels spent the last war cutting the Scourge to pieces in Ashenvale without asking which corpses still had minds of their own. I doubt they'd ask now, and I doubt I'd wait around to explain." },
+      },
+      choices = {
+        { text = "Then we prove them wrong, one deed at a time.", next = "BACK",
+          reply = "How very noble, and how very alive of you. Do write to me when the first elf thanks you, because I'll want to frame the letter.",
+          fx = { align = { honor = 1 } } },
+        { text = "Then we owe them nothing, not even an explanation.", next = "BACK",
+          reply = "Now you sound like one of the Dark Lady's own. We owe the living nothing, and the elves least of all, since they've never once asked what we were before we died.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { night_elves = "hate" } } },
+        { text = "Something else, Sarvis.", next = "BACK" },
       },
     },
     paladin = {

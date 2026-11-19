@@ -435,6 +435,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Tell me about getting lost.", next = "lost" },
+        { text = "Tell me about the beasts no one caught.", next = "u_tales", when = { class = "HUNTER" } },
         { text = "What's the best beast to tame?", next = "beast" },
         { text = "Tell me about Holt and Kary.", next = "trainers" },
         { text = "What should a young hunter never do?", next = "never", when = { class = "HUNTER" } },
@@ -479,6 +480,63 @@ P:NPC {
     lost_bow = {
       lines = { { id = "lb_default", text = "A Razormane turned up near Camp Taurajo two summers later wearing it across his back, and Holt shot it clean off him at sixty paces. We hung it by the fire here, and I tell that story far more than I use the bow." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    u_tales = {
+      hub = true,
+      narr = "He settles deeper by the fire and rubs his hands together, plainly delighted to be asked.",
+      lines = {
+        { id = "ut_default", text = "Every hunter on this rise has a beast they chased and never caught, and I've a story for each of them. Pick one, friend, and I'll tell it true, or nearly." },
+        { id = "ut_high", when = { minLevel = 40 }, text = "You've caught a few of the beasts in my stories yourself by now, I'd wager. Pick one anyway, and tell me after whether I got it right." },
+      },
+      again = {
+        { id = "ut_again", text = "Another? The fire's still good." },
+        { id = "ut_again2", text = "Go on, pick another, and I'll try to keep this one shorter. I won't manage it." },
+      },
+      choices = {
+        { text = "Tell me about the white lion of the Barrens.", next = "u_white" },
+        { text = "Is Humar the Pridelord real?", next = "u_humar", when = { minLevel = 14 } },
+        { text = "What about a cat called Broken Tooth?", next = "u_tooth", when = { minLevel = 30 } },
+        { text = "Did you ever play dead to escape something?", next = "u_feign", when = { minLevel = 24 } },
+        { text = "Enough stories for now, Urek.", next = "BACK" },
+      },
+    },
+    u_white = {
+      lines = {
+        { id = "uw_default", text = "Echeyakee, whitemist in our tongue, and he's both mercy and death, the old hunters say. He can't be found by wandering; Sergra Darkthorn at the Crossroads keeps a horn that calls him, and she gives it only to hunters who've proved themselves on her other hunts." },
+        { id = "uw_done", when = { killed = { name = "Echeyakee" } }, text = "You took him yourself, so you tell me! Was the white coat as hard to see in the grass as they say? I've never blown that horn, and I'm too old to start." },
+      },
+      choices = {
+        { text = "Mercy and death? What do they mean by that?", next = "u_white2" },
+        { text = "Back to the stories.", next = "u_tales" },
+      },
+    },
+    u_white2 = {
+      big = true,
+      lines = { { id = "uw2_default", text = "That he takes the weak from the herds quickly, before they suffer, and that he'll take a careless hunter just as quickly. Some say a beast like that should be left to do his work, and Sergra says her hunters have to eat. Which do you say?" } },
+      choices = {
+        { text = "Leave him be. The plains need their mercy.", next = "u_tales", reply = "You'd have liked my grandmother, who said the same and never blew a horn in her life.", fx = { align = { order = -1 } } },
+        { text = "Sergra's hunters come first. He must be hunted.", next = "u_tales", reply = "That's the camp's answer, and a fair one. Thank him when he falls, at least.", fx = { align = { order = 1 } } },
+        { text = "Back to the stories.", next = "u_tales" },
+      },
+    },
+    u_humar = {
+      lines = { { id = "uh_default", text = "Real as you are, and black as a moonless night, lying under a lone tree west of Ratchet with his pride around him. When he's hurt he roars, and every lion in the pride comes running, which is how I learned to run faster than a lion, briefly. Hunters wait there for days to tame him, and some of them still have their legs." } },
+      choices = {
+        { text = "I'd wait a week for a beast like that.", next = "u_tales", fx = { trait = { brave = 1 } } },
+        { text = "I'll keep the companion I have, thank you.", next = "u_tales", reply = "Ha! A wise hunter, and a loyal one. Your companion's glad to hear it, look.", fx = { affinity = 1 } },
+      },
+    },
+    u_tooth = {
+      lines = { { id = "uto_default", text = "A mountain cat in the Badlands, gray and scarred, and quicker than any beast I've heard of, so quick that some hunters say there's no better companion anywhere. I went looking for him once, got lost among the ogres, and came home with nothing but a sunburn and this story." } },
+      choices = { { text = "Of course you got lost. Back to the stories.", next = "u_tales", fx = { trait = { witty = 1 } } } },
+    },
+    u_feign = {
+      lines = { { id = "uf_default", text = "Once, in Thousand Needles, when a pack of Galak centaur came round a rock I'd sworn was empty. I dropped like a stone and lay there with my eyes shut while they argued over my bow, and when they rode off without it, I got up and walked home and told everyone I'd won." } },
+      choices = {
+        { text = "That isn't cowardice. It's sense.", next = "u_tales", reply = "That's what Holt said, though he laughed for an hour first.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd have stood and fought them.", next = "u_tales", reply = "And there'd be one less story by this fire, and one more name on the totems. Learn to drop when it counts.", fx = { align = { honor = 1 } } },
+        { text = "Back to the stories.", next = "u_tales" },
+      },
     },
     trainers = {
       lines = { { id = "tn_default", text = "Holt is the archer, steady as a stone, and Kary could track a moth across bare rock, and I'm the one who talks. Between the three of us we turn out hunters who can shoot, find their quarry and tell a good story afterward." } },
@@ -537,6 +595,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What can tracks tell you?", next = "tracks" },
+        { text = "Teach me to read the trail, Kary.", next = "k_trail", when = { class = "HUNTER" } },
         { text = "Is Urek a good hunter, then?", next = "urek" },
         { text = "Read my tracks, then.", next = "read" },
         { text = "In the jungle, we track by smell and broken leaves.", next = "troll_jungle", when = { race = "Troll", class = "HUNTER" } },
@@ -570,6 +629,65 @@ P:NPC {
     holt = {
       lines = { { id = "ho_default", text = "Holt doesn't waste words or arrows, and I respect both. He's the one who shot Urek's lost bow off a Razormane's back, though Urek tells it as a story about himself." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    k_trail = {
+      hub = true,
+      lines = {
+        { id = "kt_default", text = "Holt will teach you to hit what you aim at, and I'll teach you to find it first, which is the harder half. Ask what you like about the trail, and keep your eyes on the ground while you do." },
+        { id = "kt_high", when = { minLevel = 35 }, text = "You read the ground better than you did, I can see it in how you came up the ramp, eyes down and then up. Ask what you like, and I'll see if there's anything left to teach you." },
+      },
+      again = {
+        { id = "kt_again", text = "What else? An'she's still up, so the tracks are still good." },
+        { id = "kt_again2", text = "Go on, and keep your eyes on the ground while you ask." },
+      },
+      choices = {
+        { text = "How do I sense a beast before I see it?", next = "k_sense" },
+        { text = "Can I track things other than beasts?", next = "k_more", when = { minLevel = 10 } },
+        { text = "How do I see through my companion's eyes?", next = "k_eyes", when = { minLevel = 14 } },
+        { text = "How do I learn a beast before I fight it?", next = "k_lore", when = { minLevel = 20 } },
+        { text = "My people tracked by the wind, not the ground.", next = "k_sky", when = { race = "Skyborne" } },
+        { text = "Enough of the trail, Kary.", next = "BACK" },
+      },
+    },
+    k_sense = {
+      lines = { { id = "ks_default", text = "You learn what beasts do and where they'd rather be, until the knowing settles in you and you feel them on the plains like you feel rain coming. Some call it a gift from the Earth Mother, and I call it ten thousand hours on my belly in the grass, and I think we're both right." } },
+      choices = { { text = "Back to the trail.", next = "k_trail" } },
+    },
+    k_more = {
+      lines = {
+        { id = "km_default", text = "You can, in time: people first, then the dead who walk, and later the hidden things, the elementals, the demons and the giants. Every one leaves a different trail, and the dead are the strangest, because they don't care where they step." },
+      },
+      choices = {
+        { text = "Tracking people feels like hunting them.", next = "k_more2" },
+        { text = "Back to the trail.", next = "k_trail" },
+      },
+    },
+    k_more2 = {
+      big = true,
+      lines = { { id = "km2_default", text = "It is hunting them, and I won't dress it up. The Grimtotem move at night and the Venture Company cut where they please, and a tracker who refuses to follow people leaves her own people blind. Would you rather know who's coming, or be polite about it?" } },
+      choices = {
+        { text = "Know. A tracker serves the tribe, whoever it follows.", next = "k_trail", reply = "That's how I see it, and Cairne's guards seem grateful enough.", fx = { align = { order = 1 } } },
+        { text = "Some trails should be left alone, Kary.", next = "k_trail", reply = "Maybe, and you'll have to decide which, out there alone. I only ask you to decide on purpose.", fx = { align = { order = -1 } } },
+        { text = "Back to the trail.", next = "k_trail" },
+      },
+    },
+    k_eyes = {
+      lines = { { id = "ke_default", text = "You sit still, and you let your companion's eyes become yours for a while, and you see the plains the way a cat does, close to the ground and full of smells you've no word for. And with the eagle's eye you can see far over the plains yourself, which is less strange and more useful." } },
+      choices = {
+        { text = "Seeing as a beast does sounds like a druid's art.", next = "k_trail", reply = "The druids would say so too, and they'd be half right. We borrow; they become.", fx = { trait = { curious = 1 } } },
+        { text = "Back to the trail.", next = "k_trail" },
+      },
+    },
+    k_lore = {
+      lines = { { id = "kl_default", text = "You study it, and the knowing tells you what it eats and how it fights and whether it would make you a companion, before you've drawn a single arrow. A beast that frightens easily you can send running with a word, which saves a lot of arrows on the Barrens." } },
+      choices = { { text = "Back to the trail.", next = "k_trail" } },
+    },
+    k_sky = {
+      lines = { { id = "ksk_default", text = "Then you'll have to learn the ground here, because the wind on the plains lies about which way the herd went. I'd like to hear what the wind tells you, though, and whether it's ever told you something the ground didn't." } },
+      choices = {
+        { text = "It tells me when a storm is coming.", next = "k_trail", reply = "So does my knee, but I'll grant the wind is prettier about it.", fx = { trait = { witty = 1 } } },
+        { text = "Our spirits have been quiet. I hope they speak again.", next = "k_trail", reply = "Then I hope so too, and until they do, the ground will talk to you. It never stops.", fx = { affinity = 1 } },
+      },
     },
     grim = {
       lines = { { id = "gr_default", text = "Grimtotem hoofprints near the Stonetalon trail, a dozen of them, moving by night and keeping off the roads. Our own people don't walk like that unless they don't want to be seen." } },
@@ -649,6 +767,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything more? Your companion's getting restless." } },
       choices = {
         { text = "Teach my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Tell me about the bond with a companion.", next = "h_bond", when = { class = "HUNTER" } },
         { text = "How do you teach a beast?", next = "teach" },
         { text = "You seem to prefer beasts to people.", next = "people" },
         { text = "Urek says the right beast chooses you.", next = "choose" },
@@ -656,6 +775,64 @@ P:NPC {
         { text = "My companion seems unhappy with me lately.", next = "unhappy", when = { class = "HUNTER" } },
         { text = "Darkspear tame raptors and bats, you know.", next = "troll_beasts", when = { race = "Troll" } },
         { text = "Farewell, Hesuwa.", next = "END" },
+      },
+    },
+    h_bond = {
+      hub = true,
+      lines = {
+        { id = "hb_default", text = "The bond between a hunter and a companion is the Earth Mother's oldest gift, older than the bow. Ask what you like about it, and your companion can listen, since it concerns them most." },
+        { id = "hb_pet", when = { pet = { type = "Beast" } }, text = "{pet} is listening already, look at the ears. Ask what you like about the bond, and I'll answer for the both of you." },
+      },
+      again = {
+        { id = "hb_again", text = "What else? Your companion has settled, so we have a little while." },
+        { id = "hb_again2", text = "Ask on. I'd rather answer you than mend a bond that's broken." },
+      },
+      choices = {
+        { text = "How does a companion grow to trust me?", next = "h_loyal" },
+        { text = "What can you teach it that I can't?", next = "h_teach", when = { minLevel = 10 } },
+        { text = "Should I trade my companion for a stronger beast?", next = "h_trade", when = { minLevel = 20 } },
+        { text = "My companion fell. Will it forgive me?", next = "h_fell", when = { minLevel = 10 } },
+        { text = "Tauren hunters keep a companion for life, I'm told.", next = "h_life", when = { race = "Tauren" } },
+        { text = "Enough of the bond, Hesuwa.", next = "BACK" },
+      },
+    },
+    h_loyal = {
+      lines = { { id = "hl_default", text = "The way a calf does, by being fed and kept close and never frightened by the one who feeds it. It begins rebellious and becomes unruly, which is no better, and then one season it settles, and after enough seasons it would walk into Razorfen with you. Only happiness moves it along, so keep it happy above everything." } },
+      choices = { { text = "Back to the bond.", next = "h_bond" } },
+    },
+    h_teach = {
+      lines = { { id = "ht_default", text = "To growl so its foes turn from you, to grow a thicker hide, and to stand against fire and frost and the shadow that the Scourge carry. The wild never taught it those, because the wild never asked it to guard anyone. You'll have to teach it the bites and claws yourself, by taming beasts that already know them." } },
+      choices = { { text = "Back to the bond.", next = "h_bond" } },
+    },
+    h_trade = {
+      lines = { { id = "htr_default", text = "You can, and many do, and the stable master will keep the old one for you if you can't bear to let it go. But a new companion starts rebellious, however strong it is, and the old one already knows your step. Strength can be taught, and trust has to be grown." } },
+      choices = {
+        { text = "Then I'll keep the one that knows my step.", next = "h_bond", reply = "Good. Bring it to me when it's ready to learn, and we'll make it strong together.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunter needs the strongest beast there is.", next = "h_bond", reply = "Needs it, maybe, for the hardest hunts. Stable the old one kindly, then, and visit it.", fx = { align = { light = -1 } } },
+        { text = "Back to the bond.", next = "h_bond" },
+      },
+    },
+    h_fell = {
+      lines = { { id = "hf_default", text = "It will, for beasts forgive more easily than we do, but it will come back hungry and unhappy, and it will remember. Call it back while there's warmth in it, feed it at once, and don't drag it straight back into the fight that felled it." } },
+      choices = {
+        { text = "It fell because I chose the fight badly.", next = "h_fell2" },
+        { text = "Back to the bond.", next = "h_bond" },
+      },
+    },
+    h_fell2 = {
+      big = true,
+      lines = { { id = "hf2_default", text = "Then say so, to it and to yourself, because it already knows. Some hunters blame the beast for being weak, and those are the hunters whose companions leave them one quiet morning." } },
+      choices = {
+        { text = "The fault was mine. I'll choose better.", next = "h_bond", reply = "Then it's already forgiven you, I'd wager. Look at it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast must learn to survive what I choose.", next = "h_bond", reply = "It will learn, and it will learn that you don't choose well. Be careful what you teach it.", fx = { align = { honor = -1 } } },
+        { text = "Back to the bond.", next = "h_bond" },
+      },
+    },
+    h_life = {
+      lines = { { id = "hli_default", text = "The old ones did, and some still do. My grandmother's hawk outlived two of her bows and sat on her grave post for a season after she was gone, and nobody on the rise would chase it off. I think that's how it should be, though the young ones change companions like moccasins now." } },
+      choices = {
+        { text = "I'll keep mine as your grandmother kept hers.", next = "h_bond", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Back to the bond.", next = "h_bond" },
       },
     },
     teach = {

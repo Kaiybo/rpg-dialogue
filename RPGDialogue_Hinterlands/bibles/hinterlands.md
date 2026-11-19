@@ -35,3 +35,4 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 ## Authored, not canon (prejudices, 0.80.0)
 - Falstad: teases Ironforge dwarves (`prejudice`, Alliance Dwarf, small; lines skip Wildhammer origins) over the War of the Three Hammers: "a fair king in a cave is still a king in a cave."
 - Talonaxe: dislikes gnomes for their machines (`prejudice`, race Gnome); a gnome's flying contraption over the Peak scattered three gryphons last summer, and one came back with a cut wing.
+- Night elves (0.94.0 work): Talonaxe likes them better than the Bronzebeards do: they sleep under the sky and keep old ways. His only quarrel is that they think a hippogryph is the finer bird.
