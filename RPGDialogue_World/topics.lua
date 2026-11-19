@@ -241,6 +241,6 @@ P:Topic { id = "the_elements", keywords = { "elemental spirits" }, name = "The s
 P:Topic { id = "alliance", linkName = false, name = "The Alliance", category = "people", learned = "kaldorei who doubt it, like Raene Wolfrunner or Latronicus Moonspear" }
 P:Topic { id = "quel_dorei", keywords = { "quel'dorei", "high elves" }, name = "The high elves", category = "people", learned = "night elves wary of the Highborne's children" }
 P:Topic { id = "shendralar", keywords = { "Shen'dralar" }, name = "The Shen'dralar", category = "lore", learned = "Scholar Runethorn at Feathermoon" }
-P:Topic { id = "humans", linkName = false, name = "Humans", category = "people", learned = "kaldorei with an opinion of them" }
+P:Topic { id = "humans", keywords = { "humans" }, name = "Humans", category = "people", learned = "anyone with an opinion of them, and few keep it to themselves" }
 P:Topic { id = "tauren", linkName = false, name = "The tauren", category = "people", learned = "the Cenarion Circle in Moonglade" }
 P:Topic { id = "kaldorei", keywords = { "kaldorei" }, name = "The night elves", category = "people", learned = "anyone with an opinion of them, and most have one" }

@@ -117,6 +117,28 @@ P:NPC {
         { text = "Nothing, Commander. Sen'jin holds its own.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them the enemy on my coast. Proudmoore's fleet came to Durotar to finish what the camps started, and the Kul Tirans he left behind still sit in Tiragarde Keep as if this were their land." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were one of them, so I'll ask you plainly: would the Kul Tirans in Tiragarde Keep shoot you on sight? Good, because they shoot my grunts on sight, and it's the only thing I'll ever have in common with them." },
+      },
+      choices = {
+        { text = "Lady Proudmoore says her father acted alone.", next = "hu_stance" },
+        { text = "I want to clear Tiragarde Keep myself.", next = "BACK", reply = "Then talk to me about the Betrayers when you're ready, and bring a shield. The Kul Tirans fight like men with nowhere left to run, which is what they are.", fx = { learn = { "theramore" } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "She may be telling the truth, and the Warchief believes her. But her father's men are on my beach with her father's banner, and I'll keep killing them until she calls them home herself." },
+      },
+      choices = {
+        { text = "The Warchief trusts her. That's enough for me, Commander.", next = "BACK", reply = "It's enough for me too, while I'm on duty. Off duty, I sharpen my axe and think about the Admiral.", fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "A human's word means nothing. Kill them all.", next = "BACK", reply = "Kill the ones on my beach, and leave the rest to the Warchief. I don't run a war band, grunt, I run a garrison.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
@@ -145,6 +167,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
+        { text = "What do you make of humans, Commander?", next = "hu_view" },
         { text = "Where does Razor Hill need a priest most, Commander?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The spirits could help guard Razor Hill, Commander.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How do you endure this land, Commander?", next = "druid_q", when = { class = "DRUID" } },
@@ -501,6 +524,28 @@ P:NPC {
         { text = "Somebody has to, and nobody else would.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Less than you'd think, because I've spent my years hunting worse. A human jailer kept me in a pen, but the Burning Blade wants to hand my people back to the demons, and I know which of the two I lose sleep over." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "You're young, so the camps are a story to you, and I'd keep them that way if I could. A human jailer kept me in a pen, but the Burning Blade wants us back in the demons' chains, and that's worse." },
+      },
+      choices = {
+        { text = "So the humans aren't the real enemy?", next = "hu_stance" },
+        { text = "Some say Theramore shelters Burning Blade agents.", next = "BACK", reply = "Some say a lot of things in the Razor Hill inn. I've never found a human among the cultists, and I've looked, so bring me proof or bring me nothing.", fx = { learn = { "burning_blade" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "They're an enemy, and a real one, but they're the kind you can see coming over a hill. The rot I hunt sits at the next fire and calls you brother, and I'd rather face a Kul Tiran shield wall than one cultist I didn't spot." },
+      },
+      choices = {
+        { text = "Then save your hate for the demons, not the humans.", next = "BACK", reply = "That's what the Warchief says, and he's earned the right to say it. I've buried enough orcs to agree.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "There's hate enough for both. I'll spend it freely.", next = "BACK", reply = "Hate spent freely runs out at the worst moment, {class}. Spend it on the Blade first, and keep a little for the humans if you must.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_skullrock", tags = { "news" }, when = { questDone = TODO_QUEST("Skull Rock") },
@@ -524,6 +569,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Each one you put down is one less traitor whispering to the Legion." },
       },
       choices = {
+        { text = "What do you make of humans, Orgnil?", next = "hu_view" },
         { text = "Gazz'uz won't be summoning anything else, Orgnil.", next = "dd_gazzuz", when = { killed = { name = "Gazz'uz" } } },
         { text = "You keep one hand on your blade around me, Soulscar.", next = "prej_orgnil", when = { prejudiced = true } },
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

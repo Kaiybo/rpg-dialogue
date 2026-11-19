@@ -345,6 +345,7 @@ P:Pool {
         { id = "l_orc", when = { race = "Orc" }, text = "The old bankers used to say an orc keeps only what an orc can carry. I'm glad to see you've decided to trust a door and a lock instead." },
         { id = "l_troll", when = { race = "Troll" }, text = "The Darkspear trade in shells and teeth as often as coin, I'm told, so I'll say plainly that we keep anything. I've a drawer of the strangest deposits you ever saw to prove it." },
         { id = "l_nightelf", when = { race = "NightElf" }, text = "You'll find our ways hasty, I expect, after the patience of your people. The coin will still be here when you come back, however long you take about it." },
+        { id = "l_human", when = { race = "Human" }, text = "Your people keep more accounts here than anyone, and owe more on them than anyone, if you'll forgive a banker's honesty. The dwarves still bring up Stormwind's old war debts at this very counter, and they never tire of it." },
         { id = "l_skyborne", when = { race = "Skyborne" }, text = "Your people traded in windstones before you came here, I've heard, and I've no scale that weighs one. It'll have to be gold and silver for now, the same as everyone." },
       },
       again = {
@@ -431,6 +432,7 @@ P:Pool {
         { id = "l_troll", when = { race = "Troll" }, text = "The Darkspear list the oddest lots I've ever handled: carved bones, little bags that rattle, and things with eyes. I don't ask, and the buyers don't seem to either." },
         { id = "l_tauren", when = { race = "Tauren" }, text = "Your people bring me hides cleaner than anything a tanner's apprentice ever managed, and you never seem to mind what they fetch. I wish I could say that of my other sellers." },
         { id = "l_scourge", when = { race = "Scourge" }, text = "Your people send me the oddest things out of the Plaguelands, and I've learned to wash my hands after handling the lots. No offence meant; the buyers ask." },
+        { id = "l_human", when = { race = "Human" }, text = "Humans list more than anyone and grumble about the cut more than anyone, which I suppose is fair, since there are more of you. Half the old Stormwind houses sell their grandmothers' silver through this counter now, very quietly." },
         { id = "l_skyborne", when = { race = "Skyborne" }, text = "A few lots of your people's cloth have come through this house, woven so fine the tailors bid against each other like fishwives. If you've any more of it, list it high." },
       },
       again = {
@@ -446,6 +448,7 @@ P:Pool {
         { text = "Your prices make no sense to me.", next = "race_price", when = { race = "Tauren" } },
         { text = "An honest fight would settle prices faster.", next = "race_fight", when = { race = "Orc" } },
         { text = "My people's clothcraft would fetch a good price here.", next = "race_cloth", when = { race = "Skyborne" } },
+        { text = "Do the nobles really sell their heirlooms here?", next = "race_heirloom", when = { race = "Human" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -487,6 +490,13 @@ P:Pool {
       choices = {
         { text = "Centaur it is.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Show me the listings.", next = "BUSINESS" },
+      },
+    },
+    race_heirloom = {
+      lines = { { id = "race_heirloom_l", text = "Through clerks, under false names and always after dark, as if the buyers can't read a family crest on a candlestick. The dwarves and the elves buy most of it, and they enjoy the buying more than the silver." } },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     race_cloth = {
@@ -983,6 +993,8 @@ P:Pool {
       text = "If you're after blasting powder, I don't keep it, and I'd thank you not to bring any in. Everything on these shelves is the gentle sort of powder, the kind that doesn't take a wall down with it." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Orcs usually grind their own powders and pick their own herbs, and I've never had one ask me for help. Are you the first, or has some shaman sent you shopping?" },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Humans always want the candles and the holy water, and then they haggle over the price of their own salvation. I've never understood a people who pray so much and pay so little." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "I've heard your people trade in a kind of stone that's power and coin both, and I'd give a good deal to see one. I've nothing like it on these shelves, I'm sorry to say." },
   },
@@ -1013,6 +1025,7 @@ P:Pool {
         { text = "These were torn up by the roots.", next = "race_roots", when = { race = "NightElf" } },
         { text = "Any blasting powder behind the counter?", next = "race_blasting", when = { race = "Dwarf" } },
         { text = "Do any of these jars hold something of the elements?", next = "race_elements", when = { race = "Skyborne" } },
+        { text = "Have you anything blessed by the Cathedral?", next = "race_blessed", when = { race = "Human" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -1052,6 +1065,13 @@ P:Pool {
     race_blasting = {
       lines = { { id = "race_blasting_l", text = "None, and if I did, I'd sell it to you through the window with the door shut. Your miners can blow up their own mountains, but I'd like to keep my shop standing." } },
       choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_blessed = {
+      lines = { { id = "race_blessed_l", text = "Blessed, no, but I've candles the Stormwind priests buy by the crate, and they bless them themselves, so it comes to the same thing. Your people do like a faith you can hold in your hand and haggle over." } },
+      choices = {
+        { text = "It's easier to hold than to doubt.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     race_elements = {
       lines = { { id = "race_elements_l", text = "Not that I know of, though a shaman once swore my sulphur was full of fire and wouldn't stop staring at it. If you can feel something in these jars that I can't, I'd honestly rather you didn't tell me." } },

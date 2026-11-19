@@ -130,6 +130,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "That half the orcs in this valley were born behind a human palisade, and the other half were raised by orcs who were. You'll hear grunts curse them at every fire in Durotar, and most of them have the right." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "Your Darkspear met them on the Echo Isles with guns, so you have your own story. Mine is shorter: half the orcs in this valley were born behind a human palisade, and the rest were raised by orcs who were." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You'd know more about them than I would, I expect, seeing as you were one. Just don't be surprised if the grunts look at you sideways, because half of them were born behind a human palisade." },
+      },
+      choices = {
+        { text = "Were you born in a camp, Kaltunk?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "I was, and the first thing I ever owned was a human's cast-off boot. The Warchief broke the camps open when I was young, and now I stand on this road and welcome orcs who never wore a chain, which is the best work I've ever had." },
+      },
+      choices = {
+        { text = "Then the camps are behind us. Let them lie.", next = "BACK", reply = "Behind us, aye, as long as somebody remembers where they are. Go on, now, Gornek's waiting at the Den.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "I'll make them pay for every orc born in chains.", next = "BACK", reply = "Then grow strong enough to do it, because they're not small. Start with Gornek, and the boars, and work up.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_sarkoth", tags = { "news" }, when = { killed = { name = "Sarkoth" } },
@@ -156,6 +179,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Fresh in the valley, and already there's sulphur on you. Gornek won't like it, and neither do I, but the Warchief says your sort can serve, so you'll serve." },
       },
       choices = {
+        { text = "What should a recruit know about humans?", next = "hu_view" },
         { text = "Hana'zua talks about Sarkoth a lot, does he?", next = "dd_sarkoth", when = { killed = { name = "Sarkoth" } } },
         { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "It must have been hard when the orcs had no shamans.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -316,6 +340,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them the reason I shout at recruits. In the camps I watched strong orcs sit down in the mud and never get up again, and the humans only laughed and counted them, so in my Den you get back up." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were one of them once, and now you're in my Den, which is a joke the spirits must enjoy. In the camps I watched strong orcs sit in the mud and never get up, and your people counted them and laughed." },
+      },
+      choices = {
+        { text = "That was the lethargy, wasn't it?", next = "hu_stance" },
+        { text = "I'll get back up, Gornek. Always.", next = "BACK", reply = "Good, because that's the whole lesson, and I've no other. Now go and prove it on the scorpids.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "It was, and some still say the humans poisoned us with it, though I never believed that. We did it to ourselves with demon blood, and they were only too glad to keep us that way, which is a worse sin than poison." },
+      },
+      choices = {
+        { text = "Then the shame is ours, and the strength must be too.", next = "BACK", reply = "That's the right answer, recruit. Don't wait for a human to free you, and don't wait for an orc either; get up yourself.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "They kept us sick on purpose. I'll never forgive that.", next = "BACK", reply = "Nor should you, and nor do I. Keep that anger and turn it into strength, and leave the weeping for the elves.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_tiragarde", tags = { "news" }, when = { questDone = TODO_QUEST("Vanquish the Betrayers") },
@@ -339,6 +385,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
+        { text = "What do you make of humans, Gornek?", next = "hu_view" },
         { text = "I helped Gar'Thok at Tiragarde Keep, Gornek.", next = "dd_tiragarde", when = { questDone = TODO_QUEST("Vanquish the Betrayers") } },
         { text = "Someone close to me came through the Den, Gornek.", next = "xalt_gornek", when = { alt = true } },
         { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

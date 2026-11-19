@@ -945,6 +945,30 @@ P:NPC {
         { text = "Why follow Thrall, chief?", next = "thrall" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "The Darkspear met humans before we ever met an orc, mon, and they came to the Echo Isles with Kul Tiran ships and Kul Tiran guns. Thrall's Horde washed up on our shore in the middle of that fight, and it be the only reason there still be Darkspear to argue with you." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You know dis story, Darkspear, because the elders tell it at every fire. Kul Tiras came to the isles with ships and guns, and if Thrall's Horde had not washed up on our shore, you and me would be bones on the reef." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You used to be one, so maybe you tell me something I don't know. All I know of humans be Kul Tiran ships off the Echo Isles, and dey came to fire on my people, not to trade." },
+      },
+      choices = {
+        { text = "Do the Darkspear hate them for it?", next = "hu_stance" },
+        { text = "The old trolls say Arathor fought the Amani for ages.", next = "BACK", reply = "Dey did, and the forest trolls never forgot it, but that be the Amani's grudge, not ours. Darkspear got enough grudges of our own without borrowing.", fx = { learn = { "humans" } } },
+        { text = "Something else, Vol'jin.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Some do, and I don't blame them, because my father Sen'jin died in that fight. But Thrall be raised by humans and freed by one, and he made peace with the girl in Theramore, so Vol'jin keep his hate on a short leash for the Warchief's sake." },
+      },
+      choices = {
+        { text = "The leash is wise. Hate makes a chief careless.", next = "BACK", reply = "Now you talk like a witch doctor's student. Gadrin teach me the same thing, and I only listen to him half the time.", fx = { align = { order = 1 }, opinion = { humans = "distrust" }, affinity = 1 } },
+        { text = "Sen'jin's blood deserves more than a leash.", next = "BACK", reply = "Maybe it do, and maybe one day the Darkspear collect it. Not today, though, and not while the Warchief need every troll he got.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_zalazane", tags = { "news" }, when = { questDone = TODO_QUEST("Zalazane") },
@@ -976,6 +1000,7 @@ P:NPC {
           text = "You again, mon. Vol'jin did what you said and counted the hexed with the enemy, and it be the right thing for a chief, maybe, but it sit in my belly like a bad fish." },
       },
       choices = {
+        { text = "What do you make of humans, Vol'jin?", next = "hu_view" },
         { text = { normal = "Zalazane's dead, Vol'jin. Will the Darkspear go back to the isles?", polite = "Zalazane is dead, chief. Will the Darkspear return to the isles, if I may ask?", blunt = "Zalazane's dead. Are the Darkspear going home to the isles?" }, next = "dd_zalazane", when = { questDone = TODO_QUEST("Zalazane") } },
         { text = { normal = "I'd guess the loa still listen to a priest, Vol'jin.", polite = "If I may guess, chief, the loa still listen to a priest.", blunt = "The loa still listen to priests, I'd bet." }, next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = { normal = "The loa and the Earth Mother can't agree on much.", polite = "With respect, chief, the loa and the Earth Mother can't agree on much.", blunt = "The loa and the Earth Mother don't agree on much." }, next = "druid_q", when = { class = "DRUID" } },
@@ -1715,6 +1740,28 @@ P:NPC {
         { text = "What do you cook best, Gryshka?", next = "best" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I cooked for human guards once, in a camp outside Lordaeron, and they never once asked my name. Now I run the best inn in Orgrimmar and I ask everybody's, so you tell me which of us came out ahead." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were one of them, weren't you, before you came out of the ground? Don't take it badly, love, but I cooked for human guards once, and you've got the same way of looking at the stew before you trust it." },
+      },
+      choices = {
+        { text = "Did they treat you badly?", next = "hu_stance" },
+        { text = "My parents were in the camps too.", next = "BACK", when = { race = "Orc" }, reply = "Then sit down, because anyone with camp blood eats first at the Tusk. We came out thin and quiet, and look at us now, loud and fed.", fx = { affinity = 1, opinion = { humans = "distrust" } } },
+        { text = "Something else, Gryshka.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Badly enough, but the worst of it wasn't the whip, it was the lethargy, orcs sitting in the mud with nothing in their eyes. One old guard used to slip me salt for the pot, and I've never known whether to thank him or curse him for keeping us fit to work." },
+      },
+      choices = {
+        { text = "Curse him. A kind jailer is still a jailer.", next = "BACK", reply = "That's what my mother said, and she never forgave a single one of them. Eat, then, and keep your anger warm for the ones who earned it.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Thank him. He didn't have to be kind.", next = "BACK", reply = "Maybe so, and maybe that's why I still put salt in everything. Don't tell Zargh I'm going soft, he'll never let it go.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_orders", tags = { "news" }, when = { questDone = TODO_QUEST("The Admiral's Orders") },
@@ -1750,6 +1797,7 @@ P:NPC {
         { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been down Ragefire Chasm and back, have you? Sit and eat, because nobody comes up from those caves without a hole in their stomach, and I'd like to hear what's been making my floor so warm." },
       },
       choices = {
+        { text = "What do you make of humans, Gryshka?", next = "hu_view" },
         { text = "What were they saying about the Kul Tiran orders?", next = "dd_orders", when = { questDone = TODO_QUEST("The Admiral's Orders") } },
         { text = "Do your brawlers ever let a priest patch them up?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The spirits must favor a good hearth, Gryshka.", next = "xhsham", when = { class = "SHAMAN" } },

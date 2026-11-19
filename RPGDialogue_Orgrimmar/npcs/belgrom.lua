@@ -41,6 +41,28 @@ P:NPC {
         { text = "Something else, Belgrom.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them the reason I still wake up angry. They penned the Horde like cattle after the Second War, and now they've built Theramore on our doorstep and call it a truce, and the Warchief lets them." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You Darkspear had Kul Tiran guns on your beaches, so you know how they come calling. They penned my people like cattle after the Second War, and now they sit in Theramore on our doorstep and call it a truce." },
+      },
+      choices = {
+        { text = "You'd break the Warchief's peace?", next = "hu_stance" },
+        { text = "They have Northwatch in the Barrens too.", next = "BACK", reply = "They do, and they march out of it to harry the Crossroads whenever they like. That's what their truce looks like up close, {class}.", fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "I'd never break it, and I'd cut down the orc who tried. But I counsel the Warchief to strike before they're ready, every chance I get, and one day he may listen to an old warrior over a human woman's letters." },
+      },
+      choices = {
+        { text = "Strike first. The humans never waited for us.", next = "BACK", reply = "Hah! You'd have done well in the old clans, before we learned to be patient. Keep that fire, {class}, the Horde will need it.", fx = { align = { light = -1 }, opinion = { humans = "hate" }, affinity = 1 } },
+        { text = "The orcs struck first, once. That's how the camps began.", next = "BACK", reply = "Careful with that tongue. We came through the Portal as invaders, aye, and we paid for it with years in their pens, so I'd say the debt runs the other way now.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else, Belgrom.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_counterattack", tags = { "news" }, when = { questDone = TODO_QUEST("Counterattack!") },
@@ -60,6 +82,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, but not for long." },
       },
       choices = {
+        { text = "What do you make of humans, Belgrom?", next = "hu_view" },
         { text = "Regthar's stockade held, Belgrom.", next = "dd_counterattack", when = { questDone = TODO_QUEST("Counterattack!") } },
         { text = "What happened with the elf?", next = "elf" },
         { text = "Who are these agents of yours?", next = "agents" },

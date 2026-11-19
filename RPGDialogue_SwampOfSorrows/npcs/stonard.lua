@@ -152,6 +152,27 @@ P:NPC {
         { text = "Another question, then.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them close, which is the trouble with Stonard. Stormwind's patrols ride the Redridge roads, Nethergarde sits on the Blasted Lands, and my maps have more human banners on them than any orc map in Kalimdor." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "You came from Kalimdor, so you've seen how few humans live there. Here my maps have Stormwind's patrols on the Redridge roads and Nethergarde on the Blasted Lands, and more human banners than any map in Durotar." },
+      },
+      choices = {
+        { text = "Stonard's stood here since the old wars, hasn't it?", next = "hu_stance" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "It has, since the Horde first marched on Stormwind and burned it, and the old grunts here still talk about the smoke. We were the invaders then, and the humans have never forgotten it, so I don't expect them to forgive Stonard for standing." },
+      },
+      choices = {
+        { text = "We came as invaders. Their hatred is earned.", next = "BACK", reply = "Earned, aye, and so is ours, after the camps. Neither side is running out of reasons, so keep your reports honest and your blade close.", fx = { align = { honor = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Stormwind burned once. It can burn again.", next = "BACK", reply = "Say that in the inn and the old grunts will buy you a drink. Say it to me and I'll ask you how many soldiers you'd need, and you won't have an answer.", fx = { align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Horde" },
@@ -184,6 +205,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm writing as you talk." },
       },
       choices = {
+        { text = "What do you make of humans, Commander?", next = "hu_view" },
         { text = "What do your scouts feel out in the deep swamp?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Stonard need from its spellcasters, Commander?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Something has poisoned this whole swamp.", next = "druid_talk", when = { class = "DRUID" } },
@@ -804,6 +826,27 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "All the time, and I always see them first, because a human on the road clanks like a pot cart. They march in armor through a swamp, and I'd laugh at them if it weren't for their crossbows." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "All the time, and you'd laugh at them too, you jungle folk. They march in armor through a swamp, clanking like a pot cart, and the only thing that keeps me from laughing out loud is their crossbows." },
+      },
+      choices = {
+        { text = "Have they ever caught you?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Once, near the Redridge border, and they put a bolt through my pack instead of me. The sergeant let me run, which I've never understood, and I don't know whether I owe him a drink or an axe." },
+      },
+      choices = {
+        { text = "A drink. He spared you when he didn't have to.", next = "BACK", reply = "Maybe so, and Neeka says the same. I'll buy it for him if I ever see him again without a crossbow.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "An axe. He'd have shot you the next time.", next = "BACK", reply = "Probably, and I'd never see it coming, which is the worst part. All right, an axe, but I'm still faster than his bolts.", fx = { align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you really blink across a room? That sounds like cheating, and I'd like to race you anyway." },
@@ -829,6 +872,7 @@ P:NPC {
         { id = "h_again", text = "What else? Talk fast, I've got a run at noon, and Lok'tar, I mean to beat my own time." },
       },
       choices = {
+        { text = "Do you ever run into humans out there?", next = "hu_view" },
         { text = "Do you ever ask the winds to speed you on the road?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could a spellcaster make the Kargath road safer for your runners?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "I could run your messages faster than any wolf.", next = "druid_talk", when = { class = "DRUID" } },

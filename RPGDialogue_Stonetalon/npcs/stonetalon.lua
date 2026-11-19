@@ -1125,6 +1125,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Ah, humans! Jin'Zil never had one in a cage, mon, and he be very curious. They live fast like a fire in dry grass, they build a stone town in a lifetime, and dey never stop talking about it after." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "Ooh, you used to be one, didn't you, mon? Jin'Zil never had a living human in a cage, and he be very curious, so maybe you tell him what they keep in that busy little heart." },
+      },
+      choices = {
+        { text = "Would you really cage a human?", next = "hu_stance" },
+        { text = "The Darkspear have no grudge against them?", next = "BACK", reply = "Grudge, plenty! Kul Tiras shoot our people on the isles, mon. But a grudge and a curiosity can share a hut, if they don't fight over the blanket.", fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Only for a little while, to watch what it eat, and maybe what it dream! The Kul Tirans put our people in chains on the isles, so Jin'Zil figure a human in a cage be only fair turnabout, but he would feed it better." },
+      },
+      choices = {
+        { text = "Turnabout is fair. They caged orcs for years.", next = "BACK", reply = "You see, you see! Jin'Zil not crazy, he only remember. Now help him with dese cages and we talk more.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "No cages for anyone. That's how the camps began.", next = "BACK", reply = "Hmph, you sound like an orc shaman, all frowns. Fine, fine, Jin'Zil keep his curiosity in his head, where nobody can see it.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_feeders", when = { questDone = TODO_QUEST("Blood Feeders") },
@@ -1154,6 +1176,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask, and mind da cauldron while you do." },
       },
       choices = {
+        { text = "What do you make of humans, Jin'Zil?", next = "hu_view" },
         { text = "What's in the cages?", next = "cages" },
         { text = "You seem to know Darsok well.", next = "darsok" },
         { text = "What do the spirits tell you?", next = "spirits" },

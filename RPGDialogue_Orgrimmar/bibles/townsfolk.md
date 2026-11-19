@@ -39,3 +39,7 @@ The city's service people: no quests, little or no gossip in the game. Built fro
 
 ## What they notice
 - Doras: mounts on his tower. Runthak: warlocks, Forsaken. Lumak, Makaru, Saru, Nogg: skill in their own profession; Saru also battered armour. Xon'cha: a hunter's named pet.
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Urtrun Clanbringer: the camps split the clans until young orcs forgot their grandfathers' banners; every clan he registers is a name the humans couldn't take.

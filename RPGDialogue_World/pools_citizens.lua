@@ -124,6 +124,8 @@ P:Pool {
     { id = "l_g_greymane", when = { gossip = { topic = "gilneas", stance = "greymane_betrayed_us" } }, text = "Someone said you called Greymane a traitor for his wall. You'll find plenty here who'd agree, especially the ones who had family in Lordaeron." },
     { id = "l_g_nobles", when = { gossip = { topic = "war_taxes", stance = "the_nobles_pay_first" } }, text = "Word is you said the nobles ought to pay the war debts before the rest of us. You've a friend at every market stall now, and an enemy in every manor." },
     { id = "l_contra", when = { contradiction = "peace" }, text = "Folk are saying you're for the peace with the orcs at one door and against it at the next. Which is it, then? I'd like to know before I agree with you." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_numbers", text = "There are more humans in the Alliance than the rest of us put together, so Stormwind's word carries furthest. The dwarves say that's why the dwarves do the digging and the humans do the deciding." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -182,6 +184,10 @@ P:Pool {
     },
     advice = {
       { id = "t_ad1", text = "Write home, if you've a home to write to. Somebody's waiting on it, even if they never say so." },
+    },
+    humans = {
+      { id = "w_humans", text = "Stormwind leads the Alliance because there are more humans than anyone else, and they never let you forget it. Good neighbours, mostly, so long as you don't lend them money." },
+      { id = "w_humans_h", when = { race = "Human" }, text = "Your people hold the Alliance together, and you'll hear plenty of grumbling about it from the rest of us. Most of it's said over ale, and most of it's forgiven by morning." },
     },
     _none = { { id = "t_none", text = "That's beyond me, I'm afraid. Ask someone who reads more than I do." } },
   },
@@ -264,6 +270,8 @@ P:Pool {
     { id = "l_g_never", when = { gossip = { topic = "old_ways", stance = "never_again" } }, text = "Word reached me that you'd said the old ways should stay dead. My grandmother would bless you for that, if she were still here to do it." },
     { id = "l_g_soft", when = { gossip = { topic = "old_ways", stance = "the_horde_has_gone_soft" } }, text = "I hear you think the Horde's gone soft. I'd like to see you say that to a Darkspear headhunter or a tauren with a totem in his hand." },
     { id = "l_contra", when = { contradiction = "peace" }, text = "Folk at one fire say you're for the Warchief's peace, and folk at another say you're against it. The Horde doesn't care much for a tongue that changes with the wind." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_camps", text = "My mother was born behind the walls of an internment camp and never saw an open sky until she was grown. When the young grunts say the humans have changed, she only laughs." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -325,6 +333,10 @@ P:Pool {
     advice = {
       { id = "t_ad1", text = "Share your fire and your water on the road. One day you'll be the one asking." },
     },
+    humans = {
+      { id = "w_humans", text = "They built the camps and called it mercy, and some of them would build them again tomorrow. The Warchief keeps his truce with the woman at Theramore, and I keep my axe sharp all the same." },
+      { id = "w_humans_ud", when = { race = "Scourge" }, text = "You'd know them better than any orc, since you were one of them. Do the living still burn your kind on sight up north, or have they found something crueller?" },
+    },
     _none = { { id = "t_none", text = "I don't know that. Ask a shaman; they know things the rest of us don't." } },
   },
 }
@@ -359,6 +371,7 @@ P:Pool {
     { id = "g_o_westfall", once = true, priority = 40, when = { gossip = { topic = "westfall", stance = { "abandoned", "send_soldiers" } } },
       text = "Folk say you've been telling anyone who'll listen that the city's abandoned Westfall. Plenty here agree, though they'd not say it to a guard." },
     { id = "g_day", text = "Good day to you. If you're after the Trade District, follow the canal and you can't miss it." },
+    { id = "g_hu_kin", when = { race = "Human" }, text = "One of our own, home from the road! It's good to hear a plain human voice after a morning of dwarves haggling and elves sighing at the canals." },
     { id = "g_nx_ne", when = { race = "NightElf" }, text = "One of the elves, all the way from your tree. The guards say to make you welcome, so welcome, and do try not to look at the canals like they've offended you." },
     { id = "g_xcathpupil", when = { origin = "gnome_cathedral_pupil" }, text = "Oh, you're the little gnome who came to the Cathedral with burned hands and stayed to study! The brothers say you once asked for the Light in diagram form, and I believe one of them is still trying to draw it." },
     { id = "g_xdalstray", when = { origin = "human_dalaran_stray" }, text = "You're one of the young ones from Dalaran, aren't you, who came south after the city fell? I'll never understand why the Kirin Tor shut their gates on their own students, but Stormwind's glad of you." },
@@ -474,6 +487,12 @@ P:Pool {
     { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "You're one of the tree-folk, aren't you? No offence meant, but your people look at our city like it's a wound on the ground, and it's hard to warm to that." },
     { id = "l_nx_moon", when = { race = "NightElf" }, text = "My priest says your moon goddess and our Light might be the same thing seen from two sides. My mother says that's heresy, and she's louder than he is." },
     { id = "l_nx_defend", text = "I hear people grumble about the night elves, but my brother served on the Auberdine run, and he says the Sentinels pulled his whole crew out of the surf one winter. I'll not hear them called cold in my shop." },
+    -- Human patch: the city talks about its own, and about what the others say of it.
+    { id = "l_hu_refugees", text = "The refugees from Lordaeron sleep in the Cathedral's cellars and under the canal bridges, and every winter there are more of them. My neighbours say Stormwind can't feed the whole north, and then they go to service and pray for them anyway." },
+    { id = "l_hu_taxes", text = "The House of Nobles has raised the levy again, for the walls in Redridge and the archers in Ashenvale. My father says the orcs burned this city once, and the nobles have been burning it slowly ever since." },
+    { id = "l_hu_others", text = "The dwarves say we're short-lived and the elves say we're hasty, and both of them say it to my face at the market. I tell them we die young because we spend our lives fighting their wars, and they never have an answer for that." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "You've the look of someone who grew up under walls like these. The others can say what they like about us, but nobody else rebuilt a whole kingdom out of ash in twenty years." },
+    { id = "l_hu_debts", when = { race = "Human" }, text = "A dwarf in the Trade District told me Stormwind still owes Ironforge for the stone in these walls. I told him to take it up with the nobles, and he said he'd sooner take it up with a mountain." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -516,6 +535,7 @@ P:Pool {
     defias = { { id = "t_defias", text = "Angry masons and hungry farmhands, most of them. Folk say they've got a leader now, and that he used to build cathedrals before he started robbing them." } },
     stonemasons = { { id = "t_masons", text = "They built this city twice over, and when they asked for their wages, the nobles laughed at them. I don't hold with robbery, but I can see how they got there." } },
     the_stockade = { { id = "t_stockade", text = "It's down by the canals, and you'll hear it before you see it. My advice is to stay on the right side of its door." } },
+    humans = { { id = "w_humans", text = "We're a stubborn people and a short-lived one, and we've made a habit of rebuilding whatever the others let burn. Ask a dwarf about us and he'll say we never pay our debts, and he's not entirely wrong." } },
     _none = { { id = "t_none", text = "Couldn't tell you. Ask at the Cathedral or the Keep; somebody up there's paid to know things." } },
   },
 }
@@ -547,6 +567,7 @@ P:Pool {
     { id = "g_o_dark", once = true, priority = 40, when = { gossip = { topic = "dark_iron", stance = { "hate", "war" } } },
       text = "Word is ye'd see every Dark Iron put in the ground. Ye'll not find many here to argue with ye, {g:lad|lass}." },
     { id = "g_day", text = "Good day tae ye! Come warm yer hands; the Great Forge never goes out, an' nor does the welcome." },
+    { id = "g_hu_h", when = { race = "Human" }, text = "A human under the mountain! Ye're welcome, an' I'll say it before anyone else does: Stormwind still owes us for the stone in its walls, so mind ye pay for yer ale." },
     { id = "g_nx_ne", when = { race = "NightElf" }, text = "An elf in Ironforge! Mind yer head on the beams, tall one, an' try no' tae look so pained at the smoke; the forge has tae breathe somewhere." },
     { id = "g_xledger", when = { origin = "gnome_thermaplugg_clerk" }, text = "Ye kept the books for Thermaplugg, did ye no'? Folk in Tinker Town say ye knew where every copper went, an' some o' them would like tae know why ye never said." },
     { id = "g_xarcaneeng", when = { origin = "gnome_arcane_engineer" }, text = "Ye're the gnome that singed the eyebrows off half the Tinker Town faculty wi' yer arcane wirin'! The mages in the Mystic Ward still curse yer name, an' then they copy yer notes when they think nobody's lookin'." },
@@ -623,6 +644,12 @@ P:Pool {
     { id = "l_nx_elves", text = "The night elves'll nae let the League dig a single trench in Darkshore without a Sentinel glarin' down the shaft at us. Ten thousand years they sat on all that history, an' now they call it grave-robbin' when someone else looks." },
     { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "An elf under the mountain! Ye'll find nae trees in here, an' I'll thank ye not tae scowl at the Forge like it's done ye a wrong." },
     { id = "l_nx_gnome", when = { race = "NightElf" }, text = "The gnomes in Tinker Town say yer people looked at their wee mechanical birds like they were plague rats. Go easy on 'em, will ye; they've lost a whole city." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_debt", text = "Stormwind borrowed Ironforge stone an' Ironforge masons tae rebuild after the First War, an' the debt's still sittin' in the Vault. Magni's too proud tae ask for it, an' the humans are too proud tae remember it." },
+    { id = "l_hu_short", text = "Humans live sixty years if the orcs let 'em, an' they spend forty o' those changin' their minds. Make a friend o' one, an' by the time ye've decided tae trust him, he's got grandchildren." },
+    { id = "l_hu_gnome", text = "The gnomes in Tinker Town say Stormwind sent a very fine letter o' sympathy when Gnomeregan fell, an' not a single soldier. The wee folk framed it an' hung it by the tram, so they'd never forget." },
+    { id = "l_hu_defend", text = "Say what ye like about humans, but a Lordaeron footman carried my brother three miles out o' the fightin' at Dun Algaz an' never asked for so much as a pint. I'll drink tae that man before any king." },
+    { id = "l_hu_h", when = { race = "Human" }, text = "Ye humans always look up when ye come in here, as if ye'd lost somethin' in the roof. It's only the mountain, {g:lad|lass}; it's no' goin' tae fall on ye, an' if it does, it'll be the gnomes' fault." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -647,6 +674,8 @@ P:Pool {
       reply = "Pressin' down? It's holdin' us up, more like, an' it's done it since before yer grandmother's grandmother was born, which for an elf is sayin' somethin'. Have a drink an' stop starin' at the ceilin', an' ye'll soon forget it's there." },
     { text = "Is it true the Explorers' League wants to measure me?", next = "BACK", when = { race = "Skyborne", ["not"] = { npcFlag = "rq_if_skyborne" } }, fx = { npcFlag = { set = "rq_if_skyborne" } },
       reply = "Measure ye, sketch ye an' ask ye where yer folk kept their old maps, aye. They mean no harm by it; ye're the newest old thing they've seen in years, an' they cannae help themselves." },
+    { text = "Do your people truly resent Stormwind?", next = "BACK", when = { race = "Human", ["not"] = { npcFlag = "rq_if_human2" } }, fx = { npcFlag = { set = "rq_if_human2" } },
+      reply = "Resent's a strong word. We sent masons for yer walls an' rifles for yer wars, an' what came back was a very fine letter o' thanks. Dwarves don't resent, friend; we keep accounts." },
     { text = "Good day tae ye.", next = "END" },
   },
   topics = {
@@ -662,6 +691,7 @@ P:Pool {
     },
     gnomeregan = { { id = "t_gnomeregan", text = "Somethin' came up from under it, an' then the gnomes flooded the place wi' poison tae stop it, an' half their own folk wi' it. They don't like talkin' about it, so be kind." } },
     dark_iron = { { id = "t_darkiron", text = "Fire-worshippin' cousins of ours, down in the Searing Gorge an' under the Blackrock. They've been rotten since before my granddad's day, an' they show no sign o' gettin' better." } },
+    humans = { { id = "w_humans", text = "Brave enough, generous wi' promises, an' gone in a blink. A human'll swear ye an oath on his grandfather's grave an' mean every word, an' then his grandson forgets it. They can fight, mind, even if they cannae hold their ale." } },
     _none = { { id = "t_none", text = "That's beyond me, friend. The scholars at the Hall of Explorers might know, an' they'll be glad tae lecture ye." } },
   },
 }
@@ -757,6 +787,10 @@ P:Pool {
     { id = "l_nx_highborne", text = "There are high elves in the Alliance, Quel'Thalas's children, and they call us cousins. Their ancestors were the Highborne who fled across the sea, and I cannot smile at that word the way they do." },
     { id = "l_nx_sisters", text = "The Sentinels are daughters and the druids are sons, and that is how it has been since the Sundering. My brother wanted to carry a glaive, and he was told to go and sleep in the Dream instead." },
     { id = "l_nx_hawk", text = "The druids counsel patience with the orcs, and patience has cost us half of Ashenvale. If it were left to me, the Sentinels would burn Splintertree Post to the ground and let the forest grow back over it." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_axes", text = "For ten thousand years no axe touched Ashenvale. Then the humans fought their wars with the orcs, built their camps, and the orcs sailed here to finish their business in our forests." },
+    { id = "l_hu_arcane", text = "The humans' magi in Dalaran play with the same magic that drowned Zin-Azshari, and they call it scholarship. We exiled our own kin for less, and they wonder why we watch them." },
+    { id = "l_hu_h", when = { race = "Human" }, text = "Your people build in stone because you know you will not be here to tend a tree. I do not say it to wound you, human; only, I have known trees that were saplings when your first kingdom laid its first stone." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -785,6 +819,8 @@ P:Pool {
       reply = "Rut'theran Village, at the foot of the tree, sees more strangers than the city ever does, and the boats bring your folk through every week. Build there, and build quietly, and the druids may only frown at you a little." },
     { text = "Your priestesses speak of Eldre'Thalas very carefully. Why?", next = "BACK", when = { race = "Skyborne", ["not"] = { npcFlag = "rq_dn_skyborne" } }, fx = { npcFlag = { set = "rq_dn_skyborne" } },
       reply = "Because Eldre'Thalas was a city of the Highborne, and it was the Highborne who drank too deeply of the Well and called the Legion down upon us all. Your people's line runs back to that city, and that is hard for many of us to look at, though it is no fault of yours." },
+    { text = "What did humans ever do to your people?", next = "BACK", when = { race = "Human", ["not"] = { npcFlag = "rq_dn_human2" } }, fx = { npcFlag = { set = "rq_dn_human2" } },
+      reply = "Nothing, for ten thousand years, and that was an arrangement we liked. Then your wars brought the orcs and the demons to our shores, and now your king asks for our archers to guard his roads. Forgive us if we count that against you for a few centuries." },
     { text = "Elune keep you.", next = "END" },
   },
   topics = {
@@ -799,6 +835,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I will answer, for it is courteous, but you must forgive me for answering briefly." },
     },
     teldrassil = { { id = "t_tree", text = "The Arch Druid and his circle raised it, so that our people would have a home once more. Its roots go down into the sea, and some say that's why the creatures in its shade have grown so wild." } },
+    humans = { { id = "w_humans", text = "Quick to anger, quick to build, quick to die. I do not hate them, but I have learned not to grow fond of one, because I would be mourning him before I had finished deciding whether to trust him." } },
     _none = { { id = "t_none", text = "That I do not know. Perhaps the Sentinels would; they watch everything." } },
   },
 }
@@ -900,6 +937,11 @@ P:Pool {
     { id = "l_nx_elves", text = "The night elves shoot our peons in Ashenvale for cutting wood we need to build this city. They talk about balance, but their balance means orcs living in tents forever." },
     { id = "l_nx_grom", text = "Grom Hellscream killed their demigod in Ashenvale, and the elves have never forgiven it. Some here are proud of that day, and some remember whose blood was in Grom when he did it." },
     { id = "l_nx_hyjal", text = "We stood beside the night elves at Hyjal when the Legion came, my father among them. It's strange how quickly both sides forgot." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_camps", text = "I was born behind the walls of an internment camp, and the first sound I remember is a human key turning in a lock. The Warchief says they are not all Blackmoore, and I believe him, but I still flinch at keys." },
+    { id = "l_hu_proudmoore", text = "Admiral Proudmoore sailed across the sea to burn our new home before the walls were even up. His own daughter stood with us against him, which tells you how humans treat even their own blood." },
+    { id = "l_hu_lethargy", text = "Thrall says it was the demon's curse that left us listless in the camps, not the humans. My father says the humans built the camps, so it comes to the same thing." },
+    { id = "l_hu_respect", text = "I'll say this for the humans: they don't run. I've seen their footmen hold a line with half their friends dead around them, and that's more than some orcs I could name." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -938,6 +980,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common, and you can dig up the rest yourself." },
     },
     burning_blade = { { id = "t_blade", text = "Fools who want the demons back, as if we didn't drink enough of that poison the first time. They hide in the canyons and under the city, and we hunt them wherever they hide." } },
+    humans = { { id = "w_humans", text = "They penned us like cattle and called it mercy, and some of them would do it again tomorrow. The Warchief keeps his truce with the woman at Theramore, and I'll keep it too, but I'll never turn my back on one." } },
     _none = { { id = "t_none", text = "I don't know it. Ask in the Valley of Wisdom; the shaman there know more than is good for anyone." } },
   },
 }
@@ -1019,6 +1062,10 @@ P:Pool {
     { id = "l_hunter", when = { subzone = "Hunter Rise" }, text = "On the Hunter Rise they teach the young to track and to wait, and the waiting is harder. I never had the patience myself; I weave baskets instead." },
     { id = "l_nx_elves", text = "The night elf druids taught Hamuul Runetotem, and we are grateful for it. Still, some of them speak to us as if the Earth Mother had not spoken to the tauren long before they came down from their trees." },
     { id = "l_nx_sentinels", text = "My cousin walks the roads in Ashenvale with the Horde's caravans. The Sentinels shoot at any tauren there now, because of the company we keep, and that grieves me more than it angers me." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_northwatch", text = "The humans built a fort at Northwatch and another at Theramore, and now their soldiers shoot our kodo on the southern plains. They have not asked whose land it is, and I do not think they mean to." },
+    { id = "l_hu_mortal", text = "The humans live short lives and build tall walls, as if the stone will remember them when the grass has forgotten. The Earth Mother remembers everyone, but I do not think they have heard of her." },
+    { id = "l_hu_taretha", text = "The orcs say a human woman named Taretha helped Thrall escape his chains, and that she died for it. I keep that story close whenever I hear the young braves speak of humans as if they were all one beast." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -1057,6 +1104,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I will tell you a little, but the Earth Mother counsels caution with strangers." },
     },
     venture_company = { { id = "t_venture", text = "Goblins with saws and drills and no shame at all. They tear at the land faster than it can heal, and they call the stumps progress." } },
+    humans = { { id = "w_humans", text = "They came to these shores behind the orcs, and they brought their walls with them. Some of them are kind, I am told, but I have only met the ones with crossbows at Northwatch." } },
     _none = { { id = "t_none", text = "The Earth Mother hasn't told me that. Ask the elders; they talk with her more often." } },
   },
 }
@@ -1145,6 +1193,10 @@ P:Pool {
     { id = "l_hallows", when = { holiday = "hallowsend" }, text = "Hallow's End is ours, whatever the living tell you. We burn the Wicker Man for the day we broke free of the Scourge, and the living hand out sweets and pretend it's about pumpkins." },
     { id = "l_nx_elves", text = "The night elves mourn their lost immortality as if it were a dead child. I'd trade them my eternity for their mortality, and I'd throw in the rot for free." },
     { id = "l_nx_lordaeron", text = "Where were the kaldorei while Lordaeron burned? In their forests, keeping their balance, and they'll keep it right up until it's their turn." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_baker", text = "I was a baker in Brill when I was alive, and I'd have spat on anything that looked like me now. The living haven't changed, you understand; I'm only on the other side of the bonfire." },
+    { id = "l_hu_brother", text = "My brother lives in Southshore, still breathing and still praying. I went to his door once, and he called for the guard before I'd finished saying his name." },
+    { id = "l_hu_stormwind", text = "Stormwind took in Lordaeron's refugees, and it will tell you so at length. It didn't send an army north when Arthas came home, mind, and it hasn't sent one since." },
   },
   -- Opinion pass: the player can say what they think. Each reply sets a flag that the
   -- greeting above answers when the talk comes back round; "op_told" keeps it to one per person.
@@ -1184,6 +1236,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer, but don't mistake the answer for friendship." },
     },
     scarlet_crusade = { { id = "t_scarlet", text = "Living zealots in red, who once prayed with us at the same altars. Now they hunt us through Tirisfal with torches, and they sing while they do it." } },
+    humans = { { id = "w_humans", text = "I was one for thirty years, and I miss the bread more than the people. The living look at us and see their own graves walking about, and they can't forgive us for it, so they burn us instead." } },
     _none = { { id = "t_none", text = "I don't know, and I find that I don't care. Ask an Apothecary; they care about everything, unhealthily." } },
   },
 }
@@ -1238,6 +1291,9 @@ P:Pool {
     { id = "l_kobolds", text = "The miners won't go into Fargodeep any more, not since the kobolds took it over. Candles on their heads, and they shout at you not to take them, as if anybody wants their candles." },
     { id = "l_hogger", text = "Hogger's out in the woods southwest of here, and he's bigger every time somebody tells the story. I've only seen him the once, from very far away, and that was plenty." },
     { id = "l_farms", text = "The Maclures and the Stonefields have been feuding since before I was born, over a cow, of all things. Now their children have gone sweet on each other, and nobody knows what to do about it." },
+    -- Human patch: home talk.
+    { id = "l_hu_refugees", text = "The refugees from the north started coming down the Goldshire road years ago, and some of them never went any further. My neighbour's Lordaeron-born, and she still says Stormwind bread tastes of nothing." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "You've an Elwynn way of standing, or near enough. Folk come through here from every corner of the Alliance now, and it's nice to talk to someone who knows what a harvest festival's meant to look like." },
   },
   topics = {
     darkmoon_faire = { { id = "w_darkmoon_faire", text = "When the Darkmoon Faire comes to Goldshire, the whole town goes a bit daft for a week, and the Lion's Pride never runs out of customers. My lad won a toy at the ring toss last year, and I still don't know how." } },
@@ -1354,6 +1410,9 @@ P:Pool {
     { id = "l_bridge", text = "The bridge was meant to be done last summer, and then the summer before. Foreman Oslow says it'll be ready by the rains, and he's said it every rainy season I can remember." },
     { id = "l_gnolls", text = "Gnolls in the hills, murlocs in the lake, orcs over the ridge. My husband jokes that Redridge is the only place where the fish fight back." },
     { id = "l_fishing", when = { timeOfDay = "dawn" }, text = "The fishermen go out at first light, while the murlocs are still asleep. You'll know when one of them doesn't, because you'll hear the shouting." },
+    -- Human patch: home talk.
+    { id = "l_hu_taxes", text = "The crown's tax man came through again in spring, and the bridge is still half built. My husband says Stormwind remembers Lakeshire twice a year: when it's time to pay, and when the orcs come over the hills." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "One of Stormwind's own, come out to Redridge! Maybe you could tell the House of Nobles we're still out here, because their letters suggest they've forgotten." },
   },
   topics = {
     bolvar = { { id = "w_bolvar", text = "The Highlord sent us a few soldiers when the orcs came down out of the Burning Steppes, and not a man more. I suppose he's got the whole kingdom to look after, but we've only got the one town." } },
@@ -1414,6 +1473,9 @@ P:Pool {
     { id = "l_watch", text = "The Night Watch is mostly farmers and shopkeepers with lanterns and pikes, my brother among them. They're brave, but they're tired, and you can only be brave on so little sleep." },
     { id = "l_ravenhill", text = "Raven Hill was a decent village once, until the dead got up out of its graveyard. Nobody goes there now unless they're paid, or mad, or both." },
     { id = "l_lamps", text = "We keep every lamp in Darkshire lit through the night, and we count them at dawn. If one's gone out, somebody goes to see why, and nobody wants it to be them." },
+    -- Human patch: home talk.
+    { id = "l_hu_city", text = "Stormwind sent us one company of soldiers and a priest who left after a week. The Night Watch is farmers and widows, and we've buried more of our own than the city has ever bothered to count." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "You're human, and you came to Duskwood on purpose? Then you're braver than most of the city, friend, and a good deal braver than the regent's council." },
   },
   topics = {
     holy_light = { { id = "w_holy_light", text = "We burn lamps all night because the Light keeps the dead from the doors, and sometimes I think it's the only thing that does. Pray with us, if you like; we could use every voice." } },
@@ -1471,6 +1533,9 @@ P:Pool {
     { id = "l_stormwind", text = "We sent letter after letter to Stormwind asking for soldiers, and they sent back letters asking for taxes. That's why the Militia exists, and why nobody here bows when the city's name is spoken." },
     { id = "l_moonbrook", text = "Moonbrook was a town once, a good one, with a church and a market. The Defias own it now, and you can see their fires from the hill at night." },
     { id = "l_gnolls", text = "The Riverpaw gnolls have started working for the Defias, or with them, which is worse. Gnolls that take orders are gnolls that can plan." },
+    -- Human patch: home talk.
+    { id = "l_hu_defias", text = "The Defias are human, every one of them, farmers and masons we drank with before the nobles cheated them. That's what nobody in Stormwind will say aloud: it isn't orcs burning Westfall, it's us." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "One of Stormwind's own, come out to see what the city left behind. Gryan's militia will take any human who can hold a pitchfork, and you look like you could hold two." },
   },
   topics = {
     varian = { { id = "w_varian", text = "The king's men abandoned Westfall to the Defias, and the king wasn't here to stop it. The People's Militia's all we've got now, and they're mostly farmers." } },
@@ -1529,6 +1594,9 @@ P:Pool {
     { id = "l_keep", text = "Half the keep's still underwater from when the harbor flooded. The soldiers say you can see the old cellar doors at low tide, and nobody's had the nerve to open them." },
     { id = "l_nx_elves", text = "The elves on the Auberdine boat sit at the bow and say nothing the whole crossing. The sailors call them the figureheads, though never where the elves can hear it." },
     { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "Going home to your tree, or coming from it? Either way, you'll want the Auberdine boat, and the crew will treat you well enough, though they'll laugh about you after." },
+    -- Human patch: home talk.
+    { id = "l_hu_gilneas", text = "When Lordaeron fell, King Greymane shut Gilneas behind his wall and wouldn't take a single refugee off our boats. Humans can be the worst of neighbours, even to other humans." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "Another of us on the docks, then. You'll hear the dwarves grumbling about humans from here to Ironforge, but they still take our ships and our coin, and they've never once refused either." },
   },
   topics = {
     scourge = { { id = "w_scourge", text = "The ships out of Lordaeron came in full of refugees, and then they stopped coming. Some nights the fog off the bay looks like it's full of faces, and the old sailors won't go out in it." } },
@@ -1586,6 +1654,10 @@ P:Pool {
     { id = "l_syndicate", text = "The Syndicate runs the hills north of here, Alterac's old nobles turned thieves. My grandfather paid taxes to those families once, and now they rob his grandsons on the road." },
     { id = "l_durnholde", text = "That ruined fortress up the hill is Durnholde. They kept orcs there, years ago, and the one who escaped is the Warchief of the Horde now, if you'll credit it." },
     { id = "l_murlocs", text = "The murlocs on the shore get bolder every summer. I've stopped hanging washing on the line, because the last time they took my good shirt." },
+    -- Human patch: home talk.
+    { id = "l_hu_lordaeron", text = "Southshore was Lordaeron's once, the same as Tarren Mill, and we're all that's left of the kingdom in these hills that still breathes. Stormwind sends us a few soldiers and a great many promises." },
+    { id = "l_hu_dwarves", text = "The dwarves at the inn say humans built Lordaeron too fast and lost it just as fast. I'd like to see them hold a kingdom with their dead neighbours knocking at the door." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "You're living, you're human and you're not wearing a red tabard. In Hillsbrad these days, that makes you very nearly family." },
   },
   topics = {
     forsaken = { { id = "w_forsaken", text = "The dead ones hold Tarren Mill just over the hill, and they've got some foul plague brewing in their cellars, folk say. Nobody sleeps sound here anymore." } },
@@ -1710,6 +1782,8 @@ P:Pool {
     { id = "l_frostmane", text = "The Frostmane trolls have been raidin' the farms again, up from their caves in the west. Ice trolls, mean as a blizzard, an' twice as cold." },
     { id = "l_gnomeregan", text = "Ye can see the smoke from Gnomeregan on a clear day. Somethin' terrible happened under there, an' the gnomes who got out don't like tae talk about it." },
     { id = "l_wendigo", text = "Wendigos in the caves north o' the road, big hairy brutes. My cousin went in after a lost goat an' came out without the goat, an' wi' fewer fingers." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_flighty", text = "Humans come up the road every week tae see the snow, an' every week they leave before it's even properly fallen. Flighty folk, but they pay for their rooms in advance, so I'll no' complain too loud." },
   },
   topics = {
     magni = { { id = "w_magni", text = "Our King's never more than a day's walk from Kharanos, an' he's been known tae drop in at the Thunderbrew for a pint. I've never been there when he did, but my brother has, or so he says." } },
@@ -1720,6 +1794,7 @@ P:Pool {
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye're good folk, so I'll tell ye the lot an' buy ye a pint after." },
     },
     frostmane = { { id = "t_frostmane", text = "Ice trolls from the western caves, wi' blue skin an' bad tempers. They've hated dwarves since before there were dwarves tae hate, near enough." } },
+    humans = { { id = "w_humans", text = "Good fighters an' poor payers, as me father used tae say, though he said it about everyone south o' the Loch. They're welcome at the Thunderbrew so long as they mind their manners an' their tab." } },
     _none = { { id = "t_none", text = "Couldnae tell ye. Ask at the inn, where there's always somebody who thinks they know." } },
   },
 }
@@ -1946,6 +2021,9 @@ P:Pool {
     { id = "l_marsh", text = "Crocolisks in the water, ogres in the hills, and dragons in the south, people say. Dustwallow's no place to raise children, but it's where we are." },
     { id = "l_nx_elves", text = "The night elves came to Theramore once to speak with the Lady and left before supper. They're polite enough, but you always feel you've tracked mud into their house." },
     { id = "l_nx_elves_ne", when = { race = "NightElf" }, text = "Your Sentinels fought beside us at Hyjal, the old soldiers say. I'd like to think the Lady's peace with the orcs could hold for your forests too, if your people would give it half a chance." },
+    -- Human patch: home talk.
+    { id = "l_hu_andorhal", text = "My mother still sets a place at supper for my father, who stayed behind to hold the gate at Andorhal. It's been years now, and none of us has the heart to tell her to stop." },
+    { id = "l_hu_kin", when = { race = "Human" }, text = "You're one of ours, and that's worth something this far from home. The orcs at the gate are polite, the elves are cold and the dwarves are drunk, but at least a human knows what a proper loaf looks like." },
   },
   topics = {
     jaina = { { id = "w_jaina", text = "Lady Jaina built this city out of nothing but the survivors of Lordaeron and her own stubbornness. She keeps the peace with the Horde because she's seen what war costs, and anyone here who says otherwise wasn't at Hyjal." } },
@@ -2283,6 +2361,7 @@ P:Pool {
   id = "citizen_booty_bay", role = "citizen", community = "booty_bay",
   greetings = {
     { id = "g_day", text = "Welcome to Booty Bay, pal! Everything here's for sale and everything's got a price, and the price goes up the longer you stand there thinkin' about it, so I hope you brought your purse." },
+    { id = "g_hu_h", when = { race = "Human" }, text = "Human, eh? Your gold's welcome here, pal, same as an orc's, and it gets bitten just as carefully." },
     { id = "g_xbombs", when = { origin = "gnome_goblin_bombmaker" }, text = "Hey, it's the gnome who built bombs for the Cartel! Half the docks still have scorch marks with your name on 'em, pal, so don't stand near the powder stores while I'm watchin'." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The taverns are just gettin' goin', chum, so mind your pockets, and mind the edge of the pier on your way home, 'cause the Cartel don't refund drownings." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Hey, look who's back after {away}! Prices went up while you were gone, pal, but that's just the market, and the market don't wait for nobody." },
@@ -2320,12 +2399,17 @@ P:Pool {
       text = "One of the moon-elves, in the jungle! The trolls out in Stranglethorn ain't the friendly kind, pal, nothin' like the Darkspear, so keep that bow strung on the road north." },
     { id = "n_rc_orc", cat = "race", when = { race = "Orc" },
       text = "An orc in Booty Bay! The Bruisers don't care what flag you fly, pal, so leave your grudges at the gate and your axe in its loop, and we'll all get along fine." },
+    { id = "n_rc_human", cat = "race", when = { race = "Human" },
+      text = "A human, and from Stormwind by that accent! The last lord from your city ran up a tab at the Salty Sailor and sailed off on the mornin' tide, pal, so you'll forgive me if I ask for coin up front." },
   },
   lines = {
     { id = "l_cartel", text = "The Steamwheedle Cartel runs this town, pal, and they run it for profit. As long as you're spendin', you're a valued guest, and once you stop, you're part of the scenery." },
     { id = "l_bloodsail", text = "The Bloodsail Buccaneers hit another merchant ship last week, real pirates with parrots and grudges, and they got no love at all for the Cartel. The insurance on that cargo's gonna be murder, pal." },
     { id = "l_sharks", text = "Don't go swimmin' in the bay, buddy, whatever the sailors bet you. The sharks are big and always hungry, and they've learned that sailors fall off the pier after a long night, which is better business than most of us are doin'." },
     { id = "l_jungle", text = "Most folk who come through here are headin' into the jungle after tigers and trolls and treasure, pal. Fewer come back than you'd like, but the ones who do spend like they just found out they're alive." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_nobles", text = "Stormwind nobles come down here on holiday, buy a parrot, drink the bar dry and pay with a letter of credit on a house nobody's heard of. The Cartel's got a whole drawer of those letters, pal, and they burn real nice." },
+    { id = "l_hu_tariff", text = "The humans tax every ship that leaves Stormwind harbour, and then they complain the goods cost too much by the time they get here. Somebody explain that to me, pal, 'cause the Baron can't figure it either." },
   },
   topics = {
     booty_bay = { { id = "w_booty_bay", text = "Best little port on the southern seas, pal, built right into the cliffs, and if you can't find it here you ain't gonna find it anywhere. The Baron runs a tight ship, and the bruisers keep the peace, more or less." } },
@@ -2337,6 +2421,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Rumours cost money, pal, but I'll give you the cheap ones, 'cause they ain't worth chargin' for." },
     },
     bloodsail = { { id = "t_bloodsail", text = "Pirates with a fleet off the coast and a grudge against the Cartel, pal. They don't take prisoners unless they figure somebody'll pay to get 'em back, which, I gotta admit, is sound business." } },
+    humans = { { id = "w_humans", text = "Best customers in the world and the worst debtors, pal, and that's humans in a nutshell. They'll buy anything you put in front of 'em, and then send a man with a sword to argue about the bill." } },
     _none = { { id = "t_none", text = "Never heard of it, pal, and I hear everything in this town, so it can't be worth much." } },
   },
 }
@@ -2377,12 +2462,16 @@ P:Pool {
       text = "The sun out here'll cook an elf faster than a goblin, pal, and you're squintin' already. Buy a hat and a waterskin, and as it happens I know a guy." },
     { id = "n_rc_orc", cat = "race", when = { race = "Orc" },
       text = "An orc in Gadgetzan! Steamwheedle rules, pal: no fightin' inside the walls, no matter who started it, or the Bruisers finish it for you and send you the bill." },
+    { id = "n_rc_human", cat = "race", when = { race = "Human" },
+      text = "A human in Gadgetzan, and pink as a boiled crab already! Buy a hat, pal, and while you're at it, tell your Stormwind merchants their letters of credit don't spend in the desert." },
   },
   lines = {
     { id = "l_water", text = "Water's the most precious thing in Tanaris, pal, and the Cartel sells it by the bucket with a markup that'd make a pirate blush. Don't waste a drop, and don't ask what it costs unless you wanna cry, which is also a waste of water." },
     { id = "l_bandits", text = "The Wastewander bandits raid the caravans and steal the water barrels, and every barrel they take is money out of somebody's pocket. The Cartel's put a bounty on 'em, but there's always more bandits than bounty, pal." },
     { id = "l_trolls", text = "The Sandfury trolls keep a city out in the dunes to the west, called Zul'Farrak, and nobody goes there who wants to come back with all their limbs. Bad for business, pal, since you can't sell a glove to a guy with no hands." },
     { id = "l_racing", text = "The Mirage Raceway's up north on the Shimmering Flats, where the gnomes and goblins race their machines, and somethin' explodes most every heat. They bet everything on it, buddy, includin' plenty of things they don't own." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_debt", text = "A Stormwind trading house owes the Cartel for three caravans of water and a kodo, pal, and they keep sendin' polite letters instead of gold. Polite don't spend, and the kodo's dead." },
   },
   topics = {
     gadgetzan = { { id = "w_gadgetzan", text = "Gadgetzan's got the only clean water in Tanaris, so you can guess what that costs, pal. The Cartel keeps the peace, and the bruisers keep the Cartel's peace, and everybody's happy except the folks who can't afford a drink." } },
@@ -2393,6 +2482,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Information costs money, chum, but I'll give you the basics, just this once, so don't go spreadin' it around that I'm soft." },
     },
     steamwheedle = { { id = "t_steamwheedle", text = "The goblin tradin' company that runs the neutral ports, pal: Booty Bay and Ratchet and Everlook and here. If you're spendin' money anywhere neutral, the Cartel's gettin' its cut, and I'm gettin' a cut of the cut." } },
+    humans = { { id = "w_humans", text = "Humans are fine, pal, so long as you get paid before they remember they're nobility. The Cartel trades with everybody, but it charges Stormwind a little extra for the paperwork." } },
     _none = { { id = "t_none", text = "Never heard of it, buddy. Try the folk at the inn, 'cause somebody there's always talkin', and most of 'em will sell it to you cheaper than it's worth." } },
   },
 }
@@ -2774,6 +2864,9 @@ P:Pool {
     { id = "l_blade", text = "There are orcs in the canyons who still call on demons, the fools. The Warchief told us we're done with all that, and some of them never listened." },
     { id = "l_kultiras", text = "The humans hold a fortress on the coast, Tiragarde Keep, full of angry Kul Tiran sailors. They're still sore about Admiral Proudmoore, who died attacking Durotar, and they've long memories for humans." },
     { id = "l_quilboar", text = "The quilboar come out of the west to raid the farms and steal the pigs, which feels personal, if you think about it." },
+    -- How others see humans (Human patch).
+    { id = "l_hu_amani", text = "The Darkspear say the humans' ancestors fought beside the high elves against the Amani, and they've been killing trolls ever since. The Darkspear aren't Amani, but a human with a sword never stops to ask which tribe you are." },
+    { id = "l_hu_pits", text = "Some of the older grunts here were made to fight in pits for human coin before the camps fell. They never speak of humans at all, and that tells you more than shouting would." },
   },
   topics = {
     thrall = { { id = "w_thrall", text = "The Warchief named this land Durotar after his father, and he built his city just north of here. Razor Hill was the first place we settled, and the Warchief remembers it." } },
@@ -2785,6 +2878,7 @@ P:Pool {
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask, and keep it short. Talk is cheap in Durotar, and I've honest work waiting." },
     },
     burning_blade = { { id = "t_blade", text = "Orcs who'd drink the demons' blood all over again if they could. They hide in the canyons, and the hunters here bring back their robes when they find them." } },
+    humans = { { id = "w_humans", text = "Loud, short-lived and everywhere, like the crabs on the beach. Most of us here were in their camps, and you can tell which ones by how quiet they go when a human ship passes." } },
     _none = { { id = "t_none", text = "That's not something I know. Try Gar'Thok at the barracks, since a warrior's business is knowing who his enemies are." } },
   },
 }

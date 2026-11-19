@@ -27,3 +27,7 @@
 
 ## Never
 - Cataclysm Desolace (the Kodo Graveyard's revival, Furien's Post), Rokaro (a Burning Crusade replacement for Rexxar).
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Jinar'Zillen (authored): laughs that Kul Tiran sailors 'swim like rocks'; his brother never came out of the water on the Echo Isles, and laughing is easier than grieving.
