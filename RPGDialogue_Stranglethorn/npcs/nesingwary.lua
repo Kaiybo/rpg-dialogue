@@ -850,7 +850,7 @@ P:NPC {
           text = "I saw Sin'Dall's tracks by the river this morning, and they were fresh. He knew I'd find them; he's teasing me." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night, so I sleep in the day when I can. Hemet thinks it's lazy, but Hemet snores." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting to know how to hunt Sin'Dall, I suppose, and I'll tell you the same as I tell everyone: you won't." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your demon away from the trail, because Sin'Dall can smell anything strange a mile off, and I've spent too long tracking him to lose him now." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Keep your demon away from the trail, because Sin'Dall can smell anything strange a mile off, and I've spent too long tracking him to lose him now." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Steel's no use to me against Sin'Dall, but you'd be worth having at my back when the jungle stalkers come out at night." },
       },
       again = {

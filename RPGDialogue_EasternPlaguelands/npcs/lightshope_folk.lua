@@ -85,7 +85,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a fellow who brought some snarling thing of his up on the saddle, an' the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." } },
+      lines = { { id = "xlock_default", text = "Once, a fellow who brought some snarling thing of his up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." } },
       choices = {
         { text = "Fair rules, Khaelyn. The bird's comfort comes first.", next = "BACK", reply = "Aye, the bird first, always. Ye've got sense, which is more than the last paladin who tried tae saddle one in full plate.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "What rides with me stays with me. The bird can adjust.", next = "BACK", reply = "Then ye'll be walkin' back from the Thondroril like the last fellow. I'll have a towel ready.", fx = { align = { order = -1 } } },

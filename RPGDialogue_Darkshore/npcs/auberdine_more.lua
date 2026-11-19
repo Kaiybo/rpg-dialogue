@@ -92,11 +92,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
+        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by whatever you keep." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", reply = "Spoken like one who knows what fel does to a living thing. I will not ask how you came to know it.", fx = { align = { light = 1 } } },
-        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", reply = "A sickness can be cured, warlock, if someone cares enough to try. I would rather try than give up.", fx = { align = { light = -1 } } },
+        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", reply = "A sickness can be cured, if someone cares enough to try. I would rather try than give up.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then you may understand that a sick bear is still a patient, even if it is a patient that wants to tear your arm off." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask you to keep your demon well back from my bears, because whatever is souring their blood, it smells a good deal like what follows you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever trails you well back from my bears. Whatever is souring their blood smells a good deal like it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
           text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But one brought to me alive could teach me more than a hundred carcasses." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one brought to me alive, so perhaps your spirits could calm it where my potions cannot." },
@@ -149,7 +149,7 @@ P:NPC {
         { text = "Must I kill the thistle bears, Tharnariun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing touch the sickness in the bears?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should I kill the maddened bears, or leave them be?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you think fel magic made the bears sick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think something darker made the bears sick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do you want a sick bear alive, Tharnariun?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
@@ -341,8 +341,8 @@ P:NPC {
         { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
       },
       choices = {
-        { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you, warlock. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
-        { text = "Their methods aren't wrong, only their masters.", next = "BACK", reply = "Their masters are the whole of what is wrong with them, warlock. Be careful whose methods you share.", fx = { align = { light = -1 } } },
+        { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
+        { text = "Their methods aren't wrong, only their masters.", next = "BACK", reply = "Their masters are the whole of what is wrong with them. Be careful whose methods you share.", fx = { align = { light = -1 } } },
         { text = "Who are Delgren and his paladins?", next = "delgren_e" },
       },
     },
@@ -417,7 +417,7 @@ P:NPC {
         { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Dark Strand bargain with the Legion. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do Auberdine's stores run short of healing supplies?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do the Sentinels and the Silver Hand work together?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the druids need from your stores, Sentinel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -599,10 +599,10 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They'll carry you, but not your servant, and I'd ask you to dismiss it before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
+        { id = "xlock_default", text = "They'll carry you, but not that thing of yours, and I'd ask you to send it off before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
       },
       choices = {
-        { text = "I'll dismiss it. The birds come first.", next = "BACK", reply = "Thank you, warlock. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },
+        { text = "I'll send it off. The birds come first.", next = "BACK", reply = "Thank you. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },
         { text = "They'll get used to it, or they'll learn.", next = "BACK", reply = "They will not, I am afraid, and you will be walking. Dismiss it, please.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -627,7 +627,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My birds have watched your companion since you climbed the rise, and I think they're deciding whether it's prey." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds are calmer around healers, I find, and they've had little enough calm this season." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be heavy in the saddle, but my birds have carried worse, and they'll carry you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My birds have gone stiff in the feathers, and they only do that when the wind carries something they don't like." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My birds have gone stiff in the feathers since you came up, and they only do that when the wind carries something they don't like." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My hippogryphs have moods like the weather over the sea, so perhaps your wind spirits will understand them better than I do." },
       },
       again = {
@@ -647,7 +647,7 @@ P:NPC {
         { text = "Do your hippogryphs hunt on their own, Caylais?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your hippogryphs ever come back hurt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it a paladin's place to guard the flight paths?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Will your hippogryphs carry a warlock, Caylais?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your hippogryphs carry me, Caylais, or only some of us?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are your hippogryphs troubled lately, Caylais?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },

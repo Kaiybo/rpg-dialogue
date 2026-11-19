@@ -114,7 +114,7 @@ P:NPC {
         { text = "What could a rogue teach a warrior?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Can a beast learn to move quietly?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Your students must fear a mage or two.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Have you ever traded secrets with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have you ever traded secrets with someone like me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a cat teach your students more than you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits ever give a rogue away?", next = "xsham", when = { class = "SHAMAN" } },
         { text = "You watch the door, Strom. Why are you watching me?", next = "flirt", when = { flirt = true } },

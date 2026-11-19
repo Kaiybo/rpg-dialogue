@@ -309,7 +309,7 @@ P:NPC {
         { text = "What do you see when you look?", next = "see" },
         { text = "The tauren camp is close. Do they trouble you?", next = "tauren" },
         { text = "Where is this symbol of love?", next = "heart", when = { questActive = TODO_QUEST("Devourer of Souls") } },
-        { text = "What do you know of my craft?", next = "craft", when = { class = "WARLOCK" } },
+        { text = "What do you know of my craft, Seer? Speak plainly.", next = "craft", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your fire.", next = "END" },
       },
     },

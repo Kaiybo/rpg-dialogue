@@ -274,7 +274,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because they remember the old Horde, when the orcs drank demon blood and the skies were full of fel fire. A wind rider never forgets a smell, and they've been nervous of anything fel ever since." } },
       choices = {
-        { text = "I'll keep my demon away. The beasts deserve calm.", next = "BACK", reply = "You have my thanks for that, warlock. The beasts remember the old fire, and an old memory bites hardest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep what I carry away. The beasts deserve calm.", next = "BACK", reply = "You have my thanks for that, warlock. The beasts remember the old fire, and an old memory bites hardest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The beasts will learn. Times have changed.", next = "BACK", reply = "Times change, but a beast's memory does not, and neither does mine. Keep your demon away from my roost, or walk to Stonard.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -299,7 +299,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay if you've any business that far south. They are proud beasts and they carry warriors proudly, so treat them with respect." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have noticed the trolls on the ridges watching us, I expect, since your kind usually does." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother. The jungle here isn't like Mulgore, friend; the trees have teeth, and the trolls on the ridges watch everything." },

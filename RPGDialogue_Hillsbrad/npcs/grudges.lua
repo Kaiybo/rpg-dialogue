@@ -60,13 +60,13 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? Tide's turning, and I want my lines out before it does." },
         { id = "h_again2", text = "Go on, I'm listening. Fish won't mind." },
-        { id = "h_again_warlock", when = { class = "WARLOCK" }, text = "Something else, warlock? Quickly, if you please." },
+        { id = "h_again_warlock", when = { class = "WARLOCK" }, text = "Something else? Quickly, if you please, and keep your hands where I can see them." },
       },
       choices = {
         { text = "What do you make of the Forsaken?", next = "forsaken" },
         { text = "You keep watching that hill road. Why?", next = "road" },
         { text = "How's the fishing these days?", next = "fishing" },
-        { text = "My magic fights the same dead you fear, Hal.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "What I carry fights the same dead you fear, Hal.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The Light can lay them to rest, Hal.", next = "xlight", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Have you been back to the bend since?", next = "xbend", when = { npcFlagBefore = "hm_softened" } },
         { text = "Let me see your tackle.", next = "BUSINESS" },
@@ -119,7 +119,7 @@ P:NPC {
       lines = {
         { id = "r_default", text = "Because that's where they'll come from, when they come. And because I saw someone on it last spring, walking with the grey soldiers, and I've not been able to stop looking since." },
         { id = "r_warlock", when = { class = "WARLOCK" },
-          text = "That's my business, warlock, not yours. Let's say I saw something up there once that I'd rather not have, and leave it lie." },
+          text = "That's my business, not yours. Let's say I saw something up there once that I'd rather not have, and leave it lie." },
       },
       choices = {
         { text = "Who did you see?", next = "tom", when = { ["not"] = { class = "WARLOCK" } } },
@@ -195,7 +195,7 @@ P:NPC {
 
     xwarlock = {
       lines = {
-        { id = "xw_default", text = "Fights the dead with what, demons? You'll fight fire with fire until the whole of Hillsbrad's burnt, and the Mill will thank you for it. I've no use for any magic that needs a pact." },
+        { id = "xw_default", text = "Fights the dead with what, whatever's in that pouch? You'll fight fire with fire until the whole of Hillsbrad's burnt, and the Mill will thank you for it. I've no use for any magic that needs a pact." },
       },
       choices = {
         { text = "Then I'll prove it with deeds, not words.", next = "xwarlock_deeds", fx = { align = { honor = 1 } } },
@@ -211,7 +211,7 @@ P:NPC {
     },
     xwarlock_bait = {
       lines = {
-        { id = "xwb_default", text = "Ha! Well, that's honest, at least, and I'll take honest over sweet. Buy your bait, then, and don't summon anything on my planks." },
+        { id = "xwb_default", text = "Ha! Well, that's honest, at least, and I'll take honest over sweet. Buy your bait, then, and don't call up anything on my planks." },
       },
       choices = {
         { text = "Show me the bait.", next = "BUSINESS" },

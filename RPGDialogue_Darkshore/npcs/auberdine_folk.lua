@@ -203,7 +203,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "fel", when = { class = "WARLOCK" },
-      text = "You carry the smell of the Nether on you, {class}. I would study you as well, if I thought you'd stand still for it." },
+      text = "You carry the smell of the Nether on you, stranger. I would study you as well, if I thought you'd stand still for it." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. Then you know how easily the arcane gets into the blood, and how hard it is to get out again." },
   },
@@ -219,7 +219,7 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("Researching the Corruption") },
           text = "The stems you brought have told me much, and none of it comforting. The change begins in the mind long before it reaches the body, and the ones it happens to rarely notice." },
         { id = "h_lock", when = { class = "WARLOCK" },
-          text = "A warlock comes to the one elf in Auberdine who studies what fel magic does to a people. Either you're very brave or you haven't understood my work yet." },
+          text = "You've come to the one elf in Auberdine who studies what fel magic does to a people, and you smell of it. Either you're very brave or you haven't understood my work yet." },
         { id = "h_human", when = { race = "Human" },
           text = "Ishnu-alah, human. Your kingdoms lived beside the high elves for a long time, so perhaps you've seen what their hunger for magic does to them." },
       },
@@ -232,7 +232,7 @@ P:NPC {
         { text = "Who do you fear will go the same way?", next = "fear" },
         { text = "Have you any family nearby?", next = "argos" },
         { text = "What does the change look like, at the start?", next = "change", when = { questDone = TODO_QUEST("Researching the Corruption") } },
-        { text = "Fel magic is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Power is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -294,9 +294,9 @@ P:NPC {
     },
 
     xlock = {
-      lines = { { id = "xl_default", text = "Every satyr in Ashenvale once believed the same thing, {class}, and they were not weak; they were the finest minds of their age. I'd take more care with that belief than you're taking now." } },
+      lines = { { id = "xl_default", text = "Every satyr in Ashenvale once believed the same thing, stranger, and they were not weak; they were the finest minds of their age. I'd take more care with that belief than you're taking now." } },
       choices = {
-        { text = "I'll master it, not the other way round.", next = "BACK", reply = "So did they, {class}, every one of them. I hope you are the first to succeed.", fx = { align = { light = -1 } } },
+        { text = "I'll master it. It will never master me.", next = "BACK", reply = "So did they, every one of them. I hope you are the first to succeed.", fx = { align = { light = -1 } } },
         { text = "You may be right. I'll keep watch on myself.", next = "BACK", reply = "Then you are wiser than most who carry it. Watch closely, and come back if you need help.", fx = { align = { light = 1 } } },
       },
     },

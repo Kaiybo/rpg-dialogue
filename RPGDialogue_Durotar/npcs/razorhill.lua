@@ -80,7 +80,7 @@ P:NPC {
       },
       choices = {
         { text = "Point me at the Blade. I'll prove it there.", next = "BACK", reply = "Skull Rock, then, and don't come back until the Blade's thinner. Do that, and I'll stop watching you so closely.", fx = { align = { order = 1 } } },
-        { text = "I serve the Horde my way, not by proving myself.", next = "BACK", reply = "Your way is fine, as long as I see it working. Until then, I'll keep watching, warlock.", fx = { align = { order = -1 } } },
+        { text = "I serve the Horde my way, not by proving myself.", next = "BACK", reply = "Your way is fine, as long as I see it working. Until then, I'll keep watching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll be plain, since that's my way. I know what you are, and the last orcs who called demons nearly burned our people down to the bone." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
@@ -143,7 +143,7 @@ P:NPC {
         { text = "I track well. Where do you need eyes?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I see Darkspear standing your watch too.", next = "troll", when = { race = "Troll" } },
         { text = "Where could a mage be useful to Razor Hill?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you still give orders to someone like me, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragefire Chasm is cleared, commander.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "I hold the Sen'jin gate, Commander. We share a coast.", next = "xorig_spear", when = { origin = "troll_senjin_spear" } },
@@ -302,7 +302,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I'll be watching you, the way I watch every one of you, so don't take it personally; take it seriously." },
+      text = "I'll be watching you, the way I watch every one who smells like you, so don't take it personally; take it seriously." },
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "You're light on your feet, and the Blade use people like you to carry their messages. Make sure you never carry one." },
   },
@@ -481,7 +481,7 @@ P:NPC {
           text = "A troll warlock is a stranger thing than an orc one, and the Blade would love to recruit the first of your people. They'll come to you sweetly, and when they do, you'll come straight to me." },
       },
       choices = {
-        { text = "Fair. Watch me, then, and judge me by what I do.", next = "BACK", reply = "I will, and closely. Show me your demon's leash, and I'll judge accordingly.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Fair. Watch me, then, and judge me by what I do.", next = "BACK", reply = "I will, and closely. Show me how short you keep that leash, and I'll judge accordingly.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I don't answer to you, lawman.", next = "BACK", reply = "You answer to the Horde, and I'm the Horde's eyes in Razor Hill. Don't forget that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
@@ -637,11 +637,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
+        { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most of the ones who smell of sulphur are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
       },
       choices = {
-        { text = "Fair rules. My imp sleeps outside.", next = "BACK", reply = "Then you're welcome here, and so is your imp, as long as it's outside. Sleep well.", fx = { align = { order = 1 } } },
-        { text = "My imp goes where I go, innkeeper.", next = "BACK", reply = "Then the bucket stays by the door, and you'll be paying for any scorch marks. Mind it.", fx = { align = { order = -1 } } },
+        { text = "Fair rules. My little friend sleeps outside.", next = "BACK", reply = "Then you're welcome here, and so is it, as long as it's outside. Sleep well.", fx = { align = { order = 1 } } },
+        { text = "What's mine goes where I go, innkeeper.", next = "BACK", reply = "Then the bucket stays by the door, and you'll be paying for any scorch marks. Mind it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -700,7 +700,7 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak the rogue trainer keeps his burrow under the floor, if you were looking for it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, but whatever's with you sleeps outside. The last one set fire to the straw just to see what would happen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want a bed that isn't on fire, I suppose, so keep your spells outside." },
@@ -717,7 +717,7 @@ P:NPC {
         { text = "Rogues must cause trouble at your inn.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'd guess few warlocks stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess few folk of my sort stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Are you smiling at me, Grosk? I didn't know you could.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "grosk_fl_rebuff" } } },
@@ -828,11 +828,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that a warlock serves the Horde or answers to it, and I write that in my journal beside every warlock I meet, just so I remember." },
+        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that your sort serves the Horde or answers to it, and I write that in my journal beside every one I meet, just so I remember." },
       },
       choices = {
         { text = "Write that I serve the Horde, Brakk.", next = "BACK", reply = "I'll write it, and gladly. The Warchief would want to hear it from me too.", fx = { align = { order = 1 } } },
-        { text = "Write what you like. My power is my own.", next = "BACK", reply = "Your power, then, and I'll write that too. But the Warchief reads my journals, and he'll wonder.", fx = { align = { order = -1 } } },
+        { text = "Write what you like. What I hold is my own.", next = "BACK", reply = "Your power, then, and I'll write that too. But the Warchief reads my journals, and he'll wonder.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -852,7 +852,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Sit by my fire, then. But tell whatever's in your shadow to keep to the dark side of it." },
       },
       choices = {
         { text = "You were in the camps, Brakk. Does Tiragarde bring it back?", next = "dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } } },
@@ -864,7 +864,7 @@ P:NPC {
         { text = "I'd guess you never got your purse back.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Have you met many warlocks on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Have you met many of my sort on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would your journal say about me, Brakk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },

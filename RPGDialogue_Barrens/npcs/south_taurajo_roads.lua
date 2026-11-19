@@ -27,7 +27,7 @@ P:NPC {
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, going after Dogran? I don't care what you want with him, so long as you get him out." },
+      text = "Going after Dogran, with that smell on you? I don't care what you want with him, so long as you get him out." },
     { id = "n_soldier", cat = "soldier", when = { minLevel = 20 },
       text = "You've got a grunt's scars. Then you know what it is to leave someone behind." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -198,7 +198,7 @@ P:NPC {
         { text = "The quilboar have kept you alive this long. Why?", next = "alive" },
         { text = "You've watched this camp from the inside for days.", next = "watch" },
         { text = "I can ease that leg, if you'll hold still.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
-        { text = "A warlock knows prices. Yours needn't be this one.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I know a thing or two about prices. Yours needn't be this one.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Lok'tar, brother. You're not dead yet.", next = "orc", when = { race = "Orc" } },
         { text = "Hold on, Dogran, help is coming.", next = "END" },
       },
@@ -271,7 +271,7 @@ P:NPC {
       },
     },
     warlock = {
-      lines = { { id = "wl_default", text = "You'd know. Your kind bargain with worse than quilboar and walk away. But I've nothing left to bargain with except how it ends, and I'll not hand that to anyone, demon or friend." } },
+      lines = { { id = "wl_default", text = "You'd know. Your sort bargain with worse than quilboar and walk away. But I've nothing left to bargain with except how it ends, and I'll not hand that to anyone, demon or friend." } },
       choices = { { text = "Then keep it. Something else.", next = "BACK" } },
     },
     orc = {

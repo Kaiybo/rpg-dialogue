@@ -529,7 +529,7 @@ P:NPC {
         { text = "You teach Horde and Alliance alike?", next = "both" },
         { text = "What goes into a robe like the one you make?", next = "robe" },
         { text = "Strahad Farsan's acolytes keep a tower nearby.", next = "strahad" },
-        { text = "I'm told you make orbs that hold demons.", next = "orbs", when = { class = "WARLOCK" } },
+        { text = "I'm told your orbs can hold a demon. I may need one.", next = "orbs", when = { class = "WARLOCK" } },
         { text = "Stormwind would hang you for this, I think.", next = "human", when = { race = "Human" } },
         { text = "The Forsaken find your art less shocking than most.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
