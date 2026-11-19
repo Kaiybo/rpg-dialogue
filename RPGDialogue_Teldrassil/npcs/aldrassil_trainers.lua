@@ -290,7 +290,7 @@ P:NPC {
       },
     },
     elanaria_test = {
-      lines = { { id = "et_default", text = "There's a satyr in the forest, Vorlus Vilehoof, who has been feeding on what he shouldn't, and she'll want proof you've ended him. I'll say no more, except that satyrs fight dirty and you shouldn't." } },
+      lines = { { id = "et_default", text = "There's a satyr in the forest, Vorlus Vilehoof, who has been defiling something sacred to our people, and she'll want proof you've ended him. I'll say no more, except that satyrs fight dirty and you shouldn't." } },
       choices = { { text = "Fight clean against a satyr. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     axe = {
