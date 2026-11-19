@@ -643,3 +643,177 @@ P:Thread {
     },
   },
 }
+
+-- Surena Caledon (Alliance warlocks, 5-30). Gakin's best student took his bloodstone choker
+-- and ran to the Brackwell farm with Erlan Drudgemoor (Classic: Gakin's Summons, Surena
+-- Caledon). The cellar under the Slaughtered Lamb still argues over whose fault it was. The
+-- player tells Gakin whether he taught her too little or whether she simply chose.
+P:Thread {
+  id = "lock_surena",
+  theme = "Gakin's best student ran from the Slaughtered Lamb's cellar, and every warlock down there blames someone different.",
+  title = "Gakin's student",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Drusilla La Salle says Gakin the Darkbinder in Stormwind once had a student who learned power before patience. Her name was Surena Caledon, and he still won't say it without flinching.",
+      third = "{name} heard from Drusilla La Salle of Surena Caledon, a student of Gakin the Darkbinder who learned power before patience." },
+    unfolding = { first = "Gakin gave Surena a bloodstone choker the day she bound her first imp, and she ran with it to the Brackwell farm and a Defias thief. Ursula calls him soft for grieving, and Demisette says every cellar loses one in five.",
+      third = "{name} heard the Slaughtered Lamb's warlocks argue over Surena Caledon: Gakin grieved, Ursula called it softness, and Demisette called it arithmetic." },
+    resolved = { first = "I told Gakin he taught Surena too little, because nobody taught her to refuse the small things. He said that would be the first lesson for every student from now on, mine included.",
+      third = "{name} told Gakin that Surena had never been taught to refuse, and he made it the first lesson of the cellar." },
+    soured = { first = "I told Gakin that Surena chose, and the choice was hers alone. He thanked me in a voice like a closing door, and he hasn't said her name since.",
+      third = "{name} told Gakin that Surena's choice was her own, and he never spoke her name again." },
+  },
+  npcs = { "drusilla", "gakin", "ursula", "demisette_cloyce" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Gakin he had never taught Surena to refuse the small things, and he made refusal the cellar's first lesson.",
+    soured = "The player told Gakin that Surena chose freely, and he shut the door on her memory for good.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Gakin grieves her, Ursula sneers at the grief, and Demisette counts her as one in five. Nobody in that cellar can agree on what Surena Caledon was.",
+    third = "{name} had heard three warlocks under the Slaughtered Lamb speak of Surena Caledon, and none of them agreed on what she had been.",
+  },
+  beats = {
+    {
+      id = "b1_drusilla", npc = "drusilla",
+      when = { class = "WARLOCK", minLevel = 5, thread = { id = "lock_surena", notBeat = "b1_drusilla" } },
+      text = "Patience, prudence, power, and in that order, because I've seen what happens otherwise. Gakin in Stormwind had a student called Surena who learned power first, and if you ever want to watch a proud man flinch, say her name to him.",
+      fx = { thread = { id = "lock_surena", beat = "b1_drusilla", state = "stirring" } },
+    },
+    {
+      id = "b2_gakin", npc = "gakin",
+      when = { class = "WARLOCK", any = { { thread = { id = "lock_surena", beat = "b1_drusilla" } }, { questDone = TODO_QUEST("Surena Caledon") } },
+               ["not"] = { thread = { id = "lock_surena", beat = "b2_gakin" } } },
+      text = "Drusilla talks too much, but she isn't wrong. Surena Caledon learned faster than anyone I've taught, and I gave her a bloodstone choker the day she bound her first imp. Then she decided the Void owed her more than I could, and she took the choker to the Brackwell farm with a Defias thief who had good teeth and no talent.",
+      fx = { thread = { id = "lock_surena", beat = "b2_gakin", state = "unfolding" } },
+    },
+    {
+      id = "b3_ursula", npc = "ursula",
+      when = { class = "WARLOCK", thread = { id = "lock_surena", beat = "b2_gakin" }, ["not"] = { thread = { id = "lock_surena", beat = "b3_ursula" } } },
+      text = "He told you about Surena, didn't he? He tells all the promising ones, as though it were a warning, but it's a confession. She was weak and he was soft with her, and the Void found the softness before he did.",
+      fx = { thread = { id = "lock_surena", beat = "b3_ursula" } },
+    },
+    {
+      id = "b4_demisette", npc = "demisette_cloyce",
+      when = { class = "WARLOCK", thread = { id = "lock_surena", beat = "b2_gakin" }, ["not"] = { thread = { id = "lock_surena", beat = "b4_demisette" } } },
+      text = "I've taught in this cellar longer than Gakin has, and I'll tell you what I told him. Every cellar loses one student in five, to the Watch, to the drink or to the thing in the circle. Surena was one in five, and he wants her to be a lesson instead of a number.",
+      fx = { thread = { id = "lock_surena", beat = "b4_demisette" } },
+    },
+  },
+}
+
+-- Zelk's road (Horde warlocks, 5-30). Orgnil Soulscar killed his old comrade Zelk, a Cleft
+-- warlock who went south to hunt the Burning Blade and came back wearing its sigil (Durotar
+-- bible). Nartok learned his first circle from Zelk; Gan'rul taught beside him; Neeru gave
+-- him names (dramatic irony only: Neeru is written straight). Orgnil asks the player what
+-- makes them different from Zelk, and the answer decides the ending.
+P:Thread {
+  id = "lock_zelk",
+  theme = "A Cleft warlock went to hunt the Burning Blade and joined it, and the Horde's warlocks still live in his shadow.",
+  title = "Zelk's road",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A warlock named Zelk once taught in the Cleft of Shadow. He went south to hunt the Burning Blade, and Orgnil Soulscar of Razor Hill is the reason he never came back.",
+      third = "{name} heard of Zelk, a Cleft warlock who went to hunt the Burning Blade, and of Orgnil Soulscar, who was the reason he never came back." },
+    unfolding = { first = "Orgnil put Zelk down himself at Skull Rock, wearing the Blade's sigil. In the Cleft, Gan'rul calls him a scholar who studied too closely, and Neeru Fireblade remembers giving him names.",
+      third = "{name} heard Zelk's end from Orgnil, who killed him, and from the Cleft, which remembered him as a scholar who studied the Blade too closely." },
+    resolved = { first = "Orgnil asked me what makes me different from Zelk. I told him I bind demons and never kneel to them, and he said he'd hold me to it, and took his hand off his axe.",
+      third = "{name} told Orgnil Soulscar that a warlock binds demons and never kneels to them, and Orgnil took his hand off his axe." },
+    soured = { first = "Orgnil asked me what makes me different from Zelk, and I told him Zelk was a scholar and he'd killed him for it. He said I shouldn't come to Razor Hill after dark.",
+      third = "{name} told Orgnil Soulscar he had killed a scholar, and Orgnil warned {name} away from Razor Hill after dark." },
+  },
+  npcs = { "nartok", "mirket", "orgnil", "ganrul", "neeru" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Orgnil that a warlock binds demons and never kneels to them, and Orgnil said he'd hold them to it.",
+    soured = "The player told Orgnil he had killed a scholar in Zelk, and Orgnil warned them away from Razor Hill after dark.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Nartok learned his first circle from Zelk, Orgnil killed him, and the Cleft still argues over what he was. Every warlock in the Horde walks some part of his road.",
+    third = "{name} had followed Zelk's road from the Valley of Trials to Skull Rock and the Cleft, and found every Horde warlock walked some part of it.",
+  },
+  beats = {
+    {
+      id = "b1_nartok", npc = "nartok",
+      when = { class = "WARLOCK", minLevel = 5, thread = { id = "lock_zelk", notBeat = "b1_nartok" }, ["not"] = { thread = { id = "lock_zelk", beat = "b1_mirket" } } },
+      text = "Before you go to Razor Hill, know that Orgnil Soulscar will watch you the whole time you're there, and he has his reasons. The warlock who taught me my first circle was called Zelk, and Orgnil is the reason he never came home.",
+      fx = { thread = { id = "lock_zelk", beat = "b1_nartok", state = "stirring" }, learn = { "burning_blade" } },
+    },
+    {
+      id = "b1_mirket", npc = "mirket",
+      when = { class = "WARLOCK", minLevel = 10, thread = { id = "lock_zelk", notBeat = "b1_mirket" }, ["not"] = { thread = { id = "lock_zelk", beat = "b1_nartok" } } },
+      text = "You'll meet Orgnil Soulscar sooner or later, out in Razor Hill, and he'll look at you like a debt he means to collect. A warlock called Zelk used to teach on this very floor, and Orgnil is the one who ended him.",
+      fx = { thread = { id = "lock_zelk", beat = "b1_mirket", state = "stirring" }, learn = { "burning_blade" } },
+    },
+    {
+      id = "b2_orgnil", npc = "orgnil",
+      when = { class = "WARLOCK", any = { { thread = { id = "lock_zelk", beat = "b1_nartok" } }, { thread = { id = "lock_zelk", beat = "b1_mirket" } } },
+               ["not"] = { thread = { id = "lock_zelk", beat = "b2_orgnil" } } },
+      text = "So the Cleft has been telling you about Zelk. He was my brother-in-arms, and he went south to hunt the Blade because he said only a warlock could understand them. He came back to Skull Rock wearing their sigil, and I put him down myself, and I'd do it again tomorrow.",
+      fx = { thread = { id = "lock_zelk", beat = "b2_orgnil", state = "unfolding" } },
+    },
+    {
+      id = "b3_ganrul", npc = "ganrul",
+      when = { class = "WARLOCK", thread = { id = "lock_zelk", beat = "b2_orgnil" }, ["not"] = { thread = { id = "lock_zelk", beat = "b3_ganrul" } } },
+      text = "Zelk taught beside me for six years, and he had the finest mind in this Cleft. He wanted to understand the Blade before he fought it, and I warned him that understanding is the first step of joining. He laughed at me, and Orgnil was the one who stopped laughing for him.",
+      fx = { thread = { id = "lock_zelk", beat = "b3_ganrul" } },
+    },
+    {
+      id = "b3_neeru", npc = "neeru",
+      when = { class = "WARLOCK", thread = { id = "lock_zelk", beat = "b2_orgnil" }, ["not"] = { thread = { id = "lock_zelk", beat = "b3_neeru" } } },
+      text = "Zelk came to me for names, as Orgnil does now, and I gave him what I could, because I know the Blade from the inside. He was brilliant and he was careless, my friend, and the Blade adores that combination. Learn from him, and be only one of the two.",
+      fx = { thread = { id = "lock_zelk", beat = "b3_neeru" } },
+    },
+  },
+}
+
+-- The few at the top (warlocks of either faction, 30-60). The further a warlock climbs, the
+-- fewer of them are left: Strahad's two eaten students, Impsy the imp who resents his master,
+-- Gorzeeki's imp in a jar, and Mor'zul alone on a cursed hill. Mor'zul asks whether this is
+-- what the player is climbing toward, and the answer decides the ending.
+P:Thread {
+  id = "lock_summit",
+  theme = "The higher a warlock climbs, the fewer of them are left, and the ones at the top live alone with what they've bound.",
+  title = "The few at the top",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Strahad Farsan in Ratchet says he's taught warlocks for twenty years, and fewer of them reach him every year. He tells each one about the two students who were eaten.",
+      third = "{name} heard from Strahad Farsan in Ratchet that fewer warlocks reached him every year." },
+    unfolding = { first = "Out in the far places I keep meeting what's left at the top of my craft: an imp in Felwood who hates his master, a goblin who keeps a demon in a jar and calls it staff, and Mor'zul alone at the Altar of Storms.",
+      third = "{name} met what was left at the top of the warlock's craft: a resentful imp, a goblin with a demon in a jar, and Mor'zul alone at his altar." },
+    resolved = { first = "Mor'zul asked whether his hill is what I'm climbing toward. I told him I'll stop where I can still hold what I've bound. He called it a waste, and he looked at me as if I'd taken something from him.",
+      third = "{name} told Mor'zul Bloodbringer that {name} would stop where {name} could still hold what was bound, and Mor'zul called it a waste." },
+    soured = { first = "Mor'zul asked whether his hill is what I'm climbing toward, and I told him yes. He smiled and said he'd keep a place by the circle warm for me.",
+      third = "{name} told Mor'zul Bloodbringer that {name} meant to climb all the way, and he promised to keep a place by the circle warm." },
+  },
+  npcs = { "strahad", "impsy", "gorzeeki", "morzul" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Mor'zul they would stop where they could still hold what they'd bound, and he called it a waste.",
+    soured = "The player told Mor'zul they meant to climb all the way, and he promised to keep a place by the circle warm.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "Strahad's attic, Impsy's stuffed pet, Gorzeeki's jar, Mor'zul's hill: the higher I go in this craft, the lonelier the people I find there.",
+    third = "{name} had climbed far enough in the warlock's craft to see how few were left at the top, and how alone they were.",
+  },
+  beats = {
+    {
+      id = "b1_strahad", npc = "strahad",
+      when = { class = "WARLOCK", minLevel = 30, thread = { id = "lock_summit", notBeat = "b1_strahad" } },
+      text = "I've taught warlocks in this attic for twenty years, and fewer of them reach me every year. The rest stop, or are stopped, or are eaten, and I tell each new student about the two who were eaten so that they'll think about which of those they mean to be.",
+      fx = { thread = { id = "lock_summit", beat = "b1_strahad", state = "stirring" } },
+    },
+    {
+      id = "b2_impsy", npc = "impsy",
+      when = { class = "WARLOCK", minLevel = 48, thread = { id = "lock_summit", beat = "b1_strahad" }, ["not"] = { thread = { id = "lock_summit", beat = "b2_impsy" } } },
+      text = "You've got demons of your own, haven't you? Tell me something, then, warlock to imp: do they talk about you when you're not listening? Because I talk about Niby all day long, and he hasn't noticed once, and I don't think your lot are any different.",
+      fx = { thread = { id = "lock_summit", beat = "b2_impsy", state = "unfolding" } },
+    },
+    {
+      id = "b2_gorzeeki", npc = "gorzeeki",
+      when = { class = "WARLOCK", minLevel = 50, thread = { id = "lock_summit", beat = "b1_strahad" }, ["not"] = { thread = { id = "lock_summit", beat = "b2_gorzeeki" } } },
+      text = "You're climbing, pal, I can smell it on you, and you'll end up talking to the boss sooner or later. Word of advice: nobody else comes up this hill, ever. It's him, me, the imp in the jar and a lot of beetles, and the beetles are the cheerful ones.",
+      fx = { thread = { id = "lock_summit", beat = "b2_gorzeeki", state = "unfolding" } },
+    },
+  },
+}

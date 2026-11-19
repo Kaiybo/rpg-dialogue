@@ -18,6 +18,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole, with your blood where it belongs. How encouraging." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}. The circle doesn't care, but I confess I noticed." },
     { id = "g_lock_back", when = { metBefore = true, class = "WARLOCK" }, text = "Ah, my student returns. Have you brought me something red?" },
+    { id = "g_summit_resolved", when = { class = "WARLOCK", thread = { id = "lock_summit", state = "resolved" } }, text = "The sensible one returns. Still holding everything you've bound, I trust, and nothing more?" },
+    { id = "g_summit_soured", when = { class = "WARLOCK", thread = { id = "lock_summit", state = "soured" } }, text = "My heir comes up the hill. The circle's still warm, as I promised." },
   },
 
   notice = {
@@ -78,11 +80,38 @@ P:NPC {
         { text = "Why do you love blood so much?", next = "blood" },
         { text = "Who else keeps you company out here?", next = "gorzeeki" },
         { text = "Teach me to bind a dreadsteed.", next = "xsteed", when = { class = "WARLOCK" } },
+        { text = "I've met the few warlocks left at the top, Mor'zul.", next = "summit_end",
+          when = { class = "WARLOCK", thread = { id = "lock_summit", state = "unfolding" } } },
         { text = "Your craft is an abomination.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll leave you to your circle.", next = "END" },
       },
     },
 
+    summit_end = {
+      big = true,
+      lines = { { id = "summit_end_default", key = true,
+        text = "Strahad in his attic counting the eaten, an imp sewing himself a pet, Gorzeeki and his jar, and me on a hill the dragons fly over. That's all of us, more or less, the ones who climbed. So tell me truly: is this what you're climbing toward?" } },
+      again = { { id = "summit_end_again", text = "You've answered already, and I remember the answer. I remember everything said at this altar." } },
+      choices = {
+        { text = "No. I'll stop where I can still hold what I've bound.", next = "summit_stop",
+          fx = { thread = { id = "lock_summit", state = "resolved" }, align = { light = 1 }, affinity = -1 },
+          journal = { first = "I told Mor'zul I'll stop where I can still hold what I've bound. He called it a waste.", third = "{name} told Mor'zul Bloodbringer that {name} would stop short of the top." } },
+        { text = "Yes. I'll climb all the way, whatever it costs.", next = "summit_climb",
+          fx = { thread = { id = "lock_summit", state = "soured" }, align = { light = -1 }, affinity = 2 },
+          journal = { first = "I told Mor'zul I mean to climb all the way. He said he'd keep a place by the circle warm for me.", third = "{name} told Mor'zul Bloodbringer that {name} would climb all the way." } },
+        { text = "I haven't decided yet.", next = "BACK" },
+      },
+    },
+    summit_stop = {
+      lines = { { id = "summit_stop_default",
+        text = "A waste, and a sensible one, which is the most tiresome kind. You'll live longer than I will and do less with it. Take your dreadsteed if you earn it, and ride it somewhere I'll never hear of you again." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "Farewell, Mor'zul.", next = "END" } },
+    },
+    summit_climb = {
+      lines = { { id = "summit_climb_default",
+        text = "Then I'll keep a place by the circle warm for you, and when you've outgrown even this hill, you may have it. Don't look so pleased; it was never a gift, only an inheritance." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "Farewell, Mor'zul.", next = "END" } },
+    },
     altar = {
       lines = {
         { id = "al_default", text = "Where the old Horde's warlocks worked their darkest rites, in the days of the Shadow Council, and the stones still remember it. The air here is thin between worlds, which makes it the finest workroom in the Steppes, if you don't mind the dragons overhead." },

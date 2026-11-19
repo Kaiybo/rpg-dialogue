@@ -749,6 +749,8 @@ P:NPC {
 
   greetings = {
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, quietly. The people upstairs drink to forget us." },
+    { id = "g_surena_resolved", when = { class = "WARLOCK", thread = { id = "lock_surena", state = "resolved" } }, text = "There you are. Tell me what you refused this week, before you ask me for anything new." },
+    { id = "g_surena_soured", when = { class = "WARLOCK", thread = { id = "lock_surena", state = "soured" } }, text = "You're back. Close the door, and keep whatever you came to say about the past to yourself." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're lost. Stay lost, somewhere else." },
   },
 
@@ -872,6 +874,9 @@ P:NPC {
         { text = "This place feels like more than a tavern cellar.", next = "lamb" },
         { text = "There are a lot of dwarves and gnomes down here.", next = "khaz" },
         { text = "You spoke of Surena as if she mattered.", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
+        { text = "Ursula and Demisette told me their side of Surena.", next = "surena_end",
+          when = { class = "WARLOCK", thread = { id = "lock_surena", beat = "b2_gakin", state = "unfolding" },
+                   any = { { thread = { id = "lock_surena", beat = "b3_ursula" } }, { thread = { id = "lock_surena", beat = "b4_demisette" } } } } },
         { text = "The Church would shut this place down.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARLOCK" } },
         { text = "Who's really the master, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
@@ -920,6 +925,31 @@ P:NPC {
         { text = "She ran off with a Defias thief.", next = "surena_erlan", fx = { affinity = -1 } },
         { text = "I won't. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
+    },
+    surena_end = {
+      big = true,
+      lines = { { id = "surena_end_default", key = true,
+        text = "Of course they did. Ursula says I was soft and Demisette says she was a number, and I've lain awake asking which. You've heard all of it now, so tell me what I can't tell myself: did I teach her too much, or too little?" } },
+      again = { { id = "surena_end_again", text = "You've given me your answer. I'm still deciding whether to thank you for it." } },
+      choices = {
+        { text = "Too little. Nobody taught her to refuse the small things.", next = "surena_little",
+          fx = { thread = { id = "lock_surena", state = "resolved" }, align = { order = 1 }, affinity = 1 },
+          journal = { first = "I told Gakin he never taught Surena to refuse the small things. He's making it the cellar's first lesson.", third = "{name} told Gakin that Surena had never been taught to refuse." } },
+        { text = "Neither. She chose, and the choice was hers alone.", next = "surena_chose",
+          fx = { thread = { id = "lock_surena", state = "soured" }, align = { order = -1 } },
+          journal = { first = "I told Gakin that Surena's choice was her own. He hasn't said her name since.", third = "{name} told Gakin that Surena had chosen freely." } },
+        { text = "I'd rather not judge your teaching.", next = "BACK" },
+      },
+    },
+    surena_little = {
+      lines = { { id = "surena_little_default",
+        text = "Then that's the first lesson from now on, for every student who comes down those stairs, before the circles and before the curses. You'll hear it from me too, so don't think you've escaped it by being the one who said it." } },
+      choices = { { text = "I'll listen.", next = "BACK" }, { text = "Good night, Gakin.", next = "END" } },
+    },
+    surena_chose = {
+      lines = { { id = "surena_chose_default",
+        text = "That's what she'd have said, and she'd have smiled saying it. Very well; then there's nothing left for me to carry, and I'll stop carrying it. We won't speak of her again." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     surena_erlan = {
       lines = { { id = "se_default", text = "Erlan Drudgemoor, a thief with good teeth and no talent. I told you not to ask, and now you know why." } },
