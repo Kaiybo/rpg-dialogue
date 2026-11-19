@@ -1272,11 +1272,12 @@ function Conv.Ask(topic)
   -- Disposition gates (0.85.0): Cold or worse, they keep to small talk; secrets and personal
   -- matters wait until they're Warm.
   local gates = ns.db.settings.dispositionGates ~= false
-  local gateNeed = gates and Engine.TopicGate(s.info, topic, s.ctx, s.env)
+  -- Cowed (0.90.0): frightened into talking, they skip the gates for this conversation.
+  local gateNeed = gates and not s.cowed and Engine.TopicGate(s.info, topic, s.ctx, s.env)
   if gateNeed then Conv.AskGated(topic, gateNeed); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
   local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
-  if brushoff and gates then
+  if brushoff and gates and not s.cowed then
     local held = Engine.HeldAnswerNeed(s.info, topic, s.ctx, s.env)
     if held then Conv.AskGated(topic, held); return end
   end
@@ -1288,8 +1289,10 @@ function Conv.Ask(topic)
     text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
   end
   if w and not brushoff then ns.Topics.RecordAnswer(topic, s.memKey, s.info and s.info.name, w.gid) end
-  local linked = Conv.Hear(text, topic)
   local tdef = ns.Data.topics[topic]
+  local blurt = tdef and tdef.blurts and not brushoff and Conv.Blurt(s, tdef.blurts)
+  if blurt then text = text .. " " .. blurt end
+  local linked = Conv.Hear(text, topic)
   Conv.Log("ask", tdef and tdef.name or topic)
   Conv.Log("npc", text)
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
@@ -1313,6 +1316,22 @@ function Conv.Ask(topic)
     Conv.OfferChoices(s)
   end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- In anger they let something useful slip (0.90.0): a topic's `blurts` (true, or a chance
+-- 0-1) follows the answer with the NPC's own `blurts` line, or a local rumor behind an angry
+-- lead-in. Returns the text, or nil.
+function Conv.Blurt(s, chance)
+  if type(chance) == "number" and math.random() >= chance then return nil end
+  local w = Engine.PickBlurt(s.info, s.ctx, s.env)
+  if not w then return nil end
+  Conv.Shown(w)
+  local body = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+  if w.src ~= "own" then
+    local leads = L.BLURT_LEADS
+    body = leads[math.random(#leads)] .. " " .. body
+  end
+  return body
 end
 
 -- They won't talk about it yet (0.85.0): a refusal in their voice, remembered as "won't
@@ -1361,6 +1380,11 @@ function Conv.Persuade(action)
   local say = Engine.PickSay and Engine.PickSay(s.info, action, ctx, env)
   local ok = P.Try(action, s.info, s.mem, ctx)
   local result = ok and "success" or "fail"
+  -- Cowed (0.90.0): frighten someone who already hates you and they'll answer anything,
+  -- secrets included, for the rest of this conversation.
+  local cowed = ok and action == "intimidate" and before and ns.Disposition
+    and before < ns.Disposition.GATE_ORDINARY and not s.cowed
+  if cowed then s.cowed = true; env.cowed = true end
   local paired = say and type(say.line[result]) == "string" and say.line[result] or nil
   local w = not paired and Engine.PickPersuade(s.info, action, result, ctx, env) or nil
   local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
@@ -1386,6 +1410,7 @@ function Conv.Persuade(action)
   if ns.db.settings.checkResults ~= false then
     notes[#notes + 1] = (ok and L.CHECK_PASSED or L.CHECK_FAILED):format(name)
   end
+  if cowed then notes[#notes + 1] = L.COWED_NOTE:format(s.info.name or "") end
   if before and ns.Disposition then
     local after = ns.Disposition.For(env, ctx)
     if ns.Disposition.Tier(after) ~= ns.Disposition.Tier(before) then

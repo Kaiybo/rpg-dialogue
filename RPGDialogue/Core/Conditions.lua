@@ -494,6 +494,22 @@ def("disposition", 20, "hinge", nil, function(ctx, v, env)
   return inRange(d, v), "disposition " .. d
 end)
 
+-- Grudge (0.90.0, Disposition.Grudges): what's turning this person against you, a word or a
+-- list (any one matches): wronged, town, values, temper, rival, prejudice, tone, persuade,
+-- enemy. { worst = "word" } matches only the reason that costs you most. false: no grudge.
+-- Spoof with grudge=wronged.
+def("grudge", 25, "hinge", nil, function(ctx, v, env)
+  local set, worst = {}, nil
+  local spoof = ctx.spoofed and ctx.spoofed.grudge
+  if spoof then set[spoof] = true; worst = spoof
+  elseif ns.Disposition and env and env.info then set, worst = ns.Disposition.Grudges(env.info, env.mem, ctx) end
+  if v == false then return next(set) == nil, "grudge " .. tostring(worst) end
+  if type(v) == "table" and v.worst then return matches(worst or "", v.worst), "worst grudge " .. tostring(worst) end
+  local list = type(v) == "table" and v or { v }
+  for _, w in ipairs(list) do if set[w] then return true, "grudge " .. w end end
+  return false, "grudge " .. tostring(worst)
+end)
+
 -- Tone (0.85.0, Systems/Disposition.lua): the manner you're speaking in, "polite" / "normal" /
 -- "blunt" (or a list). Spoof with tone=blunt.
 def("tone", 15, "hinge", nil, function(ctx, v)

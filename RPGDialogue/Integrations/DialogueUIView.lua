@@ -109,8 +109,8 @@ local function buildRows(p)
     -- know about, then the rest, newest first.
     local s = Conv.session
     local key = s and s.memKey
-    local all = ns.Topics.Known(false, key)
     local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
+    local all = ns.Topics.Known(false, key, disp)
     local std, knows, rest = {}, {}, {}
     for _, t in ipairs(all) do
       if t.standard then std[#std + 1] = t elseif t.knows then knows[#knows + 1] = t else rest[#rest + 1] = t end
