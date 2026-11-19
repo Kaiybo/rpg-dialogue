@@ -6,7 +6,7 @@ P:NPC {
   key = "ravenholdt", id = TODO_NPC("Lord Jorach Ravenholdt"), name = "Lord Jorach Ravenholdt",
   bible = "bibles/roads.md", role = "noble", tier = "quest",
   communities = { "ravenholdt" }, temper = { "cool" }, values = { "discreet", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "He is courteous the way a blade is polished.",
     third = "{name} met Lord Jorach Ravenholdt, master of the hidden manor in the Alterac hills and no friend of the Syndicate.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "One of the trade, and not a Syndicate hireling, I trust. They tend to arrive here wearing their colours and leave without them." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "You have that sheen in your eyes, the kind that sees straight into the dark corners where my people stand. I'll ask you to keep it to yourself under my roof, because a guest who can count my sentries is a guest I must start counting too." },
   },
 
   start = "hello",
@@ -163,7 +165,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." } },
+      lines = {
+        { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and yours has been studying my doors since you walked in. The Syndicate has dabbled in darker help, I'm told, so tell your servant to keep its eyes on the carpet while you convince me you aren't their messenger." },
+      },
       choices = {
         { text = "I serve no Syndicate. My demons answer to me alone.", next = "BACK", reply = "Good. Then you're the one guest I needn't worry about, so long as your demons stay exactly as loyal as you claim.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everyone's loyalty has a price, my lord, even mine.", next = "BACK", reply = "Honesty, at least, which is rarer than loyalty in Alterac. I'll remember your price, and I'll remember you told me it existed.", fx = { align = { honor = -1 } } },
@@ -275,7 +280,7 @@ P:NPC {
   key = "ansirem", id = TODO_NPC("Archmage Ansirem Runeweaver"), name = "Archmage Ansirem Runeweaver",
   bible = "bibles/roads.md", role = "scholar", tier = "service",
   communities = { "dalaran" }, temper = { "proud" }, values = { "learned", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "He speaks of Dalaran's walls like a man who helped build them.",
     third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch at Dalaran's newly opened gate.",
@@ -290,6 +295,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You can feel the wards, then, pressing at the back of your teeth. Good; it means you were taught properly." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "I can feel the cold off the crystals in your pack from across the road, and each one hums in a slightly different key. Kel'Thuzad kept a drawer of them in his study, we learned too late, and not one of us thought to ask whose voices they were." },
   },
 
   start = "hello",
@@ -429,7 +436,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." } },
+      lines = {
+        { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He sat on our council, and he was brilliant, and he bound things very like the one at your heel before he went looking for worse. We cast him out too late and Dalaran paid for it twice, so forgive me if I keep one eye on your {pet} while I tell you so." },
+      },
       choices = {
         { text = "His choices were his own. Knowledge didn't damn him.", next = "BACK", reply = "That is the comfortable answer, and I wish I believed it more firmly. Knowledge offered him the door, and he walked through it smiling.", fx = { align = { light = -1 } } },
         { text = "Then I'll learn from his fall and keep my craft in check.", next = "BACK", reply = "That's all any of us can do, and more than most bother to. Keep a close watch on yourself, and ask someone you trust to watch as well.", fx = { affinity = 1, align = { light = 1 } } },
@@ -684,7 +694,7 @@ P:NPC {
   key = "hinott", id = TODO_NPC("Serge Hinott"), name = "Serge Hinott",
   bible = "bibles/roads.md", role = "trainer", tier = "service",
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "careful", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "He speaks of poisons the way a baker speaks of bread.",
     third = "{name} met Serge Hinott, the Forsaken alchemist who teaches in Tarren Mill.",
@@ -697,6 +707,8 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { "Alchemy" } },
       text = "You smell of the trade, which is a compliment, though few take it as one." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone at your belt, isn't it? The Society has spent years trying to bottle what you carve out of a stolen soul, and I'd give a month's work to know why yours keeps fresh while ours curdle by Tuesday." },
   },
 
   start = "hello",
@@ -769,7 +781,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, though the Society frowns on anything it can't fully control, and it would frown hardest at your demon sniffing round my shelves. I keep my fel reagents in a separate cupboard with a separate key, so you can tell the thing that cupboard is locked and the key is in my pocket." },
+      },
       choices = {
         { text = "Control is everything. Keep your cupboards locked.", next = "BACK", reply = "That's my rule exactly, and it has kept all ten of my fingers on my hands. Well, most of them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Society is too cautious. Push the work further.", next = "BACK", reply = "Easy to say when you don't answer to the Society. I'll push it a little, in my own cupboard, and say nothing to anyone.", fx = { align = { order = -1 } } },

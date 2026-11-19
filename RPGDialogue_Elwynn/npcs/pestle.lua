@@ -7,7 +7,7 @@ P:NPC {
   key = "pestle", id = TODO_NPC("William Pestle"), name = "William Pestle",
   bible = "bibles/pestle.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "He warns people away from his own bottles, a sensible habit.",
     third = "{name} met William Pestle, Goldshire's alchemist, who sells candles and tinctures and keeps Gramma Stonefield's confidences.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A fellow alchemist! Here, smell this, and closer than that, mind; isn't that marvelous?" },
     { id = "n_herbalist", cat = "craft", when = { profession = "Herbalism" },
       text = "You've peacebloom on your gloves, and you pick it too early, by the way, as everyone does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on my shelf guttered when you came through the door, and I make them to burn steady in a gale. I'll sell you the black ones if you want them, but I'd like to know what you're doing to the white." },
   },
 
   start = "hello",
@@ -39,7 +41,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and better I sell them a decent one than have them making their own from who knows what." } },
+      lines = {
+        { id = "xlock_default", text = "Most of them do, and they buy the black ones, which I make only because they ask. I've wondered more than once what they're for, but a candle's a candle, and better I sell them a decent one than have them making their own from who knows what." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Most of them do, and they buy the black ones, which I make only because they ask. Your servant's been staring at the wicks since you came in, and I've a nasty feeling it knows exactly what they're for, so I'll take your coin and not ask." },
+      },
       choices = {
         { text = "Better your candles than theirs. You're doing good.", next = "BACK", reply = "I like to think so, and it helps me sleep, a little, so long as I don't ask what they light them for.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You shouldn't wonder, William. It's not your business.", next = "BACK", reply = "You're probably right, and I'll try to stop. It's hard not to wonder, with all that chanting.", fx = { align = { light = -1 } } },

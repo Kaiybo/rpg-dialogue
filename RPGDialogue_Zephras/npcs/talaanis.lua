@@ -8,7 +8,7 @@ P:NPC {
   key = "talaanis", id = TODO_NPC("Talaanis Shadowsong"), name = "Talaanis Shadowsong", title = "High Elder",
   bible = "bibles/talaanis.md", role = "noble", tier = "major",
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
-  notices = { "kin", "stranger" },
+  notices = { "kin", "stranger", "lock_shadow", "lock_shards" },
 
   impression = {
     first = "She admits what nobody knows, which reassures me more than promises.",
@@ -39,13 +39,20 @@ P:NPC {
       text = "The High Order's newest, I see. Your ancestors were magisters, so remember it, and remember what Prince Tortheldrin did with power like theirs." },
     { id = "n_stranger", cat = "stranger", when = { ["not"] = { race = "Skyborne" } },
       text = "You're the first of your people I've spoken with. I find I have more questions than manners. Forgive me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The wind changes around you, as if it would rather blow past than touch you, and on this isle we notice where the wind will not go. I don't hold that against you yet, but I'd be a poor elder if I pretended not to see it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry something in that bag that hums beneath the wind, and the elders by the door have stopped talking to listen to it. Keep it closed while you're in Valanaar, if you would, because I'd rather not spend the evening explaining it to the Council." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me as any power taken from the Nether troubles me, and the thing at your side troubles me more, because I last saw eyes like those when we fled into hiding ten thousand years ago. I won't judge you by your craft alone, but many on this isle have longer memories than I do, and they will all be looking at it." },
+      },
       choices = {
         { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", reply = "Perhaps they shouldn't, but ten thousand years is a long habit to break, and you'll not break it in an afternoon. Patience, stranger.", fx = { align = { order = -1 } } },

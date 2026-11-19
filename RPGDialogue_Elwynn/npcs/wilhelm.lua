@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/wilhelm.md", role = "trainer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
-  notices = { "kit", "affliction" },
+  notices = { "kit", "affliction", "lock_shadow" },
   impression = {
     first = "He says he mends souls, and slowly.",
     third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath costs in practice.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Polished, every buckle of it. Somebody at the Abbey taught you right." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Poison" } },
       text = "You've picked something up out there, so hold still while I cleanse it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came in, friend, the way a hand flinches from a cold stove, and I felt it before I saw you. That doesn't mean it's given up on you, so don't you give up on it either." },
   },
 
   start = "hello",
@@ -111,7 +113,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." } },
+      lines = {
+        { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around, and that creature at your heel would have to stay behind when you did. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+      },
       choices = {
         { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", reply = "It's always open, friend, and I'll be glad to see you at it. I'm behind the smithy most mornings.", fx = { align = { light = 1 } } },
         { text = "I've no need of redemption. My path is chosen.", next = "BACK", reply = "Then I'll pray for you anyway, quietly. The door won't close.", fx = { align = { light = -1 } } },

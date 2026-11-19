@@ -6,7 +6,7 @@ P:NPC {
   key = "jorn", id = TODO_NPC("Jorn Skyseer"), name = "Jorn Skyseer",
   bible = "bibles/taurajo.md", role = "trainer", tier = "quest",
   communities = { "taurajo" }, temper = { "patient" }, values = { "wise", "kind" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_pact" },
   impression = {
     first = "Beside him, the empty Barrens began to look far less empty.",
     third = "{name} met Jorn Skyseer, the patient tauren at Camp Taurajo who teaches hunters to see the life hidden on the Barrens.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A hunter? Then you're my student, whether you meant to be or not. Sit down." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your companion trusts you; I can see it in how it stands. Earn that every day." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your skin is flushed like a lion's before it springs, and I'd guess the little fire-thing you keep has put a fever in your blood. The plainstriders will smell it long before you're in bowshot, so hunt downwind." },
   },
 
   start = "hello",
@@ -115,6 +117,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Patience, if you'll take it, because a hunter waits for the beast to come to him, and I think your kind is too used to calling things that come at once. Watch the herds on the plain for an hour before you go after the centaur, and you'll see more than your demon ever told you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Patience, if you'll take it, and I see your demon has none, because it hasn't stopped watching the herd since you arrived. Sit with me and watch the plain for an hour, and you'll learn more of the centaur than that thing at your heel could ever tell you." },
       },
       choices = {
         { text = "I'll learn your stillness, Jorn. Power can wait.", next = "BACK", reply = "That's a rare thing to hear from one of your kind, and it gladdens me. Watch the herds tomorrow, and come tell me what they taught you.", fx = { align = { order = 1 } } },
@@ -250,7 +253,7 @@ P:NPC {
   key = "mangletooth", id = TODO_NPC("Mangletooth"), name = "Mangletooth",
   bible = "bibles/taurajo.md", role = "questgiver", tier = "quest",
   communities = { "taurajo" }, temper = { "scheming" }, values = { "cunning" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
   impression = {
     first = "He offers deals from his cage as though he held the keys.",
     third = "{name} met Mangletooth, a caged Razormane quilboar at Camp Taurajo with a grudge against his own kin and a deal for anyone who listens.",
@@ -264,6 +267,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "*snort* Tall cow-folk keep Mangletooth in a cage. Mangletooth remembers every face." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "*snort* Your shadow is wrong, because it lies toward the sun and not away. The Death's Head crones in the Kraul cast shadows like that, and Mangletooth does not trust them either." },
   },
 
   start = "hello",
@@ -353,6 +358,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "*snort* The fire-thing you carry stinks worse than a Bristleback, and Agamaggan's children kneel to nothing. Mangletooth knows what such things are, because they always want something, and they always come back for it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "*snort* The fire-thing stands right there and stinks worse than a Bristleback, and it stares at Mangletooth like it knows him. Agamaggan's children kneel to nothing, and Mangletooth knows such things always want something, so it can stare and get nothing." },
       },
       choices = {
         { text = "Everything kneels eventually, quilboar, even your god.", next = "BACK", reply = "*snort* The demon-talker sounds just like the voices Charlga hears. Agamaggan will not kneel, and neither will Mangletooth, so go and kneel to your fire-thing yourself.", fx = { align = { light = -1 } } },
@@ -451,7 +457,7 @@ P:NPC {
   key = "tatternack", id = TODO_NPC("Tatternack Steelforge"), name = "Tatternack Steelforge",
   bible = "bibles/taurajo.md", role = "blacksmith", tier = "quest",
   communities = { "taurajo" }, temper = { "curious" }, values = { "curious", "practical" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_armor" },
   impression = {
     first = "To him every weapon is a letter from its wielder's hand.",
     third = "{name} met Tatternack Steelforge, a curious smith at Camp Taurajo who studies the weapons of every people the Horde meets.",
@@ -466,6 +472,8 @@ P:NPC {
       text = "A smith! Then you'll know what I mean: the quilboar's crude spears teach me more than a dozen fine orc blades." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "That armor's taken a beating, and an interesting one. Centaur, I'd guess, from the cuts." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward on you, the dark hide crawling over your shoulders, does it turn a blade? I'll note it in my book either way, though I'd rather study plain mail that doesn't watch me back." },
   },
 
   start = "hello",
@@ -535,6 +543,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everything belongs in it, because the Warchief wants to know what every people fights with, and I write it all down whether or not I like it. I'll note what your demon does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything belongs in it, and I'm writing down how your demon is standing at my forge right now, because the Warchief wants to know. I'll note what it does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
       },
       choices = {
         { text = "Write it plainly. I serve the Horde, as you do.", next = "BACK", reply = "Plainly, then, and I'll underline it so the Warchief sees it. Serve the Horde well, and nobody will remember what the Burning Blade did with the same art.", fx = { align = { order = 1 } } },
@@ -604,7 +613,7 @@ P:NPC {
   key = "byula", id = TODO_NPC("Innkeeper Byula"), name = "Innkeeper Byula",
   bible = "bibles/taurajo.md", role = "innkeeper", tier = "service",
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
   impression = {
     first = "She has never found the hyenas' laughter funny.",
     third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
@@ -621,6 +630,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "The road back from the spirit healer is long. Sit, and let the stew warm you back into your body." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You'll keep that bag of shards off my tables, because the cold off them curdles the milk and the herders will blame me. I don't know what you keep in those little stones, but they hum like something unhappy." },
   },
 
   start = "hello",
@@ -720,6 +731,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Your demon can wait outside where the hyenas can laugh at it. The tauren of Taurajo have heard what the Burning Blade did in Durotar, and I'll not have one of those things sitting by my hearth while the kodo herders eat, whatever the Warchief allows." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I said outside, and yet here it is, dripping sulphur on my floor where the kodo herders eat. The tauren of Taurajo have heard what the Burning Blade did in Durotar, so send your demon out to the hyenas, whatever the Warchief allows." },
       },
       choices = {
         { text = "I'll leave it outside. Your hearth deserves that respect.", next = "BACK", reply = "Thank you, warlock, because the herders would have left otherwise, and I'd have lost a night's trade. The hyenas will keep your demon company.", fx = { align = { light = 1 } } },

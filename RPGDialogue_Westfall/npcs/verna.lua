@@ -7,7 +7,7 @@ P:NPC {
   key = "verna", id = TODO_NPC("Verna Furlbrow"), name = "Verna Furlbrow",
   bible = "bibles/verna.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "honest" },
-  notices = { "animal", "craft" },
+  notices = { "animal", "craft", "lock_shadow" },
   impression = {
     first = "She worries more for their tired horse Blanchy than for herself.",
     third = "{name} met Verna Furlbrow, who cares for her husband and their weary horse Blanchy beside a broken wagon.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "Get down and let that poor creature breathe a minute. Blanchy, look, company." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You cook? Then you'll know a goretusk liver's no good past a day. Folk never believe me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Blanchy's laid her ears back, and she never does that, not even for the Defias, so I'd guess it's the shadow on you. Don't take it hard, because she bit Theodore last week." },
   },
 
   start = "hello",
@@ -47,6 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, I'll admit, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, I'll admit, and that thing of yours sniffing round our wagon doesn't help. Still, Theodore says we can't be choosy about who helps us anymore, and I've seen worse than the pair of you come up this road in red masks." },
       },
       choices = {
         { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", reply = "That's all anyone could ask, dear, and more than most have offered. Blanchy might even let you near her, if you're very gentle.", fx = { align = { light = 1 } } },

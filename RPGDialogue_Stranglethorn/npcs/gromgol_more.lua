@@ -192,7 +192,7 @@ P:NPC {
   key = "thysta", id = TODO_NPC("Thysta"), name = "Thysta",
   bible = "bibles/gromgol_more.md", role = "flightmaster", tier = "service",
   communities = { "gromgol" }, temper = { "calm" }, values = { "dutiful", "patient" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_steed" },
 
   impression = {
     first = "She watches the ridge trolls more closely than she lets on.",
@@ -209,6 +209,8 @@ P:NPC {
       text = "If you've a beast with you, keep it back from my riders. They've no love for strange animals." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear. The jungle trolls on the ridges watch everyone who comes and goes from this camp, so keep your head low when you leave." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Every wind rider on the tower is screaming at that burning horse you left at the bottom, {class}. They saw fire like that over the old battlefields and they don't forget it, so send the beast away before you climb up." },
   },
 
   start = "hello",
@@ -272,7 +274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they remember the old Horde, when the orcs drank demon blood and the skies were full of fel fire. A wind rider never forgets a smell, and they've been nervous of anything fel ever since." } },
+      lines = {
+        { id = "xlock_default", text = "Because they remember the old Horde, when the orcs drank demon blood and the skies were full of fel fire. A wind rider never forgets a smell, and they've been nervous of anything fel ever since." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they remember the old Horde, when the orcs drank demon blood and the skies were full of fel fire. Hear them screaming in the roost now that your demon is standing here, because a wind rider never forgets a smell, and neither do I." },
+      },
       choices = {
         { text = "I'll keep my demon away. The beasts deserve calm.", next = "BACK", reply = "You have my thanks for that, warlock. The beasts remember the old fire, and an old memory bites hardest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The beasts will learn. Times have changed.", next = "BACK", reply = "Times change, but a beast's memory does not, and neither does mine. Keep your demon away from my roost, or walk to Stonard.", fx = { align = { light = -1 } } },

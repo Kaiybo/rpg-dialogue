@@ -8,7 +8,7 @@ P:NPC {
   key = "if_gearcutter", id = TODO_NPC("Gearcutter Cogspinner"), name = "Gearcutter Cogspinner",
   bible = "bibles/tinker_town_shops.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "careful", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He thinks most explosions are caused by cheap flux.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder this time, whatever you used last time." },
     { id = "n_apprentice", cat = "origin", when = { origin = "gnome_tinker_apprentice" },
       text = "You're an apprentice, I can tell by the way you're counting the blasting powder in your head. How many explosions so far? Don't tell me, because I'd rather not know which of my parts were involved." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "There it is, that smell, sulphur and something like a snuffed candle, and it's coming in with you. I've no objection to your craft, but the parts here pick up smells, so please don't stand too close to the flux." },
   },
 
   start = "hello",
@@ -79,7 +81,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." } },
+      lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and the smell lingered for a month, and I'm sorry to say it's lingering again since your demon came through the door. I've no objection to your craft, mind, but I'd like my parts used for engineering, so please keep it away from the gear trays, because it's counting my sprockets and I don't like it." },
+      },
       choices = {
         { text = "I'll use your parts for engineering, Gearcutter, on my word.", next = "BACK", reply = "Thank you, truly, because I've only just got the last smell out of the curtains, and I'd like the next month to smell of oil and brass.", fx = { align = { light = 1 } } },
         { text = "What I do in the dark is my own business.", next = "BACK", reply = "Of course it is, and the smell is my business, so we'll both keep to our own affairs, and you'll kindly open the window before you leave.", fx = { align = { light = -1 } } },
@@ -202,7 +206,7 @@ P:NPC {
   key = "if_springspindle", id = TODO_NPC("Springspindle Fizzlegear"), name = "Springspindle Fizzlegear",
   bible = "bibles/tinker_town_shops.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "inventive", "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He announces the end of the wheel to anyone who will listen.",
@@ -217,6 +221,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
       text = "An engineer! I can tell from the soot. Have you thought about specializing yet, because I have strong opinions on the matter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing is warping the light around you by a measurable degree, and my lens grinder doesn't like it at all. It's a fascinating piece of warding, but please stand outside the shop while I'm calibrating." },
   },
 
   start = "hello",
@@ -271,7 +277,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." } },
+      lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mostly on its own, though there was an imp nearby at the time, and your demon is standing in exactly the spot it stood, which I find statistically alarming. I'm a scientist, so I can't prove anything, but I've stopped inviting warlocks to my demonstrations, and I'm reconsidering this conversation." },
+      },
       choices = {
         { text = "I'll keep my imp well clear of your demonstrations.", next = "BACK", reply = "Thank you, very thoughtful, and I'll mark your imp down as cleared of suspicion until the next unexplained explosion, at least.", fx = { align = { light = 1 } } },
         { text = "The imp probably improved it, Springspindle.", next = "BACK", reply = "Improved it? It turned it into a crater, which I suppose is an improvement in depth, but not in any of the directions I was hoping for.", fx = { align = { light = -1 } } },
@@ -414,7 +422,7 @@ P:NPC {
   key = "if_tally", id = TODO_NPC("Tally Berryfizz"), name = "Tally Berryfizz", gender = "female",
   bible = "bibles/tinker_town_shops.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She smells faintly of peppermint and sulfur.",
@@ -435,6 +443,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism" } },
       text = "Oh, you've got peacebloom in your pockets, I can smell it from here. An herbalist and an alchemist should be the best of friends, you know." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Those are my rivals, you know, because a healing potion takes three herbs and an afternoon, and that takes somebody's life. Keep it on the drinks side of the shop, please, because I won't have it on the potion shelf." },
   },
 
   start = "hello",
@@ -509,6 +519,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because half my potions need sulfur, which is why the mixed drinks sit on a very separate shelf! Your servant can wait by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because half my potions need sulfur, and your servant smells like it's made of the stuff, which is why the mixed drinks sit on a very separate shelf! It's already sniffing at the green bottles, so please call it back to the door, because if it touches them, I won't be held responsible." },
       },
       choices = {
         { text = "I'll keep it by the door.", next = "BACK", reply = "Thank you, and I'll keep the cider well away from it, because the last imp that wandered in here drank half a shelf and started singing.", fx = { align = { order = 1 } } },

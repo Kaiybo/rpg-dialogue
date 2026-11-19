@@ -8,7 +8,7 @@ P:NPC {
   rivals = { "katrana" },
   bible = "bibles/baros.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
-  notices = { "westfall", "stone" },
+  notices = { "westfall", "stone", "lock_shards" },
   impression = {
     first = "He keeps his plans close and his Westfall past closer.",
     third = "{name} met Baros Alexston, Stormwind's City Architect, a careful man of Westfall birth.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "You've Westfall dust on your boots; I'd know it anywhere, because I grew up in it on the Alexston farm. Is the old house still standing?" },
     { id = "n_dwarf", cat = "stone", when = { race = "Dwarf" },
       text = "A dwarf! Tell me as a stoneworker, are the Cathedral's flying buttresses too much? Every dwarf I ask says too much." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Something in your pack is cold enough that I felt it across the table, and it hums very faintly, like a crack in a foundation before it gives. I've drawn over enough of the Lamb's cellars to know what you're carrying, so mind you don't set it down on my plans." },
   },
 
   start = "hello",
@@ -74,6 +76,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Older cellars than anyone admits to, cut before the city was rebuilt, and the Lamb's crypt is the deepest of them. I drew new streets over half of Stormwind after the Horde burned it, but the Quarter's masters wouldn't let my men dig below a certain line, and I've learned not to ask builders' questions of people who answer with fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Older cellars than anyone admits to, and the Lamb's crypt is the deepest of them, which your servant seems to know already from the way it keeps looking at the floor. The Quarter's masters wouldn't let my men dig below a certain line, and having seen that thing up close, I'm beginning to understand why." },
       },
       choices = {
         { text = "Then the plans stay closed, as they should.", next = "BACK", reply = "They do, and I'll sleep easier for it. There are doors down there that I'd rather nobody remembered, even me.", fx = { align = { order = 1 } } },

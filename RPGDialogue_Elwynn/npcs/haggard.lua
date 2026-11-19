@@ -7,7 +7,7 @@ P:NPC {
   key = "haggard", id = TODO_NPC("Marshal Haggard"), name = "Marshal Haggard",
   bible = "bibles/haggard.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "proud" }, values = { "lawful", "brave" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
   impression = {
     first = "Nearly blind, he listens to the path better than most men watch.",
     third = "{name} met old Marshal Haggard, once of the Stormwind Guard, who sits at home listening to the loggers swear.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "Something on you's catching the light, which means it's been kept clean. Good; a soldier who keeps his kit keeps his life." },
     { id = "n_rags", cat = "kit", when = { durability = { max = 0.25 } },
       text = "I can't see much, but I can hear that armor rattle from here. Those are loose rivets, so get them seen to before they get you killed." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I smelled sulphur like that in the old war, when the orcs' warlocks walked ahead of the Horde and the sky went green over the forest, and it hasn't changed in all these years. Stand downwind, if you'd be so kind." },
   },
 
   start = "hello",
@@ -59,7 +61,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
+      lines = {
+        { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom, and their servants had the same eyes as the one at your heel. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." },
+      },
       choices = {
         { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", reply = "Good, that's what I'd hoped you'd say. Turn it on the orcs if they ever come back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but I watched what it did in careless hands the year Goldshire burned, so be careful with yours.", fx = { align = { honor = -1 } } },

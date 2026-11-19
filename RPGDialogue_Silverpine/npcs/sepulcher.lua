@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "soldier", tier = "major",
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_stones" },
   impression = {
     first = "He lists all his enemies without a flicker of worry.",
     third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "The forest bit you, I see. Mend yourself, and then bite back." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "One of the Warchief's people, in Silverpine. The worgen won't care which side you're on, and neither will the Scourge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is heavy with souls, {class}, and I'd rather they were Rot Hide souls than ours. Spend them on the gnolls and the worgen and anything else that comes at my line." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone would keep a Deathguard on his feet a little longer, and I have too few of those to waste. If you ever make more than you need, my soldiers would be grateful." },
   },
 
   start = "hello",
@@ -228,6 +232,7 @@ P:NPC {
         { id = "xwarlock_default", text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them well. Send your demons at the Rot Hide gnolls, who are too stupid to be frightened of anything and will at least keep them busy." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You'd have heard of the Cult of the Damned in life, and perhaps more than heard, but the Dark Lady has given you a new master and a new purpose. Use your demons for her, and I'll not care where you learned to call them." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "The Warchief sends orcs to help, and here is one who brought fel fire with him, which I didn't expect. Point it at the Rot Hides and I'll see your name in my report." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them, and yours at least looks eager to start. Send it at the Rot Hide gnolls, who are too stupid to be frightened of anything and will keep it busy." },
       },
       choices = {
         { text = "The Rot Hides will burn, on your order.", next = "BACK", reply = "Good. The Rot Hides have been rotting long enough, and fire is the only medicine they'll get from me.", fx = { affinity = 1, align = { order = 1 } } },
@@ -726,7 +731,7 @@ P:NPC {
   key = "allister", id = TODO_NPC("Shadow Priest Allister"), name = "Shadow Priest Allister",
   bible = "bibles/silverpine.md", role = "priest", tier = "quest",
   communities = { "sepulcher" }, temper = { "smooth" }, values = { "cunning", "loyal" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_shadow" },
   impression = {
     first = "He keeps watchers in every corner of Lordaeron.",
     third = "{name} met Shadow Priest Allister, the Sepulcher's spymaster, who learns of everything that moves in Silverpine.",
@@ -745,6 +750,8 @@ P:NPC {
       text = "Quiet feet, I see, and I've uses for quiet feet. Come and see me when you're ready to earn your keep in shadows." },
     { id = "n_weary", cat = "class", when = { durability = { max = 0.3 } },
       text = "You have been in a fight, and you came straight to me before the armorer, which tells me the news is good or very bad. Sit, and tell me which." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow listens, {class}, the way my watchers do. I wonder what it's heard and who it reports to, but I suppose that's a question for another day." },
   },
 
   start = "hello",
@@ -951,6 +958,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They make fine noise, which isn't the same thing, though I admit an imp in a chimney hears what a deathstalker at the window misses. Bring me what it overhears in Pyrewood, and I'll decide whether it was worth the scorch marks." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I watched the Cult's people in the old days, and they all thought their demons and their dead made them invisible. They were wrong, so you'll forgive me if I watch you just as closely." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They make fine noise, which isn't the same thing, though I admit your {pet} has been listening to every word I say since you came in. Send it to a chimney in Pyrewood instead and bring me what it overhears, and I'll decide whether it was worth the trouble." },
       },
       choices = {
         { text = "Then I'll bring you only what's useful.", next = "BACK", reply = "Good. Useful is all I need, and an imp in a chimney is very useful.", fx = { affinity = 1, align = { order = 1 } } },
@@ -982,7 +990,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/silverpine.md", role = "innkeeper", tier = "service",
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
   impression = {
     first = "He keeps calling the beds slabs out of habit.",
     third = "{name} rested at Innkeeper Bates's crypt of an inn at the Sepulcher, where the roof at least keeps the worgen out.",
@@ -1003,6 +1011,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look grave-tired, and I'd know. Sit a while." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Got your soul tucked away in a stone, have you? Then you'll be back for another night, I suppose, and you'll find the slab just as you left it." },
   },
 
   start = "hello",
@@ -1093,6 +1103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everyone's welcome who keeps the worgen out and pays for the slab. The Dark Lady's warlocks pass through on their way to deal with the Dalaran wizards at Ambermill, and they've always been perfectly polite guests, which I find a little unsettling." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone's welcome who keeps the worgen out and pays for the slab, and your demon may have the floor beside yours. The Dark Lady's warlocks pass through on their way to Ambermill and their servants always stand politely in the corner, which I find more unsettling than the way yours is watching me." },
       },
       choices = {
         { text = "I'll be a polite guest too, Bates.", next = "BACK", reply = "The spiders appreciate it, and so do I. The last guest wasn't, and he's still picking webs out of his hair.", fx = { align = { order = 1 } } },

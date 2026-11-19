@@ -6,7 +6,7 @@ P:NPC {
   key = "donova", id = TODO_NPC("Donova Snowden"), name = "Donova Snowden",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "warm" }, values = { "curious", "protective" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_breath" },
 
   impression = {
     first = "She means to find out what is poisoning the Winterfall furbolgs.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A druid! Then ye'll feel it too: somethin's poisonin' the furbolgs, an' it's no' natural." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all this way north! We're a long way from Khaz Modan, the both of us." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "Ye're breathin' like a fish, aren't ye, I can see it on ye, that warlock's trick wi' the water! Och, what I'd give tae walk the bottom o' those hot springs an' see where the bubbles start." },
   },
 
   start = "hello",
@@ -78,7 +80,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." } },
+      lines = {
+        { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I cannae prove it yet, but the Deadwood went the same way, an' Felwood stinks o' demons, an' so does that one o' yours, if ye don't mind my sayin'. If somebody's brewin' that poison wi' fel in it, I'll find out who, so keep it well back from my samples while I work." },
+      },
       choices = {
         { text = "Whoever's poisoning them deserves no mercy.", next = "BACK", reply = "I'll no' argue wi' that, for poisonin' a whole people is as low as it gets. Only make sure ye've got the right one before ye pass sentence.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel's just a tool. Blame the brewer, not the power.", next = "BACK", reply = "Ye would say that, warlock, wi' a demon at yer heel. Mebbe ye're right about the brewer, but I've seen what fel does tae a forest, an' I'll no' be callin' it a tool.", fx = { align = { light = -1 } } },
@@ -263,7 +268,7 @@ P:NPC {
   key = "mauari", id = TODO_NPC("Witch Doctor Mau'ari"), name = "Witch Doctor Mau'ari",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "playful" }, values = { "mystical", "proud" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "She has stopped complaining about the cold, but not feeling it.",
@@ -279,6 +284,8 @@ P:NPC {
       text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari feel it too." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "DRUID" } },
       text = "You know de spirits. Den you know what Mau'ari be talkin' about when she say every beast got a little magic left in it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ah, mon, your bag be full of little crying spirits, and Mau'ari can hear every one of dem. Dey not be happy in dere, but dat be your juju and not mine, so keep dem quiet near my fire." },
   },
 
   start = "hello",
@@ -330,7 +337,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." } },
+      lines = {
+        { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon, but look at dat one, standin' behind you and countin' every lash. You chain it and make it work, and Mau'ari can see in its eyes it be rememberin', which be why Mau'ari only bargain with spirits who can say no." },
+      },
       choices = {
         { text = "Maybe you're right. Chains breed resentment.", next = "BACK", reply = "Now you be talkin' like a troll, mon, and maybe you live longer for it. Ask nice and leave a gift, and de spirit come back next time smilin'.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A chained demon is a useful demon.", next = "BACK", reply = "Useful till de chain slip, mon, and chains always slip in de end. When yours do, don't come cryin' to Mau'ari for juju to fix it.", fx = { affinity = -1, align = { light = -1 } } },

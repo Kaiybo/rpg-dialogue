@@ -24,6 +24,10 @@ P:NPC {
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've a bag full of soul shards, by the cold coming off it. Leave them in your vault if you like, but I'll be putting them at the back, where I can't hear them hum." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -109,6 +113,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I think the camps taught us what happens when orcs hand their will to something else, and I won't forget it. But the Warchief lets you serve, so I'll keep your vault as well as anyone's, as long as nothing in it scratches at the door." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I think the camps taught us what happens when orcs hand their will to something else, and I see one of those somethings leaning on my counter. The Warchief lets you serve, so I'll keep your vault as well as anyone's, but your servant stays out on the street while I do it." },
       },
       choices = {
         { text = "My power serves the Horde, Karus, and nothing else.", next = "BACK", reply = "Then your vault is as welcome here as anyone's. I was in the camps too, {class}, and I won't forget what that power did to us.", fx = { align = { order = 1 } } },
@@ -214,6 +219,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Did it sell? Then you're welcome; and if it didn't, price it lower." },
   },
 
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a warlock's healthstone in your bag, and the house won't list it, because nobody bids on a thing that only works for the one it was made for. Eat it or keep it, but don't waste my deposit slips." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -299,6 +308,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Cloth, mostly, because your kind wears through robes faster than a grunt wears through boots, and runecloth goes to the highest bidder. I don't care what the buyer does with it, and neither does the house, as long as the deposit's paid." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Cloth, mostly, because your kind wears through robes faster than a grunt wears through boots. I don't care what the buyer does with it, and the house doesn't care that your demon is breathing on the ledger, as long as it doesn't scorch the bids and the deposit's paid." },
       },
       choices = {
         { text = "I'll pay the deposit and bid fair.", next = "BACK", reply = "Then you're welcome here any time the house is open. I wish I could say that of everyone.", fx = { align = { honor = 1 } } },
@@ -384,7 +394,7 @@ P:NPC {
   key = "doras", id = TODO_NPC("Doras"), name = "Doras", title = "Wind Rider Master",
   bible = "bibles/townsfolk.md", role = "flightmaster", tier = "service",
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "loyal" },
-  notices = { "mount" },
+  notices = { "mount", "lock_steed" },
   impression = {
     first = "He trusts the beasts more than most riders, and says so.",
     third = "{name} met Doras, the wind rider master of Orgrimmar.",
@@ -398,6 +408,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Get that beast off my tower before the wind riders decide it's dinner. They're fed, but they're not that well fed." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Get that burning horse away from my roost before my wind riders snap their tethers. They'll carry you anywhere the Horde has a roost, but not while you smell like a cinder pit." },
   },
 
   start = "hello",
@@ -475,6 +487,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, and thank the ancestors for that, because my wind riders would buck the whole sky to get it off. Send the thing away before you climb up, and call it back when you land." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, and thank the ancestors for that, because my wind riders are already pulling at their chains just from smelling it. Send your demon away before you climb up, and call it back when you land, somewhere far from my tower." },
       },
       choices = {
         { text = "As you say. The beasts come first.", next = "BACK", reply = "Thank you, {class}. The beasts can tell who respects them, and they'll carry you gently for it.", fx = { align = { order = 1 } } },
@@ -586,6 +599,10 @@ P:NPC {
     { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people never waited for anyone's charter, I know, but sign one anyway so the Horde knows who stands with you." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The quill went cold in my hand when you came up, warlock, and the ink's thickened like it does in winter. I've recorded a great many guilds, and I've learned to note which members bring winter with them." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -659,6 +676,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "There were warlocks in every clan, once, and the Shadow Council behind them all, whispering in the chieftains' ears. I record the new guilds so the Horde never again has a clan whose real masters hide in the dark, and I'll be watching yours." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "There were warlocks in every clan, once, and the Shadow Council behind them, whispering in the chieftains' ears. I'm writing down that your guild walks in here with a demon at its heel, because I record the new guilds so the Horde never again has a clan whose masters hide in the dark." },
       },
       choices = {
         { text = "Good. Openness keeps the Horde strong.", next = "BACK", reply = "That's why I record them all. We had a hidden master once, in the Shadow Council, and look where it led.", fx = { align = { order = 1 } } },
@@ -1081,6 +1099,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back to visit the wolves, are you? They remember your smell, and a wolf doesn't bother remembering just anyone." },
   },
 
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "My wolves are growling at your armour, not at you, because that hide you've wrapped yourself in came off something they'd dearly like to kill. Stand back from the kennel gate, or one of the pups will try." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -1142,6 +1164,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't fear them, they hate them, and they're right to. A wolf knows a thing that doesn't belong in the world before you do, so keep your demon away from my kennels, or I can't answer for what's left of it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't fear them, they hate them, and listen to them now, because every wolf in my kennels is snarling at the thing you brought. A wolf knows what doesn't belong in the world before you do, so take your {pet} out of here, or I can't answer for what's left of it." },
       },
       choices = {
         { text = "I'll keep it away. Your wolves are wise.", next = "BACK", reply = "Thank you, and they'll thank you too. Keep it far.", fx = { align = { light = 1 } } },
@@ -1246,7 +1269,7 @@ P:NPC {
   key = "lumak", id = TODO_NPC("Lumak"), name = "Lumak", title = "Fishing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_breath" },
   impression = {
     first = "A quiet river was the first peace he had after the camps.",
     third = "{name} heard how Lumak, fishing trainer of Orgrimmar, found his first peace by a river after the camps.",
@@ -1261,6 +1284,8 @@ P:NPC {
   notice = {
     { id = "n_angler", cat = "profession", when = { profession = { name = "Fishing", min = 150 } },
       text = "You hold yourself like an angler now, with your shoulders loose and your eyes on the water. I can always tell." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing slow and easy, like someone who's just come up from the bottom of a lake, and I'd wager you could stay down there all day. Do you know what an orc could catch if he never had to come up?" },
   },
 
   start = "hello",
@@ -1348,6 +1373,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I found mine on a river after the camps, and I had more to forget than most. Sit by the water in the Valley of Spirits, send your demon away for an hour, and see whether the fish teach you something it can't." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I found mine on a river after the camps, and I had more to forget than most. Your demon is staring at my lines like it means to burn them, so send it away for an hour, sit by the water in the Valley of Spirits, and see whether the fish teach you something it can't." },
       },
       choices = {
         { text = "I'll try it, Lumak. Some quiet would do me good.", next = "BACK", reply = "I think you'll be surprised. Send it away for an hour and see what you hear.", fx = { align = { light = 1 } } },
@@ -1426,7 +1452,7 @@ P:NPC {
   key = "makaru", id = TODO_NPC("Makaru"), name = "Makaru", title = "Mining Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "diligent" },
-  notices = { "profession" },
+  notices = { "profession", "lock_shards" },
   impression = {
     first = "Durotar's hills are a map in Makaru's head, vein by vein.",
     third = "{name} was told by Makaru, who teaches mining in the Valley of Honor, to listen for the ore in the rock.",
@@ -1440,6 +1466,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "profession", when = { profession = { name = "Mining", min = 125 } },
       text = "There's iron dust in the creases of your knuckles. You've been past the copper and the tin, then, and it shows." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in your bag glow through the cloth like an ore vein in a dark tunnel, and they're colder than any stone I ever dug. I'd not want to strike a vein of those, I'll tell you that." },
   },
 
   start = "hello",
@@ -1527,6 +1555,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They fear cave-ins, and anything that makes a loud noise in a narrow tunnel, and a demon does both. Dig with your own hands, and let the rock teach you the patience your power doesn't, because it will, whether you want it to or not." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They fear cave-ins, and anything that makes a loud noise in a narrow tunnel, and your demon has been scraping at my ore cart since you walked in. Dig with your own hands, and let the rock teach you the patience your power doesn't, because it will, whether you want it to or not." },
       },
       choices = {
         { text = "I'll dig with my own hands, then.", next = "BACK", reply = "The rock will teach you patience, whether you want it or not. Mine took twenty years.", fx = { align = { order = 1 } } },
@@ -1608,7 +1637,7 @@ P:NPC {
   key = "saru", id = TODO_NPC("Saru Steelfury"), name = "Saru Steelfury", title = "Blacksmithing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "fierce" }, values = { "proud", "diligent" },
-  notices = { "wounds", "profession" },
+  notices = { "wounds", "profession", "lock_taint" },
   impression = {
     first = "To Saru, an honest weapon is one the smith would carry.",
     third = "{name} met Saru Steelfury, the blacksmithing trainer at the forges of Orgrimmar.",
@@ -1624,6 +1653,8 @@ P:NPC {
       text = "Look at the state of that armour! Somebody's been hitting you and you've been letting them. Get it mended before you go back out." },
     { id = "n_smith", cat = "profession", when = { profession = { name = "Blacksmithing", min = 150 } },
       text = "Burn scars on the forearms. You've stood at a forge for more than a season, then, and I'll speak to you as a smith." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You give off heat like a forge banked overnight, warlock, but it's the wrong colour of heat, the kind the old Horde's smiths worked under the warlocks' eyes. Keep away from my quench barrel, because I'll not have it in the steel." },
   },
 
   start = "hello",
@@ -1704,6 +1735,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I forge for the Horde, and some of the Horde are warlocks, so yes, though I don't like it. I remember what the old Horde's smiths were asked to make for the warlocks' rites, and I'll never put my hammer to that kind of work again." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I forge for the Horde, and some of the Horde are warlocks, so yes, though I don't like it, and I like your servant warming itself at my forge even less. I remember what the old Horde's smiths made for the warlocks' rites, and I'll never put my hammer to that work again." },
       },
       choices = {
         { text = "Good. Honest steel, for honest work.", next = "BACK", reply = "Then we'll get along fine. Honest steel for honest work is the only kind I've ever forged.", fx = { align = { light = 1 } } },
@@ -1805,7 +1837,7 @@ P:NPC {
   key = "nogg", id = TODO_NPC("Nogg"), name = "Nogg", title = "Engineering Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "eager" }, values = { "ambitious", "curious" },
-  notices = { "profession" },
+  notices = { "profession", "lock_stones" },
   impression = {
     first = "He is far too cheerful about the explosions.",
     third = "{name} met Nogg, the goblin engineer who runs a machine shop in Orgrimmar's Valley of Honor.",
@@ -1819,6 +1851,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "profession", when = { profession = { name = "Engineering", min = 100 } },
       text = "Oh, look at those singed eyebrows! You're an engineer, all right, chum, and a dedicated one, and dedication is my favourite thing to sell supplies to." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone, chum? I could run a whole furnace off that and never pay for coal again, so don't let me near it, or I'll start taking measurements." },
   },
 
   start = "hello",
@@ -1886,6 +1920,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Once, for a warlock who swore it was for his own safety, and the imp melted the lock in an afternoon. I don't build for demons anymore, pal, and not because of any scruples, but because they never pay for the damage." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Once, for a warlock who swore it was for his own safety, and his demon melted the lock in an afternoon. Yours is eyeing my workbench right now, pal, so keep it back, because I don't build for demons anymore, and they never pay for the damage." },
       },
       choices = {
         { text = "Demons are tools. They just need better cages.", next = "BACK", reply = "Better cages cost money, pal, and demons never pay. I'm out of that business.", fx = { align = { light = -1 } } },
@@ -1993,7 +2028,7 @@ P:NPC {
   key = "xoncha", id = TODO_NPC("Xon'cha"), name = "Xon'cha", title = "Stable Master",
   bible = "bibles/townsfolk.md", role = "stablemaster", tier = "service",
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "kind", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_pact" },
   impression = {
     first = "Every beast in the pens seems to know Xon'cha's voice.",
     third = "{name} met Xon'cha, the troll stable master of Orgrimmar.",
@@ -2008,6 +2043,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
       text = "{pet} be lookin' well fed. Good. A hungry beast be a sulky beast, and a sulky beast be a bitey one." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood be running hot, mon, and every beast in my stalls can smell the imp's fever on you. Don't come any closer to the raptors, because they think you be on fire." },
   },
 
   start = "hello",
@@ -2063,6 +2100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, mon, I won't, and don't you ask me twice. A demon in my stables would set every beast screaming, and the loa would laugh at me for being so foolish." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, mon, I won't, and don't you ask me twice while that thing be standing at my gate. Every beast in my stables be screaming already, and the loa would laugh at me for being so foolish as to let it in." },
       },
       choices = {
         { text = "Not a word from me, then.", next = "BACK", reply = "Then we stay friends, mon. Keep it far from my pens, and the beasts never need to know.", fx = { align = { light = 1 } } },

@@ -587,7 +587,7 @@ P:NPC {
   key = "rabine", id = TODO_NPC("Rabine Saturna"), name = "Rabine Saturna",
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "grave" }, values = { "careful", "loyal" },
-  notices = { "lore", "form" },
+  notices = { "lore", "form", "lock_shards" },
   impression = {
     first = "He does not believe in chance, and weighed what my coming meant.",
     third = "{name} met Rabine Saturna, majordomo to Keeper Remulos, who watches over everything in Nighthaven the Keeper does not.",
@@ -607,6 +607,8 @@ P:NPC {
       text = "A reader, good. The world remembers less than it thinks it does, and readers keep the rest." },
     { id = "n_form", cat = "form", when = { form = "travel" },
       text = "You came in at a run on four legs, so rest them. Nighthaven isn't going anywhere, and neither are its troubles." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That bag of yours is heavy with souls, and every one of them is another line on your account, warlock. I keep the ledger honestly, and I'd suggest you start paying down the debt before the Keeper reads it." },
   },
 
   start = "hello",
@@ -730,7 +732,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. I don't send collectors, mind; I simply wait, and sooner or later warlocks come here to pay it, whether they meant to or not." } },
+      lines = {
+        { id = "xlock_default", text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. I don't send collectors, mind; I simply wait, and sooner or later warlocks come here to pay it, whether they meant to or not." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. You have even brought a piece of the debt with you to Nighthaven, standing at your heel, so I will simply wait, and sooner or later warlocks come here to pay, whether they meant to or not." },
+      },
       choices = {
         { text = "Then I'll pay some of it back in Felwood.", next = "BACK", reply = "Then you'll find the ledger a little lighter, and the Circle a little warmer. Felwood will notice too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I owe the Circle nothing. The fel was there before me.", next = "BACK", reply = "It was, and someone summoned it. I'll leave the debt where it lies, but the druids won't forget.", fx = { align = { light = -1 } } },
@@ -928,7 +933,7 @@ P:NPC {
   key = "dendrite", id = TODO_NPC("Dendrite Starblaze"), name = "Dendrite Starblaze",
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "formal" }, values = { "balance", "dutiful" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_armor" },
   impression = {
     first = "There is a dry humour hiding under all that formality.",
     third = "{name} met Dendrite Starblaze, who guides young druids through the Cenarion Circle's first trials in Moonglade.",
@@ -947,6 +952,8 @@ P:NPC {
       text = "Ah, the Great Bear Spirit's gift sits well on you. Remember where you learned it." },
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
       text = "Not a druid, are you? You're welcome all the same, though the trials are another matter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "A druid wears the bear's shape and gives thanks for it, and you have wrapped yourself in a demon's hide and given nothing. The new druids are staring at you, so I'll ask you to keep it out of the trial grounds." },
   },
 
   start = "hello",
@@ -1030,7 +1037,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, but one leaves the world as it found it, and the other leaves Felwood." } },
+      lines = {
+        { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, but one leaves the world as it found it, and the other leaves Felwood." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders, and I can see the one at your side waiting for its next. Both are power, but one leaves the world as it found it, and the other leaves Felwood behind it." },
+      },
       choices = {
         { text = "Fair. I'll keep my demons well away from the grove.", next = "BACK", reply = "That's all we ask. The grove has a very long memory and very little patience for brimstone.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thanks or orders, the power's the same. Mine just obeys.", next = "BACK", reply = "Perhaps it does obey, for now. The bear has seen many obedient things turn on their masters.", fx = { align = { light = -1 } } },
@@ -1206,7 +1216,7 @@ P:NPC {
   bible = "bibles/nighthaven.md", role = "trainer", tier = "service",
   prejudice = { race = "Scourge", amount = 12, why = "a druid of balance who feels the Forsaken as a crack in the cycle of life and death" },
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
   impression = {
     first = "Balance, he says, is something you carry, not somewhere you go.",
     third = "{name} met Loganaar, the calm druid trainer of Nighthaven, who teaches that balance begins within.",
@@ -1225,6 +1235,8 @@ P:NPC {
   notice = {
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
       text = "You're no druid, but sit if you like. The bench is free, and so is the birdsong." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The scale tips green in you, warlock, further than your craft alone would tip it. Balance begins within, so I'd sit by the lake a while before you go back to Felwood." },
   },
 
   start = "hello",
@@ -1322,7 +1334,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Perhaps, if the warlock is honest about the weight on the scale. Most aren't, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." } },
+      lines = {
+        { id = "xlock_default", text = "Perhaps, if the warlock is honest about the weight on the scale. Most aren't, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, if the warlock is honest about the weight on the scale, and the creature at your side is a heavy weight indeed. Most aren't honest about it, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." },
+      },
       choices = {
         { text = "Then I'll be honest about my demons.", next = "BACK", reply = "Then you'll be rarer than most, and welcome on my bench. I'll ask after your demons now and then, and I'll expect a true answer.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Balance is for druids. I carry what I must.", next = "BACK", reply = "Everyone carries something, warlock, and I'll not argue that. Only be careful how much.", fx = { align = { light = -1 } } },
@@ -1410,7 +1425,7 @@ P:NPC {
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "patient" }, values = { "strength", "patience" },
   spiritSensitive = true,
-  notices = { "form" },
+  notices = { "form", "lock_shadow" },
   impression = {
     first = "It says strength that cannot wait is only noise.",
     third = "{name} sat before the Great Bear Spirit in Moonglade, an ancient presence that teaches patience as the root of strength.",
@@ -1423,6 +1438,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", place = "replace", when = { form = "bear" },
       text = "The spirit's gaze softens. You wear its shape, and it seems to know you, the way kin know kin." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The grass grew still when you came, little one, and the moonwell's surface does not show your face. The bear notices such things and waits, so sit, and we will see whether your shadow can learn patience too." },
   },
 
   start = "hello",
@@ -1496,7 +1513,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things. The fel you carry will ask and ask of you, little one, and the strength the bear teaches is the strength to answer no." } },
+      lines = {
+        { id = "xlock_default", text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things. The fel you carry will ask and ask of you, little one, and the strength the bear teaches is the strength to answer no." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things, like the one that sits beside you now. It asks and asks of you, little one, and I can see it asking even as we speak, and the strength the bear teaches is the strength to answer no." },
+      },
       choices = {
         { text = "Then I'll learn to tell my demon no.", next = "BACK", reply = "Then you will be stronger than your demon. The bear says no to hunger every winter, little one, and wakes thinner, and wiser.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon asks, and I answer as I please.", next = "BACK", reply = "For now, little one, and the bear hopes it stays so. Hungry things are patient in their own way.", fx = { align = { light = -1 } } },
@@ -1717,7 +1737,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "As plain as smoke, and they hate it, because they've flown over Felwood and seen what it does. I don't think it makes you a bad person, but I'd rather the old one didn't bite you, because then I'd have to apologise to you both." } },
+      lines = {
+        { id = "xlock_default", text = "As plain as smoke, and they hate it, because they've flown over Felwood and seen what it does. I don't think it makes you a bad person, but I'd rather the old one didn't bite you, because then I'd have to apologise to you both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "As plain as smoke, and with that one standing beside you, plainer still, so you can see them all turning their heads away. They've flown over Felwood and seen what it does, and I don't think it makes you a bad person, but I'd rather the old one didn't bite it, because then I'd have to apologise to everyone." },
+      },
       choices = {
         { text = "Then I'll keep my distance. Their fear is earned.", next = "BACK", reply = "Thank you, and they'll thank you too, in their way. Felwood taught them all to be wary.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is power. Your birds will have to cope.", next = "BACK", reply = "They'll cope, but they won't forget, and neither will I. Please be careful near them.", fx = { align = { light = -1 } } },
@@ -1900,7 +1923,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but I'll ask you to leave your imp at the bottom of the hill, because my riders eat imps." } },
+      lines = {
+        { id = "xlock_default", text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but I'll ask you to leave your imp at the bottom of the hill, because my riders eat imps." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but that one must wait at the bottom of the hill, because my riders are already looking at it with very hungry eyes." },
+      },
       choices = {
         { text = "I'll leave it below. The Earth Mother's welcome matters.", next = "BACK", reply = "Thank you, friend, and the Earth Mother will notice. The riders will too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My imp goes where I go, Bunthen.", next = "BACK", reply = "Then keep it close and quiet, friend, and we'll manage. The riders will forgive you sooner than they forgive it.", fx = { align = { light = -1 } } },

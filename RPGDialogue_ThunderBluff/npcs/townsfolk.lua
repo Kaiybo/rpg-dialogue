@@ -24,6 +24,10 @@ P:NPC {
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in your bag are colder than any coin in my vaults, and they hum when you set them down. I count wealth in herds and in friends, warlock, and I'm not sure what kind of wealth that is." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -100,6 +104,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I trust anyone the Horde trusts, and I count wealth in herds and friends besides, so a warlock with friends is a rich warlock. Make friends on the bluff, then, and the vault will be the least of what you keep here." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone the Horde trusts, and I count wealth in herds and friends besides, though I doubt your {pet} counts as either. Make friends on the bluff, then, and while you do, the vault will be glad if you keep that thing from breathing on the strongboxes." },
       },
       choices = {
         { text = "I'll make friends here, Chesmu.", next = "BACK", reply = "Then you'll find the tauren generous with their friendship, if slow to give it. Come back and tell me who you've met, and I'll count you rich.", fx = { align = { light = 1 } } },
@@ -185,7 +190,7 @@ P:NPC {
   key = "tal", id = TODO_NPC("Tal"), name = "Tal", title = "Wind Rider Master",
   bible = "bibles/townsfolk.md", role = "flightmaster", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient" },
-  notices = { "mount", "form" },
+  notices = { "mount", "form", "lock_shadow" },
   impression = {
     first = "He trusts the wind more than any map.",
     third = "{name} met Tal, the wind rider master of Thunder Bluff.",
@@ -202,6 +207,8 @@ P:NPC {
       text = "Running in the cheetah's shape, up all those stairs? The wind riders will happily save your legs, druid, and you can save your breath." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Bring your mount down off my tower, friend. The wind riders are proud, and they don't like sharing it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My wind riders turned their heads away when you came across the bridge, the way they turn from a storm cloud. They'll still fly you, but they'll fly fast, so hold on." },
   },
 
   start = "hello",
@@ -260,6 +267,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They'll carry you, but not what follows you, and they'll grumble about the smell of you the whole way to the Crossroads. Wind riders are honest beasts, and they don't care for anything that comes from the Twisting Nether." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not what follows you, and you can see them stamping and snorting now that it's come up onto the platform. Wind riders are honest beasts, and they don't care for anything that comes from the Twisting Nether, so send it off before you mount." },
       },
       choices = {
         { text = "I'll leave it behind. Calm skies for your beasts.", next = "BACK", reply = "Thank you, the beasts will fly gentler for it. Calm skies to you as well, warlock.", fx = { align = { light = 1 } } },
@@ -379,7 +387,7 @@ P:NPC {
   key = "ansekhwa", id = TODO_NPC("Ansekhwa"), name = "Ansekhwa", title = "Weapon Master",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "disciplined", "honorable" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He treats every blade and staff as a promise to protect someone.",
     third = "{name} met Ansekhwa, the weapon master of Thunder Bluff.",
@@ -393,6 +401,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid with a staff. Many of your kind forget that the staff is a weapon too, so let me teach you to use it properly, and you'll need fewer claws." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a ward of demon hide on your shoulders, if I'm not mistaken, and I'd rather you learned to guard yourself with a staff. A staff never shivers when you lean on it." },
   },
 
   start = "hello",
@@ -462,6 +472,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Every blade and staff is a promise to protect someone, and I'd teach you to keep that promise yourself instead of handing it to a demon. Learn the staff, and you'll find you lean on the demon less, which is good for everyone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Every blade and staff is a promise to protect someone, and your demon is standing there as if it means to make that promise for you. Learn the staff, and you'll find you lean on it less, which is good for everyone, though I doubt it will thank me for saying so." },
       },
       choices = {
         { text = "I'll learn the staff and keep my own promises.", next = "BACK", reply = "Then you'll be the kind of warlock the herd can trust. A promise kept by your own hand is worth more than any demon's.", fx = { align = { honor = 1 } } },
@@ -549,6 +560,10 @@ P:NPC {
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want arrows, I'd guess, and plenty of them. Hunters always run out of arrows first." },
   },
 
+  notice = {
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have a green shine in them, warlock, and you looked straight at the shadow where my nephew was hiding to frighten you. He's sulking about it now, and I'm trying not to laugh." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -625,6 +640,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Probably not, though a wand is a poor thing next to a long bow of Mulgore wood. My grandfather used to say the bow never betrays its archer, and I wonder whether you can say the same of your demon." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Probably not, though a wand is a poor thing next to a long bow of Mulgore wood. My grandfather said the bow never betrays its archer, and with that servant of yours watching me string this one, I wonder whether you can say the same of it." },
       },
       choices = {
         { text = "My demon is bound to me. It won't betray me.", next = "BACK", reply = "I hope so, for your sake. Still, my grandfather's bows never once needed binding, and I'll keep to my wood.", fx = { align = { order = 1 } } },
@@ -712,7 +728,7 @@ P:NPC {
   key = "kah", id = TODO_NPC("Kah Mistrunner"), name = "Kah Mistrunner", title = "Fishing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "patient" },
-  notices = { "profession" },
+  notices = { "profession", "lock_breath" },
   impression = {
     first = "He teaches fishing high above any water and finds that amusing.",
     third = "{name} shared a laugh with Kah Mistrunner, who teaches the tauren to fish from a mesa nowhere near any water.",
@@ -726,6 +742,8 @@ P:NPC {
   notice = {
     { id = "n_angler", cat = "profession", when = { profession = { name = "Fishing", min = 150 } },
       text = "You've the look of a proper angler now, the kind who checks the clouds before the water. Sit, and let's talk shop." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing slow and easy, like someone who could sit at the bottom of Stonebull Lake all day and never come up for air. I've spent forty years wishing I could follow the fish down there." },
   },
 
   start = "hello",
@@ -804,6 +822,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, which it will. Send your demon off for an afternoon, and you might find a tug on the line beats anything it whispers." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, though no fish will come near the bank while that thing is glowering into the water. Send your demon off for an afternoon, and you might find a tug on the line beats anything it whispers." },
       },
       choices = {
         { text = "I'll send it off and enjoy the quiet.", next = "BACK", reply = "Good, the quiet's half the reason I fish. You'll be surprised what the water tells you when nothing's whispering.", fx = { align = { light = 1 } } },
@@ -891,7 +910,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_stones" },
   impression = {
     first = "She is warm, bossy, and usually right.",
     third = "{name} was fussed over by Aska Mistrunner, who teaches cooking on Thunder Bluff and believes nobody eats enough.",
@@ -908,6 +927,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "profession", when = { profession = { name = "Cooking", min = 150 } },
       text = "I can smell spices on your sleeves, and they're good ones. You've been cooking properly, then, and I'm proud of you." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone at your belt? I could sear a kodo steak on it, I think, but it'd taste of brimstone afterward, so perhaps I'd better not." },
   },
 
   start = "hello",
@@ -1017,6 +1038,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "None of you do, because you're all too busy with books and soul shards to cook a decent meal. Learn to roast a kodo steak properly, and you'll find your spells come easier on a full stomach." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "None of you do, because you're all too busy with books and soul shards to cook, and I see your demon is no help, staring at my fire like it wants to climb in. Learn to roast a kodo steak properly, and you'll find your spells come easier on a full stomach." },
       },
       choices = {
         { text = "I'll cook for others too, once I've learned.", next = "BACK", reply = "That's the spirit, and you'll make friends faster than any spell could. Take the big ladle; the small one looks stingy.", fx = { align = { light = 1 } } },
@@ -1101,7 +1123,7 @@ P:NPC {
   key = "bena", id = TODO_NPC("Bena Winterhoof"), name = "Bena Winterhoof", title = "Alchemy Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "precise", "devout" },
-  notices = { "profession", "race" },
+  notices = { "profession", "race", "lock_soulstone" },
   impression = {
     first = "She has strong opinions about the Forsaken apothecaries and shares them readily.",
     third = "{name} heard Bena Winterhoof, alchemist of Thunder Bluff, insist that potions are for mending and not for poisons.",
@@ -1118,6 +1140,8 @@ P:NPC {
       text = "Your fingers are stained green at the tips. You've been grinding Silverleaf, I'd wager, and grinding it well." },
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken. You'll find my alchemy is meant for healing, so if you've come looking for the other kind, you want Spirit Rise." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, I can feel it, and no herb I grow could do what that stone does, which is exactly why I don't trust it. The Earth Mother lets the dead go, and a remedy that holds them back is no remedy at all." },
   },
 
   start = "hello",
@@ -1220,6 +1244,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "My advice is to buy them from someone else, because I'll not have my herbs feeding a demon's summoning. The Earth Mother grows things to heal and strengthen, and nothing I teach is meant to open a door to the Twisting Nether." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My advice is to buy them from someone else, because I'll not have my herbs feeding a demon's summoning, and certainly not with one sniffing at my drying racks. The Earth Mother grows things to heal and strengthen, so take your servant away from my bench, please." },
       },
       choices = {
         { text = "Fair. Your herbs should serve healing, not demons.", next = "BACK", reply = "Thank you, it's not often someone understands. Go to the orc alchemists in Orgrimmar, and leave my bench to the healers.", fx = { align = { light = 1 } } },
@@ -1330,7 +1355,7 @@ P:NPC {
   key = "nida", id = TODO_NPC("Nida Winterhoof"), name = "Nida Winterhoof", title = "Herbalism Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "gentle" }, values = { "patient", "devout" },
-  notices = { "profession", "form" },
+  notices = { "profession", "form", "lock_taint" },
   impression = {
     first = "She talks about plants as gifts that must be thanked for.",
     third = "{name} learned from Nida Winterhoof that every herb taken from Mulgore should be thanked for.",
@@ -1347,6 +1372,8 @@ P:NPC {
       text = "There's pollen on your boots and earth under your nails. You've been gathering properly, and I'm pleased." },
     { id = "n_tree", cat = "form", when = { form = { "travel", "cat" } },
       text = "A druid in a beast's shape. You must cover so much ground that way, and see so many plants. Tell me what grows where you've been." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The peacebloom in my basket wilted when you leaned over it, and I've only seen that near the Burning Blade's camps. Please keep your hands to yourself in my garden, warlock, until whatever's in you settles." },
   },
 
   start = "hello",
@@ -1416,6 +1443,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Plants don't fear anything, but they do wither near the wrong kind of power, and your demon is the wrong kind. Thank each herb you pick, as I do, and perhaps the earth will forgive what you carry." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Plants don't fear anything, but they do wither near the wrong kind of power, and you can see the leaves curling where your demon stands. Thank each herb you pick, as I do, and keep that thing off the soft ground, and perhaps the earth will forgive what you carry." },
       },
       choices = {
         { text = "I'll thank each one, Nida.", next = "BACK", reply = "Then perhaps the earth will forgive you, and so will I. Pick gently, and keep that demon away from my peacebloom.", fx = { align = { light = 1 } } },
@@ -1498,7 +1526,7 @@ P:NPC {
   key = "una_tb", id = TODO_NPC("Una"), name = "Una", title = "Leatherworking Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "practical", "devout" },
-  notices = { "profession" },
+  notices = { "profession", "lock_armor" },
   impression = {
     first = "Her hands never stop working while she talks.",
     third = "{name} met Una, the leatherworking trainer of Thunder Bluff.",
@@ -1512,6 +1540,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "profession", when = { profession = { name = "Leatherworking", min = 100 } },
       text = "Your fingers are hard where the needle pushes. You've been working leather, then, and working it properly." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Is that a demon's skin you're wearing over your robe? I can see it breathe, and no hide I've ever cured did that, so I'd like to know which beast gave it, if beast is even the word." },
   },
 
   start = "hello",
@@ -1590,6 +1620,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "A few, the orc warlocks mostly, who learned to work hides in the camps and never forgot it. A hide is a gift from the beast, though, and I'd ask you to respect that, even if your demon wouldn't." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A few, the orc warlocks mostly, who learned to work hides in the camps and never forgot it. A hide is a gift from the beast, though, and I'd ask you to keep your demon from pawing at my hides, because I can see it doesn't respect that gift at all." },
       },
       choices = {
         { text = "I'll respect the beast and its gift.", next = "BACK", reply = "Good, that's all I ask. The beast gave its life, and the least we can do is remember it.", fx = { align = { light = 1 } } },

@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   likesTone = "polite",
-  notices = { "soldier", "kit" },
+  notices = { "soldier", "kit", "lock_shards", "lock_steed" },
   impression = {
     first = "He reads every letter from the provinces twice and answers too few.",
     third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You stand like a soldier. Stormwind's army could use you, if you ever tire of the road. We all tire of it eventually." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been in a real fight, so get to the smiths in the Dwarven District before you go back out. That's an order, though a friendly one." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You're carrying a fortune in soul shards, {class}, and every one of them is a creature that'll never trouble the walls again. I've written that we need more like you and less of what you carry, and I'm still not sure which half I believe." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your mount leaves scorch marks on my parade ground, and the cavalry horses won't go near the place it stood. If I could field a hundred like it against the Blackrock, I'd put up with the smell." },
   },
 
   start = "hello",
@@ -76,6 +80,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The army has a place for anyone who'll stand on a wall and face the enemy, and I've seen warlocks hold a line at Lakeshire when the regulars broke. But I've also buried men who trusted a summoned thing to watch their backs, and I'll not have one near my gates." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The army has a place for anyone who'll stand on a wall, and I've seen warlocks hold a line at Lakeshire when the regulars broke. But I've buried men who trusted a summoned thing to watch their backs, so you'll understand why my sentries have had their eyes on yours since you passed the gate." },
       },
       choices = {
         { text = "Then I'll serve where you put me, General.", next = "BACK", reply = "Good. Discipline on the wall is all I ask, and the gates are where they stay.", fx = { align = { order = 1 } } },
@@ -404,7 +409,7 @@ P:NPC {
   key = "renzik", id = TODO_NPC("Renzik \"The Shiv\""), name = "Renzik \"The Shiv\"",
   bible = "bibles/city4.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "He speaks of himself by name, like a goblin selling a legend.",
     third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
@@ -418,6 +423,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Cute, but Renzik saw you come in, pal. Renzik sees everybody come in, 'cause that's the job, and the crown pays him real well not to miss nothin'." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Renzik sees you seein' him, pal, and that's a trick most folk don't have. Somethin' in your eyes catches the shadows Renzik's lot stand in, so do Renzik a favour and stop lookin' at the corners." },
   },
 
   start = "hello",
@@ -435,6 +442,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Renzik keeps a file on everybody, pal, and yours is real thin, which is either good news or very good acting, and Renzik pays a clerk by the page to find out which. The Lamb's cellar is the best-watched cellar in Stormwind, and the folk down there pretend not to know it, which suits everybody nicely." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Renzik keeps a file on everybody, pal, and yours just got a page longer, because Renzik's clerk charges extra to describe whatever that thing is. The Lamb's cellar is the best-watched cellar in Stormwind, so tell your friend to quit sniffing Renzik's boots, because those cost more than you do." },
       },
       choices = {
         { text = "Then keep the file thin. I'll give you no reason.", next = "BACK", reply = "That's what they all say, pal, and the thin ones are always the most expensive. Renzik's watchin'.", fx = { align = { order = 1 } } },
@@ -601,7 +609,7 @@ P:NPC {
   key = "samuelson", id = TODO_NPC("Major Samuelson"), name = "Major Samuelson",
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_shadow" },
   impression = {
     first = "He expects visitors to know exactly where they are standing.",
     third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
@@ -614,6 +622,8 @@ P:NPC {
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You carry yourself like you've been drilled. Good. Too many come in here like they're entering a tavern." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The torches by the throne dimmed when you came up the steps, and they don't do that for anyone else who walks into this Keep. You'll keep your hands where I can see them and your business brief." },
   },
 
   start = "hello",
@@ -631,6 +641,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Nobody is trusted in the Keep, and you least of all, because I've read the histories of what the Guardian Medivh's meddling brought down on this city. You'll stand where you're told and speak when you're spoken to, and you'll do it without anything at your heel." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nobody is trusted in the Keep, and you least of all, because you've walked a demon past three of my guards as if the histories of Medivh's meddling meant nothing. Send it away this instant, and then you'll stand where you're told and speak when you're spoken to." },
       },
       choices = {
         { text = "Understood, Major. I'll keep my hands in sight.", next = "BACK", reply = "Good. Keep them there, and we'll get along.", fx = { align = { order = 1 } } },
@@ -808,7 +819,7 @@ P:NPC {
   key = "thomas_miller", id = TODO_NPC("Thomas Miller"), name = "Thomas Miller",
   bible = "bibles/city4.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "hardworking" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
 
   barks = {
     { id = "b_bread", text = "Bread! Hot from the oven, or near enough!" },
@@ -825,6 +836,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look like you haven't eaten since Goldshire. Have a roll, go on, and then buy six." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My bread went flat in the basket the moment you stepped up, and I've baked long enough to know a cold draught when it costs me. You've a shadow that sits on you like a damp cellar, friend, and dough hates that." },
   },
 
   start = "hello",
@@ -842,6 +855,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, and I never ask what kept them below so long. I sell to the Cathedral at noon and the Lamb at dusk, and I'm fairly sure I'm the only man in the city who does both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, though I've never had one bring the thing along to stare at my loaves. I sell to the Cathedral at noon and the Lamb at dusk, and if yours keeps breathing on the crust like that, I'll not be selling these to either." },
       },
       choices = {
         { text = "Then I'll pay for my roll and keep your secret.", next = "BACK", reply = "Thank you, friend. Some secrets taste better with butter.", fx = { align = { honor = 1 } } },

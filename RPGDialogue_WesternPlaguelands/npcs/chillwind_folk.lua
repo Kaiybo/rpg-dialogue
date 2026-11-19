@@ -7,7 +7,7 @@ P:NPC {
   key = "lightspark", id = TODO_NPC("Argent Quartermaster Lightspark"), name = "Argent Quartermaster Lightspark", title = "The Argent Dawn",
   bible = "bibles/westernplaguelands.md", role = "vendor", tier = "service",
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "brisk" }, values = { "dutiful", "careful" },
-  notices = { "race", "status" },
+  notices = { "race", "status", "lock_shards" },
 
   impression = {
     first = "His ledgers are tidier than most people keep their weapons.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Another gnome this far north, and in this muck! We're a long way from home, you and I, and we're the only two in camp who can reach the bottom shelf without a stool." },
     { id = "n_dawn", cat = "status", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
       text = "Revered among the Dawn! I'll fetch you the good stock from the back, since you've more than earned it out there." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards at the least, by the clink of it, and my pen hand is twitching to write them in the ledger. The Dawn doesn't take shards in trade, of course, so I'd only be counting them out of habit." },
   },
 
   start = "hello",
@@ -97,7 +99,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. If you bring in Scourgestones and fight where the Dawn fights, your tally goes up like anyone's, and no knight at Light's Hope can argue with a ledger, though some have certainly tried." } },
+      lines = {
+        { id = "xlock_default", text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. If you bring in Scourgestones and fight where the Dawn fights, your tally goes up like anyone's, and no knight at Light's Hope can argue with a ledger, though some have certainly tried." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. I'll even note that {pet} stood politely by the counter, though I'd rather it stopped reading the ledger upside down, since no knight at Light's Hope can argue with a ledger and I'd hate for a demon to start." },
+      },
       choices = {
         { text = "Then let my deeds speak, and your ledger record them.", next = "BACK", reply = "They will, and I'll write every word of it down. That's what the pen is for.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I don't need the Dawn's trust, only its goods.", next = "BACK", reply = "The goods come with the trust, warlock, and the trust comes with the tally. Bring me Scourgestones and we'll talk.", fx = { align = { light = -1 } } },
@@ -222,7 +227,7 @@ P:NPC {
   key = "leonard_porter", id = TODO_NPC("Leonard Porter"), name = "Leonard Porter", title = "Leatherworking Supplies",
   bible = "bibles/westernplaguelands.md", role = "vendor", tier = "service",
   communities = { "chillwind_camp" }, temper = { "dour" }, values = { "craft", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He inspects every hide brought to him for plague.",
@@ -236,6 +241,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You've got a tanner's hands, friend, all stained to the wrist. Tell me you didn't touch anything that was already dead before you killed it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That isn't leather on your shoulders, and I know leather. Whatever beast that ward was skinned from never walked on this earth, and I'll not be asked to stitch it when it tears." },
   },
 
   start = "hello",
@@ -363,7 +370,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." } },
+      lines = {
+        { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because someone always does, and with that thing standing at your heel I half expect it to ask on your behalf. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, so tell your demon to stop eyeing my hides." },
+      },
       choices = {
         { text = "Fair rule. Demons don't belong on your racks.", next = "BACK", reply = "Thank you. My racks have enough trouble without a demon on them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Demon leather would be the toughest there is.", next = "BACK", reply = "It might, and it might bite you in the night as well. I'll stick to wolves.", fx = { align = { light = -1 } } },

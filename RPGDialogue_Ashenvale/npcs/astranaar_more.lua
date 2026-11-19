@@ -8,7 +8,7 @@ P:NPC {
   key = "thenysil", id = TODO_NPC("Sentinel Thenysil"), name = "Sentinel Thenysil",
   bible = "bibles/ashenvale.md", role = "soldier", tier = "quest",
   communities = { "astranaar" }, temper = { "measured" }, values = { "dutiful", "devout" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
   impression = {
     first = "She says little, but what she says tends to reach Darnassus.",
     third = "{name} met Sentinel Thenysil of Astranaar, who sends word of proven heroes to Tyrande Whisperwind.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "A human, this deep in Ashenvale. The High Priestess once had harsh words for your people, and she has softer ones now, so earn them." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
       text = "A priest of the Light. The Sisterhood would say we pray to the same dawn by different names, and some days I believe it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The cold off your pack tells me you have taken a great many souls lately, and I hope the satyrs of Satyrnaar gave up most of them. If so, you have done more for Ashenvale than half the travellers on this road." },
   },
 
   start = "hello",
@@ -111,6 +113,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "To kill them wherever they walk in Ashenvale, and the satyrs of Satyrnaar have given us plenty of practice. You are an ally of my people, so the order does not reach you, but if your servant slips its leash it will, and I will not be sorry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "To kill them wherever they walk in Ashenvale, and the satyrs of Satyrnaar have given us plenty of practice. Your servant stands well within reach of my glaive, ally, so it had best remember whose leash it wears, because I will not be sorry if it forgets." },
       },
       choices = {
         { text = "Fair. If it ever slips, cut it down.", next = "BACK", reply = "Fair enough, warlock, and I'll hold you to it. The Sentinels will not hesitate.", fx = { align = { order = 1 } } },
@@ -266,7 +269,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/ashenvale.md", role = "flightmaster", tier = "service",
   communities = { "astranaar" }, temper = { "wry" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
   impression = {
     first = "She flies her birds low over the trees and doesn't apologise.",
     third = "{name} met Daelyshia, the hippogryph master of Astranaar.",
@@ -280,6 +283,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Promise me you won't try to improve the harness. The last one of your folk who tried came down in Lake Iris." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You have a fever-heat on you that the birds do not like, and I would guess an imp has put its pact in your blood. Sit still and let the wind cool you, and they will carry you all the same." },
   },
 
   start = "hello",
@@ -351,6 +356,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not for being a warlock, but they'll throw anything that smells of the Legion, and your cloak reeks of it. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not for being a warlock, but they'll throw anything that smells of the Legion, and they've caught your servant's scent already. Hear them stamping in the roost? Dismiss it here on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
       },
       choices = {
         { text = "I'll dismiss it on the ground. The birds deserve that.", next = "BACK", reply = "Thank you, and they'll fly you gently for it. That's all I ask.", fx = { align = { honor = 1 } } },

@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught in an untruth in Nighthaven, and the Circle notices that as surely as it notices good work. Keep it in mind when you come to trade." },
   },
 
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? The druids will smell it, I'm afraid, because a warlock's stone always smells faintly of what it was made from. I'd keep it in your pack while you shop, and I'll pretend I didn't notice." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -98,7 +103,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's been done, I'm told, though not often, and never by talking. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." } },
+      lines = {
+        { id = "xlock_default", text = "It's been done, I'm told, though not often, and never by talking. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's been done, I'm told, though not often, and never by talking, and certainly never with a demon standing at the warlock's elbow in the grove. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." },
+      },
       choices = {
         { text = "Then I'll heal what I can, for the forest's sake.", next = "BACK", reply = "Then the forest will feel it, and the druids will notice in time. They'll grumble about your company all the while, but they'll notice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Forgiveness is their concern. I'll keep my company.", next = "BACK", reply = "That's your right, warlock, and the Circle won't force you. But I hope you'll think on what you carry.", fx = { align = { light = -1 } } },

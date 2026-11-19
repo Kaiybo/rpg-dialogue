@@ -469,7 +469,7 @@ P:NPC {
   key = "gazin", id = TODO_NPC("Gazin Tenorm"), name = "Gazin Tenorm",
   bible = "bibles/gazin.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
-  notices = { "paladin" },
+  notices = { "paladin", "lock_soulstone" },
   impression = {
     first = "He would sooner be out searching for his friend than praying.",
     third = "{name} met Gazin Tenorm at the Cathedral, a dwarf sick with worry for his friend Henze Faulk.",
@@ -484,6 +484,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN", maxLevel = 15 },
       text = "Rall sent ye? Ye're young, which is good, for young legs get places quicker. Now listen close." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone in yer pack? I can feel it pullin' at the room like a draught. Henze would've hated it, an' I'm no' sure I'd have refused it, an' that's what frightens me." },
   },
 
   start = "hello",
@@ -528,7 +530,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
+      lines = {
+        { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ye'd raise him, would ye, wi' that thing watchin' me from yer heel as ye ask? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' one look at yer demon tells me exactly whose shadow it'd be." },
+      },
       choices = {
         { text = "You're right. Some help costs more than it gives.", next = "BACK", reply = "Aye, it does, an' I'm glad ye see it. Henze would agree wi' me.", fx = { align = { light = 1 } } },
         { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer fel away from him.", fx = { align = { light = -1 } } },
@@ -666,7 +671,7 @@ P:NPC {
   key = "stephanie", id = TODO_NPC("Stephanie Turner"), name = "Stephanie Turner",
   bible = "bibles/stephanie.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "craft", "child" },
+  notices = { "craft", "child", "lock_stones" },
   impression = {
     first = "Thirty children wait on her, and she still tells me to eat.",
     third = "{name} met Stephanie Turner, who runs Stormwind's orphanage with her husband and never has enough linen.",
@@ -682,6 +687,8 @@ P:NPC {
       text = "You sew! Oh, if you've ever a spare afternoon, there are thirty children who'd love a coat that fits." },
     { id = "n_young", cat = "child", when = { maxLevel = 8 },
       text = "You look barely older than some of mine. Eat something. That's an order from someone's mother." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that one of your healthstones? I've heard they mend a wound in a breath, and I've heard what they're made from as well, so I'd thank you to keep it out of reach of little hands while you're here." },
   },
 
   start = "hello",
@@ -699,6 +706,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten? They're already pressed up against the window staring at that thing, and they'll be asking its name next and having nightmares for a week. These children have seen enough already, so I'd thank you to take your {pet} round the side of the building before they come out." },
       },
       choices = {
         { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", reply = "Thank you, love. They've seen far too much already.", fx = { align = { light = 1 } } },
@@ -883,7 +891,7 @@ P:NPC {
   key = "timmy", id = TODO_NPC("Lil Timmy"), name = "Lil Timmy",
   bible = "bibles/timmy.md", role = "child", tier = "service",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "kind" },
-  notices = { "pet", "wonder" },
+  notices = { "pet", "wonder", "lock_shadow" },
 
   barks = {
     { id = "b_kitten", text = "Kitten for a good home! She's a very good kitten and she hardly scratches!" },
@@ -903,6 +911,8 @@ P:NPC {
       text = "You've already got an animal! Does {pet} like cats? She's very small and she won't be any trouble... probably." },
     { id = "n_cat", cat = "wonder", place = "replace", when = { form = "cat" },
       text = "Look, a kitty, a big one! Are you her mum? No, you're not her mum, you're a person, and that's even better." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My kitten's hissing at you, and she never hisses, not even at the guards' dogs. She's looking at your shadow, I think, because it's moving when you're not." },
   },
 
   start = "hello",
@@ -920,6 +930,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't think so, she's hiding in my coat now, and she only does that when the guards' dogs go past. Dad says demons are bad and people who keep them are worse, but you don't look worse, you look tired, and maybe that's different." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't think so, she's gone all the way down inside my coat, and she's never done that even for the guards' dogs. Dad says demons are bad and people who keep them are worse, but yours is just staring, and you look tired, and maybe that's different." },
       },
       choices = {
         { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when demons go by.", fx = { align = { light = 1 } } },
@@ -1338,7 +1349,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "pious", "patient" },
   spiritSensitive = true,
-  notices = { "light", "form", "race" },
+  notices = { "light", "form", "race", "lock_armor" },
   impression = {
     first = "He has never tired of first light through the east window.",
     third = "{name} met Brother Joshua, a quiet priest trainer who teaches beside the Cathedral's altar.",
@@ -1354,6 +1365,8 @@ P:NPC {
       text = "Shadowform, at the altar? The altar doesn't mind, but I'll pray for you twice, once for each road you're walking." },
     { id = "n_dwarf_priest", cat = "light", when = { race = "Dwarf", class = "PRIEST" },
       text = "A dwarven priest. Your people came to the Light through our missionaries, and I've often thought you've kept it more plainly than we have, which I mean as praise." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You've a ward about you that drinks shadow, and I can see it from here, like a pane of dark glass. It's a strange thing to wear in a house of the Light, friend, though I suppose you know better than I what you need shielding from." },
   },
 
   start = "hello",
@@ -1414,7 +1427,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." } },
+      lines = {
+        { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It hears everyone, and I've never once seen it turn its face away, though I'll confess I'm finding it hard not to turn mine from the thing beside you. What you bind doesn't decide that, friend, but what you do with it does, and I pray you'll send it away before you kneel." },
+      },
       choices = {
         { text = "Then I'll bind them only to keep worse things away.", next = "BACK", reply = "That's a good reason, if it stays the reason. I'll pray it does.", fx = { align = { light = 1 } } },
         { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", reply = "Then it will watch, and so will I, with hope.", fx = { align = { light = -1 } } },
@@ -1682,7 +1698,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "restless" }, values = { "pious", "curious" },
   spiritSensitive = true,
-  notices = { "light", "form" },
+  notices = { "light", "form", "lock_pact" },
   impression = {
     first = "I have never seen a priest so unable to keep still.",
     third = "{name} met Brother Benjamin, a restless priest trainer who thinks best while walking the Cathedral's halls.",
@@ -1696,6 +1712,8 @@ P:NPC {
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Oh, now that's interesting. Does it feel cold, inside it? Joshua won't ask, but I will, so walk with me and tell me." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed, friend, as if you'd a fever, and Brother Joshua would say it's the imp's pact in your blood. Does it feel like heat, or does it feel like something else's heartbeat? I'm not supposed to ask, I know." },
   },
 
   start = "hello",
@@ -1713,6 +1731,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Does it hurt, for a start, and does the demon talk back, and since yours is right here watching me, does it ever say anything true? Brother Joshua says curiosity is how Morbent Fel and his like began, but a priest who won't ask questions can't answer them either, so I'll keep my eyes on it and keep asking." },
       },
       choices = {
         { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
@@ -1835,7 +1854,7 @@ P:NPC {
   key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
   bible = "bibles/benedictus.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
-  notices = { "light", "race", "form" },
+  notices = { "light", "race", "form", "lock_taint" },
   impression = {
     first = "His certainty about everything stays with me afterward.",
     third = "{name} met Brother Crowley, the Scarlet Crusade's emissary in the Cathedral's lower halls, who recruits the brave for Lordaeron.",
@@ -1852,6 +1871,8 @@ P:NPC {
       text = "A servant of the Light. You'll have heard of the Crusade, then, and most of what you've heard is lies spread by the plague's own servants." },
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
       text = "An elf, in Stormwind's catacombs. The Crusade asks only that you hate the dead as much as we do." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel is on your skin, {class}, as plain as a brand, and in Tyr's Hand they'd have you on the pyre before you'd finished your first sentence. Stand further from the altar while you speak to me." },
   },
 
   react = {
@@ -1888,6 +1909,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The Crusade burns your kind on the same pyre as the dead, and Grand Inquisitor Isillien would say I'm being generous telling you so. Lordaeron fell because men bargained with powers they couldn't hold, and you carry that same bargain in your satchel." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Crusade burns your kind on the same pyre as the dead, and it would burn that creature first, while you watched. Lordaeron fell because men bargained with powers they couldn't hold, and you have the gall to walk such a bargain into the house of the Light at your heel." },
       },
       choices = {
         { text = "Then the Crusade and I will keep our distance.", next = "BACK", reply = "That would be best for both of us. Stay away from the north.", fx = { align = { light = 1 } } },

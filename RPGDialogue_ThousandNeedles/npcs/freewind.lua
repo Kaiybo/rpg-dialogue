@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "soldier", tier = "major",
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_eyes" },
 
   impression = {
     first = "Underneath, he is worried about a brother he hasn't written to.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "The Galak marked you. Let it heal, then remember it the next time you see their banners." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of the plains, this far into the Needles. Stand with us on the mesa; it is good to see more horns." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "How many souls are rattling in that pack, warlock? Count them before you go down the canyon, and count them again when you come back, so I know how many the Galak are missing." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that green shine that sees what hides, and I'd put you on the cliff watch tonight if I could. The Galak scouts crawl in the shadows below us, so tell me if any of them are closer than they look." },
   },
 
   start = "hello",
@@ -127,7 +131,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." } },
+      lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think power that answers to no spirit is a dangerous thing, and that one at your heel is watching the canyon from my lookout like it owns the place. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so let it watch the canyon and not my braves." } },
       choices = {
         { text = "My power is a weapon. I aim it where it's needed.", next = "BACK", reply = "Aim it well, then, and aim it below, because the Galak have earned it and my people have not.", fx = { align = { light = -1 } } },
         { text = "I understand your caution. I'll earn your trust.", next = "BACK", reply = "Then earn it on the canyon floor. I can see most of it from this ledge, and I will be watching.", fx = { affinity = 1, align = { light = 1 } } },
@@ -435,7 +439,7 @@ P:NPC {
   key = "rau", id = TODO_NPC("Rau Cliffrunner"), name = "Rau Cliffrunner",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "freewind" }, temper = { "intent" }, values = { "curious", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
 
   impression = {
     first = "He has a scholar's patience, and a scholar's hunger too.",
@@ -452,6 +456,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "One of the Circle's students. Then you'll understand why moonwell water is never carried lightly." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That stone in your pack is warm, and it smells like the flame the centaur keep around the Cloven Hoof. Tell me it isn't the same kind of fire, warlock, because I've been hoping that was only centaur magic." },
   },
 
   react = {
@@ -501,7 +507,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." } },
+      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think I don't know, and that bothers me more than any answer would. Your servant knows the feel of a summoned thing better than either of us, and I notice it keeps turning toward the Grimtotem hold, so I'd value its opinion as well as yours." } },
       choices = {
         { text = "I'll look. Knowledge serves us all.", next = "BACK", reply = "Thank you, and I will write down whatever you tell me, with your name beside it, if you like.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some questions are better left unasked, Rau.", next = "BACK", reply = "Perhaps, but I have never been good at leaving questions alone. My mother says I asked the lift operator why the rope was brown before I could walk.", fx = { align = { light = 1 } } },
@@ -881,7 +887,7 @@ P:NPC {
   key = "thalia", id = TODO_NPC("Thalia Amberhide"), name = "Thalia Amberhide",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "freewind" }, temper = { "bitter" }, values = { "loyal", "stern" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "Her fingers never stop finding the cord for her lost friend.",
@@ -898,6 +904,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're tauren, so you know the Grimtotem should be family. That's what makes it worse." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You carry the dark with you, and today I find I don't mind it, because I've been sitting in the dark since Arnak took Lakota. Sit down, if you like, because the shadows here are already mine." },
   },
 
   start = "hello",
@@ -977,7 +985,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, and that's what frightens me, because I want Arnak dead more than I want anything good. Tell me I'm wrong to think of it, and I'll believe you, because I want to believe someone." } },
+      lines = { { id = "xlock_default", text = "No, and that's what frightens me, because I want Arnak dead more than I want anything good. Tell me I'm wrong to think of it, and I'll believe you, because I want to believe someone." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, and that's what frightens me, because when your demon looks at me, I think it can see how much I want Arnak dead. Tell me I'm wrong to think of it, and I'll believe you, because I want someone to tell me I'm still better than that." } },
       choices = {
         { text = "You're not wrong. Let your anger burn.", next = "BACK", reply = "I hear you, and I want to, but I am afraid of what I will become if I let it burn too long.", fx = { align = { light = -1 } } },
         { text = "Don't go down that road. Hold to the Earth Mother.", next = "BACK", reply = "Thank you, I needed someone to say that, and I will try to hold on, even when it is very hard.", fx = { affinity = 1, align = { light = 1 } } },

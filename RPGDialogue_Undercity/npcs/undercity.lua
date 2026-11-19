@@ -1465,7 +1465,7 @@ P:NPC {
   key = "norman", id = TODO_NPC("Innkeeper Norman"), name = "Innkeeper Norman",
   bible = "bibles/undercity.md", role = "innkeeper", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "hospitable" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_shadow" },
   impression = {
     first = "Nobody takes anyone's chair down there, and he sees to it kindly.",
     third = "{name} found a chair at Innkeeper Norman's inn by the Trade Quarter, one of the few homely corners of the Undercity.",
@@ -1485,6 +1485,8 @@ P:NPC {
       text = "A living guest! I keep bread back for your sort, and it's fresh, too. Well, fresh-ish, but it's the freshest in the Undercity." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Bits of you are missing. Oh, wait, you're alive, it's just armour; sit down and I'll find you something." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My candles always dip when your lot comes in, and I've stopped asking why. Sit in the corner where the shadows are already deep, and nobody will notice the difference." },
   },
 
   start = "hello",
@@ -1679,6 +1681,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "There's a place for it, on the floor beside your chair, and if it scorches the upholstery we'll be having words. I've nothing against demons in principle, only against what they do to good leather." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "There's a place for it on the floor, and you'll find the floor is stone, which is the only thing down here your demon can't scorch. I've nothing against it in principle, only against what it does to leather." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "There's a place for it on the floor beside your chair, though I see it's already decided it would prefer the chair. I've nothing against demons in principle, only against what they do to good leather, so if {pet} marks the upholstery we'll be having words." },
       },
       choices = {
         { text = "It'll sit on the floor, as you say.", next = "BACK", reply = "Thank you, and my upholstery thanks you too. I'll find it a cushion, of sorts.", fx = { affinity = 1, align = { order = 1 } } },

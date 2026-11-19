@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "bloodhoof" }, temper = { "calm" }, values = { "wise", "loyal", "kind" },
   likesTone = "polite",
-  notices = { "race", "form" },
+  notices = { "race", "form", "lock_shadow", "lock_soulstone" },
   impression = {
     first = "He would rather talk his enemies down than fight them.",
     third = "{name} met Baine Bloodhoof, Cairne's son, who keeps Bloodhoof Village and the plains below the bluffs.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "One of the Windshapers. My father welcomed your people, and I'll do no less. Ask if you need anything of Mulgore." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc, so far from the red city. Your Warchief helped bring my people here, and we remember that." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My father's kodo lowed and backed into its pen when you came up the path, and it has never once done that for an orc. Whatever shadow you carry, keep it off the wheat, because the farmers here can't afford a field gone grey." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, haven't they, because I can feel it on you like a tether. My father would say a spirit belongs to the Earth Mother and no one else, so be very sure of the hand that holds that stone." },
   },
 
   react = {
@@ -160,6 +164,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They will bear it because my father asks them to, but don't mistake that for welcome. Our hunters have heard what the Burning Blade did in Durotar, and a tauren who sees your imp will reach for a spear before he remembers we are allies, so keep it close and keep it quiet." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They will bear it because my father asks them to, and I can already see two braves by the lodges with their hands on their spears. Our hunters know what the Burning Blade did in Durotar, so keep your servant close beside you and quiet while you walk among them." },
       },
       choices = {
         { text = "I'll keep it leashed. Your people's peace matters.", next = "BACK", reply = "Thank you, that will make it easier on everyone. My father's word holds, but my people's nerves are another matter.", fx = { align = { light = 1 } } },
@@ -455,7 +460,7 @@ P:NPC {
   key = "zarlman", id = TODO_NPC("Zarlman Two-Moons"), name = "Zarlman Two-Moons",
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "serene" }, values = { "wise", "patient" },
-  notices = { "class", "affliction" },
+  notices = { "class", "affliction", "lock_shards" },
   impression = {
     first = "He speaks of the spirits as if they were restless children.",
     third = "{name} met Zarlman Two-Moons, spiritual leader of Bloodhoof Village and keeper of the rite of vision.",
@@ -474,6 +479,8 @@ P:NPC {
       text = "You walk close to the spirits already; I can see it. Don't be afraid of what they show you." },
     { id = "n_ghostly", cat = "affliction", place = "before", when = { resSick = true },
       text = "You've come back from the spirit's road not long ago, and it leaves a mark. Rest, and it fades." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The spirits of this village are crowding away from your bag, because there are souls in those shards and they can hear them weeping. I won't ask where you took them from, but I will sing for them tonight." },
   },
 
   start = "hello",
@@ -533,6 +540,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They sensed it before you crested the hill, and all of them have gone quiet and watchful. Fel magic is a wound, not a power, and I fear the spirits will never forgive what walks beside you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They sensed it before you crested the hill, and now that it stands before me I can feel them pulling away like water from hot stone. Fel magic is a wound, not a power, and I fear the spirits will never forgive the thing that walks beside you." },
       },
       choices = {
         { text = "Then I'll keep it far from the village, elder.", next = "BACK", reply = "Thank you, child, and the spirits will be quieter for it. They have long memories, and short tempers for fel.", fx = { align = { light = 1 } } },
@@ -637,7 +645,7 @@ P:NPC {
   prejudice = { race = "Scourge", amount = 8, why = "The Earth Mother's cycle ends in rest; he finds the walking dead an offence against it, though he is too kind to say so loudly." },
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_steed" },
   impression = {
     first = "He reads the weather from his aching knees and calls it progress.",
     third = "{name} met Harken Windtotem, who keeps watch over what flies above Mulgore, which lately means far too many swoops.",
@@ -654,6 +662,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter? Then you'll have a better eye for birds than most, so use it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse of yours left smoking prints in the grass all the way from the road, and the swoops scattered out of the sky when it passed. I've watched Mulgore's sky for years, and I've never seen birds flee a horse before." },
   },
 
   start = "hello",
@@ -738,6 +748,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "My knees ache whenever a storm is coming, and they've ached since you walked up, so you can draw your own conclusions. The orcs have told us what the Burning Legion made of them once, and nobody in Bloodhoof wants its servants anywhere near our sky." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My knees ache whenever a storm is coming, and with that creature standing beside you they ache worse than they have in years. The orcs have told us what the Burning Legion made of them, and I'd ask you to keep your servant well back from my village." },
       },
       choices = {
         { text = "I'll keep it leashed, elder. Mulgore deserves that.", next = "BACK", reply = "Thank you, and my old knees thank you too. Mulgore's sky has had enough trouble this year without that.", fx = { align = { order = 1 } } },
@@ -820,7 +831,7 @@ P:NPC {
   key = "maur", id = TODO_NPC("Maur Raincaller"), name = "Maur Raincaller",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "solemn" }, values = { "brave" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "He tracks a beast the young hunters only whisper about.",
     third = "{name} met Maur Raincaller, a solemn tauren hunter on the trail of the great beast Mazzranache.",
@@ -835,6 +846,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something out in the grass had a go at you. Get mended before you go after anything bigger." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide you've wrapped yourself in didn't come off any beast in Mulgore, because it moves when you don't. I've skinned a lot of things, and I'd not want to meet whatever grew that." },
   },
 
   start = "hello",
@@ -901,6 +914,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, because the beasts smell it and run, and Mazzranache is cunning enough to hide without any help from you. If you want to be useful, hunt the swoops and prairie wolves along the trail while I watch for its tracks, and keep your demon close beside you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, because the beasts smell it and run, and every swoop on this ridge has fled from your {pet} already. Hunt the prairie wolves along the trail while I watch for Mazzranache's tracks, and keep that thing close enough that it can't scare off the rest." },
       },
       choices = {
         { text = "I'll send it away while you hunt, Maur.", next = "BACK", reply = "Thank you, the trail will be quieter for it. Hunt the swoops, and I'll watch for tracks.", fx = { align = { honor = 1 } } },
@@ -993,7 +1007,7 @@ P:NPC {
   key = "mull", id = TODO_NPC("Mull Thunderhorn"), name = "Mull Thunderhorn",
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "worried" }, values = { "devout", "protective" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
   impression = {
     first = "He finds the wells no better each morning, and walks again tomorrow.",
     third = "{name} met Mull Thunderhorn, who grieves for the sacred wells of Mulgore poisoned by the Venture Company's machines.",
@@ -1008,6 +1022,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're of the plains, so the wells are yours too. Help me cleanse them." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a sourness on you, like the oil the goblins leave floating on my wells, and the elders would call it fel. I'll ask you not to drink from the sacred water, for its sake and for yours." },
   },
 
   start = "hello",
@@ -1077,6 +1093,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, the goblins did it with their machines and their oil, I'm sure of that much. But I've learned to fear any power that takes more than it gives, and I'd ask you to think of the wells when you call on yours." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, the goblins did it with their machines and their oil, I'm sure of that much. But your demon is standing close enough to my well that I can smell sulphur over the water, and I'd ask you to move it back before it spoils the one clean thing we have." },
       },
       choices = {
         { text = "I'll take only what I need, Mull.", next = "BACK", reply = "Then I'll trust you, and the wells will too. That's all I'd ask of anyone.", fx = { align = { light = 1 } } },
@@ -1157,7 +1174,7 @@ P:NPC {
   key = "ahab", id = TODO_NPC("Ahab Wheathoof"), name = "Ahab Wheathoof",
   bible = "bibles/mulgore.md", role = "farmer", tier = "quest",
   communities = { "bloodhoof" }, temper = { "anxious" }, values = { "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
   impression = {
     first = "He cannot go two sentences without asking after his dog Kyle.",
     third = "{name} met Ahab Wheathoof, a kindly rancher by the lake near Bloodhoof whose dog Kyle has a habit of running off.",
@@ -1171,6 +1188,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "That's a fine companion you have. Keep it close, and don't ever let it wander off." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Kyle would've barked himself hoarse at you, I think, because every dog I ever had growled at the dark, and you've got a little of it hanging on you. He's a good boy, though, so if you find him, maybe let someone else bring him home." },
   },
 
   start = "hello",
@@ -1237,6 +1256,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Oh, no, please don't send it after him, because Kyle frightens easily and he'd never come home again. He'll come for tender wolf meat if anyone feeds him, so if you see him, give him a bite and he'll trot home on his own." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, no, please, and please don't let it look at the trail like that, because Kyle frightens easily and he'd never come home again. He'll come for tender wolf meat if anyone feeds him, so give him a bite if you see him, and keep your demon well away." },
       },
       choices = {
         { text = "I'll find him gently. No demons, I promise.", next = "BACK", reply = "Thank you, ever so much. He's a gentle soul, and he'd never forgive me if a demon found him.", fx = { align = { light = 1 } } },
@@ -1326,7 +1346,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/mulgore.md", role = "innkeeper", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_stones" },
   impression = {
     first = "He swears folk come down from the bluff for his stew.",
     third = "{name} rested at Innkeeper Kauth's inn in Bloodhoof Village, where nobody leaves without a bowl of stew.",
@@ -1350,6 +1370,8 @@ P:NPC {
       text = "You look worn thin. Sit by the fire until the color comes back." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "The village brew is stronger than it tastes, and most learn that once." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a warlock's healthstone in your pack? It's warm as a fresh loaf, but I'd sooner you mended yourself with my stew, because at least I know what went into that." },
   },
 
   start = "hello",
@@ -1439,6 +1461,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Your imp gets a bowl when the Earth Mother herself comes to supper and asks for one. I don't feed things from the Twisting Nether, friend, so it can wait outside the door and you can eat for the both of you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No bowl, friend, and I'll thank you to stop it sniffing at my stewpot, because I don't feed things from the Twisting Nether. It can wait outside the door until the Earth Mother herself comes to supper, and you can eat for the both of you." },
       },
       choices = {
         { text = "Fair. It waits outside, and I'll eat its share.", next = "BACK", reply = "Ha, that's the spirit, and I'll pile it high. The imp can sulk in the cold.", fx = { align = { light = 1 } } },
@@ -1558,7 +1581,7 @@ P:NPC {
   key = "kaga", id = TODO_NPC("Kaga Wildhoof"), name = "Kaga Wildhoof",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "brave" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She has met more friends at campfires than in any town.",
     third = "{name} shared a fire with Kaga Wildhoof, a wandering tauren camped outside Bloodhoof who teaches the art of a good camp.",
@@ -1572,6 +1595,8 @@ P:NPC {
   notice = {
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "You work hides? Then you'll want to learn the tent. A night by a fire with a tent close by is a night well spent." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Come closer to the fire, because you've the chill on you that warlocks always carry, like the cold that sits in a cave mouth. Every one I've met on the wandering roads sat nearer my fire than anyone else." },
   },
 
   start = "hello",
@@ -1638,6 +1663,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I share it with anyone who sits quietly and tells a good story, and I've met a warlock or two on the wandering roads. The Chief would frown at me, but I've found the folk who carry dark things often want a warm fire more than anyone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I share it with anyone who sits quietly and tells a good story, and your {pet} may sit too, if it keeps its eyes off my pack. The Chief would frown at me, but I've found that even the dark things folk carry like a warm fire more than they'll admit." },
       },
       choices = {
         { text = "Then I'll tell you a story and keep the demon quiet.", next = "BACK", reply = "Then you're welcome here, and so's your story. The demon can listen from the dark.", fx = { align = { light = 1 } } },

@@ -13,7 +13,7 @@ P:NPC {
   key = "devrak", id = TODO_NPC("Devrak"), name = "Devrak", title = "Wind Rider Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "crossroads" }, temper = { "gruff" }, values = { "dutiful", "proud" },
-  notices = { "travel", "class" },
+  notices = { "travel", "class", "lock_steed" },
   impression = {
     first = "He knows which routes the harpies like to watch.",
     third = "{name} met Devrak, the wind rider master of the Crossroads.",
@@ -25,6 +25,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, and your beast is eyeing my wind riders like they're dinner. Keep it close, because they bite back." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Keep that horse with the burning hooves well back from the roost, because my wind riders are pacing and one has already bitten through its tether. They'll fly you, but they won't breathe the same air as that thing." },
   },
   start = "hello",
   nodes = {
@@ -111,6 +113,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They fear anything that smells of the Twisting Nether, and they're right to, because a frightened wind rider throws its rider over the Barrens. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They fear anything that smells of the Twisting Nether, and you've brought it right up to their perches, so look how they're pulling at their tethers. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
       },
       choices = {
         { text = "I'll dismiss it before I fly. They've earned that.", next = "BACK", reply = "Then you'll find them gentle as lambs, and they'll carry you anywhere you like. Thank you for that, warlock.", fx = { align = { light = 1 } } },
@@ -177,7 +180,7 @@ P:NPC {
   key = "barg", id = TODO_NPC("Barg"), name = "Barg", title = "General Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shadow" },
   impression = {
     first = "He thinks travelers without water are fools, and he is probably right.",
     third = "{name} bought supplies from Barg, who keeps the general goods at the Crossroads.",
@@ -189,6 +192,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 100 } },
       text = "That purse of yours is empty. The quilboar sometimes carry coin, if you're not too squeamish to look." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The water in my barrels goes still and cold whenever you stand near them, like a pond with a snake in it. I don't know what you are under that robe, but you'll buy your water quick and take it with you." },
   },
   start = "hello",
   nodes = {
@@ -275,6 +280,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I don't know and I don't want to know, but I know you do, because demons don't carry packs. Buy your own water and bread, and keep that thing out of my sacks, because the last imp in here got into the flour and I'm still finding sooty handprints." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know and I don't want to know, but I see it's already got its nose in my sacks. Buy your own water and bread and call that thing off, because the last demon in here got into the flour and I'm still finding sooty handprints." },
       },
       choices = {
         { text = "I'll keep my imp out of your sacks.", next = "BACK", reply = "Thank you, because I'm still sweeping flour out of the corners. Keep it out, and you'll always be welcome here.", fx = { align = { order = 1 } } },
@@ -344,7 +350,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "cheerful" }, values = { "curious", "shrewd" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shards" },
   impression = {
     first = "She knows which powder a spellcaster needs before they ask.",
     third = "{name} met Hula'mahi, the troll who sells reagents and herbs at the Crossroads.",
@@ -361,6 +367,8 @@ P:NPC {
       text = "You smell of mageroyal and briarthorn, mon. If you be picking in the Barrens, watch for the snakes around the oases." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman, good. You be needing ankhs soon enough, mon, because the spirits only bring you back when you bring the right gift." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ah, the shards in your bag be singing, mon, a thin cold song like ghosts in a jar. Hula'mahi sell powders for every spell the loa allow, but keep those away from my herbs, because they turn the leaves black." },
   },
   start = "hello",
   nodes = {
@@ -451,6 +459,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, mon, and I wouldn't if I could, because the loa don't like trade with things from outside the world. I'll sell you herbs and powder for the spells you cast, and the soul shards you carry be your own business, but don't you go asking me where to find more." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, mon, and that thing at your heel be making the loa nervous just by standing there with its eyes on my shelves. I'll sell you herbs and powder for your spells, and your shards be your own business, but keep your servant from touching the jars." },
       },
       choices = {
         { text = "Fair. The loa deserve respect, even from me.", next = "BACK", reply = "That be wise of you, mon, and the loa remember who respect them. Buy your herbs, and we stay friends.", fx = { align = { light = 1 } } },
@@ -536,7 +545,7 @@ P:NPC {
   key = "uthrok", id = TODO_NPC("Uthrok"), name = "Uthrok", title = "Bowyer & Gunsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "blunt" }, values = { "practical", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "He has strong opinions on whether bows or guns are better.",
     third = "{name} met Uthrok, the bowyer and gunsmith of the Crossroads.",
@@ -547,6 +556,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, good. You'll want more arrows than you think out here, because the Barrens are wide and the beasts are fast." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There's a shell of shadow on you, drinking up the light the way dry ground drinks rain. A good bullet would punch right through it, I'd wager, but I'd rather sell you the gun than test it." },
   },
   start = "hello",
   nodes = {
@@ -633,6 +644,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Not many, because a wand does most of what you want and the demon does the rest. The ones who come back are the ones whose demon got sent home in the middle of a fight, and they always want something that shoots, fast." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Not many, because a wand does most of the work and the demon does the rest, and yours looks pretty pleased about that. The ones who come back are the ones whose demon got sent home in the middle of a fight, so ask {pet} how long it plans to stay and buy accordingly." },
       },
       choices = {
         { text = "I'll face my enemies myself, demon or no demon.", next = "BACK", reply = "Good, because the demon won't always be there. A blade in your hand never gets sent home.", fx = { align = { honor = 1 } } },
@@ -708,7 +720,7 @@ P:NPC {
   key = "omusa", id = TODO_NPC("Omusa Thunderhorn"), name = "Omusa Thunderhorn", title = "Wind Rider Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "taurajo" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "travel", "weary" },
+  notices = { "travel", "weary", "lock_soulstone" },
   impression = {
     first = "He calls each of his wind riders by name.",
     third = "{name} met Omusa Thunderhorn, the wind rider master of Camp Taurajo.",
@@ -719,6 +731,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look tired and torn, friend. Let a wind rider carry you for a while, the way the herd carries its weary, and rest your legs." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a stone with a soul waiting in it, and I can feel it like a calf crying in a pen far off. My people sing the dead home to the Earth Mother, and I don't like to think of one kept in a pocket." },
   },
   start = "hello",
   nodes = {
@@ -785,6 +799,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and you can see it, because every one of them has backed to the far end of the platform since your {pet} came up the path. My riders will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
       },
       choices = {
         { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", reply = "They do, and they'll thank you in their own way. Fly calm, and the wind will be kind.", fx = { align = { light = 1 } } },
@@ -968,6 +983,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because they've got more sense than most orcs had back when the Horde drank what the Legion poured for it. Keep the thing dismissed while you fly, and I'll not ask what you do with it on the ground." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because they've got more sense than most orcs had when the Horde drank what the Legion poured for it, and that thing beside you is the reminder. I see the shame of it every time it looks at me, so dismiss it before you fly, and I'll not ask what you do with it on the ground." },
       },
       choices = {
         { text = "I'll dismiss it. The beasts deserve that much.", next = "BACK", reply = "Good, and they'll carry you for it. That's all I ask of any warlock.", fx = { align = { light = 1 } } },
@@ -1036,7 +1052,7 @@ P:NPC {
   key = "ironzar", id = TODO_NPC("Ironzar"), name = "Ironzar", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   temper = { "smooth" }, values = { "greedy", "shrewd" },
-  notices = { "purse", "kit" },
+  notices = { "purse", "kit", "lock_shadow" },
   impression = {
     first = "Every blade has a story, and every story raises the price.",
     third = "{name} met Ironzar, the goblin weaponsmith of Ratchet.",
@@ -1047,6 +1063,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 100000 } },
       text = "Now that's a heavy purse, friend, and I can hear it jinglin' from here. Let me show you the good stock, the stuff I keep in the back for valued customers." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's darker than the one under my awning, friend, and it's making my blades look dull, which is bad for business. Stand a little to the left, would you, where the customers can't see it." },
   },
   start = "hello",
   nodes = {
@@ -1133,6 +1151,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive and still a customer, as far as I know." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because demons get sent home at the worst moment, friend, and yours looks like it'd enjoy watching you find out. This dagger came off a ship from Booty Bay, and every warlock who bought one is still alive and still a customer, with or without his demon." },
       },
       choices = {
         { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", reply = "A fair customer, pal, and I'll remember you for it. That dagger'll serve you well.", fx = { align = { honor = 1 } } },

@@ -594,7 +594,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "pious", "dutiful" },
   spiritSensitive = true,
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "His warnings are kindly meant, though the scowl hides it.",
@@ -613,6 +613,8 @@ P:NPC {
       text = "A dwarf o' the Light, an' standin' straight, too. Good, for there's nae sense in prayin' hunched." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A fighter wi' nae prayer in ye at all, by the look. Ye'll want one some day, when the healer's out o' reach, so learn a short one now." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles on the altar bent away from ye when ye walked in, all at once, like grass in a wind. I'll no' bless ye, for the Light flinches from what's on ye, but my door's open if ye ever want tae talk about that road back." },
   },
 
   start = "hello",
@@ -667,7 +669,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few warlocks ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." } },
+      lines = { { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few warlocks ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There's always a road back, but it's narrow an' steep, an' I doubt yer demon would let ye take the first step wi'out draggin' at yer heel. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me, though that thing'll have tae stay behind at the start." },
+      },
       choices = {
         { text = "Perhaps someday. I'll remember the offer, Theodrus.", next = "BACK", reply = "I'll hold ye tae it, an' I'll be waitin', for I've walked that road wi' a few before, an' some o' them made it home.", fx = { align = { light = 1 } } },
         { text = "I've no need of a road back. I like where I am.", next = "BACK", reply = "Then I'll no' push ye, but the offer stands, for I've seen warlocks change their minds at the very end o' things.", fx = { align = { light = -1 } } },
@@ -793,7 +797,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "kind", "patient" },
   spiritSensitive = true,
-  notices = { "weary" },
+  notices = { "weary", "lock_taint" },
 
   impression = {
     first = "He notices tired people before they notice themselves.",
@@ -810,6 +814,8 @@ P:NPC {
       text = "Ye've been givin' it all away again, haven't ye, an' come back from the edge for it? Sit a moment before ye train; the Light'll wait for a priest tae catch her breath." },
     { id = "n_weary", cat = "weary", when = { resSick = true },
       text = "Ye've the grey look o' someone the spirit healer sent back, an' no' long ago. Sit by the brazier a while, an' then we'll talk about whatever ye came for." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye're goin' green, friend, faint round the eyes an' the nails, an' I've seen that color on orcs in the internment camps. It's no' too late, whatever it whispers tae ye, an' I'll pray for ye tonight whether ye ask or no'." },
   },
 
   start = "hello",
@@ -864,7 +870,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." } },
+      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge, though I'll confess the kind word comes harder wi' yer demon watchin' me. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no', once that thing's out o' the Hall." },
+      },
       choices = {
         { text = "Your prayers are welcome, Toldren. Thank you.", next = "BACK", reply = "Then ye'll have them every night. There's a quiet chair here whenever ye need one.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I don't need them.", next = "BACK", reply = "Fair enough, but I'll say them anyway, quietly, for the Light doesnae need yer permission tae care what becomes o' ye.", fx = { align = { light = -1 } } },
@@ -987,7 +995,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "warm" }, values = { "friendly", "dutiful" },
   spiritSensitive = true,
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "She makes every stranger welcome, briskly and very well.",
@@ -1004,6 +1012,8 @@ P:NPC {
       text = "Cathedral robes, an' they've seen weather. The Light's no' fussy about where ye learned yer hymns, an' neither am I." },
     { id = "n_ne", cat = "race", when = { race = "NightElf", class = "PRIEST" },
       text = "A priestess o' Elune, under the mountain! I've a message for yer kind more often than ye'd think, so check wi' me before ye leave." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The wards on the Hall are hummin' at somethin' in yer pack, an' I'm fairly sure it's soul shards. Mages store power in crystals as well, but ours didnae have tae die tae fill them, so I'd ask ye tae keep the bag closed." },
   },
 
   start = "hello",
@@ -1058,7 +1068,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." } },
+      lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost, so I'm glad there's no kaldorei in the Hall this minute tae see yer demon. If ye want peace here, leave the creature at the door when they come callin', for one look at it an' they'd remember everythin' at once." },
+      },
       choices = {
         { text = "I'll leave my creatures outside when they visit.", next = "BACK", reply = "Thank ye. The kaldorei visit rarely, an' I'd like them tae leave thinkin' well o' the Hall.", fx = { align = { light = 1 } } },
         { text = "Their old wounds aren't my responsibility, Braenna.", next = "BACK", reply = "No, they're no', but ye'll be standin' in their temple soon enough, an' a wee bit o' courtesy goes a long way.", fx = { align = { light = -1 } } },
@@ -1179,7 +1191,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "steady", "proud" }, values = { "pious", "dutiful", "generous" },
   spiritSensitive = true,
-  notices = { "paladin" },
+  notices = { "paladin", "lock_stones" },
 
   impression = {
     first = "She sends young paladins to help people who can never repay them.",
@@ -1196,6 +1208,8 @@ P:NPC {
       text = "One o' Duthorian Rall's, from Stormwind? Ye've the Stormwind way o' holdin' a hammer, like it's goin' tae be painted. Hold it like it's goin' tae be used." },
     { id = "n_dwarf_pal", cat = "paladin", when = { class = "PALADIN", race = "Dwarf" },
       text = "A dwarf o' the Silver Hand. Brandur Ironhammer sent ye, I'll wager; he sends me all his best an' then sulks about it." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in yer bag, an' I can feel it from here, a wee green ache like somebody's stolen breath. The Light heals for free, an' it heals clean, so I'll ask ye no' tae drink from that stone in this chapel." },
   },
 
   start = "hello",
@@ -1241,7 +1255,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." } },
+      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "On sight, an' I'd no' stop them, an' I'll tell ye plainly that two o' them have their hands on their hammers now wi' yer demon standin' there. Keep it close an' keep it quiet, an' we'll have no trouble, for a demon is a demon whoever's holdin' its leash." },
+      },
       choices = {
         { text = "I'll keep it close and quiet, Tiza. You have my word.", next = "BACK", reply = "I'll hold ye tae it. My paladins are young an' eager, an' I'd rather no' explain tae their mothers why one o' them got bitten.", fx = { align = { light = 1 } } },
         { text = "Your paladins would regret it. My demons bite back.", next = "BACK", reply = "Maybe they would, but I'd regret it more, an' I'll no' have that sort o' talk in the Hall, so keep yer threats tae yerself.", fx = { align = { light = -1 } } },
@@ -1438,7 +1454,7 @@ P:NPC {
   key = "muiredon", id = TODO_NPC("Muiredon Battleforge"), name = "Muiredon Battleforge",
   bible = "bibles/mystic_ward.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "loyal", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_pact" },
 
   impression = {
     first = "Underneath the jokes he is sick with worry for his friend Narm.",
@@ -1458,6 +1474,8 @@ P:NPC {
       text = "Another priest! Are ya the one doin' the stitchin' now? No? Then sit there an' don't poke, for I've been poked enough this week." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", race = "Dwarf" },
       text = "A paladin wi' a proper beard, jus' like Narm. He'd like ya, an' he'd tell ya so, loudly." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "*cough* Ye're givin' off heat like a stove, friend, an' it's no' honest heat, it's an imp's pact sittin' in yer blood. My wounds feel it, an' they ache, but I'll no' complain, for I've had worse company in the Dark Iron cells." },
   },
 
   start = "hello",
@@ -1532,6 +1550,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'd thank it after. Tiza would have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'll say the same o' that thing at yer heel, though it's a mercy Tiza's no' here tae see it by my bed. She'd have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
       },
       choices = {
         { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", reply = "She usually is. I'd still thank the trogg, frying pan an' all.", fx = { align = { order = 1 } } },
@@ -1911,7 +1930,7 @@ P:NPC {
   key = "milstaff", id = TODO_NPC("Milstaff Stormeye"), name = "Milstaff Stormeye", title = "Portal Trainer",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "proud", "sharp" }, values = { "proud", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He doubted I had the mental acuity to grasp portal magic.",
@@ -1928,6 +1947,8 @@ P:NPC {
       text = "A priest. You fold the world with prayers, I fold it with geometry, and only one of us can show his working." },
     { id = "n_young_mage", cat = "class", when = { class = "MAGE", maxLevel = 39 },
       text = "A young mage, and impatient, I expect. Portals begin at forty seasons of study, or the equivalent; come back when you've done the equivalent." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "You're carrying an infernal stone, and I can feel its pull on the ley lines like a stone dropped in a pond. A portal opens a door politely, but that thing knocks a hole in the sky and drops a burning giant through it, and I'd like you to keep it well away from my geometry." },
   },
 
   start = "hello",
@@ -1982,7 +2003,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
+      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough to worry me, for both tear a hole in the world, and the proof is standing at your heel, which asked nobody's permission to come through. I've studied the geometry of it longer than you've been alive, so please don't argue it, and please tell your demon to stop examining my runes." },
+      },
       choices = {
         { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", reply = "Thank you. I'll still check the geometry of any circle you draw near my tower, of course.", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", reply = "Then I'll take my leave of the conversation, because a mage who talks like that is usually halfway to a very bad end.", fx = { align = { light = -1 } } },

@@ -7,7 +7,7 @@ P:NPC {
   title = "Superior Macecrafter",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "refuge_pointe" }, temper = { "stubborn", "steady" }, values = { "loyal", "practical" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow" },
 
   impression = {
     first = "He would win the Highlands back one cracked skull at a time.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "One of the Light's own, eh? I've made maces for the Silver Hand in my day, friend, and I'll make one for ye just as gladly, blessed or not." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Yer kit's had a beating, and from the look of the dents, it was the Boulderfist. They hit like a rockslide, so ye'll want something heavy to hit back with." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge fire went low an' blue when ye stepped up, an' that's happened only once before, when a Horde warlock walked past the walls o' Stromgarde. I'll still sell ye a mace, but I'll ask ye tae stand back from the fire while I fetch it." },
   },
 
   start = "hello",
@@ -96,7 +98,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' I watched what their fire did to Stromgarde's walls, so ye'll forgive me if I keep one eye on that imp." } },
+      lines = { { id = "xlock_default", text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' I watched what their fire did to Stromgarde's walls, so ye'll forgive me if I keep one eye on that imp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' yer {pet} has been edgin' toward my forge fire since ye walked in, so ye'll forgive me if I keep the tongs handy." },
+      },
       choices = {
         { text = "That's fair, Jannos. I'll earn your trust.", next = "BACK", reply = "Ye will, if ye swing that fire the right way. I'll be watchin'.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Watch all you like. My fire's on your side now.", next = "BACK", reply = "Good. Then I'll forge ye somethin' wi' a heavy head, an' we'll see where ye point it.", fx = { align = { honor = -1 } } },

@@ -7,7 +7,7 @@ P:NPC {
   key = "morin", id = TODO_NPC("Morin Cloudstalker"), name = "Morin Cloudstalker",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   temper = { "steady" }, values = { "protective", "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_eyes" },
   impression = {
     first = "He has seen caravans burned, and he means every slow word.",
     third = "{name} met Morin Cloudstalker, who watches the roads of Mulgore.",
@@ -19,6 +19,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf on Mulgore's road, walking in the open. That is more honest than your kin at Bael'dun, at least." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes catch the light like a cat's, green and too sharp, and I'd guess they see more on my road than mine do. If you spot anything creeping near the caravans, I'd be grateful to hear of it." },
   },
   start = "hello",
   nodes = {
@@ -121,6 +123,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "My road was safer before you walked onto it with that thing beside you. I'll not stop you, because the Warchief's word is our word now, but I've seen caravans burned and I know fire that's wrong when I see it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My road was safer before you walked onto it with that thing beside you, and it hasn't taken its eyes off my wagon since. I'll not stop you, because the Warchief's word is our word now, but I've seen caravans burned, and I can feel the wrong fire in it from here." },
       },
       choices = {
         { text = "I understand. I'll keep it far from your caravans.", next = "BACK", reply = "Thank you, that's all I'll ask of you. The caravans have suffered enough without your demon frightening the kodo.", fx = { align = { light = 1 } } },
@@ -304,6 +307,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Balance needs two things that belong to the world, and the creature beside you does not. I won't turn you away from my fire, but a druid feels a demon the way you'd feel a thorn under the skin, and I can't pretend otherwise." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Balance needs two things that belong to the world, and the creature standing beside you does not, which the grass knows too, because it's wilting where it stands. I won't turn you away from my fire, but a druid feels a demon like a thorn under the skin, and this one is close." },
       },
       choices = {
         { text = "I understand. I'll keep it from your students.", next = "BACK", reply = "Thank you, that's kind of you, and my students will rest easier for it. They are young, and they jump at shadows.", fx = { align = { light = 1 } } },
@@ -470,6 +474,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I'm a hunter, so I can only tell you what I know of companions, which is that a beast trusts you as far as you've earned it. I don't think demons trust at all, so I'd keep it bound tightly and never forget what it is." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'm a hunter, so I watch companions, and yours has never once looked to you since you sat down, only at everything else. A beast trusts you as far as you've earned it, but I don't think demons trust at all, so keep that one bound tightly." },
       },
       choices = {
         { text = "I'll keep it bound tightly, Yaw.", next = "BACK", reply = "Good, that's wise, and the beasts will be glad of it. My hawk won't come down while it's near.", fx = { align = { order = 1 } } },

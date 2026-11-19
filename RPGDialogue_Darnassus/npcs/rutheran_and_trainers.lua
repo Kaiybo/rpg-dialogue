@@ -100,6 +100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Many of them flew over Hyjal when the Legion burned it, and the rest learned their fear from those that did. Dismiss your servant on the dock, and they'll fly you as gently as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Many of them flew over Hyjal when the Legion burned it, and they remember it now, which is why the whole roost has gone silent to watch your servant. Dismiss it on the dock, and they'll fly you as gently as anyone." },
       },
       choices = {
         { text = "I'll dismiss it on the dock.", next = "BACK", reply = "Thank you, warlock, truly. The birds will never know you did it, but I will, and I will remember it of you.", fx = { align = { honor = 1 } } },
@@ -279,6 +280,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because patience and a sound grip will save you on the day your servant falls and your spells run dry, and that day comes for everyone. I teach daggers, staves and blades, and I teach them to anyone who'll stand still and listen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because patience and a sound grip will save you on the day your servant falls and your spells run dry, and that day comes for everyone. Yours is watching me as though it knows the day and is counting toward it, so pick up a staff and let's make sure you're ready." },
       },
       choices = {
         { text = "Teach me, then. I'll stand and listen.", next = "BACK", reply = "Good, because the lessons I teach a warlock are the ones that keep him alive when everything else has gone. Stand here and watch my feet.", fx = { align = { order = 1 } } },
@@ -452,6 +454,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Of your servant, though she's no fonder of you for bringing it. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of your servant, and you can see it in her now, pressed against my legs with every hair on end since it came round the tree. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
       },
       choices = {
         { text = "Then I'll keep my distance from your cats.", next = "BACK", reply = "That is courteous of you, warlock, and the cats will notice it even if they never warm to you. Keep the creature far behind you as well.", fx = { align = { light = 1 } } },

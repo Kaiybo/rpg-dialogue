@@ -295,7 +295,7 @@ P:NPC {
   key = "elsharin", id = TODO_NPC("Elsharin"), name = "Elsharin", title = "Mage Trainer",
   bible = "bibles/mage_quarter.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "proud", "patient" },
-  notices = { "mage", "kaldorei" },
+  notices = { "mage", "kaldorei", "lock_shadow" },
   impression = {
     first = "She stayed when her homeland burned.",
     third = "{name} met Elsharin, a high elf who teaches apprentice mages in the Wizard's Sanctum.",
@@ -311,6 +311,8 @@ P:NPC {
       text = "You're one of the new ones. I can tell by how tightly you hold your focus, as if the spell might run off; it won't, I promise you, if you loosen your grip a little." },
     { id = "n_kaldorei", cat = "kaldorei", when = { race = "NightElf" },
       text = "Ishnu-alah, if I have it right. Our peoples have a long and complicated history, kaldorei, and I suggest we both leave it at the door of the Sanctum." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow clings to you the way it clung to the Highborne near the end, when they still believed they were its masters. I remember it, and I wish I did not." },
   },
 
   start = "hello",
@@ -344,7 +346,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I've seen what that path did to others who were sure they were its master. My people learned that lesson once, long ago, and I'd spare you the price of learning it again." } },
+      lines = {
+        { id = "xlock_default", text = "It saddens me more than it frightens me, because I've seen what that path did to others who were sure they were its master. My people learned that lesson once, long ago, and I'd spare you the price of learning it again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It saddens me more than it frightens me, though standing this close to your servant, I'll admit the line between the two is thinner than I'd like. My people learned this lesson once, long ago, and I can feel in the air around it the same hunger that taught us." },
+      },
       choices = {
         { text = "I'll walk carefully, then, and remember your warning.", next = "BACK", reply = "Good. That's more than most who walk your road ever say to me.", fx = { align = { light = 1 } } },
         { text = "Others failed because they were weak. I'm not.", next = "BACK", reply = "They all thought so, every one. I hope you're the first to be right.", fx = { align = { light = -1 } } },
@@ -545,7 +550,7 @@ P:NPC {
   key = "larimaine", id = TODO_NPC("Larimaine Purdue"), name = "Larimaine Purdue", title = "Portal Trainer",
   bible = "bibles/mage_quarter.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud" },
-  notices = { "mage" },
+  notices = { "mage", "lock_steed" },
   impression = {
     first = "She doubts most people could grasp portals and says so politely.",
     third = "{name} met Larimaine Purdue, who teaches portal magic in the Wizard's Sanctum to the few she thinks capable of it.",
@@ -559,6 +564,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "mage", when = { class = "MAGE", minLevel = 40 },
       text = "You're ready, I think, or nearly. A mage of your standing can open a door back to this very room from anywhere in the world, and I can teach you how, if you can follow." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode in on that thing? Its hooves scorched my circle, and I'll have to redraw the anchoring runes before the next class, because a portal won't open over fel. You might have tethered it at the gate." },
   },
 
   start = "hello",
@@ -592,7 +599,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They're entirely different, and the difference matters. A portal folds this world onto itself, while your circles open a door to somewhere else entirely and invite whatever waits on the other side to step through." } },
+      lines = {
+        { id = "xlock_default", text = "They're entirely different, and the difference matters. A portal folds this world onto itself, while your circles open a door to somewhere else entirely and invite whatever waits on the other side to step through." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They're entirely different, and your servant is the proof of it, because nothing has ever come through one of my portals and stood there watching me the way that one is. A portal folds this world onto itself, while your circles open a door to somewhere else and invite whatever waits there to come and stand in my tower." },
+      },
       choices = {
         { text = "You're right. I'll treat every door I open as a danger.", next = "BACK", reply = "That's the right instinct. Most of my students take years to learn it.", fx = { align = { light = 1 } } },
         { text = "Whatever comes through my door answers to me.", next = "BACK", reply = "Then you'd better be right, because it won't answer to anyone else.", fx = { align = { light = -1 } } },

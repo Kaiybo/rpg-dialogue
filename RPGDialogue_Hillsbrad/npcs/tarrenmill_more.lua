@@ -6,7 +6,7 @@ P:NPC {
   key = "krusk", id = TODO_NPC("Krusk"), name = "Krusk",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "grim" }, values = { "loyal", "brave" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_pact" },
 
   impression = {
     first = "He shares a town with the dead and would rather not.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Lok'tar! It's good to see a green face in this town of grey ones. Stand close, and help me get mine home." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Then you'll understand that being taken alive is worse than dying, and that's where my brothers are." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood is running hot, I can see it in your face, and my father's generation carried the same heat after they drank from Mannoroth's cup. I know it is only an imp's pact, but you'll forgive me if my hand stays near my axe." },
   },
 
   start = "hello",
@@ -94,7 +96,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." } },
+      lines = {
+        { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think any power that once enslaved us could do it again, and I can feel the old blood stir just standing this close to your demon. Thrall freed us at too high a price to risk it, so you'll have to prove you hold that thing and not the other way round." },
+      },
       choices = {
         { text = "Then I'll prove it with my deeds, not my words.", next = "BACK", reply = "Deeds are all an orc trusts. Show me yours, and I'll show you my respect.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Horde needs every power it can get. Even mine.", next = "BACK", reply = "Every power, you say, and that is what Gul'dan said too. Be careful the power doesn't decide you belong to it.", fx = { align = { order = -1 } } },
@@ -384,7 +389,7 @@ P:NPC {
   key = "humbert", id = TODO_NPC("Deathguard Humbert"), name = "Deathguard Humbert",
   bible = "bibles/tarrenmill_more.md", role = "guard", tier = "quest",
   communities = { "tarren_mill" }, temper = { "sheepish" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_eyes" },
 
   impression = {
     first = "He's a Deathguard without a sword, and he knows how that looks.",
@@ -400,6 +405,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc! If you see any dwarves at Dun Garok with a Forsaken blade, you'll know where it came from." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that sheen, the one that sees through anything trying to sneak past. Where were you the evening those dwarf scouts walked right by me and took everything I owned?" },
   },
 
   start = "hello",
@@ -460,7 +467,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." } },
+      lines = {
+        { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, and seeing yours standing there with that look in its eyes, I'm surer of it than ever. The High Executor would have my head if she saw a demon wandering the camp, so walk it past my post quickly, and I'll pretend my two eyes failed me again." },
+      },
       choices = {
         { text = "Your eyes are enough. Keep watch and you'll be fine.", next = "BACK", reply = "My eyes failed me last time, but you're right, I suppose. I'll keep watching and try not to blink.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use what you have. A demon is a better guard than a dead man.", next = "BACK", reply = "Tempting, but Darthalia would have both our heads mounted on the gate. I'll stick with my eyes.", fx = { align = { order = -1 } } },
@@ -740,7 +750,7 @@ P:NPC {
   key = "tallow", id = TODO_NPC("Tallow"), name = "Tallow",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "contemptuous" }, values = { "relentless" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
 
   impression = {
     first = "He doesn't much care whether the help he sends survives.",
@@ -757,6 +767,8 @@ P:NPC {
       text = "A warrior. We'll see if you've earned the word yet, or if you just carry it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look beaten. Come back when you look like you did the beating." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide crawling over your shoulders would turn an arrow, I'd wager, and Hammerfall needs every arrow turned that it can get. Take it to Arathi and let the orcs complain about the smell once the walls are still standing." },
   },
 
   start = "hello",
@@ -820,7 +832,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." } },
+      lines = {
+        { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anything that keeps an orc alive at Hammerfall belongs there, including the creature lurking at your heel. The orcs will stare at it and mutter about their history, but they're the ones being overrun, so they can argue about it afterward." },
+      },
       choices = {
         { text = "Victory is all that matters. Use every weapon.", next = "BACK", reply = "Use every weapon, yes, so long as it's pointed at the Alliance. Hammerfall needs what you can bring.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The orcs' history deserves respect. I'll fight with my own hands.", next = "BACK", reply = "Your hands, then, and your conscience. The orcs will respect it, even if I don't care either way.", fx = { align = { honor = 1 } } },

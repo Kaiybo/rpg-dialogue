@@ -6,7 +6,7 @@ P:NPC {
   key = "ryedol", id = TODO_NPC("Prospector Ryedol"), name = "Prospector Ryedol",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "explorers_league" }, temper = { "weary" }, values = { "loyal", "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "Worry for his partner Hammertoe has worn him through.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' our own, out in this wasteland! Sit a moment, for I've not heard an Ironforge voice in weeks." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone in yer pack, an' it's hummin' like the stone things down in Uldaman did before they woke up. Keep it buttoned, for I've had enough o' things that hum in this canyon." },
   },
 
   start = "hello",
@@ -102,7 +104,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Troggs out o' the deep places, stone things that shouldnae move, an' Shadowforge dwarves pokin' about after the same relics we were. Ye're welcome tae take yer demon down there an' scare a few o' them, an' if it brings Hammertoe out alive, I'll stop glarin' at it." } },
+      lines = { { id = "xlock_default", text = "Troggs out o' the deep places, stone things that shouldnae move, an' Shadowforge dwarves pokin' about after the same relics we were. Ye're welcome tae take yer demon down there an' scare a few o' them, an' if it brings Hammertoe out alive, I'll stop glarin' at it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Troggs out o' the deep places, stone things that shouldnae move, an' Shadowforge dwarves pokin' about after the same relics we were. Take that demon down there an' scare a few o' them, by all means, an' if it brings Hammertoe out alive, I'll stop glarin' at it, though it's been glarin' back since ye got here." },
+      },
       choices = {
         { text = "I'll keep my demon in check down there, Prospector.", next = "BACK", reply = "Good, for I'll no' have it scarin' off the diggers or breakin' the relics. Mind it close.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll let it loose on the troggs and see what's left.", next = "BACK", reply = "An' what's left o' the relics too? Keep it away from the carvin's, or I'll have yer head for it.", fx = { align = { order = -1 } } },

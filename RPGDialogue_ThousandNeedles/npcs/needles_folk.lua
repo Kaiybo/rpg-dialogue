@@ -194,7 +194,7 @@ P:NPC {
   key = "awenasa", id = TODO_NPC("Awenasa"), name = "Awenasa", title = "Stable Master",
   bible = "bibles/thousandneedles.md", role = "stablemaster", tier = "service",
   communities = { "freewind" }, temper = { "warm" }, values = { "kind", "nature" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
 
   impression = {
     first = "She seems to know every hunter by their pet's name.",
@@ -208,6 +208,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Oh, your {pet} has climbed a long way to get up here. Let it rest by the water a moment, the climb is hard on four legs." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My kodos turned their backs to you all at once, the way they do before a storm comes over the mesa. They'll calm in a moment, I think, but I'd stand downwind of them if I were you." },
   },
 
   start = "hello",
@@ -240,7 +242,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." } },
+      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's a mercy for both of us, I think, though look, the mesa's gone quiet since your servant came up the path. The animals here are gentle and have done nothing to deserve that fear, so keep it on your side of the mesa and we'll stay friends." } },
       choices = {
         { text = "Your beasts are safe. I'll keep my distance.", next = "BACK", reply = "Then we are friends, and I will keep a pail of water for you whenever you come up the lift.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My servants go where I go. That's final.", next = "BACK", reply = "Then you will have to wait at the edge of the mesa, because my beasts were here first and they have done no wrong.", fx = { align = { light = -1 } } },
@@ -340,7 +342,7 @@ P:NPC {
   key = "jinky", id = TODO_NPC("Jinky Twizzlefixxit"), name = "Jinky Twizzlefixxit", title = "Engineering Supplies",
   bible = "bibles/thousandneedles.md", role = "vendor", tier = "service",
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_steed" },
 
   impression = {
     first = "She keeps a cheerful tally of which racing team buys more bolts.",
@@ -357,6 +359,8 @@ P:NPC {
       text = "An engineer! You'll want to see my parts, then, and you'll want to see them before the pit crews buy them all." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome! Don't let the goblins hear you cheering for Fizzle, though; I have to sell to them too, and I'd like to keep the peace." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that a felsteed? Look at the heat coming off those hooves! I'd clock it on the Flats if you'd let me, though I suppose it'd melt the timing gear." },
   },
 
   start = "hello",
@@ -438,7 +442,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." } },
+      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Why not? Your {pet}'s right here and I'm already measuring it for the seat, so hold it still a second. Pozzik told me to get out of his garage last time I pitched it, but one look at that thing on the starting line and the tickets would sell themselves." } },
       choices = {
         { text = "Demons don't belong on a race track. Forget it.", next = "BACK", reply = "Oh, fine, fine, but I still think a voidwalker would make a marvellous pit crew, it never gets tired or complains.", fx = { align = { order = 1 } } },
         { text = "I'd lend you my demon for a cut of the purse.", next = "BACK", reply = "Ooh, now that's a business proposal, and I'll draw up a contract tonight, though Pozzik will still throw me out.", fx = { align = { order = -1 } } },

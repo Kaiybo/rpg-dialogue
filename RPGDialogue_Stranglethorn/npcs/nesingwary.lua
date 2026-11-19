@@ -754,7 +754,7 @@ P:NPC {
   key = "ajeck", id = TODO_NPC("Ajeck Rouack"), name = "Ajeck Rouack",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "focused" }, values = { "proud", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "She means to take Sin'Dall someday, and says it like plain fact.",
@@ -768,6 +768,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "Show me your bow. Hm, not bad, but your draw's short, so fix that before you go after anything with stripes." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The jungle went quiet when you came through the trees, and I'd bet it smelled what I smell now, which is that scorched, sweet stink of fel all over you. The big cats will catch it a mile off, so wash before you go hunting." },
   },
 
   start = "hello",
@@ -810,7 +812,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. I've lost him three times to careless hunters, and I'll not lose him a fourth to a demon's stink." } },
+      lines = {
+        { id = "xlock_default", text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. I've lost him three times to careless hunters, and I'll not lose him a fourth to a demon's stink." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. Your {pet} is upwind of him right now, and if he bolts because of that stink, you'll be the one beating through the bush until he's found." },
+      },
       choices = {
         { text = "I'll keep my demon well away from your trail.", next = "BACK", reply = "I'd be grateful, friend. He's slipped me three times already, and I'd hate a fourth to be your imp's fault.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go. Track around it.", next = "BACK", reply = "Then I'll track around it, and curse you every step of the way. Keep it downwind, at least.", fx = { align = { order = -1 } } },

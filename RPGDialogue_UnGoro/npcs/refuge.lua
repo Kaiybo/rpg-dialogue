@@ -6,7 +6,7 @@ P:NPC {
   key = "williden", id = TODO_NPC("Williden Marshal"), name = "Williden Marshal",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "warm" }, values = { "curious", "responsible" },
-  notices = { "level", "kit" },
+  notices = { "level", "kit", "lock_shards" },
 
   impression = {
     first = "He welcomed me warmly, then warned me twice about the dinosaurs.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "You're braver than you are seasoned, friend. Stay near the rim until you've grown into the crater." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Was it raptors, or the plants? Don't laugh; the plants bite here too." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That's a lot of soul shards, and the crystals in J.D.'s tent started buzzing the moment you walked past. Leave the bag by the fire while you're here, because I'd rather not explain to his mother how he lost an eyebrow." },
   },
 
   start = "hello",
@@ -88,7 +90,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." } },
+      lines = {
+        { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We welcome anyone who'll help, and we've learned not to be picky, demons included, I suppose. I'll only ask you to keep yours away from the scholars, because J.D. Collie has already backed into a tent pole twice since you walked up, and he's twitchy enough already." },
+      },
       choices = {
         { text = "I'll keep my demon clear of the scholars.", next = "BACK", reply = "Thank you. Collie dropped a crystal on his foot last week when a firefly drifted by, so you're doing us all a kindness.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Collie will have to get used to it.", next = "BACK", reply = "He's had to get used to worse, I suppose. Just keep it away from his notes, please.", fx = { align = { order = -1 } } },
@@ -291,7 +296,7 @@ P:NPC {
   key = "linken", id = TODO_NPC("Linken"), name = "Linken",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "earnest" }, values = { "brave", "honorable" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He can't remember where he came from, and is cheerful about it.",
@@ -312,13 +317,18 @@ P:NPC {
       text = "A gnome! Do you happen to know me, by any chance? No, that's a pity. I'm not much for gadgets, I think; I think I'm a warrior, because it feels right." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior, like me! I'm almost sure I'm a warrior, anyway, since the sword feels right in my hand." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul's somewhere else, isn't it, tucked in a stone where you can't see it? I know how that feels, a little, because most of mine seems to be missing too, and I don't know who's holding it." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, only that I think I'm a warrior, because it feels right, and that I came from somewhere far away. Your demon is looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you, so would you ask it to look somewhere else?" },
+      },
       choices = {
         { text = "It'll come back in time, Linken. Give it a chance.", next = "BACK", reply = "I hope so, friend, though patience is a hard thing with a hole in your head. Thank you all the same.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe some memories are better left forgotten.", next = "BACK", reply = "Maybe so, and I've wondered that myself. But I'd still like to know what I've forgotten.", fx = { align = { light = -1 } } },
@@ -502,7 +512,7 @@ P:NPC {
   key = "jdcollie", id = TODO_NPC("J.D. Collie"), name = "J.D. Collie",
   bible = "bibles/ungoro.md", role = "scholar", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "eager" }, values = { "curious", "persistent" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He lost an eyebrow to his crystals and thought it fair.",
@@ -516,6 +526,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = { "MAGE", "PRIEST", "SHAMAN" } },
       text = "Can you feel them, the crystals? Something in them answers to people like you, and I've been trying to work out what for months." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a spellstone in your pack? My crystals are singing a whole octave higher, and I've never heard them do that! I'd ask to borrow it, but I'm not sure they'd give it back, or that I'd want them to." },
   },
 
   start = "hello",
@@ -587,7 +599,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
+      lines = {
+        { id = "xlock_default", text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later, and the green ones have started to hum since your demon came close. The crystals take in whatever's near them, so I'd ask you both not to stand quite so near, and especially not it." },
+      },
       choices = {
         { text = "That's fair. I'll keep my distance.", next = "BACK", reply = "Thank you, friend, the crystals and I both appreciate it. One singed eyebrow is enough.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't get your research far, Collie.", next = "BACK", reply = "Maybe not, but it's kept my other eyebrow. I'll take caution over glory.", fx = { align = { light = -1 } } },
@@ -690,7 +705,7 @@ P:NPC {
   key = "spraggle", id = TODO_NPC("Spraggle Frock"), name = "Spraggle Frock",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "anxious" }, values = { "loyal", "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "She worries for a living and seems very good at it.",
@@ -706,13 +721,18 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Oh no, you got hurt down there too? Sit down and drink something, friend, it's on the expedition's account, because everybody keeps getting hurt down there." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's darker than everyone else's, and it doesn't move quite right, and I don't know anything about magic, but I've been staring at the dark for days looking for Ringo! Please tell me you've seen him out there." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is, and I'd pay 'em, too! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm runnin' out of ideas." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is, and I'd pay 'em, too! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm runnin' out of ideas." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know anything about demons, but yours has a good look about it, and I'd ask the devilsaurs themselves if I thought they'd tell me where he is! Ringo's my dearest friend and he gets lost in his own tent, so if that thing can sniff him out, I'm not too proud to ask." },
+      },
       choices = {
         { text = "I'll look for him myself. My demon stays leashed.", next = "BACK", reply = "Oh, thank you, thank you, I knew you'd help! Just please, please be careful, the devilsaurs are so very large.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon will find him, whatever it takes.", next = "BACK", reply = "Whatever it takes? Oh, I don't know, I don't like the sound of that, but if it brings Ringo home, I suppose I'll have to.", fx = { align = { order = -1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "oilfist", id = TODO_NPC("Overseer Oilfist"), name = "Overseer Oilfist",
   bible = "bibles/searinggorge.md", role = "noble", tier = "quest",
   communities = { "thorium_point" }, temper = { "stern" }, values = { "proud", "practical" },
-  notices = { "race", "profession" },
+  notices = { "race", "profession", "lock_shadow" },
 
   impression = {
     first = "He left the mountain's service and carries that choice like a weight.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "Ironforge, by yer beard. Our clans have bled each other for centuries, but up here I've no time for it; do ye?" },
     { id = "n_smith", cat = "profession", when = { profession = { "Blacksmithing", "Enchanting" } },
       text = "A craftsman, then, an' ye'll understand us better than most. We were made tae forge, an' we forged for a tyrant, but now we choose." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The forge-fires in this camp leaned toward ye when ye walked in, the way our elders swore every fire in Thaurissan leaned toward the summoners the night they called the Firelord. Mind yerself, warlock, for that's a thing I'd no' see twice." },
   },
 
   start = "hello",
@@ -119,7 +121,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." } },
+      lines = {
+        { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so look at yer servant now, warlock, standin' there watchin' ye, an' ask yerself which of ye holds the leash." },
+      },
       choices = {
         { text = "Every leash needs a strong hand, and mine is strong.", next = "BACK", reply = "Every fool says that too, warlock. I'll be watchin' yer leash, an' so will the Brotherhood.", fx = { align = { light = -1 } } },
         { text = "Some powers should never be called at all.", next = "BACK", reply = "Aye, an' my folk learned that the hard way. Ye've more sense than Thaurissan ever did.", fx = { align = { light = 1 } } },
@@ -331,7 +336,7 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
   prejudice = { race = "Dwarf", faction = "Alliance", amount = 8, why = "Ironforge folk spit at the Brotherhood's Dark Iron dwarves, so he spits back, mildly." },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_steed" },
 
   impression = {
     first = "Freedom, for him, mostly seems to mean a chair.",
@@ -352,6 +357,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Tauren" } },
       text = "Big, aren't ye? Folk say I'm built like an orc, an' I take it as a compliment; do you?" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that a horse wi' fire for feet? Lolo'll have my hide for lettin' it through the gate, but I'll confess it's the bonniest thing I've seen in the Gorge, an' that's no' sayin' much." },
   },
 
   start = "hello",
@@ -426,7 +433,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." } },
+      lines = {
+        { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Though lookin' at it now, grinnin' at me, I'd wager it'd eat the Dark Irons an' then me, an' Lolo would smell it on the wall in a heartbeat, so forget I said anythin'." },
+      },
       choices = {
         { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", reply = "Aye, aye, I know it is. Ye sound like Lolo.", fx = { align = { order = 1 } } },
         { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", reply = "Bless ye, friend. Just keep it well clear o' Lolo's nose.", fx = { affinity = 1, align = { order = -1 } } },
@@ -555,7 +565,7 @@ P:NPC {
   key = "lolo", id = TODO_NPC("Lookout Captain Lolo Longstriker"), name = "Lookout Captain Lolo Longstriker",
   bible = "bibles/searinggorge.md", role = "guard", tier = "quest",
   communities = { "thorium_point" }, temper = { "jovial" }, values = { "loyal", "proud" },
-  notices = { "drink", "stealth" },
+  notices = { "drink", "stealth", "lock_armor" },
 
   impression = {
     first = "Nearly blind, he smells out trouble with some help from the bottle.",
@@ -572,6 +582,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye've had a few, I can smell it, an' good! A wee nip sharpens the nose, an' mine's never been sharper." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark shell round ye is a demon's armour, warlock, an' I saw its like on the Dark Iron summoners in the deep forges. Keep it on if ye must, but dinnae come near the bairns wearin' it." },
   },
 
   react = { { id = "r_stealth", on = "stealth", text = "Someone's sneakin', an' don't ask how I know. I've no eyes, but I've a nose like a hound an' ears like a bat." } },
@@ -619,7 +631,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, warlock, an' keep it away from the bairns, for they've seen enough fire for one lifetime." } },
+      lines = {
+        { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, warlock, an' keep it away from the bairns, for they've seen enough fire for one lifetime." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I can smell that beast o' yers from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. It's starin' at the bairns by the cookfire now, so call it tae yer side, warlock, for they've seen enough fire for one lifetime." },
+      },
       choices = {
         { text = "It obeys me. Your bairns are safe.", next = "BACK", reply = "I'll hold ye tae that, warlock, an' so will the mothers. Keep it on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My imp goes where it likes. That's its nature.", next = "BACK", reply = "Then its nature had best keep clear o' the bairns, or my nature will meet it at the gate. Mind me.", fx = { align = { order = -1 } } },
@@ -808,7 +823,7 @@ P:NPC {
   key = "kalaran", id = TODO_NPC("Kalaran Windblade"), name = "Kalaran Windblade",
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "searing_gorge_wilds" }, temper = { "brooding" }, values = { "vengeful", "cunning" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He tells of his murdered father like a story told many times.",
@@ -822,6 +837,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
       text = "One of the Light's own. You'll understand, then, why the guilty must answer for what they've done." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag? It burns with something hotter than the Gorge, and I'll admit I've wondered whether a flame like mine could be kindled from one, though I'd not ask you to part with it." },
   },
 
   start = "hello",
@@ -881,7 +898,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. You'd know something of such fires, warlock, so don't ask me to apologise for wanting one." } },
+      lines = {
+        { id = "xlock_default", text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. You'd know something of such fires, warlock, so don't ask me to apologise for wanting one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. Your {pet} is leaning toward my brazier as though it recognises the heat, so you'd know something of such fires, and don't ask me to apologise for wanting one." },
+      },
       choices = {
         { text = "No apology needed. Fire is fire.", next = "BACK", reply = "Precisely, and I'm glad someone understands it. Help me finish it.", fx = { align = { light = -1 } } },
         { text = "Fire that hot burns the hand that holds it.", next = "BACK", reply = "Then I'll be careful, warlock. But some hands are better suited to the heat than you'd think.", fx = { align = { light = 1 } } },

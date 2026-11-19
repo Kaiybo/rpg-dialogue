@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/revantusk.md", role = "noble", tier = "major",
   communities = { "revantusk" }, temper = { "fierce" }, values = { "loyal", "protective", "proud" },
   likesTone = "blunt", race = "Troll",
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards", "lock_soulstone" },
 
   impression = {
     first = "She leads the tribe while her mate sits in a Vilebranch cage.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "An orc, walkin' free in the Hinterlands. Last time I saw so many of you, the humans was puttin' you in cages, and none of us could stop them." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "The spirits walk close behind you, shaman. They be welcome here, so long as they keep their eyes on Jintha'Alor." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry the souls of the dead in that bag, mon. I hope they be Vilebranch souls, because I got a long list of them that owe me blood." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul be bound in a stone, waitin' to call you back. If my mate had one of them in his cage, I might sleep easier." },
   },
 
   start = "hello",
@@ -232,7 +236,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Torntusk fear nothin' but losin' her mate. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if you got your own dark thing that bite them back, maybe that be a fair trade." } },
+      lines = {
+        { id = "xlock_default", text = "Torntusk fear nothin' but losin' her mate. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if you got your own dark thing that bite them back, maybe that be a fair trade." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Torntusk fear nothin' but losin' her mate, so your demon can stare at me all it like. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if your dark thing bite them back, maybe that be a fair trade." },
+      },
       choices = {
         { text = "I use it carefully. Dark things want more than they give.", next = "BACK", reply = "Good, mon. Every troll who ever climb Jintha'Alor to bargain with de dark thought he be careful too, and dere heads be on de poles now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Darkness against darkness is the only way to win this.", next = "BACK", reply = "Maybe it be, mon, and maybe dat be how de Vilebranch started. Watch yourself.", fx = { align = { light = -1 } } },
@@ -420,7 +427,7 @@ P:NPC {
   key = "markhor", id = TODO_NPC("Huntsman Markhor"), name = "Huntsman Markhor",
   bible = "bibles/revantusk.md", role = "stablemaster", tier = "quest",
   communities = { "revantusk" }, temper = { "grave" }, values = { "loyal", "devoted" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_eyes" },
 
   impression = {
     first = "Grief for his twin brother has made him patient, not soft.",
@@ -437,6 +444,8 @@ P:NPC {
       text = "A hunter, and your beast walks well beside you. You can stable it here while you go after the Silvermane, if you want." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You smell of the arcane, mon, like hot copper and spoiled milk. Keep it away from my stables; the beasts hate it nearly as much as I do." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes see what hides in the shadows, and that be a good thing for a hunter. Come hunt with me sometime, and we see what the Vilebranch got hidin' in the trees." },
   },
 
   start = "hello",
@@ -550,7 +559,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a beast know what belong in the wild and what don't, and your little demon don't belong anywhere in this world. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash." } },
+      lines = {
+        { id = "xlock_default", text = "Because a beast know what belong in the wild and what don't, and your little demon don't belong anywhere in this world. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a beast know what belong in the wild and what don't, and look how my wolves all backin' away from that thing by your side. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash, so you hold it tighter." },
+      },
       choices = {
         { text = "I hold the leash tight. It obeys me.", next = "BACK", reply = "Tight, ya, and keep it tighter near my beasts, mon. Dey don't like it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leashes are for beasts. My demon and I understand each other.", next = "BACK", reply = "Understand each other, ya? Den tell it to stay away from my wolves, mon.", fx = { align = { order = -1 } } },
@@ -639,7 +651,7 @@ P:NPC {
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "mysterious" }, values = { "devout", "proud" },
   prejudice = { race = "Scourge", amount = 10, why = "The walking dead cheated Bwonsamdi, and a mystic finds that bad juju." },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "She talks about Zul'jin as if he might walk up the stairs.",
@@ -659,6 +671,8 @@ P:NPC {
       text = "You use reagents, I can tell by the stains on your fingers. Come buy, then, because nobody up here sells better." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear with mojo in your walk. You know the old ways a little, so maybe you know the price of them too." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles lean away from you, mon, like they know somethin' Yayo'jin don't. Buy what you need, and leave the candles be." },
   },
 
   start = "hello",
@@ -850,7 +864,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood. Yours feed on somethin' else, and Yayo'jin don't need to know what, so long as you pay for the candles." } },
+      lines = {
+        { id = "xlock_default", text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood. Yours feed on somethin' else, and Yayo'jin don't need to know what, so long as you pay for the candles." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood, and your demon be lookin' at my candles like it want a taste. Yayo'jin don't need to know what it feed on, so long as you pay for any candle it touch." },
+      },
       choices = {
         { text = "It feeds only on enemies. I make sure of it.", next = "BACK", reply = "Good, mon, den de loa don't mind so much. Keep it that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It feeds on whatever I give it. That's the price.", next = "BACK", reply = "Den mind de price don't grow, mon. Yayo'jin seen a warlock come through here with a little imp once, and a year later de imp be walkin' him on a leash.", fx = { align = { light = -1 } } },
@@ -1137,7 +1154,7 @@ P:NPC {
   key = "lard", id = TODO_NPC("Lard"), name = "Lard",
   bible = "bibles/revantusk.md", role = "innkeeper", tier = "quest",
   communities = { "revantusk" }, temper = { "simple" }, values = { "friendly", "generous" },
-  notices = { "weary", "pet" },
+  notices = { "weary", "pet", "lock_breath" },
 
   impression = {
     first = "He is enormous and gentle, and mostly worried about his lunch.",
@@ -1157,6 +1174,8 @@ P:NPC {
       text = "Somebody hit you with big stick, like they hit Lard. You sit down and eat, and then you feel better." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "{pet} keeps sniffin' at Lard's fish barrel, and Lard does not blame it, because Lard does the same thing." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "Lard see the little bubbles on you, so you breathe water now like a fish. You go swim and catch your own fish, and Lard's fish stay on Lard's plate." },
   },
 
   start = "hello",
@@ -1282,7 +1301,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Imp say that, and then the fish is gone. Lard is gentle, but Lard is big, and if the little horn-man touch the fish, Lard will throw him in the sea, and you can go get him." } },
+      lines = {
+        { id = "xlock_default", text = "Imp say that, and then the fish is gone. Lard is gentle, but Lard is big, and if the little horn-man touch the fish, Lard will throw him in the sea, and you can go get him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Imp say that, and then the fish is gone, and Lard see your {pet} lookin' at the fish right now. Lard is gentle, but Lard is big, and if it touch the fish, Lard will throw it in the sea, and you can go get it." },
+      },
       choices = {
         { text = "Fair enough. I'll keep it on a short leash.", next = "BACK", reply = "Good, because Lard does not want to sit on the little horn-man.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It does as it likes. I can't watch it every moment.", next = "BACK", reply = "Then Lard watch it every moment for you, and Lard is very good at watching.", fx = { align = { order = -1 } } },
@@ -1352,7 +1374,7 @@ P:NPC {
   key = "slagtree", id = TODO_NPC("Smith Slagtree"), name = "Smith Slagtree",
   bible = "bibles/revantusk.md", role = "blacksmith", tier = "quest",
   communities = { "revantusk" }, temper = { "cheerful" }, values = { "practical", "grateful" },
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_pact" },
 
   impression = {
     first = "The Vilebranch stole the tools a gnome gave him.",
@@ -1369,6 +1391,8 @@ P:NPC {
       text = "Look at the state of that armor! You can't fight in that, friend, so hand it over before something kills you." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! You've got nothing to fear from me, little one, because one of your kind saved my life." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood runs hot as my forge, and I know that heat, because my grandfather had it before Thrall. Keep it in check, and I'll keep your armour whole." },
   },
 
   start = "hello",
@@ -1477,7 +1501,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Tolerating isn't trusting. The Warchief lets your kind study because he'd rather watch you than chase you, and I mend your armor because a split breastplate kills a warlock as dead as any grunt." } },
+      lines = {
+        { id = "xlock_default", text = "Tolerating isn't trusting. The Warchief lets your kind study because he'd rather watch you than chase you, and I mend your armor because a split breastplate kills a warlock as dead as any grunt." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Tolerating isn't trusting, and standing this close to your demon I can smell the same stink that hung on my father's clan. The Warchief lets your kind study because he'd rather watch you than chase you, and I'll mend your armor, but that thing stays outside my forge." },
+      },
       choices = {
         { text = "You're right to be wary of fel. I'm wary of it myself.", next = "BACK", reply = "Good. I watched it eat the clans from the inside, and I'll not have it near my forge again.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is a tool. Orcs fear it more than they should.", next = "BACK", reply = "You weren't in the camps, or you'd fear it right. Mind your fire near my forge.", fx = { align = { light = -1 } } },
@@ -1537,7 +1564,7 @@ P:NPC {
   key = "otho", id = TODO_NPC("Otho Moji'ko"), name = "Otho Moji'ko",
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "spiteful" }, values = { "proud", "loyal" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He spits when he says Wildhammer, and he says it often.",
@@ -1558,6 +1585,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Good, a strong one. The dwarves at Aerie Peak gonna remember your face, mon, if you do what I ask." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That be an infernal stone in your bag, mon? Call the fire down on Aerie Peak one day and Otho will dance on the ashes, though I know you won't, not with the Warchief watchin'." },
   },
 
   start = "hello",
@@ -1721,7 +1750,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Their riders hunt trolls from the sky like we be rabbits, mon, and they never ask which tribe they shootin' at. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." } },
+      lines = {
+        { id = "xlock_default", text = "Their riders hunt trolls from the sky like we be rabbits, mon, and they never ask which tribe they shootin' at. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Their riders hunt trolls from the sky like we be rabbits, mon, and your demon there look like it know a thing or two about huntin'. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." },
+      },
       choices = {
         { text = "Curses breed curses. I won't start a feud.", next = "BACK", reply = "Ya, dat be wise, mon, and de Primal would say de same. Otho not sure he agree.", fx = { align = { light = 1 } } },
         { text = "They earned it. I'll curse anyone who sneers at the Horde.", next = "BACK", reply = "Ha! Den you and Otho be friends, mon. Curse away.", fx = { affinity = 1, align = { light = -1 } } },

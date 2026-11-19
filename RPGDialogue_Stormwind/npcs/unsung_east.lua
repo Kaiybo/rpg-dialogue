@@ -8,7 +8,7 @@ P:NPC {
   key = "agustus_moulaine", id = TODO_NPC("Agustus Moulaine"), name = "Agustus Moulaine", title = "Armor Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "devout" }, values = { "faith", "craft" },
-  notices = { "paladin", "kit" },
+  notices = { "paladin", "kit", "lock_taint" },
   impression = {
     first = "He speaks of armour as if it were scripture.",
     third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A knight of the Silver Hand, under my roof! The Cathedral's paladins have bought their plate here since the square was rebuilt, and I'd be honoured to fit one more." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Your armour's been through something terrible, friend. Have it mended before you face anything else, or it will fail you at the worst moment." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You smell of brimstone, strong enough that the Silver Hand lads by the door have gone quiet. It's not the craft I mind so much as how deep it's gone in, and I've seen that green at the edge of a man's eyes before." },
   },
   start = "hello",
   nodes = {
@@ -65,7 +67,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the ones who walk in smelling of brimstone, and they do it with a look rather than a word. Most of the Silver Hand's lads are good men, but they've heard what demons did in the Third War, and they don't forget it." } },
+      lines = {
+        { id = "xlock_default", text = "Only the ones who walk in smelling of brimstone, and they do it with a look rather than a word. Most of the Silver Hand's lads are good men, but they've heard what demons did in the Third War, and they don't forget it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the ones who walk in smelling of brimstone, and with that thing at your heel, the smell had filled my shop before you reached the counter. Most of the Silver Hand's lads are good men, but if one of them comes in now, it won't be only a look he gives you." },
+      },
       choices = {
         { text = "They're right to remember. I'll keep my demons from their sight.", next = "BACK", reply = "Thank you. The old soldiers have long memories, and I'd rather they didn't find a reason to use them.", fx = { align = { light = 1 } } },
         { text = "Their memories are their problem, not mine.", next = "BACK", reply = "Their problem, maybe, but my shop, and I'd thank you to keep it civil in here.", fx = { align = { light = -1 } } },
@@ -181,7 +186,7 @@ P:NPC {
   key = "theresa_moulaine", id = TODO_NPC("Theresa Moulaine"), name = "Theresa Moulaine", title = "Robe Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "faith", "mercy" },
-  notices = { "priest", "kit" },
+  notices = { "priest", "kit", "lock_shards" },
   impression = {
     first = "She blesses you as though it were part of the sale.",
     third = "{name} met Theresa Moulaine, who sells robes at Righteous Plates in Cathedral Square.",
@@ -195,6 +200,8 @@ P:NPC {
       text = "One of the Cathedral's own. I've dressed more novices than ever knelt in that nave at once, so let me see if I can't find you something better than the Church's wool." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Your robe is torn nearly to ribbons. Whatever you faced, I'm glad you came back from it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those are soul shards clinking in your pack, and I'll not have one of the Archbishop's deacons fainting in my shop again. Keep the bag closed while you look at the robes, please." },
   },
   start = "hello",
   nodes = {
@@ -238,7 +245,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." } },
+      lines = {
+        { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last warlock who bought one wore it to a sermon and nearly made a deacon faint, and he hadn't even brought anything like your demon along. I sell to anyone with honest coin, but I've learned to keep the colours apart, so I'd ask it to keep well away from the white vestments." },
+      },
       choices = {
         { text = "Wearing it to a sermon was cruel. I'd never do that.", next = "BACK", reply = "Thank you, dear. The deacon has never quite forgiven me, but I appreciate the thought.", fx = { align = { light = 1 } } },
         { text = "The deacon's fright was his own affair. It's only a robe.", next = "BACK", reply = "It is only a robe, dear, but it was my robe, and the deacon was my customer. Do be careful.", fx = { align = { light = -1 } } },
@@ -349,7 +359,7 @@ P:NPC {
   key = "jenova_stoneshield", id = TODO_NPC("Jenova Stoneshield"), name = "Jenova Stoneshield", title = "Stable Master",
   bible = "bibles/unsung.md", role = "stablemaster", tier = "service",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "animals", "loyal" },
-  notices = { "pet", "class" },
+  notices = { "pet", "class", "lock_steed" },
   impression = {
     first = "She talks to the beasts more kindly than to their owners.",
     third = "{name} met Jenova Stoneshield, the dwarf stable master of Stormwind's Dwarven District.",
@@ -361,6 +371,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } }, place = "before",
       text = "Now there's a fine beast. What's {pet} been eating? Never mind, I can see it in the coat; ye've been feeding it scraps." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye'll leave that felsteed outside, for every beast in my stable has its ears flat an' its eyes white. I've kept boars an' bears an' worse, but nothin' that leaves fire in its own hoofprints." },
   },
   start = "hello",
   nodes = {
@@ -404,7 +416,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." } },
+      lines = {
+        { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fear 'em? Listen tae my stalls, for every beast in there has caught the stink o' yer {pet} an' wants a piece of it. I'll hold 'em back, so long as ye walk that thing round the far side o' the yard an' no' past their doors." },
+      },
       choices = {
         { text = "I'll keep it well away. Your beasts shouldn't suffer for it.", next = "BACK", reply = "Good. Keep it out o' sight an' smell, an' we'll get along.", fx = { align = { light = 1 } } },
         { text = "My demon could take your whole stable, Jenova.", next = "BACK", reply = "It could try, an' then ye'd have tae explain tae me where yer demon went. I'd keep it close.", fx = { align = { light = -1 } } },
@@ -513,7 +528,7 @@ P:NPC {
   key = "billibub", id = TODO_NPC("Billibub Cogspinner"), name = "Billibub Cogspinner", title = "Engineering Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "excitable" }, values = { "invention", "community" },
-  notices = { "craft", "gnome" },
+  notices = { "craft", "gnome", "lock_shards" },
   impression = {
     first = "He explains how his parts explode with real delight.",
     third = "{name} met Billibub Cogspinner, a gnome who sells engineering supplies in the Dwarven District.",
@@ -527,6 +542,8 @@ P:NPC {
       text = "An engineer! I can tell by the scorch marks, and I mean that as the highest compliment." },
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" }, place = "before",
       text = "A fellow gnome! Were you out of Gnomeregan before it all went wrong? No, don't answer that, nobody likes to talk about it." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Is that an infernal stone? Those come down out of the sky with something very large attached, and I'd love to clock the rate of descent. Please don't drop it, though, because I've a lot of very flammable stock." },
   },
   start = "hello",
   nodes = {
@@ -543,6 +560,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd love to, and I'd take very careful notes, right up until the moment it set my notes on fire, which I'm reliably told is what imps do. Lilliam says I'm not allowed near anything that explodes on purpose, only things that explode by accident, and I've decided not to argue the point." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Is that it? Oh, I'd love to measure it, and I'd take very careful notes, right up until it set them on fire, which I'm reliably told is what demons do. Lilliam says I'm not allowed near anything that explodes on purpose, so I'll estimate its temperature from a safe distance instead, which I've calculated is roughly here." },
       },
       choices = {
         { text = "Lilliam's right. Keep to your accidental explosions.", next = "BACK", reply = "Lilliam's always right, which is very annoying. Accidental explosions it is.", fx = { align = { order = 1 } } },

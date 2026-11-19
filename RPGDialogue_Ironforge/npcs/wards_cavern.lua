@@ -8,7 +8,7 @@ P:NPC {
   key = "if_ulbrek", id = TODO_NPC("Ulbrek Firehand"), name = "Ulbrek Firehand",
   bible = "bibles/wards_cavern.md", role = "stablemaster", tier = "service",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "kind", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He talks to his animals more than he talks to people.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "There's a fine beast at yer heel, an' it's been well fed, I can see. It trusts ye, an' ye cannae buy that wi' any amount o' meat." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Every beast in these stalls is up an' pacin', an' the bear in the third stall is awake, which means yer felsteed's close. I'll no' stable that thing, so leave it outside the cavern, for the sake o' my bear's temper." },
   },
 
   start = "hello",
@@ -77,7 +79,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because it's no' from this world, an' every beast knows that the moment it catches the scent. I've seen a bear tear its stall apart tryin' tae get away from an imp, an' I'll no' see it again." } },
+      lines = { { id = "xlock_default", text = "Because it's no' from this world, an' every beast knows that the moment it catches the scent. I've seen a bear tear its stall apart tryin' tae get away from an imp, an' I'll no' see it again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because it's no' from this world, an' every beast knows it the moment it catches the scent, an' ye can hear them kickin' their stalls right now. I've seen a bear tear its stall apart tryin' tae get away from an imp, so take yer {pet} back out tae the Hall before I've another one tae mend." },
+      },
       choices = {
         { text = "I'll keep the creature far from your stables.", next = "BACK", reply = "Thank ye, truly, for I've only just mended the last stall, an' the bear's still givin' me a wounded look about it.", fx = { align = { light = 1 } } },
         { text = "They'll learn to live with it, Ulbrek.", next = "BACK", reply = "They'll no', an' I'll no' make them try, so keep it well away, or I'll be mendin' stalls an' soothin' bears till spring.", fx = { align = { light = -1 } } },
@@ -200,7 +204,7 @@ P:NPC {
   key = "if_bixi", id = TODO_NPC("Bixi Wobblebonk"), name = "Bixi Wobblebonk",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "friendly", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "Her cheer is slightly alarming, given what she teaches.",
@@ -215,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue! You lot always want daggers, and you always hold them wrong at first. Let me see your grip before you leave." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking with shadow, and it's curling round your fingers like you've just dipped them in ink. A blade never does that, which is exactly my point about blades, so do wash before you handle my stock." },
   },
 
   start = "hello",
@@ -269,7 +275,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, and it never sulks or sets your robes alight like an imp." } },
+      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, and it never sulks or sets your robes alight like an imp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every warlock should, for a demon can't follow you everywhere, though yours seems determined to try, since it's been at your heel the whole time you've been browsing. A dagger's always there, and it never sulks or sets your robes alight, and it doesn't stare at my stock like that, either." },
+      },
       choices = {
         { text = "I'll learn it and fight beside my demon, not behind it.", next = "BACK", reply = "Splendid, and your demon will thank you for it, assuming they thank anyone, which I doubt, but you'll be alive to wonder.", fx = { align = { honor = 1 } } },
         { text = "My demon does the fighting. That's what it's for.", next = "BACK", reply = "It is, until the day it isn't there, and then you'll wish you'd spent an afternoon on my range learning the pointy end.", fx = { align = { honor = -1 } } },
@@ -390,7 +398,7 @@ P:NPC {
   key = "if_ormyr", id = TODO_NPC("Ormyr Flinteye"), name = "Ormyr Flinteye",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "sharp" }, values = { "cunning", "discreet" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_eyes" },
 
   impression = {
     first = "He watches the entrance as if expecting someone he'd rather not see.",
@@ -405,6 +413,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I heard ye coming at the third step, so keep practicin'. Ye'll get there." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Yer eyes have a sheen on them like a cat's in lamplight, an' I'd wager they see what's tucked in the shadows o' this cavern. I'll thank ye no' tae point them at my students, for a rogue who's been seen is a rogue who's been taught a lesson." },
   },
 
   start = "hello",
@@ -459,7 +469,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." } },
+      lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Peacefully enough, for both of us know the guards would happily throw us out together, though bringin' yer demon intae my corner stretches the peace a good deal. We keep tae our corners, an' we nod in passin', so take it back tae yours an' we'll go on noddin'." },
+      },
       choices = {
         { text = "Then I'll keep to my corner, and nod as I pass.", next = "BACK", reply = "We'll get along fine, then. A nod in passin' is the best friendship a rogue can offer down here.", fx = { align = { order = 1 } } },
         { text = "Corners are for the cautious. I go where I like.", next = "BACK", reply = "Then ye'll find out how quickly the guards come runnin', an' I'll be nowhere near ye when they do.", fx = { align = { order = -1 } } },
@@ -579,7 +591,7 @@ P:NPC {
   key = "if_grimnur", id = TODO_NPC("Grimnur Stonebrand"), name = "Grimnur Stonebrand",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "calm" }, values = { "patient", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
 
   impression = {
     first = "He finds it funny to teach fishing in a cavern without water.",
@@ -594,6 +606,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = { "Fishing" } },
       text = "Ye smell like a lake, friend, an' I mean that kindly. What were they bitin' on?" },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "Ye're breathin' strange, slow an' deep, like a body who could sit under the water an' never come up. I've wished for that a hundred times wi' a snagged line, so if it ever comes off on a fisherman, ye'll know where tae find me." },
   },
 
   start = "hello",
@@ -657,7 +671,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." } },
+      lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. Yer demon's peerin' intae the pool already, though, an' every fish in it has gone tae the bottom, so I'd ask ye tae keep it back from the edge, for they're shy enough as it is." },
+      },
       choices = {
         { text = "I'll keep my demon quiet and fish patiently.", next = "BACK", reply = "The fishin' will do yer patience good, which every warlock could use a wee bit more of.", fx = { align = { light = 1 } } },
         { text = "If my demon scares them up, that's quicker fishing.", next = "BACK", reply = "Quicker, aye, an' the fish will be too frightened tae taste right, so let the poor things come up in their own time.", fx = { align = { light = -1 } } },
@@ -770,7 +786,7 @@ P:NPC {
   key = "if_tansy", id = TODO_NPC("Tansy Puddlefizz"), name = "Tansy Puddlefizz",
   bible = "bibles/wards_cavern.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "quick" }, values = { "friendly", "inventive" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "She speaks of Grimnur with great affection and mild exasperation.",
@@ -785,6 +801,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = { "Fishing" } },
       text = "Oh, a proper fisher! Tell me what lure you use, and I'll tell you what's wrong with it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My bait worms have all burrowed to the bottom of the tub, and they only do that before a thunderstorm or when something nasty walks in. You seem pleasant enough, but I'll keep the lid on the tub while you browse." },
   },
 
   start = "hello",
@@ -848,7 +866,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." } },
+      lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a green glow tends to attract things that aren't fish, and I see one's already followed you here and is staring into my bait bucket. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool, so please don't let it near the edge." },
+      },
       choices = {
         { text = "Ordinary lures for me, then. I'll leave the imp-fishing to you.", next = "BACK", reply = "Very wise, and much safer for everyone, and if you ever do go imp-fishing, please don't do it in my cavern.", fx = { align = { light = 1 } } },
         { text = "The things that aren't fish sound more interesting.", next = "BACK", reply = "That's exactly what I'm afraid of, and I'll keep my green lures in a locked drawer until somebody braver comes along.", fx = { align = { light = -1 } } },

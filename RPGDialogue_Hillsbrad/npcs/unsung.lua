@@ -7,7 +7,7 @@ P:NPC {
   title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "wry", "patient" }, values = { "practical", "loyal" },
-  notices = { "craft", "weary" },
+  notices = { "craft", "weary", "lock_shards" },
 
   impression = {
     first = "Whatever she and Donald are to each other, she enjoys the secret.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "You smell of the sea and you've a hook in your hat brim, so you're one of us. Mind you don't get it caught on the door frame like Donald does." },
     { id = "n_wet", cat = "weary", when = { deathCause = "drowning" },
       text = "You've the look of someone the bay nearly kept, love. Sit a moment before you go back out; the water's colder than it looks." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks like a tackle box full of sinkers, only colder, and I don't think those are sinkers. Don't let Donald see them, or he'll want to know whether they float." },
   },
 
   start = "hello",
@@ -105,7 +107,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." } },
+      lines = {
+        { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One, a few summers back, and he tried to use his imp as bait, and yours is eyeing the lake right now as if it heard the story. That one came back up angry and singed, so I'll sell you a proper lure and some advice, and you can tell {pet} it's staying on the dock." },
+      },
       choices = {
         { text = "A proper lure it is. I'll pay a fair price.", next = "BACK", reply = "Bless you for that. Donald can keep his one story, and I'll keep my customers dry.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The imp could use a swim, frankly.", next = "BACK", reply = "Ha, maybe it could, though I'd rather it did its swimming elsewhere. Donald's still not forgiven the last one.", fx = { align = { order = -1 } } },
@@ -224,7 +229,7 @@ P:NPC {
   title = "Alchemy Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "anxious", "earnest" }, values = { "careful", "kind" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He reads every label twice and still doesn't sleep.",
@@ -241,6 +246,8 @@ P:NPC {
       text = "An alchemist, or at least a picker, I can see the green on your fingers. Hillsbrad's a good place for herbs, friend, as long as you know which fields to stay out of." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "Light above, one of them, here! Please, I don't want any trouble, and I've nothing in this shop worth stealing for your apothecaries." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Something in your pack is glowing red through the leather, and I can feel the heat of it from behind the counter. I sell candles and chalk and nothing that burns on its own, so do keep it away from the lamp oil." },
   },
 
   start = "hello",
@@ -295,7 +302,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." } },
+      lines = {
+        { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles and chalk and a few herbs for the less unpleasant rituals, and I'd sell them faster if your demon weren't lingering over my baskets. I've watched what the apothecaries up the hill brew, and I'll not have Southshore's name on anything that goes into a summoning, least of all with one standing in my shop." },
+      },
       choices = {
         { text = "Then I'll buy my reagents from someone less fussy.", next = "BACK", reply = "I'll not stop you, friend, though I'd ask you not to tell me where. Some things I'd rather not know about.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your fear is foolish. Reagents are just tools.", next = "BACK", reply = "Tools, perhaps, but I've seen what they're used for. I'll stay a foolish apothecary and keep my conscience clean.", fx = { align = { order = -1 } } },
@@ -415,7 +425,7 @@ P:NPC {
   title = "Trade Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "brisk", "friendly" }, values = { "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
 
   impression = {
     first = "Micha tells the town's business through what it buys.",
@@ -430,6 +440,8 @@ P:NPC {
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Engineering" } },
       text = "A crafter, I can always tell by the calluses, and Southshore always needs more of you. Most of my customers are soldiers patching their own boots, and badly." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That pale stone you're carrying looks as if someone inside it is waiting to be let out. I don't ask what goods are for, as a rule, but I'll admit that one has me curious." },
   },
 
   start = "hello",
@@ -511,7 +523,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." } },
+      lines = {
+        { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Your demon seems to approve of the black, judging by how it's watching the bolt, and I'll not ask why, since a sale's a sale and the Menethil cart doesn't run on curiosity." },
+      },
       choices = {
         { text = "Honest robes for honest coin. I've nothing to hide.", next = "BACK", reply = "Then you'll be my favourite sort of customer. Pay in silver and nobody here will ask a thing.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Best not to ask, Micha. Keep it that way.", next = "BACK", reply = "I'd planned to, friend. What folk wear in the privacy of their own homes is none of a trader's business.", fx = { align = { honor = -1 } } },
@@ -615,7 +630,7 @@ P:NPC {
   title = "Merchant Supplier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore", "tarren_mill" }, temper = { "breezy", "sly" }, values = { "greedy", "practical" },
-  notices = { "purse", "race" },
+  notices = { "purse", "race", "lock_shards" },
 
   impression = {
     first = "The goblin sells to both sides of the war and laughs.",
@@ -632,6 +647,8 @@ P:NPC {
       text = "Now there's a purse that jingles in all the right places! Step this way, friend, and let me show you the good stock, the stuff I don't show the soldiers 'cause soldiers haggle." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Go on, have a look at the Overwatch units, buddy, I know you're itchin' to. Don't open the panels, though, 'cause they bite, and the last fella who tried is still payin' for his eyebrows." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Now that's a bag full o' somethin'! Fifteen, twenty shards if I'm countin' the clinks right, and in Booty Bay there's folk who'd pay a fine price just for the privilege of never askin' where they came from." },
   },
 
   start = "hello",
@@ -722,7 +739,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." } },
+      lines = {
+        { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked into Lordamere Lake smokin' like a chimney. So yer demon can stand right there where I can see it, pal, and if it so much as breathes on a sprocket, the repairs go on yer tab at full goblin rates." },
+      },
       choices = {
         { text = "I'll keep my imp away from your robots.", next = "BACK", reply = "Good, 'cause I'm still payin' off the last one, and the lake's charging me interest. Keep that little fella on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps go where they want. Build better robots.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },

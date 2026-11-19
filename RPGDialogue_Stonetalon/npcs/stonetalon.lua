@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "soldier", tier = "major",
   communities = { "sun_rock" }, temper = { "hard" }, values = { "loyal", "brave" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shadow", "lock_shards" },
   impression = {
     first = "He says he was gentle once, before the battles took it.",
     third = "{name} met Maggran Earthbinder, the battle-hardened tauren who holds Sun Rock Retreat for Cairne Bloodhoof.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "You've been bloodied. Good; it means you fought. Now mend, and fight smarter." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of my people. You'll find me less gentle than the elders, for the years and the battles took that from me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You smell of the green skies of Draenor, warlock, the same stink that hung on the old Horde when the demon blood was in us. I spent years washing it out of my memory, and you've walked it back into my camp." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "How many souls are rattling in that bag of yours? The Shadow Council's warlocks carried them by the sackful, and I'll not have a Bloodfury's soul serve anyone who sits at my fires." },
   },
 
   start = "hello",
@@ -93,7 +97,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." } },
+      lines = {
+        { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But you've brought one of your demons to my fire already, and our people carried that taint long enough, so keep it back, or I'll put my axe through it before I ask whose it was." },
+      },
       choices = {
         { text = "Fair. My servant will keep well away from your braves.", next = "BACK", reply = "Then we'll get along, warlock, and the braves will sleep easier. Thin the Bloodfuries, and I'll remember it.", fx = { align = { order = 1 } } },
         { text = "My servant goes where I send it, Maggran.", next = "BACK", reply = "Then send it far from my fires, or you'll be sending it home in pieces. I meant what I said.", fx = { align = { order = -1 } } },
@@ -427,7 +434,7 @@ P:NPC {
   key = "tammra", id = TODO_NPC("Tammra Windfield"), name = "Tammra Windfield",
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "gentle" }, values = { "hopeful", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
   impression = {
     first = "She counts five living shoots against two dead as a good night.",
     third = "{name} met Tammra Windfield, who tends what grows on Sun Rock and means to bring the Charred Vale back to life.",
@@ -442,6 +449,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Then you'll know how hard it is to make dead ground live again. Help me, if you've a moment." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The earth draws back where you walk, and there's a green sickness in your step like the ash in the Charred Vale. The Earth Mother forgives much, but I do not think the soil will forgive it as quickly as I would." },
   },
 
   start = "hello",
@@ -487,7 +496,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." } },
+      lines = {
+        { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and the air has gone heavy and hot since your servant came near. I've grown wary of anything that bargains with powers it can't see, and I'm not sure the things your magic kills feed anything." },
+      },
       choices = {
         { text = "Then I'll keep my craft well away from your garden.", next = "BACK", reply = "Thank you, and the shoots thank you too. I don't know what your power touches, but I'd rather not find out here.", fx = { align = { light = 1 } } },
         { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", reply = "Perhaps they will, but I've buried too many shoots to take that chance. Keep it away from my rows.", fx = { align = { light = -1 } } },
@@ -1433,7 +1445,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "noble", tier = "quest",
   communities = { "stonetalon_peak" }, temper = { "serene" }, values = { "patient", "protective" },
   spiritSensitive = true,
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_steed" },
   impression = {
     first = "He says crimes are done with hands, not banners.",
     third = "{name} met Keeper Albagorm, the serene keeper of the grove at Stonetalon Peak who mourns the burning of the Charred Vale.",
@@ -1450,6 +1462,8 @@ P:NPC {
       text = "A child of the Circle! Welcome, welcome. The mountain has missed druids, and so have I." },
     { id = "n_horde", cat = "class", when = { faction = "Horde" },
       text = "You come from Sun Rock's side of the ridges, but that's no crime here; crimes are done with hands, not banners." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "That horse of yours leaves burning prints in the moss, little one, and every one of them is a wound the grove must heal. Walk here on your own feet, if you would be so kind." },
   },
 
   start = "hello",
@@ -1513,7 +1527,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." } },
+      lines = {
+        { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The grove remembers the Burning Legion, little one, and the leaves nearest your servant have curled already, as they did when the demons walked through Ashenvale and Felwood. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." },
+      },
       choices = {
         { text = "Then it stays bound, and far from your trees.", next = "BACK", reply = "Thank you, little one. The dryads would flee the grove if they caught its scent.", fx = { align = { light = 1 } } },
         { text = "The trees will have to learn to bear it.", next = "BACK", reply = "Trees learn slowly, little one, and they forget even slower. Keep it away from them, I ask you.", fx = { align = { light = -1 } } },
@@ -1844,6 +1861,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and they'll say your demon smells of it. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and anyone downwind of you can smell the sulphur on your demon from here. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
       },
       choices = {
         { text = "I'll keep it out of the grove, Faralia.", next = "BACK", reply = "Thank you. The druids will be grateful, though they'll never tell you so, and the hippogryphs will stop screaming.", fx = { align = { order = 1 } } },

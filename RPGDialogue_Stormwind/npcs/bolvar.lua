@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
   likesTone = "blunt",
   spiritSensitive = true,
-  notices = { "reputation", "paladin" },
+  notices = { "reputation", "paladin", "lock_armor", "lock_taint" },
   impression = {
     first = "He looks tired in the way only honest men get tired.",
     third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A paladin of the Light in my hall. Uther would have liked to see more of you. So would I." },
     { id = "n_hero", cat = "reputation", place = "before", when = { minLevel = 50 },
       text = "Veterans of your kind are rare. Rarer every year. Stormwind is grateful, whether or not it remembers to say so." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward you wear is demon hide, isn't it? I fought beside paladins who'd have drawn steel at the sight of it, and I'll only say that the Light in this chamber can feel it as plainly as I can." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is fel on you, {class}, more than the craft alone leaves, and I can see it in the green at the edges of your eyes. Stormwind needs every hand it has, but I'd ask you to remember whose hand you're feeding." },
   },
 
   start = "hello",
@@ -136,7 +140,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because driving them out would only drive them deeper, where I can't see them, and SI:7 would rather they stayed in a cellar it already watches. Don't mistake that for approval, because the Second War taught every man in this hall what fel magic costs." } },
+      lines = {
+        { id = "xlock_default", text = "Because driving them out would only drive them deeper, where I can't see them, and SI:7 would rather they stayed in a cellar it already watches. Don't mistake that for approval, because the Second War taught every man in this hall what fel magic costs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because driving them out would only drive them deeper, where I can't see them, and SI:7 would rather they stayed in a cellar it already watches. That tolerance does not extend to a demon in this hall, so dismiss it now, before my guards decide the matter for you." },
+      },
       choices = {
         { text = "I'll keep my binding to the battlefield, Highlord, and nowhere else.", next = "BACK", reply = "See that you do. If what you call ever turns on this city, I'll not ask SI:7 to watch the cellar; I'll ask it to close it.", fx = { align = { light = 1 } } },
         { text = "Fel magic won the orcs a war, Highlord, and Stormwind could use it.", next = "BACK", reply = "It also cost them their homeland and nearly their souls, and I watched what it did to them at Blackrock. Stormwind will win its wars without it.", fx = { align = { light = -1 } } },

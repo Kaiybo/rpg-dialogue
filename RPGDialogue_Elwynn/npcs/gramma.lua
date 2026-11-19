@@ -7,7 +7,7 @@ P:NPC {
   key = "gramma", id = TODO_NPC("Gramma Stonefield"), name = "Gramma Stonefield",
   bible = "bibles/gramma.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "kind", "honest", "witty" },
-  notices = { "kit", "drink" },
+  notices = { "kit", "drink", "lock_shards" },
   impression = {
     first = "She is plainly scheming something and enjoying it enormously.",
     third = "{name} met Gramma Stonefield, the family's eldest, who thinks the Stonefield and Maclure feud a waste of good years.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Where are your clothes, child? You'll catch your death, and then where will I be? Short an errand-runner, that's where." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Been at the Lion's Pride, have you? Sit down before you fall down. I've seen enough Stonefields do both." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag clinks like a jar of marbles and it's colder than the root cellar, so I'll guess it's not marbles. Set it by the door, dear, because the pie's still cooling." },
   },
 
   start = "hello",
@@ -111,7 +113,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." } },
+      lines = {
+        { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Your creature can have the stool by the hearth if it likes, because it can't be worse company than this family at harvest, and it's a good deal quieter." },
+      },
       choices = {
         { text = "Your kitchen's the warmest place in Elwynn, Gramma.", next = "BACK", reply = "You're a sweet one, aren't you, whatever's whispering behind you. Sit down and warm yourself.", fx = { align = { light = 1 } } },
         { text = "My whispers are worse than any feud. Don't mistake me.", next = "BACK", reply = "Worse, is it? You've never seen a Stonefield at harvest, dear. Sit, and I'll cut you some pie.", fx = { align = { light = -1 } } },

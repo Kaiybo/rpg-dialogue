@@ -7,7 +7,7 @@ P:NPC {
   key = "burlguard", id = TODO_NPC("Harry Burlguard"), name = "Harry Burlguard",
   bible = "bibles/old_town.md", role = "soldier", tier = "quest",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical", "loyal" },
-  notices = { "light", "kin", "soldier" },
+  notices = { "light", "kin", "soldier", "lock_pact" },
   impression = {
     first = "He teaches young warriors by setting them on the tavern regulars.",
     third = "{name} met Harry Burlguard, an old veteran who teaches fighting from his table in the Pig and Whistle.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Stormwind blood. Good, you'll know what an Old Town tavern's like on a Friday, so you won't be shocked when the stools start flying." },
     { id = "n_warrior", cat = "soldier", when = { class = "WARRIOR" },
       text = "You stand like you've been taught, but not taught enough. I can see where you'd drop your guard from here, and so will the next man who swings at you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a heat on you like the fever before a battle, and I've felt it once before, standing too near a Horde warlock's imp at Hillsbrad. I'll thank you to keep your pact on the far side of my table." },
   },
 
   start = "hello",
@@ -42,6 +44,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not on our side, they didn't, not in the Second War, because the Horde had the warlocks and we had the burns to show for it. I've had to get used to your sort walking about the city since, and I'll say this much: the ones I've met fight dirtier than an orc and complain less." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not on our side, they didn't, because the Horde had the warlocks and we had the burns to show for it, and the smell off that thing of yours takes me straight back to the Second War. I've had to get used to your sort walking about the city since, but I'll thank you to keep it on the far side of my table while I drink." },
       },
       choices = {
         { text = "I fight for Stormwind, Harry, not like the Horde.", next = "BACK", reply = "Aye, you do, and I'll give you that. Just keep the green fire away from my curtains.", fx = { align = { honor = 1 } } },
@@ -231,7 +234,7 @@ P:NPC {
   key = "bartleby", id = TODO_NPC("Bartleby"), name = "Bartleby", title = "Drunk",
   bible = "bibles/old_town.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "fierce" }, values = { "proud" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_stones" },
   impression = {
     first = "He is spoiling for a fight and oddly gracious when he loses.",
     third = "{name} met Bartleby, the Pig and Whistle's most stubborn drunk, and his beloved mug.",
@@ -249,6 +252,8 @@ P:NPC {
       text = "A proper Stormwind sort, all clean boots and good manners. What's a fancy thing like you doing in the Pig and Whistle?" },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You're as drunk as I am! Sit down, sit down, you're the best company I've had all week." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Give it here, because I hear they mend a man in one swallow, and I've a head on me that wants mending. No? Then take it and sit somewhere else, because it's making my ale taste green." },
   },
 
   start = "hello",
@@ -293,7 +298,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bother me? It drank half my pint the last time one of you lot sat down, and then it laughed about it, and I've never been so insulted by something knee-high. Burlguard says I should be grateful it wasn't the big blue one." } },
+      lines = {
+        { id = "xlock_default", text = "Bother me? It drank half my pint the last time one of you lot sat down, and then it laughed about it, and I've never been so insulted by something knee-high. Burlguard says I should be grateful it wasn't the big blue one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bother me? It's looking at my pint the way the last one did, right before it drank half and laughed about it, and I've never been so insulted in my life. Burlguard says I should be grateful, but Burlguard isn't the one whose drink it's eyeing." },
+      },
       choices = {
         { text = "I'll keep it on a short leash. Sorry about the pint.", next = "BACK", reply = "Apology accepted, and you can buy me the pint back. Fair's fair.", fx = { align = { light = 1 } } },
         { text = "My imp drinks what it likes. You'll get over it.", next = "BACK", reply = "I'll never get over it, never! Keep that thing away from my end of the bar.", fx = { align = { light = -1 } } },
@@ -450,7 +458,7 @@ P:NPC {
   key = "elly_langston", id = TODO_NPC("Elly Langston"), name = "Elly Langston", title = "Barmaid", gender = "female",
   bible = "bibles/old_town.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "friendly", "practical" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_shadow" },
   impression = {
     first = "She never spills a drop or loses her temper.",
     third = "{name} met Elly Langston, barmaid at the Pig and Whistle Tavern in Old Town.",
@@ -473,6 +481,8 @@ P:NPC {
       text = "A local, I'd bet. You've the look of someone who's had a Pig and Whistle ale before and come back anyway." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had plenty already, love. I'll pour you water and charge you for ale, and you'll never know the difference." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp over your table's gone dim since you sat down, love, and Reese swears he trimmed the wick this morning. It's not you, is it? Only it does that every time one of yours comes in." },
   },
 
   start = "hello",
@@ -517,7 +527,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." } },
+      lines = {
+        { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays and doesn't set the curtains on fire, love, but I'll not pour for your {pet}, however hard it stares at the taps. The last one of yours ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
+      },
       choices = {
         { text = "I'll leave the imp outside. It's only polite.", next = "BACK", reply = "That's very kind, love. Rena will be glad not to serve an imp again.", fx = { align = { light = 1 } } },
         { text = "My companions drink where I drink, and that's that.", next = "BACK", reply = "Then your companion pays its own way, love, and it sits at the back.", fx = { align = { light = -1 } } },
@@ -665,7 +678,7 @@ P:NPC {
   key = "ryback", id = TODO_NPC("Stephen Ryback"), name = "Stephen Ryback", title = "Cooking Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "careful", "proud" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_taint" },
   impression = {
     first = "He says he is only a cook, and that ends the subject.",
     third = "{name} met Stephen Ryback, the Pig and Whistle's cook and cooking trainer, who is just a cook, he says.",
@@ -682,6 +695,8 @@ P:NPC {
       text = "You'll have eaten Elwynn boar, then. Most folk cook it too fast, and I'll teach you not to." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You cook already, I can tell by the burn on your wrist. Everybody gets that one; it's how you know you've started." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a smell on you, sulphur and something sweeter under it, the fel getting in deep, I'd guess. I can tell when meat's turned by the smell alone, and I'd not let you near my stew pot." },
   },
 
   start = "hello",
@@ -699,6 +714,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anybody can learn to cook, if they've the patience and the hands for it, and I've noticed your sort have both. Mind, you can't rush a rib with a fel flame, because it chars on the outside and stays raw in the middle, and I've seen a man try it and seen what it did to his stomach." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anybody can learn to cook, and your sort have the patience for it, but I'll ask your servant to stop lurking by my spit. You can't rush a rib with fel heat, and that thing's standing close enough that I can see the fat on the near side spitting already." },
       },
       choices = {
         { text = "Then I'll learn it properly, the slow way.", next = "BACK", reply = "Good. The slow way's the only way that tastes like anything.", fx = { align = { honor = 1 } } },
@@ -850,7 +866,7 @@ P:NPC {
   key = "simon_tanner", id = TODO_NPC("Simon Tanner"), name = "Simon Tanner", title = "Leatherworking Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "practical", "hardworking" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_armor" },
   impression = {
     first = "He has made his peace with students who leave for adventure.",
     third = "{name} met Simon Tanner, the leatherworking trainer at the Protective Hide in Old Town.",
@@ -867,6 +883,8 @@ P:NPC {
       text = "Elwynn wolves and boar, that's where most of our hides come from. You'll have hunted a few yourself, I'd wager." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You've been at it already, I can see the awl marks on your fingers. Let's see what you've learned, then." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide you're wearing, conjured and not cured, and I can tell because there's no seam on it anywhere. I've tanned every beast Elwynn has, and I'd give a week's wages to know how it holds together." },
   },
 
   start = "hello",
@@ -911,7 +929,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." } },
+      lines = {
+        { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than you'd guess, because your sort's servants go through cloth like paper, and I've stitched more than one apprentice's robe back together. I'll sell you leather and not ask what you keep at home, but since you've brought it here instead, keep it off my hides while we talk." },
+      },
       choices = {
         { text = "I'd rather my demons never touched anyone. I'll take care.", next = "BACK", reply = "Good. I'd rather stitch leather than apprentices.", fx = { align = { light = 1 } } },
         { text = "Let the felhunter tear what it likes. Leather's cheap.", next = "BACK", reply = "Cheap, maybe, but my time isn't. I'd keep it on a lead.", fx = { align = { light = -1 } } },
@@ -1025,7 +1046,7 @@ P:NPC {
   key = "osborne", id = TODO_NPC("Osborne the Night Man"), name = "Osborne the Night Man", title = "Rogue Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "cunning", "loyal" },
-  notices = { "light", "kin", "stealth" },
+  notices = { "light", "kin", "stealth", "lock_eyes" },
   impression = {
     first = "He keeps one hand near his coin purse while he teaches.",
     third = "{name} met Osborne the Night Man, the rogue trainer who stands outside SI:7 in Old Town.",
@@ -1043,6 +1064,8 @@ P:NPC {
       text = "Stormwind born. You'll know that Old Town after dark belongs to people like me, then, so walk on the lit side of the street." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Nice try, but I heard your boots on the third step. Lighter on the heel next time, and you might fool somebody slower." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You can see me, can't you, standing in the dark where nobody's meant to see me. That's a warlock's trick, eyes that find what hides, and I'd rather you didn't use it in SI:7's hallways." },
   },
 
   start = "hello",
@@ -1076,7 +1099,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." } },
+      lines = {
+        { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths, and you've just brought yours up into Old Town in daylight. Shaw doesn't love the arrangement, and he'll love it less when I write down that I watched it follow you to my door." },
+      },
       choices = {
         { text = "The arrangement keeps the city safe. I'll honour it.", next = "BACK", reply = "Good. That's all anyone asks, on either side of the street.", fx = { align = { order = 1 } } },
         { text = "Arrangements are for people who fear each other. I don't.", next = "BACK", reply = "You should, a little. The ones who don't fear are the first to be found in the canal.", fx = { align = { order = -1 } } },
@@ -1300,7 +1326,7 @@ P:NPC {
   key = "jasper_fel", id = TODO_NPC("Jasper Fel"), name = "Jasper Fel", title = "Shady Dealer",
   bible = "bibles/old_town.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "careful" },
-  notices = { "light", "kin", "stealth" },
+  notices = { "light", "kin", "stealth", "lock_shards" },
   impression = {
     first = "He knows more about my business than I have told anybody.",
     third = "{name} met Jasper Fel, the soft-spoken dealer who sells supplies inside SI:7.",
@@ -1317,6 +1343,8 @@ P:NPC {
       text = "Stormwind born. Good, you'll understand why we keep the Defias in our sights; they were Stormwind born too, most of them." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "You're standing on the loose board, friend, so I've known you were there for a while. Come out and buy something." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards, maybe more, and you're walking them through Old Town like a purse of coppers. Most folk who carry that kind of cargo learn to keep it quiet, and you'd do well to learn it too." },
   },
 
   start = "hello",
@@ -1359,7 +1387,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." } },
+      lines = {
+        { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They buy candles, chalk and quiet, and pay in coin that's always a little warm, and now I think I know where the warmth comes from, judging by the heat off your companion. I keep their business and SI:7's on separate shelves, so if it could stop looking at the second shelf, I'd be obliged." },
+      },
       choices = {
         { text = "Keep it that way. The city needs its balance.", next = "BACK", reply = "Oh, I'll keep it. Balance is good for business, and business is good for me.", fx = { align = { order = 1 } } },
         { text = "When they ask you to choose, choose the Lamb.", next = "BACK", reply = "Then I'll never be asked, if I'm lucky. Choosing's bad for trade.", fx = { align = { order = -1 } } },

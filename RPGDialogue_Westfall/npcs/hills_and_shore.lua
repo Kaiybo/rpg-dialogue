@@ -8,7 +8,7 @@ P:NPC {
   key = "grimbooze", id = TODO_NPC("Grimbooze Thunderbrew"), name = "Grimbooze Thunderbrew",
   bible = "bibles/hills_and_shore.md", role = "vendor", tier = "service",
   communities = {}, temper = { "jovial" }, values = { "craft", "freedom" },
-  notices = { "race", "drink" },
+  notices = { "race", "drink", "lock_stones" },
   impression = {
     first = "The rhymes are terrible and the lager is not.",
     third = "{name} met Grimbooze Thunderbrew, a rhyming dwarf who brews lager in the Dagger Hills of Westfall.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A dwarf on my doorstep, as far from the forge as myself! Ye'll be wanting a taste of the real stuff, not the swill they sell on a Stormwind shelf." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "Ye're swaying already, I see by yer feet, so sit yerself down on that barrel and take a wee seat." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Yer firestone glows like an ember o' doom, an' it's warmin' my still from across the whole room. I'll ask ye tae keep it well out o' my brew, for I've no wish tae taste what yer fire would do." },
   },
   start = "hello",
   nodes = {
@@ -39,6 +41,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Yer fel fire, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
         { id = "xlock_more1", text = "Plain coal from the hills is the fire I trust, and a Thunderbrew's lager is honest or bust." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Yer fel fire, ye say, with yer servant there sniffin' me mash? I'll thank ye, but nay, for a lager that's boiled over brimstone tastes of naught but sulphur and ash!" },
       },
       choices = {
         { text = "Then I'll keep my fel off your fire, Grimbooze.", next = "BACK", reply = "A guest with some manners, now that's a fine sight, and my still and my fire both thank ye tonight!", fx = { align = { honor = 1 } } },

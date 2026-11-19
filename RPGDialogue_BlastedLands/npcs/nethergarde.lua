@@ -1567,7 +1567,7 @@ P:NPC {
   key = "enohar", id = TODO_NPC("Enohar Thunderbrew"), name = "Enohar Thunderbrew",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "nethergarde" }, temper = { "jovial" }, values = { "loyal", "brave" },
-  notices = { "race", "drunk" },
+  notices = { "race", "drunk", "lock_stones" },
 
   impression = {
     first = "Mention her family's ale and she bristles, mention home and she quiets.",
@@ -1588,6 +1588,8 @@ P:NPC {
       text = "Another dwarf! Now the keep's got two folk in it who know what a proper stout tastes like, an' I'm buyin'." },
     { id = "n_drunk", cat = "drunk", when = { drunk = true },
       text = "Ha! Ye've had a few already, haven't ye? Then ye're my kind o' company, though mind the stairs on yer way out." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in yer pocket? I've seen soldiers here trade a week's ale for one before a patrol tae the Portal, an' I've never once laughed at them for it." },
   },
 
   start = "hello",
@@ -1659,7 +1661,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they're watchin' the very door the demons came through, an' ye're standin' there wi' one at yer heel. Me, I judge a body by what they drink an' how they pay, so pull up a crate, an' keep the wee beastie off my mug." } },
+      lines = {
+        { id = "xlock_default", text = "Because they're watchin' the very door the demons came through, an' ye're standin' there wi' one at yer heel. Me, I judge a body by what they drink an' how they pay, so pull up a crate, an' keep the wee beastie off my mug." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they're watchin' the very door the demons came through, an' ye've brought one up tae the bar wi' ye. Me, I judge a body by what they drink an' how they pay, so pull up a crate, but that thing's been sniffin' at my mug, an' it can sniff somethin' else." },
+      },
       choices = {
         { text = "Demons are a weapon. Nethergarde should use them.", next = "BACK", reply = "A weapon, is it? Ach, I'll leave that tae the captain, but I'll no' be drinkin' wi' yer demon.", fx = { align = { light = -1 } } },
         { text = "They're right to be wary. I'd be wary too.", next = "BACK", reply = "Good, an' they'll respect ye more for it. The last warlock who wasnae wary had his imp set fire tae the barracks blankets, an' the lads still talk about it.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1824,7 +1829,7 @@ P:NPC {
   key = "alexandra", id = TODO_NPC("Alexandra Constantine"), name = "Alexandra Constantine",
   bible = "bibles/blastedlands.md", role = "flightmaster", tier = "service",
   communities = { "nethergarde" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She speaks of her gryphons the way others speak of their children.",
@@ -1839,6 +1844,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, good; you'll know how to sit a gryphon without strangling it. The soldiers here hold the reins as if they were drowning." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Please leave that burning horse at the foot of the hill, because the gryphons have been staring south at the Portal all day, and they don't need a reminder of what came out of it." },
   },
 
   start = "hello",
@@ -1902,7 +1909,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because this whole land smells of them, and the birds have flown over it all their lives, and they know what that smell means even if they've never seen the thing. I'd take a nervous bird over a brave one out here, any day." } },
+      lines = {
+        { id = "xlock_default", text = "Because this whole land smells of them, and the birds have flown over it all their lives, and they know what that smell means even if they've never seen the thing. I'd take a nervous bird over a brave one out here, any day." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because this whole land smells of them, and the birds have flown over it all their lives, and now one's standing at the foot of their roost. You can hear them shifting from here, so send it away before I bring one down, and I'd take a nervous bird over a brave one, but not a frantic one." },
+      },
       choices = {
         { text = "Wise birds. I'll leave my demon outside.", next = "BACK", reply = "Thank you. The young male bolted clean over the wall the last time a warlock walked in with an imp, and it took me two days to coax him down.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear makes them weak. They'll get used to it.", next = "BACK", reply = "They won't, and I'd not want them to. Fear keeps them alive here.", fx = { align = { light = -1 } } },
@@ -2018,7 +2028,7 @@ P:NPC {
   key = "bernie", id = TODO_NPC("Bernie Heisten"), name = "Bernie Heisten",
   bible = "bibles/blastedlands.md", role = "vendor", tier = "service",
   communities = { "nethergarde" }, temper = { "warm" }, values = { "generous" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "He knows every soldier's order and most of their troubles.",
@@ -2034,6 +2044,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like the ogres chewed you and spat you out, friend. Eat something before you go see Strumner about that armor; he's grumpy on an empty stomach, and so are you, I'd wager." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The bread I set out went stale on the board while you were walking in, and it was baked this morning. Out here I've learned not to ask, so sit with your back to the wall and eat." },
   },
 
   start = "hello",
@@ -2115,7 +2127,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, and I can't blame them, because each of them has stood a watch facing the Dark Portal and wondered what might come through it. Sit with your back to the wall and eat what you're given without any fuss, and by the third meal they'll stop staring, mostly." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, and I can't blame them, because each of them has stood a watch facing the Dark Portal and wondered what might come through it. Sit with your back to the wall and eat what you're given without any fuss, and by the third meal they'll stop staring, mostly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, and I can't blame them, because each of them has stood a watch facing the Dark Portal. Now they're looking at the thing you've brought into my mess hall, and the spoons have all stopped moving, so dismiss it, sit with your back to the wall and eat what you're given." },
+      },
       choices = {
         { text = "I'll keep my head down and earn their trust.", next = "BACK", reply = "That's the way of it, and they'll come round, given time. Keep your head down and your demon quieter.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them stare. I don't need their trust.", next = "BACK", reply = "Then you'll be lonely here, and it's a lonely place already. Think on it.", fx = { align = { order = -1 } } },
@@ -2215,7 +2230,7 @@ P:NPC {
   key = "strumner", id = TODO_NPC("Strumner Flintheel"), name = "Strumner Flintheel",
   bible = "bibles/blastedlands.md", role = "blacksmith", tier = "service",
   communities = { "nethergarde" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
 
   impression = {
     first = "He reckons himself the only honest repair for leagues.",
@@ -2230,6 +2245,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ogre club, by the shape o' that dent, and a big one. Set it on the bench before it falls off ye." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye've wrapped yerself in, an' I can see it shimmerin' under the plate, the same as the hide on the things that came through that Portal. I'll mend the steel, but I'll no' touch the other." },
   },
 
   start = "hello",
@@ -2293,7 +2310,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, if the coin's good an' the armor's no' smokin'. I've seen what comes out o' that Portal, so I'll no' pretend I like yer trade, but a smith who turned away every customer he disliked would starve in a week out here." } },
+      lines = {
+        { id = "xlock_default", text = "Aye, if the coin's good an' the armor's no' smokin'. I've seen what comes out o' that Portal, so I'll no' pretend I like yer trade, but a smith who turned away every customer he disliked would starve in a week out here." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, if the coin's good an' the armor's no' smokin'. But that beastie o' yers is leanin' on my anvil an' the iron's warmin' under it, so walk it back tae the door, because I've seen what comes out o' that Portal an' I'll no' have one in my forge." },
+      },
       choices = {
         { text = "Fair dealing's all I ask, Strumner.", next = "BACK", reply = "Fair dealing's what ye'll get, an' no more nor less. Keep the smoke away from my forge.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Keep your opinions and just do the work, dwarf.", next = "BACK", reply = "Opinions are free, dwarf or no', an' I'll keep mine. But I'll do the work, an' do it well.", fx = { align = { honor = -1 } } },

@@ -9,7 +9,7 @@ P:NPC {
   key = "gerik_koen", id = TODO_NPC("Gerik Koen"), name = "Gerik Koen", title = "Two Handed Weapon Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "hearty" }, values = { "strength", "honest" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "He sells nothing that can be swung with one hand.",
     third = "{name} met Gerik Koen of Heavy Handed Weapons in Old Town.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Now there's a pair of shoulders made for a greatsword. Come here and try this one, and tell me it doesn't feel like it was waiting for you." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "That weapon's nearly done for, friend. Have it mended at a smith before you trust your life to it again." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking, and not from any fire, so don't you go picking up a greatsword while they're like that. I've seen what happens to a grip when shadow gets into the leather." },
   },
   start = "hello",
   nodes = {
@@ -46,7 +48,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." } },
+      lines = {
+        { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only as something for your demon to stand behind, I'd think, though looking at yours, it doesn't seem the sort to need one. I've no wish to meet the warlock who taught a thing like that to swing an axe, so keep it away from my racks, in case it learns by watching." },
+      },
       choices = {
         { text = "I'll keep my voidwalker away from your axes.", next = "BACK", reply = "Thank you kindly. I've seen what a voidwalker does to a display rack.", fx = { align = { light = 1 } } },
         { text = "A voidwalker with an axe would be something to see.", next = "BACK", reply = "It would, and I'd sell it the axe, and then I'd lock the door behind it.", fx = { align = { light = -1 } } },
@@ -293,7 +298,7 @@ P:NPC {
   key = "maris_granger", id = TODO_NPC("Maris Granger"), name = "Maris Granger", title = "Skinning Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "impatient" }, values = { "practical", "craft" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_soulstone" },
   impression = {
     first = "She has no time for tourists, only for those who mean it.",
     third = "{name} met Maris Granger, the impatient skinning trainer of the Protective Hide.",
@@ -307,6 +312,8 @@ P:NPC {
       text = "Let me see your knife. Hm, it's sharp, at least, and most knives that come through that door couldn't cut butter." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, place = "before",
       text = "A hunter. Finally, somebody who brings in pelts that aren't full of holes." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's bound your soul in a stone, and I can see the shine of it on you like grease on a hide. Must be nice, knowing you'll get up again, so try not to be careless with my knives." },
   },
   start = "hello",
   nodes = {
@@ -323,6 +330,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both, I've noticed. Just keep that thing of yours away from my hides, because the last imp that came in here chewed through a whole stack of light leather before its master noticed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both. I asked the last warlock to keep his demon away from my hides and he didn't, so if your {pet} takes one step nearer that stack of leather, you're buying the whole stack." },
       },
       choices = {
         { text = "The imp stays out, then. Teach me properly.", next = "BACK", reply = "Good. Pick up a knife, and let's see what you've got.", fx = { align = { order = 1 } } },
@@ -465,7 +473,7 @@ P:NPC {
   key = "jillian_tanner", id = TODO_NPC("Jillian Tanner"), name = "Jillian Tanner", title = "Leatherworking Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "firm" }, values = { "honest", "craft" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_stones" },
   impression = {
     first = "Her prices are set, and she says haggling is for goblins.",
     third = "{name} met Jillian Tanner, who sells leatherworking supplies at the Protective Hide.",
@@ -477,6 +485,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" }, place = "before",
       text = "A leatherworker. You'll be wanting salt for curing, then, and more thread than you think you need." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a spellstone glowing through your pack, and it's the same red as the dye your sort buy from me. I'd always wondered what the dye was for, and now I think I'd rather not know." },
   },
   start = "hello",
   nodes = {
@@ -511,7 +521,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, unlike Bartleby's crowd, who still owe me for the summer." } },
+      lines = {
+        { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, unlike Bartleby's crowd, who still owe me for the summer." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for, though I wonder if your demon knows, the way it's staring at the dye pots. They're polite enough, and they pay, unlike Bartleby's crowd, so I'll put up with being watched." },
+      },
       choices = {
         { text = "I'd use your dye for honest work, Jillian.", next = "BACK", reply = "Then you're welcome to it, and I'll not ask what you mean by honest.", fx = { align = { light = 1 } } },
         { text = "Better you don't know what the red's for.", next = "BACK", reply = "You're probably right. I'll keep selling it, and keep not knowing.", fx = { align = { light = -1 } } },
@@ -746,7 +759,7 @@ P:NPC {
   key = "alyssa_griffith", id = TODO_NPC("Alyssa Griffith"), name = "Alyssa Griffith", title = "Bag Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft", "practical" },
-  notices = { "greenness", "kit" },
+  notices = { "greenness", "kit", "lock_shards" },
   impression = {
     first = "She believes most troubles come from carrying too little.",
     third = "{name} met Alyssa Griffith, who sells bags at the Protective Hide in Old Town.",
@@ -758,6 +771,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 12 }, place = "before",
       text = "You've got the look of somebody whose pack is stuffed with wolf meat and linen. You'll want another bag, love, and you'll want it today." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "I can hear those shards clinking from here, which means you never bought the felt-lined bag I tell your sort about. Twenty of them rattling at your hip, and every guard in Old Town knows what you are." },
   },
   start = "hello",
   nodes = {
@@ -774,6 +789,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A sturdy one with a felt lining, so the shards don't clink and give you away, and a strap long enough that the bag sits at your hip and not your back. Your sort always come back for a second bag inside a month, because you underestimate how much you'll gather, and I don't mind because it's good business." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A sturdy one with a felt lining, so the shards don't clink and give you away, and a strap long enough that the bag sits at your hip. Your servant's been eyeing my bags as though it can smell shards in them already, and I don't keep any, so I'd rather it waited by the door." },
       },
       choices = {
         { text = "A lined bag, then, Alyssa. I'll take your advice.", next = "BACK", reply = "Good choice. Nobody likes a warlock who rattles.", fx = { align = { order = 1 } } },
@@ -916,7 +932,7 @@ P:NPC {
   key = "kendor_kabonka", id = TODO_NPC("Kendor Kabonka"), name = "Kendor Kabonka", title = "Master of Cooking Recipes",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "food", "community" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_stones" },
   impression = {
     first = "He collects dishes the way some men collect coins.",
     third = "{name} met Kendor Kabonka, who sells recipes upstairs at the Pig and Whistle.",
@@ -928,6 +944,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" }, place = "before",
       text = "A cook, I can smell it on you, and it smells like boar. Come, I've a recipe that'll do that boar justice." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've always wondered what one tastes like, because a cook wants to know everything that can be eaten, and Stephen says I'm mad for asking." },
   },
   start = "hello",
   nodes = {
@@ -971,7 +989,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." } },
+      lines = {
+        { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world, and here's one standing at my stall. Stephen says I'm mad, and he's probably right, but I'd give a good deal to know whether your servant would taste my stew or only stare at me like it's doing now." },
+      },
       choices = {
         { text = "Don't feed it, Kendor. It'll only want more than food.", next = "BACK", reply = "You're probably right, my friend. I'll stick to customers who pay in coin.", fx = { align = { light = 1 } } },
         { text = "I'll bring it by. Feed it whatever you like.", next = "BACK", reply = "Splendid! I'll make my best stew, my friend, and stand very far back.", fx = { align = { light = -1 } } },

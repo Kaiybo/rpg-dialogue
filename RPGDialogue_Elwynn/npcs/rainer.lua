@@ -7,7 +7,7 @@ P:NPC {
   key = "rainer", id = TODO_NPC("Deputy Rainer"), name = "Deputy Rainer",
   bible = "bibles/rainer.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "lawful", "brave" },
-  notices = { "trophy", "kit" },
+  notices = { "trophy", "kit", "lock_eyes" },
   impression = {
     first = "He greeted me like the squad he asked for and never got.",
     third = "{name} met Deputy Rainer at Westbrook Garrison, the last post before Westfall, held with far too few soldiers.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Is that- that's Hogger's claw, Hogger's! Dughan's going to have to sit down when he sees that." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls got their teeth into you, I see. They go for the gaps in the armor, so close the gaps." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes catch the light the way a cat's do, and I've heard your lot can see a Defias sneaking about as plain as day. If that's true, walk the river path with me tonight, because I've lost track of more than one of them." },
   },
 
   start = "hello",
@@ -78,7 +80,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Marshal Dughan will have my badge." } },
+      lines = {
+        { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Marshal Dughan will have my badge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. They'll smell that thing at your heel too, I expect, so keep it pointed at them and not at my lads, or Marshal Dughan will have my badge." },
+      },
       choices = {
         { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", reply = "Good, and I'll hold you to it. Dughan's fond of my badge, and so am I.", fx = { align = { light = 1 } } },
         { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", reply = "My lads already fear plenty, friend, and they don't need more. Keep it on the gnolls.", fx = { align = { light = -1 } } },

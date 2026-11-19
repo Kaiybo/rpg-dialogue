@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
   likesTone = "polite",
   spiritSensitive = true,
-  notices = { "kit", "readiness" },
+  notices = { "kit", "readiness", "lock_shadow", "lock_steed" },
   impression = {
     first = "He judges a person first by how they keep their gear.",
     third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "Your harness is neglected. A paladin who can't care for their own gear will not care for a charger. Remember that; you'll need it someday." },
     { id = "n_ready", cat = "readiness", when = { class = "PALADIN", minLevel = 40 },
       text = "You carry yourself like someone who's been tested, and that's good. The tests don't end; they only grow quieter, and harder." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came through that door, {class}, the way a flame does when a cellar is opened. I've trained my paladins to notice that, and I'd be failing them if I pretended I hadn't." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That beast you ride is no horse, whatever shape it wears, and my own charger has been stamping in its stall since you came in. The Silver Hand earned its mounts by oath, and I'd ask what you paid for yours." },
   },
 
   start = "hello",
@@ -72,7 +76,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." } },
+      lines = {
+        { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There is a place for every soul who turns back, and I have seen a few do it, though never one who brought a demon into this hall to ask. Until you send it away, I'll speak to you civilly, and I'll keep my hammer within reach of it rather than of you." },
+      },
       choices = {
         { text = "Perhaps one day, my lord, though it won't come easy.", next = "BACK", reply = "Nothing worth having comes easy, and the Light least of all. My door will be open on the day you knock.", fx = { align = { light = 1 } } },
         { text = "I've no intention of turning back, my lord.", next = "BACK", reply = "Then I'll pray for you all the same, and keep my hammer close. That's as civil as I can be.", fx = { align = { light = -1 } } },
@@ -432,7 +439,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." } },
+      lines = {
+        { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every night, in the same breath as the paladins, and tonight I'll add a word for the thing beside you, though I couldn't tell you whether it hears prayers at all. The Light is wider than Lord Shadowbreaker's patience, which is fortunate, because he's been watching your demon since you came in." },
+      },
       choices = {
         { text = "Pray for me, then. I'd be glad of it.", next = "BACK", reply = "Then I'll pray tonight, and every night after. The Light has room for you, warlock, whether or not you ask it.", fx = { align = { light = 1 } } },
         { text = "Save your prayers, Arthur, because I've chosen my path.", next = "BACK", reply = "I'll pray anyway, I'm afraid, and you needn't thank me. Some habits are kinder than they look.", fx = { align = { light = -1 } } },
@@ -604,7 +614,7 @@ P:NPC {
   key = "elmore", id = TODO_NPC("Grimand Elmore"), name = "Grimand Elmore",
   bible = "bibles/city2.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_armor" },
   impression = {
     first = "His praise is so rare that it nearly sounds like an insult.",
     third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
@@ -620,6 +630,8 @@ P:NPC {
       text = "Smith's hands! Let me see the burns. Aye, ye've been at it, so keep at it, an' in twenty years ye might be adequate." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.2 } },
       text = "Who made that armor? No, dinnae tell me, because whoever it was, it's given up on ye." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye've wrapped yerself in, an' I can smell it over the forge, sulphur an' somethin' worse. Ye'll get no barding fitted over that, for the iron would never sit right on it." },
   },
 
   start = "hello",
@@ -628,6 +640,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll forge ye a fine dagger wi' a good balance, an' ye can do whatever ye like wi' it after it leaves my bench. What I willnae do is hammer fel-touched iron, for I tried it once, when I was young an' stupid, an' the metal sang at me for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll forge ye a fine dagger wi' good balance, but tell yer {pet} tae stop sniffin' round my quench barrel, for the water's started steamin' an' I've no' heated it. I tried hammerin' fel-touched iron once, when I was young an' stupid, an' the metal sang at me for a week, so I'll have none o' that here." },
       },
       choices = {
         { text = "A plain dagger, then, Elmore. I'll keep the fel away.", next = "BACK", reply = "That's a bargain, then. A clean dagger fer a clean hand, an' I'll make it the best in the District.", fx = { align = { light = 1 } } },
@@ -828,7 +841,7 @@ P:NPC {
   key = "milton", id = TODO_NPC("Milton Sheaf"), name = "Milton Sheaf", title = "Librarian",
   bible = "bibles/city2.md", role = "scholar", tier = "quest",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
-  notices = { "lore" },
+  notices = { "lore", "lock_shards" },
   impression = {
     first = "He believes the books are sleeping, so one whispers.",
     third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
@@ -842,6 +855,8 @@ P:NPC {
   notice = {
     { id = "n_reader", cat = "lore", when = { bookRead = "The Seven Kingdoms" },
       text = "You've read The Seven Kingdoms, and properly, I can tell, not just the pictures! Come back any time, and bring clean hands." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Whatever's in your satchel is humming very softly, in a key I've only heard once, from those books the Archbishop's clerks took away. Please don't set it on the reading table, because the pages curl." },
   },
 
   start = "hello",
@@ -859,6 +874,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away for safekeeping. I miss them, I'll confess, because a library that only keeps the books it approves of is half a library, but I'd not let you near them now even if I had them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away. I'll confess I'm glad they're gone now, because your servant is looking along my shelves as though it knows exactly which gap they left, and I'd not like to see what it did if it found one." },
       },
       choices = {
         { text = "The clerks were right to take them, Milton.", next = "BACK", reply = "I suppose they were, and I've told myself so every winter since. I still miss the bindings, mind you.", fx = { align = { order = 1 } } },
@@ -1036,7 +1052,7 @@ P:NPC {
   key = "elling", id = TODO_NPC("Elling Trias"), name = "Elling Trias", title = "Cheesemaker",
   bible = "bibles/city2.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
-  notices = { "watch" },
+  notices = { "watch", "lock_stones" },
   impression = {
     first = "Nobody has ever insisted so firmly on selling only cheese.",
     third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
@@ -1050,6 +1066,8 @@ P:NPC {
   notice = {
     { id = "n_watch", cat = "watch", when = { class = "ROGUE" },
       text = "You looked at the cellar door before you looked at the cheese. Everyone who does that ends up working for the same people. Hello, colleague." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a spellstone you've got, isn't it, or a firestone, by the heat coming off your pack. I hear the Lamb's people talk about them over the counter, and I've learned to look honest and say nothing." },
   },
 
   start = "hello",
@@ -1067,6 +1085,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "All sorts buy my cheese, and I pay very close attention to what they say while they're buying it, because a cheesemaker hears all kinds of things. The folk from the Lamb buy the strongest cheddar I have, and they talk more than they think, so I'm very fond of them in my way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "All sorts buy my cheese, and the folk from the Lamb buy the strongest cheddar I have and talk more than they think. Your demon hasn't said a word since you came in, mind, but it's listened to every one of mine, and I'm not used to being the one who's overheard." },
       },
       choices = {
         { text = "Then you'll hear only good things from me, Elling.", next = "BACK", reply = "I'm sure I will, friend, though I'll be listening all the same. It's a cheesemaker's habit.", fx = { align = { order = 1 } } },

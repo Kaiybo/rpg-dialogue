@@ -8,7 +8,7 @@ P:NPC {
   key = "tharnariun", id = TODO_NPC("Tharnariun Treetender"), name = "Tharnariun Treetender",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "patient" }, values = { "healing", "curious" },
-  notices = { "pet", "form" },
+  notices = { "pet", "form", "lock_taint" },
   impression = {
     first = "He wants a sick bear brought alive, which says most of it.",
     third = "{name} met Tharnariun Treetender, a druid of Auberdine trying to cure the madness spreading through Darkshore's thistle bears.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Keep your companion away from the thistle bears, and away from anything that foams at the mouth. Whatever this is, I do not know yet whether it passes from beast to beast." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Ha, for a moment you gave me a fright! A clear-eyed bear is the finest thing I've seen all week, so stay as you are a moment and let me look at you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is fel in you, more than a novice's dabbling, and it smells exactly like the moss I have been scraping from the bears near the Blackwood camps. I would ask what you have been doing, but I fear you would tell me." },
   },
 
   start = "hello",
@@ -93,6 +95,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. My cubs have backed into their pens at the sight of your servant, so leave it here when you go, because I need a sick bear brought to me alive, not torn apart by a demon." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", reply = "Spoken like one who knows what fel does to a living thing. I will not ask how you came to know it.", fx = { align = { light = 1 } } },
@@ -267,7 +270,7 @@ P:NPC {
   key = "elissa", id = TODO_NPC("Sentinel Elissa Starbreeze"), name = "Sentinel Elissa Starbreeze",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   communities = { "auberdine" }, temper = { "brisk" }, values = { "dutiful", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_eyes" },
   impression = {
     first = "She counts crates the way other Sentinels count arrows.",
     third = "{name} met Sentinel Elissa Starbreeze, who keeps Auberdine's stores and its ties to the paladins at Maestra's Post.",
@@ -283,6 +286,8 @@ P:NPC {
       text = "Another human! Delgren's company has taught me that your people keep their promises, so I'll assume you keep yours until you prove otherwise." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin, like Delgren the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You are watching the shadows behind the boats where the cultists like to wait, and I think you see more there than I do. I will not ask what lends you that sight, so long as you tell me what it shows you." },
   },
 
   start = "hello",
@@ -339,6 +344,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I am sure you do, and you bring the proof of it with you, standing there at your shoulder for every Sentinel to see. Delgren would want you in irons for less, so tell me where they meet, and then take that creature somewhere the Sentinels are not." },
       },
       choices = {
         { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you, warlock. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
@@ -510,7 +516,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/auberdine.md", role = "flightmaster", tier = "service",
   communities = { "auberdine" }, temper = { "cheerful" }, values = { "dutiful", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "The sea wind worries her more than anything on the ground.",
     third = "{name} met Caylais Moonfeather, who keeps the hippogryphs at Auberdine.",
@@ -524,6 +530,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
       text = "Off the Bravery, are you? Don't worry, a hippogryph flies smoother than any gryphon, or so I'm told by every dwarf who has turned green on one." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Please leave your burning horse at the foot of the roost, because the big grey one has already seen it and is pretending to be dead. I have only just got him eating again since the last warlock." },
   },
 
   start = "hello",
@@ -600,6 +608,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll carry you, but not your servant, and I'd ask you to dismiss it before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not your servant, and I can already hear them stamping in the roost with it standing here. Dismiss it now, please, because a hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
       },
       choices = {
         { text = "I'll dismiss it. The birds come first.", next = "BACK", reply = "Thank you, warlock. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },

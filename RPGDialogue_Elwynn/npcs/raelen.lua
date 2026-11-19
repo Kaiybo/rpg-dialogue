@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { origin = "human_westfall_farmhand", amount = 10, why = "Lost two wagons of timber to Defias; reads every Westfall accent as a thief in waiting." },
   bible = "bibles/raelen.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
-  notices = { "idle", "build" },
+  notices = { "idle", "build", "lock_pact" },
   impression = {
     first = "She will never say thank you, but I think she keeps count.",
     third = "{name} met Supervisor Raelen of the Eastvale Logging Camp, for whom the lumber order comes before everything.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "You're drunk, on my camp, in the middle of the day. Do you know what an axe does to a drunk man's foot?" },
     { id = "n_shoulders", cat = "build", when = { class = "WARRIOR" },
       text = "Look at those shoulders. Ever swing an axe at something that isn't trying to kill you? It pays steady." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running hot as a forge-hand, I can see it on your face, and my lads are giving you a wide berth because they think it's fever. If it's catching, keep it off my mill floor, and if it isn't, pick up a bundle." },
   },
 
   start = "hello",
@@ -64,7 +66,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." } },
+      lines = {
+        { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. That creature of yours looks able to carry a bundle, and the lads are frightened of the woods anyway, so if it'll stack and keep the wood dry, I'll pretend I never saw what it is." },
+      },
       choices = {
         { text = "You should care who does your work, Raelen.", next = "BACK", reply = "I care that it's done, and done right, and that's all. Everything else is Stormwind's problem.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then we understand each other. Get the timber cut.", next = "BACK", reply = "Good, we'll get on fine, then. The bundles are by the river.", fx = { align = { order = -1 } } },

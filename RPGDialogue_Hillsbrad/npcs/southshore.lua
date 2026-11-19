@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
-  notices = { "soldier", "kit" },
+  notices = { "soldier", "kit", "lock_shadow", "lock_steed" },
 
   impression = {
     first = "He's small-town stubborn and proud of it.",
@@ -30,6 +30,10 @@ P:NPC {
       text = "You've the bearing of a soldier. Stormwind-trained, maybe, though it doesn't matter; I'll take you either way." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Those ogres up the hill did that, I'll wager. Get it mended at Aebischer's, then go back and return the favour." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every dog on the green set up a howl the moment you crossed the bridge, and they don't do that for soldiers. I'll take your word that you're here to help, but you'll understand if I double the watch tonight." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "I saw the scorch marks your horse left on the north road, and so did half the town. Stable that creature outside the palisade, please, because the last time fire came down that road it was riding with the Horde." },
   },
 
   start = "hello",
@@ -163,7 +167,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "If the ogres come down from Alterac or the Forsaken push past the farms, I'll take any blade that points the right way, and I won't ask what it was forged in. But the mothers in this town remember the orcs and their demons, so do your work outside the walls and don't make me answer for you." } },
+      lines = {
+        { id = "xlock_default", text = "If the ogres come down from Alterac or the Forsaken push past the farms, I'll take any blade that points the right way, and I won't ask what it was forged in. But the mothers in this town remember the orcs and their demons, so do your work outside the walls and don't make me answer for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "If the ogres come down from Alterac I'll take any blade that points the right way, but I'd rather that blade didn't stand in my square reeking of brimstone. The mothers in this town remember the orcs and their demons, so walk yours back outside the walls before one of them sees it and I have to answer for you." },
+      },
       choices = {
         { text = "Fair terms, Marshal. I'll keep my craft beyond the walls.", next = "BACK", reply = "Good. The townsfolk sleep easier if they don't see what's helping them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll use my craft where it's needed, walls or no walls.", next = "BACK", reply = "Then do it far from my horses and my children, and we'll stay friends.", fx = { align = { order = -1 } } },
@@ -532,7 +539,7 @@ P:NPC {
   rivals = { "redpath" },
   bible = "bibles/hillsbrad.md", role = "noble", tier = "quest",
   communities = { "southshore" }, temper = { "weary" }, values = { "lawful", "dutiful" },
-  notices = { "status" },
+  notices = { "status", "lock_shards" },
 
   impression = {
     first = "He is too honest about wishing he were a clerk somewhere safer.",
@@ -549,6 +556,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "status", when = { class = "ROGUE" },
       text = "I'll speak plainly, since you look like someone who reads between lines anyway. The Syndicate wear faces like yours. Prove you're not one of them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Is your bag humming, or is that me? I've been through every statute Stormwind ever sent us, and there's nothing at all about carrying souls about in a sack, which I suppose makes it legal, though I'd rather not be the one to rule on it." },
   },
 
   start = "hello",
@@ -846,7 +855,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "I'm sure you could, and I'm sure Southshore would never sleep again either. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." } },
+      lines = {
+        { id = "xwl_default", text = "I'm sure you could, and I'm sure Southshore would never sleep again either. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I'm sure you could, and from the way your demon perked up at the word nightmares, I'm sure it would enjoy the work. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." },
+      },
       choices = {
         { text = "Sometimes a bigger fire is the only cure.", next = "BACK", reply = "And sometimes the bigger fire takes the town with it. I'd rather we didn't find out which.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Then I'll do it with a sword instead.", next = "BACK", reply = "Thank you. A sword I can write into a report without losing my post.", fx = { affinity = 1, align = { light = 1 } } },
@@ -875,7 +887,7 @@ P:NPC {
   key = "farren", id = TODO_NPC("Lieutenant Farren Orinelle"), name = "Lieutenant Farren Orinelle",
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "quest",
   communities = { "southshore" }, temper = { "sulky" }, values = { "ambitious" },
-  notices = { "drink" },
+  notices = { "drink", "lock_armor" },
 
   impression = {
     first = "He calls commanding murlocs building character, and he doesn't look convinced.",
@@ -889,6 +901,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ah, a fellow sufferer. Southshore drives everyone to it eventually. You're just ahead of schedule." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's no armour the Stormwind Guard ever issued, that dark hide crawling over your shoulders. I'd put in a requisition for some, but I suspect the paperwork would have to be signed in blood, and Samuelson would want it in triplicate." },
   },
 
   start = "hello",
@@ -1011,7 +1025,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Don't tempt me, because I've sat in this chair long enough to consider worse ideas. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, and I mean to see Stormwind again." } },
+      lines = {
+        { id = "xlock_default", text = "Don't tempt me, because I've sat in this chair long enough to consider worse ideas. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, and I mean to see Stormwind again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Don't tempt me, especially with it standing right there looking so eager to go. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, so send {pet} away before he walks past this tent." },
+      },
       choices = {
         { text = "Do your own duty, Lieutenant. Demons are no shortcut.", next = "BACK", reply = "You sound like Samuelson, and I'm not sure I like it. Fine, my own duty, eventually.", fx = { align = { order = 1 } } },
         { text = "A shortcut's a shortcut. Samuelson needn't ever hear.", next = "BACK", reply = "You and I think alike, which worries me a little. Still, best keep the demon out of my office.", fx = { align = { order = -1 } } },
@@ -1223,7 +1240,7 @@ P:NPC {
   key = "bilger", id = TODO_NPC("Brewmeister Bilger"), name = "Brewmeister Bilger",
   bible = "bibles/hillsbrad.md", role = "citizen", tier = "quest",
   communities = { "southshore" }, temper = { "rueful" }, values = { "honest" },
-  notices = { "paladin", "drink" },
+  notices = { "paladin", "drink", "lock_soulstone" },
 
   impression = {
     first = "He never drank as a knight, and has made up for it.",
@@ -1239,6 +1256,8 @@ P:NPC {
       text = "A paladin, hic. I was one o' you once, Silver Hand, back when the Hand meant somethin'. Don't look at me like that; I know what I look like." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ah, ye've been at it too, hic! Good, for I hate drinkin' with sober folk; they count." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've got yer soul tucked away in a stone, haven't ye? I can feel it on ye, hic. In the Hand we called a fallen man back with a prayer an' his own name, an' now folk carry a spare in a rock like a second pair o' boots." },
   },
 
   start = "hello",
@@ -1293,7 +1312,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every day, an' every night, so I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." } },
+      lines = {
+        { id = "xlock_default", text = "Every day, an' every night, so I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every day, an' every night, so I drink, an' havin' your demon starin' at me across the bar won't make me stop. Uther believed every soul could be saved, an' I believed it with him, but I never once believed it of a thing like that." },
+      },
       choices = {
         { text = "Uther was right. Even a warlock can serve the Light.", next = "BACK", reply = "Ye think so? Uther would've agreed with ye, an' I'd like to, if I'm honest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith is a crutch. Power is what saves people.", next = "BACK", reply = "Power didn't save Lordaeron, did it? I've seen what power does, an' I'll take me crutch, thank ye.", fx = { align = { light = -1 } } },
@@ -1469,7 +1491,7 @@ P:NPC {
   key = "dibbs", id = TODO_NPC("Loremaster Dibbs"), name = "Loremaster Dibbs",
   bible = "bibles/hillsbrad.md", role = "scholar", tier = "quest",
   communities = { "southshore" }, temper = { "dry" }, values = { "curious", "careful" },
-  notices = { "lore" },
+  notices = { "lore", "lock_shards" },
 
   impression = {
     first = "He talks about the old kingdom's books like lost friends.",
@@ -1484,6 +1506,8 @@ P:NPC {
   notice = {
     { id = "n_book", cat = "lore", when = { bookRead = "The Seven Kingdoms" },
       text = "The Seven Kingdoms, good! Then you know Alterac was one of them once, and most of its library is now ogre bedding." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "There's a stone in your pack that smells like the night the burning rocks fell on Dalaran. One of my Alterac texts describes a stone just like it, and the writer's hand stops shaking on the very next page, because there is no next page." },
   },
 
   start = "hello",
@@ -1556,7 +1580,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Old Alterac texts on summoning and binding, written in a hand that grew shakier the farther I read. I think the author learned more than he wanted, and I won't be the one to finish his research, no matter what you offer." } },
+      lines = {
+        { id = "xlock_default", text = "Old Alterac texts on summoning and binding, written in a hand that grew shakier the farther I read. I think the author learned more than he wanted, and I won't be the one to finish his research, no matter what you offer." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Old Alterac texts on summoning and binding, and one of the bindings would hold a thing very like your servant, which is why I'd rather it stopped reading over my shoulder. The author learned more than he wanted, and I won't be the one to finish his research, no matter what you or it might offer." },
+      },
       choices = {
         { text = "Forbidden knowledge is still knowledge. Don't let it rot.", next = "BACK", reply = "I'd agree, if I hadn't watched the author's hand shake on the page. They're locked in the back, and there they'll stay.", fx = { align = { light = -1 } } },
         { text = "Then keep them locked. Some books should never be opened.", next = "BACK", reply = "That's where they are, behind two locks and a very heavy dictionary. I'll sleep easier knowing you agree.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1705,7 +1732,7 @@ P:NPC {
   key = "anderson", id = TODO_NPC("Innkeeper Anderson"), name = "Innkeeper Anderson",
   bible = "bibles/hillsbrad.md", role = "innkeeper", tier = "service",
   communities = { "southshore" }, temper = { "steady" }, values = { "practical" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "He admits every corner of his roof leaks, which is honest enough.",
@@ -1727,6 +1754,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Up against the Syndicate, were you, or the ogres? Sit down and have some fish stew; it's always fish stew, this being a fishing town." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle in the common room just leaned away from the door, and the fishermen by the fire have gone quiet over their cups. Rooms are upstairs, and I'll open the window in yours before you have to ask." },
   },
 
   start = "hello",
@@ -1826,7 +1855,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One or two a season, coming down from Dalaran's way or up from Stormwind on some business they won't name. They pay on time and tip better than the soldiers, I'll give them that, but the room always smells of sulphur after, and the fishermen won't take it for days." } },
+      lines = {
+        { id = "xlock_default", text = "One or two a season, coming down from Dalaran's way or up from Stormwind on some business they won't name. They pay on time and tip better than the soldiers, I'll give them that, but the room always smells of sulphur after, and the fishermen won't take it for days." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One or two a season, and they mostly have the decency to leave their companions outside, unlike some I could name. They pay on time and tip better than the soldiers, but I can smell sulphur on the stair already, so if {pet} stays the night it stays on the floor." },
+      },
       choices = {
         { text = "I'll leave the room as I found it, Anderson.", next = "BACK", reply = "Thank you. The last one left a smell in the walls, and the fishermen still complain.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The fishermen can sleep somewhere else, then.", next = "BACK", reply = "Not in my inn, they can't. I'll find you a room at the far end, if you don't mind the draught.", fx = { align = { order = -1 } } },

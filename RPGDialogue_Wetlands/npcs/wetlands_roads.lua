@@ -6,7 +6,7 @@ P:NPC {
   key = "longbraid", id = TODO_NPC("Longbraid the Grim"), name = "Longbraid the Grim",
   bible = "bibles/wetlands_roads.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "gruff" }, values = { "loyal", "brave" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "He has earned that grim name of his.",
@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_modr", text = "Keep yer head down, stranger. The Dark Irons have archers on the walls, and they're better shots than they look." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good, because in Dun Modr that's a compliment." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green look on ye, an' the Dark Irons on the wall would know it as well as I do. I've watched good dwarves go that color before, an' none o' them ever came back the way they were." },
   },
 
   start = "hello",
@@ -84,7 +89,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect it from our side o' the Span. But I've seen good dwarves turn tae worse things when the fightin' went bad, so mind ye keep hold o' yerself." } },
+      lines = { { id = "xlock_default", text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect it from our side o' the Span. But I've seen good dwarves turn tae worse things when the fightin' went bad, so mind ye keep hold o' yerself." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect a thing like yers comin' at them from our side o' the Span. But I've seen good dwarves turn tae worse when the fightin' went bad, an' that demon's watchin' ye like it's waitin' for the day, so keep hold o' yerself." },
+      },
       choices = {
         { text = "I'll keep hold. I control it, not the reverse.", next = "BACK", reply = "Ye say that, an' I believe ye mean it, as did the last one who said it tae me. Keep sayin' it every mornin', an' keep meanin' it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "When the fighting goes bad, I'll use whatever works.", next = "BACK", reply = "An' that's just how it starts, wi' whatever works. I'll take yer help against the Dark Irons, but I'll be watchin' ye closer than I watch them.", fx = { align = { light = -1 } } },
@@ -248,7 +255,7 @@ P:NPC {
   key = "motley_garmason", id = TODO_NPC("Motley Garmason"), name = "Motley Garmason",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "sharp" }, values = { "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He can't stop thinking about the Dark Irons who broke the Span.",
@@ -257,6 +264,11 @@ P:NPC {
 
   greetings = {
     { id = "g_span", text = "Ye've come up the road from Menethil? Then ye've seen what's left of the bridge, and ye know why I'm angry." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye're carryin' soul shards, a good many by the chill, an' I'd give a lot tae see a few more Dark Irons in that bag. Fill it on that bridge, an' I'll no' say a word against ye." },
   },
 
   start = "hello",
@@ -272,7 +284,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, an' I'd sleep sound after, for they killed good dwarves on that bridge an' laughed while they did it. Longbraid says I'm too angry tae think straight, an' he may be right, but anger's what I've got left." } },
+      lines = { { id = "xlock_default", text = "I would, an' I'd sleep sound after, for they killed good dwarves on that bridge an' laughed while they did it. Longbraid says I'm too angry tae think straight, an' he may be right, but anger's what I've got left." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, an' I'd sleep sound after, an' sounder still knowin' a thing like yers had been at them. Longbraid says I'm too angry tae think straight, an' maybe that's why I'm no' half as frightened o' yer demon as I ought tae be." },
+      },
       choices = {
         { text = "Don't let it eat you, Motley. That's my trade's lesson.", next = "BACK", reply = "Easy for ye tae say, wi' yer fancy dark books an' yer warnings. It's eatin' me already, if ye want the truth, an' I cannae seem tae stop it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Anger keeps you alive out here. Hold on to it.", next = "BACK", reply = "Aye, that's what I keep tellin' Longbraid, an' he never listens. Ye're the first who's said it back tae me, an' I'll no' forget it.", fx = { align = { light = -1 } } },
@@ -417,7 +431,7 @@ P:NPC {
   key = "ormer_ironbraid", id = TODO_NPC("Ormer Ironbraid"), name = "Ormer Ironbraid",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "proud" }, values = { "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He holds a grudge against each raptor personally.",
@@ -426,6 +440,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Watch the long grass, friend. If it moves and ye didnae move it, run." },
+  },
+
+  notice = {
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer pack's a healthstone, I'd guess, an' I've lost enough diggers tae the raptors that I'd take one for every one o' them. Use it if they get their teeth in ye, an' never mind where it came from." },
   },
 
   start = "hello",
@@ -441,7 +460,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. Fire sends them off for a night, but they remember, an' they come back angrier, so whatever ye set on them, make sure it finishes the job." } },
+      lines = { { id = "xlock_default", text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. Fire sends them off for a night, but they remember, an' they come back angrier, so whatever ye set on them, make sure it finishes the job." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. I'd like tae see them try it wi' yer demon standin' guard, but they remember, an' they come back angrier, so if ye set it on them, make sure it finishes the job." },
+      },
       choices = {
         { text = "I'll drive them off, not wipe them out.", next = "BACK", reply = "Drive them off, then, if ye've the patience for it. I warn ye, they've come back angrier every time, an' I've the scars tae prove it.", fx = { align = { light = 1 } } },
         { text = "Not one of them leaves the marsh alive.", next = "BACK", reply = "That's what I needed tae hear. Wipe out the lot, an' maybe my lads can work wi'out lookin' over their shoulders.", fx = { affinity = 1, align = { light = -1 } } },
@@ -583,7 +604,7 @@ P:NPC {
   key = "whelgar", id = TODO_NPC("Prospector Whelgar"), name = "Prospector Whelgar",
   bible = "bibles/wetlands_roads.md", role = "scholar", tier = "service",
   communities = { "menethil" }, temper = { "steady" }, values = { "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "He cares more for what's under the mud than in the grass.",
@@ -592,6 +613,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Careful where ye step, friend. Ye could be standin' on a thousand years of history." },
+  },
+
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's a soulstone ye've got, an' I can hear it hummin' from here, which is more than any o' my finds have ever done. Keep it in yer bag while ye're at my dig, for if it starts whisperin', I'll be sendin' it tae Ironforge." },
   },
 
   start = "hello",
@@ -607,7 +633,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you, so dinnae get yer hopes up." } },
+      lines = { { id = "xlock_default", text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you, so dinnae get yer hopes up." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light, though yer demon's been sniffin' round the crates as if it hopes otherwise. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you or yer {pet}, so dinnae get yer hopes up." },
+      },
       choices = {
         { text = "Ironforge is the right place for it, Whelgar.", next = "BACK", reply = "It is, an' the scholars there will make sense o' it, which I cannae. I'm glad tae hear a warlock say so, if I'm honest.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Scholars hoard what they fear. I'd put it to use.", next = "BACK", reply = "Put it tae use? No' while I'm prospector here, ye'll no'. The League's careful wi' what it finds, an' so am I.", fx = { align = { order = -1 } } },

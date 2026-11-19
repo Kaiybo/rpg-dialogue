@@ -6,7 +6,7 @@ P:NPC {
   key = "eagan", id = TODO_NPC("Eagan Peltskinner"), name = "Eagan Peltskinner",
   bible = "bibles/eagan.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "beast", "form", "skinner" },
+  notices = { "beast", "form", "skinner", "lock_armor" },
   impression = {
     first = "He looks at every creature as a coat first.",
     third = "{name} met Eagan Peltskinner, the Northshire trapper who judges every creature by the quality of its pelt.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "That's a good animal. Feed it before you feed yourself and it'll keep you alive." },
     { id = "n_skinner", cat = "skinner", when = { profession = "Skinning" },
       text = "You skin. I can tell from your knife. Most folk hack at a pelt like it owes them money." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide you're wearing isn't any beast I've skinned, and I've skinned most of what walks in Elwynn. It's warm as a living thing and it shivers when the wind touches it, so I'll thank you not to tell me what it came off." },
   },
 
   react = {
@@ -85,7 +87,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every animal smells it, and the wolves have been in a temper since you came up the road. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word." } },
+      lines = {
+        { id = "xlock_default", text = "Every animal smells it, and the wolves have been in a temper since you came up the road. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every animal smells it, and I can smell it myself now it's standing in my yard, all sulphur and something burnt. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word, so keep it downwind of my pelts." },
+      },
       choices = {
         { text = "The wolves are right to fear it. I'll keep it leashed.", next = "BACK", reply = "Thank you. A wolf's nose has never been wrong yet, and I'd like them settled before lambing.", fx = { align = { light = 1 } } },
         { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", reply = "Fear keeps them howling all night, friend, and none of us sleep. Keep it leashed.", fx = { align = { light = -1 } } },

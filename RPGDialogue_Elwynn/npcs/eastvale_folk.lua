@@ -8,7 +8,7 @@ P:NPC {
   key = "sara", id = TODO_NPC("Sara Timberlain"), name = "Sara Timberlain",
   bible = "bibles/sara.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "ambitious", "witty" },
-  notices = { "craft", "red" },
+  notices = { "craft", "red", "lock_taint" },
   impression = {
     first = "She takes thieves' bandanas as cloth without a flicker of shame.",
     third = "{name} met Sara Timberlain, an Eastvale tailor who turns Defias bandanas into honest clothing.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A tailor! Feel this; that's Defias linen, washed twice, and nobody would believe where it came from. That's the beauty of it." },
     { id = "n_red", cat = "red", when = { questObjective = { TODO_QUEST("Red Linen Goods"), left = { max = 2 } } },
       text = "Nearly six, then; I can see the red poking out of your pack from here. Lovely colour, isn't it, though it's a shame about the people inside it." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a green cast about the hands and lips, and your hem's gone brittle the way cloth does near a sulphur spring. Whatever you've been breathing in, it's eating you faster than the moths eat my wool." },
   },
 
   start = "hello",
@@ -57,7 +59,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do. The loggers think anyone in a robe is either a priest or trouble, so you'll want to look the respectable sort, at least." } },
+      lines = {
+        { id = "xlock_default", text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do. The loggers think anyone in a robe is either a priest or trouble, so you'll want to look the respectable sort, at least." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do, and I can smell your servant from here. Keep it off my bolts while I measure you, and we'll have you looking the respectable sort, at least." },
+      },
       choices = {
         { text = "Make it plain, then. I'll not frighten the loggers.", next = "BACK", reply = "Plain grey, then, and a nice collar, and the loggers will think you're a scribe. That's the sort of respectable I like.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Make it dark. Let them think I'm trouble.", next = "BACK", reply = "Dark, with a wide hood, and they'll whisper about you all winter. I'll not stop you, but don't tell them I sewed it.", fx = { align = { order = -1 } } },
@@ -256,7 +261,7 @@ P:NPC {
   key = "gerard", id = TODO_NPC("Gerard Tiller"), name = "Gerard Tiller",
   bible = "bibles/gerard.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "honest" },
-  notices = { "drink" },
+  notices = { "drink", "lock_shadow" },
   impression = {
     first = "I suspect he notices a great deal more than he ever says.",
     third = "{name} met Gerard Tiller, a thirsty hand on the Maclure vines who sees more than he lets on.",
@@ -270,6 +275,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Somebody's had something stronger than water, lucky you, and here's me out here with a hoe and a dry throat." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The crows came off the scarecrow the moment you came through the gate, and I've never seen them do that for anybody but the Defias. You've got a cold about you, friend, the kind that makes a man check the sky for rain." },
   },
 
   start = "hello",
@@ -285,7 +292,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." } },
+      lines = {
+        { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. That {pet} of yours is standing about doing nothing at all, so if it can carry a bucket, I'll not ask what it is, only whether it spills." },
+      },
       choices = {
         { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", reply = "Suit yourself, friend, and I'll be glad of the company on the walk. The pails don't get any lighter.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },

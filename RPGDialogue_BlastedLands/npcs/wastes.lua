@@ -370,7 +370,7 @@ P:NPC {
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "blasted_lands" }, temper = { "eager" }, values = { "curious", "ambitious" },
   prejudice = { { race = "Troll", amount = 12, why = "Quel'Thalas fought the Amani for millennia; he sees all trolls as specimens." }, { race = "Orc", amount = 6, why = "The Horde burned Eversong's borders in the Second War." } },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_taint" },
 
   impression = {
     first = "He called me a test subject and meant it as a compliment.",
@@ -390,6 +390,8 @@ P:NPC {
       text = "A warrior! Look at the shoulders on you; my sister may keep her basilisk brains, I'd sooner study you." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
       text = "Your beast hasn't been changed by the Portal yet, which makes it a perfect control for my study. Don't let it eat anything out here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Oh, look at the green under your fingernails! You've soaked up more fel than any boar in the wastes, I'd wager, and I would dearly love a drop of your blood for the measurements, purely for science." },
   },
 
   start = "hello",
@@ -438,7 +440,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." } },
+      lines = {
+        { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass grown in its shadow. Your servant is a purer sample than any boar, of course, and I don't suppose it would part with a little blood for a properly measured dose?" },
+      },
       choices = {
         { text = "Fel in a bottle? That's madness, Drazial.", next = "BACK", reply = "Madness, yes, but very carefully measured madness. I'll take the risk, and the notes.", fx = { align = { light = 1 } } },
         { text = "Measure carefully, and the fel will serve.", next = "BACK", reply = "Precisely! I've had three bottles crack this year, and every one of them was a measuring error, not a fel error.", fx = { align = { light = -1 } } },
@@ -674,7 +679,7 @@ P:NPC {
   key = "lynnore", id = TODO_NPC("Bloodmage Lynnore"), name = "Bloodmage Lynnore",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "blasted_lands" }, temper = { "steady" }, values = { "curious", "wise" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
 
   impression = {
     first = "She is fonder of her brother than she would ever admit.",
@@ -692,6 +697,8 @@ P:NPC {
       text = "A priest. You'll understand my work better than my brother does; you also believe there's more to a creature than its meat." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, and a thinking one, I hope. My compounds sharpen the mind as well as any study, and far more quickly." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There's an unspent soulstone in your pack, I'd swear to it, because the basilisk turned its gaze on your bag and not on you. They know what holds a soul, it seems, and I find that very interesting." },
   },
 
   start = "hello",
@@ -737,7 +744,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." } },
+      lines = {
+        { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That is the question, and the answer is in their gizzards, I'm almost certain. Your demon seems to agree, since it's been staring at my sample jars since you arrived, so keep it away from them, and perhaps I'll learn a trick worth teaching to people like you." },
+      },
       choices = {
         { text = "A cure for corruption would save many lives.", next = "BACK", reply = "It would, and that's what I keep telling Drazial. A cure would be worth more than all his bottles.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Corruption is power. I don't want it cured.", next = "BACK", reply = "Then you're a strange sort of warlock, and a dangerous one. I'll keep my cure for those who want it.", fx = { align = { light = -1 } } },

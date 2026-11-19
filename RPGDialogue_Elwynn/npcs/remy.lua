@@ -8,7 +8,7 @@ P:NPC {
   key = "remy", id = TODO_NPC("Remy \"Two Times\""), name = "Remy \"Two Times\"",
   bible = "bibles/remy.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" },
-  notices = { "purse", "sneak" },
+  notices = { "purse", "sneak", "lock_shards" },
 
   barks = {
     { id = "b_buying", text = "Buying gold dust, buying gold dust, best price in town!" },
@@ -31,6 +31,8 @@ P:NPC {
       text = "That's a heavy purse, a heavy purse! You'll want a man who knows where to spend it, and you've found one." },
     { id = "n_rogue", cat = "sneak", when = { class = "ROGUE" },
       text = "Hands where I can see them, friend, because I know your sort. I am your sort, on Tuesdays." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That chiming in your pack is soul shards, soul shards, and I'd know the sound anywhere because the cellar's full of it. That's worth a pint to the right ear, but I'll keep it quiet for now, for now." },
   },
 
   react = {
@@ -117,7 +119,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell some of it, and the cellar's in the part I keep." } },
+      lines = {
+        { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell some of it, and the cellar's in the part I keep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I am, because Farley doesn't like it spoken of, spoken of, and you've brought something up from it that's watching me while I talk. I know everything that happens in Goldshire, but I only sell some of it, and I'm keeping the cellar part twice as close with that thing listening." },
+      },
       choices = {
         { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", reply = "Safe, safe, that's what Remy likes to hear! Farley will keep the ale coming.", fx = { align = { honor = 1 } } },
         { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", reply = "A price, a price? Now we're talking business, friend. Remy always pays, always.", fx = { align = { honor = -1 } } },

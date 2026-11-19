@@ -7,7 +7,7 @@ P:NPC {
   key = "lanie_reed", id = TODO_NPC("Lanie Reed"), name = "Lanie Reed", title = "Gryphon Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "wry" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "Living as a guest among Dark Irons still sits strangely with her.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A Bronzebeard face! I'm glad of it, friend; you'd not believe how strange it is to wake every morning surrounded by Dark Irons who mean you no harm." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're runnin' hotter than the Gorge itself, an' that's an imp's blood pact or I'm a gnome. The birds are used tae heat, mind, so climb on an' dinnae fret." },
   },
 
   start = "hello",
@@ -103,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." } },
+      lines = {
+        { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. Even with your demon standing right below the roost, the old birds barely lift their heads, which I find both sad and useful." },
+      },
       choices = {
         { text = "I'll keep my demon away from the young ones.", next = "BACK", reply = "They'll thank you for it, though they'll not say so. Mind their feathers.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the old birds don't mind, then neither do I.", next = "BACK", reply = "That's the sad and useful part, aye. Up you get, then.", fx = { align = { order = -1 } } },
@@ -198,7 +203,7 @@ P:NPC {
   key = "grisha", id = TODO_NPC("Grisha"), name = "Grisha", title = "Wind Rider Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "gruff" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "She is wary of every dwarf and openly fond of her beasts.",
@@ -214,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar, {g:brother|sister}. Good to see another orc face among all these dwarves; it gets lonely being the only one of us in camp." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone; I can smell the warlock's work on you. In the old Horde the warlocks bound souls for their own use and called it a gift, so I hope yours was given by a friend." },
   },
 
   start = "hello",
@@ -267,7 +274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. Some of my grunts haven't forgiven the warlocks either, and I'd not ask them to." } },
+      lines = {
+        { id = "xlock_default", text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. Some of my grunts haven't forgiven the warlocks either, and I'd not ask them to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. They've pinned their ears back at your demon, and so have my grunts, and I'll not ask either of them to forgive it, because I remember the blood too." },
+      },
       choices = {
         { text = "Fel is a tool, and the Horde will need it again.", next = "BACK", reply = "It might, but my grunts won't thank you for saying so. Keep it far from my riders.", fx = { align = { light = -1 } } },
         { text = "The old warlocks earned that hatred. I'll do better.", next = "BACK", reply = "Then do better, and they'll see it. Deeds, not words, warlock.", fx = { affinity = 1, align = { light = 1 } } },

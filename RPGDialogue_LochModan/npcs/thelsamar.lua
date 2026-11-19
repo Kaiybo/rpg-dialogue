@@ -6,7 +6,7 @@ P:NPC {
   key = "kadrell", id = TODO_NPC("Mountaineer Kadrell"), name = "Mountaineer Kadrell",
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "hearty" }, values = { "dutiful", "friendly" },
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards" },
 
   impression = {
     first = "He seems cheerfully ready for whatever crawls out of the hills next.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "Ye look like ye lost an argument wi' a trogg, which happens tae the best of us. Go an' get mended." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, good! The troggs that came up under yer city are all over these hills too, so ye'll want a bit o' payback." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "That bag o' yers is fair stuffed wi' soul shards, an' I'll be countin' them like I'd count smuggled powder at the gate. They're no' against the law in Thelsamar, but I'd like tae know how many ye came in wi' an' how many ye leave wi'." },
   },
 
   start = "hello",
@@ -94,7 +96,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark is just the sort I'm paid tae keep an eye on, so I'll be keepin' it on ye." } },
+      lines = { { id = "xlock_default", text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark is just the sort I'm paid tae keep an eye on, so I'll be keepin' it on ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark an' then walks them through Thelsamar in broad daylight is just the sort I'm paid tae watch, so I'll keep one eye on ye an' the other on yer {pet}." },
+      },
       choices = {
         { text = "Watch all you like. I've nothing to hide.", next = "BACK", reply = "Good, then ye'll no' mind me standin' about. I'll be quiet about it, mostly.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Watching me is a waste of your time, Kadrell.", next = "BACK", reply = "Maybe it is, an' I'll be glad tae say so when the spy's in irons. Till then, I watch everyone.", fx = { align = { order = -1 } } },
@@ -365,7 +369,7 @@ P:NPC {
   prejudice = { race = "NightElf", amount = 8, why = "A druid sat in his cousin Durn's Darkshore trench humming until the crew walked off." },
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
 
   impression = {
     first = "He insists his slow dig will pick up any day now.",
@@ -387,6 +391,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "A miner! Ye'll know good stone from bad, then. Most o' what we find here is bad, but the good bits are worth it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone in yer pack, an' it's hummin' like the relics we dig out o' the old barrows. If anythin' ever whispers from it, ye'll bring it tae me before ye bring it tae anybody else, for I'd like tae know what it says." },
   },
 
   start = "hello",
@@ -467,7 +473,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." } },
+      lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers, an' I'd wager yer demon would enjoy them. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' let that thing have a go at it first, for it belongs tae the League an' tae Ironforge." },
+      },
       choices = {
         { text = "Anything I find goes to the League.", next = "BACK", reply = "Good, that's the League's way, an' it's mine. Ye'll have yer name in the report for it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "What I find in the dark, I keep.", next = "BACK", reply = "Then ye'll no' be diggin' in my site, friend. Anythin' that whispers goes tae Ironforge, an' that's flat.", fx = { align = { order = -1 } } },
@@ -735,7 +743,7 @@ P:NPC {
   key = "hearthstove", id = TODO_NPC("Innkeeper Hearthstove"), name = "Innkeeper Hearthstove", gender = "male",
   bible = "bibles/thelsamar.md", role = "innkeeper", tier = "service",
   communities = { "thelsamar" }, temper = { "jolly" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shadow" },
 
   impression = {
     first = "He will fight anyone who doubts his ale, once they've paid.",
@@ -766,6 +774,8 @@ P:NPC {
       text = "Troggs, was it? Sit down, for Vidra's got sausages on, an' they'll mend what the troggs broke." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "That's the spirit, or several spirits, by the look o' ye! Sit down before the floor comes up tae meet ye." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on the stair went low the minute ye walked in, an' that's no' the draught, for I sealed that draught myself. Ye can have a room, but I'll ask ye tae light yer own candles in it." },
   },
 
   start = "hello",
@@ -814,6 +824,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Private, is it? I've had mountaineers, miners an' the League's diggers up those stairs, an' none o' them ever needed quiet. Keep whatever ye do behind a shut door an' out o' Vidra's kitchen, an' we'll get along." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Private, is it? I've had mountaineers, miners an' the League's diggers up those stairs, an' none o' them ever brought a demon up wi' them, nor needed quiet. Keep whatever ye do behind a shut door an' keep that thing out o' Vidra's kitchen, for she's already seen it an' gone for her ladle." },
       },
       choices = {
         { text = "It's study, nothing more. No harm will come of it.", next = "BACK", reply = "Study, is it? Then study quiet, an' dinnae set the curtains alight. That's all I ask.", fx = { align = { light = 1 } } },
@@ -1008,7 +1019,7 @@ P:NPC {
   key = "vidra", id = TODO_NPC("Vidra Hearthstove"), name = "Vidra Hearthstove",
   bible = "bibles/thelsamar.md", role = "questgiver", tier = "quest",
   communities = { "thelsamar" }, temper = { "brisk" }, values = { "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She runs anyone out of her kitchen who brings nothing to cook.",
@@ -1025,6 +1036,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Then ye'll want my sausage recipe, an' ye can't have it, but ye'll want it all the same." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer pack's a healthstone, isn't it, an' it smells like nothin' at all, which is what bothers me. Real food smells o' somethin', so put that away an' let me feed ye properly." },
   },
 
   start = "hello",
@@ -1040,7 +1053,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, though ye might be the only customer who'd no' be put off by the list. Bring me the makin's, an' the whole town eats well for a week." } },
+      lines = { { id = "xlock_default", text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, though ye might be the only customer who'd no' be put off by the list. Bring me the makin's, an' the whole town eats well for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, an' I'll certainly no' tell it in front o' yer demon, which has had its eyes on my pot since ye sat down. Bring me the makin's, an' the whole town eats well for a week, an' that thing gets none o' it." },
+      },
       choices = {
         { text = "I'll fetch the makings for the town, Vidra.", next = "BACK", reply = "Bless ye, love, the whole town will thank ye. Bring it fresh, an' I'll make ye the first link.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Keep your sausages. I've lost my appetite.", next = "BACK", reply = "Lost it? Ye'll find it again the first time ye smell them fryin'. Everyone does.", fx = { align = { honor = -1 } } },
@@ -1211,7 +1226,7 @@ P:NPC {
   key = "rugelfuss", id = TODO_NPC("Captain Rugelfuss"), name = "Captain Rugelfuss",
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "formal" }, values = { "dutiful" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_steed" },
 
   impression = {
     first = "He has fought the same fight from the same hill too long.",
@@ -1229,6 +1244,8 @@ P:NPC {
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "A fighting sort, good. The King's lands need defenders more than they need visitors, and the stone here has had its fill of visitors." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye rode up on a horse wi' burnin' hooves, an' it's left black prints all the way down the Valley o' Kings. Those statues have stood there since before my grandfather's grandfather, so keep that beast on the road an' off the stone." },
   },
 
   start = "hello",
@@ -1337,6 +1354,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Demons, in the Valley o' Kings, under the faces o' the old kings themselves? I'll take every blade I can get, but if one o' yer imps goes near those statues, I'll put an axe in it before I ask whose it is." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Demons, in the Valley o' Kings, under the faces o' the old kings themselves, an' here's one standin' in front o' me as bold as ye like. I'll take every blade I can get, but if that thing goes near those statues, I'll put an axe in it before I ask whose it is." },
       },
       choices = {
         { text = "Understood. I'll keep it leashed and away from the kings.", next = "BACK", reply = "Thank you, that's all I ask. The kings deserve better than a demon picking at their beards.", fx = { align = { light = 1 } } },
@@ -1554,7 +1572,7 @@ P:NPC {
   key = "hinderweir", id = TODO_NPC("Chief Engineer Hinderweir VII"), name = "Chief Engineer Hinderweir VII",
   bible = "bibles/thelsamar.md", role = "worker", tier = "quest",
   communities = { "thelsamar" }, temper = { "anxious" }, values = { "proud", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He begged me to hold the rail on his perfectly safe walkway.",
@@ -1571,6 +1589,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! Come and look at these stress readings. No? Well, not everyone loves a stress reading, and that's their loss." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone ye're carryin', an' I'd know the feel o' one anywhere after what the Dark Irons dropped on Blackrock. Keep it away from my dam, please, because I've engineered for floods an' earthquakes but I havenae engineered for a burnin' giant." },
   },
 
   start = "hello",
@@ -1618,6 +1638,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I don't doubt it, and I won't ask what else answers to you. The Dark Irons called up something under Blackrock that's been burning ever since, so I keep a wary eye on anyone who calls things up." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I don't doubt it, and I can see well enough what else answers to you, since it's been watching my dam since you arrived. The Dark Irons called up something under Blackrock that's been burning ever since, so I keep a wary eye on anyone who calls things up, and a warier one on whatever comes." },
       },
       choices = {
         { text = "Fair. I'll stand guard here like anyone else.", next = "BACK", reply = "Good, that's all I ask. I'll sleep easier with you here and your friends somewhere else.", fx = { align = { light = 1 } } },

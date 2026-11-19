@@ -282,7 +282,7 @@ P:NPC {
   key = "trull", id = TODO_NPC("Trull Failbane"), name = "Trull Failbane",
   bible = "bibles/felwood.md", role = "soldier", tier = "quest",
   communities = { "bloodvenom_post" }, temper = { "grim" }, values = { "loyal", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_eyes" },
 
   impression = {
     first = "He'll know if I skip any part of my report.",
@@ -300,6 +300,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The forest had you for lunch, so get fixed up before it comes back for supper." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You see what hides, warlock, and I can tell, because your eyes went straight to the corners where my watchers stand. Orgrimmar's eyes are supposed to go unseen, so I'll thank you to stop looking at them." },
   },
 
   start = "hello",
@@ -394,7 +396,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." } },
+      lines = {
+        { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "So did the Shadow Council, once, and look at what they made of Jaedenar, with servants very like the one standing at your elbow. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open, and on both of you." },
+      },
       choices = {
         { text = "The Council were traitors. They earned their end.", next = "BACK", reply = "They did, and I'd be glad to see the rest of them follow. You talk like a warlock who's seen what I've seen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Council were fools. I know where the line is.", next = "BACK", reply = "Every one of them said the same, warlock. Keep your line well marked, because I'll be watching it.", fx = { align = { light = -1 } } },

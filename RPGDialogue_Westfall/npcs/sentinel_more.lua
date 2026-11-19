@@ -194,7 +194,7 @@ P:NPC {
   key = "gina", id = TODO_NPC("Gina MacGregor"), name = "Gina MacGregor", title = "Trade Supplies",
   bible = "bibles/sentinel_more.md", role = "vendor", tier = "service",
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "practical", "family" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_stones" },
   impression = {
     first = "She drives a hard bargain and doesn't apologise for it.",
     third = "{name} met Gina MacGregor, who sells trade goods on Sentinel Hill and drives a hard bargain for them.",
@@ -208,6 +208,8 @@ P:NPC {
       text = "A cook, are you? Salma Saldean buys her spices from me when she can get up the hill, and she'd tell you to buy the mild ones." },
     { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look half starved and twice robbed. Mike Miller's got bread over there; buy that first and come back to me." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in your pocket, and I'd stock them if I could, because the militia's always bleeding. Since I can't, keep it close and use it on a farmer if you find one dying." },
   },
   start = "hello",
   nodes = {
@@ -224,6 +226,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Warlocks pay, mostly, because they've other things to worry about than a copper here and there, and I like that in a customer. What I don't like is a demon sniffing at my cloth, so keep it back from the stall and we'll do business at the full price." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Warlocks pay, mostly, and I like that in a customer, but your demon's standing close enough to my cloth that I can smell the sulphur in the weave already. Step it back two paces from the stall and we'll do business at the full price." },
       },
       choices = {
         { text = "Fair terms, Gina. I'll keep it back.", next = "BACK", reply = "Good, then we'll get along. Keep the beast where I can see it.", fx = { align = { order = 1 } } },

@@ -8,7 +8,7 @@ P:NPC {
   key = "rallic", id = TODO_NPC("Rallic Finn"), name = "Rallic Finn", title = "Bowyer",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "quiet" }, values = { "craft", "patient" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_shards" },
   impression = {
     first = "He talks about wood the way some men talk about horses.",
     third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Let me see how you hold that bow. Hm, your draw is good, but you're gripping the riser like it owes you money, so loosen the hand and the arrow will thank you." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! If you ever have a good hide to spare, bring it here, because a quiver's only as good as the leather it's sewn from." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Is that your pack clinking? It sounds like a bag of glass, and every time it clinks, the hair on my arm stands up like there's a bear in the brush." },
   },
   start = "hello",
   nodes = {
@@ -37,7 +39,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, and they'd say so to your face if they weren't afraid of you, and that thing at your heel is making them more afraid by the minute. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+      },
       choices = {
         { text = "I'll help with the beasts and earn their trust.", next = "BACK", reply = "Good, and they'll come round once the bears stop sitting on the bundles. Start up north.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them be afraid. Fear keeps tongues still.", next = "BACK", reply = "It keeps them still, aye, and it keeps them from buying from you too. Think on that.", fx = { align = { honor = -1 } } },
@@ -202,7 +207,7 @@ P:NPC {
   key = "lindgren", id = TODO_NPC("Drake Lindgren"), name = "Drake Lindgren", title = "General & Trade Supplies",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "shrewd" }, values = { "practical", "thrift" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He seemed to like me better once I bought something.",
     third = "{name} met Drake Lindgren, who keeps Eastvale Logging Camp in general goods and trade supplies.",
@@ -214,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "You're a tailor, I can tell by the needle calluses. I keep thread and dye on the back shelf, and Sara Timberlain buys most of it, so don't dawdle." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's no ordinary stone you're carrying, because it's black as pitch and the shop cat won't go near the counter. Whatever it calls down out of the sky, I'd rather it didn't call it down on Eastvale." },
   },
   start = "hello",
   nodes = {
@@ -267,7 +274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. Half of them watched your demon follow you up the road, so I'd rather not give them any more reason to believe it." },
+      },
       choices = {
         { text = "That's wise, Drake. Some things shouldn't be sold over a counter.", next = "BACK", reply = "Thank you, and the loggers will thank you too, if they ever hear of it. I'll keep it that way.", fx = { align = { light = 1 } } },
         { text = "Fear's bad for trade. You're losing coin to superstition.", next = "BACK", reply = "Maybe I am, but I'd rather lose the coin than lose the loggers. They're my neighbours.", fx = { align = { light = -1 } } },
@@ -392,6 +402,11 @@ P:NPC {
     { id = "g_default", text = "Mind the sawdust, friend; it gets everywhere and never comes out." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Come to watch an honest man work, or to keep him from it?" },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The saw's gone dull twice since you came near the mill, and the shadows on the woodpile lean toward you like the trees lean in a wind. Raelen will blame me for the blade either way, so would you stand on the far side of the stacks?" },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -453,7 +468,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." } },
+      lines = {
+        { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Supervisor Raelen counts every beam, and that {pet} of yours is standing right beside the saw, looking at it. I've nothing against you personally, but if a blade goes wrong with your servant this close, it's my back she takes it out of." },
+      },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", reply = "Thank you, and my back thanks you too. Raelen's a hard one.", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", reply = "It's mine, friend, and I'll thank you to remember it. Go round the long way.", fx = { align = { light = -1 } } },

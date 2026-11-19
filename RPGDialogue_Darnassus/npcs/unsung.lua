@@ -10,7 +10,7 @@ P:NPC {
   key = "garryeth", id = TODO_NPC("Garryeth"), name = "Garryeth", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "darnassus" }, temper = { "dry", "precise" }, values = { "order", "patience" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "He is dry company, but I'd trust him with anything I own.",
     third = "{name} met Garryeth, a careful banker of Darnassus who keeps his vaults under the Temple's shadow.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue, unless I misread the boots. I mean no offense, but I will be keeping both hands on the ledger while we talk." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "If you mean to deposit those soul shards, I'll need to write down what they're worth, and I've never known what a soul fetches. Perhaps keep them in your satchel, and we'll both sleep better." },
   },
 
   start = "hello",
@@ -91,6 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll treat you exactly as they treat everyone, which is to say they'll watch you, but they'll watch you more closely. I'll keep your valuables as faithfully as anyone's, because the ledger doesn't ask what you are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll treat you exactly as they treat everyone, which is to say they'll watch you, but with your servant beside you, they'll watch it far more closely than you. I'll keep your valuables as faithfully as anyone's, though I'd ask it not to breathe on the ledger, because the ink's still wet." },
       },
       choices = {
         { text = "Then I'll give your Sentinels nothing to watch.", next = "BACK", reply = "That would be the best outcome for all of us. The Sentinels would be quite happy to find you dull.", fx = { align = { order = 1 } } },
@@ -197,7 +200,7 @@ P:NPC {
   key = "sildanair", id = TODO_NPC("Sildanair"), name = "Sildanair", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "brisk", "blunt" }, values = { "discipline", "courage" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
   impression = {
     first = "She has no patience for excuses, but she listens to straight answers.",
     third = "{name} met Sildanair, a blunt warrior trainer of Darnassus.",
@@ -213,6 +216,8 @@ P:NPC {
       text = "A human warrior. Your people fought the orcs with steel and stubbornness for years, and of the two, the stubbornness impressed us more." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid on the Warrior's Terrace? If you came to learn how the bear fights without claws, you're welcome to watch." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide won't save you on the day the spells run dry, and my students would tell you so if they weren't staring at it. Stand at the edge where it won't distract them." },
   },
 
   start = "hello",
@@ -291,6 +296,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'd try, and they'd likely lose, and then I'd have a broken student and a smug demon, which is no way to run a morning. Stand at the edge and watch if you like, because you might learn how a front line works before you send something to stand in one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd try, and they'd likely lose, and then I'd have a broken student and a smug demon, which is no way to run a morning. Yours already looks smug enough at the edge of the yard, so keep it there and watch how a front line works before you send it to stand in one." },
       },
       choices = {
         { text = "I'll watch and learn how a line holds.", next = "BACK", reply = "Then you will learn more than my students do, I suspect. Watch the feet, warlock.", fx = { align = { order = 1 } } },
@@ -388,7 +394,7 @@ P:NPC {
   key = "ariyell", id = TODO_NPC("Ariyell Skyshadow"), name = "Ariyell Skyshadow", title = "Weapon Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "cheerful", "proud" }, values = { "craft", "honesty" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
   impression = {
     first = "She tried to talk me out of a weapon wrong for me.",
     third = "{name} met Ariyell Skyshadow, who sells weapons on the Warrior's Terrace and cares where they end up.",
@@ -402,6 +408,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You hold yourself like someone who prefers short blades and dark corners. I keep the daggers on the left, and I won't ask why you want them." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a firestone in your satchel, and I'd thank you not to hold it near my blades, because I sell honest steel and I'd like it to stay that way." },
   },
 
   start = "hello",
@@ -469,6 +477,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Once, a human who wanted a dagger he could bind a spirit into, and I sent him packing back to the boats. I sell honest steel for honest work, and I'd like to keep my name as clean as my stock." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a human who wanted a dagger he could bind a spirit into, and I sent him packing back to the boats. Your servant is eyeing my best blade the way he did, so I'll tell you what I told him, which is that I sell honest steel for honest work and none of it goes home with that." },
       },
       choices = {
         { text = "I wouldn't ask you for anything but steel.", next = "BACK", reply = "Then you are welcome at my counter any time. Steel is honest, and so are you, it seems.", fx = { align = { light = 1 } } },
@@ -571,7 +580,7 @@ P:NPC {
   key = "lelanai", id = TODO_NPC("Lelanai"), name = "Lelanai", title = "Saber Handler",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "warm", "protective" }, values = { "nature", "loyalty" },
-  notices = { "race", "mount" },
+  notices = { "race", "mount", "lock_steed" },
   impression = {
     first = "She only sells a nightsaber to someone who'll be its companion.",
     third = "{name} met Lelanai, the saber handler of the Cenarion Enclave, who loves her cats more than her customers.",
@@ -587,6 +596,8 @@ P:NPC {
       text = "You rode right up to my sabers on that? Climb down before they decide it's dinner, please." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! Your people ride rams, I know, and I've always wondered whether a ram would win a race against a nightsaber. I don't think it would." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "My sabers are hissing at the beast you rode in on, and I can't blame them, because I've never seen a horse whose hooves leave little fires behind it. A saber would never stand for that, not even for you." },
   },
 
   start = "hello",
@@ -654,6 +665,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd let a saber choose, and I don't think any would choose you while that thing walks at your side. That isn't a judgment on you, only on the company you keep, and the sabers judge company very fairly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd let a saber choose, and you can see their answer, because every one of them has backed into the far corner of the pen since your servant came near. That isn't a judgment on you, only on the company you keep, and the sabers judge company very fairly." },
       },
       choices = {
         { text = "Then I'll keep my distance and let them settle.", next = "BACK", reply = "Thank you, warlock, and they will thank you too. They are gentle creatures, mostly.", fx = { align = { light = 1 } } },
@@ -769,7 +781,7 @@ P:NPC {
   key = "jartsam", id = TODO_NPC("Jartsam"), name = "Jartsam", title = "Riding Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "easygoing", "wry" }, values = { "patience", "humor" },
-  notices = { "level" },
+  notices = { "level", "lock_shadow" },
   impression = {
     first = "He finds every student's first fall far funnier than they do.",
     third = "{name} met Jartsam, a good-humored riding trainer who works beside Lelanai's sabers.",
@@ -783,6 +795,8 @@ P:NPC {
   notice = {
     { id = "n_young", cat = "level", when = { maxLevel = 30 },
       text = "You're a few seasons short of riding yet, friend. Come back when the road has toughened you up a bit, and I'll be here." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The sabers in the paddock have all turned to face you with their ears back, which they do for storms and for Sentinels in a temper. You've brought something with you that isn't weather, I think." },
   },
 
   start = "hello",
@@ -861,6 +875,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll let you, though they'll sulk about it, and a sulking saber has a way of finding every low branch on the path. Lelanai won't sell you one unless the city vouches for you, but I'll teach you to stay on whatever you end up riding, fire or fur." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll let you, though they'll sulk about it, and the one in the yard has been sulking since your {pet} walked through the gate. Lelanai won't sell you one unless the city vouches for you, but I'll teach you to stay on whatever you end up riding, fire or fur." },
       },
       choices = {
         { text = "Teach me. I'll learn the saber's way.", next = "BACK", reply = "Then you will learn the saber's way, and she will forgive you the rest. Come back tomorrow.", fx = { align = { order = 1 } } },
@@ -945,7 +960,7 @@ P:NPC {
   key = "lysheana", id = TODO_NPC("Lysheana"), name = "Lysheana", title = "Guild Master",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "formal", "thoughtful" }, values = { "fellowship", "order" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
   impression = {
     first = "She thinks a band of companions is a serious promise.",
     third = "{name} met Lysheana, the guild master of Darnassus, who weighs every charter like an oath.",
@@ -959,6 +974,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. Your Silver Hand was a guild of a kind, I think, sworn to one purpose, and I wish more charters came to me with half that conviction." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { ["not"] = { class = "WARLOCK" }, aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul has been laid away in a stone, which means a warlock in your company thinks well enough of you to keep you. I'd want that member named in the charter, if you ever bring one to me." },
   },
 
   start = "hello",
@@ -1026,6 +1043,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "If its purpose were honest and its members answered for themselves, I would, though Tyrande might ask to read the charter. Tell me what you'd do with your band, and I'll judge it by its purpose, not by its strangest member." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "If its purpose were honest and its members answered for themselves, I would, though Tyrande might ask to read the charter. I'd judge it by its purpose and not its strangest member, though I'd rather the strangest member waited outside while we talk, since it's been reading my papers over your shoulder." },
       },
       choices = {
         { text = "Its purpose would be honest. I'd answer for it.", next = "BACK", reply = "Then I will register it, and I will be glad to. Tyrande may still want to read it.", fx = { align = { order = 1 } } },
@@ -1311,7 +1329,7 @@ P:NPC {
   key = "jaeana", id = TODO_NPC("Jaeana"), name = "Jaeana", title = "Meat Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "brisk", "practical" }, values = { "honesty", "hard work" },
-  notices = { "class" },
+  notices = { "class", "lock_pact" },
   impression = {
     first = "She scorns the notion that night elves live on moonlight and berries.",
     third = "{name} met Jaeana, who sells meat on the Tradesmen's Terrace and won't hear a word against it.",
@@ -1325,6 +1343,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Your companion's been staring at my counter since you walked up. I've some scraps for a good beast, if you'll buy something for yourself." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're hot as a fever, and the meat on my counter has started to sweat, so I'd guess an imp has been sharing its blood with you. Buy quickly, please." },
   },
 
   start = "hello",
@@ -1392,6 +1412,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't know and I've no wish to find out, though the hunters say the felhounds in Felwood eat everything they find. Buy what you like, but keep it from licking the counter, because I've got to sell to the Sentinels after you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know and I've no wish to find out, though by the way yours is staring at the venison, I'd guess they do. Buy what you like, but keep it back from the counter, because I've got to sell to the Sentinels after you." },
       },
       choices = {
         { text = "I'll keep it well away from your counter.", next = "BACK", reply = "Thank you, warlock, and my other customers thank you too. It smells of sulphur.", fx = { align = { light = 1 } } },
@@ -1488,7 +1509,7 @@ P:NPC {
   key = "dannelor", id = TODO_NPC("Dannelor"), name = "Dannelor", title = "First Aid Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "gentle", "earnest" }, values = { "compassion", "practicality" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He has seen what happens when a bandage is done badly.",
     third = "{name} met Dannelor, who teaches first aid in Darnassus and believes everyone should learn it.",
@@ -1504,6 +1525,8 @@ P:NPC {
       text = "A priestess of the Moon, or a priest of the Light, it hardly matters. You'll still want linen when your prayers run thin, usually somewhere muddy in Ashenvale." },
     { id = "n_hurt", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Your armor looks as though it's had a hard road, and I'd guess you've had the same. Sit for a moment before you go back out." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You carry a healthstone, I see, and it will close a wound faster than my linen, though it closes it with a life taken from somewhere else. Learn the bandage anyway, because one day you'll have no stone left." },
   },
 
   start = "hello",
@@ -1571,6 +1594,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Of course, because a wound bleeds the same whatever made it, and a warlock who can bandage is one fewer warlock calling on darker means to heal. Sit down, and we'll start with linen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of course, because a wound bleeds the same whatever made it, and a warlock who can bandage is one fewer warlock calling on darker means to heal. Your servant can wait by the wall, since I've never yet met one that wanted to learn, so sit down and we'll start with linen." },
       },
       choices = {
         { text = "Linen it is. I'll heal the slow, plain way.", next = "BACK", reply = "Then you are welcome at my table, warlock. Linen is the honest way.", fx = { align = { light = 1 } } },
@@ -1697,7 +1721,7 @@ P:NPC {
   key = "ainethil", id = TODO_NPC("Ainethil"), name = "Ainethil", title = "Alchemy Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "precise", "distracted" }, values = { "knowledge", "care" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_taint" },
   impression = {
     first = "She talks to her flasks almost as much as to her students.",
     third = "{name} met Ainethil, the exacting alchemy trainer of Darnassus.",
@@ -1713,6 +1737,8 @@ P:NPC {
       text = "You smell of peacebloom and earthroot, and I mean that as a compliment. An herbalist who learns alchemy wastes nothing." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You'll understand measure and proportion better than most, I expect, but please don't try to hurry my flasks with a spell." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Your hands have the green stain of fel on them, deeper than any alchemist's stain, and my plants have turned their leaves away from you. Wash before you touch anything here, please." },
   },
 
   start = "hello",
@@ -1780,6 +1806,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because I've heard of warlocks who use rare herbs to feed their pacts, and I won't have my plants in any of those bargains. Learn honest alchemy here if you'd like, but the patience it takes is the cure for your craft, not a fuel for it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've heard of warlocks who use rare herbs to feed their pacts, and your servant is already watching my planters as if it knows which ones. Learn honest alchemy here if you'd like, but send it out of the garden first, because the patience it takes is the cure for your craft, not a fuel for it." },
       },
       choices = {
         { text = "Honest alchemy, then. I'll learn the patient way.", next = "BACK", reply = "Good, and the herbs will be glad of it. My first teacher made me grind silverleaf for a month before she let me near a flame.", fx = { align = { light = 1 } } },

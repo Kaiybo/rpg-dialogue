@@ -252,7 +252,7 @@ P:NPC {
   key = "fallen_hero", id = TODO_NPC("Fallen Hero of the Horde"), name = "Fallen Hero of the Horde",
   bible = "bibles/swampofsorrows.md", role = "questgiver", tier = "quest",
   communities = { "swamp_of_sorrows" }, temper = { "grave", "brooding" }, values = { "honor" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He blames orders that never came, and he blames himself more.",
@@ -269,6 +269,8 @@ P:NPC {
       text = "An orc, and young, with the Warchief's freedom on you. My soldiers had that look once, and I led them here." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "A human, on this road? Your mages at Nethergarde watch the Portal as I do, though they cannot see what I have seen." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is bound in a stone against the day you fall, and I can see the tether of it, bright as a chain. I had no such stone when I fell, and you see what came of that." },
   },
 
   start = "hello",
@@ -325,7 +327,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothing troubles my rest, for I have none to trouble. But the demons south of here gather like flies on a carcass, and a warlock who walks among them had better know whose leash is whose." } },
+      lines = {
+        { id = "xlock_default", text = "Nothing troubles my rest, for I have none to trouble. But the demons south of here gather like flies on a carcass, and a warlock who walks among them had better know whose leash is whose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothing troubles my rest, for I have none to trouble, though your servant stares at me as if it hopes to change that. The demons south of here gather like flies on a carcass, and that one knows them by smell, so a warlock who walks among them had better know whose leash is whose." },
+      },
       choices = {
         { text = "I know whose leash it is. Mine.", next = "BACK", reply = "Yours, then, and I hope you keep it. Many before you thought the same.", fx = { align = { order = 1 } } },
         { text = "Leashes break. I'll take my chances, spirit.", next = "BACK", reply = "Your chances, then, and I will not stop you. But I have seen what happens when leashes break.", fx = { align = { order = -1 } } },

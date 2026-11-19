@@ -1248,7 +1248,7 @@ P:NPC {
   key = "pixel", id = TODO_NPC("Pixel"), name = "Pixel",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest", gender = "female",
   communities = { "splintertree" }, temper = { "shrewd", "breezy" }, values = { "profit", "practical" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "Pixel is a goblin hauler who has parked herself and a load of saw blades at Splintertree Post until somebody pays for them. She prices everything out loud, including the satyrs.",
@@ -1269,6 +1269,8 @@ P:NPC {
       text = "I see you lookin' at the crates, sweetheart. They're saw blades, they weigh a ton, and I've counted 'em twice today." },
     { id = "n_eng", cat = "class", when = { profession = "Engineering" },
       text = "You've got solder burns! Finally, somebody at this post who knows a sprocket from a spear. We should talk margins sometime." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Oh, that's a firestone, isn't it? Or a spellstone, I can never tell, but I can tell it's glowing, and anything glowing in a lumber camp makes the Warsong very nervous. Liability, friend, it's always about liability." },
   },
 
   start = "hello",
@@ -1359,6 +1361,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xlock_default", text = "I know they used to be elves and they made a bad deal, which, between you and me, is a cautionary tale I think about. Whatever's still in the horns, it's the buyer's liability once it leaves my wagon. That's in the small print." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I know they used to be elves and they made a bad deal, which is a cautionary tale I think about, especially with your demon sniffing my horn crate like that. Whatever it's smelling in there, it's the buyer's liability once it leaves my wagon, and so is anything it scorches." },
       },
       choices = {
         { text = "Read your own small print, Pixel. Something else.", next = "BACK", fx = { learn = { "satyrs" } } },

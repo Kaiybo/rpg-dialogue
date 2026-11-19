@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/sammuel.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
-  notices = { "affliction", "light" },
+  notices = { "affliction", "light", "lock_soulstone" },
   impression = {
     first = "He senses curses and sickness as a healer feels for a pulse.",
     third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "There's a curse on you; I can feel it from here. A mage or a druid can lift it, but all I can do is pray." },
     { id = "n_taint", cat = "light", when = { taint = { min = 20 } },
       text = "Something clings to you that the Light doesn't like. I won't ask about it, not today." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound part of your soul into a stone, and I can feel the Light hesitate over you like a hand over a hot pan. I'll still pray for you, though I'll pray that stone stays in its pocket." },
   },
 
   start = "hello",
@@ -81,7 +83,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it, even with that creature staring at me while I pray. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+      },
       choices = {
         { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The chapel door is never barred, not even at night.", fx = { align = { light = 1 } } },
         { text = "Save your prayers for those who want them.", next = "BACK", reply = "I would, if they asked, but most never do until it's late. I'll keep you in mine quietly.", fx = { align = { light = -1 } } },

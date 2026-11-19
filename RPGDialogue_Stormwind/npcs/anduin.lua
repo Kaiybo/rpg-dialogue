@@ -7,7 +7,7 @@ P:NPC {
   key = "anduin", id = TODO_NPC("King Anduin Wrynn"), name = "King Anduin Wrynn",
   bible = "bibles/anduin.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
-  notices = { "wonder", "far", "form" },
+  notices = { "wonder", "far", "form", "lock_steed", "lock_soulstone" },
   impression = {
     first = "He seems far more curious about me than about being king.",
     third = "{name} was received by the boy king Anduin Wrynn, who rules until his father comes home and tries very hard at it.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "You're one of the elves from the sky! Lady Prestor says not to stare. I'm only staring a little." },
     { id = "n_dwarf", cat = "far", when = { race = { "Dwarf", "Gnome" } },
       text = "Did you come on the tram? I've never been on it, because kings aren't allowed, though I did ask." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that horse on fire? Its hooves left little green flames all the way across the throne room floor, and I know I'm meant to look royal, but I really want to ask whether it bites." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Bolvar says a soulstone keeps a piece of you safe so you can come back if you fall. I think that's the bravest and the most frightening thing I've ever heard, and I hope you never need it." },
   },
 
   react = {
@@ -126,7 +130,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." } },
+      lines = {
+        { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Archbishop says warlocks call on demons like the ones the orcs used in the war, and I never thought I'd see one standing in my father's hall. You don't look like a bad person, though, so I suppose it depends on why you do it, but I do wish it would stop looking at me like that." },
+      },
       choices = {
         { text = "It does. I bind them so they can't harm anyone else.", next = "BACK", reply = "That's a relief, honestly. I'll tell the Archbishop you said so, though I don't think he'll believe me, because he never does about warlocks.", fx = { align = { light = 1 } } },
         { text = "It's power, Your Majesty, and I take it where I find it.", next = "BACK", reply = "Oh. That sounds like something the Archbishop would warn me about, so I think I'll stand a little closer to the guards now, if that's all right.", fx = { align = { light = -1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "lohatu", id = TODO_NPC("Loh'atu"), name = "Loh'atu",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "talrendis_point" }, temper = { "steady", "gentle" }, values = { "kind", "cautious" },
-  notices = { "race", "class", "faction" },
+  notices = { "race", "class", "faction", "lock_shards", "lock_pact" },
 
   impression = {
     first = "He grieves for elven ghosts that aren't his own.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A priest. Good; the dead here are restless, and I think they would listen to you sooner than to an old bull with a staff." },
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "You wear the Horde's colours in a Sentinel camp. They will let you be if you let them be, so keep your hands from your weapons." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag hums with captured souls, and the Sentinels heard it before I did, because they have been looking at you since you passed the gate. I will speak for you if they ask, but I will not lie to them about what you carry." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood runs hot as a summer fever, and I can see it in your face. If it is the imp's pact, drink deeply before you go back into the hills, because the Earth Mother's sun does not care what warms you." },
   },
 
   start = "hello",
@@ -105,7 +109,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They trust me a little more each season, I think, because I keep my promise and bring no trouble. A warlock will find it harder, for they have seen what demons did to this land, and I cannot say they are wrong to fear it." } },
+      lines = {
+        { id = "xlock_default", text = "They trust me a little more each season, I think, because I keep my promise and bring no trouble. A warlock will find it harder, for they have seen what demons did to this land, and I cannot say they are wrong to fear it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They trust me a little more each season, because I keep my promise and bring no trouble. You have brought your demon to stand at my fire, though, and the Sentinels on the wall saw it before I did, so a warlock will find it harder, and I cannot say they are wrong." },
+      },
       choices = {
         { text = "Their fear is fair. I'll earn their trust.", next = "BACK", reply = "Then you are wise, and they will see it, slowly. Patience is the warlock's hardest lesson, I think.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear is their weakness, not my problem.", next = "BACK", reply = "It is their wound, friend, and wounds make anyone fearful. I would not call it weakness.", fx = { affinity = -1, align = { light = -1 } } },
@@ -462,7 +469,7 @@ P:NPC {
   key = "jarrodenus", id = TODO_NPC("Jarrodenus"), name = "Jarrodenus",
   bible = "bibles/azshara.md", role = "flightmaster", tier = "service",
   communities = { "talrendis_point" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "He won't fly his hippogryphs over the bay after dark.",
@@ -478,6 +485,8 @@ P:NPC {
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "A sister or brother of the kaldorei, out on the cursed coast. Elune keep you; the hippogryphs will be glad of a familiar voice." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The birds lowered their heads when you came up the path, and they only do that when a storm is coming. I do not think you are a storm, but they have seen this coast burn, and they remember." },
   },
 
   start = "hello",
@@ -532,7 +541,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Keep your demon unsummoned while you are near the roost, and do not linger. The cursed coast has seen enough of the Legion's fire, and I will not have my birds frightened by more of it." } },
+      lines = {
+        { id = "xlock_default", text = "Keep your demon unsummoned while you are near the roost, and do not linger. The cursed coast has seen enough of the Legion's fire, and I will not have my birds frightened by more of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Dismiss your demon while you are near the roost, which you have plainly not done, and do not linger. The cursed coast has seen enough of the Legion's fire, and my birds are already pulling at their tethers, so send it away now and we will speak of trust after." },
+      },
       choices = {
         { text = "I'll respect your wishes. Your birds come first.", next = "BACK", reply = "Thank you, and the birds will feel it. The coast has seen enough fire.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll do as I please, birdkeeper.", next = "BACK", reply = "Then you will not linger at my roost, and that is the end of it. I keep my birds as I please, too.", fx = { affinity = -1, align = { light = -1 } } },

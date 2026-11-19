@@ -7,7 +7,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/winterspring.md", role = "innkeeper", tier = "service",
   communities = { "everlook" }, temper = { "jumpy" }, values = { "friendly", "practical" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shards" },
 
   impression = {
     first = "She checked me for bugs before she let me near the fire.",
@@ -31,6 +31,8 @@ P:NPC {
       text = "You look frozen through and then some, sugar. Sit by the fire, but slowly, because thawing hurts, and I can't bill you for the screaming." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Careful out there in that state, sugar. People fall asleep in the snow and wake up as a furbolg's breakfast, and then who pays for the room?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Sugar, what's that clinking in your bag, and why is it colder than the wind I just shut out? Those little purple stones hum like beetles in a jar, so keep 'em buckled up and nowhere near my bedding." },
   },
 
   start = "hello",
@@ -103,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mostly is the word that worries me, sweetie. The last warlock who stayed here let his little friend sleep by the fire, and I found singe marks on the rug for a week and put the rug on his bill, so your demon stays on your side of the room." } },
+      lines = {
+        { id = "xlock_default", text = "Mostly is the word that worries me, sweetie. The last warlock who stayed here let his little friend sleep by the fire, and I found singe marks on the rug for a week and put the rug on his bill, so your demon stays on your side of the room." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mostly is the word that worries me, sweetie, and that one's already eyeing my hearth like it owns the place. The last warlock's friend left singe marks on my rug for a week and I put the rug on his bill, so walk your demon round the long way, please, and keep it off the good carpet." },
+      },
       choices = {
         { text = "I'll keep it off your rug, I promise.", next = "BACK", reply = "Oh, thank you, sweetie, and I'll hold you to it, because rugs that good don't come up the mountain every day. Maybe a nice cold corner for it, away from the fire?", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go.", next = "BACK", reply = "Oh dear, oh dear, then I'm putting a bucket of water by the hearth, sweetie, and I'm not ashamed of it. Please tell it the rug is very old and very precious.", fx = { affinity = -1, align = { order = -1 } } },
@@ -267,7 +272,7 @@ P:NPC {
   key = "umi", id = TODO_NPC("Umi Rumplesnicker"), name = "Umi Rumplesnicker",
   bible = "bibles/winterspring.md", role = "trainer", tier = "service",
   communities = { "everlook" }, temper = { "playful" }, values = { "inventive", "mischievous" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_armor" },
 
   impression = {
     first = "Whatever she's building is furry, and someone is going to scream.",
@@ -281,13 +286,18 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "A goblin! Then you know as well as I do that a good invention is half engineering and half making your friends scream." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Ooh, is that demon hide you've wrapped round yourself, the dark stuff that crawls when you breathe? I'd give a week of pranks to know how it flexes in this cold, because my yeti's fur cracks every time it frosts." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mischief, mostly, and I'm the only one allowed to teach it that! Legacki screams every time it rounds a corner, which is the whole point, but a demon would set it on fire, and fur is terribly expensive this far north." } },
+      lines = {
+        { id = "xlock_default", text = "Mischief, mostly, and I'm the only one allowed to teach it that! Legacki screams every time it rounds a corner, which is the whole point, but a demon would set it on fire, and fur is terribly expensive this far north." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mischief, mostly, and from the way {pet} is grinning at the yeti right now, it already knows the lesson! Legacki screams every time the yeti rounds a corner, which is the whole point, but your demon would set it on fire, and fur is terribly expensive this far north." },
+      },
       choices = {
         { text = "A prank's harmless. My demon isn't. I'll keep it leashed.", next = "BACK", reply = "Oh, would you? Thank you, because a flaming yeti is a whole different project and I haven't designed the fire-suppression yet! Keep it at least three yards away from the fur.", fx = { align = { order = 1 } } },
         { text = "A little fire would make the joke better.", next = "BACK", reply = "Ooh, a pyrotechnic module, now that's a thought, though the fur's about eighty percent flammable, by my last count. Let me run the numbers before your imp runs anything.", fx = { align = { order = -1 } } },
@@ -472,7 +482,7 @@ P:NPC {
   key = "gregor", id = TODO_NPC("Gregor Greystone"), name = "Gregor Greystone",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook", "argent_dawn" }, temper = { "steady" }, values = { "devout", "dutiful" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He is steady and kind, and he forgets to eat.",
@@ -492,6 +502,8 @@ P:NPC {
       text = "One of the Light's own! The Dawn could use you, friend, when you're ready for the Plaguelands." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "Forsaken, are you? The Dawn takes anyone who fights the Scourge, and you've more cause than most, so you're welcome here." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has tucked your soul into a warlock's stone, and I feel it in the Light like a pebble in a boot. The Cult of the Damned keeps souls too, so I hope whoever holds yours is someone you would trust with your life, because that is exactly what you've given them." },
   },
 
   start = "hello",
@@ -614,7 +626,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We accept anyone who stands against the Scourge, and some of our best scouts in the Plaguelands are not the sort the Church would bless. But the Cult of the Damned began with men who thought they could master dark things, so we watch, and we hope we're wrong to." } },
+      lines = {
+        { id = "xlock_default", text = "We accept anyone who stands against the Scourge, and some of our best scouts in the Plaguelands are not the sort the Church would bless. But the Cult of the Damned began with men who thought they could master dark things, so we watch, and we hope we're wrong to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We accept anyone who stands against the Scourge, and I'd sooner your servant was watching the road than watching me the way it is now. The Cult of the Damned began with men who thought they could master such things, so we watch you both, and we hope we're wrong to." },
+      },
       choices = {
         { text = "Watch me, then. I'll fight the Scourge all the same.", next = "BACK", reply = "I will watch you, and gladly, because I'd like nothing better than to be proven wrong about your kind. Fight well, and I'll be the first to say so.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Cult failed because they were weak.", next = "BACK", reply = "They failed because they trusted what they summoned, and it devoured them. Mind that you don't think yourself stronger than they were.", fx = { affinity = -1, align = { light = -1 } } },

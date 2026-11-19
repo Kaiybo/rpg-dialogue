@@ -8,7 +8,7 @@ P:NPC {
   key = "lilyssia", id = TODO_NPC("Lilyssia Nightbreeze"), name = "Lilyssia Nightbreeze", title = "Expert Alchemist",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "restless" }, values = { "duty", "craft" },
-  notices = { "craft", "soldier" },
+  notices = { "craft", "soldier", "lock_shadow" },
   impression = {
     first = "She plainly wishes she were fighting outside the walls instead.",
     third = "{name} met Lilyssia Nightbreeze, a night elf alchemist teaching in Stormwind's Mage Quarter.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You carry herbs with you; I can smell the mageroyal from here. Bring them to me, and I'll show you how to make them worth ten times as much." },
     { id = "n_warrior", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } }, place = "before",
       text = "You've come from the fighting, haven't you? I envy you that, and I'm not ashamed to say it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow on you carries the same smell as the satyrs' fires in Ashenvale, and my sisters would draw their glaives at it. I am only a teacher of potions here, so I'll draw nothing, but I'll not pretend I didn't notice." },
   },
   start = "hello",
   nodes = {
@@ -65,7 +67,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They would, and they'd be right to, for the Legion's creatures burned Ashenvale once and would do it again. I'm kept here among potions while they hold the line, so I fight the only way I can, by teaching you to heal rather than to burn." } },
+      lines = {
+        { id = "xlock_default", text = "They would, and they'd be right to, for the Legion's creatures burned Ashenvale once and would do it again. I'm kept here among potions while they hold the line, so I fight the only way I can, by teaching you to heal rather than to burn." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They would, and they'd be right to, for creatures like the one at your heel burned Ashenvale once and would do it again. I'm kept here among potions while my sisters hold the line, and I'll still teach you to heal rather than burn, though I'd rather your servant stood where my reagents can't feel it." },
+      },
       choices = {
         { text = "Then teach me to heal. I'll take the lesson.", next = "BACK", reply = "Gladly. Come back tomorrow, and I will show you how a healing draught is made.", fx = { align = { light = 1 } } },
         { text = "Burning has its uses too, Lilyssia.", next = "BACK", reply = "It has, and the Legion knew them well. I would rather you learned the other kind.", fx = { align = { light = -1 } } },
@@ -187,7 +192,7 @@ P:NPC {
   key = "eldraeith", id = TODO_NPC("Eldraeith"), name = "Eldraeith", title = "Herbalism Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "gracious" }, values = { "nature", "alliance" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
   impression = {
     first = "She presents each herb as a gift between two peoples.",
     third = "{name} met Eldraeith, who sells Teldrassil's herbs in the Mage Quarter.",
@@ -199,6 +204,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, place = "before",
       text = "A dwarf, in a shop of herbs! Your people are welcome here, though I have noticed they look for the ale before the flowers." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Your healthstone is cold, which no healing thing should be, and the herbs in my baskets have turned away from it. My people remember what the Highborne made of life before the Sundering, and it began with stones like that." },
   },
   start = "hello",
   nodes = {
@@ -215,6 +222,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "My people remember the War of the Ancients, when those who drew on such powers nearly ended the world, and memories that long don't fade easily. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, though I'd ask you not to be the one who makes me regret it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My people remember the War of the Ancients, and one look at the thing you've brought into my shop makes that memory feel like yesterday. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, but please, send it away before it touches anything." },
       },
       choices = {
         { text = "I won't make you regret it, Eldraeith.", next = "BACK", reply = "Thank you. I will hold you to that, gently.", fx = { align = { light = 1 } } },
@@ -359,7 +367,7 @@ P:NPC {
   key = "georgio_bolero", id = TODO_NPC("Georgio Bolero"), name = "Georgio Bolero", title = "Artisan Tailor",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "vain" }, values = { "beauty", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shards" },
   impression = {
     first = "He is vain about his cut and generous with his lessons.",
     third = "{name} met Georgio Bolero, who teaches tailoring at Duncan's Textiles in the Mage Quarter.",
@@ -373,6 +381,8 @@ P:NPC {
       text = "A tailor, I see it in the way you look at my sleeves. Good, good, then we can speak properly about seams." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Light preserve us, what has happened to your clothes? Never mind, don't tell me, it will only upset me." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your bag is full of shards, and they've put a chill in the felcloth on my table. Mind you, felcloth always seems to like your sort better than it likes me." },
   },
   start = "hello",
   nodes = {
@@ -405,7 +415,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." } },
+      lines = {
+        { id = "xlock_default", text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and your servant's welcome to watch, so long as it keeps its heat off the bolts on the end table." },
+      },
       choices = {
         { text = "Then I'll sew for protection, not for anything darker.", next = "BACK", reply = "A noble purpose, darling. I'll teach you the stitch with pleasure.", fx = { align = { light = 1 } } },
         { text = "The purpose is mine, Georgio. The stitch is enough.", next = "BACK", reply = "Then I'll teach you the stitch and not ask, darling. That's the arrangement.", fx = { align = { light = -1 } } },
@@ -525,7 +538,7 @@ P:NPC {
   key = "alexandra_bolero", id = TODO_NPC("Alexandra Bolero"), name = "Alexandra Bolero", title = "Tailoring Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "practical" }, values = { "practical", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_pact" },
   impression = {
     first = "She keeps her head while Georgio fusses over hems.",
     third = "{name} met Alexandra Bolero, who sells tailoring supplies at Duncan's Textiles.",
@@ -537,6 +550,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" }, place = "before",
       text = "Running low on coarse thread already? Every new tailor does, so I always keep a box of it nearest the counter." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're warm as a stove, and so's the imp, I'd guess, because the Lamb's lot are always like that when they come up for thread. Don't lean on the black bolts, please, because last time they scorched." },
   },
   start = "hello",
   nodes = {
@@ -580,7 +595,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every month, in black and red, and it all goes down the stairs under that tavern in a covered basket. I've never asked what they make with it, and nobody's ever offered to tell me." } },
+      lines = {
+        { id = "xlock_default", text = "Every month, in black and red, and it all goes down the stairs under that tavern in a covered basket. I've never asked what they make with it, and nobody's ever offered to tell me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every month, in black and red, down the stairs under that tavern in a covered basket, and nobody's ever offered to tell me what they make with it. Your {pet} seems awfully interested in the red, though, so perhaps I've just had my answer without asking." },
+      },
       choices = {
         { text = "You'd do well to ask what it's used for.", next = "BACK", reply = "I would, and I'm frightened of the answer. I'll keep not asking.", fx = { align = { light = 1 } } },
         { text = "Not asking is wise. Their business is their own.", next = "BACK", reply = "That's my thinking too. It's quieter that way.", fx = { align = { light = -1 } } },
@@ -695,7 +713,7 @@ P:NPC {
   key = "lawrence_schneider", id = TODO_NPC("Lawrence Schneider"), name = "Lawrence Schneider", title = "Journeyman Tailor",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "family" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "He talks about weaving as though it explained the whole world.",
     third = "{name} met Lawrence Schneider, a young tailor who teaches beginners at Duncan's Textiles.",
@@ -707,6 +725,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 10 }, place = "before",
       text = "You're new to all this, I can tell, and that's perfect, because I like teaching people before they've learned any bad habits." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You've a shadow on you, friend, like a dark thread worked right through the cloth, and it's the first thing I saw. It isn't ruinous yet, but I always say one strong thread can pull a whole bolt out of true." },
   },
   start = "hello",
   nodes = {
@@ -723,6 +743,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, you'd be the black thread in the weave, I think, the one that gives the pattern its shape, though too much of it and the cloth turns gloomy. Master Bolero says I make everything into a metaphor, but I've noticed the Lamb's folk buy more black thread than anyone, so perhaps I'm not wrong." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, you'd be the black thread in the weave, I think, and your servant would be the knot at the back that nobody's meant to see. Master Bolero says I make everything into a metaphor, but I'd rather do that than look at the thing straight on, if it's all the same to you." },
       },
       choices = {
         { text = "Then I'll be a thin thread, Lawrence, not the whole bolt.", next = "BACK", reply = "A thin thread, then, and I'll make it the one that holds the pattern together.", fx = { align = { light = 1 } } },
@@ -865,7 +886,7 @@ P:NPC {
   key = "ardwyn_cailen", id = TODO_NPC("Ardwyn Cailen"), name = "Ardwyn Cailen", title = "Wand Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "enthusiastic" }, values = { "arcane", "trade" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "She mourns Dalaran mostly for its workshops, and is honest about it.",
     third = "{name} met Ardwyn Cailen, who sells wands at Stormwind Staves in the Mage Quarter.",
@@ -879,6 +900,8 @@ P:NPC {
       text = "A priest, wonderful! Your people are my best customers, because a wand lets you fight without spending the mana you'll need to heal everyone afterwards." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" }, place = "before",
       text = "A warlock. I've a shadow wand you'll like, though I'd thank you not to tell me what you're planning to point it at." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That shadow ward of yours pulls inward, as shadow always does, and every wand on my counter is rattling toward it. Stand back a pace until it fades, please, or I'll be selling kindling." },
   },
   start = "hello",
   nodes = {
@@ -911,7 +934,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once. Dalaran's enchanters could have solved it, but they never cared to, since they never cared much for your sort." } },
+      lines = {
+        { id = "xlock_default", text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once. Dalaran's enchanters could have solved it, but they never cared to, since they never cared much for your sort." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once, and I'd say your servant is pulling on every wand in my case right now. Dalaran's enchanters never cared to solve it, and standing this close to that thing, I'm starting to see their side of it." },
+      },
       choices = {
         { text = "Maybe some magic shouldn't be bottled in a wand.", next = "BACK", reply = "Perhaps not, and maybe Dalaran knew that. I'll leave it unsolved.", fx = { align = { light = 1 } } },
         { text = "Then Dalaran missed a chance. Shadow deserves good tools.", next = "BACK", reply = "Maybe it did, but I'll not be the one to try. My hands are too fond of their fingers.", fx = { align = { light = -1 } } },
@@ -1025,7 +1051,7 @@ P:NPC {
   key = "charys_yserian", id = TODO_NPC("Charys Yserian"), name = "Charys Yserian", title = "Arcane Trinkets Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "quiet" }, values = { "arcane", "curiosity" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_shards" },
   impression = {
     first = "She speaks softly, as though the trinkets might be listening.",
     third = "{name} met Charys Yserian, who keeps a shop of arcane curios in the Mage Quarter.",
@@ -1037,6 +1063,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = { "MAGE", "WARLOCK" } }, place = "before",
       text = "You feel it too, don't you, that faint hum in the room? Most of my customers never notice it at all." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone you're carrying, and it's the one reagent in Stormwind I'll never stock, because I've read what it brings down. You carry it about like a pocket watch." },
   },
   start = "hello",
   nodes = {
@@ -1080,7 +1108,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a summoning circle breaks at the wrong moment. Anything stronger you'll have to find in the cellar under the Lamb, and I've never asked the price." } },
+      lines = {
+        { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a summoning circle breaks at the wrong moment. Anything stronger you'll have to find in the cellar under the Lamb, and I've never asked the price." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a circle breaks and something like your demon gets loose. Anything stronger you'll find under the Lamb, and I'd ask you to shop there with it next time, because it keeps looking at my back room." },
+      },
       choices = {
         { text = "Dull and safe suits me. Keep it that way.", next = "BACK", reply = "It will stay that way. Dull is safe, and safe is good for business.", fx = { align = { light = 1 } } },
         { text = "I'll find something stronger. Dull doesn't get results.", next = "BACK", reply = "Then you'll find it somewhere else. Not in my shop.", fx = { align = { light = -1 } } },
@@ -1195,7 +1226,7 @@ P:NPC {
   key = "wynne_larson", id = TODO_NPC("Wynne Larson"), name = "Wynne Larson", title = "Robe Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "craft", "practical" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "She calls keeping her apprentice a test of faith.",
     third = "{name} met Wynne Larson, who sells robes at Larson Clothiers in the Mage Quarter.",
@@ -1209,6 +1240,8 @@ P:NPC {
       text = "A priest, good. The Cathedral's robes are fine for prayer, but out in the hills you'll want something lined, and I sell the best lined robes in the city." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "That robe has been through a fire or a fight, and possibly both. You'll want a new one, or at least a mend." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Don't try any robes on over that demon skin, please, because the last time someone did, my apprentice had to burn the sleeves. It's a fine-looking ward, I'll grant you, but it's murder on the lining." },
   },
   start = "hello",
   nodes = {
@@ -1241,7 +1274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd only ask that you don't try them on in the shop, because the last one made my apprentice faint with a single word." } },
+      lines = {
+        { id = "xlock_default", text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd only ask that you don't try them on in the shop, because the last one made my apprentice faint with a single word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd ask you not to try anything on in the shop, though, and to keep your servant away from the fitting curtain, because my apprentice has gone quite white just from it standing there." },
+      },
       choices = {
         { text = "I'll keep my words to myself, Wynne. Your apprentice is safe.", next = "BACK", reply = "Thank you. Thurman's been very jumpy since the last one.", fx = { align = { light = 1 } } },
         { text = "Your apprentice needs a stronger stomach, frankly.", next = "BACK", reply = "He does, but he's young. Please don't test him.", fx = { align = { light = -1 } } },

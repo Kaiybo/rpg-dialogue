@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "bitter" }, values = { "loyal" },
   prejudice = { race = "Scourge", amount = 12, why = "The Forsaken were Lordaeron's humans, and some of them kept the camps." },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "For him, the night Doomhammer died was yesterday.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Another orc, walking free and proud. Were you in the camps, or were you born after? It shows, either way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green in your eyes, and I saw that same green in the eyes of orcs in the camps, the ones still sick for the demon blood. Thrall freed us from it, so be careful how much of it you let back in." },
   },
 
   start = "hello",
@@ -218,7 +220,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Use your shadows on the Witherbark if you must, but do not speak to me of it, for I have nightmares enough." } },
+      lines = { { id = "xlock_default", text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Use your shadows on the Witherbark if you must, but do not speak to me of it, for I have nightmares enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Now you stand before me with a demon at your heel, and I can smell the old sickness on it, so take it away from me before the nightmares come again tonight." },
+      },
       choices = {
         { text = "I'll keep it from you. You've suffered enough.", next = "BACK", reply = "Thank you. I saw enough of it in the camps, in the guards' eyes and then in my own.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "That fire was strength, and the Horde threw it away.", next = "BACK", reply = "Strength, and slavery. You did not see the camps, or you would not say it.", fx = { align = { light = -1 } } },
@@ -306,7 +310,7 @@ P:NPC {
   key = "torgan", id = TODO_NPC("Tor'gan"), name = "Tor'gan",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "patient" }, values = { "compassionate", "devout" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "He believes the spirits can heal even an orc who gave up.",
@@ -326,6 +330,8 @@ P:NPC {
       text = "A shaman! The elements walk with you, I can feel it from here, and they be glad to find another of us in this hard place." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear blood, like mine. The Witherbark down the hill be no cousins of ours, so don't you go feelin' sorry for them." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The spirits be pullin' back from you, mon, like a cat from a hot stone, and the ground here was quiet before you came. Torgan don't judge you for it, but Torgan feel it, and the spirits feel it worse." },
   },
 
   start = "hello",
@@ -432,7 +438,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Every time you call on fel they flinch, and one day you might want their help and find them lookin' the other way." } },
+      lines = { { id = "xlock_default", text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Every time you call on fel they flinch, and one day you might want their help and find them lookin' the other way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Right now they be pullin' back from that thing at your heel like a hand from a fire, and one day you might want their help and find them lookin' the other way." },
+      },
       choices = {
         { text = "Then I'll call on it as little as I can.", next = "BACK", reply = "Ya, as little as you can, mon. The spirits watch, and they remember.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've never needed the spirits, and I won't start now.", next = "BACK", reply = "Then the spirits be patient, mon. Tor'gan see plenty of proud ones come crawlin' to the fire after a bad fight, and they never turn one away.", fx = { align = { light = -1 } } },
@@ -515,7 +523,7 @@ P:NPC {
   key = "korinfel", id = TODO_NPC("Korin Fel"), name = "Korin Fel",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "watchful" }, values = { "protective", "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
 
   impression = {
     first = "She keeps one secret from her husband to keep him alive.",
@@ -530,6 +538,8 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
       text = "You read signs too, I can tell by how you look at the sky. Then you'll understand why I trust what the bones tell me." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You're carrying a soulstone, and an uncast one, which means somebody's soul is waiting to be signed into it. Read that contract carefully before you sign anyone, for I've seen what a careless bargain costs." },
   },
 
   start = "hello",
@@ -623,7 +633,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That they keep their bargains to the letter and never to the spirit, and the orcs learned that at a terrible price. Read your own contracts carefully, {class}, for there is always a line written smaller than the rest." } },
+      lines = { { id = "xlock_default", text = "That they keep their bargains to the letter and never to the spirit, and the orcs learned that at a terrible price. Read your own contracts carefully, {class}, for there is always a line written smaller than the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "That they keep their bargains to the letter and never to the spirit, and yours stands there now with the patience of something waiting for a clause to come due. The orcs learned that at a terrible price, so read your own contracts carefully, {class}, for there is always a line written smaller than the rest." },
+      },
       choices = {
         { text = "I read every line. I won't be fooled.", next = "BACK", reply = "Good. Ogres cannot write, so whoever wrote it for them is the one you should be reading.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Bargains are made to be broken, by either side.", next = "BACK", reply = "Then you will learn what the orcs learned, and it will not be cheap.", fx = { align = { order = -1 } } },

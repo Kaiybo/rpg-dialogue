@@ -7,7 +7,7 @@ P:NPC {
   key = "baren", id = TODO_NPC("Dockmaster Baren"), name = "Dockmaster Baren",
   bible = "bibles/baren.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "witty" },
-  notices = { "craft", "swim" },
+  notices = { "craft", "swim", "lock_shards" },
 
   impression = {
     first = "He warns about loose planks like a man who has fallen through.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A fisher! Then you'll understand. Lake Everstill was the best water in the kingdom, and now it's the best water in the kingdom for murlocs." },
     { id = "n_wet", cat = "swim", when = { questObjective = { TODO_QUEST("Murloc Poachers"), left = { max = 3 } } },
       text = "You smell like the east shore. That's a compliment, out here. It means you've been working." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've a bag full of shards, and I'd wager half of them were murlocs, judging by the smell off it. Keep filling it, because I've boats to count and fewer of them every week." },
   },
 
   start = "hello",
@@ -40,7 +42,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
+      lines = {
+        { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though that demon at your heel has half my dockhands mending nets at the far end. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+      },
       choices = {
         { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever you summon off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", reply = "Silence you'll have, then, since that's mostly what fishermen give anyway. Just don't be surprised if they cross themselves when you pass.", fx = { align = { honor = -1 } } },

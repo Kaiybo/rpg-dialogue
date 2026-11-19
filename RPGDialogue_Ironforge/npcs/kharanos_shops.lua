@@ -8,7 +8,7 @@ P:NPC {
   key = "dm_kreg", id = TODO_NPC("Kreg Bilmn"), name = "Kreg Bilmn",
   bible = "bibles/kharanos_shops.md", role = "vendor", tier = "service",
   communities = { "kharanos" }, temper = { "steady" }, values = { "practical", "honest" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
 
   impression = {
     first = "He gives plain advice whether you ask for it or not.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_cold", cat = "weary", when = { deaths = { min = 3 } },
       text = "Ye've the look o' someone who's been knocked down more than once out there. Buy some bread an' sit by the fire a while before ye go back." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "There's a chill comin' off yer bag like ye've packed it wi' snow, an' I can hear the stones knockin' together inside. Out here folk know what a soul shard is, so if ye'd keep it shut while ye're in Kharanos, ye'll get fewer looks." },
   },
 
   start = "hello",
@@ -77,7 +79,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because most o' them stay in the city, where the trainin' is, an' the rest go straight on tae Stormwind. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse." } },
+      lines = { { id = "xlock_default", text = "Because most o' them stay in the city, where the trainin' is, an' the rest go straight on tae Stormwind. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because most o' them stay in the city, where the trainin' is, an' the ones that come out here dinnae usually bring their demons intae my shop. Out here we've troll raids an' troggs, an' folk havenae much patience for anythin' that might make it worse, an' that thing sniffin' at my lamp oil is makin' me think it might." },
+      },
       choices = {
         { text = "Then I'll show them I make things better, not worse.", next = "BACK", reply = "That's all anybody can ask, an' if ye manage it, ye'll find Kharanos warms tae ye quicker than ye'd think, once the smell wears off.", fx = { align = { light = 1 } } },
         { text = "Their patience isn't my concern. Results are.", next = "BACK", reply = "Then ye'll find results come slower out here without a bit o' patience on yer side, but suit yerself, an' mind the troll raids.", fx = { align = { light = -1 } } },
@@ -202,7 +206,7 @@ P:NPC {
   key = "dm_grawn", id = TODO_NPC("Grawn Thromwyn"), name = "Grawn Thromwyn",
   bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
   communities = { "kharanos" }, temper = { "gruff" }, values = { "proud", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_taint" },
 
   impression = {
     first = "He takes each sale as a promise that the blade will hold.",
@@ -217,6 +221,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "That gear's half fallin' apart, an' I'll wager yer weapon's no' much better. Get it seen tae before ye go back out." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green tinge on ye, round the eyes an' the fingers, like copper left out in the rain. That's the same color as the bloom I keep findin' on the blades after yer kind come in, so ye'll understand if I move this sword." },
   },
 
   start = "hello",
@@ -300,6 +306,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I've seen it twice now after a warlock came tae the counter. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, whatever caused it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Somethin' does, a dark bloom on the blade like rust that isnae rust, an' I'd swear the sword on the end o' the rack has started it since yer demon came near. Maybe it's my eyes gettin' old, but I'll no' sell a blade wi' a flaw in it, so walk the thing outside an' let me look again." },
       },
       choices = {
         { text = "I'll keep it back from your steel.", next = "BACK", reply = "Thank ye kindly, an' I'll forge ye somethin' on the far side o' the anvil, just in case it's no' only my eyes.", fx = { align = { order = 1 } } },
@@ -395,7 +402,7 @@ P:NPC {
   key = "dm_boran", id = TODO_NPC("Boran Ironclink"), name = "Boran Ironclink",
   bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "practical", "proud" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
 
   impression = {
     first = "He believes thicker mail solves most problems in Dun Morogh.",
@@ -410,6 +417,8 @@ P:NPC {
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "By my beard, where's yer armor? Ye cannae go out in the snow like that, an' certainly no' near the trolls." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Demon hide over yer robes, is it? I've no' got a hammer that'll work it nor a plate that'd sit right over it, an' I'd no' want tae try, so ye'll have tae take my mail plain or no' at all." },
   },
 
   start = "hello",
@@ -464,7 +473,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer kind's demons do the fightin' for ye, an' I've no' the trick o' makin' armor for a voidwalker." } },
+      lines = { { id = "xlock_default", text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer kind's demons do the fightin' for ye, an' I've no' the trick o' makin' armor for a voidwalker." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make armor for whoever needs it, but I'll admit I prefer the ones who fight wi' axes. Yer {pet} there does yer fightin' for ye, an' I've measured many a dwarf in my time, but I'd no' know where tae start on that, so it'll have tae go bare." },
+      },
       choices = {
         { text = "I fight my own battles, Boran. The demon only helps.", next = "BACK", reply = "Glad tae hear it, an' I'll find ye somethin' that fits, for a warlock who fights his own battles needs armour as much as anybody.", fx = { align = { light = 1 } } },
         { text = "My demon bleeds so I don't have to. That's the point.", next = "BACK", reply = "That's a cold way tae see it. Still, it means ye'll need less armour than most, so I cannae fault the sums.", fx = { align = { light = -1 } } },

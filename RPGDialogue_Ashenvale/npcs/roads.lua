@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
   },
 
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is green in your eyes that was not there when you first came through Forest Song, or perhaps I never looked properly. You have been down where Felwood bleeds into this forest, I think, and it has followed you back." },
+  },
+
   start = "hello",
   nodes = {
     op_ask = {
@@ -126,6 +131,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. Your demon is looking down the road toward it like a hound that smells home, and I've never asked what warlocks find in that canyon, because I'd rather not know." },
       },
       choices = {
         { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", reply = "Then thin them, and gladly, and come back to tell me. The canyon has too many already.", fx = { align = { light = 1 } } },
@@ -240,6 +246,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again, and still holding that thing wrong, I see. Come in, then." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Stand back from the drying rack, if you would, because the yew has gone dark along the grain where your shadow fell. I'll have to split that stave for kindling now, and it was a good one." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -309,6 +320,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the wood takes on whatever's near it while it dries, and I won't have a bow that smells of the Burning Legion. Laugh if you like, but a good bow knows things, and I've broken the ones that learned the wrong things over my knee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the wood takes on whatever's near it while it dries, and your servant is standing right beside my drying rack. If one stave of mine comes away smelling of the Burning Legion, I'll break it over my knee and send you the bill, so walk it downwind." },
       },
       choices = {
         { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", reply = "Thank you. You'll get a better bow for it, I promise you.", fx = { align = { honor = 1 } } },

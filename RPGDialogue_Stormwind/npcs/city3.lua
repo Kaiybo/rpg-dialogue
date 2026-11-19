@@ -9,7 +9,7 @@ P:NPC {
   key = "lescovar", id = TODO_NPC("Lord Gregor Lescovar"), name = "Lord Gregor Lescovar",
   bible = "bibles/city3.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "ambitious" },
-  notices = { "deed", "status" },
+  notices = { "deed", "status", "lock_soulstone" },
   impression = {
     first = "His courtesy feels like being weighed on a merchant's scale.",
     third = "{name} met Lord Gregor Lescovar of the House of Nobles, an elegant man who prefers the quiet of the library.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "You've been down in that dreadful Westfall mine, I hear. Did you bring anything back, papers or ledgers? Purely out of curiosity, of course." },
     { id = "n_rogue", cat = "status", when = { class = "ROGUE" },
       text = "Shaw's sort, by the look of you. Tell him I'm reading; it's all I ever do here, reading." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, I see, and that is a rare kind of insurance, a life held in reserve. Men in the House would pay handsomely for one, and a few of them would even use it on themselves." },
   },
 
   start = "hello",
@@ -43,6 +45,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "The House of Nobles has use for anyone who understands that power is a matter of who owes whom, and your sort understand that better than most. I would never say so in the chamber, of course, but a quiet word to a quiet man can open doors that a herald never could." },
         { id = "xlock_more1", text = "Lady Prestor says much the same, though she says it more prettily than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The House of Nobles has use for anyone who understands that power is a matter of who owes whom, and a man who commands a creature like that one understands it better than most. I would never say so in the chamber, of course, and I'd ask you to leave it outside when we speak again, because my servants gossip." },
       },
       choices = {
         { text = "I'll keep my power where the law can see it, my lord.", next = "BACK", reply = "How admirably proper of you. The law sees a great deal less than you'd think, but I respect the sentiment.", fx = { align = { order = 1 } } },
@@ -266,7 +269,7 @@ P:NPC {
   key = "dashel", id = TODO_NPC("Dashel Stonefist"), name = "Dashel Stonefist",
   bible = "bibles/city3.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "brawler" }, values = { "proud" },
-  notices = { "body", "drink" },
+  notices = { "body", "drink", "lock_pact" },
   impression = {
     first = "Most of his evenings end in a fight, and he enjoys them.",
     third = "{name} met Dashel Stonefist, an Old Town brawler who settles his arguments with his fists.",
@@ -282,6 +285,8 @@ P:NPC {
       text = "Now there's a pair o' shoulders. Fancy a round? Not o' drinks, mind, the other kind." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye're drunk? Good, that makes it fair, since I am too." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've a heat coming off you like a man about to throw the first punch, and I know that look, because I wear it most evenings. It's your imp's doing, is it? Then I'll not take it personal." },
   },
 
   start = "hello",
@@ -299,6 +304,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and your imp's got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd pick a fight with a door if it looked at me wrong, and your {pet}'s been looking at me wrong since you walked in. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, so tell it to keep its eyes to itself before I forget that." },
       },
       choices = {
         { text = "Leave the imp be, Dashel, and we'll get on fine.", next = "BACK", reply = "Done, so long as it stops makin' faces at me. Deal's a deal, friend.", fx = { align = { honor = 1 } } },
@@ -491,7 +497,7 @@ P:NPC {
   key = "furen", id = TODO_NPC("Furen Longbeard"), name = "Furen Longbeard",
   bible = "bibles/city3.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "loyal" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_armor" },
   impression = {
     first = "He looks at a dent and sees the whole fight behind it.",
     third = "{name} met Furen Longbeard, Grimand Elmore's student, who forges shields meant to be trusted rather than admired.",
@@ -507,6 +513,8 @@ P:NPC {
       text = "Look at the state o' that! Who did this tae ye, a gnoll? It looks like a gnoll did it, so leave it wi' me." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Fellow smith. Ye'll know the master, then, by reputation if no' by temper. Everyone knows the temper." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward ye've drawn round yerself is demon hide, isn't it, an' it sits on ye better than any plate I've made. Master Elmore would say it's no' armour at all, an' I'd say it's turned a blade, by the look o' it." },
   },
 
   start = "hello",
@@ -524,6 +532,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd make ye a good steel clasp for those robes, an' a bracer for the arm ye cast with, since I've seen what a backfire does to a wrist. Master Elmore says I'm too soft on customers, but a man who comes back to complain is a man who's still alive." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd make ye a good steel clasp for those robes, an' a bracer for yer castin' arm, since I've seen what a backfire does tae a wrist. Master Elmore says I'm too soft on customers, but he's no' standin' this close tae yer demon, an' the way it's starin' at my tongs, I'd rather be soft than singed." },
       },
       choices = {
         { text = "I'll pay for a bracer, Furen, and come back to complain.", next = "BACK", reply = "Ha! Fair enough. I'll make it strong enough that ye'll have nothin' tae complain about.", fx = { align = { honor = 1 } } },
@@ -691,7 +700,7 @@ P:NPC {
   key = "thelwater", id = TODO_NPC("Warden Thelwater"), name = "Warden Thelwater",
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
-  notices = { "soldier", "stealth" },
+  notices = { "soldier", "stealth", "lock_shards" },
   impression = {
     first = "He looks like a man who has stopped opening his letters.",
     third = "{name} met Warden Thelwater of the Stockade, an anxious man who would rather nobody heard about his lower tiers.",
@@ -705,6 +714,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Don't. Whatever you're thinking of doing, don't. I've enough people trying to get out without people trying to get in." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Fifteen shards in your bag if there's one, and every one of them a soul. In my Stockade I'd count them out on the table and log each one by name, if I only knew the names." },
   },
 
   start = "hello",
@@ -756,7 +767,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
+      lines = {
+        { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We did, a thief from the Lamb's crowd, and his companion set the straw alight in three cells before we could get the chains on him. Seeing yours stand there looking at my keys, I've half a mind to double the guard on the deep cells tonight, and I still won't sleep." },
+      },
       choices = {
         { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", reply = "Better safe than burned, exactly. I've had enough fire for one career.", fx = { align = { order = 1 } } },
         { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen an imp loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },

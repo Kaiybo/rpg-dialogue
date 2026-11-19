@@ -7,7 +7,7 @@ P:NPC {
   key = "falkhaan", id = TODO_NPC("Falkhaan Isenstrider"), name = "Falkhaan Isenstrider",
   bible = "bibles/falkhaan.md", role = "questgiver", tier = "quest",
   communities = { "northshire", "goldshire" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_soulstone" },
   impression = {
     first = "He sends tired travelers to bed with a herald's pride.",
     third = "{name} was pointed toward Goldshire's inn by Falkhaan Isenstrider, who keeps watch over the road and cares that travelers rest.",
@@ -31,6 +31,8 @@ P:NPC {
       text = "Was it kobolds or wolves that did that? You've the look of someone who's had a morning of both." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ah, you've found the inn already, I see, or else a bottle found you first." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a pale look about you, as if part of your soul were set aside somewhere for safekeeping. I've sent young soldiers through that door with less, but I never thought to see one carrying their own way back from the grave." },
   },
 
   start = "hello",
@@ -83,7 +85,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because I send tired farmhands and young soldiers through that same door, and none of them ever came back up with something like that at their heel. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+      },
       choices = {
         { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", reply = "I'll hold you to that, and so will Farley. Go on down.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What happens in the cellar isn't their business.", next = "BACK", reply = "Maybe not, but they sleep above it, friend. Keep it quiet.", fx = { align = { light = -1 } } },

@@ -8,7 +8,7 @@ P:NPC {
   key = "haljan", id = TODO_NPC("Haljan Oakheart"), name = "Haljan Oakheart", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "steady", "plainspoken" }, values = { "community", "endurance" },
-  notices = { "weary" },
+  notices = { "weary", "lock_steed" },
   impression = {
     first = "He is the sort a village under siege leans on.",
     third = "{name} met Haljan Oakheart, who keeps Astranaar supplied through the war.",
@@ -22,6 +22,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look like you've been dragged through the Thistlefur's whole hold and back. Sit a moment before you buy anything." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Your horse left hoofprints burned into the bridge planks, and the Sentinels will ask me about them before they ask you. Next time, lead it across, if a horse made of fire can be led." },
   },
 
   start = "hello",
@@ -105,6 +107,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Likely none, but the Sentinels buy their bread from me, and if one of them smells sulphur on a loaf I'll lose their trade by morning. With the Warsong turning back my carts already, I can't afford that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Likely none, but the Sentinels buy their bread from me, and your demon is breathing sulphur right over my loaves as we speak. With the Warsong turning back my carts already, I can't afford to lose the Sentinels, so stand it away from the counter." },
       },
       choices = {
         { text = "Right, then. It can wait outside.", next = "BACK", reply = "Thank you. It's not about you, friend; it's about the Sentinels' noses.", fx = { align = { order = 1 } } },
@@ -192,7 +195,7 @@ P:NPC {
   key = "xaiander", id = TODO_NPC("Xai'ander"), name = "Xai'ander", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "intense", "grim" }, values = { "defense", "vigilance" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_taint" },
   impression = {
     first = "His blades are good, and his anger at the orcs is close.",
     third = "{name} met Xai'ander, Astranaar's grim weaponsmith.",
@@ -208,6 +211,8 @@ P:NPC {
       text = "A dwarf. Your smiths work steel better than mine, I'll admit, and I keep a few Ironforge axes in the back for anyone who'd rather trust them." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Good, the Sentinels need people who can stand in front of an axe. I've something heavier than that, if you're interested." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is a green fever-light about you that I last saw in the eyes of the Warsong, when they came over the hills. I am told yours came from study rather than drinking, but on you it looks much the same." },
   },
 
   start = "hello",
@@ -291,6 +296,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it, and they're cutting our trees still. You bind your demons rather than drink from them, I'm told, but I've yet to see the difference with my own eyes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it. You say you bind your demons rather than drink from them, and here's one bound beside you, staring at me with the same red hunger I saw in Warsong eyes, so I'm still waiting to see the difference." },
       },
       choices = {
         { text = "Then watch me kill orcs, and decide for yourself.", next = "BACK", reply = "Then I'll watch, and I'll decide. Kill orcs well, and I'll forge for you.", fx = { align = { honor = 1 } } },
@@ -377,7 +383,7 @@ P:NPC {
   key = "aeolynn", id = TODO_NPC("Aeolynn"), name = "Aeolynn", title = "Clothier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "gentle", "wistful" }, values = { "beauty", "peace" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "She longs for Ashenvale as it was before the orcs came.",
     third = "{name} met Aeolynn, Astranaar's wistful clothier.",
@@ -391,6 +397,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "MAGE", "WARLOCK" } },
       text = "You'll want robes, then, and something with a good hem for walking these wet paths. Let me see what I have in your size." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The black cloth on my shelf has never looked so dark as it does with you beside it, and the white has gone grey. The satyrs had the same way about them, before the end, though I try not to think so." },
   },
 
   start = "hello",
@@ -445,7 +453,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. But you came in and asked about cloth like anyone else, and I'd like to believe that counts for something." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. But you came in and asked about cloth like anyone else, and I'd like to believe that counts for something." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. Your servant hasn't stopped watching me since you came in, but you asked about cloth like anyone else, and I'd like to believe that counts for something." },
+      },
       choices = {
         { text = "It counts. I'll never become what they became.", next = "BACK", reply = "Thank you, and I'll believe you. I'd like to keep believing in people.", fx = { align = { light = 1 } } },
         { text = "Their bargain failed. Mine won't, and I'll go further.", next = "BACK", reply = "Further? I hope you know where it ends, then, because they didn't.", fx = { align = { light = -1 } } },
@@ -560,7 +571,7 @@ P:NPC {
   key = "maliynn", id = TODO_NPC("Maliynn"), name = "Maliynn", title = "Food & Drink Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "cheerful", "motherly" }, values = { "care", "hospitality" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shards" },
   impression = {
     first = "She thinks everyone is too thin, but her bread is very good.",
     third = "{name} met Maliynn, who feeds Astranaar's Sentinels and travelers alike.",
@@ -574,6 +585,8 @@ P:NPC {
   notice = {
     { id = "n_young", cat = "hunger", when = { maxLevel = 22 },
       text = "You're young to be this far from home, aren't you? Make sure you eat properly; the Sentinels never do, and look at them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack's so cold the butter's gone hard on the counter, dear, and only soul shards keep a chill like that. Eat something warm before you go, because carrying all that winter can't be good for you." },
   },
 
   start = "hello",
@@ -657,6 +670,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. Just keep the little one away from the cheese, because the Sentinels count it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. That said, your {pet} has its eyes on the cheese, so keep it close, because the Sentinels count every wheel." },
       },
       choices = {
         { text = "Be careful, Maliynn. Not every warlock is as kind.", next = "BACK", reply = "I know, dear, and I'm careful. But a hungry customer is still a hungry customer.", fx = { align = { light = 1 } } },

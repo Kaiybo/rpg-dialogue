@@ -9,7 +9,7 @@ P:NPC {
   key = "olivia_burnside", id = TODO_NPC("Olivia Burnside"), name = "Olivia Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "order", "proud" },
-  notices = { "purse", "watch" },
+  notices = { "purse", "watch", "lock_shards" },
   impression = {
     first = "She says nothing was ever stolen, as if reassuring herself.",
     third = "{name} met Olivia Burnside, a banker of Stormwind who is very proud of her vaults.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Goodness, that's a heavy purse to be carrying about the Trade District. Do let us look after some of it before a cutpurse does." },
     { id = "n_rogue", cat = "watch", when = { class = "ROGUE" }, place = "before",
       text = "I'll keep my eyes on your hands while we talk, if you don't mind. It's nothing personal; I do it with everyone who walks the way you do." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your pack's as cold as a vault, which is funny, because the warlock boxes downstairs run warm. I keep wondering where the heat goes, and now I think it might be going into bags like yours." },
   },
   start = "hello",
   nodes = {
@@ -39,6 +41,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't look, and I'd never tell, but I've noticed the warlock boxes tend to be the warmest in the vault, which is odd for a stone room underground. Nothing has ever been stolen from this bank, as I say, though I sometimes wonder whether that's the locks or the fact that nobody wants to open those boxes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't look, and I'd never tell, but the warlock boxes are always the warmest in the vault, and standing beside your servant I think I finally know why. Nothing has ever been stolen from this bank, and with that thing at the counter, I doubt anyone in the queue would dare try today." },
       },
       choices = {
         { text = "The locks, Olivia. I'll keep my box quiet.", next = "BACK", reply = "Thank you. The locks thank you too, I'm sure.", fx = { align = { order = 1 } } },
@@ -189,7 +192,7 @@ P:NPC {
   key = "newton_burnside", id = TODO_NPC("Newton Burnside"), name = "Newton Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "dry" }, values = { "order", "discreet" },
-  notices = { "purse", "trophy" },
+  notices = { "purse", "trophy", "lock_soulstone" },
   impression = {
     first = "He says the bank sees more of the kingdom than the king.",
     third = "{name} met Newton Burnside, a dry and observant banker of Stormwind.",
@@ -201,6 +204,8 @@ P:NPC {
   notice = {
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } }, place = "before",
       text = "You'll not need a large box, I think, and there's no shame in that. Most fortunes in this city began with a small one." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, and a man learns a great deal from what someone keeps in reserve. Most folk save gold, but you've saved a life, and I've never had a deposit box that could hold one." },
   },
   start = "hello",
   nodes = {
@@ -244,7 +249,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A gentleman from the Mage Quarter tried to deposit a small bound box that scratched at night, and we gave it back to him the very next morning. I've stopped asking what people keep, but I do still listen." } },
+      lines = {
+        { id = "xlock_default", text = "A gentleman from the Mage Quarter tried to deposit a small bound box that scratched at night, and we gave it back to him the very next morning. I've stopped asking what people keep, but I do still listen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A gentleman from the Mage Quarter tried to deposit a bound box that scratched at night, and we gave it back the next morning. I hope you're not thinking of anything like that, because your demon has been looking at the vault door since you arrived, and I'd rather not hear what scratches back." },
+      },
       choices = {
         { text = "You were right to refuse it. Some things don't belong here.", next = "BACK", reply = "We were, and I'm still glad of it. The night clerk didn't sleep for a week.", fx = { align = { light = 1 } } },
         { text = "A scratching box is harmless if it's bound properly.", next = "BACK", reply = "Perhaps, but I'd rather not find out. Our vault is for things that stay still.", fx = { align = { light = -1 } } },
@@ -370,7 +378,7 @@ P:NPC {
   key = "john_burnside", id = TODO_NPC("John Burnside"), name = "John Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "community", "order" },
-  notices = { "kin", "travel" },
+  notices = { "kin", "travel", "lock_shadow" },
   impression = {
     first = "He would rather hear where I have been than what I brought.",
     third = "{name} met John Burnside, the cheerful banker at the first window of the Bank of Stormwind.",
@@ -382,6 +390,8 @@ P:NPC {
   notice = {
     { id = "n_human", cat = "kin", when = { race = "Human" }, place = "before",
       text = "Stormwind born, are you? Then you'll know my family's name from the old bank, before the orcs burned it down with everything else." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The queue's moved back a pace from you, I notice, and nobody in it quite knows why. It's the shadow on you, I think, though I'd rather be friendly to it than have it in a mood." },
   },
   start = "hello",
   nodes = {
@@ -425,7 +435,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the queue, because nobody wants to stand behind a thing with horns for ten minutes. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." } },
+      lines = {
+        { id = "xlock_default", text = "Only the queue, because nobody wants to stand behind a thing with horns for ten minutes. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the queue, and you can see it for yourself, because they've all shuffled a pace back from your demon and none of them will step forward. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." },
+      },
       choices = {
         { text = "I'll send it away while I'm here. Your customers deserve that.", next = "BACK", reply = "Thank you! The queue will be very grateful.", fx = { align = { light = 1 } } },
         { text = "If they mind, they can let me go first.", next = "BACK", reply = "Ha! I'll ask them, but I doubt they'll be so generous.", fx = { align = { light = -1 } } },
@@ -548,7 +561,7 @@ P:NPC {
   key = "auctioneer_chilton", id = TODO_NPC("Auctioneer Chilton"), name = "Auctioneer Chilton", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "showy" }, values = { "trade", "order" },
-  notices = { "purse", "craft" },
+  notices = { "purse", "craft", "lock_soulstone" },
   impression = {
     first = "He talks about a linen cloth as though it were a crown.",
     third = "{name} met Auctioneer Chilton, a showman of Stormwind's auction house.",
@@ -560,6 +573,8 @@ P:NPC {
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking" } }, place = "before",
       text = "A crafter! Then you're the reason this hall exists, because adventurers sell us the raw stuff and folk like you turn it into something worth bidding on." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's put a soulstone on you, and it's the one thing I've seen that this hall could never sell, because it's already spoken for. I can feel it faintly, like a second pulse in the room." },
   },
   start = "hello",
   nodes = {
@@ -603,7 +618,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a fortune in gold to a buyer I never saw, and I've tried very hard not to wonder where it went." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a fortune in gold to a buyer I never saw, and I've tried very hard not to wonder where it went." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a book that turned its own pages at night, and the guards refused to sit with it, much as my clerks are refusing to sit near your companion now. It sold for a fortune to a buyer I never saw, and I've tried very hard not to wonder whether he had a thing like that one at his heel." },
+      },
       choices = {
         { text = "You should have burned it, Chilton.", next = "BACK", reply = "Perhaps I should have, but it fetched a great deal of gold. I'll think on it.", fx = { align = { light = 1 } } },
         { text = "A book like that deserves a worthy owner.", next = "BACK", reply = "It found one, I suppose, though I never saw him. I'd rather not have.", fx = { align = { light = -1 } } },
@@ -729,7 +747,7 @@ P:NPC {
   key = "auctioneer_fitch", id = TODO_NPC("Auctioneer Fitch"), name = "Auctioneer Fitch", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "precise" }, values = { "order", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shards" },
   impression = {
     first = "He thinks fraud is the greatest danger the city faces.",
     third = "{name} met Auctioneer Fitch, the careful keeper of the auction house's book.",
@@ -744,6 +762,8 @@ P:NPC {
       text = "That purse rides heavy, if you'll forgive a clerk for noticing. Large sums are where the mistakes hide, so I'll be counting twice today." },
     { id = "n_purse_light", cat = "purse", when = { money = { max = 500 } }, place = "before",
       text = "If you're selling to raise coin, I'd advise a modest starting bid. A greedy first price has stranded more goods in this hall than any thief." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You've at least twenty soul shards on you, and if you listed them I'd be required to record each one by origin. I'd hate to write twenty murlocs into the permanent book, so please don't." },
   },
   start = "hello",
   nodes = {
@@ -776,7 +796,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger. But the law says I must take your goods, and I'm a man who follows the law to the letter." } },
+      lines = {
+        { id = "xlock_default", text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger. But the law says I must take your goods, and I'm a man who follows the law to the letter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger whose demon read the ledger over my shoulder. But the law says I must take your goods, so I'll write your name, and I'll trust the thing beside you doesn't need one." },
+      },
       choices = {
         { text = "The law protects everyone, warlocks too. You're right to follow it.", next = "BACK", reply = "Thank you. I follow it to the letter, however little I like it.", fx = { align = { order = 1 } } },
         { text = "The law's only ink, Fitch. Some days it bends.", next = "BACK", reply = "Not in my ledger, it doesn't. The ink stays where I put it.", fx = { align = { order = -1 } } },
@@ -1044,7 +1067,7 @@ P:NPC {
   key = "auctioneer_jaxon", id = TODO_NPC("Auctioneer Jaxon"), name = "Auctioneer Jaxon", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "community" },
-  notices = { "greenness", "purse" },
+  notices = { "greenness", "purse", "lock_steed" },
   impression = {
     first = "She gives sensible advice on prices and teases you for ignoring it.",
     third = "{name} met Auctioneer Jaxon, the warm and practical auctioneer of Stormwind's hall.",
@@ -1056,6 +1079,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 12 }, place = "before",
       text = "Oh, you're new to the hall, aren't you? Don't list your first linen at the price the nobles pay for silk, love, or it'll be back in your mailbox by morning." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode a burning horse through the Trade District, love, and every buyer in the hall came out to look at it. If I could auction the attention, we'd both retire." },
   },
   start = "hello",
   nodes = {
@@ -1072,6 +1097,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "More than you'd guess, love, because your lot buy cloth by the stack and sell the bags you make, and you never haggle. Chilton gets nervous when one of you comes to his podium, but I've always found warlocks pay their deposits on time and never argue the fee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than you'd guess, love, because your lot buy cloth by the stack and never haggle, though yours is the first to bring a servant up to the podium. Chilton's already backed away to the far end, so it's me you're dealing with today, and I don't mind the smell of brimstone if the deposit's on time." },
       },
       choices = {
         { text = "Then I'll keep paying on time, Jaxon.", next = "BACK", reply = "Thank you, love. Chilton will be relieved.", fx = { align = { honor = 1 } } },
@@ -1222,7 +1248,7 @@ P:NPC {
   key = "aldwin_laughlin", id = TODO_NPC("Aldwin Laughlin"), name = "Aldwin Laughlin", title = "Guild Master",
   bible = "bibles/unsung.md", role = "worker", tier = "service",
   communities = { "stormwind" }, temper = { "formal" }, values = { "order", "loyal" },
-  notices = { "status" },
+  notices = { "status", "lock_pact" },
   impression = {
     first = "He treats every charter as a small promise made before the crown.",
     third = "{name} met Aldwin Laughlin, who keeps the Stormwind guild registry.",
@@ -1230,6 +1256,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the guild registry. Are you here to found a guild, or to give an old one a new crest?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope your companions are keeping their oaths to one another." },
+  },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You carry a pact on you, I can see it in the flush of your skin, and a pact is a sort of charter, though a darker one than I'd ever register. I hope your demon keeps its side of the bargain better than some guilds keep theirs." },
   },
   start = "hello",
   nodes = {
@@ -1273,7 +1303,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." } },
+      lines = {
+        { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Lord Wishock would try, and loudly, and if he saw what you've brought into my office, he'd have the Watch here before you finished signing. The law says a guild is a guild so long as it pays its fee and breaks no statute, though I don't recall a statute about demons in the waiting room, so let's not go looking for one." },
+      },
       choices = {
         { text = "The law protects every guild equally. Good.", next = "BACK", reply = "It does, and Lord Wishock will learn it. I'll draw your crest.", fx = { align = { order = 1 } } },
         { text = "Let Wishock rage. A crest is my own affair.", next = "BACK", reply = "Exactly, and I'll keep him at bay. I'm very good at it.", fx = { align = { order = -1 } } },
@@ -1396,7 +1429,7 @@ P:NPC {
   key = "woo_ping", id = TODO_NPC("Woo Ping"), name = "Woo Ping", title = "Weapon Master",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "discipline", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow" },
   impression = {
     first = "He says more with one correction than most do with a speech.",
     third = "{name} met Woo Ping, the weapon master who teaches in Weller's Arsenal.",
@@ -1410,6 +1443,8 @@ P:NPC {
       text = "A priest who wants to fight with more than prayer. I can teach you the staff and the dagger, and you'll find that both reward patience, as your faith does." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, place = "before",
       text = "A hunter. You'll want the crossbow from me, I expect, and perhaps a polearm for when the beast reaches you before your bolt does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow moves half a beat behind you, and a weapon master sees such things, because the feet must lead and everything else must follow. Learn the staff, and teach your shadow to keep up." },
   },
   start = "hello",
   nodes = {
@@ -1442,7 +1477,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a master who cannot defend himself is only a prisoner who has not been caught yet, and your demon knows this better than you. Learn the staff, so that your servant has a reason to stay obedient." } },
+      lines = {
+        { id = "xlock_default", text = "Because a master who cannot defend himself is only a prisoner who has not been caught yet, and your demon knows this better than you. Learn the staff, so that your servant has a reason to stay obedient." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a master who cannot defend himself is only a prisoner who has not been caught, and your demon is watching us now to learn which you are. Learn the staff, so that your servant has a reason to stay obedient, and so that it stops looking at you like that." },
+      },
       choices = {
         { text = "I'll learn, then, and depend less on my demons.", next = "BACK", reply = "Good. Your demons will respect you more for it.", fx = { align = { light = 1 } } },
         { text = "My demons obey me. They'll never need a reason.", next = "BACK", reply = "They obey until they don't. Learn the staff.", fx = { align = { light = -1 } } },
@@ -1561,7 +1599,7 @@ P:NPC {
   key = "marda_weller", id = TODO_NPC("Marda Weller"), name = "Marda Weller", title = "Weapons Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "honest" },
-  notices = { "kit", "greenness" },
+  notices = { "kit", "greenness", "lock_stones" },
   impression = {
     first = "She is plainly the reason the arsenal still turns a profit.",
     third = "{name} met Marda Weller, who keeps the books and the second counter at Weller's Arsenal.",
@@ -1575,6 +1613,8 @@ P:NPC {
       text = "Fresh from Northshire, are you? Then buy something cheap and sturdy from me today, and save your silver for something good once you know what you like." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Look at that edge, it's nearly gone. Get it seen to before you go anywhere, or the next thing you hit will be the last." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That firestone of yours is warming my whole counter, and Gunther will smell it from the forge and come out with a hammer. Please keep it in the bag, because I've no apologies left in me this month." },
   },
   start = "hello",
   nodes = {
@@ -1591,6 +1631,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because Gunther once threw a hammer at an imp that was sniffing round his forge, and missed, and hit a customer, and I spent a week writing apologies. He's a good smith and a poor judge of what to throw things at, so it's easier if your friend waits by the door." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Gunther once threw a hammer at an imp sniffing round his forge, missed, and hit a customer, and he's already reaching for another now that yours has come in. He's a good smith and a poor judge of what to throw things at, so please take your {pet} back to the door before I'm writing apologies again." },
       },
       choices = {
         { text = "It'll wait by the door, Marda.", next = "BACK", reply = "Thank you. Gunther's hammer is still a little bent.", fx = { align = { order = 1 } } },
@@ -1741,7 +1782,7 @@ P:NPC {
   key = "keldric_boucher", id = TODO_NPC("Keldric Boucher"), name = "Keldric Boucher", title = "Arcane Goods Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "learned" }, values = { "craft", "proud" },
-  notices = { "arcane", "craft" },
+  notices = { "arcane", "craft", "lock_shards" },
   impression = {
     first = "He likes being asked, and likes being right even more.",
     third = "{name} met Keldric Boucher, who sells arcane goods at Pestle's Apothecary.",
@@ -1755,6 +1796,8 @@ P:NPC {
       text = "An alchemist, I can always tell by the stains. You'll be wanting vials, and I'd buy a few more than you think you need, because you'll drop one." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" }, place = "before",
       text = "A mage, good. You'll want arcane powder for your brilliance and runes for your portals, and I keep both, which is more than the Mage Quarter's shops can always say." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "My vials have frosted over on your side of the counter, the way that case did before I threw it in the canal. It's the shards in your bag, I'd stake the shop on it." },
   },
   start = "hello",
   nodes = {
@@ -1798,7 +1841,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and I didn't ask, but the glass frosted over from the inside and I had to throw the whole case in the canal. I've had my doubts about the fish ever since." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and I didn't ask, but the glass frosted over from the inside and I had to throw the whole case in the canal. I've had my doubts about the fish ever since." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and I didn't ask, but the glass frosted over from the inside, and the vials nearest your servant have just started ticking against each other the way that one did. I threw the whole case in the canal that night, and I'd like you to know I'm keeping that in mind." },
+      },
       choices = {
         { text = "I'm sorry for that. I'll fill mine far from here.", next = "BACK", reply = "Thank you. The canal's had enough of my glass.", fx = { align = { light = 1 } } },
         { text = "A screaming vial sounds rather useful to me.", next = "BACK", reply = "Useful, perhaps, but unsettling to sell. I'll pass.", fx = { align = { light = -1 } } },
@@ -1920,7 +1966,7 @@ P:NPC {
   key = "kyra_boucher", id = TODO_NPC("Kyra Boucher"), name = "Kyra Boucher", title = "Reagent Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "quick" }, values = { "practical", "community" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She knows every caster's habits by what they buy.",
     third = "{name} met Kyra Boucher, the reagent seller at Pestle's Apothecary.",
@@ -1934,6 +1980,8 @@ P:NPC {
       text = "Light feathers, I expect, for when you'd rather float than fall. The Cathedral's priests buy them by the handful before they go out into the hills." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" }, place = "before",
       text = "A druid! I keep seeds for your rebirth and berries for your gifts, though I'll admit I don't fully understand what you do with them." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That infernal stone in your bag was wrapped in plain paper by somebody, and I'd know my own fold anywhere. Keep it wrapped, please, because a paladin who sees one will follow you all the way to the Mage Quarter." },
   },
   start = "hello",
   nodes = {
@@ -1948,7 +1996,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." } },
+      lines = {
+        { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, but it won't hide that thing at your heel, so I'd ask you to send it off before you leave with your parcel." },
+      },
       choices = {
         { text = "The paladin was only doing his duty, Kyra.", next = "BACK", reply = "He was, and he cost me two customers doing it. Plain paper it is.", fx = { align = { light = 1 } } },
         { text = "Plain paper's wise. Paladins should mind their own business.", next = "BACK", reply = "Exactly. I keep my customers, and the paladins keep their peace.", fx = { align = { light = -1 } } },

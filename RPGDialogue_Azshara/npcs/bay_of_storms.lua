@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "bay_of_storms" }, temper = { "proud", "steady" }, values = { "brave", "proud" },
   likesTone = "polite",
-  notices = { "class", "race", "reputation" },
+  notices = { "class", "race", "reputation", "lock_breath", "lock_stones" },
 
   impression = {
     first = "He judged me as a tool and found me barely adequate.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "You reek of the wind, elf, like a cheap perfume. The servants of the wind are not friends of the Waterlords; remember that, while you stand on my shore." },
     { id = "n_rep", cat = "reputation", when = { reputation = { faction = "Hydraxian Waterlords", min = "friendly" } },
       text = "The Waterlords know your name now, and remember it, which is more than we do for most of your kind." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You breathe my waters as if they were air, warlock, which is a mortal's trick and an impertinent one. Still, it means you can go where my servants fight, and I can think of uses for a fire that does not drown." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There is a stone of fire in your pack, and the sea around my island hissed when you came ashore. Ragnaros's children carry their flame the same way, so do not mistake my patience for welcome." },
   },
 
   start = "hello",
@@ -138,7 +142,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." } },
+      lines = {
+        { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because your demons burn as the Firelord's servants burn, and that one fouls the very spray around it as it stands there. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros, so point it at the Firelord's minions and keep it out of my waters." },
+      },
       choices = {
         { text = "I'll turn my fire against the Firelord, then.", next = "BACK", reply = "Good. Then we have no quarrel, warlock, and the sea will tolerate you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My fire serves me first, Duke.", next = "BACK", reply = "First, last, it is the same to me, so long as it burns my enemies. Do not foul my waters.", fx = { affinity = -1, align = { order = -1 } } },
@@ -819,7 +826,7 @@ P:NPC {
   key = "arkkoroc", id = TODO_NPC("Lord Arkkoroc"), name = "Lord Arkkoroc",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "bay_of_storms" }, temper = { "proud", "steady" }, values = { "proud", "brave" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He calls himself a god and grieves the sons a hydra killed.",
@@ -837,6 +844,8 @@ P:NPC {
       text = "An elf. Your people built this house for their moon goddess. She left; the one stayed. Draw your own conclusions about gods." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest of some small light. Kneel to the one, if you like; Arkkoroc does not mind a little worship." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Small one, I hear souls in your bag, faint and cold, like the drowned singing at the bottom of the bay. The one has heard enough of that song, so do not open it here." },
   },
 
   start = "hello",
@@ -909,7 +918,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." } },
+      lines = {
+        { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. You were told to bring no demon to this temple, small one, and yet here it stands, so take it out before the one's grief for his sons finds a new target." },
+      },
       choices = {
         { text = "I'll bring no demon here. You've suffered enough.", next = "BACK", reply = "Then the one thanks you, small thing. The deep folk remember who spared them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demons go where I choose, god or no god.", next = "BACK", reply = "Then you will not come to this temple, small thing. The one does not argue twice.", fx = { affinity = -1, align = { light = -1 } } },

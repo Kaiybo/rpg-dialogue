@@ -6,7 +6,7 @@ P:NPC {
   key = "llane", id = TODO_NPC("Llane Beshere"), name = "Llane Beshere",
   bible = "bibles/llane.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "fitness", "stance" },
+  notices = { "fitness", "stance", "lock_armor" },
   impression = {
     first = "He corrected my stance before he asked what I wanted.",
     third = "{name} met Llane Beshere, Northshire's warrior trainer, who teaches a proper stance as if it were scripture.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You died recently; I can see it in how you stand. Sit down before you fall down." },
     { id = "n_naked", cat = "fitness", when = { nearlyNaked = true, class = "WARRIOR" },
       text = "A warrior without armor is a target with opinions." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a ward of demon hide crawling up your arms, isn't it? My recruits wear honest mail and earn every dent in it, so mind you don't stand where they can see you better armoured than they are." },
   },
 
   start = "hello",
@@ -76,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." } },
+      lines = {
+        { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's happened twice, and once the straw went up while the recruit beside it was still swinging. I'll ask you to keep that creature away from my dummies, because my recruits have stopped swinging altogether to watch it, and I'd sooner they learned to fight than to stare." },
+      },
       choices = {
         { text = "I'll keep my imp leashed and away from your recruits.", next = "BACK", reply = "Good, and the straw will thank you. Find a dummy on the far end.", fx = { align = { light = 1 } } },
         { text = "Your recruits could do with a real fight now and then.", next = "BACK", reply = "Real fights come soon enough, and I'd rather they lived to see them. Leave my recruits alone.", fx = { align = { light = -1 } } },

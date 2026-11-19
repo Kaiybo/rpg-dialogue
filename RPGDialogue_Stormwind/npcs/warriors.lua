@@ -9,7 +9,7 @@ P:NPC {
   key = "wu_shen", id = TODO_NPC("Wu Shen"), name = "Wu Shen", title = "Warrior Trainer",
   bible = "bibles/warriors.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "dutiful", "patient" },
-  notices = { "kit", "guard" },
+  notices = { "kit", "guard", "lock_armor" },
   impression = {
     first = "He teaches every lesson as if it were the same lesson.",
     third = "{name} met Wu Shen, the senior of Stormwind's warrior trainers in Old Town, who teaches stance before anything else.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "You've been taking blows on your armour that your feet should have stepped away from. Mend it, and then we'll mend the feet." },
     { id = "n_guard", cat = "guard", when = { origin = "human_city_guard" },
       text = "You stood the Watch, I think; you still hold your weapon like a halberd. We'll shorten that grip before it shortens you." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You stand in that demon hide as if it will do the standing for you, and it won't. Armour is only as good as the feet under it, and yours are too close together." },
   },
 
   start = "hello",
@@ -42,6 +44,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen warlocks fall because they forgot they had legs, and I'd teach you to use yours, if you can bear to hear the same lesson twenty times." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not, and yours won't always be at your heel the way it is now. I've seen warlocks fall because they leaned on their demons and forgot their legs, so send it to the corner and show me how you stand without it." },
       },
       choices = {
         { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", reply = "Twenty times, then forty, and you will curse me for every one. That is how I know it is working.", fx = { align = { order = 1 } } },
@@ -295,7 +298,7 @@ P:NPC {
   key = "ilsa_corbin", id = TODO_NPC("Ilsa Corbin"), name = "Ilsa Corbin", title = "Warrior Trainer",
   bible = "bibles/warriors.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "brave", "ambitious" },
-  notices = { "kit", "fresh" },
+  notices = { "kit", "fresh", "lock_pact" },
   impression = {
     first = "She calls me recruit and makes it sound like a dare.",
     third = "{name} met Ilsa Corbin, a cheerful and ferocious warrior trainer in Stormwind's Old Town.",
@@ -311,6 +314,8 @@ P:NPC {
       text = "Look at the state of you! Somebody gave as good as they got, and I hope you gave it back twice." },
     { id = "n_fresh", cat = "fresh", when = { class = "WARRIOR", maxLevel = 14 },
       text = "Fresh off the farm, are you? Don't be embarrassed; so was I, and I still hit like a scythe." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a heat on you that isn't anger, though it looks like it, and I think it belongs to your imp. Be careful, because borrowed fury burns hotter than your own and you can't put it down." },
   },
 
   start = "hello",
@@ -344,7 +349,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." } },
+      lines = {
+        { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. Yours stands next to you with eyes of its own, though, and I've a feeling it's been listening to every word I've said about anger and storing it away." },
+      },
       choices = {
         { text = "Then I'll aim it, and never let it rule me.", next = "BACK", reply = "Good, because if it does rule you, it won't be your anger anymore, it'll be the thing at your heel. Aim well.", fx = { align = { light = 1 } } },
         { text = "My anger and I get along well enough.", next = "BACK", reply = "That's what they all say, right up until it starts talking back. Keep an eye on each other, then.", fx = { align = { light = -1 } } },
@@ -520,7 +528,7 @@ P:NPC {
   key = "ander_germaine", id = TODO_NPC("Ander Germaine"), name = "Ander Germaine", title = "Warrior Trainer",
   bible = "bibles/warriors.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "loyal", "dutiful" },
-  notices = { "kit", "ally" },
+  notices = { "kit", "ally", "lock_soulstone" },
   impression = {
     first = "He talks about the line as a living thing he must protect.",
     third = "{name} met Ander Germaine, a steady warrior trainer in Stormwind's Old Town who teaches the shield and the line.",
@@ -536,6 +544,8 @@ P:NPC {
       text = "You've been holding something off on your own, haven't you? I can see it in the dents. Next time, find someone to stand beside." },
     { id = "n_ally", cat = "ally", when = { class = "WARRIOR", race = { "Dwarf", "Gnome", "NightElf", "Skyborne" } },
       text = "Good to see more than human faces in this hall. The Alliance's line was never meant to be all one people, whatever the House of Nobles thinks." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's put a soulstone on you, so someone on your side is planning for the day you fall. That's what a line is, and I'm glad to see you've got one." },
   },
 
   start = "hello",
@@ -553,6 +563,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I trust anyone who stays where they're put and doesn't run when it goes badly, and some warlocks do, and some don't. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone who stays where they're put, and some warlocks do and some don't, and that thing at your side hasn't stopped testing the edges of where you've put it. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
       },
       choices = {
         { text = "Hold me to account, then. I'll keep it in line.", next = "BACK", reply = "I will, and I'll be watching, but I'll take your word for now. Every hand matters out there.", fx = { align = { order = 1 } } },

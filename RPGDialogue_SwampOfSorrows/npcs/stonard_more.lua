@@ -6,7 +6,7 @@ P:NPC {
   key = "dar", id = TODO_NPC("Dar"), name = "Dar",
   bible = "bibles/swampofsorrows.md", role = "questgiver", tier = "quest",
   communities = { "stonard" }, temper = { "dry" }, values = { "loyal", "practical" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_steed" },
 
   impression = {
     first = "He admits the town has no comforts and stays anyway.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "You look like the swamp chewed on you and spat you out. It does that, so sit a moment before you go back in." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Good, because I've got a cook on the beach who's out of meat and a swamp full of it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "That's a demon horse, isn't it, with fire on its hooves? The old-timers say the warlocks rode beasts like that before Thrall's day, and I never thought I'd see one walk into Stonard." },
   },
 
   start = "hello",
@@ -89,7 +91,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." } },
+      lines = {
+        { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only stories, but the old-timers say the warlocks before Thrall's day all walked with something like that at their heel, and the sight of yours makes them spit. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed, though the shame hasn't." },
+      },
       choices = {
         { text = "Times have changed. The fel serves the Horde now.", next = "BACK", reply = "Changed, aye, and I hope they stay changed. Greshka says the same, but I watch her anyway.", fx = { align = { light = -1 } } },
         { text = "Some things shouldn't be forgotten. I won't forget.", next = "BACK", reply = "Good. Someone should remember, and I'm glad it's you.", fx = { align = { light = 1 } } },

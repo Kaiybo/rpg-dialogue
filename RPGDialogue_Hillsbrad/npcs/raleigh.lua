@@ -12,7 +12,7 @@ P:NPC {
   bible = "bibles/raleigh.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
   prejudice = { class = "WARLOCK", amount = 8, why = "Six years of Crusade sermons he is trying to unlearn." },
-  notices = { "light", "scarlet" },
+  notices = { "light", "scarlet", "lock_shadow" },
 
   impression = {
     first = "He wore the Crusade's red once, and still watches the north road.",
@@ -34,6 +34,8 @@ P:NPC {
       text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
       text = "That letter bears the Crusade's seal, red wax and a burning sword, and I used to press it myself." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Forgive me, but I felt the Light draw back from you when you came in, the way a hand draws back from a hot stove. The Crusade would have called that proof enough, and I'm trying very hard to remember that it isn't." },
   },
 
   start = "hello",
@@ -180,7 +182,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and the thing standing at your shoulder makes it harder to answer, because everything the Crusade taught me says to burn it where it stands. But the Light teaches mercy too, so I'll look at you and not at it, and pray I remember which teaching I believe." },
+      },
       choices = {
         { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", reply = "I'll try, and I'll thank you for saying it. It's easier to hold on when someone else believes it too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", reply = "Some things, yes, and that's exactly the thought that lit every pyre I ever stood beside. Mind where it leads you.", fx = { align = { light = -1 } } },

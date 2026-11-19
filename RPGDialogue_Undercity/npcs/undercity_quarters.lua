@@ -7,7 +7,7 @@ P:NPC {
   key = "garrett", id = TODO_NPC("Michael Garrett"), name = "Michael Garrett",
   bible = "bibles/undercity.md", role = "flightmaster", tier = "service",
   communities = { "undercity" }, temper = { "dry", "calm" }, values = { "practical" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He shows his bats more warmth than most living things.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A living rider. The bats can smell your blood, so don't take it personally if they lick their lips." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "Keep your pet away from the roost, hunter. My bats are fond of a snack." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The bats are tilting their ears at your bag, listening to the hum of those shards. They'll settle once we're in the air, but don't let one bite the pack." },
   },
 
   start = "hello",
@@ -175,6 +177,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They flinch because they can smell what you keep company with, and bats are more sensible than most folk about that sort of thing. Send the demon away before you ride, and they'll settle soon enough." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "They flinch at orcs anyway, since you smell of wolf, and the demon makes it twice as bad. Send it away before you ride, and they'll settle soon enough." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They flinch because they can smell what you keep company with, and with your demon standing right on the platform, half of them are trying to climb the walls. Send it away before you ride, and they'll settle soon enough." },
       },
       choices = {
         { text = "I'll dismiss it before I ride.", next = "BACK", reply = "Thank you, and the bats will be grateful. They're more sensible than people.", fx = { affinity = 1, align = { order = 1 } } },
@@ -199,7 +202,7 @@ P:NPC {
   key = "hartwell", id = TODO_NPC("Anastasia Hartwell"), name = "Anastasia Hartwell",
   bible = "bibles/undercity.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "cold", "precise" }, values = { "ambitious" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
 
   impression = {
     first = "She has lost none of her impatience with fools.",
@@ -216,6 +219,8 @@ P:NPC {
       text = "A mage. Good, at least you'll understand what I'm saying." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "Death has left your mind intact, I see, so use it before it rots." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You wear a ward that drinks shadow, which is a sensible thing to do when your craft is mostly shadow. I'll grant you that much sense, at least." },
   },
 
   start = "hello",
@@ -335,6 +340,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Because the arcane asks you to understand the world, and your craft asks you to make deals with things that would eat it. I share a quarter with the warlocks and I'm civil to them, but civil isn't the same as respect." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "Kel'Thuzad was a scholar of the Kirin Tor before he was anything else, and he went from study to necromancy one small bargain at a time. So I watch every warlock in this quarter with that in mind." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the arcane asks you to understand the world, and your craft asks you to make deals with things like the one beside you, which would eat it. I'm civil to the warlocks I share a quarter with and I'll be civil to your servant, but civil isn't the same as respect." },
       },
       choices = {
         { text = "Fair. I'll keep my bargains careful and few.", next = "BACK", reply = "Careful and few, that's all I ask. I'll be civil to you, and perhaps a little more.", fx = { affinity = 1, align = { order = 1 } } },
@@ -371,7 +377,7 @@ P:NPC {
   key = "zinge", id = TODO_NPC("Apothecary Zinge"), name = "Apothecary Zinge",
   bible = "bibles/undercity.md", role = "questgiver", tier = "service",
   communities = { "undercity" }, temper = { "clinical", "busy" }, values = { "ambitious" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "She talks about her experiments the way others talk about weather.",
@@ -391,6 +397,8 @@ P:NPC {
       text = "A living one. Stand back from the vats, please, because some of these vapors are not kind to lungs that still work." },
     { id = "n_alchemist", cat = "class", when = { profession = "Alchemy" },
       text = "You've the stained fingers of an alchemist. Then you'll understand why I don't like being disturbed." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, carved from a warlock's craft. The Society has tried to replicate them, but the results were unpredictable, and Master Faranell does so hate unpredictable." },
   },
 
   start = "hello",
@@ -567,6 +575,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "We tried once, but the imp kept setting the notes on fire, and Master Faranell decided the results weren't reproducible. Prisoners are tidier, if you must know, and they don't argue with the method." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "We tried once, and the imp set the notes on fire, so we went back to prisoners. I'd keep your demon well clear of my bench, unless you'd like it to become a footnote." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "We tried once, but the imp kept setting the notes on fire, and Master Faranell decided the results weren't reproducible. Yours may watch me work so long as it watches from over there, because prisoners are tidier, and they don't argue with the method." },
       },
       choices = {
         { text = "Prisoners or not, it's needed work, Zinge.", next = "BACK", reply = "It is, and someone has to do it. I'm glad not everyone looks at me sideways for it.", fx = { affinity = 1, align = { honor = -1 } } },

@@ -1029,7 +1029,7 @@ P:NPC {
   key = "grual", id = TODO_NPC("Chef Grual"), name = "Chef Grual",
   bible = "bibles/darkshire_folk.md", role = "questgiver", tier = "quest",
   communities = { "darkshire" }, temper = { "cheerful" }, values = { "proud", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_stones" },
 
   impression = {
     first = "His kitchen is the warmest place in Darkshire, in every sense.",
@@ -1047,6 +1047,8 @@ P:NPC {
       text = "A cook, so there's proper respect between us! You want to know my secret? No, you don't, and nobody does, trust me." },
     { id = "n_thin", cat = "hunger", when = { race = "Skyborne" },
       text = "Look at you, you're a twig! Sit down, sit down, because nobody leaves my kitchen that thin." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "If you're carrying one of those green stones your lot make, keep it out of my soup, because the last one dropped in turned the broth the colour of a bog. The Raven feeds everybody, but it doesn't feed them that." },
   },
 
   start = "hello",
@@ -1065,6 +1067,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. Your imp, now, your imp eats in the yard, since the last time somebody's pet came into my kitchen I lost a whole pan of fritters and a good deal of my eyebrows." },
         { id = "xlock_more1", text = "And don't tell the Night Watch what you are while you're eating, because they argue with their mouths full and it puts the other customers off." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. That one of yours, though, is standing in my kitchen doorway sniffing at the fritter pan, and the last time a pet got that close I lost a good deal of my eyebrows, so out to the yard with it." },
       },
       choices = {
         { text = "The imp eats in the yard, then. Your kitchen, your rules.", next = "BACK", reply = "Thank you, my favourite, and my eyebrows thank you too. It's nice in the yard, mostly.", fx = { align = { order = 1 } } },
@@ -1720,7 +1723,7 @@ P:NPC {
   key = "clarise", id = TODO_NPC("Clarise Gnarltree"), name = "Clarise Gnarltree",
   bible = "bibles/darkshire_folk.md", role = "trainer", tier = "service",
   communities = { "darkshire" }, temper = { "wry" }, values = { "practical", "craft" },
-  notices = { "craft", "stealth" },
+  notices = { "craft", "stealth", "lock_armor" },
 
   impression = {
     first = "There is a Gnarltree for every part of a fighter, she says.",
@@ -1735,6 +1738,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! Show me your hands... hm, fewer burns than mine, so either you're very good or you haven't tried anything hard yet." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark ward you're wearing would turn a worgen's claw better than half the plate on my rack, and I hate that it would. Morbent Fel wore something like it, they say, the night he walked into Raven Hill." },
   },
 
   react = {
@@ -1757,6 +1762,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. I've had Morbent Fel's sort described to me by men who barely got away, so I'd ask you, quite plainly, not to go turning into that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. The men who told me about Morbent Fel said he had things like yours trailing after him, so I'd ask you, quite plainly, not to go turning into that." },
       },
       choices = {
         { text = "I won't. My arts have limits, and I keep them.", next = "BACK", reply = "Good, and I'll hold you to it, because Darkshire has had its fill of men who thought they knew their limits.", fx = { align = { light = 1 } } },

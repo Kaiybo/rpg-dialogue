@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
   impression = {
     first = "He swears the third moonwell is wrong, and he is quietly afraid.",
     third = "{name} met Corithras Moonrage, the grave keeper of Teldrassil's moonwells, who watches the young tree like a feverish child.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "DRUID" } },
       text = "You serve Elune, or the wild. Either way, you'll feel what I feel in the wells. Tell me if I'm wrong." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul into a stone, I think, because there is a thread of you that runs off somewhere I cannot see. The priestesses would call that a theft from Elune, and I am not certain they would be wrong." },
   },
 
   start = "hello",
@@ -117,6 +119,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But fel taint and moonwell water are old enemies, and the Sentinels watch the wells closely now, so give them no reason to wonder." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But your servant stands close enough to the water now that I can feel the moon's light pull away from it, so step back and give the Sentinels no reason to wonder." },
       },
       choices = {
         { text = "Then I'll keep my servant far from the water.", next = "BACK", reply = "You have my thanks, warlock. The Sentinels draw their water here, and they would not drink it if they knew a demon had been near.", fx = { align = { order = 1 } } },
@@ -237,7 +240,7 @@ P:NPC {
   key = "athridas", id = TODO_NPC("Athridas Bearmantle"), name = "Athridas Bearmantle",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "stern" }, values = { "protective", "dutiful" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
   impression = {
     first = "It grieves him that the Gnarlpine are his enemies now.",
     third = "{name} met Athridas Bearmantle, the stern druid of Dolanaar who would rather cure the maddened Gnarlpine than kill them.",
@@ -254,6 +257,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, good. I need one who can tell a sick animal from an angry one, because there is a difference, and it matters." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The shards in your pack hold the souls of things you have killed, and I can feel them from here, cold as the bottom of a lake. Tell me, do they ever stop humming, or do you simply learn not to hear it?" },
   },
 
   react = {
@@ -301,6 +306,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "You know it, and I would very much like to know how. Fel is the Legion's mark, the thing that burned Hyjal, and yet if you can lead me to where it grows thickest, I will listen to you before I judge you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "You know it, and with that creature of yours standing in my grove, I can guess how. I watched its kind burn Hyjal, and every root here shrinks from it, yet if you can lead me to where the fel grows thickest, I will still listen before I judge you." },
       },
       choices = {
         { text = "I'll help you burn it out, and then I'll leave.", next = "BACK", reply = "Then you would be doing more good than I could have hoped for, warlock. Help me, and then go in peace.", fx = { align = { light = 1 } } },
@@ -448,7 +454,7 @@ P:NPC {
   key = "tallonkai", id = TODO_NPC("Tallonkai Swiftroot"), name = "Tallonkai Swiftroot",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "approving" }, values = { "protective", "kind" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "He wants his dreamcatcher back, and a few other things handled quietly.",
     third = "{name} met Tallonkai Swiftroot of Dolanaar, who approves of the young taking up the groves' defence and has errands of his own for them.",
@@ -465,6 +471,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 8 },
       text = "Fresh from Shadowglen. The road to Darnassus runs through here; most of what you'll need, you'll learn on the way." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The young druids stopped their lesson the moment you came up the path, and I felt why, because the shade under this tree deepened where you stand. They know the Highborne only from stories, and you look a great deal like the stories." },
   },
 
   start = "hello",
@@ -574,6 +582,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. The grells that crawl out of Fel Rock are the nearest they've come to a demon, and that's near enough for anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. Look how they stare at your {pet}, as though one of those stories walked out of the dark, and I would sooner they kept learning from the grells." },
       },
       choices = {
         { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you, warlock. Most of them have never seen a demon outside a story, and I would keep it that way a little longer.", fx = { align = { order = 1 } } },
@@ -681,7 +690,7 @@ P:NPC {
   key = "syral", id = TODO_NPC("Syral Bladeleaf"), name = "Syral Bladeleaf",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
   impression = {
     first = "He sorts his orders by which ones get someone hurt waiting.",
     third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
@@ -694,6 +703,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Alchemy" } },
       text = "You know your herbs. Teldrassil's soil is new, and the plants here are still deciding what they'll be, so watch them closely." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That is demon skin you wear about you like a second hide, and the timberlings will know it before they see you. I have no love for it, but it may keep you whole at the lake, and the Council need not hear of it from me." },
   },
 
   start = "hello",
@@ -808,6 +819,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The Council would sooner not know you were here, I think, and some of them would ask me to see you off the island. I've more orders than hands, though, and Denalan's lake doesn't care who clears the timberlings from it, so long as someone does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Council would sooner not know you were here, I think, and with that thing standing beside you at my post, I'd find it hard to tell them otherwise. Still, I've more orders than hands, and Denalan's lake doesn't care who clears it, so long as your servant stays on the path and out of the trees." },
       },
       choices = {
         { text = "I'll do the work and ask for no thanks.", next = "BACK", reply = "Then I will thank you anyway, warlock, quietly. The Council need not know.", fx = { align = { honor = 1 } } },
@@ -908,7 +920,7 @@ P:NPC {
   key = "keldamyr", id = TODO_NPC("Innkeeper Keldamyr"), name = "Innkeeper Keldamyr",
   bible = "bibles/teldrassil.md", role = "innkeeper", tier = "service",
   communities = { "dolanaar" }, temper = { "gentle" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
   impression = {
     first = "Nobody at this inn is asked why they look tired.",
     third = "{name} stopped at Innkeeper Keldamyr's hearth in Dolanaar, where every traveller between Shadowglen and Darnassus rests sooner or later.",
@@ -925,6 +937,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've had a hard road back from somewhere grey. Sit down; Elune's light reaches the inn too." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You carry healthstones, I see, green as poisoned moss, and I would ask you to keep them in your bag beneath my roof. My guests heal with sleep and Elune's grace, and I would rather they did not see the other way." },
   },
 
   start = "hello",
@@ -991,6 +1005,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I can see why. There is a smell on you of something that never grew on any tree, and my guests are kaldorei who remember Hyjal, so you may have the room at the end, and I'd be grateful if you were on the road by morning." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I can see why, because it is standing in my doorway now, and I can smell the brimstone over the hearth. My guests are kaldorei who remember Hyjal, and half of them have already put their cups down, so you may have the room at the end and your servant may wait outside it." },
       },
       choices = {
         { text = "I'll leave quietly at first light.", next = "BACK", reply = "Thank you, and I am sorry to ask it of you. Rest well, while you are here.", fx = { align = { light = 1 } } },
@@ -1121,7 +1136,7 @@ P:NPC {
   key = "lyreena", id = TODO_NPC("Lyreena Duskblade"), name = "Lyreena Duskblade",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "easy" }, values = { "curious", "generous" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "She would rather sleep under the canopy than under a roof.",
     third = "{name} shared a small fire with Lyreena Duskblade, who teaches anyone willing how to make a camp feel like home.",
@@ -1134,6 +1149,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook. Then you already hold the first secret of a good camp: the fire. Everything else gathers around it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "The grass where your horse stood is burned black in the shape of its hooves, and it will take the season to grow back. I had heard that warlocks ride such things, but I never thought to see one in Teldrassil's woods." },
   },
 
   start = "hello",
@@ -1218,6 +1235,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anyone can, though you'll find the woods go very quiet around you, and quiet woods are hard to sleep in. Learn to cook over a small fire and keep your camp tidy, and the forest will forgive you a little." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can, though you'll find the woods go very quiet around you, and with that creature at your heel they've gone quiet already. Not a bird is singing within a stone's throw of it, so keep your camp tidy and your servant close, and the forest may forgive you a little." },
       },
       choices = {
         { text = "I'll learn the forest's ways, then.", next = "BACK", reply = "Good. Sit still for an hour tonight and tell me what you heard; most can name three sounds, and there are thirty.", fx = { align = { order = 1 } } },

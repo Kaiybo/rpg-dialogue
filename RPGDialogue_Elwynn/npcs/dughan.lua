@@ -7,7 +7,7 @@ P:NPC {
   key = "dughan", id = TODO_NPC("Marshal Dughan"), name = "Marshal Dughan",
   bible = "bibles/dughan.md", role = "questgiver", tier = "major",
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" }, likesTone = "polite",
-  notices = { "reputation", "bounty" },
+  notices = { "reputation", "bounty", "lock_shards", "lock_steed" },
   impression = {
     first = "He looks at me like one more pair of hands.",
     third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
@@ -32,6 +32,10 @@ P:NPC {
       text = "Is that what I think it is? Put it on the desk, slowly, because I want the guards to see it." },
     { id = "n_town_hero", cat = "reputation", when = { townStanding = { town = "goldshire", min = 55 } },
       text = "The Lion's Pride wants to buy you a drink and the farmers out east want to name a pig after you, and I've told them both to wait." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "How many of those purple stones are you carrying? My guards count them like contraband when your sort come through, and I'd like to know whose souls I'm letting into Goldshire before I let them in." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Get that horse off my road before it sets the hedges alight, because I've already had one report of scorched hoofprints on the Goldshire road and I'm not writing a second. Stormwind's stables don't breed beasts with burning feet, so I won't ask where you got it." },
   },
 
   start = "hello",
@@ -125,7 +129,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." } },
+      lines = {
+        { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I see you've brought one of your creatures up those stairs already, so keep it at your heel in my town hall and we'll get along." },
+      },
       choices = {
         { text = "Nothing will come up those stairs while I'm down there.", next = "BACK", reply = "That's all I ask, and I'll hold you to it. My guards have enough to worry about.", fx = { align = { light = 1 } } },
         { text = "What I summon is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },

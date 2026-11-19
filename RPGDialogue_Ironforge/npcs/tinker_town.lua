@@ -8,7 +8,7 @@ P:NPC {
   key = "overspark", id = TODO_NPC("Tinkmaster Overspark"), name = "Tinkmaster Overspark", title = "Gnome Engineering Trainer",
   bible = "bibles/tinker_town.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "proud" }, values = { "inventive", "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He mourns his broken robot Techbot as if it were a friend.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "You've the burn marks of a serious engineer, and the eyebrows of one who's learned from them. Have you chosen a discipline yet? Choose wisely; choose gnomish." },
     { id = "n_priest", cat = "craft", when = { class = "PRIEST" },
       text = "A priest! Brother Sarno in your Cathedral was very kind about Techbot when I wrote to him. Do thank him for me, if you're passing." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My nearest gauge has dropped four notches since you came in, and it measures ambient warmth, so I'd say you're carrying a little shadow with you. Do stand clear of the sensitive instruments, would you, for they're expensive and they sulk." },
   },
 
   start = "hello",
@@ -122,7 +124,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help. Keep your head down and do good work, and the whispers will fade in time." } },
+      lines = { { id = "xlock_default", text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help. Keep your head down and do good work, and the whispers will fade in time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help, especially one walking a demon through Tinker Town at noon. Keep your head down and your {pet} behind you, and do good work, and the whispers will fade in time." },
+      },
       choices = {
         { text = "I'll do good work and let the whispers fade.", next = "BACK", reply = "That's the spirit, and the whispers will fade, they always do, though it helps enormously if nothing catches fire in the meantime.", fx = { align = { light = 1 } } },
         { text = "Let the dwarves whisper. Their opinion changes nothing.", next = "BACK", reply = "It changes the rent, and the rent changes everything, so please be a little more careful for the sake of the rest of us in Tinker Town.", fx = { align = { light = -1 } } },
@@ -356,7 +360,7 @@ P:NPC {
   key = "castpipe", id = TODO_NPC("Master Mechanic Castpipe"), name = "Master Mechanic Castpipe",
   bible = "bibles/tinker_town.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "anxious" }, values = { "practical", "dutiful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He talks about punch cards the way others talk about lost children.",
@@ -373,6 +377,8 @@ P:NPC {
       text = "You were an apprentice in the city, weren't you? Then you know what's on those terminals, and you know we can't leave it there." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! You'll understand the terminals, then, or at least you won't hit them, and the last group hit three, one with a mace." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your bag's giving off a cold I can measure, and I'd put it at fifteen shards, give or take. Soul shards would be very interesting data, but please don't open it near the trogg containment pens, because I'm not sure what the troggs would make of them." },
   },
 
   start = "hello",
@@ -427,7 +433,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nobody knows, and I'd prefer the experiment stayed untested. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." } },
+      lines = { { id = "xlock_default", text = "Nobody knows, and I'd prefer the experiment stayed untested. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nobody knows, and I'd prefer the experiment stayed untested, so I'll ask your demon to stop leaning over the punch cards, because it's making the clerks nervous. Leave it at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." },
+      },
       choices = {
         { text = "I'll leave the demon outside and follow your procedure.", next = "BACK", reply = "Thank you, that's very thoughtful, and the troggs down there will be quite enough excitement for everyone without adding an irradiated demon.", fx = { align = { light = 1 } } },
         { text = "An irradiated demon sounds useful, Castpipe. I'll find out.", next = "BACK", reply = "Useful? Oh, I'd really rather you didn't, because I'd have to write the incident report, and I don't even know what heading it would go under.", fx = { align = { light = -1 } } },
@@ -615,7 +623,7 @@ P:NPC {
   key = "klockmort", id = TODO_NPC("Klockmort Spannerspan"), name = "Klockmort Spannerspan",
   bible = "bibles/tinker_town.md", role = "blacksmith", tier = "quest",
   communities = { "ironforge" }, temper = { "eager" }, values = { "inventive", "curious" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_stones" },
 
   impression = {
     first = "He won't name his great invention, and I suspect he can't yet.",
@@ -632,6 +640,8 @@ P:NPC {
       text = "Oh, your poor armor, the poor thing! Who did that to it, and was it a new technique? Tell me it was a new technique." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! What are you working on, what temperature, what quench? Sorry, sorry, I get excited about quenching." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone? Oh, it is, and look at the heat on it! I'd give a great deal to know what it's made of, but I'd likely melt my eyebrows finding out, so just hold it up to the light a moment, would you?" },
   },
 
   start = "hello",
@@ -715,6 +725,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, not really, no, because my friend Mathiel, a smith in Darnassus, would never write to me again, and I'd likely melt my own eyebrows off. But I do wonder, which is the trouble with being an inventor, so if you ever learn the answer, write it down for me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Oh, not really, no, though your demon's been eyeing my forge as if it had an opinion on the matter. My friend Mathiel in Darnassus would never write to me again, and I'd likely melt my own eyebrows off, but I do wonder, so if it ever tells you the answer, write it down for me." },
       },
       choices = {
         { text = "Some things shouldn't be learned, Klockmort.", next = "BACK", reply = "Some things, yes, and that's very sensible, and I'll try to stop wondering, though my curiosity has never once listened to me.", fx = { align = { light = 1 } } },

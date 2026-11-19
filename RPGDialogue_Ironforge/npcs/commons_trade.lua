@@ -8,7 +8,7 @@ P:NPC {
   key = "if_redmuse", id = TODO_NPC("Auctioneer Redmuse"), name = "Auctioneer Redmuse",
   bible = "bibles/commons_trade.md", role = "auctioneer", tier = "service",
   communities = { "ironforge" }, temper = { "brisk", "sharp" }, values = { "practical", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shards" },
 
   impression = {
     first = "She is blunt about prices and kind about nothing else.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "Ye're carryin' a heavy purse, by the way ye stand. Spend it slowly here, for the sharp sellers can smell gold from across the Commons." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Ye've a pack full o' soul shards, I can feel the chill o' them from here, an' I'll say now the house'll no' list a single one. I had a buyer swear his bought goods whispered at night, an' those whisper louder than most." },
   },
 
   start = "hello",
@@ -77,7 +79,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." } },
+      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Yer demon's been eyein' the lots on my table since ye came in, so tell it nothin' here is for sale tae its sort, an' bring me cloth an' ore an' honest goods instead." },
+      },
       choices = {
         { text = "Fair rules. I'll keep my darker goods out of your house.", next = "BACK", reply = "Thank ye, for the Stonemantles have only just stopped glarin' at me, an' I'd rather no' give them a reason tae start again.", fx = { align = { light = 1 } } },
         { text = "Then the best things will sell somewhere else, at a better price.", next = "BACK", reply = "They might, an' good luck tae them, but I'll no' have another buyer complainin' that his purchase whispers through the night.", fx = { align = { light = -1 } } },
@@ -229,7 +233,7 @@ P:NPC {
   key = "if_lympkin", id = TODO_NPC("Auctioneer Lympkin"), name = "Auctioneer Lympkin",
   bible = "bibles/commons_trade.md", role = "auctioneer", tier = "service",
   communities = { "ironforge" }, temper = { "quick" }, values = { "practical", "inventive" },
-  notices = { "gnome" },
+  notices = { "gnome", "lock_stones" },
 
   impression = {
     first = "Nobody else can read her gnomish shorthand, and she likes that.",
@@ -244,6 +248,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" },
       text = "Oh, another one of us! Which level of the city were you from, before? I was on the third, near the accountancy pumps, though there's not much left of them now." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone poking out of your bag? Lovely green, and I could price it to the copper if the house allowed it, but the house doesn't, and frankly I'd rather not ask where the life inside it came from." },
   },
 
   start = "hello",
@@ -298,7 +304,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." } },
+      lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and people whisper about them in the Commons, though I'll admit your demon peering at my ledger isn't helping, so perhaps it could peer somewhere else?" },
+      },
       choices = {
         { text = "I'll earn their trust. Let the Commons see it.", next = "BACK", reply = "That's the spirit, and the Commons will come round eventually, though you might want to keep your imp out of the bread line.", fx = { align = { light = 1 } } },
         { text = "Let them whisper. I'd rather be feared than pitied.", next = "BACK", reply = "Feared is a very lonely kind of respect, but I'll note your preference, and I'll try not to whisper about you too loudly.", fx = { align = { light = -1 } } },
@@ -443,7 +451,7 @@ P:NPC {
   key = "if_bryllia", id = TODO_NPC("Bryllia Ironbrand"), name = "Bryllia Ironbrand",
   bible = "bibles/commons_trade.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "warm" }, values = { "practical", "generous" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "She looks at every customer as if checking whether they've eaten.",
@@ -458,6 +466,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
       text = "Great stones, where's the rest o' yer clothes? I cannae sell ye armor, but I can sell ye a bag tae carry what's left of it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Ye've just walked past my bread, love, an' I'd swear the crust went hard as ye passed. I'll sell ye a loaf all the same, but take it from the back o' the basket, for those havenae met ye yet." },
   },
 
   start = "hello",
@@ -541,6 +551,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I couldnae say, but I've seen an imp make off wi' a whole loaf from my counter, so somethin' must happen tae it. Buy yerself some proper food an' keep it in yer own pack, for ye look like ye need it more than it does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I couldnae say, but yer demon's starin' at my bread right now, an' I've seen an imp make off wi' a whole loaf from this counter, so somethin' must happen tae it. Buy yerself some proper food an' keep it in yer own pack, for ye look like ye need it more than that thing does." },
       },
       choices = {
         { text = "Thank you. I'll look after myself better.", next = "BACK", reply = "Then I'll find ye a loaf too heavy for an imp tae carry. I've learned that lesson the hard way.", fx = { align = { light = 1 } } },
@@ -656,7 +667,7 @@ P:NPC {
   key = "if_jondor", id = TODO_NPC("Jondor Steelbrow"), name = "Jondor Steelbrow",
   bible = "bibles/commons_trade.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "loyal", "friendly" },
-  notices = { "status" },
+  notices = { "status", "lock_soulstone" },
 
   impression = {
     first = "He sizes up every visitor as a possible guild master.",
@@ -671,6 +682,8 @@ P:NPC {
   notice = {
     { id = "n_tabard", cat = "status", when = { tabard = true },
       text = "That's a tabard on yer back, so ye've a guild already. Good, for I like tae see a crest out in the world instead o' sittin' in my ledger." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's bound yer soul intae a stone, I can see it hangin' on ye like a second shadow. A guild charter's a bindin' too, mind, but at least ours lets ye walk away from it if ye've a mind." },
   },
 
   start = "hello",
@@ -725,7 +738,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." } },
+      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back, an' wi' yer demon starin' at my sketches I'm wonderin' the same myself. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is more than I can say for my nerves this minute." },
+      },
       choices = {
         { text = "A crest should reassure folk. I'll choose something modest.", next = "BACK", reply = "That's sense, an' the Commons will thank ye for it, for they've only just stopped lookin' over their shoulders after the last one.", fx = { align = { light = 1 } } },
         { text = "The burning eye was honest. Let them be frightened.", next = "BACK", reply = "Honest, aye, but I'll no' be writin' it in my book. Take yer burnin' eye elsewhere.", fx = { align = { light = -1 } } },
@@ -857,7 +872,7 @@ P:NPC {
   key = "if_lyesa", id = TODO_NPC("Lyesa Steelbrow"), name = "Lyesa Steelbrow",
   bible = "bibles/commons_trade.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "brisk", "proud" }, values = { "proud", "practical" },
-  notices = { "status" },
+  notices = { "status", "lock_armor" },
 
   impression = {
     first = "She has an opinion on every crest ever stitched.",
@@ -872,6 +887,8 @@ P:NPC {
   notice = {
     { id = "n_tabard", cat = "status", when = { tabard = true },
       text = "Let me see that tabard. The stitchin' on the crest's no' bad at all, though I'd have used a heavier thread at the border." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye're wearin', an' it shifts on ye like it's still tryin' tae crawl back where it came from. I'll stitch ye a tabard tae go over it, an' I'll charge ye no more, but I'll no' be the one tae measure ye." },
   },
 
   start = "hello",
@@ -926,7 +943,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a demon's sigil onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." } },
+      lines = { { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a demon's sigil onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Skulls I'll do, an' flames, but I'll no' stitch a demon's sigil onto good Ironforge cloth, so I'll thank yer {pet} tae keep its eyes off my bolts, for it's lookin' at them like it's choosin' one. I had a lass ask me once, an' she couldnae tell me what the sigil meant, an' I'd wager that thing could, which is worse." },
+      },
       choices = {
         { text = "Then I'll ask for nothing you'd be ashamed of.", next = "BACK", reply = "Then I'll stitch ye somethin' fine. A warlock wi' good taste is rarer than ye'd think in this city.", fx = { align = { light = 1 } } },
         { text = "The sigil was only thread, Lyesa. You'd be well paid for it.", next = "BACK", reply = "Paid or no', it's my thread an' my name on the hem, an' I'll no' have it on anythin' that makes good folk cross the street.", fx = { align = { light = -1 } } },
@@ -1049,7 +1068,7 @@ P:NPC {
   key = "if_soleil", id = TODO_NPC("Soleil Stonemantle"), name = "Soleil Stonemantle",
   bible = "bibles/commons_trade.md", role = "banker", tier = "service",
   communities = { "ironforge" }, temper = { "calm" }, values = { "dutiful", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "She seems to regard the vault's door as a personal friend.",
@@ -1064,6 +1083,8 @@ P:NPC {
   notice = {
     { id = "n_poor", cat = "purse", when = { money = { max = 100 } },
       text = "Ye've barely a copper tae yer name, by the sound o' that purse. The vault keeps goods as well as gold, mind, so ye needn't be rich tae use it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Ye've a soulstone in yer pack, an' I'd ask ye no' tae deposit it here. The Vault's kept everythin' my family was ever handed, but we've never once kept a soul, an' I'd like tae leave it that way." },
   },
 
   start = "hello",
@@ -1147,6 +1168,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anythin' that breathes, whispers or tries tae open its own box, an' I've had all three in my time. My family's kept the Vault for generations, an' this door's never once been opened from the inside, so I'd like tae keep it that way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anythin' that breathes, whispers or tries tae open its own box, an' I'm lookin' at somethin' right now that could likely manage all three. My family's kept the Vault for generations, an' this door's never once been opened from the inside, so yer demon waits on the public side o' the counter where my guards can see it." },
       },
       choices = {
         { text = "Fair rules. I'll keep my things quiet.", next = "BACK", reply = "Thank ye, for my family's kept the Vault quiet for generations, an' I'd like tae keep it that way for a few more.", fx = { align = { order = 1 } } },

@@ -8,7 +8,7 @@ P:NPC {
   key = "delavey", id = TODO_NPC("Bishop DeLavey"), name = "Bishop DeLavey",
   bible = "bibles/keep_court.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "discreet", "pious" },
-  notices = { "priest", "noble", "rogue" },
+  notices = { "priest", "noble", "rogue", "lock_shadow" },
   impression = {
     first = "He trusts a fisherman and a cheesemaker more than the courtiers.",
     third = "{name} met Bishop DeLavey, who represents the Church of the Holy Light in the court of Stormwind Keep.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "You carry yourself like someone raised to stand in rooms like this one. Then you'll know already that nothing said here stays here, so choose your words as I do." },
     { id = "n_rogue", cat = "rogue", when = { class = "ROGUE" },
       text = "I'd ask what brings someone of your talents to the Petitioner's Chamber, but I suspect I'd rather not hear the answer in front of the guards." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You walk into this chamber with a darkness on you, and the Light in me draws back from it as a hand draws back from a stove. I'll not refuse to speak with you, but I'll not offer you a blessing either, because I don't think it would land." },
   },
 
   start = "hello",
@@ -60,7 +62,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." } },
+      lines = {
+        { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd speak with anyone who walks into this room on their own feet, and I suppose that includes whatever walks in beside them, though I'd rather it waited by the door. I'll pray that your shadows stay on their leash, and with that one smouldering at your heel, I'll pray it twice." },
+      },
       choices = {
         { text = "Pray if you like. I'll keep the leash tight.", next = "BACK", reply = "Then we'll both be doing our part. Keep it tight, and keep coming to the Cathedral when the dark gets loud.", fx = { align = { light = 1 } } },
         { text = "Save your prayers. I do fine in the dark.", next = "BACK", reply = "Many do, for a while. My prayers are free, child, and they'll be waiting when you change your mind.", fx = { align = { light = -1 } } },
@@ -262,7 +267,7 @@ P:NPC {
   title = "House of Nobles",
   bible = "bibles/keep_court.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "proud", "greedy" },
-  notices = { "noble", "dwarf", "travel" },
+  notices = { "noble", "dwarf", "travel", "lock_soulstone" },
   impression = {
     first = "He pays other people handsomely to go into ruins for him.",
     third = "{name} met Count Remington Ridgewell of the House of Nobles, whose family keeps a museum of jewels and art.",
@@ -281,6 +286,8 @@ P:NPC {
       text = "A dwarf! Do you know, the finest piece I'm hoping to acquire was made by Ironforge jewellers? Your people have the most extraordinary hands." },
     { id = "n_travel", cat = "travel", when = { durability = { max = 0.3 } },
       text = "Good heavens, you look as if you've been dragged through a ruin backwards. You simply must have been somewhere interesting; was there anything shiny?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone? My dear, the Ridgewell collection has nothing like it, and I've never wanted a thing more and been more afraid to own it. Does it whisper at night, though, because that's my one condition." },
   },
 
   start = "hello",
@@ -298,6 +305,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, because the last piece that did was very bad for the servants. Bring me a relic from some cursed ruin and I'll pay handsomely, but I'll have a priest look it over before it goes anywhere near my display cases." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, and I must say your companion has the look of something that whispers. Bring me a relic from some cursed ruin and I'll pay handsomely, but do keep that creature away from my display cases, because the servants are frightened enough as it is." },
       },
       choices = {
         { text = "A priest should look it over, Count. Agreed.", next = "BACK", reply = "Agreed, wholeheartedly, and I'll even pay the priest. The servants have only just stopped crossing themselves in the east wing.", fx = { align = { order = 1 } } },
@@ -507,7 +515,7 @@ P:NPC {
   title = "House of Nobles",
   bible = "bibles/keep_court.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud", "lawful" },
-  notices = { "warlock", "priest" },
+  notices = { "warlock", "priest", "lock_shards" },
   impression = {
     first = "He is loud, red-faced and perfectly right about the warlocks.",
     third = "{name} met Lord Baurles K. Wishock of the House of Nobles, who is lobbying to shut down the coven beneath the Slaughtered Lamb.",
@@ -525,6 +533,8 @@ P:NPC {
       text = "You smell of sulphur and candle smoke, and I know that smell; it's the Slaughtered Lamb's cellar! Don't think I won't name you to the House along with the rest of them." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "Ah, a priest, good! The Church ought to be on my side in this, you know; dark practitioners under a city tavern are surely your department more than mine." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Soul shards, in my presence, and you don't even trouble to hide them. Every one of those is evidence, and when I have the law rewritten, I'll see them counted into the court record one by one." },
   },
 
   start = "hello",
@@ -580,7 +590,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Shut your cellar, burn your books and send you out of the gates in the clothes you're wearing. The law protects you for now, I know, but laws can be rewritten when enough of us are frightened." } },
+      lines = {
+        { id = "xlock_default", text = "Shut your cellar, burn your books and send you out of the gates in the clothes you're wearing. The law protects you for now, I know, but laws can be rewritten when enough of us are frightened." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Shut your cellar, burn your books, and send you out of the gates with that abomination before it so much as touches the floor of this Keep. The law protects you for now, I know, but every noble who saw it follow you in will be frightened enough to rewrite it." },
+      },
       choices = {
         { text = "Burn the worst books, then. Some knowledge shouldn't survive.", next = "BACK", reply = "Some knowledge? All knowledge of that sort! But I'll accept a start, I suppose, if the fires are large enough.", fx = { align = { light = 1 } } },
         { text = "Fear makes bad law, my lord. Leave my books alone.", next = "BACK", reply = "Fear makes excellent law, you insolent creature, when the thing feared is you. Mind yourself in my city.", fx = { align = { light = -1 } } },

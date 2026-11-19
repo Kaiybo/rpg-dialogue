@@ -9,7 +9,7 @@ P:NPC {
   key = "lamar", id = TODO_NPC("Lamar Veisilli"), name = "Lamar Veisilli", title = "Fruit Seller",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "cheerful" }, values = { "kind", "practical" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
   impression = {
     first = "He polishes every apple before he hands it over.",
     third = "{name} met Lamar Veisilli, Lakeshire's fruit seller.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.3 } },
       text = "You look half starved and half beaten, friend. Buy something with a bit of juice in it before you go back out there." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My apples are going soft on the side your shadow's fallen on, and I only set them out this morning. Stand a little to the left, would you, and I'll sell you the good ones." },
   },
   start = "hello",
   nodes = {
@@ -35,7 +37,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." } },
+      lines = {
+        { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not the strangest customer this week. Your demon has been staring at that barrel of reds since you walked up, though, and I'd swear the ones nearest it have started to go soft." },
+      },
       choices = {
         { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what a demon does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My pet goes where it likes, Lamar.", next = "BACK", reply = "Then I'll keep my eye on it and my hand on the lid. The apples are for paying customers only.", fx = { align = { order = -1 } } },
@@ -182,7 +187,7 @@ P:NPC {
   key = "karen_taylor", id = TODO_NPC("Karen Taylor"), name = "Karen Taylor", title = "Blacksmithing & Mining Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "practical", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
   impression = {
     first = "She respects anyone who can swing a hammer and nobody who can't.",
     third = "{name} met Karen Taylor, who sells blacksmithing and mining supplies in Lakeshire.",
@@ -194,6 +199,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "You've got the forearms of someone who swings a hammer for a living, so I'll not waste your time with the cheap picks. The good ones are under the counter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing would save Verner a fortune in iron if he could make it, but I'd sooner the watch went bare than wore that. Mind you don't rub against my ingots." },
   },
   start = "hello",
   nodes = {
@@ -208,7 +215,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." } },
+      lines = {
+        { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cages, chains, I couldn't say, and with that thing breathing heat on my anvil I care to know even less. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+      },
       choices = {
         { text = "The bridge comes first. I'd never take from it.", next = "BACK", reply = "Good, and you'll find me a fair seller once the gnolls are gone. The bridge needs every bar.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Promises can be broken for the right coin.", next = "BACK", reply = "Not my promises, friend, and not for any coin. Go and find your iron elsewhere.", fx = { align = { honor = -1 } } },
@@ -358,7 +368,7 @@ P:NPC {
   key = "kara_adams", id = TODO_NPC("Kara Adams"), name = "Kara Adams", title = "Shield Crafter",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "duty", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "She tests every shield by striking it herself.",
     third = "{name} met Kara Adams, Lakeshire's shield crafter.",
@@ -372,6 +382,8 @@ P:NPC {
       text = "You carry a shield like you've needed one, and I like that. Raise it a hand higher, though; the Blackrock aim for the face." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "That shield's taken a beating, and so have you. Go and see Verner before you go back out, and don't argue with me about it." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward on you, a shield I can't make, and I'll admit I'm jealous. It won't stop a gnoll's axe, though, so if you want something that will, I've a few on the rack." },
   },
   start = "hello",
   nodes = {
@@ -386,7 +398,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." } },
+      lines = {
+        { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Looking at yours up close, maybe not, because I can't even tell where on it a gnoll would think to aim. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+      },
       choices = {
         { text = "Steel's a fine thing. I'd trust your shields.", next = "BACK", reply = "Then you'll get a good one, and I'll sleep easier. Steel's honest, at least.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon's worth ten of your shields, Kara.", next = "BACK", reply = "Ten? Then it'll be ten times as hard to replace. I'll keep my shields, thank you.", fx = { align = { light = -1 } } },
@@ -532,7 +547,7 @@ P:NPC {
   key = "vernon_hale", id = TODO_NPC("Vernon Hale"), name = "Vernon Hale", title = "Fishing Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "wry" }, values = { "patient", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
   impression = {
     first = "He grumbles that the murlocs catch more fish than his customers.",
     third = "{name} met Vernon Hale, who sells fishing supplies on the Lakeshire docks.",
@@ -544,6 +559,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "You fish, I can tell by the way you looked at the water before you looked at me. Use the heavy line here; the lake's got teeth." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing like you've swallowed the lake and liked it, so that'll be the spell your sort cast. Go down off the north shore and tell me how many murlocs are really in there, because nobody believes my count." },
   },
   start = "hello",
   nodes = {
@@ -558,7 +575,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." } },
+      lines = {
+        { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, to a fellow who wanted the line for something else and wouldn't say what, and he had a thing like yours lurking at his heel too. I sold it anyway, because a sale's a sale, but I've wondered about it since, and your {pet} looking at my spools isn't helping me stop." },
+      },
       choices = {
         { text = "If I buy line, it's for fish. You've my word.", next = "BACK", reply = "Your word's good enough for me. Line's on the counter.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Wonder all you like. I don't explain myself.", next = "BACK", reply = "Then I'll wonder, and I'll sell you the line anyway. A sale's a sale.", fx = { align = { honor = -1 } } },
@@ -710,7 +730,7 @@ P:NPC {
   key = "sherman", id = TODO_NPC("Sherman Femmel"), name = "Sherman Femmel", title = "Butcher",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "gruff" }, values = { "practical", "hardworking" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
   impression = {
     first = "He knows the wildlife of these hills better than most hunters.",
     third = "{name} met Sherman Femmel, the butcher at the Lakeshire Inn.",
@@ -722,6 +742,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, with a beast at your heel and meat on your belt, I'd wager. Bring me whatever you take in the hills; I'll pay fair for clean kills." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That healthstone's the same green as meat gone bad, and I've always had a guess about what goes into one. I'd thank you to keep it off my block." },
   },
   start = "hello",
   nodes = {
@@ -736,7 +758,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." } },
+      lines = {
+        { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, blood, the odd heart, and I said no every time, though none of them brought the thing along to sniff at my hooks the way yours is doing now. A butcher's trade is feeding people, friend, so call it away from the block before I lose my appetite and my custom both." },
+      },
       choices = {
         { text = "You're right. Your trade should stay clean.", next = "BACK", reply = "It is, and it'll stay that way. Feeding people's enough for one man.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bones and blood are only leftovers to you.", next = "BACK", reply = "They're not leftovers, they're someone's dinner or broth. Not for sale, friend.", fx = { align = { light = -1 } } },

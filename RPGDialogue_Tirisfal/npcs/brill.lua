@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_armor" },
   impression = {
     first = "I would not want to face the wrong end of his blade.",
     third = "{name} met Executor Zygand, commander of the Deathguard in Tirisfal, who means to see the Scarlet Crusade driven from the glades.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "The zealots marked you. Mend yourself, and then repay them in kind." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "One of our living allies. Tirisfal is not kind to the breathing, so watch the fields." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry souls in your bag the way a soldier carries rations, {class}. Spend them on the Crusade, and let the zealots learn what it means to be harvested." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon-hide ward is exactly the sort of thing the Crusade points to when they call us all monsters. Wear it at the front, where it frightens them, and not in Brill, where it frightens my people." },
   },
 
   start = "hello",
@@ -256,6 +260,7 @@ P:NPC {
         { id = "xwarlock_default", text = "Then loose them on the Crusade and keep them on a short leash, because the zealots already call us demons and I won't have you proving them right in front of my soldiers. Rupert Boch in the Gallows' End tells me most of his students survive their lessons, and in Tirisfal I'll take most." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You died a subject of Lordaeron and came back binding demons, which is a stranger road than most of us walked. The Dark Lady has a use for it, so point your imp at Solliden and let the Crusade learn what their sermons are worth." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Tirisfal, a long way from the Warchief's frown. The Dark Lady judges by results and so do I, so bring me burned Crusader camps and I'll not ask what did the burning." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Then loose them on the Crusade, and keep that one on a shorter leash than it's on now, because my soldiers are watching it instead of the road. The zealots already call us demons and I won't have you proving them right, so walk it out past the gate and point it west." },
       },
       choices = {
         { text = "I'll loose the imp on their camps at night.", next = "BACK", reply = "Excellent. Let them wake to fire and screaming, and let them wonder whose demon it was.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -756,7 +761,7 @@ P:NPC {
   key = "coleman", id = TODO_NPC("Coleman Farthing"), name = "Coleman Farthing",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "bitter" }, values = { "proud" },
-  notices = { "drink" },
+  notices = { "drink", "lock_soulstone" },
   impression = {
     first = "He died defending the Agamands' mills and has not forgiven them.",
     third = "{name} met Coleman Farthing in the Gallows' End, a former mill hand who wants the risen Agamands put to rest for good.",
@@ -771,6 +776,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Drinking? I miss it, you know, the taste of it. Enjoy it for me, there's a good fellow." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's tucked your soul away in a stone, haven't they? I came back once without anyone asking my leave, and I'd have liked to choose, so I envy you a little." },
   },
 
   start = "hello",
@@ -890,6 +897,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "A demon in the Agamands' parlour would be a sight worth dying twice for, I admit. Only mind it doesn't follow you back to Brill, because the folk here have had enough of masters who smile first and devour after." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We came back without any choice in it, and now you call things out of the Nether on purpose, though I'll not judge it. The Agamands called me to their mills on purpose too, and you can see how well that ended for all of us." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A demon in the Agamands' parlour would be a sight worth dying twice for, and yours looks as though it would enjoy the visit. Only mind {pet} doesn't follow you back to Brill, because the folk here have had enough of masters who smile first and devour after." },
       },
       choices = {
         { text = "The demon goes where I send it, and no further.", next = "BACK", reply = "Good, because Brill has had enough of masters, and it doesn't need a demon for a new one.", fx = { affinity = 1, align = { order = 1 } } },
@@ -913,7 +921,7 @@ P:NPC {
   key = "gretchen", id = TODO_NPC("Gretchen Dedmar"), name = "Gretchen Dedmar",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "chilly" }, values = { "practical" },
-  notices = { "weary" },
+  notices = { "weary", "lock_pact" },
   impression = {
     first = "What she misses most is being cold.",
     third = "{name} met Gretchen Dedmar, a chilly regular of the Gallows' End who has found a way to keep death's cold at bay for a time.",
@@ -929,6 +937,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Fresh from the spirit healer? You've a bit of the grave on you still, but it fades." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're giving off heat like a hearth, and I can actually feel it, which is more than any fire in this tavern has managed since I woke. Stand there a moment longer, would you?" },
   },
 
   start = "hello",
@@ -1063,6 +1073,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "That's kind, but I've sat beside every fire in this tavern and none of them reach me, and I doubt a demon's would be any different. Keep your little friend away from the hearth, please; Innkeeper Renee has only just got the soot off the stones." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a girl from Brill who went off with the Cult and came back talking about the Nether as if it were a sweetheart, and then I never saw her again. You seem steadier than she was, so mind you stay that way." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "That's kind, and your demon is standing close enough that I ought to feel something, but I don't, and I doubt I ever will. Do move it away from the hearth, please; Innkeeper Renee has only just got the soot off the stones." },
       },
       choices = {
         { text = "I'll keep the demon away from the hearth.", next = "BACK", reply = "Thank you, dear, and Renee will thank you too. She's very fond of that hearth.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1087,7 +1098,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/tirisfal.md", role = "innkeeper", tier = "service",
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_shadow" },
   impression = {
     first = "She once hurt people for a cause, and now she pours drinks.",
     third = "{name} met Innkeeper Renee of the Gallows' End, who left a harder life behind to look after Brill's guests, living and dead alike.",
@@ -1111,6 +1122,8 @@ P:NPC {
       text = "You look like you've been dug up twice. Sit down, love, and whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps dipped when you came through the door, and the regulars all looked up, which they don't do for much. Sit by the window, love, and I'll bring your drink over there." },
   },
 
   start = "hello",
@@ -1303,6 +1316,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I'll serve anyone who pays and keeps their demons off the tables, and the students of Rupert Boch, who teaches warlocks here, are mostly good about that. I did worse things than summon imps when I was alive, so I'm not about to lecture you." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I served a cause once that told me any means were fine so long as the end was holy, and I hurt people for it. Whatever you call up out of the dark, make sure it's you doing the deciding, because nothing else ever should." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays and keeps their demons off the tables, and I see yours is already eyeing the one by the window. I did worse things than summon imps when I was alive, so I'm not about to lecture you, but I'll charge you for anything it ruins." },
       },
       choices = {
         { text = "I decide, Renee, and the demon obeys.", next = "BACK", reply = "Then make sure it knows that before it gets near my tables, love. I've had to wipe up after a few demons in my time.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1327,7 +1341,7 @@ P:NPC {
   key = "eleanor", id = TODO_NPC("Eleanor Shackleton"), name = "Eleanor Shackleton",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "composed" }, values = { "curious", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "She told me she was not with the Crusade before I asked.",
     third = "{name} met Eleanor Shackleton, a traveller camped on the road near Brill who teaches anyone willing how to make a proper camp.",
@@ -1343,6 +1357,8 @@ P:NPC {
       text = "A cook? Then you can build a proper campfire already, or nearly, and everything else in a camp starts from that." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker. You'll want to learn the tent. A good tent near a fire makes a night's rest worth twice as much." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse of yours leaves fire in its hoofprints, and the Crusade's scouts could follow that trail all the way from the monastery. If you camp near me tonight, tether it a long way off." },
   },
 
   start = "hello",
@@ -1390,6 +1406,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because the Scarlet Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery and come looking. A small fire, well banked and out of the wind, is all you need, and it keeps both of us out of their sight." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery, and they'd see that thing of yours even sooner. Keep it down behind a small fire, well banked and out of the wind, and it keeps all three of us out of their sight." },
       },
       choices = {
         { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. The Crusade's scouts look for smoke, not warmth.", fx = { align = { order = 1 } } },

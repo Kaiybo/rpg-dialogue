@@ -8,7 +8,7 @@ P:NPC {
   key = "wl_shellei", id = TODO_NPC("Shellei Brondir"), name = "Shellei Brondir",
   bible = "bibles/menethil_shops.md", role = "flightmaster", tier = "service",
   communities = { "menethil" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "mount" },
+  notices = { "mount", "lock_pact" },
 
   impression = {
     first = "She is fonder of her birds than she lets show.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Please get down before you come any closer. The birds don't like strange mounts, and they like them even less when it's been raining." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "The gryphons are hissin' at you, and I'd wager it's that fever-heat on you, the kind a warlock's imp leaves in a body's blood. They'll still carry you, but please don't pat them on the way up." },
   },
 
   start = "hello",
@@ -38,7 +40,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
+      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers, but look at them backing up the roost now your demon's on the platform. Keep it well away from them, for a bird that takes fright over the mountains takes a week tae find again." },
+      },
       choices = {
         { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", reply = "Then they'll carry ye gladly, an' I'll sleep easier. A gryphon that trusts its rider will bring ye home through any storm off the bay.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your birds will have to get used to me.", next = "BACK", reply = "They'll get used tae ye about as fast as I would tae a fel imp in my bed, which is tae say never. Keep it well away, or walk tae Thelsamar.", fx = { align = { order = -1 } } },
@@ -192,7 +196,7 @@ P:NPC {
   key = "wl_murndan", id = TODO_NPC("Murndan Derth"), name = "Murndan Derth",
   bible = "bibles/menethil_shops.md", role = "vendor", tier = "service",
   communities = { "menethil" }, temper = { "gruff" }, values = { "proud", "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He calls the Wetlands the worst place in the world for guns.",
@@ -207,6 +211,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, wi' a proper eye for a long shot, I'd say. Let me see yer weapon, for I'll bet the damp's got intae the lock." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye've a fair few soul shards rattlin' in that bag, an' they're cold enough tae fog the air in this damp. Keep them away from my powder, for I'm no' sure how a soul takes tae gunpowder an' I'd rather no' find out." },
   },
 
   start = "hello",
@@ -222,7 +228,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." } },
+      lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers, an' I'll thank yer demon tae stand well back from the powder kegs while we talk. The damp gets intae a wand as quick as a rifle in this swamp, so keep yers wrapped in oilcloth, though I doubt anythin' stays damp near that thing." },
+      },
       choices = {
         { text = "Good advice. I'll keep my kit in order, Murndan.", next = "BACK", reply = "Good, for a fouled wand in a fight's no' a thing I'd wish on anyone. Keep it wrapped an' dry, an' it'll see ye home.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My fire dries anything I carry. Damp's no matter.", next = "BACK", reply = "Does it now? Then ye'll be the first in Menethil wi' dry socks, an' I'd like tae know yer secret. Keep that fire away from my powder, mind.", fx = { align = { order = -1 } } },
@@ -374,7 +382,7 @@ P:NPC {
   key = "wl_neal", id = TODO_NPC("Neal Allen"), name = "Neal Allen",
   bible = "bibles/menethil_shops.md", role = "vendor", tier = "service",
   communities = { "menethil" }, temper = { "steady" }, values = { "practical", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He keeps his powder in sealed jars and his patience for gnomes.",
@@ -389,6 +397,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
       text = "An engineer! You'll want the powder in the sealed jars, not the open ones, unless you want it to fizzle in this damp." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on that shelf just guttered, and I've been selling candles long enough to know a draught when I feel one. That wasn't a draught, so take what you need and do whatever it is you do with them well outside town." },
   },
 
   start = "hello",
@@ -404,7 +414,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." } },
+      lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Heavy cloth and good thread, mostly, and candles, for your kind always wants a great many candles, and your demon is watching me count them out. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater, and he didn't bring his creature into my shop." },
+      },
       choices = {
         { text = "I'll keep my work outside the walls, Neal.", next = "BACK", reply = "Thank you, truly, for the last fellow set the curtains alight. My insurance man won't come back to Menethil at all now.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Where I work is my own business.", next = "BACK", reply = "It is, until it's my curtains on fire. Do as you like outside, but inside this shop I'll ask you to behave.", fx = { align = { order = -1 } } },
@@ -556,7 +568,7 @@ P:NPC {
   key = "wl_samor", id = TODO_NPC("Samor Festivus"), name = "Samor Festivus",
   bible = "bibles/menethil_shops.md", role = "vendor", tier = "service",
   communities = { "menethil" }, temper = { "sharp" }, values = { "cunning", "discreet" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_shards" },
 
   impression = {
     first = "He is polite, unhurried and very good at not answering questions.",
@@ -571,6 +583,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I heard the third step creak, friend, so you can stop pretending you're not there. It's a good trick, but this tavern has old floorboards." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "That bag of soul shards you're carrying is the best thing I've seen walk through my door all month. I don't suppose you'd ever think of parting with a few, because I've jars that would love to hold something that interesting." },
   },
 
   start = "hello",
@@ -586,7 +600,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." } },
+      lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, and yours has come all the way up, so watch it closely, for the last one ate something from a crate and was ill for a week." },
+      },
       choices = {
         { text = "Then our business stays quiet, Samor.", next = "BACK", reply = "Quiet is my favourite kind of business, friend. Come up the stairs whenever you like, and leave the imp at the bottom.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I don't share a trade with poisoners, Samor.", next = "BACK", reply = "Then you'll be lonely, for half the warlocks in Menethil buy my wares. Go on, then, and judge me from the bottom of the stairs.", fx = { align = { order = 1 } } },

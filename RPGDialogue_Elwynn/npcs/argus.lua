@@ -8,7 +8,7 @@ P:NPC {
   key = "argus", id = TODO_NPC("Smith Argus"), name = "Smith Argus", title = "Journeyman Blacksmith",
   bible = "bibles/argus.md", role = "blacksmith", tier = "service",
   communities = { "goldshire" }, temper = { "proud" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He looked at my armor before my face, and found it wanting.",
     third = "{name} met Smith Argus, a blacksmith who judges people by the state of their armor and rarely approves.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "No armor at all. That's either brave or foolish, and I've seen how both end." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Those are smith's hands, calloused in all the right places. Who taught you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge spits green every time you come near it, and I've had to rake the coals twice since you walked up. I'll make whatever you're after, but stand back from the fire while I work." },
   },
 
   start = "hello",
@@ -58,7 +60,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
+      lines = {
+        { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. Yours is hanging about my quench barrel as if it's thirsty, so call it off before the water starts to boil." },
+      },
       choices = {
         { text = "Right. A smith should keep his forge clean.", next = "BACK", reply = "It should, and I'll keep mine that way. Find another smith for the marks.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", reply = "Superstitious, am I? Maybe so, but I sleep fine at night, and they can cut their own marks.", fx = { align = { light = -1 } } },

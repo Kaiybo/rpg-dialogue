@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "gromgol" }, temper = { "blunt" }, values = { "dutiful", "stern" },
   race = "Orc", likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_pact", "lock_shards" },
 
   impression = {
     first = "Grom'gol holds because he simply refuses to let it fall.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "Your armor's in pieces, so get it to the forge before you go out again. A dead grunt hauls no crates." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear? Good. Your cousins out past the walls are less friendly, so show them what a troll of the Horde is worth." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "That heat on you is the imp's blood pact, and I know it, because the warlocks of the old Horde put it on us before a charge. It made us strong and it made us stupid, so keep it off my grunts." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your bag rattles like a shaman's bones, warlock, but those are soul shards, and every one of them was something's life. Spend them on the Bloodscalp if you must spend them at all." },
   },
 
   start = "hello",
@@ -118,7 +122,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. A demon prowling outside our walls would bring every troll on the ridges down on us, and I've no men to spare for that fight." } },
+      lines = {
+        { id = "xlock_default", text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. A demon prowling outside our walls would bring every troll on the ridges down on us, and I've no men to spare for that fight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. That thing at your heel is exactly what would bring every troll on the ridges down on us, so keep it inside these walls and out of their sight, because I've no men to spare for that fight." },
+      },
       choices = {
         { text = "I'll keep my demon inside the walls.", next = "BACK", reply = "Wise. Keep it close and quiet, and we will not give the trolls another reason to scream at our walls.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them fear us. Fear makes them cautious.", next = "BACK", reply = "Fear makes a troll cautious and a grunt nervous, and I want neither near my gate. Keep it inside the walls, warlock.", fx = { align = { order = -1 } } },
@@ -402,7 +409,7 @@ P:NPC {
   key = "nimboya", id = TODO_NPC("Nimboya"), name = "Nimboya",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "gromgol" }, temper = { "wary" }, values = { "loyal", "stern" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "He will not go home without Yenniku, and I believe him.",
@@ -417,6 +424,8 @@ P:NPC {
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear blood. Then you understand why I be here, so far from Durotar." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody bind your soul in a stone, mon, so you can come back if the jungle take you. Nimboya would give much for her son to carry one of those, but the spirits say that kind of luck always be owing somebody." },
   },
 
   start = "hello",
@@ -453,7 +462,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I use anything that bring him home alive, but a demon be no promise of that. The Bloodscalp would kill him before they let him be taken by force, so I want cunning, not fear, if you have some to spare." } },
+      lines = {
+        { id = "xlock_default", text = "I use anything that bring him home alive, but a demon be no promise of that. The Bloodscalp would kill him before they let him be taken by force, so I want cunning, not fear, if you have some to spare." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I use anything that bring him home alive, but a demon be no promise of that, mon. Look at it, grinning at the jungle like it smell the blood already, and the Bloodscalp would kill the boy before they let that thing near him, so I want cunning, not fear." },
+      },
       choices = {
         { text = "Then I'll use cunning, not fear.", next = "BACK", reply = "Smart, mon, dat be the way. Cunning bring him home, fear just bring him home dead.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear works faster than cunning. Let me try.", next = "BACK", reply = "Fear work faster, true, but it also make them kill the boy faster. Nimboya beg you, mon, try the quiet way first.", fx = { align = { light = -1 } } },

@@ -224,7 +224,7 @@ P:NPC {
   key = "feldon", id = TODO_NPC("Deputy Feldon"), name = "Deputy Feldon",
   bible = "bibles/lakeshire_folk.md", role = "soldier", tier = "quest",
   communities = { "lakeshire" }, temper = { "anxious" }, values = { "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shards" },
 
   impression = {
     first = "His gnoll count keeps rising, and dry humour keeps him upright.",
@@ -239,6 +239,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls had a go at you, did they? Get that mended before you cross back over, because they smell weakness." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards in your bag, by the clink of it, and if each one's a gnoll I'll take my pen to the count tonight. Please tell me each one's a gnoll." },
   },
 
   start = "hello",
@@ -254,7 +256,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." } },
+      lines = {
+        { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's what I can't decide, and your {pet} watching me write isn't helping, because I've never had to put a demon in a ledger before. Help me bring the gnoll count down and I'll put the pair of you with the soldiers, and the Magistrate needn't hear about the rest." },
+      },
       choices = {
         { text = "Put me with the soldiers. I'll earn it.", next = "BACK", reply = "Then the soldiers' column it is, once the count drops. The Magistrate needn't trouble himself with details.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Keep me out of your columns entirely, Deputy.", next = "BACK", reply = "That's harder than it sounds, but I'll do my best. Some things don't fit in a ledger.", fx = { align = { order = -1 } } },
@@ -651,7 +656,7 @@ P:NPC {
   key = "darcy", id = TODO_NPC("Darcy"), name = "Darcy",
   bible = "bibles/lakeshire_folk.md", role = "citizen", tier = "quest",
   communities = { "lakeshire" }, temper = { "bright" }, values = { "kind", "romantic" },
-  notices = { "hunger", "drink" },
+  notices = { "hunger", "drink", "lock_steed" },
 
   impression = {
     first = "She hears all the gossip and swears she repeats only the nice.",
@@ -668,6 +673,8 @@ P:NPC {
       text = "Easy, easy, water next. I'm not having you fall in the lake on my shift." },
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look half-starved and fully beaten, so sit down. Breanna's got something on, and I'll bring it out." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse set the inn's doormat smouldering, and Brianna's furious, but I'll only pass on the nice part, which is that it's the most beautiful horse anybody in Lakeshire has ever seen." },
   },
 
   start = "hello",
@@ -699,7 +706,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." } },
+      lines = {
+        { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That they eat babies and curse the crops, which is silly, though yours keeps staring at my tray like it's thinking about something. I only pass on the nice parts, so I'll tell everyone it sat still and minded its manners, if you'll make sure it does." },
+      },
       choices = {
         { text = "Tell them that, Darcy. I'll live up to it.", next = "BACK", reply = "Oh, I knew you would, love. I'll tell them you said thank you twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them believe the worst. It keeps them away.", next = "BACK", reply = "They'll believe what I tell them, love, and I'll tell them nice things. You can't stop me.", fx = { align = { light = -1 } } },

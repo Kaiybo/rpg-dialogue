@@ -7,7 +7,7 @@ P:NPC {
   key = "khaelyn", id = TODO_NPC("Khaelyn Steelwing"), name = "Khaelyn Steelwing", title = "Gryphon Master",
   bible = "bibles/easternplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "light_hope" }, temper = { "blunt" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "She has made a hard, practical peace with the Forsaken bat handler.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! Good, I'd begun to think the whole of Ironforge had forgotten there's a north. Sit a moment before you fly, and tell me the forge is still burning." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ye've a bag full o' shards, an' the birds can feel the cold comin' off 'em. Keep that pack tied down tight when ye ride, or ye'll be walkin' to Chillwind." },
   },
 
   start = "hello",
@@ -85,7 +87,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a fellow who brought his felhunter up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a fellow who brought his felhunter up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a fellow who brought his demon up on the saddle, and the bird dumped them both in the Thondroril River, and my bird's giving yours the very same look right now. Send it off before you mount, and I'll not need the towel or the lecture, and you'll fly as well as anyone." },
+      },
       choices = {
         { text = "Fair rules, Khaelyn. The bird's comfort comes first.", next = "BACK", reply = "Aye, the bird first, always. Ye've got sense, which is more than the last paladin who tried tae saddle one in full plate.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My felhunter rides with me. The bird can adjust.", next = "BACK", reply = "Then ye'll be walkin' back from the Thondroril like the last fellow. I'll have a towel ready.", fx = { align = { order = -1 } } },
@@ -205,7 +210,7 @@ P:NPC {
   key = "georgia", id = TODO_NPC("Georgia"), name = "Georgia", title = "Bat Handler",
   bible = "bibles/easternplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "light_hope" }, temper = { "dry" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "She says the bats are the only things the plague can't touch.",
@@ -220,6 +225,8 @@ P:NPC {
   notice = {
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "One of our own, this far east, and still walking free. Good, because the Scourge would love to have you back, and they've taken enough of us already." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "The bats keep sniffing at you, and it isn't demon they smell, it's your blood running hot. They like warm blood, so mind your fingers when you climb on." },
   },
 
   start = "hello",
@@ -345,7 +352,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They mind everything, but they mind demons least of all, for a demon smells less of death than the rest of us. Keep it quiet in the air and don't let it bite, and I've no objection." } },
+      lines = {
+        { id = "xlock_default", text = "They mind everything, but they mind demons least of all, for a demon smells less of death than the rest of us. Keep it quiet in the air and don't let it bite, and I've no objection." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They mind everything, but they mind demons least of all, and yours smells less of death than the rest of us, which is very nearly a compliment. Keep {pet} quiet in the air and don't let it bite, and I've no objection." },
+      },
       choices = {
         { text = "My demon behaves. I'll make sure of it.", next = "BACK", reply = "Thank you. The bats will settle easier for it, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It bites when it likes. That's its nature.", next = "BACK", reply = "Then it can bite on the ground, and my bats will stay in the air without it.", fx = { align = { order = -1 } } },
@@ -392,7 +402,7 @@ P:NPC {
   key = "jessica_chambers", id = TODO_NPC("Jessica Chambers"), name = "Jessica Chambers", title = "Innkeeper",
   bible = "bibles/easternplaguelands.md", role = "innkeeper", tier = "service",
   communities = { "light_hope", "argent_dawn" }, temper = { "warm" }, values = { "kind", "dutiful" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
 
   impression = {
     first = "She has clearly fed a great many people who came in shaking.",
@@ -410,6 +420,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Light, look at you, your gear's in pieces. Sit, eat, and let someone who knows a hammer see to the rest before you go out again." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "If that green stone is what I think it is, keep it in your pack while you eat. The soldiers have seen enough strange glows out in the plaguelands without one at the supper table." },
   },
 
   start = "hello",
@@ -593,7 +605,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everything makes them nervous, for they've seen what the dead can do, and the dead don't need demons to be frightening. Eat your soup and be civil, and they'll warm to you, slower than they'd like to admit." } },
+      lines = {
+        { id = "xlock_default", text = "Everything makes them nervous, for they've seen what the dead can do, and the dead don't need demons to be frightening. Eat your soup and be civil, and they'll warm to you, slower than they'd like to admit." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything makes them nervous, and a demon standing in the doorway of my common room has them reaching for their swords. Eat your soup and keep yours by your chair where they can see it, and they'll warm to you, slower than they'd like to admit." },
+      },
       choices = {
         { text = "I'll be civil. They've earned some peace.", next = "BACK", reply = "Thank you. They have, and I'll see you get a warm bowl for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They'll get used to me, or they won't.", next = "BACK", reply = "They will, love, given time and soup. Sit down, and let them watch you eat like a normal person.", fx = { align = { light = -1 } } },
@@ -640,7 +655,7 @@ P:NPC {
   key = "jase_farlane", id = TODO_NPC("Jase Farlane"), name = "Jase Farlane", title = "Trade Supplies",
   bible = "bibles/easternplaguelands.md", role = "vendor", tier = "service",
   communities = { "light_hope", "argent_dawn" }, temper = { "brisk" }, values = { "careful", "dutiful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He knows exactly how far every spool of thread had to travel.",
@@ -654,6 +669,8 @@ P:NPC {
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking", "Engineering", "Enchanting" } },
       text = "You've a crafter's hands, I can tell from the way you look at my shelves. Good, because the Dawn needs folk who can make things as much as folk who can break them." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My thread keeps tangling on the spool, and it only started when you walked in. I'm not asking why, so just tell me what you need and I'll have it ready." },
   },
 
   start = "hello",
@@ -699,7 +716,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell to anyone with coin and the Dawn's good word, because thread and dye don't care who buys them. What I won't do is ask questions about what it's for, since the last time I asked, I got an answer, and I didn't sleep well for a week." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell to anyone with coin and the Dawn's good word, because thread and dye don't care who buys them. What I won't do is ask questions about what it's for, since the last time I asked, I got an answer, and I didn't sleep well for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell to anyone with coin and the Dawn's good word, and I'll even sell to you with that thing peering over my counter. What I won't do is ask what it's for, since the last time I asked I got an answer, and I'd rather your demon didn't decide to give me another." },
+      },
       choices = {
         { text = "Sensible of you, Jase. I'll pay honestly.", next = "BACK", reply = "Thank you. Honest coin is all I need to know about anyone.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Best not to ask. Ignorance keeps you safe.", next = "BACK", reply = "It does, and I'm happy in my ignorance. Thread and dye, and nothing else, and I sleep fine.", fx = { align = { honor = -1 } } },

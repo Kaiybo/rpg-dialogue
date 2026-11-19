@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "major",
   communities = { "brackenwall" }, temper = { "blunt" }, values = { "loyal", "dutiful" },
   likesTone = "blunt", race = "Orc",
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shards", "lock_steed" },
 
   impression = {
     first = "Someone made a liar of his Warchief, and he takes it personally.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "A tauren, good. You'll know the difference between your people and the Grimtotem who'd shame them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something chewed on you, so get patched; I need you on your feet." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag of yours clinks like a cutthroat's purse, and it's colder than the marsh water. Whatever souls you've got in there, keep them out of sight of Theramore's men, because they'll call them evidence." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode a burning horse into Brackenwall, warlock, through the reeds where Theramore's scouts watch. Proudmoore's men are looking for any proof the Horde fired that inn, so walk it in next time, or leave it in the swamp." },
   },
 
   start = "hello",
@@ -125,7 +129,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and a felhound loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." } },
+      lines = {
+        { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and a felhound loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Theramore already believes we burned that inn, and your demon standing here in plain sight of the road would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever, so send it away before a scout sees it from the trees." },
+      },
       choices = {
         { text = "You're right. I'll keep my servants close until this is settled.", next = "BACK", reply = "Good, that's the sense I need from every warlock in this camp. When this is over, you can let them stretch their legs.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the humans see what the Horde can summon. Fear keeps peace.", next = "BACK", reply = "Fear keeps nothing but grudges, and grudges keep nothing but war. Keep your servants close, warlock, or I'll keep you close instead.", fx = { align = { order = -1 } } },
@@ -437,7 +444,7 @@ P:NPC {
   key = "nazeer", id = TODO_NPC("Nazeer Bloodpike"), name = "Nazeer Bloodpike",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "brackenwall" }, temper = { "suspicious" }, values = { "loyal", "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_soulstone" },
 
   impression = {
     first = "He trusts paper peace about as far as the marsh stays dry.",
@@ -455,6 +462,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Quiet feet, good. I've work for those who can listen at a window without being seen." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone holds your soul in a stone, and in my trade that's the first question I'd ask. Who carries it, and do they want you back, or do they only want you to owe them?" },
   },
 
   start = "hello",
@@ -506,7 +515,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." } },
+      lines = {
+        { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it, and the one at your side does not look like it tells the truth. One demon caught in the Lady's halls would cut the peace for good, so for now I keep my spies on two legs, and yours stays here with me." },
+      },
       choices = {
         { text = "Peace on paper is still peace. Don't risk it.", next = "BACK", reply = "It is, and I'll not risk it lightly. My spies stay on two legs until the Warchief says otherwise.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every tool. The Alliance surely does.", next = "BACK", reply = "The Alliance surely does, and I don't doubt it. But the first demon caught in their halls ends the peace, and I'll not be the one who sent it.", fx = { align = { order = -1 } } },

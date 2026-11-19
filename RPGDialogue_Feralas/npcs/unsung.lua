@@ -7,7 +7,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "feathermoon" }, temper = { "calm", "watchful" }, values = { "loyal", "dutiful" },
-  notices = { "race", "form" },
+  notices = { "race", "form", "lock_steed" },
 
   impression = {
     first = "The hippogryphs get gentler words than any visitor does.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Ishnu-alah. It's good to see one of our own come so far south; most of our people never leave Teldrassil's shade now." },
     { id = "n_flight", cat = "form", when = { form = { "travel", "aquatic" } },
       text = "You came across the water in another shape, I see. The hippogryphs know a druid when they see one; they'll carry you all the same." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Do not bring that burning horse any closer to the roost. The hippogryphs can smell its hooves from the beach, and I will not have them taking to the sea in a panic." },
   },
 
   start = "hello",
@@ -68,7 +70,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and neither will I. Keep your demon on the ground and your hands still on the saddle, and we'll both get through the flight with our dignity." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and neither will I. Keep your demon on the ground and your hands still on the saddle, and we'll both get through the flight with our dignity." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and I can hear them stamping already at the smell of your servant. Send it back to wherever you keep it before you mount, and keep your hands still on the saddle, and we'll both get through the flight with our dignity." },
+      },
       choices = {
         { text = "Then I'll ask the birds' pardon and ride carefully.", next = "BACK", reply = "That is all I ask. They will feel it in your hands.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should carry whoever it's told to carry.", next = "BACK", reply = "They carry whom they choose, and they choose to carry you because I ask it, so do not test their patience.", fx = { align = { light = -1 } } },
@@ -215,7 +220,7 @@ P:NPC {
   title = "Trade Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "feathermoon" }, temper = { "gentle", "precise" }, values = { "practical", "loyal" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "She speaks softly, but nothing on her shelves goes unrecorded.",
@@ -230,6 +235,8 @@ P:NPC {
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking" } },
       text = "You've the hands of someone who works cloth or leather; I can tell from the needle marks. Feralas is rich in both, if you're willing to walk among the yetis and the bears to find them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I can feel the souls in your bag from behind the counter, cold as the water off Sardor Isle. The satyrs collect souls too, across the water, and I would rather not stand so near to the reminder." },
   },
 
   start = "hello",
@@ -302,7 +309,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I do not believe any bargain with a demon ends better than theirs did." } },
+      lines = {
+        { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I do not believe any bargain with a demon ends better than theirs did." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and when I look at the thing beside you, I see the bargain that made them, so forgive me if I don't believe yours will end better." },
+      },
       choices = {
         { text = "I understand. I'll prove my bargain is different.", next = "BACK", reply = "Then prove it, and I will be glad to be wrong, because I would like to believe a bargain can end well.", fx = { align = { order = 1 } } },
         { text = "My bargains are my own affair, Vivianna.", next = "BACK", reply = "They are, until they come back to haunt the rest of us, and then they become everyone's affair.", fx = { align = { order = -1 } } },
@@ -415,7 +425,7 @@ P:NPC {
   title = "Herbalism Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "mojache" }, temper = { "slow", "warm" }, values = { "wise", "kind" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_taint" },
 
   impression = {
     first = "The lessons come slowly and patiently, the way roots grow.",
@@ -432,6 +442,8 @@ P:NPC {
       text = "Your hands smell of Sungrass, little one; you've been picking along the roads. Gently, always gently, and leave a little root for next year." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Ah, one of the shu'halo, come so far from Mulgore. The grass here is taller than at home and the trees taller still, but the Earth Mother speaks the same way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel is in you deeper than your hands, and my herbs can smell it on you. Walk the long way round the garden, please, because the roots remember even a short visit." },
   },
 
   start = "hello",
@@ -476,7 +488,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The fel is a sickness, and the land knows it the way a body knows a fever. You are of the Horde, and so you are welcome at Mojache, but I would ask that you walk gently in my gardens, and let the roots keep their health." } },
+      lines = {
+        { id = "xlock_default", text = "The fel is a sickness, and the land knows it the way a body knows a fever. You are of the Horde, and so you are welcome at Mojache, but I would ask that you walk gently in my gardens, and let the roots keep their health." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The fel is a sickness, and the land knows it the way a body knows a fever, and the leaves near your demon are curling already. You are of the Horde, and so you are welcome at Mojache, but I would ask that it wait outside my gardens, and let the roots keep their health." },
+      },
       choices = {
         { text = "I'll walk gently. The land deserves that much.", next = "BACK", reply = "Thank you. Stay to the deer paths; they know where the roots run shallow.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The plants will just have to endure it.", next = "BACK", reply = "They will, because they must, but you will find my gardens less generous to you than to others.", fx = { align = { light = -1 } } },
@@ -616,7 +631,7 @@ P:NPC {
   title = "Skinning Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "mojache" }, temper = { "blunt", "steady" }, values = { "practical", "honest" },
-  notices = { "craft", "pet" },
+  notices = { "craft", "pet", "lock_armor" },
 
   impression = {
     first = "He believes a beast's death must be made worth something.",
@@ -633,6 +648,8 @@ P:NPC {
       text = "Your knife's been busy, I can see the stains. Wipe it after each cut, or the blade rusts and the next skin tears." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
       text = "Your companion watches my knife very closely. Tell it not to worry; I only skin what's already dead." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide you wear was never skinned off anything the Earth Mother made, and I have skinned most of them. It moves when you breathe, and a hide that has stopped living should not do that." },
   },
 
   start = "hello",
@@ -657,7 +674,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." } },
+      lines = {
+        { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A hide is a tool too, but I take it after the beast is gone, and I take it to keep a hunter warm. What you take, you feed to that thing at your side, so that nothing of the beast goes back to the Earth Mother, and I find it hard to look at while it stands here." },
+      },
       choices = {
         { text = "I do what I must to survive.", next = "BACK", reply = "We all do, but there is surviving and there is taking, and the Earth Mother knows the difference.", fx = { align = { light = -1 } } },
         { text = "Perhaps you're right. I'll think on it.", next = "BACK", reply = "That is all I ask, and more than most give me. Come back when you have thought, and bring a hide, and we will see if your hands agree with your head.", fx = { affinity = 1, align = { light = 1 } } },

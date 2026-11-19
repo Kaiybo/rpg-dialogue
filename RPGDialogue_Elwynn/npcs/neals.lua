@@ -6,7 +6,7 @@ P:NPC {
   key = "neals", id = TODO_NPC("Brother Neals"), name = "Brother Neals",
   bible = "bibles/neals.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "drink", "faith" },
+  notices = { "drink", "faith", "lock_shadow" },
   impression = {
     first = "He cheerfully admits to failing at moderation, and I trust him more.",
     third = "{name} met Brother Neals, keeper of Northshire Abbey's cellars, who loves a careful tally almost as much as the wine.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You've been sampling, I see. Moderation, friend, and I say that as someone who has failed at it often." },
     { id = "n_priest_gnome", cat = "faith", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome who follows the Light! I'd heard there were some now, but I'd not quite believed it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in the cellar have all bent their flames toward you since you came down, and that only happens in a draught. There's no draught down here, friend, so I'll ask you kindly to keep away from the casks." },
   },
 
   start = "hello",
@@ -85,7 +87,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
+      lines = {
+        { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. Your {pet} is standing right beside the new casks, so I'd ask you to take it upstairs before I have to explain another one." },
+      },
       choices = {
         { text = "I'll respect the brothers' wishes and keep to the surface.", next = "BACK", reply = "Thank you, and the brothers will thank you too, though they'll not say it. The upstairs wine's quite good.", fx = { align = { light = 1 } } },
         { text = "Coincidence or not, your wine was never mine to guard.", next = "BACK", reply = "Fair enough, friend, and I'll not hold you to it. But I'd still rather you drank upstairs.", fx = { align = { light = -1 } } },

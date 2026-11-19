@@ -6,7 +6,7 @@ P:NPC {
   key = "sam", id = TODO_NPC("Sam Sarsaparilla"), name = "Sam Sarsaparilla",
   bible = "bibles/camping.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cheerful" }, values = { "friendly", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "His adventuring is mostly a long walk and a campfire.",
     third = "{name} shared a fire with Sam Sarsaparilla, a cheerful wanderer who swears the sitting is the best part of any journey.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You cook? Then you're halfway to a camp already, because everything starts with a fire." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! You'll want to learn to pitch a tent. Rest by a fire with a tent beside it and you'll feel like a new person." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your pack is glowing like a pot about to boil over. If a warlock gave it to you, mind you don't drop it in anybody's stew, because I once watched a fellow try, and the stew never forgave him." },
   },
 
   start = "hello",
@@ -37,7 +39,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." } },
+      lines = {
+        { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, as long as your demon didn't sit too near my stew, because it's already made the fire burn funny just by standing there. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
+      },
       choices = {
         { text = "Then I'll share it gladly, and keep the imp out of the stew.", next = "BACK", reply = "That's all I ask of any guest, and you're welcome here. Sit, and tell me about your travels.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your friend has a point, Sam. Be more careful.", next = "BACK", reply = "Perhaps he does, but he's never shared his stew with me either. I'll take my chances with you.", fx = { align = { light = -1 } } },

@@ -12,7 +12,7 @@ P:NPC {
   key = "harutt", id = TODO_NPC("Harutt Thunderhorn"), name = "Harutt Thunderhorn", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "steady" }, values = { "brave", "patient" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_armor" },
   impression = {
     first = "He makes braves carry river stones uphill until they stop complaining.",
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "The quilboar have been at you, I see, and your armor shows every tusk. Rest before you go back down the ravine, because pride heals slower than a bruise." },
     { id = "n_orc", cat = "class", when = { class = "WARRIOR", race = "Orc" },
       text = "An orc warrior on our mesa, and a long way from Durotar. Your people fight like a storm, but here you might learn to fight like a mountain." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That shell of shadow around you is drinking the sunlight, and my young braves are staring at it instead of at their targets. A good shield is a fine thing, but a brave should learn to stand behind one he can see." },
   },
   start = "hello",
   nodes = {
@@ -95,6 +97,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because the orcs told them how demons once turned the Horde into something it never wanted to be, and the young believe every story they hear. Show them you're patient and in command of what you carry, and the fear will pass, as most fears do." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the orcs told them how demons turned the Horde into something it never wanted to be, and now one is standing in front of them with eyes like coals. Show them it obeys you and stays still when you tell it to, and the fear will pass, as most fears do." },
       },
       choices = {
         { text = "I'll earn their trust, Harutt. They'll see.", next = "BACK", reply = "They will, given time. Show them one spell that helps instead of burns, and half of them will follow you about the camp.", fx = { align = { light = 1 } } },
@@ -178,7 +181,7 @@ P:NPC {
   key = "meela", id = TODO_NPC("Meela Dawnstrider"), name = "Meela Dawnstrider", title = "Shaman Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "serene" }, values = { "wise", "kind" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
   impression = {
     first = "She has no patience for anyone who treats the spirits like servants.",
     third = "{name} met Meela Dawnstrider, the shaman trainer of Camp Narache.",
@@ -190,6 +193,8 @@ P:NPC {
   notice = {
     { id = "n_ghost", cat = "form", when = { form = { "ghostwolf" } },
       text = "You come to me on four legs and wrapped in spirit, and that is good. The ghost wolf carries you only because the spirits allow it, so thank them when you change back." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The fire spirits recoil from you, child, because there's fel heat in you, the kind that once ran in the orcs' blood and left them sick for a generation. I'd hate to see it take root in you the way it did in them." },
   },
   start = "hello",
   nodes = {
@@ -280,6 +285,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't fear it, child, they despise it, and so do I. The orc shamans learned that lesson in their own blood when their warlocks turned the elements away from them, and I'll not see the young of Narache learn it from you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't fear it, child, they despise it, and so do I, which is why it should not be standing in my lodge. The orc shamans learned that lesson in their own blood when their warlocks turned the elements away, and I'll not see the young of Narache learn it from you." },
       },
       choices = {
         { text = "I won't bring it near your students.", next = "BACK", reply = "Thank you, child. The young ones have only just stopped having nightmares about the last one.", fx = { align = { light = 1 } } },
@@ -385,7 +391,7 @@ P:NPC {
   key = "gart", id = TODO_NPC("Gart Mistrunner"), name = "Gart Mistrunner", title = "Druid Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "calm" }, values = { "wise", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
   impression = {
     first = "He speaks of the night elves who taught his people with gratitude.",
     third = "{name} met Gart Mistrunner, the druid trainer of Camp Narache.",
@@ -397,6 +403,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = { "bear" } },
       text = "You stand before me as a bear, and you wear the shape well. Remember that the bear is strong because it is patient, not because it is angry." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The grass is browning in a little circle where you stand, and I think the shards in your bag are to blame, because they're cold enough to frost it. Please don't linger near the young saplings, because they've had a hard enough year." },
   },
   start = "hello",
   nodes = {
@@ -500,6 +508,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, because they know when something doesn't belong in the world, and your demon doesn't. I won't send you away, because the Horde accepts you, but please keep it far from the wild whenever you can." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and look at them now, because every bird on this hill went silent the moment your demon stepped off the road. I won't send you away, since the Horde accepts you, but please lead it back from the grass and keep it far from the wild whenever you can." },
       },
       choices = {
         { text = "I'll keep it from the wild, Gart.", next = "BACK", reply = "Thank you. The plainstriders scatter at the smell of it, and I spend all evening calling them back.", fx = { align = { light = 1 } } },
@@ -588,7 +597,7 @@ P:NPC {
   key = "krang", id = TODO_NPC("Krang Stonehoof"), name = "Krang Stonehoof", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "bloodhoof" }, temper = { "gruff" }, values = { "proud", "dutiful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He is proud that the tauren have become warriors of the Horde.",
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
@@ -601,6 +610,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You have been fighting the Venture Company, I think, because only their saws leave marks like that. Get your armor mended before you go back to the mines." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone at your belt is giving off heat like a coal from the forge, and I'd guess it's one of your firestones. Keep it covered near the barracks, because my braves have enough burns from their own clumsiness." },
   },
   start = "hello",
   nodes = {
@@ -693,6 +704,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But I've heard what the Burning Blade did in Durotar, and I'll keep a spear near my hand whenever you're near the barracks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But your {pet} is standing in my barracks doorway with its eyes on my recruits, so you'll forgive me if my spear stays in my hand until it moves along." },
       },
       choices = {
         { text = "I'll follow the Warchief's rules, as you do.", next = "BACK", reply = "Good, that's all I ask of anyone, tauren or orc or otherwise. Cairne gave Thrall his word, and I keep it.", fx = { align = { order = 1 } } },
@@ -789,7 +801,7 @@ P:NPC {
   key = "mahnott", id = TODO_NPC("Mahnott Roughwound"), name = "Mahnott Roughwound", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "bloodhoof" }, temper = { "dry" }, values = { "practical", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He says a small weapon simply looks silly in tauren hands.",
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
@@ -801,6 +813,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You work the forge as well, I can see it on your hands. Then you know a good haft from a bad one, so I won't waste your time with the bad ones." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge fire went low and blue when you came up, and it only does that when the wind turns cold. Whatever you carry with you, keep it away from the coals, because I've good steel in there." },
   },
   start = "hello",
   nodes = {
@@ -878,6 +892,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I sell to anyone with coin and the arms to lift what I make, though warlocks tend to want daggers and I don't make many. I'll say this, though: a demon is a poor shield, and a good staff has never once turned on its owner." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone with coin and the arms to lift what I make, though warlocks tend to want daggers and I don't make many. That one at your heel has been watching my anvil like it's never seen honest work, and I'll say it again: a good staff has never once turned on its owner." },
       },
       choices = {
         { text = "I'll carry my own staff and fight my own fights.", next = "BACK", reply = "Good. A staff never whispers at you in the night, warlock, and I'll find you a sturdy one.", fx = { align = { honor = 1 } } },
@@ -952,7 +967,7 @@ P:NPC {
   key = "jhawna", id = TODO_NPC("Jhawna Oatwind"), name = "Jhawna Oatwind", title = "Baker",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "hunger", "weary" },
+  notices = { "hunger", "weary", "lock_shadow" },
   impression = {
     first = "Nobody leaves her without hearing which farm the grain came from.",
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
@@ -964,6 +979,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Oh, look at you, all scraped up. Eat something before you do anything else, because a hungry fighter makes poor choices." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dough went flat the moment you stepped in the door, warlock, and it had been rising nicely all morning. I won't blame you aloud, but I'll ask you to eat your bread outside." },
   },
   start = "hello",
   nodes = {
@@ -1041,6 +1058,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, the ones who come down the road from Orgrimmar, and they're always hungry, because I think the spells take more out of them than they let on. This loaf is from the fields east of the village, and it'll put back whatever your magic takes." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, the ones who come down from Orgrimmar, and they always look hungrier than their demons, though yours keeps sniffing at my basket as if it disagrees. This loaf is from the fields east of the village, and it's for you, so mind it doesn't get scorched on the way." },
       },
       choices = {
         { text = "Thank you, Jhawna. I'll pay you fairly for it.", next = "BACK", reply = "Thank you, dear, though I'd have given it to you anyway. Eat it slowly, it's better that way.", fx = { align = { honor = 1 } } },

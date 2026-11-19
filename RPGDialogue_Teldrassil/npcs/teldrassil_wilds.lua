@@ -7,7 +7,7 @@ P:NPC {
   key = "denalan", id = TODO_NPC("Denalan"), name = "Denalan",
   bible = "bibles/teldrassil_wilds.md", role = "scholar", tier = "quest",
   communities = { "dolanaar" }, temper = { "calm" }, values = { "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "Something about Teldrassil's plants is troubling him.",
@@ -17,6 +17,11 @@ P:NPC {
   greetings = {
     { id = "g_lake", text = "Ishnu-alah, traveller. Step carefully, for my sprouts are planted closer to the path than they should be." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The lake has been quiet, and my sprouts less so." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The seeds in my pockets have gone warm, and that has happened only once before, when I carried a cursed one too near my own skin. You have fel in you, more than a dabbler's share, and the soil here would feel it too." },
   },
 
   start = "hello",
@@ -93,6 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've wondered, I confess, because the seeds I've taken from them are wrong in ways the soil alone can't explain. If you sense anything of your own craft in them, I'd want to know it, even if I wouldn't enjoy hearing it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've wondered, I confess, because the seeds I've taken from them are wrong in ways the soil alone can't explain. Your servant went to them the moment you arrived and hasn't looked away since, which tells me more than I'd hoped to learn, though I'd still want to hear what you sense." },
       },
       choices = {
         { text = "I'll tell you whatever I sense, good or ill.", next = "BACK", reply = "Thank you, warlock, and I will listen, whatever it is. I would rather know than wonder.", fx = { align = { honor = 1 } } },
@@ -183,7 +189,7 @@ P:NPC {
   key = "iverron", id = TODO_NPC("Iverron"), name = "Iverron",
   bible = "bibles/teldrassil_wilds.md", role = "citizen", tier = "quest",
   communities = { "shadowglen" }, temper = { "gentle" }, values = { "kind" },
-  notices = { "class" },
+  notices = { "class", "lock_steed" },
 
   impression = {
     first = "He lay poisoned by webwood venom, grateful for every kindness.",
@@ -193,6 +199,11 @@ P:NPC {
   greetings = {
     { id = "g_road", text = "Forgive me for not rising, friend. The venom has made my legs into water." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I'm standing now, mostly, and I have you to thank for it." },
+  },
+
+  notice = {
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that horse on fire? Its hooves are on fire, and the grass is smoking, and either the venom is worse than I thought or that is the most frightening thing I have ever seen." },
   },
 
   start = "hello",
@@ -269,6 +280,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Terribly, and I'd be braver if the venom weren't making the trees spin. Dirania will have the antidote ready if someone brings her what she needs, and I'd be so grateful if it were you, so long as your friend waits at the cave mouth." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Terribly, and I'd be braver if the venom weren't making the trees spin, and if your friend weren't staring at me like that. Dirania will have the antidote ready if someone brings her what she needs, so please go, and please take it with you." },
       },
       choices = {
         { text = "It'll wait. Rest, and I'll fetch what Dirania needs.", next = "BACK", reply = "Thank you, and I would be grateful if it waited a long way off. The trees spin enough already.", fx = { align = { light = 1 } } },
@@ -368,7 +380,7 @@ P:NPC {
   key = "zarrin", id = TODO_NPC("Zarrin"), name = "Zarrin",
   bible = "bibles/teldrassil_wilds.md", role = "vendor", tier = "quest",
   communities = { "dolanaar" }, temper = { "warm" }, values = { "generous" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "The old kaldorei recipes stay alive here, one pot at a time.",
@@ -377,6 +389,11 @@ P:NPC {
 
   greetings = {
     { id = "g_cook", text = "Ishnu-alah, and welcome! Come closer to the fire, for nothing tastes as good as food made where you can smell it under the open sky." },
+  },
+
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The broth on my fire went cold in the pot the moment you sat down, and it has never done that, not even in the rain. Sit nearer the coals, I suppose, and we will see which of you wins." },
   },
 
   start = "hello",
@@ -491,6 +508,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not often, but a guest is a guest, and the old kaldorei kept their tables open to anyone who came in from the dark. Some of the elders in Dolanaar would grumble at that, but they grumble at my seasoning too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not often, but a guest is a guest, and the old kaldorei kept their tables open to anyone who came in from the dark. Your servant may sit by the fire if it likes, though it seems to be sniffing my stew pot, and the elders in Dolanaar would grumble at that even more than at my seasoning." },
       },
       choices = {
         { text = "Your elders are right to grumble about my kind.", next = "BACK", reply = "Perhaps they are, but my table is open, and my mother would have said the same. Sit and eat.", fx = { align = { order = 1 } } },

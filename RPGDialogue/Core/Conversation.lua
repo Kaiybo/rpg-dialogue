@@ -1978,7 +1978,16 @@ local function live(event, keys, changed)
     for _, k in ipairs(keys) do before[k] = ctx[k] end
     ns.Context.Refresh(ctx, keys)
     if not changed(before, ctx) then return end
+    -- An aura reaction answers the buff that just landed, not one already worn: while
+    -- picking, the context sees only the newly gained auras.
+    local auras = ctx.auras
+    if event == "aura" then
+      local fresh = {}
+      for id in pairs(auras or {}) do if not (before.auras or {})[id] then fresh[id] = true end end
+      rawset(ctx, "auras", fresh)
+    end
     local w = Engine.PickReaction(s.info, event, ctx, s.env)
+    if event == "aura" then rawset(ctx, "auras", auras) end
     if w then
       Conv.Shown(w)
       View(s).ShowReaction(Tokens.Render(w.line.text, ctx, s.env, w.line.when))

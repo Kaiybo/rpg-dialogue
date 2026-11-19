@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Grazle remembers you. The Deadwood remember you too, Grazle thinks, and not fondly." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Grazle smells souls in your bag, many small ones, and they smell sad. The Timbermaw keep their own dead close to the earth, so do not open the bag inside the tunnels." },
+  },
+
   start = "hello",
   nodes = {
     op_ask = {
@@ -83,7 +88,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Something in the forest's poison made the Deadwood and the other tribes forget who they were, and it smells like you do. Grazle will not shut the door on you for a smell, but you must prove yourself twice over before the Timbermaw let you pass." } },
+      lines = {
+        { id = "xlock_default", text = "Something in the forest's poison made the Deadwood and the other tribes forget who they were, and it smells like you do. Grazle will not shut the door on you for a smell, but you must prove yourself twice over before the Timbermaw let you pass." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Something in the forest's poison made the Deadwood forget who they were, and it smells like the thing standing beside you, only stronger. Grazle will not shut the door on you for a smell, but your demon stays outside, and you must prove yourself twice over before the Timbermaw let you pass." },
+      },
       choices = {
         { text = "Then I'll prove it. The Deadwood deserve justice.", next = "BACK", reply = "Then Grazle will watch you prove it. The Deadwood camps are south, and they are not hard to find.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I owe the Timbermaw nothing. Let me through.", next = "BACK", reply = "Then you will walk around, outsider, for Grazle does not open the door to those who owe nothing.", fx = { affinity = -1, align = { honor = -1 } } },
@@ -246,6 +254,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You return. Nafien has more work, if your arms are not tired." },
   },
 
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your spirit is not all in you, it is half in a stone somewhere, and Nafien can smell the gap. The Deadwood lost their spirits too, but nobody kept theirs safe, and Nafien hopes yours comes back when it should." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -259,7 +272,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and the Deadwood are what the corruption made. But Nafien judges by deeds, not smells, and if you hunt the Deadwood beside him, he will know whose side you are on." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and the Deadwood are what the corruption made. But Nafien judges by deeds, not smells, and if you hunt the Deadwood beside him, he will know whose side you are on." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and Nafien can feel the fur on his neck rising with that one so near. But Nafien judges by deeds, not smells, and if you and your servant hunt the Deadwood beside him, he will know whose side you are on." },
+      },
       choices = {
         { text = "Judge me by my deeds, Nafien. I'll fight beside you.", next = "BACK", reply = "Then Nafien will fight beside you, and see. Nafien's nose has been wrong before, once or twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The fel is a tool. You shouldn't fear what you don't understand.", next = "BACK", reply = "Nafien understands what the fel did to the forest, outsider. That is enough understanding for Nafien.", fx = { align = { light = -1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "erland", id = TODO_NPC("Deathstalker Erland"), name = "Deathstalker Erland",
   bible = "bibles/roads.md", role = "soldier", tier = "quest",
   communities = { "sepulcher" }, temper = { "jumpy" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "For a silent killer, he badly wants company on the night road.",
     third = "{name} met Deathstalker Erland, a Forsaken scout who needed an escort through worgen country in Silverpine.",
@@ -22,6 +22,8 @@ P:NPC {
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "Living Horde, out here. The worgen will smell you a mile off, which I suppose means they'll go for you first." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "A horse with burning hooves would see us down the south road faster than any worgen could run. I'd ride behind you, if it'd have me, and I wouldn't complain about the smell." },
   },
 
   start = "hello",
@@ -218,6 +220,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I'd not want to be in the woods when it found one, since I can't decide which of the two I'd rather run from. Try it if you like, but try it in daylight, and somewhere a long way from me." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "A demon and a worgen fighting over the same patch of Silverpine sounds like the sort of thing the Dark Lady would enjoy hearing about. Go and try it, and I'd be glad to tell her the story myself." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'd not want to be in the woods when it found one, and having seen yours up close, I still can't decide which of the two I'd rather run from. Try it if you like, but try it in daylight, and somewhere a long way from me." },
       },
       choices = {
         { text = "I'll set it loose at night, where it hunts best.", next = "BACK", reply = "At night, then, and I'll be indoors. Do let me know which of them won.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -241,7 +244,7 @@ P:NPC {
   key = "yorick", id = TODO_NPC("Rane Yorick"), name = "Rane Yorick",
   bible = "bibles/roads.md", role = "soldier", tier = "quest",
   communities = { "sepulcher" }, temper = { "cool" }, values = { "dutiful", "sharp" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "She can tell a worgen's gait from a wolf's at distance.",
     third = "{name} met Rane Yorick, a Forsaken deathstalker keeping watch over Pyrewood and the southern roads of Silverpine.",
@@ -254,6 +257,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue. Then you'll understand why I don't sit near the door." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that sheen, the one that sees what hides in the dark. Use it on Pyrewood after nightfall, and tell me what you see, because my own eyes have stopped believing what they find there." },
   },
 
   start = "hello",
@@ -391,6 +396,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "An imp in Pyrewood would be noticed, since the villagers there are human by day and something else entirely by night, and both kinds would chase it. I'll keep my own eyes on the road, thank you, though I appreciate the thought." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Silverpine is farther from home than any of us, and I'll not turn down an extra pair of eyes. Keep your imp off my windowsill, though; it leaves scorch marks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anything of yours in Pyrewood would be noticed, since the villagers there are human by day and something else entirely by night. I'll keep my own eyes on the road, thank you, though your demon seems keen to keep its eyes on me, which I appreciate rather less." },
       },
       choices = {
         { text = "Then I'll go myself and keep the imp close.", next = "BACK", reply = "Close, yes, and quiet, and you might come back with your skin. Mind the moonrise.", fx = { affinity = 1, align = { order = 1 } } },
@@ -412,7 +418,7 @@ P:NPC {
   key = "karos", id = TODO_NPC("Karos Razok"), name = "Karos Razok",
   bible = "bibles/roads.md", role = "flightmaster", tier = "service",
   communities = { "sepulcher" }, temper = { "dry" }, values = { "patient" },
-  notices = { "race", "pet" },
+  notices = { "race", "pet", "lock_shards" },
   impression = {
     first = "He finds the living tiresome and the dead only a little better.",
     third = "{name} met Karos Razok, the bat handler of the Sepulcher.",
@@ -429,6 +435,8 @@ P:NPC {
       text = "A tauren. The bats will grumble at the weight, but they'll carry you, if you sit still." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep {pet} away from the perches, if you please. My bats have lost friends to a hunter's beast before, and they remember." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The bats don't like whatever is humming in your bag. Keep it shut, and they'll fly." },
   },
 
   start = "hello",
@@ -605,6 +613,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They'd tolerate it for about as long as it takes to throw both of you off, and I'd not blame them. Dismiss the thing before you mount, and the bat will carry you as gently as any of the dead." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You smell of sulphur and grave dirt in equal measure, and the bats don't care for either, though they'll put up with the second. Send the demon home before you fly, and we'll get along." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They'd tolerate it about as long as it takes to throw you both off, and I'd not blame them, because I feel the old shame in my own blood just looking at that thing. Dismiss it before you mount, and the bat will carry you as gently as any of the dead." },
       },
       choices = {
         { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", reply = "Thank you. Bats can't stand the smell of brimstone, and neither, frankly, can I.", fx = { affinity = 1, align = { order = 1 } } },

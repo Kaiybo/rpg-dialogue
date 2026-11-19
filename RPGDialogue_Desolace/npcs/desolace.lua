@@ -6,7 +6,7 @@ P:NPC {
   key = "pentigast", id = TODO_NPC("Captain Pentigast"), name = "Captain Pentigast",
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
-  notices = { "kit", "status" },
+  notices = { "kit", "status", "lock_shards", "lock_steed" },
 
   impression = {
     first = "He plays the centaur clans against each other like cards.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You look like you got between two centaur clans. It's an easy mistake, so get patched." },
     { id = "n_stormwind", cat = "status", when = { race = "Human" },
       text = "A face from home. Tell me Stormwind still remembers we're out here." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That bag of yours clinks like a quartermaster's purse, and it's colder than the wind off the Kodo Graveyard. I'll want to know whose souls those are before you bed down inside my walls." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse is burning the grass at our gate, and it's the only grass in Desolace, so I'll ask you to tether it out on the dust. I'll not have Nijel's Point lose its one green patch to a warlock's mount." },
   },
 
   start = "hello",
@@ -113,7 +117,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." } },
+      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust results, and I keep a close eye on how they're got, which is why my eye's been on that thing at your side since you walked up the hill. Thunder Axe Fortress is full of cultists who thought they had their masters leashed, so mind that one doesn't slip while you're watching theirs." } },
       choices = {
         { text = "My demons answer to me. Judge me by what I bring back.", next = "BACK", reply = "Then I'll judge you by it, and if what you bring back is worth having, I'll not ask how you carried it.", fx = { align = { order = -1 } } },
         { text = "I'll keep the imp leashed and follow your orders, Captain.", next = "BACK", reply = "That's all I ask, and you'll find I'm a fair captain to those who keep their leash short.", fx = { affinity = 1, align = { order = 1 } } },
@@ -358,7 +362,7 @@ P:NPC {
   key = "marandis", id = TODO_NPC("Keeper Marandis"), name = "Keeper Marandis",
   bible = "bibles/desolace.md", role = "noble", tier = "quest",
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
 
   impression = {
     first = "Whatever brought him down from Stonetalon, he considers it far from small.",
@@ -372,6 +376,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. Then you know what the Circle asks of its servants, and perhaps one day it will ask more of you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "I can smell it on you, the fel that soaks the ground around the Mannoroc Coven, and it is in your blood now as well. The land there is still dying, and I fear you carry it the way that ground does, deeper than you know." },
   },
 
   react = {
@@ -418,7 +424,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
+      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I have walked the corrupted ground around the Mannoroc Coven, and the thing beside you smells of it, the same burnt air that has hung over that valley since the Legion came. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
       choices = {
         { text = "I'll turn the fel against the demons. It's a weapon.", next = "BACK", reply = "The fel is a weapon that cuts both ways, and I have seen the ground it leaves behind, so please be careful.", fx = { align = { light = -1 } } },
         { text = "You're right to be wary. I'll keep my pacts away from the green.", next = "BACK", reply = "Thank you, and the green will thank you, though it cannot speak, and I will speak for it.", fx = { affinity = 1, align = { light = 1 } } },
@@ -563,7 +569,7 @@ P:NPC {
   key = "kreldig", id = TODO_NPC("Kreldig Ungor"), name = "Kreldig Ungor",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "nijels_point" }, temper = { "busy" }, values = { "practical", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He is prouder of a patched kettle than of anything else.",
@@ -580,6 +586,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering", "Mining" } },
       text = "Good with yer hands, are ye? The Reclaimers are always hirin' folk who know salvage from scrap." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ye've shards in yer pack, I can hear 'em hummin' from here, an' my lantern's gone dim to match. I'll thank ye to set the bag outside the door while we talk." },
   },
 
   start = "hello",
@@ -643,7 +651,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
+      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Soul shards I'll not touch, an' I'll thank ye to keep yer demon from pokin' at my shelves, for it's had its nose in the candles twice already. I've chalk an' good thick string besides, but the Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
       choices = {
         { text = "I'll buy honestly and keep my business tidy.", next = "BACK", reply = "That's all I ask, an' I'll throw in an extra candle for the courtesy.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My business is mine. Sell me the chalk and ask nothing.", next = "BACK", reply = "Fair enough, friend, but I'll still be watchin' for soul shards, an' I'll not be shy about askin' then.", fx = { align = { order = -1 } } },
@@ -1022,7 +1030,7 @@ P:NPC {
   key = "lyshaerya", id = TODO_NPC("Innkeeper Lyshaerya"), name = "Innkeeper Lyshaerya",
   bible = "bibles/desolace.md", role = "innkeeper", tier = "service",
   communities = { "nijels_point" }, temper = { "calm" }, values = { "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "She sweeps the dust as she talks and has given up winning.",
@@ -1040,6 +1048,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've walked back from the spirit healer across a dead land. Sit; nothing here will ask anything of you for an hour." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in my inn bent toward you when you came in, as they did, my grandmother said, when the Highborne walked the halls of Zin-Azshari. I'll pour your drink, but you'll forgive me if I keep the lamps lit late tonight." },
   },
 
   start = "hello",
@@ -1130,7 +1140,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." } },
+      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Vahlarriel came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. You've brought a demon right into my common room, so look at my guests and you'll see them remembering every word of it." } },
       choices = {
         { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", reply = "Thank you, and they will sleep easier for it, as will I.", fx = { align = { order = 1 } } },
         { text = "They'll have to get used to me. I've earned my place.", next = "BACK", reply = "Perhaps you have. Give them a season, and keep your temper while they stare.", fx = { align = { order = -1 } } },
@@ -1548,7 +1558,7 @@ P:NPC {
   key = "nataka", id = TODO_NPC("Nataka Longhorn"), name = "Nataka Longhorn",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_armor" },
 
   impression = {
     first = "He has grown fond of Desolace and asked me not to tell.",
@@ -1568,6 +1578,8 @@ P:NPC {
       text = "You fish, out here? Good, because there's a catch off the coast I'd like to see before I'm too old to eat it." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the herd, in this grey place. It does me good to see horns that aren't centaur bows." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "My kodo won't stand near you, because that ward of demon hide you wear smells like the walls of Thunder Axe to her. She's wiser than I am about such things, so I'll ask you to keep a little farther off." },
   },
 
   start = "hello",
@@ -1632,7 +1644,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." } },
+      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ground where nothing grows, and kodos that will not walk past the fortress walls, and mine are pulling at their tethers now that your servant has come close. My elders say the land remembers wounds, and Desolace has more than any place I know, so I ask you to add no new ones." } },
       choices = {
         { text = "The fel is a tool. I don't answer to the Legion.", next = "BACK", reply = "Perhaps not, but the land does not know that, and it will remember you all the same.", fx = { align = { light = -1 } } },
         { text = "I'll leave the land as I found it. You have my word.", next = "BACK", reply = "Thank you, and the land will thank you, in its slow way, which is by not getting worse.", fx = { affinity = 1, align = { light = 1 } } },

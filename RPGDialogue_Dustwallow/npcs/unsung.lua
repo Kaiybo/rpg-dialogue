@@ -7,7 +7,7 @@ P:NPC {
   title = "General Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "theramore" }, temper = { "cheerful", "busy" }, values = { "kind", "practical" },
-  notices = { "hunger", "weary" },
+  notices = { "hunger", "weary", "lock_shards" },
 
   impression = {
     first = "She knows every soldier's boot size and every sailor's sweet tooth.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "It's supper time, dear, and you look as though you skipped dinner too. Buy a loaf before the guards come in off watch and clear me out." },
     { id = "n_ressick", cat = "weary", when = { resSick = true },
       text = "Oh, you're pale as milk, dear! The marsh got you, did it? Sit on that barrel a moment before you do anything else." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those stones in your bag are humming loud enough for me to hear over the till. Captain Vimes asks me who buys what, and I tell him, so I'm glad they're not something you bought here." },
   },
 
   start = "hello",
@@ -105,7 +107,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Guard does, now and then, ever since the Shady Rest burned. Captain Vimes came by and asked who'd bought lamp oil that week, and I told him, because I've nothing to hide and neither should anyone else." } },
+      lines = {
+        { id = "xlock_default", text = "The Guard does, now and then, ever since the Shady Rest burned. Captain Vimes came by and asked who'd bought lamp oil that week, and I told him, because I've nothing to hide and neither should anyone else." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Guard does, now and then, ever since the Shady Rest burned, and I'd say they'll ask a good deal more if they see your demon in here. Captain Vimes came by about lamp oil and I told him the truth, because I've nothing to hide, so I'd rather your friend didn't go poking at my candles." },
+      },
       choices = {
         { text = "Good. The Guard needs to know. I'd tell them too.", next = "BACK", reply = "I thought so too, and Captain Vimes was very polite about it. Nobody in my shop burned that inn, I'm sure of it.", fx = { align = { order = 1 } } },
         { text = "What people buy is their own business, Charity.", next = "BACK", reply = "It is, dear, until an inn burns down and people start dying. I'll tell the Guard whatever they ask, and I'll sleep at night.", fx = { align = { order = -1 } } },
@@ -213,7 +218,7 @@ P:NPC {
   title = "Armorer & Shieldsmith",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "theramore" }, temper = { "gruff", "proud" }, values = { "dutiful", "practical" },
-  notices = { "kit", "class" },
+  notices = { "kit", "class", "lock_armor" },
 
   impression = {
     first = "He takes rust as a personal enemy.",
@@ -230,6 +235,8 @@ P:NPC {
       text = "Look at that. Rusted at the joints and dented at the front, which tells me you've been wading in the marsh and getting hit while you did it." },
     { id = "n_shield", cat = "class", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } },
       text = "You'd carry a shield, by the look of you. Good, because there's no better friend against a raptor than a stout board of oak and iron." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon skin you're wearing, and I'll not call it armour, because I watched what wore that skin before tear through plate I'd made myself. I'll sell you a real shield off the rack if you want one, and that's all." },
   },
 
   start = "hello",
@@ -311,7 +318,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll sell you what's on the rack like anyone, but I'll not make anything special. I fought orc warlocks in the Second War, and I saw their demons tear through plate that I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." } },
+      lines = {
+        { id = "xlock_default", text = "I'll sell you what's on the rack like anyone, but I'll not make anything special. I fought orc warlocks in the Second War, and I saw their demons tear through plate that I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll sell you what's on the rack like anyone, but I'll not make anything special, and seeing that thing at your side doesn't soften me any. I fought orc warlocks in the Second War and watched their demons tear through plate I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." },
+      },
       choices = {
         { text = "I understand. I'll earn your trust in time.", next = "BACK", reply = "Maybe you will, and I'll be glad to be wrong. Until then, the rack's open to you, and that's all.", fx = { align = { order = 1 } } },
         { text = "The war's over, Hans. Your grudge is the only thing left.", next = "BACK", reply = "Maybe it is, and maybe I'll carry it to my grave. But I saw what I saw, and I'll not make special pieces for a warlock.", fx = { align = { order = -1 } } },
@@ -420,7 +430,7 @@ P:NPC {
   title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "theramore" }, temper = { "easy", "talkative" }, values = { "practical", "honest" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "His easy manner doesn't match the weapons he sells.",
@@ -438,6 +448,8 @@ P:NPC {
       text = "You'll want something short and quiet, I expect. I've a rack of good daggers by the door, friend, and they sell best to people with your look." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Go on, pick one up and tell me what's wrong with it; every dwarf who comes in here does. I don't mind, because half the time you're right." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone you're carrying? I've heard they put a heat in a blade that no forge can match, and I'd love to see what one does to good Theramore steel, though Hans would never speak to me again." },
   },
 
   start = "hello",
@@ -519,7 +531,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, and they're always polite, unlike the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, and they're always polite, unlike the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, and they're always polite, unlike the sailors, though yours is the first to bring its demon to the counter. Hans won't serve you, but a blade's a blade, so I'll sell you what you like, if you'd just ask it to stop breathing on the whetstone." },
+      },
       choices = {
         { text = "You should ask. A smith shares the blame for his blades.", next = "BACK", reply = "Maybe I should, and maybe I will, now you've said it. Hans would agree with you, I think.", fx = { align = { order = 1 } } },
         { text = "You're right. A blade's a blade, Piter.", next = "BACK", reply = "It is, and I'll not lose sleep over it. Thank you for not judging me, friend.", fx = { align = { order = -1 } } },

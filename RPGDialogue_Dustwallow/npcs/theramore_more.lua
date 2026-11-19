@@ -210,7 +210,7 @@ P:NPC {
   key = "morgan_stern", id = TODO_NPC("Morgan Stern"), name = "Morgan Stern",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   communities = { "theramore" }, temper = { "cheerful", "fussy" }, values = { "practical", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_shadow" },
 
   impression = {
     first = "He believes good soup holds a wall better than hard bread.",
@@ -227,6 +227,8 @@ P:NPC {
       text = "You smell of a cookfire, and a good one. I can always tell a fellow cook by the singed sleeves." },
     { id = "n_hungry", cat = "hunger", when = { timeOfDay = "dusk" },
       text = "You've the look of someone who's skipped supper. Don't do that out here; the marsh eats the hungry first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The cream in my bowl just turned the moment you came through the door, and I'd skimmed it this morning. I'm not saying it was you, but it's never done that for Captain Vimes." },
   },
 
   start = "hello",
@@ -308,7 +310,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." } },
+      lines = {
+        { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. Your {pet} is looking at my cheese right now, so I'll tell you what I told him, which is that you'll pay for anything it touches and you'll wash every pot." },
+      },
       choices = {
         { text = "I'll keep my imp out of your kitchen, Morgan.", next = "BACK", reply = "Thank you, the cheese and I both appreciate it. The cat's still not forgiven anyone.", fx = { align = { order = 1 } } },
         { text = "If he's hungry, he eats. That's how it works.", next = "BACK", reply = "Then he can pay for the cheese and wash the pots, same as the last one. That's how it works in my kitchen.", fx = { align = { order = -1 } } },
@@ -443,7 +448,7 @@ P:NPC {
   title = "Trauma Surgeon",
   bible = "bibles/dustwallow.md", role = "trainer", tier = "quest",
   communities = { "theramore" }, temper = { "brisk", "exacting" }, values = { "kind", "dutiful" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_stones" },
 
   impression = {
     first = "I suspect his calm is something he decides on every morning.",
@@ -460,6 +465,8 @@ P:NPC {
       text = "Your bandages are tied with a field knot, so somebody taught you properly. Good; most people learn on themselves, and badly." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's taken a beating, which usually means the body under it has too. Sit, and let me look at you before you go anywhere." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've watched one close a wound I'd have cut wide for, and I've never decided whether to be grateful or appalled. Grateful, I think, so long as I don't ask where the life in it came from." },
   },
 
   start = "hello",
@@ -521,7 +528,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." } },
+      lines = {
+        { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and seeing your demon in my infirmary, I think I'd sooner not have the practice again, so keep it by the door." },
+      },
       choices = {
         { text = "My craft is for demons, not soldiers. You have my word.", next = "BACK", reply = "Good, that's all I'd ask. I've no wish to cut wide again in my lifetime.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A weapon wounds. Blame whoever holds it.", next = "BACK", reply = "A fair point, and true enough in the abstract. But I'm the one who has to cut wide, and I'd rather not.", fx = { align = { order = -1 } } },

@@ -374,6 +374,11 @@ P:NPC {
     { id = "g_main", text = "Hush, friend. The forest listens, as it has since the days of the Ancients, and so do the Grimtotem." },
     { id = "g_back", when = { metBefore = true }, text = "Elune guide you. You've returned, and I'm glad of it." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The freed creatures will not come near you, because they can hear what you carry in your bag. Some of those souls were wild things once, I think, and wild things know their own." },
+  },
+
   start = "hello",
   nodes = {
     xpt_kindal = {
@@ -417,7 +422,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." } },
+      lines = {
+        { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps not, but what you carry harms everything it touches, and look how the creature at your side has already set the beasts thrashing in their cages. If you would help free them from the Grimtotem, I'll not refuse you, but send it back first, and stand well back while they flee." },
+      },
       choices = {
         { text = "I'll stand back. Their freedom matters more.", next = "BACK", reply = "Thank you. Freedom given gently is the kind the forest remembers.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't save them. My power might.", next = "BACK", reply = "Your power might, but the creatures would flee it as they flee the Grimtotem, so please stand back.", fx = { align = { light = -1 } } },
@@ -560,6 +568,11 @@ P:NPC {
     { id = "g_main", text = "Ishnu-alah, traveller. Feathermoon welcomes those who come in peace." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has set your soul in a stone, and I can feel Elune's light slide around it like water round a rock. I will pray for you all the same, and I hope you trust the hand that holds it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -611,7 +624,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I pray to Elune you never will be. But every satyr in those ruins once believed it was the master of its own bargain, so I'll ask you to forgive my distance, and to remember what they became." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I pray to Elune you never will be. But every satyr in those ruins once believed it was the master of its own bargain, so I'll ask you to forgive my distance, and to remember what they became." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I pray to Elune you never will be, though the thing beside you is closer kin to the satyrs than you like to think. Every satyr in those ruins once believed it was the master of its own bargain, so forgive my distance, and remember what they became." },
+      },
       choices = {
         { text = "I'll remember, and I won't make their mistake.", next = "BACK", reply = "Then I will hope you remember it always, because the satyrs once said the same, and they forgot.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Their mistake was weakness. I'm not weak.", next = "BACK", reply = "The satyrs said that too, before the demons wore them like cloaks, so I will keep my distance.", fx = { align = { light = -1 } } },
@@ -754,6 +770,11 @@ P:NPC {
     { id = "g_main", text = "The Earth Mother walks with you, stranger. Come, sit near the fire; the rain will not reach you here." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The winds told me you would be." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The birds stopped singing when you came near, and my own wolf will not look at you. They are not wrong about everything, so I will not tell them they are wrong about you." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -793,7 +814,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the creatures you bind, and a tauren does not forget that, even beside an ally." } },
+      lines = {
+        { id = "xlock_default", text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the creatures you bind, and a tauren does not forget that, even beside an ally." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the thing that stands beside you now, and a tauren does not forget that, even beside an ally, even when it fights well." },
+      },
       choices = {
         { text = "Victory is all that matters in war.", next = "BACK", reply = "Victory is everything, yes. But I have seen braves win in ways that kept them from sleeping for years afterward, and I would not wish that on you.", fx = { align = { honor = -1 } } },
         { text = "I'll use my power to protect Mojache.", next = "BACK", reply = "Then you are welcome beside me, and I will trust your power as long as it guards the camp.", fx = { affinity = 1, align = { honor = 1 } } },

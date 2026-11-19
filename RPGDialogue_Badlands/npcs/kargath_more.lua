@@ -6,7 +6,7 @@ P:NPC {
   key = "neeka", id = TODO_NPC("Neeka Bloodscar"), name = "Neeka Bloodscar",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "proud" }, values = { "brave", "practical" },
-  notices = { "class", "level" },
+  notices = { "class", "level", "lock_steed" },
 
   impression = {
     first = "She sized me up like a coyote she hadn't decided to shoot.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "You move quietly, I'll give you that, but you were downwind of me the whole way in. A scout notices." },
     { id = "n_young", cat = "level", when = { maxLevel = 34 },
       text = "You're green for this country. The heat alone kills plenty of the young ones who come out here thinking only the dwarves are dangerous." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "My coyote traps are empty for a mile behind you, friend, and I'd say it's that burning horse you rode in on. Every beast in the Badlands ran from it, so leave it outside the palisade before the wolves start howling." },
   },
 
   start = "hello",
@@ -87,7 +89,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Warlord Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." } },
+      lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Warlord Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'm thinking about it again with yours standing here, because it would keep a better watch than half my grunts. Then I think about explaining a burned storehouse to Warlord Goretooth, and I stop, because coyotes I can shoot, but a demon that gets bored in the night is a problem I don't know how to track." },
+      },
       choices = {
         { text = "Use what works. A few burned sacks are worth it.", next = "BACK", reply = "Worth it until it's my storehouse, maybe. I'll think about it again when Goretooth's in a better mood.", fx = { align = { order = -1 } } },
         { text = "You're right. A guard you can't trust is no guard.", next = "BACK", reply = "That's what I told myself, and it's good to hear someone agree. Coyotes I can shoot; demons I can't.", fx = { align = { order = 1 } } },
@@ -286,7 +290,7 @@ P:NPC {
   key = "jarkal", id = TODO_NPC("Jarkal Mossmeld"), name = "Jarkal Mossmeld",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "shrewd" }, values = { "curious", "greedy" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_stones" },
 
   impression = {
     first = "He fills his rented room with jars of gizzards and fangs.",
@@ -308,6 +312,8 @@ P:NPC {
       text = "One of the walking dead. The apothecaries in your city buy from Jarkal sometimes, mon, so tell them I be still here and still cheap." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman! The rock spirits out here be cracking into shards when you kill them, and Jarkal be grinding those shards into fine powder. Don't tell them that." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your bag be a healthstone, mon, full of somebody's life, and Jarkal can smell it over his own brewing. Jarkal make potions from roots and blood, but never from a soul, so keep it away from the green jar." },
   },
 
   start = "hello",
@@ -352,7 +358,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." } },
+      lines = { { id = "xlock_default", text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and louder ones about what you be keeping at your heel. A soul in a stone be a soul that never reach the spirits, and that one be looking at Jarkal like it want more of them, which be a sad thing, even for an enemy." },
+      },
       choices = {
         { text = "My enemies' souls serve me better than the spirits.", next = "BACK", reply = "They serve you, mon, until the day they don't. Jarkal just hope he not be standing near you on that day.", fx = { align = { light = -1 } } },
         { text = "I take only what I must, Jarkal.", next = "BACK", reply = "Good, mon, then Jarkal sleep easier tonight. Bwonsamdi already got enough reasons to come knocking round here.", fx = { affinity = 1, align = { light = 1 } } },

@@ -671,7 +671,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "She treats prayer as a craft and has no patience for speeches.",
@@ -686,6 +686,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
       text = "One of the Light's own, here for lessons. Alathea's the one for the long talks; I'm the one for the practice, so roll up your sleeves." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone holds a life that was never yours, and Elune knows whose it was even if you do not. Let me heal you myself, and keep it for a day when there's no one near." },
   },
 
   start = "hello",
@@ -753,6 +755,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think you've chosen a hurt and called it a tool, and that's the hardest sort to heal because you won't let anyone near it. If you ever want to set it down, come back here, and I'll help however I can." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think you've chosen a hurt and called it a tool, and the tool is standing beside you, watching me as if I meant to take it away. If you ever want to set it down, come back here without it, and I'll help however I can." },
       },
       choices = {
         { text = "Maybe one day. Thank you for the offer.", next = "BACK", reply = "You are welcome, warlock, and I mean it. The door will be open.", fx = { align = { light = 1 } } },
@@ -858,7 +861,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "gentle", "watchful" }, values = { "devout", "careful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_shadow" },
 
   impression = {
     first = "She notices everything and says about half of it.",
@@ -875,6 +878,8 @@ P:NPC {
       text = "Your armor has seen hard roads, and you're carrying them in your shoulders. Sit by the water before you do anything else." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Human" },
       text = "A priest from Stormwind, and you've come all this way to learn from us. That pleases me more than I'd like to admit." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The pool darkened as you came near it, just a little, the way water darkens under a passing cloud. There is no cloud tonight, and I think you know that." },
   },
 
   start = "hello",
@@ -962,6 +967,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A shadow sitting a little apart from you, like a guest who hasn't been invited to the table. The pool doesn't judge, it only shows, and I'd ask you to look into it yourself some night and see what you make of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Tonight it shows more than a shadow, because your servant is standing at the edge of the pool and the water has gone dark all around its reflection. The pool doesn't judge, it only shows, so look into it yourself some night when you've come alone and see what you make of it." },
       },
       choices = {
         { text = "I'll look, and I'll face what I see.", next = "BACK", reply = "Then you are braver than most, warlock, and I will pray you like what you find. The pool is always honest.", fx = { align = { light = 1 } } },
@@ -1042,7 +1048,7 @@ P:NPC {
   key = "aquinne", id = TODO_NPC("Sister Aquinne"), name = "Sister Aquinne",
   bible = "bibles/temple.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "earnest", "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_taint" },
 
   impression = {
     first = "She speaks of Lady Sathrah like someone she knew and mourns.",
@@ -1060,6 +1066,8 @@ P:NPC {
       text = "You're a priest! I've never spoken properly with one of the Light's. Do you study the way we do, with books and a teacher who sighs at you?" },
     { id = "n_green", cat = "greenness", when = { maxLevel = 15 },
       text = "You look as new to all this as I am. That's all right; the priestesses say the moon is kindest to beginners." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The flowers on the steps have wilted where you walked, and their petals have the green rot at the edges that the blooms in Felwood have. I'll pray for you tonight, and for them." },
   },
 
   start = "hello",
@@ -1127,6 +1135,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, yes, though the priestesses say fear is a poor teacher and pity a better one. I'll pray for you tonight, if you'll let me, and I'll keep the flowers between us until I've finished." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, yes, and more of your servant than of you, because it hasn't stopped watching me since you came up the steps. The priestesses say fear is a poor teacher and pity a better one, so I'll pray for you tonight, and I'll keep the flowers between us until I've finished." },
       },
       choices = {
         { text = "Pray if you like. I won't refuse it.", next = "BACK", reply = "Thank you, and I will say a good one, I promise. The flowers will stay right where they are, though.", fx = { align = { light = 1 } } },
@@ -1296,7 +1305,7 @@ P:NPC {
   title = "Banker",
   bible = "bibles/temple.md", role = "banker", tier = "service",
   communities = { "darnassus" }, temper = { "formal", "steady" }, values = { "careful", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "Nothing leaves her vault without a reason she can write down.",
@@ -1311,6 +1320,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "You carry a good deal on your person, if you'll forgive my noticing. We do have boxes for that, and none of them has ever been robbed." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "If you mean to store that soulstone with us, I'll ask you to think again, because the whole vault would know it was there. Keep it on your own person, please, along with your stranger possessions." },
   },
 
   start = "hello",
@@ -1378,6 +1389,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Your servant is looking at my strongboxes as if it can hear something in them already, so please keep it and your stranger possessions well away from the counter." },
       },
       choices = {
         { text = "Agreed. Nothing that whispers goes in your vault.", next = "BACK", reply = "Thank you, because the last one was a very long night. Our accounts will stay friendly.", fx = { align = { order = 1 } } },

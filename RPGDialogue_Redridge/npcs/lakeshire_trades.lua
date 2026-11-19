@@ -28,7 +28,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." } },
+      lines = {
+        { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll fly anyone who pays, but not with that thing in the saddle, and the birds already know it, the way they're clawing at the posts. I fly the wounded out of here as well, so keep it away from the litters, because they've seen enough of gnolls and orcs without demons besides." },
+      },
       choices = {
         { text = "I'll keep my distance from the wounded.", next = "BACK", reply = "Thank you, and they'll thank you too, if they notice at all. Most of them are too far gone to notice anything.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The wounded have bigger worries than me.", next = "BACK", reply = "They do, and you'd not be one of them if you'd seen their faces. Keep it out of sight all the same.", fx = { align = { light = -1 } } },
@@ -172,6 +175,7 @@ P:NPC {
   key = "hiett", id = TODO_NPC("Kimberly Hiett"), name = "Kimberly Hiett", title = "Fletcher",
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "craft", "practical" },
+  notices = { "lock_soulstone" },
   impression = {
     first = "She fletches fast, and still not fast enough for the gnolls.",
     third = "{name} met Kimberly Hiett, Lakeshire's overworked fletcher.",
@@ -179,6 +183,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Arrows, bows and quivers. Buy quick, before the watch takes the lot." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more arrows? I can't say I'm surprised, the way the hills are." },
+  },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's bound your soul in a stone, and I can feel it like a cold spot on a warm day. Good, because the gnolls are coming up the hill again and I'd like you on the wall twice." },
   },
   start = "hello",
   nodes = {
@@ -193,7 +201,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill, and that thing would send a few of them back down the path before a spell was even cast. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." },
+      },
       choices = {
         { text = "It should matter where a spell comes from.", next = "BACK", reply = "Maybe it should, and maybe after the war we'll ask. For now, I only care where the gnolls fall.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Only whether it lands matters.", next = "BACK", reply = "That's the way of it on the wall, and I'm glad you see it. Come up when the horn sounds.", fx = { align = { light = -1 } } },
@@ -337,6 +348,7 @@ P:NPC {
   key = "chapal", id = TODO_NPC("Henry Chapal"), name = "Henry Chapal", title = "Gunsmith",
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "dry" }, values = { "craft", "precision" },
+  notices = { "lock_stones" },
   impression = {
     first = "He speaks of dwarven blackpowder the way other men speak of ale.",
     third = "{name} met Henry Chapal, Lakeshire's precise gunsmith.",
@@ -344,6 +356,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Guns, shot and powder. Handle them gently; they don't forgive mistakes." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and with all your eyebrows. That's encouraging." },
+  },
+  notice = {
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a firestone in your pack, and I can feel the heat from here, which in a gunsmith's shop is the worst thing I can feel. Please stand by the door until you've finished your business." },
   },
   start = "hello",
   nodes = {
@@ -358,7 +374,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I worry about every kind of fire, friend, and the green sort most of all, because I've no idea whether it lights powder or does something worse. I'd rather not find out in my own shop, so stand by the door, if you'd be so kind." } },
+      lines = {
+        { id = "xlock_default", text = "I worry about every kind of fire, friend, and the green sort most of all, because I've no idea whether it lights powder or does something worse. I'd rather not find out in my own shop, so stand by the door, if you'd be so kind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I worry about every kind of fire, friend, and your servant is giving off enough heat that I can feel it from behind the counter, with the powder kegs right there. Stand by the door, if you'd be so kind, and take it with you before I find out what green fire does to black powder." },
+      },
       choices = {
         { text = "I'll keep my fire far from your shop.", next = "BACK", reply = "That's kind of you, and my powder thanks you. The door's just there, as I said.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fel fire does what I tell it. Don't fret.", next = "BACK", reply = "It's not what it does that worries me, friend, it's what it does near my kegs. Stand by the door anyway.", fx = { align = { order = -1 } } },

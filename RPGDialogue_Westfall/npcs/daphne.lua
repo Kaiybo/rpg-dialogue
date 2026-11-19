@@ -7,7 +7,7 @@ P:NPC {
   key = "daphne", id = TODO_NPC("Daphne Stilwell"), name = "Daphne Stilwell",
   bible = "bibles/daphne.md", role = "questgiver", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "pious", "brave" },
-  notices = { "paladin", "kit" },
+  notices = { "paladin", "kit", "lock_shards" },
   impression = {
     first = "She has no fear of the Defias and misses her husband Jordan.",
     third = "{name} met Daphne Stilwell, a farmer who refuses to let the Defias take her land while her husband works far away.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A paladin of the Church! Jordan would like you; he trained for it once, before his father's forge got him." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You've been along the shore, I see. They don't fight fair down there. Neither do I, when I have to." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Something in your pack is cold enough to frost the fence rail where you leaned on it, and I know what a warlock carries. Keep it, and make the Brotherhood fill it if you can." },
   },
 
   start = "hello",
@@ -42,6 +44,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Fear it? They'd throw rocks at it and then come up to see where it came from, because the Brotherhood are thieves first and fools second. I'd rather you kept your little friend where the trees can't catch fire, if it's all the same to you." },
         { id = "xlock_more1", text = "Still, Jordan always said a farm's best defended by whatever the other fellow didn't expect, and I doubt they expect you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fear it? They'd throw rocks at it and then come up to see where it came from, because the Brotherhood are thieves first and fools second. Your {pet} has been eyeing my orchard since you came through the gate, though, and I'd rather it stood back where the trees can't catch fire." },
       },
       choices = {
         { text = "I'll keep it leashed and your trees safe, Daphne.", next = "BACK", reply = "I'd be obliged, love, because those trees are older than our marriage. The Defias are welcome to whatever comes up the hill, though.", fx = { align = { order = 1 } } },

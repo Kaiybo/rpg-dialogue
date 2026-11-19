@@ -527,7 +527,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "booty_bay", "blackwater" }, temper = { "boisterous" }, values = { "brave", "loyal" },
   likesTone = "blunt",
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shadow", "lock_soulstone" },
 
   impression = {
     first = "He laughs like a survivor of many bad ideas, mostly his own.",
@@ -550,6 +550,10 @@ P:NPC {
       text = "You look like you've been keelhauled twice and dried in the sun. Get that armor patched before the Bloodsail notice." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear on my docks! Your people knew these waters before any goblin put a plank on them, and I'd wager you still know how to read a tide." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp on my desk has burned steady through three hurricanes, and it went low and blue the moment you crossed the door. I've kept this port's peace a long time by noticing small things, friend, so let's keep you one of them." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul into a stone and tucked it away against a bad day, I'd wager. Sailors sew a coin in their hem for the ferryman, but that's a bargain of a different weight, and I hope whoever holds it is a friend." },
   },
 
   react = {
@@ -665,7 +669,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We've sailed with worse, friend, and some of them were captains. The sea doesn't care what you bargained with, but a crew does, and sailors will forgive a drunk or a thief long before they forgive anything with horns, so keep it out of sight and pull your weight on the ropes." } },
+      lines = {
+        { id = "xlock_default", text = "We've sailed with worse, friend, and some of them were captains. The sea doesn't care what you bargained with, but a crew does, and sailors will forgive a drunk or a thief long before they forgive anything with horns, so keep it out of sight and pull your weight on the ropes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We've sailed with worse, friend, and some of them were captains. But look at my deckhands now, every one of them watching that thing at your heel instead of the ropes, so send it off before we sail or you'll be hauling lines alone." },
+      },
       choices = {
         { text = "I'll keep my demon leashed and pull my weight.", next = "BACK", reply = "Good, friend, and you'll be welcome on my deck. Pull your weight and keep that thing below, and we'll get along.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If your crew fears my demon, they'll keep their distance.", next = "BACK", reply = "They'll keep their distance and their courage too, friend, and I need both. Leash it, or find another ship.", fx = { align = { order = -1 } } },
@@ -1192,7 +1199,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "chatty" }, values = { "cunning", "ambitious" },
   prejudice = { race = "Gnome", amount = 8, why = "Goblin-gnome rivalry: gnomes give inventions away and undercut the market." },
-  notices = { "craft", "purse" },
+  notices = { "craft", "purse", "lock_shards" },
 
   impression = {
     first = "I suspect he knew my price before I opened my mouth.",
@@ -1212,6 +1219,8 @@ P:NPC {
       text = "A miner! The Baron's always short of good ore, and I'm always short of favors owed, so listen, listen, we should talk numbers." },
     { id = "n_poor", cat = "purse", when = { money = { max = 1000 } },
       text = "Lean times, huh? I can find you work, and finding work is a service, and services cost, but we'll put it on account and sort somethin' out later." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Hold still, pal, because that bag of yours is humming, and I know that hum, since half my stock does it at night. Soul shards, is it? I'd sure like to know what the Bloodsail would pay for a sack like that, though I'd never be the one to ask them." },
   },
 
   start = "hello",
@@ -1329,7 +1338,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. I sell 'em cheap, real cheap, because I don't like the whispering either, so for a few silver they stop bein' my problem and start bein' yours." } },
+      lines = {
+        { id = "xlock_default", text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. I sell 'em cheap, real cheap, because I don't like the whispering either, so for a few silver they stop bein' my problem and start bein' yours." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. Your {pet} keeps leaning toward that crate in the back like it hears a friend in there, and I'd sell you the whole lot cheap just to watch the two of them leave together." },
+      },
       choices = {
         { text = "I'll take them and bind whatever's whispering.", next = "BACK", reply = "You're braver than me, pal, and probably crazier. Take them, and don't tell me what they say.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Throw them back in the sea. Some things should stay drowned.", next = "BACK", reply = "Throw them back? Pal, they're inventory! But fine, fine, maybe the sea's the best place for some of 'em.", fx = { align = { order = 1 } } },
@@ -1561,7 +1573,7 @@ P:NPC {
   key = "mackinley", id = TODO_NPC("\"Sea Wolf\" MacKinley"), name = "\"Sea Wolf\" MacKinley",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "menacing" }, values = { "cunning", "practical" },
-  notices = { "purse", "drink" },
+  notices = { "purse", "drink", "lock_stones" },
 
   impression = {
     first = "I mean to stay out of his debt.",
@@ -1578,6 +1590,8 @@ P:NPC {
       text = "A full purse and a friendly face, the two things that go missing quickest in this town. Hold on to both." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You're three sheets gone. Sit down before you bet something you'll miss in the morning." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your pocket is a warlock's healthstone, and I've watched men bet one at knucklebones and lose it to a fellow who needed it more by morning. A life's a stake like any other, friend, but I'd never take one of those off a table." },
   },
 
   start = "hello",
@@ -1632,7 +1646,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. I've heard sailors' stories of deals made in the dark of the sea, and none of them ended with a ship coming home." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. I've heard sailors' stories of deals made in the dark of the sea, and none of them ended with a ship coming home." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. That one's been staring at me since you walked up, and I'd swear it's measuring what I've got left to give." },
+      },
       choices = {
         { text = "A deal made with care can be kept. It's all in the terms.", next = "BACK", reply = "That's the trick of it, aye, and few manage it. I'd want to read those terms with a lawyer and a priest beside me.", fx = { align = { order = 1 } } },
         { text = "Demons don't keep deals. That's why I master them instead.", next = "BACK", reply = "Master them, is it? I've heard that said by men whose debts I collected from their widows. Careful, friend.", fx = { affinity = 1, align = { order = -1 } } },
@@ -1804,7 +1821,7 @@ P:NPC {
   rivals = { "nesingwary" },
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "slick" }, values = { "ambitious", "cunning" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shards" },
 
   impression = {
     first = "His smile never reaches the part about his agents getting killed.",
@@ -1822,6 +1839,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "Oh, you've done well for yourself, sweetheart! Ever thought about investing? I have several opportunities, and some of them are even legal." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty soul shards at least, by the clink, and every one of them a creature that used to walk around. I'll trade in tusks all day, pal, but I draw the line at inventory that used to have opinions." },
   },
 
   start = "hello",
@@ -1864,7 +1883,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd hire anything that comes back alive, friend, and I'd guess demons are hard to kill. The trouble is that the Cartel's insurance doesn't cover anything summoned, and the Baron is very strict about his paperwork, so your imp would be strictly off the books." } },
+      lines = {
+        { id = "xlock_default", text = "I'd hire anything that comes back alive, friend, and I'd guess demons are hard to kill. The trouble is that the Cartel's insurance doesn't cover anything summoned, and the Baron is very strict about his paperwork, so your imp would be strictly off the books." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd hire anything that comes back alive, friend, and that one looks hard to kill. Trouble is, the Cartel's insurance doesn't cover anything summoned, and I can't even write its name on the form without the ink smoking, so it stays strictly off the books." },
+      },
       choices = {
         { text = "My demon works for me, not for the Cartel.", next = "BACK", reply = "Then it's a partnership, buddy, I can work with that. Your demon, your rules, my profits.", fx = { align = { order = -1 } } },
         { text = "Then I'll do the work myself, by the Baron's rules.", next = "BACK", reply = "By the Baron's rules? Buddy, you're a breath of fresh air in this town. I'll pay you the honest rate, which is lower.", fx = { affinity = 1, align = { order = 1 } } },
@@ -2286,7 +2308,7 @@ P:NPC {
   key = "smotts", id = TODO_NPC("Captain Hecklebury Smotts"), name = "Captain Hecklebury Smotts",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "vengeful" }, values = { "proud", "stubborn" },
-  notices = { "kit" },
+  notices = { "kit", "lock_taint" },
 
   impression = {
     first = "Sea giants cost him two ships, and he hasn't given up.",
@@ -2301,6 +2323,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Looks like the sea's had a go at you too. Welcome to the club, though I'll warn you the membership's terrible." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a green cast to your skin that the lamplight doesn't explain, and I've seen it once before, on a man who swore he could raise my old crew from the sea floor. I told him no, and some nights I'm still not sure I was right." },
   },
 
   start = "hello",
@@ -2337,7 +2361,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger, my cook, tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." } },
+      lines = {
+        { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger, my cook, tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd trade almost anything, and having your demon stand there grinning at me makes that thought a good deal worse. Sprogger would chase it off with a ladle if he were here, and for once I think I'd let him." },
+      },
       choices = {
         { text = "Sprogger is right. Some prices are too high.", next = "BACK", reply = "Maybe he is, and that's why I haven't asked you yet. Some prices are too high, even for revenge.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Vengeance is worth any price. I'll help.", next = "BACK", reply = "You'd do it? Friend, I'd almost be afraid of you. Almost.", fx = { align = { light = -1 } } },
@@ -2520,7 +2547,7 @@ P:NPC {
   key = "shaky", id = TODO_NPC("\"Shaky\" Phillipe"), name = "\"Shaky\" Phillipe",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "nervous" }, values = { "cautious" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "Someone large with a gambling habit is clearly looking for him.",
@@ -2534,6 +2561,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Is that blood, and is it yours? No, don't tell me, and please don't come any closer either." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's falling the wrong way, isn't it? The lantern's over there, so it ought to fall that way, and it doesn't, and I'm going to stand over here now, if that's all right with you." },
   },
 
   start = "hello",
@@ -2579,7 +2608,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I owe money to the kind of people who don't care how they get paid, and I've heard stories about debt collectors in Booty Bay that would turn your hair white. I'm sure you're not one of them, but I'll stand over here just in case." } },
+      lines = {
+        { id = "xlock_default", text = "Because I owe money to the kind of people who don't care how they get paid, and I've heard stories about debt collectors in Booty Bay that would turn your hair white. I'm sure you're not one of them, but I'll stand over here just in case." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I owe money to the kind of people who don't care how they get paid, and that thing of yours looks exactly like the collectors in the stories. It hasn't blinked since you walked over, so I'll just stand a bit further over here, if it's all the same to you." },
+      },
       choices = {
         { text = "Relax. I'm not here to collect anyone's debts.", next = "BACK", reply = "Oh, thank the Light, I mean, thank whatever you thank. You'll forgive me if I keep shaking anyway.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe I am. Best pay up, Shaky.", next = "BACK", reply = "Oh no, oh no, oh no, I knew it, I knew it the moment you walked in! Please, I'll pay, just not today, or this week.", fx = { align = { light = -1 } } },
@@ -2763,7 +2795,7 @@ P:NPC {
   key = "crazz", id = TODO_NPC("First Mate Crazz"), name = "First Mate Crazz",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay", "blackwater" }, temper = { "eager" }, values = { "loyal", "fierce" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
 
   impression = {
     first = "He hates the Bloodsail with a steady, practical sort of hatred.",
@@ -2777,6 +2809,8 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "Another goblin, good! You know the sea's just money with waves on it, chum. The Bloodsail want our money, and they can have the waves." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "Is that a shadow ward on you, pal? I watched a Bloodsail witch throw a curse at one of those once, and it just drank the thing down, and I've wanted one ever since, because those dogs fight dirty." },
   },
 
   start = "hello",
@@ -2831,7 +2865,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. It's a long list, pal, and it's not getting shorter fast enough for my liking." } },
+      lines = {
+        { id = "xlock_default", text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. It's a long list, pal, and it's not getting shorter fast enough for my liking." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. Your demon's reading it over my shoulder like it wants to help, pal, and I'm almost tempted to let it." },
+      },
       choices = {
         { text = "Hate's a poor compass, Crazz. It'll sink you too.", next = "BACK", reply = "Maybe it will, friend, and maybe I'll drown with a smile. That list's all I've got for the sailors who never came home.", fx = { align = { light = 1 } } },
         { text = "Then let's shorten that list together.", next = "BACK", reply = "Now that's a partnership I can raise a glass to, friend. Let's start with the worst of them.", fx = { affinity = 1, align = { light = -1 } } },
@@ -3187,7 +3224,7 @@ P:NPC {
   key = "fizzlebub", id = TODO_NPC("Crank Fizzlebub"), name = "Crank Fizzlebub",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "shifty" }, values = { "greedy", "clever" },
-  notices = { "purse" },
+  notices = { "purse", "lock_stones" },
 
   impression = {
     first = "Nothing he offers will be easy, and that is the point.",
@@ -3201,6 +3238,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "Oh, you're doing well, I can always tell, it's a gift, like smelling gold through a wall. Let's talk about doing better, sweetheart." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag, or a spellstone? Either way it's glowing like it's got something to say, and anything that glows for free catches the eye of a businessman like me." },
   },
 
   start = "hello",
@@ -3255,7 +3294,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Bring your imp a little closer and let's see if the tune changes, and if anything catches fire, that's on you." } },
+      lines = {
+        { id = "xlock_default", text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Bring your imp a little closer and let's see if the tune changes, and if anything catches fire, that's on you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Look at that, your demon's gone all quiet and the thing's humming louder, so if anything catches fire, that's still on you." },
+      },
       choices = {
         { text = "I'll test them, but carefully. Some things shouldn't be woken.", next = "BACK", reply = "Carefully, sure, buddy, and from a safe distance. Some of them hum louder at night.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let's find out. Curiosity is worth the risk.", next = "BACK", reply = "Curiosity! That's my favorite word after profit, buddy. Let's see what they do.", fx = { align = { order = -1 } } },
@@ -3643,7 +3685,7 @@ P:NPC {
   key = "drizzlik", id = TODO_NPC("Drizzlik"), name = "Drizzlik",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "boastful" }, values = { "proud", "greedy" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He praises his own leatherwork at length, and the work deserves it.",
@@ -3657,6 +3699,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = { "Leatherworking", "Skinning" } },
       text = "A leatherworker! You've good hands, I can tell, not as good as mine but close, give or take a few hundred gold of talent." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Now that's leather I never stitched, pal, a ward of demon hide shimmering right over your shoulders. It doesn't crack, it doesn't need oiling and it costs you nothing, which makes it the worst competition I've had all year." },
   },
 
   start = "hello",
@@ -3711,7 +3755,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. The trouble is that demons tend to burn through leather faster than anything I can stitch, so I'd charge double just for the risk, and triple for the smell." } },
+      lines = {
+        { id = "xlock_default", text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. The trouble is that demons tend to burn through leather faster than anything I can stitch, so I'd charge double just for the risk, and triple for the smell." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. But your {pet} is already scorching the edge of my cutting table just by leaning on it, so I'd charge double for the risk, triple for the smell, and extra for the table." },
+      },
       choices = {
         { text = "My demon needs no armor. I'll keep it bare.", next = "BACK", reply = "Bare it is, pal, but don't come cryin' to me when it gets a sword in the ribs. Demons look good in leather.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Make it, then. Name your price for the risk.", next = "BACK", reply = "Risk pricing, now you're talkin' my language, pal! Double for the demon, triple if it bites.", fx = { align = { order = -1 } } },
@@ -3814,7 +3861,7 @@ P:NPC {
   key = "sprogger", id = TODO_NPC("Sprogger"), name = "Sprogger",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "haunted" }, values = { "loyal" },
-  notices = { "drink" },
+  notices = { "drink", "lock_shadow" },
 
   impression = {
     first = "He speaks plainly of the giants, which makes it worse to hear.",
@@ -3828,6 +3875,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy on the grog. The water's closer than you think from these docks, and I'd know." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The stew's gone off the boil, and it never goes off the boil, not with this fire under it. Something about you takes the heat out of a room, {class}, and the captain doesn't need any more cold in his life." },
   },
 
   start = "hello",
@@ -3882,7 +3931,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. I've cooked for him a long time, and I've never seen him like this, so I'll ask you plainly to leave him be." } },
+      lines = {
+        { id = "xlock_default", text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. I've cooked for him a long time, and I've never seen him like this, so I'll ask you plainly to leave him be." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. Now you've brought that thing right up to my galley door, smelling of sulphur and watching me like I'm on the menu, so I'll ask you plainly to take it and leave him be." },
+      },
       choices = {
         { text = "I'll leave him be. He deserves peace.", next = "BACK", reply = "Thank you, he does, and so do I. I'll keep him from making a deal he'll regret.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If he wants a demon, that's his choice.", next = "BACK", reply = "His choice, maybe, but I'll not let him make it without telling him what I think. Somebody has to.", fx = { align = { light = -1 } } },
@@ -4270,7 +4322,7 @@ P:NPC {
   key = "lozgil", id = TODO_NPC("Wharfmaster Lozgil"), name = "Wharfmaster Lozgil",
   bible = "bibles/stranglethorn.md", role = "worker", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "careful", "practical" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He sees every crate and face off the boats, mine included.",
@@ -4284,6 +4336,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Horde, eh? There's a crate of axes on my dock with your name on it, or your Warchief's name, anyway, and it's been sitting there for days running up storage fees." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Hold there, because I hear crystal in that bag, and the Cartel taxes gems at the gate. Soul shards, are they? There's no column in my ledger for those, so I suppose they'll go under livestock with the demons." },
   },
 
   start = "hello",
@@ -4356,7 +4410,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I count everything, because the Cartel taxes everything, and I'm not about to let a demon slip through just because it's ugly. I've got a column for livestock and a column for passengers, and so far your sort have gone under livestock, at the livestock rate." } },
+      lines = {
+        { id = "xlock_default", text = "I count everything, because the Cartel taxes everything, and I'm not about to let a demon slip through just because it's ugly. I've got a column for livestock and a column for passengers, and so far your sort have gone under livestock, at the livestock rate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I count everything, because the Cartel taxes everything, and that includes the brimstone-stinking thing standing at your heel. It's under livestock, at the livestock rate, and I'll thank you to stop it breathing on my ledger before I add a surcharge." },
+      },
       choices = {
         { text = "Count it how you like. Rules keep the port running.", next = "BACK", reply = "Thank you, friend, at last somebody understands. The port runs on counts.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon is no one's livestock. Leave it off your books.", next = "BACK", reply = "No one's livestock, eh? Then it's cargo, friend, and cargo's taxed too. Everything goes on the books.", fx = { align = { order = -1 } } },

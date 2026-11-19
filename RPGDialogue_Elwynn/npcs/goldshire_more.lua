@@ -8,7 +8,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "tomas", id = TODO_NPC("Tomas"), name = "Tomas", title = "Cook",
   bible = "bibles/goldshire_more.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "warm" }, values = { "craft", "kind" }, notices = { "hunger", "craft" },
+  temper = { "warm" }, values = { "craft", "kind" }, notices = { "hunger", "craft", "lock_shadow" },
   impression = {
     first = "He asked whether I'd eaten before he asked my name.",
     third = "{name} met Tomas, the cook in the back of the Lion's Pride Inn, who teaches cooking to anyone who'll stand still long enough.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You look like a long day and no supper. There's bread on the board; nobody here counts the crusts." },
     { id = "n_craft", cat = "craft", when = { profession = "Cooking" },
       text = "Cooking's a lifelong pursuit, and I can see you've started on it. Show me your knife hand sometime and I'll tell you how far along you are." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dough's gone flat in the bowl since you walked in, and bread doesn't sulk for no reason. I don't blame you for your trade, but I'd thank you to stand by the door until the loaves are in." },
   },
   start = "hello",
   nodes = {
@@ -84,7 +86,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. I don't blame you for your trade, but I'd thank you to keep it on your side of the wall." } },
+      lines = {
+        { id = "xlock_default", text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. I don't blame you for your trade, but I'd thank you to keep it on your side of the wall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. Now that I see your demon watching me through the larder door, I've a fair idea whose laugh it was, so I'd thank you to keep it on your side of the wall." },
+      },
       choices = {
         { text = "Whatever laughed, I'll see it never troubles your kitchen.", next = "BACK", reply = "I'd be grateful, though I'll not ask how. My bread's been suffering for it.", fx = { align = { light = 1 } } },
         { text = "A cook should learn not to listen through walls.", next = "BACK", reply = "Easy to say when it's not your bread going stale from fright. I'll keep my ears where they are, thanks.", fx = { align = { light = -1 } } },
@@ -214,7 +219,7 @@ P:NPC {
 P:NPC {
   key = "kira", id = TODO_NPC("Kira Songshine"), name = "Kira Songshine", title = "Traveling Baker", gender = "female",
   bible = "bibles/goldshire_more.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "cheerful" }, values = { "practical" }, notices = { "hunger", "weary" },
+  temper = { "cheerful" }, values = { "practical" }, notices = { "hunger", "weary", "lock_shards" },
   impression = {
     first = "She sold me a loaf before I'd quite decided to buy one.",
     third = "{name} met Kira Songshine, the baker who walks the roads around Goldshire selling bread and drink.",
@@ -234,6 +239,8 @@ P:NPC {
       text = "Oh, you've been in the wars. Eat something before you go any further; a loaf weighs nothing and it'll carry you to Goldshire." },
     { id = "n_weary", cat = "weary", when = { resSick = true },
       text = "You look like you've been somewhere very cold and come back. Sit on the verge a moment, and have some water first." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Something in your pack is cold enough that I felt it from the road, like a basket of snow, and my bread's gone stiff in its cloth. I'll sell you a loaf, but I'll hand it over quickly." },
   },
   start = "hello",
   nodes = {
@@ -296,7 +303,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." } },
+      lines = {
+        { id = "xlock_default", text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. By the smell of brimstone, I'd say one of them is standing beside you this minute, so forgive me if I keep my basket on the far side." },
+      },
       choices = {
         { text = "I'll walk you past the dark stretches, if you like.", next = "BACK", reply = "Would you? I'd be glad of it, though I'll not tell Farley why. Just to the edge of town.", fx = { align = { light = 1 } } },
         { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", reply = "I'll keep walking fast, then, and you keep your demons home. That's fair, isn't it?", fx = { align = { light = -1 } } },
@@ -584,7 +594,7 @@ P:NPC {
 P:NPC {
   key = "matt", id = TODO_NPC("Matt"), name = "Matt",
   bible = "bibles/goldshire_more.md", role = "child", tier = "service", communities = { "goldshire" },
-  temper = { "grumbling" }, values = { "patient" }, notices = { "craft" },
+  temper = { "grumbling" }, values = { "patient" }, notices = { "craft", "lock_breath" },
   impression = {
     first = "I didn't have the heart to tell him about his knot.",
     third = "{name} met Matt, a Goldshire boy who fishes every day and catches very little.",
@@ -595,6 +605,8 @@ P:NPC {
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "You fish? Real fishing, with a proper pole? Did Lee Brown teach you? He won't teach me till I'm taller." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You're breathing all slow and bubbly like a fish! If you can walk about under Crystal Lake, you could just go down and tell the fish to bite, and I'd split whatever I caught with you." },
   },
   start = "hello",
   nodes = {
@@ -609,7 +621,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." } },
+      lines = {
+        { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not curse them, exactly, only make them a bit less stubborn. Couldn't your {pet} just stand at the edge of the pond and give them a look, because it's already given me one, and I'd have jumped into a net myself." },
+      },
       choices = {
         { text = "Keep your line in, Matt. You'll catch something.", next = "BACK", reply = "I will, and they'll bite, they have to. I'll catch the biggest one ever.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A little nudge wouldn't hurt anyone. I'll think on it.", next = "BACK", reply = "Really? Don't tell Lee Brown. He says cheating makes the fish angry.", fx = { align = { light = -1 } } },

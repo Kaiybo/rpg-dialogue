@@ -7,7 +7,7 @@ P:NPC {
   key = "kania", id = TODO_NPC("Kania"), name = "Kania", title = "Enchanting Supplies",
   bible = "bibles/silithus.md", role = "vendor", tier = "service",
   communities = { "cenarion_hold" }, temper = { "precise" }, values = { "craft", "careful" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_stones" },
 
   impression = {
     first = "She speaks about her formulae like rare plants.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "There's arcane dust under your fingernails, enchanter, and you've wiped some on your sleeve. You'll want to see what I have, then, and I've a formula or two you won't find in Darnassus." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "A mage, all the way out here! Mind your spells near my table, if you would; a stray spark among these dusts would be a very bright mistake." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your pack, and my dusts are drifting toward it like moths to a lamp. Keep it closed while you're up here, because I'd rather not lose an enchantment to a stone that wants to be a fire." },
   },
 
   start = "hello",
@@ -77,7 +79,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." } },
+      lines = {
+        { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, though I'd ask your demon not to breathe on my wares, and I keep my best formulae for cloaks against the silithid, not curses." },
+      },
       choices = {
         { text = "Fair. Your formulae should serve the Hold.", next = "BACK", reply = "I'm glad you think so, because the Hold has been good to me, and it's the least my craft can do in return.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Knowledge should go to whoever can pay.", next = "BACK", reply = "Some knowledge, perhaps, but the kind that turns a cloak into a shield is too precious to sell to whoever happens by.", fx = { align = { order = -1 } } },
@@ -175,7 +180,7 @@ P:NPC {
   key = "khur", id = TODO_NPC("Khur Hornstriker"), name = "Khur Hornstriker", title = "Reagents",
   bible = "bibles/silithus.md", role = "vendor", tier = "service",
   communities = { "cenarion_hold" }, temper = { "calm" }, values = { "careful", "nature" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "Selling poison seems no stranger to him than selling herbs.",
@@ -191,6 +196,8 @@ P:NPC {
       text = "You'll be wanting the poison makings, I expect. I sell them freely, but use them on the silithid, little one, not on anybody standing in this Hold." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman's ankh will need replacing, sooner or later, out in a land this angry. I keep plenty in stock, because the spirits here are restless." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I sell reagents and poisons, and you buy what you need, but the shards in your bag you took yourself. I cannot sell you those, and I would not, because a soul is not a reagent in my people's ways." },
   },
 
   start = "hello",
@@ -245,7 +252,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." } },
+      lines = {
+        { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust everyone the same, which is to say a little, and I trust that creature of yours a good deal less than that. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them, but what the demon does, she will judge you for as well." },
+      },
       choices = {
         { text = "Then I'll use them well, against the hives.", next = "BACK", reply = "Then you have my trust, and the Earth Mother will judge you kindly, as I will.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What I do with them is my affair.", next = "BACK", reply = "It is, until it becomes the Hold's affair, and then it will be mine too, so use them well.", fx = { affinity = -1, align = { light = -1 } } },
@@ -344,7 +354,7 @@ P:NPC {
   key = "leoren", id = TODO_NPC("Squire Leoren Mal'derath"), name = "Squire Leoren Mal'derath", title = "Stable Master",
   bible = "bibles/silithus.md", role = "stablemaster", tier = "service",
   communities = { "cenarion_hold" }, temper = { "earnest" }, values = { "dutiful", "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He treats every boarded beast as a soldier in his charge.",
@@ -358,6 +368,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Your {pet} has sand in its coat, friend. Let me brush it out before you go back into the dunes, because sand rubs a beast raw in a day." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Please don't bring that horse any closer to the stalls! It's beautiful in a terrible way, with its hooves all ablaze, but the riding cats are already climbing the walls, and I'm the one who has to calm them." },
   },
 
   start = "hello",
@@ -418,7 +430,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep each one safe." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep each one safe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I hope I never must, though every horse in the stalls is pressed against the far wall now that your demon has come in. A frightened beast in a stall can hurt itself badly, and this is my first post, so I must ask you to take it outside before one of them breaks a leg." },
+      },
       choices = {
         { text = "I understand. I'll keep my demon away.", next = "BACK", reply = "Thank you, truly, because they'd panic the moment they smelled it, and I'd be up all night mending stalls.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon's just as worthy as any beast.", next = "BACK", reply = "Perhaps, but the beasts don't think so, and they'd tell you as much, very loudly, if you brought it inside.", fx = { affinity = -1, align = { order = -1 } } },

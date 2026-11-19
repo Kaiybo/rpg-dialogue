@@ -9,7 +9,7 @@ P:NPC {
   key = "sara_balloo", id = TODO_NPC("Sara Balloo"), name = "Sara Balloo",
   bible = "bibles/military_ward.md", role = "citizen", tier = "quest",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "loving", "loyal" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_soulstone" },
 
   impression = {
     first = "She waits for news of her husband Sully and questions every traveler.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A priest. I've had the High Priest's people by, an' they're very kind, but I don't want tae be prayed at today; I only want tae sit." },
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, ["not"] = { questDone = TODO_QUEST("Sully Balloo's Letter") } },
       text = "Ye carry yerself like a soldier. Have ye been up through the Wetlands, past Dun Modr? My Sully's posted there." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've a soul bound in a stone, haven't ye? I can see it on ye, a kind o' shiver, an' it makes me wish my Sully had carried one tae the Thandol Span, whatever the priests say about it." },
   },
 
   start = "hello",
@@ -92,6 +94,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd take news from a trogg if it had seen my Sully, an' I'm past carin' who brings it. The folk in the Ward look at ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd take news from a trogg if it had seen my Sully, an' I'll ask yer demon too, if it's seen him, for I'm past carin' who answers. The folk in the Ward are lookin' at the pair o' ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
       },
       choices = {
         { text = "If I hear anything, I'll bring it straight to you.", next = "BACK", reply = "Thank ye. Let them whisper; the folk who look at us sideways have never once brought me a letter.", fx = { align = { honor = 1 } } },
@@ -276,7 +279,7 @@ P:NPC {
   key = "kelstrum", id = TODO_NPC("Kelstrum Stonebreaker"), name = "Kelstrum Stonebreaker", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "stern", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "He said I wouldn't last a day under him, and laughed.",
@@ -299,6 +302,8 @@ P:NPC {
       text = "A dwarf warrior, standin' like the Ward taught ye, more or less. Shoulders back; ye're no' carryin' a keg." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "One o' Brandur Ironhammer's paladins, by the shine on ye. Mind ye don't blind my students, for they've enough trouble seein' a punch comin'." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There's a black shell on ye that drinks the light, an' my lads would want tae test it wi' an axe. I'll grant it's a clever piece o' warding, but I'll no' have ye showin' it off in my Hall where they can see." },
   },
 
   start = "hello",
@@ -344,7 +349,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." } },
+      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Fear it? Look at them, three o' my recruits are already lowerin' their heads at yer demon, for they've been taught tae charge anythin' wi' horns an' they're no' sure it hasnae got any. Get it out o' the yard before they decide, for I'd rather they learned on dummies than on that." },
+      },
       choices = {
         { text = "I'll keep it out of the yard. Your recruits come first.", next = "BACK", reply = "Thank ye, for my recruits charge enough things already without me givin' them reasons tae charge somethin' that bites back.", fx = { align = { light = 1 } } },
         { text = "Let them charge it. They'd learn faster that way.", next = "BACK", reply = "Faster, aye, an' then I'd be explainin' tae their mothers why they're short a hand, so keep yer pet at home.", fx = { align = { light = -1 } } },
@@ -500,7 +507,7 @@ P:NPC {
   key = "bilban", id = TODO_NPC("Bilban Tosslespanner"), name = "Bilban Tosslespanner", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "practical", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He explains swordplay as if it were a faulty machine.",
@@ -517,6 +524,8 @@ P:NPC {
       text = "Due to incompatibility in your class specification, I am unable to train you. I can, however, recommend that you stand behind someone I have trained." },
     { id = "n_gnome_war", cat = "class", when = { class = "WARRIOR", race = "Gnome" },
       text = "A gnome warrior! Low center of gravity, excellent; most opponents' guards are calibrated for a target twice your height." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "I count twenty-plus soul shards in that bag by the clink alone, and I'm usually accurate to within two. That's a great many creatures that aren't walking around any longer, so I'll note it in the file as productive, if somewhat alarming." },
   },
 
   start = "hello",
@@ -562,7 +571,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." } },
+      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. I notice your demon is standing beside my newest target, which is also sawdust, so I'd be grateful if you moved it before we repeat the experiment." },
+      },
       choices = {
         { text = "I'll keep the imp well away from your machines.", next = "BACK", reply = "Thank you, very sensible, and I'll note that you've been warned, which helps with the paperwork if anything should catch light.", fx = { align = { light = 1 } } },
         { text = "Sawdust targets were a poor design choice, Bilban.", next = "BACK", reply = "I've since replaced them with fireproof straw, which I'm told is a contradiction in terms, but it's the best I've got so far.", fx = { align = { light = -1 } } },
@@ -715,7 +726,7 @@ P:NPC {
   key = "daera", id = TODO_NPC("Daera Brightspear"), name = "Daera Brightspear", title = "Hunter Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "steady" }, values = { "practical", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "She seems to trust beasts more than people.",
@@ -732,6 +743,8 @@ P:NPC {
       text = "{pet}, is it? That's a good name, an' the beast'll answer tae it as long as ye feed it, an' longer, if ye're kind." },
     { id = "n_priest", cat = "pet", when = { class = "PRIEST" },
       text = "A priest in the Hall o' Arms. Ye'd make a fair hunter, I think; ye already know how tae keep somethin' alive that'd rather bite ye." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Yon horse wi' the burnin' hooves stays wi' ye for the same reason yer imp does, because ye've a chain on it. A hunter's beast follows because it wants tae, an' that difference is the whole o' my trade, so keep it away from my wolves." },
   },
 
   start = "hello",
@@ -802,6 +815,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Aye, as different as a friend is from a prisoner, for a hunter's beast stays because it wants tae. Yers stays because ye've a chain on it, an' the day that chain slips, ye'll learn what it thought o' ye all along." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Aye, as different as a friend is from a prisoner, an' I only have tae look at yer {pet} tae see it, for it watches ye the way a chained dog watches the man wi' the key. A hunter's beast stays because it wants tae, an' the day yer chain slips, ye'll learn what that thing thought o' ye all along." },
       },
       choices = {
         { text = "You're right. I'll never trust it.", next = "BACK", reply = "That's the wisest thing a warlock ever said in my yard. It'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },

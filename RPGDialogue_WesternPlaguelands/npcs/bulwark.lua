@@ -388,7 +388,7 @@ P:NPC {
   key = "vandis", id = TODO_NPC("Shadow Priestess Vandis"), name = "Shadow Priestess Vandis",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark" }, temper = { "sharp" }, values = { "practical", "faithless" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "I'm fairly sure she was counting my fingers while we talked.",
@@ -409,6 +409,8 @@ P:NPC {
       text = "Another priest, holy or shadow, and don't bother telling me which. Out there they both kill ghouls, and that's the only sermon I believe in." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren, praying to the Earth Mother at the edge of the Plaguelands. She isn't listening here, I'm afraid, and neither is anything else." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow sits on you differently than mine sits on me, {class}. I grew mine in the dark of my own grave, and yours was lent to you by something that will want it back." },
   },
 
   start = "hello",
@@ -542,7 +544,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Good allies and poor friends, as anyone in this ruined kingdom could tell you. The Scourge was built on bargains with darker things than yours, so use your demons on the cauldron guards, {class}, and keep your own bargains small." } },
+      lines = {
+        { id = "xlock_default", text = "Good allies and poor friends, as anyone in this ruined kingdom could tell you. The Scourge was built on bargains with darker things than yours, so use your demons on the cauldron guards, {class}, and keep your own bargains small." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Good allies and poor friends, and yours is watching me as though it knows which of the two it means to be. The Scourge was built on bargains with darker things, so use {pet} on the cauldron guards, {class}, and keep your own bargains small." },
+      },
       choices = {
         { text = "Small bargains are wise. I won't be another Kel'Thuzad.", next = "BACK", reply = "Good. Kel'Thuzad started small too, but he never knew when to stop.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power comes from large bargains. I'll take what I need.", next = "BACK", reply = "Then I'll be watching what you take, warlock, because so did the Cult of the Damned.", fx = { align = { light = -1 } } },
@@ -629,7 +634,7 @@ P:NPC {
   key = "dithers", id = TODO_NPC("Apothecary Dithers"), name = "Apothecary Dithers",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "apothecarium" }, temper = { "jovial" }, values = { "curious", "morbid" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
 
   impression = {
     first = "He forecasts the weather with an exposed knee and seems proud.",
@@ -650,6 +655,8 @@ P:NPC {
       text = "An alchemist, how lovely, come and smell this! No? Very wise, though I can't smell much at all anymore, which in my line of work is a real advantage." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "Living, are you? Then don't lick anything out here, which I say to everyone, and which the living never listen to." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "All those shards, and every one of them a soul with nowhere to go! I've been building my key out of bones, but I expect a soul would turn the lock far more willingly, if you ever found yourself with one to spare." },
   },
 
   start = "hello",
@@ -839,7 +846,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everything's a sample if you look at it properly, but I take your point and I withdraw the scalpel. The key to the Scholomance wants bones, not imps, and I've enough to do without a fire-sprite loose in my cabinet." } },
+      lines = {
+        { id = "xlock_default", text = "Everything's a sample if you look at it properly, but I take your point and I withdraw the scalpel. The key to the Scholomance wants bones, not imps, and I've enough to do without a fire-sprite loose in my cabinet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything's a sample if you look at it properly, but your demon is looking at my scalpel rather pointedly, so I take your point and I put it down. The key to the Scholomance wants bones, not demons, and I've enough to do without your servant loose in my cabinet." },
+      },
       choices = {
         { text = "Studying demons could teach us how to fight them.", next = "BACK", reply = "It could, it could, and I'd love to, but not today. Today it's bones.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some things shouldn't be cut open, apothecary.", next = "BACK", reply = "Quite right, and the imp agrees, I think. The scalpel stays sheathed.", fx = { align = { light = 1 } } },
@@ -923,7 +933,7 @@ P:NPC {
   key = "alexi", id = TODO_NPC("Alexi Barov"), name = "Alexi Barov",
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "bulwark" }, temper = { "proud", "sharp" }, values = { "greedy", "vengeful" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_soulstone" },
 
   impression = {
     first = "He spoke of his brother's death like a late payment.",
@@ -941,6 +951,8 @@ P:NPC {
       text = "One of us, freed by the Dark Lady as I was. Of course, I was a Barov before I was a corpse, and what you were I really don't need to know." },
     { id = "n_rags", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your armor is a disgrace. Bring me my fortune and you can buy better, and you'll still be a peasant, but at least a well-dressed one." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has put your soul in a stone for safekeeping, I see, and good for you. My family sold ours to Kel'Thuzad outright, so a short lease with a warlock looks like very sound business by comparison." },
   },
 
   start = "hello",
@@ -1080,7 +1092,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Heavens, no, I'm suggesting you burn it down, though I'd want the deeds out first. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so you'll find them very easy to hate." } },
+      lines = {
+        { id = "xlock_default", text = "Heavens, no, I'm suggesting you burn it down, though I'd want the deeds out first. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so you'll find them very easy to hate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Heavens, no, I'm suggesting you burn it down, and your demon looks as though it would enjoy the work. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so do take the creature along, though I'd want the deeds out first." },
+      },
       choices = {
         { text = "Burn it all, deeds included. That school deserves nothing.", next = "BACK", reply = "Burn the deeds? You're as bad as Weldon. Bring them out first, and burn whatever you like after.", fx = { align = { light = 1 } } },
         { text = "I'll bring your deeds out first. Business is business.", next = "BACK", reply = "Good. Business is business, and I knew we'd understand each other.", fx = { affinity = 1, align = { light = -1 } } },
@@ -1186,7 +1201,7 @@ P:NPC {
   key = "garush", id = TODO_NPC("Argent Officer Garush"), name = "Argent Officer Garush",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "bulwark", "argent_dawn" }, temper = { "steady" }, values = { "honorable", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_taint" },
 
   impression = {
     first = "He speaks plainly and means every word.",
@@ -1204,6 +1219,8 @@ P:NPC {
       text = "Another orc, then you know what it is to be a weapon someone else aimed. The Dawn aims at one thing only, and I like that about it." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman, so you'll feel how sick the spirits are here. Fight anyway, and they'll thank you for it when they're well again." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell of the green fire, and it's the smell of my grandfather's tent in the camps before Thrall. I've spent my whole life getting that smell out of my nose, so stand downwind of me and we'll get on fine." },
   },
 
   start = "hello",
@@ -1350,7 +1367,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Dawn looks at the enemy and not the weapon, and I'm trying to learn that lesson late in life. Turn your fel on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop you." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Dawn looks at the enemy and not the weapon, and I'm trying to learn that lesson late in life. Turn your fel on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Dawn looks at the enemy and not the weapon, though it's harder when the weapon stands at your heel and stinks of the blood my people drank. Turn that thing on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop it." },
+      },
       choices = {
         { text = "Fair. If I ever fall to it, stop me.", next = "BACK", reply = "I will, and I'll do it cleanly. Fair is fair.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is only a weapon, officer. Your fear makes you weak.", next = "BACK", reply = "Perhaps, but I've seen what fel did to my people. I'll keep my fear and my axe both.", fx = { align = { light = -1 } } },

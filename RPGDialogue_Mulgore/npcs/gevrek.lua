@@ -9,7 +9,7 @@ P:NPC {
   communities = { "gevrek" }, temper = { "steady" }, values = { "loyal", "devout", "proud" },
   likesTone = "polite", private = { "two_orders" },
   spiritSensitive = true,
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_pact" },
   impression = {
     first = "She is determined the tauren never regret welcoming her people.",
     third = "{name} met Ayessa Dawnsinger, leader of the Windshapers at Camp Gev'rek in Mulgore.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You've walked the elemental trials; I can see it in how you stand, and that is good." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Thunder Bluff opened its gates to us. We won't forget that, and we won't make the tauren regret it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The elements in this camp have drawn back from you like water from a hot stone, and my Windshapers have stopped their chant to listen. The Earthen Ring taught us to hear what the world is saying, and right now it is saying something about you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever in your blood that no sickness put there, the heat of some small fire-thing, and the spirits around me can feel it burning. Whoever bound you into that pact, I hope they paid for it themselves." },
   },
 
   start = "hello",
@@ -131,6 +135,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "We fear what we don't understand, and the Gev'rek hunters have gone still and silent since your demon walked into camp. They owe Thunder Bluff their welcome, so I'd ask you to take it back to the edge of the trees, out of respect for them and for us." },
       },
       choices = {
         { text = "I'll keep it out of your camp, Elder.", next = "BACK", reply = "Thank you, and Gev'rek thanks you, though the young ones will still stare. Come to us without it, and you will be welcome.", fx = { align = { order = 1 } } },

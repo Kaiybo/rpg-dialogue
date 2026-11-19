@@ -9,7 +9,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "dobbins", id = TODO_NPC("Barkeep Dobbins"), name = "Barkeep Dobbins",
   bible = "bibles/goldshire_folk.md", role = "innkeeper", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "witty" }, notices = { "drink" },
+  temper = { "steady" }, values = { "witty" }, notices = { "drink", "lock_shadow" },
   impression = {
     first = "He says the real work of a barkeep is forgetting.",
     third = "{name} was served at the Lion's Pride by Barkeep Dobbins, who hears everything and claims to forget it all.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Farley says it's water for you, and I always do what Farley says, mostly. Here you are, then: water, and very good water it is." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles along the bar have all leaned away from you like there's a draught, and there's no draught in here, because I've checked. Sit where you like, but I'll pour your ale before the barrels start whispering again." },
   },
   start = "hello",
   nodes = {
@@ -102,7 +104,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me when the ale barrels go cold in midsummer, which they do more than they should, and I'd swear one of them whispered once. Farley says not to ask, so I don't, but I pour quicker on the nights it whispers." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me when the ale barrels go cold in midsummer, which they do more than they should, and I'd swear one of them whispered once. Farley says not to ask, so I don't, but I pour quicker on the nights it whispers." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me when the ale barrels go cold in midsummer, and I'll swear the one behind me went cold the moment your demon came through the door. Farley says not to ask, so I won't, but I'd thank you to keep it away from the taps while I pour." },
+      },
       choices = {
         { text = "I'll make sure nothing below disturbs your barrels again.", next = "BACK", reply = "Would you? I'd be grateful, though I'll not ask how you'll manage it. I just want my barrels warm and quiet.", fx = { align = { light = 1 } } },
         { text = "A little whispering never hurt anyone. Pour and don't ask.", next = "BACK", reply = "Easy to say when it's not your cellar, friend. I'll keep pouring, but I'll pour faster on whispering nights.", fx = { align = { light = -1 } } },
@@ -232,7 +237,7 @@ P:NPC {
 P:NPC {
   key = "brog", id = TODO_NPC("Brog Hamfist"), name = "Brog Hamfist", title = "General Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = {},
+  temper = { "steady" }, values = { "honest" }, notices = { "lock_shards" },
   impression = {
     first = "He seemed quite certain I'd forgotten to pack something.",
     third = "{name} met Brog Hamfist, Goldshire's seller of rope, flint and the bags adventurers always need more of.",
@@ -241,6 +246,11 @@ P:NPC {
     { id = "g_stock", text = "Rope, flint, flasks and thread, everything you forgot to pack." },
     { id = "g_new", when = { maxLevel = 6 }, text = "Fresh out of Northshire, are you? You'll want more bags than you think; everyone does." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag of yours clinks like a purse full of cold coins, and I'll wager they're not coins. Your lot pay well enough, so I'll not ask what's inside them." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -254,7 +264,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about. I don't care what folk do in the cellar, but I do care that they pay, and your lot always pay, while the adventurers upstairs run up a slate and vanish to Westfall." } },
+      lines = {
+        { id = "xlock_default", text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about. I don't care what folk do in the cellar, but I do care that they pay, and your lot always pay, while the adventurers upstairs run up a slate and vanish to Westfall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about, and none of them ever brought their demon up to the counter like you have. I don't care what it is so long as it doesn't touch the stock, because your lot always pay, and I'd hate to start charging for scorch marks." },
+      },
       choices = {
         { text = "A fair trader. I'll keep paying, Brog.", next = "BACK", reply = "Glad to hear it, because that's all I ask of anyone. What you do with the chalk is between you and the cellar.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If you don't care, I'll stop paying full price.", next = "BACK", reply = "Not caring isn't the same as being soft, friend. Full price, or the candles stay on the shelf.", fx = { align = { honor = -1 } } },
@@ -404,7 +417,7 @@ P:NPC {
 P:NPC {
   key = "toddrick", id = TODO_NPC("Toddrick"), name = "Toddrick", title = "Butcher",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = {},
+  temper = { "steady" }, values = { "honest" }, notices = { "lock_pact" },
   impression = {
     first = "He warned me off the wolf meat, even his own.",
     third = "{name} met Toddrick, the butcher at the Lion's Pride, who takes great pride in his sausages and none in wolf.",
@@ -412,6 +425,11 @@ P:NPC {
   greetings = {
     { id = "g_cut", text = "The best cuts in Goldshire; ask anyone, though don't ask the boars." },
   },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed like a man with a fever, and your blood's running hot enough that I can see the vein at your neck. Meat spoils near heat like that, so stand back from the hooks while we talk." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -473,7 +491,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Farley says the cellar's damp, but damp doesn't turn beef grey overnight." } },
+      lines = {
+        { id = "xlock_default", text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Farley says the cellar's damp, but damp doesn't turn beef grey overnight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Your servant's been eyeing my hooks since it came in, and I'd swear the beef nearest it has gone grey already, so I'll ask you to step back from the counter." },
+      },
       choices = {
         { text = "I'll see whatever's spoiling your meat is dealt with.", next = "BACK", reply = "I'd be grateful for that, whatever it is you'll be doing. Just don't tell me about it.", fx = { align = { light = 1 } } },
         { text = "A little spoiled beef is the price of power nearby.", next = "BACK", reply = "Not my power, though, and not my beef. I'll keep complaining to Farley until something changes.", fx = { align = { light = -1 } } },
@@ -604,7 +625,7 @@ P:NPC {
 P:NPC {
   key = "tharynn", id = TODO_NPC("Tharynn Bouden"), name = "Tharynn Bouden", title = "Trade Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "ambitious" }, notices = {},
+  temper = { "steady" }, values = { "ambitious" }, notices = { "lock_soulstone" },
   impression = {
     first = "She dreams openly of a gold-lettered sign in the Trade District.",
     third = "{name} met Tharynn Bouden, a trade supplier who works from a roadside wagon and dreams of a shop in Stormwind.",
@@ -613,6 +634,11 @@ P:NPC {
     { id = "g_craft", text = "Thread, dye, flux and vials, for people who make things." },
     { id = "g_crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } }, text = "Ah, a crafter, my favourite kind of customer, because you come back." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone in your pack? I've a reputation to keep in this town, and I'd rather nobody saw a thing with a soul waiting in it sitting on my counter while you browse." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -674,7 +700,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I've a reputation to keep in Goldshire, and everyone knows there's something under the Lion's Pride that nobody talks about. I'd rather not be the shop that sells it what it needs." } },
+      lines = {
+        { id = "xlock_default", text = "Because I've a reputation to keep in Goldshire, and everyone knows there's something under the Lion's Pride that nobody talks about. I'd rather not be the shop that sells it what it needs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've a reputation to keep in Goldshire, and now half the street's watched your demon walk through my door. Everyone knows there's something under the Lion's Pride that nobody talks about, and I'd rather not be the shop that sells it what it needs." },
+      },
       choices = {
         { text = "Your reputation matters. I understand, Bouden.", next = "BACK", reply = "Thank you, and I'm glad you understand it's not personal. I'll sell you anything that isn't for the cellar.", fx = { align = { light = 1 } } },
         { text = "Your caution is costing you good business.", next = "BACK", reply = "It might be, but I'll not lose my good name for a few coppers. Goldshire talks, friend.", fx = { align = { light = -1 } } },
@@ -775,7 +804,7 @@ P:NPC {
 P:NPC {
   key = "krighton", id = TODO_NPC("Andrew Krighton"), name = "Andrew Krighton", title = "Armorer & Shieldcrafter",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
-  temper = { "proud" }, values = { "honest" }, notices = { "kit" },
+  temper = { "proud" }, values = { "honest" }, notices = { "kit", "lock_armor" },
   impression = {
     first = "He has firm opinions on who belongs behind a shield.",
     third = "{name} met Andrew Krighton, Goldshire's armorer, who believes a shield is for others to hide behind.",
@@ -786,6 +815,8 @@ P:NPC {
   notice = {
     { id = "n_shield", cat = "kit", when = { class = { "WARRIOR", "PALADIN" }, durability = { max = 0.3 } },
       text = "That shield's taken a beating, which is good, because that's its job. Let me see if it can take another." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide crawling over your shoulders isn't anything I'd hammer, and I'd guess it turns a blade better than half my stock. I'll not pretend I'm not jealous, though I'd not wear it for all the gold in Stormwind." },
   },
   start = "hello",
   nodes = {
@@ -800,7 +831,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. His demon chewed the left one, and yours is giving my shield rack much the same look, so I'll ask you to keep it where I can see it." },
+      },
       choices = {
         { text = "You did him a kindness. He should have minded his imp.", next = "BACK", reply = "He should have, and I told him so, though the imp just grinned at me. I'll stick to customers without teeth.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps chew. You should have lined them three times.", next = "BACK", reply = "Three times, and it'd have chewed through all three, I'd wager. I'll leave the demons to someone else's needle.", fx = { align = { order = -1 } } },
@@ -948,7 +982,7 @@ P:NPC {
 P:NPC {
   key = "corina", id = TODO_NPC("Corina Steele"), name = "Corina Steele", title = "Weaponsmith", gender = "female",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
-  temper = { "sharp" }, values = { "proud" }, notices = { "kit" },
+  temper = { "sharp" }, values = { "proud" }, notices = { "kit", "lock_stones" },
   impression = {
     first = "She judged the balance of my weapon in a single glance.",
     third = "{name} met Corina Steele, Goldshire's weaponsmith, who has a quick tongue and an eye for a blade's balance.",
@@ -965,6 +999,8 @@ P:NPC {
   notice = {
     { id = "n_dull", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your blade's notched like a saw. Did you fight something, or chop firewood with it?" },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your bag, isn't there? I can feel the heat of it from across the anvil, and a blade that's been held near one of those never tempers right again." },
   },
   start = "hello",
   nodes = {
@@ -1027,7 +1063,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. But steel is steel, and I've no right to tell you how to use it." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. But steel is steel, and I've no right to tell you how to use it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. Your servant hasn't taken its eyes off my rack since you came in, and I'd sooner it did, but steel is steel, and I've no right to tell you how to use it." },
+      },
       choices = {
         { text = "I'll only use your steel to fight the Defias.", next = "BACK", reply = "I'd sleep easier for that, and I'll take you at your word. The Defias have earned your steel more than most.", fx = { align = { light = 1 } } },
         { text = "What I do in the cellar is my own affair, Corina.", next = "BACK", reply = "It is, and I said as much, though it doesn't stop me wondering. Pay for the blade and we'll leave it there.", fx = { align = { light = -1 } } },
@@ -1160,7 +1199,7 @@ P:NPC {
 P:NPC {
   key = "kurran", id = TODO_NPC("Kurran Steele"), name = "Kurran Steele", title = "Cloth & Leather Armor Merchant",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "witty" }, notices = {},
+  temper = { "steady" }, values = { "witty" }, notices = { "lock_taint" },
   impression = {
     first = "He and Corina share a forge and an argument neither will finish.",
     third = "{name} met Kurran Steele, who sells cloth and leather beside Corina's forge and quarrels with her quite contentedly.",
@@ -1168,6 +1207,11 @@ P:NPC {
   greetings = {
     { id = "g_leather", text = "Not everyone wants to clank. Come and see what I've got." },
   },
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Your cuffs have gone green at the edges, friend, and that's not mould, because I'd know mould. The cellar folk all go that way in the end, and they buy their coats darker every season to hide it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -1181,7 +1225,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough to keep out of it. Corina sells to the soldiers and I sell to anyone, and those cellar folk buy their coats dark and their boots soft, and they never haggle, so they've plainly got other things on their minds." } },
+      lines = {
+        { id = "xlock_default", text = "Enough to keep out of it. Corina sells to the soldiers and I sell to anyone, and those cellar folk buy their coats dark and their boots soft, and they never haggle, so they've plainly got other things on their minds." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough to keep out of it, and having seen what's followed you up from it, I'll keep out further. Those cellar folk buy their coats dark and their boots soft, and I'll sell you the same, so long as your {pet} doesn't go leaving a sulphur stink on the stock." },
+      },
       choices = {
         { text = "Some things are best left in the cellar.", next = "BACK", reply = "That's my view exactly, and I'll keep my nose out and my thread in. Coats and boots and no questions.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You'd learn a lot down there, Kurran. Come and see.", next = "BACK", reply = "Thank you, but I'll keep to my stall, where things only bite if they're moths. I've no wish to learn what's down there.", fx = { align = { light = -1 } } },
@@ -1331,7 +1378,7 @@ P:NPC {
 P:NPC {
   key = "erma", id = TODO_NPC("Erma"), name = "Erma", title = "Stable Master",
   bible = "bibles/goldshire_folk.md", role = "stablemaster", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "pet" },
+  temper = { "steady" }, values = { "kind" }, notices = { "pet", "lock_steed" },
   impression = {
     first = "Her four-legged guests clearly rank above the two-legged ones.",
     third = "{name} met Erma, Goldshire's stable master, who treats every beast in her care like visiting royalty.",
@@ -1342,6 +1389,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Oh, look at {pet}! Somebody feeds you properly, but somebody also forgets to brush you, so come here." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "My horses went wild in their stalls before you even reached the gate, and now I see why, because that beast of yours is leaving smoking hoofprints on my straw. Stable it here and I'll have no barn left by morning." },
   },
   start = "hello",
   nodes = {
@@ -1404,7 +1453,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd do more than shy, because they'd kick down their stalls, and I've only so many boards. A horse can smell the cellar under the Lion's Pride from here, and they don't like it any more than I do." } },
+      lines = {
+        { id = "xlock_default", text = "They'd do more than shy, because they'd kick down their stalls, and I've only so many boards. A horse can smell the cellar under the Lion's Pride from here, and they don't like it any more than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd do more than shy, because they'd kick down their stalls, and you can hear them starting now that your demon's in the yard. A horse can smell the cellar under the Lion's Pride from here, and that thing smells of it ten times worse, so I'll ask you to take it back to the road." },
+      },
       choices = {
         { text = "Then I'll keep my demon away from your horses, Erma.", next = "BACK", reply = "Thank you, and I'll not ask what you've got. Keep it well away and we'll get on fine.", fx = { align = { light = 1 } } },
         { text = "Your horses will have to get used to it.", next = "BACK", reply = "They'll not get used to it, friend, they'll only get hurt. Keep your business away from my stalls.", fx = { align = { light = -1 } } },
@@ -1507,7 +1559,7 @@ P:NPC {
 P:NPC {
   key = "michelle", id = TODO_NPC("Michelle Belle"), name = "Michelle Belle", title = "Physician",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "wounds" },
+  temper = { "steady" }, values = { "kind" }, notices = { "wounds", "lock_stones" },
   impression = {
     first = "I think she keeps count of everyone who skips the bandaging lesson.",
     third = "{name} met Michelle Belle, the Goldshire physician who teaches first aid beside Priestess Josetta.",
@@ -1516,6 +1568,8 @@ P:NPC {
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.25 } },
       text = "Look at the state of you! Linen, a clean hand and five minutes is all it takes, and most people won't spare the five minutes." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your bag will close a wound faster than my needle, I know, but it does it with somebody's stolen life. Use it if you must, and then come and let me look at you properly." },
   },
   start = "hello",
   nodes = {
@@ -1578,7 +1632,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." } },
+      lines = {
+        { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I can't help wondering how much of yours went into calling up the creature standing at your side." },
+      },
       choices = {
         { text = "I'll be more careful with my blood, Michelle.", next = "BACK", reply = "Good, because I'd rather not be patching you up after every spell. Come to me before it gets bad.", fx = { align = { light = 1 } } },
         { text = "Blood is a fair price for power. I'll pay it.", next = "BACK", reply = "Then you'll be paying it to me too, in linen and lost afternoons. I hope it's worth it.", fx = { align = { light = -1 } } },
@@ -2053,7 +2110,7 @@ P:NPC {
 P:NPC {
   key = "leebrown", id = TODO_NPC("Lee Brown"), name = "Lee Brown", title = "Fishing Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "craft" },
+  temper = { "steady" }, values = { "kind" }, notices = { "craft", "lock_breath" },
   impression = {
     first = "His catch grew longer while he was still describing it.",
     third = "{name} met Lee Brown, the fishing trainer at Crystal Lake, who loves the dawn mist and a well-stretched story.",
@@ -2062,6 +2119,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "Another angler! Crystal Lake's best at dawn, but don't tell anyone; well, you can tell them, since they won't get up." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You're breathing slow and easy like a carp in a bucket, and the cellar folk tell me that's a spell for walking about under the lake. I'd give a month's pay for it, because the big pike live where my line won't reach." },
   },
   start = "hello",
   nodes = {
@@ -2076,7 +2135,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." } },
+      lines = {
+        { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. Your demon's another matter, mind, because every fish in this pond has gone to the bottom since it came near the water." },
+      },
       choices = {
         { text = "It might do me good. I'll try it.", next = "BACK", reply = "That's all it asks of anyone, and the lake won't care what's in your books. Come down at dawn and I'll lend you a pole.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My head's busy for good reason. I've no time for ponds.", next = "BACK", reply = "I'd guess it is, and I'll not pry into why. The pond will still be here when your head quiets down.", fx = { align = { light = -1 } } },
@@ -2232,7 +2294,7 @@ P:NPC {
 P:NPC {
   key = "helene", id = TODO_NPC("Helene Peltskinner"), name = "Helene Peltskinner", title = "Skinning Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = { "craft" },
+  temper = { "steady" }, values = { "honest" }, notices = { "craft", "lock_shards" },
   impression = {
     first = "She looked at my knife before me, and thought little of it.",
     third = "{name} met Helene Peltskinner, the skinning trainer by Crystal Lake, who insists every hide be taken with a sharp knife.",
@@ -2241,6 +2303,8 @@ P:NPC {
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
       text = "Show me your knife. Hm, it's too dull, and hides tear when the knife's dull, so sharpen it tonight." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That pack of yours smells like a tanning vat and hums like a hornets' nest, so I'll guess you've been cutting more than skins. The student who wanted the wolf's heart left in carried a bag just like it." },
   },
   start = "hello",
   nodes = {
@@ -2303,7 +2367,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Eagan says I should have asked what it was for, but I'd rather not know." } },
+      lines = {
+        { id = "xlock_default", text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Eagan says I should have asked what it was for, but I'd rather not know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Now his sort bring their demons right up to my drying racks, and yours is watching the hides in a way I don't care for at all." },
+      },
       choices = {
         { text = "You were right to refuse him. That's a foul business.", next = "BACK", reply = "Thank you, because I've wondered since if I was too sharp with him. I'll not lose any sleep over it now.", fx = { align = { light = 1 } } },
         { text = "Every part of a beast has its uses. He wasn't wrong.", next = "BACK", reply = "He might not have been, but I didn't like his face. Find your own wolf, then, and leave mine be.", fx = { align = { light = -1 } } },
@@ -2411,7 +2478,7 @@ P:NPC {
 P:NPC {
   key = "adele", id = TODO_NPC("Adele Fielder"), name = "Adele Fielder", title = "Leatherworking Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "ambitious" }, notices = { "craft" },
+  temper = { "steady" }, values = { "ambitious" }, notices = { "craft", "lock_shadow" },
   impression = {
     first = "Her patience seems endless, though her opinions are not.",
     third = "{name} met Adele Fielder, the leatherworking trainer by Crystal Lake, who stitches and listens at the same time.",
@@ -2420,6 +2487,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "Your seams are crooked, as everyone's are at first. They'll be straighter by midsummer, if you practise." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow trails a half-step behind you, and I've watched it lag all the way across the floor. Good leather won't fix that, but I'd still sooner you walked in my boots than barefoot." },
   },
   start = "hello",
   nodes = {
@@ -2434,7 +2503,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't. But leather's leather and coin's coin, and I'd sooner your sort walked about in good boots than came upstairs barefoot and frightened the guests." } },
+      lines = {
+        { id = "xlock_default", text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't. But leather's leather and coin's coin, and I'd sooner your sort walked about in good boots than came upstairs barefoot and frightened the guests." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't, and now one of the things from it is standing in my shop. But leather's leather and coin's coin, so keep your {pet} by the door while I fetch your boots, and we'll say no more about it." },
+      },
       choices = {
         { text = "You're right to mind, Adele. It's honest of you.", next = "BACK", reply = "It's kind of you to say, and it makes the minding easier. I'll sell you good boots, and gladly.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Coin is coin. Don't trouble yourself over it.", next = "BACK", reply = "I try not to, but it nags at me some nights. Still, the boots are good, so buy them and go on.", fx = { align = { light = -1 } } },

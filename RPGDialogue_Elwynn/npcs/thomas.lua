@@ -7,7 +7,7 @@ P:NPC {
   key = "thomas", id = TODO_NPC("Guard Thomas"), name = "Guard Thomas",
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
-  notices = { "kit", "death" },
+  notices = { "kit", "death", "lock_shards" },
   impression = {
     first = "He hasn't forgotten the two men he sent north along the river.",
     third = "{name} met Guard Thomas, who keeps the eastern bridge and still waits for word of his missing men.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Your gear's not fit for the frontier, and I've buried men who thought theirs was, so see a smith in Goldshire." },
     { id = "n_died_here", cat = "death", when = { deathsHere = { min = 2 } },
       text = "You've been carried off this road twice already. I'd rather not write a third report with your name in it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "The guards in Stormwind are told to count the shards on your lot, and I make it a good dozen in that pack. I'll not write it down, seeing as I need your help, but I counted." },
   },
 
   start = "hello",
@@ -56,7 +58,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." } },
+      lines = {
+        { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever that is lurking at your heel. Still, Rolf and Malakai went north along the river and didn't come back, so if your servant can sniff out what happened to them, I'll not ask how." },
+      },
       choices = {
         { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", reply = "The truth's all I'm asking, however hard it is. Go north along the water, and come back and tell me what you find.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll look, but I'll do it my own way.", next = "BACK", reply = "Your way's your business, so long as you look. I've no time to be particular about who does the searching.", fx = { align = { honor = -1 } } },

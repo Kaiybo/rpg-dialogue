@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "wounds", "form" },
+  notices = { "wounds", "form", "lock_stones" },
   impression = {
     first = "She patches the wounded briskly and expects the gratitude to come later.",
     third = "{name} met Priestess Anetta at Northshire Abbey, who heals the recruits and trusts the Light's long and kindly memory.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "None of that shadow in the infirmary, please, because the wounded have had enough frights. Step out of it and roll up your sleeves." },
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "Another one from the kobold camps. Hold still; you're the ninth today, and the day's still young." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "I can heal what that healthstone heals, and I'd rather you came to me, because a stone like that mends you with a life somebody else lost. The Abbey's door is open, and it costs no one anything." },
   },
 
   start = "hello",
@@ -93,7 +95,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." } },
+      lines = {
+        { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, and seeing what walks beside you on it, I grieve more. The Abbey keeps its doors open to you, though I'll ask that you leave that creature on the step." },
+      },
       choices = {
         { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. There'll be a cot in the infirmary for you, whatever road you walk.", fx = { align = { light = 1 } } },
         { text = "Keep your grief, Priestess. My road is my own.", next = "BACK", reply = "It is, and I'll not take it from you. But I'll keep grieving all the same, and the door stays open.", fx = { align = { light = -1 } } },
@@ -213,7 +218,7 @@ P:NPC {
   key = "khelden", id = TODO_NPC("Khelden Bremen"), name = "Khelden Bremen", title = "Mage Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "proud" }, values = { "curious", "ambitious" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_armor" },
   impression = {
     first = "His notes scatter every time somebody leaves the door open.",
     third = "{name} met Khelden Bremen, Northshire's mage trainer, who teaches the dull rules that keep the dramatic ones from killing anyone.",
@@ -227,6 +232,8 @@ P:NPC {
   notice = {
     { id = "n_burn", cat = "arcane", when = { class = "MAGE", durability = { max = 0.3 } },
       text = "Singed sleeves! You stood too close to your own fire again. Everyone does it once, but do it twice and I'll start charging you for robes." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward hanging on you, and a sound one, though it drinks the spell rather than turning it, which no master in Dalaran would teach. Mind it doesn't drink more than you meant it to." },
   },
 
   start = "hello",
@@ -281,7 +288,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I teach fundamentals here, and I'll not have them twisted into something that bites." } },
+      lines = {
+        { id = "xlock_default", text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I teach fundamentals here, and I'll not have them twisted into something that bites." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I'd guess I'm looking at the result of those pages now, so I'll not have my fundamentals twisted into anything else that follows you about." },
+      },
       choices = {
         { text = "Your caution is wise, Khelden. I'll not ask again.", next = "BACK", reply = "Thank you, and I'm glad someone understands. The fundamentals are yours, but the binding stays with La Salle.", fx = { align = { light = 1 } } },
         { text = "Knowledge belongs to whoever can use it best.", next = "BACK", reply = "That's exactly what the last student said, right before he tore the pages out. My books stay on my shelves.", fx = { align = { light = -1 } } },
@@ -453,7 +463,7 @@ P:NPC {
   key = "jorik", id = TODO_NPC("Jorik Kerridan"), name = "Jorik Kerridan", title = "Rogue Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "cunning", "honest" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_eyes" },
   impression = {
     first = "He was listening for my footsteps long before I reached him.",
     third = "{name} met Jorik Kerridan, who teaches lockpicks and knifework behind Northshire Abbey, well out of the Brothers' sight.",
@@ -467,6 +477,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "Nice try, but I heard your buckle. Lose the buckle." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that glassy look, the kind that sees a man in the shadows when he'd rather not be seen. I'll ask you not to look at my students that way, because they've trouble enough learning to hide from each other." },
   },
 
   start = "hello",
@@ -521,7 +533,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and neither of us got a fair trade. The Brothers don't know about it, and they'd best not hear it from you." } },
+      lines = {
+        { id = "xlock_default", text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and neither of us got a fair trade. The Brothers don't know about it, and they'd best not hear it from you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and I suppose I'm looking at the answer now. Neither of us got a fair trade, and the Brothers don't know about it, so keep that thing quiet and they'll not hear it from you." },
+      },
       choices = {
         { text = "I won't speak of it to the Brothers, Jorik.", next = "BACK", reply = "Thank you, and I'll trust you to mean it. Some trades are best forgotten.", fx = { align = { honor = 1 } } },
         { text = "The Brothers might pay well for that tale, Jorik.", next = "BACK", reply = "They might, and then I'd have a few things to say about you too. Let's both keep quiet, shall we?", fx = { align = { honor = -1 } } },
@@ -942,7 +957,7 @@ P:NPC {
   key = "lyria", id = TODO_NPC("Lyria Du Lac"), name = "Lyria Du Lac", title = "Warrior Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "proud" }, values = { "brave", "stern" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She greeted me with her shield up and didn't apologise for it.",
     third = "{name} met Lyria Du Lac in Goldshire, who turns Elwynn's farm hands into Stormwind's soldiers.",
@@ -956,6 +971,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", place = "before", when = { class = "WARRIOR", durability = { max = 0.3 } },
       text = "You let them hit you, and a lot. Stormwind's warriors take a beating; they don't invite one." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking with shadow, and every recruit on the yard has stopped swinging to stare at them. Let it burn out before you come any closer, because I've a lesson to finish." },
   },
 
   start = "hello",
@@ -1010,7 +1027,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd fight beside it if I told them to, but they'd keep one eye on it the whole time, and a soldier with one eye on his ally has only one eye on his enemy. That's the trouble with your trade, and I've never found an answer to it." } },
+      lines = {
+        { id = "xlock_default", text = "They'd fight beside it if I told them to, but they'd keep one eye on it the whole time, and a soldier with one eye on his ally has only one eye on his enemy. That's the trouble with your trade, and I've never found an answer to it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd fight beside it if I told them to, though look at them now, every one of them watching your demon instead of the dummy. A soldier with one eye on his ally has only one eye on his enemy, and that's the trouble with your trade, and I've never found an answer to it." },
+      },
       choices = {
         { text = "Then I'll keep my demon away from your soldiers' flanks.", next = "BACK", reply = "Then you'll have done more than most of your sort ever thought to. My soldiers will thank you.", fx = { align = { light = 1 } } },
         { text = "Your soldiers had better learn to trust it. War needs every weapon.", next = "BACK", reply = "Every weapon, perhaps, but not every ally. I'll not order my soldiers to trust what they can't.", fx = { align = { light = -1 } } },
@@ -1209,7 +1229,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "travel", "form" },
+  notices = { "travel", "form", "lock_shadow" },
   impression = {
     first = "She looked at my boots with something close to envy.",
     third = "{name} met Priestess Josetta, who teaches the Light above the noise of the Lion's Pride and envies those who travel.",
@@ -1225,6 +1245,8 @@ P:NPC {
       text = "You've come back wrapped in shadow, I see. I won't ask whether it was the road or the lessons; I'm only glad you came back at all." },
     { id = "n_travel", cat = "travel", when = { minLevel = 20 },
       text = "You've been far, haven't you? I can tell by your boots. I always meant to go far myself, and I meant to for thirty years." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candle on my little altar bowed toward the stairs when you came up them, the way it does each night when something below answers in my students' place. I'll still pray, but I'll pray a little louder while you're here." },
   },
 
   start = "hello",
@@ -1304,7 +1326,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and they're only a floor apart. I pray for the cellar every night, though I suspect the cellar doesn't pray for me." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and they're only a floor apart. I pray for the cellar every night, though I suspect the cellar doesn't pray for me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and now one of the things that answers is standing in my room. I pray for the cellar every night, though I'll admit your {pet} makes it harder to keep my voice steady." },
+      },
       choices = {
         { text = "Keep praying, Priestess. Someone below may hear you.", next = "BACK", reply = "I will, every night, and I'll not give up on them. The Light is patient, even if I'm not always.", fx = { align = { light = 1 } } },
         { text = "The cellar answers to power, not prayer.", next = "BACK", reply = "Perhaps, but I've seen prayer move harder things than a cellar door. I'll keep at it.", fx = { align = { light = -1 } } },
@@ -1428,7 +1453,7 @@ P:NPC {
   key = "zaldimar", id = TODO_NPC("Zaldimar Wefhellt"), name = "Zaldimar Wefhellt", title = "Mage Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "proud" }, values = { "curious" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_shards" },
   impression = {
     first = "He finds nearly everything at least a little interesting.",
     third = "{name} met Zaldimar Wefhellt of the Wizard's Sanctum, who teaches magic from a modest room above Goldshire's inn.",
@@ -1442,6 +1467,8 @@ P:NPC {
   notice = {
     { id = "n_skyborne", cat = "arcane", when = { race = "Skyborne", class = "MAGE" },
       text = "A High Order mage, in my little room above an inn. The Kirin Tor will be jealous. I intend to enjoy that." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "You've a dozen soul shards in that pack at the very least, and they're pulling at the magic in this room like a drain pulls water. The Kirin Tor locked that sort of thing away, so I'd ask you to leave it on the stairs with my opinions." },
   },
 
   start = "hello",
@@ -1496,7 +1523,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and I think Farley's foolish to let them stay. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs." } },
+      lines = {
+        { id = "xlock_default", text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and I think Farley's foolish to let them stay. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and that creature at your heel is precisely the sort of reason I mean. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs, and I'd ask you to keep your servant there too." },
+      },
       choices = {
         { text = "The Kirin Tor were wise to lock such things away.", next = "BACK", reply = "They were, and I'd not have said so before I met the cellar. Thank you for agreeing with me.", fx = { align = { light = 1 } } },
         { text = "The Kirin Tor locked it away out of fear, not wisdom.", next = "BACK", reply = "Fear and wisdom are often the same thing, my friend. Ask Dalaran what happens when you open the wrong door.", fx = { align = { light = -1 } } },
@@ -1656,7 +1686,7 @@ P:NPC {
   key = "keryn", id = TODO_NPC("Keryn Sylvius"), name = "Keryn Sylvius", title = "Rogue Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "cunning", "witty" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_pact" },
   impression = {
     first = "I'm fairly sure her book isn't the only thing she's watching.",
     third = "{name} met Keryn Sylvius, who trains Goldshire's quiet ones from behind a book she admits is dreadful.",
@@ -1670,6 +1700,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "You're sneaking, in a reading room, where everyone's quiet already. Think about that." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever-glow on you that I've seen on the cellar folk when their imps are near, and it makes you easy to spot in a dark room. A rogue would call that a bad habit, so keep to the stairs until it fades." },
   },
 
   start = "hello",
@@ -1724,7 +1756,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason." } },
+      lines = {
+        { id = "xlock_default", text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all, least of all something that smells of brimstone. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason by walking your demon past the bar." },
+      },
       choices = {
         { text = "Farley's rules are fair. I'll keep your students' secret.", next = "BACK", reply = "Good, and Farley will never know he had reason to thank you. Keep it that way.", fx = { align = { order = 1 } } },
         { text = "Farley's rules mean nothing to me. I'll do as I please.", next = "BACK", reply = "Then you'll do it without me, and you'll find Farley has longer arms than you'd think. Mind yourself.", fx = { align = { order = -1 } } },

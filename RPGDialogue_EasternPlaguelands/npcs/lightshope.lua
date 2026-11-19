@@ -376,7 +376,7 @@ P:NPC {
   key = "leonid", id = TODO_NPC("Leonid Barthalomew the Revered"), name = "Leonid Barthalomew the Revered",
   bible = "bibles/easternplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "gentle" }, values = { "devout", "selfless" },
-  notices = { "race", "class", "form" },
+  notices = { "race", "class", "form", "lock_soulstone" },
 
   impression = {
     first = "He is dead and knows it, with a calm that unsettles me.",
@@ -398,6 +398,8 @@ P:NPC {
       text = "One who was freed, as I was. We owe the Banshee Queen our minds, but what we do with them is our own." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "You serve the Light, and so do I. It surprises people; it surprised me most of all." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There is a soul bound in a stone, waiting to call you back. I came back once without being asked, and it was the Banshee Queen's mercy that I woke at all, so choose carefully who you trust to wake you." },
   },
 
   start = "hello",
@@ -553,7 +555,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
+      lines = {
+        { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demon stands there like a weapon waiting to be drawn, so I would ask of you what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
+      },
       choices = {
         { text = "I know who I am. The darkness doesn't change that.", next = "BACK", reply = "Good. Hold on to that, and the darkness will stay a tool and never become a master.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe the weapon is who I am now.", next = "BACK", reply = "Then I'll pray it's a weapon pointed the right way. Be careful.", fx = { align = { light = -1 } } },

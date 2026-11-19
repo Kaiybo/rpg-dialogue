@@ -1544,7 +1544,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/orgrimmar.md", role = "innkeeper", tier = "service",
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
-  notices = { "weary", "hunger" },
+  notices = { "weary", "hunger", "lock_shadow" },
   impression = {
     first = "Mention Zargh and she grows flustered, which is charming.",
     third = "{name} found a seat at the Broken Tusk, where Innkeeper Gryshka feeds Orgrimmar's warriors and keeps the inn loud.",
@@ -1565,6 +1565,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "You've got blood everywhere, and some of it's yours. Sit down and eat before you fall down. Meat first, always meat first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles on that table guttered the moment you sat down, and the grunts noticed before I did. Order quickly, warlock, because they've started telling stories about the Shadow Council." },
   },
 
   start = "hello",
@@ -1705,6 +1707,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Plenty of grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I mind, and so does every grunt in this room, and you can see them all watching it over their mugs. Take that horror back out the door you brought it through, and if it scorches one of my tables on the way, you'll be scrubbing it yourself." },
       },
       choices = {
         { text = "Fair. It waits outside, out of respect.", next = "BACK", reply = "Thank you. The grunts won't say it, but they'll drink easier for it.", fx = { align = { light = 1 } } },
@@ -1825,7 +1828,7 @@ P:NPC {
   key = "gamon", id = TODO_NPC("Gamon"), name = "Gamon",
   bible = "bibles/orgrimmar.md", role = "citizen", tier = "service",
   communities = { "orgrimmar" }, temper = { "resigned" }, values = { "patient" },
-  notices = { "class", "drink" },
+  notices = { "class", "drink", "lock_soulstone" },
   impression = {
     first = "He always gets back up, which is the saddest and bravest thing.",
     third = "{name} met Gamon, a weary tauren in Orgrimmar who has been knocked down so often he no longer asks why.",
@@ -1843,6 +1846,8 @@ P:NPC {
       text = "A warrior? I was one too, once, back in Mulgore, and then I started drinking, and then people started hitting me. I'm not sure which came first anymore." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You're drunk too, finally someone who understands! Sit down, only please don't hit me." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone put your soul in a stone, friend, I can feel it, and I wish someone would do that for me. Then the grunts could knock me down every night and I'd just keep getting back up." },
   },
 
   start = "hello",
@@ -1911,6 +1916,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything frightens me now, friend, and I'll admit your demon frightens me more than most, standing there grinning at me while I sweep. Still, the orcs tell me what the warlocks did to them in the old wars, and being knocked down by grunts every night is a kinder fate than that." },
       },
       choices = {
         { text = "You're right to be wary. I'll stay careful.", next = "BACK", reply = "Stay careful, friend. I'd hate to see you end up on this floor next to me.", fx = { align = { light = 1 } } },

@@ -12,7 +12,7 @@ P:NPC {
   key = "frang", id = TODO_NPC("Frang"), name = "Frang", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "brave", "dutiful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_pact" },
   impression = {
     first = "He judges recruits by how fast they get back up.",
     third = "{name} met Frang, the warrior trainer in the Valley of Trials' Den.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "That armor has been chewed on by every boar in the valley, and you still came back walking. Good, because walking back is the first lesson." },
     { id = "n_troll", cat = "class", when = { class = "WARRIOR", race = "Troll" },
       text = "A Darkspear with an axe! Your people fight loose and quick, so I will teach you to hold a line as well, and then you will be dangerous." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "That fever in your blood isn't from the sun, recruit, it's a warlock's pact, and I can see it on you. Fight beside the imp if you must, but don't let the heat make you reckless." },
   },
   start = "hello",
   nodes = {
@@ -74,6 +76,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I blame the power and anyone who trusts it, though I'll admit some of you are fighting the Blade too. Fight at my recruits' side, and keep your imp off their heels, and I'll judge you by that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I blame the power and anyone who trusts it, and I see you trust yours enough to bring it right up to my recruits. Fight at their side and keep that thing off their heels, and I'll judge you by that, because they're watching it far more than they're watching the Blade." },
       },
       choices = {
         { text = "Then I'll fight at their shoulder, where they can see me.", next = "BACK", reply = "Then they'll see you fight, and they'll judge you fairly. So will I, from right behind you.", fx = { align = { order = 1 } } },
@@ -187,7 +190,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "calm" }, values = { "wise", "kind" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He talks of the spirits as neighbours to keep on good terms.",
     third = "{name} met Ken'jai, the troll priest trainer in the Valley of Trials.",
@@ -202,6 +205,8 @@ P:NPC {
       text = "Look at you, all torn up like the scorpids had a feast. Come closer and let Ken'jai see if anything be broken under there." },
     { id = "n_orcpriest", cat = "class", when = { class = "PRIEST", race = "Orc" },
       text = "An orc who heals instead of hits, now that be a rare thing. Your people forgot the spirits for a long time, so you be walking an old road almost alone." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you be carrying, mon, it be a warlock's healthstone, and I can smell the life that was squeezed into it. Ken'jai heal you for nothing, so you don't need to go eating somebody else's." },
   },
   start = "hello",
   nodes = {
@@ -250,6 +255,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But I watch what you bring with you, and if your demon touch a recruit, I won't be healing it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But that servant of yours be standing over my cots like a vulture, mon, and if it touch a recruit, I won't be healing it, so call it back." },
       },
       choices = {
         { text = "Fair. My demon keeps its distance from the recruits.", next = "BACK", reply = "Then we get along fine, mon. The loa be watching that demon, and so am I.", fx = { align = { light = 1 } } },
@@ -362,7 +368,7 @@ P:NPC {
   key = "duokna", id = TODO_NPC("Duokna"), name = "Duokna", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "brisk" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shards" },
   impression = {
     first = "Nobody leaves without being asked about their waterskin.",
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
@@ -374,6 +380,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
       text = "Your coin purse is lighter than a feather, recruit. The boars carry a little copper sometimes, if you are not too proud to look." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks cold, warlock, and I can feel it from behind the counter, so I know you've been filling it with shards again. Buy some bread too, because I don't think souls are very filling." },
   },
   start = "hello",
   nodes = {
@@ -460,6 +468,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Bread, mostly, because you all think about soul shards and forget your stomachs. Buy food and water before you go down into the valley, and never feed any of it to the imp, because it'll only spit it back at you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bread, mostly, because you all think about soul shards and forget your stomachs, and I see your demon is already eyeing my water barrel. Buy food and water before you go down into the valley, and don't let it near the bread, because it'll only spit it back at you." },
       },
       choices = {
         { text = "I'll share mine with the recruits who forget theirs.", next = "BACK", reply = "That's kind of you, and the recruits will remember it. Buy a little extra, then, because they always forget.", fx = { align = { light = 1 } } },
@@ -536,7 +545,7 @@ P:NPC {
   key = "uhgar", id = TODO_NPC("Uhgar"), name = "Uhgar", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "proud", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He judges a fighter by the edge they carry.",
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
@@ -548,6 +557,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You have a smith's burns on your hands. Then you know what you are looking at, so I will not bother lying about the quality." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My steel's gone dull where your shadow falls on it, and I polished it this morning. Stand over there by the axes nobody buys, and we'll talk." },
   },
   start = "hello",
   nodes = {
@@ -605,6 +616,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. I sell honest steel to honest Horde, and I'd like to keep it that way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. You've got that same sulphur stink trailing behind you on that thing, so it stays off my counter, and I'll sell honest steel to you alone." },
       },
       choices = {
         { text = "Honest steel suits me. I'll keep my craft separate.", next = "BACK", reply = "Good, then we'll get along. I've no time for the ones who slip poison on my edges and blame the steel.", fx = { align = { light = 1 } } },
@@ -699,7 +711,7 @@ P:NPC {
   key = "thotar", id = TODO_NPC("Thotar"), name = "Thotar", title = "Hunter Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_shards" },
   impression = {
     first = "He talks about beasts as if they were people worth respecting.",
     third = "{name} met Thotar, who teaches Razor Hill's hunters to read the land and trust their beasts.",
@@ -711,6 +723,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
       text = "Your {pet} keeps an eye on me while you talk, which means it is a good one. Never punish a beast for being wary of strangers." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "My wolf's hackles are up and she's growling at your bag, not at you, which tells me what's inside it. A beast knows a soul in a cage when it smells one." },
   },
   start = "hello",
   nodes = {
@@ -756,6 +770,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A beast follows a hunter because it chooses to, and your demon follows you because it can't do anything else. I won't call you a cultist, but I'll tell you plainly that the land doesn't like what you've chained to you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A beast follows a hunter because it chooses to, and yours follows you because it can't do anything else, which I can see in the way it watches your back instead of the road. I won't call you a cultist, but the land doesn't like what you've chained to you, and neither do I." },
       },
       choices = {
         { text = "Then I'll keep it far from your beasts.", next = "BACK", reply = "Thank you, and my wolf thanks you too. Keep it far, and we'll get along.", fx = { align = { light = 1 } } },
@@ -862,7 +877,7 @@ P:NPC {
   key = "kaplak", id = TODO_NPC("Kaplak"), name = "Kaplak", title = "Rogue Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "sly" }, values = { "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "He seems to enjoy being underestimated.",
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
@@ -874,6 +889,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Nice try, but I heard your buckle three steps ago. Wrap it in cloth next time and you might surprise someone who is not me." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Those eyes of yours see through a cloak like it's gauze, don't they? Do me a favour and look somewhere else, because my students are trying to practise." },
   },
   start = "hello",
   nodes = {
@@ -931,6 +948,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though that green glow of yours lights up a dark alley like a bonfire. Work with my people if you like, but keep your demon out of sight, because it'll get us both killed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Sometimes, when someone needs a curse and a knife on the same target, though that thing beside you glows worse than you do. Work with my people if you like, but send your demon away before we move, because it'll light up the alley and get us both killed." },
       },
       choices = {
         { text = "I'll keep the imp out of sight. Agreed.", next = "BACK", reply = "Good, then we'll work together. Keep that imp out of the burrow and away from my students.", fx = { align = { order = 1 } } },
@@ -1024,7 +1042,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "warm" }, values = { "kind", "devout" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_taint" },
   impression = {
     first = "She does not hide that she misses the sea.",
     third = "{name} met Tai'jin, the troll priest trainer at Razor Hill.",
@@ -1038,6 +1056,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Look at that armor, mon, it be held together with stubbornness. Let Tai'jin look at the cuts underneath before you go back out." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There be a fel heat coming off you, mon, like the old orcs who drank Mannoroth's blood and never stopped burning. Tai'jin don't judge, but he think you been drinking from a dark cup a long time." },
   },
   start = "hello",
   nodes = {
@@ -1115,6 +1135,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They don't like it, mon, because what you call comes from a dark place that never fed anybody. But back at Sen'jin we knew the voodoo had its dark corners too, so Tai'jin won't throw stones, as long as you keep your demon away from my wounded." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They don't like it, mon, and they like it less now it be standing in my tent, because what you call comes from a dark place that never fed anybody. Tai'jin won't throw stones, since the voodoo got its dark corners too, but take {pet} away from my wounded right now." },
       },
       choices = {
         { text = "I'll keep my demon well away from your wounded.", next = "BACK", reply = "The loa thank you, mon. My wounded need quiet, and a demon never once been quiet.", fx = { align = { light = 1 } } },
@@ -1201,7 +1222,7 @@ P:NPC {
   key = "unthuwa", id = TODO_NPC("Un'Thuwa"), name = "Un'Thuwa", title = "Mage Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "senjin" }, temper = { "dry" }, values = { "curious", "proud" },
-  notices = { "class", "arcane" },
+  notices = { "class", "arcane", "lock_armor" },
   impression = {
     first = "He is quietly proud that Darkspear bend the arcane like any elf.",
     third = "{name} met Un'Thuwa, the troll mage trainer of Sen'jin Village.",
@@ -1214,6 +1235,8 @@ P:NPC {
   notice = {
     { id = "n_orcmage", cat = "class", when = { class = "MAGE", race = "Orc" },
       text = "An orc mage, that be a rare bird, mon. Your people's shaman will frown at you, so you better get good enough that they stop." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There be a shell of shadow around you, mon, eating up the light, and my students be watching it instead of their frost. The arcane don't wrap itself round you like a skin, it pass through, and that be the difference." },
   },
   start = "hello",
   nodes = {
@@ -1271,6 +1294,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The arcane be a river, and the fel be the poison someone pour in it. The orcs who drank that poison nearly died of it, and Zalazane's dark voodoo be a poison of its own, so I teach my students to keep well clear of both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The arcane be a river, and the fel be the poison someone pour in it, and I can smell that poison coming off your servant from across the room. The orcs who drank it nearly died of it, so I teach my students to keep well clear, and I'll ask you to keep it out of their sight." },
       },
       choices = {
         { text = "Then I'll keep the poison far from your river.", next = "BACK", reply = "Then the river stay clean, mon, and the fish don't float.", fx = { align = { light = 1 } } },

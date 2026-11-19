@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "questgiver", tier = "major",
   communities = { "flame_crest" }, temper = { "cowardly", "sharp" }, values = { "loyal", "lazy" },
   race = "Dwarf",
-  notices = { "drink", "race", "poison" },
+  notices = { "drink", "race", "poison", "lock_shards", "lock_stones" },
 
   impression = {
     first = "Under all the ale there's a sharp old dwarf.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "A dwarf, and a sober one by the look of ye, which is a shame we can fix. Pull up a rock, cousin." },
     { id = "n_poison", cat = "poison", when = { debuffType = "Poison" },
       text = "Ooh, ye're poisoned, are ye? Hold still, let me have a look at that, purely for science and nothin' to do with brewin'." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "*hic* What's that clinkin' in yer bag? Shards, is it? Ah, well, I've heard worse at the bottom o' a jug, an' some o' them were singin'." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Does it cure a hangover? I'd want tae know, an' I'd no' ask how it's made, which is more restraint than I usually manage." },
   },
 
   start = "hello",
@@ -94,7 +98,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everythin' worries me, an' that's what the ale's for. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." } },
+      lines = {
+        { id = "xlock_default", text = "Everythin' worries me, an' that's what the ale's for. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everythin' worries me, an' that's what the ale's for, an' I'll need a deal more of it wi' yer demon starin' at my mug. The Dark Irons got intae bed wi' fire an' sorcery once, an' look what crawled out, so keep that thing well away from my beard." },
+      },
       choices = {
         { text = "My imp keeps to heel. Your beard's safe.", next = "BACK", reply = "Good, because I've had my beard set alight enough this year. Keep it on its leash an' we'll be friends.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fel never hurt anyone's ale, John.", next = "BACK", reply = "That's what the Dark Irons said, an' look at their mountain now. Keep it away from my jug, please.", fx = { align = { order = -1 } } },
@@ -647,7 +654,7 @@ P:NPC {
   key = "tinkee", id = TODO_NPC("Tinkee Steamboil"), name = "Tinkee Steamboil",
   bible = "bibles/burningsteppes.md", role = "scholar", tier = "quest",
   communities = { "flame_crest" }, temper = { "earnest", "nervous" }, values = { "curious", "proud" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_steed" },
 
   impression = {
     first = "She goes quiet whenever her patron comes up.",
@@ -664,6 +671,8 @@ P:NPC {
       text = "Oh, an engineer! You'll appreciate the Draco-Incarcinatrix 900, pal, because nobody else here appreciates it at all, they just ask whether it explodes, and it only does that on Tuesdays." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Please, please don't look at my wiring, because I know you'll want to fix it, and it's fine, it's perfectly fine, and I'd have to charge you for the lookin' anyway." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse's hooves are on fire, and they're not even burning the ground! What's the material? I could build somethin' a whelp couldn't scorch if I knew." },
   },
 
   start = "hello",
@@ -733,7 +742,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster, and I'd pay it in coal. The whelps keep scorching my workbench, you see, and if I can build somethin' an imp can't burn through, I'll have something a whelp can't either, which is the theory." } },
+      lines = {
+        { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster, and I'd pay it in coal. The whelps keep scorching my workbench, you see, and if I can build somethin' an imp can't burn through, I'll have something a whelp can't either, which is the theory." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only a little, and only if it volunteers, and your {pet} is lookin' at my furnace like it's thinkin' it over already. I'd pay it in coal, since I'm a scientist and not a monster, because if I can build somethin' a demon can't wreck, I'll have somethin' a whelp can't either." },
+      },
       choices = {
         { text = "My imp isn't a test subject, Tinkee.", next = "BACK", reply = "Oh, of course not, pal, sorry, I just thought it might like a hobby. Never mind the coal.", fx = { align = { light = 1 } } },
         { text = "Go ahead. It could use the discipline.", next = "BACK", reply = "Splendid! I'll start with a small fire, very small, and work up from there. Thank you, pal.", fx = { affinity = 1, align = { light = -1 } } },
@@ -913,7 +925,7 @@ P:NPC {
   key = "yuka", id = TODO_NPC("Yuka Screwspigot"), name = "Yuka Screwspigot",
   bible = "bibles/burningsteppes.md", role = "vendor", tier = "quest",
   communities = { "flame_crest" }, temper = { "shrewd" }, values = { "greedy", "practical" },
-  notices = { "craft", "purse" },
+  notices = { "craft", "purse", "lock_soulstone" },
 
   impression = {
     first = "I would not want to owe her money, or be her brother.",
@@ -932,6 +944,8 @@ P:NPC {
       text = "An engineer! You'll want tubes, flux and powder, and you'll want 'em now, before your next explosion, so step right up and bring the purse." },
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "My, what a lovely full purse you've got there, sweetheart. It'd look even lovelier half empty, and my till half full, and wouldn't that be nice for both of us?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "A soulstone, pal? That's insurance, that is. I'd charge a fortune for one, and folks would pay it, so you should think about startin' a business." },
   },
 
   start = "hello",
@@ -986,7 +1000,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anybody anything, least of all somethin' that lives in a fire and charges in souls. Find him yourself if you like, pal, and leave the imp out of the family business." } },
+      lines = {
+        { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anybody anything, least of all somethin' that lives in a fire and charges in souls. Find him yourself if you like, pal, and leave the imp out of the family business." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Could it? Maybe, but then I'd owe a demon a favour, and from the way yours is lookin' at me it already thinks I do. The Screwspigots don't owe anybody anything, least of all somethin' that charges in souls, so find Ribbly yourself, pal, and keep that thing out of the family business." },
+      },
       choices = {
         { text = "Then I'll find him myself, no demons involved.", next = "BACK", reply = "Good, and I'll take your word on it. Leave the imp outside, pal.", fx = { align = { light = 1 } } },
         { text = "Use every tool you've got, Yuka. Demons included.", next = "BACK", reply = "Demons, pal? I've got enough debts without owin' something that lives in a fire. No, thanks.", fx = { align = { light = -1 } } },
@@ -1583,7 +1600,7 @@ P:NPC {
   key = "vahgruk", id = TODO_NPC("Vahgruk"), name = "Vahgruk",
   bible = "bibles/burningsteppes.md", role = "flightmaster", tier = "service",
   communities = { "flame_crest" }, temper = { "steady" }, values = { "loyal", "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "He seems content to be the way home for whoever comes.",
@@ -1598,6 +1615,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Good to see a brother this far from Durotar, among all these goblins. Keep your axe close; the Blackrock down there call themselves orcs too." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell of the green fire, like Rend's orcs on the mountain. Keep your distance from the riders, or one of them will mistake you for one of Rend's and put an arrow in you." },
   },
 
   start = "hello",
@@ -1666,7 +1685,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, and they've no Thrall to tell them no, which is the difference that matters. Keep your demons on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's." } },
+      lines = {
+        { id = "xlock_default", text = "They do, and they've no Thrall to tell them no, which is the difference that matters. Keep your demons on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they've no Thrall to tell them no, and a demon at your side on this perch looks exactly like one of theirs from the air. Keep it on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's and puts a spear through you both." },
+      },
       choices = {
         { text = "I'll never be like Rend's warlocks. Mark that.", next = "BACK", reply = "Good, and I'll take your word on it. The riders will too.", fx = { align = { light = 1 } } },
         { text = "Rend's warlocks have power worth learning from.", next = "BACK", reply = "They have power, and they've paid for it in their souls. Learn carefully, if you must.", fx = { align = { light = -1 } } },

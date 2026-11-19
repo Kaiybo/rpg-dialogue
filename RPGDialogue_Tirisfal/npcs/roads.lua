@@ -6,7 +6,7 @@ P:NPC {
   key = "saltain", id = TODO_NPC("Deathguard Saltain"), name = "Deathguard Saltain",
   bible = "bibles/roads.md", role = "soldier", tier = "quest",
   communities = { "deathknell" }, temper = { "brisk" }, values = { "practical", "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_stones" },
   impression = {
     first = "He has no sympathy at all for what the risen have lost.",
     third = "{name} met Deathguard Saltain, who sets the freshly risen Forsaken of Deathknell to scavenging.",
@@ -19,6 +19,8 @@ P:NPC {
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "Look at you, barely a stitch on. The grave isn't generous with clothing, and I've seen better dressed ghouls." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone in your pack is glowing red through the leather, and anything that burns without coal is worth something to the Dark Lady's people. Don't drop it in the ruins, because I'll be the one sent to find it." },
   },
 
   start = "hello",
@@ -57,6 +59,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "It can carry what you find in the ruins, and it won't complain, so it's already ahead of my recruits. Bring me every scrap from the houses of Deathknell, and keep it on a short leash, because I've lost enough supplies already." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "It can carry what you find in the ruins, and judging by how it's standing about, it's already less idle than my recruits. Load {pet} with every scrap from the houses of Deathknell, and keep it on a short leash, because I've lost enough supplies already." },
       },
       choices = {
         { text = "I'll bring everything back, Saltain.", next = "BACK", reply = "Good, and mind the imp doesn't eat half of it on the way back. I count everything twice.", fx = { align = { order = 1 } } },
@@ -192,7 +195,7 @@ P:NPC {
   key = "elreth", id = TODO_NPC("Novice Elreth"), name = "Novice Elreth",
   bible = "bibles/roads.md", role = "priest", tier = "quest",
   communities = { "deathknell" }, temper = { "earnest" }, values = { "dutiful", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "She speaks of the mindless dead with something close to pity.",
     third = "{name} met Novice Elreth, a Forsaken novice of the priesthood at Deathknell.",
@@ -206,6 +209,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, like me! Or like I'm trying to be. Sarvis says the Light abandoned us, and I'm still deciding what I think about that." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow doesn't sit on you the way ours does, it sits beside you, as if it's waiting to be let in. Sarvis would want to see it, and I'm not sure I would." },
   },
 
   start = "hello",
@@ -349,6 +354,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Sarvis says much the same, and I nod when he says it, but shadow at least comes from inside you, and a demon comes from somewhere else entirely. I'd keep a close eye on anything that wants to be invited in." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We were all slaves to one master already, and now you've chosen to bargain with another sort of thing. I don't judge you for it, but I'll say a quiet word for you all the same." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Sarvis says much the same, and I nod when he says it, but shadow at least comes from inside you, and your demon is watching me as you say it. I'd keep a close eye on anything that wants to be invited in, and that one looks as if it's only waiting for the invitation." },
       },
       choices = {
         { text = "Say your word, Elreth. I won't mind it.", next = "BACK", reply = "Thank you, and I'll say it quietly. I hope it helps you, whether you want it to or not.", fx = { affinity = 1, align = { light = 1 } } },
@@ -371,7 +377,7 @@ P:NPC {
   key = "montague", id = TODO_NPC("Calvin Montague"), name = "Calvin Montague",
   bible = "bibles/roads.md", role = "citizen", tier = "quest",
   communities = { "deathknell" }, temper = { "cocky" }, values = { "proud", "greedy" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
   impression = {
     first = "He is a living man who wants a fight with the dead.",
     third = "{name} met Calvin Montague, a living rogue who picks fights with the new Forsaken near Deathknell.",
@@ -384,6 +390,8 @@ P:NPC {
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "You're alive, at least. I'll not pick a fight with something that size; I'm brave, not stupid." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Look at you, hiding inside a demon's hide like a turtle in its shell. Take that off and fight me like a proper deadman, unless it's the only thing holding you together." },
   },
 
   start = "hello",
@@ -535,6 +543,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Then I'd be fighting the imp, and I'd likely win, which would be a terrible embarrassment for you. Put it away and face me yourself, unless your sort has forgotten how to throw a punch." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They say the Forsaken came back hollow, and it seems you went and filled the gap with demons. Put it away and face me yourself, or are you frightened of one living man?" },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Then I'd be fighting that, and from the look of it I'd still win, which would be a terrible embarrassment for you. Send it back where it came from and face me yourself, unless your sort has forgotten how to throw a punch." },
       },
       choices = {
         { text = "Fine. The demon stays back; it's you and me.", next = "BACK", reply = "That's more like it. Put your coin down and come at me.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -556,7 +565,7 @@ P:NPC {
   key = "holland", id = TODO_NPC("Junior Apothecary Holland"), name = "Junior Apothecary Holland",
   bible = "bibles/roads.md", role = "scholar", tier = "quest",
   communities = { "brill" }, temper = { "eager" }, values = { "ambitious", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He would very much like to stop being junior.",
     third = "{name} met Junior Apothecary Holland of the Royal Apothecary Society in Brill.",
@@ -569,6 +578,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Alchemy" } },
       text = "You know your plants, I can tell by your fingers. Doom weed should be easy for you, then." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Is that an infernal stone? Johaan says they fall from the sky with a demon inside them, and I've always wanted to grind one down and see what's left. Purely professional curiosity, of course." },
   },
 
   start = "hello",
@@ -721,6 +732,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Officially, no, because the senior apothecaries say demons make unreliable subjects and they bite. Unofficially I've wondered what an imp's blood would do in a tincture, but I'd need a warlock willing to ask it nicely." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You've got the look the Cult's people had, as if you're listening to something nobody else can hear. I don't mind it; the Society could use someone who isn't squeamish." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Officially, no, because the senior apothecaries say demons make unreliable subjects and they bite. Unofficially, I've been wondering what's in yours since you walked in, and if you could persuade it to hold still for one small needle, I'd be very quiet about it." },
       },
       choices = {
         { text = "My demon isn't a test subject, Holland.", next = "BACK", reply = "No, of course not, and I'd never dream of asking. Well, I'd dream of it, but I'd never ask.", fx = { align = { honor = 1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "zamah", id = TODO_NPC("Apothecary Zamah"), name = "Apothecary Zamah",
   bible = "bibles/thunderbluff.md", role = "questgiver", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "dry" }, values = { "curious", "ambitious" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "She wants serpentbloom, and she is politely vague about why.",
     third = "{name} met Apothecary Zamah, the Forsaken apothecary beneath Thunder Bluff's Spirit Rise.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A tauren who comes down here willingly? Your elders mostly cross the pools to avoid me." },
     { id = "n_undead", cat = "race", when = { race = "Undead" },
       text = "Ah, a fellow citizen of the Undercity. It's pleasant to talk to someone who doesn't flinch." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ah, soul shards, and a good many of them, by the cold coming off your pack. If I had my laboratory instead of a tent on a mesa, I'd be trying very hard to talk you out of a few for study." },
   },
   start = "hello",
   nodes = {
@@ -151,6 +153,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They look at me the same way, and I didn't even bring a demon. The tauren know what fel fire does to grass and to people, so you might as well get used to the looks, because they won't stop." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They look at me the same way, and I didn't even bring a demon, though I see you did, and it's leaning over my table like it wants to sample the merchandise. The tauren know what fel fire does to grass and to people, so get used to the looks, and get it away from my vials." },
       },
       choices = {
         { text = "Their fear is fair. I'll keep my imp leashed.", next = "BACK", reply = "Good, an imp in a cave full of reagents is a recipe for a very short afternoon. The tauren will still stare, but they'll stare less.", fx = { align = { light = 1 } } },
@@ -356,6 +359,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because they smell what doesn't belong in the world, and your demon doesn't belong in it. The Thunderhorns have hunted Mulgore for generations without needing anything from the Twisting Nether, but the Horde takes all kinds, and so will I." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because they smell what doesn't belong in the world, and they can smell your demon from here, so look how the hounds have their hackles up. The Thunderhorns never needed anything from the Twisting Nether to hunt Mulgore, but the Horde takes all kinds, and so will I, if you keep it still." },
       },
       choices = {
         { text = "Then I'll walk slowly, out of respect.", next = "BACK", reply = "The beasts will thank you for it, and so will I. A slow step tells them you mean no harm, even with that thing at your heel.", fx = { align = { light = 1 } } },
@@ -497,6 +501,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They're trained to fight whatever threatens the herd, and a demon off its leash would qualify. I'll not hide that some of my warriors look at your kind and think of the Burning Blade, so be glad the Warchief speaks for you, warlock." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They're trained to fight whatever threatens the herd, and three of them have already shifted their feet toward your demon. I'll not hide that my warriors look at that thing and think of the Burning Blade, so keep it close, warlock, and be glad the Warchief speaks for you." },
       },
       choices = {
         { text = "I'm grateful for his word. I'll keep my demon leashed.", next = "BACK", reply = "Good, then we'll have no trouble between us, and my warriors will learn to stop staring. The Warchief's word is a strong shield, but your own conduct is a stronger one.", fx = { align = { order = 1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "skuerto", id = TODO_NPC("Skuerto"), name = "Skuerto",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "refuge_pointe" }, temper = { "prickly" }, values = { "proud", "practical" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_armor" },
 
   impression = {
     first = "He was rude before I'd said hello, then apologized, which is rare.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "One o' mine, from the mountain! Good, then ye'll know a proper scout when ye see one, which is more than these humans do." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, is it? Then ye'll be more use to Kryten, Malin's apprentice, than to me, but stick around, for Trelane's things need someone who knows which end o' a wand to point." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye're wearin', an' it moves when ye breathe, which nae honest leather should. Keep it pointed at the trolls an' no' at my camp, an' we'll get along fine." },
   },
 
   start = "hello",
@@ -133,7 +135,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel. Whatever ye carry, keep it pointed at them an' no at Kryten, for Malin would have my beard if anythin' happened tae him." } },
+      lines = { { id = "xlock_default", text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel. Whatever ye carry, keep it pointed at them an' no at Kryten, for Malin would have my beard if anythin' happened tae him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel, an' I'd no call that thing at yer heel anythin' else. Keep it pointed at them an' no at Kryten, for the lad's already starin' at it, an' Malin would have my beard if anythin' happened tae him." },
+      },
       choices = {
         { text = "I'll keep him safe. You have my word.", next = "BACK", reply = "Thank ye. The lad's got enough tae fear wi'out yer friend lookin' at him funny.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The lad will have to see real power sometime.", next = "BACK", reply = "Aye, but no' today, an' no' from you. Keep it leashed an' we'll get on fine.", fx = { align = { light = -1 } } },
@@ -203,7 +207,7 @@ P:NPC {
   key = "kryten", id = TODO_NPC("Apprentice Kryten"), name = "Apprentice Kryten",
   bible = "bibles/arathi.md", role = "scholar", tier = "quest",
   communities = { "refuge_pointe" }, temper = { "earnest" }, values = { "curious", "polite" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shards" },
 
   impression = {
     first = "He apologized for Skuerto before I had even met him.",
@@ -220,6 +224,8 @@ P:NPC {
       text = "Another student of the arcane! Were you trained in Stormwind? Perhaps you know my master, Archmage Malin." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! I'd love to hear how your people would enchant an agate, if you've a moment; mine is, well, rather by the book." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Oh, you're carrying soul shards, a great many of them, and I can feel the cold of them from here! Would you let me count them? I'd love to know whether they hold a charge the way a mana gem does, if Skuerto ever lets me finish an experiment." },
   },
 
   start = "hello",
@@ -312,7 +318,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." } },
+      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think he's right about most things, but he's never met a warlock who could explain their craft, and he's certainly never met {pet}, who's looking at my notebook in a way I find flattering and slightly alarming. If you told me how a soul shard holds its charge, I'd listen very politely, and I'd only ask to sketch your demon once." },
+      },
       choices = {
         { text = "Knowledge should be free, even mine.", next = "BACK", reply = "That's a generous thought. I'll write down anything you're willing to tell me, and keep it from Malin.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some things should stay with those trained for them.", next = "BACK", reply = "Malin would agree with you completely. I'll keep my curiosity to myself, then.", fx = { align = { order = 1 } } },
@@ -375,7 +383,7 @@ P:NPC {
   key = "cedrik", id = TODO_NPC("Cedrik Prose"), name = "Cedrik Prose",
   bible = "bibles/arathi.md", role = "flightmaster", tier = "service",
   communities = { "refuge_pointe" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "He talks about the Highlands' weather as if it were another enemy.",
@@ -390,6 +398,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! The birds settle better when one of you is near. Aerie Peak bred half of them, after all." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "My gryphons have all flattened their feathers, and I'd wager it's that horse of yours, the one with the burning hooves. They'll carry you anyway, for I've trained them to, but leave the beast by the gate where they can't see it." },
   },
 
   start = "hello",
@@ -453,7 +463,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." } },
+      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but you can see the feathers going flat all along the roost now your demon's in sight. Treat the bird well and send that thing out of the yard before we saddle up, or it'll try to shake you off over the Thandol Span the way the last one did." },
+      },
       choices = {
         { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", reply = "Thank you. They'll notice, believe me; that big grey one bites anyone who doesn't.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The bird will carry me whether it likes it or not.", next = "BACK", reply = "It will, aye, and it may sulk the whole way. Don't say I didn't warn you.", fx = { align = { order = -1 } } },
@@ -551,7 +563,7 @@ P:NPC {
   key = "vikki", id = TODO_NPC("Vikki Lonsav"), name = "Vikki Lonsav",
   bible = "bibles/arathi.md", role = "vendor", tier = "service",
   communities = { "refuge_pointe" }, temper = { "brisk" }, values = { "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_stones" },
 
   impression = {
     first = "She keeps careful count of every arrow and loaf she has left.",
@@ -568,6 +580,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look half torn to pieces. I sell thread, not miracles, but the thread helps." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? The soldiers would probably try to trade for one, because they'd rather chew a warlock's stone than wait on a healer. Keep it out of sight, though, or I'll have half the camp asking where you got it." },
   },
 
   start = "hello",
@@ -697,7 +711,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." } },
+      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's decent of you, and the sooner the better, for the soldiers by the fire have gone quiet watching your demon, and they've jumped at every shadow since Stromgarde fell. A thing like that standing by my crates is enough to start a panic in a camp this tired." },
+      },
       choices = {
         { text = "Then it stays outside. They've been through enough.", next = "BACK", reply = "Thank you. They have, more than most, and they'll be grateful even if they don't say so.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The soldiers will have to toughen up.", next = "BACK", reply = "They're tough enough, I promise you, but they've buried too many friends. Keep it outside.", fx = { align = { light = -1 } } },

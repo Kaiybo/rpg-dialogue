@@ -7,7 +7,7 @@ P:NPC {
   key = "maybell", id = TODO_NPC("Maybell Maclure"), name = "Maybell Maclure",
   bible = "bibles/maybell.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "kind", "romantic" },
-  notices = { "stealth", "craft" },
+  notices = { "stealth", "craft", "lock_steed" },
   impression = {
     first = "She blushes easily and lies badly, over a boy across the river.",
     third = "{name} met Maybell Maclure, who counts grapes by the river while thinking of a Stonefield she isn't allowed to see.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Where did you- oh, you frightened me! How do you do that, and could you possibly teach me?" },
     { id = "n_herbs", cat = "craft", when = { profession = "Herbalism" },
       text = "You smell of peacebloom. Tommy Joe picks it by the river for me. He thinks I don't know he picks the same patch every time." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that your horse with the fire in its hooves? Pa would faint dead away, but I think it's the most marvellous thing I've ever seen, and I'd give anything to ride it just once." },
   },
 
   react = {
@@ -52,7 +54,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
+      lines = {
+        { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Pa says warlocks deal with things that ought to stay in the dark, and I suppose that's one standing behind you, isn't it? I've never been very good at rules, though, and it hasn't done anything but stare, so I'll keep talking as long as it doesn't follow me home." },
+      },
       choices = {
         { text = "You should choose your friends yourself, Maybell.", next = "BACK", reply = "I've always thought so, and Pa's never agreed. You'd better go before he sees us talking.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", reply = "He does, I know, and I love him for it. But he's not always right about who's dangerous.", fx = { align = { order = 1 } } },

@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/henze.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "honest" },
   spiritSensitive = true,
-  notices = { "paladin" },
+  notices = { "paladin", "lock_soulstone" },
   impression = {
     first = "He jokes about having been dead, and I think it helps him.",
     third = "{name} met Henze Faulk, the dwarf who went after his friend Gazin and was caught by the Defias for it.",
@@ -22,6 +22,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN", questActive = TODO_QUEST("The Symbol of Life") },
       text = "Is that the Symbol of Life ye've got there? Then mind yer aim. I'd rather not come back halfway." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've got a bit o' yer soul tucked away in a stone somewhere, haven't ye? I can feel it, an' I'll tell ye for free, comin' back's no' as pleasant as the warlocks make out, so try no' tae need it." },
   },
 
   start = "hello",
@@ -76,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." } },
+      lines = {
+        { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. Yer friend there's been starin' at me like it knows the way back, an' I'd thank ye tae tell it I'm no' goin' anywhere." },
+      },
       choices = {
         { text = "The dead deserve their peace. I'll not disturb it.", next = "BACK", reply = "Good, because I'd like tae keep mine, now I've seen how quiet it is. Keep yer friend away from it too.", fx = { align = { light = 1 } } },
         { text = "Death's just a door. Some of us go through on purpose.", next = "BACK", reply = "Aye, it is, but some doors ye go through only once, an' ye'd be wise tae remember it. Mind yerself.", fx = { align = { light = -1 } } },

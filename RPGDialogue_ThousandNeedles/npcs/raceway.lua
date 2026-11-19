@@ -329,7 +329,7 @@ P:NPC {
   rivals = { "pozzik", "razzeric" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "excitable" }, values = { "proud", "curious" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
 
   impression = {
     first = "He told me to stand very still before he said hello.",
@@ -347,6 +347,8 @@ P:NPC {
       text = "A fellow engineer, and from the gnomish school, I hope! No? Well, there's always time to improve." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, splendid! Gnomeregan may be lost, but gnomish engineering still wins races... well, most of them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is humming at about the same pitch as my fuel pump, which worries me, because the fuel pump hums like that right before it explodes. Are those soul shards? Keep them away from the engine, please." },
   },
 
   start = "hello",
@@ -426,7 +428,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's exactly what the last warlock said, right before it happened! I'd ask you to keep your friend well back, because I've worked too hard on this engine to lose it to an imp's appetite." } },
+      lines = { { id = "xlock_default", text = "That's exactly what the last warlock said, right before it happened! I'd ask you to keep your friend well back, because I've worked too hard on this engine to lose it to an imp's appetite." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's exactly what the last warlock said, right before it happened, and his demon was standing just about where yours is now! Back it away from the engine, please, because I've worked too hard on this thing to lose it to a demon's appetite." } },
       choices = {
         { text = "I'll keep my demon away. Your work's safe.", next = "BACK", reply = "Oh, thank you, and the engine thanks you too, though it's an engine, so it says so with a little hum.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A demon goes where it pleases.", next = "BACK", reply = "Then please keep it pleasing itself far away from my workshop, because I've only got two spare pistons left.", fx = { align = { order = -1 } } },
@@ -617,7 +619,7 @@ P:NPC {
   key = "kravel", id = TODO_NPC("Kravel Koalbeard"), name = "Kravel Koalbeard",
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "sly" }, values = { "cunning", "ambitious" },
-  notices = { "purse", "drink" },
+  notices = { "purse", "drink", "lock_stones" },
 
   impression = {
     first = "Neither racing crew should trust him, and I'd wager both do.",
@@ -634,6 +636,8 @@ P:NPC {
       text = "That's a fine heavy purse. Ever had a sure thing on a race? I might know of one." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Had a few, have ye? Grand, but who bought 'em for ye? Not me, I hope, for that'd be a waste." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a warlock's healthstone, if I've ever seen one, glowin' like a cheap lantern in yer pack. I'd not eat it meself, but a racer who ate one before a crash, now there's a thought." },
   },
 
   start = "hello",
@@ -670,7 +674,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'm only sayin' it's possible, friend, and a dwarf can wonder aloud. The crews would never suspect a curse, an' I'd never suspect anyone who did it." } },
+      lines = { { id = "xlock_default", text = "I'm only sayin' it's possible, friend, and a dwarf can wonder aloud. The crews would never suspect a curse, an' I'd never suspect anyone who did it." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm only sayin' it's possible, friend, an' your demon there's grinnin' like it already knows which car it'd pick. The crews would never suspect a curse, an' I'd never suspect anyone who did it, so let's both keep our voices down." } },
       choices = {
         { text = "Curses aren't for cheating at races.", next = "BACK", reply = "Maybe not, friend, but they work awfully well, an' I'm only sayin' it's an option, nothin' more.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A curse might be worth the coin.", next = "BACK", reply = "Now ye're talkin', an' I'll keep it in mind for the next big heat, where the purse is worth the trouble.", fx = { align = { light = -1 } } },

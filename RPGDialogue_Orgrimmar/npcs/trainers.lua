@@ -100,6 +100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the warlocks of the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth whenever he sees an imp." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth seeing one, so don't stand it so close to me when you speak." },
       },
       choices = {
         { text = "I'll earn your respect openly, in battle.", next = "BACK", reply = "I'll be watching for it. Fight well enough, warlock, and maybe the old taste of fel will fade from my mouth.", fx = { align = { honor = 1 } } },
@@ -286,6 +287,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt any demon trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The same way I judge a hunter's beast, by whether it fights well and trusts you, and yours hasn't looked at you once since you walked in. Keep it fed and keep it leashed, and get it away from my students' pets, because you can see them all pressed against the far wall." },
       },
       choices = {
         { text = "I'll keep it leashed and away from your pets.", next = "BACK", reply = "Thank you. The last imp in my yard set a student's cat on fire, and she still hasn't forgiven me.", fx = { align = { order = 1 } } },
@@ -476,6 +478,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't hate you, but they turn away from you, and that's worse. When our people began bargaining with demons, the spirits of Draenor went silent, and it took Thrall years to coax them back, so I'll ask you not to walk too near my students." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't hate you, but they turn away from you, and I feel them going now, the closer your servant stands to the fire. When our people bargained with demons, the spirits of Draenor went silent, and it took Thrall years to coax them back, so please don't bring it any nearer." },
       },
       choices = {
         { text = "I understand. I'll keep my distance from them.", next = "BACK", reply = "Thank you. The spirits are frightened of what you carry, and I can't blame them.", fx = { align = { light = 1 } } },
