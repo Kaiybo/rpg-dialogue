@@ -1495,7 +1495,6 @@ P:NPC {
       lines = { { id = "price_l", text = "Worth it to whom? To the kingdom, which uses us and pretends not to, yes, and to you only if you're strong enough to keep paying, which most of my students weren't." } },
       choices = {
         { text = "I'll pay whatever it costs, in my blood or anyone's.", next = "BACK", reply = "Pay it, then, and we'll see what's left of you afterwards. Most who say that leave less behind than they hoped.", fx = { align = { light = -2 } } },
-        { text = "I'll stop before it costs too much.", next = "price_stop", fx = { align = { light = 1 } } },
         { text = "I'll stop before it costs too much.", next = "BACK", reply = "They all say that. The ones who mean it stop before they start, and the rest learn where too much is by going past it.", fx = { align = { light = 1 } } },
         { text = "Who decides what's too much?", next = "price_who" },
       },

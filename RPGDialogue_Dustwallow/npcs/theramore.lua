@@ -842,6 +842,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    tv_lady = {
+      big = true,
+      lines = { { id = "tvl_default", text = "That we'll keep the peace with the Horde even when it would be easier and far more satisfying not to, and that we'll use the arcane to build rather than burn. Half of Theramore thinks she's naive for it, and I think she's the only one of us who has actually seen the alternative." } },
+      choices = {
+        { text = "Peace with the Horde is worth whatever it costs.", next = "BACK", reply = "Then you'll be very welcome in this tower, and very unpopular in the barracks, which is the usual price.", fx = { align = { honor = 1 } } },
+        { text = "Peace with orcs is a gamble Theramore will lose.", next = "BACK", reply = "Perhaps, and I've lost sleep over it, but I've seen the alternative too, and I'd rather lose the gamble than win that.", fx = { align = { honor = -1 } } },
+        { text = "What alternative has she seen?", next = "tv_lady2" },
+      },
+    },
+    tv_lady2 = {
+      lines = { { id = "tvl2_default", text = "Stratholme, and Dalaran after Archimonde, and a prince she'd once been fond of leading the dead. A woman who has seen those doesn't think peace is naive, only expensive." } },
+      choices = { { text = "Something else, Archmage.", next = "BACK", fx = { learn = { "jaina" } } } },
+    },
+    tv_tabetha = {
+      lines = { { id = "tvt_default", text = "I trust her magic absolutely and her opinions not at all, which is exactly how she likes it. She sends the Lady's students home with wands and a great many rude remarks about Theramore's committees, and I've stopped forwarding the remarks." } },
+      choices = {
+        { text = "She called you a committee, didn't she?", next = "BACK", reply = "Twice, and once to my face, and I've forgiven her for the second." },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    tv_portal = {
+      big = true,
+      lines = { { id = "tvp_default", text = "I could, if there were one to teach, but Theramore's anchor is the Lady's own work, and she hasn't seen fit to teach it to the Kirin Tor, let alone to visiting mages. You'll take the boat from Menethil like everyone else, and you'll be seasick, and you'll be humbler for it." } },
+      choices = {
+        { text = "Then the anchor's hers to keep, and rightly so.", next = "BACK", reply = "Thank you. A city whose door only one person can open is a city that's hard to take by surprise.", fx = { align = { order = 1 } } },
+        { text = "A city with one door is a city in danger.", next = "BACK", reply = "That's precisely what I tell the Lady whenever I ask, and she smiles at me, which I find very irritating.", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    tv_human = {
+      lines = { { id = "tvh_default", text = "Then you'll find us smaller and wetter and far less fond of ceremony than the Sanctum, and you'll be the better mage for it within a month. The last mage Stormwind sent us stopped wearing the hat in a week, and I count that as her education beginning." } },
+      choices = {
+        { text = "I'll leave the hat at home.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
     op_kirin_tor = {
       lines = {
         { id = "opk_q", text = "The Lady could have stayed in Dalaran's good graces, you know, and the Kirin Tor have never quite forgiven her for leaving. You strike me as someone with views, so what do you make of the Kirin Tor?" },
@@ -1003,9 +1039,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Archmage Tervosh. I advise the Lady, I read more than is good for me, and I tend a garden when the world allows it, which is rarely." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
-          text = "The diplomat's trail ran cold, and then it ran somewhere I didn't like. Follow it, but carefully." },
+          text = "The diplomat's trail ran cold, and then it ran somewhere I didn't like, so follow it, but carefully." },
         { id = "h_shards", when = { questActive = TODO_QUEST("Shadowshard Fragments") },
-          text = "Shadowshard fragments. There's an unusual energy in them, and if you bring me enough I can make something of it." },
+          text = "Shadowshard fragments, yes, because there's an unusual energy in them, and if you bring me enough I can make something of it." },
         { id = "h_garden", when = { metBefore = true }, text = "The marsh air is wonderful for herbs and terrible for parchment, so I've chosen the herbs. My notes forgive me, mostly." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Please don't look too closely at my garden; I've read every herbal in Theramore, and they're all wrong about swamp soil." },
@@ -1034,6 +1070,10 @@ P:NPC {
         { text = "What do your books say of dwarves and the elements?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I was there when Onyxia fell, Archmage.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Alliance" } },
         { text = "What do you make of mages who travel with adventurers, Archmage?", next = "xpt_tervosh", when = { party = { class = "MAGE" }, faction = "Alliance" } },
+        { text = "What does the Lady expect of Theramore's mages?", next = "tv_lady", when = { class = "MAGE" } },
+        { text = "Tabetha lives out in the marsh. Do you trust her?", next = "tv_tabetha", when = { class = "MAGE", minLevel = 26 } },
+        { text = "Could you teach me a portal to Theramore?", next = "tv_portal", when = { class = "MAGE", minLevel = 40 } },
+        { text = "I came from Stormwind's Sanctum to serve the Lady.", next = "tv_human", when = { race = "Human", class = "MAGE" } },
         { text = "I'll be quick.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1049,36 +1089,36 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     garden = {
-      lines = { { id = "g_default", text = "Mageroyal by the wall, briarthorn by the steps, and something from the marsh I haven't named yet. It keeps trying to bite the bees." } },
+      lines = { { id = "g_default", text = "Mageroyal by the wall, briarthorn by the steps, and something from the marsh I haven't named yet, which keeps trying to bite the bees." } },
       choices = {
         { text = "Name it after yourself.", next = "garden_name", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     garden_name = {
-      lines = { { id = "gn_default", text = "Tervosh's Folly? Too accurate. I'll name it after a committee instead, since something that bites would suit one." } },
+      lines = { { id = "gn_default", text = "Tervosh's Folly? That's far too accurate, so I'll name it after a committee instead, since something that bites would suit one." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     independent = {
-      lines = { { id = "i_default", text = "I prefer to be useful without asking six people first. The Lady asks, I answer, things get done. Committees can read about it afterwards." } },
+      lines = { { id = "i_default", text = "I prefer to be useful without asking six people first, so the Lady asks, I answer and things get done, and the committees can read about it afterwards." } },
       choices = {
         { text = "What do you think of the Kirin Tor?", next = "op_kirin_tor" },
         { text = "Something else.", next = "BACK" },
       },
     },
     jaina = {
-      lines = { { id = "j_default", text = "Brilliant, stubborn, and far too willing to carry everything herself. Don't tell her I said stubborn, but do tell her to sleep." } },
+      lines = { { id = "j_default", text = "She's brilliant, stubborn and far too willing to carry everything herself, so don't tell her I said stubborn, but do tell her to sleep." } },
       choices = {
         { text = "I'll tell her.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     shards = {
-      lines = { { id = "s_default", text = "They hold energy the way a sponge holds water: badly, and everywhere. With enough of them I can shape something that holds it properly." } },
+      lines = { { id = "s_default", text = "They hold energy the way a sponge holds water, badly and everywhere, and with enough of them I can shape something that holds it properly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mage = {
-      lines = { { id = "m_default", text = "Keep your own notes, in your own hand. Committees lose things, but you won't, if it's your handwriting nobody else can read." } },
+      lines = { { id = "m_default", text = "Keep your own notes in your own hand, because committees lose things, but you won't, if it's in handwriting nobody else can read." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     x_gnome = {

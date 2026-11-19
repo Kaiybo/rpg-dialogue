@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_op_kirintor", when = { opinion = { topic = "kirin_tor", stance = "too_cautious" } }, text = "Ah, the one who thinks Dalaran's vaults should be opened. Come in; I've a book I'm not supposed to have, and I'd value your opinion of it." },
     { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
-    { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If not, why are you standing in my tower?" },
+    { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If he isn't, I can't think why you're standing in my tower." },
     { id = "g_after", when = { questDone = TODO_QUEST("Morganth") }, text = "Ah, the one who dealt with Morganth. You may sit, though not on that." },
   },
 
@@ -31,6 +31,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    th_scry = {
+      big = true,
+      lines = { { id = "ths_default", text = "You bind a sight to a place, the way you'd tie a thread to a door handle, and then you follow the thread back without walking it. The Eye holds my threads and the glyphs in Redridge are the door handles, and the whole of it fails the moment someone clever finds a glyph and wipes it clean." } },
+      choices = {
+        { text = "Watching from safety is wise. Let others take the risks.", next = "BACK", reply = "Precisely, and I'm glad someone sees it. The brave ones are so expensive to replace.", fx = { align = { honor = -1 } } },
+        { text = "A mage should face what he studies, not peer at it.", next = "BACK", reply = "Spoken like a student who has never been looked back at by the thing he was watching. I have, once, and I'd not recommend it.", fx = { align = { honor = 1 } } },
+        { text = "Has Morganth ever found one of your glyphs?", next = "th_scry2" },
+      },
+    },
+    th_scry2 = {
+      lines = { { id = "ths2_default", text = "Twice, and the second time he wrote a rude word across it in shadow, which told me a great deal more about him than he intended. A man who can't resist answering is a man who can be read." } },
+      choices = { { text = "Something else, Theocritus.", next = "BACK", fx = { learn = { "morganth" } } } },
+    },
+    th_turn = {
+      big = true,
+      lines = { { id = "tht_default", text = "Curiosity with nothing to stop it, which is the disease of our whole profession, and impatience, which is the symptom. He wanted Ur's knowledge faster than the Sanctum would give it to him, and a mage who can't wait for a book will eventually steal one." } },
+      choices = {
+        { text = "Then patience is the cure, and I'll learn it.", next = "BACK", reply = "It is the only cure I know of, and it tastes dreadful, so take it daily.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Sanctum drove him to it by holding back.", next = "BACK", reply = "So he said, I'm sure, and so would you, if you went the same way. Don't.", fx = { align = { order = -1 } } },
+        { text = "Something else, Theocritus.", next = "BACK" },
+      },
+    },
+    th_teach = {
+      lines = {
+        { id = "thte_default", text = "I don't take students, because students ask questions at inconvenient hours and break things that took me years to build. Bring me Morganth's end, though, and I'll answer anything you like for a whole afternoon, which is more than the Kirin Tor ever offered me." },
+        { id = "thte_done", when = { questDone = TODO_QUEST("Morganth") }, text = "You brought me Morganth's end, so I owe you an afternoon of answers, and I keep my debts. Ask me about the scrying, or the pendants, or why I despise committees, and I shall try very hard not to be brief." },
+      },
+      choices = {
+        { text = "Then tell me about the gnoll pendants.", next = "study", when = { questDone = TODO_QUEST("Morganth") } },
+        { text = "I'll hold you to that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Theocritus.", next = "BACK" },
+      },
+    },
+    th_gnome = {
+      lines = { { id = "thg_default", text = "Your people knew a great deal about precision and very little about restraint, and between my servants and your Academy's old texts I've learned more from gnomes than from half of Dalaran. Don't repeat that downstairs, or they'll want a raise." } },
+      choices = {
+        { text = "My lips are sealed, Theocritus.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Theocritus.", next = "BACK" },
+      },
+    },
     op_kirintor = {
       lines = {
         { id = "op_kirintor_a", text = "Ah, a question worth climbing the stairs for. The Kirin Tor lock away what frightens them, and then a Morganth steals the key and we all act surprised. Tell me, then: should dangerous knowledge be sealed, or learned?" },
@@ -61,7 +101,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It's worth a footnote. The arcane is the true discipline; your spirits are a curiosity. Do mind the stairs on your way out." } },
+      lines = { { id = "xdsham_default", text = "It's worth a footnote, because the arcane is the true discipline and your spirits are a curiosity. Do mind the stairs on your way out." } },
       choices = {
         { text = "Discipline has its place, Theocritus. I respect your study.", next = "BACK", reply = "How gracious, and quite unexpected. I'll amend the footnote to a short paragraph.", fx = { align = { order = 1 } } },
         { text = "Footnotes, is it? My spirits have answered when your arcane failed.", next = "BACK", reply = "When it failed in someone else's hands, perhaps. Mine are rather more reliable. Do mind the stairs.", fx = { align = { order = -1 } } },
@@ -126,27 +166,31 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_th_young", when = { class = "MAGE", maxLevel = 19 },
+          text = "A mage, and a very new one, by the way you're holding your breath. I don't teach, but I'll answer one sensible question if you can find one." },
+        { id = "h_th_old", when = { class = "MAGE", minLevel = 50 },
+          text = "Ah, a mage who has actually become something, which is rare enough that I'll put down my pen. Sit, if you can find a chair the gnomes haven't claimed." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to warn me about the dangers of the arcane, I assure you I've written a book on them, and it's better than yours." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order has always been very good at hitting the things my colleagues failed to stop, so I suppose you're welcome." },
         { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want, if not to help me with Morganth?" },
         { id = "h_low", when = { maxLevel = 17 },
-          text = "You are very young and I am very busy. Come back when you've survived something interesting." },
+          text = "You are very young and I am very busy, so come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
-          text = "A man named Morganth, in the Tower of Ilgalar in Redridge, once studied with Stormwind's mages until he went wrong. He is my problem." },
+          text = "A man named Morganth, in the Tower of Ilgalar in Redridge, once studied with Stormwind's mages until he went wrong, and he is my problem, which I would very much like to make yours." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Morganth") },
-          text = "Morganth commands the Shadowhide gnolls and thinks himself a lord. Remind him otherwise. Permanently, if you'd be so kind." },
+          text = "Morganth commands the Shadowhide gnolls and thinks himself a lord, so go and remind him otherwise, permanently, if you'd be so kind." },
         { id = "h_eye", when = { questActive = TODO_QUEST("A Watchful Eye") },
-          text = "My scrying sphere, the Eye of Azora, sees far, but not far enough. That is where you come in, regrettably." },
+          text = "My scrying sphere, the Eye of Azora, sees far but not far enough, and that is where you come in, regrettably." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Morganth"), days = 3 } },
           text = "Gone, really? Then Stormwind is a little safer, and I am far less bored than I expected to be, which is not a complaint." },
         { id = "h_mage", when = { class = "MAGE", minLevel = 20 },
-          text = "The Mage Quarter sends me its brighter students now and then. You might do, possibly." },
+          text = "The Mage Quarter sends me its brighter students now and then, and you might do, possibly, if you can keep up." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "The Kirin Tor have been insufferable about your people lately, I'm told: Highborne magisters' children, back from wherever they were. I'd like to see what the fuss is about, but later." },
         { id = "h_pendant", tags = { "news" }, when = { questActive = TODO_QUEST("Theocritus' Retrieval") },
           text = "You heard me through a gnoll's pendant, weeks late? Give it here; a slow spell is still a spell that worked." },
         { id = "h_druidcl", when = { class = "DRUID" },
-          text = "A druid. How quaint. I've studied the arcane for decades, and I'll confess the nature magics have always seemed rather muddy to me." },
+          text = "A druid, how quaint. I've studied the arcane for decades, and I'll confess the nature magics have always seemed rather muddy to me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
@@ -175,6 +219,10 @@ P:NPC {
         { text = "I'd guess you've never studied faith, Theocritus.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is anything here a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I suspect you don't think shamanism worth studying, Theocritus.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How does your Eye of Azora actually work?", next = "th_scry", when = { class = "MAGE", minLevel = 15 } },
+        { text = "Morganth was a mage like me. What turned him?", next = "th_turn", when = { class = "MAGE" } },
+        { text = "Would you ever take me as a student, Theocritus?", next = "th_teach", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Gnomes keep your tower. Do you value what they know?", next = "th_gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },
@@ -202,9 +250,9 @@ P:NPC {
     },
     morganth_want = {
       lines = {
-        { id = "mw_default", text = "Power, the dull answer. He sided with the Blackrock orcs to take Stonewatch Keep, then turned on them. A man who betrays his allies that quickly wants something specific." },
+        { id = "mw_default", text = "Power, which is the dull answer. He sided with the Blackrock orcs to take Stonewatch Keep and then turned on them, and a man who betrays his allies that quickly wants something specific." },
         { id = "mw_scythe", when = { questDone = TODO_QUEST("Looking Further") },
-          text = "The Scythe of Elune, if I read his thoughts aright. If he has it, Redridge feels it first and Stormwind second." },
+          text = "The Scythe of Elune, if I read his thoughts aright, and if he has it, Redridge will feel it first and Stormwind second." },
       },
       choices = {
         { text = "How do you read his thoughts?", next = "eye" },
@@ -214,7 +262,7 @@ P:NPC {
 
     study = {
       lines = {
-        { id = "s_default", text = "Gnolls, at present. Morganth's gnolls wear pendants, and if I understand the pendant I understand the leash, and then the hand that holds it." },
+        { id = "s_default", text = "Gnolls, at present, because Morganth's gnolls wear pendants, and if I understand the pendant I understand the leash, and then the hand that holds it." },
       },
       choices = {
         { text = "Can the pendants be turned on him?", next = "study_turn" },
@@ -223,7 +271,7 @@ P:NPC {
     },
     study_turn = {
       lines = {
-        { id = "st_default", text = "In time. I sent a message through them weeks ago and thought it failed. Next I mean to send something that holds every gnoll wearing one where it stands." },
+        { id = "st_default", text = "In time, yes. I sent a message through them weeks ago and thought it had failed, and next I mean to send something that holds every gnoll wearing one exactly where it stands." },
         { id = "st_heard", when = { questDone = TODO_QUEST("Theocritus' Retrieval") },
           text = "You heard my message through one of those pendants, weeks late, but you heard it. That is still the most satisfying thing to happen in this tower all year." },
       },
@@ -244,13 +292,13 @@ P:NPC {
     },
     tower_gnomes = {
       lines = {
-        { id = "tg_default", text = "The Servants of Azora: loyal, tireless and armed. They are also the only people in Elwynn who never ask me to fix their ploughs." },
+        { id = "tg_default", text = "They are the Servants of Azora, loyal, tireless and armed, and they are also the only people in Elwynn who never ask me to fix their ploughs." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     eye = {
       lines = {
-        { id = "ey_default", text = "The Eye of Azora, a scrying sphere upstairs. Touch it and you see the walls of Morganth's tower in Redridge. My glyphs carry its sight further, wherever someone brave sets them." },
+        { id = "ey_default", text = "The Eye of Azora is a scrying sphere upstairs, and if you touch it you'll see the walls of Morganth's tower in Redridge. My glyphs carry its sight further, wherever someone brave sets them." },
       },
       choices = {
         { text = "I could set one.", next = "BACK", when = { minLevel = 20 }, fx = { affinity = 1, learn = { "morganth" } } },
@@ -300,13 +348,13 @@ P:NPC {
     },
     mage_knowledge = {
       lines = {
-        { id = "mk_default", text = "Morganth said that, I'm told, in nearly those words. Think about it on the way down. There are a great many stairs." },
+        { id = "mk_default", text = "Morganth said that, I'm told, in nearly those words, so think about it on the way down, because there are a great many stairs." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "morganth" } } } },
     },
     warlock = {
       lines = {
-        { id = "wl_default", text = "Nobody is Morganth until they are. He began as a student with good intentions. Keep yours where I can see them." },
+        { id = "wl_default", text = "Nobody is Morganth until they are, and he began as a student with good intentions, so keep yours where I can see them." },
       },
       choices = {
         { text = "You'll see them.", next = "BACK", reply = "Good. I'll be watching them rather more closely than you'd like.", fx = { affinity = 1, align = { order = 1 } } },
@@ -333,7 +381,7 @@ P:NPC {
     },
     noble = {
       lines = {
-        { id = "nb_default", text = "Court is where competent people go to be wasted. Stay out here, where the dangers are honest." },
+        { id = "nb_default", text = "Court is where competent people go to be wasted, so stay out here, where the dangers are honest." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -343,13 +391,13 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I have studied a great many things from this tower, most of them beyond your concern. These, however, I might explain." },
     },
-    background = { { id = "tp_bg", text = "I have a tower and a rival. That is all the biography anyone needs." } },
+    background = { { id = "tp_bg", text = "I have a tower and a rival, and that is all the biography anyone needs." } },
     advice = { { id = "tp_ad", text = "If a book is sealed, the seal is the most important thing in it." } },
     morganth = {
-      { id = "tp_morganth", text = "He's in Redridge, in the Tower of Ilgalar. Bring a friend, or better, several." },
+      { id = "tp_morganth", text = "He's in Redridge, in the Tower of Ilgalar, so bring a friend, or better, several." },
       { id = "tp_morganth2", text = "Must we? Very well, sit down, but briefly.", next = "morganth" },
     },
-    defias = { { id = "tp_defias", text = "Thieves, and tiresome ones, but somebody else's problem, I'm delighted to say." } },
+    defias = { { id = "tp_defias", text = "The Defias are thieves, and tiresome ones, but they are somebody else's problem, I'm delighted to say." } },
     eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
     blackrock = { { id = "tp_blackrock", text = "The Blackrock are the orcs in Stonewatch Keep, in Redridge. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },

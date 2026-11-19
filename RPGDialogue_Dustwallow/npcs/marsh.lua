@@ -10,21 +10,101 @@ P:NPC {
     third = "{name} met Tabetha, a reclusive mage living in the southern marshes of Dustwallow.",
   },
   greetings = {
+    { id = "g_journey", when = { questActive = TODO_QUEST("Journey to the Marsh") }, text = "Hush, please, I'm halfway through something delicate, so stand on the mat and don't breathe on the kettle for a moment." },
     { id = "g_main", text = "Come in, come in, and wipe your boots, though in this marsh I suppose there's little point, and mind the frog in the kettle, he's a guest." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back through the mire! Most people don't bother twice, so you'd better come in and have some tea." },
   },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
   notice = {
     { id = "n_imp", cat = "class", when = { class = "WARLOCK", pet = { family = "Imp" } },
       text = "Your imp has been eyeing my frog since you walked in, and I'll thank you to tell it that the frog is a guest and not a snack." },
-  },
-  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE", minLevel = 26 },
+      text = "You've the look of someone who's come all this way for a wand, dear, all hope and wet boots, so sit down before you drip on the rug." },
     { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
       text = "There's a green tinge under your skin that I don't think you've noticed yet, and the pools out here will notice before you do. I'd ask you to keep away from my springs until it fades, if it ever does." },
   },
 
   start = "hello",
   nodes = {
+    tb_wand = {
+      big = true,
+      lines = { { id = "tbw_default", text = "Because a wand is a little vessel that holds a mage's spare breath, and it learns the shape of the hand that gathered it. Jade holds the charge, a lightning-struck bramble gives it a spark, and a passage in a certain old book tells me how to bind the two without blowing my roof off, and I want you to have touched every piece of it." } },
+      choices = {
+        { text = "Gathering it myself is the honest way.", next = "BACK", reply = "It is, dear, and you'll be able to say so in every tavern in the Alliance, which is half the pleasure of it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A wand's a tool. I'd sooner buy one and save the bother.", next = "BACK", reply = "Then Ardwyn Cailen in Stormwind will sell you a very polite one, and you'll never know what you missed.", fx = { align = { honor = -1 } } },
+        { text = "Which old book?", next = "tb_book" },
+      },
+    },
+    tb_book = {
+      lines = { { id = "tbb_default", text = "Rituals of Power, by Magus Tirth, and there isn't a copy in any great library in the world, because Tirth was too proud to let one be made. If you want your wand, you'll have to ask him for it yourself, and he spends his days at the racing flats in Thousand Needles now, poor dear." } },
+      choices = { { text = "Something else, Tabetha.", next = "BACK" } },
+    },
+    tb_tirth = {
+      big = true,
+      lines = { { id = "tbt_default", text = "Tirth was the finest scholar of ritual magic in his generation, and he could make a circle hold for a week on nothing but stubbornness. Then he discovered gnomes racing goblins across the Shimmering Flats, and the wagers that go with them, and now I hear he sold his last copy of his own book to pay a debt, which is almost too sad to be funny." } },
+      choices = {
+        { text = "Poor man. Somebody ought to help him.", next = "BACK", reply = "Somebody should, and I write to him every winter, and every winter he bets the stamp.", fx = { align = { light = 1 } } },
+        { text = "A scholar who gambles away his life's work deserves it.", next = "BACK", reply = "Perhaps he does, though I'd not say it to his face, because he still knows a hex or two.", fx = { align = { light = -1 } } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_scarlet = {
+      lines = { { id = "tbs_default", text = "Of all the libraries in the world, he sold it to a Scarlet cleric, and now it sits in their monastery in Tirisfal behind a great many zealots with swords. They'll be burning it for heresy by midsummer if you don't hurry, so take friends, go quickly, and don't let them preach at you on the way in." } },
+      choices = {
+        { text = "I'll fetch it, zealots or not.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_done = {
+      lines = { { id = "tbd_default", text = "A little of everything I could spare, dear, and a little of you, because the bramble remembers whose hand planted it. It'll serve you best when you're empty and cross, which is the mood I made it in, so you'll get along famously." } },
+      choices = {
+        { text = "I'll use it well. Thank you, Tabetha.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_tiara = {
+      big = true,
+      lines = { { id = "tbti_default", text = "Velratha, a hydromancer of the sand trolls, has a tiara of mine down in Zul'Farrak, the Tiara of the Deep, which I made long ago for working the sea, and she came by it through a bad bargain I'd rather not discuss. It holds water magic beautifully, and I'd sooner it sat on my shelf than on a troll's head, for everyone's sake." } },
+      choices = {
+        { text = "I'll bring it back to you, Tabetha.", next = "BACK", reply = "Bless you, dear, and bring a priest along too, because Velratha fights dirty and so do her friends.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What's it worth to you, exactly?", next = "BACK", reply = "A good deal, dear, and you'll be paid in what I have, which is mostly shoulder pads and gratitude.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_gnome = {
+      lines = { { id = "tbg_default", text = "Oh, I'm sure it could, and I'm sure it would hum and tick and do something unexpected on a Tuesday. A gnome wand is welcome in my hut so long as it doesn't frighten the frog, but the bramble and the jade go in first, gears or no gears." } },
+      choices = {
+        { text = "Gears second, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_nelf = {
+      big = true,
+      lines = { { id = "tbn_default", text = "A little, I imagine, though I've only the stories to go on, and you've the memory of your whole people behind you. The difference is that I take a cupful and the Highborne took the whole well, and I'd ask you to remember that the next time you're very thirsty." } },
+      choices = {
+        { text = "A cupful at a time. I'll remember.", next = "BACK", reply = "Good, and come back for tea whenever the thirst gets bad. I've kept a good few mages honest that way.", fx = { align = { order = 1 } } },
+        { text = "My people drank once. I won't fear the water forever.", next = "BACK", reply = "No, and you shouldn't, dear, but fear and respect are different things, and the marsh only asks for the second.", fx = { align = { order = -1 } } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_dal = {
+      lines = { { id = "tbd2_default", text = "Not yet, dear, because they've no room for anyone who wasn't there before, and they've shut the gates while they put the towers back together. Go and learn from the world instead, which is what I did, and the Kirin Tor will come and find you when they're ready, if you're any good." } },
+      choices = {
+        { text = "I'll learn from the world, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tabetha.", next = "BACK" },
+      },
+    },
+    tb_nonmage = {
+      lines = { { id = "tbnm_default", text = "Not a proper one, dear, because the wand needs a mage's breath to fill it, and without one it's only a very expensive twig. I'd make you a cup of tea instead, which has its own magic, and between you and me it's more reliable." } },
+      choices = {
+        { text = "Do mages think less of the rest of us?", next = "tb_nonmage2" },
+        { text = "Tea suits me fine, Tabetha.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    tb_nonmage2 = {
+      lines = { { id = "tbnm2_default", text = "Some do, the ones who never leave their towers, and I think they're fools, because the raptors don't care who's read what. I've been rescued by a fisherman with an oar more often than by any archmage, and it's the fisherman's name I remember." } },
+      choices = { { text = "Something else, Tabetha.", next = "BACK" } },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, as it happens, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
@@ -145,6 +225,18 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_tb_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to the Marsh") },
+          text = "So one of the trainers has sent you to me for a wand, have they? Sit down, catch your breath and pick the leeches off, and then we'll talk about what you'll be fetching for me." },
+        { id = "h_tb_items", tags = { "news" }, when = { questActive = TODO_QUEST("Items of Power") },
+          text = "Have you the jade and the bramble yet? Follow my list to the letter, dear, because a wand made from the wrong bramble goes off in your hand the first time you sneeze." },
+        { id = "h_tb_tirth", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Hidden Secrets") }, { questActive = TODO_QUEST("Rituals of Power") }, { questDone = TODO_QUEST("Hidden Secrets") } } },
+          text = "Have you found Tirth yet, or has he lost my book at the races again? He was the finest scholar of ritual I ever knew, and now he bets on gnomish racing machines, which I suppose is a ritual of sorts." },
+        { id = "h_tb_wand", when = { questDone = TODO_QUEST("Mage's Wand") },
+          text = "How's the wand behaving? Don't tell me it's behaving perfectly, because mine never do, and I'd worry about yours if it did." },
+        { id = "h_tb_task", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Tabetha's Task") }, { questActive = TODO_QUEST("Tiara of the Deep") } } },
+          text = "Velratha still has my tiara down in Zul'Farrak, I take it? Bring friends, dear, a great many friends, because sand trolls don't share, and that one least of all." },
+        { id = "h_tb_young", when = { class = "MAGE", maxLevel = 25 },
+          text = "You're a little early for one of my wands, dear, but you're welcome to tea, and you may tell your trainer I said you'd do, eventually." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, out here? You'll want to keep that sword away from my wards, because they take a dim view of anything that clanks." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -176,6 +268,15 @@ P:NPC {
         { text = "A mage in this swamp hardly needs a warrior, I'd think.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What should a hunter watch for in the southern marsh?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why do people think you're up to something, Tabetha?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why must I gather a wand's makings myself?", next = "tb_wand", when = { class = "MAGE", minLevel = 26 } },
+        { text = "Who is Magus Tirth, and how did he lose your book?", next = "tb_tirth", when = { any = { { questActive = TODO_QUEST("Hidden Secrets") }, { questActive = TODO_QUEST("Rituals of Power") }, { questDone = TODO_QUEST("Hidden Secrets") } } } },
+        { text = "The Scarlet Crusade has the book in their library.", next = "tb_scarlet", when = { questActive = TODO_QUEST("Rituals of Power") } },
+        { text = "What did you put into my wand, Tabetha?", next = "tb_done", when = { questDone = TODO_QUEST("Mage's Wand") } },
+        { text = "What's your quarrel with that troll in Zul'Farrak?", next = "tb_tiara", when = { class = "MAGE", minLevel = 40 } },
+        { text = "Could a gnome build a wand with gears in it?", next = "tb_gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "Does this marsh's mana feel like the old Well, Tabetha?", next = "tb_nelf", when = { race = "NightElf", class = "MAGE" } },
+        { text = "You studied in Dalaran. Should I go there?", next = "tb_dal", when = { race = "Human", class = "MAGE" } },
+        { text = "Could you make a wand for someone who isn't a mage?", next = "tb_nonmage", when = { ["not"] = { class = "MAGE" } } },
         { text = "Farewell.", next = "END" },
       },
     },

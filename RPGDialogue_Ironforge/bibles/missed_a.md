@@ -1,4 +1,4 @@
-# Ironforge, missed folk A  (keys: if_buckler, if_bailey, if_balthus, if_barim, if_barnum, if_barrus, if_bingus, if_binny, if_bombus, if_bretta, if_briarthorn, if_brombar, if_bromiir, if_bruuk, if_burbik, if_hammerfall, if_demnul, if_dinita, if_dink, if_dolkin, if_dolman, if_durtham, if_edris, if_fillius, if_fimble, if_garel, if_ginny, if_goli, if_golnir, if_grenil, if_gretta, if_groum, if_grumnus, if_gwenna, if_gwina, if_harick, if_hegnar, if_hjoldir, if_ingrys)
+# Ironforge, missed folk A  (keys: if_buckler, if_bailey, if_balthus, if_barim, if_barnum, if_barrus, if_bingus, if_binny, if_bombus, if_bretta, if_briarthorn, if_brombar, if_bromiir, if_bruuk, if_burbik, if_hammerfall, if_demnul, if_dinita, if_dolkin, if_dolman, if_durtham, if_edris, if_fillius, if_fimble, if_garel, if_ginny, if_goli, if_golnir, if_grenil, if_gretta, if_groum, if_grumnus, if_gwenna, if_gwina, if_harick, if_hegnar, if_hjoldir, if_ingrys)
 
 Files: npcs/missed_a.lua (Buckler to Bromiir), npcs/missed_a2.lua (Bruuk to Garel), npcs/missed_a3.lua (Ginny to Ingrys).
 

@@ -1741,6 +1741,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    bk_tele = {
+      big = true,
+      lines = { { id = "bkt_default", text = "Of course it did, because that's where the rune was anchored, right here between the mages and the priests, so everyone who comes home arrives in time for evening prayers. I measured the landing point once, and it drifts about a hand's width a year, which I think means the mountain is breathing and the Kirin Tor think means I'm wrong." } },
+      choices = {
+        { text = "Someone should fix the anchor before it drifts too far.", next = "BACK", reply = "I've written to them about it, twice, with diagrams! They wrote back to ask who'd given me permission to measure it.", fx = { align = { order = 1 } } },
+        { text = "Let it drift. A breathing mountain sounds wonderful.", next = "BACK", reply = "Doesn't it? I've started leaving a little cushion on the landing spot, just in case it sneezes.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Who anchored it in the first place?", next = "bk_anchor" },
+      },
+    },
+    bk_anchor = {
+      lines = { { id = "bka_default", text = "Milstaff did, with a team of dwarven masons and a very great deal of shouting, and he'll tell you it's the most precise anchor in the Alliance. Please don't mention the drift to him, because he's terribly proud of it." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    bk_items = {
+      lines = { { id = "bki_default", text = "Jade's the easy part, because any good vein will give you some, but the bramble is the fun part! Her instructions will have you set totem sticks somewhere the storms come down and wait for lightning to find them, and I'd stand a good long way back, because lightning doesn't always know which stick you meant." } },
+      choices = {
+        { text = "I'll stand well back, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Bink.", next = "BACK" },
+      },
+    },
+    bk_gnomer = {
+      big = true,
+      lines = { { id = "bkg_default", text = "We will, I'm almost certain, and I've done the sums on how many mages it'll take, and the answer is all of us and a few more besides. The radiation is the real problem, not the troggs, and a frost mage can't freeze radiation, though believe me, I've tried." } },
+      choices = {
+        { text = "I'll be ready when the High Tinker calls for us.", next = "BACK", reply = "So will I, with a bucket of sand and every student I've ever taught. We'll go home properly, together.", fx = { align = { order = 1 } } },
+        { text = "Sums won't take it back. We should go now.", next = "BACK", reply = "That's what the young ones always say, and they're the very ones I'd most like to keep alive for the actual day.", fx = { align = { order = -1 } } },
+        { text = "Something else, Bink.", next = "BACK" },
+      },
+    },
+    bk_dwarf = {
+      lines = { { id = "bkd_default", text = "Odd? Wonderful, more like! The priests keep asking you to come back to their side of the Hall, I expect, and you keep politely ignoring them, which is exactly the right amount of stubbornness for a mage, and dwarves cast very steadily, I've noticed, as if they're laying bricks." } },
+      choices = {
+        { text = "Brick by brick, Bink.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Bink.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Nothing alike, which is a relief and a worry. Mine come from the arcane, measured and formulaic and occasionally on fire. Yours apparently come from asking the fire itself, and I've no idea how to put that out if it disagrees, so I've added a third bucket, just in case." } },
@@ -1809,6 +1845,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_bk_poly", when = { class = "MAGE", minLevel = 8, maxLevel = 19 },
+          text = "You've got Polymorph now, haven't you? I can tell, because you keep looking at people as if you're measuring them for wool, and I did exactly the same for a month." },
+        { id = "h_bk_marsh", tags = { "news" }, when = { class = "MAGE", minLevel = 30, questBefore = TODO_QUEST("Journey to the Marsh") },
+          text = "You're ready for a wand of your own, I think, and the person to make it is Tabetha, out in Dustwallow Marsh west of Theramore. Tell her Bink sent you, and then duck." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I like priests, because when my students set themselves on fire, which happens, your sort are the ones who put them out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a list of paladins who've been very rude about my lightning, and I hope you won't be on it." },
         { id = "h_default", text = "Bink, mage trainer, and the Hall's best argument for keeping a bucket of sand by every door; I've measured, and three buckets is the safe ratio. What can I do for you?" },
@@ -1848,6 +1888,10 @@ P:NPC {
         { text = "Are a shaman's flames anything like a mage's, Bink?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Have you ever studied a moonwell, Bink?", next = "ne_well", when = { ["not"] = { race = "NightElf" } } },
         { text = "Our moonwells are Elune's gift, Bink, not an engine.", next = "ne_x", when = { race = "NightElf" } },
+        { text = "My teleport set me down right here in the Hall.", next = "bk_tele", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Tabetha wants jade and a lightning-struck bramble from me.", next = "bk_items", when = { questActive = TODO_QUEST("Items of Power") } },
+        { text = "Will gnome mages ever take Gnomeregan back, Bink?", next = "bk_gnomer", when = { race = "Gnome", class = "MAGE" } },
+        { text = "Do the others think a dwarf mage odd, Bink?", next = "bk_dwarf", when = { race = "Dwarf", class = "MAGE" } },
         { text = "Farewell, Bink.", next = "END" },
       },
     },
@@ -2011,6 +2055,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mi_flicker = {
+      big = true,
+      lines = { { id = "mif_default", text = "Of course it flickered, because you were thinking about the dwarf and not about the far end, and a portal goes wherever your attention goes. Fix the destination in your mind before anyone steps through, and let them worry about their own beards." } },
+      choices = {
+        { text = "I'll hold the far end first, always.", next = "BACK", reply = "Good, that's the whole of portal safety in a sentence, and it took me eleven years to write it down.", fx = { align = { order = 1 } } },
+        { text = "The people stepping through matter more than the far end.", next = "BACK", reply = "They matter enormously, which is why you must ignore them entirely while you cast. Make peace with that, or stop casting portals.", fx = { align = { order = -1 } } },
+        { text = "Something else, Milstaff.", next = "BACK" },
+      },
+    },
+    mi_know = {
+      lines = { { id = "mik_default", text = "Intimately, to within a hand's width, which is why we're taught only the capitals: they're charted, anchored and measured by people who were very careful. You can't open a portal to somewhere you've merely visited, however fond you were of the tavern." } },
+      choices = {
+        { text = "Who measured the capitals?", next = "BACK", reply = "Dalaran's masters, long ago, and then I measured them again myself, because I didn't trust Dalaran's masters." },
+        { text = "Something else, Milstaff.", next = "BACK" },
+      },
+    },
+    mi_dwarf = {
+      lines = { { id = "mid_default", text = "Because the dwarves who came to the Hall wanted to study rock, not air, and the gnomes who came had just lost a city and wanted very badly to be able to leave one quickly. I'd be delighted to be the first to teach a dwarf portals, provided you stop tapping the anchoring stones with your knuckles to see if they're sound." } },
+      choices = {
+        { text = "They are sound. I checked.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Milstaff.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I doubt it, and I'd not recommend trying. A portal needs precise arcane geometry, and the elements are many things, but precise is not one of them. Though I'll admit that when I open a portal to Stormwind, I sometimes feel the stone here shudder, and I've never known whether it was disapproving." } },
@@ -2090,6 +2157,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_mi_rune", when = { class = "MAGE", minLevel = 40, carrying = 17032 },
+          text = "You've brought your Runes of Portals, I see, which already places you above half of my applicants. Let us find out whether your acuity matches your shopping." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I doubt you've come to study portal magic, but I'll admit your kind understand discipline, and most of my apprentices couldn't sit still through a single candle's burning." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I very much doubt you've the mental acuity for portals, but I'll admit you've the discipline, which is half the battle." },
         { id = "h_default", text = "Milstaff Stormeye, portal trainer. I teach mages to fold one place onto another to within a hand's width, which is the most difficult thing in this Hall, and I include praying in that." },
@@ -2106,7 +2175,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Make it a sensible something, with defined terms." },
-        { id = "h_again2", text = "Well? I've calculations cooling." },
+        { id = "h_again2", text = "Well? Go on, because I've calculations cooling on the bench." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE", minLevel = 40 } },
@@ -2122,6 +2191,9 @@ P:NPC {
         { text = "Do paladins ever study portal magic, Milstaff?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is portal magic harder than a druid's road to Moonglade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a shaman ever learn to open a portal, Milstaff?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My first portal flickered and nearly closed on a dwarf.", next = "mi_flicker", when = { class = "MAGE", minLevel = 40 } },
+        { text = "Must I know a place well to open a portal there?", next = "mi_know", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Why are Ironforge's portal masters all gnomes?", next = "mi_dwarf", when = { race = "Dwarf", class = "MAGE" } },
         { text = "Good day, then.", next = "END" },
       },
     },

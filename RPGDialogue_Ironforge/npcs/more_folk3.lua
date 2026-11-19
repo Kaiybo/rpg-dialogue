@@ -810,19 +810,50 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Hello! Careful of the bucket, it's there for a reason, and the reason is mostly Tuesdays." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back! Splendid. Have you blown anything up? On purpose, I mean." },
-    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Wonderful. Light this candle for me, would you? Only the candle, please, the beam above it is load-bearing." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, splendid! Have you blown anything up, on purpose, I mean?" },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage, wonderful! Light this candle for me, would you, and only the candle, please, because the beam above it is load-bearing." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE", minLevel = 10 },
       text = "You've outgrown my little landing, I think! Go and see Bink in the Hall of Mysteries in Ironforge, and tell her I sent you." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "I promise I'm very careful near the kegs. Belm made me sign something." },
+      text = "I promise I'm very careful near the kegs, because Belm made me sign something about it." },
   },
   start = "hello",
   nodes = {
+    mgs_poly = {
+      big = true,
+      lines = { { id = "mgsp_default", text = "Sheep, yes, and you'll want to practise on something that doesn't mind, and nothing in Dun Morogh minds less than a boar with a full belly. Please don't practise on the Thunderbrews' ram, because I did that once by accident and I'm still paying for the fence." } },
+      choices = {
+        { text = "I'll practise on troggs. They've earned it.", next = "BACK", reply = "They have, rather, though a trogg sheep is still very bad-tempered, so don't stand too close to it.", fx = { align = { light = -1 } } },
+        { text = "I'll practise on something that won't be hurt by it.", next = "BACK", reply = "That's lovely of you, and the boars will thank you, in their way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else, Magis.", next = "BACK" },
+      },
+    },
+    mgs_size = {
+      big = true,
+      lines = { { id = "mgss_default", text = "Frost, because a gnome my size can't outrun a trogg but can absolutely freeze one to the floor and then walk away with great dignity. Fire is for later, once you've learned to throw it over the heads of the dwarves in front of you." } },
+      choices = {
+        { text = "Frost first, then. Dignity matters.", next = "BACK", reply = "It does, and so does not being eaten, and frost manages both at once!", fx = { align = { order = 1 } } },
+        { text = "Fire first. I want them gone, not stuck.", next = "BACK", reply = "I understand, I truly do, and I'll teach you fire, out on the snow, with the bucket.", fx = { align = { order = -1 } } },
+        { text = "Something else, Magis.", next = "BACK" },
+      },
+    },
+    mgs_dwarf = {
+      lines = { { id = "mgsd_default", text = "Laugh? They're far too frightened! A dwarf who can throw a frostbolt is the most alarming thing on this landing, and Azar's paladins keep sneaking over to watch you, and your people take to frost very naturally, which I put down to the climate." } },
+      choices = {
+        { text = "The cold's in our bones, Magis.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Magis.", next = "BACK" },
+      },
+    },
+    mgs_bink = {
+      lines = { { id = "mgsb_default", text = "As soon as you can light my candle without singeing the beam, which by the look of you is today or tomorrow! Take the road west to Ironforge and find Bink in the Hall of Mysteries, tell her I sent you, and please don't mention the fires." } },
+      choices = { { text = "I won't mention the fires. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
+        { id = "h_mgs_low", when = { class = "MAGE", maxLevel = 9 },
+          text = "Your first spells already! Show me a Frostbolt at the post outside, and if it sticks, I'll show you how to pull water out of the air, which you'll be glad of on the Kharanos road." },
         { id = "h_default", text = "I'm Magis Sparkmantle! I teach the mages who come down from Anvilmar, mostly gnomes like me, and I do it in a wooden building full of spirits, which I admit was not ideal planning." },
       },
       again = {
@@ -835,18 +866,22 @@ P:NPC {
         { text = "How do you get on with the paladins?", next = "paladins" },
         { text = "What brought a gnome mage to Kharanos?", next = "why" },
         { text = "What's your favourite spell to teach?", next = "fav" },
+        { text = "Polymorph is next, isn't it? Sheep?", next = "mgs_poly", when = { class = "MAGE", minLevel = 6 } },
+        { text = "Frost or fire, Magis, for a gnome my size?", next = "mgs_size", when = { race = "Gnome", class = "MAGE", maxLevel = 15 } },
+        { text = "Do your students laugh at a dwarf mage, Magis?", next = "mgs_dwarf", when = { race = "Dwarf", class = "MAGE" } },
+        { text = "When should I go on to Ironforge?", next = "mgs_bink", when = { class = "MAGE", minLevel = 8 } },
         { text = "Goodbye, Magis.", next = "END" },
       },
     },
     fire = {
-      lines = { { id = "fi_default", text = "I know, I know! Belm and I have an agreement. Frost and arcane indoors, fire out on the snow, and the bucket is for the students who forget which is which. We've had three small fires and one very fast evacuation." } },
+      lines = { { id = "fi_default", text = "I know, I know, but Belm and I have an agreement: frost and arcane indoors, fire out on the snow, and the bucket for the students who forget which is which. We've had three small fires and one very fast evacuation." } },
       choices = {
         { text = "Tell me about the evacuation.", next = "fire_evac" },
         { text = "Something else.", next = "BACK" },
       },
     },
     fire_evac = {
-      lines = { { id = "fe_default", text = "A student sneezed during a fire spell, right above the still room. Nothing caught! But forty dwarves have never left a tavern so quickly, and Jarven Thunderbrew carried out a full keg under each arm. He says he didn't feel the weight." } },
+      lines = { { id = "fe_default", text = "A student sneezed during a fire spell, right above the still room, and nothing caught, but forty dwarves have never left a tavern so quickly, and Jarven Thunderbrew carried out a full keg under each arm. He says he didn't feel the weight." } },
       choices = { { text = "A dwarf knows what to save first.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     paladins = {
@@ -854,7 +889,7 @@ P:NPC {
       choices = { { text = "A good neighbour for a mage.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     why = {
-      lines = { { id = "wy_default", text = "After Gnomeregan, the High Tinker asked for volunteers to teach out in the valley, so the young ones wouldn't have to cross troll country to reach Ironforge. I put my hand up. I'm not a great mage, but I'm a patient one." } },
+      lines = { { id = "wy_default", text = "After Gnomeregan, the High Tinker asked for volunteers to teach out in the valley, so the young ones wouldn't have to cross troll country to reach Ironforge. I put my hand up, because I'm not a great mage, but I'm a patient one." } },
       choices = {
         { text = "Is it hard, teaching refugees?", next = "why_hard" },
         { text = "Something else.", next = "BACK" },
@@ -862,10 +897,10 @@ P:NPC {
     },
     why_hard = {
       big = true,
-      lines = { { id = "wh_default", text = "Sometimes. They all want fire, and they all want it now, to burn the troggs out of our home. I teach them the slow way regardless. Some of them tell me I'm wasting time we don't have." } },
+      lines = { { id = "wh_default", text = "Sometimes, yes, because they all want fire, and they all want it now, to burn the troggs out of our home. I teach them the slow way regardless, and some of them tell me I'm wasting time we don't have." } },
       choices = {
-        { text = "Teach them properly. Haste gets mages killed.", next = "BACK", reply = "That's what I think! Thank you. I shall be firm about the candle exercise.", fx = { align = { order = 1 } } },
-        { text = "They're right. Give them what the fight needs.", next = "BACK", reply = "Oh dear. Perhaps one extra fire lesson a week. Outside.", fx = { align = { order = -1 } } },
+        { text = "Teach them properly. Haste gets mages killed.", next = "BACK", reply = "That's what I think, and thank you! I shall be very firm about the candle exercise.", fx = { align = { order = 1 } } },
+        { text = "They're right. Give them what the fight needs.", next = "BACK", reply = "Oh dear, perhaps one extra fire lesson a week, then, outside on the snow.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -877,15 +912,15 @@ P:NPC {
       },
     },
     fav_bread = {
-      lines = { { id = "x2_default", text = "Oh, the bread's dreadful. It's food, technically. I conjured a loaf for Innkeeper Belm once and he used it to prop the cellar door, and it's still there." } },
+      lines = { { id = "x2_default", text = "Oh, the bread's dreadful, though it's food, technically. I conjured a loaf for Innkeeper Belm once and he used it to prop the cellar door, and it's still there." } },
       choices = { { text = "A lasting contribution to the inn.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     belm = { { id = "tp_belm", text = "Innkeeper Belm is very patient with me. I've replaced two of his curtains, and he only mentions it when I'm in earshot." } },
-    gnomeregan = { { id = "tp_gnomer", text = "It's just over the hills to the west. On a still day you can see the vents, and I try not to look." } },
+    gnomeregan = { { id = "tp_gnomer", text = "It's just over the hills to the west, and on a still day you can see the vents, so I try not to look." } },
     bink = { { id = "tp_bink", text = "Bink, in Ironforge, taught me my theory at the Academy. I send her my best students and hope they don't mention the fires." } },
-    background = { { id = "tp_bg", text = "I was a lamp-enchanter for the tram tunnels. Teaching's a promotion, I think." } },
+    background = { { id = "tp_bg", text = "I was a lamp-enchanter for the tram tunnels, so teaching's a promotion, I think." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know! I could look it up, if I still had my books." } },
   },
 }
@@ -2148,20 +2183,57 @@ P:NPC {
     third = "{name} met Marryk Nurribit, the mage trainer at Anvilmar in Coldridge Valley.",
   },
   greetings = {
-    { id = "g_hi", text = "Hello, hello! You wouldn't happen to have a few coppers about you? No, no, forget I asked. What can I do for you?" },
+    { id = "g_hi", text = "Hello, hello! You wouldn't happen to have a few coppers about you? No, no, forget I asked, and tell me what I can do for you." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my friend returns! And the barrel's still half full, so it's a good day all round." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Ah, you'll be the one with the memorandum! Sit down, sit down, and we'll begin with frost, since there's so much of it lying about going to waste." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "Your fingertips are a little blue, which is frost magic done properly, or frostbite. Either way you're in the right valley." },
+      text = "Your fingertips are a little blue, which is frost magic done properly, or frostbite, and either way you're in the right valley." },
     { id = "n_drunk", cat = "drunk", when = { drunk = true },
       text = "Oh, well done! You've found the good barrel. I'd lecture you on casting in that state, but I'd be a dreadful hypocrite." },
   },
   start = "hello",
   nodes = {
+    mk_water = {
+      lines = { { id = "mkw_default", text = "You cup your hands and think of the coldest, cleanest water you've ever tasted, and the spell does the rest, though I'd advise you not to think about ale, because I tried that once and got something very disappointing. It'll keep you alive on the road, and it costs you nothing but a little mana." } },
+      choices = {
+        { text = "Did you ever manage to conjure ale?", next = "BACK", reply = "Never once, and not for want of trying, so some magic is simply cruel." },
+        { text = "Something else, Marryk.", next = "BACK" },
+      },
+    },
+    mk_armor = {
+      big = true,
+      lines = { { id = "mka_default", text = "It is a snowbank, a small one, and it'll slow anything that hits you, which out here means wolves and troggs, mostly. Keep it on whenever you're out of doors, and you'll find the cold stops minding you, which is the nicest thing frost ever does for anyone." } },
+      choices = {
+        { text = "I'll wear it always, then. Caution first.", next = "BACK", reply = "Good, and you'll thank me the first time a wolf gets close and then gets very slow.", fx = { align = { order = 1 } } },
+        { text = "I'd rather save the mana for frostbolts.", next = "BACK", reply = "That's a fair sum, and a wrong one, but a fair one, so try it my way for a week.", fx = { align = { order = -1 } } },
+        { text = "Something else, Marryk.", next = "BACK" },
+      },
+    },
+    mk_dwarf = {
+      big = true,
+      lines = { { id = "mkd_default", text = "Belong? You're the first dwarf in this valley who's ever asked me a question I couldn't answer with ale, so you belong more than I do. Your folk at Anvilmar will rib you, I expect, because they think magic is something gnomes do instead of mining, so throw a frostbolt at the icicle and let it answer for you." } },
+      choices = {
+        { text = "I'll show them it's honest work, like mining.", next = "BACK", reply = "That's the spirit, and Thran Khorman will back you, because he's seen what a frostbolt does to a trogg.", fx = { align = { order = 1 } } },
+        { text = "Let them rib me. I don't need their approval.", next = "BACK", reply = "No, you don't, and a dwarf who knows it is a dangerous thing. I'll drink to that, naturally.", fx = { align = { order = -1 } } },
+        { text = "Something else, Marryk.", next = "BACK" },
+      },
+    },
+    mk_gnome = {
+      big = true,
+      narr = "He sets the mug down, and for once he doesn't pick it straight back up.",
+      lines = { { id = "mkg_default", text = "No, nor did my brother, and I'm sorry, more sorry than a mug can say. Here's what I do, and you may take it or leave it: I teach as if every student is one of the ones I couldn't get up the stairs, and some days that's enough to get me to supper." } },
+      choices = {
+        { text = "Then I'll learn well, for both of ours.", next = "BACK", reply = "That's exactly it, and thank you, truly. Now, frost, before I need another mug.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll learn enough to burn the troggs out myself.", next = "BACK", reply = "And you may, one day, and I'll raise a mug to it. Learn the frost first, though, because the dead would want us to live long enough to try.", fx = { align = { light = -1 } } },
+        { text = "Something else, Marryk.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_mk_memo", when = { class = "MAGE", maxLevel = 5 },
+          text = "You've brought the Glyphic Memorandum, then, and you've read it on the way, which everybody does, so you'll know it calls me reliable. That's a generous word, and I mean to earn it this morning." },
         { id = "h_default", text = "Marryk Nurribit, at your service, mostly. I teach the young mages of Coldridge their first spells, and in the gaps I conduct a long study of dwarven ale, which is the only thing about this valley I'd call warm." },
       },
       again = {
@@ -2175,11 +2247,15 @@ P:NPC {
         { text = "Tell me about Gnomeregan.", next = "gnomeregan" },
         { text = "Can you truly cast after that many mugs?", next = "cast" },
         { text = "Who else shares the back of the hall?", next = "others" },
+        { text = "How do I conjure water, Marryk?", next = "mk_water", when = { class = "MAGE", minLevel = 3 } },
+        { text = "Frost Armor feels like wearing a snowbank.", next = "mk_armor", when = { class = "MAGE" } },
+        { text = "I'm a dwarf from Coldridge. Do I belong among mages?", next = "mk_dwarf", when = { race = "Dwarf", class = "MAGE", maxLevel = 15 } },
+        { text = "My family didn't make it out of Gnomeregan.", next = "mk_gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Farewell, Marryk.", next = "END" },
       },
     },
     ale = {
-      lines = { { id = "ale_default", text = "I am, I am. A gnome mage thinks very fast, you see, a great many thoughts at once, and since we left home most of mine are ones I'd sooner not have. Two mugs slows them to a walk. It's medicinal, when you look at it properly." } },
+      lines = { { id = "ale_default", text = "I am, I am, because a gnome mage thinks very fast, you see, a great many thoughts at once, and since we left home most of mine are ones I'd sooner not have. Two mugs slows them to a walk, so it's medicinal, when you look at it properly." } },
       choices = {
         { text = "That sounds like grief, not thirst.", next = "ale_grief" },
         { text = "And who pays for the medicine?", next = "ale_pay" },
@@ -2188,27 +2264,27 @@ P:NPC {
     },
     ale_grief = {
       big = true,
-      lines = { { id = "ale_grief_default", text = "Hm, well, yes. I lost a workshop, a library and a brother, and I've found that I can teach perfectly well so long as I don't think about any of the three. The priest says I ought to face it sober. The barrel has never said anything of the kind." } },
+      lines = { { id = "ale_grief_default", text = "Hm, well, yes, I lost a workshop, a library and a brother, and I've found that I can teach perfectly well so long as I don't think about any of the three. The priest says I ought to face it sober, and the barrel has never said anything of the kind." } },
       choices = {
-        { text = "The priest is right. The ale only puts off the day of reckoning.", next = "BACK", reply = "He is, I expect. He usually is, under the jokes. Perhaps tomorrow. I've said that before, of course.", fx = { align = { light = 1 } } },
+        { text = "The priest is right. The ale only puts off the day of reckoning.", next = "BACK", reply = "He is, I expect, because he usually is, under the jokes. Perhaps tomorrow, though I've said that before, of course.", fx = { align = { light = 1 } } },
         { text = "Drink, if it lets you work. You owe no one your sorrow.", next = "BACK", reply = "That's the kindest bad advice I've had all week. I'll take it, naturally.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ale_pay = {
-      lines = { { id = "ale_pay_default", text = "My students, I'm ashamed to say. I ask for a copper here and a copper there. I do pay it back, in lessons: I've taught three of them to chill a mug without being asked, which no other trainer in Khaz Modan offers." } },
+      lines = { { id = "ale_pay_default", text = "My students, I'm ashamed to say, a copper here and a copper there, though I do pay it back in lessons: I've taught three of them to chill a mug without being asked, which no other trainer in Khaz Modan offers." } },
       choices = { { text = "A chilled mug is a fair trade.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     first = {
-      lines = { { id = "first_default", text = "Frost, in this valley, because the air does half the work for you. Then a little fire, carefully, indoors, with Thran Khorman's bucket standing by. He keeps it there for me, and has only had to use it twice." } },
+      lines = { { id = "first_default", text = "Frost, in this valley, because the air does half the work for you, and then a little fire, carefully, indoors, with Thran Khorman's bucket standing by. He keeps it there for me, and he's only had to use it twice." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnomeregan = {
-      lines = { { id = "gnomeregan_default", text = "Don't go. That's my whole lecture, and I give it to every student. It isn't empty, whatever they tell you. What's down there is sick and clever, and the green in the air gets into you. I've seen brave people walk in to fetch one more crate." } },
-      choices = { { text = "Did they come out?", next = "BACK", reply = "Some did, and they weren't well afterwards. Please, just don't go.", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "gnomeregan_default", text = "Don't go, and that's my whole lecture, which I give to every student. It isn't empty, whatever they tell you, because what's down there is sick and clever, and the green in the air gets into you, and I've seen brave people walk in to fetch one more crate." } },
+      choices = { { text = "Did they come out?", next = "BACK", reply = "Some did, and they weren't well afterwards, so please, just don't go.", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     cast = {
-      lines = { { id = "cast_default", text = "Watch that icicle over the door. There. Clean through the middle, and I'm on my third. The hands remember. It's the counting I lose, and you don't need to count to throw frost at a trogg." } },
+      lines = { { id = "cast_default", text = "Watch that icicle over the door, there, clean through the middle, and I'm on my third mug. The hands remember, and it's only the counting I lose, and you don't need to count to throw frost at a trogg." } },
       choices = { { text = "I'm impressed, and a little worried.", next = "BACK", reply = "That's exactly how the dwarves put it!", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     others = {
@@ -2221,7 +2297,7 @@ P:NPC {
     branstock = { { id = "tp_branstock", text = "Branstock Khalder, the priest. Tells the worst jokes in Dun Morogh, and he's stood me more than one round and called it charity." } },
     magis = { { id = "tp_magis", text = "Magis Sparkmantle teaches in Kharanos. I send my students on to him when they can hit the icicle." } },
     background = { { id = "tp_bg", text = "I kept a small workshop on the third level, with a very good library. I try not to think where the books are now." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid. Ask me after another mug, I may have a theory." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid, but ask me after another mug, and I may have a theory." } },
   },
 }
 

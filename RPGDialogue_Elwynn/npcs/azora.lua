@@ -14,7 +14,7 @@ P:NPC {
     third = "{name} met Dawn Brightstar, who sells arcane goods at the top of the Tower of Azora.",
   },
   greetings = {
-    { id = "g_default", text = "Vials and scrolls, all labelled. Please don't touch anything that's humming." },
+    { id = "g_default", text = "Vials and scrolls, every one of them labelled, so please don't touch anything that's humming." },
     { id = "g_back", when = { metBefore = true }, text = "Back up all those stairs again? You must want something rather badly." },
   },
   notice = {
@@ -27,6 +27,19 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    da_rune = {
+      lines = { { id = "dar_default", text = "A few, for the Master's own use, and I'm afraid he counts them every evening. If you're stuck out here without one, the reagent sellers in the Mage Quarter keep a good stock, and it's a pleasant walk through Elwynn if you don't mind the gnolls." } },
+      choices = { { text = "Something else, Dawn.", next = "BACK" } },
+    },
+    da_teach = {
+      big = true,
+      lines = { { id = "dat_default", text = "Not on purpose, though he's taught me more than he knows by shouting at me about it. If you want to learn from him, ask him something he doesn't know the answer to, and then stand very still while he works it out aloud." } },
+      choices = {
+        { text = "A proper teacher would be patient with his students.", next = "BACK", reply = "He would, and he isn't, and I've made my peace with it. The gnomes haven't, quite.", fx = { align = { order = 1 } } },
+        { text = "I'll provoke him into teaching me, then.", next = "BACK", reply = "Then bring a cushion for the stairs, because you'll be thrown down them at least once before it works.", fx = { align = { order = -1 } } },
+        { text = "Something else, Dawn.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Theocritus would call it superstition with lightning attached, I expect. I keep my opinion on the shelf with the scrolls, tidy and out of reach." } },
@@ -121,7 +134,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
-        { id = "h_again2", text = "Ask, please. It's very quiet up here most days." },
+        { id = "h_again2", text = "Ask, please, because it's very quiet up here most days." },
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
@@ -137,6 +150,8 @@ P:NPC {
         { text = "Does anything on your shelves come from the forest below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'd wager things go missing from the tower stores, Dawn.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the mages here think shamans are real spellcasters, Dawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you keep runes of teleportation up here?", next = "da_rune", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Does Theocritus ever teach anyone, Dawn?", next = "da_teach", when = { class = "MAGE" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
