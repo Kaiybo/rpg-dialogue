@@ -2,7 +2,7 @@
 -- Wu Shen (the senior, stance and discipline), Ilsa Corbin (fury and the two-handed blade),
 -- Ander Germaine (the shield and the line). Voices: bibles/warriors.md
 local P = RPGDialogueAPI:Pack("rpgd.stormwind")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 -- Wu Shen: the senior warrior trainer; calm, exacting, dry.
 P:NPC {
@@ -118,7 +118,13 @@ P:NPC {
         { id = "h_young", when = { class = "WARRIOR", maxLevel = 15 },
           text = "Lyria Du Lac sent you up from Goldshire, and she taught you to stand. Here we teach you to move without forgetting how to stand, which is harder than it sounds." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
-          text = "You've fought real enemies since you were last here; I can see it in how you stand. Good. Now let's find what bad habits they taught you." },
+          text = "You've fought real enemies since you were last here, and I can see it in how you stand, which pleases me. Now let's find out what bad habits they taught you along the way." },
+        { id = "h_stance10", when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 },
+          text = "You're old enough for a second stance now, and you're still standing as though you had only the one. We'll mend that before you leave the hall." },
+        { id = "h_islander", when = { class = "WARRIOR", minLevel = 30, maxLevel = 39 }, tags = { "news" },
+          text = "There's a test I keep for warriors who've seen thirty seasons of fighting, and you've the look of one. Come and ask me about it when you've a moment and a strong stomach." },
+        { id = "h_sixty", when = { class = "WARRIOR", minLevel = 60 },
+          text = "Every one of my students hopes to come back standing the way you stand now. Sit with me a while, if you've time, because I'd like to hear where you learned it." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
           text = "Wu Shen. I train warriors, and you aren't one, but sit by the wall if you like; there's much to learn from watching someone fall over properly." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -130,10 +136,11 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the warriors' hall. Your feet are good, which surprises me; hunters usually stand like they're waiting for something." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your feet do not know how many of them you will have in a moment, and I can see it in how you stand." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Your feet are wrong, and I know why: you stand as though something else will do the fighting." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every lesson is the same lesson. Your spirits may teach otherwise, but your feet will learn the same." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here among the warriors. Every lesson in this hall is the same lesson, and though your spirits may teach otherwise, your feet will learn it just the same." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your weight on the balls of your feet while you ask." },
+        { id = "h_again3", when = { class = "WARRIOR" }, text = "Ask, then, and shift your stance while you do it; I want to see the change before you've finished the question." },
         { id = "h_again2", text = "Go on. The drills will wait for one more question." },
       },
       choices = {
@@ -144,6 +151,13 @@ P:NPC {
         { text = "Dwarves fight differently from men, I've noticed.", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "The kaldorei trained me to fight.", next = "kaldorei", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "I trained with the Empyrean Blades.", next = "empyrean", when = { race = "Skyborne", class = "WARRIOR" } },
+        { text = "I've learned to charge. What comes after that?", next = "ws_first", when = { class = "WARRIOR", maxLevel = 9 } },
+        { text = "When do I learn to fight with a shield up?", next = "ws_defence", when = { class = "WARRIOR", minLevel = 10, maxLevel = 29 } },
+        { text = "I'm told you have a test for warriors of my seasoning.", next = "ws_islander", when = { class = "WARRIOR", minLevel = 30, maxLevel = 49 } },
+        { text = "I've traded mail for plate, Master Shen.", next = "ws_plate", when = { class = "WARRIOR", minLevel = 40 } },
+        { text = "Is there anything left in this hall for me?", next = "ws_spirit", when = { class = "WARRIOR", minLevel = 50 } },
+        { text = "Northshire's abbey taught me first, under Llane Beshere.", next = "ws_northshire", when = { race = "Human", class = "WARRIOR" } },
+        { text = "People keep telling me gnomes are too small for the line.", next = "ws_gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "What's wrong with being ready to run?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why should a mage care how they stand?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -261,6 +275,144 @@ P:NPC {
       choices = {
         { text = "Then I'll guard what I can here.", next = "BACK", reply = "That is the right answer, and Stormwind has more than enough to keep your blade busy. Welcome.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'll choose what I guard, not Stormwind.", next = "BACK", reply = "Then choose carefully, because the choosing is the guard's whole duty. I've known sellswords who guarded whoever paid last, and none of them grew old.", fx = { align = { order = -1 } } },
+      },
+    },
+
+    ws_first = {
+      lines = {
+        { id = "wsf_default", text = "Rend, and then the patience to let it work. Charge closes the distance and Rend opens the wound, and a young warrior's whole art is in not swinging wildly while the bleeding does what the sword cannot." },
+        { id = "wsf_dwarf", when = { race = "Dwarf" }, text = "Rend, and then the patience to let it work, which your people find harder than you'd think. A dwarf would rather hit a thing again than wait for it to bleed, but the waiting saves your arm for the next one." },
+      },
+      choices = {
+        { text = "And the rage? It comes and goes too quickly.", next = "ws_first_rage" },
+        { text = "Waiting while it bleeds sounds cruel.", next = "ws_first_cruel" },
+        { text = "I'll come back when I'm ten.", next = "BACK" },
+      },
+    },
+    ws_first_rage = {
+      lines = { { id = "wsfr_default", text = "It comes from being struck and from striking, and it leaves when you stand about thinking. So keep fighting and keep your feet moving, and you'll find it stays with you longer than it does with the ones who pause to admire their work." } },
+      choices = {
+        { text = "Then I'll keep moving and never pause.", next = "BACK", reply = "Never is a long time, but for the length of a fight it is the right word. Go and practise.", fx = { align = { order = -1 } } },
+        { text = "I'd rather spend it carefully than chase it.", next = "BACK", reply = "Careful is good, and I approve of it, but rage that is hoarded goes stale. Find the middle.", fx = { align = { order = 1 } } },
+        { text = "Something else, Master Shen.", next = "BACK" },
+      },
+    },
+    ws_first_cruel = {
+      lines = { { id = "wsfc_default", text = "Every wound is cruel, recruit, and the quick ones only seem kinder because you don't have to watch them. If that troubles you, hold onto the trouble, because a warrior who stops feeling it has stopped being a soldier." } },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    ws_defence = {
+      lines = {
+        { id = "wsd_default", text = "Defensive Stance isn't a thing I hand out over the counter, because it has to be earned. Harry Burlguard at the Pig and Whistle sets the test for Stormwind's recruits, and you'll find it involves a drunk named Bartleby and more patience than you've got." },
+        { id = "wsd_done", when = { questDone = TODO_QUEST("Beat Bartleby") }, text = "You beat Bartleby, I hear, and earned the stance from Burlguard, so now the work begins. A stance you can take is not a stance you can hold, and holding it means Taunt and Sunder Armor until your shoulder knows them in its sleep." },
+        { id = "wsd_nelf", when = { race = "NightElf" }, text = "Your people send their recruits to Elanaria in Darnassus for that, I believe, and she sets a harder test than our Burlguard. If you've passed it already, then we'll talk about holding the stance rather than taking it." },
+        { id = "wsd_dwarf", when = { race = { "Dwarf", "Gnome" } }, text = "Muren Stormpike in Ironforge gives the stance to your people, after you've brought him something unpleasant from Frostmane Hold. If you've already earned it, then we'll talk about holding it, which is the harder half." },
+      },
+      choices = {
+        { text = "What's the point of Taunt? I'd rather they ignored me.", next = "ws_taunt" },
+        { text = "Sunder Armor feels slow beside a good swing.", next = "ws_sunder" },
+        { text = "Who is this Bartleby?", next = "ws_bartleby", when = { race = "Human" } },
+        { text = "I'll find my test, then.", next = "BACK" },
+      },
+    },
+    ws_taunt = {
+      lines = { { id = "wst_default", text = "Then you'd make a fine rogue and a poor warrior. In Defensive Stance your whole purpose is to be the most interesting thing on the field, so that the mage and the priest behind you can be the least, and Taunt is how you shout it." } },
+      choices = {
+        { text = "Then I'll stand in front and draw every blow.", next = "BACK", reply = "Good, and you'll hate it on the first day and be proud of it by the tenth.", fx = { align = { honor = 1 } } },
+        { text = "Let the casters look after themselves.", next = "BACK", reply = "Then they will die, and you will be alone with whatever killed them. Think about that arithmetic.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ws_sunder = {
+      lines = { { id = "wss_default", text = "Slow, yes, and patient, and it takes five blows to do the work of one, but every one of them is opening a door for everyone who fights beside you. Learn to love the slow blows, because those are the ones the enemy remembers." } },
+      choices = { { text = "Five blows, then. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    ws_bartleby = {
+      lines = { { id = "wsb_default", text = "A dockhand who drinks at the Pig and Whistle and holds onto a mug as though it were the crown jewels. Burlguard uses him to teach the young ones that some fights are won by not losing them, and I'll say no more and spoil it." } },
+      choices = { { text = "I'll go and see Burlguard. Something else.", next = "BACK" } },
+    },
+
+    ws_islander = {
+      big = true,
+      lines = {
+        { id = "wsi_default", text = "I have, and it's not mine to give you, because I'm too old and too fond of my students to be honest about them. There's a man called Klannoc Macleod on Fray Island, off the coast of the Barrens, who runs a fighting ring, and he will tell you exactly what you are." },
+        { id = "wsi_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You came back from Fray Island standing in a new way; Klannoc's Affray has taught you the berserker's stance. Now you must learn when not to use it, which he won't have bothered to teach you." },
+      },
+      choices = {
+        { text = "What happens in Klannoc's ring?", next = "ws_affray" },
+        { text = "What is the berserker's stance, Master Shen?", next = "ws_berserk" },
+        { text = "They say a shaman in Alterac makes whirlwind weapons.", next = "ws_whirl" },
+        { text = "I'll take ship for the Barrens, then.", next = "BACK" },
+      },
+    },
+    ws_affray = {
+      lines = { { id = "wsa_default", text = "Challengers, one after another, until you stand alone or fall over, and then Klannoc decides which. It is crude and loud and I have never found a better test, and I've said that to no one but you." } },
+      choices = { { text = "I'll stand alone. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    ws_berserk = {
+      big = true,
+      lines = { { id = "wsbk_default", text = "It is the stance of a warrior who has given up defending, and it makes you faster and angrier and easier to hurt. Everything I teach is about where your feet are, and Berserker Stance is the one where you stop caring, so I teach it last and I teach it with a frown." } },
+      choices = {
+        { text = "Then I'll keep it on a short chain, as you'd want.", next = "BACK", reply = "As I'd want, yes, and as the people behind you would want too. Use it for the finish, never the start.", fx = { align = { order = 1 } } },
+        { text = "A warrior who stops caring is a warrior who wins.", next = "BACK", reply = "Sometimes, and the rest of the time he's a warrior who wins alone, in an empty field. Remember that I warned you.", fx = { align = { order = -1 } } },
+        { text = "Something else, Master Shen.", next = "BACK" },
+      },
+    },
+    ws_whirl = {
+      lines = { { id = "wsw_default", text = "Bath'rah the Windwatcher, a troll shaman who lives as a hermit in the Alterac Mountains, and Klannoc will send you to him once you've proved yourself in the ring. I'm told the weapon spins the wind about it, which sounds to me like a poor habit for the feet, but I've not held one." } },
+      choices = { { text = "A troll, helping Alliance warriors?", next = "ws_whirl_tauren" }, { text = "Something else.", next = "BACK" } },
+    },
+    ws_whirl_tauren = {
+      lines = { { id = "wswt_default", text = "He helps warriors, and he doesn't seem to ask which banner they follow, which is either very wise or very dangerous. Be courteous with him, and keep your hand away from your sword in his presence." } },
+      choices = { { text = "I'll mind my manners. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    ws_plate = {
+      lines = {
+        { id = "wspl_default", text = "So you have, and you're standing as though it weighs nothing, which tells me you've not yet fallen over in it. Plate makes a warrior bold, and bold feet go where wise feet wouldn't, so let me see you step back in it without stumbling." },
+        { id = "wspl_dwarf", when = { race = "Dwarf" }, text = "And you stand in it as if you were born wearing it, which for a dwarf may be nearly true. Your people's smiths make the best of it, but even Ironforge plate won't save feet that are planted in the wrong place." },
+        { id = "wspl_gnome", when = { race = "Gnome" }, text = "And you've had it fitted rather than cut down, which shows sense, because a gnome in borrowed plate is a gnome in a bucket. Now let me see whether you can still dodge in it, because nobody your size should stop dodging." },
+      },
+      choices = {
+        { text = "Plate means I can take the blows I used to dodge.", next = "BACK", reply = "It means you can survive the ones you failed to dodge. That's a different thing, and you'd do well to learn it.", fx = { align = { order = -1 } } },
+        { text = "I'll drill the old footwork in it until it's easy.", next = "BACK", reply = "Good. The best plate in Stormwind is worn by warriors who still move as if they had none.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    ws_spirit = {
+      big = true,
+      lines = {
+        { id = "wssp_default", text = "One thing, and it's a strange one: there's a restless spirit on the road out of the Swamp of Sorrows, a fallen hero of the Horde, who asks after warriors of real worth. I have sent only a few students to him, and every one came back quieter than they left." },
+        { id = "wssp_sixty", when = { minLevel = 60 }, text = "Nothing I can teach, no, and I'm glad of it. You've stood against things in Blackrock and the Plaguelands that I've only read about, and now you could teach me, if you had the patience for an old man's questions." },
+      },
+      choices = {
+        { text = "A spirit of the Horde, asking for Alliance warriors?", next = "ws_spirit_why" },
+        { text = "You taught me well enough to outgrow you.", next = "BACK", reply = "That is the only praise a trainer really wants. Thank you, though I'll pretend I didn't hear it.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I taught myself the rest out there.", next = "BACK", reply = "You did, and the field is a harsher teacher than I am. I only hope it didn't teach you to stop listening.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ws_spirit_why = {
+      lines = { { id = "wssw_default", text = "A warrior's honour doesn't keep to a banner, and he died with his unfinished, as I understand it. Go if you like; you will learn more about the Horde from a dead orc's regrets than from any of our histories." } },
+      choices = { { text = "I'll go and hear him out. Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    ws_northshire = {
+      lines = { { id = "wsn_default", text = "Then you were taught to stand properly before you were taught anything else, because Llane teaches stance as if it were scripture. He and I disagree on almost everything but that, and on that we are both right." } },
+      choices = {
+        { text = "He taught me the Light and the blade go together.", next = "BACK", reply = "He would. I teach that the blade and the ground go together, and the Light can join us if it likes.", fx = { align = { light = 1 } } },
+        { text = "I took the blade and left the sermons.", next = "BACK", reply = "Most do, and Llane knows it, and he preaches anyway. That is a kind of courage too.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ws_gnome = {
+      lines = { { id = "wsg_default", text = "They are wrong, and they tell you because they have never fought something that wanted to bite their knees. A gnome's stance is low and hard to topple, and Corbin will tell you the same at greater volume, so don't let them talk you out of the front rank." } },
+      choices = {
+        { text = "Then I'll take the front rank and hold it.", next = "BACK", reply = "Good, and the tall ones behind you will learn to duck.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd rather fight from the flanks where I'm clever.", next = "BACK", reply = "That's sensible, and a little sad. The front rank needs clever people more than anywhere.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -418,6 +570,12 @@ P:NPC {
         { text = "I'd welcome your advice on what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "Isn't anger dangerous in a fight?", next = "anger" },
         { text = "Blade or shield, Ilsa? Which should I favour?", next = "blade", when = { class = "WARRIOR" } },
+        { text = "Wu Shen says I have to learn the shield before the fun starts.", next = "ic_shield", when = { class = "WARRIOR", minLevel = 10, maxLevel = 29 } },
+        { text = "I've earned the berserker's stance, Ilsa.", next = "ic_berserk", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Fury or arms, Ilsa? I can't master both.", next = "ic_talents", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "I've fought my way through to the end of the road.", next = "ic_sixty", when = { class = "WARRIOR", minLevel = 60 } },
+        { text = "My clan swings axes, not swords.", next = "ic_dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "My people call rage a loss of balance.", next = "ic_nelf", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "Why does a gnome need a greatsword?", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "I held a corridor in Gnomeregan.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "Do you fight the rogues for fun?", next = "rogues", when = { class = "ROGUE" } },
@@ -506,6 +664,93 @@ P:NPC {
       lines = { { id = "rr_default", text = "Everyone runs eventually, unless they're dead, and the dead don't get a vote. You held it long enough, and I'll knock the teeth out of anyone who says otherwise." } },
       choices = { { text = "Thank you, Ilsa.", next = "BACK", fx = { affinity = 2 } } },
     },
+    ic_shield = {
+      lines = {
+        { id = "ics_default", text = "He would, and he's right, curse him, though I'll deny it if you tell him I said so. Defensive Stance is where you learn that rage comes from being hit as well as hitting, and once you've learned that, you'll come back to me with twice as much of it to spend." },
+        { id = "ics_done", when = { questDone = TODO_QUEST("Beat Bartleby") }, text = "And you've got it, I hear, because Bartleby's been nursing a sore jaw and a sorer pride all week. Good, so now you know how it feels to stand still, and you'll appreciate charging all the more." },
+      },
+      choices = {
+        { text = "Standing still and taking it feels like losing.", next = "ic_shield_lose" },
+        { text = "What's the first thing you'd teach me after?", next = "ic_cleave" },
+        { text = "Fair enough. Something else, Ilsa.", next = "BACK" },
+      },
+    },
+    ic_shield_lose = {
+      lines = { { id = "icsl_default", text = "It feels like it, aye, but every blow you take is rage in the bank, and a warrior with a full purse of it can end a fight in three swings. Think of it as being paid to be hit, and suddenly it's a better job than most in Old Town." } },
+      choices = {
+        { text = "Then I'll take every blow and bank it.", next = "BACK", reply = "Ha! That's the spirit, recruit, and the bruises will tell you you've been well paid.", fx = { align = { order = 1 } } },
+        { text = "I'd rather they never land a blow at all.", next = "BACK", reply = "Then you'll be poor and pretty. Some warriors manage it, but not many.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ic_cleave = {
+      lines = { { id = "icc_default", text = "Cleave, because gnolls never come one at a time and kobolds come in dozens. Swing through the first one into the second, and keep your shoulder loose, and you'll find two enemies are only a little harder than one." } },
+      choices = { { text = "Two at a time. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+
+    ic_berserk = {
+      big = true,
+      lines = {
+        { id = "icb_default", text = "Have you now? Then you've stood in Klannoc's ring on Fray Island and come out angrier than you went in, and I couldn't be prouder. Berserker Stance is my favourite thing in the world, and Wu hates it, so let's talk about it loudly." },
+        { id = "icb_whirl", when = { questDone = TODO_QUEST("Cyclonian") }, text = "And you've brought down the Cyclonian in Alterac, I hear, so Bath'rah will have a whirlwind weapon for you. Spin it once in this hall and Wu will faint, so do it while I'm watching." },
+      },
+      choices = {
+        { text = "It feels like letting go of the reins.", next = "ic_berserk_reins" },
+        { text = "Whirlwind is the best thing I've learned yet.", next = "ic_whirl" },
+        { text = "I'll go and frighten Wu, then.", next = "BACK" },
+      },
+    },
+    ic_berserk_reins = {
+      lines = { { id = "icbr_default", text = "It is letting go, and that's what frightens the careful ones, because there's no shield in it and no step back. You take more hurt and you give back twice as much, and the trick is knowing which fights are worth the bargain." } },
+      choices = {
+        { text = "Every fight is worth it if I'm angry enough.", next = "BACK", reply = "Spoken like me at twenty, and I've the scars to prove what that's worth. Still, I like you.", fx = { align = { order = -1 } } },
+        { text = "I'll choose my fights before I let go.", next = "BACK", reply = "Wu's been at you, I can tell, and he's right again, curse him twice. Choose well.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ic_whirl = {
+      lines = { { id = "icw_default", text = "It is, and you're not to use it in a crowded room, because I've seen a recruit take the doorframe off the barracks with one. Spin when they've surrounded you, and only then, and laugh when they fall over, because that's the best part." } },
+      choices = { { text = "I'll laugh, then. Something else.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+
+    ic_talents = {
+      big = true,
+      lines = { { id = "ict_default", text = "You can't, and nobody can, and anyone who says they've mastered every road is lying or a paladin. Arms is the big weapon swung well and patiently, and Fury is two weapons swung angrily and fast, and you know which one I'd pick." } },
+      choices = {
+        { text = "Fury, then. Two weapons and no apologies.", next = "BACK", reply = "My recruit! Get a matched pair from the smiths and come and show me.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Arms. Patience and one good blade.", next = "BACK", reply = "Wu would be pleased, and I'll forgive you, because a patient two-hander hits like a falling wall.", fx = { align = { order = 1 } } },
+        { text = "What about Protection?", next = "ic_prot" },
+      },
+    },
+    ic_prot = {
+      lines = { { id = "icp_default", text = "That's Ander's road, and an honest one, and every dungeon party in the Alliance is begging for warriors who walk it. I'd die of boredom on it in a week, but somebody has to stand at the front of the Deadmines, and better you than a mage." } },
+      choices = { { text = "Someone has to. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+
+    ic_sixty = {
+      lines = { { id = "ic60_default", text = "So you have, and look at you, all scars and good iron and that wicked little smile. Tell me you've been into Blackrock Spire, because I've wanted a story about it for years, and Wu won't let me go myself." } },
+      choices = {
+        { text = "I've been, and the Blackrock orcs are as tough as you hoped.", next = "BACK", reply = "I knew it! Now I'll have to beg Wu to let me go, and he'll say no again.", fx = { affinity = 2 } },
+        { text = "Some stories are better left untold, Ilsa.", next = "BACK", reply = "Oh, now I have to know. I'll wear you down eventually, you'll see.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+
+    ic_dwarf = {
+      lines = { { id = "icd_default", text = "Axes are lovely, and the Ironforge ones are the best you'll find, so I'll not try to change you. An axe bites deeper and catches on bone, though, so you'll learn to pull it free with your hips instead of your arms, or the second enemy will catch you tugging." } },
+      choices = {
+        { text = "My grandfather's axe never caught on anything.", next = "BACK", reply = "Then your grandfather was a better warrior than most, or a better liar. Both, if he was a dwarf.", fx = { trait = { witty = 1 } } },
+        { text = "Show me the hip trick, then.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    ic_nelf = {
+      lines = { { id = "icn_default", text = "Your sentinels told me as much, very politely, while looking at me as if I were a bonfire someone had left burning. Balance is lovely, but a warrior with no rage is just a person holding a sword, so find your own kind of anger and keep it as tidy as you like." } },
+      choices = {
+        { text = "Then my rage will be quiet and cold.", next = "BACK", reply = "Quiet and cold works. It's the hottest anger I've ever seen, if you want the truth.", fx = { align = { order = 1 } } },
+        { text = "Maybe my people are wrong about rage.", next = "BACK", reply = "Maybe they are! Don't tell them I said so, because I'd like to visit Darnassus someday.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     rogues = {
       lines = { { id = "ro_default", text = "Only on feast days, and only if they've stopped cheating, which they never have. Osborne owes me three silver from the last bout, so tell him I asked after it." } },
       choices = { { text = "I'll tell him.", next = "BACK", fx = { trait = { witty = 1 } } } },
@@ -628,6 +873,10 @@ P:NPC {
           text = "Ander Germaine. I teach the shield, and the line, and the plain fact that you're never fighting for yourself alone, whatever you tell yourself on the road." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 40 },
           text = "You came back. Not all of them do, you know, and I keep a list of the ones who don't; I'm glad to leave you off it." },
+        { id = "h_ten", when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 },
+          text = "There's a recruit with a second stance in reach, if I'm any judge. Learn to love the shield now, because you'll not find time for it later." },
+        { id = "h_wall", when = { class = "WARRIOR", minLevel = 28, maxLevel = 39 },
+          text = "You've the arm of someone who's learned Shield Wall, or is about to. Come and tell me about the first time it saved you." },
         { id = "h_redridge", when = { visited = "Lakeshire" },
           text = "You've been through Lakeshire, so tell me how the bridge is holding. I trained three of the watchmen there, and I haven't had a letter since spring." },
         { id = "h_other", when = { ["not"] = { class = "WARRIOR" } },
@@ -651,6 +900,11 @@ P:NPC {
         { text = "I'd like to know what to practise.", next = "practise", when = { class = "WARRIOR" } },
         { text = "What do you mean by the line?", next = "line" },
         { text = "Do you keep count of the recruits who don't come back?", next = "list" },
+        { text = "I've learned Defensive Stance. Teach me to hold with it.", next = "ag_defence", when = { class = "WARRIOR", minLevel = 10, maxLevel = 39 } },
+        { text = "I've learned Shield Wall, Ander.", next = "ag_wall", when = { class = "WARRIOR", minLevel = 28 } },
+        { text = "Corbin says Berserker Stance is the finest thing there is.", next = "ag_berserk", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Dungeon parties keep asking me to go first.", next = "ag_dungeon", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "Sentinels don't hold lines, Ander. We move through the trees.", next = "ag_nelf", when = { race = "NightElf", class = "WARRIOR" } },
         { text = "How do gnomes and dwarves fit in your line, Ander?", next = "allies", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Can a hunter hold your line?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I walked the Trade District with a halberd once.", next = "guard", when = { origin = "human_city_guard" } },
@@ -716,6 +970,66 @@ P:NPC {
     list_heavy = {
       lines = { { id = "lh2_default", text = "It is, and it should be. The day it stops being heavy is the day I should stop teaching." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+
+    ag_defence = {
+      lines = {
+        { id = "agd_default", text = "Good, then you've a stance worth holding, and the first thing to learn is that it costs you. You hit softer and they hit you less, and the whole point is that they keep hitting you, so your Taunt and your Sunder Armor are what keep their eyes where they belong." },
+        { id = "agd_bartleby", when = { questDone = TODO_QUEST("Beat Bartleby") }, text = "Burlguard told me you beat Bartleby, and he said you did it without breaking a single table, which is rarer than you'd think. Now learn to hold that stance when there are three Bartlebys and they're all gnolls." },
+      },
+      choices = {
+        { text = "Why Sunder, when I could just hit them?", next = "ag_sunder" },
+        { text = "What if two of them go for the healer?", next = "ag_two" },
+        { text = "I'll hold. Something else, Ander.", next = "BACK" },
+      },
+    },
+    ag_sunder = {
+      lines = { { id = "ags_default", text = "Because a Sunder makes them angrier at you than a good blow does, and it opens their armour for every blade behind you. In the line you're not trying to win the fight yourself, you're trying to make sure everyone else can." } },
+      choices = { { text = "Then I'll sunder until they hate me. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    ag_two = {
+      big = true,
+      lines = { { id = "agt_default", text = "Then you've a choice to make, and you'll make it a hundred times before you're my age. You can Taunt the one and let the other through, or step away from your own enemy to fetch them both, and either way somebody gets hurt; the craft is choosing who." } },
+      choices = {
+        { text = "I'd leave my own enemy to save the healer.", next = "BACK", reply = "So would I, and I'd take the blow in the back for it. That's the line.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd kill mine first, then deal with the rest.", next = "BACK", reply = "Quicker, and sometimes right, and the healer will have opinions about it afterwards. Listen to them.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ag_wall = {
+      lines = {
+        { id = "agw_default", text = "Then you've the last thing a defender learns before the hard years start, and you're to use it when everything else has failed, not before. Shield Wall is the moment you stop fighting and simply refuse to fall, and I've seen it buy a whole party the ten heartbeats it needed." },
+        { id = "agw_human", when = { race = "Human" }, text = "Then you've the thing that held Stormwind's gate in the Second War, for a while, and I was behind one of those shields. Use it when everything else has failed, because it is the moment you stop fighting and simply refuse to fall." },
+      },
+      choices = {
+        { text = "When everything else fails. I'll remember.", next = "BACK", reply = "You will, because the day you need it is a day you never forget.", fx = { align = { order = 1 } } },
+        { text = "I'd use it early, and walk out of trouble.", next = "BACK", reply = "And have nothing left when the real trouble comes. Save it, {class}, I'm begging you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ag_berserk = {
+      big = true,
+      lines = { { id = "agb_default", text = "She would, and she'd mean it, and she's got the scars to show what it costs. A warrior in Berserker Stance has stopped thinking about who's behind them, and I'll teach you to use it, because you should know every stance, but I'll not pretend I like it." } },
+      choices = {
+        { text = "I'll keep it for when nobody is behind me.", next = "BACK", reply = "That's the right use for it, and the rarest. I'd trust you with the line, then.", fx = { align = { honor = 1 } } },
+        { text = "Corbin's right. Sometimes the fight is all that matters.", next = "BACK", reply = "Sometimes, aye, and then you'll find out who was standing behind you after all. I hope it's no one.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ander.", next = "BACK" },
+      },
+    },
+    ag_dungeon = {
+      lines = {
+        { id = "agdn_default", text = "Of course they do, because you're the one in the heavy armour and they're the ones in cloth. Go first, then, and remember that in the Deadmines or the Stockade the walls are close and the pulls are thick, so find your corner before you call them to you." },
+        { id = "agdn_old", when = { minLevel = 40 }, text = "Of course they do, and they'll keep asking all the way to Blackrock Depths, because a good defender is the rarest thing in any party. Find your corner before you call them, and never pull what you can't see the end of." },
+      },
+      choices = { { text = "Find my corner first. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ag_nelf = {
+      lines = { { id = "agn_default", text = "You do, and beautifully, and then the satyrs come out of the trees all at once and someone has to stand still. I'm not asking you to fight like a human, only to know where the line is when it's needed, even if it's only you and a tree." } },
+      choices = {
+        { text = "Then I'll be the one who stands still.", next = "BACK", reply = "Good, and the trees will thank you, in whatever way trees do.", fx = { align = { order = 1 } } },
+        { text = "Moving is how my people survive, Ander.", next = "BACK", reply = "It's how they've survived for ten thousand years, so I'll not argue. Just don't leave a gap.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
 
     allies = {

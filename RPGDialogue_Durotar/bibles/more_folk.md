@@ -8,7 +8,7 @@
 - https://warcraft.wiki.gg/wiki/Cutac (cloth & leather, Razor Hill), https://warcraft.wiki.gg/wiki/Dhugru_Gorelust (warlock trainer, Razor Hill)
 - https://warcraft.wiki.gg/wiki/Shikrik (orc shaman trainer, Valley of Trials), https://warcraft.wiki.gg/wiki/Zlagk (meat and drink, Valley of Trials)
 - https://warcraft.wiki.gg/wiki/Raider_Jhash (patrols Valley of Trials to Razor Hill with Raider Kerr, pre-Cataclysm; gossip "Need something?")
-- Kranal Fiss (Barrens pack, north_crossroads_more.lua) for the Call of Fire details; Thun'grim Firegaze (north_far_watch.lua) jabs at Telf.
+- Kranal Fiss (Barrens pack, north_crossroads_more.lua) for the Call of Fire details; Kranal Fiss is Telf's friendly rival (0.93.0: Thun'grim is a smith, not a fire shaman).
 
 ## Their quests
 - Telf: Call of Fire (the torch from Kranal), Fire Sapta (fire tar from the Razormane, a reagent pouch), then the fire spirit on the peak.
@@ -19,7 +19,7 @@
 - Bom'bay actually hexing the player (the addon can't); he only talks about it.
 
 ## Voices (authored, not canon)
-- Telf: wry, lonely troll on a cold peak; the fire tests and grows the longer you wait (light stance on earning its respect); friendly disagreement with Thun'grim.
+- Telf: wry, lonely troll on a cold peak; the fire tests and grows the longer you wait (light stance on earning its respect); friendly disagreement with Kranal Fiss.
 - Zjolnir: proud raptor breeder; raptors are family, sold only to Darkspear or exalted friends (order stance); Torka steals raptor eggs.
 - Xar'Ti: stern; first lesson is falling; raptors obey from respect (light stance on fear vs trust).
 - Bom'bay: eager apprentice, mishaps (a grunt turned frog); Gadrin taught Vol'jin and Zalazane, don't ask; wants to hex Zalazane (order stance on waiting).

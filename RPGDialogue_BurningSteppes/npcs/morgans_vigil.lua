@@ -1679,6 +1679,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_nerve = {
+      lines = {
+        { id = "dw_nerve_default", text = "Nerve, or a short memory, kin. Every flight over the mountain, I look down at Blackrock and think of the Dark Irons inside, Thaurissan's folk, still sore about a war we won three hundred years ago." },
+      },
+      choices = {
+        { text = "Let them be sore. We'll win the next war too.", next = "BACK", reply = "Aye, that's the spirit, and I'll fly ye to it. Just don't shout it while we're over their chimneys.", fx = { align = { light = -1 } } },
+        { text = "Someday the clans will have to make peace.", next = "BACK", reply = "Peace with the Dark Irons? The Brotherhood at Thorium Point might drink to that. I'll believe it when they stop shooting at my birds.", fx = { align = { light = 1 } } },
+        { text = "Something else, Borgus.", next = "BACK" },
+      },
+    },
+    dw_why = {
+      lines = {
+        { id = "dw_why_default", text = "Because Blackrock is the Dark Irons' city and the Horde's old fortress both, and whatever's brewing under it will reach Ironforge sooner or later. Marshal Maxwell holds the Vigil, and Ironforge lends him the birds, and the ale." },
+      },
+      choices = {
+        { text = "What's brewing under the mountain?", next = "dw_why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_why2 = {
+      lines = {
+        { id = "dw_why2_default", text = "Fire, they say, and an old fire at that. The Dark Irons called up Ragnaros himself in the War of the Three Hammers, and he never went home again. And Ironforge's own princess went into that mountain and hasn't come out." },
+      },
+      choices = {
+        { text = "The princess? Moira Bronzebeard?", next = "BACK", reply = "Aye, the King's own daughter, taken by Thaurissan's lot, and no rescue has got near her. Don't mention her in Ironforge unless ye want to see a grown guard weep." },
+        { text = "Something else, Borgus.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Feel them? They fuss at every storm before I see a cloud, so aye, I'd say they do. They've taken tae ye better than tae most, which tells me more than any priest could." } },
@@ -1802,6 +1830,8 @@ P:NPC {
         { text = "A druid might help your gryphons with the ash, Borgus.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will your gryphons carry someone who smells like me, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your gryphons feel the spirits, Borgus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A dwarf flying gryphons over Blackrock. That takes nerve.", next = "dw_nerve", when = { race = "Dwarf" } },
+        { text = "Why are dwarves here at all, so far from Ironforge?", next = "dw_why" },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

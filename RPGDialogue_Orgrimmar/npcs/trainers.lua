@@ -1,7 +1,7 @@
 -- Orgrimmar's trainers, from the Valley of Honor to the Cleft of Shadow. Voice: bibles/orgrimmar.md
 -- Zevrost never names Neeru; the Cleft keeps its own secrets.
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "grezz", id = TODO_NPC("Grezz Ragefist"), name = "Grezz Ragefist",
@@ -119,6 +119,112 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_road = {
+      hub = true,
+      lines = {
+        { id = "wr_default", text = "Your road runs the way every Horde warrior's has since the Warchief freed us: out of this yard, into the Barrens, and back again with more scars than you left with. I'll tell you what waits on it, but I won't walk it for you." },
+        { id = "wr_low", when = { maxLevel = 9 }, text = "You're still learning to charge without tripping, so your road runs no farther than Durotar for now. Come back at ten, and I'll send you to someone who'll teach you to stand." },
+        { id = "wr_mid", when = { minLevel = 20, maxLevel = 29 }, text = "You've got your shield and your stances, and now the Barrens and Stonetalon will teach you which one to use. Keep at it, because at thirty the road turns hard." },
+        { id = "wr_high", when = { minLevel = 30 }, text = "You've walked most of the road already, and the rest of it is steeper. I'll tell you where it goes, though you'll have heard half of it in the inns." },
+      },
+      again = {
+        { id = "wr_again", text = "What else about the road? Ask now, because out there nobody stops to explain." },
+        { id = "wr_again2", text = "Go on. I've sent a thousand grunts down that road, so I know where it bends." },
+      },
+      choices = {
+        { text = "What did my charge and rend teach me?", next = "w_charge" },
+        { text = "Uzzek's test. What does a shield teach?", next = "w_defense", when = { minLevel = 10 } },
+        { text = "Arms, fury or the shield. Which should I choose?", next = "w_talent", when = { minLevel = 10 } },
+        { text = "I've heard warriors at thirty go to Fray Island.", next = "w_fray", when = { minLevel = 28 } },
+        { text = "When do I put on plate, Grezz?", next = "w_plate", when = { minLevel = 36 } },
+        { text = "You've nothing left to teach me. What now?", next = "w_sixty", when = { minLevel = 60 } },
+        { text = "Enough about the road, Grezz.", next = "BACK" },
+      },
+    },
+    w_charge = {
+      lines = {
+        { id = "wc_default", text = "That a warrior who reaches the enemy first chooses where the fight happens, and that a wound which keeps bleeding does your work while you guard. Charge in, open them up, and stand there making them regret it." },
+        { id = "wc_troll", when = { race = "Troll" }, text = "That reaching the enemy first chooses the fight, and you trolls already knew it from hunting in the islands. Charge in, open them up with a rend, and let them bleed while you laugh at them, if you must laugh." },
+      },
+      choices = {
+        { text = "I charge first so my brothers don't have to.", next = "w_road", reply = "That's the right reason, and it's rarer than you'd think. Most charge first because they want the songs.", fx = { align = { honor = 1 } } },
+        { text = "I charge first because the first kill is mine.", next = "w_road", reply = "Then you'll be first into every ambush too. Learn to want the right thing before the wrong one kills you.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_defense = {
+      lines = {
+        { id = "wd_default", text = "That standing still under a blow is harder than giving one, and that the Horde needs warriors who can do it. Uzzek holds a hill near Far Watch in the Barrens, and he'll have you hunting thunder lizards with your shield up until you stop flinching." },
+        { id = "wd_done", when = { questDone = TODO_QUEST("Path of Defense") }, text = "You already know, because Uzzek taught you on the hill near Far Watch. Now learn to taunt and to sunder from me, so whatever you're guarding stays looking at you and not at the shaman behind you." },
+        { id = "wd_orc", when = { race = "Orc", questBefore = TODO_QUEST("Path of Defense") }, text = "Our fathers forgot it, because the demon blood made them charge until they died. Go to Uzzek near Far Watch in the Barrens, and he'll teach you to stand still, which is the hardest thing an orc can learn." },
+      },
+      choices = {
+        { text = "Why taunt? Let them hit whoever they like.", next = "w_taunt" },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_taunt = {
+      lines = { { id = "wt_default", text = "Because the healer behind you can't take three blows, and you can, so you shout until they come for you and you sunder their armor while they're busy hating you. A warrior who lets the shaman die has failed, however many he killed." } },
+      choices = {
+        { text = "Then every blow meant for them is mine to take.", next = "w_road", reply = "Good. That's the oath the Warchief's guard swears, though they say it louder than you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they can't take a blow, they shouldn't be fighting.", next = "w_road", reply = "Then you'll fight alone soon enough, because nobody heals a warrior who lets them bleed.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_talent = {
+      big = true,
+      lines = { { id = "wtl_default", text = "Arms is the old way, the great axe and the killing stroke, and fury is two blades and no patience, and the shield is for the ones who'd rather the Horde come home than be remembered. I've trained all three, and I'll not tell you which is best, so tell me which one you are." } },
+      choices = {
+        { text = "The shield. I'd rather my brothers live.", next = "w_road", reply = "Then you'll be the one everybody wants beside them and nobody thanks. I'll thank you, at least.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fury. Let them see the Horde's rage coming.", next = "w_road", reply = "Then keep the rage on a short chain, because it's the same rage that put our fathers in the camps.", fx = { align = { order = -1 } } },
+        { text = "I haven't chosen yet.", next = "w_road", reply = "Then fight a season with each, and the one you miss most is yours." },
+      },
+    },
+    w_fray = {
+      lines = {
+        { id = "wf_default", text = "Aye, to Klannoc Macleod, a human who runs a fighting grate on Fray Island off the coast south of Ratchet. Win his affray and you'll have learned the berserker's stance, which is rage you choose rather than rage that chooses you." },
+        { id = "wf_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You've stood on Klannoc's grate and walked off it, so you know the berserker's stance already. If he sent you north to the troll in Alterac after that, go, because the whirlwind weapons are worth the climb." },
+      },
+      choices = {
+        { text = "A human judging Horde warriors? I don't like it.", next = "w_fray2" },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_fray2 = {
+      lines = { { id = "wf2_default", text = "Neither did I, the first time, but he's fair, and he's never cared what banner a fighter carries onto his grate. After the camps, I'll take a fair human over a crooked orc, and so should you." } },
+      choices = {
+        { text = "A fair judge is a fair judge, whatever his blood.", next = "w_road", reply = "That's how the Warchief thinks, and it's why he's Warchief and I'm teaching grunts.", fx = { align = { order = -1 } } },
+        { text = "Humans built the camps. I won't forget that.", next = "w_road", reply = "Don't forget it, then, but don't let it lose you a lesson either.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_plate = {
+      lines = {
+        { id = "wp_default", text = "When you've the strength to carry it all day and still swing, and for most that comes near forty. Get it made at the forges here, or take it off something in the Badlands that won't need it, but get used to it before you need it." },
+        { id = "wp_plate", when = { minLevel = 40 }, text = "Now, if you haven't already, and I'll know if you haven't, because you'll walk in here clanking or you won't. Plate turns blows that mail only slows, so stop sending your blood to the healer when iron could take it." },
+      },
+      choices = { { text = "Back to the road.", next = "w_road" } },
+    },
+    w_sixty = {
+      lines = { { id = "ws_default", text = "Now you go where the trainers can't follow, into Blackrock Spire and the Plaguelands and the deep places, and you come back and tell the grunts what you saw. That's the last lesson of the Valley of Honor: the ones who make it teach the ones who don't yet." } },
+      choices = {
+        { text = "I'll come back and teach them, Grezz.", next = "w_road", reply = "Then you'll have repaid me, and you'll learn how much shouting it takes.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I fight for myself now, not for recruits.", next = "w_road", reply = "Then you've grown strong and forgotten why, and I've seen that before. It ended in a demon's cup.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_grom = {
+      big = true,
+      lines = {
+        { id = "wg_default", text = "Grom Hellscream drank the demon's blood first and broke its hold last, and he died in Ashenvale killing Mannoroth so the rest of us would be free. Every Warsong warrior in this valley carries that, the shame and the glory both." },
+        { id = "wg_orc", when = { race = "Orc" }, text = "Grom drank the demon's blood first, and he cut Mannoroth down in Ashenvale and died freeing us from it. You're an orc, so you carry his shame and his glory both, whether your clan was Warsong or not." },
+      },
+      choices = {
+        { text = "He paid his debt. I honor him for that.", next = "BACK", reply = "So do I, and so does the Warchief. Lok'tar, Hellscream.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He doomed us first. One brave death doesn't wash that.", next = "BACK", reply = "It doesn't wash it, no, but it's more than most of the guilty ever paid. Say it quietly near the Warsong.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_defense", when = { questDone = TODO_QUEST("Path of Defense") },
@@ -136,6 +242,14 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A druid on my training ground? Fine, because a tauren in bear form hits harder than most of my students, and I'm not too proud to say so." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on my training ground! The Warchief swings the Doomhammer and calls the storm with the same arm, so don't tell me your kind are too soft for real fighting." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again, warrior? Show me your stance before you say a word, because your feet tell me more than your mouth ever will." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc with an axe, come to the Valley of Honor. Your father's generation fought with demon fire in their blood, so you'll fight better than they did, or I'll know the reason why." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A Darkspear warrior! Vol'jin's people fight loose and laughing, and I'll make you fight tight and grim as well, and then nothing in Kalimdor will stand against you." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren in my yard, and the ground shakes to prove it. Cairne's people repaid our help a hundred times over, so I'll teach you as hard as I teach my own." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A Forsaken warrior. You fought orcs once, I'd wager, before the plague, so show me you've learned to fight beside us instead." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, faction = "Horde", questBefore = TODO_QUEST("Path of Defense") }, text = "You're ready for the shield, and I'm not the one who'll teach it. Go to Uzzek near Far Watch in the Barrens, and come back when you can stand still under a blow." },
+        { id = "h_w30", tags = { "news" }, when = { class = "WARRIOR", minLevel = 30, questBefore = TODO_QUEST("The Affray") }, text = "Thirty, and still walking in here like a recruit. Klannoc Macleod on Fray Island tests warriors your age, so take the boat from Ratchet and show him what this valley made." },
+        { id = "h_w40", when = { class = "WARRIOR", minLevel = 40, maxLevel = 49 }, text = "Plate suits you, or it will once you stop walking like it's borrowed. Strength gets you into plate, and stubbornness keeps you in it." },
+        { id = "h_w60", when = { class = "WARRIOR", minLevel = 60 }, text = "There's nothing left in my yard you haven't learned, and still you come back. Good, because the grunts need to see what they could become." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the Valley of Honor? Ormak's lot are over by the range, but stay if you like, because a hunter who can hold a blade survives longer." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You won't need my lessons, but you'll need my warriors in front of you, so treat them well." },
       },
@@ -151,10 +265,17 @@ P:NPC {
         { text = "I doubt my kind has any honor in your eyes, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'd guess your warriors think little of mages.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you train beside a paladin, Grezz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Teach me, Grezz. I'm ready for more bruises.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Where does my road go from here, Grezz?", next = "w_road", when = { class = "WARRIOR" } },
+        { text = "Tell me about Grom Hellscream.", next = "w_grom", when = { faction = "Horde" } },
         { text = "Two warriors in one band. How should we fight together?", next = "xpt_grezz", when = { class = "WARRIOR", party = { sameClass = true } } },
         { text = "Farewell, Grezz.", next = "END" },
       },
-      again = { { id = "h_again", text = "Still standing there? Then ask, and ask loudly." } },
+      again = {
+        { id = "h_again", text = "Still standing there? Then ask, and ask loudly." },
+        { id = "h_again2", text = "What else? Speak up, because I've got recruits to bruise." },
+        { id = "h_again_war", when = { class = "WARRIOR" }, text = "Something else, warrior? Ask it with your feet set, and I'll answer it." },
+      },
     },
     honor = {
       lines = { { id = "o_default", text = "It means you face your enemy and you don't strike his back, even when he'd strike yours. The Warchief taught us that our fathers forgot it, and I won't let my students forget it twice." } },

@@ -1028,7 +1028,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Aye, come in out o' the drizzle. It's always drizzle here. Are ye wantin' to learn, or just to stand by the fire like the rest o' them?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Let's see your hands. Hm. Ye've been at it. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Let's see yer hands, then, for a smith's hands never lie, and aye, ye've been at it. Good." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith! Praise the forge. Come here and tell me this weld's no' as bad as I think it is." },
   },
 
@@ -1311,6 +1311,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_elves = {
+      lines = {
+        { id = "dw_elves_default", text = "Fairly, aye, an' coldly. They don't like the League diggin' in their old ruins down the coast, an' they've decided every dwarf in Darkshore carries a shovel under his coat. I sell thread, friend, no' shovels." },
+        { id = "dw_elves_elf", when = { race = "NightElf" }, text = "Fairly, aye, though yer folk are a wee bit cold about it. They don't like the League diggin' in the old ruins down the coast, an' I can't say I blame them, but I sell thread, no' shovels." },
+      },
+      choices = {
+        { text = "The League should respect the elves' ruins.", next = "BACK", reply = "I'll pass that on tae Remtravel, if he remembers who I am. He forgets most things, but never a dig.", fx = { align = { order = 1 } } },
+        { text = "Old ruins belong to whoever can dig them out.", next = "BACK", reply = "Keep yer voice down in Auberdine, would ye? I've a business tae run, an' the Sentinels have long memories.", fx = { align = { order = -1 } } },
+        { text = "Something else, Gorbold.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gorbold Steelhand, purveyor o' trade goods. I'm here on business for my family in Ironforge, and business was fine until two o' our ships went down off this coast inside a month. I've goods in both holds, locked in strongboxes, and no' a soul in Auberdine who'll dive for them." },
@@ -1330,6 +1341,7 @@ P:NPC {
         { text = "What was in those lockboxes, really?", next = "xdone", when = { questDone = TODO_QUEST("Deep Ocean, Vast Sea") } },
         { text = "Ironforge is a long way to send for thread.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Do you sell honest weight, merchant?", next = "xcraft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking" } } },
+        { text = "Do the night elves treat a dwarf trader fairly?", next = "dw_elves" },
         { text = "Good trading, Gorbold.", next = "END" },
       },
     },
@@ -1438,7 +1450,7 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Picks, shovels, lamp oil and a good stout sack. If ye're diggin', I'm your dwarf." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Broke the pick, or lost it? It's aye one or the other." },
-    { id = "g_miner", when = { profession = "Mining" }, text = "A miner! Finally. Tell me ye've found somethin' on this coast besides copper and wet sand." },
+    { id = "g_miner", when = { profession = "Mining" }, text = "A miner, at long last! Tell me ye've found somethin' on this coast besides copper and wet sand." },
   },
 
   notice = {
@@ -1491,7 +1503,7 @@ P:NPC {
     },
     elves = {
       lines = {
-        { id = "elves_default", text = "Never. Ten thousand years sittin' on top o' it. I asked one why, and she said the earth gives what it wishes to. I said, aye, and it wishes a deal faster wi' a pick. She didnae laugh. They're grand folk, but ye'll no' get a joke about rocks past them." },
+        { id = "elves_default", text = "Never, not once in ten thousand years sittin' on top o' it. I asked one why, and she said the earth gives what it wishes to, and when I said it wishes a deal faster wi' a pick, she didnae laugh. They're grand folk, but ye'll no' get a joke about rocks past them." },
       },
       choices = {
         { text = "They've a point. Take only what's needed.", next = "BACK", reply = "Aye, well, I need a fair bit. But I fill my holes after, which is more than some.", fx = { align = { order = 1 } } },

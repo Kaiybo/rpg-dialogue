@@ -3407,6 +3407,10 @@ P:NPC {
         { id = "h_default", key = true, text = "I be Zel'mak. Sorek and Grezz Ragefist teach de orc way of war in dis hall, and I teach de other way, which be to not be standin' dere when de axe comes down." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "I be Zel'mak, and you be a warrior, so listen. De orcs will teach you to hit harder, and dey be right. I will teach you to still be alive for de second swing." },
         { id = "h_troll", when = { race = "Troll" }, text = "I be Zel'mak, cousin, de only troll who teaches in dis hall. Dat makes two of us in de room now, and I like dose odds better." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A Darkspear warrior, cousin! Sen'jin would be proud, and Vol'jin will be, if you learn to plant your feet as well as you dance. Come, I show you how." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren warrior, ducking under de door like de rest of us. You be big enough to stand dere and take it, mon, but I teach you not to need to." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A dead one who swings an axe! You don't feel de blow, so you don't think to step away from it, and dat be how a Forsaken loses an arm. Let me fix dat." },
+        { id = "h_w30", when = { class = "WARRIOR", minLevel = 30 }, text = "Look at you, mon, thirty seasons of scars and still quick. If you haven't climbed up to see old Bath'rah in de Alterac hills yet, you should, because de whirlwind weapons be worth every cold step." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Talk fast, I be coolin' down." },
@@ -3420,6 +3424,9 @@ P:NPC {
         { text = "What are Sorek and Grezz like to work beside?", next = "orcs" },
         { text = "This hall never seems to go quiet.", next = "hall" },
         { text = "The Bloodhoof fight with the feet set, like the orcs.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Teach me to move like a troll, Zel'mak.", next = "w_feet", when = { class = "WARRIOR" } },
+        { text = "Two blades or one big axe, Zel'mak?", next = "w_blades", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "Who is this Bath'rah I keep hearing about?", next = "w_bathrah", when = { class = "WARRIOR", minLevel = 28 } },
         { text = "Keep ducking, Zel'mak.", next = "END" },
       },
     },
@@ -3454,9 +3461,47 @@ P:NPC {
     },
     way = {
       lines = {
-        { id = "way_default", text = "Be where de blow is not. An orc takes a hit on his shield and gives a bigger one back, and dat works until he meets somethin' bigger dan he is. A troll moves his feet, mon. I teach de orcs to do both, plant when you strike and move when you do not." },
+        { id = "way_default", text = "Be where de blow is not, mon. An orc takes a hit on his shield and gives a bigger one back, and dat works until he meets somethin' bigger dan he is, so I teach de orcs to plant when dey strike and move when dey do not." },
       },
       choices = {
+        { text = "Teach me to move like a troll, Zel'mak.", next = "w_feet", when = { class = "WARRIOR" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_feet = {
+      lines = {
+        { id = "wf_default", text = "Watch de enemy's hips, not his weapon, and step to de side he be not turnin' toward. When he stumbles, you hamstring him so he cannot run, and when he dodges you, you overpower him before he finds his feet again." },
+        { id = "wf_low", when = { maxLevel = 9 }, text = "First you learn to charge in straight, mon, and only den do I teach you to step aside. Go and get some bruises in Durotar, and come back when you be ten and slower to panic." },
+        { id = "wf_troll", when = { race = "Troll" }, text = "You already know, cousin, because every Darkspear child learned it dodgin' raptors on de Echo Isles. What I teach you be when to stop dancin', plant your feet and let de axe fall." },
+      },
+      choices = {
+        { text = "Moving is wisdom. Only fools trade blow for blow.", next = "BACK", reply = "Ha! Don't say dat to Grezz, but yes, mon.", fx = { align = { honor = -1 } } },
+        { text = "A warrior should meet the blow head on.", next = "BACK", reply = "Spoken like an orc, and some days you be right. Just don't make it every day.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_blades = {
+      lines = {
+        { id = "wb_default", text = "Two blades if you be angry and quick, and one big axe if you be patient and strong. Fury loves two blades, mon, because every swing feeds de rage, and de rage feeds de next swing." },
+        { id = "wb_troll", when = { race = "Troll" }, text = "Two, cousin, because when de berserker blood comes up in you, one blade be too slow to keep up with it. But learn de big axe too, so you know what de orcs be thinkin'." },
+      },
+      choices = {
+        { text = "Why does it matter what the orcs think?", next = "w_blades2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_blades2 = {
+      lines = { { id = "wb2_default", text = "Because you will fight beside dem for de rest of your life, mon, and a warrior who knows how his brother fights never gets in his way. De Horde be orc and troll and tauren and dead men now, and de one who learns all deir ways be de one who lives." } },
+      choices = { { text = "Something else, Zel'mak.", next = "BACK" } },
+    },
+    w_bathrah = {
+      lines = {
+        { id = "wba_default", text = "A troll hermit, mon, a jungle troll and not one of us, who sits by a river in de Alterac hills and waits for a wind lord called Cyclonian to wake. Klannoc on Fray Island sends him de warriors who win, and Bath'rah makes dem a weapon with a storm inside it." },
+        { id = "wba_done", when = { questDone = TODO_QUEST("Whirlwind Weapon") }, text = "You met him already, I see it on your back! Dat be a whirlwind weapon, mon, and every swing of it remembers de wind lord, so swing it like you mean it." },
+      },
+      choices = {
+        { text = "A troll who binds the wind? That troubles me.", next = "BACK", reply = "It troubles de spirits too, mon, and Bath'rah knows it. But de weapon be good, so I say nothin'.", fx = { align = { light = 1 } } },
+        { text = "If the storm makes a better weapon, I want it.", next = "BACK", reply = "Ha! You and every warrior in dis hall, mon. Go up dere and earn it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

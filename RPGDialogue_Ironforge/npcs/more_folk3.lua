@@ -288,7 +288,7 @@ P:NPC {
     ranch = { { id = "tp_ranch", text = "Amberstill Ranch has the best pasture in Dun Morogh, an' the trolls ken it. We keep a watch." } },
     binjy = { { id = "tp_binjy", text = "Binjy Featherwhistle teaches the mechanostriders over at the Depot. He falls off as much as I did, an' his mounts dinnae even have tempers." } },
     background = { { id = "tp_bg", text = "An Ironhorn. I rode wi' the mountaineers till my knees gave out, an' I've taught ever since." } },
-    _none = { { id = "tp_none", text = "Nae idea! Can ye ride it? No? Then I'm nae use tae ye." } },
+    _none = { { id = "tp_none", text = "Nae idea, friend, an' if ye cannae ride it, then I'm nae use tae ye on the subject." } },
   },
 }
 
@@ -305,8 +305,8 @@ P:NPC {
     third = "{name} met Grif Wildheart, the hunter trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
-    { id = "g_hi", text = "Hrm. Ye walk loud. Stand still a moment an' let the hill get used tae ye." },
-    { id = "g_back", when = { metBefore = true }, text = "Ye again. Quieter this time. Good." },
+    { id = "g_hi", text = "Hrm, ye walk loud, so stand still a moment an' let the hill get used tae ye." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye again, an' quieter this time, which is good, for the hill notices." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Daera sent ye, I'd wager. Sit, an' tell me what ye saw on the road up, an' I'll ken how much ye've got tae learn." },
   },
   notice = {
@@ -343,7 +343,7 @@ P:NPC {
     },
     animals_people = {
       lines = { { id = "ap_default", text = "No. Daera Brightspear's all right, she can sit an hour wi'out speakin'. An' Belm sends up a pot o' stew when the snow's bad an' never mentions it after. That's two. I'm still thinkin' about a third." } },
-      choices = { { text = "I'll try to be the third.", next = "BACK", reply = "Hrm. Ye've stopped fidgetin'. It's a start.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "I'll try to be the third.", next = "BACK", reply = "Hrm, ye've stopped fidgetin', an' that's a start, for a beast reads yer hands before yer face.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     trust = {
       lines = { { id = "tr_default", text = "Ye dinnae earn it, ye wait for it. Find the beast, sit where it can see ye, an' come back the next day an' the next. When it stops watchin' ye, it's decided. Ye cannae hurry it, an' ye cannae buy it." } },
@@ -401,7 +401,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Light be wi' ye. Mind the noise from below, an' tell me what brings ye up the stair." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've returned. Have ye kept up yer prayers, or only yer travels?" },
-    { id = "g_priest", when = { class = "PRIEST" }, text = "A priest. Good. I'll hear how ye've used what ye were taught at Anvilmar before I teach ye more." },
+    { id = "g_priest", when = { class = "PRIEST" }, text = "A priest, good. I'll hear how ye've used what ye were taught at Anvilmar before I teach ye more." },
   },
   notice = {
     { id = "n_hurt", cat = "greenness", when = { deaths = { min = 5 } },
@@ -467,7 +467,7 @@ P:NPC {
       },
     },
     road_prayer = {
-      lines = { { id = "x2_default", text = "Four words. Light, no' this one. I've said it over a hundred dwarves, an' it's been answered more often than no'. I teach it before any other." } },
+      lines = { { id = "x2_default", text = "Four words: Light, no' this one. I've said it over a hundred dwarves, an' it's been answered more often than no'. I teach it before any other." } },
       choices = { { text = "Four words I can remember.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
@@ -501,7 +501,7 @@ P:NPC {
     { id = "n_green", cat = "greenness", when = { maxLevel = 5 },
       text = "First week out, is it? Ye've the look. Dinnae fret, everybody's hands shake at the start, an' the troggs here are slow." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "Ye carry yerself careful, like ye're feared o' breakin' somethin'. That's a healer's way. Ye'll do fine." },
+      text = "Ye carry yerself careful, like ye're feared o' breakin' somethin', an' that's a healer's way, so ye'll do fine." },
   },
   start = "hello",
   nodes = {
@@ -589,7 +589,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Well met! Come up out o' the crush, there's room on the landing an' the Light's as good here as anywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' still in one piece! The Light's been busy wi' ye." },
-    { id = "g_pal", when = { class = "PALADIN" }, text = "A paladin! Grand. Show me how ye hold that hammer, an' then show me how ye kneel." },
+    { id = "g_pal", when = { class = "PALADIN" }, text = "A paladin, grand! Show me how ye hold that hammer, an' then show me how ye kneel." },
   },
   notice = {
     { id = "n_pal", cat = "class", when = { class = "PALADIN", minLevel = 10 },
@@ -663,7 +663,7 @@ P:NPC {
     belm = { { id = "tp_belm", text = "Innkeeper Belm gave us the landing an' never asked rent. He says we're good for the tavern's reputation." } },
     bromos = { { id = "tp_bromos", text = "Bromos Grummner starts them off at Anvilmar. A harder dwarf than me, an' they need that first." } },
     background = { { id = "tp_bg", text = "A mountaineer who was saved by the Light an' went tae find out how." } },
-    _none = { { id = "tp_none", text = "I couldnae say, friend. I'm still learnin' myself." } },
+    _none = { { id = "tp_none", text = "I couldnae say, friend, for I'm still learnin' myself, an' I'll be learnin' till my beard's white." } },
   },
 }
 
@@ -782,7 +782,7 @@ P:NPC {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE", minLevel = 10 },
       text = "Ye've come along. It's time ye went up tae Ironforge an' found Hulfdan Blackbeard in the Forlorn Cavern. Tell him Hogral sent ye, an' be ready for him tae be rude about it." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 6 },
-      text = "Ye're green as moss. That's fine. Naebody suspects the green ones, so make use of it while it lasts." },
+      text = "Ye're green as moss, an' that's fine, for naebody suspects the green ones, so make use of it while it lasts." },
   },
   start = "hello",
   nodes = {
@@ -850,7 +850,7 @@ P:NPC {
     hulfdan = { { id = "tp_hulfdan", text = "Hulfdan Blackbeard runs the Circle's rogues in Ironforge. He taught me, an' he was just as rude about it then." } },
     belm = { { id = "tp_belm", text = "Innkeeper Belm. He sees everythin' an' admits tae nothin'. He'd have made a fine rogue, an' I've told him so." } },
     solm = { { id = "tp_solm", text = "Solm Hargrin starts them at Anvilmar. He sends me the ones wi' quick hands an' slow tempers." } },
-    background = { { id = "tp_bg", text = "A kitchen hand. Ask anybody." } },
+    background = { { id = "tp_bg", text = "I'm a kitchen hand, friend, an' ye can ask anybody in the place." } },
     _none = { { id = "tp_none", text = "Never heard of it. An' if I had, I'd say the same." } },
   },
 }
@@ -1148,7 +1148,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Hammers, tongs, flux an' coal. If ye're here tae look at swords, the weaponsmith's that way." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Have ye worn out that hammer already, or only lost it?" },
-    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good. Tell me what ye're makin' an' I'll tell ye what ye're missin'." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, good! Tell me what ye're makin' an' I'll tell ye what ye're missin'." },
   },
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
@@ -1238,7 +1238,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Hello there. Keep yer hands low an' yer voice soft a moment, for I've a young bear here who's still decidin' about strangers." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see how ye've both been gettin' on." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good. I'll no' ask how well ye shoot. I'll ask when yer beast last ate, an' whether ye ate first." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, good. I'll no' ask how well ye shoot, but I will ask when yer beast last ate, an' whether ye ate first." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -1574,7 +1574,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Welcome tae the forge! Mind yer feet, there's a pair o' tongs on the floor somewhere, an' they may still be hot." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye havenae seen a wee ball-peen hammer on yer travels, have ye? I had it a minute ago." },
-    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith! Grand. Grab that bar an' hold it steady, I've three jobs on an' two hands." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, grand! Grab that bar an' hold it steady, I've three jobs on an' two hands." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
@@ -1754,7 +1754,7 @@ P:NPC {
   },
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest. Maxan Anvol's upstairs. Between the Light an' a clean bandage we lose very few, an' I'll let ye guess which I think does the more." },
+      text = "A priest, is it? Maxan Anvol's upstairs. Between the Light an' a clean bandage we lose very few, an' I'll let ye guess which I think does the more." },
     { id = "n_firstaid", cat = "craft", when = { profession = "First Aid" },
       text = "Ye've bandaged before, for ye've linen in yer belt, folded an' no' stuffed. Somebody taught ye right." },
   },
@@ -2215,7 +2215,7 @@ P:NPC {
     },
     wont = {
       big = true,
-      lines = { { id = "wont_default", text = "Trogg. I've been asked. When the stores ran thin last month, a few o' the lads said meat was meat, an' there's a deal o' it walkin' about down there. I said I'd throw the kettle in the pit first. They go on two legs, an' they've a kind o' speech." } },
+      lines = { { id = "wont_default", text = "Trogg? Aye, I've been asked. When the stores ran thin last month, a few o' the lads said meat was meat, an' there's a deal o' it walkin' about down there. I said I'd throw the kettle in the pit first. They go on two legs, an' they've a kind o' speech." } },
       choices = {
         { text = "You're right. There are things you don't eat, however hungry you get.", next = "BACK", reply = "Aye. We're dwarves, no' ghouls. I'd sooner serve boiled boot, an' I ken a recipe.", fx = { align = { light = 1 } } },
         { text = "They're beasts. A starving camp shouldn't be so particular.", next = "BACK", reply = "That's what the lads said. An' I said find another cook, an' naebody did, so here we are eatin' boar.", fx = { align = { light = -1 } } },
@@ -2348,7 +2348,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Good day! Are ye goin' down intae the pit? Then ye'll want somethin' heavy. I've axes, mostly, for axes are what folk here want." },
-    { id = "g_back", when = { metBefore = true }, text = "Ye're back! Did it hold? Let me see the edge. Oh, that's a relief, I worried about that one." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back! Did it hold? Let me see the edge, then. Oh, that's a relief, I worried about that one." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "Ye're a smith, a proper one? Would ye look at this weld an' tell me honestly? My master's in Ironforge, an' I've naebody tae ask." },
   },
   notice = {

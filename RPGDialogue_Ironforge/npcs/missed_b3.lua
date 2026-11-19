@@ -5,125 +5,6 @@
 local P = RPGDialogueAPI:Pack("rpgd.ironforge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
--- Skolmin Goldfury: bow merchant at Goldfury's Hunting Supplies, Military Ward. Bretta sells the guns.
-P:NPC {
-  key = "if_skolmin", id = TODO_NPC("Skolmin Goldfury"), name = "Skolmin Goldfury", title = "Bow Merchant", gender = "male",
-  bible = "bibles/missed_b.md", role = "vendor", tier = "service",
-  communities = { "ironforge" }, temper = { "mild", "wry" }, values = { "craft", "family" },
-  notices = { "class" },
-  impression = {
-    first = "Skolmin Goldfury sells bows, arrows and shot at Goldfury's Hunting Supplies, and he strings a bow with the patience of a dwarf who has long been outnumbered. He speaks quietly, mostly because Bretta's rifles do the shouting.",
-    third = "{name} met Skolmin Goldfury, who sells bows at Goldfury's Hunting Supplies in Ironforge.",
-  },
-  greetings = {
-    { id = "g_default", text = "Welcome tae Goldfury's. The bows are on my wall an' the rifles are on Bretta's, an' ye'll notice which wall the dwarves crowd round." },
-    { id = "g_elf", when = { race = "NightElf" }, text = "A night elf! Come in, come in, for it's no' often I get a customer who looks at the bows first." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Tell me the string held, for I waxed that one myself." },
-  },
-  notice = {
-    { id = "n_hunter", cat = "class", when = { class = "HUNTER", race = "Dwarf" },
-      text = "A dwarf hunter, so ye'll be wantin' Bretta an' her guns. I'll only say that a bow has never yet woken the whole mountainside." },
-    { id = "n_hunter2", cat = "class", when = { class = "HUNTER", ["not"] = { race = "Dwarf" } },
-      text = "A hunter, an' one wi' the shoulders for a bow. Try the draw on the yew over there, an' mind the lamp." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Skolmin Goldfury, bowyer, which is a lonely thing tae be in a city in love wi' gunpowder. Bretta has the rifles an' I've the bows an' the arrows, an' I keep the shop's books besides, since she'd sooner be shootin'." },
-      },
-      again = {
-        { id = "h_again", text = "What else can I do for ye?" },
-        { id = "h_again2", text = "Go on, it's quiet on my side." },
-      },
-      choices = {
-        { text = "Show me your bows.", next = "BUSINESS" },
-        { text = "Why would a dwarf choose bows over guns?", next = "bows" },
-        { text = "How do you and Bretta share one shop?", next = "bretta" },
-        { text = "Good day, Skolmin.", next = "END" },
-      },
-    },
-    bows = {
-      lines = { { id = "b_default", text = "Because a bow is quiet, an' it works in the wet, an' it's never once blown up in a dwarf's face. I learned on one as a lad when powder was dear, an' by the time powder was cheap I'd grown fond o' still havin' my hearin'." } },
-      choices = {
-        { text = "Who buys them, in Ironforge?", next = "bows2" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    bows2 = {
-      lines = { { id = "b2_default", text = "The elves who've come over the sea, mostly, an' a few human scouts up from Stormwind. Now an' again a mountaineer buys one on the quiet, for stalkin' where a shot would bring the troggs down on him, an' asks me no' tae tell Bretta." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-    bretta = {
-      lines = { { id = "br_default", text = "By keepin' tae our own walls, an' by me agreein' wi' her before noon. She's kin, an' she's the best judge of a rifle in the ward, an' if she tells ye a dwarf wi' a gun is the equal of anythin' alive, just nod, for it's quicker." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "Goldfurys have outfitted hunters for three generations. I'm the first tae prefer a string tae a trigger, an' I hear about it at every family supper." } },
-    _none = { { id = "tp_none", text = "I couldnae say, friend. Ask Bretta, though ye'll get the answer at some volume." } },
-  },
-}
-
--- Sognar Cliffbeard: wandering meat vendor in the Military Ward.
-P:NPC {
-  key = "if_sognar", id = TODO_NPC("Sognar Cliffbeard"), name = "Sognar Cliffbeard", title = "Meat Vendor", gender = "male",
-  bible = "bibles/missed_b.md", role = "vendor", tier = "service",
-  communities = { "ironforge" }, temper = { "hearty", "talkative" }, values = { "good food", "soldiers" },
-  notices = { "hunger", "pet" },
-  impression = {
-    first = "Sognar Cliffbeard walks the Military Ward with a tray of smoked and roasted meat, calling his wares up at the barracks windows. The smell arrives a good ten paces before he does.",
-    third = "{name} met Sognar Cliffbeard, who carries his meat tray round the Military Ward of Ironforge.",
-  },
-  greetings = {
-    { id = "g_default", text = "Hot meat, friend, smoked this mornin'! Walk wi' me if ye want tae talk, for I've the whole ward tae get round before it cools." },
-    { id = "g_back", when = { metBefore = true }, text = "There ye are again, an' lookin' hungry. I know the face, for I see it on every recruit at noon." },
-  },
-  notice = {
-    { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
-      text = "Yer beast's had its nose on my tray since ye came round the corner. Buy {pet} a haunch before it helps itself." },
-    { id = "n_hungry", cat = "hunger", when = { maxLevel = 15 },
-      text = "Ye've the look of someone livin' on trail bread. That's nae way tae fight, {g:lad|lass}, for ye cannae swing an axe on crumbs." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Sognar Cliffbeard, an' I feed the Military Ward on foot. A soldier willnae leave his post for a meal, so I bring the meal past the post, an' they've been known tae cheer when they hear me comin'." },
-      },
-      again = {
-        { id = "h_again", text = "What else? Keep up, I'm headed for the Hall of Arms." },
-        { id = "h_again2", text = "Aye, go on, talk while I walk." },
-      },
-      choices = {
-        { text = "What have you got today?", next = "BUSINESS" },
-        { text = "Where does the meat come from?", next = "meat" },
-        { text = "Who are your best customers?", next = "customers" },
-        { text = "I'll let you finish your round.", next = "END" },
-      },
-    },
-    meat = {
-      lines = { { id = "m_default", text = "Boar an' bear from the Dun Morogh hunters, an' ram when a herder's had a bad winter an' needs the coin. I smoke it myself over pine in a wee room off the Forge, where the heat costs me nothin'." } },
-      choices = {
-        { text = "Which is best?", next = "meat2" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    meat2 = {
-      lines = { { id = "m2_default", text = "The boar ribs, an' I'll fight any dwarf who says otherwise. Bear's richer but it sits heavy, an' ye dinnae want a recruit fallin' asleep on the afternoon watch because o' my cookin'." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-    customers = {
-      lines = { { id = "c_default", text = "The hunters' beasts in the Hall of Arms, if I'm honest, for they eat more than their masters an' never haggle. After them it's Kelv Sternhammer's recruits, who come off the sand so hungry they'd eat the tray." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I was a camp cook for the mountaineers before I got the tray. The walkin's the same, only warmer." } },
-    _none = { { id = "tp_none", text = "Nae idea, friend. If it cannae be smoked or roasted, I've no' looked intae it." } },
-  },
-}
-
 -- Soolie Berryfizz: alchemy supplies at Berryfizz's Potions and Mixed Drinks, Tinker Town. Kin to Tally.
 P:NPC {
   key = "if_soolie", id = TODO_NPC("Soolie Berryfizz"), name = "Soolie Berryfizz", title = "Alchemy Supplies", gender = "female",
@@ -292,7 +173,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "Eleven years on the halls. I've caught the same cutpurse four times, an' we're on first-name terms." } },
-    _none = { { id = "tp_none", text = "No' my round. Ask a gate guard." } },
+    _none = { { id = "tp_none", text = "That's no' on my round, friend, so ye'd best ask one o' the gate guards." } },
   },
 }
 

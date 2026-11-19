@@ -619,6 +619,8 @@ P:NPC {
         { text = "Does the Explorers' League ever need hunters, Historian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about the Shadowforge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you buy relics from a rogue, Historian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "The Shadowforge are dwarves, Historian. Our own kin.", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "What does a League historian actually do all day?", next = "kn_day" },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -709,6 +711,51 @@ P:NPC {
         { id = "xshh_default", text = "Then I've been too short wi' him, an' he never once complained. I'll go back tae the Badlands when my work lets me, an' I'll say it all slower." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
+    },
+    dw_kin = {
+      big = true,
+      lines = {
+        { id = "dwk_default", text = "Aye, they are, an' that's the part that keeps me up at night more than any fire-lord. Every Dark Iron diggin' in Uldaman had a grandsire who drank in the same halls as mine, before the War o' the Three Hammers, an' I'd give a good deal tae know whether they dig for Ragnaros because they want tae, or because they cannae stop." },
+      },
+      choices = {
+        { text = "Thralls or not, they killed Hammertoe. No pity.", next = "dw_kin_hard", fx = { align = { light = -1 } } },
+        { text = "If they're thralls, some of them might be freed.", next = "dw_kin_soft", fx = { align = { light = 1 } } },
+        { text = "Can't they stop?", next = "dw_kin_bound" },
+      },
+    },
+    dw_kin_bound = {
+      lines = {
+        { id = "dwkb_default", text = "When Thaurissan called the Firelord up, the old accounts say Ragnaros didnae go home again; he stayed under Blackrock an' made the survivors his. Two hundred years an' more o' servin' fire will change a clan's heart, an' I'm no' sure there's a Dark Iron alive who remembers what it was like before." },
+      },
+      choices = {
+        { text = "That's a grim kind of kinship.", next = "BACK", fx = { learn = { "dark_iron" } } },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    dw_kin_hard = {
+      lines = {
+        { id = "dwkh_default", text = "No, an' I'll no' ask ye for any, for I've buried my partner an' I've no pity left tae spare. Only mind that the line between us an' them was drawn by a war an' a fire, an' no' by the stone we were made from." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    dw_kin_soft = {
+      lines = {
+        { id = "dwks_default", text = "That's a kinder thought than I've heard in this library in a year, an' I hope ye're right. If ever ye meet a Dark Iron who'll lay down his pick an' talk, bring him tae me, an' I'll listen before the guards do." },
+      },
+      choices = {
+        { text = "Something else, Historian.", next = "BACK" },
+      },
+    },
+    kn_day = {
+      lines = {
+        { id = "knd_default", text = "Reads what the Prospectors send back an' tells them where they've got it wrong, mostly, an' then writes tae the High Explorer tae tell him the same. The rest o' the time I'm matchin' rubbings from Uldaman against rubbings from Ironband's dig, lookin' for the same mark in two places, for that's how ye find out what was one thing once." },
+      },
+      choices = {
+        { text = "That sounds slower than digging.", next = "BACK", reply = "It's slower, aye, an' it's where every find actually becomes knowledge. A dug-up relic wi' no reader is just a heavy stone in a crate.", fx = { affinity = 1 } },
+        { text = "Something else, Historian.", next = "BACK" },
+      },
     },
   },
 
@@ -881,6 +928,8 @@ P:NPC {
         { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the King's word reach as far as Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does the Senate really make of dwarven shamans, Advisor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What threatens the mountain most, Advisor?", next = "threats" },
+        { text = "I want to serve the throne, Advisor. Where am I needed?", next = "dw_serve", when = { race = "Dwarf" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -962,6 +1011,35 @@ P:NPC {
         { text = "Stormwind will honor its debts, Advisor.", next = "BACK", reply = "I hope so, an' I'll take yer word for it, for the Senate's patience is no' what it was, an' neither is the King's.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Stormwind's court honors nothing it can avoid.", next = "BACK", reply = "That's a hard thing tae hear from one o' its own, an' I'll keep it tae myself, for the Senate would only use it as a club.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    threats = {
+      big = true,
+      lines = {
+        { id = "thr_default", text = "Ask the Senate an' ye'll get six answers, so I'll give ye the King's. The Dark Iron in the south, for they've Ragnaros behind them now; the troggs that came up out o' Uldaman an' Gnomeregan both, for there's no end tae them; an' the Frostmane trolls in the western snows, who were killin' dwarves long before any o' the others." },
+      },
+      choices = {
+        { text = "Then strike the Dark Iron first, and hard.", next = "BACK", reply = "That's the King's heart talkin', an' half the Military Ward's. The other half reminds him that every army we send south leaves Dun Morogh thinner, an' the troggs can count.", fx = { align = { order = -1 } } },
+        { text = "Then hold the walls and the roads before anything else.", next = "BACK", reply = "That's the Senate's view, an' it's kept us alive through two wars an' a flood o' refugees. It's no' glorious, but a dwarf behind a good wall is a dwarf that sees his grandchildren.", fx = { align = { order = 1 } } },
+        { text = "Where did the troggs come from?", next = "threats_troggs" },
+      },
+    },
+    threats_troggs = {
+      lines = {
+        { id = "tht_default", text = "From under the earth, deeper than any dwarf has dug, an' that's near all anybody knows. They came boilin' up out o' Gnomeregan an' out o' Uldaman at near the same time, an' the League thinks they're tied tae the old titan vaults somehow, though nobody can say how wi'out a trogg willin' tae explain." },
+      },
+      choices = {
+        { text = "Something else, Advisor.", next = "BACK", fx = { learn = { "troggs" } } },
+      },
+    },
+    dw_serve = {
+      lines = {
+        { id = "dws_default", text = "Everywhere, {g:lad|lass}, an' that's the honest truth. The mountaineers want rifles on the Loch Modan roads, the League wants strong backs in the Badlands, an' the King wants dwarves who'll go where they're sent an' come home tae tell him what they saw. Which o' those suits ye?" },
+      },
+      choices = {
+        { text = "The roads. Someone has to keep them open.", next = "BACK", reply = "Then see Mountaineer Barleybrew at the South Gate, or go on tae Thelsamar an' the Loch. They'll work ye hard, an' ye'll be thanked by every caravan that gets through.", fx = { trait = { practical = 1 } } },
+        { text = "The League. I want to see Uldaman.", next = "BACK", reply = "Then the Hall o' Explorers is up the way, an' Magellas will talk yer ear off. Tell him I sent ye, an' he'll pretend tae be annoyed.", fx = { trait = { curious = 1 } } },
+        { text = "Wherever the King sends me, I'll go.", next = "BACK", reply = "That's an old-fashioned answer, an' the best one. Keep earnin' the mountain's trust, an' one day the King will send for ye by name.", fx = { affinity = 1 } },
       },
     },
   },
@@ -1592,7 +1670,7 @@ P:NPC {
 
     heist = {
       lines = {
-        { id = "he_default", text = "Wut heist? There's no heist. We were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody claps irons on Hulfdan Blackbeard." },
+        { id = "he_default", text = "Wut heist? There was never any heist, friend, for we were plottin' out phase three o' somethin' entirely legal when a couple o' the King's guards came in an' started arrestin' folk, an' nobody claps irons on Hulfdan Blackbeard." },
       },
       choices = {
         { text = "Phase three of what, exactly?", next = "heist_phase" },

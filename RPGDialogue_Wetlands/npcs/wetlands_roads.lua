@@ -29,6 +29,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_batol = {
+      narr = "He turns his head east, toward the mountain, and does not turn it back for a moment.",
+      lines = {
+        { id = "dw_batol_default", text = "More than I'd like and less than I need. It was the Wildhammers' city once, until the Dark Iron sorceress Modgud cursed the stone when they killed her, and the Wildhammers left it for the Hinterlands rather than live in a grave." },
+      },
+      choices = {
+        { text = "And who holds it now?", next = "dw_batol2" },
+        { text = "Something else, Longbraid.", next = "BACK" },
+      },
+    },
+    dw_batol2 = {
+      lines = {
+        { id = "dw_batol2_default", text = "The Dragonmaw held it in the Second War, and kept a dragon queen chained in its halls to breed their wyrms. They've been driven off since, mostly, but their clans still skulk in the hills, and something still sits in that mountain that makes my teeth ache when the wind's from the east." },
+      },
+      choices = {
+        { text = "Then Ironforge should send an army to burn it out.", next = "BACK", reply = "An army, aye, if Ironforge had one to spare, and if it would come back. I've seen what that place does to brave dwarves.", fx = { align = { light = -1 } } },
+        { text = "Some places are best left to the dead.", next = "BACK", reply = "That's the wisest thing anyone's said to me this month. I'll hold Dun Modr and leave the mountain to its curse.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     opn_magni = {
       lines = {
         { id = "opn_magni_q", text = "I said I'll no' curse him, an' I won't. But I've buried dwarves who asked me every day when the reserves were comin', an' I gave 'em the same answer every day. Ye've been tae Ironforge; ye tell me if he failed us." },
@@ -209,6 +229,7 @@ P:NPC {
         { text = "Would some darker help be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call fire at Dun Modr, Longbraid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My companion is a warrior. Was that your trade too?", next = "xpt_warrior", when = { party = { class = "WARRIOR" }, faction = "Alliance" } },
+        { text = "Grim Batol is near here. What do you know of it?", next = "dw_batol" },
         { text = "Hold fast, Longbraid.", next = "END" },
       },
     },
@@ -279,6 +300,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_clan = {
+      lines = {
+        { id = "dw_clan_default", text = "Old enough, kin, and stubborn enough to settle the Wetlands when everyone said we'd drown. Rhag's my brother, and between us we've buried more Garmasons than I like to count, every one of them on the wrong side of a Dark Iron blade." },
+      },
+      choices = {
+        { text = "Then they'll be avenged. I'll see to it.", next = "BACK", reply = "Aye, that's the Garmason way, and you've got the beard for it. Bring me the Dark Iron dead, and I'll name you in the tally.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Revenge has already cost your family plenty.", next = "BACK", reply = "It has, and Rhag says the same when he's had a drink. But I don't know how to stop, and I'm no' sure I want to.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Motley.", next = "BACK" },
+      },
+    },
+    dw_feud = {
+      lines = {
+        { id = "dw_feud_default", text = "Because we beat them, three hundred years ago, in the War of the Three Hammers. Their king Thaurissan swore vengeance on Ironforge, and his people have kept that oath ever since, in fire and spite and blown-up bridges." },
+      },
+      choices = {
+        { text = "Their king's fire nearly destroyed them too, didn't it?", next = "dw_feud2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_feud2 = {
+      lines = {
+        { id = "dw_feud2_default", text = "It did, and serves them right. Thaurissan called up the Firelord himself to win the war, and Ragnaros burned the land to the south into ash and made the Dark Irons his slaves. They've been mad as hornets ever since, and I'd be too." },
+      },
+      choices = {
+        { text = "Something else, Motley.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "With anythin' that works. They blew the Span tae cut us off from Arathi, an' they laugh about it in Dun Modr. If yer earth an' fire can shake them out o' their holes, I'll no' ask where it comes from, an' I'll no' let anyone else ask either." } },
@@ -389,6 +437,8 @@ P:NPC {
         { text = "Could a mage help you against the Dark Irons, Motley?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you really use any weapon against them, Motley, however dark?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Will you fight the Dark Irons with fire, Motley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Garmasons are an old Ironforge family, aren't they?", next = "dw_clan", when = { race = "Dwarf" } },
+        { text = "Why do the Dark Irons hate you so?", next = "dw_feud" },
         { text = "Good luck, Motley.", next = "END" },
       },
     },
@@ -455,6 +505,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_home = {
+      lines = {
+        { id = "dw_home_default", text = "I am, kin, and some mornings I'd trade the whole Wetlands for one dry hour in the Great Forge. But the League asked for a rifle, and a dwarf who says no to the League ends up guarding sheep in Dun Morogh." },
+      },
+      choices = {
+        { text = "Duty's duty. You'll get home when the job's done.", next = "BACK", reply = "Aye, that's what I tell the raptors, and they don't care either. Still, it's a good thing to hear from kin.", fx = { align = { order = 1 } } },
+        { text = "Nobody owns you. Go home if you want to.", next = "BACK", reply = "And leave Whelgar to the raptors? He'd never let me hear the end of it, mostly because he'd be dead.", fx = { align = { order = -1 } } },
+        { text = "Something else, Ormer.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some say the dig's on their nestin' grounds, an' some say they've just a taste for dwarf. Whelgar's diggers say the raptors grow wilder the deeper they dig, an' I've half a mind tae believe them. If the earth's tellin' the beasts tae drive us off, I'd like tae know." } },
@@ -562,6 +622,7 @@ P:NPC {
         { text = "Why do the raptors hunt the dig so fiercely, Ormer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What do the raptors here fear, Ormer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why are the raptors so fierce around the dig, Ormer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A dwarf with a rifle in the marsh. You're a long way from the forges.", next = "dw_home", when = { race = "Dwarf" } },
         { text = "Good hunting, Ormer.", next = "END" },
       },
     },
@@ -628,6 +689,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Has it, now? Then ye'll know a League dig is mostly mud, arguments and waiting for the post. Grab a trowel, kin, for I'll take any dwarf with patience over a dozen sellswords with none." },
+      },
+      choices = {
+        { text = "I'll dig if you need me, Prospector.", next = "BACK", reply = "Good! The raptors don't respect a trowel, mind, so keep your axe within reach.", fx = { affinity = 1 } },
+        { text = "Something else, Whelgar.", next = "BACK" },
+      },
+    },
+    dw_why = {
+      lines = {
+        { id = "dw_why_default", text = "The Wetlands weren't always this wet, and they weren't always this empty. Before the Wildhammers left Grim Batol, this was their country, and there are cellars and shrines under the reeds that nobody has seen since." },
+      },
+      choices = {
+        { text = "Those are Wildhammer graves. Leave them be.", next = "BACK", reply = "Graves, some of them, and I'd not touch those. But a lost forge or a library? The Wildhammers left them behind, and the League means to learn from them.", fx = { align = { light = 1 } } },
+        { text = "Dig it all. The dead don't need their treasures.", next = "BACK", reply = "Careful, now, or you'll sound like a Reclaimer. The League keeps records, and that's the difference between a dig and a robbery.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Great bones, bigger than any beast walkin' the Wetlands now, an' the deeper we go, the bigger they get. My diggers say the ground's uneasy an' the raptors seem tae agree, so if the earth wants its dead left alone, ye'd tell me, would ye no'?" } },
@@ -746,6 +826,8 @@ P:NPC {
         { text = "What's the strangest thing you've pulled out of the mud?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has your dig turned up anything that hums, Whelgar? I'd like to know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What has your dig turned up that worries you, Whelgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My clan has dug for the League since the War of the Three Hammers.", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "Why would dwarves ever have built down here in the bog?", next = "dw_why" },
         { text = "I'll let you work.", next = "END" },
       },
     },

@@ -54,6 +54,7 @@ P:NPC {
         { text = "Why not go down yourself?", next = "aim" },
         { text = "What about the blasting powder?", next = "powder" },
         { text = "Gnomeregan's troggs came from below too, Foreman.", next = "gnome", when = { race = "Gnome" } },
+        { text = "I've swung a pick in a quarry myself, Foreman.", next = "dw_pick", when = { race = "Dwarf" } },
         { text = "I'll go and hurt some troggs.", next = "END" },
       },
     },
@@ -104,6 +105,25 @@ P:NPC {
       choices = {
         { text = "That's probably wise.", next = "BACK", fx = { affinity = 1, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_pick = {
+      lines = {
+        { id = "dwp_default", text = "Have ye, now? Then ye'll know what it does tae a dwarf's heart tae see good stone left half cut, wi' the wedges still in it an' troggs squattin' on the ledges. I had a crew o' twenty in that quarry, an' every one o' them could split a block straighter than a Stormwind mason with a ruler." },
+        { id = "dwp_miner", when = { origin = { "dwarf_ironforge_miner", "dwarf_quarry_foreman" } }, text = "Aye, I can see it in yer shoulders, an' ye'll know what it does tae a dwarf's heart tae see good stone left half cut, wi' the wedges still in it an' troggs squattin' on the ledges. Ye'd have fit right in wi' my crew o' twenty." },
+      },
+      choices = {
+        { text = "Where's your crew now?", next = "dw_pick_crew" },
+        { text = "Something else, Foreman.", next = "BACK" },
+      },
+    },
+    dw_pick_crew = {
+      lines = {
+        { id = "dwpc_default", text = "Scattered tae Kharanos an' the city, drinkin' too much an' waitin' for word that it's safe tae go back. Two o' them didnae run fast enough when the troggs came up, an' I'll see their names cut intae the quarry wall the day we take it back, if I have tae cut them myself." },
+      },
+      choices = {
+        { text = "Then I'll help you take it back.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else, Foreman.", next = "BACK" },
       },
     },
   },

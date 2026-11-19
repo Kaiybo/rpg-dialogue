@@ -150,15 +150,15 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Stand up straight. If you slouch like that against a grell, it'll take your ear off." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Show me what you've learned." },
+    { id = "g_hello", text = "Stand up straight, because if you slouch like that against a grell, it'll take your ear off." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing, which is a good start. Show me what you've learned since." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Simple Sigil") },
       text = "The Simple Sigil, good. I sent it because Ilthalaine says you've a strong arm, and now we'll find out if he's right." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your armor's held together by hope. Get it mended before the next fight, or the next fight will be your last." },
+      text = "Your armour's held together by hope and a few loose stitches, so get it mended before the next fight, or the next fight will be your last." },
   },
 
   start = "hello",
@@ -172,10 +172,14 @@ P:NPC {
           text = "A warrior, new to the blade. Good; I'd rather teach you from nothing than untrain your bad habits, so let's begin with your feet." },
         { id = "h_sigil", when = { questActive = TODO_QUEST("Simple Sigil") },
           text = "Ilthalaine gave you the sigil, so you're mine for now. Learn what I teach you here, and then go and use it on the grells before they get any bolder." },
+        { id = "h_ten", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 },
+          text = "You've outgrown Shadowglen, and I'm glad of it, though I'll not say so twice. Elanaria in Darnassus will want to see you now, so ask me about her before you go." },
+        { id = "h_return", when = { class = "WARRIOR", minLevel = 20 },
+          text = "You came back to Aldrassil, with scars I didn't give you. Stand where the young ones can see you, because they need to know that some of my students live." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Speak quickly, then drill." },
-        { id = "h_again2", text = "Ask, then back to the practice ground." },
+        { id = "h_again", text = "Is there anything else? Speak quickly, and then go back to your drills." },
+        { id = "h_again2", text = "Ask what you need to, and then return to the practice ground before your arms forget." },
         { id = "h_again3", text = "Well? I haven't all night, and neither have you." },
       },
       choices = {
@@ -185,6 +189,9 @@ P:NPC {
         { text = "What will I be fighting around here?", next = "foes" },
         { text = "Where do I go when you're done with me?", next = "after", when = { class = "WARRIOR" } },
         { text = "I fight with an axe. Is that a problem?", next = "axe", when = { race = { "Dwarf", "Human" } } },
+        { text = "The rage frightens me, Alyissia. It feels unbalanced.", next = "rage", when = { class = "WARRIOR", race = "NightElf" } },
+        { text = "Charge, Rend, Thunder Clap. What should I master first?", next = "kit", when = { class = "WARRIOR", maxLevel = 12 } },
+        { text = "Who is Elanaria?", next = "elanaria", when = { class = "WARRIOR", minLevel = 8, maxLevel = 19 } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -221,8 +228,8 @@ P:NPC {
         { id = "wal_horde", when = { faction = "Horde" }, text = "No, and you'd know that if you've heard your own elders. Your people held the second line on the mountain, and whatever's happened in Ashenvale since, I saw them hold it." },
       },
       choices = {
-        { text = "The orcs earned some trust that day.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "They fought to save their own skins, nothing more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The orcs earned some trust that day.", next = "BACK", reply = "Some, perhaps, and Ashenvale is spending it quickly. I hold to what I saw.", fx = { align = { light = 1 } } },
+        { text = "They fought to save their own skins, nothing more.", next = "BACK", reply = "Perhaps, but they stood, and that is more than some did. I'll not argue further.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,6 +255,44 @@ P:NPC {
       lines = { { id = "af_default", text = "Kyra Windblade in Dolanaar, and after her the Warrior's Terrace in Darnassus, where Arias'ta and the Bladesingers will knock what's left of your pride out of you. Thank them when they do, because it's cheaper there than on a battlefield." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    rage = {
+      big = true,
+      lines = {
+        { id = "rg_default", text = "It should frighten you a little, because our people have seen what passion without restraint did to the Highborne. But a warrior's rage is not their hunger, it is the body's answer to being struck, and you can hold it as a Sentinel holds a drawn bow, ready and still." },
+      },
+      choices = {
+        { text = "Then I'll hold it still, like a drawn bow.", next = "BACK", reply = "Good. Elune does not ask us to feel nothing, only to master what we feel.", fx = { align = { order = 1 } } },
+        { text = "Perhaps our people fear passion too much.", next = "BACK", reply = "Perhaps, and you are not the first young kaldorei to say it. Say it carefully in Darnassus.", fx = { align = { order = -1 } } },
+        { text = "How did you learn to hold it?", next = "rage_how" },
+      },
+    },
+    rage_how = {
+      lines = { { id = "rh_default", text = "At Hyjal, where I had more rage than I could carry and nowhere to put it but the demons. I learned to let it out one blow at a time, never all at once, and I've taught it that way ever since." } },
+      choices = { { text = "One blow at a time. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    kit = {
+      lines = {
+        { id = "kt_default", text = "Charge, because it closes the distance before a grell can call its friends, and then Rend, because a bleeding enemy fights badly. Thunder Clap comes later, for when they come at you three at a time, which in the Fel Rock they will." },
+      },
+      choices = {
+        { text = "Charge first, then. Something else.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Rend feels cruel, letting it bleed.", next = "BACK", reply = "Cruel is the grell chewing fel moss and the spirit of this glade. Rend it.", fx = { trait = { kind = 1 } } },
+      },
+    },
+    elanaria = {
+      lines = {
+        { id = "el_default", text = "The warrior who keeps the old tests on the Warrior's Terrace in Darnassus, and the one who will decide whether you earn your second stance. She'll send you after something foul in Teldrassil's forests first, so go to her when Kyra in Dolanaar says you're ready." },
+        { id = "el_other", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "The warrior who keeps the old tests on the Warrior's Terrace in Darnassus. Your own people have their own tests, I'm told, but if you're here among us when you're ready, she may take you, if you show her proper respect." },
+      },
+      choices = {
+        { text = "What sort of test does she set?", next = "elanaria_test" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elanaria_test = {
+      lines = { { id = "et_default", text = "There's a satyr in the forest, Vorlus Vilehoof, who has been defiling something sacred to our people, and she'll want proof you've ended him. I'll say no more, except that satyrs fight dirty and you shouldn't." } },
+      choices = { { text = "Fight clean against a satyr. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     axe = {
       lines = { { id = "ax_default", text = "On a battlefield, no. Under Aldrassil, carry it carefully and don't swing it at anything that's growing, because the druids will hear about it before you've wiped the blade." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -255,10 +300,10 @@ P:NPC {
   },
 
   topics = {
-    advice = { { id = "tp_ad", text = "Keep your shield up and your feet under you. Everything else is decoration." } },
-    burning_legion = { { id = "tp_burning_legion", text = "I fought them at Hyjal. I don't speak of it lightly, and I'd rather you never had to learn why." } },
-    fel_moss = { { id = "tp_fel_moss", text = "The grells eat it and grow vicious. Burn it where you find it, if the druids will let you." } },
-    _none = { { id = "tp_none", text = "Not my concern. Ask a Sentinel, then come back and drill." } },
+    advice = { { id = "tp_ad", text = "Keep your shield up and your feet under you, because everything else a warrior learns is decoration on those two." } },
+    burning_legion = { { id = "tp_burning_legion", text = "I fought them at Hyjal, and I don't speak of it lightly, and I'd rather you never had to learn why." } },
+    fel_moss = { { id = "tp_fel_moss", text = "The grells eat it and grow vicious, so burn it where you find it, if the druids will let you." } },
+    _none = { { id = "tp_none", text = "That's not my concern, so ask a Sentinel about it, and then come back and drill." } },
   },
 }
 

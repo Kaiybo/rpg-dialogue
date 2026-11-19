@@ -26,6 +26,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_word = {
+      lines = {
+        { id = "dw_word_default", text = "That's good of ye, kin. Hammertoe's got a sister in Kharanos who sends a letter every month askin' when he'll be home, an' I've no' had the stomach tae answer the last three." },
+      },
+      choices = {
+        { text = "She deserves the truth, Ryedol, whatever it is.", next = "BACK", reply = "Aye, she does, an' ye're right tae push me. Find out what happened in that digsite, an' I'll write her the truth myself.", fx = { align = { honor = 1 } } },
+        { text = "Tell her he's still digging. Spare her until you know.", next = "BACK", reply = "It's a kind lie, an' I've told it before. I'll tell it once more, an' pray ye make it true.", fx = { align = { honor = -1 }, trait = { kind = 1 } } },
+        { text = "Something else, Ryedol.", next = "BACK" },
+      },
+    },
     op_league = {
       lines = {
         { id = "opl_default", text = "There's folk in Ironforge who say we dig where we shouldnae, that the titans sealed their vaults for a reason. Hammertoe used tae laugh at them, an' now he's buried under one. So what say ye, friend?" },
@@ -182,6 +192,7 @@ P:NPC {
         { text = "I went down into Uldaman, Ryedol, to the very bottom.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "The League looks like it could use help at the dig.", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
         { text = "The League sent me into Uldaman as its priest, Prospector.", next = "xorig_chaplain", when = { origin = "dwarf_league_chaplain" } },
+        { text = "Hammertoe's kin will want word of him, Ryedol. I'm a dwarf; I'll carry it.", next = "dw_word", when = { race = "Dwarf" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },

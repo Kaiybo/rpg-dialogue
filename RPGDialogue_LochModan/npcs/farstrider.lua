@@ -33,6 +33,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "The old way's a Bronzebeard musket an' a long wait in the snow, an' aye, I still do it when my knees allow. The young ones want tae hunt like Wildhammers, from the back of a gryphon, but ye cannae learn a beast's mind from a hundred feet up." },
+      },
+      choices = {
+        { text = "Patience and powder. That's the dwarven way, and the best one.", next = "BACK", reply = "Ha! Ye'll do. Patience an' powder have filled more larders in Khaz Modan than all the gryphons ever hatched.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Wildhammers have the right idea. Hunt free, hunt fast.", next = "BACK", reply = "Fast, aye, an' loud, an' half the herd's gone before they land. Still, I'll no' say they cannae shoot, for they can, curse them.", fx = { align = { order = -1 } } },
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    dw_elves = {
+      lines = {
+        { id = "dw_elves_default", text = "From the Farstriders o' Quel'Thalas, who built this lodge an' taught dwarves tae read a trail like a book. That was durin' the Second War, when elves an' dwarves an' men all stood behind the same wall, an' a hunter learned from whoever was best." },
+        { id = "dw_elves_elf", when = { race = "NightElf" }, text = "No' your kind of elf, mind, but the high elves o' Quel'Thalas, the Farstriders who built this lodge. They taught dwarves tae read a trail like a book, back in the Second War when we all stood behind the same wall." },
+      },
+      choices = {
+        { text = "Do the high elves still come here?", next = "dw_elves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_elves2 = {
+      lines = {
+        { id = "dw_elves2_default", text = "No' since Quel'Thalas left the Alliance after the war, an' no' many before that. I keep their bows on the wall an' their names in my head, which is more than their own kings did for us." },
+      },
+      choices = {
+        { text = "You sound bitter about it, Marek.", next = "BACK", reply = "Bitter? No, just old, an' I remember who stood wi' us. That's all a lodge like this is, a memory wi' a roof on it." },
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
     opn_elves = {
       lines = {
         { id = "opn_elves_q", text = "The ones who hunted here were the finest trackers I ever drank wi', an' then Quel'Thalas walked out o' the Alliance after the war like a guest leavin' before the bill. Now there's precious little left o' Quel'Thalas tae walk anywhere. Ye've an opinion, by yer face, so let's have it." },
@@ -127,6 +156,8 @@ P:NPC {
         { text = "Daryl seems a lively sort.", next = "daryl" },
         { text = "A hunter's approval must be hard to earn in this lodge.", next = "approval" },
         { text = "Your trophy wall troubles me, Marek.", next = "druid", when = { class = "DRUID" } },
+        { text = "Do dwarves of your clan still hunt the old way, Marek?", next = "dw_kin", when = { race = "Dwarf" } },
+        { text = "Where did a dwarf learn to hunt beside elves?", next = "dw_elves" },
         { text = "Farewell, Marek.", next = "END" },
       },
     },

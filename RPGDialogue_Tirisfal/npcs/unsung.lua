@@ -78,6 +78,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Dannal Stern, and I teach the risen of Deathknell to fight. Your muscles have forgotten what they knew, but your bones remember, and I can wake that memory up again." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Your grip is firmer than when you first crawled out of the grave. Good, because the Scourge and the Crusade will both test it soon enough." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR", maxLevel = 5 }, text = "Freshly risen and already holding a sword the right way round, which is more than most manage. Whoever you were before, your arm remembers drills, so let us find out what else it remembers." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10 }, text = "You have learned all Deathknell has to give, and Austil de Mon in Brill will take you on from here. In time they will send you across the sea to the Barrens, to an orc named Uzzek who teaches the shield, and I'd give a great deal to see your face when you meet him." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. When I was alive, the orcs I fought had warlocks behind them, not shamans, and I'm told your people care very much about the difference." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell. I've no claws to teach you how to use, but stand where I can see you all the same." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, among my sword pupils. Stand where I can see you, then, and tell me why you keep your distance from the fight." },
@@ -89,7 +91,9 @@ P:NPC {
         { text = "Did the old army's priests ever fight beside you, Dannal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you hold the old war against my people, Dannal?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a beast's strength worth less than a sword's, Dannal?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Dannal.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "My arm remembers drills I never learned in this life.", next = "w_memory", when = { class = "WARRIOR", race = "Scourge" } },
+        { text = "How do I fight the Scarlets, Dannal?", next = "w_scarlet", when = { class = "WARRIOR" } },
         { text = "You have the bearing of an old soldier.", next = "past" },
         { text = "What's it like to fight without feeling pain?", next = "pain" },
         { text = "There seem to be enemies on every side here.", next = "enemies" },
@@ -114,6 +118,35 @@ P:NPC {
       choices = {
         { text = "Then serve Sylvanas well.", next = "BACK", reply = "I will, as long as there's anything left of me to serve with.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Your loyalty is your own. You owe no one.", next = "BACK", reply = "Perhaps not, but I choose to owe her, and that's my business. A soldier needs somewhere to stand.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_memory = {
+      lines = {
+        { id = "wm_default", text = "Then you were a soldier, or a guardsman, or a farmer who drilled with the militia on feast days, because the body keeps what the mind lets go. Don't chase the memory itself; it won't come, and chasing it will only make you slow." },
+      },
+      choices = {
+        { text = "I'd rather know who I was.", next = "w_memory2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_memory2 = {
+      big = true,
+      lines = { { id = "wm2_default", text = "So would we all, at first. I spent my first month searching every face in Brill for someone who knew me, and nobody did, and the sword in my hand was the only thing that recognized me. Choose what you are now, and let the past keep its own counsel." } },
+      choices = {
+        { text = "The past is gone. I'll be what I choose.", next = "BACK", reply = "That's how the Dark Lady's soldiers think. You'll do well here.", fx = { align = { order = -1 } } },
+        { text = "I'll find out who I was, however long it takes.", next = "BACK", reply = "Then look, but keep your sword arm busy while you do. The Scourge doesn't wait for the curious.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_scarlet = {
+      lines = {
+        { id = "ws_default", text = "Charge them before the priests among them can start praying, rend them so they bleed while you work, and never fight two at once if you can drag one away. They are living, which means they tire and we don't, so make every fight a long one." },
+        { id = "ws_low", when = { maxLevel = 3 }, text = "You don't, not yet, because the Scarlets at Solliden Farmstead would cut you down before you'd swung twice. Kill the mindless dead in the fields first, and come back when your arm stops shaking." },
+      },
+      choices = {
+        { text = "They were my people once. It's strange to fight them.", next = "BACK", reply = "They burned my village's dead in a pit, including people I may have loved. Be strange about it later, after you've won.", fx = { align = { light = 1 } } },
+        { text = "They hunt us like vermin. I'll show them no mercy.", next = "BACK", reply = "Good, because they will show you none. Just don't become what they think you are.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

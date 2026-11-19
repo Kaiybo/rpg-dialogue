@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Mountaineer Thalos. My job's tae keep folk out o' Coldridge Pass unless their business is worth the risk, for the troggs in there have no hesitation at all about attackin' travellers." },
+        { id = "h_default", key = true, text = "I'm Mountaineer Thalos, an' my job's tae keep folk out o' Coldridge Pass unless their business is worth the risk, for the troggs in there have no hesitation at all about attackin' travellers." },
         { id = "h_obs_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Senir's Observations"), days = 3 } },
           text = "So Grelin's report on the trolls went through after all. Just keep followin' the road out the far side, an' it'll run right intae Kharanos." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -55,6 +55,7 @@ P:NPC {
         { text = "Who decides what counts as a good reason?", next = "reason" },
         { text = "Mountaineer Grelin's report looks like trouble.", next = "report", when = { questActive = TODO_QUEST("Senir's Observations") } },
         { text = "Any errands before I go through?", next = "BUSINESS" },
+        { text = "Did you come through Coldridge as a recruit yourself?", next = "dw_recruit", when = { race = "Dwarf" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -115,6 +116,25 @@ P:NPC {
       lines = { { id = "rp_default", text = "I didn't read it, an' I'll no' start now. But Grelin's been watchin' the Frostmane fer weeks, an' I doubt he's writin' that all's well." },
       },
       choices = { { text = "Then I'll get it to Senir quickly.", next = "BACK" } },
+    },
+    dw_recruit = {
+      lines = {
+        { id = "dwrc_default", text = "Every mountaineer did, an' I was greener than most, for I lost my first trogg fight tae one wi' a club an' a cold. Sten Stoutarm still tells that story at Anvilmar, an' I've given up askin' him tae stop." },
+      },
+      choices = {
+        { text = "And now you guard the pass the recruits fear.", next = "dw_recruit_now" },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
+    },
+    dw_recruit_now = {
+      lines = {
+        { id = "dwrn_default", text = "Aye, an' that's the mountaineer's way: ye start on the wrong end o' the club an' finish at the gate, keepin' the next lot from makin' yer mistakes. One day ye'll be standin' somewhere like this, {g:lad|lass}, tellin' a youngster tae go back an' fetch a better shield." },
+      },
+      choices = {
+        { text = "I'd be proud to stand that watch.", next = "BACK", reply = "Then ye're halfway tae a mountaineer already. Come back when ye've a scar worth showin', an' I'll put in a word wi' the captain.", fx = { align = { order = 1 } } },
+        { text = "I'd rather go where the maps end than guard a gate.", next = "BACK", reply = "Plenty do, an' the League's always glad o' them. Just remember who kept the gate open behind ye when ye come home.", fx = { align = { order = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
     },
   },
 

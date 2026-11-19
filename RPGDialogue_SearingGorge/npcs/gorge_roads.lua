@@ -24,6 +24,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_thorius = {
+      lines = {
+        { id = "dw_thorius_default", text = "Aye, Thorius, who keeps the Hall o' Explorers tidier than his own beard. He reads about the Suntara Stones; I came tae dig for them. We've argued about which o' us is the real scholar since we were bairns, an' if I die out here, he wins." },
+      },
+      choices = {
+        { text = "Scholarship belongs in the field, not a museum.", next = "BACK", reply = "Ha! I'll tell him ye said that, if I live. He'll write ye a letter four pages long.", fx = { align = { order = -1 } } },
+        { text = "Your brother's the wiser one. He's still alive.", next = "BACK", reply = "Aye, well, that's a point, an' it's his favourite one. Ye'll get on wi' him, I can tell.", fx = { align = { order = 1 } } },
+        { text = "Something else, Dorius.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If they would, I'd have asked them on my knees by now. The Gorge is all Dark Iron fire an' slag, an' I'd wager the earth here has had its fill o' dwarves, so tread kindly." } },
@@ -150,6 +160,7 @@ P:NPC {
         { text = "What's your quarrel with what follows me, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could the stones here tell me where your team went?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The stone speaks to me, Dorius. It's restless here.", next = "xorig_stone", when = { origin = "dwarf_stone_listener" } },
+        { text = "Your brother is Curator Thorius in Ironforge? What's he like?", next = "dw_thorius" },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

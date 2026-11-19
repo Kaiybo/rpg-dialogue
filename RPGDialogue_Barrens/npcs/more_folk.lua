@@ -692,6 +692,7 @@ P:NPC {
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior. You carry yourself as one who has won a few fights and has begun to wonder what the fighting is for. That is the right time to come to me." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the camp. Sit by the fire, and tell me what the road has taught you." },
     { id = "g_active", when = { questActive = TODO_QUEST("Trial at the Field of Giants") }, text = "The Field of Giants lies south along the road, where the earth is torn open. I will know whether you have been there by more than the antennae." },
+    { id = "g_ready", when = { questReady = TODO_QUEST("Trial at the Field of Giants") }, text = "You carry the antennae, and they are still twitching. Sit, and tell me what you saw before you tell me what you killed." },
   },
   notice = {
     { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
@@ -709,7 +710,13 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Trial at the Field of Giants") },
           text = "You have not yet finished among the silithid. Do not rush them, young one. They come in swarms, and a warrior who chases one will find himself standing in the midst of twenty." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Trial at the Field of Giants"), days = 3 } },
-          text = "You went, and you came back, and you are quieter than when you left. Good. Take my word to Thun'grim Firegaze at the forge north of the Crossroads, and he will see you armored as you have earned." },
+          text = "You went, and you came back, and you are quieter than when you left. Good. Take my word to Thun'grim Firegaze at his forge on the mountain south of Thorn Hill, and he will see you armored as you have earned." },
+        { id = "h_trollwar", when = { class = "WARRIOR", race = "Troll" },
+          text = "A Darkspear warrior, far from the sea. Your people are quick and your laughter is quicker, and the silithid will not laugh back, so we will see what you find to carry you when the laughing stops." },
+        { id = "h_deadwar", when = { class = "WARRIOR", race = "Scourge" },
+          text = "One of the Forsaken, come to stand a tauren's trial. You do not fear death as we do, and so I wonder what you fear, and the Field of Giants may show us both." },
+        { id = "h_islander", when = { class = "WARRIOR", minLevel = 30, questDone = TODO_QUEST("Trial at the Field of Giants") },
+          text = "You have grown since the Field of Giants, and the trainers will be sending you to Fray Island soon, if they have not already. Klannoc Macleod tests rage there, and I tested patience here, and a warrior needs both." },
         { id = "h_later", when = { questLater = { TODO_QUEST("Trial at the Field of Giants"), days = 7 } },
           text = "I have had word of you since your trial, and it was good word. The silithid mounds have grown since you walked there. I think of that often, and I am glad there are warriors like you between them and the camp." },
       },
@@ -725,6 +732,8 @@ P:NPC {
         { text = "Taurajo seems a camp that expects trouble.", next = "camp" },
         { text = "The orcs taught me to charge. What do you teach?", next = "orc", when = { race = "Orc", class = "WARRIOR" } },
         { text = "I am of the tribes. Test me as you would our own.", next = "tauren", when = { race = "Tauren" } },
+        { text = "What did you learn fighting at Hyjal?", next = "w_hyjal", when = { class = "WARRIOR" } },
+        { text = "What comes after your trial, Ruga?", next = "w_after", when = { class = "WARRIOR" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
         { text = "Walk with the Earth Mother, Ruga.", next = "END" },
       },
@@ -771,6 +780,21 @@ P:NPC {
     orc = {
       lines = { { id = "or_default", text = "To be the place others charge from. Your people strike like a storm, and I honor it; I fought beside them at Hyjal. But a storm passes. A warrior must also learn to be the hill the storm breaks on, and the orcs who learn it are the ones their grunts follow anywhere." } },
       choices = { { text = "The hill, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_hyjal = {
+      lines = { { id = "wh_default", text = "That the demons do not tire, and that a warrior who fights them must find something in himself that does not tire either. I saw Grom Hellscream's Warsong break free of their curse, and I saw what it cost them, and I learned that rage is a fire that must be fed by something other than yourself." } },
+      choices = {
+        { text = "Then I'll fight for the herd, not for the rage.", next = "BACK", reply = "Good. Feed the fire with what you guard, and it will never burn you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Rage freed the Warsong. I'll trust mine.", next = "BACK", reply = "Grom's rage freed them because he turned it on its makers. Be sure yours knows where to turn.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_after = {
+      lines = {
+        { id = "wa_default", text = "Thun'grim Firegaze will armor you, for he has made the brutal plate for the warriors I send him, and it will take you to Sen'jin, Thunder Bluff and the Undercity to finish. Then, when you have more years on you, the trainers will send you to Fray Island." },
+        { id = "wa_before", when = { questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "First, the trial, and nothing comes after until it is done. If you return, I will send you to Thun'grim Firegaze for armor, and that road runs farther than you think." },
+      },
+      choices = { { text = "Something else, Ruga.", next = "BACK" } },
     },
     tauren = {
       lines = { { id = "ta_default", text = "I will test you harder, for you carry more than yourself. An orc who fails my trial shames only his own name. You walk with every ancestor who kept the herds alive through the centaur years, and they are watching the Field of Giants as I am." } },

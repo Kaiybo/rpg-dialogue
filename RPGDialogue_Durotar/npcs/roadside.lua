@@ -707,6 +707,11 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my training yard, standing where the shadow's longest. You'll find no tricks to learn here, only scars." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Will you be any different?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again? Good. Show me where you got hit since I last saw you, because every bruise is a lesson you paid for." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc warrior in Razor Hill, where Orgrim Doomhammer's name still means something. Stand like he'd want you to, and I'll teach you the rest." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A Darkspear with an axe. Your people held the Echo Isles against worse than quilboar, so I'll not go easy on you because you laugh while you fight." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren this far east, and a warrior too. You came a long way from Mulgore for my lessons, so I'll make sure they hurt enough to be worth the walk." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A dead warrior in Razor Hill. You came off a zeppelin smelling of the grave, but you stand like a soldier, so I'll train you like one." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, questBefore = TODO_QUEST("Path of Defense") }, text = "You're ten, and that means you're ready for a shield and a different stance. Go west over the river into the Barrens, find Uzzek on his hill near Far Watch, and don't come back until he's satisfied." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast takes the hits for you, which is clever, but I've seen what happens when the beast goes down first." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You think you won't need my lessons, with whatever fights for you. You'll need to know how to stand when it goes down." },
       },
@@ -714,6 +719,9 @@ P:NPC {
         { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A shaman can stand in the front line, Tarshaw.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could a druid hold a line beside your warriors, Tarshaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Train me, Tarshaw.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How do I keep the beast off our shaman?", next = "w_taunt", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "The Kul Tirans at Tiragarde fight in lines, you said.", next = "w_kul", when = { class = "WARRIOR" } },
         { text = "Those scars have a story behind them.", next = "scars" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Warriors and rogues can't fight well together.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -724,7 +732,34 @@ P:NPC {
         { text = "Will you train a paladin, Tarshaw?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
-      again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },
+      again = {
+        { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." },
+        { id = "h_again2", text = "Something else? Ask it standing up straight." },
+      },
+    },
+    w_taunt = {
+      lines = {
+        { id = "wt_default", text = "You shout at it until it wants you more than it wants him, and then you sunder its hide so every blow after lands deeper. A taunt only buys you a moment, so you keep hitting it, because the beast remembers who hurt it most." },
+        { id = "wt_nodef", when = { questBefore = TODO_QUEST("Path of Defense") }, text = "With a taunt, and you'll get that once Uzzek's taught you the defensive stance, so go see him in the Barrens first. Until then, hit the beast harder than the shaman does, and pray he doesn't heal you too loudly." },
+      },
+      choices = {
+        { text = "A warrior should take the blows meant for others.", next = "BACK", reply = "That's the whole job, and most of my recruits learn it too late. You've learned it early.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The shaman can look after himself.", next = "BACK", reply = "He can't, not with a boar on him, and when he falls you'll be looking after yourself without anyone to heal you.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_kul = {
+      lines = {
+        { id = "wk_default", text = "Kul Tiran marines came ashore in Durotar with muskets, and they've built Tiragarde Keep on our coast as if they owned it. They stand shoulder to shoulder and fire together, so you don't charge them across open sand; you come round the rocks and close before they reload." },
+      },
+      choices = {
+        { text = "That's how you got the scar across your face.", next = "w_kul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_kul2 = {
+      lines = { { id = "wk2_default", text = "No, that one's older, from the Second War, but I've a new one on my shoulder from a Kul Tiran musket ball last spring. Learn from my shoulder, recruit, and keep yours whole." } },
+      choices = { { text = "I'll come round the rocks. Something else.", next = "BACK" } },
     },
     scars = {
       lines = { { id = "s_default", text = "The Second War, mostly, and a few from the camps' guards when I was too stubborn to sit down. Each scar taught me something, and I learned more from them than from any trainer." } },

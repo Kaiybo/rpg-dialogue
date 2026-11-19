@@ -309,7 +309,7 @@ P:NPC {
       },
     },
     skyborne = {
-      lines = { { id = "s_default", text = "Glide! Downhill, aye? A gryphon goes up, {g:lad|lass}. Up! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
+      lines = { { id = "s_default", text = "Glide, is it, an' only downhill? A gryphon goes up, {g:lad|lass}, up into the teeth o' the wind! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     friend = {
@@ -456,6 +456,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_bronze = {
+      narr = "He looks you up and down, beard first, and sniffs.",
+      lines = {
+        { id = "dw_bronze_default", text = "A Bronzebeard on one o' my birds? Ha! Ye lot ride rams an' build flyin' kettles, an' ye've never once had tae earn a gryphon's trust. A gryphon picks its rider, kin, an' it doesnae care much for a dwarf who smells o' coal smoke an' gunpowder." },
+      },
+      choices = {
+        { text = "Then I'll earn it, the same as any Wildhammer.", next = "BACK", reply = "Will ye now? Well, that's the right answer, at least. Save Sharpbeak, an' we'll see if the birds agree wi' me.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ironforge's gryphons fly well enough without your blessing.", next = "BACK", reply = "Aye, an' who d'ye think taught Ironforge's riders tae stay in the saddle? Off wi' ye, before the birds hear ye talkin' like that.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Why so sour about Ironforge?", next = "dw_bronze2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_bronze2 = {
+      lines = {
+        { id = "dw_bronze2_default", text = "Because yer grandsires threw mine out o' Ironforge after the War o' the Three Hammers, an' Grim Batol was cursed under us after that. We built this place out o' nothin' on a cliff, an' now Ironforge calls us allies an' sends us its paperwork." },
+      },
+      choices = {
+        { text = "The Wildhammers stood with Ironforge in the Second War, though.", next = "BACK", reply = "Aye, we did, an' our riders fought the Horde's dragons over Khaz Modan while yer lot held the gates. Allies, then, an' cousins, but never subjects." },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    dw_wild = {
+      lines = {
+        { id = "dw_wild_default", text = "Did they, now? Then the birds'll know yer blood before I do. Go stand by Keenclaw's roost an' see if she hisses, for she never hisses at Wildhammer stock." },
+      },
+      choices = {
+        { text = "I'll go and see. Thank you, Gryphon Master.", next = "BACK", reply = "Off wi' ye, an' come back an' tell me what she did.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     prej = {
       lines = { { id = "prej_default", text = "I don't care for what gnomes build, which is different, though it's hard tae tell the two apart. A gnome flew a whirlin' contraption over the Peak last summer, an' three o' my best birds broke their tethers an' I didnae see them for a week." } },
       choices = {
@@ -595,6 +625,8 @@ P:NPC {
         { text = "The gryphons seem to sense the spirits, Talonaxe.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "A gryphon could surely carry two riders, Gryphon Master.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "You don't care much for gnomes, Talonaxe.", next = "prej", when = { prejudiced = true } },
+        { text = "Would you ever let a Bronzebeard ride one of your gryphons?", next = "dw_bronze", when = { race = "Dwarf", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } } },
+        { text = "My kin flew from this aviary once, Gryphon Master.", next = "dw_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -700,6 +732,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_exile = {
+      narr = "He turns his clouded eyes to the south, as if he could see past the hills.",
+      lines = {
+        { id = "dw_exile_default", text = "Because the stone o' Grim Batol turned against us. The Dark Iron witch Modgud fell at its gates, an' her death poisoned the mountain, so the spirits there began tae sicken, an' my grandsire's grandsire led the clan out tae where the wind was clean." },
+      },
+      choices = {
+        { text = "The Wildhammers should take Grim Batol back one day.", next = "BACK", reply = "One day, maybe, when the stone has forgotten its pain. That's no' a thing ye do wi' hammers, though Falstad would like tae try.", fx = { align = { order = 1 } } },
+        { text = "The Hinterlands are home now. Let the old city lie.", next = "BACK", reply = "Aye, that's what the wind tells me too. The land here took us in, an' I'll no' leave it tae the Vilebranch.", fx = { align = { order = -1 } } },
+        { text = "Do Ironforge's dwarves feel the stone as you do?", next = "dw_exile2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_exile2 = {
+      lines = {
+        { id = "dw_exile2_default", text = "They did once, before they shut themselves up in the mountain wi' their forges an' their kings. The Bronzebeards call what we do backsliding, an' they say it wi' a sneer, but there's dwarves in Ironforge who come tae me in secret tae learn the old ways." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
     opn_trolls = {
       lines = {
         { id = "opn_trolls_q", text = "The riders say so, an' they've buried enough friends tae say it loud. The spirits say different, but the spirits are kinder than most dwarves. The Revantusk on the coast never bled a gryphon on an altar, as far as I know. What d'ye think, then?" },
@@ -850,6 +902,7 @@ P:NPC {
         { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I fought the Soulflayer in Zul'Gurub, Fraggar.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Alliance" } },
         { text = "My companion is a shaman. Do the Wildhammer keep the old ways?", next = "xpt_shaman", when = { party = { class = "SHAMAN" }, faction = "Alliance" } },
+        { text = "Why did the Wildhammers come to the Hinterlands, Fraggar?", next = "dw_exile" },
         { text = "I'll help the spirits, Fraggar.", next = "END", reply = "Bless ye. They'll be glad o' the help, an' so will I. Walk wi' the wind.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I learned from your elders, Fraggar. Ironforge calls it backsliding.", next = "xorig_windshaman", when = { origin = "dwarf_wildhammer_shaman" } },
@@ -984,6 +1037,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_ale = {
+      lines = {
+        { id = "dw_ale_default", text = "Ye ask a Wildhammer innkeeper that in his own bar? Ironforge ale is brewed by dwarves who never see the sky, an' ye can taste it, all coal an' cellar. Ours is brewed wi' mountain water an' honey from the Hinterlands, an' it'll put ye on yer back if ye drink it like a Bronzebeard." },
+        { id = "dw_ale_dwarf", when = { race = "Dwarf", ["not"] = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } }, text = "Ye're a Bronzebeard askin' me that in my own bar? Yer ale's brewed by dwarves who never see the sky, an' ye can taste it, all coal an' cellar. Ours is brewed wi' mountain water an' honey, so drink it slow, kin, or ye'll be carried out." },
+      },
+      choices = {
+        { text = "Ironforge ale, and I'll fight anyone who disagrees.", next = "BACK", reply = "Ha! Sit down, sit down, I'll no' have a brawl over Thunderbrew. Ye can have yer cellar-water, an' I'll pity ye quietly.", fx = { align = { order = 1 } } },
+        { text = "Wildhammer honey ale. No contest.", next = "BACK", reply = "Now that's a guest wi' taste! Drink up, an' don't let the riders hear ye; they'll want ye at their table till dawn.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Thulfram.", next = "BACK" },
+      },
+    },
     dd_sharpbeak = {
       lines = { { id = "dd_sharpbeak_default", text = "Because a Wildhammer an' his gryphon are bound closer than brothers, an' every rider here's lost a bird or feared it. When the trolls took young Sharpbeak, the whole Peak felt it in their bellies, an' ye gave them a reason tae smile again." } },
       choices = {
@@ -1105,6 +1169,7 @@ P:NPC {
         { text = "Do the Wildhammer revere the wild as my people do?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will the Wildhammer really welcome an Ironforge shaman, Thulfram?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'd guess few travellers make it up to the Peak.", next = "xpt_table", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
+        { text = "Wildhammer ale or Ironforge ale, Thulfram. Which is better?", next = "dw_ale" },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
         { text = "Why does Sharpbeak matter so much to the riders, Thulfram?", next = "dd_sharpbeak", when = { questDone = TODO_QUEST("Saving Sharpbeak") } },
       },

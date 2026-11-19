@@ -135,14 +135,24 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Sark Ragetotem, and I train warriors with Ker and Torm. The Ragetotem have held Hunter Rise since the Bluff was built, and we've never sent out a brave who couldn't take a hit." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You're no warrior, but I'll tell you the same thing I tell the calves: stand where you can see your enemy and never turn your back on a centaur." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren warrior on the Ragetotem's rise! Plant your hooves, bull, and let me hear you roar, because a warrior who can't roar can't scare anything." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc! Your people roar almost as well as mine, and I've wanted to test that since the first day Thrall's warriors walked into Mulgore." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A troll warrior, all knees and grins! Torm will love your footwork, and I'll love knocking you over until you learn to keep it." },
+        { id = "h_ruga", tags = { "news" }, when = { class = "WARRIOR", minLevel = 20, questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "You're strong enough for my cousin Ruga's trial now! He's at Camp Taurajo in the southern Barrens, and he'll send you into the Field of Giants to see if you can stand against things nobody's ever fought before." },
+        { id = "h_rugadone", when = { class = "WARRIOR", questDone = TODO_QUEST("Trial at the Field of Giants") }, text = "Ruga says you came back from the Field of Giants quieter than you went, which is what he likes! I'd have liked it louder, but he's the patient one in the family." },
       },
-      again = { { id = "h_again", text = "Well? Out with it! You're not a kodo calf, you can speak for yourself." } },
+      again = {
+        { id = "h_again", text = "Well? Out with it! You're not a kodo calf, you can speak for yourself." },
+        { id = "h_again2", text = "More questions? Good! Questions shouted are questions answered!" },
+      },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What's the hardest lesson?", next = "hard" },
         { text = "Why do the Ragetotem train warriors?", next = "tribe" },
         { text = "Have you fought the centaur?", next = "centaur" },
         { text = "How do I hold my ground against a charge?", next = "charge", when = { class = "WARRIOR" } },
+        { text = "Teach me to use my rage, Sark.", next = "w_rage", when = { class = "WARRIOR" } },
+        { text = "Who is this Ruga at Camp Taurajo?", next = "w_ruga", when = { class = "WARRIOR", minLevel = 16 } },
         { text = "You can't hurt what doesn't feel pain, Sark.", next = "fk_pain", when = { race = "Scourge" } },
         { text = "My father says the Ragetotem are all bluster.", next = "bluster", when = { race = "Tauren" } },
         { text = "Farewell, Sark.", next = "END" },
@@ -201,6 +211,30 @@ P:NPC {
       lines = { { id = "ch_default", text = "You plant your hooves, you lower your shoulder and you yell louder than the thing that's charging you! Torm will tell you all about footwork, but nothing stops a raptor like a bull who won't move." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    w_rage = {
+      lines = {
+        { id = "wr_default", text = "Rage comes when you hit and when you're hit, so the worst thing you can do is stand there doing neither! Spend it as fast as it comes, on a heroic strike or a cleave, and you'll never feel the bruises until the fight's over." },
+        { id = "wr_ber", when = { minLevel = 30 }, text = "You're old enough for the berserker's stance, and that's where rage runs hottest! Take it from Klannoc on Fray Island if you haven't, and then learn to come back out of it, or you'll fight like a stampede with no herd behind it." },
+      },
+      choices = {
+        { text = "Rage is a gift. I'll let it run.", next = "BACK", reply = "Ha! That's a Ragetotem talking! Just remember Ker will have words with you if you trample the healer.", fx = { align = { order = -1 } } },
+        { text = "Rage is a tool. I keep it on a rope.", next = "BACK", reply = "Torm would like that answer better than I do, but he's right more than I am. Keep the rope short.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_ruga = {
+      lines = {
+        { id = "wru_default", text = "Another cousin, and the quietest Ragetotem ever born, so the family sent him as far away as the Barrens! He watches the south from Camp Taurajo and tests warriors at the Field of Giants, where strange insects have come boiling up out of the ground." },
+      },
+      choices = {
+        { text = "Insects? I'd have thought centaur were worse.", next = "w_ruga2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_ruga2 = {
+      lines = { { id = "wru2_default", text = "So would I, but Ruga says these things don't fight like anything he's seen, and nobody knows where they come from! He'll send you after them, and when you come back, he'll send you to old Thun'grim the smith for armor worth wearing." } },
+      choices = { { text = "Then I'll go to Ruga. Something else.", next = "BACK" } },
+    },
     fk_pain = {
       lines = { { id = "fp_default", text = "No, but I can knock it over, and you get up slower than you think! Feeling nothing isn't the same as being unbreakable, and bones crack whether you notice it or not." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -214,7 +248,7 @@ P:NPC {
   topics = {
     centaur = { { id = "tp_ce", text = "Fast, fierce and fond of burning tents! Keep your shield up and your back to a rock." } },
     cairne = { { id = "tp_ca", text = "The High Chieftain could put me on my back in three breaths, even now! Nobody else living can say that." } },
-    background = { { id = "tp_bg", text = "Ragetotem, warrior, teacher. I hit things and I show others how." } },
+    background = { { id = "tp_bg", text = "I'm a Ragetotem and a warrior, and now a teacher, which means I hit things and then show others how!" } },
     advice = { { id = "tp_ad", text = "Keep your shield arm up. Every warrior who forgot is buried somewhere." } },
     _none = { { id = "tp_none", text = "What? Never heard of it! Ask someone who spends more time with the elders than with a spear." } },
   },
@@ -249,10 +283,19 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Torm Ragetotem. Sark teaches you to hit hard and Ker teaches you to keep going, and I teach you where to put your feet, which is the part everybody skips." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You aren't a warrior, but you're welcome to watch. Most of what I teach is how to stand, and everybody needs that sooner or later." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A brave of the herd, with an axe instead of a spear. Stand on the ledge with me a moment, and I'll see by your hooves how much the plains have taught you already." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A Forsaken warrior, so far from your city. Your balance is a dead man's balance, stiff in the knees, and I think I can help with that if you'll be patient with me." },
+        { id = "h_ruga", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 20, questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "You're ready to see my cousin Ruga, I think. He keeps watch over Camp Taurajo in the southern Barrens, and he tests warriors who think they're done learning to stand." },
+        { id = "h_islander", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 30, questBefore = TODO_QUEST("The Affray") }, text = "You're thirty now, and steadier than most. There's a human named Klannoc Macleod on Fray Island, off the coast south of Ratchet, who tests warriors for the berserker's stance, and I think you're ready to be tested." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time, as the grass does." } },
+      again = {
+        { id = "h_again", text = "Something else? Take your time, as the grass does." },
+        { id = "h_again2", text = "Ask, if you like. The wind is quiet up here, so I'll hear you." },
+      },
       choices = {
-        { text = "Teach me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Teach me, Torm. I'll listen closely.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How should I stand behind a shield?", next = "w_shield", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "Tell me about this human on Fray Island.", next = "w_islander", when = { class = "WARRIOR", minLevel = 28 } },
         { text = "Why does footwork matter so much?", next = "feet" },
         { text = "You're quieter than your cousin.", next = "sark" },
         { text = "How do you train footwork?", next = "drill" },
@@ -276,6 +319,39 @@ P:NPC {
         { text = "Discipline first, and the strength will follow.", next = "BACK", reply = "You listen better than most, {class}. Plant your feet, find your center, and the strength will come when you need it, not before.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather hit first and hard.", next = "BACK", reply = "So did the bulls face down in the Barrens, and they hit very hard indeed. Come back when you've been knocked flat once, and we'll talk again.", fx = { align = { order = -1 } } },
       },
+    },
+    w_shield = {
+      lines = {
+        { id = "ws_default", text = "Back hoof planted, front hoof light, so you can turn the shield toward a blow without moving your weight. Uzzek near Far Watch taught you the stance, I hope, but stance is only the shape, and footwork is what keeps the shape when something heavy hits it." },
+        { id = "ws_tauren", when = { race = "Tauren" }, text = "You're heavy, and that helps, but a heavy thing pushed from the side still tips. Turn the shield, not your body, and let the blow slide off as rain slides off a hide tent." },
+      },
+      choices = {
+        { text = "So the shield turns blows instead of stopping them.", next = "w_shield2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_shield2 = {
+      big = true,
+      lines = { { id = "ws2_default", text = "Exactly, and few warriors ever hear it, because they think a shield is a wall. A wall breaks eventually, and a shield that turns blows lasts until the fight is over, so which would you rather be for the ones behind you?" } },
+      choices = {
+        { text = "Something that bends and lasts, like the grass.", next = "BACK", reply = "Then you understand the plains better than most braves born on them.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A wall. Nothing gets past me.", next = "BACK", reply = "Walls fall all at once, and those behind them with it. Think on it, at least.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_islander = {
+      lines = {
+        { id = "wi_default", text = "Klannoc Macleod keeps a fighting grate on Fray Island, and he cares nothing for banners, only for how a warrior fights. Win his affray and you'll know the berserker's stance, and that is the one stance where my footwork matters least and your temper matters most." },
+        { id = "wi_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You've been, so you know what he is. If he sent you north to the troll at Chillwind Point, go, because the whirlwind weapons are worth the cold, but keep your feet when you face the wind lord." },
+      },
+      choices = {
+        { text = "Why do you dislike the berserker's stance?", next = "w_islander2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_islander2 = {
+      lines = { { id = "wi2_default", text = "I don't dislike it, but I've seen good warriors forget their feet in it, and a warrior who forgets his feet forgets everything else soon after. Use it to finish a fight, and step out of it before the fight finishes you." } },
+      choices = { { text = "I'll mind my feet. Something else.", next = "BACK" } },
     },
     sark = {
       lines = { { id = "s_default", text = "Somebody in the family has to be. Sark thinks shouting makes a lesson stick, and I think listening does, and the warriors we train seem to need a little of both." } },
@@ -319,7 +395,7 @@ P:NPC {
   topics = {
     centaur = { { id = "tp_ce", text = "They aim for the legs. Remember that and you'll keep yours." } },
     earth_mother = { { id = "tp_em", text = "She gave us our weight. Learning to carry it well is how we honour her." } },
-    background = { { id = "tp_bg", text = "A Ragetotem who trains warriors. I prefer to let my students speak for me." } },
+    background = { { id = "tp_bg", text = "I'm a Ragetotem who trains warriors, and I'd rather my students spoke for me than speak for myself." } },
     advice = { { id = "tp_ad", text = "Plant your back hoof before you swing. Everything else is decoration." } },
     _none = { { id = "tp_none", text = "I don't know. I'd rather say so than guess, and the Earth Mother respects an honest blank." } },
   },

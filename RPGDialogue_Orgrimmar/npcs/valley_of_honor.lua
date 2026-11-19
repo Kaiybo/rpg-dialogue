@@ -2,7 +2,7 @@
 -- a warrior trainer, the pet trainer and the merchants of bows and guns.
 -- Voices: bibles/<key>.md for each.
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 ---------------------------------------------------------------------------
 -- Brakgul Deathbringer: sends the Horde to Warsong Gulch.
@@ -294,12 +294,26 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Sorek, and I train warriors here. Grezz teaches you to hit hard, and I teach you to keep standing after you've hit, which is the part most grunts forget and the part that brings them home to the Horde." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Sorek, and you've come for training, I hope, {class}. Show me your stance first, because I can tell more about a warrior from his feet than from his arms." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "Another young orc who wants to hit everything at once. I was the same out of the camps, so sit down, breathe, and then we'll talk about hitting things." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A Darkspear warrior, all loose shoulders and quick feet. Your people fight well, and they'd fight better if they ever stood still long enough to brace." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "Welcome, tauren. You already know how to wait, which is the lesson I spend most of my breath on, so we'll get along." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A Forsaken warrior. You don't tire and you don't flinch, which is useful, but you don't feel the warning in a bruise either, so I'll teach you to watch for it instead." },
+        { id = "h_uzzek", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 10, questBefore = TODO_QUEST("Path of Defense") }, text = "You're ready for more than I teach in this yard. Veteran Uzzek waits on a hill near Far Watch in the Barrens, and he'll show you how to stand behind a shield until it's part of your arm." },
+        { id = "h_ruga", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 20, questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "Ruga Ragetotem at Camp Taurajo has a trial for warriors of your strength. Go and see him, and if he's pleased, old Thun'grim will put you in armor worth wearing." },
+        { id = "h_islander", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 30, questBefore = TODO_QUEST("The Affray") }, text = "Thirty, and steady on your feet at last. There's a human called Klannoc Macleod on Fray Island, south of Ratchet, and you're ready for his test, though I warn you it's rage he'll teach you, not patience." },
+        { id = "h_islander_done", when = { class = "WARRIOR", questDone = TODO_QUEST("The Affray") }, text = "You've learned the berserker's stance from Klannoc, I see, and you still breathe before you swing. Good, because rage that waits is worth twice the rage that doesn't." },
       },
-      again = { { id = "h_again", text = "What else? There are recruits waiting." } },
+      again = {
+        { id = "h_again", text = "What else? There are recruits waiting." },
+        { id = "h_again2", text = "Ask, then. Grezz can shout at the recruits a while longer." },
+        { id = "h_again3", text = "Go on, and take a breath first. Questions come out better that way." },
+      },
       choices = {
         { text = "How do you and Grezz split the work?", next = "grezz" },
         { text = "What's the hardest thing to teach?", next = "hardest" },
         { text = "Which stance should I favor, Sorek?", next = "stance", when = { class = "WARRIOR" } },
+        { text = "Where will you send me next, Sorek?", next = "w_send", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "I struck someone in anger today. I'm not proud of it.", next = "w_anger", when = { class = "WARRIOR" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Tell me about the Frostwolf who taught you.", next = "frostwolf" },
         { text = "What do you look for when you watch the recruits?", next = "watch" },
@@ -336,8 +350,58 @@ P:NPC {
       },
     },
     stance = {
-      lines = { { id = "st_default", text = "Whichever one keeps you alive in the fight you're actually in, rather than the one you'd like to be in. Defend when you're guarding someone, strike when the enemy's open, and don't be too proud to change your mind halfway through." } },
+      lines = {
+        { id = "st_default", text = "Whichever one keeps you alive in the fight you're actually in, rather than the one you'd like to be in. Defend when you're guarding someone, strike when the enemy's open, and don't be too proud to change your mind halfway through." },
+        { id = "st_low", when = { maxLevel = 9 }, text = "You only have the battle stance yet, so favor it and learn it well. At ten I'll send you to someone who'll teach you a second, and then the choosing starts." },
+        { id = "st_high", when = { minLevel = 30, questDone = TODO_QUEST("The Affray") }, text = "You have all three now, battle, defensive and berserker, so the question is when to change, not which to keep. The best warriors I know change stance three times in a fight and never think about it." },
+      },
+      choices = {
+        { text = "What does the defensive stance cost me?", next = "stance_def", when = { minLevel = 10 } },
+        { text = "And the berserker's stance?", next = "stance_ber", when = { minLevel = 30 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stance_def = {
+      lines = { { id = "sd_default", text = "Some of your bite, because you hit softer behind a shield, and the young ones hate that. In exchange, you're still standing when the fight ends, and so is whoever you were guarding." } },
+      choices = {
+        { text = "Softer blows are a fair price for living brothers.", next = "BACK", reply = "Spoken like a Frostwolf. Grukar would have liked you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather hit hard and trust my armor.", next = "BACK", reply = "Then trust it, until it fails you, and come back to me when it has.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stance_ber = {
+      lines = { { id = "sb_default", text = "It costs you your guard, because you'll take more from every blow while you deal more with every swing. That's why I don't like it much, and why I make sure every warrior I send to Fray Island knows how to step back out of it." } },
+      choices = {
+        { text = "Then I'll step out of it before the rage owns me.", next = "BACK", reply = "Good, and do it early, because it never feels like the right time.", fx = { align = { order = 1 } } },
+        { text = "If the rage owns me, so much the worse for them.", next = "BACK", reply = "That's what the old Horde said, and the Legion was glad to hear it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_send = {
+      lines = {
+        { id = "ws_default", text = "To Uzzek near Far Watch for the shield, then to Ruga at Camp Taurajo when you're twenty, and at thirty to Klannoc on Fray Island. Each of them teaches one thing well, and none of them teaches it gently." },
+        { id = "ws_forsaken", when = { race = "Scourge" }, text = "The same places I send the orcs, though the road from the Undercity is longer, so take the zeppelin and don't complain to me about it. Uzzek near Far Watch first, then Ruga at Camp Taurajo, then Klannoc on Fray Island at thirty." },
+      },
+      choices = {
+        { text = "Why Ruga? I thought the tauren kept to Mulgore.", next = "w_ruga", when = { minLevel = 18 } },
+        { text = "Something else, Sorek.", next = "BACK" },
+      },
+    },
+    w_ruga = {
+      lines = { { id = "wru_default", text = "The Ragetotems are a warrior family, and Ruga watches the southern Barrens from Camp Taurajo. He'll test whether you can stand against something strange, and then Thun'grim Firegaze will see you armored, if the old smith's eyes are kind that day." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_anger = {
+      big = true,
+      lines = {
+        { id = "wan_default", text = "Then you know what I knew when Grukar stood me in the rain. Tell me plainly, though, because it matters: did you strike because you chose to, or because the anger chose for you?" },
+        { id = "wan_orc", when = { race = "Orc" }, text = "Then you've felt the thing every orc of my generation feels, the old heat that the demon blood left behind. Tell me plainly: did you choose to strike, or did it choose for you?" },
+      },
+      choices = {
+        { text = "It chose for me. I'll learn to hold it.", next = "BACK", reply = "Then stand in the rain tonight, and come back tomorrow. That's how it starts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I chose, and they deserved it.", next = "BACK", reply = "Maybe they did, but say that sentence often enough and one day it won't be true. Be careful of it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     frostwolf = {
       lines = { { id = "fw_default", text = "His name was Grukar, and he'd never seen the inside of a camp, because the Frostwolves were exiled to the mountains of Alterac long before the war ended. He came south with the Warchief, and he looked at us camp orcs the way you'd look at wolves raised in a cage." } },

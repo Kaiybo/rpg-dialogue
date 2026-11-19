@@ -20,8 +20,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Stand where I can see your stance, {class}. Ah, yes, I see the work it needs." },
-    { id = "g_back", when = { metBefore = true }, text = "You've returned to the Terrace. Your stance is better; your guard is still lazy." },
+    { id = "g_hello", text = "Stand where I can see your stance, {class}. Ah, yes, I see the work it needs, and we'll begin with the back foot." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned to the Terrace, and your stance is better, though your guard is still lazy on the left." },
     { id = "g_yorus", when = { questDone = TODO_QUEST("Yorus Barleybrew") },
       text = "You went to Redridge and passed the dwarf's trial, I'm told. Good; a warrior should be tested by strangers as well as by friends." },
     { id = "g_spirit", when = { questDone = TODO_QUEST("A Troubled Spirit") },
@@ -30,7 +30,7 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your armor has done its duty and then some. Let it rest at a smith's before you ask any more of it." },
+      text = "Your armour has done its duty and then some, so let it rest at Mathiel's anvil before you ask any more of it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf on the Terrace! Your people fight as if the ground owed them a debt, and I mean that as praise." },
   },
@@ -49,14 +49,17 @@ P:NPC {
           text = "There's a spirit at the entrance to the Blasted Lands, once a great hero of the Horde. A warrior's honor doesn't die with the body, and I think it would serve you well to speak with him." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask, then raise your guard." },
-        { id = "h_again2", text = "Speak. The terrace isn't going anywhere." },
+        { id = "h_again", text = "What else would you ask? Ask it, and then raise your guard again." },
+        { id = "h_again2", text = "Speak freely, because the Terrace isn't going anywhere, and neither am I." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What is a warrior's honor?", next = "honor" },
         { text = "Why send students to a Horde ghost?", next = "ghost" },
         { text = "Do you train many men here?", next = "men" },
+        { text = "Why send a kaldorei warrior to a drunk dwarf in Redridge?", next = "yorus", when = { class = "WARRIOR", minLevel = 18, maxLevel = 39 } },
+        { text = "The bow is our people's weapon. Why choose the blade?", next = "blade", when = { class = "WARRIOR", race = "NightElf" } },
+        { text = "I'm ready for one of your far trials.", next = "trials", when = { class = "WARRIOR", minLevel = 30 } },
         { text = "What do you think of human warriors?", next = "humans", when = { race = "Human" } },
         { text = "Farewell.", next = "END" },
       },
@@ -86,6 +89,36 @@ P:NPC {
       },
     },
 
+    yorus = {
+      big = true,
+      lines = {
+        { id = "yo_default", text = "Because he's no ordinary drunk, he's a warrior of the Barleybrews, and his Rethban Gauntlet asks you to fight through gnoll country with his scalder in your belly and the clock against you. It teaches you to fight when your own body is against you, which our people rarely learn on Teldrassil." },
+        { id = "yo_done", when = { questDone = TODO_QUEST("The Rethban Gauntlet") }, text = "And you ran it, I hear, and came back to the inn on time and still standing, though Yorus says you were singing. Tell me, was it worth it?" },
+      },
+      choices = {
+        { text = "A strange test, but a fair one.", next = "BACK", reply = "Strange and fair are the two best words for any dwarf. I'll tell Yorus.", fx = { align = { order = 1 } } },
+        { text = "Fighting drunk is no test of a warrior.", next = "BACK", reply = "No, but fighting through what you cannot control is. Call it what you like.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blade = {
+      lines = { { id = "bl_default", text = "Because someone must stand where the arrows can't reach, in the doorway and the narrow place, and the bow is no use there. The Sentinels honour the bow, and they are right to, but every Sentinel I've known has been grateful for a blade in front of her when the satyrs closed in." } },
+      choices = {
+        { text = "Then I'll be the blade in front of the bows.", next = "BACK", reply = "Good, and the Sentinels will learn your name for it.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I chose the blade because I like it closer.", next = "BACK", reply = "An honest answer, and not a rare one on this Terrace. Keep it close, then.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trials = {
+      lines = {
+        { id = "tr_default", text = "There's the Islander on Fray Island off the Barrens, who will test you in his ring and teach you the berserker's way, though Wu Shen of Stormwind or Kelv of Ironforge will send you there more readily than I. And later, when you're seasoned, there's a restless spirit at the edge of the Blasted Lands." },
+        { id = "tr_old", when = { minLevel = 50 }, text = "There is one, and it is the one I care most about: a fallen hero of the Horde, a restless spirit at the edge of the Blasted Lands. Go and hear him, because a warrior should learn honour from the enemy as well as the friend." },
+      },
+      choices = {
+        { text = "Why do you care so much about this ghost?", next = "ghost" },
+        { text = "I'll seek them out. Something else.", next = "BACK" },
+      },
+    },
     men = {
       lines = { { id = "me_default", text = "Plenty. The Sentinels are the Sisterhood's and they're mostly women, but the terrace is anyone's who'll pick up a blade, and the men of Darnassus have found a place here." } },
       choices = { { text = "Something else.", next = "BACK" } },

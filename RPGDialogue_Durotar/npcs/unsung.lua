@@ -123,6 +123,9 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Stand back from the ring, then, because my recruits will want to show off for you, and you'll be busy soon enough." },
         { id = "h_default", key = true, text = "I am Frang, and I teach the warriors of the Den to fight like the Horde fights, shoulder to shoulder and never turning their backs. Everything else they learn out in the valley, mostly from boars." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back from the valley, are you? Tell me what the quilboar taught you today, and then I will teach you something they cannot." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR", maxLevel = 9 }, text = "An orc recruit with an axe in his hand and the Warchief's freedom on his back. Your father fought for demons and your grandfather for a clan that is gone, so you will be the first of your line to fight for the Horde as it should be." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR", maxLevel = 9 }, text = "A Darkspear recruit, quick on your feet and laughing at my orcs. Good, laugh, and then show them how you trolls fought the murlocs on the Echo Isles, because they need to see it." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10 }, text = "You have outgrown my Den, recruit, and I am prouder of that than I will ever say again. Tarshaw in Razor Hill and Grezz in Orgrimmar can take you now, and one of them will send you to Uzzek in the Barrens to learn the shield." },
         { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. Just don't stay that way, so get out there and come back hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
@@ -137,7 +140,9 @@ P:NPC {
         { text = "Do your recruits ever thank the priests for mending them?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Warriors and shamans can't fight well together, I'd guess.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you want a bear to spar with your recruits, Frang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Frang. I've bruises to show.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "When do I learn to charge?", next = "w_charge", when = { class = "WARRIOR" } },
+        { text = "Where do I go when the Den can't teach me more?", next = "w_after", when = { class = "WARRIOR" } },
         { text = "What does a warrior learn first?", next = "first" },
         { text = "Who else trains in the Den?", next = "den" },
         { text = "You fight like someone who learned the hard way.", next = "past" },
@@ -152,6 +157,38 @@ P:NPC {
         { id = "h_again", text = "What else? Speak quick, because I have a recruit lying in the dirt out there who thinks he is resting." },
         { id = "h_again2", text = "Go on, ask. Questions do not bruise, though some answers do." },
       },
+    },
+    w_charge = {
+      lines = {
+        { id = "wc_default", text = "At four, when you can run without dropping your axe, and not a day before. Until then you shout the battle cry, and you rend whatever you hit so it bleeds while you hit it again." },
+        { id = "wc_have", when = { minLevel = 4 }, text = "You have it already, so use it to close on the quilboar before they can call their friends. Charge, rend, and stand there, and don't chase anything that runs, because running things lead you to more of them." },
+      },
+      choices = {
+        { text = "What do I do once I'm in among them?", next = "w_charge2" },
+        { text = "Something else, Frang.", next = "BACK" },
+      },
+    },
+    w_charge2 = {
+      lines = { { id = "wc2_default", text = "Keep shouting, keep swinging, and keep your back to a rock. The rage builds as they hit you and as you hit them, and a warrior who has rage can do things a warrior without it cannot, so do not fear the blows." } },
+      choices = {
+        { text = "Then I'll take their blows and grow angrier.", next = "BACK", reply = "Good, but stay in charge of it, recruit. Rage that runs you is how our fathers got their demon blood.", fx = { align = { order = -1 } } },
+        { text = "I'd rather not be hit at all, if I can help it.", next = "BACK", reply = "Sensible, and you will learn the shield for that. But a warrior who is never hit is a warrior who is never in front.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_after = {
+      lines = {
+        { id = "wa_default", text = "North to Razor Hill, where Tarshaw Jaggedscar teaches the same as me with more scars, and then to Orgrimmar, where Grezz Ragefist shouts. When you reach ten, one of them sends you west into the Barrens to Uzzek, and he teaches the shield." },
+        { id = "wa_troll", when = { race = "Troll" }, text = "To Razor Hill, by way of Sen'jin if you want to see your people. Tarshaw teaches there, and at ten he will send you into the Barrens to Uzzek, who teaches the shield, and you will hate him for a week and love him for the rest of your life." },
+      },
+      choices = {
+        { text = "Who is Uzzek?", next = "w_uzzek" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_uzzek = {
+      lines = { { id = "wu_default", text = "An old warrior who held a wall in Lordaeron for a day and a night while his clan charged out and died. He sits on a hill near Far Watch Post now and teaches young ones to stand, and every recruit I ever sent him came back better." } },
+      choices = { { text = "Thanks, Frang. Something else.", next = "BACK" } },
     },
     first = {
       lines = { { id = "f_default", text = "How to take a hit and stay standing, because a warrior who falls down cannot protect anyone. After that comes the shield, and after that the charge, and the charge is the fun part." } },

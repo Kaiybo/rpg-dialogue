@@ -1,7 +1,7 @@
 -- The War Quarter's trainers and the city's priests: Angela Curthas, Christoph Walker and Baltus Fowler for warriors;
 -- Aelthalyste, Father Lazarus and Father Lankester for priests. Voices: bibles/<key>.md
 local P = RPGDialogueAPI:Pack("rpgd.undercity")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 ---------------------------------------------------------------------------
 -- Aelthalyste: the priestess who teaches the Forsaken that the Light still answers, and what else does.
@@ -418,8 +418,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Angela Curthas. I teach warriors in the War Quarter, and before that I held the palace gate for the city watch, which is to say I've been fighting in this same city for longer than most of you have been dead." },
+        { id = "h_default", key = true, text = "I'm Angela Curthas. I teach warriors in the War Quarter, and before that I held the palace gate for the city watch, which is to say I've been fighting in this same city for longer than most of you have been dead." },
         { id = "h_orc", when = { race = "Orc", class = "WARRIOR" }, text = "An orc warrior, come for lessons from a dead woman. I'll teach you what I know, and you can teach me how you lot hit so hard." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "One of ours, with a sword and a shield and, I hope, the sense to use the second one. The Dark Lady needs soldiers who hold, so let's see whether you do." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren warrior under the city! You'd fill the palace gate on your own, which is a thing I'd have given my right arm for, once." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A troll with an axe, in the War Quarter. The Amani gave the watch some bad nights, but your lot aren't the Amani, so come in and show me your guard." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, questBefore = TODO_QUEST("Path of Defense") }, text = "You're ready for the defensive stance, and it's taught in the Barrens, by an orc named Uzzek near Far Watch. Take the zeppelin from Tirisfal, and come back with a shield arm worth writing on my roster." },
+        { id = "h_def", when = { class = "WARRIOR", questDone = TODO_QUEST("Path of Defense") }, text = "Uzzek's had you, I see; you set your feet like a gatekeeper now. Come and learn to taunt and sunder, because a shield nobody's attacking is only a heavy plate." },
       },
       again = {
         { id = "h_again", text = "Something else? Quick, I've a recruit out there holding his shield upside down." },
@@ -431,7 +436,9 @@ P:NPC {
         { text = "Why do you look at shields before faces?", next = "shield" },
         { text = "What do you make of Baltus Fowler?", next = "fowler" },
         { text = "I don't carry a shield, Angela.", next = "noshield", when = { class = { "ROGUE", "HUNTER", "MAGE", "WARLOCK", "PRIEST", "DRUID" } } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Angela.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Teach me to hold a gate the way you did.", next = "w_hold", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "Women of the watch, fighting the Scourge. Tell me about them.", next = "w_women", when = { class = "WARRIOR", gender = "female" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -490,6 +497,29 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_hold = {
+      lines = {
+        { id = "wh_default", text = "Defensive stance first, so every blow lands softer, then a taunt to drag whatever's coming toward you, and a sunder to crack its armour while it's busy. After that it's patience, and keeping your eye on the second one, because there's always a second one." },
+        { id = "wh_shieldwall", when = { minLevel = 28 }, text = "You've the shield wall by now, or you will soon, and that's your last door when the gate's about to go. Save it for when you'd otherwise drop, and don't waste it on a fight you're winning." },
+      },
+      choices = {
+        { text = "And if the healer behind me is a fool?", next = "w_hold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_hold2 = {
+      big = true,
+      lines = { { id = "wh2_default", text = "Then you hold anyway, because that's the post, and you shout at them afterwards, which is my favourite part. The watch never got to pick who we guarded, and neither will you." } },
+      choices = {
+        { text = "The post comes first. Always.", next = "BACK", reply = "That's what I'll write next to your name, then: holds.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they're careless, they can fend for themselves.", next = "BACK", reply = "Fine, until you're the careless one. I'll write down 'learning'.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_women = {
+      lines = { { id = "ww_default", text = "There were eleven of us on the palace watch when the plague came, and three of us got up again afterwards. One serves the Dark Lady's guard, one went to the Sepulcher, and the third is me, still telling girls like you to keep your left side up." } },
+      choices = { { text = "I'll keep it up. Something else.", next = "BACK" } },
+    },
     noshield = {
       lines = { { id = "ns_default", text = "Then you're your own door, and a thin one, so you'd better be quick on your feet. Stand behind someone who does carry one, and buy them a drink afterwards; that's how the watch did it." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -531,8 +561,11 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Christoph Walker. I teach the blade in the War Quarter, and I learned it in Lordaeron's army back when the orcs were the enemy, which is a thing I try not to mention in front of the orcs." },
+        { id = "h_default", key = true, text = "I'm Christoph Walker. I teach the blade in the War Quarter, and I learned it in Lordaeron's army back when the orcs were the enemy, which is a thing I try not to mention in front of the orcs." },
         { id = "h_flourish", when = { class = "WARRIOR", minLevel = 20 }, text = "You've learned a few tricks since you started, I can see it in how you hold that grip. Unlearn the pretty ones, and keep the rest." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR", maxLevel = 19 }, text = "Another of the risen with a blade in hand. Whatever you held in life, a pike or a plough, we'll make a soldier of you, because that's all a soldier ever was." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc warrior, asking a pikeman of Lordaeron for lessons. Twenty years ago I'd have shown you the point of my pike, and now I'll show you how to hold one, which I suppose is progress." },
+        { id = "h_w40", when = { class = "WARRIOR", minLevel = 40 }, text = "Plate, I see, and you've stopped walking like a man carrying a stove. Good, because the knights of my day never learned that, and the wolf riders loved them for it." },
       },
       again = {
         { id = "h_again", text = "Something more? I've time, if not much patience." },
@@ -545,7 +578,9 @@ P:NPC {
         { text = "What do you make of Baltus Fowler?", next = "fowler" },
         { text = "I marched in Lordaeron's army too.", next = "soldier", when = { origin = "forsaken_lordaeron_soldier" } },
         { text = "Your old enemies were trolls too, weren't they?", next = "troll", when = { race = "Troll" } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Christoph.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Should I fight with a great weapon, like your pike?", next = "w_arms", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "A human on Fray Island tests warriors. Do you know him?", next = "w_klannoc", when = { class = "WARRIOR", minLevel = 28 } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -601,6 +636,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_arms = {
+      lines = {
+        { id = "wa_default", text = "If you've the patience for it, yes. A great weapon hits once where a sword hits twice, so you learn to wait for the opening, overpower the fool who dodged, and finish him with a mortal blow he won't stand up from." },
+        { id = "wa_low", when = { maxLevel = 19 }, text = "Later, perhaps. For now learn the sword and shield, because a great weapon in green hands is a long way to swing and a long time to recover, and the Scarlets know it." },
+      },
+      choices = {
+        { text = "One clean blow beats a dozen pretty ones.", next = "BACK", reply = "That's the whole of it, and you said it shorter than I would have.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather two blades and a storm of blows.", next = "BACK", reply = "Then go and talk to Fowler, and may the Dark Lady help you both.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_klannoc = {
+      lines = {
+        { id = "wk_default", text = "By name only: Klannoc Macleod, a sellsword who keeps a fighting grate off the Barrens coast and tests warriors from both sides of the war. He's living, and human, and he'll look at you the way living men look at us, so beat his challengers anyway." },
+        { id = "wk_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You've stood on his grate and walked off it, so you know him better than I do. Did he flinch when you took your helm off? They usually do, the first time." },
+      },
+      choices = {
+        { text = "Let him flinch. I'll win anyway.", next = "BACK", reply = "Good. That's the only answer a dead soldier needs.", fx = { align = { honor = -1 } } },
+        { text = "I'll win, and I'll win cleanly, so he remembers it.", next = "BACK", reply = "That's more charitable than I'd be, but it'll do us more good.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     soldier = {
       lines = { { id = "so_default", text = "Then you'll remember the drill-yards outside the capital, and the sergeants, and the porridge, which was worse than anything the plague did. Whatever regiment you were, you're in mine now, and I'll expect you to stand like it." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -648,6 +705,11 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Baltus Fowler! I teach warriors to hit things, and I'm very good at it, because I've been hit by everything in Lordaeron and some of it twice." },
         { id = "h_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A spellcaster, in the War Quarter? You're braver than you look, or lost, and either way, welcome!" },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "One of us, with a sword! Come here, mate, and let's find out what you can take, because the best thing about being dead is that a bruise is just a colour now." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc! I've wanted to trade blows with one of you since the day I woke up, mate, and I'm told you lot laugh when you fight too." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" }, text = "A troll warrior, grinning at me! At last, somebody in this quarter who knows a fight's supposed to be fun." },
+        { id = "h_w30", when = { class = "WARRIOR", minLevel = 30 }, text = "Thirty, mate, and that's berserker age! If you haven't been out to Fray Island to make Klannoc's lads cry, what are you waiting for?" },
+        { id = "h_whirl", when = { class = "WARRIOR", questDone = TODO_QUEST("Whirlwind Weapon") }, text = "Is that a whirlwind weapon on your back? Let me hold it, mate, just for a moment, I promise I won't run off with it." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask away; I love a chat between bruises, even if mine don't fade any more." },
@@ -659,7 +721,10 @@ P:NPC {
         { text = "Why does every dent in your shield have a name?", next = "dents" },
         { text = "What does Christoph Walker think of you?", next = "walker" },
         { text = "I'd rather not get hit at all, Baltus.", next = "dodge", when = { class = { "ROGUE", "HUNTER" } } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Baltus.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How do I get angrier in a fight?", next = "w_rage", when = { class = "WARRIOR" } },
+        { text = "What's this about a weapon with a storm in it?", next = "w_storm", when = { class = "WARRIOR", minLevel = 28 } },
+        { text = "I'm at the top of my craft. Where's a real fight?", next = "w_sixty", when = { class = "WARRIOR", minLevel = 58 } },
         { text = "Farewell, Baltus.", next = "END" },
       },
     },
@@ -711,6 +776,39 @@ P:NPC {
         { text = "Keep at him. Everyone needs a laugh.", next = "BACK", reply = "That's the spirit! Come and help me crack him; two of us might do it by spring.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    w_rage = {
+      lines = {
+        { id = "wr_default", text = "You get hit, mate! Rage comes from hitting and being hit, so a warrior who stays out of the fight is a warrior with nothing in the tank. Then you spend it, on a heroic strike or a cleave or whatever's handy, and get hit again." },
+        { id = "wr_dead", when = { race = "Scourge" }, text = "That's the trouble with us dead lot: we don't feel the hits, so we forget to get angry about them. Shout at them, mate, curse their mothers, and the rage comes anyway, I promise you." },
+      },
+      choices = {
+        { text = "So the more I'm hit, the stronger I get?", next = "w_rage2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_rage2 = {
+      big = true,
+      lines = { { id = "wr2_default", text = "Up to a point, and then you fall over, which Walker would tell you is the point, ha! Bloodrage when you're short, berserker rage when you're scared, and a fury that eats its own tail, and that's the whole secret of me." } },
+      choices = {
+        { text = "Then let the rage carry me.", next = "BACK", reply = "Ha! That's the spirit! Walker will hate you, and I love you for it.", fx = { align = { order = -1 } } },
+        { text = "Rage is fine, but I'll keep my head.", next = "BACK", reply = "Fine, fine, you sound like Angela. Keep your head, then, but lose it now and then for me.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_storm = {
+      lines = {
+        { id = "ws_default", text = "There's a troll up in the Alterac hills, mate, at Chillwind Point, who makes weapons out of a wind lord's heart if you're daft enough to fight the wind lord! Win Klannoc's affray on Fray Island first, and he'll send you up there." },
+      },
+      choices = {
+        { text = "Fighting a wind lord for an axe sounds mad.", next = "BACK", reply = "Mad, aye, and wonderful! I'd go myself if Walker didn't hide my boots.", fx = { align = { light = 1 } } },
+        { text = "If it makes a better axe, I'll fight anything.", next = "BACK", reply = "That's my kind of answer! Bring it back and let me hold it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_sixty = {
+      lines = { { id = "w60_default", text = "Stratholme, mate, where the Scourge sits in the old city and the Scarlets hold the other half, so you get both kinds of bastard in one day! Or Scholomance, if you fancy necromancers, but I like a place where I can get thrown into things." } },
+      choices = { { text = "I'll go and get thrown into things. Something else.", next = "BACK" } },
     },
     dodge = {
       lines = { { id = "do_default", text = "Not get hit? Where's the fun in that, mate? All right, all right, you lot dance about at the back and let the rest of us do the bleeding, and I suppose somebody has to." } },

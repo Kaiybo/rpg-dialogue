@@ -542,6 +542,11 @@ P:NPC {
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Come for more training, warrior? Good, because the centaur do not rest, and neither should we." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, then. Your strength comes from outside you, so you must learn to carry it even more carefully than a warrior does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior comes back to Ragetotem's ring. Good, because strength without care only breaks things, and I've more care to teach." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A tauren warrior of the bluffs, and the herd is safer for every one of you. Stand in my ring, young one, and we'll see whether your strength has learned to listen yet." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A Forsaken warrior on Hunter Rise. I'll not pretend I trust your people, but the Warchief calls you Horde, so I'll train you as I would any guardian of the herd." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" }, text = "An orc in Ragetotem's ring. Your people saved ours in the Barrens, so whatever you need from me, you'll have it, and harder than I give it to my own." },
+        { id = "h_w40", when = { class = "WARRIOR", minLevel = 40, maxLevel = 59 }, text = "You've taken to plate, I see, and you stand in it as if the bluffs had grown a new ridge. Carry it carefully, because plate makes a warrior bold, and boldness without care is what I warn every student against." },
+        { id = "h_w60", when = { class = "WARRIOR", minLevel = 60 }, text = "There's nothing left that I can teach you with an axe, warrior. I hope you'll stand in my ring sometimes anyway, so the young ones can see what all this care comes to." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll stand as a bear before the herd one day, so you're closer to my warriors than you know, and I'll expect the same restraint of you that I expect of them." },
@@ -556,6 +561,8 @@ P:NPC {
         { text = "A shaman can't need a warrior's training, Ker.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Strength isn't everything. Speed and silence count too.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Train me, Ker.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Where does a warrior of the bluffs go next?", next = "w_road", when = { class = "WARRIOR" } },
         { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight things from beyond this world?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do any tauren still scorn the druid's path, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -563,7 +570,62 @@ P:NPC {
         { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
-      again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings, as the bull knows the ground before he charges." } },
+      again = {
+        { id = "h_again", text = "Ask what you will. A warrior should understand before he swings, as the bull knows the ground before he charges." },
+        { id = "h_again2", text = "Something else, young one? The ring will wait for us." },
+      },
+    },
+    w_road = {
+      hub = true,
+      lines = {
+        { id = "wr_default", text = "Every warrior who leaves this ring walks the same road, though each walks it differently. Tell me where you stand on it, and I'll tell you what waits ahead." },
+        { id = "wr_low", when = { maxLevel = 9 }, text = "You're young yet, and your road runs no farther than Mulgore's grass. Learn to charge and to make a wound bleed, and at ten I'll send you east to the Barrens." },
+      },
+      again = { { id = "wr_again", text = "What else about the road? I've walked most of it myself." } },
+      choices = {
+        { text = "The shield. Who teaches it?", next = "w_shield", when = { minLevel = 10 } },
+        { text = "What waits for a warrior at thirty?", next = "w_thirty", when = { minLevel = 28 } },
+        { text = "I wear plate now. Any advice?", next = "w_plate", when = { minLevel = 40 } },
+        { text = "I've reached the end of your teaching. What now?", next = "w_sixty", when = { minLevel = 60 } },
+        { text = "That's enough of the road, Ker.", next = "BACK" },
+      },
+    },
+    w_shield = {
+      lines = {
+        { id = "wsh_default", text = "An orc named Uzzek, near Far Watch in the Barrens, and after him my kinsman Ruga at Camp Taurajo, who'll test you against the strange insects in the Field of Giants. Between them you'll learn to stand in front of the herd and stay there." },
+        { id = "wsh_done", when = { questDone = TODO_QUEST("Trial at the Field of Giants") }, text = "You've stood before Uzzek and Ruga both, so you know already. Now taunt whatever threatens the herd, sunder its hide, and never let it turn toward the healer behind you." },
+      },
+      choices = {
+        { text = "Guarding the herd is the whole of it.", next = "w_road", reply = "It is, and Cairne would say the same. You'll do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd rather be the one who ends the fight.", next = "w_road", reply = "Someone must end it, and someone must survive it. Learn both, and choose later.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_thirty = {
+      lines = {
+        { id = "wt_default", text = "Fray Island, off the coast south of Ratchet, where a human named Klannoc Macleod tests warriors for the berserker's stance. If you win there, he'll send you north to a troll in the Alterac hills who makes weapons from a storm." },
+        { id = "wt_done", when = { questDone = TODO_QUEST("Whirlwind Weapon") }, text = "You've been to Fray Island and to the troll's river both, and I can see the storm-weapon on your back. Use it carefully, because a weapon with a wind lord in it does not always care whom it strikes." },
+      },
+      choices = {
+        { text = "Why would a tauren want a berserker's rage?", next = "w_thirty2" },
+        { text = "Back to the road.", next = "w_road" },
+      },
+    },
+    w_thirty2 = {
+      lines = { { id = "wt2_default", text = "Most don't, and I've never loved it, because it asks you to forget the care I spend years teaching. But some fights are only won by forgetting, and a warrior who never learns the berserker's stance cannot choose when to put it down." } },
+      choices = { { text = "Back to the road.", next = "w_road" } },
+    },
+    w_plate = {
+      lines = { { id = "wp_default", text = "Wear it every day for a month before you fight in it, so your body forgets it's there. A tauren in plate is very nearly a mountain, and mountains are slow, so practise turning with it until the turn is quick again." } },
+      choices = { { text = "Back to the road.", next = "w_road" } },
+    },
+    w_sixty = {
+      lines = { { id = "ws_default", text = "Now you go where the true dangers are, into the Spire of Blackrock and the poisoned lands of the east, and you come home to guard the bluffs between. And when you're tired of that, you come back here and teach, because that's what the Ragetotem have always done." } },
+      choices = {
+        { text = "I'll come back and teach the young ones.", next = "w_road", reply = "Then the herd will be safe long after both of us are gone.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I've earned the right to wander. I'll go where I please.", next = "w_road", reply = "You have earned it, and I won't argue. Come home now and then, at least.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "w_road" },
+      },
     },
     fight = {
       lines = { { id = "f_default", text = "The centaur have hunted our people for generations, and only with the orcs' help did we finally drive them from Mulgore. Now the quilboar and the Venture Company test our borders instead." } },

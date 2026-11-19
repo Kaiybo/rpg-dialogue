@@ -30,6 +30,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_cult = {
+      lines = {
+        { id = "dw_cult_default", text = "The same way any dwarf ends up anywhere: he digs too deep. I wanted to know what the titans buried and why, and the cult had answers when the League only had more questions. They were the wrong answers, and I learned that too late." },
+      },
+      choices = {
+        { text = "You were seeking truth. That's no crime.", next = "BACK", reply = "It's no crime, no, but it's a door, and I walked through it gladly. Be careful which doors you open, kinsman.", fx = { align = { light = 1 } } },
+        { text = "You betrayed your own people. Own it.", next = "BACK", reply = "I own it every night, with the wind in the rocks for company. You needn't remind me, but I don't blame you for trying.", fx = { align = { light = -1 } } },
+        { text = "Something else, Theldurin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -62,6 +72,7 @@ P:NPC {
         { text = "Shouldn't a priest tell you the stone is silent?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I've heard the stone speak too, Theldurin.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Could whatever you fear be using you, even now?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "How does a dwarf of Ironforge end up in the Twilight's Hammer?", next = "dw_cult", when = { race = "Dwarf" } },
         { text = "I'll leave you to your rocks.", next = "END" },
       },
     },

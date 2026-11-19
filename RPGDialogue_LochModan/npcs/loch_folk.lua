@@ -37,6 +37,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_di = {
+      lines = {
+        { id = "dw_di_default", text = "I worry, an' I'm only a hauler. The Dark Irons have hated us since the War o' the Three Hammers, an' my grandda used tae say they'd come back for Ironforge one day, an' I used tae laugh at him." },
+        { id = "dw_di_dwarf", when = { race = "Dwarf" }, text = "Ye're kin, so ye'll know the stories as well as I do. The Dark Irons have hated us since the War o' the Three Hammers, an' my grandda swore they'd come back for Ironforge, an' I used tae laugh at him." },
+      },
+      choices = {
+        { text = "Let them come. Ironforge's gates have never fallen.", next = "BACK", reply = "Aye, that's what the guards say, an' I want tae believe them. It's no' the gates I worry about, it's the gullies in between.", fx = { align = { honor = 1 } } },
+        { text = "Saean sold you out for coin. Watch your own first.", next = "BACK", reply = "That's the hard truth o' it, an' it's what keeps me up. A dwarf sellin' dwarves tae the Dark Irons, an' I trusted him wi' my lunch.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Miran.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -60,6 +71,7 @@ P:NPC {
         { text = "Why do you keep hauling, after all that?", next = "why" },
         { text = "What's Prospector Ironband like?", next = "ironband" },
         { text = "You seem nervous, Miran.", next = "nerves" },
+        { text = "Dark Irons this close to Thelsamar? Should we worry?", next = "dw_di" },
         { text = "I have to go, Miran.", next = "END" },
       },
     },

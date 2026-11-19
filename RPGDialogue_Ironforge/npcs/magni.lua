@@ -255,6 +255,9 @@ P:NPC {
         { text = "Thaurissan is dead, Your Majesty. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
         { text = "What does Ironforge think of the companies that pass through?", next = "xpt_magni", when = { party = true } },
         { text = "Who's this other one you keep mentioning, Your Majesty?", next = "xalt_magni", when = { alt = true } },
+        { text = "I've come home to the mountain, my king.", next = "dw_hold", when = { race = "Dwarf" } },
+        { text = "Will the Wildhammer ever stand with Ironforge again?", next = "dw_wild" },
+        { text = "Stormwind hasn't forgotten what Ironforge gave in the Second War.", next = "hu_war", when = { race = "Human" } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -314,7 +317,7 @@ P:NPC {
     family = {
       big = true,
       lines = {
-        { id = "f_default", narr = "His hand closes hard around the arm of the throne, and he keeps his eyes on the forge glow below the steps.", text = "My brother Muradin went tae Northrend an' didnae come back. My daughter's in the hands o' the Dark Iron. I'll say no more about it in front o' the court." },
+        { id = "f_default", narr = "His hand closes hard around the arm of the throne, and he keeps his eyes on the forge glow below the steps.", text = "My brother Muradin went tae Northrend an' didnae come back, an' my daughter's in the hands o' the Dark Iron. I'll say no more about it than that in front o' the court." },
       },
       choices = {
         { text = "What happened to Muradin?", next = "muradin" },
@@ -328,7 +331,7 @@ P:NPC {
     },
     muradin = {
       lines = {
-        { id = "mu_default", text = "He took the League's lads intae Northrend, an' Arthas Menethil found him there. Muradin taught that boy tae swing a hammer, an' the boy killed him for it." },
+        { id = "mu_default", text = "He took the League's lads intae Northrend lookin' for a cursed blade, an' Arthas Menethil found him there. Muradin taught that boy tae swing a hammer, an' the boy came home wi' the blade an' without my brother, so whatever happened in that ice, I'll likely never hear it told true." },
       },
       choices = {
         { text = "What did you do, when you heard?", next = "blade" },
@@ -625,6 +628,139 @@ P:NPC {
       fail = {
         { id = "f1", narr = "He rests one hand on the haft of his hammer and does not rise.", text = "I've stood against the Horde an' the Dark Iron both, an' I'm still sittin' here. Ye'll need a good deal more than a hard stare tae move the King o' Ironforge." },
         { id = "f2", text = "Threaten me in my own mountain again an' ye'll learn how deep it goes. I'll let it pass the once, because I'd like tae think ye're only foolish." },
+      },
+    },
+    dw_hold = {
+      narr = "He leans forward, and for a moment the king gives way to an old dwarf asking after a neighbour's family.",
+      lines = {
+        { id = "dwh_default", text = "Have ye, now? Then tell me which hold raised ye, for a king who doesnae know where his people's beards were grown has no business sittin' on this stone." },
+      },
+      choices = {
+        { text = "The deep mines under the city, my king.", next = "dw_hold_deep" },
+        { text = "Kharanos, where the ale's better than yours.", next = "dw_hold_kharanos" },
+        { text = "Aerie Peak. My kin fly gryphons, not rams.", next = "dw_wild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } },
+        { text = "Alterac. The Stormpike snows raised me.", next = "dw_hold_stormpike", when = { origin = "dwarf_stormpike" } },
+        { text = "The road raised me more than any hold.", next = "dw_hold_road" },
+      },
+    },
+    dw_hold_deep = {
+      lines = {
+        { id = "dwhd_default", text = "Then ye're from the mountain's own heart, an' I'd wager ye could tell copper from tin by the smell before ye could walk. My father used tae say every king o' Ironforge should spend a winter in the deeps, an' he made me do it, an' I've never once regretted the blisters." },
+      },
+      choices = {
+        { text = "A king with miner's hands. The deeps would like that.", next = "dw_clans", fx = { affinity = 1 } },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_hold_kharanos = {
+      lines = {
+        { id = "dwhk_default", text = "Ha! I'll no' argue, for Ragnar Thunderbrew's stout has won more arguments in my Senate than I have. Kharanos is the front step o' the mountain, an' the folk there have kept the troggs an' the Frostmane off it longer than any wall I ever built." },
+      },
+      choices = {
+        { text = "Then send Kharanos more mountaineers, my king.", next = "dw_clans", fx = { trait = { practical = 1 } } },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_hold_stormpike = {
+      lines = {
+        { id = "dwhs_default", text = "The Stormpikes, is it? Vanndar's folk have dug themselves intae the Alterac valleys wi' the Frostwolf orcs on the other side o' the ridge, an' every letter he sends asks for more rifles. Ye've a hard, cold clan behind ye, an' I'm proud o' every one o' them." },
+      },
+      choices = {
+        { text = "They'd fight harder knowing their king said that.", next = "dw_clans", fx = { affinity = 1 } },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_hold_road = {
+      lines = {
+        { id = "dwhr_default", text = "Aye, there's a good many o' those now, dwarves born under the mountain an' raised under the open sky, an' I'll no' pretend I understand it. But ye still came home, an' that's the part o' bein' a dwarf that matters most." },
+      },
+      choices = {
+        { text = "Tell me how the clans came to the mountain, my king.", next = "dw_clans" },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_clans = {
+      big = true,
+      lines = {
+        { id = "dwc_default", text = "Once there were three great clans under this mountain, Bronzebeard, Wildhammer an' Dark Iron, an' King Modimus Anvilmar held them together by sheer weight o' beard. When he died, the three of us couldnae agree on who'd sit here, an' we fought the War o' the Three Hammers over this very stone." },
+        { id = "dwc_dwarf", when = { race = "Dwarf" }, text = "Ye'll have heard it at yer granddad's knee, but hear it from me: once there were three clans under this mountain, an' Modimus Anvilmar held them together. When he died, we fought the War o' the Three Hammers over this very stone, an' my grandsire's grandsire won it." },
+      },
+      choices = {
+        { text = "The Bronzebeards won it fairly. The mountain is yours.", next = "dw_clans_won", fx = { align = { order = 1 } } },
+        { text = "Winning meant driving your own kin out. That's no glory.", next = "dw_clans_cost", fx = { align = { order = -1 } } },
+        { text = "What became of the clans who lost?", next = "dw_wild" },
+      },
+    },
+    dw_clans_won = {
+      lines = {
+        { id = "dwcw_default", text = "Fairly, aye, by the law o' the old kings, an' I'll no' give this hall back tae anyone wi' a grudge an' a hammer. But I've read the old accounts, an' there wasnae much fairness in how it ended for the Dark Iron, only fire." },
+      },
+      choices = {
+        { text = "Fire they called down themselves, my king.", next = "dd_mg_thaur" },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_clans_cost = {
+      lines = {
+        { id = "dwcc_default", text = "No, it wasnae, an' ye're braver than most o' my senators tae say so tae my face. We won the mountain an' lost two thirds o' our people tae exile an' hatred, an' we're still payin' for it in every Dark Iron raid on the Loch Modan roads." },
+      },
+      choices = {
+        { text = "Then perhaps the debt can be paid down, my king.", next = "dw_wild" },
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_wild = {
+      big = true,
+      lines = {
+        { id = "dww_default", text = "The Wildhammer went north tae Grim Batol after the war an' made a hold o' it, until the Dark Iron sorceress Modgud brought a curse down on the place an' died at its gates. They left it tae the shadows an' took tae the Hinterlands an' Aerie Peak, an' they've ridden gryphons an' carried grudges up there ever since." },
+        { id = "dww_kin", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } }, text = "A Wildhammer cousin in my hall! Yer folk left Grim Batol after Modgud cursed it, an' took tae Aerie Peak an' the gryphons, an' they've looked down their noses at us from up there ever since. So tell me honestly, do they still call us the stone-bound up there, as if bein' under a roof were a sickness?" },
+      },
+      choices = {
+        { text = "They flew with you against the Horde. That's kinship enough.", next = "dw_wild_war", fx = { align = { honor = 1 } } },
+        { text = "Wildhammers serve the Wildhammer. Trust them only so far.", next = "dw_wild_wary", fx = { align = { honor = -1 } } },
+        { text = "What happened to Grim Batol after that?", next = "dw_wild_batol" },
+      },
+    },
+    dw_wild_war = {
+      lines = {
+        { id = "dwwar_default", text = "Aye, they did, an' I'll never forget the sky over Khaz Modan full o' Wildhammer gryphons when the Horde had my lads pinned. We'll never share a hall again, maybe, but when the drums beat, they come, an' that's more than many a sworn ally has done." },
+      },
+      choices = {
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_wild_wary = {
+      lines = {
+        { id = "dwwwy_default", text = "Ye sound like Senator Redstone, an' he'd buy ye a drink for sayin' it. Mind, I've no quarrel wi' a dwarf who counts his allies carefully, so long as he doesnae forget whose gryphons pulled him out o' the fire." },
+      },
+      choices = {
+        { text = "Something else, my king.", next = "BACK" },
+      },
+    },
+    dw_wild_batol = {
+      lines = {
+        { id = "dwwb_default", text = "It sat empty an' cursed for generations, an' in the Second War the Dragonmaw orcs took it an' chained the Dragonqueen herself beneath it tae breed their war mounts. The Alliance broke them in the end, but no dwarf I know will sleep a night inside those walls, an' I'll no' order one tae." },
+      },
+      choices = {
+        { text = "Then let it stay a grave. Something else.", next = "BACK" },
+      },
+    },
+    hu_war = {
+      lines = {
+        { id = "huw_default", text = "No, an' neither has Ironforge. The Horde burned Khaz Modan tae the roots o' the mountain, an' it was Lothar's Alliance that came up the roads an' helped us drive them out, so my people learned that day what a human's word is worth when it's given true." },
+      },
+      choices = {
+        { text = "Stormwind will stand by Ironforge, as Ironforge stood by us.", next = "hu_war_now", fx = { align = { honor = 1 } } },
+        { text = "Every kingdom looks to itself first. Ours included.", next = "hu_war_now", fx = { align = { honor = -1 } } },
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    hu_war_now = {
+      lines = {
+        { id = "hwn_default", text = "Well, I'll take that as honest, either way. I'll say this much: I liked yer king Varian, an' I'll keep on likin' him until somebody shows me where he's gone. The Regent does well enough wi' the boy an' the city, but a throne wi' a gap in it worries me, for I've a gap or two in my own house." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
   },

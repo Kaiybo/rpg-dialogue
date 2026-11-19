@@ -839,6 +839,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_light = {
+      narr = "He rubs at the soot on his holy symbol with a thick thumb.",
+      lines = {
+        { id = "dw_light_default", text = "Louder, mostly. The Light came tae Ironforge wi' the Alliance in the Second War, when human priests patched up our wounded at Dun Algaz, an' a good many dwarves took tae it the way they take tae a new ale: suspicious first, then devoted." },
+        { id = "dw_light_human", when = { race = "Human" }, text = "Louder, mostly, an' wi' more ale after. It was your people brought the Light tae Ironforge in the Second War, when human priests patched up our wounded at Dun Algaz, an' a good many dwarves took tae it after that, suspicious first an' then devoted." },
+      },
+      choices = {
+        { text = "The Light belongs to every people equally.", next = "BACK", reply = "Aye, that's the doctrine, an' I believe it, most days. On wet days I believe it a wee bit less, but that's the weather talkin'.", fx = { align = { light = 1 } } },
+        { text = "Dwarves should trust their own stone and forge first.", next = "BACK", reply = "There's plenty in Ironforge who'd agree wi' ye, an' they're no' wicked for it. I'd only say the forge never once mended a drowned sailor's soul.", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Mind? No, kin, I was raised on the same stories, Khaz'goroth at the forge an' the earthen sleepin' in the deep. The Church says the Light is in all things, an' I've never seen why it cannae be in the stone as well." },
+      },
+      choices = {
+        { text = "Then you're a better priest than most in Stormwind.", next = "BACK", reply = "Dinnae tell the Bishop, for I'm in enough trouble about my reports. But thank ye.", fx = { affinity = 1 } },
+        { text = "Something else, Glorin.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "It troubles me some, an' I'll no' lie about it. The Church taught me the Light's the answer tae every darkness, an' here ye are wi' a different answer that seems tae work. But I've buried more drowned sailors than I can count, an' if yer waters keep one more off my table, I'll pray for ye whether ye like it or no'." } },
@@ -964,6 +985,8 @@ P:NPC {
         { text = "There must be thieves among Menethil's poor, Brother.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Church and Dalaran get on, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does it trouble you that I don't pray to the Light, Glorin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does a dwarf priest pray differently from a human one, Brother?", next = "dw_light" },
+        { text = "My clan still keeps the old stone-saints, Glorin. Do you mind?", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -1689,6 +1712,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_modr = {
+      lines = {
+        { id = "dw_modr_default", text = "Now an' then, when Longbraid lets them, an' they drink like it's the last cask in Khaz Modan. Since the Dark Irons took Dun Modr an' blew the Thandol Span, they've had nothin' tae do but hold on an' wait for Ironforge tae notice." },
+        { id = "dw_modr_dwarf", when = { race = "Dwarf" }, text = "Now an' then, an' ye'd know the look, kin: a dwarf who's been holdin' a wall too long. Since the Dark Irons took Dun Modr an' blew the Thandol Span, they've waited on Ironforge, an' Ironforge has sent them letters." },
+      },
+      choices = {
+        { text = "Ironforge should send them soldiers, not letters.", next = "BACK", reply = "Say that loud enough an' ye'll never pay for a drink in here again, by the Dun Modr lads' reckonin'. By mine ye'll still pay, mind.", fx = { align = { order = -1 } } },
+        { text = "The King has many walls to hold. They'll wait their turn.", next = "BACK", reply = "Aye, well, that's the official answer, an' it's never yet bought anyone a pint. Keep it tae yerself in here.", fx = { align = { order = 1 } } },
+        { text = "Something else, Helbrek.", next = "BACK" },
+      },
+    },
     xpt_company = {
       big = true,
       lines = { { id = "xpt_company_default", text = "Aye, turn round, but you won't, so I'll say this instead: the Dragonmaw keep red drakes up there, and a company of five looks like a meal to a drake, not a threat. Stay low and stay in the trees, and come back here to dry out, because I'll want the story." } },
@@ -1841,6 +1875,7 @@ P:NPC {
         { text = "Are your regulars superstitious about shamans, Helbrek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "We're bound for the hills below Grim Batol. Any advice?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Did you ever wonder where my casks came from, Helbrek?", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
+        { text = "Do the Dun Modr dwarves ever come down to drink?", next = "dw_modr" },
         { text = "Just drying off.", next = "END" },
       },
     },
@@ -1938,6 +1973,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_origin = {
+      narr = "He leans over the fossil as if it might hear him.",
+      lines = {
+        { id = "dw_origin_default", text = "Where dwarves came from, an' that's no small thing. The old songs say the titans shaped our forefathers from the living stone, an' every vault we open in Khaz Modan has their marks on the walls, so I'd like tae know before I die whether the songs are right." },
+        { id = "dw_origin_gnome", when = { race = "Gnome" }, text = "Where dwarves came from, an' gnomes too, if Uldaman's walls are tellin' the truth. The old songs say the titans made us from stone, an' every vault in Khaz Modan has their marks, so I'd like tae know before I die whether the songs are right." },
+      },
+      choices = {
+        { text = "The past should be dug up, whatever it says.", next = "BACK", reply = "That's the League's motto, near enough, an' Magni's too. The King himself wants tae know, so the League never wants for picks.", fx = { align = { order = -1 } } },
+        { text = "Some answers might be better left buried.", next = "BACK", reply = "Ye sound like Ironband's mother. Still, I'll admit I've opened a door or two I'd rather have left shut, Uldaman's no' least among them.", fx = { align = { order = 1 } } },
+        { text = "Where does the League dig besides here?", next = "dw_origin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_origin2 = {
+      lines = {
+        { id = "dw_origin2_default", text = "Everywhere a pick will go! Uldaman in the Badlands, Ironband's site in Loch Modan, an' now even Kalimdor, at Bael Modan in the Barrens an' along the Darkshore, where the elves glare at us for touchin' their rubble. Brann Bronzebeard himself is off somewhere nobody can find him, which is the most League thing a dwarf can do." },
+      },
+      choices = {
+        { text = "Something else, Flagongut.", next = "BACK" },
+      },
+    },
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Maybe I did, kin, for the League's a small family wi' a long table. If he came home wi' all his fingers an' a story he couldnae prove, then he was one of us for certain." },
+      },
+      choices = {
+        { text = "He came home with eight fingers and three stories.", next = "BACK", reply = "Ha! Then he was a better digger than me, for I've only the one story an' I tell it badly. Raise a mug tae him for me.", fx = { affinity = 1 } },
+        { text = "Something else, Flagongut.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Because the earth remembers what it buried, an' we're always guessin'! A shaman could tell us where a hall stood or which wall hides a chamber, an' that's worth a hundred shovels. The old guard says it's cheatin' history, but history's been cheatin' us for centuries, so I call it fair." } },
@@ -2081,6 +2146,8 @@ P:NPC {
         { text = "Do the League's digs ever turn up things best left buried?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why does the League want shamans on its digs, Flagongut?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Uldaman, Flagongut.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
+        { text = "What does the League hope to find, in the end?", next = "dw_origin" },
+        { text = "My grandda dug with the League, Flagongut. Did you know him?", next = "dw_kin", when = { race = "Dwarf", ["not"] = { origin = "dwarf_explorers_league" } } },
         { text = "Good luck with it.", next = "END" },
       },
     },

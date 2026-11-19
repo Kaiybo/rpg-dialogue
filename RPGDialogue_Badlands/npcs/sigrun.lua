@@ -31,6 +31,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_titans = {
+      lines = {
+        { id = "dw_titans_default", text = "That's what the League scholars were whispering before we ran. They found carvings in Uldaman of stone people they call the earthen, and the more they read, the more those earthen looked like our great-great-grandsires. Feranor says it's nonsense, but he says that about everything he can't hammer." },
+      },
+      choices = {
+        { text = "Then dwarves are the titans' heirs. That's worth any risk.", next = "BACK", reply = "Aye, that's how the League sees it, and why they keep sending diggers down there. I'd want the heirs to come back up alive, myself.", fx = { align = { order = 1 } } },
+        { text = "If the titans left, maybe they wanted to be forgotten.", next = "BACK", reply = "Hm, that's a strange thought for a hot afternoon. Maybe they did, and maybe the troggs are what you get for not taking the hint.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_clan = {
+      lines = {
+        { id = "dw_clan_default", text = "Ironhews, from the Gates of Ironforge, three generations of smiths and not one of them sensible. My da thought the League was a waste of good metalworkers, and here I am proving him right with a hammer and no iron." },
+      },
+      choices = {
+        { text = "Your da would be proud of this camp, all the same.", next = "BACK", reply = "Proud? He'd say the forge is crooked, and he'd be right. But it's kind of you to say, kin.", fx = { affinity = 1 } },
+        { text = "Something else, Sigrun.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -61,6 +80,8 @@ P:NPC {
         { text = "What do you make of the Badlands?", next = "land" },
         { text = "Teach me something about the forge.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I could hunt you something to eat.", next = "xhunt", when = { class = { "HUNTER", "DRUID" } } },
+        { text = "Is it true the titans made the dwarves?", next = "dw_titans" },
+        { text = "Which clan are you from, Sigrun?", next = "dw_clan", when = { race = "Dwarf" } },
         { text = "I'll let you get back to work.", next = "END" },
       },
     },

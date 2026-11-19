@@ -31,6 +31,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_spirit = {
+      lines = {
+        { id = "dw_spirit_default", text = "Think it? We know it. The shamans say every gryphon carries the wind in it, an' the wind remembers the rider who treated it right, so we bury our birds wi' their riders when we can." },
+      },
+      choices = {
+        { text = "That's a fine belief, Agnar. I hope it's true.", next = "BACK", reply = "It's true enough for me, an' the birds behave like it's true. That's all a handler needs.", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. Spirits are a story for children.", next = "BACK", reply = "Say that tae a gryphon an' see where ye land. Ironforge dwarves always want things they can weigh on a scale.", fx = { align = { light = -1 } } },
+        { text = "Something else, Agnar.", next = "BACK" },
+      },
+    },
+    dw_ram = {
+      lines = {
+        { id = "dw_ram_default", text = "Different? A ram'll butt ye an' forget it by supper, kin. A gryphon will remember ye for twenty years, an' if ye wronged it, it'll wait for the day ye're standin' near a cliff." },
+      },
+      choices = {
+        { text = "Then I'll stay on your gryphons' good side.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -56,6 +75,8 @@ P:NPC {
         { text = "A beast handler must have plenty to do here.", next = "work" },
         { text = "Why are you jealous of my egg?", next = "jealous", when = { questDone = TODO_QUEST("The Newest Member of the Family") } },
         { text = "How do you tame a beast like mine?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do the Wildhammers think the beasts have spirits, Agnar?", next = "dw_spirit" },
+        { text = "We keep rams in Dun Morogh. Is a gryphon much different?", next = "dw_ram", when = { race = "Dwarf" } },
         { text = "Thanks, Agnar.", next = "END" },
       },
     },

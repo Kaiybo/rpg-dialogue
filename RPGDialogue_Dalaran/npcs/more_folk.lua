@@ -181,7 +181,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Towers and Bunkers"), days = 3 } },
           text = "I received a field report sayin' ye helped secure an enemy banner. Wi' their ranged troops out o' position, we can move the line o' battle forward!" },
         { id = "h_dwarf", when = { race = "Dwarf" },
-          text = "Sergeant Durgen Stormpike. A dwarf, good! Ye'll know a mine when ye see one, so let's start ye there." },
+          text = "Sergeant Durgen Stormpike, an' a dwarf come tae see me, good! Ye'll know a mine when ye see one, so let's start ye there." },
       },
       again = {
         { id = "h_again3", text = "Ye've time for questions, have ye? Then the Frostwolves must be havin' a quiet day." },

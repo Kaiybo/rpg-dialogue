@@ -51,7 +51,7 @@ P:NPC {
         { text = "What is the Dormant Flame?", next = "flame" },
         { text = "What's a fire sapta?", next = "sapta" },
         { text = "You don't get lonely up here?", next = "lonely" },
-        { text = "Thun'grim at Far Watch says the fire tests hard.", next = "thungrim", when = { class = "SHAMAN" } },
+        { text = "Kranal Fiss in the Barrens says the fire tests hard.", next = "thungrim", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your fire.", next = "END" },
       },
     },
@@ -94,7 +94,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     thungrim = {
-      lines = { { id = "th_default", text = "Thun'grim and I don't agree on much, but on dat he be right. He keeps his fire burnin' bright out in de Barrens, and I keep mine sleepin' up here, and de young shaman get to see both kinds." } },
+      lines = { { id = "th_default", text = "Kranal Fiss and I don't agree on much, but on dat he be right. He keeps his fire burnin' bright out in de Barrens, and I keep mine sleepin' up here, and de young shaman get to see both kinds." } },
       choices = { { text = "Something else, Telf.", next = "BACK" } },
     },
   },

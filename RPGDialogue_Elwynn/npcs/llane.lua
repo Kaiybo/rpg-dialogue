@@ -4,7 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "llane", id = TODO_NPC("Llane Beshere"), name = "Llane Beshere",
-  bible = "bibles/llane.md", role = "trainer", tier = "service",
+  bible = "bibles/llane.md", role = "trainer", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
   prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran who watched a warlock's demon walk through his shield line." },
   notices = { "fitness", "stance", "lock_armor" },
@@ -17,15 +17,15 @@ P:NPC {
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood in a shield line in the Second War and watched a demon walk through it like it was paper. Don't bring one into my yard." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You let something else bleed for you, and then you call it fighting. I've no respect for that, and I'll not pretend I have." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood your own ground a time or two, I'll grant you. I still don't care for your creature, but you've earned a word." },
-    { id = "g_feet", text = "Feet apart, recruit. Now, what do you need?" },
-    { id = "g_drills", when = { class = "WARRIOR" }, text = "Back for more drills?" },
+    { id = "g_feet", text = "Feet apart, recruit, and shield arm up, even while you're talking to me. Now, what do you need?" },
+    { id = "g_drills", when = { class = "WARRIOR" }, text = "Back for more drills, are you? Good, because the dummies have been missing you." },
   },
 
   notice = {
     { id = "n_ressick", cat = "fitness", place = "before", when = { resSick = true },
-      text = "You died recently; I can see it in how you stand. Sit down before you fall down." },
+      text = "You died recently, and I can see it in how you stand, so sit down on that bench before you fall down again." },
     { id = "n_naked", cat = "fitness", when = { nearlyNaked = true, class = "WARRIOR" },
-      text = "A warrior without armor is a target with opinions." },
+      text = "A warrior without armour is only a target with opinions, recruit, so go and find something to put on before the kobolds hear about you." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
       text = "That's a ward of demon hide crawling up your arms, isn't it? My recruits wear honest mail and earn every dent in it, so mind you don't stand where they can see you better armoured than they are." },
   },
@@ -104,17 +104,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in my hall. You've a priest's heart and a warrior's arms, so let's see if you've a warrior's legs." },
-        { id = "h_default", text = "Warriors are made, not born, and mostly they're made by getting knocked down and standing back up." },
+        { id = "h_default", key = true, text = "Llane Beshere, and this is the Hall of Arms. Warriors are made here, not born, and mostly they're made by getting knocked down and standing back up again." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Simple Letter"), days = 1 } },
-          text = "So you read the letter and found your way to me. Good; now let's see if you can stand." },
+          text = "So you read the letter and found your way to me, which is the first test passed. Now let's see if you can stand." },
         { id = "h_warrior_blooded", when = { class = "WARRIOR", band = "Blooded" },
-          text = "You've put on some muscle, but you're still dropping your guard on the left." },
+          text = "You've put on some muscle since I saw you last, but you're still dropping your guard on the left, and the kobolds have noticed even if you haven't." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter, always trying to win a fight from across the field." },
+          text = "A hunter, always trying to win a fight from across the field. Come in, then, and I'll show you what happens when the field runs out." },
         { id = "h_other", when = { ["not"] = { class = { "WARRIOR", "HUNTER" } } },
-          text = "You're not my student, but the drills wouldn't kill you. Probably." },
+          text = "You're not my student, but the drills wouldn't kill you, and I've seen them save a few who thought they never needed them." },
         { id = "h_bruise", when = { metBefore = true, class = "WARRIOR" }, text = "You're standing straighter, and the bruises are in better places. That's progress, recruit." },
         { id = "h_dawn", when = { metBefore = true }, text = "The recruits ran the yard twice this morning. One cried and one laughed, and the one who laughed is the one I'm worried about." },
+        { id = "h_ten", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, maxLevel = 14 },
+          text = "You've outgrown my yard, recruit, and it's time you went down the road to Goldshire. Ask me about it before you go, because there's a test waiting that I'll not spoil." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 50 },
+          text = "Light above, look at you in that plate. I'd salute, but my recruits would never let me forget it, so come and stand where they can see what they might become." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 20 },
           text = "Look at the scars on you. Somebody's been earning them properly, so stand there and let me see if the left guard ever got fixed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -126,15 +130,20 @@ P:NPC {
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my yard, and you know I can tell. I've seen what your kind calls up, so keep it off my dummies and away from my recruits." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never let that creature near my recruits, and that counts for something here, even if it's not much." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand like someone who's never been knocked down by anything but weather. We'll see about that." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your stance is wrong; spirits or not, you'll be knocked down. Then you'll get back up, and that's the lesson." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and your stance is wrong, spirits or not, so you'll be knocked down in my yard like everyone else. Then you'll get back up, and that's the whole lesson." },
       },
       again = {
         { id = "h_again", text = "Anything else, recruit? Ask while you stretch; you'll want the breath later." },
         { id = "h_again2", text = "Go on, and quickly; the yard doesn't run itself." },
+        { id = "h_again3", when = { class = "WARRIOR" }, text = "What else? Ask it from a proper stance, and I'll answer it properly." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
-        { text = "Any advice?", next = "advice" },
+        { text = "Have you any advice for me, Llane?", next = "advice" },
+        { text = "Why charge in, when I could walk up careful?", next = "charge", when = { class = "WARRIOR", maxLevel = 9 } },
+        { text = "Rend, Thunder Clap, Hamstring. Which matters most?", next = "kit", when = { class = "WARRIOR", minLevel = 4, maxLevel = 14 } },
+        { text = "Where do I go when I've outgrown this yard?", next = "goldshire", when = { class = "WARRIOR", minLevel = 8, maxLevel = 19 } },
+        { text = "My father fought in the Second War too.", next = "father", when = { class = "WARRIOR", race = "Human" } },
         { text = "How do I stop getting knocked down?", next = "stance", when = { class = "WARRIOR", maxLevel = 12 } },
         { text = "I've fought a long way from this hall since.", next = "veteran", when = { class = "WARRIOR", minLevel = 20 } },
         { text = "Anything for a priest to learn in here?", next = "priest", when = { class = "PRIEST" } },
@@ -148,19 +157,79 @@ P:NPC {
         { text = "What can a warrior teach a paladin, Llane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A warrior could learn a lot from watching a bear fight.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman learn to fight like a warrior, Llane?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Later.", next = "END" },
+        { text = "I'll leave you to the recruits.", next = "END" },
+      },
+    },
+    charge = {
+      lines = {
+        { id = "ch_default", text = "Because walking up careful gives the kobold time to think, and the one thing a kobold does well is think about running. Charge closes the distance before it's decided, and it fills you with the first bit of rage you'll need to do anything else." },
+      },
+      choices = {
+        { text = "Then I'll charge every time and never wait.", next = "BACK", reply = "Bold, and the kobolds will learn to fear you, or you'll learn to count them first.", fx = { align = { order = -1 } } },
+        { text = "I'll pick my moment, then charge.", next = "BACK", reply = "Good, because a moment picked well is worth three charged in blind.", fx = { align = { order = 1 } } },
+        { text = "What if there's more than one?", next = "charge_wait" },
+        { text = "Where does the rage come from?", next = "charge_rage" },
+      },
+    },
+    charge_wait = {
+      lines = { { id = "cw_default", text = "Then you mind you never charge into three when you meant to charge into one, because the Hall of Arms has buried recruits who learned that the hard way at Echo Ridge." } },
+      choices = { { text = "One at a time. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    charge_rage = {
+      lines = { { id = "cr_default", text = "From being hit and from hitting, and from the charge itself, and it drains away when you stand about with nothing to do. The brothers say it's anger and they pray against it, but in my yard it's fuel, and I'll not apologise for that." } },
+      choices = { { text = "Fuel, then. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    kit = {
+      big = true,
+      lines = {
+        { id = "kit_default", text = "Rend, because it keeps working while you do something else, and that's the beginning of thinking like a warrior. Thunder Clap's for when the kobolds come in a pack, and Hamstring's for the one that tries to run off and fetch its friends." },
+      },
+      choices = {
+        { text = "I'll hamstring every one that runs. None get away.", next = "BACK", reply = "Hard, but right, because the one that gets away comes back with six more.", fx = { align = { honor = -1 } } },
+        { text = "If it runs, I'll let it go. It's beaten.", next = "BACK", reply = "Merciful, and I'll not fault you for it, but count its friends when it comes back.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Llane.", next = "BACK" },
+      },
+    },
+    goldshire = {
+      lines = {
+        { id = "gs_default", text = "Down the road to Goldshire, where Lyria Du Lac teaches at the Lion's Pride. She'll send you on to an old soldier in Stormwind called Harry Burlguard, and what he does with you there is a test I'll not spoil, except to say you'll want your fists more than your sword." },
+        { id = "gs_dwarf", when = { race = { "Dwarf", "Gnome" } }, text = "Lyria Du Lac in Goldshire can take you on for now, but your own people keep a test for you in Ironforge, with Muren Stormpike in the Hall of Arms. Go and see him when you're ready, because Defensive Stance is earned there, not handed out." },
+      },
+      choices = {
+        { text = "What's this test, then?", next = "goldshire_test" },
+        { text = "I'll miss the dents in your floor.", next = "BACK", reply = "You'll add to someone else's floor now. Write if you remember how.", fx = { affinity = 1 } },
+        { text = "I'll be on my way, then.", next = "BACK" },
+      },
+    },
+    goldshire_test = {
+      lines = { { id = "gt_default", text = "It's the day you learn your second stance, the one for holding rather than hitting, and every warrior who's worth anything remembers it. I won't say more, except that you should go to it sober, because the other fellow won't be." } },
+      choices = { { text = "Sober it is. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    father = {
+      lines = { { id = "fa_default", text = "Then you'll have heard what I heard, about orcs that hit like falling trees and a mountain that burned for days. Mine came home from Blackrock Spire and never talked about it but once, and that once is why I teach shields." } },
+      choices = {
+        { text = "Mine never came home.", next = "father_lost" },
+        { text = "Mine talks about nothing else.", next = "BACK", reply = "Then listen anyway, even the tenth time, because one day you'll want to and he'll be gone.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father_lost = {
+      lines = { { id = "fl_default", text = "I'm sorry, recruit, truly, and there are more of you in this yard than you'd think. Learn to hold the shield the way he did, and some of what he was comes home in you." } },
+      choices = {
+        { text = "I'll fight the way he would have.", next = "BACK", reply = "Then he'd be proud, and so will I. Go on.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "I'll fight my own way, not his.", next = "BACK", reply = "Fair enough, and it's your right. Just keep the shield up, whatever way you fight.", fx = { align = { honor = -1 } } },
       },
     },
     advice = {
       lines = {
-        { id = "a_default", text = "Hit first and hit hard, and don't stop until it stops moving." },
+        { id = "a_default", text = "Hit first and hit hard, and don't stop until it stops moving, because a fight you leave half-finished has a habit of following you home." },
         { id = "a_green", when = { class = "WARRIOR", band = "Greenhorn" },
           text = "Charge in, then keep them close. A warrior at range is a corpse with good intentions." },
       },
       choices = {
         { text = "And if it doesn't stop moving?", next = "advice_more" },
-        { text = "Understood.", next = "BACK", fx = { trait = { brave = 1 } } },
-        { text = "Sounds simple enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Understood, Llane. Hit first and keep hitting.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "That sounds simple enough.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     advice_more = {
@@ -186,19 +255,25 @@ P:NPC {
     },
     veteran = {
       lines = {
-        { id = "v_default", text = "I can tell. You walked in here like the door owed you something. Tell me one thing the road taught you that I didn't." },
+        { id = "v_default", text = "I can tell, because you walked in here like the door owed you something. Tell me one thing the road taught you that I didn't, and I'll pass it on to the new ones." },
+        { id = "v_plate", when = { minLevel = 40 }, text = "I can tell, because you came in wearing plate and didn't clank once, which takes years. Tell me one thing the road taught you that I didn't, and I'll pass it on to the new ones." },
       },
       choices = {
-        { text = "That nobody fights fair.", next = "veteran_fair", fx = { affinity = 1 } },
+        { text = "That nobody fights fair, Llane.", next = "veteran_fair", fx = { affinity = 1 } },
         { text = "When to run.", next = "veteran_run", fx = { trait = { cautious = 1 }, affinity = 2 } },
+        { text = "That the berserker's stance is worth the cost.", next = "veteran_berserk", when = { minLevel = 30 } },
       },
     },
     veteran_fair = {
-      lines = { { id = "vf_default", text = "I told you that, and you didn't believe me. Nobody does until it costs them a tooth." } },
+      lines = { { id = "vf_default", text = "I told you that on your first morning, and you didn't believe me, but nobody does until it costs them a tooth." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     veteran_run = {
-      lines = { { id = "vr_default", text = "Good answer, better than mine. I'll be telling the new ones that, and taking the credit." } },
+      lines = { { id = "vr_default", text = "That's a good answer, and a better one than mine, so I'll be telling the new ones and taking the credit for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    veteran_berserk = {
+      lines = { { id = "vb_default", text = "Is it, now? I never learned it, because I was a shield man to the end, and Wu Shen in Stormwind will tell you I was right. Tell my recruits about it when they're older, and not one day sooner, or I'll have them charging the kobolds bare-chested." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     priest = {
@@ -212,11 +287,11 @@ P:NPC {
       },
     },
     priest_fight = {
-      lines = { { id = "pf_default", text = "Then you'll fight and heal yourself, and nobody will heal me. Pick a job and do it well." } },
+      lines = { { id = "pf_default", text = "Then you'll fight and heal yourself, and nobody will heal me, which is a poor bargain for both of us. Pick a job and do it well." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
     dwarf = {
-      lines = { { id = "dwarf_l", text = "No. I train humans to plant their feet, and I train dwarves to lift theirs now and then, because a dwarf who never steps gets surrounded. Different mistakes, same bruises." } },
+      lines = { { id = "dwarf_l", text = "No. I train humans to plant their feet, and I train dwarves to lift theirs now and then, because a dwarf who never steps gets surrounded. They make different mistakes, but they end up with the same bruises." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gnome = {
@@ -230,11 +305,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I train recruits in the Hall of Arms. Before that I was one. That's all the story you need." } },
+    background = { { id = "tp_bg", text = "I train recruits in the Hall of Arms, and before that I was one, and that's all the story a trainer needs." } },
     advice = { { id = "tp_ad", text = "Your shield arm will want to drop, and you mustn't let it. That's the whole lesson, and nobody learns it the first time." } },
-    northshire_abbey = { { id = "tp_abbey", text = "The brothers have the halls with books. I have the one with the dents in the floor." } },
-    kobolds = { { id = "t_kobolds", text = "Small, fast and cowardly, which makes them perfect practice." } },
-    _none = { { id = "t_none", text = "Do I look like a librarian?" } },
+    northshire_abbey = { { id = "tp_abbey", text = "The brothers have the halls with books in them, and I have the one with the dents in the floor. We each think ours is the more useful." } },
+    kobolds = { { id = "t_kobolds", text = "They're small and fast and cowardly, which makes them perfect practice for a recruit who's all three." } },
+    _none = { { id = "t_none", text = "Do I look like a librarian to you? Ask Brother Sammuel, or ask me about shields." } },
     echo_ridge = { { id = "tp_echo_ridge", text = "I send recruits to Echo Ridge when they think they're ready, and the kobolds tell them otherwise. The ones who come back humble are the ones worth training." } },
     second_war = { { id = "tp_second_war", text = "My father fought at Blackrock Spire in the Second War, and he said the orcs hit like falling trees. I teach shields because of him." } },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers pray and I drill, and between us the recruits leave here able to stand up in a fight and kneel after one. It's a good arrangement." } },

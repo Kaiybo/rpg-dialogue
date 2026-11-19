@@ -63,7 +63,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Well? The Senate sits in an hour, an' I'd like tae eat first." },
         { id = "h_again2", text = "Go on. I've another grievance or two left in me, if ye're askin'." },
-        { id = "h_again_gnome", when = { race = "Gnome" }, text = "Anythin' else? Quickly, now." },
+        { id = "h_again_gnome", when = { race = "Gnome" }, text = "Anythin' else? Be quick about it, for the Senate doesnae wait on anybody, tall or short." },
       },
       choices = {
         { text = "Senir Whitebeard sent me with his report.", next = "reports", when = { questActive = Q } },
@@ -74,6 +74,8 @@ P:NPC {
         { text = "What does the Senate actually do?", next = "senate" },
         { text = "My kin are Wildhammer, Senator.", next = "xwild", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } } },
         { text = "Have you thought more about that vote?", next = "vote_again", when = { heardLine = "barin_redstone.gv_default" } },
+        { text = "What exactly is this mountain owed, Senator?", next = "dw_owed", when = { race = "Dwarf" } },
+        { text = "Stormwind and Ironforge are allies, Senator. Aren't they?", next = "hu_allies", when = { race = "Human" } },
         { text = "I've business for the Senate.", next = "BUSINESS" },
         { text = "I'll leave you to the Senate.", next = "END" },
       },
@@ -307,6 +309,51 @@ P:NPC {
       fail = {
         { id = "f1", text = "Are ye threatenin' a Senator in the King's own hall, wi' his guard no' twenty paces off? Ye've more nerve than sense, an' I've a mind tae let them explain the difference." },
         { id = "f2", text = "A Redstone doesnae scare, {g:lad|lass}, we only take notes. Yers is a short one, an' it says ye're no' tae be trusted wi' anythin' that needs a steady head." },
+      },
+    },
+    dw_owed = {
+      lines = {
+        { id = "dwo_default", text = "Blood an' coin, an' a great deal o' both. We sent our sons tae every field o' the Second War an' half o' them came home in cairns, we took in the gnomes when their city drowned in its own poison, an' we've held the Dark Iron off the Loch Modan roads for two hundred years wi' no help from anyone. An' what does Ironforge get back? Letters, an' requests for more." },
+        { id = "dwo_miner", when = { origin = "dwarf_ironforge_miner" }, text = "Ye've dug the deeps, so ye know it better than the clerks do: this mountain gave the Alliance its iron, its rifles an' its sons, an' half o' them came home in cairns. Then we took in the gnomes an' held the Dark Iron off the roads, an' what we get back is letters askin' for more." },
+      },
+      choices = {
+        { text = "Then Ironforge should look to its own first.", next = "dw_owed_own", fx = { align = { honor = -1 } } },
+        { text = "An ally doesn't keep a ledger, Senator.", next = "dw_owed_ledger", fx = { align = { honor = 1 } } },
+        { text = "Who do you think owes the most?", next = "dw_owed_who" },
+      },
+    },
+    dw_owed_own = {
+      lines = {
+        { id = "dwoo_default", text = "Now there's a dwarf talkin' sense, an' I wish ye'd say it in the Senate where the King's men could hear it. I'll no' close the gates on anybody, mind, but I'd see every bar o' Ironforge silver weighed twice before it goes out them." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    dw_owed_ledger = {
+      lines = {
+        { id = "dwol_default", text = "Every ally keeps a ledger, {g:lad|lass}; the honest ones just admit it. But I'll grant ye this much: when the Horde was at our gates, it was human banners came up the road, an' I've no' forgotten that either, whatever the King thinks o' me." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    dw_owed_who = {
+      lines = {
+        { id = "dwow_default", text = "The Dark Iron owe us the most an' will pay the least, an' the Wildhammer owe us an apology they'll never make. Stormwind I'll forgive, for they're payin' in their own blood now, wi' a boy on the throne an' bandits in Westfall." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK", fx = { learn = { "dark_iron" } } },
+      },
+    },
+    hu_allies = {
+      lines = {
+        { id = "hua_default", text = "Allies, aye, an' I'll say it plain so ye can carry it home: Ironforge doesnae forget Lothar's men on the Dun Morogh roads in the Second War, an' Ironforge doesnae forget who sat in the warm while the gnomes drowned. Both are true, an' the Senate holds them both in the same hand." },
+      },
+      choices = {
+        { text = "Stormwind will answer if Ironforge calls. I'll see to it.", next = "BACK", reply = "Big words for one human, but I've known big words tae turn out true. I'll remember ye said them, an' so will the minutes o' the Senate.", fx = { align = { honor = 1 } } },
+        { text = "Stormwind has its own troubles. Ironforge can manage.", next = "BACK", reply = "Aye, it can, an' it will, an' it'll remember who said so. That's no' a threat, mind, only a senator's memory.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Senator.", next = "BACK" },
       },
     },
   },

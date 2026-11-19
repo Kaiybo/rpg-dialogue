@@ -292,7 +292,7 @@ P:NPC {
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I fought orcs who had warlocks behind 'em, an' I'll no' forget how that went. What d'ye want?" },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've trained here an' kept yer beasts out o' my yard. I'll no' cheer for ye, but I'll stop growlin'." },
     { id = "g_ha", text = "Ha! Another one wanderin' intae the Hall o' Arms. State yer business, an' stand up straight while ye do it." },
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Back for more punishment? Good; punishment's what makes a warrior." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Back for more punishment, are ye? Good, for punishment's what makes a warrior, an' I've plenty tae hand out." },
   },
 
   notice = {
@@ -380,6 +380,10 @@ P:NPC {
           text = "There's a warrior! A bit soft round the edges, but we'll hammer that out. What'll it be: trainin', or are ye just here tae admire the weapons?" },
         { id = "h_warrior_high", when = { class = "WARRIOR", minLevel = 40 },
           text = "Look at that, someone who survived my regimen an' kept goin'. I'll no' say I'm proud, for it'd go tae yer head, but I'm no' disappointed." },
+        { id = "h_stance", when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 },
+          text = "Ye've a second stance now, I'd wager, by the way ye're leanin' back on yer heels like a dwarf expectin' a hammer. Stand like that in my yard an' ye'll get one." },
+        { id = "h_brd", tags = { "news" }, when = { class = "WARRIOR", minLevel = 55 },
+          text = "There's Shadowforge ash on yer boots, or I'm a gnome. Ye've been down intae Blackrock Depths, haven't ye, an' come back up again, which is more than most o' the Ward's best can say." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Military Ward. Ye'd no' last a day o' my training, I'd wager, but I've seen fire win battles an axe couldnae." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I lost half my company in the Second War tae orcs wi' Gul'dan's warlocks at their backs. I'll train anyone the King sends me, but I'll no' pretend I like it." },
@@ -391,8 +395,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've trained warriors for longer than ye've been alive an' never once had yer kind come through, so dinnae expect me tae know what tae do wi' ye." },
       },
       again = {
-        { id = "h_again", text = "What else? Quick, now; my students are standin' about." },
-        { id = "h_again2", text = "Spit it out, for warriors don't dither." },
+        { id = "h_again", text = "What else? Quick, now, for my students are standin' about an' they'll take root if I let them." },
+        { id = "h_again2", text = "Spit it out, then, for warriors don't dither, an' neither do their trainers." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -400,6 +404,10 @@ P:NPC {
         { text = "What makes a good warrior?", next = "good" },
         { text = "I'd last a day, I'll wager.", next = "wager", when = { ["not"] = { class = "WARRIOR" } } },
         { text = "What comes next for me, trainer?", next = "next", when = { class = "WARRIOR" } },
+        { text = "Defensive Stance makes me feel slow, Kelstrum.", next = "ks_def", when = { class = "WARRIOR", minLevel = 10, maxLevel = 29 } },
+        { text = "Is Berserker Stance worth what it costs?", next = "ks_berserk", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Mortal Strike, Bloodthirst or Shield Slam, trainer?", next = "ks_deep", when = { class = "WARRIOR", minLevel = 40 } },
+        { text = "I've been down into Blackrock Depths.", next = "ks_brd", when = { class = "WARRIOR", minLevel = 55 } },
         { text = "A paladin can hold a line as well as any warrior.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do warriors and mages really need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -475,6 +483,58 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
+    ks_def = {
+      lines = {
+        { id = "ksd_default", text = "Slow's the point, for a dwarf in Defensive Stance is a door that's been bolted, an' nobody admires a door for its speed. Ye'll hit softer an' take less, an' every blow they land on yer shield buys ye rage for a Sunder or a Revenge." },
+        { id = "ksd_human", when = { race = "Human" }, text = "Slow's the point, an' humans hate it, for ye're a reachin', hurryin' people. In Defensive Stance ye stop reachin' an' let them come tae ye, an' every blow they land on yer shield buys ye rage for a Sunder or a Revenge." },
+      },
+      choices = {
+        { text = "Revenge? Tell me about that one.", next = "ks_revenge" },
+        { text = "I'll be the bolted door, then.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ks_revenge = {
+      big = true,
+      lines = { { id = "ksr_default", text = "When ye block or dodge or parry, ye get one swing back that hits like a grudge, an' a dwarf understands grudges better than anybody. Some o' my lads think it's dishonourable tae wait for the other fellow tae strike first; what d'ye think?" } },
+      choices = {
+        { text = "Waiting for the first blow is honest fighting.", next = "BACK", reply = "Aye, an' it's how Ironforge has always fought, wi' the gate shut till they knock.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather strike first and skip the waiting.", next = "BACK", reply = "Then ye'll be in Battle Stance more than mine, an' that's nae crime. Mind yer flank.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ks_berserk = {
+      big = true,
+      lines = {
+        { id = "ksb_default", text = "It's worth every drop o' blood it costs ye, an' it costs plenty, for ye'll take more hurt an' give twice as much back. Kelv thinks it's a fever an' Bilban thinks it's bad engineerin', but I've seen a berserker clear a trogg tunnel by himself, so ye can guess where I stand." },
+        { id = "ksb_whirl", when = { questDone = TODO_QUEST("Cyclonian") }, text = "Ye're askin' me that wi' a whirlwind weapon on yer back from Bath'rah's forge? Then ye already know the answer, an' I'd like tae see ye spin that thing in the Ward, away from the windows." },
+      },
+      choices = {
+        { text = "Then I'll fight that way and let them bleed.", next = "BACK", reply = "Ha! Now ye're talkin' like a dwarf o' the old wars. Mind ye come home.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "I'll keep it for the end of a fight, no sooner.", next = "BACK", reply = "Kelv's been at ye, I see. Fair enough, it's a wise man's answer, even if it's dull.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ks_deep = {
+      lines = {
+        { id = "ksdp_default", text = "Ye're askin' which road tae walk tae the end, an' I'll tell ye honest: Mortal Strike for a two-handed axe an' a cold head, Bloodthirst for a temper ye cannae keep in, an' Shield Slam for the dwarf who stands at the front o' every fight in Khaz Modan. Each one's a lifetime's work, so pick the one ye'll still love when ye're old." },
+      },
+      choices = {
+        { text = "Shield Slam. I'll stand at the front.", next = "BACK", reply = "Good, the dungeons o' this world are cryin' out for ye. Kelv'll be pleased.", fx = { affinity = 1 } },
+        { text = "Mortal Strike. One great blow at a time.", next = "BACK", reply = "My own road, an' a fine one. Keep yer axe sharp an' yer head cold.", fx = { affinity = 1 } },
+        { text = "Bloodthirst. I've the temper for it.", next = "BACK", reply = "Aye, I'd noticed, an' so had my practice dummies.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    ks_brd = {
+      big = true,
+      narr = "The noise in the yard drops a little, and he doesn't shout at anyone to start it up again.",
+      lines = { { id = "ksbr_default", text = "Then ye've walked through Thaurissan's city an' seen what the Dark Irons made o' themselves under that mountain. I fought their kin at Grim Batol in the Second War, an' I've never once been down there, so tell me plain: is there anythin' left in them worth savin'?" } },
+      choices = {
+        { text = "Some of them. Not all are Ragnaros's slaves.", next = "BACK", reply = "Hm. Ye'd no' hear that said in this Ward often, but I'll think on it.", fx = { align = { light = 1 } } },
+        { text = "Nothing. They've earned whatever comes for them.", next = "BACK", reply = "Aye, that's what I've thought since I first grew a beard, an' it's good tae hear it from someone who's seen.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not talk about it yet.", next = "BACK" },
+      },
+    },
     paladin = {
       lines = {
         { id = "pa_default", text = "Hold it, aye, an' then stop tae pray over the fella beside ye, an' the line's got a hole in it. I'm teasin' ye, mostly; Brandur Ironhammer's paladins are the only ones who come in here an' don't flinch when I shout." },
@@ -500,12 +560,12 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I hear a fair bit from the soldiers comin' back through the Ward. Here's what's worth knowin'." } },
-    background = { { id = "tp_bg", text = "I train warriors in the Hall o' Arms. That's my story, an' it's got a lot o' shoutin' in it." } },
-    advice = { { id = "tp_ad", text = "Get up. Whatever knocks ye down, get up before it comes back for a second look." } },
+    background = { { id = "tp_bg", text = "I train warriors in the Hall o' Arms, an' that's my whole story, though it's got a great deal o' shoutin' in it." } },
+    advice = { { id = "tp_ad", text = "Get up, whatever knocks ye down, an' get up before it comes back for a second look." } },
     second_war = { { id = "tp_second_war", text = "The Second War taught me that soldiers who train hard come home, an' soldiers who dinnae, don't. That's the whole o' my regimen." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The troll arena in Stranglethorn's a fine place tae test yer edge, if ye're tired o' livin'. I've sent a few o' my best there, an' they came back meaner." } },
     scourge = { { id = "tp_scourge", text = "Ye'll want a hammer fer the dead, no' a sword, for bones break better than they cut. Learn that here or learn it in the Plaguelands, an' I know which I'd pick." } },
-    _none = { { id = "tp_none", text = "Do I look like a librarian? Ask in the Hall o' Explorers." } },
+    _none = { { id = "tp_none", text = "Do I look like a scholar tae ye? Go an' ask in the Hall o' Explorers, an' leave me tae my shoutin'." } },
   },
 }
 
@@ -523,7 +583,7 @@ P:NPC {
 
   greetings = {
     { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry, in that order, for filing purposes." },
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Ah, a warrior unit, returning for calibration. Excellent." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Ah, a warrior unit returning for calibration, which is excellent, because I've revised the diagrams since your last visit." },
   },
 
   notice = {
@@ -627,15 +687,21 @@ P:NPC {
           text = "A rogue! Statistically speaking, rogues are the most likely to try climbing the training dummies, so please don't." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'll warn you that the Military Ward's equipment isn't rated for whatever is making my gauges twitch right now, so please keep your companion off my machines." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken, and a fascinating one at that." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Unusual. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, which is a most unusual configuration. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
+        { id = "h_stance", when = { class = "WARRIOR", minLevel = 10, maxLevel = 29 },
+          text = "You've acquired a second operating mode since I last measured you, and you switch into it about a full second too slowly. We'll address that, with diagrams." },
+        { id = "h_whirl", when = { class = "WARRIOR", minLevel = 30, maxLevel = 39 },
+          text = "You've reached the point in a warrior's design where the Fray Island test becomes relevant, and I've prepared a pamphlet. Nobody reads it, but I've prepared it." },
+        { id = "h_plate", when = { class = "WARRIOR", minLevel = 40 },
+          text = "Plate! Your load has increased by roughly forty percent, and yet your footwork has only degraded by eleven, which is a figure I'd frame if I had a wall." },
         { id = "dd_hk", when = { honorKills = { min = 100 }, faction = "Alliance" },
           text = "The battlefield reports put you at over a hundred honorable kills. A fine figure, though I'd want to see the technique behind it before I called it efficient." },
       },
       again = {
-        { id = "h_again", text = "Further inquiries? Please proceed." },
-        { id = "h_again2", text = "Next item on the agenda?" },
+        { id = "h_again", text = "Have you further inquiries? Please proceed, and I'll note them in the margin." },
+        { id = "h_again2", text = "What is the next item on the agenda? I've left room for several." },
       },
       choices = {
         { text = "A hundred kills, Bilban. Want to check my technique?", next = "dd_bb_hk", when = { honorKills = { min = 100 }, faction = "Alliance" } },
@@ -643,6 +709,10 @@ P:NPC {
         { text = "Why does a gnome take up arms?", next = "why" },
         { text = "Combat sounds a lot like engineering, the way you put it.", next = "engineering" },
         { text = "Calibrate me, Bilban. Where am I weakest?", next = "calib", when = { class = "WARRIOR" } },
+        { text = "Explain stances to me the way you'd explain a machine.", next = "bb_stances", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "Whirlwind looks like madness to me.", next = "bb_whirl", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Should gnome warriors be retaking Gnomeregan?", next = "bb_gnomeregan", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "Kelstrum says your diagrams are rubbish.", next = "bb_kelstrum", when = { race = "Dwarf", class = "WARRIOR" } },
         { text = "Why not engineering, like the rest of us?", next = "gnome", when = { race = "Gnome", ["not"] = { class = "WARRIOR" } } },
         { text = "Why would a rogue climb your training dummies?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has anything you couldn't explain ever wrecked your machines, Bilban?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -652,6 +722,52 @@ P:NPC {
         { text = "What would you correct in a druid's way of fighting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think the elements make a shaman lazy, Bilban?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Bilban.", next = "END" },
+      },
+    },
+    bb_stances = {
+      lines = {
+        { id = "bbs_default", text = "Battle Stance is the standard setting, balanced for output and durability, and Defensive Stance trades output for a reinforced chassis. Berserker Stance, which you'll acquire on Fray Island, removes the safety catch entirely, and I've never approved of removing safety catches, though I've done it myself twice." },
+        { id = "bbs_low", when = { maxLevel = 29 }, text = "Battle Stance is the standard setting, balanced for output and durability, and Defensive Stance trades output for a reinforced chassis. There's a third setting later, which removes the safety catch, but we'll file that under future upgrades for now." },
+      },
+      choices = {
+        { text = "And switching between them?", next = "bb_switch" },
+        { text = "Removing the safety catch sounds like fun.", next = "BACK", reply = "That is what every gnome said in Gnomeregan before the incident. I'll say no more.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bb_switch = {
+      big = true,
+      lines = { { id = "bbsw_default", text = "Switching dumps most of your stored rage, which is a dreadful inefficiency in the design, and I've written to nobody in particular about it. So you must decide in advance whether you're a warrior who switches often and wastes, or one who commits and risks being wrong." } },
+      choices = {
+        { text = "I'll commit, and accept the risk.", next = "BACK", reply = "Bold, and very gnomish, if I'm honest. I'll note your preference.", fx = { align = { order = 1 } } },
+        { text = "I'll switch as often as the fight demands.", next = "BACK", reply = "Adaptive, if wasteful. Kelstrum would approve, which worries me slightly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bb_whirl = {
+      lines = {
+        { id = "bbw_default", text = "It is rotational force applied to every adjacent target at once, which is beautiful mathematics and terrible for the balance of whoever performs it. I've measured warriors after a Whirlwind, and they lean eleven degrees to the left for a full second, so plan your next step accordingly." },
+        { id = "bbw_cyclonian", when = { questDone = TODO_QUEST("Cyclonian") }, text = "And yet you carry a weapon made from the Cyclonian's heart, which I would very much like to measure. Rotational force applied to every target at once is beautiful mathematics, and terrible for your balance, so lean right afterwards." },
+      },
+      choices = {
+        { text = "Lean right after a spin. Noted.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "I'll spin until nothing's left standing.", next = "BACK", reply = "Then make sure that includes you. Statistically, it often doesn't.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    bb_gnomeregan = {
+      big = true,
+      lines = { { id = "bbg_default", text = "Eventually, yes, and I've drawn up three assault plans, all of which require more gnome warriors than currently exist. Mekkatorque wants it back by cleverness, and I want it back by cleverness and a very large number of shields, and Thermaplugg will be expecting neither." } },
+      choices = {
+        { text = "Then I'll be one of the shields.", next = "BACK", reply = "Splendid! That brings the total to forty-one. We'll need several thousand more.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Let the radiation have it. We build anew.", next = "BACK", reply = "That's a defensible engineering position, and it breaks my heart a little. Noted.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bb_kelstrum = {
+      lines = { { id = "bbk_default", text = "Kelstrum says that about everything that isn't shouting, and yet I've caught him copying my footwork chart onto the back of a ration list. A dwarf who stands like a wall needs a gnome to tell him where the wall has cracks, and I've told him, at length, with labels." } },
+      choices = {
+        { text = "Show me the cracks in my wall, then.", next = "calib" },
+        { text = "I'll tell him you said so.", next = "BACK", reply = "Please don't. He'll want to spar, and I'll have to win again.", fx = { trait = { witty = 1 } } },
       },
     },
     why = {
@@ -719,7 +835,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I have catalogued a number of facts, of varying reliability. Select one." } },
+    knows = { { id = "tp_knows", text = "I have catalogued a number of facts, of varying reliability, so please select one and I'll tell you its error margin." } },
     background = { { id = "tp_bg", text = "I left Gnomeregan with the rest, learned to fight, and now I train others to do it more efficiently. That is the summary." } },
     advice = { { id = "tp_ad", text = "Check your equipment's tolerances before a fight, not during. During is very inconvenient." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The swordplay I teach was born in Gnomeregan's practice halls, where we learned to fight in tight tunnels with short blades. That's why I'm so good at it, and why the troggs aren't." } },

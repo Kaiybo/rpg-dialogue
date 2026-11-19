@@ -817,3 +817,236 @@ P:Thread {
     },
   },
 }
+
+-- Harry's list (Alliance warriors, 3-30). Willem Tarn, an Elwynn recruit (original), learned his
+-- stance from Llane or Lyria, took Bartleby's mug off him for Harry Burlguard, and marched west
+-- with the army. In Westfall he folded his tabard and walked up Sentinel Hill to Gryan's farmers.
+-- Harry keeps a list of the students he sent off and can't decide whether Willem belongs on it;
+-- the player tells him whether the lad broke faith or kept it.
+P:Thread {
+  id = "war_willem",
+  theme = "A Stormwind recruit took off his tabard in Westfall and picked up a militia spear, and the old soldiers can't agree whether he deserted or stood his ground.",
+  title = "Harry's list",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A recruit named Willem Tarn learned his stance in Elwynn and marched west with the army, and his old trainers go quiet when they say his name. Harry Burlguard in Old Town taught him last, so he'll know the rest of it.",
+      third = "{name} heard of Willem Tarn, an Elwynn recruit who marched west with the army, and whose old trainers went quiet at his name." },
+    unfolding = { first = "Harry Burlguard keeps a list of the students he sent off to fight. The army writes that Willem Tarn deserted in Westfall, and Gryan Stoutmantle says he walked up Sentinel Hill with his tabard folded and now drills the farmers every morning.",
+      third = "{name} learned that Willem Tarn had left the army in Westfall for Gryan Stoutmantle's militia, and that Harry Burlguard couldn't decide whether his name belonged on his list." },
+    resolved = { first = "I told Harry that Willem kept faith with the people his oath was meant to protect. He read the lad's name with the rest of his list that night, in an empty tavern, and poured a second pint for it.",
+      third = "{name} told Harry Burlguard that Willem Tarn had kept faith, and Harry read the name with the rest of his list." },
+    soured = { first = "I told Harry that a soldier doesn't choose his war, and that Willem broke his oath. He took a pen to his list and crossed the name out, and he didn't look up again while I was there.",
+      third = "{name} told Harry Burlguard that Willem Tarn had broken his oath, and Harry struck the name from his list." },
+  },
+  npcs = { "llane", "lyria", "burlguard", "gryan" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Harry that Willem kept faith with Westfall's people, and Harry read his name with the rest of the list.",
+    soured = "The player told Harry that Willem broke his oath, and Harry struck his name from the list.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Llane taught Willem to stand, Harry taught him to keep the people behind him alive, and Gryan says that's exactly what he's doing. The army calls it desertion all the same.",
+    third = "{name} had followed Willem Tarn from Elwynn's training yards to Sentinel Hill, and found that nobody could agree what to call what he'd done.",
+  },
+  beats = {
+    {
+      id = "b1_llane", npc = "llane",
+      when = { class = "WARRIOR", minLevel = 3, thread = { id = "war_willem", notBeat = "b1_llane" }, ["not"] = { thread = { id = "war_willem", beat = "b1_lyria" } } },
+      text = "Feet apart, and hold it there while I tell you something. The best recruit I ever drilled in this yard was a Northshire lad called Willem Tarn, and he marched off to Westfall with the army and never wrote back. Harry Burlguard in Old Town had him last, if you ever want to know the rest of it.",
+      fx = { thread = { id = "war_willem", beat = "b1_llane", state = "stirring" } },
+    },
+    {
+      id = "b1_lyria", npc = "lyria",
+      when = { class = "WARRIOR", minLevel = 6, thread = { id = "war_willem", notBeat = "b1_lyria" }, ["not"] = { thread = { id = "war_willem", beat = "b1_llane" } } },
+      text = "Keep your shield up while I talk, because this is a story about a shield. I sent a Goldshire boy named Willem Tarn on to Harry Burlguard, the same as I'll send you, and he had the finest shield arm I ever trained. The army took him west, and now there's a word they use about him in the barracks that I won't say in my own yard.",
+      fx = { thread = { id = "war_willem", beat = "b1_lyria", state = "stirring" } },
+    },
+    {
+      id = "b2_burlguard", npc = "burlguard",
+      when = { class = "WARRIOR", any = { { thread = { id = "war_willem", beat = "b1_llane" } }, { thread = { id = "war_willem", beat = "b1_lyria" } } },
+               ["not"] = { thread = { id = "war_willem", beat = "b2_burlguard" } } },
+      text = "So someone's told you about Willem. He sat on that stool you're on and took Bartleby's mug off him in two swings, and the army sent him to Westfall to guard the grain roads. Now his sergeant writes that he took off his tabard one night and walked up the hill to Stoutmantle's farmers, and I've a list of my lads that I read when the place is empty, and I can't decide whether his name belongs on it.",
+      fx = { thread = { id = "war_willem", beat = "b2_burlguard", state = "unfolding" } },
+    },
+    {
+      id = "b3_gryan", npc = "gryan",
+      when = { class = "WARRIOR", minLevel = 10, thread = { id = "war_willem", beat = "b2_burlguard" }, ["not"] = { thread = { id = "war_willem", beat = "b3_gryan" } } },
+      text = "You'll be asking after Willem Tarn, I expect, because he said someone from Old Town would come up this hill one day. He walked in with his tabard folded under his arm and told me he'd watched a Moonbrook family go hungry beside the grain cart he was guarding, and now he drills my farmers every morning with a spear in one hand and a hayfork in the other. If Stormwind wants him back, it can come and ask, and it can bring the grain while it's at it.",
+      fx = { thread = { id = "war_willem", beat = "b3_gryan" } },
+    },
+  },
+}
+
+-- The fever in the blood (Horde warriors, 4-30). Garvak (original), a camp-born grunt Frang
+-- trained in the Den, fights like the old Horde: he failed Uzzek's path of defense three times
+-- and won the fourth by charging a Kolkar pack alone, and two grunts who followed him died.
+-- Kargal calls it the demon's fever; Grezz calls it the Horde's own rage. Uzzek asks the player
+-- whether Garvak should master the rage or let it run.
+P:Thread {
+  id = "war_garvak",
+  theme = "A camp-born grunt fights like the old Horde, and the veterans who remember the demon's blood can't agree whether his rage is the demon's or his own.",
+  title = "The fever in the blood",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A camp-born grunt called Garvak learned to fight in the Den at the Valley of Trials, and when the fever takes him he can't hear anyone shouting. He was sent to old Uzzek at Far Watch to learn to stand still.",
+      third = "{name} heard of Garvak, a camp-born grunt who couldn't hear his trainers once the fever of battle took him." },
+    unfolding = { first = "Garvak failed Uzzek's path of defense three times, and the fourth time he charged a Kolkar pack alone and won, and two grunts who ran after him didn't come back. Kargal calls it the demon's old fever, and Grezz Ragefist calls it the Horde's own rage.",
+      third = "{name} learned how Garvak's charge had cost two grunts their lives, and heard the veterans argue over whether his rage was the demon's or his own." },
+    resolved = { first = "I told Uzzek that Garvak must master the rage, because a rage that rules you is only another leash. He said he'd teach the whelp to stand still if it took him five tries more.",
+      third = "{name} told Uzzek that Garvak must master his rage, and Uzzek set out to teach him to stand still." },
+    soured = { first = "I told Uzzek to let the rage run, because it was ours before any demon came. He sent Garvak back to the Kolkar line, and he said he'd remember who told him to if they carry the whelp in on a shield.",
+      third = "{name} told Uzzek to let Garvak's rage run, and Uzzek sent him back to the Kolkar line." },
+  },
+  npcs = { "frang", "sorek", "uzzek", "kargal", "grezz" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Uzzek that Garvak must master his rage, and Uzzek set out to teach him to stand still.",
+    soured = "The player told Uzzek to let Garvak's rage run, and Uzzek sent him back to the Kolkar line.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Frang couldn't make Garvak hear him, Uzzek couldn't make him stand, and Kargal and Grezz can't agree whose rage it is. Every warrior in the Horde fights with some of the same fire.",
+    third = "{name} had heard four veterans speak of Garvak's rage, and found that every warrior in the Horde carried some of the same fire.",
+  },
+  beats = {
+    {
+      id = "b1_frang", npc = "frang",
+      when = { class = "WARRIOR", minLevel = 4, thread = { id = "war_garvak", notBeat = "b1_frang" }, ["not"] = { thread = { id = "war_garvak", beat = "b1_sorek" } } },
+      text = "You swing hard, recruit, and that is good, but I have seen harder. A camp-born whelp called Garvak learned to fight in this Den, and when the fever took him he could not hear me shouting, so I sent him out to old Uzzek at Far Watch to learn to stand still.",
+      fx = { thread = { id = "war_garvak", beat = "b1_frang", state = "stirring" } },
+    },
+    {
+      id = "b1_sorek", npc = "sorek",
+      when = { class = "WARRIOR", minLevel = 10, thread = { id = "war_garvak", notBeat = "b1_sorek" }, ["not"] = { thread = { id = "war_garvak", beat = "b1_frang" } } },
+      text = "You're swinging with your temper, grunt, and I've seen where that leads. Frang sent a camp-born orc called Garvak through this yard on his way to Uzzek at Far Watch, and Grezz loved the way he fought, and I watched him and worried.",
+      fx = { thread = { id = "war_garvak", beat = "b1_sorek", state = "stirring" } },
+    },
+    {
+      id = "b2_uzzek", npc = "uzzek",
+      when = { class = "WARRIOR", any = { { thread = { id = "war_garvak", beat = "b1_frang" } }, { thread = { id = "war_garvak", beat = "b1_sorek" } } },
+               ["not"] = { thread = { id = "war_garvak", beat = "b2_uzzek" } } },
+      text = "Garvak came to me three times for the path of defense, and three times he charged when I told him to stand. The fourth time he took a Kolkar pack alone and won, and two grunts who ran after him didn't come back. The old ones say that's the demon's blood still talking, and the young ones say it's only an orc being an orc, and I've stopped knowing which.",
+      fx = { thread = { id = "war_garvak", beat = "b2_uzzek", state = "unfolding" } },
+    },
+    {
+      id = "b3_kargal", npc = "kargal",
+      when = { class = "WARRIOR", thread = { id = "war_garvak", beat = "b2_uzzek" }, ["not"] = { thread = { id = "war_garvak", beat = "b3_kargal" } } },
+      text = "Garvak's out on the Kolkar line with my patrols now, and he's the best killer I've got and the worst soldier. I was a grunt when the old Horde still carried the demon's fever, and I know that look in his eyes, though I'll be cursed if I can tell you whether it's the fever's or his own.",
+      fx = { thread = { id = "war_garvak", beat = "b3_kargal" } },
+    },
+    {
+      id = "b3_grezz", npc = "grezz",
+      when = { class = "WARRIOR", thread = { id = "war_garvak", beat = "b2_uzzek" }, ["not"] = { thread = { id = "war_garvak", beat = "b3_grezz" } } },
+      text = "Uzzek's been worrying about Garvak, has he? That old shield-hugger thinks every orc who fights angry is still carrying the demon, but the rage was ours long before Gul'dan ever poured a cup, and it'll be ours long after. Let the whelp charge, I say, and let the Kolkar learn to run.",
+      fx = { thread = { id = "war_garvak", beat = "b3_grezz" } },
+    },
+  },
+}
+
+-- The unbeaten (warriors of either faction, 30-60). Harlan Vey (original), an Arathi man, is the
+-- only warrior ever to walk off Klannoc's grate unbeaten; asked why he fought, he said he was
+-- good at it. His prize purses sit unspent in Fuzruckle's vault, and Bath'rah forged him a
+-- whirlwind axe before he went north looking for something worth it. Klannoc asks the player
+-- the same question, and the answer decides the ending.
+P:Thread {
+  id = "war_harlan",
+  theme = "Klannoc Macleod asks every warrior why they fight, and the only one who never lost on his grate never had an answer.",
+  title = "The unbeaten",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Klannoc Macleod asks every warrior on Fray Island why they fight. The only one who ever walked off his grate unbeaten, an Arathi man called Harlan Vey, said it was because he was good at it, and Klannoc has been sorry ever since.",
+      third = "{name} heard from Klannoc Macleod of Harlan Vey, the only warrior to leave Fray Island unbeaten, who fought because he was good at it." },
+    unfolding = { first = "Harlan Vey's prize purses sit unspent in a Ratchet vault beside a letter addressed to nobody. Bath'rah forged him a whirlwind axe, and he took it north into the Plaguelands to find something worth cutting.",
+      third = "{name} followed Harlan Vey's trail from Fuzruckle's vault to Bath'rah's forge, and learned he had gone north looking for something worth his axe." },
+    resolved = { first = "Klannoc asked me why I fight, and I told him it's for the people standing behind me. He said Harlan never had an answer like that, and that his grate is open to me whenever I want it.",
+      third = "{name} told Klannoc Macleod that {name} fought for the people behind them, an answer Harlan Vey never had." },
+    soured = { first = "Klannoc asked me why I fight, and I told him it's because I'm good at it, the same as Harlan. He said he'd keep an eye on the sea for me, the way he still keeps one on it for him.",
+      third = "{name} told Klannoc Macleod that {name} fought because {name} was good at it, and Klannoc said he'd watch the sea for {name} as he did for Harlan." },
+  },
+  npcs = { "klannoc", "fuzruckle", "dal_bathrah" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Klannoc they fight for the people standing behind them, an answer Harlan Vey never had.",
+    soured = "The player told Klannoc they fight because they're good at it, and he said he'd watch the sea for them as he does for Harlan.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "A grate he never lost on, a vault of purses he never spent, an axe he took north to find a use for: Harlan Vey had everything a warrior wants except a reason.",
+    third = "{name} had followed Harlan Vey from Fray Island to Ratchet to Alterac, and found a warrior who had everything except a reason to fight.",
+  },
+  beats = {
+    {
+      id = "b1_klannoc", npc = "klannoc",
+      when = { class = "WARRIOR", minLevel = 30, thread = { id = "war_harlan", notBeat = "b1_klannoc" } },
+      text = "Before you step on my grate, I'll ask you what I ask everyone, which is why you fight. The only warrior who ever walked off this island unbeaten, a big Arathi man called Harlan Vey, told me it was because he was good at it, and I've been sorry ever since that I let him leave with that answer.",
+      fx = { thread = { id = "war_harlan", beat = "b1_klannoc", state = "stirring" } },
+    },
+    {
+      id = "b2_fuzruckle", npc = "fuzruckle",
+      when = { class = "WARRIOR", minLevel = 30, thread = { id = "war_harlan", beat = "b1_klannoc" }, ["not"] = { thread = { id = "war_harlan", beat = "b2_fuzruckle" } } },
+      text = "Harlan Vey? Sure, I know the name, pal, because his vault's been sittin' in the back for years with the rent paid ten years ahead, and that's the only reason I remember anybody. There's nothin' in it but his prize purses from Fray Island, every one of 'em unspent, and a letter addressed to nobody, and between you and me that's the saddest account on my books.",
+      fx = { thread = { id = "war_harlan", beat = "b2_fuzruckle" } },
+    },
+    {
+      id = "b3_bathrah", npc = "dal_bathrah",
+      when = { class = "WARRIOR", minLevel = 30, thread = { id = "war_harlan", beat = "b1_klannoc" }, ["not"] = { thread = { id = "war_harlan", beat = "b3_bathrah" } } },
+      text = "Harlan Vey, yes, I remember him, mon. I forged him a whirlwind axe after he brought me de wind lord's heart, and I asked him what he would cut with it, and he said he would find out. He went north into de Plaguelands looking for something worth de axe, and de wind never told me if he found it.",
+      fx = { thread = { id = "war_harlan", beat = "b3_bathrah", state = "unfolding" } },
+    },
+  },
+}
+
+-- A Bronzebeard in the Gorge (dwarves, 10-50). Haldin Forgebrow (original), a Thelsamar
+-- mountaineer, was taken by Dark Irons on the Wetlands road and sold east to the Searing Gorge.
+-- The Thorium Brotherhood cut him free, and now he's asked to swear their oath. Overseer Oilfist
+-- asks the dwarf player whether to take it or send him home to Ironforge.
+P:Thread {
+  id = "dwarf_haldin",
+  theme = "An Ironforge mountaineer taken by the Dark Irons is alive among the Thorium Brotherhood, and he isn't sure he wants to come home.",
+  title = "A Bronzebeard in the Gorge",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Mountaineer Kadrell says a name is missing from the Thelsamar road. Haldin Forgebrow took a letter north to Menethil and never came back, and he's on no list of the dead.",
+      third = "{name} heard from Mountaineer Kadrell of Haldin Forgebrow, who walked the Thelsamar watch until he vanished on the road to Menethil." },
+    unfolding = { first = "Captain Stoutfist's mountaineers found Haldin's horn in a Dark Iron camp at Dun Modr, and the Dark Irons sell what they take east to the Searing Gorge. Archesonus says a few Dark Irons up there have remembered they were our kin once.",
+      third = "{name} traced Haldin Forgebrow from a Dark Iron camp at Dun Modr toward the Searing Gorge, where a few Dark Irons had remembered their old kinship." },
+    resolved = { first = "Haldin is alive at Thorium Point and asked to swear the Brotherhood's oath. I told Oilfist to take it, because kin is whoever broke your chains, and he said he'd write to Haldin's mother himself.",
+      third = "{name} told Overseer Oilfist to take Haldin Forgebrow's oath, and Haldin became the first Bronzebeard sworn to the Thorium Brotherhood." },
+    soured = { first = "Haldin is alive at Thorium Point and asked to swear the Brotherhood's oath. I told Oilfist to send him home, because his oath belongs to Ironforge, and he put him on the next caravan.",
+      third = "{name} told Overseer Oilfist to send Haldin Forgebrow home to Ironforge, and Haldin left Thorium Point on the next caravan." },
+  },
+  npcs = { "kadrell", "stoutfist", "archesonus", "oilfist" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Oilfist to take Haldin's oath, and Haldin became the first Bronzebeard sworn to the Thorium Brotherhood.",
+    soured = "The player told Oilfist to send Haldin home, and Haldin left Thorium Point on the next caravan to Ironforge.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "A watch post in Loch Modan, a horn at Dun Modr, an old historian's library and a Dark Iron forge: Haldin's road runs through every grudge my people ever kept.",
+    third = "{name} had followed Haldin Forgebrow's road from Loch Modan to the Searing Gorge, through every old grudge between the dwarven clans.",
+  },
+  beats = {
+    {
+      id = "b1_kadrell", npc = "kadrell",
+      when = { race = "Dwarf", minLevel = 10, thread = { id = "dwarf_haldin", notBeat = "b1_kadrell" } },
+      text = "Ye've the look o' a Dun Morogh dwarf, so ye'll understand me when I say there's a name missin' from this road. Haldin Forgebrow walked the Thelsamar watch wi' me for six years, until he took a letter north tae Menethil an' never came back, an' he's on no list o' the dead, which is worse than if he were.",
+      fx = { thread = { id = "dwarf_haldin", beat = "b1_kadrell", state = "stirring" } },
+    },
+    {
+      id = "b2_stoutfist", npc = "stoutfist",
+      when = { race = "Dwarf", minLevel = 20, thread = { id = "dwarf_haldin", beat = "b1_kadrell" }, ["not"] = { thread = { id = "dwarf_haldin", beat = "b2_stoutfist" } } },
+      text = "Forgebrow? Aye, my lads found his horn at Dun Modr, in a Dark Iron camp wi' a dozen other things that didnae belong tae them. The Dark Irons sell what they take east tae the Searing Gorge, tae dig for their fire god, an' I'll tell ye straight, nobody comes back from the Gorge.",
+      fx = { thread = { id = "dwarf_haldin", beat = "b2_stoutfist", state = "unfolding" } },
+    },
+    {
+      id = "b3_archesonus", npc = "archesonus",
+      when = { race = "Dwarf", minLevel = 15, thread = { id = "dwarf_haldin", beat = "b1_kadrell" }, ["not"] = { thread = { id = "dwarf_haldin", beat = "b3_archesonus" } } },
+      text = "I could hear Haldin Forgebrow's name in your step before you said it, because his mother has come to my desk with the same question every month for three years. I tell her what the histories tell me, that the Dark Irons were our kin before the War of the Three Hammers, and that a few of them up in the Searing Gorge have remembered it. They call themselves the Thorium Brotherhood, and they've cut more than one of our folk out of Thaurissan's chains.",
+      fx = { thread = { id = "dwarf_haldin", beat = "b3_archesonus" } },
+    },
+    {
+      id = "b4_oilfist", npc = "oilfist",
+      when = { race = "Dwarf", minLevel = 43, thread = { id = "dwarf_haldin", beat = "b2_stoutfist" }, ["not"] = { thread = { id = "dwarf_haldin", beat = "b4_oilfist" } } },
+      text = "Haldin Forgebrow? Aye, he's here at the third forge, an' ye'll have heard him before ye saw him, for he sings at the anvil. We cut him out o' the Cauldron's chains two winters back, an' now he's asked tae swear tae the Brotherhood, which no Bronzebeard has ever done, an' I've no' given him an answer yet.",
+      fx = { thread = { id = "dwarf_haldin", beat = "b4_oilfist" } },
+    },
+  },
+}

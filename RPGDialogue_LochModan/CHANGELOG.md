@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-19)
+- Ten Loch Modan dwarves deepened (Bluntnose, Stormpike, Ironband, Rockgar...); five doubled NPCs removed.
+
 ## 1.25.0 (2026-11-19)
 - Mountaineer Stormpike greets Stormpike-origin dwarves and talks about their shared kin.
 

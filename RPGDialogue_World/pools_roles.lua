@@ -3349,6 +3349,16 @@ P:Pool {
       text = "A dwarf, and built like a gatehouse. Your people were holding lines in the Second War before most of my students were born, so I'll not teach you to stand; I'll teach you when to move." },
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "WARRIOR" },
       text = "An orc warrior. Your people learned to fight in harder schools than mine, so I'll not teach you to be fierce, only how to stay alive while you're being it." },
+    { id = "n_wr_whirlwind", cat = "gear", when = { class = "WARRIOR", equipped = { 6975, 6976, 6977 } },
+      text = "So you beat Cyclonian, and Bath'rah kept his word. Swing it gently in my yard; the last student who swung one of those in here took the roof off the shed." },
+    { id = "n_wr_reaper", cat = "gear", when = { class = "WARRIOR", equipped = { 12784 } },
+      text = "An arcanite reaper. It's a fine axe, and it's made more warriors lazy than any weapon I know, so let's see whether you can still fight without it." },
+    { id = "n_wr_shout", cat = "aura", when = { class = "WARRIOR", aura = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 } },
+      text = "You've still got your shout on you, and there's nobody here to fight but me. Save it for when your friends need it, or you'll be empty when they do." },
+    { id = "n_wr_reckless", cat = "aura", when = { class = "WARRIOR", aura = { 1719, 12328 } },
+      text = "You've thrown your guard away and you're grinning about it. That's fine against a beast that has to die, and it's a fool's way to walk into a training yard." },
+    { id = "n_wr_plate", cat = "class", when = { class = "WARRIOR", minLevel = 40, maxLevel = 44 },
+      text = "You're walking like a recruit in his first plate, all elbows and knees. Give it a week of hard fighting and it'll start moving with you instead of against you." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
       text = "That isn't armour, that's a demon's hide stretched over cloth. Real armour you earn with sweat and a smith, and a steel plate doesn't care what you've summoned." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
@@ -3357,6 +3367,12 @@ P:Pool {
       text = "You're carrying a warlock's healthstone into the fight. Fine, it'll keep you on your feet, but learn to stay on them without it first." },
     { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
       text = "You're flushed like a recruit who's run three laps, and you haven't run anywhere. That's an imp's pact in your blood, so don't mistake it for stamina." },
+  },
+  react = {
+    { id = "r_wr_shout", on = "aura", when = { class = "WARRIOR", aura = { 6673, 5242, 6192, 11549, 11550, 11551, 25289 } },
+      text = "Louder! The whole yard should feel that in their teeth, and they barely flinched." },
+    { id = "r_wr_wall", on = "aura", when = { class = "WARRIOR", aura = { 871 } },
+      text = "Shield Wall, against me, with no sword raised? Good reflexes, poor judgement; drop it and stand up straight." },
   },
   start = "hello",
   nodes = {
@@ -3385,6 +3401,14 @@ P:Pool {
         { text = "The Darkspear fight with a berserker's fury.", next = "fury", when = { class = "WARRIOR", race = "Troll" } },
         { text = "I was trained to fight in a line, with a sergeant shouting.", next = "line", when = { class = "WARRIOR", race = "Human" } },
         { text = "Will you train someone from a people you barely know?", next = "sky_train", when = { class = "WARRIOR", race = "Skyborne" } },
+        { text = "What comes next for me?", next = "w_path", when = { class = "WARRIOR" } },
+        { text = "My rage runs dry halfway through a fight.", next = "w_rage", when = { class = "WARRIOR" } },
+        { text = "Which stance should I be fighting in?", next = "w_stances", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "Which road should I train down?", next = "w_talents", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "When do I use Shield Wall or Recklessness?", next = "w_last", when = { class = "WARRIOR", minLevel = 20 } },
+        { text = "I'm ready for plate.", next = "w_plate", when = { class = "WARRIOR", minLevel = 40 } },
+        { text = "There's nothing left you can teach me.", next = "w_capped", when = { class = "WARRIOR", minLevel = 60 } },
+        { text = "I stood my watches in the Military Ward.", next = "w_ward", when = { class = "WARRIOR", origin = "dwarf_military_ward" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3491,6 +3515,228 @@ P:Pool {
       lines = { { id = "sk_default", text = "I'd train anyone who'll hold a shield, and I'll admit I'm curious about your people, since I know next to nothing of where you've been all this time. Show me how you stand, and I'll tell you what to fix." } },
       choices = {
         { text = "Our guard taught me what I know.", next = "BACK", reply = "Then they taught you to keep your feet, which is the hard part. Let's see the rest.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- The warrior's road (0.93.0): the class journey, level by level.
+    w_path = {
+      hub = true,
+      lines = {
+        { id = "wp_default", text = "One lesson after another, each harder than the last, until one day you're the one doing the teaching. That's the whole road, and nobody walks it without bruises." },
+        { id = "wp_start", when = { maxLevel = 9 }, text = "Charge and Rend are where it starts. Charge closes the ground before the beast knows you're coming, and Rend keeps it bleeding while you go to work, so open every fight with both until you do it without thinking." },
+        { id = "wp_ten", when = { minLevel = 10, maxLevel = 19 }, text = "You're ready to learn to stand your ground, and that means Defensive Stance. It isn't taught in a yard like this one, though; you'll earn it out in the world, so ask me where and I'll tell you." },
+        { id = "wp_twenty", when = { minLevel = 20, maxLevel = 29 }, text = "You've your Taunt and your Sunder by now, so start using them together: pull the beast's eye onto you, then strip its armour off a piece at a time until your friends can cut through. Retaliation is yours now as well, for the day you're surrounded." },
+        { id = "wp_thirty", when = { minLevel = 30, maxLevel = 39 }, text = "It's time you went to Fray Island, off the Merchant Coast south of Ratchet. Klannoc Macleod runs the Affray there, and if you beat his challengers he'll teach you Berserker Stance and Intercept himself." },
+        { id = "wp_forty", when = { minLevel = 40, maxLevel = 49 }, text = "You've earned the right to wear plate, so go and find some and get used to the weight of it. And if you've not yet climbed to the Windwatcher in the Alterac hills, it's past time you did." },
+        { id = "wp_fifty", when = { minLevel = 50, maxLevel = 59 }, text = "There's little left in my book but Recklessness, which is for the fight that's lost unless you throw everything you have at it. Spend the rest of your time on your chosen road, and on learning exactly how much your shield can take." },
+        { id = "wp_sixty", when = { minLevel = 60 }, text = "You've learned every drill I know and a few I don't. What's left for you is out in Blackrock Spire and the Plaguelands, where the worst of the world waits for someone stubborn enough to stand in front of it." },
+      },
+      again = {
+        { id = "wpa_again", text = "What else about the road ahead? Ask while I've the breath to answer." },
+        { id = "wpa_again2", text = "Go on, then; there's more of the road than I've told you." },
+      },
+      choices = {
+        { text = "Where do I go for Defensive Stance?", next = "w_def", when = { minLevel = 8, maxLevel = 29 } },
+        { text = "Tell me about Fray Island.", next = "w_fray", when = { minLevel = 26 } },
+        { text = "Who is this Windwatcher?", next = "w_wind", when = { minLevel = 30 } },
+        { text = "Does the road ever end?", next = "w_end" },
+        { text = "Back to the other lessons.", next = "BACK" },
+      },
+    },
+    w_def = {
+      lines = {
+        { id = "wd_default", text = "Every people has its own trial for it, and your trainers back home will know yours. Wherever they send you, the lesson's the same: you'll fight something that hits harder than you, and you'll have to outlast it." },
+        { id = "wd_human", when = { race = "Human" }, text = "Go to the Pig and Whistle in Old Town and find Harry Burlguard, who'll make you take a mug off a drunk called Bartleby before he teaches you anything. After that he'll send you to old Marshal Haggard at the Eastvale camp, who lost his badge to a Defias rat called Dead-tooth Jack." },
+        { id = "wd_dwarf", when = { race = { "Dwarf", "Gnome" } }, text = "Muren Stormpike in the Hall of Arms will send you after Vejrek, the toughest troll in the foothills below Frostmane Hold, and he wants the head as proof. Then Tormus Deepforge at the Great Forge has work for you out at Ironband's Compound, and there's a grey iron weapon at the end of it." },
+        { id = "wd_elf", when = { race = "NightElf" }, text = "Elanaria in Darnassus will send you after a satyr called Vorlus Vilehoof, who's been fouling one of your moonwells. Then it's across to Darkshore, to the wreck by the Auberdine lighthouse, where the shade of a drowned captain guards a cargo of elunite." },
+        { id = "wd_horde", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Find Veteran Uzzek south of Far Watch Post, on the border of the Barrens and Durotar. He'll send you hunting thunder lizards on Thunder Ridge, and then on to Thun'grim Firegaze, who'll test whether you can take a blow as well as give one." },
+        { id = "wd_undead", when = { race = "Scourge" }, text = "Deathguard Dillinger in Brill has a Scourge prisoner called Ulag the Cleaver locked by the mausoleum, and he wants it freed and killed. After that, the Agamand family's old weapons are waiting to be earned, and they'll serve you better than they served the Agamands." },
+      },
+      choices = {
+        { text = "Why must I earn it on a quest?", next = "w_def2" },
+        { text = "Something else about the road.", next = "w_path" },
+      },
+    },
+    w_def2 = {
+      big = true,
+      lines = { { id = "wd2_default", text = "Because a stance learned in a yard is forgotten in the first real fight, and one learned with something trying to kill you never leaves. You'll come back with Taunt and Sunder Armor besides, and a weapon you didn't have to buy." } },
+      choices = {
+        { text = "Good. I'd rather earn it than be handed it.", next = "w_path", reply = "Spoken like a warrior. Go and earn it, then, and come back with the bruises to prove it.", fx = { align = { honor = 1 }, trait = { proud = 1 } } },
+        { text = "A skill's a skill. I'd take it any way I could.", next = "w_path", reply = "Then you'd take it from a dead man's book if you found one, and I won't say you'd be wrong to. The trial still teaches you something the book can't.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "w_path" },
+      },
+    },
+    w_fray = {
+      big = true,
+      lines = { { id = "wf_default", text = "Fray Island is where warriors go to be beaten by better ones, and to beat worse ones for the crowd. You step on the grate, Twiggy Flathead sends challengers at you one after another, and if you're still standing at the end, they let Big Will out." } },
+      choices = {
+        { text = "And if I win?", next = "w_fray2" },
+        { text = "Fighting warriors for sport wastes good blood.", next = "w_path", reply = "Maybe so, but it's better spilled on Fray Island than on a battlefield where it counts. You'll go anyway, if you want what Klannoc teaches.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "A fight for sport is still a fight. I'll go.", next = "w_path", reply = "Ha! Then you'll fit in on that island, and you'll come back with a split lip and a grin on you.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    w_fray2 = {
+      lines = { { id = "wf2_default", text = "Then Klannoc Macleod teaches you Berserker Stance and Intercept, and you'll wonder how you ever fought without them. If he thinks you're worth it, he'll send you north to a troll called Bath'rah, and that's where the road gets strange." } },
+      choices = {
+        { text = "Who is this Bath'rah?", next = "w_wind" },
+        { text = "Something else about the road.", next = "w_path" },
+      },
+    },
+    w_wind = {
+      lines = { { id = "ww_default", text = "Bath'rah the Windwatcher is a troll hermit at the ruins of Chillwind Point in the Alterac Mountains, and he's spent years waiting for a champion to bring down a wind lord called Cyclonian. Bring him what he asks for, kill the beast when he calls it up, and he'll set its whirlwind heart in a weapon of your choosing." } },
+      choices = {
+        { text = "What does he ask for?", next = "w_wind2" },
+        { text = "Axe, sword or hammer?", next = "w_wind3" },
+        { text = "Something else about the road.", next = "w_path" },
+      },
+    },
+    w_wind2 = {
+      lines = { { id = "ww2_default", text = "Liferoot and Bloodscalp tusks, among other things, and an essence that'll take you further afield than you'd like. Gather it all and he'll summon Cyclonian for you, and I'd bring friends to that fight, because the wind doesn't care how brave you are." } },
+      choices = { { text = "Something else about the road.", next = "w_path", fx = { trait = { cautious = 1 } } } },
+    },
+    w_wind3 = {
+      lines = {
+        { id = "ww3_default", text = "An axe if you like a heavy swing, a sword if you'd rather be quick, and a hammer if you're stubborn. They'll all hit hard enough with a storm inside them, so pick the one your hands already like." },
+        { id = "ww3_dwarf", when = { race = "Dwarf" }, text = "Ye'll take the hammer, I expect, for I've never yet met a dwarf who'd be told otherwise. The axe swings harder and the sword's quicker, but with a storm inside it, any of the three will do." },
+      },
+      choices = { { text = "Something else about the road.", next = "w_path" } },
+    },
+    w_end = {
+      big = true,
+      lines = { { id = "we_default", text = "Not while there's something out there bigger than you. The road just gets narrower, until one day you look round and there's nobody left in front of you but the thing you came to kill." } },
+      choices = {
+        { text = "Then I'll stand in front, so others don't have to.", next = "w_path", reply = "That's the right reason, and it's the one that'll keep you on your feet when glory isn't enough. Hold to it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll be the one at the front because I'm the best.", next = "w_path", reply = "Maybe you will be, and pride's carried better warriors than you a long way. It's a poor shield once you're tired, though.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "Something else about the road.", next = "w_path" },
+      },
+    },
+    w_rage = {
+      big = true,
+      lines = {
+        { id = "wr_default", text = "Rage comes from hitting and from being hit, and it drains away the moment you stop fighting. Young warriors wait for it to build; good ones walk into the fight already angry." },
+        { id = "wr_young", when = { maxLevel = 9 }, text = "Of course it does; you start every fight with none, and you spend it the moment you've got any. Charge in, so the run itself puts a little fire in you, and hold back your Heroic Strike until the beast has hit you twice." },
+      },
+      choices = {
+        { text = "How do I walk in already angry?", next = "w_rage2" },
+        { text = "I hold my rage until the moment it's needed.", next = "BACK", reply = "Good, so long as the moment comes before you're on your back. A warrior who dies with a full bar of rage dies a fool.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "I spend it the moment I have it.", next = "BACK", reply = "Then you'll hit hard and often, and you'll be empty when the real trouble walks round the corner. Still, that's how I fought at your age.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    w_rage2 = {
+      lines = {
+        { id = "wr2_default", text = "Bloodrage, for one, which costs you a little of your own blood to wake the anger up, and Berserker Rage once you've learned it. Charge gives you some on the way in as well, and that's half the reason to use it." },
+        { id = "wr2_young", when = { maxLevel = 9 }, text = "When you're a little older I'll teach you Bloodrage, which costs you a little of your own blood to wake the anger up before the fight. Until then, Charge in and take the first hit, and let it make you angry." },
+      },
+      choices = {
+        { text = "And Battle Shout? It costs rage.", next = "w_rage3" },
+        { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } },
+      },
+    },
+    w_rage3 = {
+      lines = { { id = "wr3_default", text = "It does, and it's worth every drop when there are friends beside you, because the shout makes their arms stronger as well as yours. Shout once before the fight starts, not in the middle of it when you need the rage for something sharp." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_stances = {
+      big = true,
+      lines = {
+        { id = "ws_default", text = "Battle Stance to open a fight and Defensive when the fight turns on you, and learn to change between them without losing a step. You'll lose most of your rage every time you switch, so choose before you need to, not after." },
+        { id = "ws_berserk", when = { minLevel = 30 }, text = "Battle Stance to open, Defensive when you're holding something's eye, and Berserker when you've stopped caring about the blows coming back. You'll lose rage every time you change, so make every change count." },
+      },
+      choices = {
+        { text = "Which stance do you fight in?", next = "w_stances2" },
+        { text = "I'll live in Defensive and stay alive.", next = "BACK", reply = "Then your friends will love you and the bards will ignore you, which is a fair trade by my reckoning.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I'd rather hit than be hit. Battle Stance suits me.", next = "BACK", reply = "It suits everyone until something hits back harder. Keep a shield on your back for that day, at least.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    w_stances2 = {
+      lines = { { id = "ws2_default", text = "Defensive, these days, because my knees aren't what they were. When I was your age I lived in Battle Stance and thought Defensive was for cowards, and I'm still paying for that every time it rains." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_talents = {
+      hub = true,
+      big = true,
+      lines = { { id = "wt_default", text = "There are three roads, and every warrior ends up walking one of them further than the others: Arms, Fury, or the shield. Ask me about any of them, though I'll warn you now that I've opinions." } },
+      again = {
+        { id = "wta_again", text = "Another road, or have you heard enough of my opinions?" },
+      },
+      choices = {
+        { text = "Tell me about Arms.", next = "w_arms" },
+        { text = "Tell me about Fury.", next = "w_fury" },
+        { text = "Tell me about the shield.", next = "w_prot" },
+        { text = "I'll take the shield. Someone has to stand in front.", next = "BACK", reply = "Someone does, and it's thankless work, and I've never once seen a party wipe while a good shield stood in front of it. Good.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "I fight to kill things, not to be hit by them.", next = "BACK", reply = "Fair enough, and somebody has to do the killing. Just don't complain to me when the beast turns round and looks at you.", fx = { align = { honor = -1 }, trait = { brave = 1 } } },
+        { text = "Back to the other lessons.", next = "BACK" },
+      },
+    },
+    w_arms = {
+      lines = { { id = "wa_default", text = "Arms is the old soldier's road: a big weapon in both hands, Sweeping Strikes to cut through a crowd, and at the very end Mortal Strike, which leaves a wound that healing struggles to close. Take it if you mean to bring down whatever's in front of you, especially if there's a priest behind it." } },
+      choices = {
+        { text = "Tell me about another road.", next = "w_talents" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_fury = {
+      lines = { { id = "wfu_default", text = "Fury is for the warrior who'd rather hit twice than once, with a weapon in each hand and Death Wish when the blood's up. At the end of it is Bloodthirst, which drinks a little life back out of every blow you land after it." } },
+      choices = {
+        { text = "Tell me about another road.", next = "w_talents" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_prot = {
+      lines = {
+        { id = "wpr_default", text = "The shield road, and the hardest one to love. You'll learn Last Stand for when you're nearly finished, and at the end Shield Slam, which knocks the magic clean off whatever you hit; nobody will ever sing about you, but everyone in your party will still be alive." },
+        { id = "wpr_dwarf", when = { race = "Dwarf" }, text = "The shield road, and I'd guess ye've been walking it since ye could stand. Last Stand for when ye're nearly done, and at the end Shield Slam, which knocks the magic clean off whatever ye hit; there's no dwarf alive who wouldn't call that a fine day's work." },
+      },
+      choices = {
+        { text = "Tell me about another road.", next = "w_talents" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_last = {
+      big = true,
+      lines = { { id = "wl_default", text = "Shield Wall, Retaliation and Recklessness share one well, and it only fills once every half hour, so the whole trick is knowing which fight deserves it. Shield Wall when you've got to live, Retaliation when you're surrounded, and Recklessness when the thing in front of you has to die before you do." } },
+      choices = {
+        { text = "Have you ever used one too soon?", next = "w_last2" },
+        { text = "I'll save them for when my friends need them.", next = "BACK", reply = "Then you'll walk out of fights the others don't, because you'll still have something left when it goes wrong.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "I'll use them early and win before it turns.", next = "BACK", reply = "Bold, and it works more often than the cautious ones like to admit. Just don't be surprised when the second wave comes.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    w_last2 = {
+      lines = { { id = "wl2_default", text = "Once, on a raptor that turned out to be the first of six. I'd thrown up my Shield Wall for the first one and had nothing left for the rest, and I've the scars on my thigh to remind me every morning." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_plate = {
+      lines = {
+        { id = "wpl_default", text = "You are, and I'll teach you to wear it, but plate's no use if you move like a statue in it. Spend a week fighting in it before you fight anything that matters, and learn where it stops you bending." },
+        { id = "wpl_dwarf", when = { race = "Dwarf" }, text = "Aye, and ye'll take to it faster than most, for yer people have been forging plate since before Ironforge had a gate. Spend a week fighting in it anyway, and learn where it stops ye bending." },
+      },
+      choices = {
+        { text = "It's heavy. Is it worth it?", next = "w_plate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_plate2 = {
+      lines = { { id = "wpl2_default", text = "Ask the mail-wearers you'll outlive. It's heavy for a month, and then one day a troll's axe bounces off your shoulder and you'll never complain about the weight again." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+    },
+    w_capped = {
+      big = true,
+      lines = { { id = "wc_default", text = "Then you'd better start teaching, because somebody will need to stand where you stand when you're gone. I'm not joking, either; I came to this yard the same way you came in today." } },
+      choices = {
+        { text = "What would you do in my place?", next = "w_capped2" },
+        { text = "I'll teach, when the fighting's done.", next = "BACK", reply = "The fighting's never done, but I'll hold you to it anyway. There'll be a place in this yard for you when your knees go.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll keep fighting until something stops me.", next = "BACK", reply = "That's what I said, and here I am, so something will. Make sure it's something worth the trouble.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    w_capped2 = {
+      lines = { { id = "wc2_default", text = "Go up Blackrock Spire with four friends you trust, and come back down with the same four. That's harder than anything I could teach you, and the ones who manage it are the ones I'd follow." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_ward = {
+      lines = { { id = "wwd_default", text = "I could tell; the Ward drills its shieldbearers until they could hold the gates of Ironforge in their sleep. Did they ever let you near the Great Forge, or did they keep you marching the Ward from dawn till dark?" } },
+      choices = {
+        { text = "They kept us marching, mostly.", next = "BACK", reply = "Aye, that's the Ward. You'll thank them for it the first time you march a day and still have the legs to fight at the end of it.", fx = { trait = { stern = 1 } } },
+        { text = "The Forge was our reward for a good watch.", next = "BACK", reply = "A fine reward, too; there's no warmer place in all of Khaz Modan. I hope you earned it often.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

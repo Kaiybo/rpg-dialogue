@@ -400,7 +400,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hungry? Course ye are, everyone in this camp's hungry. Step up." },
+    { id = "g_default", text = "Hungry? Course ye are, for everyone in this camp's hungry, so step up an' let's see what I've got left." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more! I knew ye would, my sausages have that effect." },
   },
 
