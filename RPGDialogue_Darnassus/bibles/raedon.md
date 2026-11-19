@@ -29,3 +29,6 @@ Honest.
 
 ## Topics
 background, advice, sentinels, _none.
+
+## Grudge (authored, not canon)
+- Courteous, cold on one subject: joining the Alliance was Tyrande's mistake; the orcs came to Kalimdor fleeing human camps and wars, and now Stormwind asks for kaldorei archers (claim `raedon_alliance_brought_horde`, partly true). Signs the manifests because Tyrande asked. Counts human donations twice. A human who donates (Persuade) softens him: npcFlag `raedon_soft`.
