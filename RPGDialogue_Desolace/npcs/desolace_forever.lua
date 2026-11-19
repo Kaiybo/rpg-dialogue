@@ -60,7 +60,7 @@ P:NPC {
         { text = "Why do you hate them so much?", next = "hate" },
         { text = "What's Shadowprey Village like?", next = "shadowprey" },
         { text = "What do you think of Desolace?", next = "desolace" },
-        { text = "I deal with demons too. Is that a problem?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I deal with demons too, Aka'rai. Is that a problem?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The satyrs were my people's kin, long ago.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'll hunt them.", next = "BUSINESS" },
         { text = "Farewell, Aka'rai.", next = "END" },
@@ -192,7 +192,7 @@ P:NPC {
         { id = "xw_default", text = "It's a problem if you let them lead you, mon. The satyrs thought they held the leash too, once, and look at them now. Keep your demons on a short chain, and use them to kill other demons, and maybe the loa forgive you." },
       },
       choices = {
-        { text = "I am the master, not them.", next = "BACK" },
+        { text = "I am the master, not them. They learn that quickly.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

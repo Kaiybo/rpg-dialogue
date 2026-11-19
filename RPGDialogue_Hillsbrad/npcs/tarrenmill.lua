@@ -229,7 +229,7 @@ P:NPC {
           text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because Southshore's farms are best taken quietly, and I have no patience for soldiers who announce themselves with a battle cry." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage of the Forsaken or the Horde, it hardly matters. The Dark Lady values any power that can break a human line, and you'll find plenty of lines to break here." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who knows exactly what they cost." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You reek of the Nether, warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who knows exactly what they cost." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
@@ -630,7 +630,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." } },
       choices = {
         { text = "I'll keep my minion far from Umpi. For your sake.", next = "BACK", reply = "Thank you, truly. Umpi can't say it, but she'd thank you too, if frogs did that sort of thing.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon goes where it pleases, Lydon.", next = "BACK", reply = "Then it pleases to go elsewhere, or I'll test the black bottles on it. I'm very attached to that frog.", fx = { align = { order = -1 } } },
+        { text = "My demon goes where it pleases, Lydon. So does its hunger.", next = "BACK", reply = "Then it pleases to go elsewhere, or I'll test the black bottles on it. I'm very attached to that frog.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },

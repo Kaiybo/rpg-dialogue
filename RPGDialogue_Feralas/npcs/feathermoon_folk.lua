@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A fellow druid! Then you'll forgive the mess; everything up here is either an experiment or a cup of tea, and I've stopped being sure which." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "Ah, a warlock. Curses are my study, and I suspect they're your trade, so please don't practise on the furniture." },
+      text = "Ah. Curses are my study, and from the ink on your fingers I suspect they're your trade, so please don't practise on the furniture." },
   },
 
   start = "hello",

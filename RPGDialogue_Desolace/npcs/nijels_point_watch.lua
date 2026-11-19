@@ -231,7 +231,7 @@ P:NPC {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. The vines in Maraudon will speak to you if you let them, though you won't like what they say." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "You carry the stink of the Legion, warlock, the same stink that made the satyrs. Do not bring it near the vines." },
+      text = "You carry the stink of the Legion, the same stink that made the satyrs. Do not bring it near the vines." },
   },
 
   start = "hello",

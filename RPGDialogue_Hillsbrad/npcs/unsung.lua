@@ -725,7 +725,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." } },
       choices = {
         { text = "I'll keep my imp away from your robots. Probably.", next = "BACK", reply = "Good, 'cause I'm still payin' off the last one, and the lake's charging me interest. Keep that little fella on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Imps go where they want. Build better robots.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },
+        { text = "Imps go where they please. Build robots that burn slower.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -764,7 +764,7 @@ P:NPC {
         { text = "Your wares look like a bit of everything.", next = "goods" },
         { text = "A gnome machine seems an odd guard for a goblin.", next = "gnome", when = { race = "Gnome" } },
         { text = "Do you really sell to both Southshore and Tarren Mill, Zixil?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "How did an imp short out your robot, Zixil?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How did an imp short out your robot, Zixil? Mine would have done worse.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who blessed your salt, Zixil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell weapons to the Forsaken, Zixil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a goblin sell a warrior, Zixil?", next = "xwarcl", when = { class = "WARRIOR" } },

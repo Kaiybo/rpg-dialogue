@@ -767,7 +767,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. My riders never used to pray before a flight over the Highlands, but some of them have started, and I've stopped laughing at them." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock. Wind riders hate the smell of demons, so send yours away before you mount, or you'll be flying sideways the whole way to Tarren Mill." },
+          text = "Wind riders hate the smell of demons, warlock, so send yours back where it came from before you mount, or you'll be flying sideways the whole way to Tarren Mill." },
         { id = "h_default", key = true,
           text = "I am Urda, wind rider master of Hammerfall. North to Tarren Mill and the Undercity, or over the mountains to Revantusk on the Hinterlands coast; tell me where and I'll tell you if the wind allows it." },
         { id = "h_night", when = { timeOfDay = "night" },

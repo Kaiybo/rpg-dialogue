@@ -532,7 +532,7 @@ P:NPC {
         { text = "What exactly do you study?", next = "study" },
         { text = "Why hide down here?", next = "cavern" },
         { text = "A gnome warlock seems an odd thing to be.", next = "odd" },
-        { text = "Who can teach me to bind a demon?", next = "gakin", when = { class = "WARLOCK", race = "Gnome" } },
+        { text = "Who can teach me to bind a demon, and keep it bound?", next = "gakin", when = { class = "WARLOCK", race = "Gnome" } },
         { text = "I'll leave you to the dark.", next = "END" },
       },
     },
