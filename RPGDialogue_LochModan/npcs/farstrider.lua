@@ -158,7 +158,24 @@ P:NPC {
         { text = "Your trophy wall troubles me, Marek.", next = "druid", when = { class = "DRUID" } },
         { text = "Do dwarves of your clan still hunt the old way, Marek?", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Where did a dwarf learn to hunt beside elves?", next = "dw_elves" },
+        { text = "Could a hunter tame one of the loch's crocolisks?", next = "mk_tame", when = { class = "HUNTER" } },
+        { text = "I'm a human hunter. Does the Lodge take my kind?", next = "mk_human", when = { race = "Human", class = "HUNTER" } },
         { text = "Farewell, Marek.", next = "END" },
+      },
+    },
+    mk_tame = {
+      lines = { { id = "mkt_default", text = "Aye, an' some do, for a croc'll take a beatin' an' come back for more, an' it eats near anythin' ye throw at it. It's slow on land, mind, an' ugly as sin, but there's nae beast more loyal once it's decided ye're no' dinner." } },
+      choices = {
+        { text = "Loyal and tough. That's all I need.", next = "BACK", reply = "Then go an' find one on the islands, an' bring it here so Claude can look it over.", fx = { trait = { stern = 1 } } },
+        { text = "I'd rather have something faster.", next = "BACK", reply = "Then take a cat from the hills, but dinnae come cryin' tae me when it sulks.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    mk_human = {
+      lines = { { id = "mkh_default", text = "The Lodge takes anyone who can hunt, an' it's named for elven rangers, so we're no' fussy about where ye were born. I'll admit ye're the first human hunter I've seen wi' a proper beast at heel, but if ye shoot straight, the wall will have room for yer trophy." } },
+      choices = {
+        { text = "Then I'll earn my place on the wall.", next = "BACK", reply = "Aye, an' I'll be watchin' how ye earn it.", fx = { align = { honor = 1 } } },
+        { text = "I don't hunt for walls. I hunt to eat.", next = "BACK", reply = "Fair enough, an' honest, which the wall doesnae always get.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -326,7 +343,24 @@ P:NPC {
         { text = "I killed Ol' Sooty, you know.", next = "sooty", when = { questDone = TODO_QUEST("Vyrin's Revenge") } },
         { text = "Someone at the lodge mentioned a bet, Daryl.", next = "bet", when = { questDone = TODO_QUEST("A Hunter's Challenge") } },
         { text = "Two hunters, one lodge. Let's compare notes.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "My beast could take Mangeclaw alone, Daryl.", next = "dy_beast", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "Why don't you keep a beast of your own?", next = "dy_nobeast", when = { class = "HUNTER" } },
         { text = "Good luck with the boasting, Daryl.", next = "END" },
+      },
+    },
+    dy_beast = {
+      lines = { { id = "dyb_default", text = "Could it, now? I'll have you know I'd have taken that bear myself, if my bowstring hadn't snapped, and if the bear hadn't been so very large. Your {pet} looks capable enough, I'll grant, though it keeps staring at my scar, which is rude." } },
+      choices = {
+        { text = "My beast and I share the glory.", next = "BACK", reply = "Share it? How very generous of you, and how very unlike Daryl the Bold, but I suppose someone has to be modest.", fx = { align = { light = 1 } } },
+        { text = "The glory's mine. The beast just bites.", next = "BACK", reply = "Now that's a hunter after my own heart! Don't tell Marek I said so; he's very sentimental about animals.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dy_nobeast = {
+      lines = { { id = "dyn_default", text = "A master needs no help, obviously. Also the last boar I tried to tame ran off with my rod, and Claude Erksine laughed so hard he had to sit down, so I've decided I'm more of a lone hunter by temperament." } },
+      choices = {
+        { text = "Try again. Claude would help you.", next = "BACK", reply = "Claude would help me into a ditch, more likely. But I'll think about it, quietly, where nobody can see.", fx = { trait = { kind = 1 } } },
+        { text = "A lone hunter. Of course.", next = "BACK", reply = "Exactly, and I'm glad someone understands.", fx = { trait = { witty = 1 } } },
       },
     },
 

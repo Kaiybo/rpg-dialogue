@@ -50,7 +50,60 @@ P:NPC {
         { text = "Who else trains hunters in the district?", next = "others" },
         { text = "What's the strangest beast you've trained?", next = "strangest" },
         { text = "My pet's been flagging in long fights.", next = "flagging", when = { class = "HUNTER" } },
+        { text = "How do I keep my beast with me for good?", next = "hp", when = { class = "HUNTER" } },
+        { text = "Do human hunters bring you many beasts?", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "Do you miss the beasts of Dun Morogh?", next = "hp_dwarf", when = { race = "Dwarf" } },
         { text = "Good day to you.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Ye keep it fed, ye keep it alive, an' ye bring it tae me now and then so I can teach it what it needs. Every beast starts out wary of its hunter an' learns tae trust ye a wee bit at a time, an' if ye neglect it, it'll wander off one day, an' it'll be right tae." },
+        { id = "hp_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}. Aye, the eyes are clear an' the coat's good, so ye're feedin' it, which puts ye ahead o' half the district; now ye keep doin' it, an' bring it tae me when it's ready tae learn." },
+      },
+      again = { { id = "hp_again", text = "What else? The boar's still waitin' on supper." } },
+      choices = {
+        { text = "How do I know if my beast is unhappy?", next = "hp_happy" },
+        { text = "What can you teach it?", next = "hp_teach" },
+        { text = "What happens if it dies?", next = "hp_die" },
+        { text = "Something else, Karrina.", next = "hello" },
+      },
+    },
+    hp_happy = {
+      lines = { { id = "hph_default", text = "It'll tell ye, if ye watch. A happy beast fights harder an' stays close, an' an unhappy one lags an' snaps an' looks off intae the trees, an' the cure's nearly always food it likes, given before it asks." } },
+      choices = {
+        { text = "I'll feed it before every hunt.", next = "BACK", reply = "Good, an' carry what it likes, no' what's cheap.", fx = { align = { light = 1 } } },
+        { text = "It can wait till the hunt's over.", next = "BACK", reply = "Then it'll fight like it's hungry, which is badly, an' ye'll blame the beast.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_teach = {
+      lines = { { id = "hpt_default", text = "Tae growl louder so the quarry looks at it an' no' at ye, an' tae take a blow better, an' a few other things as it grows. What I cannae teach, the wild beasts can, if ye tame one that knows the trick an' learn it from them." } },
+      choices = {
+        { text = "Then I'll come back as it grows.", next = "BACK", reply = "Do, an' bring it hungry, for it learns better wi' a treat at the end.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_die = {
+      lines = { { id = "hpd_default", text = "Then ye bring it back, an' ye'll have learned how by then, but it costs the beast somethin' every time, an' it'll trust ye less. Dinnae let it die for ye if ye can help it, an' if ye cannae, say sorry when it wakes." } },
+      choices = {
+        { text = "I'll say sorry and mean it.", next = "BACK", reply = "That's all any of us can do, beasts or no'.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hphu_default", text = "More every month, an' I didnae expect it! Some of them hold the lead like a horse's rein, an' I have tae untrain the poor beast after, but the good ones learn quick, an' a human that loves its beast loves it fiercely." } },
+      choices = {
+        { text = "I'll try to be one of the good ones.", next = "BACK", reply = "Ye've asked, which already puts ye ahead.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpdw_default", text = "Every day, {g:lad|lass}. The boars here are fat an' lazy an' the wolves are thin an' scared, an' I'd give a month's wages tae see a snow leopard come down off the ridge above Kharanos again." } },
+      choices = {
+        { text = "Then I'll bring you one, if I can.", next = "BACK", reply = "Ha! Ye'd never get it past the guards, but I love ye for sayin' it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

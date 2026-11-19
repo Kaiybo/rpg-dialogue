@@ -140,6 +140,7 @@ P:NPC {
         { text = "Are the timberlings evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could something darker be what's twisting the timberlings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What is wrong with the plants, Denalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Was Teldrassil ever meant to sicken like this?", next = "ne_sick", when = { race = "NightElf" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -173,6 +174,16 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "Then you feel what I feel, and I am glad not to be alone in it. Listen to the timberlings; they will tell you more than I can." } },
       choices = { { text = "I will listen.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    ne_sick = {
+      big = true,
+      lines = {
+        { id = "nsk_default", text = "No tree is meant to sicken, but a tree grown in a hurry may not have the strength to fight it off. Nordrassil grew with the Aspects' blessing and its roots went down into a world that welcomed it, and Teldrassil's roots go down into the sea, and I do not think the sea has decided to welcome anything." },
+      },
+      choices = {
+        { text = "Then the Archdruid should have waited.", next = "BACK", reply = "Perhaps, though I would never say so in the Enclave. I only study what the tree tells me.", fx = { align = { order = 1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "It will grow strong. It just needs our help.", next = "BACK", reply = "That is my hope as well, and the reason I spend my days at this lake. Help me, then.", fx = { align = { order = -1 }, opinion = { teldrassil_tree = "hope" } } },
+      },
     },
   },
 

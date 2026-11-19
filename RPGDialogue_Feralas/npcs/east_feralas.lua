@@ -63,6 +63,7 @@ P:NPC {
         { text = "The Needles begin just beyond your gate.", next = "needles" },
         { text = "Tell me what you'd have said to Lonebrow.", next = "thanks", when = { race = "Dwarf" } },
         { text = "Is there word from Feathermoon?", next = "word", when = { race = "NightElf" } },
+        { text = "Do you track the Kraul's raiders yourself?", next = "hnt_track", when = { class = "HUNTER" } },
         { text = "Farewell, Falfindel.", next = "END" },
       },
     },
@@ -164,6 +165,13 @@ P:NPC {
       },
       choices = {
         { text = "Elune watch over your road, Falfindel.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_track = {
+      lines = { { id = "htr_d", text = "When there is no one else to, which is often. Quilboar leave a trail a child could follow, all churned mud and broken thorn, so the hard part is not finding them but knowing when to stop, because the Kraul swallow scouts who follow too far." } },
+      choices = {
+        { text = "Then I'll know when to stop.", next = "BACK", reply = "Heralath did not, and I wish I had told him so more plainly.", fx = { trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

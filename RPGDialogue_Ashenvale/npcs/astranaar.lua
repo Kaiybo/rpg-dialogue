@@ -245,6 +245,10 @@ P:NPC {
         { text = "Do the Warsong shamans really bless the logging, Raene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Blackfathom Deeps is quiet now, Raene.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "I pray for the Warsong wounded too, Raene. Does that trouble you?", next = "xorig_well", when = { origin = "nightelf_astranaar_moonwell" } },
+        { text = "You were here when the Warsong first came, Raene.", next = "kal_first", when = { race = "NightElf" } },
+        { text = "The Silverwing could end the logging if Darnassus sent more.", next = "kal_silverwing", when = { race = "NightElf", minLevel = 20 } },
+        { text = "Which of Ashenvale's beasts would a hunter tame first?", next = "hnt_tame", when = { class = "HUNTER" } },
+        { text = "The Warsong hunt our beasts for sport. I've seen the carcasses.", next = "hnt_carcass", when = { class = "HUNTER", minLevel = 20 } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
@@ -384,6 +388,48 @@ P:NPC {
       fail = {
         { id = "f1", narr = "Her hand drops to the bow at her side.", text = "I hunt things in the dark that would turn your stomach, so that glare is wasted on me. Stand down before I decide you're a threat to Astranaar." },
         { id = "f2", text = "Try to frighten me again and I'll have the Sentinels walk you to the bridge. I have real enemies in this forest, and I haven't time for a pretend one." },
+      },
+    },
+    kal_first = {
+      big = true,
+      lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me, which is a nearer thing for all of us now. They came out of the south with axes and red eyes, and they cut until Cenarius himself came to stop them, and Grom Hellscream killed him in the glade the orcs now call Demon Fall, with the Legion's blood still burning in him." } },
+      choices = {
+        { text = "Hellscream is dead. His people say he died free.", next = "kal_first2" },
+        { text = "Then every orc in Ashenvale carries that debt.", next = "BACK", reply = "Every orc with an axe in my forest, at least. I am not so sure of the others, but I do not have to be sure, because I only have to hold the line.", fx = { align = { honor = -1 } } },
+        { text = "The orc who killed Cenarius is gone. The debt died with him.", next = "BACK", reply = "Tell that to the trees the Warsong cut this morning. I'll grant you the debt is his, but the axes are theirs.", fx = { align = { honor = 1 } } },
+      },
+    },
+    kal_first2 = {
+      lines = { { id = "kfi2_d", text = "So I've heard, that he killed the demon who corrupted them and died doing it, and the orcs sing about it at Splintertree. I will not sing with them, but I will admit that the Warsong of today are not the beasts that came with him, only stubborn, and stubborn I can fight without hatred." } },
+      choices = { { text = "Stubborn is still dangerous. Something else.", next = "BACK", fx = { learn = { "warsong" } } } },
+    },
+    kal_silverwing = {
+      big = true,
+      lines = { { id = "ksi_d", text = "Darnassus sends what it can, and it is never enough, because the High Priestess has a whole coast and a new tree to guard and too few daughters to do it. The Silverwing Sentinels hold the Warsong Gulch and Silverwing Grove, and I keep Astranaar, and between us we hold the forest the way you hold water in your hands." } },
+      choices = {
+        { text = "Then I'll take my place with the Silverwing.", next = "BACK", reply = "Good. Find their outpost at the Warsong border, and tell them Raene sent you, which will earn you exactly one cup of water and a great deal of work.", fx = { affinity = 1, standing = { astranaar = 1 } } },
+        { text = "Maybe Darnassus is right to guard the tree first.", next = "BACK", reply = "Maybe, and I would say so too if I lived in Darnassus. I live here, where the axes are.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hnt_tame = {
+      lines = { { id = "hta_d", text = "A ghostpaw wolf, if you want a companion who runs with you all day, or a nightsaber from the deep woods, if you can find one alone. Leave the elder bears to the Thistlefur country, because half of them have been eating what the furbolgs eat." } },
+      choices = {
+        { text = "What of Shadumbra? I've heard tales.", next = "hnt_shad" },
+        { text = "A ghostpaw it is. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    hnt_shad = {
+      lines = { { id = "hsh_d", text = "A great black saber who walks the hills, and the Horde's hunters at Splintertree have made a sport of trying to kill her, so they can boast of it to their tauren elder. I'd rather see her tamed by one of ours than skinned by one of theirs, though she will be no easy companion." } },
+      choices = {
+        { text = "Then I'll reach her before they do.", next = "BACK", reply = "Bring her home to the forest, then, and keep her out of their traps.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "She's a wild thing. She should be left alone.", next = "BACK", reply = "Fair enough, and Korra would agree with you. I'll not argue with a hunter who knows when to lower the bow.", fx = { align = { order = 1 } } },
+      },
+    },
+    hnt_carcass = {
+      lines = { { id = "hca_d", text = "So have my scouts, stripped and left to rot by the road to Splintertree, which no hunter of any people should do. I want to believe it is the young ones showing off and not the whole of the Horde, but every time I want to believe it, I find another stag." } },
+      choices = {
+        { text = "A hunter who wastes a kill has lost the way.", next = "BACK", reply = "That is what Danlaar teaches at Silverwind, and you will hear no argument from me.", fx = { trait = { kind = 1 } } },
+        { text = "I'll track the ones who did it.", next = "BACK", fx = { trait = { stern = 1 }, standing = { astranaar = 1 } } },
       },
     },
   },

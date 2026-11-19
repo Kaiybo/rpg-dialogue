@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-19)
+- Hunter and pet trainers deepened along the hunter's road.
+
 ## 1.35.0 (2026-11-19)
 - Warrior trainers, Harry Burlguard and Bartleby rewritten along the warrior's road; Burlguard ends a warrior Story. Six doubled dwarves removed.
 

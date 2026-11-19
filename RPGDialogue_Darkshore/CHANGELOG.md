@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-19)
+- Auberdine's night elves and hunters deepened (Thundris, Gershala, Tharnariun and more).
+
 ## 1.25.0 (2026-11-19)
 - Gorbold Steelhand and the dwarf diggers; clipped lines rewritten.
 

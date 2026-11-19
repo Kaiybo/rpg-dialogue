@@ -150,6 +150,8 @@ P:NPC {
         { text = "Do your hippogryphs know a druid when they carry one?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why do your hippogryphs remember the Legion?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the hippogryphs feel the sea wind, Vesprystus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did our people fly hippogryphs in the old world?", next = "ne_hippo", when = { race = "NightElf" } },
+        { text = "Could a hunter ever tame a hippogryph?", next = "hunt_hippo", when = { class = "HUNTER" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -171,6 +173,27 @@ P:NPC {
     b = {
       lines = { { id = "b_default", text = "No, only patient work, and baskets of fish. They choose their riders more than we choose them, so I let them sniff you first." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_hippo = {
+      lines = {
+        { id = "nhp_default", text = "We did, and the Sentinels rode them into battle against the Legion before the Sundering. Their grandmothers' grandmothers flew over the Well of Eternity, and some of them still shy from the sea as if they remember what lies beneath it." },
+      },
+      choices = {
+        { text = "Do you think they remember?", next = "ne_hippo2" },
+        { text = "Something else, Vesprystus.", next = "BACK" },
+      },
+    },
+    ne_hippo2 = {
+      lines = {
+        { id = "nhp2_default", text = "I think beasts remember more than we credit, and hippogryphs more than most. Aviana's children were never fools, and they have kept faith with us through everything we have done to the world, which is more than we deserve." },
+      },
+      choices = { { text = "Then I'll treat them as allies.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunt_hippo = {
+      lines = {
+        { id = "hh_default", text = "No, and please do not try on mine. A hippogryph gives its trust to the Sentinels and to Aviana's line, and it does not follow a hunter home however steady the hand. Tame an owl, if you want wings beside you, and leave my flock to the sky." },
+      },
+      choices = { { text = "An owl it is, then. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -319,6 +342,7 @@ P:NPC {
         { text = "Why should a druid learn weapons when the claws do the work?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why should someone with my gifts bother learning a weapon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a shaman learn proper footwork, Ilyenia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Should a hunter learn the bow or the gun first?", next = "hunt_bow", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -340,6 +364,17 @@ P:NPC {
     b = {
       lines = { { id = "b_default", text = "Arias'ta Bladesinger trains our warriors, and I teach any of them a new weapon once she says they are ready. Few are as ready as they think." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunt_bow = {
+      big = true,
+      lines = {
+        { id = "hb_default", text = "Whichever you will practise with every day, which for a kaldorei is the bow, because the forest hears a gun from a league away. I can teach you bows, and crossbows as well, though the dwarves will tell you a rifle is the only honest weapon in the world." },
+        { id = "hb_dwarf", when = { race = "Dwarf" }, text = "You'll tell me the gun, and you'll be right for you, because you have practised with it since you could walk. I teach bows and crossbows here, and I would only ask that you not fire it within the city, because the sabers take it very personally." },
+      },
+      choices = {
+        { text = "The bow, then. Silence is a weapon too.", next = "BACK", reply = "It is the best weapon. Come back when you can split a string at fifty paces.", fx = { align = { honor = -1 } } },
+        { text = "I'll use whatever strikes hardest, noise or no.", next = "BACK", reply = "A plain answer, and an honest one. I respect it, even if the sabers will not.", fx = { align = { honor = 1 } } },
+      },
     },
   },
   topics = {
@@ -514,6 +549,8 @@ P:NPC {
         { text = "Why do the beasts settle for a druid, Jeen'ra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why does your cat dislike the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the beasts trust shamans, Jeen'ra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "When will I learn to cheat death, Jeen'ra?", next = "hr_feign", when = { class = "HUNTER", minLevel = 20 } },
+        { text = "What did hunting mean in the old forests?", next = "ne_oldforest", when = { race = "NightElf" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },
     },
@@ -535,6 +572,26 @@ P:NPC {
     b = {
       lines = { { id = "b_default", text = "Into the forest around Dolanaar, where the nightsabers prowl, and then across the sea to Darkshore. The wild will teach you more than I can." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hr_feign = {
+      lines = {
+        { id = "jhf_default", text = "Soon, if you live long enough to learn it, which is the joke every trainer in Darnassus tells. When you are ready, I will teach you to fall as though struck and lie as still as a log, and to trust your companion to keep the wolves off while you do." },
+        { id = "jhf_has", when = { minLevel = 30 }, text = "You already know how, so I'll tell you what most hunters learn too late: falling is easy, and getting up again at the right moment is the art. Wait for the enemy to turn away, and wait a breath longer than feels right." },
+      },
+      choices = {
+        { text = "A breath longer than feels right.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Jeen'ra.", next = "BACK" },
+      },
+    },
+    ne_oldforest = {
+      big = true,
+      lines = {
+        { id = "jno_default", text = "Everything, before the Sundering. The forests of the old world stretched from sea to sea, and hunters walked them for a year at a time with only a beast for company. Teldrassil is beautiful, but I can walk it in a week, and I miss the old distances." },
+      },
+      choices = {
+        { text = "Then we'll make Kalimdor our forest again.", next = "BACK", reply = "One grove at a time, as the Archdruid says. I hope he's right.", fx = { align = { order = -1 } } },
+        { text = "We should guard what we have, not reach for more.", next = "BACK", reply = "That's the Temple's teaching, and it has kept us alive. Perhaps it's wiser.", fx = { align = { order = 1 } } },
+      },
     },
   },
   topics = {

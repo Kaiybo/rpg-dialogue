@@ -324,6 +324,7 @@ P:NPC {
         { text = "Is there room in this crater for a priest's prayers?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there no place for a warrior's strength in Un'Goro?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has Lar'korwi taught you?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Hunter to hunter, Torwa. Teach me this crater.", next = "t_hunt", when = { class = "HUNTER" } },
         { text = "Why would beasts fear patience?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do you hunt Lar'korwi, Torwa?", next = "xmage", when = { class = "MAGE" } },
         { text = "I've hunted the devilsaurs, Torwa. Many of them.", next = "dd_devilsaur", when = { killed = { name = "Devilsaur", min = 20 } } },
@@ -338,6 +339,74 @@ P:NPC {
         { text = "I thank the Earth Mother for each one I take.", next = "BACK", reply = "Then you hunt as the tauren hunt, whatever your blood. The crater will remember you kindly, and so will I.", fx = { align = { light = 1 } } },
         { text = "A kill is a kill. The beast doesn't care.", next = "BACK", reply = "The beast doesn't, perhaps, but the land does. Walk lightly in Un'Goro, friend, because it is older than either of us and it keeps count.", fx = { align = { light = -1 } } },
         { text = "Something else, Torwa.", next = "BACK" },
+      },
+    },
+    t_hunt = {
+      hub = true,
+      narr = "He crouches lower in the ferns and motions you down beside him, never taking his eyes from the treeline.",
+      lines = {
+        { id = "th_default", text = "You are a hunter, so I will speak to you as one, quietly and with my eyes on the trees. This crater tests everything a hunter has learned on the road, so ask what you would know of hunting here." },
+        { id = "th_bait", when = { questDone = TODO_QUEST("The Bait for Lar'korwi") }, text = "You brought me Lar'korwi's head, and I have not yet decided whether to thank you or mourn with you. Sit, hunter, and ask what you would; the crater has more to teach than one raptor." },
+      },
+      again = {
+        { id = "th_again", text = "What else? Speak softly; the ferns have ears, and most of them have teeth." },
+        { id = "th_again2", text = "Ask, hunter. I will answer while I watch." },
+      },
+      choices = {
+        { text = "How do you hunt a raptor that leads others?", next = "t_lar" },
+        { text = "Which beasts here will take a hunter's binding?", next = "t_tame" },
+        { text = "The devilsaurs. Can any hunter tame one?", next = "t_devil" },
+        { text = "I've seen a cheerful troll woman by the hot springs.", next = "t_simone", when = { minLevel = 58 } },
+        { text = "Another tauren this far south? How did you come here?", next = "t_how", when = { race = "Tauren" } },
+        { text = "Enough, Torwa. Watch your trees.", next = "BACK" },
+      },
+    },
+    t_lar = {
+      lines = {
+        { id = "tl_default", text = "You do not chase him, for he is faster and he knows the ferns. You bring him to you: first the meat of the threshadons he favors, then the scent of his own kind, and then you lay the bait on open ground where he must come out of the trees. A hunter who chases in Un'Goro becomes the hunted." },
+        { id = "tl_active", when = { questActive = TODO_QUEST("The Bait for Lar'korwi") }, text = "You have the bait, so lay it on the flat rock where the ground is open, and stand where your back is to stone. He will come fast and angry, and you will have one chance to be ready." },
+      },
+      choices = {
+        { text = "Luring a beast to its death seems a trick.", next = "t_lar2" },
+        { text = "Back to the hunt.", next = "t_hunt" },
+      },
+    },
+    t_lar2 = {
+      big = true,
+      lines = { { id = "tl2_default", text = "It is a trick, and he would play the same one on me if he could, for raptors drive their prey into the open as well. The Earth Mother made us both hunters, and the honor is in the respect, not in pretending the hunt is fair." } },
+      choices = {
+        { text = "Respect matters more than fairness. I see that.", next = "t_hunt", reply = "Then you will hunt well here, and come home. Thank him when he falls.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd rather meet him in the open, on even terms.", next = "t_hunt", reply = "Then you will meet him on his terms, which are not even. I hope your bones are honored as you would honor his.", fx = { align = { honor = 1 } } },
+        { text = "Back to the hunt.", next = "t_hunt" },
+      },
+    },
+    t_tame = {
+      lines = {
+        { id = "tt_default", text = "The ravasaurs, which are raptors of a kind, though fiercer than any the Darkspear raised, and the great apes in the north of the crater, who stomp the ground until it shakes. Bind one of the apes for a day, and your own companion will learn that stomp, if it is clever enough to watch." },
+        { id = "tt_raptor", when = { pet = { family = "Raptor" } }, text = "Your raptor is already looking at the ravasaurs as if they were cousins, and they are. Bind one for a day if you would have your companion learn from it, but do not let them fight over supper." },
+      },
+      choices = { { text = "Back to the hunt.", next = "t_hunt" } },
+    },
+    t_devil = {
+      lines = { { id = "td_default", text = "No, and I would not wish it on any hunter who tried. The devilsaur will not be bound, by rod or by patience, and it has eaten more than one fool who thought otherwise. Hunt it if you must, from the stillest place you can find, and give thanks for the hide; that is all the bond it allows." } },
+      choices = { { text = "Back to the hunt.", next = "t_hunt" } },
+    },
+    t_simone = {
+      lines = { { id = "ts_default", text = "Yes, with a wolf she calls Precious. The beasts go silent when she passes, and the raptors, who fear nothing, step aside for her, and I have never seen a troll laugh that way. I keep my distance, and so should you, unless you came here looking for her." } },
+      choices = {
+        { text = "I may have come looking for her.", next = "t_simone2" },
+        { text = "Back to the hunt.", next = "t_hunt" },
+      },
+    },
+    t_simone2 = {
+      lines = { { id = "ts2_default", text = "Then go alone, with only your companion, as I suspect you were told to. Whatever she is, she is not a troll, and the crater knows it. I will say a word to the Earth Mother for you, and keep my eyes on the springs until you come back." } },
+      choices = { { text = "Thank you, Torwa. Back to the hunt.", next = "t_hunt", fx = { affinity = 1 } } },
+    },
+    t_how = {
+      lines = { { id = "tho_default", text = "By the long road south through Tanaris and down the ramp from the dunes, with the goblins of Gadgetzan laughing at a tauren who would walk so far for a raptor. I came for the beasts, kin, and I have stayed for Lar'korwi, and I will go home to Mulgore when the hunt is finished, if the Earth Mother allows." } },
+      choices = {
+        { text = "May she allow it. Walk with her, Torwa.", next = "t_hunt", fx = { affinity = 1 } },
+        { text = "Back to the hunt.", next = "t_hunt" },
       },
     },
     b1_1 = {

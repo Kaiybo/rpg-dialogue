@@ -178,6 +178,8 @@ P:NPC {
         { text = "You greeted my companion before me.", next = "first" },
         { text = "My companion never listens to me.", next = "stubborn", when = { class = "HUNTER", pet = true } },
         { text = "Do druids learn from beasts as you do?", next = "druid", when = { class = "DRUID" } },
+        { text = "My companion seems unhappy lately.", next = "hr_unhappy", when = { class = "HUNTER", pet = true } },
+        { text = "Night elf hunters seem closer to their beasts than others.", next = "ne_close", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -233,6 +235,32 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "You learn to be them, and I learn to be beside them, which is a different lesson and not a lesser one. Come and sit with the hunters' beasts sometime; you may find they talk to you more freely than to me." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hr_unhappy = {
+      lines = {
+        { id = "hru_default", text = "Then it is hungry, or bored, or it has been dying for you too often without being thanked for it. A companion that is fed what it likes and taken into fights it can win grows content, and a content beast learns faster and trusts you sooner." },
+        { id = "hru_pet", when = { pet = { named = true } }, text = "Let me look at {pet}. Hungry, I think, or tired of being sent in first without thanks. Feed it what it likes, and take it into fights it can win for a while, and it will forgive you more quickly than most people would." },
+      },
+      choices = {
+        { text = "I'll feed it better, starting tonight.", next = "BACK", reply = "Good. It will notice before you do.", fx = { trait = { kind = 1 }, affinity = 1 } },
+        { text = "What if it runs off?", next = "hr_unhappy2" },
+      },
+    },
+    hr_unhappy2 = {
+      lines = {
+        { id = "hru2_default", text = "Then it has decided you were not worth the trouble, and it will not come back, and no trainer in Darnassus can call it home for you. It happens to the careless, and it happens to the busy, which is worse, because the busy always think they loved their beasts." },
+      },
+      choices = { { text = "I won't be careless.", next = "BACK" } },
+    },
+    ne_close = {
+      big = true,
+      lines = {
+        { id = "ncl_default", text = "We had ten thousand years of practice, and the forest's demigods to teach us, and beasts that remembered Cenarius walking among them. Your companion feels that in you, even if you never knew him, because it is in the way you stand and the way you wait." },
+      },
+      choices = {
+        { text = "Then I'll honour that bond in all I do.", next = "BACK", reply = "Then your companion will be the luckiest beast in Darnassus, and I will tell it so.", fx = { align = { honor = 1 } } },
+        { text = "Practice is practice. Any hunter could match us.", next = "BACK", reply = "Perhaps, and I have met a dwarf or two who came close. Close, mind.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+      },
     },
   },
 

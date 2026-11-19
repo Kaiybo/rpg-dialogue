@@ -154,7 +154,70 @@ P:NPC {
         { text = "Tell me about the Lodge.", next = "lodge" },
         { text = "That's a great many trophies on the wall.", next = "trophies" },
         { text = "What should a hunter take first in Loch Modan?", next = "first", when = { class = "HUNTER" } },
+        { text = "What lies down the hunter's road from here, Dargh?", next = "hp", when = { class = "HUNTER" } },
+        { text = "The Lodge feels like a second home to a dwarf.", next = "hp_lodge", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "My people hunt in silence. Dwarves are loud.", next = "hp_elf", when = { race = "NightElf" } },
+        { text = "I'm a human hunter, if you can credit it.", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
         { text = "Farewell, Dargh.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Ye'll leave the Loch wi' a beast at yer heel an' the Hawk on yer shoulder, an' ye'll come back through, as they all do, older an' louder. Somewhere past thirty ye'll learn tae play dead, at forty ye'll trade yer leather for mail, an' after that the road runs tae places the Farstriders only tell stories about." },
+        { id = "hp_low", when = { maxLevel = 15 }, text = "Ye're at the Loch, which means ye're at the start, so learn the wind an' the crocolisks before ye fret about the rest. Keep the Hawk up, keep a sting on whatever ye're shootin', an' feed yer beast before ye feed yerself." },
+      },
+      again = { { id = "hp_again", text = "What else? The wind's turnin'." } },
+      choices = {
+        { text = "How do I read the wind for a long shot?", next = "hp_wind" },
+        { text = "Is playing dead worth learning?", next = "hp_feign", when = { minLevel = 20 } },
+        { text = "What do the Farstriders' stories tell of?", next = "hp_end", when = { minLevel = 40 } },
+        { text = "Something else, Dargh.", next = "hello" },
+      },
+    },
+    hp_wind = {
+      lines = { { id = "hpw_default", text = "Watch the reeds at the water's edge an' the smoke from Thelsamar's chimneys, an' aim a hand's width intae whatever they're tellin' ye. A rifle ball cares less than an arrow does, but at two hundred paces even a dwarven ball drifts, an' the crocolisk won't wait while ye work it out." } },
+      choices = {
+        { text = "I'll take the wind into every shot.", next = "BACK", reply = "Then ye'll hit more than ye miss, which is all any o' us can say.", fx = { align = { order = 1 } } },
+        { text = "I'll get closer and skip the guesswork.", next = "BACK", reply = "Ye could, an' the crocolisk will be glad o' the company.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = { { id = "hpf_default", text = "Worth more than any shot I teach. I'd ha' scoffed at it when I was young, but I've watched a Farstrider lie still in the mud while a Dark Iron patrol walked right over him, an' he's still drinkin' at the Stoutlager tonight." } },
+      choices = {
+        { text = "Then I'll learn it, and use it without shame.", next = "BACK", reply = "Good, an' if ye ever meet that Farstrider, buy him a drink from me.", fx = { align = { honor = -1 } } },
+        { text = "I'd sooner fight than crawl in the mud.", next = "BACK", reply = "Then ye'll fight, an' maybe ye'll win, but the mud's never killed anyone.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "O' the Beaststalker mail, taken off the dead in Scholomance an' Stratholme an' Blackrock's spire, an' o' Rhok'delar, the bow an ancient in Felwood grows for the hunter who earns it. I've never held either, but there's a hook on the Lodge wall I've kept empty in case one o' my pupils comes home wi' somethin' worth hangin'." } },
+      choices = {
+        { text = "I'll fill that hook, Dargh.", next = "BACK", reply = "I'll hold ye tae it, an' I'll polish the hook while I wait.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_lodge = {
+      lines = { { id = "hpl_default", text = "It is, an' it's meant tae be. Every dwarf hunter worth the name comes through the Farstrider Lodge sooner or later, tae drink an' brag an' put somethin' on the wall, an' the Lodge remembers every one o' them." } },
+      choices = {
+        { text = "Then I'll earn my place on the wall.", next = "BACK", reply = "Aye, ye will, an' I'll be the one tae nail it up.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe2_default", text = "We are, an' proud o' it! A rifle shot across the Loch tells every beast who's the hunter here, an' yer silent arrows only tell the one ye hit. Both work, I'll grant, but ours is better for the stories." } },
+      choices = {
+        { text = "Silence takes more skill than noise.", next = "BACK", reply = "Maybe, but noise takes more powder, an' powder's expensive, so we're even.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "I can credit it, for I've seen a few o' ye come through lately, an' none o' ye were as hopeless as the Lodge expected. Hold yer breath before ye shoot an' dinnae let the crocolisks see ye flinch, an' ye'll do fine." } },
+      choices = {
+        { text = "High praise, from a Farstrider.", next = "BACK", reply = "It is, so dinnae waste it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     shot = {

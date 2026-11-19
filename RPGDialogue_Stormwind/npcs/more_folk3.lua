@@ -556,7 +556,70 @@ P:NPC {
         { text = "Hunting for sport is plain cruelty.", next = "sport" },
         { text = "What's worth hunting near Stormwind?", next = "near" },
         { text = "How do I keep my beast calm in a city?", next = "calm", when = { pet = { type = "Beast" } } },
+        { text = "Teach me what a tracker learns along the way.", next = "hp", when = { class = "HUNTER" } },
+        { text = "Not many humans take up the hunt, I'm told.", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "My people track by moonlight in Ashenvale.", next = "hp_elf", when = { race = "NightElf" } },
+        { text = "Your people never had a hunting lodge in a city.", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "I'll be on my way, Einris.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "A tracker learns tae see the beast before it sees ye, and then tae see the man before he sees ye, which is harder. Track Beasts ye'll have from the start, Hunter's Mark comes soon after, and then ye'll learn tae track the humanoids and the undead and the giants as ye go." },
+        { id = "hp_low", when = { maxLevel = 12 }, text = "Ye've only just begun, so start with Track Beasts and use it everywhere, even in the city, until ye know what every arrow on the map means. Then put a Hunter's Mark on what ye mean tae kill, and never shoot at the one ye didnae mark." },
+      },
+      again = { { id = "hp_again", text = "What else, hunter? The quarry's patient." } },
+      choices = {
+        { text = "Why mark a target before shooting?", next = "hp_mark" },
+        { text = "How do I hide from what's tracking me?", next = "hp_feign", when = { minLevel = 20 } },
+        { text = "Where does the trail end, for the best of us?", next = "hp_end", when = { minLevel = 50 } },
+        { text = "Something else, Einris.", next = "hello" },
+      },
+    },
+    hp_mark = {
+      lines = { { id = "hpm_default", text = "Because it tells your beast and your friends which one ye want, and it shows ye the beast even when it slips intae the brush. A hunter who doesnae mark their quarry is a hunter shooting at whatever's nearest, and that's how ye end up fighting three wolves instead of one." } },
+      choices = {
+        { text = "Choose the quarry, then strike. Always.", next = "BACK", reply = "Aye, that's the order of it, and I'll make ye say it again until ye mean it.", fx = { align = { order = 1 } } },
+        { text = "I'd rather hit what's in front of me.", next = "BACK", reply = "Then ye'll have a short, exciting life, and I'll tell your story tae the next pupil.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = { { id = "hpf_default", text = "Ye become nothing. At thirty ye'll learn tae drop and lie still so the thing on ye loses the scent, and that's the best hiding a hunter ever learns, though a cat does it better than any of us. Until then, it's distance and the Aspect of the Cheetah." } },
+      choices = {
+        { text = "A hunter who can vanish never needs to fight fair.", next = "BACK", reply = "Fair's a word for duels. In the field, there's only home or no' home.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face what hunts me.", next = "BACK", reply = "Then face it, but face it with your beast in front and your feet behind, if ye please.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "In the worst places in the world, and I mean that kindly. The Beaststalker mail's taken off things in Scholomance and Stratholme and the Blackrock spire, and the elves speak of an ancient in Felwood who grows a bow for a hunter who's tracked down the worst of the demons there. I've never followed that trail, but I'd like tae hear it from someone who has." } },
+      choices = {
+        { text = "I'll follow it, and tell you how it ends.", next = "BACK", reply = "Do, and I'll listen tae every word, which I don't say tae Ulfir.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "No, ye're a rare sight, and I'll own I didnae expect tae teach many of ye. But humans are good at watching each other, and that's half of tracking; ye only need tae learn tae watch beasts the same way." } },
+      choices = {
+        { text = "Then teach me to watch like a dwarf.", next = "BACK", reply = "I'll teach ye tae watch like a snow leopard, which is better, and ye'll thank me in Duskwood.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe2_default", text = "So I've heard, and I'll nae pretend tae teach ye what ten thousand years taught your people. But the beasts of these kingdoms are different, and the men of them more so, so I'll teach ye where tae look and ye can teach me how tae move." } },
+      choices = {
+        { text = "A fair trade, Einris.", next = "BACK", reply = "It is. Your feet first, then, for I heard ye on the stairs and I'm still a wee bit proud of it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpd_default", text = "We didnae, and I miss the Farstrider Lodge every day of my life, for there's nae better place tae smoke a pipe after a long track than its porch over the loch. But Stormwind's hunters need teaching, and the king's folk asked Ironforge for us, so here we are among the chimneys." } },
+      choices = {
+        { text = "Then I'll carry the Lodge's ways to Stormwind's woods.", next = "BACK", reply = "Do. The Brightspears have been tracking since before Thelsamar had a wall, and I'd like it remembered.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     first = {
@@ -680,7 +743,62 @@ P:NPC {
         { text = "Tell me about the other trainers.", next = "others" },
         { text = "What's the longest shot ye've made?", next = "longest", when = { race = "Dwarf" } },
         { text = "How do I shoot with a beast in the way?", next = "beast", when = { pet = { type = "Beast" } } },
+        { text = "What do the best shots learn after the first lessons?", next = "hp", when = { class = "HUNTER" } },
+        { text = "A rifle's a dwarf's birthright, Ulfir.", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "My people never needed gunpowder to hunt.", next = "hp_elf", when = { race = "NightElf" } },
         { text = "Good day, Ulfir.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Ha! Everythin' worth knowin'. The Aspect o' the Hawk at ten, Arcane Shot for when ye're movin', an' a good quiver or ammo pouch on yer hip so ye shoot faster than the next fellow, an' then ye spend twenty years gettin' the shot right. I've spent fifty." },
+        { id = "hp_high", when = { minLevel = 40 }, text = "Ye've the mail on ye an' the look o' somebody who's put a ball through somethin' big. Ask what ye like, for I've stories enough tae answer any question twice." },
+      },
+      again = { { id = "hp_again", text = "Speak up! What else?" } },
+      choices = {
+        { text = "Quiver or ammo pouch?", next = "hp_quiver" },
+        { text = "What's the Aspect of the Hawk worth?", next = "hp_hawk" },
+        { text = "What should a great shot carry at the end?", next = "hp_end", when = { minLevel = 50 } },
+        { text = "Something else, Ulfir.", next = "hello" },
+      },
+    },
+    hp_quiver = {
+      lines = { { id = "hpq_default", text = "Depends on what ye shoot, don't it? Arrows want a quiver an' bullets want a pouch, an' the better made it is, the quicker ye'll draw an' the more ye'll carry. Never go out with fewer than ye need, for runnin' out in a fight is the most embarrassin' way tae die I know." } },
+      choices = {
+        { text = "I'll carry twice what I think I'll need.", next = "BACK", reply = "Good, an' ye'll still run out one day, an' ye'll remember me sayin' this.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_hawk = {
+      lines = { { id = "hph_default", text = "Worth everythin'! Ye stand in it an' every shot lands harder, an' ye'll never take it off except tae run in the Cheetah or tae dodge in the Monkey when somethin's bitin' ye. Einris says it makes hunters careless, an' I say careless hunters were careless before they learned it." } },
+      choices = {
+        { text = "Hit hard and first. That's the whole game.", next = "BACK", reply = "That's my pupil! Einris will scowl at ye for a week.", fx = { align = { order = -1 } } },
+        { text = "Einris has a point. Power makes people careless.", next = "BACK", reply = "Bah, she always has a point, which is the most annoyin' thing about her.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "A rifle ye'd die before ye sold, an' the Beaststalker mail if ye can find it, which means Scholomance an' Stratholme an' the spire in Blackrock. The elves'll tell ye about a bow grown by an ancient in Felwood called Rhok'delar, an' I'll believe in it when I see one fired." } },
+      choices = {
+        { text = "I'll bring you Rhok'delar and fire it myself.", next = "BACK", reply = "Ha! If ye do, I'll stand on Stormwind's walls an' tell everyone I taught ye.", fx = { trait = { brave = 1 } } },
+        { text = "A good rifle's enough for me.", next = "BACK", reply = "Now ye're talkin' sense. Come an' have a drink sometime.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpd_default", text = "It is, an' don't let Einris tell ye different! Our grandfathers made the first ones in Ironforge's forges, an' there's nae sound in the world like a Bronzebeard rifle echoin' off the mountains above Kharanos." } },
+      choices = {
+        { text = "Then I'll make the mountains ring.", next = "BACK", reply = "That's the spirit! Mind ye don't start an avalanche, though.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe2_default", text = "Aye, an' yer people's bows are fine things, I'll grant ye that much. But I've seen a bowstring snap in the cold, an' I've never seen powder refuse tae burn, so long as ye keep it dry." } },
+      choices = {
+        { text = "A bow never blew up in anyone's face.", next = "BACK", reply = "Ha! Fair point, an' I've the eyebrows tae prove it. Ye win that one.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     best = {
@@ -821,7 +939,71 @@ P:NPC {
         { text = "What's the most dangerous thing you've hunted?", next = "danger" },
         { text = "What should I carry for my beast?", next = "carry", when = { pet = { type = "Beast" } } },
         { text = "Have ye hunted the Loch?", next = "loch", when = { race = "Dwarf" } },
+        { text = "What will keep me alive in the years ahead, Thorfin?", next = "hp", when = { class = "HUNTER" } },
+        { text = "I'm a human hunter. Folk find that odd.", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "I was raised far from these lands, beyond the sky.", next = "hp_sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Good day, Thorfin.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Three things, mostly. A beast ye've kept alive long enough tae trust ye, a trap laid where the quarry will run, an' the sense tae drop and play dead when all else fails. Learn those and ye'll grow old, which is more than most of my pupils managed." },
+      },
+      again = { { id = "hp_again", text = "What else would ye know?" } },
+      choices = {
+        { text = "Tell me about traps.", next = "hp_trap", when = { minLevel = 14 } },
+        { text = "Tell me about playing dead.", next = "hp_feign", when = { minLevel = 20 } },
+        { text = "When should I give up leather for mail?", next = "hp_mail", when = { minLevel = 30 } },
+        { text = "How do I keep my beast alive?", next = "hp_mend" },
+        { text = "Something else, Thorfin.", next = "hello" },
+      },
+    },
+    hp_trap = {
+      lines = { { id = "hpt_default", text = "Lay it before the fight, not during, for a trap ye drop under yer own feet with a bear on ye does ye no good. The Freezing Trap's the best of them, and it'll hold one beast while ye deal with the other, but only if ye've put it where the second one will run." } },
+      choices = {
+        { text = "Plan the ground, then fight on it.", next = "BACK", reply = "Aye. Every scar I have is from forgetting that.", fx = { align = { order = 1 } } },
+        { text = "Plans fall apart. I'd rather react.", next = "BACK", reply = "They do fall apart, but a broken plan's still better than none, and I'd like ye tae learn that with fewer scars than me.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = {
+        { id = "hpf_default", text = "Ye'll learn it at thirty, and it's the one I'd teach first if they let me. Drop, lie still, and the thing that's killing ye will look for something else tae kill, which is usually yer beast or yer friends, so get up quickly and lay a trap where it's standing." },
+        { id = "hpf_have", when = { minLevel = 30 }, text = "Ye have it by now, I hope, and I hope ye've used it. The trick's in the getting up, for ye'll want a trap down and a shot ready before the thing remembers ye." },
+      },
+      choices = {
+        { text = "It's no shame to cheat death.", next = "BACK", reply = "None, and I've done it more times than I'll admit to Ulfir.", fx = { align = { honor = -1 } } },
+        { text = "Leaving my friends to take the blow sits ill.", next = "BACK", reply = "It should, and that's why ye get up quick. A hunter who plays dead and stays down isnae a hunter.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_mail = {
+      lines = { { id = "hpm_default", text = "At forty, the day ye're able, and not a day later. I wore leather too long out of pride, and this scar here's from a troll in the Hinterlands who didnae care how quick I was." } },
+      choices = {
+        { text = "I'll be in mail on the day.", next = "BACK", reply = "Good, and have it fitted properly, for loose mail rattles and tells the quarry where ye are.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_mend = {
+      lines = { { id = "hpme_default", text = "Mend it while it fights, not after, and stand where ye can see it. Ye'll learn Mend Pet soon enough, and Revive Pet when it fails, but a beast that's mended in time doesnae need reviving, and it trusts ye more for it." } },
+      choices = {
+        { text = "I'll watch it closer than the quarry.", next = "BACK", reply = "Not closer, but near as close, and that's the right instinct.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "It's new, that's all, and new things look odd until they don't. Humans have always made good soldiers, and a hunter's mostly a soldier who listens before he shoots, so ye'll do fine if ye learn tae listen." } },
+      choices = {
+        { text = "I'll listen, then.", next = "BACK", reply = "Good, and start now, for ye've been tapping yer foot this whole time.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_sky = {
+      lines = { { id = "hps_default", text = "So I've heard, though I'll own I didnae believe the tale till now. I'll nae ask what beasts ye hunted up there, for I'd only nod along, but the ones down here bite and claw like any beast, and the lessons I teach hold for all of them." } },
+      choices = {
+        { text = "Then teach me, and I'll listen.", next = "BACK", reply = "I will, and I'll start with how ye stand, for ye stand like ye expect the wind tae catch ye.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     charge = {

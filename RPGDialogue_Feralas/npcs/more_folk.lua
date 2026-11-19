@@ -262,6 +262,8 @@ P:NPC {
         { text = "That nightsaber in the far pen looks very old.", next = "saber" },
         { text = "Who else on the isle works with beasts?", next = "keepers" },
         { text = "Do the beasts know a druid when they see one?", next = "druidq", when = { class = "DRUID" } },
+        { text = "What should a hunter never tame in Feralas?", next = "hnt_never", when = { class = "HUNTER" } },
+        { text = "That old saber. Was she at Hyjal?", next = "kal_saber", when = { race = "NightElf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -332,6 +334,14 @@ P:NPC {
         { text = "They know their own kind.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    hnt_never = {
+      lines = { { id = "hne_d", text = "The yetis of the Feral Scar, because they never truly forgive the collar, and anything that has drunk from the water near the Twin Colossals, which tastes of old Highborne magic. And never a hippogryph of ours, for the Sentinels would have your bow and your ears, in that order." } },
+      choices = { { text = "No yetis, no hippogryphs. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    kal_saber = {
+      lines = { { id = "ksa_d", text = "No, she is old but not that old, and her mother was. Her mother carried a Sentinel up the slopes of Hyjal and back again, and the Sentinel sent the cub to me when she could no longer ride, so I have kept that line for a long time, and I am glad you asked." } },
+      choices = { { text = "Then she carries a piece of Hyjal. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -775,6 +785,7 @@ P:NPC {
         { text = "The camp's kodos are in your care as well.", next = "kodos" },
         { text = "Who brings beasts to you here?", next = "bring" },
         { text = "What beast would you tame in Feralas?", next = "tame_here", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "The elves on Feathermoon tame beasts too. Are they better at it?", next = "hnt_elves", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -844,6 +855,13 @@ P:NPC {
       choices = {
         { text = "You'd say that about any wolf.", next = "BACK", reply = "I would, and I would be right every time." },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_elves = {
+      lines = { { id = "hel_d", text = "Better at keeping them quiet, yes, and worse at keeping them hungry for a fight. An elf's saber will sit for an hour without twitching, and my wolves would tear the pen apart in that time, but when the ogres come down from the hills, I know which I would rather have at my side." } },
+      choices = {
+        { text = "A beast should stay fierce. Yours have the right of it.", next = "BACK", reply = "Hah! Spoken like a hunter of the Horde. The tauren here will tell you otherwise, gently.", fx = { align = { order = -1 } } },
+        { text = "Discipline wins more fights than hunger.", next = "BACK", reply = "Maybe, and maybe you have been talking to too many elves. Still, I will not argue with a hunter who keeps a beast alive.", fx = { align = { order = 1 } } },
       },
     },
   },
@@ -1984,6 +2002,7 @@ P:NPC {
         { text = "A rifle kills from further off. That's all that matters.", next = "matters" },
         { text = "What would you hunt here, in my place?", next = "hunt", when = { class = "HUNTER" } },
         { text = "Do the braves practise at a mark?", next = "mark" },
+        { text = "Would you sell me the bow you'd carry yourself?", next = "hnt_own", when = { class = "HUNTER", faction = "Horde", minLevel = 45 } },
         { text = "May your aim be true, Cawind.", next = "END" },
       },
     },
@@ -2066,6 +2085,10 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
       },
+    },
+    hnt_own = {
+      lines = { { id = "how_d", text = "No, because a bowyer's own bow is cut to his own arm and would only shame yours. But I will tell you how I made it, from ironwood above the Twin Colossals, seasoned a full year by the camp fire, and you may find a better one in Dire Maul if the ogres have left anything worth taking." } },
+      choices = { { text = "Ironwood, seasoned a year. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
   topics = {

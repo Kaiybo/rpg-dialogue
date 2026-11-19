@@ -53,6 +53,7 @@ P:NPC {
         { text = "How do I redeem myself?", next = "redeem", when = { any = { { questDone = TODO_QUEST("Zenn's Bidding") }, { questActive = TODO_QUEST("Seek Redemption!") } } } },
         { text = "What is the Council of the Forest?", next = "council" },
         { text = "You never stop walking, do you?", next = "patrol" },
+        { text = "Why do Sentinels pray before they shoot?", next = "ne_pray", when = { race = "NightElf" } },
         { text = "I'll keep to the forest's laws.", next = "END" },
       },
     },
@@ -102,6 +103,21 @@ P:NPC {
     patrol = {
       lines = { { id = "pa_default", text = "Not on this road. If I stop, something stops me, and the Council would rather that didn't happen. Walk with me as far as the bridge if you've more to say." } },
       choices = { { text = "Lead on. Something else.", next = "BACK" } },
+    },
+    ne_pray = {
+      lines = {
+        { id = "npr_default", text = "Because the first of us were priestesses, in the war against the Legion, and they took up bows only because the temple stood in the path of the demons. We pray so that we never forget we are Elune's before we are anyone's soldiers." },
+      },
+      choices = {
+        { text = "What do you pray for?", next = "ne_pray2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_pray2 = {
+      lines = {
+        { id = "npr2_default", text = "That the arrow goes where it should, and nowhere else. A Sentinel who hits what she did not mean to hit has failed twice over, and I have seen it break better archers than me." },
+      },
+      choices = { { text = "Something else, Sentinel.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -298,6 +314,7 @@ P:NPC {
         { text = "What happens when I meet him?", next = "bear", when = { class = "DRUID" } },
         { text = "What does a druid learn in Dolanaar?", next = "learn" },
         { text = "Dolanaar seems peaceful.", next = "peace" },
+        { text = "Will I ever join the Claw or the Talon?", next = "ne_orders", when = { race = "NightElf", class = "DRUID" } },
         { text = "Farewell, Kal.", next = "END" },
       },
     },
@@ -338,6 +355,15 @@ P:NPC {
     peace = {
       lines = { { id = "pe_default", text = "It is, inside the village. Outside, the Gnarlpine grow wilder each season, and the Sentinels walk the roads with their glaives drawn. Peace is something we keep, not something we're given." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_orders = {
+      lines = {
+        { id = "nod_default", text = "If you have the patience, and the old orders take you, and you are willing to sleep in the barrow dens when the forest does not need you. The Claw takes those who hold their ground and the Talon takes those who watch the sky, so ask yourself which you are before you ask them." },
+      },
+      choices = {
+        { text = "I hold my ground.", next = "BACK", reply = "Then the bear is waiting for you, and so is Mathrengyl in the Enclave.", fx = { trait = { brave = 1 } } },
+        { text = "I watch the sky.", next = "BACK", reply = "Then learn patience from the owls of this island, for the Talon has little use for haste.", fx = { trait = { cautious = 1 } } },
+      },
     },
   },
 
@@ -432,6 +458,8 @@ P:NPC {
         { text = "Seriadne keeps the stable here. You must work together.", next = "stable" },
         { text = "Not all the island's beasts are as they should be.", next = "sick" },
         { text = "I'm no hunter, but I've always had a way with animals.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "My companion grows more loyal. How does that work?", next = "hr_loyal", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "How does my companion learn new skills?", next = "hr_skills", when = { class = "HUNTER", minLevel = 10 } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -460,6 +488,36 @@ P:NPC {
         { text = "Obedience keeps a beast alive in a fight.", next = "BACK", reply = "It does, I'll grant you, so long as you're there to give the order.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    hr_loyal = {
+      lines = {
+        { id = "hrl_default", text = "Slowly, the way any friendship does. A new companion is unruly, testing you, and if you feed it well and fight beside it, it becomes submissive, then dependable, then faithful, and after a long while the two of you will simply be best friends, which is the word we use for it, though it hardly covers it." },
+      },
+      choices = {
+        { text = "And the more loyal it is, the more it can learn?", next = "hr_loyal2" },
+        { text = "Something else, Keldas.", next = "BACK" },
+      },
+    },
+    hr_loyal2 = {
+      lines = {
+        { id = "hrl2_default", text = "Exactly so. A beast that trusts you will let you teach it more, and you will find you have more to give it as its loyalty grows. That is the part I train, so come and see me whenever it has grown, and we will see what it is ready for." },
+      },
+      choices = { { text = "I'll bring it back often.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hr_skills = {
+      lines = {
+        { id = "hrs_default", text = "Some things I can teach it here, like holding its ground and taking a blow for you. Other things you must learn yourself, by taming a wild beast that already knows the trick, living with it a while until you understand how it does it, and then teaching that to the companion you keep." },
+      },
+      choices = {
+        { text = "So I tame one beast to teach another?", next = "hr_skills2" },
+        { text = "Something else, Keldas.", next = "BACK" },
+      },
+    },
+    hr_skills2 = {
+      lines = {
+        { id = "hrs2_default", text = "You do, and you let the first one go again afterward, with thanks. The cats of Teldrassil can teach you a good deal about claws, and the owls about diving, so watch every beast you meet and ask yourself what it knows that yours does not." },
+      },
+      choices = { { text = "Watch every beast. I will.", next = "BACK" } },
     },
   },
 
@@ -976,6 +1034,8 @@ P:NPC {
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Stand there, where the wind is behind you, and tell me what you smell." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Let me see how you carry your bow before you speak." },
     { id = "g_done", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "You have a companion at your side, and it chose to stay. Good. That is all the proof I ask." },
+    { id = "g_path", when = { any = { { questActive = TODO_QUEST("The Hunter's Path") }, { questActive = TODO_QUEST("Taming the Beast") } } }, text = "You come to be tested, and the beasts of Teldrassil will do the testing. I only hand you the rod and watch." },
+    { id = "g_trained", when = { questDone = TODO_QUEST("Training the Beast") }, text = "The hunter who went to Darnassus with a beast at heel. It gladdens me to see you both again." },
   },
 
   notice = {
@@ -1006,6 +1066,9 @@ P:NPC {
         { text = "Why make me release the ones I tamed?", next = "xrelease", when = { questDone = TODO_QUEST("Taming the Beast") } },
         { text = "I hunt with a rifle. Does that offend you?", next = "xdwarf", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "A druid needs no rod. The beasts know me.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "My companion stays now. What do I owe it?", next = "hr_owe", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "Which of the three should I keep, Dazalar?", next = "hr_keep", when = { class = "HUNTER", questActive = TODO_QUEST("Taming the Beast") } },
+        { text = "The Sentinels ride nightsabers. Is that the same bond?", next = "ne_saber", when = { race = "NightElf" } },
         { text = "Keen eyes, Dazalar.", next = "END" },
       },
     },
@@ -1078,6 +1141,45 @@ P:NPC {
         { text = "Chosen each morning. That's well said.", next = "BACK" },
       },
     },
+    hr_owe = {
+      big = true,
+      lines = {
+        { id = "hro_default", text = "Food it likes, given before it asks, and your attention, given every day. A companion's loyalty grows slowly, from unruly to faithful over many months, and it can fall in a single hungry week, so if it ever looks at the trees as if they called to it, feed it and stay." },
+        { id = "hro_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet} and tell me, not with words. Food it likes, given before it asks, and your attention every day; its loyalty grows over months and can fall in one hungry week, so feed it before you feed yourself." },
+      },
+      choices = {
+        { text = "It eats before I do. Always.", next = "BACK", reply = "Then it will follow you into places you would not go alone. That is the whole of the bargain.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It's a beast. It'll eat when the hunt's done.", next = "BACK", reply = "Then one morning you will wake alone, and you will have earned it. Mind me.", fx = { align = { honor = -1 } } },
+        { text = "What happens if it does leave?", next = "hr_owe2" },
+      },
+    },
+    hr_owe2 = {
+      lines = {
+        { id = "hro2_default", text = "It goes back to the forest, and it does not come back for you, and you will feel it as a hollowness in your chest for a long time. I lost a strigid owl that way when I was young and proud, and I have not been proud since." },
+      },
+      choices = { { text = "I won't let that happen.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    hr_keep = {
+      lines = {
+        { id = "hrk_default", text = "That is not mine to say, and if I said it you would keep the wrong one. The stalker will hunt beside you and the owl will see for you and the spider will wait with you, so ask yourself which of those you most need, and then which you most like, and if the answers differ, trust the second." },
+      },
+      choices = { { text = "Trust the second. I'll remember.", next = "BACK" } },
+    },
+    ne_saber = {
+      lines = {
+        { id = "nsa_default", text = "Close to it, and older than it. The Sentinels' sabers are bred and raised among them from cubs, as war companions are, while a hunter goes out into the wild and asks a grown beast to come home with her. Both are bonds, but only one of them begins with a stranger." },
+      },
+      choices = {
+        { text = "Which is the stronger bond?", next = "ne_saber2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_saber2 = {
+      lines = {
+        { id = "nsa2_default", text = "The one that was chosen, by both of you, with neither of you owing the other anything at the start. That is why I make my students release their first beasts, so they learn the choosing before they learn the keeping." },
+      },
+      choices = { { text = "I understand now. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
@@ -1136,6 +1238,7 @@ P:NPC {
         { text = "Who is Ursal?", next = "ursal" },
         { text = "You ride well. Who trained your saber?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'd ride escort with you, if you'd have me.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Do Sentinels and hunters train together?", next = "hunt_sent", when = { class = "HUNTER" } },
         { text = "Safe road, Huntress.", next = "END" },
       },
     },
@@ -1200,6 +1303,21 @@ P:NPC {
       choices = {
         { text = "Ten paces, and silent. Something else first.", next = "BACK" },
       },
+    },
+    hunt_sent = {
+      lines = {
+        { id = "hst_default", text = "Often, and the hunters teach us more about tracking than we will admit in front of them. We teach them to stand a watch through the whole night, and they teach us to find what has walked past a watch without being seen." },
+      },
+      choices = {
+        { text = "And the beasts? Do Sentinels tame them?", next = "hunt_sent2" },
+        { text = "Something else, Huntress.", next = "BACK" },
+      },
+    },
+    hunt_sent2 = {
+      lines = {
+        { id = "hst2_default", text = "We ride sabers raised from cubs, but we do not go out into the wild and tame a grown beast as you do. I tried once, with a nightsaber stalker on this very road, and I have the scar on my wrist to show how it went." },
+      },
+      choices = { { text = "It takes practice. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -1364,6 +1482,7 @@ P:NPC {
     { id = "g_hello", text = "Good day. You are favouring your left foot, did you know? Sit down and tell me what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see how that last wound closed before we talk of anything else." },
     { id = "g_aid", when = { profession = "First Aid" }, text = "Someone has taught you to tie a proper knot. Good. Shall we go on from there?" },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: First Aid") }, text = "Lyreena sent you to me about her camps, did she? Good, because a fire with no bandages beside it is only a warm place to bleed." },
   },
 
   notice = {
@@ -1393,6 +1512,7 @@ P:NPC {
         { text = "Isn't healing the Temple's business?", next = "temple" },
         { text = "I heal by the Light. What can linen do that I can't?", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "I've bandaged in the field. Tell me what I do wrong.", next = "xaid", when = { profession = "First Aid" } },
+        { text = "What belongs in a camp's healing kit?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: First Aid") } },
         { text = "Steady hands, Byancie.", next = "END" },
       },
     },
@@ -1458,6 +1578,10 @@ P:NPC {
         { text = "To the side, on sound flesh. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    camp = {
+      lines = { { id = "ca_default", text = "Clean linen, boiled water and somebody who knows how to use them. Lyreena builds a fine fire, and I see to it that those who sit by it are fit to walk on in the morning.", fx = { learn = { "camping" } } } },
+      choices = { { text = "I'll tell her so. Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
@@ -1489,6 +1613,8 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "Welcome to Dolanaar. Whatever you have forgotten to pack, I probably sell it." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? You ran out of something. Let me guess: torches." },
+    { id = "g_pelts", when = { questActive = TODO_QUEST("Soft Saber Pelts") }, text = "Have the nightsabers given up their coats yet? I want the soft ones, mind, and not anything a boar has rolled on." },
+    { id = "g_pelts_done", when = { questDone = TODO_QUEST("Soft Saber Pelts") }, text = "Those pelts are already cut and stitched, {class}, and half of Dolanaar has asked where I got them." },
   },
 
   notice = {
@@ -1518,6 +1644,7 @@ P:NPC {
         { text = "You know everyone who passes through.", next = "pass" },
         { text = "I'm off to Darkshore. What should I carry?", next = "xnelf", when = { race = "NightElf" } },
         { text = "I skin what I hunt. Do you buy pelts?", next = "xskin", when = { profession = "Skinning" } },
+        { text = "What do you want with saber pelts?", next = "pelts", when = { questActive = TODO_QUEST("Soft Saber Pelts") } },
         { text = "Good day, Aldia.", next = "END" },
       },
     },
@@ -1589,6 +1716,10 @@ P:NPC {
       choices = {
         { text = "Soft to you, heavy to Nadyia. Something else.", next = "BACK" },
       },
+    },
+    pelts = {
+      lines = { { id = "pe_default", text = "A nightsaber's winter coat is softer than anything a loom can make, and it lines a satchel or a bedroll better than cloth. The cats have bred far too many on this tree of late, so taking a few does the forest a kindness as well." } },
+      choices = { { text = "Clean pelts, then. Something else.", next = "BACK" } },
     },
   },
 
@@ -2153,6 +2284,7 @@ P:NPC {
     { id = "g_hello", text = "Hm? Oh, forgive me. I was listening to a ring. You are welcome here; do sit, and mind the dust on that stone." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Glade. Good. I think I have remembered what I meant to tell you last time." },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "You carry a rod, and it has been used. Then we may skip the part where I explain what dust is." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Enchanting") }, text = "Lyreena's lessons have reached even the Oracle Glade, I see. Sit, and I will show you what an enchanter can add to a camp, which is less than you hope and more than nothing." },
   },
 
   notice = {
@@ -2181,6 +2313,7 @@ P:NPC {
         { text = "The Oracle Glade isn't as safe as it was.", next = "glade" },
         { text = "Unmaking a fine blade for dust feels like waste.", next = "xench", when = { profession = "Enchanting" } },
         { text = "Our ancestors' enchantments nearly ended the world.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What can an enchanter do for a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Enchanting") } },
         { text = "Quiet hours, Alanna.", next = "END" },
       },
     },
@@ -2252,6 +2385,10 @@ P:NPC {
       choices = {
         { text = "A fair distinction. Something else.", next = "BACK" },
       },
+    },
+    camp = {
+      lines = { { id = "ca_default", text = "A little light that needs no oil, and a ward on the bedroll that keeps the damp out, and a rod that hums when something large comes near in the dark. None of it is grand, but all of it is listening on your behalf while you sleep.", fx = { learn = { "camping" } } } },
+      choices = { { text = "Listening while I sleep. Something else.", next = "BACK" } },
     },
   },
 
@@ -2443,6 +2580,7 @@ P:NPC {
         { text = "You must hear a great deal, measuring people.", next = "hear" },
         { text = "What weave suits a priestess on the road?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Is it true the looms were sung to, once?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Keldamyr says you fought on the slopes of Hyjal.", next = "ne_hyjal", when = { race = "NightElf" } },
         { text = "Walk in peace, Brannol.", next = "END" },
       },
     },
@@ -2516,6 +2654,21 @@ P:NPC {
       choices = {
         { text = "Keep humming. It can't hurt. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
+    },
+    ne_hyjal = {
+      lines = {
+        { id = "nhj_default", text = "Keldamyr says a great many things over his counter. I carried water and arrows up the mountain for the Sentinels, which is fighting of a sort, and I saw Archimonde from further away than I would like you to believe when I tell it at the inn." },
+      },
+      choices = {
+        { text = "What did you see?", next = "ne_hyjal2" },
+        { text = "Something else, Brannol.", next = "BACK" },
+      },
+    },
+    ne_hyjal2 = {
+      lines = {
+        { id = "nhj2_default", text = "Light, at the end, pouring out of the World Tree like the whole sky had caught fire, and then a silence I have never heard before or since. The next morning my hair had a grey thread in it, and that was how I learned we could grow old." },
+      },
+      choices = { { text = "A strange way to learn it. Something else.", next = "BACK", fx = { learn = { "nordrassil" } } } },
     },
   },
 
@@ -2959,6 +3112,7 @@ P:NPC {
         { text = "A Nightwing teaches the druids in Darnassus.", next = "kin" },
         { text = "What do you make of Frahun's pupils?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Who tans for you?", next = "xlw", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "How long will leather serve a hunter?", next = "hunt_leather", when = { class = "HUNTER" } },
         { text = "Good hunting, Freja.", next = "END" },
       },
     },
@@ -3032,6 +3186,12 @@ P:NPC {
         { text = "Nadyia Maneweaver. I'll remember. Something else.", next = "BACK" },
       },
     },
+    hunt_leather = {
+      lines = {
+        { id = "hlt_default", text = "Until the beasts you hunt start biting harder than leather can stand, which for most hunters is somewhere past Ashenvale and before Feralas. After that you will want mail, and I will be sorry to lose you to the armorers, but come back for your bracers anyway." },
+      },
+      choices = { { text = "I'll come back for the bracers.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
@@ -3061,6 +3221,7 @@ P:NPC {
     { id = "g_hello", text = "Ishnu-alah, and welcome. I am told that somebody ought to say so to each new face, and I have taken the duty upon myself." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, we have met. You are welcome again, and that is a shorter speech, you will be glad to hear." },
     { id = "g_young", when = { maxLevel = 8 }, text = "A new face in Shadowglen! Be welcome under the boughs. Has anyone yet shown you where the pool is, and where the grells are not?" },
+    { id = "g_voucher", when = { questActive = TODO_QUEST("Welcome!") }, text = "Ah, you carry a voucher with my name upon it. Be welcome, and let me see it, for I have been expecting you." },
   },
 
   notice = {
@@ -3088,6 +3249,7 @@ P:NPC {
         { text = "What should I know about Aldrassil's people?", next = "people" },
         { text = "What do you make of us outlanders?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Were you here when the tree was planted?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "About this voucher I carry.", next = "voucher", when = { questActive = TODO_QUEST("Welcome!") } },
         { text = "Thank you for the welcome, Orenthil.", next = "END" },
       },
     },
@@ -3168,6 +3330,10 @@ P:NPC {
       choices = {
         { text = "And now we live in its branches. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
       },
+    },
+    voucher = {
+      lines = { { id = "vo_default", text = "It is an old courtesy to those who came early and gave generously, and I am glad to honour it. Hand it to me when you are ready, and we will see it done properly." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
     },
   },
 

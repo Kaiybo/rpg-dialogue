@@ -543,6 +543,8 @@ P:NPC {
         { text = "Do the Circle's druids ever take up the bow?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why sell bows in the most peaceful place in Kalimdor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would the spirits refuse me in Felwood?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What arrows would you take to Winterspring?", next = "hnt_arrows", when = { class = "HUNTER" } },
+        { text = "Do the Sentinels still string bows the old way?", next = "kal_bows", when = { race = "NightElf" } },
         { text = "Farewell, Narianna.", next = "END" },
       },
     },
@@ -571,6 +573,17 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_arrows = {
+      lines = { { id = "har_d", text = "Heavy ones, because the cold makes the light arrows flutter, and plenty of them, because the yeti up there take more than one. Wax your string before you leave and again at Everlook, or you'll hear it crack on the first frosty morning." } },
+      choices = { { text = "Heavy arrows and wax. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    kal_bows = {
+      lines = { { id = "kbo_d", text = "Some do, the old ones who learned before the Sundering, with sinew and moonwell-soaked yew, and they look down their noses at anything else. The younger Sentinels buy whatever shoots straight, and I don't blame them, because a war on two borders doesn't leave time for a hundred-year apprenticeship." } },
+      choices = {
+        { text = "The old ways are worth keeping.", next = "BACK", reply = "They are, and I keep a few old bows in the back for anyone who asks properly.", fx = { align = { order = 1 } } },
+        { text = "A bow that shoots straight is all a soldier needs.", next = "BACK", reply = "Spoken like a Sentinel on the Warsong border, and I'll sell you one gladly.", fx = { align = { order = -1 } } },
       },
     },
   },

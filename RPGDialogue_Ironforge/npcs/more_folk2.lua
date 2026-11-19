@@ -670,7 +670,60 @@ P:NPC {
         { text = "What's good hunting nearby?", next = "hunting" },
         { text = "Folk say your accent takes some getting used to.", next = "accent" },
         { text = "Rifle or bow, Thorgas?", next = "rifle", when = { class = "HUNTER" } },
+        { text = "What comes after Coldridge for a young hunter?", next = "hp", when = { class = "HUNTER" } },
+        { text = "Do dwarf hunters ride the rams, Thorgas?", next = "hp_ram", when = { race = "Dwarf" } },
+        { text = "I'm human, and I've come to learn the hunt.", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "I'm a stranger here, from far off.", next = "hp_sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Farewell, Thorgas.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Kharanos, an' Grif Wildheart on the hill above it. When ye've ten seasons on ye, he'll hand ye a rod an' set ye tae tame a boar, a leopard an' a bear, an' after that ye'll never walk alone again, which is the best an' worst o' bein' a hunter." },
+        { id = "hp_tamed", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "Ye've been tae Grif already an' come back wi' a beast, I see. Ye've done the first stretch o' the road, an' it's a long one yet, but ye've started it right." },
+      },
+      again = { { id = "hp_again", text = "Wot else, then? Slow, mind." } },
+      choices = {
+        { text = "What should I learn before I see Grif?", next = "hp_first" },
+        { text = "Why does a hunter need a beast at all?", next = "hp_why" },
+        { text = "Something else, Thorgas.", next = "hello" },
+      },
+    },
+    hp_first = {
+      lines = { { id = "hpf_default", text = "The Aspect o' the Monkey, fer the wolves will bite ye an' ye'll want tae no' be there when they do, an' a Serpent Sting tae put on the boars while ye shoot. Learn tae track beasts, too, an' tae see 'em comin', fer the troggs in the valley willnae wait fer ye tae notice 'em." } },
+      choices = {
+        { text = "I'll learn them all before I go.", next = "BACK", reply = "Good, an' ye'll thank me the first time a trogg comes at ye from behind.", fx = { trait = { cautious = 1 } } },
+        { text = "I'll learn them on the road, the hard way.", next = "BACK", reply = "Aye, that's a dwarf's way too, an' ye'll have the scars tae show fer it.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    hp_why = {
+      lines = { { id = "hpw_default", text = "Because a rifle cannae hold a trogg off ye while ye reload. A beast stands in front an' takes the blows, an' ye stand back an' shoot, an' between the two o' ye there's nothin' in Dun Morogh ye cannae take." } },
+      choices = {
+        { text = "So the beast suffers so I don't.", next = "BACK", reply = "Aye, an' ye owe it fer that, so feed it well an' mend it after.", fx = { align = { light = 1 } } },
+        { text = "A hunter should stand alone, if need be.", next = "BACK", reply = "Ye can, an' ye'll be a lonely, bitten hunter. Grif will set ye straight.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_ram = {
+      lines = { { id = "hpr_default", text = "We ride 'em, aye, when we've the coin, but we dinnae hunt wi' 'em. A ram's a mount, no' a companion, an' the Amberstills would skin ye fer tryin' tae tame one off their ranch, so stick tae boars." } },
+      choices = {
+        { text = "Boars it is, then.", next = "BACK", reply = "Good choice. A boar's as stubborn as a dwarf, an' twice as brave.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "Have ye, now? There's no' many o' yer folk wi' a hunter's beast, an' fewer still come up tae Coldridge tae learn it, so ye've got grit, an' ye'll need it in the snow. Speak slow an' I'll dae the same." } },
+      choices = {
+        { text = "Grit, I've got. Teach me the rest.", next = "BACK", reply = "Aye, I will, an' the wolves will teach ye whatever I miss.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_sky = {
+      lines = { { id = "hps_default", text = "Far off, ye say, an' I believe it, fer I've never seen anyone like ye in Coldridge. I'll no' ask ye about yer home, fer I'd no' understand the answer, but I'll teach ye like any dwarf an' ye can make o' it what ye like." } },
+      choices = {
+        { text = "That's all I ask, Thorgas.", next = "BACK", reply = "Good, then mind the troggs an' come back alive.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     field = {
@@ -4803,7 +4856,68 @@ P:NPC {
         { text = "What's the secret to a clean shot?", next = "shot" },
         { text = "Where do Ironforge's hunters practise?", next = "range" },
         { text = "Rifle, or blunderbuss?", next = "piece" },
+        { text = "What should a hunter learn after the basics, Olmin?", next = "hp", when = { class = "HUNTER" } },
+        { text = "My people hunt with bows. Why the noise?", next = "hp_elf", when = { race = "NightElf" } },
+        { text = "I'm a human with a rifle. Will that do?", next = "hp_human", when = { race = "Human", class = "HUNTER" } },
         { text = "Good hunting, Olmin.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "After the basics comes the shootin', which is the part that matters! Ye'll want the Aspect o' the Hawk up whenever ye're fightin', a sting on the target an' yer beast on its throat, an' then ye stand back an' put lead intae it till it stops movin'." },
+        { id = "hp_low", when = { maxLevel = 9 }, text = "Ye've barely started, so learn tae stand still when ye shoot an' put a Serpent Sting on everythin' that moves. The Hawk comes at ten, an' it's the finest thing a trainer ever sold." },
+      },
+      again = { { id = "hp_again", text = "What else? Ask loud, my ears are half powder." } },
+      choices = {
+        { text = "How close should I let them get?", next = "hp_range" },
+        { text = "What about when the beast loses hold of it?", next = "hp_feign", when = { minLevel = 20 } },
+        { text = "What do the best hunters carry at the end?", next = "hp_end", when = { minLevel = 50 } },
+        { text = "Enough shooting talk, Olmin.", next = "hello" },
+      },
+    },
+    hp_range = {
+      lines = {
+        { id = "hpr_default", text = "Never closer than eight paces, for inside that ye cannae shoot at all an' ye'll be swingin' a knife like a brawler. Keep the beast in front an' yerself well back, an' if somethin' gets through, a Concussive Shot slows it long enough tae step away." },
+        { id = "hpr_dwarf", when = { race = "Dwarf" }, text = "Never closer than eight paces, an' a dwarf's legs make that a long walk backward, so start further away than ye think. Keep the beast in front an' put a Concussive Shot on anythin' that slips past it, an' ye'll never have tae swing that axe on yer back." },
+      },
+      choices = {
+        { text = "I'll keep my distance and let the beast hold.", next = "BACK", reply = "Good! That's the hunter's whole trade in a sentence, an' I've spent forty years sayin' it in longer ones.", fx = { align = { order = 1 } } },
+        { text = "Sometimes you have to wade in and finish it.", next = "BACK", reply = "Aye, an' sometimes ye lose an ear doin' it, which is why my beard's the colour it is.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = {
+        { id = "hpf_default", text = "Then ye learn tae fall down, which ye'll get at thirty an' which I hated for years, for it's no' a dignified thing for a rifleman. But I've watched it save more hunters than any shot I ever taught, so swallow yer pride an' learn it." },
+      },
+      choices = {
+        { text = "Dignity's for the living. I'll learn it.", next = "BACK", reply = "Ha! Well said. I'll steal that, if ye don't mind.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather die on my feet than play dead.", next = "BACK", reply = "Spoken like a warrior, an' they've a hall o' their own across the way, but I'll respect it.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "The best hunters I've known carried a rifle built by the best smiths in Ironforge an' wore the Beaststalker mail, pieced together from Scholomance an' Stratholme an' the Blackrock spire. The night elves will tell ye about a bow grown by an ancient in Felwood, an' I'll grant it's a fine tale, but I'd still rather have a good rifle." } },
+      choices = {
+        { text = "I'd take the ancient's bow over any rifle.", next = "BACK", reply = "Then ye're a heretic, but a heretic wi' good taste, an' I'll forgive ye.", fx = { affinity = 1 } },
+        { text = "A dwarven rifle, every time.", next = "BACK", reply = "That's my pupil! Bring the Beaststalker mail back here an' we'll have it framed.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe2_default", text = "Because the noise is half the point! A beast hears a bowstring an' wonders, but it hears a rifle an' knows it's lost, an' so does everythin' else for a mile. I'll grant yer people's bows are fine work, though, an' quieter than my temper." } },
+      choices = {
+        { text = "Quiet keeps a hunter alive. Noise is for show.", next = "BACK", reply = "Maybe so, but I've never had a beast come back for a second look after the bang.", fx = { align = { order = 1 } } },
+        { text = "Fine. Show me how the rifle feels.", next = "BACK", reply = "Ha! I'll have ye converted by the week's end, an' Darnassus will never forgive me.", fx = { align = { order = -1 } } },
+      },
+    },
+    hp_human = {
+      lines = { { id = "hph_default", text = "It'll do grand! Ye're no' the first human I've seen wi' a hunter's beast, but ye're one o' a handful, an' it pleases me that the ones who come tae it come tae Ironforge for their guns. Hold it tight tae yer shoulder, for the kick's a dwarf's kick." } },
+      choices = {
+        { text = "I'll hold it like a dwarf, then.", next = "BACK", reply = "Then ye'll have a bruise like one for a week, an' ye'll be proud of it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     beard = {
@@ -4897,7 +5011,64 @@ P:NPC {
         { text = "Belia says you laugh at her boar.", next = "boar" },
         { text = "What's the first rule of hunting with a beast?", next = "rule" },
         { text = "What beast suits a new hunter?", next = "suits" },
+        { text = "What's the road ahead for me and my beast?", next = "hp", when = { class = "HUNTER" } },
+        { text = "At home I hunted beside a nightsaber.", next = "hp_elf", when = { race = "NightElf", class = "HUNTER" } },
+        { text = "I ride a ram, when I'm not on foot.", next = "hp_ram", when = { race = "Dwarf" } },
         { text = "Good hunting, Regnus.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "The pair o' ye walk it together, an' that's the first thing tae know. Ye tame yer beast at ten, ye feed it an' keep it alive till it trusts ye, an' then the two o' ye learn tae fight like one animal wi' eight legs an' a rifle." },
+        { id = "hp_nopet", when = { minLevel = 10, ["not"] = { pet = { type = "Beast" } } }, text = "Ye've nae beast at yer side, an' at yer age ye should. Go an' see Grif Wildheart in Kharanos, or tame somethin' on yer own if ye've done that already, for ye're only half a hunter wi'out one." },
+      },
+      again = { { id = "hp_again", text = "What else? He's listenin' too, mind." } },
+      choices = {
+        { text = "How do I make my beast trust me?", next = "hp_loyal" },
+        { text = "What does my beast need to learn first?", next = "hp_growl", when = { minLevel = 10 } },
+        { text = "What happens to my beast when I play dead?", next = "hp_feign", when = { minLevel = 24 } },
+        { text = "Enough of that, Regnus.", next = "hello" },
+      },
+    },
+    hp_loyal = {
+      lines = {
+        { id = "hpl_default", text = "Ye keep it fed an' ye keep it alive, an' the trust comes on its own, a wee bit at a time. A beast that's gone hungry or been killed too often will leave ye one mornin', an' the worst of it is ye'll know ye earned it." },
+        { id = "hpl_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet} there, watchin' my wolf an' then watchin' you for what tae do about it. That's trust startin', so keep it fed an' dinnae let it die for ye where ye could have stepped in, an' it'll follow ye intae Blackrock." },
+      },
+      choices = {
+        { text = "A beast's trust is earned, never forced.", next = "BACK", reply = "That's what my wolf would say, if he talked, an' he'd say it louder than me.", fx = { align = { light = 1 } } },
+        { text = "A firm hand gets the same result faster.", next = "BACK", reply = "It gets ye a beast that obeys, aye, but no' one that'll stand over ye when ye're down.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_growl = {
+      lines = { { id = "hpg_default", text = "Tae growl, so the thing ye're fightin' looks at it an' no' at you. Belia will teach it that an' more, for a few coppers, an' ye'll find yer beast learns new tricks from the wild beasts too, if ye tame them an' let them teach it." } },
+      choices = {
+        { text = "So my beast takes the blows meant for me.", next = "BACK", reply = "Aye, an' ye heal it after an' thank it, an' that's the bargain the two o' ye make." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_feign = {
+      lines = { { id = "hpf_default", text = "It keeps fightin', an' that's the hard part. Ye're lyin' in the dirt pretendin' tae be dead an' yer beast's still out there for ye, so get up quick an' call it back before it pays for yer trick." } },
+      choices = {
+        { text = "I'd never leave my beast to die for me.", next = "BACK", reply = "Good, for a hunter who would isnae welcome near my wolf.", fx = { align = { honor = 1 } } },
+        { text = "Better the beast than me. I can revive it.", next = "BACK", reply = "Ye can, an' it'll remember every time ye did. Mind the count.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe_default", text = "A nightsaber! I've seen one, once, an' my wolf hid behind me the whole time. Yer people keep the great cats like kin, I'm told, so ye'll know most o' what I teach already, an' ye can tell me the rest." } },
+      choices = {
+        { text = "We don't keep them. They choose to walk with us.", next = "BACK", reply = "Aye, that's how it should be said, an' I'll say it that way from now on.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_ram = {
+      lines = { { id = "hpr_default", text = "Every dwarf worth his beard does, an' a ram's a fine beast tae learn on, for it'll teach ye patience whether ye want it or no'. But a ram's no' a hunter's beast, so dinnae try tae tame one off the ranch, or Veron Amberstill will have yer hide." } },
+      choices = {
+        { text = "I'd never dream of it. Much.", next = "BACK", reply = "Ha! Ye'd no' be the first tae dream it, but ye'd be the first tae get away with it.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wolf = {

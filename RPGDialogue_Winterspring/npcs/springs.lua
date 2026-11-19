@@ -170,6 +170,8 @@ P:NPC {
         { text = "What makes you think there's magic in the firewater, Donova?", next = "xmage", when = { class = "MAGE" } },
         { text = "I've heard the Timbermaw and Everlook on the Winterfall, Donova.", next = "winterfall_word",
           when = { thread = { id = "winterfall_firewater", beat = "b5_donova", state = { "stirring", "unfolding" } } } },
+        { text = "My people traded with the Winterfall once, long ago.", next = "kal_trade", when = { race = "NightElf" } },
+        { text = "Have you seen anyone strange on the roads, Donova?", next = "hnt_stranger", when = { class = "HUNTER", minLevel = 55 } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -247,6 +249,20 @@ P:NPC {
         { id = "wp_default", text = "Guesses get folk killed up here, so I keep mine in my notebook till I've proof. Bring me somethin' I can test, an' then we'll talk." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kal_trade = {
+      lines = { { id = "ktr_d", text = "Did they, now? Aye, that fits, for the Winterfall elders still have kaldorei beadwork on their totems, older than anythin' in Everlook. They were a proud, decent folk, an' they'd sit by these springs an' let me count their cubs, an' now they'd as soon brain me as look at me." } },
+      choices = {
+        { text = "Then the firewater must be stopped at its source.", next = "BACK", reply = "Aye, an' that's what I'm after. Find who's brewin' it an' ye'll find who's tae blame.", fx = { align = { light = 1 } } },
+        { text = "Old friendships don't matter when they raid the roads.", next = "BACK", reply = "Mebbe no' tae Everlook's goblins. They matter tae me, an' I'd hoped they'd matter tae an elf.", fx = { align = { light = -1 } } },
+      },
+    },
+    hnt_stranger = {
+      lines = { { id = "hst_d", text = "Funny ye should ask, for there's a fellow walks the high road who's the friendliest soul ye ever met, all smiles an' good mornin's, an' every beast in the valley runs from him. Even the frostsabers, an' they fear nothin'. I put it down tae his cologne, but I've a feelin' a hunter might think otherwise." } },
+      choices = {
+        { text = "Beasts don't flee from cologne. I'll look into him.", next = "BACK", reply = "Then take care, for a man who smiles that much is hidin' his teeth.", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Donova.", next = "BACK" },
+      },
     },
   },
 

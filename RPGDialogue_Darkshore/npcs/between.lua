@@ -543,6 +543,8 @@ P:NPC {
         { text = "What would you ask of a paladin, Ancient One?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a rogue's path trouble you, Ancient One?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Ancients know the spirits I speak with, Onu?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did you stand at Hyjal, Ancient?", next = "kal_hyjal", when = { race = "NightElf" } },
+        { text = "Malfurion still sleeps in the Dream. Does the grove hear him?", next = "kal_dream", when = { race = "NightElf" } },
         { text = "I will leave you in peace.", next = "END" },
       },
     },
@@ -586,6 +588,22 @@ P:NPC {
       choices = {
         { text = "I will.", next = "BACK" },
       },
+    },
+    kal_hyjal = {
+      big = true,
+      lines = { { id = "kh_d", text = "I did, young one, at the foot of the mountain with my brothers, when Archimonde climbed toward the World Tree and your Tyrande held the lower slopes. Many of the Ancients you will meet in Felwood are only spirits now, because the fel fire was hungry, and I was luckier than I deserved." } },
+      choices = {
+        { text = "The Ancients' sacrifice saved us all.", next = "BACK", reply = "It saved the tree, and the tree saved the world, and the world forgot us within a generation. That is as it should be, little one.", fx = { affinity = 1, learn = { "burning_legion" } } },
+        { text = "What was it like, the end?", next = "kal_hyjal2" },
+      },
+    },
+    kal_hyjal2 = {
+      lines = { { id = "kh2_d", text = "Like a great breath drawn in, and let out all at once. The wisps of every kaldorei who had ever died rose around the demon, and Nordrassil burned to give them strength, and afterward the mountain was quiet for the first time in a year, and I wept sap for a month." } },
+      choices = { { text = "Thank you for telling me. Something else.", next = "BACK" } },
+    },
+    kal_dream = {
+      lines = { { id = "kd_d", text = "Sometimes, at the very edge of hearing, like wind in another forest. He is far away in the Dream, and troubled, and I do not know why he does not wake. Your druids in Moonglade would know more than an old tree in Darkshore, and Keeper Remulos most of all." } },
+      choices = { { text = "I'll ask in Moonglade. Something else.", next = "BACK", fx = { learn = { "malfurion" } } } },
     },
   },
 

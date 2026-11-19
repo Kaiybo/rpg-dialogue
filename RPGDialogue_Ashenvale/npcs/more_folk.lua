@@ -1031,6 +1031,8 @@ P:NPC {
         { text = "Aynasha held that pass with almost no arrows.", next = "xaynasha", when = { questDone = TODO_QUEST("One Shot. One Kill.") } },
         { text = "I've walked the Darkshore road. It's ill guarded.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I can stand a watch as well as any Sentinel.", next = "xwar", when = { class = { "WARRIOR", "HUNTER" } } },
+        { text = "Maestra's Post feels like the edge of our old world.", next = "kal_edge", when = { race = "NightElf" } },
+        { text = "Where do the Foulweald hunt along this road?", next = "hnt_road", when = { class = "HUNTER" } },
         { text = "Keep your watch, Sentinel.", next = "END" },
       },
     },
@@ -1103,6 +1105,17 @@ P:NPC {
       choices = {
         { text = "I'll be awake. Something else first.", next = "BACK" },
       },
+    },
+    kal_edge = {
+      lines = { { id = "ked_d", text = "It is the edge of the one we still keep, and that is a sadder thing to say. Before the Sundering the forest ran to the sea on every side and nobody needed a post on a road, and now I count the travellers who come in from Darkshore like coins I may not be able to spend." } },
+      choices = {
+        { text = "We will hold this edge.", next = "BACK", reply = "We will, while there are Sentinels to stand on it. Elune keep you on the road, {g:brother|sister}.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Perhaps it's time we went beyond our edges.", next = "BACK", reply = "Some of our young ones say the same, and go to the human lands to fight. I hope they come back with something worth the trip.", fx = { align = { order = -1 } } },
+      },
+    },
+    hnt_road = {
+      lines = { { id = "hro_d", text = "South of the road, between here and the Falfarren, and they have learned to wait in the bracken where the path bends. Walk it with your beast in front of you and your eyes on the ferns, and you will see their ears before they see you." } },
+      choices = { { text = "Beast in front, eyes on the ferns. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
 
@@ -2845,6 +2858,9 @@ P:NPC {
         { text = "Has the war changed the animals?", next = "war" },
         { text = "What does my companion need from me?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Why is that bear watching me?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "My companion seems unhappy lately.", next = "hnt_unhappy", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "How does a beast learn to bite harder?", next = "hnt_learn", when = { class = "HUNTER" } },
+        { text = "I had to let a companion go, Caelyb.", next = "hnt_release", when = { class = "HUNTER", minLevel = 15 } },
         { text = "Go gently, Caelyb.", next = "END" },
       },
     },
@@ -2916,6 +2932,28 @@ P:NPC {
       choices = {
         { text = "I'm honoured to be counted family.", next = "BACK", fx = { affinity = 1 } },
       },
+    },
+    hnt_unhappy = {
+      lines = { { id = "hun_d", text = "Then feed it what it likes, and not only what you have, because a wolf fed on bread for a week will forgive you but not happily. A happy beast fights harder and stays loyal longer, and an unhappy one starts looking at the treeline when you are not watching." } },
+      choices = {
+        { text = "And if it runs?", next = "hnt_unhappy2" },
+        { text = "Proper food, then. Something else.", next = "BACK" },
+      },
+    },
+    hnt_unhappy2 = {
+      lines = { { id = "hun2_d", text = "It will not run for one bad meal, but it may for a season of neglect, and I have seen hunters come home without the companion they started with. Loyalty is built over many days of care, and it can be spent in a few." } },
+      choices = { { text = "I'll care for it better. Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    hnt_learn = {
+      lines = { { id = "hle_d", text = "From other beasts, mostly. Tame a creature that already knows a bite or a claw better than yours, keep it long enough to learn the trick of it, and then you can teach the same to your true companion. The rest, the growl and the thick hide, I teach here myself." } },
+      choices = {
+        { text = "It feels unkind to tame one only to release it.", next = "BACK", reply = "It is a borrowing, and I ask my students to release them where they found them, fed and unhurt. The forest forgives that.", fx = { align = { light = 1 } } },
+        { text = "A beast is a lesson. I'll use what I must.", next = "BACK", reply = "Use it, then, but do not let the habit spread to the companion who stays. Beasts know when they are only lessons.", fx = { align = { light = -1 } } },
+      },
+    },
+    hnt_release = {
+      lines = { { id = "hre_d", text = "Where did you let it go, and was it whole? If it was, then you gave it back to the forest, and that is not a loss, only a parting. I will remember it for you, if you like, for I remember every beast that has passed through the Refuge." } },
+      choices = { { text = "It was whole. Thank you, Caelyb.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -3103,6 +3141,10 @@ P:NPC {
         { text = "What is it like, shooting over this lake?", next = "lake" },
         { text = "Tell me what my three arrows showed you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "What should a fighter know about archers?", next = "xmelee", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
+        { text = "What should I master before I go east?", next = "hnt_path", when = { class = "HUNTER" } },
+        { text = "I've learned to feign death. It felt like cowardice.", next = "hnt_feign", when = { class = "HUNTER", minLevel = 30 } },
+        { text = "Is there a bow worth a lifetime of practice?", next = "hnt_bow", when = { class = "HUNTER", minLevel = 50 } },
+        { text = "Our people have always been archers. Why drill me so hard?", next = "kal_archer", when = { race = "NightElf", class = "HUNTER" } },
         { text = "Shoot true, Alenndaar.", next = "END" },
       },
     },
@@ -3175,6 +3217,47 @@ P:NPC {
         { text = "Hold for ten, and shout before I charge.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    hnt_path = {
+      hub = true,
+      lines = {
+        { id = "hp_d", text = "Your feet, then your breath, then the wind, and only then the shot, in that order and every day. When you can hit the far target across the inlet three times running, you are ready for the Silverwing, and not one morning before." },
+        { id = "hp_hi", when = { minLevel = 30 }, text = "You are past the inlet targets, so I will speak to you as I speak to the Sentinels. The skill now is in the spaces between shots, where you move and set a trap and keep your beast between you and the blade." },
+      },
+      again = { { id = "hp_again", text = "What else would you know? The line is still there behind you." } },
+      choices = {
+        { text = "Why traps, when I have a bow?", next = "hnt_traps" },
+        { text = "And my companion, in a fight?", next = "hnt_pet" },
+        { text = "Enough for today. Something else.", next = "BACK" },
+      },
+    },
+    hnt_traps = {
+      lines = { { id = "htr_d", text = "Because the enemy will reach you sooner or later, and a trap is the arrow you loosed an hour ago. Freeze the first one who comes over the rise, and shoot the second, and by the time the first is free you will be somewhere else entirely." } },
+      choices = { { text = "Somewhere else entirely. I'll practise.", next = "hnt_path", fx = { trait = { cautious = 1 } } } },
+    },
+    hnt_pet = {
+      lines = { { id = "hpe_d", text = "It holds the enemy's eye while you hold the distance, and it trusts you to keep shooting while it bleeds for you. Danlaar will tell you what you owe it, and Caelyb will teach it, and I will only tell you never to let it fight alone longer than it must." } },
+      choices = { { text = "Never alone longer than it must.", next = "hnt_path", fx = { affinity = 1 } } },
+    },
+    hnt_feign = {
+      big = true,
+      lines = { { id = "hfe_d", text = "It is cowardice if you lie there and do nothing, and wisdom if you rise and finish the work. I have watched Sentinels outlast a Warsong patrol by playing dead in the ferns until the patrol walked past, and then they put three arrows into the last one's back before he turned." } },
+      choices = {
+        { text = "Then it's a tool, like any trap.", next = "BACK", reply = "Exactly a tool, and the hardest one to use, because you must trust your stillness when every nerve wants to run.", fx = { align = { honor = -1 } } },
+        { text = "I still don't like lying to an enemy's face.", next = "BACK", reply = "Then do not use it, and accept that you may die more honestly than the rest of us. I will not mock you for it.", fx = { align = { honor = 1 } } },
+      },
+    },
+    hnt_bow = {
+      lines = { { id = "hbo_d", text = "There are old tales among our hunters of a bow grown from the bark of the Ancients who died at Hyjal, given only to a hunter who proves worthy against the Legion's agents alone. If it is true, the spirits in Felwood's Irontree Woods would know, so go and ask them, and come back and tell me whether I wasted my youth." } },
+      choices = { { text = "I'll seek the Ancients in Felwood.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    kal_archer = {
+      big = true,
+      lines = { { id = "kar_d", text = "Because the Warsong know we are archers too, and they have learned to come at us through the rain and the brush where a bow is worst. Being born kaldorei gives you an eye, and nothing else, and I have buried more kaldorei with fine eyes than I can count." } },
+      choices = {
+        { text = "Then drill me until I hate you.", next = "BACK", reply = "You will, by midsummer. And you will live through autumn, which is the point.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Instinct served our people for ten thousand years.", next = "BACK", reply = "Ten thousand years of fighting satyrs in the dark, yes. The orcs are not satyrs, and instinct did not save my best pupil.", fx = { align = { order = -1 } } },
+      },
+    },
   },
 
   topics = {
@@ -3231,6 +3314,9 @@ P:NPC {
         { text = "Alenndaar says you send him children.", next = "alen" },
         { text = "What does a hunter owe a companion?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll keep still. Was he hurt by soldiers?", next = "xloud", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Do you pray before a hunt?", next = "kal_pray", when = { race = "NightElf" } },
+        { text = "I made my first kill today. It didn't feel like I expected.", next = "hnt_first", when = { class = "HUNTER", maxLevel = 24 } },
+        { text = "My companion was hurt badly. I nearly lost it.", next = "hnt_hurt", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Walk softly, Danlaar.", next = "END" },
       },
     },
@@ -3303,6 +3389,24 @@ P:NPC {
       choices = {
         { text = "I'm glad he feels safe.", next = "BACK", fx = { affinity = 1 } },
       },
+    },
+    kal_pray = {
+      lines = { { id = "kpr_d", text = "To Elune, before and after, as my mother did and hers before her. Before, I ask that my aim be true, and after, I thank the beast and ask the Goddess to take it into the moonlight, and if that sounds foolish to the young ones from Darnassus, they are welcome to stay foolish in some other teacher's line." } },
+      choices = {
+        { text = "It doesn't sound foolish. It sounds right.", next = "BACK", reply = "Then you will be easy to teach. Come back to me if the hunting ever starts to feel like nothing.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "The beast won't hear the prayer. It's for us.", next = "BACK", reply = "Perhaps, and that is no small reason to say it. A hunter who needs no comfort worries me more than one who does.", fx = { align = { light = -1 } } },
+      },
+    },
+    hnt_first = {
+      lines = { { id = "hfi_d", text = "Sit down for a moment, then, and tell me how you expected it to feel. Most of my pupils think it will feel like winning, and it feels instead like something heavy being handed to them, and the ones who feel that are the ones I am glad to send on to Alenndaar." } },
+      choices = {
+        { text = "Heavy. That's the word for it.", next = "BACK", reply = "Then carry it, and do not put it down, and it will make you careful all your life.", fx = { trait = { kind = 1 } } },
+        { text = "I felt nothing much, honestly.", next = "BACK", reply = "That happens, and it is not a crime. Watch for it, though, and come back if it is still nothing after a hundred kills.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    hnt_hurt = {
+      lines = { { id = "hhu_d", text = "Let me see it, gently. Yes, it will heal, and it is still looking at you rather than at the wound, which means it does not blame you. Feed it something it loves tonight, and sit with it, and let it see you are not going anywhere." } },
+      choices = { { text = "I'll sit with it. Thank you, Danlaar.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
   },
 

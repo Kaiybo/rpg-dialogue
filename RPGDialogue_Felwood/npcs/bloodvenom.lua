@@ -464,6 +464,7 @@ P:NPC {
         { text = "Does Bloodvenom Post have enough warriors, Trull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How wrong are the beasts of Felwood, Trull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you think I'm hiding, Trull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Which beasts here are still worth taming?", next = "hnt_tame", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },
@@ -535,6 +536,13 @@ P:NPC {
         { id = "d_default", text = "Then you'd know better than me what makes a wildkin angry, and I'd like to hear it. Write it down, slowly, and I'll see it gets to Orgrimmar." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    hnt_tame = {
+      lines = { { id = "hta_d", text = "Almost none, and I've watched Horde hunters try. The bears come up from the Deadwood dens rabid, the wolves are fel-touched, and the only things I'd trust are the cats that hunt the high ridges toward Winterspring, because they don't drink from the valley." } },
+      choices = {
+        { text = "Then I'll take my beasts from Winterspring.", next = "BACK", reply = "Good choice, and bring back a report while you're at it. Orgrimmar likes to know what lives up there.", fx = { trait = { cautious = 1 }, standing = { bloodvenom_post = 1 } } },
+        { text = "A fel-touched wolf might fight harder.", next = "BACK", reply = "It might, until it fights you. I've seen it happen, and I won't help you bury what's left.", fx = { trait = { brave = 1 } } },
+      },
     },
   },
 

@@ -1735,6 +1735,9 @@ P:NPC {
         { text = "Hunters leave their beasts for long?", next = "leave" },
         { text = "Which of Darkshore's beasts would you tame?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I speak with beasts. May I ask yours what they've seen?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Which companions do Sentinel hunters favour?", next = "hnt_sent", when = { class = "HUNTER" } },
+        { text = "My companion has been with me since Teldrassil.", next = "hnt_tel", when = { class = "HUNTER", race = "NightElf" } },
+        { text = "A Horde hunter would never get a stall here, I suppose.", next = "hnt_horde", when = { class = "HUNTER", minLevel = 15 } },
         { text = "Thank you, Jaelysia.", next = "END" },
       },
     },
@@ -1798,6 +1801,28 @@ P:NPC {
       },
       choices = {
         { text = "I'll sit with her a while. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    hnt_sent = {
+      lines = { { id = "hs_d", text = "Nightsabers, when they can win one, and owls for the scouts who need eyes above the canopy. The Sentinels do not keep pets as your kind do, they keep sisters, and a sentinel's saber will sit at her grave for a week if she falls." } },
+      choices = {
+        { text = "I'd like a companion like that.", next = "hnt_sent2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_sent2 = {
+      lines = { { id = "hs2_d", text = "Then do not look for one, let it find you, and be worth finding when it does. That is the only advice my mother gave me about beasts, and I have not needed any other since." } },
+      choices = { { text = "Be worth finding. I'll remember. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hnt_tel = {
+      lines = { { id = "ht_d", text = "I can tell, for it looks at the sea the way the young ones do, as if it has never seen so much water without a tree in it. Teldrassil's beasts are clean of the corruption, so keep it away from the thistle bears up north, and it will stay that way." } },
+      choices = { { text = "I'll keep it clean. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    hnt_horde = {
+      lines = { { id = "hh_d", text = "Not here, though I have heard that their hunters keep their wolves and raptors with the same care we keep our sabers. A beast does not know which banner its master serves, and I would feed one if it came to my door hungry, whatever my sisters thought of it." } },
+      choices = {
+        { text = "A beast is a beast. I'd feed it too.", next = "BACK", reply = "Then we understand each other, and we will keep it between us.", fx = { align = { honor = 1 } } },
+        { text = "Their beasts carry their riders. I'd turn it away.", next = "BACK", reply = "Spoken like a Sentinel. I will not argue it, but I will not change my mind either.", fx = { align = { honor = -1 } } },
       },
     },
   },

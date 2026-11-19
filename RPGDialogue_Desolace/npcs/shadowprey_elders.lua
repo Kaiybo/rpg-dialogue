@@ -465,6 +465,7 @@ P:NPC {
       choices = {
         { text = "You don't approve of Smeed's kodo roundup, Roon?", next = "dd_kodo", when = { questDone = TODO_QUEST("Kodo Roundup") } },
         { text = "Tell me about Hemet.", next = "hemet" },
+        { text = "I'm a hunter too. What will Hemet ask of me?", next = "r_hunter", when = { class = "HUNTER" } },
         { text = "What was the white kodo?", next = "white_kodo" },
         { text = "Wasn't it strange, hunting with the Alliance?", next = "enmity" },
         { text = "What do you hunt now?", next = "now" },
@@ -474,6 +475,30 @@ P:NPC {
       },
     },
 
+    r_hunter = {
+      lines = {
+        { id = "rh_default", text = "Then let one hunter tell another what Hemet's camp will ask of you. He'll send you after the panthers first, then the tigers, then the raptors, more of each than any tauren would take, and at the end he'll offer you the oldest beasts of the jungle, the ones with names. Take his work if you like, but count your kills, and know when you have enough." },
+        { id = "rh_pet", when = { pet = { type = "Beast" } }, text = "Then let one hunter tell another what Hemet's camp will ask of you, and of {pet}. He'll set you on the panthers and the tigers and the raptors, more of each than any tauren would take, and your companion will grow strong on it, so feed it well and let it rest between his hunts." },
+      },
+      choices = {
+        { text = "Hemet's hunt sounds like a slaughter, Roon.", next = "r_hunter2" },
+        { text = "Should I tame one of Stranglethorn's cats?", next = "r_cat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_hunter2 = {
+      big = true,
+      lines = { { id = "rh2_default", text = "It is more than I would take, and I have told him so, and he laughed. But the jungle is thick and the cats there breed like rabbits, and the trolls of Grom'gol say the panthers have taken more than one of their own. Perhaps the jungle needs a Hemet more than Desolace did." } },
+      choices = {
+        { text = "Too many kills dishonor any hunt.", next = "BACK", reply = "Then go, and take less than he asks, and tell him Roon said so. He will laugh again, but he will hear it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the jungle needs thinning, I'll thin it.", next = "BACK", reply = "Then you two will get along, and I'll be glad, mostly. Say the words over them, at least the first few.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    r_cat = {
+      lines = { { id = "rc_default", text = "You could do worse, for the shadow panthers and the striped tigers there are as quick as anything on the plains, and fiercer. Bind one for a day and let your own beast learn its claw, or keep one, if it looks back at you the way a companion should." } },
+      choices = { { text = "Thank you, Roon. Something else.", next = "BACK" } },
+    },
     hemet = {
       lines = {
         { id = "he_default", text = "He was loud, cheerful and never without his rifle, and he could hit a hawk on the wing from the far side of a canyon. He talked the whole time we hunted, which should have frightened the beasts away, but somehow it never did." },

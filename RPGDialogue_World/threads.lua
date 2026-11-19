@@ -1050,3 +1050,263 @@ P:Thread {
     },
   },
 }
+
+-- The bear at Auberdine (Alliance hunters, 10-30). Durgan Flintbrow (original), a Kharanos
+-- hunter Grif Wildheart trained, crossed to Darnassus to learn how the kaldorei bond with their
+-- beasts, tamed a grey Darkshore bear he called Slate, and took him to Auberdine. Slate ate from
+-- the Blackwood's tainted stores, and now the bear growls at him more every day. Dorion asks the
+-- player what Durgan should do: end it while Slate still knows him, or keep fighting for him.
+P:Thread {
+  id = "hun_alliance",
+  theme = "A dwarf hunter's bear is turning wild with the Blackwood's corruption, and the hunters of two peoples can't agree what he owes the beast.",
+  title = "The bear at Auberdine",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A Kharanos hunter called Durgan Flintbrow crossed the sea to learn how the kaldorei talk to their beasts. He passed through Darnassus with a grey bear at his heel, and he hasn't written home since the autumn.",
+      third = "{name} heard of Durgan Flintbrow, a dwarf hunter who went to Darnassus to learn the kaldorei way with beasts and stopped writing home." },
+    unfolding = { first = "Durgan tamed his bear Slate in Darkshore under Dorion's eye, and Slate ate from the Blackwood furbolgs' tainted stores. Now Durgan sits on the Auberdine dock with a bear that growls at him a little more each day, and he won't hear a word about it.",
+      third = "{name} learned that Durgan Flintbrow's bear had eaten the Blackwood's tainted food, and that Durgan sat on the Auberdine dock watching it turn." },
+    resolved = { first = "I told Dorion that Durgan should end it while Slate still knows his voice. Dorion said he'd go to Auberdine himself and stand beside the dwarf when he did it, so that he wouldn't do it alone.",
+      third = "{name} told Dorion that Durgan Flintbrow should let his bear go while it still knew him, and Dorion went to stand beside him." },
+    soured = { first = "I told Dorion that Durgan should never give up on Slate. Dorion sent word to Auberdine, and a week later the bear broke its chain on the dock, and the Sentinels had to do what Durgan wouldn't.",
+      third = "{name} told Dorion that Durgan Flintbrow should keep fighting for his bear, and the Sentinels of Auberdine ended it for him." },
+  },
+  npcs = { "mf_grif", "jeenra", "dorion", "thundris", "daera" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Dorion that Durgan should let Slate go while the bear still knew him, and Dorion went to Auberdine to stand beside him.",
+    soured = "The player told Dorion that Durgan should never give up on Slate, and the Sentinels of Auberdine ended it when the bear broke its chain.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Grif taught Durgan to feed his beast, Dorion taught him to listen to it, and Thundris says the Blackwood has stopped it listening back. Every hunter keeps a beast knowing this could happen.",
+    third = "{name} had followed Durgan Flintbrow from Kharanos to Darnassus to the Auberdine dock, and learned what every hunter risks in a beast.",
+  },
+  beats = {
+    {
+      id = "b1_grif", npc = "mf_grif",
+      when = { class = "HUNTER", faction = "Alliance", minLevel = 10, thread = { id = "hun_alliance", notBeat = "b1_grif" }, ["not"] = { thread = { id = "hun_alliance", beat = "b1_jeenra" } } },
+      text = "Ye'll be tamin' yer first beast soon, so let me tell ye about the best student I ever had on this hill. Durgan Flintbrow could call a boar off its charge wi' one whistle, an' he took a boat tae Darnassus tae learn how the elves talk tae their beasts, an' I've had no letter from him since the autumn. If ye're ever over the water, ask after him for me.",
+      fx = { thread = { id = "hun_alliance", beat = "b1_grif", state = "stirring" } },
+    },
+    {
+      id = "b1_jeenra", npc = "jeenra",
+      when = { class = "HUNTER", faction = "Alliance", minLevel = 10, thread = { id = "hun_alliance", notBeat = "b1_jeenra" }, ["not"] = { thread = { id = "hun_alliance", beat = "b1_grif" } } },
+      text = "A dwarf came through Rut'theran last spring with a bow too big for him and the gentlest hands I've seen on a hunter of his kind. His name was Durgan Flintbrow, and he wanted to learn how we bond with our beasts, so I sent him up to Dorion. I hear he went on to Darkshore with a grey bear at his heel, and I've wondered since how that ended.",
+      fx = { thread = { id = "hun_alliance", beat = "b1_jeenra", state = "stirring" } },
+    },
+    {
+      id = "b2_dorion", npc = "dorion",
+      when = { class = "HUNTER", any = { { thread = { id = "hun_alliance", beat = "b1_grif" } }, { thread = { id = "hun_alliance", beat = "b1_jeenra" } } },
+               ["not"] = { thread = { id = "hun_alliance", beat = "b2_dorion" } } },
+      text = "Durgan Flintbrow, yes, and Shadow liked him, which she does not do lightly. I took him to Darkshore and watched him tame a grey thistle bear he called Slate, and the two of them were one animal within a week. His last letter came from Auberdine, and it said Slate had been eating from the Blackwood's stores, and that there was something in the bear's eyes he didn't recognise.",
+      fx = { thread = { id = "hun_alliance", beat = "b2_dorion", state = "unfolding" } },
+    },
+    {
+      id = "b3_thundris", npc = "thundris",
+      when = { class = "HUNTER", minLevel = 12, thread = { id = "hun_alliance", beat = "b2_dorion" }, ["not"] = { thread = { id = "hun_alliance", beat = "b3_thundris" } } },
+      text = "You have come about the dwarf on the dock, I think, and his bear. Whatever has maddened the Blackwood furbolgs was in the food they stored, and the bear ate from it before anyone knew. Durgan sits with it every evening and sings to it in that rough tongue of his, and every evening it growls at him a little longer before it lies down.",
+      fx = { thread = { id = "hun_alliance", beat = "b3_thundris" } },
+    },
+    {
+      id = "b3_daera", npc = "daera",
+      when = { class = "HUNTER", race = "Dwarf", thread = { id = "hun_alliance", beat = "b2_dorion" }, ["not"] = { thread = { id = "hun_alliance", beat = "b3_daera" } } },
+      text = "Durgan's bear, aye, Grif wrote tae me about it, an' he's been sour as old milk since. The elves'll tell ye a hunter lets a sick beast go back tae the earth, an' they're no' wrong, but a dwarf doesnae give up on anythin' he loves while there's breath in it, an' that's no' wrong either. I'd no' want tae be the one tellin' Durgan which.",
+      fx = { thread = { id = "hun_alliance", beat = "b3_daera" } },
+    },
+  },
+}
+
+-- The thinning herds (Horde hunters, 10-30). Garra Steelgaze (original), an orc hunter out of
+-- Razor Hill, leads the meat-hunters who feed Orgrimmar from the Barrens herds, and the Crossroads
+-- buys every haunch. The tauren of Thunder Bluff say she takes more than the plains can spare.
+-- Holt Thunderhorn asks the player whether Garra should learn the old rites or keep the city fed.
+P:Thread {
+  id = "hun_horde",
+  theme = "An orc hunter feeds Orgrimmar from the Barrens herds, and the tauren say she is taking more than the plains can give back.",
+  title = "The thinning herds",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "An orc hunter called Garra Steelgaze leads the meat-hunters who feed Orgrimmar from the Barrens. The tauren hunters have started saying her name the way they say drought.",
+      third = "{name} heard of Garra Steelgaze, an orc hunter who fed Orgrimmar from the Barrens, and whose name the tauren said like drought." },
+    unfolding = { first = "Sergra Darkthorn buys every haunch Garra brings into the Crossroads, and Ormak Grimshot says a city of orcs can't eat the Earth Mother's blessings. Up on Hunter Rise they say the zhevra herds are half what they were when the Horde came.",
+      third = "{name} heard the Crossroads, Orgrimmar and Thunder Bluff argue over Garra Steelgaze and the thinning herds of the Barrens." },
+    resolved = { first = "I told Holt Thunderhorn that Garra should learn the old rites and take only what the herds can spare. He said he'd teach her himself, if she'd climb the Rise to hear it, and that he thought she would.",
+      third = "{name} told Holt Thunderhorn that Garra Steelgaze should learn the tauren's rites, and Holt offered to teach her himself." },
+    soured = { first = "I told Holt Thunderhorn that Orgrimmar has to eat and the herds will have to bear it. He nodded slowly and said that the plains would remember who said so, long after the Horde had forgotten.",
+      third = "{name} told Holt Thunderhorn that the Horde's hunger came before the herds, and Holt said the plains would remember." },
+  },
+  npcs = { "thotar", "yaw", "sergra", "ormak", "holt" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Holt Thunderhorn that Garra should learn the old rites, and Holt offered to teach her himself.",
+    soured = "The player told Holt Thunderhorn that Orgrimmar must eat, and Holt said the plains would remember who said so.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Garra feeds a city, Sergra feeds a garrison, and the Thunderhorns count the herds and find them smaller every year. Every hunter in the Horde eats from the same plains.",
+    third = "{name} had followed Garra Steelgaze's hunt from Razor Hill to the Crossroads and up to Hunter Rise, and found every Horde hunter ate from the same plains.",
+  },
+  beats = {
+    {
+      id = "b1_thotar", npc = "thotar",
+      when = { class = "HUNTER", faction = "Horde", minLevel = 10, thread = { id = "hun_horde", notBeat = "b1_thotar" }, ["not"] = { thread = { id = "hun_horde", beat = "b1_yaw" } } },
+      text = "You will hunt the Barrens soon, and you will meet Garra Steelgaze there, because everyone does. She trained in this yard, and now she leads the hunters who feed Orgrimmar, forty carcasses to a wagon. The tauren have started to look at her the way they look at a dry sky, and I have not decided yet whether they are wrong.",
+      fx = { thread = { id = "hun_horde", beat = "b1_thotar", state = "stirring" } },
+    },
+    {
+      id = "b1_yaw", npc = "yaw",
+      when = { class = "HUNTER", faction = "Horde", minLevel = 10, thread = { id = "hun_horde", notBeat = "b1_yaw" }, ["not"] = { thread = { id = "hun_horde", beat = "b1_thotar" } } },
+      text = "When you go down into the Barrens, young hunter, count the zhevra as you pass them, and then ask an elder how many there were before the orcs came. An orc called Garra Steelgaze leads the hunters who feed their city, and she is good at it, which is exactly what worries us.",
+      fx = { thread = { id = "hun_horde", beat = "b1_yaw", state = "stirring" } },
+    },
+    {
+      id = "b2_sergra", npc = "sergra",
+      when = { class = "HUNTER", minLevel = 12, any = { { thread = { id = "hun_horde", beat = "b1_thotar" } }, { thread = { id = "hun_horde", beat = "b1_yaw" } } },
+               ["not"] = { thread = { id = "hun_horde", beat = "b2_sergra" } } },
+      text = "Garra? I buy every haunch she drags through that gate, and I'd buy more if she had them, because I've a garrison to feed and the Kolkar don't sell. The tauren come through here and look at her wagons like she's robbing a grave, and I tell them the same thing every time: my grunts can't stand a wall on prayers.",
+      fx = { thread = { id = "hun_horde", beat = "b2_sergra", state = "unfolding" } },
+    },
+    {
+      id = "b3_ormak", npc = "ormak",
+      when = { class = "HUNTER", thread = { id = "hun_horde", beat = "b2_sergra" }, ["not"] = { thread = { id = "hun_horde", beat = "b3_ormak" } } },
+      text = "Garra feeds this city, and I'll hear no hunter in Orgrimmar say a word against her. The tauren had the plains to themselves for a thousand years, and they had the rain too, and we came out of the camps into a land of red dust with a whole people to feed. Let them count the zhevra; I count the orcs.",
+      fx = { thread = { id = "hun_horde", beat = "b3_ormak" } },
+    },
+    {
+      id = "b3_holt", npc = "holt",
+      when = { class = "HUNTER", thread = { id = "hun_horde", beat = "b2_sergra" }, ["not"] = { thread = { id = "hun_horde", beat = "b3_holt" } } },
+      text = "The herds of the Barrens are half what they were when the Horde came, and I have walked those plains long enough to count them myself. Garra Steelgaze is not cruel, and she is not greedy, but she hunts as though the plains will always be full, the way a young hunter does before the Earth Mother teaches her otherwise. I would rather she learned it from me than from an empty plain.",
+      fx = { thread = { id = "hun_horde", beat = "b3_holt" } },
+    },
+  },
+}
+
+-- The kindly strangers (hunters of either faction, 55-60). The Ancient Petrified Leaf from the
+-- Firelord's hoard leads to the spirits of the Irontree Woods: Vartrus, Stoma and Hastat. Their
+-- stave is earned by killing four corrupters who walk among mortals wearing kind faces, among
+-- them Artorius the Amiable in Winterspring, whom Everlook adores. Vartrus asks the player what
+-- they will tell the people who loved him: the truth, or nothing.
+P:Thread {
+  id = "hun_rhokdelar",
+  theme = "The Ancients of the Irontree Woods will give a hunter a bow of their own wood, but the price is killing demons that everyone else calls kind.",
+  title = "The kindly strangers",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "The oldest hunters say the spirits of three Ancients of Lore still stand in Felwood's Irontree Woods, Vartrus, Stoma and Hastat, waiting for a hunter worthy of what they can give.",
+      third = "{name} heard that the spirits of three Ancients of Lore waited in Felwood's Irontree Woods for a worthy hunter." },
+    unfolding = { first = "Vartrus says four corrupters walk among mortals wearing kind faces, and that his stave is the price of their heads. In Everlook they talk about Artorius the Amiable as if he were the best neighbour they ever had, and at the hot springs the snowblossoms die wherever a friendly stranger has stood.",
+      third = "{name} learned from Vartrus that four demons walked among mortals wearing kind faces, and found Winterspring fond of one of them." },
+    resolved = { first = "Vartrus asked what I would tell the people who loved the kindly strangers. I told him the truth, even if they hate me for it, and he said that a hunter who carries his wood should carry the truth as well.",
+      third = "{name} told Vartrus the Ancient that {name} would tell Winterspring the truth about its kindly strangers, whatever it cost." },
+    soured = { first = "Vartrus asked what I would tell the people who loved the kindly strangers. I told him I'd let them keep their kind neighbour, and he said that the next demon to smile at them would find them just as trusting.",
+      third = "{name} told Vartrus the Ancient that Winterspring could keep its kind memories, and Vartrus said the next demon would find it just as trusting." },
+  },
+  npcs = { "jocaste", "urek", "vartrus", "harlo_w", "donova" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Vartrus they would tell Winterspring the truth about its kindly strangers, whatever it cost them.",
+    soured = "The player told Vartrus they would let Winterspring keep its kind memories, and he warned that the next demon would find it as trusting.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "An Ancient who died at Hyjal, a gossip who adores a demon, and a dwarf whose flowers die where a friendly man has stood. The hardest prey I've ever hunted smiles back at me.",
+    third = "{name} had walked from the Irontree Woods to Winterspring after demons that smiled, and found them harder prey than anything with claws.",
+  },
+  beats = {
+    {
+      id = "b1_jocaste", npc = "jocaste",
+      when = { class = "HUNTER", faction = "Alliance", minLevel = 55, thread = { id = "hun_rhokdelar", notBeat = "b1_jocaste" }, ["not"] = { thread = { id = "hun_rhokdelar", beat = "b1_urek" } } },
+      text = "There is little left that I can teach you, hunter, so let me tell you something instead. In the Irontree Woods of Felwood the spirits of three Ancients of Lore still stand where they fell at Hyjal, Vartrus and Stoma and Hastat, and they are waiting for a hunter worthy of a bow made from their own wood. If you ever carry a leaf that has turned to stone, take it to them.",
+      fx = { thread = { id = "hun_rhokdelar", beat = "b1_jocaste", state = "stirring" } },
+    },
+    {
+      id = "b1_urek", npc = "urek",
+      when = { class = "HUNTER", faction = "Horde", minLevel = 55, thread = { id = "hun_rhokdelar", notBeat = "b1_urek" }, ["not"] = { thread = { id = "hun_rhokdelar", beat = "b1_jocaste" } } },
+      text = "Sit, and I'll tell you the oldest hunter's story I know, which is also true. In Felwood, in the Irontree Woods, three Ancients died holding back the Burning Legion, and their spirits still stand there waiting for a hunter worthy of a bow cut from their own wood. My grandfather looked for them all his life, and you, I think, might actually find them.",
+      fx = { thread = { id = "hun_rhokdelar", beat = "b1_urek", state = "stirring" } },
+    },
+    {
+      id = "b2_vartrus", npc = "vartrus",
+      when = { class = "HUNTER", any = { { thread = { id = "hun_rhokdelar", beat = "b1_jocaste" } }, { thread = { id = "hun_rhokdelar", beat = "b1_urek" } } },
+               ["not"] = { thread = { id = "hun_rhokdelar", beat = "b2_vartrus" } } },
+      text = "Someone has told you of us, and you have come anyway, which is the first test and the easiest. The corrupters who poison this forest walk among your kind with kind faces now: Simone, Franklin, Nelson and Artorius, gentle names on things that are not gentle at all. The people around them love them, small one, and when you kill them, those people will see a hunter murder a friend.",
+      fx = { thread = { id = "hun_rhokdelar", beat = "b2_vartrus", state = "unfolding" } },
+    },
+    {
+      id = "b3_harlo", npc = "harlo_w",
+      when = { class = "HUNTER", thread = { id = "hun_rhokdelar", beat = "b2_vartrus" }, ["not"] = { thread = { id = "hun_rhokdelar", beat = "b3_harlo" } } },
+      text = "Artorius? Artorius the Amiable? Oh, pal, he's the nicest fella in all of Winterspring, and you can quote me, because everybody does. He gives travellers directions, he never haggles, and he once walked a lost courier halfway to Starfall in a blizzard, and if I ever hear a bad word about him I'll eat my notebook, cover and all.",
+      fx = { thread = { id = "hun_rhokdelar", beat = "b3_harlo" } },
+    },
+    {
+      id = "b3_donova", npc = "donova",
+      when = { class = "HUNTER", thread = { id = "hun_rhokdelar", beat = "b2_vartrus" }, ["not"] = { thread = { id = "hun_rhokdelar", beat = "b3_donova" } } },
+      text = "Ye've the look o' someone huntin' somethin' in particular, so I'll tell ye a strange thing an' ye can make o' it what ye like. There's a pleasant stranger who passes the springs now an' then, all smiles an' good manners, an' everywhere he's stood, the snowblossoms are black by mornin'. I've been studyin' plants for twenty years, an' I've never seen frost do that.",
+      fx = { thread = { id = "hun_rhokdelar", beat = "b3_donova" } },
+    },
+  },
+}
+
+-- The long watch (night elves of any class, 8-30). Saelra Duskwind (original), a Sentinel who
+-- stood ten thousand years of watches from the War of the Satyr to the orcs in Ashenvale, has not
+-- spoken to her brother Thalanir since he woke from the barrow dens. He answered Fandral's call
+-- to plant Teldrassil, and she says the druids slept while the Sentinels bled. Tyrande, who has
+-- waited out Malfurion's sleep herself, asks the player whether Saelra should go to him.
+-- Fandral is written straight.
+P:Thread {
+  id = "elf_saelra",
+  theme = "A Sentinel kept watch for ten thousand years while her brother slept in the Dream, and now that he's awake neither of them will cross the terrace between the Temple and the Enclave.",
+  title = "The long watch",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Thalanir Duskwind is a druid who slept in the barrow dens for ten thousand years and woke to plant Teldrassil. His sister Saelra stood the Sentinels' watch the whole time he slept, and she won't speak his name.",
+      third = "{name} heard of Thalanir Duskwind, a druid who slept ten thousand years, and of his sister Saelra, a Sentinel who kept watch the whole time and won't speak his name." },
+    unfolding = { first = "Mathrengyl says the druids' sleep was a watch of its own, kept in the Dream. Fandral says Thalanir was among the first to answer when Teldrassil was planted, and the High Priestess says she knows what it is to wait on a druid's sleep.",
+      third = "{name} heard the Enclave and the Temple speak of the Duskwind siblings, and of the old wound between the druids who slept and the Sentinels who stood watch." },
+    resolved = { first = "I told the High Priestess that both of them kept a watch, and that Saelra should go to her brother. She said she would give Saelra leave to come to Darnassus, and that we are mortal now, so ten thousand years of anger is a luxury nobody can afford.",
+      third = "{name} told Tyrande Whisperwind that both siblings had kept a watch, and Tyrande gave Saelra Duskwind leave to come home to her brother." },
+    soured = { first = "I told the High Priestess that Thalanir slept while his sister bled, and that she owes him nothing. She said Saelra would keep her post and he his grove, and that she would pray they both lived long enough to change their minds.",
+      third = "{name} told Tyrande Whisperwind that Saelra Duskwind owed her brother nothing, and the siblings stayed apart." },
+  },
+  npcs = { "rellian", "glynda", "mathrengyl", "fandral", "tyrande" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player told Tyrande that both Duskwinds had kept a watch, and Tyrande gave Saelra leave to come to Darnassus and her brother.",
+    soured = "The player told Tyrande that Saelra owed her sleeping brother nothing, and the two kept to the Temple's side and the Enclave's.",
+  },
+  pacing = { minConversations = 2, minSeconds = 1200 },
+  reflection = {
+    first = "The Sentinels stood the watch for ten thousand years, the druids kept theirs in the Dream, and both sides still count the cost. Every family of my people has a Saelra or a Thalanir in it.",
+    third = "{name} had heard the Temple and the Enclave speak of the Duskwinds, and found the old wound between the watchers and the sleepers ran through every kaldorei family.",
+  },
+  beats = {
+    {
+      id = "b1_rellian", npc = "rellian",
+      when = { race = "NightElf", minLevel = 8, thread = { id = "elf_saelra", notBeat = "b1_rellian" }, ["not"] = { thread = { id = "elf_saelra", beat = "b1_glynda" } } },
+      text = "Forgive me if I'm short today, friend, because a druid called Thalanir Duskwind was here this morning, and he does not like to hear the word tumor said near Teldrassil. He slept in the barrow dens for ten thousand years and woke to help plant this tree, so he loves it the way you love a child. His sister is a Sentinel in Auberdine, and I'm told she hasn't said his name since he woke.",
+      fx = { thread = { id = "elf_saelra", beat = "b1_rellian", state = "stirring" } },
+    },
+    {
+      id = "b1_glynda", npc = "glynda",
+      when = { race = "NightElf", minLevel = 12, thread = { id = "elf_saelra", notBeat = "b1_glynda" }, ["not"] = { thread = { id = "elf_saelra", beat = "b1_rellian" } } },
+      text = "The oldest bow on my post belongs to Saelra Duskwind, who stood watch on the Ashenvale borders before most of Darnassus was born. She fought the satyrs after the Sundering and the orcs when they came to cut Ashenvale, and her brother slept through all of it in the barrow dens. He's a druid of the Enclave now, and if you say his name on this dock she will walk to the end of it and stay there until dark.",
+      fx = { thread = { id = "elf_saelra", beat = "b1_glynda", state = "stirring" } },
+    },
+    {
+      id = "b2_mathrengyl", npc = "mathrengyl",
+      when = { race = "NightElf", any = { { thread = { id = "elf_saelra", beat = "b1_rellian" } }, { thread = { id = "elf_saelra", beat = "b1_glynda" } } },
+               ["not"] = { thread = { id = "elf_saelra", beat = "b2_mathrengyl" } } },
+      text = "Thalanir slept beside me in the barrow dens, and I'll tell you what I've told him, and what his sister has never wanted to hear. We were not idle in the Dream, young one, for we walked it and tended it and kept it whole, and that was a watch too, though no Sentinel ever saw us keep it. The trouble is that she bled for hers, and we did not.",
+      fx = { thread = { id = "elf_saelra", beat = "b2_mathrengyl", state = "unfolding" } },
+    },
+    {
+      id = "b3_fandral", npc = "fandral",
+      when = { race = "NightElf", minLevel = 10, thread = { id = "elf_saelra", beat = "b2_mathrengyl" }, ["not"] = { thread = { id = "elf_saelra", beat = "b3_fandral" } } },
+      text = "Duskwind? Thalanir was among the first to answer when I called the Circle to plant Teldrassil, and he has given more of himself to this tree than most. I will not hear a Sentinel's grievance against him, because the Sentinels guarded our borders and the druids guarded the Dream, and both watches were kept. If his sister wishes to quarrel with how the Circle spends its strength, she may bring it to me.",
+      fx = { thread = { id = "elf_saelra", beat = "b3_fandral" } },
+    },
+    {
+      id = "b3_tyrande", npc = "tyrande",
+      when = { race = "NightElf", minLevel = 10, thread = { id = "elf_saelra", beat = "b2_mathrengyl" }, ["not"] = { thread = { id = "elf_saelra", beat = "b3_tyrande" } } },
+      text = "Saelra Duskwind stood beside me against the satyrs when the Sentinels were still young, and I remember her bow better than most faces. I know what it is to keep the watch while the one you love sleeps in the Dream, because I have done it longer than she has, and I have forgiven Malfurion for it more than once. She has not learned to forgive her brother yet, and I have wondered whether I should ask her to.",
+      fx = { thread = { id = "elf_saelra", beat = "b3_tyrande" } },
+    },
+  },
+}

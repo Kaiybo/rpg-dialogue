@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-19)
+- Ormak Grimshot, Sian'dur, Xor'juul and Xao'tsu deepened along the hunter's road.
+
 ## 1.31.0 (2026-11-19)
 - Warrior trainers Grezz Ragefist, Sorek and Zel'mak deepened. Fixed a load error in the trainers file.
 

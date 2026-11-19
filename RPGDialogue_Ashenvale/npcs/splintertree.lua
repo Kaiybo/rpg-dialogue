@@ -161,6 +161,9 @@ P:NPC {
         { text = "I'm a hunter. Where should I start?", next = "start", when = { class = "HUNTER" } },
         { text = "The Earth Mother would weep at this war.", next = "mother", when = { race = "Tauren" } },
         { text = "My kin cut these trees. Does that make me your enemy?", next = "orc_s", when = { race = "Orc" } },
+        { text = "I've tamed a beast of this forest. Is that wrong?", next = "hnt_tamed", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "The elf hunters here are good. They track us like prey.", next = "hnt_elves", when = { class = "HUNTER", minLevel = 22 } },
+        { text = "When I finish the Hunt, what comes after?", next = "hnt_after", when = { class = "HUNTER", questDone = TODO_QUEST("The Hunt Completed") } },
         { text = "I'll take on the Hunt.", next = "END", fx = { affinity = 1 } },
         { text = "Why should a warrior care how beautiful this forest is?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can the Horde take wood here without wounding the forest?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -198,6 +201,25 @@ P:NPC {
     mother = {
       lines = { { id = "mo_default", text = "She would, and I think she does, every time an axe bites. But she also made both the hunter and the hunted, and I try to honour them both." } },
       choices = { { text = "May she watch over us.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } } },
+    },
+    hnt_tamed = {
+      lines = { { id = "hta_d", text = "Not wrong, if the beast chose you as much as you chose it. The Earth Mother made the hunter and the hunted to walk together sometimes, and a beast that leaves this forest beside you is still a child of it, so let it rest under trees when you can and it will thank you." } },
+      choices = {
+        { text = "It came to me freely. I'm sure of it.", next = "BACK", reply = "Then you are blessed, and so is it. Walk with the Earth Mother, both of you.", fx = { affinity = 1 } },
+        { text = "I took it because I needed it.", next = "BACK", reply = "That is honest, and honesty is a beginning. Need can become friendship, if you feed it well and ask little.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    hnt_elves = {
+      big = true,
+      lines = { { id = "hel_d", text = "They are, and I will not pretend otherwise, because I have watched a kaldorei huntress stalk a Warsong scout for an hour without a leaf moving. They have hunted this forest for longer than my people have had a name, and I think they see us as the orcs once saw the humans, as something that came to take." } },
+      choices = {
+        { text = "Then we should respect them as hunters, even in war.", next = "BACK", reply = "That is what I believe. Respect does not mean you lower your bow, only that you never stop seeing who is at the end of it.", fx = { align = { honor = 1 } } },
+        { text = "Then we must hunt them first, and better.", next = "BACK", reply = "Spoken like an orc of the Warsong. I will not stop you, but I will not cheer, either.", fx = { align = { honor = -1 } } },
+      },
+    },
+    hnt_after = {
+      lines = { { id = "haf_d", text = "After the Hunt comes the long quiet, when you know the forest knows your name and you must decide what you will do with that. Some hunters go home to Mulgore and never shoot again, and some go to Feralas, where the beasts are even older than these, and I think you are the second kind." } },
+      choices = { { text = "Feralas, then. Thank you, Senani.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

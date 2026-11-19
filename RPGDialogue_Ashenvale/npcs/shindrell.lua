@@ -92,6 +92,8 @@ P:NPC {
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },
+        { text = "Those naga ruins on the Strand were Highborne once.", next = "kal_ruins", when = { race = "NightElf" } },
+        { text = "Watching and waiting is a hunter's whole art, Sentinel.", next = "hnt_watch", when = { class = "HUNTER" } },
         { text = "Elune guide you, Sentinel.", next = "END" },
       },
     },
@@ -182,6 +184,28 @@ P:NPC {
       choices = {
         { text = "Then put me where I'm needed.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_ruins = {
+      big = true,
+      lines = { { id = "kru_d", text = "They were, and that is why I do not like the naga sitting in them. The Zoram Strand was a Highborne harbour before the Sundering pulled the sea over it, and the naga walk through those drowned halls as if they remembered them, which frightens my sisters more than any blade." } },
+      choices = {
+        { text = "Then they are Azshara's people, come home.", next = "BACK", reply = "Do not say her name so lightly, but yes, that is the fear. Whatever they are, they are not welcome on our shore.", fx = { learn = { "highborne" } } },
+        { text = "Ruins are only stone. Let them have the stones.", next = "BACK", reply = "Stone and whatever lies under it, and the Highborne buried a great deal. I would rather not find out what they are digging for.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hnt_watch = {
+      lines = { { id = "hwa_d", text = "Then you understand me better than most of the travellers who stop here. I set my owls along the coast road and they tell me what moves at night, and I do not loose an arrow until I am sure, because a scout who shoots first has stopped being a scout." } },
+      choices = {
+        { text = "And when you are sure?", next = "hnt_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hnt_watch2 = {
+      lines = { { id = "hwa2_d", text = "Then I loose once, from somewhere the enemy will not think to look, and move before the second arrow is needed. Learn that and you will outlive most hunters on the Warsong border, though you will not have as many stories to tell at the inn." } },
+      choices = {
+        { text = "One arrow, then gone. A good rule.", next = "BACK", reply = "It is the Sentinels' only rule, the rest is commentary.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
+        { text = "I'd rather stand and let them see me.", next = "BACK", reply = "Then stand where I can see you too, so I can tell your family where you fell.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
       },
     },
   },

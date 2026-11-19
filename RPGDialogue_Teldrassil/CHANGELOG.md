@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-19)
+- Night elves and hunter trainers deepened (Ayanna, Dazalar, Keldas and Shadowglen and Dolanaar folk, with night elf-only branches); 17 doubled NPCs removed.
+
 ## 1.23.0 (2026-11-19)
 - Alyissia and Kyra Windblade rewritten for warriors.
 

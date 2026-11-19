@@ -49,6 +49,8 @@ function Conv.DetectRole(ctx, interactionName)
   role = role or (interactionName and W.INTERACTION_ROLES[interactionName])
   -- Your own demon (0.90.0): a warlock can talk to the servant at their side.
   if not role and ctx.npcMine and C.CreatureType(ctx.unit) == "Demon" then return Conv.BoundRole(ctx.npcFamily) end
+  -- Your own beast (0.94.0): a hunter can talk to the pet at their side.
+  if not role and ctx.npcMine and C.CreatureType(ctx.unit) == "Beast" then return "my_beast" end
   role = role or roleFromPatterns(ctx.npcName or nil, W.NAME_ROLES)
   -- Anyone else friendly who walks and talks is a citizen: townsfolk pools answer them, so
   -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.

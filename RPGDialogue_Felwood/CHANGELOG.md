@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-19)
+- New: Hastat the Ancient and Stoma the Ancient. Vartrus has the Rhok'delar road and a Story ending; doubled NPCs removed.
+
 ## 1.25.0 (2026-11-19)
 - Warlocks: NPCs react to the demon at your side, your Demon Armor, soul shards, soulstones and Fel Taint. Where warlockry is banned, warlocks speak in hints and people sense rather than name it; some NPCs openly dislike warlocks. Warlock trainers and quest-givers rewritten and deepened.
 

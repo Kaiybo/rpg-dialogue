@@ -58,7 +58,52 @@ P:NPC {
         { text = "Hunters where I'm from tame very different beasts.", next = "xoutsider", when = { class = "HUNTER", ["not"] = { race = "Skyborne" } } },
         { text = "I hunted the cliffs below Siroccas.", next = "xcliff", when = { origin = "skyborne_siroccas_cliff_hunter" } },
         { text = "I rode a Galestrider through Ban'aethal's ruins.", next = "xrider", when = { origin = "skyborne_banaethal_rider" } },
+        { text = "What waits for a hunter once I leave the isle?", next = "hp", when = { class = "HUNTER" } },
+        { text = "I'm not Skyborne, but I came to learn from you.", next = "hp_visit", when = { class = "HUNTER", ["not"] = { race = "Skyborne" } } },
         { text = "Farewell, Quel'ana.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "A great deal of ground that doesn't move under your feet, I'm told, and beasts none of us has ever heard breathe. The lessons won't change, though: the aspects you'll learn, the stings, the beast you keep fed and alive, and later, the trick of lying so still that death passes you over." },
+        { id = "hp_tamed", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "You've bonded with a beast of the isle, so you'll carry a piece of Zephras with you wherever you go below. Keep it fed and keep it alive, and it will remember the winds for both of you." },
+      },
+      again = { { id = "hp_again", text = "What else? I'm listening." } },
+      choices = {
+        { text = "Which aspect should I learn first?", next = "hp_aspect" },
+        { text = "How do I keep my companion's trust?", next = "hp_trust" },
+        { text = "Will I ever come back to hunt here?", next = "hp_return" },
+        { text = "Something else, Quel'ana.", next = "hello" },
+      },
+    },
+    hp_aspect = {
+      lines = { { id = "hpa_default", text = "The Monkey first, for it'll keep a vuldren's teeth out of you, and the Hawk once you're ready, for it puts the wind behind every arrow. I hunt by ear in the Monkey still, because a hunter who can't see well had better be hard to hit." } },
+      choices = {
+        { text = "I'll learn to fight from safety first.", next = "BACK", reply = "Then you'll last, and lasting is most of a hunter's skill.", fx = { align = { order = 1 } } },
+        { text = "I'd rather strike hard and fast.", next = "BACK", reply = "Then strike, and keep your beast between you and what you strike.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_trust = {
+      lines = { { id = "hpt_default", text = "Feed it what it would hunt for itself, and before it's hungry, and don't let it die for a mistake you could have avoided. Trust grows slowly in a beast and leaves it fast, and one that's been neglected too long will simply walk away from you one morning." } },
+      choices = {
+        { text = "I'll be worth its trust.", next = "BACK", reply = "I'll hear it, if you are. A trusting beast breathes easy beside its hunter.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_return = {
+      lines = { { id = "hpr_default", text = "I hope so, and I hope the isle's still in one piece when you do. Whatever banner you choose below, come back and tell me what the beasts there sound like, because I'll never hear them myself." } },
+      choices = {
+        { text = "I'll come back and tell you everything.", next = "BACK", reply = "Then I'll listen for your step, and I'll know it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_visit = {
+      lines = { { id = "hpv_default", text = "Then you've come a long way, and up, which is the stranger part. I'll teach you as I teach my own, but the beasts here don't know your kind, so they'll be more wary of you, not less, and you'll have to be twice as patient." } },
+      choices = {
+        { text = "Then I'll be twice as patient.", next = "BACK", reply = "Good. I'll hear whether you mean it.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     taming = {

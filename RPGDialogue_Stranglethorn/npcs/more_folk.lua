@@ -415,7 +415,44 @@ P:NPC {
         { text = "You trained wolves for the clans.", next = "wolves" },
         { text = "Which beast is hardest to teach?", next = "hardest" },
         { text = "My companion won't hold when I call it back.", next = "hold", when = { class = "HUNTER" } },
+        { text = "How do I keep a beast loyal in this jungle, Zudd?", next = "hp", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I have a beast from far away, beyond the sky.", next = "hp_sky", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "The same as anywhere, but harder, because the jungle makes beasts hungry and nervous. Feed it before every hunt, mend it when it bleeds, and do not let it die if you can help it, because each time it dies it trusts you a little less." },
+        { id = "hp_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is panting, hunter, and the heat here is cruel to any beast that was not born in it. Feed it, give it water, and do not let it die for you if you can help it, because each time it dies it trusts you a little less." },
+      },
+      again = { { id = "hp_again", text = "What else? Your beast grows restless." } },
+      choices = {
+        { text = "What should I feed a beast here?", next = "hp_feed" },
+        { text = "What happens if my beast leaves me?", next = "hp_leave" },
+        { text = "Something else, Zudd.", next = "hello" },
+      },
+    },
+    hp_feed = {
+      lines = { { id = "hpf_default", text = "Meat for the cats and the raptors, fish for the bears and the crocolisks, and nothing that has gone soft in the heat, because a sick beast is useless. The tigers here are good meat, and the stripes make a fine rug if you are a human, which you are not." } },
+      choices = {
+        { text = "I'll hunt its food fresh every day.", next = "BACK", reply = "Good. A beast fed by its own hunter fights for that hunter.", fx = { align = { light = 1 } } },
+        { text = "It eats what I can spare.", next = "BACK", reply = "Then it will fight with what it can spare, and you will not like the difference.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_leave = {
+      lines = { { id = "hpl_default", text = "Then it has decided you are not worth following, and it is right. I have seen a raptor walk out of Grom'gol in the night and never look back, and the troll who kept it starved it for a week before. I did not stop it." } },
+      choices = {
+        { text = "Good. A beast should be free to choose.", next = "BACK", reply = "Yes. That is why the ones that stay are worth so much.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_sky = {
+      lines = { { id = "hps_default", text = "Then it has come a long way, and so have you. I do not know the beasts of your home, but this one is still a beast, and it still wants food and a hunter who keeps it alive, so bring it to me and I will see what it can learn." } },
+      choices = {
+        { text = "Thank you, Zudd.", next = "BACK", reply = "Thank me when it bites harder.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     beasts = {
@@ -536,7 +573,69 @@ P:NPC {
         { text = "How do you hear a troll before he hears you?", next = "hear" },
         { text = "You hunt to defend the camp as well.", next = "defend" },
         { text = "What should I tame while I'm here?", next = "tame", when = { class = "HUNTER" } },
+        { text = "What lies ahead for a hunter of the Horde, Kragg?", next = "hp", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "My people hunted these jungles long before the orcs came.", next = "hp_troll", when = { race = "Troll", class = "HUNTER" } },
+        { text = "The Earth Mother gives the hunt. We take only what we need.", next = "hp_tauren", when = { race = "Tauren", class = "HUNTER" } },
+        { text = "Orcs hunted with wolves in Draenor, didn't they?", next = "hp_orc", when = { race = "Orc", class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "You stand in the jungle now, so you are halfway. You have your beast and your aspects and your stings, and you have learned to drop and lie still when the fight turns, and soon you will wear mail and hunt the beasts that hunt other hunters. After that the road leads to places the Horde does not go lightly." },
+        { id = "hp_low", when = { maxLevel = 33 }, text = "You are young for this jungle, hunter, so keep your beast fed and in front of you, and keep your traps ready. Learn to play dead, if you have not, because the tigers here do not stop for a cry of pain." },
+      },
+      again = { { id = "hp_again", text = "What else, hunter? The light is going." } },
+      choices = {
+        { text = "How do I hunt a tiger that hunts me?", next = "hp_tiger" },
+        { text = "When should I wear mail?", next = "hp_mail", when = { minLevel = 34 } },
+        { text = "What waits at the end of the road?", next = "hp_end", when = { minLevel = 50 } },
+        { text = "Something else, Kragg.", next = "hello" },
+      },
+    },
+    hp_tiger = {
+      lines = { { id = "hpt_default", text = "You let it think it is winning. Lay your trap where it will come, send your beast to meet it, and when it turns on you, drop and lie still until it turns back to your beast. Then you rise and finish it, and you thank its spirit, because it was a better hunter than you for most of the fight." } },
+      choices = {
+        { text = "I'll honour every beast I kill.", next = "BACK", reply = "Good. That is the difference between us and Nesingwary's men.", fx = { align = { honor = 1 } } },
+        { text = "A dead tiger needs no thanks.", next = "BACK", reply = "Then you will hunt like the humans to the north, and the jungle will notice.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_mail = {
+      lines = { { id = "hpm_default", text = "At forty, as soon as you are able, and not before, because it will drag at you. The trolls here throw spears that go through leather like rain through leaves, and I have buried hunters who were too proud to slow down." } },
+      choices = {
+        { text = "I'll take the weight over the spear.", next = "BACK", reply = "Good. Weight can be carried, and a spear cannot be pulled out cleanly.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "Armour taken from the dead in the Scholomance and Stratholme and the spire in Blackrock, the Beaststalker mail, which the best of us wear. And they say an ancient of the night elves in Felwood will grow a bow for a hunter who proves worthy, though I do not know if he grows them for the Horde." } },
+      choices = {
+        { text = "Then I'll make him grow one for the Horde.", next = "BACK", reply = "Lok'tar! If you do, I will hear of it even here in the jungle.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_troll = {
+      lines = { { id = "hptr_default", text = "They did, and I do not forget it. Your people know these trees as I never will, and I would ask you to teach my young hunters what the Gurubashi have not burned into the ground yet." } },
+      choices = {
+        { text = "The jungle remembers my people. I'll teach them.", next = "BACK", reply = "Then the Horde is stronger for it, and so am I.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_tauren = {
+      lines = { { id = "hpta_default", text = "That is a good way to hunt, and the humans to the north have never heard of it. Take what you need here, and no more, and the jungle will let you leave it alive." } },
+      choices = {
+        { text = "May the Earth Mother guard your hunt.", next = "BACK", reply = "And yours, tauren. I will remember it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_orc = {
+      lines = { { id = "hpo_default", text = "They did, before the demon blood. The Frostwolves still remember how, and Thrall rides one, and I am glad to see the wolf-way come back to us. A hunter with a beast is the oldest thing our people know, older than the axe." } },
+      choices = {
+        { text = "Then we'll keep the old way alive.", next = "BACK", reply = "Throm-ka. That is what I teach for.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ground = {

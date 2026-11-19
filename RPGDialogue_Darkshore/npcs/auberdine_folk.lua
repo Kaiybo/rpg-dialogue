@@ -199,6 +199,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Sit, if you like, but mind the jars." },
     { id = "g_argos", when = { questDone = TODO_QUEST("The Corruption Abroad") },
       text = "My brother sent you across the sea to me, and you came. Argos chooses his messengers well, for all his faults." },
+    { id = "g_kal", when = { race = "NightElf" }, text = "Ishnu-alah. Sit, if you like, but keep your hands away from the jars, kin of mine, for some of them were kaldorei once too." },
   },
 
   notice = {
@@ -233,6 +234,9 @@ P:NPC {
         { text = "Have you any family nearby?", next = "argos" },
         { text = "What does the change look like, at the start?", next = "change", when = { questDone = TODO_QUEST("Researching the Corruption") } },
         { text = "Power is a tool. It only twists the weak.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You think the satyrs began as Highborne.", next = "kal_highborne", when = { race = "NightElf" } },
+        { text = "And the naga on our coast? Were they ours too?", next = "kal_naga", when = { race = "NightElf" } },
+        { text = "The beasts I hunt near Blackfathom are changing too.", next = "hnt_change", when = { class = "HUNTER" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -300,6 +304,30 @@ P:NPC {
         { text = "You may be right. I'll keep watch on myself.", next = "BACK", reply = "Then you are wiser than most who carry it. Watch closely, and come back if you need help.", fx = { align = { light = 1 } } },
       },
     },
+    kal_highborne = {
+      big = true,
+      lines = { { id = "kh_d", text = "I do not think it, I know it, for the old texts are plain on the matter. Xavius, the Queen's own counsellor, was the first to take the horns as a gift from the Legion, and those of his followers who survived the Sundering wear them still in Ashenvale and Felwood, so every satyr you put down was once one of us." } },
+      choices = {
+        { text = "Then killing them is a kind of mercy.", next = "BACK", reply = "That is the kindest way to say it, and I let my students say it. I am not sure I believe it, for nothing in my jars looks grateful.", fx = { align = { light = 1 } } },
+        { text = "They chose the horns. I owe them nothing.", next = "BACK", reply = "Then keep that hardness, for you will need it in Felwood. I only ask that you remember they chose because they were hungry, and hunger is not so rare among us.", fx = { align = { light = -1 } } },
+        { text = "Could it happen to us again?", next = "kal_again" },
+      },
+    },
+    kal_again = {
+      lines = { { id = "ka_d", text = "It is the only question I study, and I study it every night. The change begins with wanting magic more than one wants anything else, and our people did not stop wanting it when the Well was lost, they only stopped admitting it, and some of the young ones in Darnassus speak of the arcane with a light in their eyes I do not like." } },
+      choices = { { text = "I will watch for that light. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    kal_naga = {
+      lines = { { id = "kn_d", text = "That is what I am trying to prove, and why the brain stems matter so. The sailors' tales say the Queen's court sank with Zin-Azshari and did not drown, and the naga of Blackfathom carry themselves like courtiers even with scales on their faces, so I think the sea kept what the Sundering took." } },
+      choices = {
+        { text = "Then Azshara herself might live.", next = "BACK", reply = "Do not say that in the temple, and do not say it loudly here. I have thought it, and I wish I had not.", fx = { trait = { curious = 1 } } },
+        { text = "Let the sea keep them. Something else.", next = "BACK" },
+      },
+    },
+    hnt_change = {
+      lines = { { id = "hc_d", text = "Of course they are, because they drink the same water as the naga and the cultists. A hunter sees it first in the eyes and the coat, long before it shows in the temper, so if you take a beast near Blackfathom, watch it for a season before you trust it at your back." } },
+      choices = { { text = "I'll watch my companion closely. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 }
 
@@ -355,6 +383,7 @@ P:NPC {
         { text = "What's the road south like?", next = "road" },
         { text = "Why are you here and not with her?", next = "post" },
         { text = "I've seen orcs in Ashenvale. They'll never leave.", next = "xorcs", when = { faction = "Alliance", minLevel = 18 } },
+        { text = "Cultists in Darkshore, now. The Legion's servants never truly left.", next = "kal_cult", when = { race = "NightElf" } },
         { text = "I'm on my way.", next = "END" },
       },
     },
@@ -415,6 +444,13 @@ P:NPC {
       choices = {
         { text = "An orc with an axe in our forest is an enemy.", next = "BACK", reply = "It is, and I have fought many of them. But some are only cutting wood to keep warm.", fx = { align = { honor = 1 } } },
         { text = "Some might be bargained with. Worth trying.", next = "BACK", reply = "Perhaps, and I have heard of it, though I have never seen it. I would be glad to be proven wrong.", fx = { align = { honor = -1 } } },
+      },
+    },
+    kal_cult = {
+      lines = { { id = "kcu_d", text = "No, they never did, they only changed their faces. Balthule watches the Dark Strand at the Tower of Althalaxx on the road north, and every time he reports, there are more of them, mortals who want what the Highborne wanted and think they are cleverer than the Highborne were." } },
+      choices = {
+        { text = "Then they'll end the way the Highborne did.", next = "BACK", reply = "Yes, but they will take a forest with them if we let them. Talk to Balthule.", fx = { learn = { "highborne" } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
   },

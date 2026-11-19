@@ -213,6 +213,8 @@ P:NPC {
         { text = "Does Elune smile on the hunt, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do druids and priestesses guard against the same old danger, Priestess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you trust shamans as you trust priests, Alathea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did the Sisterhood serve in Azshara's day, Priestess?", next = "ne_sister_old", when = { race = "NightElf" } },
+        { text = "I pray, and Elune does not answer.", next = "ne_silent", when = { race = "NightElf" } },
         { text = "Elune be with you, Priestess.", next = "END" },
       },
     },
@@ -382,6 +384,31 @@ P:NPC {
       choices = {
         { text = "I'll add him to my prayers.", next = "BACK", reply = "Thank you, and Elune will hear it, wherever he walks in the Dream. Every prayer helps him find his way.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Prayers won't wake him. Someone should go after him.", next = "BACK", reply = "Many have said so, and some of the druids have tried. The Dream is not a place where anyone goes after anyone lightly.", fx = { align = { light = -1 }, trait = { brave = 1 } } },
+      },
+    },
+    ne_sister_old = {
+      lines = {
+        { id = "nso_default", text = "It did, though not as you see it now. Elune's temple in Zin-Azshari was a place of song and quiet, and it was the only great house in the city that would not bow to the Highborne, which is why its priestesses lived when the Highborne did not." },
+      },
+      choices = {
+        { text = "And Tyrande was one of them.", next = "ne_sister_old2" },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
+    ne_sister_old2 = {
+      lines = {
+        { id = "nso2_default", text = "A novice, and not a very obedient one, by the stories. When the Legion came, the high priestess of that day chose her to lead us, and she has never let any of us forget that the temple's first duty was to the wounded in the streets." },
+      },
+      choices = { { text = "Then the temple still keeps that duty.", next = "BACK", fx = { learn = { "sisterhood_of_elune" } } } },
+    },
+    ne_silent = {
+      big = true,
+      lines = {
+        { id = "nsi_default", text = "She answers very few of us in words, child, and Tyrande is not most of us. She answers in the moon rising, and in the arrow that flies true, and in the hands that do not shake when the wound is bad, and you must learn to hear that kind of answer." },
+      },
+      choices = {
+        { text = "Then I'll keep praying, and listen better.", next = "BACK", reply = "Good. That is all any of us does, and most of us for longer than you have been alive.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A goddess who never speaks is easy to doubt.", next = "BACK", reply = "It is, and I will not punish you for saying it. Say it to her as well; she has heard worse from me.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
       },
     },
   },
@@ -816,6 +843,7 @@ P:NPC {
         { text = "Any advice for a druid who heals in the thick of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What should a rogue know about healing, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the spirits answer practice, Jandria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "We heal like mortals now. Does it feel different?", next = "ne_mortal", when = { race = "NightElf" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -843,6 +871,16 @@ P:NPC {
         { text = "The Horde should answer for that.", next = "BACK", reply = "They should, and the Sentinels make them answer every day. I would still rather they stopped cutting.", fx = { align = { honor = 1 }, learn = { "warsong" } } },
         { text = "Every war has two sets of wounded.", next = "BACK", reply = "There are, and I know it, though I never see theirs. That does not make ours bleed any less.", fx = { align = { honor = -1 }, learn = { "warsong" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_mortal = {
+      big = true,
+      lines = {
+        { id = "nmo_default", text = "It does, and I will tell you exactly how. Before Hyjal, a Sentinel with a bad wound would mend if I only kept her alive, and now I must also keep the fever from her and the years from catching up, and some nights I lose the race." },
+      },
+      choices = {
+        { text = "Then every life saved matters more now.", next = "BACK", reply = "It does, and that is what keeps me at this pool when I would rather sleep. Thank you for seeing it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "We should have kept our immortality, whatever it cost.", next = "BACK", reply = "And let Archimonde have the world? No. I mourn it too, but I would not unmake that choice.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -1007,6 +1045,7 @@ P:NPC {
         { text = "What does the moonlight on the pool tell you tonight, Lariia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does the moonlight show when I stand in it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the pool really show the moon always, Lariia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did the Well of Eternity look like this pool?", next = "ne_pool_old", when = { race = "NightElf" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -1034,6 +1073,21 @@ P:NPC {
         { text = "Someone has to keep the home fires.", next = "BACK", reply = "Someone does, and I am glad it is me. The lamps would be lonely otherwise.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "You should see the world while you can.", next = "BACK", reply = "Perhaps I should, and perhaps one day I will. For now, the lamps need me more than the world does.", fx = { align = { order = -1 } } },
       },
+    },
+    ne_pool_old = {
+      lines = {
+        { id = "npo_default", text = "No, though the old priestesses say the moonlight on it is the same. The Well was black and alive and it looked back at you, and this pool only shows you what is above it, which is a great deal safer." },
+      },
+      choices = {
+        { text = "Some of our people miss the Well.", next = "ne_pool_old2" },
+        { text = "Something else, Lariia.", next = "BACK" },
+      },
+    },
+    ne_pool_old2 = {
+      lines = {
+        { id = "npo2_default", text = "Some do, and they come and sit by this pool at night and do not pray. I leave them be, for missing it is no sin, and it is only reaching for it again that ever broke the world." },
+      },
+      choices = { { text = "Then I'll miss it quietly. Something else.", next = "BACK" } },
     },
   },
 
@@ -1224,6 +1278,7 @@ P:NPC {
         { text = "Have you ever thought of joining the Circle, Aquinne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the priestesses disapprove of rogues, Aquinne?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did you know Lady Sathrah, Aquinne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do the old books say of the Sundering?", next = "ne_books", when = { race = "NightElf" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1288,6 +1343,21 @@ P:NPC {
         { text = "Our faiths have more in common than not.", next = "BACK", reply = "I think so too, and it makes me feel less alone in my studies. Thank you for telling me.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Our faiths differ, but our teachers sigh the same way.", next = "BACK", reply = "They do, and perhaps the sighing is the part that matters most. It is nice to know teachers are the same everywhere.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
+    },
+    ne_books = {
+      lines = {
+        { id = "nbk_default", text = "Less than you would hope, because most of the books were in Zin-Azshari and Zin-Azshari is under the sea. What we have, the priestesses wrote down afterward on the slopes of Hyjal, from memory, and some of the hands that wrote them were shaking." },
+      },
+      choices = {
+        { text = "What did they remember most?", next = "ne_books2" },
+        { text = "Something else, Sister.", next = "BACK" },
+      },
+    },
+    ne_books2 = {
+      lines = {
+        { id = "nbk2_default", text = "The sound, more than anything: the sea coming in over the city, and the Well screaming as it tore itself apart. One of them wrote only a single line, that the moon was still in the sky afterward, and I think that is the truest thing in the whole archive." },
+      },
+      choices = { { text = "The moon was still in the sky. I'll remember that.", next = "BACK", fx = { affinity = 1, learn = { "highborne" } } } },
     },
   },
 

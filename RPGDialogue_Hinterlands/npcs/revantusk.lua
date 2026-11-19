@@ -545,7 +545,24 @@ P:NPC {
         { text = "I doubt a warrior can learn to move quietly in the forest.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should a hunter take from the Hinterlands?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you think a paladin hunts like you do, Markhor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Which beast of these hills would make a good companion?", next = "mh_tame", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What does a huntsman know that a trainer doesn't?", next = "mh_know", when = { class = "HUNTER", minLevel = 40 } },
         { text = "I'll hunt for Revantusk.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    mh_tame = {
+      lines = { { id = "mht_default", text = "A Silvermane stalker, if you can find one that lets you near, because they be patient and quick and they strike from the brush like the Vilebranch do. Owlbeasts, no, mon, they be too mad, and you leave the gryphons to the dwarves, for a gryphon never forget who caged it." } },
+      choices = {
+        { text = "A stalker, then. Patient and quick.", next = "BACK", reply = "Good choice. Feed it well and it will hunt beside you longer than most trolls live.", fx = { trait = { cautious = 1 } } },
+        { text = "I'd take a gryphon, if I could.", next = "BACK", reply = "Then the Wildhammer would hunt you to the end of the world, and I would not blame them.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    mh_know = {
+      lines = { { id = "mhk_default", text = "That a hunter be only as good as the last thing he walked away from. You got your mail and your traps and your beast, and that be fine, but out here you learn when to lie down and let the danger pass, and when to stand, and the trainers can't teach you that." } },
+      choices = {
+        { text = "Pride gets hunters killed. I know when to lie low.", next = "BACK", reply = "Then you will live long in these hills, hunter.", fx = { align = { honor = -1 } } },
+        { text = "A hunter who hides isn't much of a hunter.", next = "BACK", reply = "My brother said that, mon, and the Vilebranch made sure he never said it twice.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xrogue = {

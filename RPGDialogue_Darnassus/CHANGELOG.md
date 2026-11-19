@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-19)
+- Tyrande, Fandral, the Enclave, the Temple and the Sentinels deepened with night elf-only branches; hunter trainers Jocaste, Dorion and Jeen'ra follow the hunter's road; Story endings at Dorion and Tyrande; 29 doubled NPCs removed.
+
 ## 1.27.0 (2026-11-19)
 - Warrior trainers Elanaria, Arias'ta, Darnath and Sildanair rewritten and deepened along the warrior's road.
 

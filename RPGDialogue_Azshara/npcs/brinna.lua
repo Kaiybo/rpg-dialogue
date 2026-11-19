@@ -83,6 +83,8 @@ P:NPC {
         { text = "The Sentinels must face a good deal here.", next = "border" },
         { text = "What makes a good bow?", next = "bow", when = { class = "HUNTER" } },
         { text = "Let me see your bows.", next = "BUSINESS" },
+        { text = "This was the Queen's own land. Do you feel it?", next = "kal_queen", when = { race = "NightElf" } },
+        { text = "What do the Sentinels here need from a hunter?", next = "hnt_need", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell, Brinna.", next = "END" },
       },
     },
@@ -119,6 +121,18 @@ P:NPC {
     bow = {
       lines = { { id = "bw_default", text = "The wood matters, the string matters more, and the archer matters most. A good bow is one you've stopped noticing, the way you stop noticing your own arm." } },
       choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    kal_queen = {
+      big = true,
+      lines = { { id = "kqu_d", text = "Every morning, when the mist comes off the bay and the old terraces show through it like bones. Zin-Azshari lies under that water, and my grandmother told me the Queen was so beautiful that the Highborne wept to look at her, and I think the land still remembers being loved that much, and resents us for being plain." } },
+      choices = {
+        { text = "Her beauty was a lie. The land is better plain.", next = "BACK", reply = "I think so too, most days. On the misty ones, I am less sure, and that is why I keep my bowstrings dry.", fx = { align = { light = 1 } } },
+        { text = "We lost something great with her, whatever she became.", next = "BACK", reply = "Say that quietly, here of all places. The Sentinels at Talrendis would not thank you for it.", fx = { align = { light = -1 } } },
+      },
+    },
+    hnt_need = {
+      lines = { { id = "hne_d", text = "Eyes in the trees above the Haldarr camps, and arrows that do not waste themselves on satyr hide, which turns all but the best heads. Buy the heavy points from me, aim for the throat, and keep your beast away from the Shadowsong Shrine, because the ghosts there frighten them half to death." } },
+      choices = { { text = "Heavy points, and the throat. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
 

@@ -246,7 +246,79 @@ P:NPC {
         { text = "How did you come to teach in Goldshire?", next = "goldshire" },
         { text = "What do you think of my {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I'd like to train.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What comes after the taming, Josephine?", next = "hp", when = { class = "HUNTER", minLevel = 10 } },
+        { text = "Folk in Goldshire think a human hunter is odd.", next = "hp_rare", when = { race = "Human", class = "HUNTER" } },
+        { text = "My people have hunted with beasts for ages.", next = "hp_elf", when = { race = "NightElf" } },
+        { text = "A dwarf taught me my first shot.", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "The keeping, which is harder. You feed the beast, you mend it, you don't let it die for your mistakes, and over the seasons it decides you're worth staying with. Meanwhile you learn your aspects, your traps and, at thirty, how to drop and play dead, which you'll hate until the day it saves you." },
+        { id = "hp_high", when = { minLevel = 40 }, text = "You're past most of what I teach, by the look of that mail. I'll answer what I can, but the road you're on now runs past Goldshire by a long way." },
+      },
+      again = { { id = "hp_again", text = "What else? Quickly, now." } },
+      choices = {
+        { text = "How do I keep my beast from leaving?", next = "hp_loyal" },
+        { text = "Which aspect should I use?", next = "hp_aspect" },
+        { text = "When do I put on mail?", next = "hp_mail", when = { minLevel = 30 } },
+        { text = "What's at the very end of the road?", next = "hp_end", when = { minLevel = 50 } },
+        { text = "Something else, Josephine.", next = "hello" },
+      },
+    },
+    hp_loyal = {
+      lines = { { id = "hpl_default", text = "Feed it what it likes, before it asks, and bring it back from the dead as rarely as you can manage. A beast's trust grows slowly and drains quickly, and if you let it go hungry too long it'll simply leave, and you'll deserve it." } },
+      choices = {
+        { text = "My beast's needs come before mine.", next = "BACK", reply = "Good. You'd be amazed how many say that and then eat the last of the meat themselves.", fx = { align = { light = 1 } } },
+        { text = "It's a beast. It can learn to wait.", next = "BACK", reply = "It can, and then it can learn to leave, and I won't tame you another.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_aspect = {
+      lines = { { id = "hpa_default", text = "The Hawk when you're shooting, which is always, and the Monkey when something's on you and you can't get away. The Cheetah comes at twenty, and it's lovely on the road from here to Stormwind, but if you forget to drop it before a fight you'll be dazed and on your back in the dirt." } },
+      choices = {
+        { text = "I'll stay in the Hawk and hit hard.", next = "BACK", reply = "That's what most do, and most of them are fine, until they aren't.", fx = { align = { order = -1 } } },
+        { text = "I'll switch as the fight changes.", next = "BACK", reply = "That's the harder habit and the better one, so practise it on wolves first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_mail = {
+      lines = { { id = "hpm_default", text = "At forty, and not a day sooner, for you can't wear it properly until then. You'll feel slow for a week and then you'll feel safe, and the gnolls in Redridge will learn that their spears don't go through any more." } },
+      choices = {
+        { text = "I'll be counting the days.", next = "BACK", reply = "So did I, and I still have the leather, for luck." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_end = {
+      big = true,
+      lines = { { id = "hpe_default", text = "The Beaststalker mail, if the stories are right, pulled off the dead in Scholomance and Stratholme and Blackrock Spire. And there's a bow, Rhok'delar, that an ancient in Felwood grows for a hunter who earns it, though nobody in Goldshire has ever seen it and I'd like to." } },
+      choices = {
+        { text = "Then I'll be the first in Goldshire to carry it.", next = "BACK", reply = "Bring it to the inn and let Farley see it, and I'll buy every round that night.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_rare = {
+      lines = { { id = "hpr_default", text = "They do, and let them. Humans have hunted Elwynn since there was an Elwynn, but always with a dog and a bow and a lord's permission, never with a beast at our side the way the dwarves and the elves do it. We're new to it, so we'll have to be better at it, which suits me fine." } },
+      choices = {
+        { text = "Then we'll prove them wrong.", next = "BACK", reply = "We will, one wolf at a time.", fx = { align = { honor = 1 } } },
+        { text = "I don't care what they think.", next = "BACK", reply = "Good, for they'll go on thinking it until you come back with a bear.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_elf = {
+      lines = { { id = "hpe2_default", text = "So I hear, and I'll admit I'm curious how a Kaldorei hunter sees our forest. Elwynn's tame next to yours, I expect, but the wolves have been bolder since the war took the woodsmen, and they've learned to fear nothing on two legs." } },
+      choices = {
+        { text = "Then I'll teach them to fear again.", next = "BACK", reply = "Gently, I hope. They're only hungry.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_dwarf = {
+      lines = { { id = "hpd_default", text = "Most of us learned from a dwarf one way or another; Tordrin up at Northshire's teaching half my pupils before they reach me. You'll have learned to shoot well and talk loudly, so I'll teach you to be quiet in a forest." } },
+      choices = {
+        { text = "Quiet, I can manage.", next = "BACK", reply = "We'll see. Tordrin says the same, and I can hear him from the inn.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -912,7 +984,44 @@ P:NPC {
         { text = "What do you make of the kobolds?", next = "kobolds" },
         { text = "What do you think of my {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I seek training in the ways of the Hunter.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Where does the road go after Northshire for a hunter?", next = "hp", when = { class = "HUNTER" } },
+        { text = "Not many humans become hunters, do they?", next = "hp_rare", when = { race = "Human", class = "HUNTER" } },
         { text = "I'll let you get on.", next = "END" },
+      },
+    },
+    hp = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "Down tae Goldshire, an' Josephine Carson, who'll set ye tae tame yer first beasts once ye've ten seasons on ye. Before then ye learn the Monkey an' the Serpent Sting an' how tae track, an' ye learn 'em on kobolds, for there's nothin' in Northshire that won't teach ye somethin'." },
+        { id = "hp_tamed", when = { questDone = TODO_QUEST("Taming the Beast") }, text = "Ye've been tae Josephine an' come back wi' a beast, I see, an' a fine one. The road's long from here, but ye've the start o' it right." },
+      },
+      again = { { id = "hp_again", text = "Aye? Wot else? Quietly." } },
+      choices = {
+        { text = "What should I learn first?", next = "hp_first" },
+        { text = "Why does a hunter need a beast?", next = "hp_why" },
+        { text = "Something else, Tordrin.", next = "hello" },
+      },
+    },
+    hp_first = {
+      lines = { { id = "hpf_default", text = "The Aspect o' the Monkey, so the wolves miss ye more than they hit, an' a Serpent Sting on every kobold ye shoot, for it keeps 'em bleedin' while ye reload. An' Track Beasts, all the time, even when ye think there's nothin' tae track." } },
+      choices = {
+        { text = "I'll learn them all here.", next = "BACK", reply = "Good, an' come back an' show me.", fx = { trait = { cautious = 1 } } },
+        { text = "I'd rather learn by doing.", next = "BACK", reply = "Then do, an' come back when ye've bitten off more than ye can chew.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    hp_why = {
+      lines = { { id = "hpw_default", text = "Because ye cannae shoot an' be bitten at the same time, an' a beast will take the bitin' for ye. In return ye feed it an' mend it an' never leave it behind, an' that's the bargain, an' the ones who break it dinnae stay hunters long." } },
+      choices = {
+        { text = "That's a fair bargain. I'll keep it.", next = "BACK", reply = "Aye, I believe ye will.", fx = { align = { light = 1 } } },
+        { text = "Sounds like the beast gets the worse end.", next = "BACK", reply = "Sometimes it does, an' that's why ye owe it so much.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hp_rare = {
+      lines = { { id = "hpr_default", text = "Not many, no, which is why the Abbey sent for a dwarf. Humans have hunted wi' bows for ages, but keepin' a beast at yer side was always a dwarf's an' an elf's way, an' now Stormwind wants its own, so here ye are an' here I am." } },
+      choices = {
+        { text = "Then I'll be one of the first.", next = "BACK", reply = "Aye, an' one day ye'll be teachin' the next lot.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

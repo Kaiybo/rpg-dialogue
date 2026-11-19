@@ -285,6 +285,7 @@ P:NPC {
       choices = {
         { text = "You've been reading my tracks?", next = "dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What lies ahead on the hunter's road, Ogromm?", next = "g_road", when = { class = "HUNTER" } },
         { text = "How do you track anything in this swamp?", next = "tracking" },
         { text = "What's worth hunting out here?", next = "quarry" },
         { text = "You don't think much of Grokor, do you?", next = "grokor" },
@@ -293,6 +294,78 @@ P:NPC {
       },
     },
 
+    g_road = {
+      hub = true,
+      lines = {
+        { id = "gr_default", text = "If you've made it to Stonard, you've walked most of the road, and the rest of it runs through country worse than this swamp. Ask me what lies ahead, and I'll tell you short and true, which is more than the road will do." },
+        { id = "gr_low", when = { maxLevel = 34 }, text = "You're young for Stonard, and the swamp knows it. Ask what lies ahead, and then go back to the Barrens for another season if you've any sense." },
+        { id = "gr_high", when = { minLevel = 55 }, text = "You've walked further than any hunter I've trained, so I'll keep my answers short and you can correct them. Ask." },
+      },
+      again = {
+        { id = "gr_again", text = "What else? Be quick, the light's going." },
+        { id = "gr_again2", text = "Ask, then. I've answered worse questions from better-dressed hunters." },
+      },
+      choices = {
+        { text = "Is mail worth the noise it makes in the swamp?", next = "g_mail" },
+        { text = "What should I be learning now?", next = "g_now" },
+        { text = "Where should I hunt after this swamp?", next = "g_after" },
+        { text = "What waits at the end of the road?", next = "g_end", when = { minLevel = 50 } },
+        { text = "Orcs came through this swamp from the Portal once.", next = "g_orc", when = { race = "Orc" } },
+        { text = "Enough of the road, Ogromm.", next = "BACK" },
+      },
+    },
+    g_mail = {
+      lines = {
+        { id = "gm_default", text = "It is, and you'll be wearing it by forty whether you like the noise or not. Leather lets a crocolisk's teeth through and mail doesn't, and in this swamp the crocolisks don't wait to be shot." },
+        { id = "gm_forty", when = { minLevel = 40 }, text = "You're wearing it already, by the sound of you, so stop asking me to approve. Stand still in the reeds and the noise stops, which is a lesson you should've learned at ten." },
+      },
+      choices = { { text = "Back to the road.", next = "g_road" } },
+    },
+    g_now = {
+      lines = {
+        { id = "gn_default", text = "The trap that explodes, the sting that drains a caster dry, and the volley that rains arrows on a whole pack at once. And the aspect of the wild later on, which keeps the swamp's poisons and storms off you and your beast, though nothing keeps the stink off." },
+        { id = "gn_low", when = { maxLevel = 33 }, text = "Your traps and your fall-down-dead trick, if you haven't got them yet. Lay the freezing trap before you fight, never during, and drop to the ground the moment a fight turns, and then come back to me at forty." },
+      },
+      choices = {
+        { text = "Draining a caster's mana feels like a dirty trick.", next = "g_now2" },
+        { text = "Back to the road.", next = "g_road" },
+      },
+    },
+    g_now2 = {
+      big = true,
+      lines = { { id = "gn2_default", text = "It's a trick, and it's the one that keeps Stonard's scouts alive when Nethergarde's mages come down the road. Dirty is when you put the sting in their back while they're talking terms, and I've never done that, and I've known orcs who have." } },
+      choices = {
+        { text = "A fight's a fight. I'll use what works.", next = "g_road", reply = "Then you'll do well in this swamp, and badly with the elders. That's their trouble, not mine.", fx = { align = { honor = -1 } } },
+        { text = "I'll never sting a foe who's talking terms.", next = "g_road", reply = "Good. There's a line, and you've found it, which is more than some.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Back to the road.", next = "g_road" },
+      },
+    },
+    g_after = {
+      lines = { { id = "ga_default", text = "Stranglethorn, where a human called Nesingwary runs a hunting camp and pays you to shoot tigers and panthers and raptors until you're sick of them. Then the Badlands, where there's a cat called Broken Tooth that hunters cross a continent to tame, and the Hinterlands and Feralas, where the beasts are older and meaner." } },
+      choices = {
+        { text = "A human hunting camp? You'd send me there?", next = "g_after2" },
+        { text = "Back to the road.", next = "g_road" },
+      },
+    },
+    g_after2 = {
+      lines = { { id = "ga2_default", text = "I would, and I'd tell you to keep your axe in your belt while you're there. Nesingwary doesn't care what colour your skin is so long as you can shoot, and that's more than I can say for most humans, or most orcs." } },
+      choices = { { text = "Fair. Back to the road.", next = "g_road" } },
+    },
+    g_end = {
+      lines = {
+        { id = "ge_default", text = "The Beaststalker's armor, in pieces through Stratholme and Scholomance and the Spire, which you'll have to take back from the dead and the dragons one boot at a time. And a bow, Rhok'delar, that an ancient in Felwood makes for a hunter who can face four demons alone, which I hear about and don't believe until I see it." },
+        { id = "ge_sixty", when = { minLevel = 60 }, text = "You know what waits, or you wouldn't be asking with that look. The Beaststalker's armor in the dead cities, and the ancient's bow if you've the stomach to face its demons alone. Bring either one back through Stonard and I'll tell the grunts you trained here." },
+      },
+      choices = { { text = "Back to the road.", next = "g_road" } },
+    },
+    g_orc = {
+      lines = { { id = "go_default", text = "They did, all of them, under Blackhand and the warlocks, with wolves at their side and demons in their blood. This swamp was full of orc camps once, and now Stonard is the only one left, and I don't miss the others, or the blood that built them." } },
+      choices = {
+        { text = "The old Horde was strong. We could use that strength.", next = "g_road", reply = "We had strength enough to burn the world and not enough to stop. The Warchief's Horde is better, whatever it's lost.", fx = { align = { light = -1 } } },
+        { text = "The Warchief's Horde is the one worth fighting for.", next = "g_road", reply = "It is. Thrall freed us from the camps and the blood both, and I'll hunt for him until I drop.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Back to the road.", next = "g_road" },
+      },
+    },
     tracking = {
       lines = {
         { id = "tr_default", text = "You don't track the prints, because the water swallows them, so you track the things the water can't hide. Broken reeds, frightened frogs, the way the birds go quiet ahead of something heavy, and the smell of a jaguar that's just been in the water." },
@@ -417,6 +490,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me what you can teach my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "Teach me to keep a beast alive out here.", next = "k_pens", when = { class = "HUNTER" } },
         { text = "What does a beast actually learn from you?", next = "teach" },
         { text = "Which swamp beasts are worth taming?", next = "swamp" },
         { text = "How did you come to train beasts?", next = "past" },
@@ -426,6 +500,60 @@ P:NPC {
       },
     },
 
+    k_pens = {
+      hub = true,
+      narr = "He leans on the rail of the nearest pen, and a mud-streaked jaguar inside rubs its head against his knuckles.",
+      lines = {
+        { id = "kp_default", text = "Out here a hunter's beast has to be better than it was on the plains, because the swamp wants it dead more than the Barrens ever did. Ask me about the keeping, and I'll tell you what I've learned from the ones that lived." },
+        { id = "kp_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has come a long way to be standing in this mud, and it's still beside you, which says something about you both. Ask me about the keeping, and we'll see what else it needs." },
+      },
+      again = {
+        { id = "kp_again", text = "What else? The jaguar likes the company, so take your time." },
+        { id = "kp_again2", text = "Go on. Nothing in the pens is going anywhere tonight." },
+      },
+      choices = {
+        { text = "My beast won't fight as hard as it used to.", next = "k_happy" },
+        { text = "What does a beast need against the swamp's poisons?", next = "k_resist" },
+        { text = "Is a beast I tamed at twenty still good enough?", next = "k_old", when = { minLevel = 35 } },
+        { text = "Ogromm says you spoil them.", next = "k_spoil" },
+        { text = "You rode wolves before the camps, they say.", next = "k_wolves", when = { race = "Orc" } },
+        { text = "Enough about the beasts, Grokor.", next = "BACK" },
+      },
+    },
+    k_happy = {
+      lines = {
+        { id = "kh_default", text = "Then it's unhappy, and an unhappy beast fights at half its strength and thinks about leaving. Feed it something it likes, not something you had left over, and let it rest a day in the stable if the swamp has worn it down." },
+        { id = "kh_croc", when = { pet = { family = "Crocolisk" } }, text = "A crocolisk sulks like nothing else alive, and it hides it behind that grin. Fish, friend, fresh from the river, and plenty of it, and it'll be biting ogres again by morning." },
+      },
+      choices = { { text = "I'll see to it. Back to the keeping.", next = "k_pens" } },
+    },
+    k_resist = {
+      lines = { { id = "kr_default", text = "A tougher hide and the will to shrug off nature's poisons, and I can teach both, for silver and patience. The spiders past the Pool of Tears will have a go at your beast before they have a go at you, so don't take it out there untaught." } },
+      choices = { { text = "Back to the keeping.", next = "k_pens" } },
+    },
+    k_old = {
+      lines = { { id = "ko_default", text = "If it's kept up with you, it's better than anything you'll tame out here, because it knows you. A beast grows as you fight together, and a faithful old wolf at your strength will outfight a swamp jaguar that still doesn't trust you." } },
+      choices = {
+        { text = "Then I'll keep my old companion.", next = "k_pens", reply = "Good. Bring it to me, and I'll teach it whatever it hasn't learned yet.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A new beast for new country. That's sense.", next = "k_pens", reply = "It can be, and I won't call you wrong. Be patient with the new one, that's all.", fx = { align = { order = -1 } } },
+        { text = "Back to the keeping.", next = "k_pens" },
+      },
+    },
+    k_spoil = {
+      lines = { { id = "ks_default", text = "He says it every morning, and every morning I ask him whose beast came home from the Pool of Tears last week, his or mine. He's a fine hunter and a poor keeper, and he knows it, which is why he complains." } },
+      choices = {
+        { text = "A spoiled beast is a loyal one.", next = "k_pens", reply = "That's the whole of my teaching, and you've said it in five words. Don't tell Ogromm.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast should be hard, like the swamp.", next = "k_pens", reply = "That's Ogromm talking, and his beasts don't last. Hard and loved, friend, both.", fx = { align = { light = -1 } } },
+        { text = "Back to the keeping.", next = "k_pens" },
+      },
+    },
+    k_wolves = {
+      lines = { { id = "kw_default", text = "I did, and I lost every one of them to the war and the camps, which you'll hear about if you catch me on a bad night. When the Warchief freed us, I swore I'd spend the rest of my days keeping beasts instead of losing them, and Stonard's hunters get the benefit." } },
+      choices = {
+        { text = "That's a worthy oath, Grokor.", next = "k_pens", fx = { affinity = 1 } },
+        { text = "Back to the keeping.", next = "k_pens" },
+      },
+    },
     teach = {
       lines = {
         { id = "te_default", text = "Skills, which are only habits drilled until they stick. A beast learns to bite harder, to shrug off fire or frost, and to keep its feet when the ground gives way, and every lesson costs the beast effort and its master silver." },

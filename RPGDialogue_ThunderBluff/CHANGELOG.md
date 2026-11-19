@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-19)
+- Hunter Rise deepened (Holt, Urek, Kary, Hesuwa); Holt has a Story ending.
+
 ## 1.31.0 (2026-11-19)
 - Warrior trainers Sark, Torm and Ker Ragetotem deepened; Ker now trains.
 

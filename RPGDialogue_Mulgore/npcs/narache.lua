@@ -449,7 +449,18 @@ P:NPC {
         { id = "hu_pet", when = { pet = { type = "Beast" } },
           text = "Beside them? In front of them, if it's fast, because I'd like the braves to see what a hunter and a beast can do together. Is that {pet}? Bring it to the southern pens with you; the battleboars won't know what to do." },
       },
-      choices = { { text = "We'll show them.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "We'll show them.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Do the braves look down on hunters with beasts?", next = "hunter_braves" },
+      },
+    },
+    hunter_braves = {
+      lines = { { id = "hb_default", text = "Some of the old ones do, and my father was one of them until Lanka took a prairie wolf down to the battleboar pens and came back with more meat than six braves. Now he says a beast is a brave who never complains, and he says it as if he thought of it himself." } },
+      choices = {
+        { text = "A beast is a brave who never complains. I like that.", next = "BACK", reply = "So do I, though don't tell my father it was Lanka's idea first. Let him have it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Braves with spears are the old way, and the old way isn't enough.", next = "BACK", reply = "Careful, he'll hear you, and he still has a strong arm. But I think you're right, a little.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Grull.", next = "BACK" },
+      },
     },
     lead = {
       lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's wrong, the tribe can tell me so." } },

@@ -491,21 +491,76 @@ P:NPC {
       },
     },
     hunter = {
+      hub = true,
       lines = {
-        { id = "hu_default", text = "Good, because half my hunting work is for people like you anyway. A hunter who can't bring down a zhevra has no business calling out Echeyakee, so start small and earn the big cat." },
+        { id = "hu_default", text = "Good, because half my hunting work is for people like you anyway. A hunter who can't bring down a zhevra has no business calling out Echeyakee, so start small, earn the big cat, and ask me what you need to know on the way." },
         { id = "hu_runner", when = { origin = "tauren_plains_runner" },
-          text = "A plains runner, out of Taurajo's grass. Then you know the Barrens better than I do, and you'll find Echeyakee before he finds you." },
+          text = "A plains runner, out of Taurajo's grass. Then you know the Barrens better than I do, and you'll find Echeyakee before he finds you, so ask me only what the grass hasn't told you." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "{pet} looks hungry, good. Out here a hunter's beast eats what it kills, so let it do some of my work for me." },
+          text = "{pet} looks hungry, good. Out here a hunter's beast eats what it kills, so let it do some of my work for me, and ask what you like while it sniffs around." },
+        { id = "hu_done", when = { questDone = TODO_QUEST("Echeyakee") },
+          text = "You blew the horn and you brought me the white hide, so you're past needing my small hunts. Ask what you like, though; I've bigger ones." },
+      },
+      again = {
+        { id = "hu_again", text = "What else about the hunt? Ask fast, the plainstriders are breeding while we talk." },
+        { id = "hu_again2", text = "Go on. I'd rather you asked me than learned it from a zhevra's hoof." },
       },
       choices = {
-        { text = "I'll take the zhevra first, and then the cat.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+        { text = "Why thin the plainstriders? They're harmless enough.", next = "hu_strider" },
         { text = "Why does Echeyakee matter so much?", next = "hunter_cat" },
+        { text = "What happens when I blow the horn?", next = "hu_horn", when = { questActive = TODO_QUEST("Echeyakee") } },
+        { text = "The raptors to the south are getting bolder.", next = "hu_raptor", when = { minLevel = 15 } },
+        { text = "Any other great cats out here worth the chase?", next = "hu_humar", when = { minLevel = 16 } },
+        { text = "I'll take the zhevra first, and then the cat.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
+      },
+    },
+    hu_strider = {
+      lines = { { id = "hus_default", text = "Harmless until there are three hundred of them stripping the grass the kodo need and kicking over the caravans' water. The Barrens feeds everything on it or nothing, so somebody has to keep the count down, and plainstrider is good eating besides." } },
+      choices = {
+        { text = "Keeping the balance is a hunter's duty.", next = "hunter", reply = "It is, and the tauren say it prettier than I do. Bring me the beaks.", fx = { align = { order = 1 } } },
+        { text = "I hunt for meat and coin, not balance.", next = "hunter", reply = "Then you'll get both, and the balance gets kept anyway. I'm not fussy about reasons.", fx = { align = { order = -1 } } },
+        { text = "Back to the hunting.", next = "hunter" },
       },
     },
     hunter_cat = {
-      lines = { { id = "hc_default", text = "Because he's old enough to have taught every cat out there how to stalk a caravan. Kill him and the rest get clumsy, and the Crossroads breathes easier for a season." } },
-      choices = { { text = "Then he dies.", next = "BACK", fx = { affinity = 1 } } },
+      lines = {
+        { id = "hc_default", text = "Because he's old enough to have taught every cat out there how to stalk a caravan. Kill him and the rest get clumsy, and the Crossroads breathes easier for a season." },
+        { id = "hc_tauren", when = { race = "Tauren" }, text = "Your people call him whitemist, and they say he's mercy and death both, and I've heard tauren hunters argue he should be left alone. I say he's old enough to have taught every cat out there to stalk a caravan, and the Crossroads breathes easier when he's gone." },
+      },
+      choices = {
+        { text = "Then he dies.", next = "hunter", fx = { affinity = 1 } },
+        { text = "Some would call him a spirit of the plains.", next = "hu_spirit" },
+      },
+    },
+    hu_spirit = {
+      big = true,
+      lines = { { id = "hsp_default", text = "Some would, and I'm a shaman, so I don't laugh at it. But spirits don't drag caravan drivers into the grass, and if he is one, he can take it up with the elements after I've had his hide nailed to my wall." } },
+      choices = {
+        { text = "Then I'll hunt him, and thank him when he falls.", next = "hunter", reply = "Thank him all you like, so long as he falls. The tauren will like you for it, and so will I.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirit or beast, he dies the same.", next = "hunter", reply = "That's an orc's answer, and it's mine too, on most days. Go and get him.", fx = { align = { light = -1 } } },
+        { text = "Back to the hunting.", next = "hunter" },
+      },
+    },
+    hu_horn = {
+      lines = { { id = "hho_default", text = "Take it out to his lair in the long grass north of here, and blow it hard. He'll come, because he can't stand another beast calling on his ground, and he'll come quietly, so watch the grass and not the horizon, or you'll be the one dragged off." } },
+      choices = { { text = "I'll watch the grass. Back to the hunting.", next = "hunter" } },
+    },
+    hu_raptor = {
+      lines = {
+        { id = "hra_default", text = "They are, the Sunscale and the scytheclaws both, and they've started raiding the camps for eggs and goods. I'll send you after them when you're ready, but don't go into their dens alone, because a raptor pack fights like a war band and thinks faster than most of my grunts." },
+        { id = "hra_troll", when = { race = "Troll" }, text = "They are, and you'll know raptors better than any orc here, since your people raised them on the islands. Tell me plainly, can the scytheclaws be tamed, or have I got to kill every one of them?" },
+      },
+      choices = {
+        { text = "Tame the young ones, and kill the leaders.", next = "hunter", reply = "That's how a Darkspear would see it, I suppose. I'll leave the taming to you lot.", fx = { affinity = 1, trait = { practical = 1 } } },
+        { text = "Back to the hunting.", next = "hunter" },
+      },
+    },
+    hu_humar = {
+      lines = { { id = "hhu_default", text = "Humar the Pridelord, a black lion who lies under a lone tree in the hills west of Ratchet, with his pride all round him. Hunters camp out there for days to tame him, and the ones who try to kill him find out he roars for the whole pride when he's hurt, so pull him away from the others first." } },
+      choices = {
+        { text = "I mean to tame him myself.", next = "hunter", reply = "Then take food and a lot of patience, because you'll be waiting behind three other hunters. Good luck to you.", fx = { trait = { brave = 1 } } },
+        { text = "Back to the hunting.", next = "hunter" },
+      },
     },
     troll = {
       lines = { { id = "tr_default", text = "They answer to me when I give the orders, and they give me less trouble about it than the orcs do. The Darkspear have had women leading hunts for longer than the Horde has had a name, I'm told." } },

@@ -204,6 +204,7 @@ P:NPC {
         { text = "What do the spirits say of this land, Loh'atu?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Will the Sentinels tolerate a Forsaken paladin, Loh'atu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "What do the spirits tell you of Azshara, Loh'atu?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Tauren and kaldorei hunters once shared these woods, I think.", next = "hnt_shared", when = { class = "HUNTER" } },
         { text = "I'll keep the peace here, Loh'atu.", next = "END", fx = { affinity = 1, standing = { talrendis_point = 1 } } },
       },
     },
@@ -429,6 +430,13 @@ P:NPC {
       fail = {
         { id = "f1", text = "I am a guest among archers who watch my every step, friend, and I have learned not to startle easily. Put your anger away, before the Sentinels decide it is their business." },
         { id = "f2", text = "The Earthmother's children are slow to anger and slower to fear, and I am older than I look. Sit, and breathe, and tell me what truly troubles you." },
+      },
+    },
+    hnt_shared = {
+      lines = { { id = "hsh_d", text = "Not here, friend, not in my lifetime, but I like to think so. I hunt the way my father taught me and the Sentinels hunt the way their mothers taught them, and when we pass each other on the deer trails we nod and say nothing, which is more peace than the bridge to Valormok has ever seen." } },
+      choices = {
+        { text = "A nod on the trail is a start.", next = "BACK", reply = "It is, and I count each one. The Earth Mother is patient, and so am I.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A nod changes nothing while the war goes on.", next = "BACK", reply = "Perhaps not for the war, but it changes something for me. That is enough to keep nodding.", fx = { align = { honor = -1 } } },
       },
     },
   },

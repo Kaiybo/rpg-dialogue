@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-19)
+- Thotar, Jen'shan and Harruk rewritten along the hunter's road, with orc and troll branches.
+
 ## 1.28.0 (2026-11-19)
 - Warrior trainers Frang and Tarshaw Jaggedscar deepened; Tarshaw now trains.
 

@@ -69,6 +69,7 @@ P:NPC {
         { text = "What's wrong with helping Zenn?", next = "zenn" },
         { text = "How bad are things in Teldrassil?", next = "trouble" },
         { text = "I didn't know he was a satyr.", next = "excuse", when = { questDone = TODO_QUEST("Zenn's Bidding") } },
+        { text = "How does one become a Sentinel?", next = "ne_sentinel", when = { race = "NightElf" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -105,6 +106,21 @@ P:NPC {
         { text = "I'll make it right. I give you my word.", next = "BACK", reply = "See that you do, and the Council will hear of it from me. A satyr's favour is a debt you do not want.", fx = { align = { honor = 1 } } },
         { text = "A satyr's coin spends like any other.", next = "BACK", reply = "It spends, and it buys you nothing but the Council's attention. I would get rid of it before it gets rid of you.", fx = { align = { honor = -1 } } },
       },
+    },
+    ne_sentinel = {
+      lines = {
+        { id = "nst_default", text = "You ask the High Priestess, and she sends you to a captain, and the captain sends you to a tree branch for a season to learn how to sit still. The Sentinels began as priestesses who picked up bows when the Legion came, and we still pray before we shoot." },
+      },
+      choices = {
+        { text = "Are there men among the Sentinels?", next = "ne_sentinel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_sentinel2 = {
+      lines = {
+        { id = "nst2_default", text = "A few now, since the war, and more every year, but it has always been the daughters who stood watch while the sons went to the druids and slept in the Dream. Since the Dream took so many of them, we take whoever has the patience, and very few do." },
+      },
+      choices = { { text = "I have patience. Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
     },
   },
 }
@@ -158,6 +174,7 @@ P:NPC {
         { text = "You can't have many Sentinels here.", next = "few" },
         { text = "The nests are thinner now. What next?", next = "after", when = { questDone = TODO_QUEST("The Enchanted Glade") } },
         { text = "I'd like to be a Sentinel one day.", next = "join", when = { race = "NightElf", gender = "female" } },
+        { text = "What do the Sentinels think of the Watchers?", next = "ne_watch", when = { race = "NightElf" } },
         { text = "I'll thin the nests.", next = "END" },
       },
     },
@@ -238,6 +255,15 @@ P:NPC {
       lines = { { id = "jo_default", text = "Then go to Darnassus when you're ready and speak to the Sentinels on the Warrior's Terrace, and don't expect them to be gentle. Learn to stand a night watch without yawning first; that's harder than any glaive." } },
       choices = { { text = "I will. Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
     },
+    ne_watch = {
+      lines = {
+        { id = "nwc_default", text = "We do not think of them much, if we can help it. They kept the Barrow Deeps for ten thousand years and saw nothing of the sky, and when one of them passes through Darnassus she looks at us as if we were children playing at guard duty." },
+      },
+      choices = {
+        { text = "Perhaps they've earned that look.", next = "BACK", reply = "Perhaps. But we are the ones standing at the gate, not them.", fx = { learn = { "sentinels" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -313,6 +339,7 @@ P:NPC {
         { text = "Can men serve Elune too?", next = "men", when = { gender = "male", class = "PRIEST" } },
         { text = "You always seem to have the kettle on.", next = "kettle" },
         { text = "Is a priest of the Light welcome here?", next = "light", when = { race = { "Human", "Dwarf" }, class = "PRIEST" } },
+        { text = "Did Elune's priestesses heal at Hyjal?", next = "ne_hyjal", when = { race = "NightElf" } },
         { text = "Thank you, Laurna.", next = "END" },
       },
     },
@@ -382,6 +409,21 @@ P:NPC {
     light = {
       lines = { { id = "li_default", text = "Welcome, and needed, for wounds don't care which prayer closes them. I've no lessons for you in Elune's ways, but you may sit with my students, and I suspect they'll learn more from you than you will from them." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "holy_light" } } } },
+    },
+    ne_hyjal = {
+      lines = {
+        { id = "nhy_default", text = "We did, all night and all day, until our hands were too tired to hold the bandages and we prayed over the wounded instead. When the World Tree gave its strength to end Archimonde, I felt it go out of me too, the way you feel the tide go out, and I have been mortal ever since." },
+      },
+      choices = {
+        { text = "Do you miss it, the long life?", next = "ne_hyjal2" },
+        { text = "Something else, Laurna.", next = "BACK" },
+      },
+    },
+    ne_hyjal2 = {
+      lines = {
+        { id = "nhy2_default", text = "I miss never being tired. I do not miss watching everyone outside our people grow old while I stayed the same, and now at least I grow old beside them, which feels more like being alive than I expected." },
+      },
+      choices = { { text = "Something else, Laurna.", next = "BACK", fx = { affinity = 1, learn = { "nordrassil" } } } },
     },
   },
 
@@ -586,6 +628,7 @@ P:NPC {
         { text = "You seem to know every animal by name.", next = "names" },
         { text = "How should I look after my companion?", next = "care", when = { class = "HUNTER" } },
         { text = "Have you ever stabled a ram?", next = "rams", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Will you keep my companion while I take another?", next = "hunt_stable", when = { class = "HUNTER", minLevel = 10 } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -657,6 +700,21 @@ P:NPC {
       lines = { { id = "ra_default", text = "Once, a dwarf's, who'd brought it across on the boat from Auberdine, and it ate half my hay and butted the stable door until Moonpaw sat on it. I liked it very much, but I don't think it liked trees." } },
       choices = { { text = "Rams prefer mountains. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    hunt_stable = {
+      lines = {
+        { id = "hs_default", text = "Gladly, if you buy a stall first, and I will feed it and talk to it and tell it you will be back. Do come back, though, because a stabled companion keeps its loyalty well enough but it misses you, and I can tell when one has given up hoping." },
+      },
+      choices = {
+        { text = "How do you tell?", next = "hunt_stable2" },
+        { text = "Something else, Seriadne.", next = "BACK" },
+      },
+    },
+    hunt_stable2 = {
+      lines = {
+        { id = "hs2_default", text = "It stops lifting its head when the door opens. Most of them never get there, because most hunters come back, but I have had to send a few home to the forest when nobody did, and I cried every time." },
+      },
+      choices = { { text = "I'll come back for mine.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
   },
 
   topics = {
@@ -716,6 +774,8 @@ P:NPC {
         { text = "Why don't you travel yourself?", next = "travel" },
         { text = "What's in Feralas: A History?", next = "feralas" },
         { text = "What should I see in Winterspring?", next = "winterspring", when = { minLevel = 50 } },
+        { text = "What do the lore keepers record of the Highborne remnants?", next = "ne_shen", when = { race = "NightElf" } },
+        { text = "Is it true the Archdruid lost a son in Silithus?", next = "ne_valstann", when = { race = "NightElf" } },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -755,6 +815,30 @@ P:NPC {
     winterspring = {
       lines = { { id = "wi_default", text = "Starfall, and the old elven ruins in the snow, and Wynd Nightchaser, who'll tell you more than I could. It's a harsh land, but it holds secrets, and I haven't been able to go back for a very long time." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ne_shen = {
+      lines = {
+        { id = "nsh_default", text = "Very little that flatters them. A part of Azshara's court fled to Feralas after the Sundering and built Eldre'Thalas, and the last of them, the Shen'dralar, still haunt its libraries and trade their old knowledge to anyone bold enough to bring them what they want." },
+      },
+      choices = {
+        { text = "What do they want?", next = "ne_shen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ne_shen2 = {
+      lines = {
+        { id = "nsh2_default", text = "Their prince bound a demon beneath the city to feed their magic, and it ate his people one by one until only a handful were left. What they want now, I think, is to be remembered as scholars and not as cowards, and their books are almost good enough to manage it.", fx = { learn = { "dire_maul" } } },
+      },
+      choices = { { text = "Almost good enough. Something else.", next = "BACK" } },
+    },
+    ne_valstann = {
+      lines = {
+        { id = "nva_default", text = "It is true, and it is written in our oldest war records, though nobody here reads it aloud. Valstann Staghelm fell at the gates of Ahn'Qiraj a thousand years ago, during the War of the Shifting Sands, and his father has never once spoken of it in my hearing." },
+      },
+      choices = {
+        { text = "Then I'll not ask him either.", next = "BACK", reply = "Wise. Some books are best left closed in front of their authors.", fx = { learn = { "ahn_qiraj" } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 }

@@ -166,6 +166,7 @@ P:NPC {
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is my scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a frostsaber accept a shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Could a hunter tame a wild frostsaber?", next = "hnt_tame", when = { class = "HUNTER" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
     },
@@ -208,6 +209,14 @@ P:NPC {
       },
       choices = {
         { text = "I will.", next = "BACK" },
+      },
+    },
+    hnt_tame = {
+      big = true,
+      lines = { { id = "hta_d", text = "One could, and some do, and I will not pretend I like it. A frostsaber tamed in the hills belongs to the hunter who took it, not to the Trainers and not to the Sentinels, and our people have bred and bonded these cats for longer than your cities have stood, so forgive me if I bristle." } },
+      choices = {
+        { text = "A wild cat chooses its hunter. That's no theft.", next = "BACK", reply = "Perhaps. Treat it as one of ours would, and I will hold my tongue when I see you ride past.", fx = { align = { order = -1 } } },
+        { text = "I'd rather earn one from the Trainers properly.", next = "BACK", reply = "Then come back often, and work, and the cubs will learn your name. That is the only way I know.", fx = { align = { order = 1 }, affinity = 1 } },
       },
     },
   },

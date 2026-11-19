@@ -60,6 +60,7 @@ P:NPC {
         { text = "Elune made them, didn't she?", next = "xpriest", when = { class = "PRIEST", race = "NightElf" } },
         { text = "I've worn feathers in moonkin form, Taronn.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I've seen what sick beasts do. Some can't be helped.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "The wildkin were Cenarius's gift to us. Who sours them?", next = "kal_wildkin", when = { race = "NightElf" } },
         { text = "Farewell, Taronn.", next = "END" },
       },
     },
@@ -187,6 +188,14 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kal_wildkin = {
+      big = true,
+      lines = { { id = "kwi_d", text = "That is the question that keeps me in Felwood, {g:kinsman|kinswoman}. The Winterfall furbolgs carry something in their totems that turns whatever drinks near them savage, and the wildkin roost too close to their dens, so I fear the same hand that poisoned the Deadwood is reaching for the owlbeasts now." } },
+      choices = {
+        { text = "Then we strike the Winterfall before it spreads.", next = "BACK", reply = "Donova Snowden at the hot springs in Winterspring watches them closely, so start with her, and do not let your anger choose the targets.", fx = { align = { order = -1 } } },
+        { text = "We should study the poison first, then act.", next = "BACK", reply = "My heart agrees with you. If we only kill, we will be killing forever.", fx = { align = { order = 1 }, trait = { curious = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -253,6 +262,9 @@ P:NPC {
         { text = "What do you teach the Sentinels' scouts?", next = "scouts" },
         { text = "How did Felwood get this way?", next = "felwood" },
         { text = "Shi'alune doesn't like the Horde?", next = "horde", when = { faction = "Horde" } },
+        { text = "I was born under these trees, before they sickened.", next = "kal_born", when = { race = "NightElf" } },
+        { text = "What should a hunter fear most in Felwood?", next = "hnt_fear", when = { class = "HUNTER" } },
+        { text = "Vartrus has asked a great deal of me, Kaerbrus.", next = "hnt_vartrus", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -324,6 +336,33 @@ P:NPC {
     horde = {
       lines = { { id = "ho_default", text = "She was a cub in Ashenvale, near where the axes ring now, and the first thing she learned to fear was that sound. She can't tell one of you from another, of course; she only knows the smell of an axe, and some of you carry it." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kal_born = {
+      big = true,
+      lines = { { id = "kbo_d", text = "Then you have more right to grieve here than I do, for I only came north when the Sentinels raised this glade. Tell me, was it the demons at Hyjal who did it, or what came after, the cults and the satyrs who stayed and fed on what the Legion left behind? I have heard it told both ways." } },
+      choices = {
+        { text = "The Legion broke it. The cults only keep it broken.", next = "BACK", reply = "Then we fight the keepers, since the breakers are gone. That is what Talonbranch is for.", fx = { learn = { "burning_legion" } } },
+        { text = "We let it happen. We should have cleansed it sooner.", next = "BACK", reply = "Perhaps, and that is a bitter thing to say aloud. Darnassus had its own wounds to tend, and Felwood was left to wait.", fx = { align = { order = -1 } } },
+        { text = "Darnassus made the right choice. Teldrassil first.", next = "BACK", reply = "Spoken loyally. I hope the trees here forgive the waiting.", fx = { align = { order = 1 } } },
+      },
+    },
+    hnt_fear = {
+      lines = { { id = "hfe_d", text = "Your own companion, after a month here, if you let it drink from the wrong pool. The corrupted wells poison slowly, and a beast does not know the difference between clean water and fel until it is too late, so carry water from the Emerald Sanctuary and do not let it lap from the streams." } },
+      choices = {
+        { text = "And after that?", next = "hnt_fear2" },
+        { text = "I'll carry water. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    hnt_fear2 = {
+      lines = { { id = "hfe2_d", text = "The Jadefire satyrs, who move through the trees like smoke and strike at whoever is weakest, which is usually the beast. Keep it close and keep it between you and the shadows, and Shi'alune will tell you the rest with her ears, if you watch her." } },
+      choices = { { text = "Close, and watchful. Something else.", next = "BACK" } },
+    },
+    hnt_vartrus = {
+      lines = { { id = "hva_d", text = "He asks a great deal of everyone, and more of hunters, because he believes we can bear it. I have never earned his stave myself, and I am not ashamed of that, but I have trained three who did, and every one came back quieter than they left, and better." } },
+      choices = {
+        { text = "Then I'll come back quieter too.", next = "BACK", reply = "Come back at all, and I will count it a good season.", fx = { affinity = 1 } },
+        { text = "I mean to come back louder.", next = "BACK", reply = "Then you have not met Artorius yet. Go and meet him, and we will talk again.", fx = { trait = { brave = 1 } } },
+      },
     },
   },
 

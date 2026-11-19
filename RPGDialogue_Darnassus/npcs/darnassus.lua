@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_saelra_resolved", when = { race = "NightElf", thread = { id = "elf_saelra", state = "resolved" } }, text = "Saelra crossed the terrace last night, and Thalanir met her halfway. Elune-adore, child; you did that." },
+    { id = "g_saelra_soured", when = { race = "NightElf", thread = { id = "elf_saelra", state = "soured" } }, text = "Saelra keeps her post, and her brother his grove. I pray for them both, and for the time we no longer have." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood beneath Nordrassil while the Legion burned our forests, and I know the stench of its servants. Keep that creature leashed in my temple, or my priestesses will put it down." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Elune grants her light to all who seek it, but I am not Elune. Speak, demon-caller, and be brief." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have walked these halls many times, and nothing foul has followed you out of them. I will not call you friend, but I will hear you." },
@@ -33,6 +35,7 @@ P:NPC {
     { id = "g_word_helped", when = { word = "helped" }, text = "My Sentinels tell me you have served the people of this city well these past days. That is noted, and Elune notes it also." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I am told one of my people saw through a falsehood of yours. Speak only truth in this temple, because I will hear the other kind." },
     { id = "g_scout", when = { origin = "nightelf_sentinel_scout" }, text = "One of my scouts, come in from the borders. You watched Ashenvale's edges for me once, and I see you have not stopped watching, so tell me what the rest of the world looks like through a Sentinel's eyes." },
+    { id = "g_ne_moon", when = { race = "NightElf", metBefore = true }, text = "Elune-adore, child of the kaldorei. You climb these steps as our people climbed the temple stair in Zin-Azshari, and I find I remember that more often than I would like." },
   },
 
   notice = {
@@ -56,6 +59,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    saelra_end = {
+      big = true,
+      narr = "She looks toward the Enclave across the water, and her face gives nothing away.",
+      lines = { { id = "saelra_end_default", key = true,
+        text = "Fandral would say so, and Malfurion would too, and perhaps they are right. You have heard the Enclave and the Temple both, so tell me what I should say to Saelra: should she go to her brother?" } },
+      again = { { id = "saelra_end_again", text = "You have answered me already, and I have sent your answer on." } },
+      choices = {
+        { text = "Both kept a watch. She should go to him.", next = "saelra_go",
+          fx = { thread = { id = "elf_saelra", state = "resolved" }, align = { light = 1 }, affinity = 1 },
+          journal = { first = "I told the High Priestess that both Duskwinds kept a watch, and Saelra should go to her brother.", third = "{name} told Tyrande Whisperwind that Saelra Duskwind should go to her brother." } },
+        { text = "He slept while she bled. She owes him nothing.", next = "saelra_stay",
+          fx = { thread = { id = "elf_saelra", state = "soured" }, align = { light = -1 } },
+          journal = { first = "I told the High Priestess that Saelra owes her brother nothing.", third = "{name} told Tyrande Whisperwind that Saelra Duskwind owed her brother nothing." } },
+        { text = "That isn't mine to say, High Priestess.", next = "BACK" },
+      },
+    },
+    saelra_go = {
+      lines = { { id = "saelra_go_default",
+        text = "Then I will give her leave to come to Darnassus. We are mortal now, child, since Nordrassil gave its gift at Hyjal, and ten thousand years of anger is a luxury none of us can afford any longer." } },
+      choices = { { text = "Elune guide her, High Priestess.", next = "END" } },
+    },
+    saelra_stay = {
+      lines = { { id = "saelra_stay_default",
+        text = "Perhaps she does not, and I will not order her across the terrace. She will keep her post and he his grove, and I will pray they both live long enough to change their minds." } },
+      choices = { { text = "Thank you for hearing me.", next = "END" } },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -305,6 +334,9 @@ P:NPC {
         { id = "h_again2", text = "Speak on. I have little time, but I have not run out of it." },
       },
       choices = {
+        { text = "The Archdruid says both watches were kept.", next = "saelra_end",
+          when = { race = "NightElf", thread = { id = "elf_saelra", beat = "b3_tyrande", state = "unfolding" },
+                   any = { { thread = { id = "elf_saelra", beat = "b3_fandral" } } } } },
         { text = "The Sentinels in Ashenvale are hard pressed, High Priestess.", next = "dd_ashenvale", when = { questDone = TODO_QUEST("Raene's Cleansing") } },
         { text = "Where is Malfurion?", next = "malfurion" },
         { text = "Darnassus seems troubled, for all its beauty.", next = "troubles" },
@@ -329,6 +361,9 @@ P:NPC {
         { text = "I've been to the bottom of Blackfathom Deeps, High Priestess.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "Do the Kaldorei really welcome our allies here, High Priestess?", next = "xpt_tyrande", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
         { text = "Who was it I reminded you of, High Priestess?", next = "xalt_tyrande", when = { alt = true } },
+        { text = "Tell me of the old world, before the Sundering.", next = "ne_old", when = { race = "NightElf" } },
+        { text = "I feel the years now, High Priestess. I never did before.", next = "ne_years", when = { race = "NightElf" } },
+        { text = "Some Highborne still live in Feralas, in Eldre'Thalas.", next = "ne_shen", when = { race = "NightElf", minLevel = 45 } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -563,6 +598,168 @@ P:NPC {
         { text = "Forgive me, High Priestess.", next = "BACK" },
       },
     },
+    ne_old = {
+      big = true, hub = true,
+      narr = "She looks up through the open roof toward the moon, the way one looks toward a door someone once walked out of.",
+      lines = {
+        { id = "neo_default", text = "Most of our people were born after it, or were too young to remember it clearly, and I envy them that a little. I was a novice in Elune's temple in Zin-Azshari when the world ended, so ask, and I will tell you what I saw." },
+      },
+      again = {
+        { id = "neo_again", text = "Ask what else you would know of it. I have carried these memories alone long enough." },
+        { id = "neo_again2", text = "There is more, if you can bear to hear it. I can bear to tell it." },
+      },
+      choices = {
+        { text = "What was Queen Azshara like?", next = "ne_azshara" },
+        { text = "Tell me of the Well of Eternity.", next = "ne_well" },
+        { text = "How did the War of the Ancients begin?", next = "ne_war" },
+        { text = "The Sundering drowned half the world for one queen's pride.", next = "ne_sunder" },
+        { text = "Who are the Watchers? Nobody will speak of them.", next = "ne_watchers" },
+        { text = "Enough of the old world for now.", next = "hello" },
+      },
+    },
+    ne_azshara = {
+      lines = {
+        { id = "nea_default", text = "She was the most beautiful thing in the world, and she knew it, and so did everyone who knelt to her. The Highborne would have followed her into the sea, and in the end they did, for the waters closed over Zin-Azshari with her court still in it." },
+      },
+      choices = {
+        { text = "Did you ever see her yourself?", next = "ne_azshara2" },
+        { text = "Some say she didn't drown at all.", next = "ne_azshara3" },
+        { text = "Something else from the old days.", next = "ne_old" },
+      },
+    },
+    ne_azshara2 = {
+      lines = {
+        { id = "nea2_default", text = "Once, from the back of a crowd on a feast day, when she passed under the temple's gate on a litter of gold. I was a girl with a novice's veil, and I thought Elune herself must look a little like that, and I have asked the goddess's pardon for the thought ever since." },
+      },
+      choices = { { text = "A strange thing to carry ten thousand years.", next = "ne_old", fx = { learn = { "queen_azshara" } } } },
+    },
+    ne_azshara3 = {
+      lines = {
+        { id = "nea3_default", text = "So the fishermen of Darkshore say, and the naga who come up out of the deep water wear Highborne faces under all those scales. I do not know what she became down there, and I pray I never have to learn." },
+      },
+      choices = { { text = "Then I'll keep away from deep water. Something else.", next = "ne_old", fx = { learn = { "queen_azshara" } } } },
+    },
+    ne_well = {
+      lines = {
+        { id = "new_default", text = "A lake of living power in the heart of the world, and our people grew up on its shores and drank of it until we thought ourselves gods. Its light lit Zin-Azshari by night, and I can still see it when I close my eyes, black and bright at once." },
+      },
+      choices = {
+        { text = "Was the magic itself evil?", next = "ne_well2" },
+        { text = "Something else from the old days.", next = "ne_old" },
+      },
+    },
+    ne_well2 = {
+      lines = {
+        { id = "new2_default", text = "No more than a fire is evil, and every bit as hungry. The Highborne fed it their whole hearts, and it called to something beyond the stars that was hungrier still, and that is why my priestesses will not touch the arcane, and why the druids follow Malfurion instead." },
+      },
+      choices = { { text = "So the moonwells are what's left of it.", next = "ne_old", reply = "A little of its water, cleansed by Elune's light and given back to the land. That is the difference, and it is everything.", fx = { learn = { "highborne" } } } },
+    },
+    ne_war = {
+      lines = {
+        { id = "nwa_default", text = "Azshara opened the Well to the Burning Legion, and they came through into Zin-Azshari and began to kill everything that was not Highborne. Malfurion went to Cenarius, and his brother Illidan went with us, and Lord Kur'talos Ravencrest raised an army from the cities the queen had forgotten." },
+      },
+      choices = {
+        { text = "Malfurion had a brother?", next = "ne_illidan" },
+        { text = "How did you stand against the Legion?", next = "ne_war2" },
+        { text = "Something else from the old days.", next = "ne_old" },
+      },
+    },
+    ne_war2 = {
+      lines = {
+        { id = "nwa2_default", text = "With everything we had, and with the help of things older than we were: the demigods of the forest, the dragons, Cenarius himself and his children. I led the Sisterhood onto the field for the first time in that war, and I have not laid down my bow since.", fx = { learn = { "burning_legion" } } },
+      },
+      choices = {
+        { text = "Then the Sentinels were born in that war.", next = "ne_old", reply = "They were, out of priestesses who would not stay in the temple while the forest burned. Their daughters stand at the gate of this city tonight." },
+      },
+    },
+    ne_illidan = {
+      narr = "For a moment her face closes entirely, and then she opens it again by an effort you can almost see.",
+      lines = {
+        { id = "nei_default", text = "He had, and he loved me, and he chose power over both of us. After the Sundering he carried the Well's water up the mountain and poured it into the lake at Hyjal, and Malfurion locked him away beneath the earth for ten thousand years for it." },
+      },
+      choices = {
+        { text = "And now?", next = "ne_illidan2" },
+        { text = "Forgive me for asking. Something else.", next = "ne_old" },
+      },
+    },
+    ne_illidan2 = {
+      lines = {
+        { id = "nei2_default", text = "I freed him, when the Scourge came to Ashenvale and I thought we needed every blade, and he betrayed us again before the year was out. He has fled our lands since, and Maiev Shadowsong hunts him still, and she has not forgiven me for opening his cell." },
+      },
+      choices = {
+        { text = "You did what you believed was right.", next = "ne_old", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "It was a costly mistake, High Priestess.", next = "ne_old", reply = "It was, and I will not hear anyone say it more harshly than I have said it to myself.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    ne_sunder = {
+      big = true,
+      lines = {
+        { id = "nes_default", text = "For her pride, and for the pride of everyone who loved her and looked away. When Malfurion broke the portal, the Well tore itself apart and the sea came in over everything, and those of us who lived stood on the slopes of Hyjal and watched our whole world go under." },
+      },
+      choices = {
+        { text = "Then pride is the enemy we must watch for most.", next = "ne_old", reply = "It is, and it has a hundred faces, and one of them is always our own. I am glad you see it.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Azshara's people chose her. They earned the sea.", next = "ne_old", reply = "Some did, and some only kept their heads down because they had children. I buried enough of both to stop judging them.", fx = { align = { order = -1 }, trait = { stern = 1 } } },
+        { text = "What did you do, after?", next = "ne_after" },
+      },
+    },
+    ne_after = {
+      lines = {
+        { id = "nef_default", text = "We climbed, and we buried, and Malfurion gave our people a new way to live that did not lean on magic at all. It took us centuries to stop listening for the Well, and some of the Highborne never did, which is why we sent them away across the sea." },
+      },
+      choices = { { text = "And that began the quel'dorei. Something else.", next = "ne_old", fx = { learn = { "highborne" } } } },
+    },
+    ne_watchers = {
+      lines = {
+        { id = "nwt_default", text = "They are the wardens who kept the Barrow Deeps where our most dangerous prisoners were held, and Maiev Shadowsong leads them. They gave ten thousand years to watching the dark, and they have little patience for priestesses who forgive." },
+      },
+      choices = {
+        { text = "Where are they now?", next = "ne_watchers2" },
+        { text = "Something else from the old days.", next = "ne_old" },
+      },
+    },
+    ne_watchers2 = {
+      lines = {
+        { id = "nwt2_default", text = "Far from Darnassus, most of them, following the trail of the one they lost. They answer to no one in this city but me, and lately not always to me, and I have decided that is a quarrel for another age." },
+      },
+      choices = {
+        { text = "The Sentinels guard the living, the Watchers the dead.", next = "ne_old", reply = "That is close enough to true, and more gracefully put than Maiev would put it." },
+      },
+    },
+    ne_years = {
+      big = true,
+      lines = {
+        { id = "ney_default", text = "So do we all, since the World Tree gave its gift at Hyjal to end Archimonde. I have felt a winter in my knees this year for the first time in ten thousand, and I will not pretend to you that it does not frighten me." },
+        { id = "ney_young", when = { maxLevel = 15 }, text = "You were born on the mountain or after it, so you have only ever known the years, and perhaps that is a mercy. The rest of us were immortal until Nordrassil gave its gift to end Archimonde, and we are still learning how to count." },
+      },
+      choices = {
+        { text = "Then we make every year count, as the humans do.", next = "BACK", reply = "As the humans do, yes, and I have begun to admire them for it. It is a strange thing to learn from children.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Fandral's tree may give us back what we lost.", next = "BACK", reply = "It may, and many of our people pray it will. I would rather we earned our years than took them back without asking.", fx = { align = { light = -1 }, opinion = { teldrassil_tree = "hope" } } },
+        { text = "Was the sacrifice worth it?", next = "ne_years2" },
+      },
+    },
+    ne_years2 = {
+      lines = {
+        { id = "ney2_default", text = "Archimonde would have scoured the world down to stone, and we gave up our long years to stop him, so yes, and I would do it again tonight. Ask me again in a thousand years, if either of us has them, and I may sound less certain.", fx = { learn = { "nordrassil" } } },
+      },
+      choices = { { text = "I'll ask you then, High Priestess.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ne_shen = {
+      big = true,
+      lines = {
+        { id = "nesh_default", text = "The Shen'dralar, yes, and I have heard what their prince did to keep his magic: he fed his own people to a demon's appetite, one by one, and called it preservation. If you have been among them, you have seen what the Highborne become when no one tells them no." },
+      },
+      choices = {
+        { text = "The ones left have repented. They deserve a hearing.", next = "BACK", reply = "Perhaps, and Elune forgives more readily than I do. Bring me proof of it, and I will listen.", fx = { align = { light = 1 }, learn = { "dire_maul" } } },
+        { text = "Leave them to their ruins. They chose that city.", next = "BACK", reply = "That is what I chose ten thousand years ago, and I cannot say it has served us badly.", fx = { align = { light = -1 }, learn = { "dire_maul" } } },
+        { text = "Was Eldre'Thalas always theirs?", next = "ne_shen2" },
+      },
+    },
+    ne_shen2 = {
+      lines = {
+        { id = "nesh2_default", text = "It was a Highborne refuge after the Sundering, built by those of Azshara's court who would neither drown with her nor follow Malfurion. They kept to themselves for ten thousand years, and the rest of us let them, and I am not sure that was wise." },
+      },
+      choices = { { text = "Something else, High Priestess.", next = "BACK" } },
+    },
   },
 
   persuade = {
@@ -668,6 +865,7 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown stronger since last you stood before me; even I can see it. Perhaps you are of some use to the Circle after all." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word reaches the Enclave that you have given offence in this city. Darnassus tolerates its guests, but it does not suffer them gladly, so be brief." },
+    { id = "g_ne_kin", when = { race = "NightElf", metBefore = true }, text = "Ishnu-alah, child of the kaldorei. Come in out of the Temple's shadow and stand under the boughs, where our people's future is actually being decided." },
   },
 
   notice = {
@@ -954,6 +1152,10 @@ P:NPC {
         { text = "Naralex is awake, Archdruid. The Caverns are quieter now.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Alliance" } },
         { text = "Why are you so wary of outsiders, Arch Druid?", next = "xpt_fandral", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
         { text = "You spoke of someone like me, Arch Druid?", next = "xalt_fandral", when = { alt = true } },
+        { text = "They say your son fell at Ahn'Qiraj, Archdruid.", next = "ne_valstann", when = { race = "NightElf" } },
+        { text = "Shan'do Malfurion taught balance. You teach growth.", next = "ne_shando", when = { race = "NightElf" } },
+        { text = "Tell me about the Claw, the Talon and the barrow dens.", next = "ne_claw", when = { race = "NightElf" } },
+        { text = "Do the druids think my companion is a slave?", next = "hunt_bond", when = { class = "HUNTER" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1082,6 +1284,109 @@ P:NPC {
       choices = {
         { text = "As you say, Archdruid.", next = "BACK" },
       },
+    },
+    ne_valstann = {
+      big = true,
+      narr = "The Archdruid goes very still, and for once he does not reach for an answer before you have finished.",
+      lines = {
+        { id = "nva_default", text = "Valstann. He was a druid, and the best of my students, and he rode beside me into Silithus when the qiraji came out of their hives a thousand years ago. He fell before the gates of Ahn'Qiraj, and I was close enough to see it and not close enough to stop it." },
+        { id = "nva_cold", when = { disposition = { max = 34 } }, text = "Who told you that? It is not a story I tell to those who sneer at my tree. Valstann fell in Silithus a thousand years ago, at the gates of Ahn'Qiraj, and that is all you will have from me." },
+      },
+      choices = {
+        { text = "I'm sorry. I shouldn't have raised it.", next = "ne_valstann2" },
+        { text = "What was the War of the Shifting Sands?", next = "ne_sands" },
+        { text = "Then let us speak of something else.", next = "BACK" },
+      },
+    },
+    ne_valstann2 = {
+      lines = {
+        { id = "nva2_default", text = "You should not, but you did, and I would rather a young elf ask than whisper behind my back as the Temple's novices do. He was brave, and he was certain, and I taught him both, so do not tell me that I do not know what certainty can cost." },
+      },
+      choices = {
+        { text = "He would be proud of what you've grown here.", next = "BACK", reply = "I hope so. I think of him every time a new leaf opens on this tree, and I have never told anyone that before.", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else, Archdruid.", next = "BACK" },
+      },
+    },
+    ne_sands = {
+      lines = {
+        { id = "nsd_default", text = "The silithid and their masters came north out of the desert, and only the dragons and the kaldorei stood against them. We drove them back and the dragons sealed them behind the Scarab Wall, and the bronze ones gave me a scepter to open it one day, which I broke in two on the sand.", fx = { learn = { "ahn_qiraj" } } },
+      },
+      choices = {
+        { text = "You broke it? Why?", next = "ne_sands2" },
+        { text = "Something else, Archdruid.", next = "BACK" },
+      },
+    },
+    ne_sands2 = {
+      lines = {
+        { id = "nsd2_default", text = "Because I had just watched my son die beneath that wall, and I wanted nothing that could ever open it again. The dragons may think me rash for it, as they think me rash for Teldrassil, and they may say so to my face if they ever come down from their mountains." },
+      },
+      choices = {
+        { text = "I'd have done the same.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A scepter can't keep grief locked away.", next = "BACK", reply = "No. But it can keep the silithid there, and that was the only part I could still do anything about.", fx = { trait = { kind = 1 } } },
+      },
+    },
+    ne_shando = {
+      big = true,
+      lines = {
+        { id = "nsh_default", text = "Shan'do Malfurion taught balance when he could afford it, with the world tree whole and the dragons' blessing on our long lives. We cannot afford it now, and a teacher who sleeps for decades leaves his students to decide what he would have done." },
+        { id = "nsh_druid", when = { class = "DRUID" }, text = "You speak like one who has sat in the Moonglade and listened to Remulos. Shan'do Malfurion taught balance when we were deathless and the dragons smiled on us, and he is not here to see that we are neither, so his students must decide what he would have done." },
+      },
+      choices = {
+        { text = "Balance still matters. Growth without it is how we fell.", next = "BACK", reply = "You sound like the High Priestess, and she sounds like Malfurion at his most tiresome. Very well, I will remember you said it.", fx = { align = { order = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "You're right. We must grow strong while we can.", next = "BACK", reply = "At last, someone young enough to see it. Go to Mathrengyl and tell him I sent you.", fx = { align = { order = -1 }, affinity = 1, opinion = { fandral = "admire" } } },
+        { text = "What would he say if he woke tomorrow?", next = "ne_shando2" },
+      },
+    },
+    ne_shando2 = {
+      lines = {
+        { id = "nsh2_default", text = "He would frown at my tree, and then he would walk its length from root to crown, and then he would say that he would have done it differently. And I would tell him that he was not here to do it at all, and we would argue until dawn, as we used to." },
+      },
+      choices = { { text = "You miss him.", next = "BACK", reply = "Every day, and I do not need the Temple to remind me of it.", fx = { learn = { "malfurion" } } } },
+    },
+    ne_claw = {
+      hub = true,
+      lines = {
+        { id = "ncl_default", text = "The Druids of the Claw take the bear's form and its strength, and the Druids of the Talon take the storm crow's and its wisdom, and both learned it from Malfurion himself. When they are not needed, they sleep in the barrow dens beneath Moonglade and Hyjal, and walk the Emerald Dream." },
+      },
+      again = { { id = "ncl_again", text = "Ask on, if you mean to be one of us one day. The Claw and the Talon could use younger blood." } },
+      choices = {
+        { text = "Why must they sleep for so long?", next = "ne_barrow" },
+        { text = "I've heard some druids lose themselves in the bear.", next = "ne_claw_lost" },
+        { text = "Enough of the old orders.", next = "hello" },
+      },
+    },
+    ne_barrow = {
+      lines = {
+        { id = "nba_default", text = "Because the Dream is the world as it was meant to be, and someone must walk it and keep it whole. A druid of the old orders sleeps for centuries and wakes when the forest needs him, and that is why so few of them were awake to stop the orcs in Ashenvale.", fx = { learn = { "emerald_dream" } } },
+      },
+      choices = {
+        { text = "And Malfurion sleeps among them.", next = "ne_claw", reply = "In the deepest of the barrows, beneath Moonglade. The High Priestess goes there more often than she admits." },
+        { text = "I'd rather fight awake than dream.", next = "ne_claw", reply = "Many young druids say so, and then they hear the Dream calling for the first time, and they stop saying it." },
+      },
+    },
+    ne_claw_lost = {
+      lines = {
+        { id = "ncll_default", text = "Some do, and Oben Rageclaw in Teldrassil's own woods is the proof of it, for the bear's rage took him and the Gnarlpine took the rest. The form is a gift, and like every gift Cenarius gave us, it is also a test of whether we can put it down again." },
+      },
+      choices = { { text = "Then I'll learn to put it down. Something else.", next = "ne_claw" } },
+    },
+    hunt_bond = {
+      big = true,
+      lines = {
+        { id = "hb_default", text = "Some of the Circle do, and say so too loudly. I think a beast that follows you of its own will is no more a slave than a student is, though a druid becomes the bear and a hunter only asks one to walk with him, and the difference matters." },
+        { id = "hb_ne", when = { race = "NightElf" }, text = "Some of the Circle do, though our people have hunted beside nightsabers since before there were druids at all. A beast that follows you of its own will is no slave, but a druid becomes the bear and a hunter only asks one to walk with him, and the difference matters." },
+      },
+      choices = {
+        { text = "My companion chose me. I'd never hold it against its will.", next = "BACK", reply = "Then you keep the old covenant, and I will defend you to the Circle if they ask.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A beast follows the strongest. That's the forest's way.", next = "BACK", reply = "That is the orcs' way with their wolves, and I would not boast of it in the Enclave.", fx = { align = { light = -1 } } },
+        { text = "What is the difference, then?", next = "hunt_bond2" },
+      },
+    },
+    hunt_bond2 = {
+      lines = {
+        { id = "hb2_default", text = "A druid gives up his own shape and learns what the bear knows from inside it. A hunter keeps his own shape and learns what the bear knows by living beside it, and both are lessons, though only one of them requires you to stop being yourself." },
+      },
+      choices = { { text = "Then I'll keep to my own shape. Something else.", next = "BACK" } },
     },
   },
 
@@ -1393,6 +1698,9 @@ P:NPC {
         { text = "Princess Theradras is dead, Mathrengyl. Maraudon is broken.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
         { text = "What does a druid give to a company like ours?", next = "xpt_mathrengyl", when = { party = { class = "DRUID" } } },
         { text = "My father sleeps in the Barrow Dens. Does he hear me at all?", next = "xorig_dream", when = { origin = "nightelf_dreamer_kin" } },
+        { text = "What did Malfurion teach the first druids, Mathrengyl?", next = "ne_first", when = { race = "NightElf" } },
+        { text = "Teldrassil doesn't feel like Nordrassil did.", next = "ne_trees", when = { race = "NightElf" } },
+        { text = "My companion is no druid's form. Does the Circle mind?", next = "hunt_m", when = { class = "HUNTER", race = "NightElf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1471,6 +1779,53 @@ P:NPC {
     healers = {
       lines = { { id = "he_default", text = "We mend with what grows, and you mend with what you pray to, and the wounded rarely ask which. Sit in on a lesson if you like, so long as you do it quietly." } },
       choices = { { text = "Thank you. I will.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
+    },
+    ne_first = {
+      lines = {
+        { id = "nfi_default", text = "That the forest does not belong to us, and that we belong to it, which was a hard lesson for a people who had just drowned a continent proving the opposite. He taught us on the slopes of Hyjal with Cenarius watching, and not one of us got it right the first century." },
+      },
+      choices = {
+        { text = "Were you among them?", next = "ne_first2" },
+        { text = "And the Highborne wouldn't learn it.", next = "BACK", reply = "Some tried, and the arcane kept calling them back, as drink calls a drunkard. Malfurion sent them over the sea in the end, and the Circle has never quite agreed whether that was mercy.", fx = { learn = { "highborne" } } },
+      },
+    },
+    ne_first2 = {
+      lines = {
+        { id = "nfi2_default", text = "Not the first, but near enough to remember Malfurion's face when Fandral first took the shape of a stag without being shown. Fandral was always the quickest of us, and the shan'do was always a little afraid of how quick he was." },
+      },
+      choices = { { text = "And you? Were you quick?", next = "BACK", reply = "I was slow and stubborn, and I have outlasted many who were quick. Remember that, young one.", fx = { affinity = 1 } } },
+    },
+    ne_trees = {
+      big = true,
+      lines = {
+        { id = "ntr_default", text = "No, and it would be strange if it did. Nordrassil was planted with the blessing of the Aspects and it gave us our long years, while Teldrassil was planted with our own hands and our own hope, and the forest on its branches has not yet decided what it thinks of us." },
+      },
+      choices = {
+        { text = "It will be ours in time. Every tree is young once.", next = "BACK", reply = "That is the Archdruid's answer, and it may be the right one. I pray it is.", fx = { align = { order = -1 } } },
+        { text = "We should have waited for the Aspects' blessing.", next = "BACK", reply = "Say that softly in the Enclave, but say it. Someone should.", fx = { align = { order = 1 }, opinion = { teldrassil_tree = "wrong" } } },
+        { text = "What do you hear in it, when you listen?", next = "ne_trees2" },
+      },
+    },
+    ne_trees2 = {
+      lines = {
+        { id = "ntr2_default", text = "Growth, a great deal of it, and underneath the growth something like a fever that comes and goes. The furbolgs feel it worst, and so do the timberlings at Wellspring Lake, and I have told the Archdruid so, and he has told me the tree is young.", fx = { learn = { "teldrassil" } } },
+      },
+      choices = { { text = "I'll listen too, when I'm out there.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hunt_m = {
+      lines = {
+        { id = "hm_default", text = "Some in the Circle grumble, but our people hunted beside nightsabers and owls long before Malfurion taught the first of us the shapes. A druid becomes the beast, and a hunter befriends it, and the forest has room for both if neither forgets to give back." },
+      },
+      choices = {
+        { text = "How do I give back, as a hunter?", next = "hunt_m2" },
+        { text = "Something else, Mathrengyl.", next = "BACK" },
+      },
+    },
+    hunt_m2 = {
+      lines = {
+        { id = "hm2_default", text = "Take only what you will use, cull the sick so the herd is strong, and never keep a companion who wishes to go. If it ever turns to leave you, let it, and the forest will remember that you did." },
+      },
+      choices = { { text = "I'll remember it too.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
   },
 
@@ -1681,6 +2036,7 @@ P:NPC {
         { text = "Will Elune turn me away, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Elune mind the spirits that walk with me, Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Does Elune watch over a whole company, or only the faithful?", next = "xpt_amoora", when = { party = true } },
+        { text = "Do the moonwells still hold the Well of Eternity's water?", next = "ne_wells", when = { race = "NightElf" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -1747,6 +2103,21 @@ P:NPC {
         { text = "I will. Thank you.", next = "BACK", reply = "Then go gently to the water, little star, and tell her where it is dark. She will hear you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll keep to my own prayers, thank you.", next = "BACK", reply = "Of course, and they are just as welcome here. Elune is not jealous of anyone's prayers.", fx = { affinity = -1, align = { light = -1 } } },
       },
+    },
+    ne_wells = {
+      lines = {
+        { id = "nwe_default", text = "A little, and very changed. When the Highborne's well was lost, the moonwells were dug and blessed so that its water might serve the land and not the other way round, and every priestess learns to keep them clean before she learns anything else." },
+      },
+      choices = {
+        { text = "And a fouled moonwell?", next = "ne_wells2" },
+        { text = "Something else, Priestess.", next = "BACK" },
+      },
+    },
+    ne_wells2 = {
+      lines = {
+        { id = "nwe2_default", text = "Is a wound in the land itself, and the Gnarlpine and the satyrs know it, which is why they foul them. Corithras in Dolanaar watches Teldrassil's wells for that very reason, so if you pass his way, tell him A'moora sends her prayers." },
+      },
+      choices = { { text = "I'll tell him.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 
@@ -2239,6 +2610,7 @@ P:NPC {
         { text = "Do travellers ever fall from your terrace, Saelienne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do many outsiders stay at your inn?", next = "xpt_saelienne", when = { party = { race = "Dwarf" } } },
         { text = "Do you ever rest yourself, Saelienne?", next = "fl_rest", when = { flirt = true } },
+        { text = "Do the old ones ever talk about Zin-Azshari here?", next = "ne_talk", when = { race = "NightElf" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -2291,6 +2663,12 @@ P:NPC {
         { text = "Ha. Something else.", next = "BACK", fx = { affinity = 1 } },
         { text = "Just resting, then.", next = "END" },
       },
+    },
+    ne_talk = {
+      lines = {
+        { id = "ntk_default", text = "Late at night, when the young have gone to bed and the wine has gone round twice. They talk about the music, mostly, and the light of the Well on the water, and never about the end, and I keep their cups full and do not ask." },
+      },
+      choices = { { text = "That's a kindness. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

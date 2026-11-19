@@ -2515,6 +2515,15 @@ P:Pool {
     { id = "g_pet", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "You and {pet} again. One of you is improving, and I won't say which." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and you smell of the wild. Good; that means you've been working." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you. Your aim's steadier, and you move quieter, too." },
+    { id = "g_elf", when = { class = "HUNTER", race = "NightElf" }, text = "Ishnu-alah, hunter. You walked in so quietly the cats didn't stir, which is the best greeting I could ask for." },
+    { id = "g_dwarf", when = { class = "HUNTER", race = "Dwarf" }, text = "I heard your rifle from the far side of the hill, mountaineer, and so did every deer in the valley. Come in, and let's talk about patience." },
+    { id = "g_orc", when = { class = "HUNTER", race = "Orc" }, text = "Lok'tar, hunter. You've blood on your boots and your beast looks well fed, so I'd say it's been a good week." },
+    { id = "g_troll", when = { class = "HUNTER", race = "Troll" }, text = "Darkspear, you come grinning like you've just put a spear through something big. Sit, and tell me what it was." },
+    { id = "g_tauren", when = { class = "HUNTER", race = "Tauren" }, text = "May the eternal sun guide your arrows, hunter. You smell of the long grass, so I know where you've been." },
+    { id = "g_nopet", when = { class = "HUNTER", minLevel = 12, pet = false }, text = "You've come alone, without your beast. Either it's in the stables or you've a sad story, and I'll hear either one." },
+    { id = "g_young", when = { class = "HUNTER", maxLevel = 9 }, text = "Still no companion at your side? Patience; when you're ready, I'll tell you where to find one." },
+    { id = "g_sixty", when = { class = "HUNTER", minLevel = 60 }, text = "There's the hunter whose name I hear at every campfire these days. Come in, and don't let your beast eat the practice targets." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "A druid, in a hunter's yard. Don't turn into anything in front of the pens, please; it confuses the beasts terribly." },
   },
   notice = {
     { id = "n_human", cat = "class", when = { race = "Human", class = "HUNTER" },
@@ -2539,6 +2548,18 @@ P:Pool {
       text = "An orc hunter, and I'd wager someone in your clan rode a wolf to war. Your people were raising beasts for battle long before they came to this world, so show me you can raise one for the hunt as well." },
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "HUNTER" },
       text = "A gnome hunter! I half expected you to come in with a clockwork squirrel on a lead, so I'm glad to see you'd rather have something with a heartbeat. Keep the gadgets out of my pens, though." },
+    { id = "n_feign", cat = "aura", when = { aura = 5384 },
+      text = "Up you get, hunter. You fell beautifully, I'll give you that, but you're in my yard and nothing here wants to eat you." },
+    { id = "n_hawk", cat = "aura", when = { class = "HUNTER", aura = { 13165, 14318, 14319, 14320, 14321, 14322, 25296 }, maxLevel = 20 },
+      text = "You've the hawk's eye on you already, good. Wear it every time you draw, and you'll wonder how you ever hit anything without it." },
+    { id = "n_rhok", cat = "gear", when = { equipped = 18713 },
+      text = "Rhok'delar on your back. Hastat doesn't hand his wood to just anyone, so you've nothing left to prove in this yard." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You'll be wanting to know why we tame what you can become, I expect; every druid who comes through here asks sooner or later." },
+    { id = "n_beastpet_bear", cat = "pet", when = { pet = { family = "Bear" }, class = "HUNTER" },
+      text = "A bear at your side, and a big one. It'll stand in front of you through anything, so long as you never let it go hungry." },
+    { id = "n_beastpet_serpent", cat = "pet", when = { pet = { family = "Wind Serpent" }, class = "HUNTER" },
+      text = "A wind serpent, and it's sparking at my practice targets. Fragile things, but there's nothing in the wild that hits harder from a distance." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
       text = "My cat's got her back up and won't stop growling at you. Animals smell brimstone a mile off, warlock, and they never forget whose hand it was on." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
@@ -2575,6 +2596,10 @@ P:Pool {
         { text = "My people rode wolves to war. Is a hunter's beast different?", next = "wolves", when = { class = "HUNTER", race = "Orc" } },
         { text = "Beasts shy from the dead. How do I win one over?", next = "dead_beast", when = { class = "HUNTER", race = "Scourge" } },
         { text = "Hunting here isn't like hunting at home.", next = "sky_hunt", when = { class = "HUNTER", race = "Skyborne" } },
+        { text = "What comes next for me?", next = "h_path", when = { class = "HUNTER" } },
+        { text = "Feign Death saved my neck out there today.", next = "feign_tale", when = { class = "HUNTER", minLevel = 30 } },
+        { text = "Why tame a beast I could simply become?", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "I'm no hunter. Is there anything you'd teach me?", next = "other_eye", when = { ["not"] = { class = { "HUNTER", "DRUID" } } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2697,6 +2722,360 @@ P:Pool {
     sky_hunt2 = {
       lines = { { id = "sk2_default", text = "Heavier, you say? Then they'll carry scent further and slower than you're used to, which helps you and the prey alike. I'd like to hear how your aim changes with it, so come back and tell me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    druid_talk = {
+      lines = { { id = "dr_default", text = "Because you become the beast for an hour, and I walk beside one for years. You'll know how a bear feels better than I ever will, but I'll know how a bear thinks of the one who feeds it, and that's a different kind of knowing." } },
+      choices = {
+        { text = "Shapeshifting is the purer path. The wild lives inside me.", next = "BACK", reply = "Perhaps it is, and I'll not argue with Cenarius's own students. But a wolf doesn't run with a pack of one, druid, and you might ask yourself who runs beside you.", fx = { align = { order = -1 }, trait = { proud = 1 } } },
+        { text = "Both of us serve the balance, in our own ways.", next = "BACK", reply = "That's a generous answer, and a true one, I think. The wild needs those who listen to it from the inside and those who listen from beside it.", fx = { align = { order = 1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    other_eye = {
+      lines = { { id = "oe_default", text = "Only what I'd teach a child: walk into the wind, watch where the birds go quiet, and never stand between a mother and her young. You'd be surprised how many soldiers die for want of those three things." } },
+      choices = {
+        { text = "Where the birds go quiet? Why there?", next = "other_eye2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    other_eye2 = {
+      lines = { { id = "oe2_default", text = "Because something has frightened them, and whatever frightens a bird is usually waiting for you as well. I've walked around more ambushes by listening to sparrows than I've ever broken by fighting." } },
+      choices = { { text = "I'll listen for the sparrows, then.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    feign_tale = {
+      lines = { { id = "ft_default", text = "Then you lay down in the dirt with your heart pounding and let something sniff at you, and you didn't flinch. That's harder than any shot you'll ever make, and every hunter who's done it remembers the first time." } },
+      choices = {
+        { text = "I'm not proud of it, but I'm alive.", next = "BACK", reply = "Alive is the whole point, hunter. Pride's for the ones who didn't need to play dead, and most of them aren't around to boast about it.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "Next time I'll stand and fight it out.", next = "BACK", reply = "Brave, and maybe foolish, and I'd still rather see you back here than in the spirit healer's line. Keep the trick ready, at least.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- The hunter's road (0.94.0): the class journey, level by level.
+    h_path = {
+      hub = true,
+      lines = {
+        { id = "hp_default", text = "The road's a long hunt, and you'll walk most of it with a beast beside you and the wind in your face. Ask me what's ahead, and I'll tell you what I can." },
+        { id = "hp_start", when = { maxLevel = 9 }, text = "You've your bow and your Serpent Sting, and soon the Aspect of the Monkey to keep the claws off you. Learn to open every fight at the edge of your range, because until you've a beast of your own, nothing stands between you and the teeth." },
+        { id = "hp_ten", when = { minLevel = 10, maxLevel = 19 }, text = "It's time you tamed your first companion, and that's the day a hunter truly begins. Learn the Aspect of the Hawk as well, and wear it every time you draw, because the beast will hold the quarry while you put arrows in it." },
+        { id = "hp_twenty", when = { minLevel = 20, maxLevel = 29 }, text = "You've the Cheetah's aspect for the long roads now, and traps and Disengage for when things get close. Start thinking about the beast you'll keep for the long haul, because the one you tamed at ten may not be the one you need at forty." },
+        { id = "hp_thirty", when = { minLevel = 30, maxLevel = 39 }, text = "Feign Death is yours now, and so is the Aspect of the Pack. Learn to drop like a stone when the fight turns, and to get up again when everything's looking somewhere else." },
+        { id = "hp_forty", when = { minLevel = 40, maxLevel = 49 }, text = "You've earned the right to wear mail, so go and find some, and learn Volley for the days when the quarry comes in herds. Your beast should be a proper partner by now; if it isn't, it's time to look at why." },
+        { id = "hp_fifty", when = { minLevel = 50, maxLevel = 59 }, text = "There's little left in my book but the finer ranks of what you already know, and the Aspect of the Wild for the places where the land itself bites. The rest you'll learn in the deep places, Blackrock and the Plaguelands and Dire Maul." },
+        { id = "hp_sixty", when = { minLevel = 60 }, text = "You've learned all I know, and your beast has learned it with you. What's left is out in the Spire and the Scholomance, and for the very bold, an ancient in Felwood who's been waiting a long while for the right hunter." },
+      },
+      again = {
+        { id = "hpa_again", text = "What else about the road? The trail's long, and I've walked most of it." },
+        { id = "hpa_again2", text = "Go on, then. There's more of the hunt ahead of you than behind." },
+        { id = "hpa_again3", when = { pet = { type = "Beast" } }, text = "{pet} is getting bored, I can see it in the ears. Ask quickly." },
+      },
+      choices = {
+        { text = "Which aspect should I be wearing?", next = "h_aspects" },
+        { text = "Where do I go to tame my first beast?", next = "h_tame", when = { minLevel = 8 } },
+        { text = "How do I teach my beast new tricks?", next = "h_train", when = { minLevel = 10 } },
+        { text = "My beast keeps sulking. What am I doing wrong?", next = "h_loyal", when = { minLevel = 10 } },
+        { text = "Which beast should I tame for the long road?", next = "h_choose", when = { minLevel = 18 } },
+        { text = "Playing dead sounds like a coward's trick to me.", next = "h_feign", when = { minLevel = 26 } },
+        { text = "I'm ready for mail.", next = "h_mail", when = { minLevel = 40 } },
+        { text = "Volley, Trueshot or the beast: which road?", next = "h_roads", when = { minLevel = 30 } },
+        { text = "What's this Beaststalker armour I hear about?", next = "h_beaststalker", when = { minLevel = 55 } },
+        { text = "Tell me about the ancient in Felwood.", next = "h_rhok", when = { minLevel = 58 } },
+        { text = "Does the hunt ever end?", next = "h_end" },
+        { text = "Back to the other lessons.", next = "BACK" },
+      },
+    },
+    h_aspects = {
+      lines = {
+        { id = "has_default", text = "The Hawk when you're shooting, the Monkey when something's got close, and the Cheetah only on the open road. The trick is changing before you need to, not after, because an aspect takes a breath to settle and the beast you're fighting won't wait for it." },
+        { id = "has_young", when = { maxLevel = 9 }, text = "The Monkey's all you have for now, and it'll keep a few claws off you, which is no small thing. When you're ten I'll teach you the Hawk, and then you'll wonder how you ever loosed an arrow without it." },
+        { id = "has_old", when = { minLevel = 46 }, text = "The Hawk for the shooting, the Pack and the Cheetah for the road, and the Wild when you're walking into a place full of venom and thorns. You've more aspects than hands now, so learn which one each fight asks for before it starts." },
+      },
+      choices = {
+        { text = "And Serpent Sting? Is poison fair hunting?", next = "h_sting" },
+        { text = "Why only the Cheetah on the road?", next = "h_cheetah", when = { minLevel = 20 } },
+        { text = "I'll wear the Monkey and stay out of reach.", next = "h_path", reply = "Cautious, and you'll walk away from more fights than the bold ones do. Just don't forget to change when you've a clear shot, or you'll be dodging all day and killing nothing.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "The Hawk, always. A dead quarry can't bite.", next = "h_path", reply = "Ha! Spoken like a marksman, and you'll be right more often than not. The day you're wrong, mind, you'll be wrong with a raptor on your chest.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_sting = {
+      big = true,
+      lines = { { id = "hst_default", text = "Serpent Sting is venom on an arrowhead, the same venom a snake would give it, and it keeps a beast bleeding out while you work. Some hunters call it cruel, and some call it sense, and I've known good hunters on both sides of that argument." } },
+      choices = {
+        { text = "A poisoned arrow is a hunter's tool, nothing more.", next = "h_path", reply = "That's the practical view, and the wild itself would agree with you; the scorpid doesn't apologise for its tail. Use it, then, and use it well.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "I'd rather kill clean than let a beast suffer.", next = "h_path", reply = "Then aim truer and the sting won't have time to matter. I respect that, and the plains folk would too.", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_cheetah = {
+      lines = { { id = "hch_default", text = "Because the Cheetah makes you fast and careless both, and the first blow that lands on you knocks the wind out of your legs. I've seen hunters dazed on the road by a single wolf, crawling while it chewed on them, all because they couldn't be bothered to change." } },
+      choices = {
+        { text = "And the Pack? It does the same to my friends.", next = "h_cheetah2", when = { minLevel = 30 } },
+        { text = "Something else about the road.", next = "h_path", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    h_cheetah2 = {
+      lines = { { id = "hch2_default", text = "It does, and your friends will curse you for it the moment a murloc jumps out of the reeds. Use the Pack between fights, never in them, and drop it the instant you see something with teeth." } },
+      choices = { { text = "Something else about the road.", next = "h_path" } },
+    },
+    h_tame = {
+      lines = {
+        { id = "htm_default", text = "Your trainer at home will set you the trial when you're ten, and it's much the same everywhere: a taming rod, three beasts to win over, and then a trainer in the capital who'll teach you to keep one. Go home for it; the beasts there know your people." },
+        { id = "htm_elf", when = { race = "NightElf" }, text = "Go to Dazalar in Dolanaar, and she'll give you a taming rod and send you after a webwood lurker, a nightsaber stalker and a strigid screecher in turn. When you've tamed all three, she'll send you up to Jocaste in the Cenarion Enclave to learn the rest." },
+        { id = "htm_dwarf", when = { race = { "Dwarf", "Gnome" } }, text = "Grif Wildheart in Kharanos will hand ye a taming rod and send ye after a crag boar, a snow leopard and an ice claw bear, one after the other. Tame all three and he'll send ye on to Belia Thundergranite in the Hall of Arms, who'll teach ye to keep one for good." },
+        { id = "htm_orc", when = { race = { "Orc", "Troll" } }, text = "Thotar in Razor Hill will give you a taming rod and send you after a dire mottled boar, a surf crawler down on the coast and an armored scorpid in the hills. Tame all three, and he'll send you to Ormak Grimshot in the Valley of Honor to finish the lesson." },
+        { id = "htm_tauren", when = { race = "Tauren" }, text = "Yaw Sharpmane at Bloodhoof Village will give you a taming rod and send you after an adult plainstrider, a prairie stalker and the old wind serpent they call Swoop. Tame all three, and he'll send you up to Holt Thunderhorn on Hunter Rise to learn the rest." },
+      },
+      choices = {
+        { text = "What if the beast won't take?", next = "h_tame2" },
+        { text = "Which of the three should I keep?", next = "h_tame3" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_tame2 = {
+      big = true,
+      lines = { { id = "htm2_default", text = "Then it'll fight you while you're trying to calm it, and you'll have to stand there and take it without flinching, or the spell breaks and you start again. Bring it down a little first if you have to, but not too far, because a beast that's half dead is in no mood to be anyone's friend." } },
+      choices = {
+        { text = "I'll keep trying until one of them chooses me.", next = "h_path", reply = "That's the way of it, and the beast that chooses you after a long wait will stay longer than the one that came easy.", fx = { align = { light = 1 }, trait = { patient = 1 } } },
+        { text = "If it won't come willing, I'll make it come.", next = "h_path", reply = "You can break a beast, hunter, but a broken one never truly hunts beside you. It'll obey until the day it doesn't, and you won't see that day coming.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_tame3 = {
+      lines = {
+        { id = "htm3_default", text = "None of them, if you like; the trial's about learning to tame, not about keeping what you tamed. Most young hunters keep the one that fought hardest, and I've never seen a reason to tell them otherwise." },
+        { id = "htm3_elf", when = { race = "NightElf" }, text = "Most kaldorei keep the nightsaber, and I'd not blame you, for a cat suits your people the way a sword suits a soldier. The owl's no fool either, mind, and it'll see things in the dark of Teldrassil that even you'd miss." },
+        { id = "htm3_dwarf", when = { race = { "Dwarf", "Gnome" } }, text = "Most mountaineers keep the bear, for it'll stand in front of ye like a brother and never once complain about the cold. The boar's a fine choice too, if ye like a beast that charges first and thinks never." },
+        { id = "htm3_horde", when = { race = { "Orc", "Troll" } }, text = "Most keep the boar, because it charges like a grunt and eats whatever you throw it. The scorpid's tougher than it looks, though, and the crab will outlast everything in Durotar if you've the patience for it." },
+        { id = "htm3_tauren", when = { race = "Tauren" }, text = "Many keep the prairie stalker, for a cat runs fast and hits quickly, but Swoop is a fine beast if you can hold its attention. The plainstrider is a friend to everyone and a fighter to no one, so let it go back to its herd." },
+      },
+      choices = {
+        { text = "The one I tamed first looked at me like it meant it.", next = "h_path", reply = "Then that's your beast, and you'll learn soon enough if you're right. Trust what you saw in its eyes over anything I tell you." },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_train = {
+      lines = { { id = "htr_default", text = "Your trainer in the capital will teach you Beast Training, and then you can teach your companion anything it's ready to learn. Each beast earns training points as its loyalty grows, so a beast that trusts you can learn more than one that's still deciding." } },
+      choices = {
+        { text = "Where does it learn the tricks from, then?", next = "h_train2" },
+        { text = "And the pet trainers in the cities?", next = "h_train3" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_train2 = {
+      big = true,
+      lines = { { id = "htr2_default", text = "From other beasts. Tame an owl that knows Screech, or a wolf that knows the Furious Howl, and keep it at your side until you've learned the trick from it; then you can teach it to your own companion. It's the oldest way of learning there is, by watching." } },
+      choices = {
+        { text = "Taming a beast only to learn from it seems cruel.", next = "h_path", reply = "Maybe it is, and I've let a good many of them go with an apology. They go back to the wild with nothing worse than a sore head, which is more than most beasts can say of hunters.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "That's the way of the wild. They'd do the same to me.", next = "h_path", reply = "They would, and a wolf wouldn't waste a minute feeling sorry for it. You've a hunter's heart, at least.", fx = { align = { light = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_train3 = {
+      lines = { { id = "htr3_default", text = "They teach what no wild beast can: Growl in its higher ranks, and how to shrug off fire, frost, shadow and the rest. Bring your companion to one before you go anywhere that burns or freezes, and it'll come back with its fur on." } },
+      choices = { { text = "Something else about the road.", next = "h_path", fx = { trait = { practical = 1 } } } },
+    },
+    h_loyal = {
+      lines = {
+        { id = "hly_default", text = "Then it's hungry or it doesn't trust you yet, and usually both. A new beast starts out rebellious and has to be won over day by day, with food and time and a voice it learns to know, and if you let it go hungry for long, it'll walk off into the wild and never look back." },
+        { id = "hly_pet", when = { pet = { type = "Beast" } }, text = "Look at {pet}'s ears and you'll know; a happy beast holds them up, and a hungry one holds them flat. Feed it well and often, and it'll go from sulking to faithful the way a fire goes from smoke to flame, slowly and then all at once." },
+      },
+      choices = {
+        { text = "What should I be feeding it?", next = "h_feed" },
+        { text = "Will it ever leave me?", next = "h_leave" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_feed = {
+      lines = {
+        { id = "hfd_default", text = "Depends on the beast. Cats and wolves and raptors want meat, bats and striders want fruit and mushrooms, boars and bears will eat anything you'd eat and a good deal you wouldn't, and a wind serpent likes bread and cheese, of all things. Feed it food that's near its own strength; a great beast won't thank you for a scrap of rabbit." },
+        { id = "hfd_cat", when = { pet = { family = "Cat" } }, text = "Your cat wants meat or fish, and fresh, mind, not something that's been rattling in your pack for a week. Cats remember who fed them badly, and they sulk about it for days." },
+        { id = "hfd_wolf", when = { pet = { family = "Wolf" } }, text = "A wolf eats meat and nothing else, so keep a strip of it in your pack at all times. It'll forgive you a hard fight, but it'll never forgive you an empty supper." },
+        { id = "hfd_boar", when = { pet = { family = { "Boar", "Bear" } } }, text = "Yours will eat anything, which makes it the easiest beast in the world to keep. Bread, fish, fruit, mushrooms, meat; you'll run out of food before it runs out of appetite." },
+        { id = "hfd_bat", when = { pet = { family = { "Bat", "Tallstrider", "Gorilla" } } }, text = "Fruit and mushrooms for yours, and it'll turn its nose up at meat like a priest at a cockfight. Carry a few apples and a fistful of fungus, and it'll be yours for life." },
+        { id = "hfd_serpent", when = { pet = { family = "Wind Serpent" } }, text = "A wind serpent eats bread, cheese and fish, which nobody believes until they've seen it. Keep a loaf in your pack, and it'll stop sparking at you when you wake it." },
+      },
+      choices = {
+        { text = "Mine ate my last ration and looked pleased about it.", next = "h_path", reply = "That's a beast that's decided it trusts you, and it's teaching you to carry more food. Take the lesson; it won't be the last one it gives you." },
+        { text = "Something else about the road.", next = "h_path", fx = { trait = { practical = 1 } } },
+      },
+    },
+    h_leave = {
+      big = true,
+      lines = { { id = "hlv_default", text = "Only if you let it starve or make it miserable for long enough, and then it'll be gone in the night without a backward glance. Once it's faithful, though, it'll follow you into places it's afraid of, and that's a bond worth the effort." } },
+      choices = {
+        { text = "A beast that wants to leave was never mine.", next = "h_path", reply = "That's a free spirit's answer, and the wild would agree with you. Just don't give it reasons to want to.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Mine won't leave. I'll see to that.", next = "h_path", reply = "Then feed it, keep it close, and talk to it at night, and you'll see to it the right way. That's all a beast ever asks.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_choose = {
+      hub = true,
+      big = true,
+      lines = {
+        { id = "hco_default", text = "Choose for what the beast can do, and not just how it looks, though there's no shame in liking the look of it. A cat bites fast, a boar charges, a bear and a turtle take a beating, an owl screeches, and a wind serpent spits lightning, so think about what you need standing beside you." },
+        { id = "hco_pet", when = { pet = { type = "Beast" } }, text = "You've {pet} already, and that's no small thing to give up. Still, think about what you need beside you at forty and fifty: a cat bites fast, a bear takes a beating, an owl screeches and a wind serpent spits lightning." },
+      },
+      again = {
+        { id = "hcoa_again", text = "Another kind of beast, or have you heard enough of my favourites?" },
+      },
+      choices = {
+        { text = "I want something fast, with a quick bite.", next = "h_cats" },
+        { text = "I need something to hold the quarry's eye.", next = "h_tank" },
+        { text = "What about owls and bats?", next = "h_screech" },
+        { text = "Wind serpents spit lightning, I've heard.", next = "h_serpent" },
+        { text = "I'll keep the beast I first tamed, whatever it's worth.", next = "h_path", reply = "Then you'll never have the best beast in the world, and you'll never once regret it. That's the kind of hunter beasts follow into fire.", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
+        { text = "A beast is a weapon. I'll take the best one.", next = "h_path", reply = "Plenty of good hunters think so, and they keep a stable full of the best. Just don't be surprised if none of them ever quite looks at you the way the first one did.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_cats = {
+      lines = { { id = "hca_default", text = "A cat, then, and a quick one. There's a great cat in the Badlands called Broken Tooth that strikes faster than any I've seen, and the hunters who've tamed him swear by it. Out in the Barrens there's Humar the Pridelord and the white lion Echeyakee, both prized for their Bite and their Dash, if you can find them before someone else does." } },
+      choices = {
+        { text = "Do they come quietly?", next = "h_cats2" },
+        { text = "Tell me about another kind.", next = "h_choose" },
+      },
+    },
+    h_cats2 = {
+      lines = { { id = "hca2_default", text = "None of the great cats ever does. Bring them down a little first, lay a trap behind you, and be ready to start the taming over twice, because a pridelord doesn't kneel to the first hunter who asks." } },
+      choices = { { text = "Tell me about another kind.", next = "h_choose", fx = { trait = { patient = 1 } } } },
+    },
+    h_tank = {
+      lines = {
+        { id = "htk_default", text = "A bear, a boar or a turtle, then. The bear takes the most punishment, the boar charges in and stuns things before they've noticed it, and the turtle can pull itself into its shell and let a whole war go past. A gorilla out of Stranglethorn will stamp the ground hard enough to keep everything looking at it, too." },
+        { id = "htk_dwarf", when = { race = "Dwarf" }, text = "A bear, I'd say, for ye've a bear's own nature and ye'll understand each other. A boar charges first and thinks never, a turtle can wait out a siege in its shell, and a Stranglethorn gorilla will stamp the ground like a mountain giant." },
+      },
+      choices = { { text = "Tell me about another kind.", next = "h_choose" } },
+    },
+    h_screech = {
+      lines = { { id = "hsc_default", text = "Owls, bats and the carrion birds all screech, and the sound takes the strength out of everything nearby, so the blows that land on you or your beast land softer. They're not the toughest companions, but they dive from above, and nothing on the ground ever sees them coming." } },
+      choices = {
+        { text = "Where would I find a good owl?", next = "h_screech2" },
+        { text = "Tell me about another kind.", next = "h_choose" },
+      },
+    },
+    h_screech2 = {
+      lines = { { id = "hsc2_default", text = "In the old forests of Ashenvale and Darkshore, where the great owls nest in the high branches, and in the snows of Winterspring for the bigger ones. Bats you'll find in any cave worth the name, and they'll find you first." } },
+      choices = { { text = "Tell me about another kind.", next = "h_choose" } },
+    },
+    h_serpent = {
+      lines = { { id = "hse_default", text = "They do, and Lightning Breath is the closest thing to an arrow any beast can loose. They're fragile, mind, and short-tempered, but a wind serpent and a hunter shooting from the same spot can bring a thing down before it ever reaches either of them. Look for them on the high cliffs of Thousand Needles." } },
+      choices = {
+        { text = "And what do they eat?", next = "h_feed" },
+        { text = "Tell me about another kind.", next = "h_choose" },
+      },
+    },
+    h_feign = {
+      big = true,
+      lines = { { id = "hfe_default", text = "Call it a coward's trick if you like, but you'll still learn it at thirty, and you'll use it before you're thirty-one. Fall like you've been shot through the heart, and everything that was trying to kill you loses interest and wanders off, which is more than courage ever did for anyone." } },
+      choices = {
+        { text = "I'd rather fall fighting than lie in the dirt.", next = "h_path", reply = "Then you'll fall fighting, and someone will come back and lay you out properly. I hope your friends are better at it than you are at playing dead.", fx = { align = { honor = 1 }, trait = { proud = 1 } } },
+        { text = "Any trick that brings me home is a good one.", next = "h_path", reply = "Now you're thinking like a hunter. The fox is still alive because it's clever, not because it's brave.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "Does it fool everything?", next = "h_feign2" },
+      },
+    },
+    h_feign2 = {
+      lines = { { id = "hfe2_default", text = "Nearly everything, but not every time, and the cleverer foes sometimes just stand there waiting for you to blink. Your beast will keep fighting while you lie there, too, so call it off first or it'll be the one paying for your trick." } },
+      choices = { { text = "Something else about the road.", next = "h_path", fx = { trait = { cautious = 1 } } } },
+    },
+    h_mail = {
+      lines = {
+        { id = "hml_default", text = "You are, and it'll feel like wearing a cart for the first week. Mail turns a blade that leather won't, though, and you'll be glad of it the first time something gets past your beast and reaches you." },
+        { id = "hml_elf", when = { race = "NightElf" }, text = "You are, and I know your people prize silence, so you'll hate the way it whispers when you move. The Sentinels wear it and still go unheard, though, so learn from them and keep the links oiled." },
+        { id = "hml_dwarf", when = { race = "Dwarf" }, text = "Aye, and ye'll take to it better than most, for ye've a mountaineer's shoulders. Keep the links oiled against the snow and they'll turn a troll's spear as well as any plate." },
+      },
+      choices = {
+        { text = "I'll keep my leathers. Quiet matters more.", next = "h_path", reply = "Quiet won't stop a raptor's teeth, and you'll learn that the hard way, I expect. Still, every hunter decides for themselves.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_roads = {
+      hub = true,
+      big = true,
+      lines = { { id = "hro_default", text = "There are three roads, and every hunter walks one further than the others. The beast-master grows so close to the companion that it becomes a terror, the marksman learns a steadiness that the whole party feels in Trueshot Aura, and the survivalist lays traps and stings that leave the quarry helpless. Volley you'll learn from me at forty whichever road you take, for the days when the quarry comes in herds." } },
+      again = {
+        { id = "hroa_again", text = "Another road? I'll warn you, I have favourites." },
+      },
+      choices = {
+        { text = "Tell me about the beast-master's road.", next = "h_bm" },
+        { text = "Tell me about the marksman's road.", next = "h_mm" },
+        { text = "Tell me about survival.", next = "h_sv" },
+        { text = "My beast and I fight as one. The beast's road is mine.", next = "h_path", reply = "Then your beast will grow fierce enough to frighten your friends, and you'll be closer to it than to any of them. That's no bad thing, for a hunter.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "A steady hand and a clear eye. I'll be a marksman.", next = "h_path", reply = "The disciplined road, and the one armies pay for. Learn it well and your arrows will land where you meant them, every single time.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_bm = {
+      lines = { { id = "hbm_default", text = "The beast-master's road ends in Bestial Wrath, when your companion goes so wild that nothing can frighten or slow it. Along the way you'll make it tougher, faster and fiercer, and you'll be able to tame things other hunters can only dream of keeping." } },
+      choices = { { text = "Tell me about another road.", next = "h_roads" }, { text = "Something else about the road.", next = "h_path" } },
+    },
+    h_mm = {
+      lines = { { id = "hmm_default", text = "The marksman's road gives you Aimed Shot early and Scatter Shot later, and at the end of it Trueshot Aura, which steadies every hand near you. It's the road for hunters who'd rather the quarry never got close enough to see their faces." } },
+      choices = { { text = "Tell me about another road.", next = "h_roads" }, { text = "Something else about the road.", next = "h_path" } },
+    },
+    h_sv = {
+      lines = { { id = "hsv_default", text = "Survival's the road of traps, quick reflexes and the knife, and at the end of it lies Wyvern Sting, which puts the quarry to sleep where it stands. It's the road for hunters who expect things to go wrong, which I'll admit is most of the good ones." } },
+      choices = { { text = "Tell me about another road.", next = "h_roads" }, { text = "Something else about the road.", next = "h_path" } },
+    },
+    h_beaststalker = {
+      lines = { { id = "hbs_default", text = "Beaststalker mail is the armour the great hunters wear, and you won't find it on any merchant's rack. The pieces lie scattered through the worst places in the world, Blackrock Spire and Blackrock Depths, the Scholomance and Stratholme, and you'll have to take each one off whatever's guarding it." } },
+      choices = {
+        { text = "Which pieces lie where?", next = "h_beaststalker2" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_beaststalker2 = {
+      big = true,
+      lines = { { id = "hbs2_default", text = "The bosses of those places keep them, each one a different piece, and none of them gives it up the first time you ask. You'll go back again and again with your companions, and you'll argue over who needs the boots, and that's all part of the hunt." } },
+      choices = {
+        { text = "I'll go back as many times as it takes.", next = "h_path", reply = "Good, because you'll need to. The ones who give up after three runs never wear the whole set, and you'll see them grumbling in the inns about luck.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "Fine mail's fine mail, wherever it comes from.", next = "h_path", reply = "True enough, and plenty of hunters buy pieces off others or take what they can find. It's not the set that makes the hunter, after all.", fx = { align = { order = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_rhok = {
+      lines = { { id = "hrk_default", text = "Deep in the Molten Core, in the cache the Firelord's steward guards, you may find a leaf turned to stone, an ancient petrified leaf. Bring it to Hastat the Ancient in Felwood, and if he judges you worthy, he'll shape it into Rhok'delar, a longbow of the Ancient Keepers." } },
+      choices = {
+        { text = "What does Hastat ask of me?", next = "h_rhok2" },
+        { text = "A bow made by an ancient? Is it alive?", next = "h_rhok_alive" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_rhok_alive = {
+      lines = { { id = "hrka_default", text = "It was part of one, once, and I think it remembers. Hunters who've drawn it say the wood is warm in the hand, as though there were still sap running through it." } },
+      choices = { { text = "What does Hastat ask of me?", next = "h_rhok2" }, { text = "Something else about the road.", next = "h_path" } },
+    },
+    h_rhok2 = {
+      big = true,
+      lines = { { id = "hrk2_default", text = "He'll send you after four demons hiding behind kind faces, and you'll face each one alone with only your beast beside you. Artorius the Amiable in Winterspring is the most famous of them, and he's not amiable at all once you show him what you are. Bring help, and the trial's broken, and the demon simply walks away." } },
+      choices = {
+        { text = "Why must I face them alone?", next = "h_rhok3" },
+        { text = "Alone with my beast. That's the whole point of a hunter.", next = "h_path", reply = "It is, and Hastat knows it, which is why he asks. Pass his trials and the bow is yours; fail and you'll learn something about yourself worth knowing anyway.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "Any trial can be gamed with the right friends.", next = "h_path", reply = "Plenty have tried, and the demons have a nasty habit of noticing. I'd not cheat an ancient, hunter; they remember for a very long time.", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_rhok3 = {
+      lines = { { id = "hrk3_default", text = "Because Hastat wants to know that you and your beast are enough, without an army behind you. The bow's meant for a hunter, not a war party, and the ancients don't give their own wood to anyone who can't stand on their own." } },
+      choices = {
+        { text = "And the quiver? The Lamina?", next = "h_rhok4" },
+        { text = "Something else about the road.", next = "h_path" },
+      },
+    },
+    h_rhok4 = {
+      lines = { { id = "hrk4_default", text = "The Lamina is wrapped in the sinew of a great blue dragon, and there's only one of those mad enough to wander Azshara in the open. The bowstring wants black dragon sinew, which means Onyxia's lair, so you'll need friends for that part of it, trial or no trial." } },
+      choices = { { text = "Something else about the road.", next = "h_path", fx = { trait = { brave = 1 } } } },
+    },
+    h_end = {
+      big = true,
+      lines = {
+        { id = "hen_default", text = "Not while there's a wild place left in the world and something in it worth following. You'll stop one day, as we all do, but the hunt itself just goes on without you, and that's as it should be." },
+        { id = "hen_tauren", when = { race = "Tauren" }, text = "The hunt ends when the Earth Mother calls you home, and not a day sooner. Even then, I'm told, the great hunters of your people still run the plains in spirit, beside the kodo and the wind." },
+      },
+      choices = {
+        { text = "I'll hunt the things that prey on the weak.", next = "h_path", reply = "That's a protector's reason, and it'll carry you further than hunger or glory. Keep to it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I hunt for myself and my beast. Nobody else.", next = "h_path", reply = "Then at least you're honest about it, and so is every wolf I've ever known. Just don't be surprised when no one comes looking if you don't come home.", fx = { align = { light = -1 }, trait = { proud = 1 } } },
+        { text = "Something else about the road.", next = "h_path" },
+      },
     },
   },
   topics = {

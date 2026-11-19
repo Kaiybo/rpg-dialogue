@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-19)
+- Stonard's hunter and pet trainers deepened.
+
 ## 1.29.0 (2026-11-19)
 - Malosh deepened for warriors.
 

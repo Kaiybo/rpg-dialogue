@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-19)
+- Huntsman Markhor deepened.
+
 ## 1.31.0 (2026-11-19)
 - Aerie Peak speaks as Wildhammer: Talonaxe, Agnar, Thulfram, Fraggar Thundermantle.
 

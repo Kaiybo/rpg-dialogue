@@ -159,6 +159,9 @@ P:NPC {
         { text = "Should I kill the maddened bears, or leave them be?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think something darker made the bears sick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do you want a sick bear alive, Tharnariun?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The furbolgs and the bears both sicken. That's no accident.", next = "kal_furb", when = { race = "NightElf" } },
+        { text = "Would a tamed thistle bear carry the sickness?", next = "hnt_tame", when = { class = "HUNTER" } },
+        { text = "I've trapped beasts alive before. Show me your cage.", next = "hnt_trap", when = { class = "HUNTER", questBefore = TODO_QUEST("Plagued Lands") } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
     },
@@ -249,6 +252,35 @@ P:NPC {
       },
       choices = {
         { text = "I will. Thank you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_furb = {
+      lines = { { id = "kfu_d", text = "No, and I said as much to Thundris before you were off the boat. The furbolgs of Darkshore were Cenarius's friends and ours from the days before the Sundering, and if something can poison them and the bears in the same season, it is not a fever, it is a hand." } },
+      choices = {
+        { text = "Whose hand, do you think?", next = "kal_furb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kal_furb2 = {
+      lines = { { id = "kfu2_d", text = "Felwood's, in the end, for the corruption runs down the Cliffspring like rot down a branch. But someone carries it the last mile, and Thundris tells me a satyr was feeding talismans to the Blackwood, so the Highborne's children are still at their old work, ten thousand years on." } },
+      choices = { { text = "Then we cut off the hand. Something else.", next = "BACK", fx = { learn = { "satyrs" } } } },
+    },
+    hnt_tame = {
+      lines = { { id = "hta_d", text = "It would, and I beg you not to try it, hunter. The sickness sleeps in the blood for a while, so a bear that seems gentle in the trap can turn on you a week later, and on your other companions too, which is worse." } },
+      choices = {
+        { text = "Then I'll tame only the clean ones.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "And if I'd already tamed one?", next = "hnt_tame2" },
+      },
+    },
+    hnt_tame2 = {
+      lines = { { id = "hta2_d", text = "Then bring it to me before you go anywhere else, and do not let it drink from the Cliffspring. If its eyes are clear and its gums are pink it is likely well, and if not, I will do what I can, which may be less than either of us wants." } },
+      choices = { { text = "I'll bring it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    hnt_trap = {
+      lines = { { id = "htr_d", text = "Good, then you know that a cage is a promise to the beast that you will not hurt it more than you must. Mine is woven with moonwell willow, so it calms what it holds a little, but you will still need to wear the bear down before you close it, and slowly, without a killing shot." } },
+      choices = {
+        { text = "A gentle capture. I can do that.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

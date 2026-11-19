@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-19)
+- New: Artorius the Amiable. Donova, Rivern and Wynd deepened; doubled NPCs removed.
+
 ## 1.30.0 (2026-11-19)
 - Jaron Stoneshaper on titan work in the north.
 

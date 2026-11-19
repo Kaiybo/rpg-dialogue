@@ -799,7 +799,20 @@ P:NPC {
         { id = "hu_pet", when = { pet = { type = "Beast" } },
           text = "Not at a grown one, but they'll take a kodo calf or a careless pup, so watch how they circle: two turns wide and one turn tight, and then they drop. {pet} has been watching them since you got here, and a good beast reads the sky as well as I do." },
       },
-      choices = { { text = "Two wide, one tight. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "Two wide, one tight. I'll remember.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Could a hunter tame one of those swoops?", next = "hunter_tame" },
+      },
+    },
+    hunter_tame = {
+      lines = {
+        { id = "ht_default", text = "Yaw sends every young hunter after one, so yes, though I've never seen why anyone would want to. A swoop eats meat and fish and complains about both, and it'll dive at anything you point it toward, which is the only thing to be said for it." },
+        { id = "ht_bird", when = { pet = { family = "Carrion Bird" } }, text = "You've kept one, I see, and it's still circling you instead of the calves, which is more than I'd have wagered. It'll dive at anything you point it toward, so point it at the wild ones over the south fields, and we'll call that justice." },
+      },
+      choices = {
+        { text = "A swoop that guards the herd is worth keeping.", next = "BACK", reply = "Ha, if it guards the herd and doesn't eat it, I'll call it the finest bird in Mulgore.", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else, Harken.", next = "BACK" },
+      },
     },
     sky = {
       lines = {

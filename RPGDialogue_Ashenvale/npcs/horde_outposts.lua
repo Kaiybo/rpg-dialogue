@@ -938,6 +938,7 @@ P:NPC {
         { text = "What do you sing to them?", next = "song" },
         { text = "How did a Darkspear end up in Ashenvale?", next = "home" },
         { text = "My pet's been off its food lately.", next = "pet_sick", when = { class = "HUNTER" } },
+        { text = "What does a hunter's beast need in elf country?", next = "hnt_elf", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -995,6 +996,10 @@ P:NPC {
     pet_sick = {
       lines = { { id = "ps_default", text = "Den you let it drink from da wrong stream, maybe, or it eat somet'ing from near da furbolg camps, where da water go bad. Give it clean meat and clean water for three days, and if it still sad, bring it to Qeeju and I sing to it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    hnt_elf = {
+      lines = { { id = "hel_d", text = "Quiet, mon, more than anything. The elves' cats can hear a wolf pant from across the river, so teach yours to lie still in the brush, and feed it before you go out, because a hungry beast be a noisy beast." } },
+      choices = { { text = "Fed and quiet. Thanks, Qeeju.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
 
