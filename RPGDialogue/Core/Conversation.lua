@@ -47,23 +47,34 @@ function Conv.DetectRole(ctx, interactionName)
   local role = roleFromPatterns(cap and cap.subtitle, W.SUBTITLE_ROLES)
   role = role or roleFromPatterns(ctx.npcSubtitle or nil, W.SUBTITLE_ROLES)
   role = role or (interactionName and W.INTERACTION_ROLES[interactionName])
+  -- Your own demon (0.90.0): a warlock can talk to the servant at their side.
+  if not role and ctx.npcMine and C.CreatureType(ctx.unit) == "Demon" then return Conv.MyDemonRole(ctx.npcFamily) end
   role = role or roleFromPatterns(ctx.npcName or nil, W.NAME_ROLES)
   -- Anyone else friendly who walks and talks is a citizen: townsfolk pools answer them, so
   -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.
   -- A friendly demon (a warlock's bound servant, an imp with his own business) answers from
   -- the demon pool, not the townsfolk's (0.84.0).
   if not role and Conv.IsCitizen(ctx) then
-    role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName) or "citizen"
+    role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName, ctx.npcFamily) or "citizen"
   end
   return role
 end
 
+-- Your own demon, by family: my_imp, my_voidwalker, my_succubus, my_felhunter; anything
+-- else you hold (an enslaved demon, a doomguard, an infernal) is my_demon (0.90.0).
+local MY_DEMONS = { imp = "my_imp", voidwalker = "my_voidwalker", succubus = "my_succubus", felhunter = "my_felhunter" }
+function Conv.MyDemonRole(family)
+  local fam = type(family) == "string" and family:lower() or ""
+  return MY_DEMONS[fam] or "my_demon"
+end
+
 -- Demons that can't talk (hounds, steeds, walking stone) get their own small pool.
 local MUTE_DEMONS = { "felhunter", "felhound", "felstalker", "infernal", "felsteed", "dreadsteed" }
-function Conv.DemonRole(name)
+function Conv.DemonRole(name, family)
   local lower = type(name) == "string" and name:lower() or ""
+  local fam = type(family) == "string" and family:lower() or ""
   for _, w in ipairs(MUTE_DEMONS) do
-    if lower:find(w, 1, true) then return "demon_beast" end
+    if lower:find(w, 1, true) or fam:find(w, 1, true) then return "demon_beast" end
   end
   return "demon"
 end

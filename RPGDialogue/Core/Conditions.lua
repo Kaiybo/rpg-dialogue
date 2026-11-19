@@ -646,12 +646,19 @@ ctxEq("zone", 15)
 ctxEq("subzone", 15)
 -- npcNamed: the NPC's own name contains this text (lower case; any of a list). Lets one role
 -- pool speak differently for an imp, a voidwalker or a succubus (0.84.0).
+-- Also matches the unit's creature family (0.90.0), so a warlock's imp called "Jubkin"
+-- still speaks as an imp.
 def("npcNamed", 15, "hinge", nil, function(ctx, v)
   local name = type(ctx.npcName) == "string" and ctx.npcName:lower() or ""
+  local fam = type(ctx.npcFamily) == "string" and ctx.npcFamily:lower() or ""
   for _, w in ipairs(U.AsList(v)) do
-    if name:find(w, 1, true) then return true, "npcNamed: " .. w end
+    if name:find(w, 1, true) or (fam ~= "" and fam:find(w, 1, true)) then return true, "npcNamed: " .. w end
   end
   return false, "npcNamed: " .. name .. ", wanted " .. show(v)
+end)
+-- 0.90.0: the unit's creature family ("Imp", "Voidwalker", "Succubus", "Felhunter"...).
+def("npcFamily", 15, "hinge", nil, function(ctx, v)
+  return matches(ctx.npcFamily, v), "npcFamily: " .. tostring(ctx.npcFamily) .. ", wanted " .. show(v)
 end)
 ctxEq("power", 15)
 ctxEq("tabard", 15)
