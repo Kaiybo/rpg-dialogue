@@ -927,7 +927,7 @@ P:NPC {
   key = "magellas", id = TODO_NPC("High Explorer Magellas"), name = "High Explorer Magellas",
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "serious" },
-  notices = { "lore", "travel" },
+  notices = { "lore", "travel", "lock_shards" },
 
   impression = {
     first = "His Prospectors do the digging and he does the worrying.",
@@ -944,6 +944,8 @@ P:NPC {
       text = "You've been south, past the forest! Did ye write anything down while ye were there? Nobody ever writes anything down, by my beard." },
     { id = "n_miner", cat = "lore", when = { profession = "Mining" },
       text = "A miner! If you ever break into a hall that isn't on any map, stop swinging and send for us, please." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye're carryin' soul shards, an' a good many, for the Uldaman tablet in the case behind me has frosted over again. Stand by the door if ye'd be so kind, for I want tae know what those stones do tae titan writing before I let them near it." },
   },
 
   start = "hello",
@@ -1311,7 +1313,7 @@ P:NPC {
   key = "stormpike_p", id = TODO_NPC("Prospector Stormpike"), name = "Prospector Stormpike",
   bible = "bibles/ironforge_court.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "hot" }, values = { "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He isn't unkind, only spare with his words and his time.",
@@ -1326,6 +1328,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "A miner. At least ye know which end o' the pick goes in the rock. Most o' the folk who come in here couldnae tell ye." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Yer hands, friend, there's shadow boilin' on yer hands like smoke off a fire. I've seen that in the books, in the drawings o' the circles burned intae cellar floors, an' I'd ask ye tae keep them in yer pockets near my notes." },
   },
 
   start = "hello",
@@ -1564,7 +1568,7 @@ P:NPC {
   prejudice = { race = "NightElf", amount = 10, why = "Ironforge bled in the Second War while the Kaldorei never knew it happened; he keeps the ledger." },
   bible = "bibles/ironforge_court.md", role = "noble", tier = "quest",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "kit", "greenness" },
+  notices = { "kit", "greenness", "lock_pact" },
 
   impression = {
     first = "He could debate somewhere warm and counts troggs in a quarry instead.",
@@ -1581,6 +1585,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 8 },
       text = "Ye're young yet, which is good, because the troggs are no' much older. Ye'll learn on each other." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're flushed like a dwarf wi' a fever, but it's no' fever, it's an imp's pact sittin' in yer blood. The senate voted tae let yer craft be taught in this city, an' I'll stand by that vote, but I'll no' stand quite so close tae ye while I do." },
   },
 
   start = "hello",
@@ -1917,7 +1923,7 @@ P:NPC {
   key = "firebrew", id = TODO_NPC("Innkeeper Firebrew"), name = "Innkeeper Firebrew",
   bible = "bibles/ironforge_court.md", role = "innkeeper", tier = "service",
   communities = { "ironforge" }, temper = { "jolly" }, values = { "generous" },
-  notices = { "drink", "weary" },
+  notices = { "drink", "weary", "lock_shadow" },
 
   impression = {
     first = "His stories grow as the kegs empty.",
@@ -1938,6 +1944,8 @@ P:NPC {
       text = "Ye're well on yer way, an' good, for that's what the place is for. Sit down before ye do it by accident." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Ye've had a hard road. Sit by the fire an' let the mountain hold ye a while, for it's good at that." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The hearth's dropped low an' gone a funny color since ye came in, an' I've been feedin' that fire for thirty years. Grab a mug all the same, for the Stonefire's had worse at the bar, but sit where the fire can't see ye." },
   },
 
   start = "hello",

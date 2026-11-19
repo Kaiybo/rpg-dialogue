@@ -9,7 +9,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/stranglethorn.md", role = "trainer", tier = "service",
   communities = { "booty_bay" }, temper = { "sharp" }, values = { "cunning", "practical" },
-  notices = { "stealth", "purse" },
+  notices = { "stealth", "purse", "lock_eyes" },
 
   impression = {
     first = "He lets you think he knew you were coming.",
@@ -32,6 +32,8 @@ P:NPC {
       text = "Nice try, but every third board in this tavern was laid by a goblin to squeak on purpose, and you found two of them." },
     { id = "n_rich", cat = "purse", when = { money = { min = 300000 } },
       text = "You're carrying more gold than anyone should into a pirate tavern. Split it between two pouches, and keep the fat one where nobody would think to reach." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes followed my student when he slipped into the corner, and nobody's eyes do that without a warlock's trick behind them. I'd thank you not to spoil my lessons, because teaching folk to vanish is how I pay for my room." },
   },
 
   react = {
@@ -496,7 +498,7 @@ P:NPC {
   key = "tokal", id = TODO_NPC("Tokal"), name = "Tokal",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "proud", "practical" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shadow" },
 
   impression = {
     first = "She says to make it quick, and means it as advice.",
@@ -515,6 +517,8 @@ P:NPC {
       text = "Another night elf. Sit where I can see your hands, and don't take it personally, since I've had a bad year for your kind." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look like you came through Desolace the hard way, but everybody does, because the place grinds you down to the rivets." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candle at this table has burned straight all night, and now it leans away from you as if it wants to leave. I've seen that happen before, at that fortress up north, and I didn't like it then either." },
   },
 
   start = "hello",

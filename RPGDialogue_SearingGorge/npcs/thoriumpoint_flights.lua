@@ -7,7 +7,7 @@ P:NPC {
   key = "lanie_reed", id = TODO_NPC("Lanie Reed"), name = "Lanie Reed", title = "Gryphon Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "wry" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "Living as a guest among Dark Irons still sits strangely with her.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A Bronzebeard face! I'm glad of it, friend; you'd not believe how strange it is to wake every morning surrounded by Dark Irons who mean you no harm." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're runnin' hotter than the Gorge itself, an' that's an imp's blood pact or I'm a gnome. The birds are used tae heat, mind, so climb on an' dinnae fret." },
   },
 
   start = "hello",
@@ -201,7 +203,7 @@ P:NPC {
   key = "grisha", id = TODO_NPC("Grisha"), name = "Grisha", title = "Wind Rider Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "gruff" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "She is wary of every dwarf and openly fond of her beasts.",
@@ -217,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar, {g:brother|sister}. Good to see another orc face among all these dwarves; it gets lonely being the only one of us in camp." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone; I can smell the warlock's work on you. In the old Horde the warlocks bound souls for their own use and called it a gift, so I hope yours was given by a friend." },
   },
 
   start = "hello",

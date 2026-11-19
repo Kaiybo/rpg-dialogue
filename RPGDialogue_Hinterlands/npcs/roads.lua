@@ -6,7 +6,7 @@ P:NPC {
   key = "rinji", id = TODO_NPC("Rin'ji"), name = "Rin'ji",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "quel_danil" }, temper = { "wary" }, values = { "cunning", "proud" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
   impression = {
     first = "He'd like out of his cage, and he'll pay in secrets.",
     third = "{name} met Rin'ji, a troll held captive by the high elves of Quel'Danil Lodge.",
@@ -21,6 +21,8 @@ P:NPC {
       text = "A troll, walkin' free in Quel'Danil! The spirits be kind today, cousin, or at least they be payin' attention." },
     { id = "n_elf", cat = "race", when = { race = "NightElf" },
       text = "Another elf, but not one of theirs, eh? Your ears be the same, so forgive me for flinchin'." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You carry a healthstone, mon, Rin'ji can smell the green on it from inside this cage. Them elves feed Rin'ji worse than that, so keep it hid or Rin'ji might start beggin'." },
   },
 
   start = "hello",

@@ -469,7 +469,7 @@ P:NPC {
   key = "gazin", id = TODO_NPC("Gazin Tenorm"), name = "Gazin Tenorm",
   bible = "bibles/gazin.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
-  notices = { "paladin" },
+  notices = { "paladin", "lock_soulstone" },
   impression = {
     first = "He would sooner be out searching for his friend than praying.",
     third = "{name} met Gazin Tenorm at the Cathedral, a dwarf sick with worry for his friend Henze Faulk.",
@@ -484,6 +484,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN", maxLevel = 15 },
       text = "Rall sent ye? Ye're young, which is good, for young legs get places quicker. Now listen close." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone in yer pack? I can feel it pullin' at the room like a draught. Henze would've hated it, an' I'm no' sure I'd have refused it, an' that's what frightens me." },
   },
 
   start = "hello",
@@ -669,7 +671,7 @@ P:NPC {
   key = "stephanie", id = TODO_NPC("Stephanie Turner"), name = "Stephanie Turner",
   bible = "bibles/stephanie.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "craft", "child" },
+  notices = { "craft", "child", "lock_stones" },
   impression = {
     first = "Thirty children wait on her, and she still tells me to eat.",
     third = "{name} met Stephanie Turner, who runs Stormwind's orphanage with her husband and never has enough linen.",
@@ -685,6 +687,8 @@ P:NPC {
       text = "You sew! Oh, if you've ever a spare afternoon, there are thirty children who'd love a coat that fits." },
     { id = "n_young", cat = "child", when = { maxLevel = 8 },
       text = "You look barely older than some of mine. Eat something. That's an order from someone's mother." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that one of your healthstones? I've heard they mend a wound in a breath, and I've heard what they're made from as well, so I'd thank you to keep it out of reach of little hands while you're here." },
   },
 
   start = "hello",
@@ -887,7 +891,7 @@ P:NPC {
   key = "timmy", id = TODO_NPC("Lil Timmy"), name = "Lil Timmy",
   bible = "bibles/timmy.md", role = "child", tier = "service",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "kind" },
-  notices = { "pet", "wonder" },
+  notices = { "pet", "wonder", "lock_shadow" },
 
   barks = {
     { id = "b_kitten", text = "Kitten for a good home! She's a very good kitten and she hardly scratches!" },
@@ -907,6 +911,8 @@ P:NPC {
       text = "You've already got an animal! Does {pet} like cats? She's very small and she won't be any trouble... probably." },
     { id = "n_cat", cat = "wonder", place = "replace", when = { form = "cat" },
       text = "Look, a kitty, a big one! Are you her mum? No, you're not her mum, you're a person, and that's even better." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My kitten's hissing at you, and she never hisses, not even at the guards' dogs. She's looking at your shadow, I think, because it's moving when you're not." },
   },
 
   start = "hello",
@@ -1343,7 +1349,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "pious", "patient" },
   spiritSensitive = true,
-  notices = { "light", "form", "race" },
+  notices = { "light", "form", "race", "lock_armor" },
   impression = {
     first = "He has never tired of first light through the east window.",
     third = "{name} met Brother Joshua, a quiet priest trainer who teaches beside the Cathedral's altar.",
@@ -1359,6 +1365,8 @@ P:NPC {
       text = "Shadowform, at the altar? The altar doesn't mind, but I'll pray for you twice, once for each road you're walking." },
     { id = "n_dwarf_priest", cat = "light", when = { race = "Dwarf", class = "PRIEST" },
       text = "A dwarven priest. Your people came to the Light through our missionaries, and I've often thought you've kept it more plainly than we have, which I mean as praise." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You've a ward about you that drinks shadow, and I can see it from here, like a pane of dark glass. It's a strange thing to wear in a house of the Light, friend, though I suppose you know better than I what you need shielding from." },
   },
 
   start = "hello",
@@ -1690,7 +1698,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "restless" }, values = { "pious", "curious" },
   spiritSensitive = true,
-  notices = { "light", "form" },
+  notices = { "light", "form", "lock_pact" },
   impression = {
     first = "I have never seen a priest so unable to keep still.",
     third = "{name} met Brother Benjamin, a restless priest trainer who thinks best while walking the Cathedral's halls.",
@@ -1704,6 +1712,8 @@ P:NPC {
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Oh, now that's interesting. Does it feel cold, inside it? Joshua won't ask, but I will, so walk with me and tell me." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed, friend, as if you'd a fever, and Brother Joshua would say it's the imp's pact in your blood. Does it feel like heat, or does it feel like something else's heartbeat? I'm not supposed to ask, I know." },
   },
 
   start = "hello",
@@ -1844,7 +1854,7 @@ P:NPC {
   key = "crowley", id = TODO_NPC("Brother Crowley"), name = "Brother Crowley", title = "Scarlet Crusade Emissary",
   bible = "bibles/benedictus.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
-  notices = { "light", "race", "form" },
+  notices = { "light", "race", "form", "lock_taint" },
   impression = {
     first = "His certainty about everything stays with me afterward.",
     third = "{name} met Brother Crowley, the Scarlet Crusade's emissary in the Cathedral's lower halls, who recruits the brave for Lordaeron.",
@@ -1861,6 +1871,8 @@ P:NPC {
       text = "A servant of the Light. You'll have heard of the Crusade, then, and most of what you've heard is lies spread by the plague's own servants." },
     { id = "n_elf", cat = "race", when = { race = { "NightElf", "Skyborne" } },
       text = "An elf, in Stormwind's catacombs. The Crusade asks only that you hate the dead as much as we do." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel is on your skin, {class}, as plain as a brand, and in Tyr's Hand they'd have you on the pyre before you'd finished your first sentence. Stand further from the altar while you speak to me." },
   },
 
   react = {

@@ -7,7 +7,7 @@ P:NPC {
   key = "beardo", id = TODO_NPC("Auctioneer Beardo"), name = "Auctioneer Beardo",
   bible = "bibles/tanaris.md", role = "auctioneer", tier = "service",
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_stones" },
 
   impression = {
     first = "He talks prices like weather, and he never once stopped smiling.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 2000000 } },
       text = "Now there's a purse that walks into an auction house and makes the whole room sit up straight, sweetheart! Welcome, welcome, and do browse slowly, and bid quickly." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That glowing rock in your pack, is that a spellstone? Folks have asked me to list them, and I never can, because they won't leave the warlock who made them, which is a shame, because the bidding would be wild." },
   },
 
   start = "hello",
@@ -224,7 +226,7 @@ P:NPC {
   key = "laziphus", id = TODO_NPC("Laziphus"), name = "Laziphus", title = "Stable Master",
   bible = "bibles/tanaris.md", role = "stablemaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "weary" }, values = { "careful" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He complains about the Water Company's prices to anyone who stands still.",
@@ -238,6 +240,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "{pet} is panting, friend. Let it have a drink before we talk business, because a hot beast is a cranky beast, and cranky beasts break stalls I have to pay for." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Don't try to stable that thing, pal, because a burning horse in a straw stall is how Gadgetzan loses another stable. Your other beasts are welcome in the shade, but that one stays outside the gate." },
   },
 
   start = "hello",
@@ -414,7 +418,7 @@ P:NPC {
   key = "buzzek", id = TODO_NPC("Buzzek Bracketswing"), name = "Buzzek Bracketswing", title = "Engineering Trainer",
   bible = "bibles/tanaris.md", role = "trainer", tier = "service",
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He respects anyone who can keep all ten fingers.",
@@ -431,6 +435,8 @@ P:NPC {
       text = "Scorch marks on your sleeves, and you still have your eyebrows! You're one of us, buddy, and a careful one at that, which is rare and very valuable." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome in my hut! I won't hold it against you, as long as you don't call my work crude in front of the customers." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone glowing in your bag? Hold it near my boiler sometime, pal, because I'd love to know if it runs hotter than coal, though not so near that it takes the roof again." },
   },
 
   start = "hello",
@@ -613,7 +619,7 @@ P:NPC {
   key = "pikkle", id = TODO_NPC("Pikkle"), name = "Pikkle", title = "Mining Trainer",
   bible = "bibles/tanaris.md", role = "trainer", tier = "service",
   communities = { "gadgetzan" }, temper = { "blunt" }, values = { "profit", "craft" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_taint" },
 
   impression = {
     first = "He knows where the good rock is and expects thanks for sharing.",
@@ -629,6 +635,8 @@ P:NPC {
       text = "There's rock dust in your boots, chum, and that's the right kind of dirt, the kind that turns into money. What have you been digging, and where, and how much of it?" },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf asking a goblin about mining? Either you're very humble or very lost, and I'll charge you the same either way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a green sheen on you like the one on ore that's been near something foul, pal, and miners learn to leave that ore in the ground. I'll still teach you, but scrub your hands before you touch my picks." },
   },
 
   start = "hello",

@@ -374,6 +374,11 @@ P:NPC {
     { id = "g_main", text = "Hush, friend. The forest listens, as it has since the days of the Ancients, and so do the Grimtotem." },
     { id = "g_back", when = { metBefore = true }, text = "Elune guide you. You've returned, and I'm glad of it." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The freed creatures will not come near you, because they can hear what you carry in your bag. Some of those souls were wild things once, I think, and wild things know their own." },
+  },
+
   start = "hello",
   nodes = {
     xpt_kindal = {
@@ -563,6 +568,11 @@ P:NPC {
     { id = "g_main", text = "Ishnu-alah, traveller. Feathermoon welcomes those who come in peace." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has set your soul in a stone, and I can feel Elune's light slide around it like water round a rock. I will pray for you all the same, and I hope you trust the hand that holds it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -760,6 +770,11 @@ P:NPC {
     { id = "g_main", text = "The Earth Mother walks with you, stranger. Come, sit near the fire; the rain will not reach you here." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The winds told me you would be." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The birds stopped singing when you came near, and my own wolf will not look at you. They are not wrong about everything, so I will not tell them they are wrong about you." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {

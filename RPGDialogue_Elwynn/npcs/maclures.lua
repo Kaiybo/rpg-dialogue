@@ -7,7 +7,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "pa_maclure", id = TODO_NPC("Pa Maclure"), name = "Pa Maclure",
   bible = "bibles/maclures.md", role = "farmer", tier = "quest", communities = { "goldshire" },
-  temper = { "stubborn" }, values = { "proud", "family" }, notices = { "stealth", "kin" },
+  temper = { "stubborn" }, values = { "proud", "family" }, notices = { "stealth", "kin", "lock_shadow" },
   impression = {
     first = "He looks at the Stonefield fields like a storm cloud.",
     third = "{name} met Pa Maclure, head of the Maclure family, who will hear nothing good said of the Stonefields.",
@@ -21,6 +21,8 @@ P:NPC {
       text = "Who's that creeping in my rows? Show yourself! If a Stonefield sent you, you can creep right back." },
     { id = "n_human", cat = "kin", when = { origin = "human_westfall_farmhand" },
       text = "You've a farmer's hands, Westfall by the look of them. Then you know what land costs a family, and what it's worth keeping." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The dog's gone under the porch and won't come out, and she only does that for thunder and Stonefields. You've brought something cold up my lane, stranger, and I'll ask you to keep it on the path." },
   },
   start = "hello",
   nodes = {
@@ -237,7 +239,7 @@ P:NPC {
 P:NPC {
   key = "joshua_maclure", id = TODO_NPC("Joshua Maclure"), name = "Joshua Maclure", title = "Vintner",
   bible = "bibles/maclures.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "easygoing" }, values = { "practical", "family" }, notices = { "drink" },
+  temper = { "easygoing" }, values = { "practical", "family" }, notices = { "drink", "lock_shards" },
   impression = {
     first = "He poured me a taste of wine before I'd asked the price.",
     third = "{name} met Joshua Maclure, who sells drink at the Maclure Vineyards and smooths over what Pa says.",
@@ -249,6 +251,8 @@ P:NPC {
   notice = {
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy, friend. I'll sell you water, not wine, until you can find your way home without the fence's help." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack's chilling the bottles on my table, I can feel it from here, and a vintner knows what cold does to a red. Keep it on the floor, if you'd be so kind." },
   },
   start = "hello",
   nodes = {

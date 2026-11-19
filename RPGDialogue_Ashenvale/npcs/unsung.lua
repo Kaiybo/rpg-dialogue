@@ -8,7 +8,7 @@ P:NPC {
   key = "haljan", id = TODO_NPC("Haljan Oakheart"), name = "Haljan Oakheart", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "steady", "plainspoken" }, values = { "community", "endurance" },
-  notices = { "weary" },
+  notices = { "weary", "lock_steed" },
   impression = {
     first = "He is the sort a village under siege leans on.",
     third = "{name} met Haljan Oakheart, who keeps Astranaar supplied through the war.",
@@ -22,6 +22,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look like you've been dragged through the Thistlefur's whole hold and back. Sit a moment before you buy anything." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Your horse left hoofprints burned into the bridge planks, and the Sentinels will ask me about them before they ask you. Next time, lead it across, if a horse made of fire can be led." },
   },
 
   start = "hello",
@@ -193,7 +195,7 @@ P:NPC {
   key = "xaiander", id = TODO_NPC("Xai'ander"), name = "Xai'ander", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "intense", "grim" }, values = { "defense", "vigilance" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_taint" },
   impression = {
     first = "His blades are good, and his anger at the orcs is close.",
     third = "{name} met Xai'ander, Astranaar's grim weaponsmith.",
@@ -209,6 +211,8 @@ P:NPC {
       text = "A dwarf. Your smiths work steel better than mine, I'll admit, and I keep a few Ironforge axes in the back for anyone who'd rather trust them." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Good, the Sentinels need people who can stand in front of an axe. I've something heavier than that, if you're interested." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is a green fever-light about you that I last saw in the eyes of the Warsong, when they came over the hills. I am told yours came from study rather than drinking, but on you it looks much the same." },
   },
 
   start = "hello",
@@ -379,7 +383,7 @@ P:NPC {
   key = "aeolynn", id = TODO_NPC("Aeolynn"), name = "Aeolynn", title = "Clothier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "gentle", "wistful" }, values = { "beauty", "peace" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "She longs for Ashenvale as it was before the orcs came.",
     third = "{name} met Aeolynn, Astranaar's wistful clothier.",
@@ -393,6 +397,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "MAGE", "WARLOCK" } },
       text = "You'll want robes, then, and something with a good hem for walking these wet paths. Let me see what I have in your size." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The black cloth on my shelf has never looked so dark as it does with you beside it, and the white has gone grey. The satyrs had the same way about them, before the end, though I try not to think so." },
   },
 
   start = "hello",
@@ -565,7 +571,7 @@ P:NPC {
   key = "maliynn", id = TODO_NPC("Maliynn"), name = "Maliynn", title = "Food & Drink Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "astranaar" }, temper = { "cheerful", "motherly" }, values = { "care", "hospitality" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shards" },
   impression = {
     first = "She thinks everyone is too thin, but her bread is very good.",
     third = "{name} met Maliynn, who feeds Astranaar's Sentinels and travelers alike.",
@@ -579,6 +585,8 @@ P:NPC {
   notice = {
     { id = "n_young", cat = "hunger", when = { maxLevel = 22 },
       text = "You're young to be this far from home, aren't you? Make sure you eat properly; the Sentinels never do, and look at them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack's so cold the butter's gone hard on the counter, dear, and only soul shards keep a chill like that. Eat something warm before you go, because carrying all that winter can't be good for you." },
   },
 
   start = "hello",

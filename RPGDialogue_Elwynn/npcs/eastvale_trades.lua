@@ -8,7 +8,7 @@ P:NPC {
   key = "rallic", id = TODO_NPC("Rallic Finn"), name = "Rallic Finn", title = "Bowyer",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "quiet" }, values = { "craft", "patient" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_shards" },
   impression = {
     first = "He talks about wood the way some men talk about horses.",
     third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Let me see how you hold that bow. Hm, your draw is good, but you're gripping the riser like it owes you money, so loosen the hand and the arrow will thank you." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! If you ever have a good hide to spare, bring it here, because a quiver's only as good as the leather it's sewn from." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Is that your pack clinking? It sounds like a bag of glass, and every time it clinks, the hair on my arm stands up like there's a bear in the brush." },
   },
   start = "hello",
   nodes = {
@@ -205,7 +207,7 @@ P:NPC {
   key = "lindgren", id = TODO_NPC("Drake Lindgren"), name = "Drake Lindgren", title = "General & Trade Supplies",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "shrewd" }, values = { "practical", "thrift" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He seemed to like me better once I bought something.",
     third = "{name} met Drake Lindgren, who keeps Eastvale Logging Camp in general goods and trade supplies.",
@@ -217,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "You're a tailor, I can tell by the needle calluses. I keep thread and dye on the back shelf, and Sara Timberlain buys most of it, so don't dawdle." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's no ordinary stone you're carrying, because it's black as pitch and the shop cat won't go near the counter. Whatever it calls down out of the sky, I'd rather it didn't call it down on Eastvale." },
   },
   start = "hello",
   nodes = {
@@ -398,6 +402,11 @@ P:NPC {
     { id = "g_default", text = "Mind the sawdust, friend; it gets everywhere and never comes out." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Come to watch an honest man work, or to keep him from it?" },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The saw's gone dull twice since you came near the mill, and the shadows on the woodpile lean toward you like the trees lean in a wind. Raelen will blame me for the blade either way, so would you stand on the far side of the stacks?" },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

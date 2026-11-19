@@ -9,7 +9,7 @@ P:NPC {
   key = "laird", id = TODO_NPC("Laird"), name = "Laird", title = "Fish Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "auberdine" }, temper = { "wry", "competitive" }, values = { "trade", "friendship" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "He talks about Nessa Shadowsong like a rival he'd be lost without.",
     third = "{name} met Laird, Auberdine's fishmonger, who trades with Nessa Shadowsong across the water.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "An angler! Then you'll know the murlocs on this coast take more bait than the fish do. Fish near the Sentinels' posts and you'll lose less of it." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a firestone glowing in your bag, unless I'm much mistaken, and it would cook a fish faster than any brazier I own. Not that I'd trust a fish cooked on it, mind." },
   },
 
   start = "hello",
@@ -226,7 +228,7 @@ P:NPC {
   key = "dalmond", id = TODO_NPC("Dalmond"), name = "Dalmond", title = "General Goods Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "auberdine" }, temper = { "anxious", "conscientious" }, values = { "preparedness", "duty" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "His worrying is tiring, but it comes from a good place.",
     third = "{name} met Dalmond, Auberdine's worried general goods vendor.",
@@ -240,6 +242,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 13 },
       text = "You've only just come over from Teldrassil, haven't you? Darkshore is not as gentle as home, so please buy more water than you think you'll need." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on my shelf leaned away from you as you came in, plain ones and all, as if they would rather not be lit near you. I sell them to light the dark, not to watch them run from it." },
   },
 
   start = "hello",
@@ -409,7 +413,7 @@ P:NPC {
   key = "taldan", id = TODO_NPC("Taldan"), name = "Taldan", title = "Drink Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "auberdine" }, temper = { "genial", "easygoing" }, values = { "hospitality", "simplicity" },
-  notices = { "drink", "race" },
+  notices = { "drink", "race", "lock_stones" },
   impression = {
     first = "He thinks most troubles look smaller after a cup of moonberry juice.",
     third = "{name} met Taldan, who sells drinks in Auberdine to anyone tired from the road.",
@@ -425,6 +429,8 @@ P:NPC {
       text = "You've had something stronger than I sell, I think. Let me give you a cup of water before you fall into the harbor." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, and you're looking at my counter with real disappointment. I'm sorry, I don't sell ale, but my melon juice is very good." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you carry is a warlock's healthstone, and I've heard it tastes of nothing and fills you like a cold drink on a hot day. Keep it for your need, though, because I would rather sell you a real one." },
   },
 
   start = "hello",
@@ -593,7 +599,7 @@ P:NPC {
   key = "naram", id = TODO_NPC("Naram Longclaw"), name = "Naram Longclaw", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "auberdine" }, temper = { "gruff", "proud" }, values = { "strength", "craft" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He judges a customer by the scars on their hands.",
     third = "{name} met Naram Longclaw, Auberdine's gruff weaponsmith.",
@@ -607,6 +613,8 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You carry yourself like someone who meets the enemy face to face. Good. I've two-handed blades in the back for the likes of you." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That shell of dark around you is a shadow ward, isn't it, the kind that swallows a curse before it lands? It won't stop a blade, which is why you'll still want one of mine." },
   },
 
   start = "hello",
@@ -776,7 +784,7 @@ P:NPC {
   key = "elisa", id = TODO_NPC("Elisa Steelhand"), name = "Elisa Steelhand", title = "Blacksmithing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "auberdine" }, temper = { "hearty", "blunt" }, values = { "craft", "trade" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
   impression = {
     first = "She speaks her mind and expects me to speak mine.",
     third = "{name} met Elisa Steelhand, a dwarf who sells blacksmithing supplies in Auberdine.",
@@ -792,6 +800,8 @@ P:NPC {
       text = "Another dwarf! Thank the Titans; I've had nobody to talk to about proper ale in weeks." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith, eh? I can tell by your arms. You'll want my coal; the elves don't burn enough of it to keep a decent forge going." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Is that an infernal stone in yer pack? I can feel the heat off it from here, an' if ye drop a burnin' giant on this pier the elves'll blame my forge for it, so take it somewhere quiet." },
   },
 
   start = "hello",

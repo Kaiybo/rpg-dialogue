@@ -594,7 +594,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "pious", "dutiful" },
   spiritSensitive = true,
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "His warnings are kindly meant, though the scowl hides it.",
@@ -613,6 +613,8 @@ P:NPC {
       text = "A dwarf o' the Light, an' standin' straight, too. Good, for there's nae sense in prayin' hunched." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A fighter wi' nae prayer in ye at all, by the look. Ye'll want one some day, when the healer's out o' reach, so learn a short one now." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles on the altar bent away from ye when ye walked in, all at once, like grass in a wind. I'll no' bless ye, for the Light flinches from what's on ye, but my door's open if ye ever want tae talk about that road back." },
   },
 
   start = "hello",
@@ -795,7 +797,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "kind", "patient" },
   spiritSensitive = true,
-  notices = { "weary" },
+  notices = { "weary", "lock_taint" },
 
   impression = {
     first = "He notices tired people before they notice themselves.",
@@ -812,6 +814,8 @@ P:NPC {
       text = "Ye've been givin' it all away again, haven't ye, an' come back from the edge for it? Sit a moment before ye train; the Light'll wait for a priest tae catch her breath." },
     { id = "n_weary", cat = "weary", when = { resSick = true },
       text = "Ye've the grey look o' someone the spirit healer sent back, an' no' long ago. Sit by the brazier a while, an' then we'll talk about whatever ye came for." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye're goin' green, friend, faint round the eyes an' the nails, an' I've seen that color on orcs in the internment camps. It's no' too late, whatever it whispers tae ye, an' I'll pray for ye tonight whether ye ask or no'." },
   },
 
   start = "hello",
@@ -991,7 +995,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "warm" }, values = { "friendly", "dutiful" },
   spiritSensitive = true,
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "She makes every stranger welcome, briskly and very well.",
@@ -1008,6 +1012,8 @@ P:NPC {
       text = "Cathedral robes, an' they've seen weather. The Light's no' fussy about where ye learned yer hymns, an' neither am I." },
     { id = "n_ne", cat = "race", when = { race = "NightElf", class = "PRIEST" },
       text = "A priestess o' Elune, under the mountain! I've a message for yer kind more often than ye'd think, so check wi' me before ye leave." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The wards on the Hall are hummin' at somethin' in yer pack, an' I'm fairly sure it's soul shards. Mages store power in crystals as well, but ours didnae have tae die tae fill them, so I'd ask ye tae keep the bag closed." },
   },
 
   start = "hello",
@@ -1185,7 +1191,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "steady", "proud" }, values = { "pious", "dutiful", "generous" },
   spiritSensitive = true,
-  notices = { "paladin" },
+  notices = { "paladin", "lock_stones" },
 
   impression = {
     first = "She sends young paladins to help people who can never repay them.",
@@ -1202,6 +1208,8 @@ P:NPC {
       text = "One o' Duthorian Rall's, from Stormwind? Ye've the Stormwind way o' holdin' a hammer, like it's goin' tae be painted. Hold it like it's goin' tae be used." },
     { id = "n_dwarf_pal", cat = "paladin", when = { class = "PALADIN", race = "Dwarf" },
       text = "A dwarf o' the Silver Hand. Brandur Ironhammer sent ye, I'll wager; he sends me all his best an' then sulks about it." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in yer bag, an' I can feel it from here, a wee green ache like somebody's stolen breath. The Light heals for free, an' it heals clean, so I'll ask ye no' tae drink from that stone in this chapel." },
   },
 
   start = "hello",
@@ -1446,7 +1454,7 @@ P:NPC {
   key = "muiredon", id = TODO_NPC("Muiredon Battleforge"), name = "Muiredon Battleforge",
   bible = "bibles/mystic_ward.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "loyal", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_pact" },
 
   impression = {
     first = "Underneath the jokes he is sick with worry for his friend Narm.",
@@ -1466,6 +1474,8 @@ P:NPC {
       text = "Another priest! Are ya the one doin' the stitchin' now? No? Then sit there an' don't poke, for I've been poked enough this week." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", race = "Dwarf" },
       text = "A paladin wi' a proper beard, jus' like Narm. He'd like ya, an' he'd tell ya so, loudly." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "*cough* Ye're givin' off heat like a stove, friend, an' it's no' honest heat, it's an imp's pact sittin' in yer blood. My wounds feel it, an' they ache, but I'll no' complain, for I've had worse company in the Dark Iron cells." },
   },
 
   start = "hello",
@@ -1920,7 +1930,7 @@ P:NPC {
   key = "milstaff", id = TODO_NPC("Milstaff Stormeye"), name = "Milstaff Stormeye", title = "Portal Trainer",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "proud", "sharp" }, values = { "proud", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He doubted I had the mental acuity to grasp portal magic.",
@@ -1937,6 +1947,8 @@ P:NPC {
       text = "A priest. You fold the world with prayers, I fold it with geometry, and only one of us can show his working." },
     { id = "n_young_mage", cat = "class", when = { class = "MAGE", maxLevel = 39 },
       text = "A young mage, and impatient, I expect. Portals begin at forty seasons of study, or the equivalent; come back when you've done the equivalent." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "You're carrying an infernal stone, and I can feel its pull on the ley lines like a stone dropped in a pond. A portal opens a door politely, but that thing knocks a hole in the sky and drops a burning giant through it, and I'd like you to keep it well away from my geometry." },
   },
 
   start = "hello",

@@ -7,7 +7,7 @@ P:NPC {
   key = "anduin", id = TODO_NPC("King Anduin Wrynn"), name = "King Anduin Wrynn",
   bible = "bibles/anduin.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
-  notices = { "wonder", "far", "form" },
+  notices = { "wonder", "far", "form", "lock_steed", "lock_soulstone" },
   impression = {
     first = "He seems far more curious about me than about being king.",
     third = "{name} was received by the boy king Anduin Wrynn, who rules until his father comes home and tries very hard at it.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "You're one of the elves from the sky! Lady Prestor says not to stare. I'm only staring a little." },
     { id = "n_dwarf", cat = "far", when = { race = { "Dwarf", "Gnome" } },
       text = "Did you come on the tram? I've never been on it, because kings aren't allowed, though I did ask." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that horse on fire? Its hooves left little green flames all the way across the throne room floor, and I know I'm meant to look royal, but I really want to ask whether it bites." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Bolvar says a soulstone keeps a piece of you safe so you can come back if you fall. I think that's the bravest and the most frightening thing I've ever heard, and I hope you never need it." },
   },
 
   react = {

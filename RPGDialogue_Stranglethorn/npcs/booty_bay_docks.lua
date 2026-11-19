@@ -242,7 +242,7 @@ P:NPC {
   key = "mazk", id = TODO_NPC("Mazk Snipeshot"), name = "Mazk Snipeshot",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "salesy", "brash" }, values = { "profit" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_steed" },
 
   impression = {
     first = "He likes loud things and says so proudly.",
@@ -259,6 +259,8 @@ P:NPC {
       text = "A hunter! Now there's somebody who appreciates a fine barrel, buddy, so take a look at the long rifles, and don't look at the price tag till you've held one." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! You folks know your guns, so don't go telling me Ironforge makes them better, because I've heard it, and Ironforge charges twice as much for the beard on the stock." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "That horse of yours left burning hoofprints all the way up the pier, pal, and the Baron's going to bill somebody for the planks. I don't suppose it's for sale, because I know a few buyers in Undermine who'd love a mount that never needs hay." },
   },
 
   start = "hello",

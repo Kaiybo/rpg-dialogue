@@ -8,7 +8,7 @@ P:NPC {
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
   likesTone = "blunt", race = "Dwarf",
   prejudice = { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_shards" },
 
   impression = {
     first = "He says a Wildhammer and his gryphon are one creature.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A dwarf o' Ironforge, here among the Wildhammer! The mountain's fine, {g:lad|lass}, but ye've no seen anythin' till ye've seen it from a gryphon's back." },
     { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "SHAMAN" } },
       text = "Ye've the look o' someone who knows beasts, so the gryphons'll like ye, probably." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Ye've the same shadow on ye as the Horde's warlocks who burned these hills, an' my riders will see it the moment ye land. I'll vouch for ye, but I'd keep it hooded." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in yer pack hum like the Horde's camps did the night before they fired these hills, an' I've no' forgotten the sound. Spend 'em on the Vilebranch, an' I'll call it even." },
   },
 
   start = "hello",
@@ -427,7 +431,7 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
   prejudice = { race = "Gnome", amount = 8, why = "Gnomish flying machines spook his gryphons." },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "I don't think he has ever lost an argument with a troll.",
@@ -446,6 +450,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, eh? Keep yer pet away from the gryphons, or they'll eat it an' then look at ye for more." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide ye've wrapped round yerself stinks o' somethin' that never flew, an' the mothers in the aeries will smell it a mile off. Ye'll want tae wash before ye go near the nests, no offence." },
   },
 
   start = "hello",
@@ -667,7 +673,7 @@ P:NPC {
   key = "fraggar", id = TODO_NPC("Fraggar Thundermantle"), name = "Fraggar Thundermantle",
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "solemn" }, values = { "devout", "protective" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "His eyes are failing, but he hears the land's unhappiness.",
@@ -684,6 +690,8 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "DRUID" } },
       text = "Ye hear the spirits too. Then ye'll know what I mean when I say the trolls' altars make 'em weep." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The land's whisperin' about ye, sayin' ye smell o' green fire an' far-off places. I cannae see ye well, but the land's got sharp eyes." },
   },
 
   start = "hello",
@@ -940,7 +948,7 @@ P:NPC {
   key = "thulfram", id = TODO_NPC("Innkeeper Thulfram"), name = "Innkeeper Thulfram",
   bible = "bibles/hinterlands.md", role = "innkeeper", tier = "service",
   communities = { "aerie_peak" }, temper = { "jovial" }, values = { "generous", "friendly" },
-  notices = { "drink", "weary" },
+  notices = { "drink", "weary", "lock_stones" },
 
   impression = {
     first = "He says everyone ends up at his bar sooner or later.",
@@ -964,6 +972,8 @@ P:NPC {
       text = "Ha! Now ye're drinkin' like a Wildhammer, but don't go near the gryphons like that." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Ye look like ye've been dead a wee while, so sit down; ale fixes most things, an' stew fixes the rest." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer belt's a warlock's work, an' a good one by the look o' it. Ye'll no' be needin' my stew, then, but I'll pour ye a drink anyway." },
   },
 
   start = "hello",

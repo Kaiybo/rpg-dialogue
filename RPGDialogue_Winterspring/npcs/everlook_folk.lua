@@ -7,7 +7,7 @@ P:NPC {
   key = "legacki", id = TODO_NPC("Legacki"), name = "Legacki",
   bible = "bibles/winterspring.md", role = "citizen", tier = "service",
   communities = { "everlook" }, temper = { "smug" }, values = { "gossip", "comfort" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She thinks herself too clever to fear anything a goblin builds.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! You're not one of Umi's, are you, darling? Every time a tinkerer smiles at me lately, I check behind me and count my purse." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that horse on fire, or am I seeing things? Hoofprints that smoke in the snow, ha, now that's a real fright, and Umi can keep her furry yeti!" },
   },
 
   start = "hello",
@@ -202,7 +204,7 @@ P:NPC {
   key = "felnok", id = TODO_NPC("Felnok Steelspring"), name = "Felnok Steelspring",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook" }, temper = { "fussy" }, values = { "precise", "dependable" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "He cares more about an uncracked horn than why anybody wants it.",
@@ -220,6 +222,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "You smell of oil and burnt fingers, so you're an engineer. Don't touch the cooling coils; I counted them." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your pack? I can feel it from here like an open furnace door, so please keep it on the far side of the bench, because these gears are measured to a hair and heat ruins the fit." },
   },
 
   start = "hello",
@@ -425,7 +429,7 @@ P:NPC {
   key = "jessica", id = TODO_NPC("Jessica Redpath"), name = "Jessica Redpath",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook", "argent_dawn" }, temper = { "quiet" }, values = { "family", "hope" },
-  notices = { "race", "kin" },
+  notices = { "race", "kin", "lock_shadow" },
 
   impression = {
     first = "She asks about Darrowshire the way people ask about a wound.",
@@ -442,6 +446,8 @@ P:NPC {
       text = "You were from Lordaeron once, weren't you? Forgive me for staring; I keep looking for faces I knew." },
     { id = "n_refugee", cat = "kin", when = { origin = "human_lordaeron_refugee" },
       text = "You fled the north too, I can hear it in your voice. Did your family get out with you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp just dipped when you came in, and it did the same thing the night the men in dark robes passed our farm outside Darrowshire. I'm sure it's only the draught, and I'm sorry for staring, but I can't help it." },
   },
 
   start = "hello",
@@ -685,7 +691,7 @@ P:NPC {
   key = "malyfous", id = TODO_NPC("Malyfous Darkhammer"), name = "Malyfous Darkhammer", title = "The Thorium Brotherhood",
   bible = "bibles/winterspring.md", role = "blacksmith", tier = "quest",
   communities = { "everlook", "thorium_brotherhood" }, temper = { "dismissive", "proud" }, values = { "craft", "pride" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft", "lock_taint" },
 
   impression = {
     first = "He calls outsiders ants to their faces.",
@@ -702,6 +708,8 @@ P:NPC {
       text = "Bronzebeard blood, I can smell it on you. Keep your opinions of my clan behind your teeth, and we'll get along well enough." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith, are you? We'll see; plenty of people hold a hammer, and very few know what to do with it." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "My forge flame bent toward you when you walked in, ant, and the edge of it went green. I have seen that colour in Blackrock where fools play with fire they do not own, so stand back from the anvil while we talk." },
   },
 
   start = "hello",
@@ -959,7 +967,7 @@ P:NPC {
   key = "storm", id = TODO_NPC("Storm Shadowhoof"), name = "Storm Shadowhoof",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook" }, temper = { "stern" }, values = { "hunt", "honor" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He measures people by whether they would face a charging bear.",
@@ -979,6 +987,8 @@ P:NPC {
       text = "Earth Mother keep you, child of Mulgore. These hills are colder than our plains, but the beasts here would make our elders proud." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "You walk like a hunter, quiet and watching. Good; the beasts of Winterspring kill the careless first." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag hums with the souls of beasts, and some of them were taken from Winterspring, I think. The hunter gives thanks for a kill, and you give it a jar, so tell me at least that the frostsabers fought you honestly." },
   },
 
   start = "hello",
@@ -1213,7 +1223,7 @@ P:NPC {
   key = "yugrek", id = TODO_NPC("Yugrek"), name = "Yugrek", title = "Wind Rider Master",
   bible = "bibles/winterspring.md", role = "flightmaster", tier = "service",
   communities = { "everlook" }, temper = { "gruff" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "He grumbles about the snow but would never leave his beasts.",
@@ -1227,6 +1237,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Another orc in the snow! Durotar's sun seems a long way off up here, doesn't it?" },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood's running hot, I can smell it from here, like a fever with no sickness behind it. The old warriors smelled like that after Mannoroth's blood, so tell me that's only an imp's pact and nothing worse." },
   },
 
   start = "hello",
@@ -1395,7 +1407,7 @@ P:NPC {
   key = "maethrya", id = TODO_NPC("Maethrya"), name = "Maethrya", title = "Hippogryph Master",
   bible = "bibles/winterspring.md", role = "flightmaster", tier = "service",
   communities = { "everlook" }, temper = { "reserved" }, values = { "dutiful", "nature" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She speaks softly, and her birds listen to every word.",
@@ -1409,6 +1421,8 @@ P:NPC {
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "Elune's light on you. It is good to hear our tongue among so many goblins." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse left burning hoofprints in the snow from the gate to my roost, and the hippogryphs have not stopped shrieking since. Felwood taught them what green fire means, so please tether that creature well away before you ask me for a flight." },
   },
 
   start = "hello",

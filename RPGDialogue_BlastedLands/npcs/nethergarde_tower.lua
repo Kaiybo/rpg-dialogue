@@ -7,7 +7,7 @@ P:NPC {
   key = "nina_lightbrew", id = TODO_NPC("Nina Lightbrew"), name = "Nina Lightbrew", title = "Alchemy Supplies",
   bible = "bibles/blastedlands.md", role = "vendor", tier = "service",
   communities = { "nethergarde" }, temper = { "brisk" }, values = { "craft", "careful" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_shards" },
 
   impression = {
     first = "She thinks the strange plants here deserve more respect.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "An alchemist! Have you tried anything with the plants out in the wastes yet? They grow in that red clay, of all places, and they're not like anything in Elwynn." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "Another mage for the tower? No, you're just visiting, I can tell; the ones who live here look much more tired." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag's frosting at the seams in this heat, which means soul shards, and a good many of them. I've wondered whether they'd keep my potions cold up here, but I don't think I could sleep with them on the shelf." },
   },
 
   start = "hello",

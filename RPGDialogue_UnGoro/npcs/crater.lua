@@ -13,6 +13,11 @@ P:NPC {
     { id = "g_main", text = "Hold up there. Let me see if you're injured before you come any closer." },
     { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. My brother's tent can't say the same, since a stegodon sat on it last night." },
   },
+  notice = {
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode into the Refuge on a horse with its hooves on fire, and the devilsaurs could see that from the other side of the crater. Next time leave it at the ridge, because I'm the one who'll be digging the graves." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
@@ -191,6 +196,11 @@ P:NPC {
     { id = "g_main", text = "The Earth Mother walks here, stranger, and so do great beasts. Tread carefully." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, hunter. The trails have missed you." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The raptors went quiet when you came up the path, and they are never quiet. The creatures of Un'Goro smell what you are before they see you, and that is why I keep my spear close and my distance closer." },
+  },
+
   start = "hello",
   nodes = {
     xmage = {
@@ -379,6 +389,11 @@ P:NPC {
     { id = "g_main", text = "Oh! Mind the sprouts, please, they're very delicate." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! The sprouts are growing nicely, thank you for asking." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The bloodpetals just leaned away from your bag, which is fascinating, because they lean toward everything else! Whatever's in there is cold and humming, and I don't suppose you'd let me put a seedling next to it for science?" },
+  },
+
   start = "hello",
   nodes = {
     xrogue = {
@@ -545,6 +560,11 @@ P:NPC {
     { id = "g_main", text = "Oh, thank the Cartel, a person! I thought I'd never see another face, buddy, let alone one that might have a canteen." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, buddy! I wasn't sure you would, and I'd have bet against it, which shows what I know." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've been walking for days, buddy, and I'm so tired I'd eat it whole if you let me. I don't even care that a warlock made it, I just want to get home to Spraggle in one piece." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
@@ -698,6 +718,11 @@ P:NPC {
     { id = "g_main", text = "Hey, careful there, friend! The water's hotter than it looks, and I can't afford the lawsuit." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend! Got any readings for me? Readings are money, and money's the only thing hotter than this water." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You've got a soulstone in that pack, and I know because I tried to buy one once for my retirement plan. Imagine it, a goblin who can't die until the springs pay out, and nobody would sell me one!" },
+  },
+
   start = "hello",
   nodes = {
     xlock = {

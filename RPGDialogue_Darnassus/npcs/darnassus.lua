@@ -12,7 +12,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   likesTone = "blunt", private = { "malfurion" },
   spiritSensitive = true,
-  notices = { "fel", "race", "class", "form" },
+  notices = { "fel", "race", "class", "form", "lock_shadow", "lock_shards" },
   impression = {
     first = "She speaks as though Elune is listening, and perhaps she is.",
     third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
@@ -40,6 +40,10 @@ P:NPC {
       text = "Eldre'Thalas... I remember it as a city of light. I am told your people left it rather than bow to a prince's purge, and that speaks well of them." },
     { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },
       text = "You wear shadow in the Temple of the Moon. Elune lights the dark, but she has never needed to wear it, so set it aside while we speak." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Mother Moon's light bends away from you, as it bent away from the Highborne in the last days of Zin-Azshari. I will speak with you, but I will not pretend I cannot see it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry souls in that satchel, warlock, and I can hear them, faint as the voices I heard beneath the walls of Zin-Azshari. Mind what you do with them in my city." },
   },
 
   react = {
@@ -1145,7 +1149,7 @@ P:NPC {
   key = "mathrengyl", id = TODO_NPC("Mathrengyl Bearwalker"), name = "Mathrengyl Bearwalker",
   bible = "bibles/darnassus.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_taint" },
   impression = {
     first = "Every question gets a patient answer from him, even the foolish ones.",
     third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
@@ -1164,6 +1168,8 @@ P:NPC {
       text = "Ah, the bear sits well on you. The Great Bear Spirit chose rightly." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
       text = "You wear the cat indoors, I see. The Great Cat Spirit is as playful as it is deadly, so please be the first of those in here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You carry the smell of Felwood on you, the sick green rot that soaked into its roots, and it is in your skin as well as your clothes. Do not walk barefoot on this branch, because Teldrassil is young and remembers everything." },
   },
 
   start = "hello",
@@ -1477,7 +1483,7 @@ P:NPC {
   key = "amoora", id = TODO_NPC("Priestess A'moora"), name = "Priestess A'moora",
   bible = "bibles/darnassus.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "death", "origin" },
+  notices = { "class", "death", "origin", "lock_soulstone" },
   impression = {
     first = "She calls me 'little star' as if she'd known me for years.",
     third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
@@ -1499,6 +1505,8 @@ P:NPC {
       text = "You were on the mountain, weren't you, little star? You have that look so many of us have now, counting the days as if each one had to be paid back. Elune isn't keeping a ledger, and I promise you she never was." },
     { id = "n_novice", cat = "origin", when = { origin = "nightelf_priestess" },
       text = "Ah, one of the Temple's novices, still learning to read her silences. Don't let the elder sisters hurry you, little star, because I spent my first century certain she'd forgotten my name." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is not wholly here, little star, because some part of it waits in a stone for the day you fall. Elune gathers her children home herself, and I would ask you to trust her a little more than that stone." },
   },
 
   start = "hello",
@@ -1754,7 +1762,7 @@ P:NPC {
   key = "gracina", id = TODO_NPC("Gracina Spiritmight"), name = "Gracina Spiritmight",
   bible = "bibles/darnassus.md", role = "scholar", tier = "quest",
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
-  notices = { "lore", "trophy" },
+  notices = { "lore", "trophy", "lock_armor" },
   impression = {
     first = "Something in the southern deserts frightens her, and she doesn't frighten easily.",
     third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
@@ -1771,6 +1779,8 @@ P:NPC {
   notice = {
     { id = "n_skinner", cat = "trophy", when = { profession = "Skinning" },
       text = "A skinner! Then you've handled more of Azeroth's creatures than most scholars ever will. Tell me what you've seen." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward of demon hide is very like the one described in the old Highborne accounts I keep sealed, down to the way it writhes when you turn. I would sketch it if I were braver, and I find today that I am not." },
   },
 
   start = "hello",
@@ -1991,7 +2001,7 @@ P:NPC {
   key = "saelienne", id = TODO_NPC("Innkeeper Saelienne"), name = "Innkeeper Saelienne", gender = "female",
   bible = "bibles/darnassus.md", role = "innkeeper", tier = "service",
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_steed" },
   impression = {
     first = "She warned me not to look down, so of course I did.",
     third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
@@ -2016,6 +2026,8 @@ P:NPC {
       text = "You've had a hard road, so sit down. Moonberry juice first, then sleep, and then whatever comes after." },
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
       text = "Don't look down from the terrace, friend. Everyone does it once, and once is enough." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "If that is your horse with the burning hooves, it will not cross the bridge to my inn, because the branch is old wood and very dry. Leave it on the ground, and it can think about the drop from there." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "sara", id = TODO_NPC("Sara Timberlain"), name = "Sara Timberlain",
   bible = "bibles/sara.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "ambitious", "witty" },
-  notices = { "craft", "red" },
+  notices = { "craft", "red", "lock_taint" },
   impression = {
     first = "She takes thieves' bandanas as cloth without a flicker of shame.",
     third = "{name} met Sara Timberlain, an Eastvale tailor who turns Defias bandanas into honest clothing.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A tailor! Feel this; that's Defias linen, washed twice, and nobody would believe where it came from. That's the beauty of it." },
     { id = "n_red", cat = "red", when = { questObjective = { TODO_QUEST("Red Linen Goods"), left = { max = 2 } } },
       text = "Nearly six, then; I can see the red poking out of your pack from here. Lovely colour, isn't it, though it's a shame about the people inside it." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a green cast about the hands and lips, and your hem's gone brittle the way cloth does near a sulphur spring. Whatever you've been breathing in, it's eating you faster than the moths eat my wool." },
   },
 
   start = "hello",
@@ -259,7 +261,7 @@ P:NPC {
   key = "gerard", id = TODO_NPC("Gerard Tiller"), name = "Gerard Tiller",
   bible = "bibles/gerard.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "honest" },
-  notices = { "drink" },
+  notices = { "drink", "lock_shadow" },
   impression = {
     first = "I suspect he notices a great deal more than he ever says.",
     third = "{name} met Gerard Tiller, a thirsty hand on the Maclure vines who sees more than he lets on.",
@@ -273,6 +275,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Somebody's had something stronger than water, lucky you, and here's me out here with a hoe and a dry throat." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The crows came off the scarecrow the moment you came through the gate, and I've never seen them do that for anybody but the Defias. You've got a cold about you, friend, the kind that makes a man check the sky for rain." },
   },
 
   start = "hello",

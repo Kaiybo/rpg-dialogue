@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "major",
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
   likesTone = "blunt",
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow", "lock_stones" },
 
   impression = {
     first = "He writes the letters himself when a soldier doesn't come back.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "Lord Shadowbreaker's sending me paladins again, and good. I asked him for twenty, but I'll gladly take one who doesn't flinch at a ghoul." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in worse shape than my palisade, {class}. Get it mended before the dead on Sorrow Hill finish the job for you." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps burn lower when you stand near them, and MacDonnell has already noticed from across the camp. Stand on my side of the fire and let her stare, because Andorhal needs you more than it needs her approval." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone you're carrying? I've seen a man walk out of Andorhal on one bite of a stone like that, and I'd see a great many more do it if I had a warlock with the time to make them." },
   },
 
   start = "hello",
@@ -730,7 +734,7 @@ P:NPC {
   key = "arbington", id = TODO_NPC("Alchemist Arbington"), name = "Alchemist Arbington",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly" }, values = { "curious", "honest" },
-  notices = { "craft", "greenness" },
+  notices = { "craft", "greenness", "lock_shards" },
 
   impression = {
     first = "Frightened as he is, he keeps working, and I respect that.",
@@ -749,6 +753,8 @@ P:NPC {
       text = "An alchemist, how wonderful! Please don't touch the quickener, though, because it's thirty minutes from useless and about thirty seconds from my eyebrows." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 50 },
       text = "You're rather young for the Plaguelands, aren't you? I'm not judging, mind, since I'm rather old for them, and look how that's going." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The Scholomance books describe that chill, the cold that comes off a bag of soul shards, and I had hoped I would only ever read about it. Do keep them away from my reagents, because I am never quite sure what will react." },
   },
 
   start = "hello",
@@ -977,7 +983,7 @@ P:NPC {
   key = "weldon", id = TODO_NPC("Weldon Barov"), name = "Weldon Barov",
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly", "proud" }, values = { "greedy", "vengeful" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_soulstone" },
 
   impression = {
     first = "Fear and greed have been sharing his face for a long time.",
@@ -996,6 +1002,8 @@ P:NPC {
       text = "Guards! Oh, a Forsaken, here in an Alliance camp? How you got past the sentries I don't care to know, so stay right there." },
     { id = "n_fine", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look dreadful, all rags and dents. Find the family fortune for me and you'll never have to dress like a peasant again." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone? I know one when I see one, believe me. I'd give a great deal for a way back from death that doesn't end the way my brother's did, though I don't suppose you'd part with it." },
   },
 
   start = "hello",
@@ -1302,7 +1310,7 @@ P:NPC {
   key = "pureheart", id = TODO_NPC("Argent Officer Pureheart"), name = "Argent Officer Pureheart",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "steady" }, values = { "devout", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_pact" },
 
   impression = {
     first = "Nobody draws steel at her table, whatever colors they wear.",
@@ -1320,6 +1328,8 @@ P:NPC {
       text = "Horde, in an Alliance camp, so easy, everyone, because nobody draws steel at my table. The Dawn doesn't ask what colors you wear, only whether you'll fight the dead." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "Silver Hand? I was too, until Mograine fell and the order went red. Lord Tyrosus and I walked out the same day, and the Light walked out with us, whatever the Crusade says." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've a fevered look about you, and in the plaguelands that makes me reach for a cure, but this heat is an imp's pact, isn't it? Good, because that's one less soul I have to worry over today." },
   },
 
   start = "hello",
@@ -1597,7 +1607,7 @@ P:NPC {
   key = "dumah", id = TODO_NPC("Nathaniel Dumah"), name = "Nathaniel Dumah",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "steady" }, values = { "loyal", "stubborn" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft", "lock_steed" },
 
   impression = {
     first = "He asks after Northridge like a man asking after family.",
@@ -1614,6 +1624,8 @@ P:NPC {
       text = "You've a northern look about you, from Lordaeron before the war, maybe? Don't tell me if it hurts, because most of us who got out don't talk about it." },
     { id = "n_lumber", cat = "craft", when = { profession = { "Engineering", "Blacksmithing" } },
       text = "You work with your hands, I can tell, and my father would have liked you for it. He always judged a man by his calluses." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse leaves burning hoofprints, and the Crusaders at the mill will follow that trail right back to me. Ride it somewhere else, I'd beg you, because my father's mill was built of timber and it can't take a fire." },
   },
 
   start = "hello",
@@ -1823,7 +1835,7 @@ P:NPC {
   key = "bibilfaz", id = TODO_NPC("Bibilfaz Featherwhistle"), name = "Bibilfaz Featherwhistle", title = "Gryphon Master",
   bible = "bibles/westernplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "chillwind_camp" }, temper = { "jovial" }, values = { "cheerful" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
 
   impression = {
     first = "I suspect he works very hard at being so cheery.",
@@ -1838,6 +1850,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here, of all places! I've been talking to gryphons for weeks, and they're lovely creatures, but they really aren't much for conversation." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Phew, that demon-hide ward of yours smells like a singed boot, and the gryphons have noticed too! I'll crank the bellows up a notch, so hold your breath and pray the wind cooperates." },
   },
 
   start = "hello",

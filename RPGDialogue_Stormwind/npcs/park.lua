@@ -9,7 +9,7 @@ P:NPC {
   prejudice = { class = "MAGE", amount = 8, why = "Kaldorei memory of the Sundering; polite but cool to arcanists." },
   bible = "bibles/park.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "form", "priest", "kaldorei" },
+  notices = { "form", "priest", "kaldorei", "lock_taint" },
   impression = {
     first = "He insists peace can be found even inside stone walls.",
     third = "{name} met Sheldras Moontree, a night elf druid who teaches in Stormwind's Park.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "A priest of the human Light, come to the trees. Your Cathedral rings a bell at sunset for my people, did you know? It is a kindness I never thanked them for." },
     { id = "n_kaldorei", cat = "kaldorei", when = { race = "NightElf" },
       text = "Far from Teldrassil, aren't we both? I come here when the walls feel close; the trees are young and human-planted, but they try very hard." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel taint is in you deep, {class}, and the grass has yellowed where you stand. I teach balance, and I will not refuse you, but you have tipped further than you know." },
   },
 
   start = "hello",
@@ -310,7 +312,7 @@ P:NPC {
   key = "shylamiir", id = TODO_NPC("Shylamiir"), name = "Shylamiir", title = "Herbalism Trainer",
   bible = "bibles/park.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "proud", "curious" },
-  notices = { "herbalist", "druid" },
+  notices = { "herbalist", "druid", "lock_stones" },
   impression = {
     first = "She wants a plant from inside Dalaran's walls.",
     third = "{name} met Shylamiir, a night elf herbalist in Stormwind's Park who doubts anyone's skill matches her own.",
@@ -326,6 +328,8 @@ P:NPC {
       text = "Another herbalist, hmm. I doubt your skill matches mine, but I can teach you a few proper techniques, so you'll at least stop tearing the roots." },
     { id = "n_druid", cat = "druid", when = { class = "DRUID" },
       text = "A druid. Then you'll know why I can't stand the way humans pick flowers: by the stem, all at once, as if the plant had done something to them." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That stone at your hip is as green as new moss, and yet nothing living grew it. I have watched peacebloom wither beside one, and I would ask you not to carry it through my beds." },
   },
 
   start = "hello",

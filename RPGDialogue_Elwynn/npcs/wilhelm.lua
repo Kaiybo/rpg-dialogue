@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/wilhelm.md", role = "trainer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
-  notices = { "kit", "affliction" },
+  notices = { "kit", "affliction", "lock_shadow" },
   impression = {
     first = "He says he mends souls, and slowly.",
     third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath costs in practice.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Polished, every buckle of it. Somebody at the Abbey taught you right." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Poison" } },
       text = "You've picked something up out there, so hold still while I cleanse it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came in, friend, the way a hand flinches from a cold stove, and I felt it before I saw you. That doesn't mean it's given up on you, so don't you give up on it either." },
   },
 
   start = "hello",

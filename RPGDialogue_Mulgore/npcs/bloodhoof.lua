@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "bloodhoof" }, temper = { "calm" }, values = { "wise", "loyal", "kind" },
   likesTone = "polite",
-  notices = { "race", "form" },
+  notices = { "race", "form", "lock_shadow", "lock_soulstone" },
   impression = {
     first = "He would rather talk his enemies down than fight them.",
     third = "{name} met Baine Bloodhoof, Cairne's son, who keeps Bloodhoof Village and the plains below the bluffs.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "One of the Windshapers. My father welcomed your people, and I'll do no less. Ask if you need anything of Mulgore." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc, so far from the red city. Your Warchief helped bring my people here, and we remember that." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My father's kodo lowed and backed into its pen when you came up the path, and it has never once done that for an orc. Whatever shadow you carry, keep it off the wheat, because the farmers here can't afford a field gone grey." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, haven't they, because I can feel it on you like a tether. My father would say a spirit belongs to the Earth Mother and no one else, so be very sure of the hand that holds that stone." },
   },
 
   react = {
@@ -456,7 +460,7 @@ P:NPC {
   key = "zarlman", id = TODO_NPC("Zarlman Two-Moons"), name = "Zarlman Two-Moons",
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "serene" }, values = { "wise", "patient" },
-  notices = { "class", "affliction" },
+  notices = { "class", "affliction", "lock_shards" },
   impression = {
     first = "He speaks of the spirits as if they were restless children.",
     third = "{name} met Zarlman Two-Moons, spiritual leader of Bloodhoof Village and keeper of the rite of vision.",
@@ -475,6 +479,8 @@ P:NPC {
       text = "You walk close to the spirits already; I can see it. Don't be afraid of what they show you." },
     { id = "n_ghostly", cat = "affliction", place = "before", when = { resSick = true },
       text = "You've come back from the spirit's road not long ago, and it leaves a mark. Rest, and it fades." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The spirits of this village are crowding away from your bag, because there are souls in those shards and they can hear them weeping. I won't ask where you took them from, but I will sing for them tonight." },
   },
 
   start = "hello",
@@ -639,7 +645,7 @@ P:NPC {
   prejudice = { race = "Scourge", amount = 8, why = "The Earth Mother's cycle ends in rest; he finds the walking dead an offence against it, though he is too kind to say so loudly." },
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_steed" },
   impression = {
     first = "He reads the weather from his aching knees and calls it progress.",
     third = "{name} met Harken Windtotem, who keeps watch over what flies above Mulgore, which lately means far too many swoops.",
@@ -656,6 +662,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter? Then you'll have a better eye for birds than most, so use it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse of yours left smoking prints in the grass all the way from the road, and the swoops scattered out of the sky when it passed. I've watched Mulgore's sky for years, and I've never seen birds flee a horse before." },
   },
 
   start = "hello",
@@ -823,7 +831,7 @@ P:NPC {
   key = "maur", id = TODO_NPC("Maur Raincaller"), name = "Maur Raincaller",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "solemn" }, values = { "brave" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "He tracks a beast the young hunters only whisper about.",
     third = "{name} met Maur Raincaller, a solemn tauren hunter on the trail of the great beast Mazzranache.",
@@ -838,6 +846,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something out in the grass had a go at you. Get mended before you go after anything bigger." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide you've wrapped yourself in didn't come off any beast in Mulgore, because it moves when you don't. I've skinned a lot of things, and I'd not want to meet whatever grew that." },
   },
 
   start = "hello",
@@ -997,7 +1007,7 @@ P:NPC {
   key = "mull", id = TODO_NPC("Mull Thunderhorn"), name = "Mull Thunderhorn",
   bible = "bibles/mulgore.md", role = "priest", tier = "quest",
   communities = { "bloodhoof" }, temper = { "worried" }, values = { "devout", "protective" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
   impression = {
     first = "He finds the wells no better each morning, and walks again tomorrow.",
     third = "{name} met Mull Thunderhorn, who grieves for the sacred wells of Mulgore poisoned by the Venture Company's machines.",
@@ -1012,6 +1022,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're of the plains, so the wells are yours too. Help me cleanse them." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a sourness on you, like the oil the goblins leave floating on my wells, and the elders would call it fel. I'll ask you not to drink from the sacred water, for its sake and for yours." },
   },
 
   start = "hello",
@@ -1162,7 +1174,7 @@ P:NPC {
   key = "ahab", id = TODO_NPC("Ahab Wheathoof"), name = "Ahab Wheathoof",
   bible = "bibles/mulgore.md", role = "farmer", tier = "quest",
   communities = { "bloodhoof" }, temper = { "anxious" }, values = { "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
   impression = {
     first = "He cannot go two sentences without asking after his dog Kyle.",
     third = "{name} met Ahab Wheathoof, a kindly rancher by the lake near Bloodhoof whose dog Kyle has a habit of running off.",
@@ -1176,6 +1188,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "That's a fine companion you have. Keep it close, and don't ever let it wander off." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Kyle would've barked himself hoarse at you, I think, because every dog I ever had growled at the dark, and you've got a little of it hanging on you. He's a good boy, though, so if you find him, maybe let someone else bring him home." },
   },
 
   start = "hello",
@@ -1332,7 +1346,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/mulgore.md", role = "innkeeper", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_stones" },
   impression = {
     first = "He swears folk come down from the bluff for his stew.",
     third = "{name} rested at Innkeeper Kauth's inn in Bloodhoof Village, where nobody leaves without a bowl of stew.",
@@ -1356,6 +1370,8 @@ P:NPC {
       text = "You look worn thin. Sit by the fire until the color comes back." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "The village brew is stronger than it tastes, and most learn that once." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a warlock's healthstone in your pack? It's warm as a fresh loaf, but I'd sooner you mended yourself with my stew, because at least I know what went into that." },
   },
 
   start = "hello",
@@ -1565,7 +1581,7 @@ P:NPC {
   key = "kaga", id = TODO_NPC("Kaga Wildhoof"), name = "Kaga Wildhoof",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "brave" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She has met more friends at campfires than in any town.",
     third = "{name} shared a fire with Kaga Wildhoof, a wandering tauren camped outside Bloodhoof who teaches the art of a good camp.",
@@ -1579,6 +1595,8 @@ P:NPC {
   notice = {
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "You work hides? Then you'll want to learn the tent. A night by a fire with a tent close by is a night well spent." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Come closer to the fire, because you've the chill on you that warlocks always carry, like the cold that sits in a cave mouth. Every one I've met on the wandering roads sat nearer my fire than anyone else." },
   },
 
   start = "hello",

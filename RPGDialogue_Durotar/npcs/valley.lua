@@ -6,7 +6,7 @@ P:NPC {
   key = "kaltunk", id = TODO_NPC("Kaltunk"), name = "Kaltunk",
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "dutiful" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "He has not forgotten what it was to arrive with nothing.",
     third = "{name} met Kaltunk, the gruff orc who greets new blood at the mouth of the Valley of Trials.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
       text = "You've never swung a weapon at something that swings back, have you? You will, and probably today." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The recruits stepped back when you came up the path, and so did the boars in their pen. Whatever you carry with you, the Valley can feel it, so go and do some good with it." },
   },
 
   start = "hello",
@@ -671,7 +673,7 @@ P:NPC {
   key = "thazzril", id = TODO_NPC("Foreman Thazz'ril"), name = "Foreman Thazz'ril",
   bible = "bibles/durotar.md", role = "worker", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "exasperated" }, values = { "practical" },
-  notices = { "idle" },
+  notices = { "idle", "lock_shadow" },
   impression = {
     first = "His peons' talent for napping exasperates and almost impresses him.",
     third = "{name} met Foreman Thazz'ril, who struggles to keep the sleepy peons of the Valley of Trials gathering lumber.",
@@ -687,6 +689,8 @@ P:NPC {
       text = "Hmm. You got the look of someone who'd nap behind a lumber pile, mon. Prove me wrong." },
     { id = "n_peon_orc", cat = "idle", when = { resting = true },
       text = "You look rested, mon, and I don't trust it. Nobody in dis valley gets rested by honest means." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every one of my peons woke from his nap the moment you walked by, mon, which be a first. Maybe you stand near the lumber pile a while, and Thazz'ril finally get a day's work out of them." },
   },
 
   start = "hello",
@@ -877,7 +881,7 @@ P:NPC {
   key = "galgar", id = TODO_NPC("Galgar"), name = "Galgar",
   bible = "bibles/durotar.md", role = "worker", tier = "quest",
   communities = { "valley_of_trials" }, temper = { "longsuffering" }, values = { "practical", "generous" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_stones" },
   impression = {
     first = "Nobody thanks the cook, he says, until the pot is empty.",
     third = "{name} met Galgar, the long-suffering cook who feeds the recruits, grunts and peons of the Valley of Trials.",
@@ -893,6 +897,8 @@ P:NPC {
       text = "A cook! Then you know nobody thanks us, and everybody notices when we stop." },
     { id = "n_thin", cat = "hunger", when = { maxLevel = 3 },
       text = "You're all elbows, recruit. Sit down before Gornek sends you out, because I'll not have it said you fainted on an empty belly." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone at your hip glows like coals, so keep it away from my pot. The last time a warlock leaned over the stew, it tasted of brimstone for a week." },
   },
 
   start = "hello",
@@ -1095,7 +1101,7 @@ P:NPC {
   key = "kzan", id = TODO_NPC("Kzan Thornslash"), name = "Kzan Thornslash",
   bible = "bibles/durotar.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "curt" }, values = { "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "He is curt and charges for everything, but he knows his trade.",
     third = "{name} met Kzan Thornslash, the curt weaponsmith who keeps the recruits of the Valley of Trials armed.",
@@ -1108,6 +1114,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Look at the state of that. Hand it over, and no, I'm not doing it for free." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a demon's hide you're wearing, and it's twitching like it wants to be somewhere else. Keep it away from my racks, because I've enough trouble with things walking off." },
   },
 
   start = "hello",

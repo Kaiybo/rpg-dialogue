@@ -458,7 +458,7 @@ P:NPC {
   key = "nimetz", id = TODO_NPC("Brother Nimetz"), name = "Brother Nimetz",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
-  notices = { "class", "craft", "form" },
+  notices = { "class", "craft", "form", "lock_shadow" },
 
   impression = {
     first = "He tended the sick, and now he studies what drove them mad.",
@@ -478,6 +478,8 @@ P:NPC {
       text = "A servant of the Light, out here! Then pray with me tonight, for these men need it, and so do I." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist! Would you look at this residue for me? I've my suspicions, but a second eye never hurts." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I reached for the Light as you came in, out of habit, to bless whoever comes through the gate, and it shied from you like a horse from a snake. I'll not pretend I understand that, but I'll still offer you a seat by the fire." },
   },
 
   start = "hello",
@@ -789,7 +791,7 @@ P:NPC {
   key = "thorsen", id = TODO_NPC("Private Thorsen"), name = "Private Thorsen",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "quest",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "loyal", "brave" },
-  notices = { "stealth", "kit" },
+  notices = { "stealth", "kit", "lock_stones" },
 
   impression = {
     first = "He keeps his voice down and knows more than he says.",
@@ -803,6 +805,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You ran into Kurzen's men, didn't you? They fight like they've got nothing left to lose, and they haven't." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you carry is a healthstone, isn't it, a life squeezed out of something else and kept for later? Half the men I lost in this jungle might have lived with one of those, so I can't bring myself to curse it." },
   },
 
   react = { { id = "r_stealth", on = "stealth", text = "Good, stay low. That's how I lived through Kurzen's camp, mostly." } },

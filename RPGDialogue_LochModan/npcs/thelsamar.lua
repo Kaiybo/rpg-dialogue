@@ -6,7 +6,7 @@ P:NPC {
   key = "kadrell", id = TODO_NPC("Mountaineer Kadrell"), name = "Mountaineer Kadrell",
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "hearty" }, values = { "dutiful", "friendly" },
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards" },
 
   impression = {
     first = "He seems cheerfully ready for whatever crawls out of the hills next.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "Ye look like ye lost an argument wi' a trogg, which happens tae the best of us. Go an' get mended." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, good! The troggs that came up under yer city are all over these hills too, so ye'll want a bit o' payback." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "That bag o' yers is fair stuffed wi' soul shards, an' I'll be countin' them like I'd count smuggled powder at the gate. They're no' against the law in Thelsamar, but I'd like tae know how many ye came in wi' an' how many ye leave wi'." },
   },
 
   start = "hello",
@@ -367,7 +369,7 @@ P:NPC {
   prejudice = { race = "NightElf", amount = 8, why = "A druid sat in his cousin Durn's Darkshore trench humming until the crew walked off." },
   bible = "bibles/thelsamar.md", role = "scholar", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "honest", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
 
   impression = {
     first = "He insists his slow dig will pick up any day now.",
@@ -389,6 +391,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "A miner! Ye'll know good stone from bad, then. Most o' what we find here is bad, but the good bits are worth it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone in yer pack, an' it's hummin' like the relics we dig out o' the old barrows. If anythin' ever whispers from it, ye'll bring it tae me before ye bring it tae anybody else, for I'd like tae know what it says." },
   },
 
   start = "hello",
@@ -739,7 +743,7 @@ P:NPC {
   key = "hearthstove", id = TODO_NPC("Innkeeper Hearthstove"), name = "Innkeeper Hearthstove", gender = "male",
   bible = "bibles/thelsamar.md", role = "innkeeper", tier = "service",
   communities = { "thelsamar" }, temper = { "jolly" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shadow" },
 
   impression = {
     first = "He will fight anyone who doubts his ale, once they've paid.",
@@ -770,6 +774,8 @@ P:NPC {
       text = "Troggs, was it? Sit down, for Vidra's got sausages on, an' they'll mend what the troggs broke." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "That's the spirit, or several spirits, by the look o' ye! Sit down before the floor comes up tae meet ye." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on the stair went low the minute ye walked in, an' that's no' the draught, for I sealed that draught myself. Ye can have a room, but I'll ask ye tae light yer own candles in it." },
   },
 
   start = "hello",
@@ -1013,7 +1019,7 @@ P:NPC {
   key = "vidra", id = TODO_NPC("Vidra Hearthstove"), name = "Vidra Hearthstove",
   bible = "bibles/thelsamar.md", role = "questgiver", tier = "quest",
   communities = { "thelsamar" }, temper = { "brisk" }, values = { "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She runs anyone out of her kitchen who brings nothing to cook.",
@@ -1030,6 +1036,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Then ye'll want my sausage recipe, an' ye can't have it, but ye'll want it all the same." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer pack's a healthstone, isn't it, an' it smells like nothin' at all, which is what bothers me. Real food smells o' somethin', so put that away an' let me feed ye properly." },
   },
 
   start = "hello",
@@ -1218,7 +1226,7 @@ P:NPC {
   key = "rugelfuss", id = TODO_NPC("Captain Rugelfuss"), name = "Captain Rugelfuss",
   bible = "bibles/thelsamar.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "formal" }, values = { "dutiful" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_steed" },
 
   impression = {
     first = "He has fought the same fight from the same hill too long.",
@@ -1236,6 +1244,8 @@ P:NPC {
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "A fighting sort, good. The King's lands need defenders more than they need visitors, and the stone here has had its fill of visitors." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye rode up on a horse wi' burnin' hooves, an' it's left black prints all the way down the Valley o' Kings. Those statues have stood there since before my grandfather's grandfather, so keep that beast on the road an' off the stone." },
   },
 
   start = "hello",
@@ -1562,7 +1572,7 @@ P:NPC {
   key = "hinderweir", id = TODO_NPC("Chief Engineer Hinderweir VII"), name = "Chief Engineer Hinderweir VII",
   bible = "bibles/thelsamar.md", role = "worker", tier = "quest",
   communities = { "thelsamar" }, temper = { "anxious" }, values = { "proud", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He begged me to hold the rail on his perfectly safe walkway.",
@@ -1579,6 +1589,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! Come and look at these stress readings. No? Well, not everyone loves a stress reading, and that's their loss." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone ye're carryin', an' I'd know the feel o' one anywhere after what the Dark Irons dropped on Blackrock. Keep it away from my dam, please, because I've engineered for floods an' earthquakes but I havenae engineered for a burnin' giant." },
   },
 
   start = "hello",

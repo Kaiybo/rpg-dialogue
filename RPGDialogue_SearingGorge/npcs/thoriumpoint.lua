@@ -6,7 +6,7 @@ P:NPC {
   key = "oilfist", id = TODO_NPC("Overseer Oilfist"), name = "Overseer Oilfist",
   bible = "bibles/searinggorge.md", role = "noble", tier = "quest",
   communities = { "thorium_point" }, temper = { "stern" }, values = { "proud", "practical" },
-  notices = { "race", "profession" },
+  notices = { "race", "profession", "lock_shadow" },
 
   impression = {
     first = "He left the mountain's service and carries that choice like a weight.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "Ironforge, by yer beard. Our clans have bled each other for centuries, but up here I've no time for it; do ye?" },
     { id = "n_smith", cat = "profession", when = { profession = { "Blacksmithing", "Enchanting" } },
       text = "A craftsman, then, an' ye'll understand us better than most. We were made tae forge, an' we forged for a tyrant, but now we choose." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The forge-fires in this camp leaned toward ye when ye walked in, the way our elders swore every fire in Thaurissan leaned toward the summoners the night they called the Firelord. Mind yerself, warlock, for that's a thing I'd no' see twice." },
   },
 
   start = "hello",
@@ -334,7 +336,7 @@ P:NPC {
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "thorium_point" }, temper = { "grumbling" }, values = { "loyal", "lazy" },
   prejudice = { race = "Dwarf", faction = "Alliance", amount = 8, why = "Ironforge folk spit at the Brotherhood's Dark Iron dwarves, so he spits back, mildly." },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_steed" },
 
   impression = {
     first = "Freedom, for him, mostly seems to mean a chair.",
@@ -355,6 +357,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Tauren" } },
       text = "Big, aren't ye? Folk say I'm built like an orc, an' I take it as a compliment; do you?" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that a horse wi' fire for feet? Lolo'll have my hide for lettin' it through the gate, but I'll confess it's the bonniest thing I've seen in the Gorge, an' that's no' sayin' much." },
   },
 
   start = "hello",
@@ -561,7 +565,7 @@ P:NPC {
   key = "lolo", id = TODO_NPC("Lookout Captain Lolo Longstriker"), name = "Lookout Captain Lolo Longstriker",
   bible = "bibles/searinggorge.md", role = "guard", tier = "quest",
   communities = { "thorium_point" }, temper = { "jovial" }, values = { "loyal", "proud" },
-  notices = { "drink", "stealth" },
+  notices = { "drink", "stealth", "lock_armor" },
 
   impression = {
     first = "Nearly blind, he smells out trouble with some help from the bottle.",
@@ -578,6 +582,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye've had a few, I can smell it, an' good! A wee nip sharpens the nose, an' mine's never been sharper." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark shell round ye is a demon's armour, warlock, an' I saw its like on the Dark Iron summoners in the deep forges. Keep it on if ye must, but dinnae come near the bairns wearin' it." },
   },
 
   react = { { id = "r_stealth", on = "stealth", text = "Someone's sneakin', an' don't ask how I know. I've no eyes, but I've a nose like a hound an' ears like a bat." } },
@@ -817,7 +823,7 @@ P:NPC {
   key = "kalaran", id = TODO_NPC("Kalaran Windblade"), name = "Kalaran Windblade",
   bible = "bibles/searinggorge.md", role = "questgiver", tier = "quest",
   communities = { "searing_gorge_wilds" }, temper = { "brooding" }, values = { "vengeful", "cunning" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He tells of his murdered father like a story told many times.",
@@ -831,6 +837,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
       text = "One of the Light's own. You'll understand, then, why the guilty must answer for what they've done." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag? It burns with something hotter than the Gorge, and I'll admit I've wondered whether a flame like mine could be kindled from one, though I'd not ask you to part with it." },
   },
 
   start = "hello",

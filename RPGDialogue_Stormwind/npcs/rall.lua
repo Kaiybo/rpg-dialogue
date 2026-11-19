@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/rall.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "pious", "stern", "honest" },
   spiritSensitive = true,
-  notices = { "readiness", "humility" },
+  notices = { "readiness", "humility", "lock_armor" },
   impression = {
     first = "He calls the Light a debt owed to those who cannot repay.",
     third = "{name} met Duthorian Rall in the Cathedral of Light, who tests the paladins sent to him from across the kingdom.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "You've come into the Cathedral in pieces. Readiness is a virtue too. Mend that, then we'll speak of the Light." },
     { id = "n_proud", cat = "humility", when = { class = "PALADIN", minLevel = 30 },
       text = "You've grown strong since your first test. Strength is the easy part. Tell me you still remember why you picked up the sword." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You wear a ward against shadow, which I find strange, since shadow is the thing you deal in. Perhaps even you have learned to fear what you call, and that is a better beginning than most I test." },
   },
 
   start = "hello",

@@ -6,7 +6,7 @@ P:NPC {
   key = "llane", id = TODO_NPC("Llane Beshere"), name = "Llane Beshere",
   bible = "bibles/llane.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "fitness", "stance" },
+  notices = { "fitness", "stance", "lock_armor" },
   impression = {
     first = "He corrected my stance before he asked what I wanted.",
     third = "{name} met Llane Beshere, Northshire's warrior trainer, who teaches a proper stance as if it were scripture.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You died recently; I can see it in how you stand. Sit down before you fall down." },
     { id = "n_naked", cat = "fitness", when = { nearlyNaked = true, class = "WARRIOR" },
       text = "A warrior without armor is a target with opinions." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a ward of demon hide crawling up your arms, isn't it? My recruits wear honest mail and earn every dent in it, so mind you don't stand where they can see you better armoured than they are." },
   },
 
   start = "hello",

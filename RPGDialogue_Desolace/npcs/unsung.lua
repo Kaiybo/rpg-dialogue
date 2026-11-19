@@ -7,7 +7,7 @@ P:NPC {
   title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nijels_point" }, temper = { "brisk", "wry" }, values = { "practical", "loyal" },
-  notices = { "weary", "kit" },
+  notices = { "weary", "kit", "lock_soulstone" },
 
   impression = {
     first = "She talks about the wasteland as though it were a tiresome joke.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Desolace got you, didn't it? Everyone looks like that after their first trip down. Sit, have some water, and try not to go back until you can stand straight." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "You're half-dressed, friend, and the sun down there will burn you raw. I don't sell armor, but you'll want a cloak at the very least." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tied your soul to a stone, haven't they? I've seen warlocks do that for their friends before they go down to Thunder Axe, and the ones with stones tend to come back, so I suppose it's a kindness of sorts." },
   },
 
   start = "hello",
@@ -207,7 +209,7 @@ P:NPC {
   title = "Food & Drink",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nijels_point" }, temper = { "warm", "talkative" }, values = { "kind", "practical" },
-  notices = { "hunger", "drink" },
+  notices = { "hunger", "drink", "lock_pact" },
 
   impression = {
     first = "She worries over every traveler who goes down into Desolace.",
@@ -224,6 +226,8 @@ P:NPC {
       text = "It's near supper, dear, and the stew's been on since noon. Have a bowl now, while the patrol's still out and there's some left in the pot." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had a drop or two, haven't you? Eat some bread, dear, and drink some water, and don't go down that path until you've got your feet under you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed like you've a fever, and I've seen that on warlocks before, so I'd guess it's their imp's doing. Have some water before you eat, because the bread won't help with that." },
   },
 
   start = "hello",

@@ -12,7 +12,7 @@ P:NPC {
   key = "harutt", id = TODO_NPC("Harutt Thunderhorn"), name = "Harutt Thunderhorn", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "steady" }, values = { "brave", "patient" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_armor" },
   impression = {
     first = "He makes braves carry river stones uphill until they stop complaining.",
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "The quilboar have been at you, I see, and your armor shows every tusk. Rest before you go back down the ravine, because pride heals slower than a bruise." },
     { id = "n_orc", cat = "class", when = { class = "WARRIOR", race = "Orc" },
       text = "An orc warrior on our mesa, and a long way from Durotar. Your people fight like a storm, but here you might learn to fight like a mountain." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That shell of shadow around you is drinking the sunlight, and my young braves are staring at it instead of at their targets. A good shield is a fine thing, but a brave should learn to stand behind one he can see." },
   },
   start = "hello",
   nodes = {
@@ -179,7 +181,7 @@ P:NPC {
   key = "meela", id = TODO_NPC("Meela Dawnstrider"), name = "Meela Dawnstrider", title = "Shaman Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "serene" }, values = { "wise", "kind" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
   impression = {
     first = "She has no patience for anyone who treats the spirits like servants.",
     third = "{name} met Meela Dawnstrider, the shaman trainer of Camp Narache.",
@@ -191,6 +193,8 @@ P:NPC {
   notice = {
     { id = "n_ghost", cat = "form", when = { form = { "ghostwolf" } },
       text = "You come to me on four legs and wrapped in spirit, and that is good. The ghost wolf carries you only because the spirits allow it, so thank them when you change back." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The fire spirits recoil from you, child, because there's fel heat in you, the kind that once ran in the orcs' blood and left them sick for a generation. I'd hate to see it take root in you the way it did in them." },
   },
   start = "hello",
   nodes = {
@@ -387,7 +391,7 @@ P:NPC {
   key = "gart", id = TODO_NPC("Gart Mistrunner"), name = "Gart Mistrunner", title = "Druid Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "narache" }, temper = { "calm" }, values = { "wise", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
   impression = {
     first = "He speaks of the night elves who taught his people with gratitude.",
     third = "{name} met Gart Mistrunner, the druid trainer of Camp Narache.",
@@ -399,6 +403,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = { "bear" } },
       text = "You stand before me as a bear, and you wear the shape well. Remember that the bear is strong because it is patient, not because it is angry." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The grass is browning in a little circle where you stand, and I think the shards in your bag are to blame, because they're cold enough to frost it. Please don't linger near the young saplings, because they've had a hard enough year." },
   },
   start = "hello",
   nodes = {
@@ -591,7 +597,7 @@ P:NPC {
   key = "krang", id = TODO_NPC("Krang Stonehoof"), name = "Krang Stonehoof", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "bloodhoof" }, temper = { "gruff" }, values = { "proud", "dutiful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He is proud that the tauren have become warriors of the Horde.",
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
@@ -604,6 +610,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You have been fighting the Venture Company, I think, because only their saws leave marks like that. Get your armor mended before you go back to the mines." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone at your belt is giving off heat like a coal from the forge, and I'd guess it's one of your firestones. Keep it covered near the barracks, because my braves have enough burns from their own clumsiness." },
   },
   start = "hello",
   nodes = {
@@ -793,7 +801,7 @@ P:NPC {
   key = "mahnott", id = TODO_NPC("Mahnott Roughwound"), name = "Mahnott Roughwound", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "bloodhoof" }, temper = { "dry" }, values = { "practical", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He says a small weapon simply looks silly in tauren hands.",
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
@@ -805,6 +813,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You work the forge as well, I can see it on your hands. Then you know a good haft from a bad one, so I won't waste your time with the bad ones." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge fire went low and blue when you came up, and it only does that when the wind turns cold. Whatever you carry with you, keep it away from the coals, because I've good steel in there." },
   },
   start = "hello",
   nodes = {
@@ -957,7 +967,7 @@ P:NPC {
   key = "jhawna", id = TODO_NPC("Jhawna Oatwind"), name = "Jhawna Oatwind", title = "Baker",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "hunger", "weary" },
+  notices = { "hunger", "weary", "lock_shadow" },
   impression = {
     first = "Nobody leaves her without hearing which farm the grain came from.",
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
@@ -969,6 +979,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Oh, look at you, all scraped up. Eat something before you do anything else, because a hungry fighter makes poor choices." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dough went flat the moment you stepped in the door, warlock, and it had been rising nicely all morning. I won't blame you aloud, but I'll ask you to eat your bread outside." },
   },
   start = "hello",
   nodes = {

@@ -9,7 +9,7 @@ P:NPC {
   key = "lescovar", id = TODO_NPC("Lord Gregor Lescovar"), name = "Lord Gregor Lescovar",
   bible = "bibles/city3.md", role = "noble", tier = "quest",
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "ambitious" },
-  notices = { "deed", "status" },
+  notices = { "deed", "status", "lock_soulstone" },
   impression = {
     first = "His courtesy feels like being weighed on a merchant's scale.",
     third = "{name} met Lord Gregor Lescovar of the House of Nobles, an elegant man who prefers the quiet of the library.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "You've been down in that dreadful Westfall mine, I hear. Did you bring anything back, papers or ledgers? Purely out of curiosity, of course." },
     { id = "n_rogue", cat = "status", when = { class = "ROGUE" },
       text = "Shaw's sort, by the look of you. Tell him I'm reading; it's all I ever do here, reading." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, I see, and that is a rare kind of insurance, a life held in reserve. Men in the House would pay handsomely for one, and a few of them would even use it on themselves." },
   },
 
   start = "hello",
@@ -267,7 +269,7 @@ P:NPC {
   key = "dashel", id = TODO_NPC("Dashel Stonefist"), name = "Dashel Stonefist",
   bible = "bibles/city3.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "brawler" }, values = { "proud" },
-  notices = { "body", "drink" },
+  notices = { "body", "drink", "lock_pact" },
   impression = {
     first = "Most of his evenings end in a fight, and he enjoys them.",
     third = "{name} met Dashel Stonefist, an Old Town brawler who settles his arguments with his fists.",
@@ -283,6 +285,8 @@ P:NPC {
       text = "Now there's a pair o' shoulders. Fancy a round? Not o' drinks, mind, the other kind." },
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ye're drunk? Good, that makes it fair, since I am too." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've a heat coming off you like a man about to throw the first punch, and I know that look, because I wear it most evenings. It's your imp's doing, is it? Then I'll not take it personal." },
   },
 
   start = "hello",
@@ -493,7 +497,7 @@ P:NPC {
   key = "furen", id = TODO_NPC("Furen Longbeard"), name = "Furen Longbeard",
   bible = "bibles/city3.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "loyal" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_armor" },
   impression = {
     first = "He looks at a dent and sees the whole fight behind it.",
     third = "{name} met Furen Longbeard, Grimand Elmore's student, who forges shields meant to be trusted rather than admired.",
@@ -509,6 +513,8 @@ P:NPC {
       text = "Look at the state o' that! Who did this tae ye, a gnoll? It looks like a gnoll did it, so leave it wi' me." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Fellow smith. Ye'll know the master, then, by reputation if no' by temper. Everyone knows the temper." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward ye've drawn round yerself is demon hide, isn't it, an' it sits on ye better than any plate I've made. Master Elmore would say it's no' armour at all, an' I'd say it's turned a blade, by the look o' it." },
   },
 
   start = "hello",
@@ -694,7 +700,7 @@ P:NPC {
   key = "thelwater", id = TODO_NPC("Warden Thelwater"), name = "Warden Thelwater",
   bible = "bibles/city3.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
-  notices = { "soldier", "stealth" },
+  notices = { "soldier", "stealth", "lock_shards" },
   impression = {
     first = "He looks like a man who has stopped opening his letters.",
     third = "{name} met Warden Thelwater of the Stockade, an anxious man who would rather nobody heard about his lower tiers.",
@@ -708,6 +714,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Don't. Whatever you're thinking of doing, don't. I've enough people trying to get out without people trying to get in." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Fifteen shards in your bag if there's one, and every one of them a soul. In my Stockade I'd count them out on the table and log each one by name, if I only knew the names." },
   },
 
   start = "hello",

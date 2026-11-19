@@ -7,7 +7,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/winterspring.md", role = "innkeeper", tier = "service",
   communities = { "everlook" }, temper = { "jumpy" }, values = { "friendly", "practical" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shards" },
 
   impression = {
     first = "She checked me for bugs before she let me near the fire.",
@@ -31,6 +31,8 @@ P:NPC {
       text = "You look frozen through and then some, sugar. Sit by the fire, but slowly, because thawing hurts, and I can't bill you for the screaming." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Careful out there in that state, sugar. People fall asleep in the snow and wake up as a furbolg's breakfast, and then who pays for the room?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Sugar, what's that clinking in your bag, and why is it colder than the wind I just shut out? Those little purple stones hum like beetles in a jar, so keep 'em buckled up and nowhere near my bedding." },
   },
 
   start = "hello",
@@ -270,7 +272,7 @@ P:NPC {
   key = "umi", id = TODO_NPC("Umi Rumplesnicker"), name = "Umi Rumplesnicker",
   bible = "bibles/winterspring.md", role = "trainer", tier = "service",
   communities = { "everlook" }, temper = { "playful" }, values = { "inventive", "mischievous" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_armor" },
 
   impression = {
     first = "Whatever she's building is furry, and someone is going to scream.",
@@ -284,6 +286,8 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "A goblin! Then you know as well as I do that a good invention is half engineering and half making your friends scream." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Ooh, is that demon hide you've wrapped round yourself, the dark stuff that crawls when you breathe? I'd give a week of pranks to know how it flexes in this cold, because my yeti's fur cracks every time it frosts." },
   },
 
   start = "hello",
@@ -478,7 +482,7 @@ P:NPC {
   key = "gregor", id = TODO_NPC("Gregor Greystone"), name = "Gregor Greystone",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "everlook", "argent_dawn" }, temper = { "steady" }, values = { "devout", "dutiful" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He is steady and kind, and he forgets to eat.",
@@ -498,6 +502,8 @@ P:NPC {
       text = "One of the Light's own! The Dawn could use you, friend, when you're ready for the Plaguelands." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "Forsaken, are you? The Dawn takes anyone who fights the Scourge, and you've more cause than most, so you're welcome here." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has tucked your soul into a warlock's stone, and I feel it in the Light like a pebble in a boot. The Cult of the Damned keeps souls too, so I hope whoever holds yours is someone you would trust with your life, because that is exactly what you've given them." },
   },
 
   start = "hello",

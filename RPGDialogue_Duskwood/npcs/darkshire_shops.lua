@@ -553,7 +553,7 @@ P:NPC {
   key = "matt_johnson", id = TODO_NPC("Matt Johnson"), name = "Matt Johnson", title = "Mining Trainer",
   bible = "bibles/darkshire_shops.md", role = "trainer", tier = "service",
   communities = { "darkshire" }, temper = { "weary" }, values = { "craft", "cautious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He teaches mining where nobody dares go down a mine.",
     third = "{name} met Matt Johnson, Darkshire's mining trainer.",
@@ -565,6 +565,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "You've dust in the creases of your hands, so you've been underground. Did you come out the same way you went in? That's all I ask of my students." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That black stone in your pack isn't from any seam I know, and it's warm the way the old shafts near the Rolling Hills get warm before something comes up. Whatever it's for, don't drop it down a mine." },
   },
   start = "hello",
   nodes = {
@@ -734,7 +736,7 @@ P:NPC {
   key = "danielle", id = TODO_NPC("Danielle Zipstitch"), name = "Danielle Zipstitch", title = "Tailoring Supplies",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "chatty" }, values = { "craft", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She talks the way she sews, quickly and without dropping a stitch.",
     third = "{name} met Danielle Zipstitch, who sells tailoring supplies upstairs in Madame Eva's house in Darkshire.",
@@ -746,6 +748,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "A tailor! I could tell by the neat hem on your cloak, and I'm never wrong about hems. Come and look at the dyes." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every bolt of white linen on that table has gone a shade greyer since you came in, dear, which is very dramatic of you and terrible for business. Madame Eva would call it an omen, and I'd call it a reason to stand by the black velvet." },
   },
   start = "hello",
   nodes = {
@@ -932,7 +936,7 @@ P:NPC {
   key = "sheri", id = TODO_NPC("Sheri Zipstitch"), name = "Sheri Zipstitch", title = "Tailoring Supplies",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "anxious" }, values = { "cautious", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "She jumps at every creak on the stairs.",
     third = "{name} met Sheri Zipstitch, who sells tailoring supplies with Danielle above Madame Eva's house.",
@@ -944,6 +948,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "You sew, don't you? Then you'll understand why I keep the good thread locked up; Danielle gives it away to anyone with a sad story." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "I've counted the cold coming off your pack, and it's at least a dozen soul shards, and I counted twice because my hands were shaking. Danielle says I fret too much, but please don't set it on the ledgers." },
   },
   start = "hello",
   nodes = {
@@ -1317,7 +1323,7 @@ P:NPC {
   key = "kzixx", id = TODO_NPC("Kzixx"), name = "Kzixx", title = "Rare Goods",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = {}, temper = { "smooth" }, values = { "greedy", "freedom" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
   impression = {
     first = "Nothing in the forest worries him, so long as business is good.",
     third = "{name} met Kzixx, a goblin trader selling rare goods by the Darkened Bank road in Duskwood.",
@@ -1329,6 +1335,8 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "Ha! Another goblin out in this wet dump? Don't you dare undercut me, pal, 'cause this road's mine, bought and paid for, and I got the receipts around here somewhere." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone, chum? Kzixx knows a fella down south who'd pay forty silver for one of those, maybe fifty if nobody asked questions, and nobody ever asks. Don't you go sellin' it to anybody else before you've talked to me." },
   },
   start = "hello",
   nodes = {

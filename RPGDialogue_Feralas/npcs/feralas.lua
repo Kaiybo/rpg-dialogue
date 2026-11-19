@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { { class = "WARLOCK", amount = 15, why = "the Legion's tools; her family died in the War of the Ancients" }, { class = "MAGE", amount = 8, why = "the Highborne's arcane hunger brought the Legion" } },
   communities = { "feathermoon" }, temper = { "intent" }, values = { "loyal", "dutiful", "brave" },
   likesTone = "blunt",
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor", "lock_taint" },
 
   impression = {
     first = "Her loyalty to the High Priestess runs deeper than duty.",
@@ -34,6 +34,10 @@ P:NPC {
       text = "You carry yourself like someone who's held a line. Feralas will test that, and so will I." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "Sister, or brother, of the kaldorei: the Sentinels can always use another. Think on it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear demon hide like a cloak, and I have seen it worn on the flesh of satyrs in Eldre'Thalas, grown into their own skin. Keep it fastened while you stand in my stronghold, because my Sentinels shoot at that shape on sight." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is fel in your blood, warlock, more than your craft needs, and I can see it in the colour of your eyes. That is how the Highborne began, and you know how they ended, so I will not tell you again." },
   },
 
   start = "hello",
@@ -457,7 +461,7 @@ P:NPC {
   key = "pratt", id = TODO_NPC("Pratt McGrubben"), name = "Pratt McGrubben",
   bible = "bibles/feralas.md", role = "vendor", tier = "quest",
   communities = { "feathermoon" }, temper = { "genial" }, values = { "kind", "practical" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shadow" },
 
   impression = {
     first = "He calls himself mostly retired from paladin work and busy with leather.",
@@ -473,6 +477,8 @@ P:NPC {
       text = "A leatherworker! Then I've a pattern or two you'll want to earn. Bring me proof of good work and we'll see." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin, out here! I swung a hammer for the Light longer than I care to count, and now I swing a needle. The Light doesn't seem to mind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came in, friend, like a hand pulled from a hot stove, and I felt it as plain as you'd feel a draught. I'm not judging, mind, I'm only telling you, because nobody ever told the warlocks I fought." },
   },
 
   start = "hello",
@@ -693,7 +699,7 @@ P:NPC {
   key = "shyria", id = TODO_NPC("Innkeeper Shyria"), name = "Innkeeper Shyria",
   bible = "bibles/feralas.md", role = "innkeeper", tier = "service",
   communities = { "feathermoon" }, temper = { "gentle" }, values = { "kind", "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
 
   impression = {
     first = "Her gentle way makes the island feel safer than it is.",
@@ -713,6 +719,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've come back from somewhere grey and far away. Sit; the Sentinels can spare you for an evening." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in your pack? The Sentinels won't touch one, because of whose craft made it, but I keep bandages behind the bar for anyone who comes back from Eldre'Thalas, and I'll not ask which you use." },
   },
 
   start = "hello",
@@ -888,7 +896,7 @@ P:NPC {
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   communities = { "mojache" }, temper = { "fierce" }, values = { "loyal", "stern" },
   likesTone = "blunt", race = "Orc",
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards", "lock_steed" },
 
   impression = {
     first = "His one answer for most problems in Feralas is killing ogres.",
@@ -910,6 +918,10 @@ P:NPC {
       text = "A warrior, good. The Gordunni are big and stupid, so hit them where it hurts, and that's everywhere if you hit hard enough." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ogre clubs do that. Get mended and go back; they don't stop, so we don't either." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You carry a lot of shards, warlock, and I hope a few of them came off Gordunni shamans. Every ogre caster you put in a stone is one less that kills my warriors, so fill your bag." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That demon horse left burning hoofprints through Camp Mojache, and the kodos have been stamping ever since. Ride it at the ogres, not through my camp." },
   },
 
   start = "hello",
@@ -1504,7 +1516,7 @@ P:NPC {
   key = "greul", id = TODO_NPC("Innkeeper Greul"), name = "Innkeeper Greul",
   bible = "bibles/feralas.md", role = "innkeeper", tier = "service",
   communities = { "mojache" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_pact" },
 
   impression = {
     first = "Her fire feels like the safest spot in Feralas.",
@@ -1523,6 +1535,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look worn thin as old hide. Sit; nothing in Feralas can reach you for an hour." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running warm, friend, warmer than the fire behind me, and I think that is the imp's pact in your blood. Sit away from the hearth and drink some water, because I would like my guests to stay where I put them." },
   },
 
   start = "hello",

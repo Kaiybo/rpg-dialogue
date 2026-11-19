@@ -6,7 +6,7 @@ P:NPC {
   key = "jorn", id = TODO_NPC("Jorn Skyseer"), name = "Jorn Skyseer",
   bible = "bibles/taurajo.md", role = "trainer", tier = "quest",
   communities = { "taurajo" }, temper = { "patient" }, values = { "wise", "kind" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_pact" },
   impression = {
     first = "Beside him, the empty Barrens began to look far less empty.",
     third = "{name} met Jorn Skyseer, the patient tauren at Camp Taurajo who teaches hunters to see the life hidden on the Barrens.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A hunter? Then you're my student, whether you meant to be or not. Sit down." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your companion trusts you; I can see it in how it stands. Earn that every day." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your skin is flushed like a lion's before it springs, and I'd guess the little fire-thing you keep has put a fever in your blood. The plainstriders will smell it long before you're in bowshot, so hunt downwind." },
   },
 
   start = "hello",
@@ -251,7 +253,7 @@ P:NPC {
   key = "mangletooth", id = TODO_NPC("Mangletooth"), name = "Mangletooth",
   bible = "bibles/taurajo.md", role = "questgiver", tier = "quest",
   communities = { "taurajo" }, temper = { "scheming" }, values = { "cunning" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
   impression = {
     first = "He offers deals from his cage as though he held the keys.",
     third = "{name} met Mangletooth, a caged Razormane quilboar at Camp Taurajo with a grudge against his own kin and a deal for anyone who listens.",
@@ -265,6 +267,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "*snort* Tall cow-folk keep Mangletooth in a cage. Mangletooth remembers every face." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "*snort* Your shadow is wrong, because it lies toward the sun and not away. The Death's Head crones in the Kraul cast shadows like that, and Mangletooth does not trust them either." },
   },
 
   start = "hello",
@@ -453,7 +457,7 @@ P:NPC {
   key = "tatternack", id = TODO_NPC("Tatternack Steelforge"), name = "Tatternack Steelforge",
   bible = "bibles/taurajo.md", role = "blacksmith", tier = "quest",
   communities = { "taurajo" }, temper = { "curious" }, values = { "curious", "practical" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_armor" },
   impression = {
     first = "To him every weapon is a letter from its wielder's hand.",
     third = "{name} met Tatternack Steelforge, a curious smith at Camp Taurajo who studies the weapons of every people the Horde meets.",
@@ -468,6 +472,8 @@ P:NPC {
       text = "A smith! Then you'll know what I mean: the quilboar's crude spears teach me more than a dozen fine orc blades." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "That armor's taken a beating, and an interesting one. Centaur, I'd guess, from the cuts." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward on you, the dark hide crawling over your shoulders, does it turn a blade? I'll note it in my book either way, though I'd rather study plain mail that doesn't watch me back." },
   },
 
   start = "hello",
@@ -607,7 +613,7 @@ P:NPC {
   key = "byula", id = TODO_NPC("Innkeeper Byula"), name = "Innkeeper Byula",
   bible = "bibles/taurajo.md", role = "innkeeper", tier = "service",
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
   impression = {
     first = "She has never found the hyenas' laughter funny.",
     third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
@@ -624,6 +630,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "The road back from the spirit healer is long. Sit, and let the stew warm you back into your body." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You'll keep that bag of shards off my tables, because the cold off them curdles the milk and the herders will blame me. I don't know what you keep in those little stones, but they hum like something unhappy." },
   },
 
   start = "hello",

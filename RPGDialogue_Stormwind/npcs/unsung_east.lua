@@ -8,7 +8,7 @@ P:NPC {
   key = "agustus_moulaine", id = TODO_NPC("Agustus Moulaine"), name = "Agustus Moulaine", title = "Armor Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "devout" }, values = { "faith", "craft" },
-  notices = { "paladin", "kit" },
+  notices = { "paladin", "kit", "lock_taint" },
   impression = {
     first = "He speaks of armour as if it were scripture.",
     third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A knight of the Silver Hand, under my roof! The Cathedral's paladins have bought their plate here since the square was rebuilt, and I'd be honoured to fit one more." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Your armour's been through something terrible, friend. Have it mended before you face anything else, or it will fail you at the worst moment." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You smell of brimstone, strong enough that the Silver Hand lads by the door have gone quiet. It's not the craft I mind so much as how deep it's gone in, and I've seen that green at the edge of a man's eyes before." },
   },
   start = "hello",
   nodes = {
@@ -184,7 +186,7 @@ P:NPC {
   key = "theresa_moulaine", id = TODO_NPC("Theresa Moulaine"), name = "Theresa Moulaine", title = "Robe Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "faith", "mercy" },
-  notices = { "priest", "kit" },
+  notices = { "priest", "kit", "lock_shards" },
   impression = {
     first = "She blesses you as though it were part of the sale.",
     third = "{name} met Theresa Moulaine, who sells robes at Righteous Plates in Cathedral Square.",
@@ -198,6 +200,8 @@ P:NPC {
       text = "One of the Cathedral's own. I've dressed more novices than ever knelt in that nave at once, so let me see if I can't find you something better than the Church's wool." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Your robe is torn nearly to ribbons. Whatever you faced, I'm glad you came back from it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those are soul shards clinking in your pack, and I'll not have one of the Archbishop's deacons fainting in my shop again. Keep the bag closed while you look at the robes, please." },
   },
   start = "hello",
   nodes = {
@@ -355,7 +359,7 @@ P:NPC {
   key = "jenova_stoneshield", id = TODO_NPC("Jenova Stoneshield"), name = "Jenova Stoneshield", title = "Stable Master",
   bible = "bibles/unsung.md", role = "stablemaster", tier = "service",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "animals", "loyal" },
-  notices = { "pet", "class" },
+  notices = { "pet", "class", "lock_steed" },
   impression = {
     first = "She talks to the beasts more kindly than to their owners.",
     third = "{name} met Jenova Stoneshield, the dwarf stable master of Stormwind's Dwarven District.",
@@ -367,6 +371,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } }, place = "before",
       text = "Now there's a fine beast. What's {pet} been eating? Never mind, I can see it in the coat; ye've been feeding it scraps." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye'll leave that felsteed outside, for every beast in my stable has its ears flat an' its eyes white. I've kept boars an' bears an' worse, but nothin' that leaves fire in its own hoofprints." },
   },
   start = "hello",
   nodes = {
@@ -522,7 +528,7 @@ P:NPC {
   key = "billibub", id = TODO_NPC("Billibub Cogspinner"), name = "Billibub Cogspinner", title = "Engineering Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "excitable" }, values = { "invention", "community" },
-  notices = { "craft", "gnome" },
+  notices = { "craft", "gnome", "lock_shards" },
   impression = {
     first = "He explains how his parts explode with real delight.",
     third = "{name} met Billibub Cogspinner, a gnome who sells engineering supplies in the Dwarven District.",
@@ -536,6 +542,8 @@ P:NPC {
       text = "An engineer! I can tell by the scorch marks, and I mean that as the highest compliment." },
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" }, place = "before",
       text = "A fellow gnome! Were you out of Gnomeregan before it all went wrong? No, don't answer that, nobody likes to talk about it." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Is that an infernal stone? Those come down out of the sky with something very large attached, and I'd love to clock the rate of descent. Please don't drop it, though, because I've a lot of very flammable stock." },
   },
   start = "hello",
   nodes = {

@@ -7,7 +7,7 @@ P:NPC {
   key = "marin", id = TODO_NPC("Marin Noggenfogger"), name = "Marin Noggenfogger",
   bible = "bibles/tanaris.md", role = "vendor", tier = "major",
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "ambitious", "practical" },
-  notices = { "purse", "drink" },
+  notices = { "purse", "drink", "lock_shards", "lock_taint" },
 
   impression = {
     first = "He talks about his elixir like a child, side effects and all.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "Now that is a well-stuffed purse, friend! Have you ever thought about investing in liquid refreshment, the kind with side effects? Only minor ones, and they're all in the small print!" },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ah, you've been at the Road Warrior's ale, I see, which is strictly amateur hour, pal. Wait until you try my elixir, which costs more and does more!" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "What's in the bag that's cold enough to sweat in this heat? Soul shards, ha! I do wonder what a splash of Noggenfogger would do to one, though Sprinkle would have my hide for even asking." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You've got a green tinge about the gills, friend, and I'd know, because half my customers turn colors. Mine wears off in an hour, though, and I've a feeling yours doesn't." },
   },
 
   start = "hello",
@@ -482,7 +486,7 @@ P:NPC {
   key = "sprinkle", id = TODO_NPC("Sprinkle"), name = "Sprinkle",
   bible = "bibles/tanaris.md", role = "citizen", tier = "quest",
   communities = { "gadgetzan" }, temper = { "warm" }, values = { "loyal", "generous" },
-  notices = { "craft" },
+  notices = { "craft", "lock_pact" },
 
   impression = {
     first = "She lets Marin think he runs their partnership, and enjoys it.",
@@ -499,6 +503,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Then you know the secret, sweetie: anything at all can taste good, if you find the right ingredient, and the right ingredient is worth more than gold." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running hot, sweetie, hotter than the desert, and that's the imp's blood pact, isn't it? I can see it in your cheeks, so sit down and have something cool, but keep the little firebug away from my biscuits." },
   },
 
   start = "hello",
@@ -732,7 +738,7 @@ P:NPC {
   key = "bilgewhizzle", id = TODO_NPC("Chief Engineer Bilgewhizzle"), name = "Chief Engineer Bilgewhizzle",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "harried" }, values = { "practical", "proud" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_breath" },
 
   impression = {
     first = "He watches his pressure gauge the way others watch for storms.",
@@ -750,6 +756,8 @@ P:NPC {
       text = "An engineer! Look at this pump, no, really look at it, and tell me it's not beautiful, and worth every one of the four thousand gold it cost. Then tell me why it isn't working." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The Wastewanders got you, eh, chum? They get everybody, so get yourself patched up, then go and get even, preferably near my pipes." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "Is that the warlock trick that lets you breathe under water? I've got springs full of muck that need somebody to dive down and look, pal, and you'd save me a fortune in diving bells." },
   },
 
   start = "hello",
@@ -971,7 +979,7 @@ P:NPC {
   key = "fizzledowser", id = TODO_NPC("Senior Surveyor Fizzledowser"), name = "Senior Surveyor Fizzledowser",
   bible = "bibles/tanaris.md", role = "scholar", tier = "quest",
   communities = { "gadgetzan" }, temper = { "cautious" }, values = { "practical", "dutiful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He expects every simple job to go wrong, and is usually right.",
@@ -985,6 +993,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering", "Mining" } },
       text = "You know the ground, or the gadgets, and either one helps, buddy; both would be a miracle, and miracles aren't in my budget." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dowsing rods just swung round and pointed at you, which they do for water and, apparently, for whatever it is you're wrapped in. I'm writing that down, because it's the most interesting thing they've done all month." },
   },
 
   start = "hello",
@@ -1184,7 +1194,7 @@ P:NPC {
   key = "pestlezugg", id = TODO_NPC("Alchemist Pestlezugg"), name = "Alchemist Pestlezugg",
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "brisk" }, values = { "curious", "practical" },
-  notices = { "craft", "pet" },
+  notices = { "craft", "pet", "lock_shards" },
 
   impression = {
     first = "He trusts his rat Rose over any person in Gadgetzan.",
@@ -1202,6 +1212,8 @@ P:NPC {
       text = "A fellow alchemist! I've some insect samples you'd find fascinating, or horrifying, and usually both, and I'd sell you a slice for a reasonable sum." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep {pet} away from Rose, chum. She's small, but she bites, and she's been at the reagents, and I'm not liable for anything she's been at." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Is that a full bag of soul shards? I can feel the cold from here, and my rat's gone under the counter, so I'd say fifteen at least. I'd love to know what one does in a crucible, but I'm fond of my remaining eyebrows." },
   },
 
   start = "hello",
@@ -1414,7 +1426,7 @@ P:NPC {
   key = "tranrek", id = TODO_NPC("Tran'rek"), name = "Tran'rek",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "evasive" }, values = { "cunning", "ambitious" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "He answered every question about his business without answering any.",
@@ -1431,6 +1443,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "Somebody's doing well! You ever buy scarab shells, pal? You should, you know; everybody should, and I've got a crate going cheap, relatively." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone in your pack, pal, a whole soul's worth sitting in there ready to be spent? I stay out of soul business, as I've said, but I'll admit I've always wondered what one would fetch on the open market." },
   },
 
   start = "hello",
@@ -1725,7 +1739,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/tanaris.md", role = "innkeeper", tier = "service",
   communities = { "gadgetzan" }, temper = { "chatty" }, values = { "generous" },
-  notices = { "drink", "weary" },
+  notices = { "drink", "weary", "lock_stones" },
 
   impression = {
     first = "He calls the sand in the stew seasoning, and I believed him.",
@@ -1750,6 +1764,8 @@ P:NPC {
       text = "Easy, pal! You walk out in the heat like that and the Bruisers'll be scraping you off the street and billing me for the shovel." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look like the desert chewed you up and spat you out, friend, so sit down and drink something wet, and I'll put it on your tab." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "If you're staying, warlock, keep those healthstones in your bag, because the last guest who set one on the bar had three drunks fighting over it by midnight. Rooms are for sleeping, not for passing round pieces of somebody's life." },
   },
 
   start = "hello",
@@ -2039,7 +2055,7 @@ P:NPC {
   key = "stoley", id = TODO_NPC("Stoley"), name = "Stoley",
   bible = "bibles/tanaris.md", role = "citizen", tier = "quest",
   communities = { "steamwheedle_port" }, temper = { "nervous" }, values = { "practical" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shadow" },
 
   impression = {
     first = "He owes money in Booty Bay and hopes nobody notices him.",
@@ -2054,6 +2070,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "You wouldn't consider a small loan to a man with excellent prospects? No, nobody ever does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Did the room just get colder, or is that you? I've had plenty of people come looking for me on MacKinley's behalf, and none of them made the lamps flicker, which is worse, frankly." },
   },
 
   start = "hello",
@@ -2256,7 +2274,7 @@ P:NPC {
   key = "krinkle", id = TODO_NPC("Krinkle Goodsteel"), name = "Krinkle Goodsteel", title = "Blacksmithing Supplies",
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "sharp" }, values = { "greedy", "proud" },
-  notices = { "craft", "purse" },
+  notices = { "craft", "purse", "lock_shards" },
 
   impression = {
     first = "He fought the Repairers' Union and won, which says a lot.",
@@ -2273,6 +2291,8 @@ P:NPC {
       text = "A smith! I thought so, from the forearms, so don't look so surprised, chum. You don't look like one, but looks lie, and mine certainly do, and so do my competitors' prices." },
     { id = "n_purse", cat = "purse", when = { money = { max = 1500 } },
       text = "That's a light purse you've got there, lighter than mine, anyway. Browse all you like, because browsing's free, and everything else isn't." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That lump in your bag is an infernal stone, isn't it? It has the same sick weight and warmth as the one my cultist kept on his belt, and I dreamt of fire for a month after he left, so I'd rather it didn't stay long." },
   },
 
   start = "hello",

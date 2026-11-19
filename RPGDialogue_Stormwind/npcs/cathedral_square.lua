@@ -260,7 +260,7 @@ P:NPC {
   key = "kristoff", id = TODO_NPC("Brother Kristoff"), name = "Brother Kristoff",
   bible = "bibles/cathedral_square.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "curious" },
-  notices = { "priest", "craft" },
+  notices = { "priest", "craft", "lock_armor" },
   impression = {
     first = "He rehearses his sermon to anyone standing still.",
     third = "{name} met Brother Kristoff outside the Cathedral, a priest preparing a sermon on fortitude from a book about iron.",
@@ -277,6 +277,8 @@ P:NPC {
       text = "You'll know the prayer of Fortitude, {g:brother|sister}; every priest learns it early. Have you ever wondered why it's that word, and not strength or health? That's my whole sermon, really." },
     { id = "n_smith", cat = "craft", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } },
       text = "You work with metal! Then you'll know better than I do that iron is strongest when it's been through the fire, and I'd love to hear you say it in your own words." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That armour of yours is not steel, nor leather either, but hide that remembers being alive, and my book on metallurgy has no chapter for that. I may write one, if you'll stand still while I look." },
   },
 
   start = "hello",
@@ -483,7 +485,7 @@ P:NPC {
   key = "sarno", id = TODO_NPC("Brother Sarno"), name = "Brother Sarno",
   bible = "bibles/cathedral_square.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
-  notices = { "stealth", "gnome", "priest" },
+  notices = { "stealth", "gnome", "priest", "lock_shards" },
   impression = {
     first = "He worries about the gnomes' ruined city as though it were his.",
     third = "{name} met Brother Sarno, who welcomes every visitor at the door of the Cathedral of Light.",
@@ -502,6 +504,8 @@ P:NPC {
       text = "Oh, a gnome! I pray for Gnomeregan every evening, I hope you know that. I don't know if the Light listens to prayers about machinery, but I keep trying." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "Welcome home, {g:brother|sister}! It's always good to see robes coming back through the door rather than going out of it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Oh! Something in your bag just turned the candle by the door blue. Never mind, it does that sometimes, though I'll confess it mostly does it when your sort walk in, so welcome anyway!" },
   },
 
   start = "hello",
@@ -712,7 +716,7 @@ P:NPC {
   key = "thomas_altar", id = TODO_NPC("Thomas"), name = "Thomas",
   bible = "bibles/cathedral_square.md", role = "child", tier = "quest",
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "dutiful" },
-  notices = { "priest", "paladin" },
+  notices = { "priest", "paladin", "lock_shadow" },
   impression = {
     first = "He is proud of his secret errands and too loud about them.",
     third = "{name} met Thomas, an altar boy who walks the length of the Cathedral and runs the Bishop's errands.",
@@ -728,6 +732,8 @@ P:NPC {
       text = "Are those real priest's robes, from the High Priestess? I'm going to have some when I'm older, Brother Joshua says, if I learn my prayers and stop running in the nave." },
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
       text = "You're a paladin! Is the armour heavy, and do you have to polish it yourself, or does a squire do it, because I'd do it for free if you needed someone." },
+    { id = "n_lock_shadow", cat = "lock_shadow", place = "before", when = { class = "WARLOCK" },
+      text = "The candles all leaned away from you when you came in, every one down the row, and I'm the one who has to relight them if they go out. Could you stand a little further from the altar, please?" },
   },
 
   start = "hello",
@@ -913,7 +919,7 @@ P:NPC {
   prejudice = { class = "WARLOCK", amount = 12, why = "An imp from a Slaughtered Lamb lodger set the orphanage linen alight two winters back." },
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "dutiful" },
-  notices = { "refugee", "young", "priest" },
+  notices = { "refugee", "young", "priest", "lock_soulstone" },
   impression = {
     first = "She remembers every child who has passed through her door.",
     third = "{name} met Orphan Matron Nightingale, who keeps Stormwind's orphanage and remembers every child by name.",
@@ -934,6 +940,8 @@ P:NPC {
       text = "A priest! The children say their prayers better when someone in robes is listening, so if you've a quarter-hour this evening, it would be a kindness." },
     { id = "n_young", cat = "young", when = { maxLevel = 9 },
       text = "You're hardly older than my eldest, and already out on the roads. Be careful, {class}; I'd rather not meet any more children because of what happened to their parents." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "A soulstone has bound you, {class}, I can feel the cold of it from here. I've buried too many people who had no second chance, and I'm not sure whether to envy you or pity whoever made yours." },
   },
 
   start = "hello",
@@ -1170,7 +1178,7 @@ P:NPC {
   key = "shellene", id = TODO_NPC("Shellene"), name = "Shellene",
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "service",
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
-  notices = { "priest" },
+  notices = { "priest", "lock_stones" },
   impression = {
     first = "She scolds the orphans and blesses them in the same breath.",
     third = "{name} met Shellene, who looks after the children in Stormwind's orphanage.",
@@ -1184,6 +1192,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "Oh, a priest! Would you say a blessing over them before you go? They sleep better after, I swear it, and so do I." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You've a healthstone in your satchel, I can see the green through the leather. I've prayed over children with fevers I couldn't break, and I'd be lying if I said I'd never wished for one, Light forgive me." },
   },
 
   start = "hello",

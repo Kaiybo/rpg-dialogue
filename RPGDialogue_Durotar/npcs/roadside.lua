@@ -7,7 +7,7 @@ P:NPC {
   key = "misha", id = TODO_NPC("Misha Tor'kren"), name = "Misha Tor'kren",
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   temper = { "grieving" }, values = { "loyal", "proud" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
   impression = {
     first = "Grief for her son Kron sits on her like a second skin.",
     third = "{name} met Misha Tor'kren, a widowed orc keeping a lonely hut in northern Durotar.",
@@ -19,6 +19,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "You have the look of the camps about you, young one, the way my Kron did before he grew into his shoulders." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, so you'll come back if you fall out there. My Kron had no stone and no warlock to make him one, and he never came home." },
   },
   start = "hello",
   nodes = {

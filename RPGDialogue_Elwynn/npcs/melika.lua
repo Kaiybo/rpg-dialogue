@@ -7,7 +7,7 @@ P:NPC {
   key = "melika", id = TODO_NPC("Melika Isenstrider"), name = "Melika Isenstrider", title = "Assistant Innkeeper",
   bible = "bibles/melika.md", role = "innkeeper", tier = "quest",
   communities = { "goldshire" }, temper = { "steady", "sharp" }, values = { "kind", "witty" },
-  notices = { "form", "road", "regular" },
+  notices = { "form", "road", "regular", "lock_stones" },
   impression = {
     first = "She thinks better of guests who look as if they've earned rest.",
     third = "{name} met Melika Isenstrider, the assistant innkeeper, who misses very little and wipes the benches twice.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "We stable animals out back, even the ones that talk." },
     { id = "n_road", cat = "road", place = "after", when = { minLevel = 18 },
       text = "You're no fresh recruit, are you? Too much road on those boots, and you sat down like you'd earned it." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You'll not need my bread and broth if you're carrying one of those green stones, will you? I've seen the cellar folk crack one at midnight instead of eating supper, and I'll admit it wounds my pride a little." },
   },
 
   react = {

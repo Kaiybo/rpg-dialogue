@@ -8,7 +8,7 @@ P:NPC {
   key = "dm_kreg", id = TODO_NPC("Kreg Bilmn"), name = "Kreg Bilmn",
   bible = "bibles/kharanos_shops.md", role = "vendor", tier = "service",
   communities = { "kharanos" }, temper = { "steady" }, values = { "practical", "honest" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
 
   impression = {
     first = "He gives plain advice whether you ask for it or not.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_cold", cat = "weary", when = { deaths = { min = 3 } },
       text = "Ye've the look o' someone who's been knocked down more than once out there. Buy some bread an' sit by the fire a while before ye go back." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "There's a chill comin' off yer bag like ye've packed it wi' snow, an' I can hear the stones knockin' together inside. Out here folk know what a soul shard is, so if ye'd keep it shut while ye're in Kharanos, ye'll get fewer looks." },
   },
 
   start = "hello",
@@ -204,7 +206,7 @@ P:NPC {
   key = "dm_grawn", id = TODO_NPC("Grawn Thromwyn"), name = "Grawn Thromwyn",
   bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
   communities = { "kharanos" }, temper = { "gruff" }, values = { "proud", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_taint" },
 
   impression = {
     first = "He takes each sale as a promise that the blade will hold.",
@@ -219,6 +221,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "That gear's half fallin' apart, an' I'll wager yer weapon's no' much better. Get it seen tae before ye go back out." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green tinge on ye, round the eyes an' the fingers, like copper left out in the rain. That's the same color as the bloom I keep findin' on the blades after yer kind come in, so ye'll understand if I move this sword." },
   },
 
   start = "hello",
@@ -398,7 +402,7 @@ P:NPC {
   key = "dm_boran", id = TODO_NPC("Boran Ironclink"), name = "Boran Ironclink",
   bible = "bibles/kharanos_shops.md", role = "blacksmith", tier = "service",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "practical", "proud" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
 
   impression = {
     first = "He believes thicker mail solves most problems in Dun Morogh.",
@@ -413,6 +417,8 @@ P:NPC {
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "By my beard, where's yer armor? Ye cannae go out in the snow like that, an' certainly no' near the trolls." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Demon hide over yer robes, is it? I've no' got a hammer that'll work it nor a plate that'd sit right over it, an' I'd no' want tae try, so ye'll have tae take my mail plain or no' at all." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "overspark", id = TODO_NPC("Tinkmaster Overspark"), name = "Tinkmaster Overspark", title = "Gnome Engineering Trainer",
   bible = "bibles/tinker_town.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "proud" }, values = { "inventive", "proud" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "He mourns his broken robot Techbot as if it were a friend.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "You've the burn marks of a serious engineer, and the eyebrows of one who's learned from them. Have you chosen a discipline yet? Choose wisely; choose gnomish." },
     { id = "n_priest", cat = "craft", when = { class = "PRIEST" },
       text = "A priest! Brother Sarno in your Cathedral was very kind about Techbot when I wrote to him. Do thank him for me, if you're passing." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My nearest gauge has dropped four notches since you came in, and it measures ambient warmth, so I'd say you're carrying a little shadow with you. Do stand clear of the sensitive instruments, would you, for they're expensive and they sulk." },
   },
 
   start = "hello",
@@ -358,7 +360,7 @@ P:NPC {
   key = "castpipe", id = TODO_NPC("Master Mechanic Castpipe"), name = "Master Mechanic Castpipe",
   bible = "bibles/tinker_town.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "anxious" }, values = { "practical", "dutiful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He talks about punch cards the way others talk about lost children.",
@@ -375,6 +377,8 @@ P:NPC {
       text = "You were an apprentice in the city, weren't you? Then you know what's on those terminals, and you know we can't leave it there." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! You'll understand the terminals, then, or at least you won't hit them, and the last group hit three, one with a mace." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your bag's giving off a cold I can measure, and I'd put it at fifteen shards, give or take. Soul shards would be very interesting data, but please don't open it near the trogg containment pens, because I'm not sure what the troggs would make of them." },
   },
 
   start = "hello",
@@ -619,7 +623,7 @@ P:NPC {
   key = "klockmort", id = TODO_NPC("Klockmort Spannerspan"), name = "Klockmort Spannerspan",
   bible = "bibles/tinker_town.md", role = "blacksmith", tier = "quest",
   communities = { "ironforge" }, temper = { "eager" }, values = { "inventive", "curious" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_stones" },
 
   impression = {
     first = "He won't name his great invention, and I suspect he can't yet.",
@@ -636,6 +640,8 @@ P:NPC {
       text = "Oh, your poor armor, the poor thing! Who did that to it, and was it a new technique? Tell me it was a new technique." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! What are you working on, what temperature, what quench? Sorry, sorry, I get excited about quenching." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone? Oh, it is, and look at the heat on it! I'd give a great deal to know what it's made of, but I'd likely melt my eyebrows finding out, so just hold it up to the light a moment, would you?" },
   },
 
   start = "hello",

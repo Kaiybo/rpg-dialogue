@@ -192,7 +192,7 @@ P:NPC {
   key = "thysta", id = TODO_NPC("Thysta"), name = "Thysta",
   bible = "bibles/gromgol_more.md", role = "flightmaster", tier = "service",
   communities = { "gromgol" }, temper = { "calm" }, values = { "dutiful", "patient" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_steed" },
 
   impression = {
     first = "She watches the ridge trolls more closely than she lets on.",
@@ -209,6 +209,8 @@ P:NPC {
       text = "If you've a beast with you, keep it back from my riders. They've no love for strange animals." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear. The jungle trolls on the ridges watch everyone who comes and goes from this camp, so keep your head low when you leave." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Every wind rider on the tower is screaming at that burning horse you left at the bottom, {class}. They saw fire like that over the old battlefields and they don't forget it, so send the beast away before you climb up." },
   },
 
   start = "hello",

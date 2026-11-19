@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/brandur.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "proud" }, values = { "pious", "brave" },
   spiritSensitive = true,
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "He sends the Light's young ones off with a joke about beards.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", place = "before", when = { class = "PALADIN", durability = { max = 0.25 } },
       text = "Yer plate's in a shameful state. A paladin's armor is a promise tae the people behind ye, so mend it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light's gone quiet in me since ye stepped onto this floor, like a hound that's smelled somethin' it doesnae like. I'll no' turn ye away, but I'll no' offer ye a blessin' either, for I doubt it'd take." },
   },
 
   start = "hello",
@@ -282,7 +284,7 @@ P:NPC {
   key = "john_turner", id = TODO_NPC("John Turner"), name = "John Turner",
   bible = "bibles/john_turner.md", role = "citizen", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "wealth" },
+  notices = { "wealth", "lock_stones" },
 
   barks = { { id = "b_orphans", text = "Spare a thought for the orphans of Stormwind! A thought, a copper, anything at all!" } },
   impression = {
@@ -298,6 +300,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "wealth", when = { money = { min = 500000 } },
       text = "You've a heavy purse, if you don't mind my saying so. I mind saying it, but I say it anyway, because it's for the children." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone, isn't it, that green one in your pack? One of the orphans saw a warlock's stone in Stormwind and asked me whose life was inside it, and I didn't have an answer, so please keep it out of sight." },
   },
 
   start = "hello",
@@ -512,7 +516,7 @@ P:NPC {
   key = "jordan", id = TODO_NPC("Jordan Stilwell"), name = "Jordan Stilwell",
   bible = "bibles/jordan.md", role = "blacksmith", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "pious", "honest" },
-  notices = { "paladin", "craft" },
+  notices = { "paladin", "craft", "lock_armor" },
 
   impression = {
     first = "He speaks of his faith the way smiths speak of good iron.",
@@ -529,6 +533,8 @@ P:NPC {
       text = "A paladin. I trained for it once, before my father's forge called me home, and now I make the hammers instead of swinging them. It's a different sort of prayer." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! Show me your hands, then. Those are good burns, and honest ones." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide you've wrapped yourself in, and I can see it creep where the light touches it. I've a paladin's breastplate on this anvil, and I'll not have the two of them in the same light, so stand back while I finish." },
   },
 
   start = "hello",

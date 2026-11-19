@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
   race = "Orc", likesTone = "blunt",
-  notices = { "kit", "greenness" },
+  notices = { "kit", "greenness", "lock_shards", "lock_armor" },
   impression = {
     first = "He holds Razor Hill as if all of Durotar depended on it.",
     third = "{name} met Gar'Thok, the terse commander of Razor Hill, who holds Durotar's crossroads for the Horde.",
@@ -27,6 +27,10 @@ P:NPC {
       text = "Your gear is falling off you, so fix it. A grunt who can't hold his armor together can't hold a line." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 6 },
       text = "Out of the valley and already at my door. Good, but don't think that makes you a veteran." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "How many shards are rattling in that bag, warlock, twenty or more? Tell me they all came off the Burning Blade at Skull Rock, because I count those the way I count smuggled steel." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You've put on the demon's skin, I see, the same dark ward the warlocks wore when they marched with the Horde in the Second War. I was a grunt then, and I learned to stand downwind of anyone wearing it." },
   },
 
   start = "hello",
@@ -517,7 +521,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/durotar.md", role = "innkeeper", tier = "service",
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shadow" },
   impression = {
     first = "He is as dry as Durotar, but he does check the blankets.",
     third = "{name} rested at Innkeeper Grosk's inn in Razor Hill, the safest bed in a land of rocks and scorpids.",
@@ -539,6 +543,8 @@ P:NPC {
       text = "You look like the spirit healer sent you back with a list of complaints. Sit down before you fall down." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "That's enough for now. The grunts don't carry drunks home; they leave them for the scorpids." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lanterns in my common room just dropped low and green, and I'll bet a barrel it's you. Sit by the hearth where the light's strongest, warlock, because I'll not have my regulars drinking in the dark." },
   },
 
   start = "hello",
@@ -742,7 +748,7 @@ P:NPC {
   key = "brakk", id = TODO_NPC("Brakk"), name = "Brakk",
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "Walls, he says, are for people who have stopped walking.",
     third = "{name} met Brakk, a wandering orc who camps across Durotar and keeps a journal of every fire he has ever built.",
@@ -756,6 +762,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook? Then you can build a real campfire, and everything else in a camp is built around one." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse is scorching the scrub everywhere it steps, and it's going in my journal tonight, right beside the one who rode it. I've seen worgs, wolves and kodos, but in the camps or out of them, I never saw anyone ride a demon." },
   },
 
   start = "hello",

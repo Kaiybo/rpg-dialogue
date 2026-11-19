@@ -6,7 +6,7 @@ P:NPC {
   key = "krusk", id = TODO_NPC("Krusk"), name = "Krusk",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "grim" }, values = { "loyal", "brave" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_pact" },
 
   impression = {
     first = "He shares a town with the dead and would rather not.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Lok'tar! It's good to see a green face in this town of grey ones. Stand close, and help me get mine home." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Then you'll understand that being taken alive is worse than dying, and that's where my brothers are." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood is running hot, I can see it in your face, and my father's generation carried the same heat after they drank from Mannoroth's cup. I know it is only an imp's pact, but you'll forgive me if my hand stays near my axe." },
   },
 
   start = "hello",
@@ -387,7 +389,7 @@ P:NPC {
   key = "humbert", id = TODO_NPC("Deathguard Humbert"), name = "Deathguard Humbert",
   bible = "bibles/tarrenmill_more.md", role = "guard", tier = "quest",
   communities = { "tarren_mill" }, temper = { "sheepish" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_eyes" },
 
   impression = {
     first = "He's a Deathguard without a sword, and he knows how that looks.",
@@ -403,6 +405,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc! If you see any dwarves at Dun Garok with a Forsaken blade, you'll know where it came from." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that sheen, the one that sees through anything trying to sneak past. Where were you the evening those dwarf scouts walked right by me and took everything I owned?" },
   },
 
   start = "hello",
@@ -746,7 +750,7 @@ P:NPC {
   key = "tallow", id = TODO_NPC("Tallow"), name = "Tallow",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "contemptuous" }, values = { "relentless" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
 
   impression = {
     first = "He doesn't much care whether the help he sends survives.",
@@ -763,6 +767,8 @@ P:NPC {
       text = "A warrior. We'll see if you've earned the word yet, or if you just carry it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look beaten. Come back when you look like you did the beating." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide crawling over your shoulders would turn an arrow, I'd wager, and Hammerfall needs every arrow turned that it can get. Take it to Arathi and let the orcs complain about the smell once the walls are still standing." },
   },
 
   start = "hello",

@@ -7,7 +7,7 @@ P:NPC {
   key = "grizzlin", id = TODO_NPC("Auctioneer Grizzlin"), name = "Auctioneer Grizzlin",
   bible = "bibles/winterspring.md", role = "auctioneer", tier = "service",
   communities = { "everlook" }, temper = { "brisk" }, values = { "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "The cold is good for business, since nobody lingers to haggle.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_poor", cat = "purse", when = { money = { max = 1000 } },
       text = "Light purse, eh, chum? Then sell before you buy, because in Everlook the selling's the easy part and the buying will cost you, plus the Cartel's cut." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone you're carrying, and I know because I tried to list one once and the Cartel told me no auction house will touch a stone that holds a man's soul. Pity, because the bids would have been something to see." },
   },
 
   start = "hello",
@@ -203,7 +205,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   prejudice = { race = "Dwarf", amount = 8, why = "a gunsmith's trade grudge: every dwarf tells him Ironforge does it better, and Ironforge powder cost a cousin his eyebrows" },
   communities = { "everlook" }, temper = { "eager" }, values = { "profit", "craft" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "He takes more pride in his gun oil than seems reasonable.",
@@ -221,6 +223,8 @@ P:NPC {
       text = "A hunter! Let me guess, pal, your gun froze up on the road from Felwood and you're here for proper oil. Everybody's does, sooner or later, and sooner's better for business." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "That blade's seen some furbolgs, buddy, I can tell from the nicks. Come and look at something that's seen fewer, and I'll even give you a fair price for the scrap." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Demon hide, is it? Looks very spooky, friend, but a wolf's tooth or a Winterfall axe will still find the gap, so take a look at my mail before you trust your hide to a demon's skin." },
   },
 
   start = "hello",
@@ -415,7 +419,7 @@ P:NPC {
   key = "qia", id = TODO_NPC("Qia"), name = "Qia", title = "Trade Supplies",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   communities = { "everlook" }, temper = { "dry" }, values = { "profit", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "She treats thread as a serious matter, and she's probably right.",
@@ -429,6 +433,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "A tailor! You'll want rune thread, then, and I've some, though not much, so don't tell the others in town, because scarcity's the only thing up here that keeps my prices honest." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I can hear those shards rattling from here, friend, and that's a sound I know, because it means you've outgrown your pouch. I keep soul pouches on the back shelf, and I'll not ask what's in yours, but I do wish they wouldn't hum at me while I count." },
   },
 
   start = "hello",
@@ -595,7 +601,7 @@ P:NPC {
   key = "azzleby", id = TODO_NPC("Azzleby"), name = "Azzleby", title = "Stable Master",
   bible = "bibles/winterspring.md", role = "stablemaster", tier = "service",
   communities = { "everlook" }, temper = { "cheerful" }, values = { "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
 
   impression = {
     first = "He likes the beasts better than their owners and doesn't hide it.",
@@ -609,6 +615,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Look at your {pet}, shivering! Bring it here a minute, pal, the stove's lit, and it's earned a warm-up even if you haven't, and I won't even put it on your bill." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every beast in my stable just backed into its stall, and that's not the cold, that's you, friend. They smell what you work with, so stand downwind of the gate and let 'em settle before we talk." },
   },
 
   start = "hello",
@@ -761,7 +769,7 @@ P:NPC {
   key = "evie", id = TODO_NPC("Evie Whirlbrew"), name = "Evie Whirlbrew", title = "Alchemy Supplies",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   communities = { "everlook" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She seems delighted by every herb that grows in the snow.",
@@ -775,6 +783,8 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "Your fingers are stained green, so you're one of us! Have you tried brewing with something that grows in the snow yet? It's not like anything down south." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green lump in your pack is a healthstone, love, a warlock's work by the look of it, and it's stolen life squeezed into a rock. I do the same thing honestly with a flask and some peacebloom, but I'll admit yours is quicker." },
   },
 
   start = "hello",

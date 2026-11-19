@@ -6,7 +6,7 @@ P:NPC {
   key = "eagan", id = TODO_NPC("Eagan Peltskinner"), name = "Eagan Peltskinner",
   bible = "bibles/eagan.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "beast", "form", "skinner" },
+  notices = { "beast", "form", "skinner", "lock_armor" },
   impression = {
     first = "He looks at every creature as a coat first.",
     third = "{name} met Eagan Peltskinner, the Northshire trapper who judges every creature by the quality of its pelt.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "That's a good animal. Feed it before you feed yourself and it'll keep you alive." },
     { id = "n_skinner", cat = "skinner", when = { profession = "Skinning" },
       text = "You skin. I can tell from your knife. Most folk hack at a pelt like it owes them money." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide you're wearing isn't any beast I've skinned, and I've skinned most of what walks in Elwynn. It's warm as a living thing and it shivers when the wind touches it, so I'll thank you not to tell me what it came off." },
   },
 
   react = {

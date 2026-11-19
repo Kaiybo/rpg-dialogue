@@ -9,7 +9,7 @@ P:NPC {
   key = "bernice", id = TODO_NPC("\"Auntie\" Bernice Stonefield"), name = "\"Auntie\" Bernice Stonefield",
   bible = "bibles/bernice.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "proud" }, values = { "honest", "stern" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She guards her kitchen like a fortress and her grudges like heirlooms.",
     third = "{name} met Auntie Bernice Stonefield, a baker with strong opinions about pie crusts and the Maclure family.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Then you know a pork belly pie wants patience and good boar, and that most folk rush the crust. Don't you rush the crust." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The milk's turned in the jug, and it was fresh this morning, so I'll guess it's you and not the cow. Come in and eat anyway, but I'll do the pouring." },
   },
 
   start = "hello",
@@ -293,7 +295,7 @@ P:NPC {
   key = "ma_stonefield", id = TODO_NPC("Ma Stonefield"), name = "Ma Stonefield",
   bible = "bibles/ma_stonefield.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "stern", "honest" },
-  notices = { "trophy" },
+  notices = { "trophy", "lock_steed" },
   impression = {
     first = "She says she is not a crier, and I believe her.",
     third = "{name} met Ma Stonefield, whose cabbages are being devoured by the Brackwells' prize sow, Princess.",
@@ -308,6 +310,8 @@ P:NPC {
   notice = {
     { id = "n_collar", cat = "trophy", place = "before", when = { questReady = TODO_QUEST("Princess Must Die!") },
       text = "Is that her collar, the brass one? Give it here; I'm hanging it over the door." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "If that's your horse with its feet on fire, get it off my cabbages before it burns the lot. Light knows the Maclures will say I did it myself to spite them." },
   },
 
   start = "hello",
@@ -549,7 +553,7 @@ P:NPC {
   key = "billy", id = TODO_NPC("Billy Maclure"), name = "Billy Maclure",
   bible = "bibles/billy.md", role = "child", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "witty" },
-  notices = { "food", "wonder" },
+  notices = { "food", "wonder", "lock_shards" },
   impression = {
     first = "He swore he didn't do it before I'd accused him of anything.",
     third = "{name} met young Billy Maclure, accused of a theft he swears he didn't commit and hungry enough to bargain over it.",
@@ -566,6 +570,8 @@ P:NPC {
       text = "You smell like a kitchen; got anything, even a crust? I'm not fussy, I'm a growing boy, Ma says." },
     { id = "n_cat", cat = "wonder", place = "replace", when = { form = "cat" },
       text = "Kitty, a big kitty! Do you eat kobolds, because you should, there's loads of them up at the mine." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Are those soul shards in your bag? Tommy Joe says they've got real ghosts inside, and I'd trade you a whole pie just to hold one for a minute." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "lm_thorgrum", id = TODO_NPC("Thorgrum Borrelson"), name = "Thorgrum Borrelson",
   bible = "bibles/thelsamar_shops.md", role = "flightmaster", tier = "service",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "dutiful", "patient" },
-  notices = { "mount" },
+  notices = { "mount", "lock_pact" },
 
   impression = {
     first = "He trusts his birds more than most people, and says so.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Get down off that beast before ye come near my gryphons, if ye please. They take a mount for supper if nobody stops them." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "The gryphons are hissin' at ye, an' I think it's the heat they smell, an imp's pact sittin' in yer blood like a coal. They'll carry ye, for I've trained them tae, but ye'll find they fly very fast tae be rid o' ye." },
   },
 
   start = "hello",
@@ -211,7 +213,7 @@ P:NPC {
   key = "lm_morhan", id = TODO_NPC("Morhan Coppertongue"), name = "Morhan Coppertongue",
   bible = "bibles/thelsamar_shops.md", role = "blacksmith", tier = "service",
   communities = { "thelsamar" }, temper = { "sharp" }, values = { "proud", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
 
   impression = {
     first = "He is proud of his trade and prouder of his tongue.",
@@ -226,6 +228,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Now that's a sorry state for armor tae be in. The troggs did that, didn't they? Ye'll want somethin' thicker next time." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a demon hide ye've draped over yer gear, an' I can see the mail I'd sell ye would sit badly under it. I'll no' tell ye how tae fight, but I'll say this mail was forged clean, an' I'd like it tae stay that way." },
   },
 
   start = "hello",
@@ -406,7 +410,7 @@ P:NPC {
   key = "lm_honni", id = TODO_NPC("Honni Goldenoat"), name = "Honni Goldenoat",
   bible = "bibles/thelsamar_shops.md", role = "vendor", tier = "service",
   communities = { "thelsamar" }, temper = { "warm" }, values = { "generous", "friendly" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
 
   impression = {
     first = "She firmly believes sausages need bread to be a meal.",
@@ -421,6 +425,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { maxLevel = 20 },
       text = "Ye look like ye've been livin' on rations, by the color o' ye. Have some bread; ye'll feel better." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dough's no' risin', an' it rose fine this mornin' before ye came in. I've no notion what yer kind carries about wi' ye, but I'll be bakin' a fresh batch the minute ye leave." },
   },
 
   start = "hello",
@@ -597,7 +603,7 @@ P:NPC {
   key = "lm_karm", id = TODO_NPC("Karm Ironquill"), name = "Karm Ironquill",
   bible = "bibles/thelsamar_shops.md", role = "vendor", tier = "service",
   communities = { "thelsamar" }, temper = { "gruff" }, values = { "practical", "honest" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He says little, but he knows which mines are safe this week.",
@@ -612,6 +618,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = { "Mining" } },
       text = "Ye've dust on yer boots from the Silver Stream, I'd guess, by the color. Mind the kobolds in there." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "There's a cold comin' off yer pack like ye've been diggin' in a glacier, an' I can hear the shards knockin'. Mind, the old miners say a soul in a stone is a soul that cannae rest, so I'd keep that bag well clear o' the mine." },
   },
 
   start = "hello",

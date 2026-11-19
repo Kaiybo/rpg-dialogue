@@ -484,7 +484,7 @@ P:NPC {
   key = "sanath", id = TODO_NPC("Sanath Lim-yo"), name = "Sanath Lim-yo",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "xylems_tower" }, temper = { "proud", "sharp" }, values = { "proud", "dutiful" },
-  notices = { "race", "class", "kit" },
+  notices = { "race", "class", "kit", "lock_taint" },
 
   impression = {
     first = "He insulted my clothes, face and reasons, then got bored of it.",
@@ -504,6 +504,8 @@ P:NPC {
       text = "A mage, here to grovel for lessons. My master will love you; he adores an audience." },
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
       text = "You've come to see the Archmage dressed like that? That's bold, in the way that falling off a cliff is bold." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a faint green glow about the face, which is vulgar, and you're tracking it all over my master's floor. He'll find it fascinating, of course, so I'll be the one who has to scrub." },
   },
 
   start = "hello",

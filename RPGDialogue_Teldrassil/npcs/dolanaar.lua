@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { race = { "Human", "Dwarf", "Gnome" }, amount = 6, why = "Thinks the new tree was planted for the Kaldorei and fears what outsiders carry up from the shore." },
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
   impression = {
     first = "He swears the third moonwell is wrong, and he is quietly afraid.",
     third = "{name} met Corithras Moonrage, the grave keeper of Teldrassil's moonwells, who watches the young tree like a feverish child.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "DRUID" } },
       text = "You serve Elune, or the wild. Either way, you'll feel what I feel in the wells. Tell me if I'm wrong." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul into a stone, I think, because there is a thread of you that runs off somewhere I cannot see. The priestesses would call that a theft from Elune, and I am not certain they would be wrong." },
   },
 
   start = "hello",
@@ -238,7 +240,7 @@ P:NPC {
   key = "athridas", id = TODO_NPC("Athridas Bearmantle"), name = "Athridas Bearmantle",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "stern" }, values = { "protective", "dutiful" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
   impression = {
     first = "It grieves him that the Gnarlpine are his enemies now.",
     third = "{name} met Athridas Bearmantle, the stern druid of Dolanaar who would rather cure the maddened Gnarlpine than kill them.",
@@ -255,6 +257,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, good. I need one who can tell a sick animal from an angry one, because there is a difference, and it matters." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The shards in your pack hold the souls of things you have killed, and I can feel them from here, cold as the bottom of a lake. Tell me, do they ever stop humming, or do you simply learn not to hear it?" },
   },
 
   react = {
@@ -450,7 +454,7 @@ P:NPC {
   key = "tallonkai", id = TODO_NPC("Tallonkai Swiftroot"), name = "Tallonkai Swiftroot",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "approving" }, values = { "protective", "kind" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "He wants his dreamcatcher back, and a few other things handled quietly.",
     third = "{name} met Tallonkai Swiftroot of Dolanaar, who approves of the young taking up the groves' defence and has errands of his own for them.",
@@ -467,6 +471,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 8 },
       text = "Fresh from Shadowglen. The road to Darnassus runs through here; most of what you'll need, you'll learn on the way." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The young druids stopped their lesson the moment you came up the path, and I felt why, because the shade under this tree deepened where you stand. They know the Highborne only from stories, and you look a great deal like the stories." },
   },
 
   start = "hello",
@@ -684,7 +690,7 @@ P:NPC {
   key = "syral", id = TODO_NPC("Syral Bladeleaf"), name = "Syral Bladeleaf",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
   impression = {
     first = "He sorts his orders by which ones get someone hurt waiting.",
     third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
@@ -697,6 +703,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Alchemy" } },
       text = "You know your herbs. Teldrassil's soil is new, and the plants here are still deciding what they'll be, so watch them closely." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That is demon skin you wear about you like a second hide, and the timberlings will know it before they see you. I have no love for it, but it may keep you whole at the lake, and the Council need not hear of it from me." },
   },
 
   start = "hello",
@@ -912,7 +920,7 @@ P:NPC {
   key = "keldamyr", id = TODO_NPC("Innkeeper Keldamyr"), name = "Innkeeper Keldamyr",
   bible = "bibles/teldrassil.md", role = "innkeeper", tier = "service",
   communities = { "dolanaar" }, temper = { "gentle" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
   impression = {
     first = "Nobody at this inn is asked why they look tired.",
     third = "{name} stopped at Innkeeper Keldamyr's hearth in Dolanaar, where every traveller between Shadowglen and Darnassus rests sooner or later.",
@@ -929,6 +937,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've had a hard road back from somewhere grey. Sit down; Elune's light reaches the inn too." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You carry healthstones, I see, green as poisoned moss, and I would ask you to keep them in your bag beneath my roof. My guests heal with sleep and Elune's grace, and I would rather they did not see the other way." },
   },
 
   start = "hello",
@@ -1126,7 +1136,7 @@ P:NPC {
   key = "lyreena", id = TODO_NPC("Lyreena Duskblade"), name = "Lyreena Duskblade",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "dolanaar" }, temper = { "easy" }, values = { "curious", "generous" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "She would rather sleep under the canopy than under a roof.",
     third = "{name} shared a small fire with Lyreena Duskblade, who teaches anyone willing how to make a camp feel like home.",
@@ -1139,6 +1149,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook. Then you already hold the first secret of a good camp: the fire. Everything else gathers around it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "The grass where your horse stood is burned black in the shape of its hooves, and it will take the season to grow back. I had heard that warlocks ride such things, but I never thought to see one in Teldrassil's woods." },
   },
 
   start = "hello",

@@ -210,7 +210,7 @@ P:NPC {
   key = "morgan_stern", id = TODO_NPC("Morgan Stern"), name = "Morgan Stern",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   communities = { "theramore" }, temper = { "cheerful", "fussy" }, values = { "practical", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_shadow" },
 
   impression = {
     first = "He believes good soup holds a wall better than hard bread.",
@@ -227,6 +227,8 @@ P:NPC {
       text = "You smell of a cookfire, and a good one. I can always tell a fellow cook by the singed sleeves." },
     { id = "n_hungry", cat = "hunger", when = { timeOfDay = "dusk" },
       text = "You've the look of someone who's skipped supper. Don't do that out here; the marsh eats the hungry first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The cream in my bowl just turned the moment you came through the door, and I'd skimmed it this morning. I'm not saying it was you, but it's never done that for Captain Vimes." },
   },
 
   start = "hello",
@@ -446,7 +448,7 @@ P:NPC {
   title = "Trauma Surgeon",
   bible = "bibles/dustwallow.md", role = "trainer", tier = "quest",
   communities = { "theramore" }, temper = { "brisk", "exacting" }, values = { "kind", "dutiful" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_stones" },
 
   impression = {
     first = "I suspect his calm is something he decides on every morning.",
@@ -463,6 +465,8 @@ P:NPC {
       text = "Your bandages are tied with a field knot, so somebody taught you properly. Good; most people learn on themselves, and badly." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's taken a beating, which usually means the body under it has too. Sit, and let me look at you before you go anywhere." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've watched one close a wound I'd have cut wide for, and I've never decided whether to be grateful or appalled. Grateful, I think, so long as I don't ask where the life in it came from." },
   },
 
   start = "hello",

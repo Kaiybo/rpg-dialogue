@@ -376,7 +376,7 @@ P:NPC {
   key = "leonid", id = TODO_NPC("Leonid Barthalomew the Revered"), name = "Leonid Barthalomew the Revered",
   bible = "bibles/easternplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "gentle" }, values = { "devout", "selfless" },
-  notices = { "race", "class", "form" },
+  notices = { "race", "class", "form", "lock_soulstone" },
 
   impression = {
     first = "He is dead and knows it, with a calm that unsettles me.",
@@ -398,6 +398,8 @@ P:NPC {
       text = "One who was freed, as I was. We owe the Banshee Queen our minds, but what we do with them is our own." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "You serve the Light, and so do I. It surprises people; it surprised me most of all." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There is a soul bound in a stone, waiting to call you back. I came back once without being asked, and it was the Banshee Queen's mercy that I woke at all, so choose carefully who you trust to wake you." },
   },
 
   start = "hello",

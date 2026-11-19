@@ -163,6 +163,10 @@ P:NPC {
     { id = "g_main", text = "Peace, friend. You've come a long way up the mesas." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The wind keeps blowing you up here, same as the dust off the plains." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul has been set in a stone, I see, and it hangs on you like a tether running back to some warlock's hand. The winds up here would carry a spirit home on their own, but each of us walks our own path." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -324,6 +328,10 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Welcome, traveler. Come, but watch your step on the mesa edges." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths, though she lets them get very dusty on the way." },
+  },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear a demon's hide like armour, and I'll admit it would turn a Grimtotem spear better than my own leathers. Still, I'd rather not see what it does when you take it off." },
   },
   start = "hello",
   nodes = {
@@ -811,6 +819,10 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Oh, hello! Careful with that, that's a very expensive wrench, calibrated to a sixteenth of a turn!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you come to see our new design?" },
+  },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Ooh, is that a firestone? I'd love to know its operating temperature, purely for science, and the car could use a little extra kick off the line." },
   },
   start = "hello",
   nodes = {

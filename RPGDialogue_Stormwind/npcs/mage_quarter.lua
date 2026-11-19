@@ -295,7 +295,7 @@ P:NPC {
   key = "elsharin", id = TODO_NPC("Elsharin"), name = "Elsharin", title = "Mage Trainer",
   bible = "bibles/mage_quarter.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "proud", "patient" },
-  notices = { "mage", "kaldorei" },
+  notices = { "mage", "kaldorei", "lock_shadow" },
   impression = {
     first = "She stayed when her homeland burned.",
     third = "{name} met Elsharin, a high elf who teaches apprentice mages in the Wizard's Sanctum.",
@@ -311,6 +311,8 @@ P:NPC {
       text = "You're one of the new ones. I can tell by how tightly you hold your focus, as if the spell might run off; it won't, I promise you, if you loosen your grip a little." },
     { id = "n_kaldorei", cat = "kaldorei", when = { race = "NightElf" },
       text = "Ishnu-alah, if I have it right. Our peoples have a long and complicated history, kaldorei, and I suggest we both leave it at the door of the Sanctum." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow clings to you the way it clung to the Highborne near the end, when they still believed they were its masters. I remember it, and I wish I did not." },
   },
 
   start = "hello",
@@ -548,7 +550,7 @@ P:NPC {
   key = "larimaine", id = TODO_NPC("Larimaine Purdue"), name = "Larimaine Purdue", title = "Portal Trainer",
   bible = "bibles/mage_quarter.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud" },
-  notices = { "mage" },
+  notices = { "mage", "lock_steed" },
   impression = {
     first = "She doubts most people could grasp portals and says so politely.",
     third = "{name} met Larimaine Purdue, who teaches portal magic in the Wizard's Sanctum to the few she thinks capable of it.",
@@ -562,6 +564,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "mage", when = { class = "MAGE", minLevel = 40 },
       text = "You're ready, I think, or nearly. A mage of your standing can open a door back to this very room from anywhere in the world, and I can teach you how, if you can follow." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode in on that thing? Its hooves scorched my circle, and I'll have to redraw the anchoring runes before the next class, because a portal won't open over fel. You might have tethered it at the gate." },
   },
 
   start = "hello",

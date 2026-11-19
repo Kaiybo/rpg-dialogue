@@ -671,7 +671,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "She treats prayer as a craft and has no patience for speeches.",
@@ -686,6 +686,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
       text = "One of the Light's own, here for lessons. Alathea's the one for the long talks; I'm the one for the practice, so roll up your sleeves." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone holds a life that was never yours, and Elune knows whose it was even if you do not. Let me heal you myself, and keep it for a day when there's no one near." },
   },
 
   start = "hello",
@@ -859,7 +861,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "gentle", "watchful" }, values = { "devout", "careful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_shadow" },
 
   impression = {
     first = "She notices everything and says about half of it.",
@@ -876,6 +878,8 @@ P:NPC {
       text = "Your armor has seen hard roads, and you're carrying them in your shoulders. Sit by the water before you do anything else." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Human" },
       text = "A priest from Stormwind, and you've come all this way to learn from us. That pleases me more than I'd like to admit." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The pool darkened as you came near it, just a little, the way water darkens under a passing cloud. There is no cloud tonight, and I think you know that." },
   },
 
   start = "hello",
@@ -1044,7 +1048,7 @@ P:NPC {
   key = "aquinne", id = TODO_NPC("Sister Aquinne"), name = "Sister Aquinne",
   bible = "bibles/temple.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "earnest", "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_taint" },
 
   impression = {
     first = "She speaks of Lady Sathrah like someone she knew and mourns.",
@@ -1062,6 +1066,8 @@ P:NPC {
       text = "You're a priest! I've never spoken properly with one of the Light's. Do you study the way we do, with books and a teacher who sighs at you?" },
     { id = "n_green", cat = "greenness", when = { maxLevel = 15 },
       text = "You look as new to all this as I am. That's all right; the priestesses say the moon is kindest to beginners." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The flowers on the steps have wilted where you walked, and their petals have the green rot at the edges that the blooms in Felwood have. I'll pray for you tonight, and for them." },
   },
 
   start = "hello",
@@ -1299,7 +1305,7 @@ P:NPC {
   title = "Banker",
   bible = "bibles/temple.md", role = "banker", tier = "service",
   communities = { "darnassus" }, temper = { "formal", "steady" }, values = { "careful", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "Nothing leaves her vault without a reason she can write down.",
@@ -1314,6 +1320,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "You carry a good deal on your person, if you'll forgive my noticing. We do have boxes for that, and none of them has ever been robbed." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "If you mean to store that soulstone with us, I'll ask you to think again, because the whole vault would know it was there. Keep it on your own person, please, along with your stranger possessions." },
   },
 
   start = "hello",

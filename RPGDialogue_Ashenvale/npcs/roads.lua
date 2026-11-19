@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
   },
 
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is green in your eyes that was not there when you first came through Forest Song, or perhaps I never looked properly. You have been down where Felwood bleeds into this forest, I think, and it has followed you back." },
+  },
+
   start = "hello",
   nodes = {
     op_ask = {
@@ -239,6 +244,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Show me how you hold a bow before you ask the price of one." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still holding that thing wrong, I see. Come in, then." },
+  },
+
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Stand back from the drying rack, if you would, because the yew has gone dark along the grain where your shadow fell. I'll have to split that stave for kindling now, and it was a good one." },
   },
 
   start = "hello",

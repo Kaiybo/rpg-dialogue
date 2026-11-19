@@ -329,7 +329,7 @@ P:NPC {
   rivals = { "pozzik", "razzeric" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "excitable" }, values = { "proud", "curious" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
 
   impression = {
     first = "He told me to stand very still before he said hello.",
@@ -347,6 +347,8 @@ P:NPC {
       text = "A fellow engineer, and from the gnomish school, I hope! No? Well, there's always time to improve." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, splendid! Gnomeregan may be lost, but gnomish engineering still wins races... well, most of them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is humming at about the same pitch as my fuel pump, which worries me, because the fuel pump hums like that right before it explodes. Are those soul shards? Keep them away from the engine, please." },
   },
 
   start = "hello",
@@ -617,7 +619,7 @@ P:NPC {
   key = "kravel", id = TODO_NPC("Kravel Koalbeard"), name = "Kravel Koalbeard",
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "quest",
   communities = { "mirage_raceway" }, temper = { "sly" }, values = { "cunning", "ambitious" },
-  notices = { "purse", "drink" },
+  notices = { "purse", "drink", "lock_stones" },
 
   impression = {
     first = "Neither racing crew should trust him, and I'd wager both do.",
@@ -634,6 +636,8 @@ P:NPC {
       text = "That's a fine heavy purse. Ever had a sure thing on a race? I might know of one." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Had a few, have ye? Grand, but who bought 'em for ye? Not me, I hope, for that'd be a waste." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a warlock's healthstone, if I've ever seen one, glowin' like a cheap lantern in yer pack. I'd not eat it meself, but a racer who ate one before a crash, now there's a thought." },
   },
 
   start = "hello",

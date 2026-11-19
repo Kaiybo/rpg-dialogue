@@ -7,7 +7,7 @@ P:NPC {
   key = "mishellena", id = TODO_NPC("Mishellena"), name = "Mishellena", title = "Hippogryph Master",
   bible = "bibles/felwood.md", role = "flightmaster", tier = "service",
   communities = { "talonbranch" }, temper = { "solemn" }, values = { "dutiful", "nature" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She won't let her birds drink anything but moonwell water.",
@@ -25,6 +25,8 @@ P:NPC {
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "Sister or brother of the forest, welcome. It hurts to see Felwood with kaldorei eyes, doesn't it? Rest a while before you fly." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your felsteed's hoofprints burn green on the road from the glade, and the hippogryphs can see them from the roost. Felwood has enough green fire of its own, so please, ride it no closer." },
   },
 
   start = "hello",
@@ -195,7 +197,7 @@ P:NPC {
   key = "brakkar", id = TODO_NPC("Brakkar"), name = "Brakkar", title = "Wind Rider Master",
   bible = "bibles/felwood.md", role = "flightmaster", tier = "service",
   communities = { "bloodvenom_post" }, temper = { "gruff" }, values = { "dutiful", "honor" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "He shows his wind riders more warmth than he shows any person.",
@@ -210,6 +212,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar, {g:brother|sister}. Don't let this place get into your head; the green fire here is the same that once burned in our own blood, and we're done with it." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood's hot as a forge, warlock, and I know that heat, because the Horde ran on it before Thrall broke the chains. Keep the imp's pact small, or you'll find yourself thirsty for something worse." },
   },
 
   start = "hello",
@@ -378,7 +382,7 @@ P:NPC {
   key = "bale", id = TODO_NPC("Bale"), name = "Bale", title = "General Goods",
   bible = "bibles/felwood.md", role = "vendor", tier = "service",
   communities = { "bloodvenom_post" }, temper = { "calm" }, values = { "nature", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He is slow to speak, and grieves quietly for the land.",
@@ -392,6 +396,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Earth Mother keep you, child of the plains. It hurts, doesn't it, walking on land that's been poisoned like this? Sit with me a moment if you need to." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag hums with souls, and some of them, I think, came from this poor forest. The creatures of Felwood suffered enough while they lived, so I would ask that you let them rest where you can." },
   },
 
   start = "hello",

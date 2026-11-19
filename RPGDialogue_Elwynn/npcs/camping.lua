@@ -6,7 +6,7 @@ P:NPC {
   key = "sam", id = TODO_NPC("Sam Sarsaparilla"), name = "Sam Sarsaparilla",
   bible = "bibles/camping.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cheerful" }, values = { "friendly", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "His adventuring is mostly a long walk and a campfire.",
     third = "{name} shared a fire with Sam Sarsaparilla, a cheerful wanderer who swears the sitting is the best part of any journey.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You cook? Then you're halfway to a camp already, because everything starts with a fire." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! You'll want to learn to pitch a tent. Rest by a fire with a tent beside it and you'll feel like a new person." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your pack is glowing like a pot about to boil over. If a warlock gave it to you, mind you don't drop it in anybody's stew, because I once watched a fellow try, and the stew never forgave him." },
   },
 
   start = "hello",

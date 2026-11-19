@@ -1029,7 +1029,7 @@ P:NPC {
   key = "grual", id = TODO_NPC("Chef Grual"), name = "Chef Grual",
   bible = "bibles/darkshire_folk.md", role = "questgiver", tier = "quest",
   communities = { "darkshire" }, temper = { "cheerful" }, values = { "proud", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_stones" },
 
   impression = {
     first = "His kitchen is the warmest place in Darkshire, in every sense.",
@@ -1047,6 +1047,8 @@ P:NPC {
       text = "A cook, so there's proper respect between us! You want to know my secret? No, you don't, and nobody does, trust me." },
     { id = "n_thin", cat = "hunger", when = { race = "Skyborne" },
       text = "Look at you, you're a twig! Sit down, sit down, because nobody leaves my kitchen that thin." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "If you're carrying one of those green stones your lot make, keep it out of my soup, because the last one dropped in turned the broth the colour of a bog. The Raven feeds everybody, but it doesn't feed them that." },
   },
 
   start = "hello",
@@ -1721,7 +1723,7 @@ P:NPC {
   key = "clarise", id = TODO_NPC("Clarise Gnarltree"), name = "Clarise Gnarltree",
   bible = "bibles/darkshire_folk.md", role = "trainer", tier = "service",
   communities = { "darkshire" }, temper = { "wry" }, values = { "practical", "craft" },
-  notices = { "craft", "stealth" },
+  notices = { "craft", "stealth", "lock_armor" },
 
   impression = {
     first = "There is a Gnarltree for every part of a fighter, she says.",
@@ -1736,6 +1738,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith! Show me your hands... hm, fewer burns than mine, so either you're very good or you haven't tried anything hard yet." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark ward you're wearing would turn a worgen's claw better than half the plate on my rack, and I hate that it would. Morbent Fel wore something like it, they say, the night he walked into Raven Hill." },
   },
 
   react = {

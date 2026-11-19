@@ -13,6 +13,11 @@ P:NPC {
     { id = "g_main", text = "Ugh, another visitor. Unless you've got an antidote to sell, buddy, keep your voice down, because my head's charging me interest." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, buddy! Tell me you've brought somethin' that'll make me feel less like death, and tell me it's cheap." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Pal, I'll trade you anything for a bite of that, because the poison's in my blood and Beetix's potions taste like wet boots. I don't care whose soul went into it, I'm desperate here." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
@@ -168,6 +173,11 @@ P:NPC {
     { id = "g_main", text = "Hear me, traveler! The end draws near, and the bugs are already under your feet, so stop scratching and listen!" },
     { id = "g_back", when = { metBefore = true }, text = "You return! Have you come to hear the truth at last?" },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The darkness walks beside you even at noon, sinner, and the sand turns cold where your shadow falls. Repent while there is still light enough to see your own face, because there won't be when the end comes up from below." },
+  },
+
   start = "hello",
   nodes = {
     xrogue = {
@@ -333,6 +343,11 @@ P:NPC {
     { id = "g_main", text = "Lok'tar, warrior! Speak quickly; the Horde has a war to prepare." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water, which is no death for an orc." },
   },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood's running hot, warlock, like a fever, and I know that heat from the old camps. The Horde drank deep from that cup once, so keep the imp's pact at a sip." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -510,6 +525,11 @@ P:NPC {
     { id = "g_main", text = "Well met, friend. You've come to the front lines, then, so mind where you sit; the scorpids got into the latrine trench again." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The Alliance needs every hand it can get, and my last two went home with sunstroke and a scorpid in the boot." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I've counted your shards, warlock, because I count everything that comes into my camp, and you're carrying enough to fill a grave. I won't ask whose they were, so long as none of them wore our colours." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

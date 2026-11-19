@@ -25,6 +25,11 @@ P:NPC {
     { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living customer, how refreshing. Your coins are perfectly safe here, and so are you, mostly." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp on my counter goes dim whenever you lean over it, and I've noticed it does that for your sort. I'll count your coins twice, if you don't mind, and not because I doubt you." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -199,7 +204,7 @@ P:NPC {
   key = "maulray", id = TODO_NPC("Anya Maulray"), name = "Anya Maulray", title = "Stable Master",
   bible = "bibles/townsfolk.md", role = "stablemaster", tier = "service",
   communities = { "undercity" }, temper = { "gentle" }, values = { "kind", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
   impression = {
     first = "She is softer with her beasts than with any of the living.",
     third = "{name} met Anya Maulray, the stable master of the Undercity.",
@@ -213,6 +218,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
       text = "{pet} is pressing close to you, look, and not to me. That's what trust looks like on a beast, and it's not easily won down here." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Don't bring that burning horse down into my stables, or I'll have every beast here kicking its stall to pieces. Leave it in the courtyard, if you must keep it at all." },
   },
 
   start = "hello",
@@ -368,7 +375,7 @@ P:NPC {
   key = "archibald", id = TODO_NPC("Archibald"), name = "Archibald", title = "Weapon Master",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "stern" }, values = { "disciplined", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He expects to be obeyed and is surprised when he is.",
     third = "{name} met Archibald, the weapon master of the Undercity's War Quarter.",
@@ -382,6 +389,8 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "Your grip's wrong. Thumb over, not under, or that blade will twist out of your hand on the first hard parry. Fix it now and thank me later." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing crackles every time you move, and it will turn a blade or two before it burns away. Drill with me anyway, so your arms still know their work when it's gone." },
   },
 
   start = "hello",
@@ -548,7 +557,7 @@ P:NPC {
   key = "vanbrunt", id = TODO_NPC("James Van Brunt"), name = "James Van Brunt", title = "Blacksmithing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "gruff" }, values = { "diligent" },
-  notices = { "profession", "wounds" },
+  notices = { "profession", "wounds", "lock_taint" },
   impression = {
     first = "He has nothing left but the work, and he does it well.",
     third = "{name} met James Van Brunt, the blacksmithing trainer of the Undercity.",
@@ -564,6 +573,8 @@ P:NPC {
       text = "Your armour's falling off you in pieces. If you're not going to look after it, at least let someone who cares do it for you." },
     { id = "n_smith", cat = "profession", when = { profession = { name = "Blacksmithing", min = 150 } },
       text = "You've good callouses for a smith. Keep them; you'll need them for the heavier work." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell like the fel-touched ore they keep asking me to work. I'll make you honest armour, but don't expect it to sit right on someone who smells like that." },
   },
 
   start = "hello",
@@ -729,7 +740,7 @@ P:NPC {
   key = "killian", id = TODO_NPC("Brom Killian"), name = "Brom Killian", title = "Mining Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_shards" },
   impression = {
     first = "Every tunnel under the city strikes him as a missed opportunity.",
     third = "{name} met Brom Killian, the mining trainer of the Undercity.",
@@ -743,6 +754,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "profession", when = { profession = { name = "Mining", min = 125 } },
       text = "Iron dust on your sleeves. You've been working proper veins, then, not just the copper that any child can find." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Crystals like those don't come out of any vein I've ever dug. Pretty, though, and they hum, which ore never does, so I'll take your word they're not worth mining for." },
   },
 
   start = "hello",
@@ -907,7 +920,7 @@ P:NPC {
   key = "lavinia_crowe", id = TODO_NPC("Lavinia Crowe"), name = "Lavinia Crowe", title = "Enchanting Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "proud" }, values = { "curious", "precise" },
-  notices = { "profession", "class" },
+  notices = { "profession", "class", "lock_soulstone" },
   impression = {
     first = "She is particular and proud, and her lessons are better for it.",
     third = "{name} met Lavinia Crowe, the enchanting trainer of the Undercity's Magic Quarter.",
@@ -923,6 +936,8 @@ P:NPC {
       text = "You've a little dust on your fingertips, and it glitters. You've been breaking things down, then, and I approve." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You throw your magic out into the world and let it go, whereas we enchanters keep ours and put it somewhere useful. Both have their place, but mine is tidier." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There's a soul bound in that stone you're carrying, held in an object the way I bind power into a ring. It's a cruder craft than mine, but I'll admit it works." },
   },
 
   start = "hello",
@@ -1085,7 +1100,7 @@ P:NPC {
   key = "cward", id = TODO_NPC("Carolyn Ward"), name = "Carolyn Ward", title = "Rogue Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "sharp" }, values = { "cunning", "loyal" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "Her loyalty to the Dark Lady is plain, and nothing else is.",
     third = "{name} met Carolyn Ward, a rogue trainer of the Undercity.",
@@ -1099,6 +1114,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I can see you, you know. Your shadow is wrong on the left, so drop your shoulder, and you might fool someone who isn't me." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes see through shadow, which is a rude thing to bring into my quarter. My students are trying to learn how to hide, and you're spoiling the lesson." },
   },
 
   start = "hello",
@@ -1262,6 +1279,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did the last batch do its job? It always does, but I like to hear about it." },
   },
 
+  notice = {
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, is it? Pity. Everything I sell is meant to stop a heart, and that stone undoes half my work, so keep it in your pocket while you're browsing." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -1416,7 +1438,7 @@ P:NPC {
   key = "edras", id = TODO_NPC("Mary Edras"), name = "Mary Edras", title = "First Aid Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "brisk" }, values = { "kind", "practical" },
-  notices = { "wounds" },
+  notices = { "wounds", "lock_pact" },
   impression = {
     first = "Her briskness is plainly how she cares.",
     third = "{name} met Mary Edras, the first aid trainer of the Undercity.",
@@ -1430,6 +1452,8 @@ P:NPC {
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "You're in a state, and I'm sure you can't feel half of it. Sit down and let me check you before you walk off with a blade still in your back." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's heat in your blood, a fever that isn't a fever, and I see it on warlocks and the people who fight beside them. It won't kill you, but it won't stop an arrow either, so buy a bandage." },
   },
 
   start = "hello",
@@ -1595,7 +1619,7 @@ P:NPC {
   key = "cromwell", id = TODO_NPC("Armand Cromwell"), name = "Armand Cromwell", title = "Fishing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "calm" }, values = { "patient" },
-  notices = { "profession" },
+  notices = { "profession", "lock_breath" },
   impression = {
     first = "He finds it funny to fish in canals full of green poison.",
     third = "{name} met Armand Cromwell, the fishing trainer of the Undercity.",
@@ -1609,6 +1633,8 @@ P:NPC {
   notice = {
     { id = "n_angler", cat = "profession", when = { profession = { name = "Fishing", min = 150 } },
       text = "There's lake weed on your boots, and it's fresh. You've been out at Brightwater, then, and a good long while by the look of it." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You can breathe underwater now, can you? Then you'll know how green these canals are from the bottom, and you'll know why I fish elsewhere." },
   },
 
   start = "hello",

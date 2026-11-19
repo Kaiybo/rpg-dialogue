@@ -6,7 +6,7 @@ P:NPC {
   key = "rudra_amberstill", id = TODO_NPC("Rudra Amberstill"), name = "Rudra Amberstill",
   bible = "bibles/dunmorogh_roads.md", role = "farmer", tier = "quest",
   communities = { "dunmorogh" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "She counts her herd twice a day since the yeti came down.",
@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_ranch", text = "Mind the gate, and mind the dung while ye're at it. This is a workin' ranch, no' a sightseein' one." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The rams remember ye, an' they dinnae bother remembering most travellers." },
+  },
+
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The rams have all bunched up against the far fence, an' they only do that for wolves an' blizzards. I've no' smelled sulphur since the blacksmith's fire went wrong, so I'll ask ye tae stand downwind while we talk." },
   },
 
   start = "hello",
@@ -188,7 +193,7 @@ P:NPC {
   key = "tundra_macgrann", id = TODO_NPC("Tundra MacGrann"), name = "Tundra MacGrann",
   bible = "bibles/dunmorogh_roads.md", role = "citizen", tier = "quest",
   communities = { "dunmorogh" }, temper = { "jovial" }, values = { "practical" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
 
   impression = {
     first = "A bear has run off with his food stash.",
@@ -198,6 +203,11 @@ P:NPC {
   greetings = {
     { id = "g_snow", text = "Hullo there! Ye're the first face I've seen all week that wasnae covered in fur." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again! Come warm yer hands by the fire, such as it is." },
+  },
+
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Ye're wearin' somethin' dark over yer gear that looks like hide an' moves like smoke, an' the frost won't settle on it. I'll grant it'd keep the cold off out here, but I'd sooner freeze than wear a demon's skin." },
   },
 
   start = "hello",
@@ -383,7 +393,7 @@ P:NPC {
   key = "pilot_bellowfiz", id = TODO_NPC("Pilot Bellowfiz"), name = "Pilot Bellowfiz",
   bible = "bibles/dunmorogh_roads.md", role = "questgiver", tier = "quest",
   communities = { "dunmorogh" }, temper = { "eager" }, values = { "practical" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
 
   impression = {
     first = "He talks fast about fuelling and feeding his flying machine.",
@@ -393,6 +403,11 @@ P:NPC {
   greetings = {
     { id = "g_depot", text = "Oh, hello! Don't touch anything shiny, it's either hot or about to be." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Wonderful, I've thought of three more things I need." },
+  },
+
+  notice = {
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag? I can feel it from here, and I'm standing beside eleven barrels of fuel, so please, please, take three very slow steps back from the hangar door." },
   },
 
   start = "hello",
@@ -572,7 +587,7 @@ P:NPC {
   key = "hegnar_rumbleshot", id = TODO_NPC("Hegnar Rumbleshot"), name = "Hegnar Rumbleshot",
   bible = "bibles/dunmorogh_roads.md", role = "vendor", tier = "service",
   communities = { "dunmorogh" }, temper = { "gruff" }, values = { "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He talks about guns like other dwarves talk about ale.",
@@ -581,6 +596,11 @@ P:NPC {
 
   greetings = {
     { id = "g_camp", text = "Lookin' for a gun? Ye've come to the right dwarf, and ye'll no' find a better one between here and Ironforge." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That's a fair weight o' soul shards ye're carryin', an' they rattle like a pouch o' shot, only colder. Every one o' those is a trogg or a troll that'll no' trouble the road again, so I'll grant ye they're tidier than bullets." },
   },
 
   start = "hello",

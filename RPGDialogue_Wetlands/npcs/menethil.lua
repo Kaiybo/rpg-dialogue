@@ -10,7 +10,7 @@ P:NPC {
   bible = "bibles/menethil.md", role = "soldier", tier = "major",
   communities = { "menethil" }, temper = { "fierce" }, values = { "dutiful", "brave" },
   likesTone = "blunt", race = "Dwarf",
-  notices = { "soldier", "kit" },
+  notices = { "soldier", "kit", "lock_armor", "lock_shadow" },
 
   impression = {
     first = "He asked only whether I'd go where I was told.",
@@ -34,6 +34,10 @@ P:NPC {
       text = "Ye've the look o' someone who's held a line before, which is good, because I've more lines than I've folk to hold them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Yer kit's in ribbons. Get it seen to before ye go back up the road, for I'll no' send folk out half-dressed." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The torches along the wall leaned away from ye when ye came up the steps, every one o' them, an' I've a keep full o' soldiers who noticed it too. I'll speak wi' ye, for I need every hand I can get, but I'd thank ye tae stand where my men can see ye." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That black shell on ye's a ward against shadow, I'd wager, for I've seen the Horde's warlocks wear the like in the last war. It's a strange thing tae see on our side o' the line, but I'll grant it'd be useful against the Dragonmaw's shamans." },
   },
 
   start = "hello",
@@ -521,7 +525,7 @@ P:NPC {
   key = "fitzsimmons", id = TODO_NPC("First Mate Fitzsimmons"), name = "First Mate Fitzsimmons",
   bible = "bibles/menethil.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "maudlin" }, values = { "loyal" },
-  notices = { "drink", "fright" },
+  notices = { "drink", "fright", "lock_soulstone" },
 
   impression = {
     first = "He has no ship left, and he isn't sober about it.",
@@ -541,6 +545,8 @@ P:NPC {
       text = "Ha! You've had a few, haven't you? Good, good, now you're my kind of company." },
     { id = "n_sailor", cat = "fright", when = { resSick = true },
       text = "You've been dead, haven't you? I can always tell. You've the look my shipmates had, the ones that still walk, so sit by me a while; I don't mind." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a soul bound in a stone hangin' on you, I can see it shiver, and it puts me in mind of my shipmates out on the wrecks. They're bound too, only nobody bound them on purpose, so drink with me and tell me it's worth it." },
   },
 
   start = "hello",
@@ -799,7 +805,7 @@ P:NPC {
   key = "glorin", id = TODO_NPC("Glorin Steelbrow"), name = "Glorin Steelbrow",
   bible = "bibles/menethil.md", role = "priest", tier = "quest",
   communities = { "menethil" }, temper = { "grumpy" }, values = { "devout", "dutiful" },
-  notices = { "fel", "class" },
+  notices = { "fel", "class", "lock_taint" },
 
   impression = {
     first = "He blesses people in the same breath as he complains about them.",
@@ -820,6 +826,8 @@ P:NPC {
       text = "A warlock, is it? Then stand over there, no, further than that, for the Light an' I have enough to deal with in this marsh." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, thank the Light! Ye can take the next three blessings, for I've a backlog." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye're green round the edges, an' it's no' the marsh damp, it's the fel, an' I can smell it on ye like brimstone in a wet cellar. The Light turns nobody out o' the chapel, but I'll ask ye tae stand at the back, for the candles are already sulkin'." },
   },
 
   start = "hello",
@@ -1137,7 +1145,7 @@ P:NPC {
   key = "harlo", id = TODO_NPC("Harlo Barnaby"), name = "Harlo Barnaby",
   bible = "bibles/menethil.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "bitter" }, values = { "brave", "proud" },
-  notices = { "body", "kin" },
+  notices = { "body", "kin", "lock_stones" },
 
   impression = {
     first = "He is laid up by healer's orders and resents every hour.",
@@ -1154,6 +1162,8 @@ P:NPC {
       text = "One o' our own, so ye'll understand. A dwarf without his hold is just a short man in the rain." },
     { id = "n_hurt", cat = "body", when = { durability = { max = 0.25 } },
       text = "Ye look like I felt. Here's my advice: don't ever take an axe in the back, an' face 'em, always." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone ye've got, green as the marsh, an' I'll confess I'd take a bite o' one right now if it'd get me out o' this bed. Don't tell the healer I said so, for she's already got the bigger stick." },
   },
 
   start = "hello",
@@ -1394,7 +1404,7 @@ P:NPC {
   key = "karl", id = TODO_NPC("Karl Boran"), name = "Karl Boran",
   bible = "bibles/menethil.md", role = "worker", tier = "quest",
   communities = { "menethil" }, temper = { "steady" }, values = { "hardworking", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_stones" },
 
   impression = {
     first = "He warned me before I tripped, and I liked him for it.",
@@ -1409,6 +1419,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Rough out there? Course it is, so get yourself patched up and get back to it, because that's how we do things here." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag? I've handled crates marked for nobody in particular that ran warm like that, and I learned to keep them well away from the powder. Mind the ropes on your way past, for the tar burns easily." },
   },
 
   start = "hello",
@@ -1639,7 +1651,7 @@ P:NPC {
   key = "helbrek", id = TODO_NPC("Innkeeper Helbrek"), name = "Innkeeper Helbrek",
   bible = "bibles/menethil.md", role = "innkeeper", tier = "service",
   communities = { "menethil" }, temper = { "jolly" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_pact" },
 
   impression = {
     first = "He makes soaked strangers feel like regulars.",
@@ -1664,6 +1676,8 @@ P:NPC {
       text = "Ye've been wrestlin' the marsh an' the marsh won, by the look of ye. Sit down an' have some stew, an' no arguments." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy now. Ye're startin' to sound like Fitzsimmons, an' one o' him is plenty." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're givin' off heat like a hearth, friend, an' it's no' the stew, for I've seen that flush on a warlock's friends before. That's an imp's pact sittin' in yer blood, an' I'd keep the window open tonight." },
   },
 
   start = "hello",
@@ -1891,7 +1905,7 @@ P:NPC {
   key = "flagongut", id = TODO_NPC("Archaeologist Flagongut"), name = "Archaeologist Flagongut",
   bible = "bibles/menethil.md", role = "scholar", tier = "quest",
   communities = { "menethil" }, temper = { "eager" }, values = { "curious" },
-  notices = { "lore", "travel" },
+  notices = { "lore", "travel", "lock_shards" },
 
   impression = {
     first = "Mind the maps, he said, and the maps were everywhere.",
@@ -1911,6 +1925,8 @@ P:NPC {
       text = "Ye've read The Seven Kingdoms! Then ye know how much history sits under yer boots. Most folk only notice the mud." },
     { id = "n_far", cat = "travel", when = { visited = "Ironforge" },
       text = "Ye've been to the Hall o' Explorers? Then next time, tell High Explorer Magellas I'm still here; he'll know what that means, which is that I'm stuck." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Ye've a bag full o' soul shards an' they're hummin' louder than half the relics we crate up for Ironforge. I'd ask ye no' tae open it near my finds, for I've no wish tae find out what a three-thousand-year-old skull makes o' them." },
   },
 
   start = "hello",
@@ -2148,7 +2164,7 @@ P:NPC {
   key = "mikhail", id = TODO_NPC("Mikhail"), name = "Mikhail",
   bible = "bibles/menethil.md", role = "citizen", tier = "quest",
   communities = { "menethil" }, temper = { "watchful" }, values = { "loyal", "discreet" },
-  notices = { "stealth", "drink" },
+  notices = { "stealth", "drink", "lock_eyes" },
 
   impression = {
     first = "He told me to sit where I could see the door.",
@@ -2165,6 +2181,8 @@ P:NPC {
       text = "You came in quietly, and I noticed. I'd have noticed you louder, too, but quiet is what I notice most." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You've been drinking, and not from me, or I'd have remembered." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that sheen, the one that sees through a shadow, and I knew a few people in Stormwind who paid well for it. I'll just say that a man who stands in a corner as much as I do doesn't love being looked at like that." },
   },
 
   start = "hello",

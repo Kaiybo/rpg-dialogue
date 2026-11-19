@@ -6,7 +6,7 @@ P:NPC {
   key = "stormpike_mtn", id = TODO_NPC("Mountaineer Stormpike"), name = "Mountaineer Stormpike",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "gruff" }, values = { "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He will tell you about his exploits before you ask.",
@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the kobolds didnae miss ye one bit. I did, a wee bit, fer the work's piled up." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a fair bit o' muscle since ye last took work from me. Nearly enough tae match my own exploits, if ye keep at it." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear ye've been leanin' on folk about Thelsamar. Lean on the troggs instead, fer they've earned it an' the townsfolk havenae." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye've a bag full o' soul shards, an' by the chill off it, a good few o' those used tae be troggs. I'll no' say I like it, but every shard's a Stonesplinter that'll no' be comin' up the pass, so I'll count it in yer favor." },
   },
 
   start = "hello",
@@ -215,7 +220,7 @@ P:NPC {
   key = "cobbleflint", id = TODO_NPC("Mountaineer Cobbleflint"), name = "Mountaineer Cobbleflint",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "He wants the troggs thinned before they come over the wall.",
@@ -225,6 +230,11 @@ P:NPC {
   greetings = {
     { id = "g_tower", text = "Welcome to the south gate, friend. Keep yer weapon handy, for the troggs don't knock." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the gate, are ye? Good. The troggs have been busy, and so should you be." },
+  },
+
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My dog's growlin' at ye an' she's never growled at anybody who wasnae a trogg. I'll take her word over yer smile, so ye'll stay on that side o' the post while we talk." },
   },
 
   start = "hello",
@@ -399,7 +409,7 @@ P:NPC {
   key = "rockgar", id = TODO_NPC("Mountaineer Rockgar"), name = "Mountaineer Rockgar",
   bible = "bibles/loch_roads.md", role = "soldier", tier = "quest",
   communities = { "thelsamar" }, temper = { "sharp" }, values = { "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "Beyond his pass lie the Wetlands and the Dragonmaw.",
@@ -409,6 +419,11 @@ P:NPC {
   greetings = {
     { id = "g_pass", text = "Halt, and let me see yer face. Right, ye're no' an orc, so come in." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Still in one piece, I see; the last runner came back missing two fingers and his satchel." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green tinge on ye, round the eyes an' the knuckles, an' I've seen that color before on the orcs we fought in the marsh. I'll let ye through the gate, for ye're on our side, but I'll be watchin' that color." },
   },
 
   start = "hello",
@@ -581,7 +596,7 @@ P:NPC {
   key = "bingles", id = TODO_NPC("Bingles Blastenheimer"), name = "Bingles Blastenheimer",
   bible = "bibles/loch_roads.md", role = "questgiver", tier = "quest",
   communities = { "thelsamar" }, temper = { "eager" }, values = { "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
 
   impression = {
     first = "He managed to lose almost every one of his tools at once.",
@@ -591,6 +606,11 @@ P:NPC {
   greetings = {
     { id = "g_camp", text = "Oh! Oh, hello! Have you seen a wrench? Or a hammer? Or anything at all, really?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Splendid, and I've only lost two more things since you left." },
+  },
+
+  notice = {
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag? Please don't come any closer, because my reagents are mostly flammable and the rest are more flammable, and I haven't found my fire extinguisher either." },
   },
 
   start = "hello",

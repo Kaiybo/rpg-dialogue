@@ -344,6 +344,7 @@ P:NPC {
   key = "stover", id = TODO_NPC("Frederick Stover"), name = "Frederick Stover", title = "Bow & Arrow Merchant",
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft", "practical" },
+  notices = { "lock_stones" },
   impression = {
     first = "He talks about his yew the way some men talk about wine.",
     third = "{name} met Frederick Stover, a cheerful bowyer of the Trade District.",
@@ -351,6 +352,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Bows and arrows, friend, the finest yew this side of the Greymane Wall!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that bow serve you well? Of course it did." },
+  },
+  notice = {
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your pack, I'd wager, because my yew's warping toward you like it's stood too near a stove. Keep it off my rack, friend, and I'll give you all the advice about yew you could want." },
   },
   start = "hello",
   nodes = {
@@ -511,6 +516,7 @@ P:NPC {
   key = "felicia_gump", id = TODO_NPC("Felicia Gump"), name = "Felicia Gump", title = "Florist",
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "chatty" }, values = { "beauty", "community" },
+  notices = { "lock_shadow" },
   impression = {
     first = "She knows who is courting, marrying or being buried by their flowers.",
     third = "{name} met Felicia Gump, Stormwind's chatty florist.",
@@ -518,6 +524,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Flowers, herbs and seasonings, dear! Something for a sweetheart, or something for the pot?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! Did your sweetheart like the roses? Or was it the pot, after all?" },
+  },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My lilies are drooping on your side of the stall, dear, and I only watered them an hour ago. It's the shadow on you, I think, because the marigolds by the door are the only ones that don't seem to mind." },
   },
   start = "hello",
   nodes = {

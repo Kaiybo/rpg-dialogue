@@ -11,7 +11,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "steady" }, values = { "fair", "wise" },
   likesTone = "polite",
   spiritSensitive = true,
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow", "lock_soulstone" },
   impression = {
     first = "His lamps burn late because he sleeps so little.",
     third = "{name} met Thundris Windweaver, the steady elder of Auberdine, who means to learn why Darkshore is sickening.",
@@ -35,6 +35,10 @@ P:NPC {
       text = "Humans come off the boats every week now, and some of my people frown at it. I judge each of you by your own deeds, not by your kings'." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Kin from Eldre'Thalas, after so long. You are welcome here; whatever your ancestors did or did not do, it was long ago, and you were not there to do it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "When you came up the tower stairs, the stars in my scrying glass went dark one by one, as they did over Zin-Azshari on the night the Well was opened. I know what walks beside your kind, warlock, even when nothing walks beside you." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry an unspent soulstone, a soul's worth of hope bound in rock. The Highborne made such things before they made worse ones, and I wonder which of the two you will learn to make next." },
   },
 
   start = "hello",
@@ -623,7 +627,7 @@ P:NPC {
   key = "gwennyth", id = TODO_NPC("Gwennyth Bly'Leggonde"), name = "Gwennyth Bly'Leggonde",
   bible = "bibles/auberdine.md", role = "priest", tier = "quest",
   communities = { "auberdine" }, temper = { "gentle" }, values = { "devout", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
   impression = {
     first = "She keeps one eye on the tide, expecting more dead things.",
     third = "{name} met Gwennyth Bly'Leggonde of the Sisterhood, who wants to know why the sea keeps giving up its dead on Darkshore's shore.",
@@ -634,6 +638,11 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the tide has brought in all sorts while you were away. Elune keep you, it's good to see a familiar face." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in the village has spoken warmly of you, and in a place this troubled, a kind word goes further than a poultice. Elune bless you for it." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear harsh words passed between you and someone in Auberdine. The sea makes everyone uneasy, but do try to mend things gently." },
+  },
+
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is not wholly in you, for someone has bound it into a stone against your death. Elune receives the dead in her own time, and I pray you never make her wait." },
   },
 
   start = "hello",
@@ -821,7 +830,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   prejudice = { race = "Dwarf", amount = 10, why = "Remtravel's diggers carry off carvings from Ameth'Aran and Mist's Edge; she sees every dwarf with a pick as a grave-robber" },
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shards" },
   impression = {
     first = "The Sentinels watch everyone, she says, and I try not to mind.",
     third = "{name} met Sentinel Glynda Nal'Shea, who holds back murlocs on Auberdine's beaches and corruption in its groves.",
@@ -841,6 +850,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The murlocs got their claws into you, by the look of it. Get yourself mended, then go and pay them back." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ten souls at the least are cold in that pack of yours, and I can feel them the way I feel the moonkin's madness on the wind. Keep them bound and keep them quiet, because Darkshore has enough restless dead." },
   },
 
   start = "hello",
@@ -1098,7 +1109,7 @@ P:NPC {
   key = "cerellean", id = TODO_NPC("Cerellean Whiteclaw"), name = "Cerellean Whiteclaw",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "He slept thousands of years dreaming of Anaya and grieves her still.",
     third = "{name} met Cerellean Whiteclaw, who has mourned his beloved Anaya of Ameth'Aran since the Sundering.",
@@ -1115,6 +1126,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. Have you slept the long sleep yet? Don't, if you can help it, for the dreams find out what you love and keep it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Are those soul shards? Forgive me, but I must ask whose souls they are, because there are spirits on this shore I would know anywhere. Tell me none of them are kaldorei, and I will believe you." },
   },
 
   start = "hello",
@@ -1289,7 +1302,7 @@ P:NPC {
   key = "shaussiy", id = TODO_NPC("Innkeeper Shaussiy"), name = "Innkeeper Shaussiy", gender = "female",
   bible = "bibles/auberdine.md", role = "innkeeper", tier = "service",
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
   impression = {
     first = "She listens for storms in the floorboards.",
     third = "{name} found a bed at Innkeeper Shaussiy's inn by the Auberdine docks, where nearly every guest arrives seasick.",
@@ -1313,6 +1326,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Furbolgs, murlocs or moonkin? It's always one of the three. Sit down, and Elune guard your dreams tonight." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lantern over the door guttered when you came in, and the guests by the hearth stopped talking all at once. I will pour for you like anyone else, but you will forgive them for looking." },
   },
 
   start = "hello",

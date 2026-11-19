@@ -9,7 +9,7 @@ P:NPC {
   key = "daeolyn", id = TODO_NPC("Daeolyn Summerleaf"), name = "Daeolyn Summerleaf", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nighthaven" }, temper = { "serene", "welcoming" }, values = { "peace", "hospitality" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_soulstone" },
   impression = {
     first = "She believes Moonglade's peace rubs off on anyone who stays long enough.",
     third = "{name} met Daeolyn Summerleaf, who keeps Nighthaven's general store open to all.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Welcome, friend of the Earth Mother. Your people's druids have made Nighthaven a little louder and a good deal warmer, and I'm glad of both." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You've come through Felwood, haven't you? Everyone who does looks like that. Rest here for a while; nothing in the grove will trouble you." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, and the lake went quiet when you came down the path. I don't pretend to understand it, but I hope the one who holds it loves you, because that's a great deal to carry." },
   },
 
   start = "hello",
@@ -210,7 +212,7 @@ P:NPC {
   key = "malvor", id = TODO_NPC("Malvor"), name = "Malvor", title = "Herbalist",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "nighthaven" }, temper = { "dreamy", "gentle" }, values = { "nature", "wonder" },
-  notices = { "craft", "form" },
+  notices = { "craft", "form", "lock_shadow" },
   impression = {
     first = "He is gentle, and a little hard to bring back to earth.",
     third = "{name} met Malvor, Nighthaven's dreamy herbalist.",
@@ -226,6 +228,8 @@ P:NPC {
       text = "You carry a satchel of herbs from places I've never been. May I look? I promise not to keep anything." },
     { id = "n_tree", cat = "form", when = { form = { "bear", "cat", "moonkin" } },
       text = "Please watch where you put those feet. The young plants here grow slowly, and they have very little patience for paws." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The moonpetals closed up as you came in, every one of them, and they only do that when the clouds come. There aren't any clouds, so I think it must be you, and I think they'll open again once you've gone." },
   },
 
   start = "hello",
@@ -398,7 +402,7 @@ P:NPC {
   key = "narianna", id = TODO_NPC("Narianna"), name = "Narianna", title = "Bowyer",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nighthaven" }, temper = { "practical", "dry" }, values = { "readiness", "honesty" },
-  notices = { "class" },
+  notices = { "class", "lock_steed" },
   impression = {
     first = "She sees no contradiction in selling bows in so peaceful a place.",
     third = "{name} met Narianna, the practical bowyer of Nighthaven.",
@@ -412,6 +416,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Your beast won't need to hunt here, so let it rest while you shop." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse has scorched three patches in the grass outside, and the druids will notice before you've finished shopping. Tie it on the far side of the hills, and I'll keep your bowstrings ready when you come back." },
   },
 
   start = "hello",

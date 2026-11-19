@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the ruins, which few people choose to do. Sit a while, if the satyrs allow it." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The satyrs in the ruins went quiet the moment you came near, which they never do, and I think they have caught your scent. They know their own, or near enough, and I would sooner they did not mistake you for a friend." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -194,6 +199,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ah, a visitor! Mind the trench, {g:lad|lass}, I've only just dug it and I'd hate to lose another one in there." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face, I'm nearly sure of it, which puts you ahead of half my notes!" },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "What's that in yer pack, rattlin' cold like gravel in a grave? Soul shards, by my beard, an' enough o' them tae haunt the whole dig, so keep them well away from my bones." },
   },
 
   start = "hello",
@@ -418,6 +428,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You return, and the grove remembers your footsteps. That is no small thing, for it forgets most visitors." },
   },
 
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear the hide of a demon about you, young one, and the grove draws its roots away from it. I have stood a long time and seen many kinds of armor, but never one that did not ask a price of its wearer." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -597,6 +612,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Quiet, friend, please! The Blackwood are just outside, and they'll hear us if we talk above a whisper." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and you weren't followed, I hope. Good, then we can speak." },
+  },
+
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone you're carrying? Good, because if the Blackwood catch us on the road I'll be needing one, and I'll not be too proud to ask, whoever's life went into it." },
   },
 
   start = "hello",
@@ -780,6 +800,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hm? Oh, forgive me, I must have dozed off again, which happens rather a lot lately." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and I'm awake to see you, which is a fine change for both of us." },
+  },
+
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're warm, terribly warm, and I can feel it even through the fog in my head, as though something small and burning had shared its blood with you. That fever will keep me awake, which is a kindness, so do stay close." },
   },
 
   start = "hello",

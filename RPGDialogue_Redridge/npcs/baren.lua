@@ -7,7 +7,7 @@ P:NPC {
   key = "baren", id = TODO_NPC("Dockmaster Baren"), name = "Dockmaster Baren",
   bible = "bibles/baren.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "witty" },
-  notices = { "craft", "swim" },
+  notices = { "craft", "swim", "lock_shards" },
 
   impression = {
     first = "He warns about loose planks like a man who has fallen through.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A fisher! Then you'll understand. Lake Everstill was the best water in the kingdom, and now it's the best water in the kingdom for murlocs." },
     { id = "n_wet", cat = "swim", when = { questObjective = { TODO_QUEST("Murloc Poachers"), left = { max = 3 } } },
       text = "You smell like the east shore. That's a compliment, out here. It means you've been working." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've a bag full of shards, and I'd wager half of them were murlocs, judging by the smell off it. Keep filling it, because I've boats to count and fewer of them every week." },
   },
 
   start = "hello",

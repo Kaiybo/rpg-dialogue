@@ -6,7 +6,7 @@ P:NPC {
   key = "quae", id = TODO_NPC("Quae"), name = "Quae",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "goshek_watch" }, temper = { "brisk" }, values = { "dutiful", "sharp" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "She speaks as if each word costs a moment of watching.",
     third = "{name} met Quae, one of Phin Odelic's agents, keeping watch on Go'Shek Farm in the Arathi Highlands.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You move like someone who's done this before. That's a comfort, out here." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadows just stretched the wrong way along the rocks, toward you, and I'm fairly sure it wasn't the sun. Keep low and keep quiet, because the orcs at Go'Shek might not notice it, but I did." },
   },
 
   start = "hello",
@@ -252,7 +254,7 @@ P:NPC {
   key = "kinelory", id = TODO_NPC("Kinelory"), name = "Kinelory",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "goshek_watch" }, temper = { "nervous" }, values = { "brave", "loyal" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She is plainly frightened and will do the dangerous thing anyway.",
     third = "{name} met Kinelory, Quae's partner in Phin Odelic's service, who means to waylay a Forsaken courier near Go'Shek Farm.",
@@ -269,6 +271,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armour's in worse shape than my nerves, and that's saying something. Mend it before we go anywhere near that road." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking, did you know that? It's a black sort of smoke, curling round your fingers, and I'd rather walk behind you than in front, if that's all the same to you." },
   },
 
   start = "hello",
@@ -429,7 +433,7 @@ P:NPC {
   key = "phizzlethorpe", id = TODO_NPC("Professor Phizzlethorpe"), name = "Professor Phizzlethorpe",
   bible = "bibles/roads.md", role = "scholar", tier = "quest",
   communities = { "drywhisker" }, temper = { "flustered" }, values = { "curious", "learned" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
   impression = {
     first = "He talks faster than he walks, which worries me given the kobolds.",
     third = "{name} met Professor Phizzlethorpe, a gnome scholar stranded among the kobolds of Drywhisker Gorge.",
@@ -442,6 +446,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here! Splendid, you'll understand the equations, and you'll certainly understand the kobolds' smell." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's bound your soul into a stone, haven't they? I can see the shimmer of it on you, and as a scientist I find it fascinating, though as a man who'd prefer to stay alive I find it a little reassuring too." },
   },
 
   start = "hello",

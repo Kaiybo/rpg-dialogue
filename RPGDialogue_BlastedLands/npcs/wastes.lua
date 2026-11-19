@@ -370,7 +370,7 @@ P:NPC {
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "blasted_lands" }, temper = { "eager" }, values = { "curious", "ambitious" },
   prejudice = { { race = "Troll", amount = 12, why = "Quel'Thalas fought the Amani for millennia; he sees all trolls as specimens." }, { race = "Orc", amount = 6, why = "The Horde burned Eversong's borders in the Second War." } },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_taint" },
 
   impression = {
     first = "He called me a test subject and meant it as a compliment.",
@@ -390,6 +390,8 @@ P:NPC {
       text = "A warrior! Look at the shoulders on you; my sister may keep her basilisk brains, I'd sooner study you." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
       text = "Your beast hasn't been changed by the Portal yet, which makes it a perfect control for my study. Don't let it eat anything out here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Oh, look at the green under your fingernails! You've soaked up more fel than any boar in the wastes, I'd wager, and I would dearly love a drop of your blood for the measurements, purely for science." },
   },
 
   start = "hello",
@@ -677,7 +679,7 @@ P:NPC {
   key = "lynnore", id = TODO_NPC("Bloodmage Lynnore"), name = "Bloodmage Lynnore",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "blasted_lands" }, temper = { "steady" }, values = { "curious", "wise" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
 
   impression = {
     first = "She is fonder of her brother than she would ever admit.",
@@ -695,6 +697,8 @@ P:NPC {
       text = "A priest. You'll understand my work better than my brother does; you also believe there's more to a creature than its meat." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, and a thinking one, I hope. My compounds sharpen the mind as well as any study, and far more quickly." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There's an unspent soulstone in your pack, I'd swear to it, because the basilisk turned its gaze on your bag and not on you. They know what holds a soul, it seems, and I find that very interesting." },
   },
 
   start = "hello",

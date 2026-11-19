@@ -1514,7 +1514,7 @@ P:NPC {
   key = "vinasia", id = TODO_NPC("Vinasia"), name = "Vinasia", title = "Cloth Armor Merchant",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
   communities = { "darnassus" }, temper = { "graceful", "observant" }, values = { "elegance", "tact" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
 
   impression = {
     first = "Vinasia sells cloth armor on the Tradesmen's Terrace with a graceful tact. She seems able to tell at a glance what a person hopes to be taken for, and she dresses them toward it.",
@@ -1532,6 +1532,8 @@ P:NPC {
       text = "You dress as a servant of the Temple should, plainly. But your gloves are thin at the palm, from the laying on of hands. Let me show you a pair with a doubled weave just there." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "You wear dark cloth and stand a little apart. I shall not ask your trade, and you need not tell me. I sell to everyone the Sentinels admit through the gate." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide you've wrapped over your robes is no cloth I would sell, and it crawls a little at the seams. Grey wool would serve you better, and it would not frighten my other customers." },
   },
 
   start = "hello",

@@ -7,7 +7,7 @@ P:NPC {
   key = "rainer", id = TODO_NPC("Deputy Rainer"), name = "Deputy Rainer",
   bible = "bibles/rainer.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "lawful", "brave" },
-  notices = { "trophy", "kit" },
+  notices = { "trophy", "kit", "lock_eyes" },
   impression = {
     first = "He greeted me like the squad he asked for and never got.",
     third = "{name} met Deputy Rainer at Westbrook Garrison, the last post before Westfall, held with far too few soldiers.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Is that- that's Hogger's claw, Hogger's! Dughan's going to have to sit down when he sees that." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls got their teeth into you, I see. They go for the gaps in the armor, so close the gaps." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes catch the light the way a cat's do, and I've heard your lot can see a Defias sneaking about as plain as day. If that's true, walk the river path with me tonight, because I've lost track of more than one of them." },
   },
 
   start = "hello",

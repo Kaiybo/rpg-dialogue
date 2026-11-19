@@ -7,7 +7,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "feathermoon" }, temper = { "calm", "watchful" }, values = { "loyal", "dutiful" },
-  notices = { "race", "form" },
+  notices = { "race", "form", "lock_steed" },
 
   impression = {
     first = "The hippogryphs get gentler words than any visitor does.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Ishnu-alah. It's good to see one of our own come so far south; most of our people never leave Teldrassil's shade now." },
     { id = "n_flight", cat = "form", when = { form = { "travel", "aquatic" } },
       text = "You came across the water in another shape, I see. The hippogryphs know a druid when they see one; they'll carry you all the same." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Do not bring that burning horse any closer to the roost. The hippogryphs can smell its hooves from the beach, and I will not have them taking to the sea in a panic." },
   },
 
   start = "hello",
@@ -218,7 +220,7 @@ P:NPC {
   title = "Trade Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "feathermoon" }, temper = { "gentle", "precise" }, values = { "practical", "loyal" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "She speaks softly, but nothing on her shelves goes unrecorded.",
@@ -233,6 +235,8 @@ P:NPC {
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking" } },
       text = "You've the hands of someone who works cloth or leather; I can tell from the needle marks. Feralas is rich in both, if you're willing to walk among the yetis and the bears to find them." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I can feel the souls in your bag from behind the counter, cold as the water off Sardor Isle. The satyrs collect souls too, across the water, and I would rather not stand so near to the reminder." },
   },
 
   start = "hello",
@@ -421,7 +425,7 @@ P:NPC {
   title = "Herbalism Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "mojache" }, temper = { "slow", "warm" }, values = { "wise", "kind" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_taint" },
 
   impression = {
     first = "The lessons come slowly and patiently, the way roots grow.",
@@ -438,6 +442,8 @@ P:NPC {
       text = "Your hands smell of Sungrass, little one; you've been picking along the roads. Gently, always gently, and leave a little root for next year." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Ah, one of the shu'halo, come so far from Mulgore. The grass here is taller than at home and the trees taller still, but the Earth Mother speaks the same way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel is in you deeper than your hands, and my herbs can smell it on you. Walk the long way round the garden, please, because the roots remember even a short visit." },
   },
 
   start = "hello",
@@ -625,7 +631,7 @@ P:NPC {
   title = "Skinning Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "mojache" }, temper = { "blunt", "steady" }, values = { "practical", "honest" },
-  notices = { "craft", "pet" },
+  notices = { "craft", "pet", "lock_armor" },
 
   impression = {
     first = "He believes a beast's death must be made worth something.",
@@ -642,6 +648,8 @@ P:NPC {
       text = "Your knife's been busy, I can see the stains. Wipe it after each cut, or the blade rusts and the next skin tears." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
       text = "Your companion watches my knife very closely. Tell it not to worry; I only skin what's already dead." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide you wear was never skinned off anything the Earth Mother made, and I have skinned most of them. It moves when you breathe, and a hide that has stopped living should not do that." },
   },
 
   start = "hello",

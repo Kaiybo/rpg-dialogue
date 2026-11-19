@@ -7,7 +7,7 @@ P:NPC {
   key = "thomas", id = TODO_NPC("Guard Thomas"), name = "Guard Thomas",
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
-  notices = { "kit", "death" },
+  notices = { "kit", "death", "lock_shards" },
   impression = {
     first = "He hasn't forgotten the two men he sent north along the river.",
     third = "{name} met Guard Thomas, who keeps the eastern bridge and still waits for word of his missing men.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Your gear's not fit for the frontier, and I've buried men who thought theirs was, so see a smith in Goldshire." },
     { id = "n_died_here", cat = "death", when = { deathsHere = { min = 2 } },
       text = "You've been carried off this road twice already. I'd rather not write a third report with your name in it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "The guards in Stormwind are told to count the shards on your lot, and I make it a good dozen in that pack. I'll not write it down, seeing as I need your help, but I counted." },
   },
 
   start = "hello",

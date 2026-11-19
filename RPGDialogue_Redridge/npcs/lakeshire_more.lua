@@ -433,7 +433,7 @@ P:NPC {
   key = "shawn", id = TODO_NPC("Shawn"), name = "Shawn",
   bible = "bibles/lakeshire_more.md", role = "child", tier = "quest",
   communities = { "lakeshire" }, temper = { "eager" }, values = { "loyal", "hopeful" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards" },
 
   impression = {
     first = "He wants to be a hero, and he's practising on me.",
@@ -451,6 +451,8 @@ P:NPC {
       text = "Wow, is that real armour? Is it heavy? Can I knock on it? I'll knock very softly." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armour's all broken! Did a monster do that? Was it a big one?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Is your bag humming? Effsee's ears went flat, and I think there's something alive in there, so is it a frog? Hilary keeps frogs in her pockets and they don't hum." },
   },
 
   start = "hello",
@@ -635,7 +637,7 @@ P:NPC {
   key = "hooper", id = TODO_NPC("Matthew Hooper"), name = "Matthew Hooper",
   bible = "bibles/lakeshire_more.md", role = "trainer", tier = "service",
   communities = { "lakeshire" }, temper = { "patient" }, values = { "patient", "practical" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shadow" },
 
   impression = {
     first = "To him the lake is an old friend keeping bad company.",
@@ -650,6 +652,8 @@ P:NPC {
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "You fish! I can see it in your hands, all those little line cuts. Come and tell me what's biting where you've been." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The fish went deep the moment your shadow touched the water, and I've seen that happen with a heron but never with a person. Sit on the dock if you like, but sit with your back to the sun." },
   },
 
   start = "hello",
@@ -1212,7 +1216,7 @@ P:NPC {
   key = "trent", id = TODO_NPC("Bridge Worker Trent"), name = "Bridge Worker Trent",
   bible = "bibles/lakeshire_more.md", role = "worker", tier = "service",
   communities = { "lakeshire" }, temper = { "gruff" }, values = { "hardworking", "loyal" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_pact" },
 
   impression = {
     first = "He complains about his foreman with real affection.",
@@ -1227,6 +1231,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Engineering", "Mining" } },
       text = "A tradesman, by your hands! The foreman would hire you in a heartbeat, so don't let him see you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running hot, friend, like a man who's carried stone all day, and you've not carried a thing. If that's the imp's doing, I wish I could borrow some of it for the afternoon shift." },
   },
 
   start = "hello",

@@ -448,7 +448,7 @@ P:NPC {
   key = "thor", id = TODO_NPC("Thor"), name = "Thor", gender = "male",
   bible = "bibles/sentinel_folk.md", role = "flightmaster", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "proud" },
-  notices = { "travel", "animal" },
+  notices = { "travel", "animal", "lock_steed" },
   impression = {
     first = "He likes his gryphons better than most people, and they know it.",
     third = "{name} met Thor, the gryphon master of Sentinel Hill, whose birds are the one way out of Westfall the Defias haven't robbed.",
@@ -470,6 +470,8 @@ P:NPC {
       text = "Keep that beast back from my gryphons. They don't share, and they've had a hard week." },
     { id = "n_druid", cat = "animal", when = { class = "DRUID" },
       text = "A druid, eh? Don't go turning into anything with feathers near my birds, or they'll get jealous, and then they get bitey." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Keep that burning horse away from the roost, because my gryphons are shrieking, and they don't shriek at the Defias. Ride it if you must, but you'll not leave it tethered by my feed." },
   },
 
   start = "hello",
@@ -900,7 +902,7 @@ P:NPC {
   key = "macgregor", id = TODO_NPC("William MacGregor"), name = "William MacGregor",
   bible = "bibles/sentinel_folk.md", role = "vendor", tier = "service",
   communities = { "sentinel_hill" }, temper = { "dry" }, values = { "craft" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "Strings, he reminded me more than once, are always extra.",
     third = "{name} met William MacGregor, the Sentinel Hill bowyer, who coaxes good bows from Westfall's poor wood.",
@@ -915,6 +917,8 @@ P:NPC {
       text = "A hunter, eh? Let me see that bow of yours. Hm, it'll do, though it'd do better with a new string, and those are extra." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior buying arrows, for pulling things to you, I suppose. Suit yourself, though the things out here usually come anyway, teeth first." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag's cold and it hums, and I've heard warlocks keep souls in crystals the size of a thumb. If any of them belonged to the Defias, I'll not lose sleep over it." },
   },
 
   start = "hello",

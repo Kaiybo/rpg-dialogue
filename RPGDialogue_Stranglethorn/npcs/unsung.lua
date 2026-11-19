@@ -7,7 +7,7 @@ P:NPC {
   title = "Macecrafter",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "brash", "cheerful" }, values = { "practical", "greedy" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards" },
 
   impression = {
     first = "The sales pitch never stops, and the maces never bend.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Oh, I know your sort! Holy folk can't stand an edge, so you all end up buying blunt, and I end up buying a bigger boat." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your weapon's had a hard life, friend. A mace doesn't chip the way a sword does, which is all I'm saying, and I'm saying it while standing next to a rack of them, all for sale." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone in your bag, I'd stake my anvil on it, because it's heavier than it's got any right to be and warm as a coal. You'll call one of those burning brutes down out of the sky with it someday, and I'd ask you to do it far from my shop." },
   },
 
   start = "hello",
@@ -403,7 +405,7 @@ P:NPC {
   title = "Alchemy Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "fussy", "proud" }, values = { "practical" },
-  notices = { "craft", "drink" },
+  notices = { "craft", "drink", "lock_stones" },
 
   impression = {
     first = "A dusty bottle is taken as a personal insult here.",
@@ -420,6 +422,8 @@ P:NPC {
       text = "An alchemist, I can tell by the stained fingers. You'll want the crystal vials, not the cheap ones, so don't let anybody else in this cove tell you otherwise; cheap glass is the most expensive thing you'll ever buy." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've been at the Salty Sailor's grog, haven't you, chum? Please don't touch anything, because those shelves are glass, and so is my patience, and both cost a fortune to replace." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've been trying to brew what's in one of those for years, and it always comes out tasting of grave dirt and pennies. You warlocks make it from a slice of somebody's soul, which is the one ingredient I can't stock." },
   },
 
   start = "hello",
@@ -1025,7 +1029,7 @@ P:NPC {
   title = "Cloth Armor Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "chatty", "warm" }, values = { "practical" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards" },
 
   impression = {
     first = "Spellcasters in the jungle should wear less wool, I am firmly told.",
@@ -1042,6 +1046,8 @@ P:NPC {
       text = "Oh, a caster in wool! In Stranglethorn! You must be cooking in there, sweetie; let me find you something lighter before you faint on my floor and frighten off the paying customers." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "Well, you're certainly dressed for the heat, but the mosquitoes will eat you alive like that. Let's find you a robe, friend, for your sake and mine, and I'll make it a nice one." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Mind the robes, pal, because your bag's leaking a cold I can feel through the counter, and silk takes a chill and keeps it. Those shards of yours would ruin a whole bolt if you set the bag down on it." },
   },
 
   start = "hello",
@@ -1233,7 +1239,7 @@ P:NPC {
   title = "Superior Axecrafter",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nesingwary_camp" }, temper = { "brisk", "dry" }, values = { "practical", "brave" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow" },
 
   impression = {
     first = "She has no patience for hunters who think a bow solves everything.",
@@ -1250,6 +1256,8 @@ P:NPC {
       text = "You look like you know which end of an axe to hold, which puts you ahead of half of Hemet's students. Come and have a look." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's been chewed on. Panthers, I'd guess, or raptors; they always go for the arms. A longer haft keeps them farther off." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every cat in the camp went up a tree when you walked in, and Hemet's going to blame me, because he always does. I don't know what clings to you, but the cats know, and they're not coming down until you leave." },
   },
 
   start = "hello",

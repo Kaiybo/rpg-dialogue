@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/revantusk.md", role = "noble", tier = "major",
   communities = { "revantusk" }, temper = { "fierce" }, values = { "loyal", "protective", "proud" },
   likesTone = "blunt", race = "Troll",
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards", "lock_soulstone" },
 
   impression = {
     first = "She leads the tribe while her mate sits in a Vilebranch cage.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "An orc, walkin' free in the Hinterlands. Last time I saw so many of you, the humans was puttin' you in cages, and none of us could stop them." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "The spirits walk close behind you, shaman. They be welcome here, so long as they keep their eyes on Jintha'Alor." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry the souls of the dead in that bag, mon. I hope they be Vilebranch souls, because I got a long list of them that owe me blood." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul be bound in a stone, waitin' to call you back. If my mate had one of them in his cage, I might sleep easier." },
   },
 
   start = "hello",
@@ -423,7 +427,7 @@ P:NPC {
   key = "markhor", id = TODO_NPC("Huntsman Markhor"), name = "Huntsman Markhor",
   bible = "bibles/revantusk.md", role = "stablemaster", tier = "quest",
   communities = { "revantusk" }, temper = { "grave" }, values = { "loyal", "devoted" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_eyes" },
 
   impression = {
     first = "Grief for his twin brother has made him patient, not soft.",
@@ -440,6 +444,8 @@ P:NPC {
       text = "A hunter, and your beast walks well beside you. You can stable it here while you go after the Silvermane, if you want." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You smell of the arcane, mon, like hot copper and spoiled milk. Keep it away from my stables; the beasts hate it nearly as much as I do." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes see what hides in the shadows, and that be a good thing for a hunter. Come hunt with me sometime, and we see what the Vilebranch got hidin' in the trees." },
   },
 
   start = "hello",
@@ -645,7 +651,7 @@ P:NPC {
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "mysterious" }, values = { "devout", "proud" },
   prejudice = { race = "Scourge", amount = 10, why = "The walking dead cheated Bwonsamdi, and a mystic finds that bad juju." },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "She talks about Zul'jin as if he might walk up the stairs.",
@@ -665,6 +671,8 @@ P:NPC {
       text = "You use reagents, I can tell by the stains on your fingers. Come buy, then, because nobody up here sells better." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear with mojo in your walk. You know the old ways a little, so maybe you know the price of them too." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles lean away from you, mon, like they know somethin' Yayo'jin don't. Buy what you need, and leave the candles be." },
   },
 
   start = "hello",
@@ -1146,7 +1154,7 @@ P:NPC {
   key = "lard", id = TODO_NPC("Lard"), name = "Lard",
   bible = "bibles/revantusk.md", role = "innkeeper", tier = "quest",
   communities = { "revantusk" }, temper = { "simple" }, values = { "friendly", "generous" },
-  notices = { "weary", "pet" },
+  notices = { "weary", "pet", "lock_breath" },
 
   impression = {
     first = "He is enormous and gentle, and mostly worried about his lunch.",
@@ -1166,6 +1174,8 @@ P:NPC {
       text = "Somebody hit you with big stick, like they hit Lard. You sit down and eat, and then you feel better." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "{pet} keeps sniffin' at Lard's fish barrel, and Lard does not blame it, because Lard does the same thing." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "Lard see the little bubbles on you, so you breathe water now like a fish. You go swim and catch your own fish, and Lard's fish stay on Lard's plate." },
   },
 
   start = "hello",
@@ -1364,7 +1374,7 @@ P:NPC {
   key = "slagtree", id = TODO_NPC("Smith Slagtree"), name = "Smith Slagtree",
   bible = "bibles/revantusk.md", role = "blacksmith", tier = "quest",
   communities = { "revantusk" }, temper = { "cheerful" }, values = { "practical", "grateful" },
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_pact" },
 
   impression = {
     first = "The Vilebranch stole the tools a gnome gave him.",
@@ -1381,6 +1391,8 @@ P:NPC {
       text = "Look at the state of that armor! You can't fight in that, friend, so hand it over before something kills you." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! You've got nothing to fear from me, little one, because one of your kind saved my life." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood runs hot as my forge, and I know that heat, because my grandfather had it before Thrall. Keep it in check, and I'll keep your armour whole." },
   },
 
   start = "hello",
@@ -1552,7 +1564,7 @@ P:NPC {
   key = "otho", id = TODO_NPC("Otho Moji'ko"), name = "Otho Moji'ko",
   bible = "bibles/revantusk.md", role = "vendor", tier = "quest",
   communities = { "revantusk" }, temper = { "spiteful" }, values = { "proud", "loyal" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He spits when he says Wildhammer, and he says it often.",
@@ -1573,6 +1585,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Good, a strong one. The dwarves at Aerie Peak gonna remember your face, mon, if you do what I ask." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That be an infernal stone in your bag, mon? Call the fire down on Aerie Peak one day and Otho will dance on the ashes, though I know you won't, not with the Warchief watchin'." },
   },
 
   start = "hello",

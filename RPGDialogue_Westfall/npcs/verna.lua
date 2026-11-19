@@ -7,7 +7,7 @@ P:NPC {
   key = "verna", id = TODO_NPC("Verna Furlbrow"), name = "Verna Furlbrow",
   bible = "bibles/verna.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "kind", "honest" },
-  notices = { "animal", "craft" },
+  notices = { "animal", "craft", "lock_shadow" },
   impression = {
     first = "She worries more for their tired horse Blanchy than for herself.",
     third = "{name} met Verna Furlbrow, who cares for her husband and their weary horse Blanchy beside a broken wagon.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "Get down and let that poor creature breathe a minute. Blanchy, look, company." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You cook? Then you'll know a goretusk liver's no good past a day. Folk never believe me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Blanchy's laid her ears back, and she never does that, not even for the Defias, so I'd guess it's the shadow on you. Don't take it hard, because she bit Theodore last week." },
   },
 
   start = "hello",

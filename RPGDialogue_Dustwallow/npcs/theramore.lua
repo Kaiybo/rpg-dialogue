@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "noble", tier = "major",
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
   private = { "arthas", "stratholme" },
-  notices = { "class", "race", "form" },
+  notices = { "class", "race", "form", "lock_shadow", "lock_soulstone" },
 
   impression = {
     first = "She would rather hear bad news early, and she means it.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "A mage! Dalaran trained me, once. Whoever trained you, I hope they taught you that power is the easy part." },
     { id = "n_highborne", cat = "race", when = { race = "NightElf" },
       text = "Your people and mine stood together at Mount Hyjal, and I haven't forgotten. I hope we never have to again." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in the hall dimmed when you came in, and I don't think you noticed, which concerns me more than if you had. I spent years in Dalaran learning what that means, and I'd rather we talked in the light." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, and I can feel the thread of it from here. Dalaran forbade that magic for good reasons, but I've buried enough friends to understand why someone would want the choice." },
   },
 
   start = "hello",
@@ -760,7 +764,7 @@ P:NPC {
   key = "tervosh", id = TODO_NPC("Archmage Tervosh"), name = "Archmage Tervosh",
   bible = "bibles/dustwallow.md", role = "scholar", tier = "quest",
   communities = { "theramore" }, temper = { "brisk" }, values = { "loyal", "curious" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_shards" },
 
   impression = {
     first = "Between her errands and his books, his garden gets little of him.",
@@ -776,6 +780,8 @@ P:NPC {
       text = "Another mage. Kirin Tor? I never cared for committees myself; I prefer to be useful on my own." },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "An herbalist! Have you seen my garden? Don't step on the briarthorn; it holds a grudge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You're carrying enough soul shards to light a small tower, and I can feel them pulling at the wards I keep on this room. Kel'Thuzad started with curiosity and a bag of trinkets, so I hope yours is only a bag." },
   },
 
   start = "hello",
@@ -1059,7 +1065,7 @@ P:NPC {
   key = "vimes", id = TODO_NPC("Captain Garran Vimes"), name = "Captain Garran Vimes",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "direct", "sharp" }, values = { "dutiful", "lawful" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_armor" },
 
   impression = {
     first = "Everyone else blames the Horde for the inn, and he isn't everyone.",
@@ -1079,6 +1085,8 @@ P:NPC {
       text = "Lok'tar. Yes, I speak a bit of your tongue, more than anyone else in the garrison; it's useful in a land full of misunderstandings." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something out there has been at you, so get mended. I need my witnesses alive." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide showing at your collar, and half of Theramore will see it before you've reached the gate. After the Shady Rest, folk are looking for someone to blame, so button your coat and walk carefully." },
   },
 
   start = "hello",
@@ -1356,7 +1364,7 @@ P:NPC {
   key = "tesoran", id = TODO_NPC("Adjutant Tesoran"), name = "Adjutant Tesoran",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "orderly" }, values = { "dutiful", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_stones" },
 
   impression = {
     first = "I'd guess he could find any soldier's record blindfolded.",
@@ -1374,6 +1382,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Equipment damaged in the field. I'd file a report, but you're not one of ours, so get it fixed anyway." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Regulations require me to log any warlock's stones carried within the keep, and you appear to be carrying at least one healthstone. I'll put it down under medical supplies, which I think is honest, and the Captain will think is generous." },
   },
 
   start = "hello",
@@ -1571,7 +1581,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/dustwallow.md", role = "innkeeper", tier = "service",
   communities = { "theramore" }, temper = { "steady" }, values = { "loyal", "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_pact" },
 
   impression = {
     first = "She fed me before she asked a single thing about me.",
@@ -1597,6 +1607,8 @@ P:NPC {
       text = "You've come a long way back from somewhere cold. Sit down, and I'll bring soup." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "One more and you'll be swimming home. The crocolisks would enjoy that more than you would." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Look at you, love, flushed like you've run all the way from the docks, and you're warm as toast. If that's the imp's doing, sit by the window and have some cold water, because the sailors will think you've caught a fever." },
   },
 
   start = "hello",

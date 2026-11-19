@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Grazle remembers you. The Deadwood remember you too, Grazle thinks, and not fondly." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Grazle smells souls in your bag, many small ones, and they smell sad. The Timbermaw keep their own dead close to the earth, so do not open the bag inside the tunnels." },
+  },
+
   start = "hello",
   nodes = {
     op_ask = {
@@ -247,6 +252,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You smell of the Deadwood camps, all wet fur and rot. Good, then you have been doing useful work." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Nafien has more work, if your arms are not tired." },
+  },
+
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your spirit is not all in you, it is half in a stone somewhere, and Nafien can smell the gap. The Deadwood lost their spirits too, but nobody kept theirs safe, and Nafien hopes yours comes back when it should." },
   },
 
   start = "hello",

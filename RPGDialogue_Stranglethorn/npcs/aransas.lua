@@ -9,7 +9,7 @@ P:NPC {
   key = "aransas", id = TODO_NPC("Captain Aransas"), name = "Captain Aransas",
   bible = "bibles/aransas.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "sharp", "steady" }, values = { "loyal", "brave" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_breath" },
 
   impression = {
     first = "She weighs whether you would be any use on a rope.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "Ye walk like someone who knows where the loose boards are, and I mean that kindly. I've a use for that sort of step." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ye look like ye've been dragged behind a ship and left to dry. Get that gear mended before ye go back into the jungle." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "Ye've a warlock's charm on ye that lets a body breathe under the waves, haven't ye? I've lost good men to the deep who'd have given a year's pay for that, and I'd have paid it for them gladly." },
   },
 
   react = {

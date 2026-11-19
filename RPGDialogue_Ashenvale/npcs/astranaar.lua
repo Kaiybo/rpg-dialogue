@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "major",
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
   likesTone = "blunt",
-  notices = { "pet", "form", "class" },
+  notices = { "pet", "form", "class", "lock_shadow", "lock_shards" },
   impression = {
     first = "Her grief for Teronis sits close under all that fierceness.",
     third = "{name} met Raene Wolfrunner, who commands the scouts of Astranaar and fights for every tree in Ashenvale.",
@@ -35,6 +35,10 @@ P:NPC {
       text = "A hunter! Then you know the forest isn't a place but a living thing, so help me keep it that way." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
       text = "A druid, and the trees will be glad of you. So will I, because something is making the furbolgs sick, and you'll see it sooner than I can." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My scouts went quiet when you came in, and they are not easily quieted, because they know what the satyrs feel like at night. You carry that same hush, warlock, and I would rather you carried it out in the forest than in my hall." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That bag of shards at your hip is heavy with souls, enough for a whole patrol. I hope every one of them came off a satyr, because I have lost scouts this year, and I would not like to wonder." },
   },
 
   start = "hello",
@@ -415,7 +419,7 @@ P:NPC {
   key = "pelturas", id = TODO_NPC("Pelturas Whitemoon"), name = "Pelturas Whitemoon",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "anxious" }, values = { "loving", "determined" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
   impression = {
     first = "He has tried nearly every cure and has not once stopped hoping.",
     third = "{name} met Pelturas Whitemoon of Astranaar, a father searching for any cure for his daughter Relara's fever and nightmares.",
@@ -429,6 +433,8 @@ P:NPC {
   notice = {
     { id = "n_healer", cat = "class", when = { class = { "PRIEST", "DRUID", "PALADIN" } },
       text = "You have healing in you; I can feel it. Would you look at her? Only look, please, and I'll be grateful for anything." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has set your soul in a stone, I think, so that you can be called back if you fall. My daughter's dreams take her somewhere I cannot follow, and I find myself envying you that thread home." },
   },
 
   start = "hello",
@@ -609,7 +615,7 @@ P:NPC {
   key = "relara", id = TODO_NPC("Relara Whitemoon"), name = "Relara Whitemoon",
   bible = "bibles/ashenvale.md", role = "child", tier = "quest",
   communities = { "astranaar" }, temper = { "frightened" }, values = { "gentle" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
   impression = {
     first = "She means to become a Sentinel or a hippogryph, whichever flies.",
     third = "{name} met Relara Whitemoon, Pelturas's young daughter, who faces her fevered nightmares with a child's stubborn hope.",
@@ -623,6 +629,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Is that yours? Oh, can it come closer? I won't pull its ears, I promise!" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that your horse, with the fire on its feet? It's scary and beautiful at once, and I want to touch its nose, but Papa would never let me, so can you tell me if it's warm?" },
   },
 
   start = "hello",
@@ -807,7 +815,7 @@ P:NPC {
   key = "faldreas", id = TODO_NPC("Faldreas Goeth'Shael"), name = "Faldreas Goeth'Shael",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "astranaar" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "The best part of his day is crossing off a returned name.",
     third = "{name} met Faldreas Goeth'Shael, who keeps track of every traveller leaving Astranaar and listens to the forest spirits.",
@@ -815,6 +823,11 @@ P:NPC {
 
   greetings = {
     { id = "g_road", text = "Ishnu-alah, traveller. The roads out of Astranaar are long and not as safe as they look, so mind them." },
+  },
+
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "The Sentinels at the bridge marked you as you crossed, because a demon's hide over a traveller's shoulders is not a thing they let pass unremarked. I have put it in the record as well, beside your name, as I must." },
   },
 
   start = "hello",
@@ -992,7 +1005,7 @@ P:NPC {
   key = "kimlya", id = TODO_NPC("Innkeeper Kimlya"), name = "Innkeeper Kimlya",
   bible = "bibles/ashenvale.md", role = "innkeeper", tier = "service",
   communities = { "astranaar" }, temper = { "warm" }, values = { "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
   impression = {
     first = "She sends broth up to a sick child every night.",
     third = "{name} rested at Innkeeper Kimlya's inn on Astranaar's island, a refuge for scouts, healers and weary travellers.",
@@ -1010,6 +1023,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Was it the furbolgs, or the Horde? Never mind; sit down, because whoever it was, they can't reach you in here." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "If you need a healthstone in the night, warlock, please use it in your room and not at the hearth, because the older Sentinels would see something stolen. I will keep the fire warm for you either way." },
   },
 
   start = "hello",

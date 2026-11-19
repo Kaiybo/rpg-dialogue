@@ -9,7 +9,7 @@ P:NPC {
   key = "valstag", id = TODO_NPC("Valstag Ironjaw"), name = "Valstag Ironjaw",
   bible = "bibles/menethil_more.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "gruff" }, values = { "dutiful", "brave" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_armor" },
 
   impression = {
     first = "He is quietly worried about why the Dragonmaw are pushing now.",
@@ -31,6 +31,8 @@ P:NPC {
       text = "One o' the clans, good. Ironforge sends us fewer than we need, so every beard through that door is welcome." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ye look like ye came through Algaz on yer face, an' the raptors had a go at what was left. Brahnmar the armorer's down by the docks; see him before ye see Captain Stoutfist." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye're wrapped in, an' it twitches when ye breathe like it's no' finished livin'. I've seen it on the Horde's warlocks in the last war, an' it's an odd thing tae see it walk intae my keep." },
   },
 
   start = "hello",
@@ -294,7 +296,7 @@ P:NPC {
   key = "tarrel", id = TODO_NPC("Tarrel Rockweaver"), name = "Tarrel Rockweaver",
   bible = "bibles/menethil_more.md", role = "citizen", tier = "quest",
   communities = { "menethil" }, temper = { "anxious" }, values = { "loving", "loyal" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_shards" },
 
   impression = {
     first = "His wife Merrin's letters have stopped, and he can't stay calm.",
@@ -312,6 +314,8 @@ P:NPC {
       text = "Ye're one o' us! Have ye come through the dig, by any chance? My wife's there, Merrin Rockweaver." },
     { id = "n_weary", cat = "weary", when = { deathsHere = { min = 1 } },
       text = "Ye've been hurt out there. Is it raptors? Tell me it isn't raptors." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "There's a chill comin' off yer bag an' a wee clink, like coins dropped in a cold well, an' I'd wager it's soul shards. If any o' them were raptors from the dig road, ye're welcome here an' then some." },
   },
 
   start = "hello",
@@ -516,7 +520,7 @@ P:NPC {
   key = "hyal", id = TODO_NPC("Vincent Hyal"), name = "Vincent Hyal",
   bible = "bibles/menethil_more.md", role = "citizen", tier = "quest",
   communities = { "menethil" }, temper = { "warm" }, values = { "loyal", "proud" },
-  notices = { "travel", "hunger" },
+  notices = { "travel", "hunger", "lock_taint" },
 
   impression = {
     first = "He is proud of a brother he hasn't heard from lately.",
@@ -531,6 +535,8 @@ P:NPC {
   notice = {
     { id = "n_travel", cat = "travel", when = { visited = "Theramore Isle" },
       text = "You've been to Theramore! Did you hear of an inn run by a man named James Hyal? Best cook you'll ever meet." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green look in your eyes, and I've seen it before, in Lordaeron, on a man who'd spent too long in a cellar with his books. I'll serve you the stew, because you've paid for it, but I'll not pretend it doesn't worry me." },
   },
 
   start = "hello",
@@ -716,7 +722,7 @@ P:NPC {
   key = "red_jack", id = TODO_NPC("Red Jack Flint"), name = "Red Jack Flint",
   bible = "bibles/menethil_more.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "jovial" }, values = { "romantic", "ambitious" },
-  notices = { "greenness", "race" },
+  notices = { "greenness", "race", "lock_breath" },
 
   impression = {
     first = "He sees the sea in my future, and probably in everyone's.",
@@ -738,6 +744,8 @@ P:NPC {
       text = "You've a fresh face, the kind that ought to see the world before it settles. I like that in a recruit." },
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
       text = "From Kalimdor yourself! Then you know I'm not lying about it, so tell these landlubbers how fine it is." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You're breathing slow and easy, like you could sit at the bottom of the bay and never come up, and that's a gift any sailor would sell his boots for. If that ever comes in a bottle, friend, you come find Red Jack first." },
   },
 
   start = "hello",
@@ -934,7 +942,7 @@ P:NPC {
   key = "sida", id = TODO_NPC("Sida"), name = "Sida",
   bible = "bibles/menethil_more.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "nervous" }, values = { "stubborn", "practical" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_stones" },
 
   impression = {
     first = "She is plainly hiding something she considers nobody's business.",
@@ -952,6 +960,8 @@ P:NPC {
       text = "A dwarf! Ye'll understand, then, that some graves need visitin', oozes or no oozes." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Light's sake, ye're dripping too. Not ooze, is it? Please say it isn't ooze." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've heard tell o' them, green stones full o' somebody's life, an' I'd no' want one in my bag, whatever the oozes took. Mind ye don't lose it tae them, for I'd hate tae think what an ooze would make o' it." },
   },
 
   start = "hello",
@@ -1135,7 +1145,7 @@ P:NPC {
   key = "riggs", id = TODO_NPC("Harold Riggs"), name = "Harold Riggs",
   bible = "bibles/menethil_more.md", role = "trainer", tier = "service",
   communities = { "menethil" }, temper = { "jovial" }, values = { "friendly", "patient" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shadow" },
 
   impression = {
     first = "He thinks the bay holds equal parts bad luck and good fish.",
@@ -1150,6 +1160,8 @@ P:NPC {
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "A fisher! Come here and tell me what's biting where you've been. I'll swap you a story for a story." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The fish just went deep, every one of them, and they only do that when there's a shark in the bay or something they don't like on the pier. I'll still teach you, friend, but we'll go fish off the far end." },
   },
 
   start = "hello",
@@ -1318,7 +1330,7 @@ P:NPC {
   key = "camerick", id = TODO_NPC("Camerick Jongleur"), name = "Camerick Jongleur", gender = "male",
   bible = "bibles/menethil_more.md", role = "citizen", tier = "service",
   communities = { "menethil" }, temper = { "cheerful" }, values = { "romantic", "curious" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_soulstone" },
 
   impression = {
     first = "The roads are shut, so he sings one rainy song after another.",
@@ -1341,6 +1353,8 @@ P:NPC {
       text = "A priest! Would you know a good hymn? I've a tavern of sailors who need something softer than sea shanties." },
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
       text = "An elf of the night! I've a song about your people, but I've never met one, so I'd love to know how wrong it is." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "You've a soul bound in a stone, I can see the shiver of it on you, and that's the first verse of a tragedy if ever I heard one. Do tell me how it ends before I write it, because I've a terrible habit of guessing wrong." },
   },
 
   start = "hello",
@@ -1562,7 +1576,7 @@ P:NPC {
   key = "unger", id = TODO_NPC("Unger Statforth"), name = "Unger Statforth",
   bible = "bibles/menethil_more.md", role = "vendor", tier = "service",
   communities = { "menethil" }, temper = { "proud" }, values = { "proud", "careful" },
-  notices = { "race", "mount" },
+  notices = { "race", "mount", "lock_steed" },
 
   impression = {
     first = "He talks of his steeds like a proud father.",
@@ -1579,6 +1593,8 @@ P:NPC {
       text = "One of Stormwind's own! Then you may buy, and I'd be glad to see one of mine go to a good home." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "A good mount you've got there, though I'd wager mine is better. No offence to the beast." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Every horse in this paddock has its ears pinned back, and that tells me your burning-hoofed beast is nearby. Leave it at the far end of the road, please, because the grey bites people he likes, and he certainly won't like that." },
   },
 
   start = "hello",

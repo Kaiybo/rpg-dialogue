@@ -9,7 +9,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "dobbins", id = TODO_NPC("Barkeep Dobbins"), name = "Barkeep Dobbins",
   bible = "bibles/goldshire_folk.md", role = "innkeeper", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "witty" }, notices = { "drink" },
+  temper = { "steady" }, values = { "witty" }, notices = { "drink", "lock_shadow" },
   impression = {
     first = "He says the real work of a barkeep is forgetting.",
     third = "{name} was served at the Lion's Pride by Barkeep Dobbins, who hears everything and claims to forget it all.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Farley says it's water for you, and I always do what Farley says, mostly. Here you are, then: water, and very good water it is." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles along the bar have all leaned away from you like there's a draught, and there's no draught in here, because I've checked. Sit where you like, but I'll pour your ale before the barrels start whispering again." },
   },
   start = "hello",
   nodes = {
@@ -235,7 +237,7 @@ P:NPC {
 P:NPC {
   key = "brog", id = TODO_NPC("Brog Hamfist"), name = "Brog Hamfist", title = "General Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = {},
+  temper = { "steady" }, values = { "honest" }, notices = { "lock_shards" },
   impression = {
     first = "He seemed quite certain I'd forgotten to pack something.",
     third = "{name} met Brog Hamfist, Goldshire's seller of rope, flint and the bags adventurers always need more of.",
@@ -244,6 +246,11 @@ P:NPC {
     { id = "g_stock", text = "Rope, flint, flasks and thread, everything you forgot to pack." },
     { id = "g_new", when = { maxLevel = 6 }, text = "Fresh out of Northshire, are you? You'll want more bags than you think; everyone does." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag of yours clinks like a purse full of cold coins, and I'll wager they're not coins. Your lot pay well enough, so I'll not ask what's inside them." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -410,7 +417,7 @@ P:NPC {
 P:NPC {
   key = "toddrick", id = TODO_NPC("Toddrick"), name = "Toddrick", title = "Butcher",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = {},
+  temper = { "steady" }, values = { "honest" }, notices = { "lock_pact" },
   impression = {
     first = "He warned me off the wolf meat, even his own.",
     third = "{name} met Toddrick, the butcher at the Lion's Pride, who takes great pride in his sausages and none in wolf.",
@@ -418,6 +425,11 @@ P:NPC {
   greetings = {
     { id = "g_cut", text = "The best cuts in Goldshire; ask anyone, though don't ask the boars." },
   },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed like a man with a fever, and your blood's running hot enough that I can see the vein at your neck. Meat spoils near heat like that, so stand back from the hooks while we talk." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -613,7 +625,7 @@ P:NPC {
 P:NPC {
   key = "tharynn", id = TODO_NPC("Tharynn Bouden"), name = "Tharynn Bouden", title = "Trade Supplies",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "ambitious" }, notices = {},
+  temper = { "steady" }, values = { "ambitious" }, notices = { "lock_soulstone" },
   impression = {
     first = "She dreams openly of a gold-lettered sign in the Trade District.",
     third = "{name} met Tharynn Bouden, a trade supplier who works from a roadside wagon and dreams of a shop in Stormwind.",
@@ -622,6 +634,11 @@ P:NPC {
     { id = "g_craft", text = "Thread, dye, flux and vials, for people who make things." },
     { id = "g_crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } }, text = "Ah, a crafter, my favourite kind of customer, because you come back." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone in your pack? I've a reputation to keep in this town, and I'd rather nobody saw a thing with a soul waiting in it sitting on my counter while you browse." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -787,7 +804,7 @@ P:NPC {
 P:NPC {
   key = "krighton", id = TODO_NPC("Andrew Krighton"), name = "Andrew Krighton", title = "Armorer & Shieldcrafter",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
-  temper = { "proud" }, values = { "honest" }, notices = { "kit" },
+  temper = { "proud" }, values = { "honest" }, notices = { "kit", "lock_armor" },
   impression = {
     first = "He has firm opinions on who belongs behind a shield.",
     third = "{name} met Andrew Krighton, Goldshire's armorer, who believes a shield is for others to hide behind.",
@@ -798,6 +815,8 @@ P:NPC {
   notice = {
     { id = "n_shield", cat = "kit", when = { class = { "WARRIOR", "PALADIN" }, durability = { max = 0.3 } },
       text = "That shield's taken a beating, which is good, because that's its job. Let me see if it can take another." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide crawling over your shoulders isn't anything I'd hammer, and I'd guess it turns a blade better than half my stock. I'll not pretend I'm not jealous, though I'd not wear it for all the gold in Stormwind." },
   },
   start = "hello",
   nodes = {
@@ -963,7 +982,7 @@ P:NPC {
 P:NPC {
   key = "corina", id = TODO_NPC("Corina Steele"), name = "Corina Steele", title = "Weaponsmith", gender = "female",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
-  temper = { "sharp" }, values = { "proud" }, notices = { "kit" },
+  temper = { "sharp" }, values = { "proud" }, notices = { "kit", "lock_stones" },
   impression = {
     first = "She judged the balance of my weapon in a single glance.",
     third = "{name} met Corina Steele, Goldshire's weaponsmith, who has a quick tongue and an eye for a blade's balance.",
@@ -980,6 +999,8 @@ P:NPC {
   notice = {
     { id = "n_dull", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your blade's notched like a saw. Did you fight something, or chop firewood with it?" },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your bag, isn't there? I can feel the heat of it from across the anvil, and a blade that's been held near one of those never tempers right again." },
   },
   start = "hello",
   nodes = {
@@ -1178,7 +1199,7 @@ P:NPC {
 P:NPC {
   key = "kurran", id = TODO_NPC("Kurran Steele"), name = "Kurran Steele", title = "Cloth & Leather Armor Merchant",
   bible = "bibles/goldshire_folk.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "witty" }, notices = {},
+  temper = { "steady" }, values = { "witty" }, notices = { "lock_taint" },
   impression = {
     first = "He and Corina share a forge and an argument neither will finish.",
     third = "{name} met Kurran Steele, who sells cloth and leather beside Corina's forge and quarrels with her quite contentedly.",
@@ -1186,6 +1207,11 @@ P:NPC {
   greetings = {
     { id = "g_leather", text = "Not everyone wants to clank. Come and see what I've got." },
   },
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Your cuffs have gone green at the edges, friend, and that's not mould, because I'd know mould. The cellar folk all go that way in the end, and they buy their coats darker every season to hide it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -1352,7 +1378,7 @@ P:NPC {
 P:NPC {
   key = "erma", id = TODO_NPC("Erma"), name = "Erma", title = "Stable Master",
   bible = "bibles/goldshire_folk.md", role = "stablemaster", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "pet" },
+  temper = { "steady" }, values = { "kind" }, notices = { "pet", "lock_steed" },
   impression = {
     first = "Her four-legged guests clearly rank above the two-legged ones.",
     third = "{name} met Erma, Goldshire's stable master, who treats every beast in her care like visiting royalty.",
@@ -1363,6 +1389,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Oh, look at {pet}! Somebody feeds you properly, but somebody also forgets to brush you, so come here." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "My horses went wild in their stalls before you even reached the gate, and now I see why, because that beast of yours is leaving smoking hoofprints on my straw. Stable it here and I'll have no barn left by morning." },
   },
   start = "hello",
   nodes = {
@@ -1531,7 +1559,7 @@ P:NPC {
 P:NPC {
   key = "michelle", id = TODO_NPC("Michelle Belle"), name = "Michelle Belle", title = "Physician",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "wounds" },
+  temper = { "steady" }, values = { "kind" }, notices = { "wounds", "lock_stones" },
   impression = {
     first = "I think she keeps count of everyone who skips the bandaging lesson.",
     third = "{name} met Michelle Belle, the Goldshire physician who teaches first aid beside Priestess Josetta.",
@@ -1540,6 +1568,8 @@ P:NPC {
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.25 } },
       text = "Look at the state of you! Linen, a clean hand and five minutes is all it takes, and most people won't spare the five minutes." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your bag will close a wound faster than my needle, I know, but it does it with somebody's stolen life. Use it if you must, and then come and let me look at you properly." },
   },
   start = "hello",
   nodes = {
@@ -2080,7 +2110,7 @@ P:NPC {
 P:NPC {
   key = "leebrown", id = TODO_NPC("Lee Brown"), name = "Lee Brown", title = "Fishing Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "kind" }, notices = { "craft" },
+  temper = { "steady" }, values = { "kind" }, notices = { "craft", "lock_breath" },
   impression = {
     first = "His catch grew longer while he was still describing it.",
     third = "{name} met Lee Brown, the fishing trainer at Crystal Lake, who loves the dawn mist and a well-stretched story.",
@@ -2089,6 +2119,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "Another angler! Crystal Lake's best at dawn, but don't tell anyone; well, you can tell them, since they won't get up." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You're breathing slow and easy like a carp in a bucket, and the cellar folk tell me that's a spell for walking about under the lake. I'd give a month's pay for it, because the big pike live where my line won't reach." },
   },
   start = "hello",
   nodes = {
@@ -2262,7 +2294,7 @@ P:NPC {
 P:NPC {
   key = "helene", id = TODO_NPC("Helene Peltskinner"), name = "Helene Peltskinner", title = "Skinning Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "honest" }, notices = { "craft" },
+  temper = { "steady" }, values = { "honest" }, notices = { "craft", "lock_shards" },
   impression = {
     first = "She looked at my knife before me, and thought little of it.",
     third = "{name} met Helene Peltskinner, the skinning trainer by Crystal Lake, who insists every hide be taken with a sharp knife.",
@@ -2271,6 +2303,8 @@ P:NPC {
   notice = {
     { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
       text = "Show me your knife. Hm, it's too dull, and hides tear when the knife's dull, so sharpen it tonight." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That pack of yours smells like a tanning vat and hums like a hornets' nest, so I'll guess you've been cutting more than skins. The student who wanted the wolf's heart left in carried a bag just like it." },
   },
   start = "hello",
   nodes = {
@@ -2444,7 +2478,7 @@ P:NPC {
 P:NPC {
   key = "adele", id = TODO_NPC("Adele Fielder"), name = "Adele Fielder", title = "Leatherworking Trainer",
   bible = "bibles/goldshire_folk.md", role = "trainer", tier = "service", communities = { "goldshire" },
-  temper = { "steady" }, values = { "ambitious" }, notices = { "craft" },
+  temper = { "steady" }, values = { "ambitious" }, notices = { "craft", "lock_shadow" },
   impression = {
     first = "Her patience seems endless, though her opinions are not.",
     third = "{name} met Adele Fielder, the leatherworking trainer by Crystal Lake, who stitches and listens at the same time.",
@@ -2453,6 +2487,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "Your seams are crooked, as everyone's are at first. They'll be straighter by midsummer, if you practise." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow trails a half-step behind you, and I've watched it lag all the way across the floor. Good leather won't fix that, but I'd still sooner you walked in my boots than barefoot." },
   },
   start = "hello",
   nodes = {

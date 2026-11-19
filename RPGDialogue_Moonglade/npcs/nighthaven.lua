@@ -587,7 +587,7 @@ P:NPC {
   key = "rabine", id = TODO_NPC("Rabine Saturna"), name = "Rabine Saturna",
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "grave" }, values = { "careful", "loyal" },
-  notices = { "lore", "form" },
+  notices = { "lore", "form", "lock_shards" },
   impression = {
     first = "He does not believe in chance, and weighed what my coming meant.",
     third = "{name} met Rabine Saturna, majordomo to Keeper Remulos, who watches over everything in Nighthaven the Keeper does not.",
@@ -607,6 +607,8 @@ P:NPC {
       text = "A reader, good. The world remembers less than it thinks it does, and readers keep the rest." },
     { id = "n_form", cat = "form", when = { form = "travel" },
       text = "You came in at a run on four legs, so rest them. Nighthaven isn't going anywhere, and neither are its troubles." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That bag of yours is heavy with souls, and every one of them is another line on your account, warlock. I keep the ledger honestly, and I'd suggest you start paying down the debt before the Keeper reads it." },
   },
 
   start = "hello",
@@ -931,7 +933,7 @@ P:NPC {
   key = "dendrite", id = TODO_NPC("Dendrite Starblaze"), name = "Dendrite Starblaze",
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "formal" }, values = { "balance", "dutiful" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_armor" },
   impression = {
     first = "There is a dry humour hiding under all that formality.",
     third = "{name} met Dendrite Starblaze, who guides young druids through the Cenarion Circle's first trials in Moonglade.",
@@ -950,6 +952,8 @@ P:NPC {
       text = "Ah, the Great Bear Spirit's gift sits well on you. Remember where you learned it." },
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
       text = "Not a druid, are you? You're welcome all the same, though the trials are another matter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "A druid wears the bear's shape and gives thanks for it, and you have wrapped yourself in a demon's hide and given nothing. The new druids are staring at you, so I'll ask you to keep it out of the trial grounds." },
   },
 
   start = "hello",
@@ -1212,7 +1216,7 @@ P:NPC {
   bible = "bibles/nighthaven.md", role = "trainer", tier = "service",
   prejudice = { race = "Scourge", amount = 12, why = "a druid of balance who feels the Forsaken as a crack in the cycle of life and death" },
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
   impression = {
     first = "Balance, he says, is something you carry, not somewhere you go.",
     third = "{name} met Loganaar, the calm druid trainer of Nighthaven, who teaches that balance begins within.",
@@ -1231,6 +1235,8 @@ P:NPC {
   notice = {
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
       text = "You're no druid, but sit if you like. The bench is free, and so is the birdsong." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The scale tips green in you, warlock, further than your craft alone would tip it. Balance begins within, so I'd sit by the lake a while before you go back to Felwood." },
   },
 
   start = "hello",
@@ -1419,7 +1425,7 @@ P:NPC {
   bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
   communities = { "nighthaven" }, temper = { "patient" }, values = { "strength", "patience" },
   spiritSensitive = true,
-  notices = { "form" },
+  notices = { "form", "lock_shadow" },
   impression = {
     first = "It says strength that cannot wait is only noise.",
     third = "{name} sat before the Great Bear Spirit in Moonglade, an ancient presence that teaches patience as the root of strength.",
@@ -1432,6 +1438,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", place = "replace", when = { form = "bear" },
       text = "The spirit's gaze softens. You wear its shape, and it seems to know you, the way kin know kin." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The grass grew still when you came, little one, and the moonwell's surface does not show your face. The bear notices such things and waits, so sit, and we will see whether your shadow can learn patience too." },
   },
 
   start = "hello",

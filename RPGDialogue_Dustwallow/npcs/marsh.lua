@@ -13,6 +13,11 @@ P:NPC {
     { id = "g_main", text = "Come in, come in, and wipe your boots, though in this marsh I suppose there's little point, and mind the frog in the kettle, he's a guest." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back through the mire! Most don't bother twice." },
   },
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green tinge under your skin that I don't think you've noticed yet, and the pools out here will notice before you do. I'd ask you to keep away from my springs until it fades, if it ever does." },
+  },
+
   start = "hello",
   nodes = {
     xwarcl = {
@@ -193,6 +198,11 @@ P:NPC {
     { id = "g_main", text = "Hold there! Who're you and what d'you want in my swamp?" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Fine, come on in, I suppose." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Hold it, hold it, your shadow just moved before you did. I've watched folk sneak through this swamp for years and I know every trick, but I've never seen that one, and I don't care for it." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -387,6 +397,11 @@ P:NPC {
     { id = "g_main", text = "Ogron say hello, and you not run away, so that good, very good!" },
     { id = "g_back", when = { metBefore = true }, text = "You come back, and that make Ogron happy, very happy!" },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Ogron hears little humming in your bag, cold and sad, like the stories Grandfather told about Gul'dan's stones. Ogron hopes you let them go one day, because the stories said they cry a long time." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -570,6 +585,11 @@ P:NPC {
     { id = "g_main", text = "Halt, traveler. State your business at Sentry Point." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Fine, pass on through, but keep your nose clean." },
   },
+  notice = {
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "I watched a horse with burning hooves come down the north road, and I nearly sounded the alarm before I saw a rider on it. It's a lonely watch out here, but that's a thing I'll be writing in the report." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -740,6 +760,11 @@ P:NPC {
     { id = "g_main", text = "You stand before Mok'Morokk, so bow, little one! Maybe Mok'Morokk not squash you today." },
     { id = "g_back", when = { metBefore = true }, text = "You come back? Mok'Morokk has more work for strong ones." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Green rock in your bag smell like food and look like rock! Mok'Morokk want to know if it taste good, because Stonemaul eat everything else in the marsh already." },
+  },
+
   start = "hello",
   nodes = {
     pj_mok = {
@@ -962,6 +987,11 @@ P:NPC {
     { id = "g_main", text = "Well met, stranger, but speak softly, for the overlord does not like competition." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you have returned. Brackenwall still has need of capable hands." },
   },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear the demon's hide on your shoulders, and Draz'Zilb has seen it before, on the warlocks who taught the first ogre magi. It made them strong and it made them cruel, so Draz'Zilb hopes you are only borrowing it." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {

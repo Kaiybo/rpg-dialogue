@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/silverpine.md", role = "soldier", tier = "major",
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_stones" },
   impression = {
     first = "He lists all his enemies without a flicker of worry.",
     third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "The forest bit you, I see. Mend yourself, and then bite back." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "One of the Warchief's people, in Silverpine. The worgen won't care which side you're on, and neither will the Scourge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is heavy with souls, {class}, and I'd rather they were Rot Hide souls than ours. Spend them on the gnolls and the worgen and anything else that comes at my line." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone would keep a Deathguard on his feet a little longer, and I have too few of those to waste. If you ever make more than you need, my soldiers would be grateful." },
   },
 
   start = "hello",
@@ -727,7 +731,7 @@ P:NPC {
   key = "allister", id = TODO_NPC("Shadow Priest Allister"), name = "Shadow Priest Allister",
   bible = "bibles/silverpine.md", role = "priest", tier = "quest",
   communities = { "sepulcher" }, temper = { "smooth" }, values = { "cunning", "loyal" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_shadow" },
   impression = {
     first = "He keeps watchers in every corner of Lordaeron.",
     third = "{name} met Shadow Priest Allister, the Sepulcher's spymaster, who learns of everything that moves in Silverpine.",
@@ -746,6 +750,8 @@ P:NPC {
       text = "Quiet feet, I see, and I've uses for quiet feet. Come and see me when you're ready to earn your keep in shadows." },
     { id = "n_weary", cat = "class", when = { durability = { max = 0.3 } },
       text = "You have been in a fight, and you came straight to me before the armorer, which tells me the news is good or very bad. Sit, and tell me which." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow listens, {class}, the way my watchers do. I wonder what it's heard and who it reports to, but I suppose that's a question for another day." },
   },
 
   start = "hello",
@@ -984,7 +990,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/silverpine.md", role = "innkeeper", tier = "service",
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
   impression = {
     first = "He keeps calling the beds slabs out of habit.",
     third = "{name} rested at Innkeeper Bates's crypt of an inn at the Sepulcher, where the roof at least keeps the worgen out.",
@@ -1005,6 +1011,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look grave-tired, and I'd know. Sit a while." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Got your soul tucked away in a stone, have you? Then you'll be back for another night, I suppose, and you'll find the slab just as you left it." },
   },
 
   start = "hello",

@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_default", text = "Mail, shields and a few good helms. Nothing fancy, but it'll stop a kobold's pick." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. That's the armor doing its job." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You've a soulstone in that pack, haven't you? It's the same cold dark I wouldn't build that iron cage to hold, and I'll ask you to keep it well away from my shields." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -183,6 +188,11 @@ P:NPC {
     { id = "g_default", text = "Cloth and leather, friend, sewn here at the Abbey. Mind the hems; they're new." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. No tears in that sleeve yet, I hope?" },
   },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide over your shoulders isn't anything I sell, and it's shedding something black onto my good linen. I'll mend your robes all day, but I can't mend whatever that is." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -339,6 +349,11 @@ P:NPC {
     { id = "g_default", text = "Swords, maces an' axes, every one forged honest. Pick one an' hold it the right way round, if ye please." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer fingers. Good, that means ye listened." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Yer pack's clinkin' like a bag o' cold gems, {g:lad|lass}, an' I've handled enough gems tae know they shouldnae hum. Keep it off my anvil, for I'll no' have a soul rattlin' about in my steel." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -507,6 +522,11 @@ P:NPC {
     { id = "g_default", text = "Light be with you. If you're hurt, say so; that's what I'm walking about for." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again, and standing upright, praise the Light." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light goes quiet around you, as quiet as a chapel with the candles out, and I've felt that only a few times before. I'll still mend you if you're hurt, but I wanted you to know that I noticed." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

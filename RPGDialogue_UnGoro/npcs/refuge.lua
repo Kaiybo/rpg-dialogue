@@ -6,7 +6,7 @@ P:NPC {
   key = "williden", id = TODO_NPC("Williden Marshal"), name = "Williden Marshal",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "warm" }, values = { "curious", "responsible" },
-  notices = { "level", "kit" },
+  notices = { "level", "kit", "lock_shards" },
 
   impression = {
     first = "He welcomed me warmly, then warned me twice about the dinosaurs.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "You're braver than you are seasoned, friend. Stay near the rim until you've grown into the crater." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Was it raptors, or the plants? Don't laugh; the plants bite here too." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "That's a lot of soul shards, and the crystals in J.D.'s tent started buzzing the moment you walked past. Leave the bag by the fire while you're here, because I'd rather not explain to his mother how he lost an eyebrow." },
   },
 
   start = "hello",
@@ -294,7 +296,7 @@ P:NPC {
   key = "linken", id = TODO_NPC("Linken"), name = "Linken",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "earnest" }, values = { "brave", "honorable" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He can't remember where he came from, and is cheerful about it.",
@@ -315,6 +317,8 @@ P:NPC {
       text = "A gnome! Do you happen to know me, by any chance? No, that's a pity. I'm not much for gadgets, I think; I think I'm a warrior, because it feels right." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior, like me! I'm almost sure I'm a warrior, anyway, since the sword feels right in my hand." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul's somewhere else, isn't it, tucked in a stone where you can't see it? I know how that feels, a little, because most of mine seems to be missing too, and I don't know who's holding it." },
   },
 
   start = "hello",
@@ -508,7 +512,7 @@ P:NPC {
   key = "jdcollie", id = TODO_NPC("J.D. Collie"), name = "J.D. Collie",
   bible = "bibles/ungoro.md", role = "scholar", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "eager" }, values = { "curious", "persistent" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He lost an eyebrow to his crystals and thought it fair.",
@@ -522,6 +526,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = { "MAGE", "PRIEST", "SHAMAN" } },
       text = "Can you feel them, the crystals? Something in them answers to people like you, and I've been trying to work out what for months." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a spellstone in your pack? My crystals are singing a whole octave higher, and I've never heard them do that! I'd ask to borrow it, but I'm not sure they'd give it back, or that I'd want them to." },
   },
 
   start = "hello",
@@ -699,7 +705,7 @@ P:NPC {
   key = "spraggle", id = TODO_NPC("Spraggle Frock"), name = "Spraggle Frock",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   communities = { "marshals_refuge" }, temper = { "anxious" }, values = { "loyal", "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "She worries for a living and seems very good at it.",
@@ -715,6 +721,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Oh no, you got hurt down there too? Sit down and drink something, friend, it's on the expedition's account, because everybody keeps getting hurt down there." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's darker than everyone else's, and it doesn't move quite right, and I don't know anything about magic, but I've been staring at the dark for days looking for Ringo! Please tell me you've seen him out there." },
   },
 
   start = "hello",

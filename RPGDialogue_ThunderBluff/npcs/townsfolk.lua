@@ -24,6 +24,10 @@ P:NPC {
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in your bag are colder than any coin in my vaults, and they hum when you set them down. I count wealth in herds and in friends, warlock, and I'm not sure what kind of wealth that is." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -186,7 +190,7 @@ P:NPC {
   key = "tal", id = TODO_NPC("Tal"), name = "Tal", title = "Wind Rider Master",
   bible = "bibles/townsfolk.md", role = "flightmaster", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "patient" },
-  notices = { "mount", "form" },
+  notices = { "mount", "form", "lock_shadow" },
   impression = {
     first = "He trusts the wind more than any map.",
     third = "{name} met Tal, the wind rider master of Thunder Bluff.",
@@ -203,6 +207,8 @@ P:NPC {
       text = "Running in the cheetah's shape, up all those stairs? The wind riders will happily save your legs, druid, and you can save your breath." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Bring your mount down off my tower, friend. The wind riders are proud, and they don't like sharing it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My wind riders turned their heads away when you came across the bridge, the way they turn from a storm cloud. They'll still fly you, but they'll fly fast, so hold on." },
   },
 
   start = "hello",
@@ -381,7 +387,7 @@ P:NPC {
   key = "ansekhwa", id = TODO_NPC("Ansekhwa"), name = "Ansekhwa", title = "Weapon Master",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "disciplined", "honorable" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He treats every blade and staff as a promise to protect someone.",
     third = "{name} met Ansekhwa, the weapon master of Thunder Bluff.",
@@ -395,6 +401,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid with a staff. Many of your kind forget that the staff is a weapon too, so let me teach you to use it properly, and you'll need fewer claws." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a ward of demon hide on your shoulders, if I'm not mistaken, and I'd rather you learned to guard yourself with a staff. A staff never shivers when you lean on it." },
   },
 
   start = "hello",
@@ -552,6 +560,10 @@ P:NPC {
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want arrows, I'd guess, and plenty of them. Hunters always run out of arrows first." },
   },
 
+  notice = {
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have a green shine in them, warlock, and you looked straight at the shadow where my nephew was hiding to frighten you. He's sulking about it now, and I'm trying not to laugh." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -716,7 +728,7 @@ P:NPC {
   key = "kah", id = TODO_NPC("Kah Mistrunner"), name = "Kah Mistrunner", title = "Fishing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "patient" },
-  notices = { "profession" },
+  notices = { "profession", "lock_breath" },
   impression = {
     first = "He teaches fishing high above any water and finds that amusing.",
     third = "{name} shared a laugh with Kah Mistrunner, who teaches the tauren to fish from a mesa nowhere near any water.",
@@ -730,6 +742,8 @@ P:NPC {
   notice = {
     { id = "n_angler", cat = "profession", when = { profession = { name = "Fishing", min = 150 } },
       text = "You've the look of a proper angler now, the kind who checks the clouds before the water. Sit, and let's talk shop." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing slow and easy, like someone who could sit at the bottom of Stonebull Lake all day and never come up for air. I've spent forty years wishing I could follow the fish down there." },
   },
 
   start = "hello",
@@ -896,7 +910,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_stones" },
   impression = {
     first = "She is warm, bossy, and usually right.",
     third = "{name} was fussed over by Aska Mistrunner, who teaches cooking on Thunder Bluff and believes nobody eats enough.",
@@ -913,6 +927,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "profession", when = { profession = { name = "Cooking", min = 150 } },
       text = "I can smell spices on your sleeves, and they're good ones. You've been cooking properly, then, and I'm proud of you." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone at your belt? I could sear a kodo steak on it, I think, but it'd taste of brimstone afterward, so perhaps I'd better not." },
   },
 
   start = "hello",
@@ -1107,7 +1123,7 @@ P:NPC {
   key = "bena", id = TODO_NPC("Bena Winterhoof"), name = "Bena Winterhoof", title = "Alchemy Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "precise", "devout" },
-  notices = { "profession", "race" },
+  notices = { "profession", "race", "lock_soulstone" },
   impression = {
     first = "She has strong opinions about the Forsaken apothecaries and shares them readily.",
     third = "{name} heard Bena Winterhoof, alchemist of Thunder Bluff, insist that potions are for mending and not for poisons.",
@@ -1124,6 +1140,8 @@ P:NPC {
       text = "Your fingers are stained green at the tips. You've been grinding Silverleaf, I'd wager, and grinding it well." },
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken. You'll find my alchemy is meant for healing, so if you've come looking for the other kind, you want Spirit Rise." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, I can feel it, and no herb I grow could do what that stone does, which is exactly why I don't trust it. The Earth Mother lets the dead go, and a remedy that holds them back is no remedy at all." },
   },
 
   start = "hello",
@@ -1337,7 +1355,7 @@ P:NPC {
   key = "nida", id = TODO_NPC("Nida Winterhoof"), name = "Nida Winterhoof", title = "Herbalism Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "gentle" }, values = { "patient", "devout" },
-  notices = { "profession", "form" },
+  notices = { "profession", "form", "lock_taint" },
   impression = {
     first = "She talks about plants as gifts that must be thanked for.",
     third = "{name} learned from Nida Winterhoof that every herb taken from Mulgore should be thanked for.",
@@ -1354,6 +1372,8 @@ P:NPC {
       text = "There's pollen on your boots and earth under your nails. You've been gathering properly, and I'm pleased." },
     { id = "n_tree", cat = "form", when = { form = { "travel", "cat" } },
       text = "A druid in a beast's shape. You must cover so much ground that way, and see so many plants. Tell me what grows where you've been." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The peacebloom in my basket wilted when you leaned over it, and I've only seen that near the Burning Blade's camps. Please keep your hands to yourself in my garden, warlock, until whatever's in you settles." },
   },
 
   start = "hello",
@@ -1506,7 +1526,7 @@ P:NPC {
   key = "una_tb", id = TODO_NPC("Una"), name = "Una", title = "Leatherworking Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "practical", "devout" },
-  notices = { "profession" },
+  notices = { "profession", "lock_armor" },
   impression = {
     first = "Her hands never stop working while she talks.",
     third = "{name} met Una, the leatherworking trainer of Thunder Bluff.",
@@ -1520,6 +1540,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "profession", when = { profession = { name = "Leatherworking", min = 100 } },
       text = "Your fingers are hard where the needle pushes. You've been working leather, then, and working it properly." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Is that a demon's skin you're wearing over your robe? I can see it breathe, and no hide I've ever cured did that, so I'd like to know which beast gave it, if beast is even the word." },
   },
 
   start = "hello",

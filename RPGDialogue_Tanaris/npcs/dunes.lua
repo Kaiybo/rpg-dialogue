@@ -13,6 +13,11 @@ P:NPC {
     { id = "g_main", text = "Well met, friend! Shake the sand off yer boots before ye come any closer." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The desert didn't swallow ye, then, and by my beard I'm glad of it." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "What's that cold comin' off yer pack? Soul shards, I'd wager, an' a fair heap o' them, because the sand round yer boots has gone chill. Keep them well away from my digs, for the old troll stones dinnae need more souls whisperin' near them." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -216,6 +221,11 @@ P:NPC {
     { id = "g_main", text = "Tooga sees you! Tooga is lost, and very hot, and very slow." },
     { id = "g_back", when = { metBefore = true }, text = "Tooga remembers you. You are kind to Tooga." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Tooga feels cold when you stand close, like the sun went behind a cloud, but there are no clouds. The scorpids went away too, so maybe Tooga likes it a little." },
+  },
+
   start = "hello",
   nodes = {
     xwarcl = {
@@ -374,6 +384,11 @@ P:NPC {
     { id = "g_main", text = "Oh! A visitor, how wonderful. Do you have a moment for some science? Five minutes, say, or seven if the scorpids cooperate?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've been thinking about what we discussed, and I've revised my estimate by at least twelve percent." },
   },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Fascinating, is that a ward of demon skin? It shimmers at a frequency I can almost hear, and I'd love to take a scraping, purely for science, if it wouldn't take a bit of you along with it." },
+  },
+
   start = "hello",
   nodes = {
     xwarcl = {
@@ -550,6 +565,11 @@ P:NPC {
     { id = "g_main", text = "Step right up, step right up, pal! Jabbey's got what you need, even if you don't know you need it, and Jabbey's got it at a price you'll only regret a little." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer, back again! What can Jabbey sell you today, buddy, and how much have you got?" },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Jabbey knows that green glow in your bag, because a warlock once offered Jabbey a healthstone for a sack of flour. Jabbey said no, because Jabbey doesn't trade in anything made of somebody's life, not even at a good markup." },
+  },
+
   start = "hello",
   nodes = {
     xwarcl = {
@@ -724,6 +744,11 @@ P:NPC {
     { id = "g_main", text = "Welcome, welcome, dearie! Oh dear, look at the state of your robes, and look at the state of my shelves, which are full of exactly what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, dearie! And still in those clothes, I see, which is a lost sale every single day you wear them." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Funny, the silk on my shelf just went dull and limp as you came in, pal, the same way it does when a sandstorm's coming. I'd rather you browsed from the doorway, if it's all the same to you." },
+  },
+
   start = "hello",
   nodes = {
     xwarcl = {

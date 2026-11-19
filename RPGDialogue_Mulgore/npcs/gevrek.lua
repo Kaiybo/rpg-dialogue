@@ -9,7 +9,7 @@ P:NPC {
   communities = { "gevrek" }, temper = { "steady" }, values = { "loyal", "devout", "proud" },
   likesTone = "polite", private = { "two_orders" },
   spiritSensitive = true,
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_pact" },
   impression = {
     first = "She is determined the tauren never regret welcoming her people.",
     third = "{name} met Ayessa Dawnsinger, leader of the Windshapers at Camp Gev'rek in Mulgore.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You've walked the elemental trials; I can see it in how you stand, and that is good." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Thunder Bluff opened its gates to us. We won't forget that, and we won't make the tauren regret it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The elements in this camp have drawn back from you like water from a hot stone, and my Windshapers have stopped their chant to listen. The Earthen Ring taught us to hear what the world is saying, and right now it is saying something about you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever in your blood that no sickness put there, the heat of some small fire-thing, and the spirits around me can feel it burning. Whoever bound you into that pact, I hope they paid for it themselves." },
   },
 
   start = "hello",

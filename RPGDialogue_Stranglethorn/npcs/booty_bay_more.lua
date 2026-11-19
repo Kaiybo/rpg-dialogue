@@ -7,7 +7,7 @@ P:NPC {
   title = "Gryphon Master",
   bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
   communities = { "booty_bay" }, temper = { "dry", "steady" }, values = { "practical" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_steed" },
 
   impression = {
     first = "Gryphons and pirates both bite if you look at them wrong.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A dwarf, good; you'll know to hold the harness and not the feathers. Half my passengers grab the feathers, and then the bird sulks for a week." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You're green round the edges. Sit down a moment before you climb up, because if you're sick over the jungle, the bird will never let you forget it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "You rode in on a horse with fire for hooves, and every bird in the roost is pressed against the back wall now. Leave the beast down the pier next time, if you'd be so kind, or I'll be all evening coaxing them to eat." },
   },
 
   start = "hello",
@@ -203,7 +205,7 @@ P:NPC {
   title = "Wind Rider Master",
   bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
   communities = { "booty_bay" }, temper = { "gruff" }, values = { "practical", "loyal" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "The beasts trust him more than he trusts anybody.",
@@ -218,6 +220,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Big one, aren't you? The riders will carry you, but they'll groan about it the whole way to Grom'gol, so don't take it personally, and don't ask me for the light-rider rate." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've got a fever on you, pal, the kind an imp's blood pact puts in a body, and the wind riders can smell it hot as a forge. Stand downwind, same as always, and they'll forgive you by the time we're over the jungle." },
   },
 
   start = "hello",
@@ -387,7 +391,7 @@ P:NPC {
   title = "Banker",
   bible = "bibles/stranglethorn.md", role = "banker", tier = "service",
   communities = { "booty_bay" }, temper = { "smooth", "careful" }, values = { "greedy", "lawful" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "My savings get more affection here than most families do.",
@@ -402,6 +406,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "My, my, that purse has a lovely weight to it. Have you considered how much lovelier it would look in a vault?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that an unspent soulstone in your bag? I've had depositors keep stranger things in their boxes, pal, but nobody's ever explained to me how the Cartel would value a soul on the books." },
   },
 
   start = "hello",
@@ -600,7 +606,7 @@ P:NPC {
   title = "Blade Trader",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "shrewd" }, values = { "greedy", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "Every blade comes with a famous owner, and I believe a third.",
@@ -614,6 +620,8 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "ROGUE" } },
       text = "You hold your weight like someone who's used a blade more than once. Good; I prefer selling to people who'll appreciate the edge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Funny thing, friend, but the crate under my counter just went quiet, which it never does, and I think it's listening to your bag. Whatever's humming in there is louder than my blade, and I'd thank you not to get the two of them talking." },
   },
 
   start = "hello",
@@ -781,7 +789,7 @@ P:NPC {
   title = "Superior Weaponsmith",
   bible = "bibles/stranglethorn.md", role = "blacksmith", tier = "service",
   communities = { "booty_bay" }, temper = { "proud", "blunt" }, values = { "proud", "practical" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_shadow" },
 
   impression = {
     first = "Her steel is good enough that the boasting hardly matters.",
@@ -797,6 +805,8 @@ P:NPC {
       text = "You've a smith's forearms and a smith's burns. Look all you like; you'll know quality when you see it, and most of my customers couldn't tell a good edge from a butter knife." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's falling to pieces, and the jungle won't wait for you to mend it. Get to a smith before you leave the cove." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge has been cherry-red since dawn, and it went dim and sulky the moment you walked in, the way it does when the sea fog rolls through. I don't ask questions, as you know, but I'd like my fire back when you go." },
   },
 
   start = "hello",

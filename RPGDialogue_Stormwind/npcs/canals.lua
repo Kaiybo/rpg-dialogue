@@ -8,7 +8,7 @@ P:NPC {
   key = "suzetta", id = TODO_NPC("Suzetta Gallina"), name = "Suzetta Gallina",
   bible = "bibles/canals.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "practical", "loyal" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_stones" },
   impression = {
     first = "She tallies every free bottle her brother promises, then pours them anyway.",
     third = "{name} met Suzetta Gallina, who runs her family's winery on the Stormwind canals.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A Stormwind face. You've walked past our door a hundred times, I expect, and never once come in, until Renato shouted at you." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had a few already, haven't you? I'll pour you something gentle and you'll thank me in the morning." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone at your belt is a warlock's work, because the Lamb's lot pay their tab in them when the coin runs out. Renato takes them, the soft fool, and I can never find a column in the ledger to put them in." },
   },
 
   start = "hello",
@@ -216,7 +218,7 @@ P:NPC {
   key = "ol_emma", id = TODO_NPC("Ol' Emma"), name = "Ol' Emma",
   bible = "bibles/canals.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "stubborn", "loyal" },
-  notices = { "light", "kin", "refugee" },
+  notices = { "light", "kin", "refugee", "lock_shadow" },
   impression = {
     first = "There's grief under her grumbling, and she doesn't want it noticed.",
     third = "{name} met Ol' Emma, the grumbling water carrier of the canals, who came south from Lordaeron long ago.",
@@ -239,6 +241,8 @@ P:NPC {
       text = "City born, are you? You've the look of somebody who's never carried their own water, though I'll forgive you if you carry one bucket now." },
     { id = "n_refugee", cat = "refugee", when = { origin = "human_lordaeron_refugee" },
       text = "You talk like the north, you do. Don't tell me which village; I'd only ask after folk you won't have news of." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's leaning the wrong way, dearie, toward the lamp instead of away from it, and I saw shadows do that once before, in Lordaeron, the winter the grain went bad. I'll carry my water round the other side of you, if it's all the same." },
   },
 
   start = "hello",
@@ -686,7 +690,7 @@ P:NPC {
   key = "arnold_leland", id = TODO_NPC("Arnold Leland"), name = "Arnold Leland", title = "Fishing Trainer",
   bible = "bibles/canals.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_breath" },
   impression = {
     first = "Talking to him slows my pulse a little.",
     third = "{name} met Arnold Leland, who teaches fishing on the Stormwind canals beside Catherine Leland's supply stall.",
@@ -703,6 +707,8 @@ P:NPC {
       text = "Stormwind born? Then you'll have fished these canals as a nipper, everybody did, and caught nothing but boots." },
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "You've a fisher's hands, I can see the line calluses. Where have you been casting? Somewhere with better fish than this, I hope." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing like someone who's had the lake poured into them and never noticed, which is one of your spells, I'd wager. If I could breathe under the canal for an hour, I'd know every fish in Stormwind by name." },
   },
 
   start = "hello",
@@ -866,7 +872,7 @@ P:NPC {
   key = "morris_lawry", id = TODO_NPC("Morris Lawry"), name = "Morris Lawry",
   bible = "bibles/canals.md", role = "citizen", tier = "service",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "cunning" },
-  notices = { "light", "kin", "purse" },
+  notices = { "light", "kin", "purse", "lock_shards" },
   impression = {
     first = "He tells two different stories about how he lost his farm.",
     third = "{name} met Morris Lawry, a canal beggar with a story for every passer-by.",
@@ -888,6 +894,8 @@ P:NPC {
       text = "A Stormwind face, ye'll know what it's like to fall on hard times in this city, then. Or ye will, one day, so be kind now." },
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "Light above, ye clink when ye walk! Surely a coin or two won't be missed from a purse like that." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "'Ere, somethin' in yer bag's clinkin' like coin, guv, only it's cold as a grave when I brush past it. I'll carry most things for two coppers, but not them, not if ye doubled it." },
   },
 
   start = "hello",
@@ -1065,7 +1073,7 @@ P:NPC {
   key = "billy_canals", id = TODO_NPC("Billy"), name = "Billy",
   bible = "bibles/canals.md", role = "child", tier = "service",
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious" },
-  notices = { "light", "kin", "wonder" },
+  notices = { "light", "kin", "wonder", "lock_steed" },
   impression = {
     first = "He catches mostly boots and swears he once landed a giant.",
     third = "{name} met Billy, a boy on the Stormwind canals with a fish story for every occasion.",
@@ -1086,6 +1094,8 @@ P:NPC {
       text = "Did you fish here when you were little? Did you catch anything? I bet I catch more." },
     { id = "n_pet", cat = "wonder", when = { pet = true },
       text = "Whoa, is that yours? If it eats fish, I'll catch it one, a really big one, the biggest in the canal!" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse's feet are on fire! Adam's never going to believe me, so can you ride it past the fishing spot so he sees, because otherwise he'll say I made it up again." },
   },
 
   start = "hello",
@@ -1248,7 +1258,7 @@ P:NPC {
   key = "philmor", id = TODO_NPC("Manifest Clerk Philmor"), name = "Manifest Clerk Philmor",
   bible = "bibles/canals.md", role = "worker", tier = "quest",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "light", "kin", "kit" },
+  notices = { "light", "kin", "kit", "lock_shards" },
   impression = {
     first = "He says the work is open to all and safety is mine.",
     third = "{name} met Manifest Clerk Philmor, who keeps the cargo manifests at Stormwind Harbor.",
@@ -1265,6 +1275,8 @@ P:NPC {
       text = "City folk, good. You'll know the Trade District, then, and won't get lost carrying a parcel through it." },
     { id = "n_strong", cat = "kit", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Broad shoulders, sturdy boots, and I'd guess you've lifted heavier than a cargo crate. I've work for you, if you want it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You're carrying twenty of them if you're carrying one, because I know the clink of that cargo from the Mage Quarter crates. If you were a crate I'd have to log you, and I don't have a column for souls." },
   },
 
   start = "hello",

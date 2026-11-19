@@ -7,7 +7,7 @@ P:NPC {
   key = "kania", id = TODO_NPC("Kania"), name = "Kania", title = "Enchanting Supplies",
   bible = "bibles/silithus.md", role = "vendor", tier = "service",
   communities = { "cenarion_hold" }, temper = { "precise" }, values = { "craft", "careful" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_stones" },
 
   impression = {
     first = "She speaks about her formulae like rare plants.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "There's arcane dust under your fingernails, enchanter, and you've wiped some on your sleeve. You'll want to see what I have, then, and I've a formula or two you won't find in Darnassus." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "A mage, all the way out here! Mind your spells near my table, if you would; a stray spark among these dusts would be a very bright mistake." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your pack, and my dusts are drifting toward it like moths to a lamp. Keep it closed while you're up here, because I'd rather not lose an enchantment to a stone that wants to be a fire." },
   },
 
   start = "hello",
@@ -178,7 +180,7 @@ P:NPC {
   key = "khur", id = TODO_NPC("Khur Hornstriker"), name = "Khur Hornstriker", title = "Reagents",
   bible = "bibles/silithus.md", role = "vendor", tier = "service",
   communities = { "cenarion_hold" }, temper = { "calm" }, values = { "careful", "nature" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "Selling poison seems no stranger to him than selling herbs.",
@@ -194,6 +196,8 @@ P:NPC {
       text = "You'll be wanting the poison makings, I expect. I sell them freely, but use them on the silithid, little one, not on anybody standing in this Hold." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman's ankh will need replacing, sooner or later, out in a land this angry. I keep plenty in stock, because the spirits here are restless." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I sell reagents and poisons, and you buy what you need, but the shards in your bag you took yourself. I cannot sell you those, and I would not, because a soul is not a reagent in my people's ways." },
   },
 
   start = "hello",
@@ -350,7 +354,7 @@ P:NPC {
   key = "leoren", id = TODO_NPC("Squire Leoren Mal'derath"), name = "Squire Leoren Mal'derath", title = "Stable Master",
   bible = "bibles/silithus.md", role = "stablemaster", tier = "service",
   communities = { "cenarion_hold" }, temper = { "earnest" }, values = { "dutiful", "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He treats every boarded beast as a soldier in his charge.",
@@ -364,6 +368,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Your {pet} has sand in its coat, friend. Let me brush it out before you go back into the dunes, because sand rubs a beast raw in a day." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Please don't bring that horse any closer to the stalls! It's beautiful in a terrible way, with its hooves all ablaze, but the riding cats are already climbing the walls, and I'm the one who has to calm them." },
   },
 
   start = "hello",

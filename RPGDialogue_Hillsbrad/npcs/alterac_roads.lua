@@ -6,7 +6,7 @@ P:NPC {
   key = "ravenholdt", id = TODO_NPC("Lord Jorach Ravenholdt"), name = "Lord Jorach Ravenholdt",
   bible = "bibles/roads.md", role = "noble", tier = "quest",
   communities = { "ravenholdt" }, temper = { "cool" }, values = { "discreet", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "He is courteous the way a blade is polished.",
     third = "{name} met Lord Jorach Ravenholdt, master of the hidden manor in the Alterac hills and no friend of the Syndicate.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "One of the trade, and not a Syndicate hireling, I trust. They tend to arrive here wearing their colours and leave without them." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "You have that sheen in your eyes, the kind that sees straight into the dark corners where my people stand. I'll ask you to keep it to yourself under my roof, because a guest who can count my sentries is a guest I must start counting too." },
   },
 
   start = "hello",
@@ -278,7 +280,7 @@ P:NPC {
   key = "ansirem", id = TODO_NPC("Archmage Ansirem Runeweaver"), name = "Archmage Ansirem Runeweaver",
   bible = "bibles/roads.md", role = "scholar", tier = "service",
   communities = { "dalaran" }, temper = { "proud" }, values = { "learned", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "He speaks of Dalaran's walls like a man who helped build them.",
     third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch at Dalaran's newly opened gate.",
@@ -293,6 +295,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You can feel the wards, then, pressing at the back of your teeth. Good; it means you were taught properly." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "I can feel the cold off the crystals in your pack from across the road, and each one hums in a slightly different key. Kel'Thuzad kept a drawer of them in his study, we learned too late, and not one of us thought to ask whose voices they were." },
   },
 
   start = "hello",
@@ -690,7 +694,7 @@ P:NPC {
   key = "hinott", id = TODO_NPC("Serge Hinott"), name = "Serge Hinott",
   bible = "bibles/roads.md", role = "trainer", tier = "service",
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "careful", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "He speaks of poisons the way a baker speaks of bread.",
     third = "{name} met Serge Hinott, the Forsaken alchemist who teaches in Tarren Mill.",
@@ -703,6 +707,8 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { "Alchemy" } },
       text = "You smell of the trade, which is a compliment, though few take it as one." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone at your belt, isn't it? The Society has spent years trying to bottle what you carve out of a stolen soul, and I'd give a month's work to know why yours keeps fresh while ours curdle by Tuesday." },
   },
 
   start = "hello",

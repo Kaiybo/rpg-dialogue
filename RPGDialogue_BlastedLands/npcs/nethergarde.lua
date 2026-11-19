@@ -1567,7 +1567,7 @@ P:NPC {
   key = "enohar", id = TODO_NPC("Enohar Thunderbrew"), name = "Enohar Thunderbrew",
   bible = "bibles/blastedlands.md", role = "questgiver", tier = "quest",
   communities = { "nethergarde" }, temper = { "jovial" }, values = { "loyal", "brave" },
-  notices = { "race", "drunk" },
+  notices = { "race", "drunk", "lock_stones" },
 
   impression = {
     first = "Mention her family's ale and she bristles, mention home and she quiets.",
@@ -1588,6 +1588,8 @@ P:NPC {
       text = "Another dwarf! Now the keep's got two folk in it who know what a proper stout tastes like, an' I'm buyin'." },
     { id = "n_drunk", cat = "drunk", when = { drunk = true },
       text = "Ha! Ye've had a few already, haven't ye? Then ye're my kind o' company, though mind the stairs on yer way out." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in yer pocket? I've seen soldiers here trade a week's ale for one before a patrol tae the Portal, an' I've never once laughed at them for it." },
   },
 
   start = "hello",
@@ -1827,7 +1829,7 @@ P:NPC {
   key = "alexandra", id = TODO_NPC("Alexandra Constantine"), name = "Alexandra Constantine",
   bible = "bibles/blastedlands.md", role = "flightmaster", tier = "service",
   communities = { "nethergarde" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She speaks of her gryphons the way others speak of their children.",
@@ -1842,6 +1844,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, good; you'll know how to sit a gryphon without strangling it. The soldiers here hold the reins as if they were drowning." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Please leave that burning horse at the foot of the hill, because the gryphons have been staring south at the Portal all day, and they don't need a reminder of what came out of it." },
   },
 
   start = "hello",
@@ -2024,7 +2028,7 @@ P:NPC {
   key = "bernie", id = TODO_NPC("Bernie Heisten"), name = "Bernie Heisten",
   bible = "bibles/blastedlands.md", role = "vendor", tier = "service",
   communities = { "nethergarde" }, temper = { "warm" }, values = { "generous" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "He knows every soldier's order and most of their troubles.",
@@ -2040,6 +2044,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like the ogres chewed you and spat you out, friend. Eat something before you go see Strumner about that armor; he's grumpy on an empty stomach, and so are you, I'd wager." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The bread I set out went stale on the board while you were walking in, and it was baked this morning. Out here I've learned not to ask, so sit with your back to the wall and eat." },
   },
 
   start = "hello",
@@ -2224,7 +2230,7 @@ P:NPC {
   key = "strumner", id = TODO_NPC("Strumner Flintheel"), name = "Strumner Flintheel",
   bible = "bibles/blastedlands.md", role = "blacksmith", tier = "service",
   communities = { "nethergarde" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
 
   impression = {
     first = "He reckons himself the only honest repair for leagues.",
@@ -2239,6 +2245,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ogre club, by the shape o' that dent, and a big one. Set it on the bench before it falls off ye." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye've wrapped yerself in, an' I can see it shimmerin' under the plate, the same as the hide on the things that came through that Portal. I'll mend the steel, but I'll no' touch the other." },
   },
 
   start = "hello",

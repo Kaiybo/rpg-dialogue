@@ -7,7 +7,7 @@ P:NPC {
   key = "daphne", id = TODO_NPC("Daphne Stilwell"), name = "Daphne Stilwell",
   bible = "bibles/daphne.md", role = "questgiver", tier = "quest",
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "pious", "brave" },
-  notices = { "paladin", "kit" },
+  notices = { "paladin", "kit", "lock_shards" },
   impression = {
     first = "She has no fear of the Defias and misses her husband Jordan.",
     third = "{name} met Daphne Stilwell, a farmer who refuses to let the Defias take her land while her husband works far away.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A paladin of the Church! Jordan would like you; he trained for it once, before his father's forge got him." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You've been along the shore, I see. They don't fight fair down there. Neither do I, when I have to." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Something in your pack is cold enough to frost the fence rail where you leaned on it, and I know what a warlock carries. Keep it, and make the Brotherhood fill it if you can." },
   },
 
   start = "hello",

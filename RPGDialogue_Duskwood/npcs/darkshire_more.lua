@@ -930,7 +930,7 @@ P:NPC {
   key = "herble", id = TODO_NPC("Herble Baubbletump"), name = "Herble Baubbletump",
   bible = "bibles/darkshire_more.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "chatty" }, values = { "curious", "proud" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
 
   impression = {
     first = "He calls a Darkshire gnome an exile who found somewhere darker.",
@@ -947,6 +947,8 @@ P:NPC {
       text = "One of us! You don't see many of us this far south, not since the city. Come in, come in, and tell me who you were apprenticed to." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! I can tell by the scorch marks. You'll want the bronze tubes, and so does everyone, so be quick about it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards are resonating at roughly a third of an octave below middle C, and every spring in my shop has started humming along. I won't ask to open one, as that's precisely the sort of curiosity that costs a gnome his eyebrows." },
   },
 
   start = "hello",
@@ -1150,7 +1152,7 @@ P:NPC {
   key = "farrin", id = TODO_NPC("Farrin Daris"), name = "Farrin Daris",
   bible = "bibles/darkshire_more.md", role = "citizen", tier = "service",
   communities = { "darkshire" }, temper = { "anxious" }, values = { "loving", "cautious" },
-  notices = { "soldier", "weary" },
+  notices = { "soldier", "weary", "lock_soulstone" },
 
   impression = {
     first = "He can't visit his father's grave anymore, and it's eating him alive.",
@@ -1168,6 +1170,8 @@ P:NPC {
       text = "You're wearing colours! Are you from Stormwind, and has Stormwind finally sent soldiers, or is it only you?" },
     { id = "n_weary", cat = "weary", when = { deathsHere = { min = 1 } },
       text = "You've been out there and come back looking worse. That's what happens, and that's why I stay in." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tied your soul to a stone so you can come back if you fall, and out here, where the dead get up on their own, I'm not sure that comforts me. Mind you come back as yourself, if it comes to it." },
   },
 
   start = "hello",

@@ -6,7 +6,7 @@ P:NPC {
   key = "willem", id = TODO_NPC("Deputy Willem"), name = "Deputy Willem",
   bible = "bibles/willem.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "newcomer", "thief", "stranger" },
+  notices = { "newcomer", "thief", "stranger", "lock_soulstone" },
   impression = {
     first = "If there's trouble in the valley, he has already heard of it.",
     third = "{name} met Deputy Willem on the Northshire road, who keeps the Marshal's tallies and an eye on every stranger.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Look at you, not a scratch on you yet. That won't last, mind; it never does." },
     { id = "n_far", cat = "stranger", when = { outOfPlace = "far", race = { "NightElf", "Skyborne" } },
       text = "Don't get many of your sort coming down the Abbey road. Lost, or looking for work?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { ["not"] = { class = "WARLOCK" }, aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a pale look about you, as if part of you were kept somewhere else, and Drusilla La Salle's students get that look about the folk whose souls they've stoned. Did one of them do that to you, or did you ask?" },
   },
 
   react = {

@@ -8,7 +8,7 @@ P:NPC {
   key = "mallory", id = TODO_NPC("Alchemist Mallory"), name = "Alchemist Mallory", title = "Alchemy Trainer",
   bible = "bibles/herb_house.md", role = "trainer", tier = "service",
   communities = {}, temper = { "intent" }, values = { "precision", "craft" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_stones" },
   impression = {
     first = "His potion had more of his attention than I did.",
     third = "{name} met Alchemist Mallory, who teaches alchemy from a hillside house east of Stormwind's gates.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You've stained fingertips, so you've been at the mortar already. Yellow means earthroot, if I'm any judge, and you've been grinding it too hard." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue. You'll be wanting to learn poisons one day, I expect, and I'll tell you now that I teach cures, not the other thing." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Who gave you that healthstone? It's no draught of mine, and it glows the wrong green for anything brewed honestly, so I'd like to know which of the cellar folk is handing them out." },
   },
   start = "hello",
   nodes = {
@@ -201,7 +203,7 @@ P:NPC {
   key = "pomeroy", id = TODO_NPC("Herbalist Pomeroy"), name = "Herbalist Pomeroy", title = "Herbalism Trainer",
   bible = "bibles/herb_house.md", role = "trainer", tier = "service",
   communities = {}, temper = { "warm" }, values = { "nature", "patient" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_taint" },
   impression = {
     first = "She speaks of Elwynn's hillsides as if each one were a friend.",
     third = "{name} met Herbalist Pomeroy, who teaches herbalism beside Alchemist Mallory east of Stormwind's gates.",
@@ -215,6 +217,8 @@ P:NPC {
       text = "You've a gatherer's hands, I can tell; there's green under every nail. Good, because it's the only honest way to learn." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! You'll know some of what I teach already and argue with the rest, I expect. Your people talk to the plants, I'm told, and I've only ever talked at them." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The mint on my counter has wilted since you came in, and you've a green sheen on your skin like Duskwood moss. Whatever you've been handling, it's soaked into you deeper than any herb I'd sell." },
   },
   start = "hello",
   nodes = {

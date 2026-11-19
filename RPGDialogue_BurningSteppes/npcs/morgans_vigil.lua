@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "soldier", tier = "major",
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "dutiful", "loyal" },
   likesTone = "blunt",
-  notices = { "class", "race", "deputy" },
+  notices = { "class", "race", "deputy", "lock_armor", "lock_stones" },
 
   impression = {
     first = "He is tired and bitter, but the kindness hasn't left him yet.",
@@ -38,6 +38,10 @@ P:NPC {
       text = "So you're Bolvar's deputy. I asked the Keep for a regiment, and you've done more than some regiments I've marched with." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "You carry that blade like someone who's used it on more than training dummies. Good; this ridge has had enough of people who haven't." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear demon hide like it's part of your uniform, deputy. My soldiers have seen enough fire to last them, so keep it covered on the ridge." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone could keep one of my people on their feet long enough to retreat, and there are too few of us to waste. If you've extra, I won't refuse." },
   },
 
   start = "hello",
@@ -512,7 +516,7 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "scholar", tier = "major",
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "wise", "curious" },
   likesTone = "polite",
-  notices = { "race", "class", "form", "pet" },
+  notices = { "race", "class", "form", "pet", "lock_shadow", "lock_taint" },
 
   impression = {
     first = "He watches the mountain like a page he means to finish reading.",
@@ -537,6 +541,10 @@ P:NPC {
       text = "Cenarius's gifts, here of all places. Keep that shape near the ridge and the worgs will think twice before they come close." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
       text = "Your companion is calm in this heat, while the Blackrock's worgs snap at their own handlers. Treat it well; out here it may be the only one who watches your back." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow on you is old, older than you know, and I remember the Highborne wearing it before the Well burned. I hope it rests lighter on you than it did on them." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The fel clings to you faintly, and I have seen what it made of the satyrs. Be careful, because it always starts so faintly." },
   },
 
   start = "hello",
@@ -934,7 +942,7 @@ P:NPC {
   key = "oralius", id = TODO_NPC("Oralius"), name = "Oralius",
   bible = "bibles/burningsteppes.md", role = "soldier", tier = "quest",
   communities = { "morgans_vigil" }, temper = { "proud", "excitable" }, values = { "loyal", "brave" },
-  notices = { "class", "race", "kit" },
+  notices = { "class", "race", "kit", "lock_shards" },
 
   impression = {
     first = "He argues with a pirate named Captain Winky whom I never saw.",
@@ -955,6 +963,8 @@ P:NPC {
       text = "A dwarf! At last, a proper soldier with a proper beard, and not one of these tall folk who hit their heads on the tents." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Look at that kit, soldier! Torn, scorched and dented; that's the uniform of somebody who's been doing their job, so wear it with pride." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry shards like ammunition, soldier, and that's good discipline. Count them, keep them dry, and spend them on the ogres of Dreadmaul Rock." },
   },
 
   start = "hello",
@@ -1403,7 +1413,7 @@ P:NPC {
   key = "mayara", id = TODO_NPC("Mayara Brightwing"), name = "Mayara Brightwing",
   bible = "bibles/burningsteppes.md", role = "questgiver", tier = "quest",
   communities = { "morgans_vigil" }, temper = { "sharp", "proud" }, values = { "curious", "greedy" },
-  notices = { "class", "origin" },
+  notices = { "class", "origin", "lock_soulstone" },
 
   impression = {
     first = "She treats the Dark Irons' ruins like a market stall.",
@@ -1420,6 +1430,8 @@ P:NPC {
       text = "A priest! Do you know, you're the first I've seen north of Lakeshire. The Light keeps me alive up here, and the Count pays for everything else." },
     { id = "n_noble", cat = "origin", when = { origin = "human_minor_noble" },
       text = "You carry yourself like someone who's been to a dinner in the Keep and been bored at it. Do you know the Ridgewells? Everyone knows the Ridgewells, at least by their museum." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There's a soul in that stone you're carrying, and the Count would want to know if it talks. I've strict instructions to bring home nothing that whispers, so keep it out of my crates." },
   },
 
   start = "hello",
@@ -1639,7 +1651,7 @@ P:NPC {
   key = "borgus", id = TODO_NPC("Borgus Stoutarm"), name = "Borgus Stoutarm",
   bible = "bibles/burningsteppes.md", role = "flightmaster", tier = "service",
   communities = { "morgans_vigil" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race", "mount" },
+  notices = { "race", "mount", "lock_pact" },
 
   impression = {
     first = "He tells me each gryphon's mood whether I ask or not.",
@@ -1655,6 +1667,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Ah, a proper dwarf! Ye'll know how to sit a gryphon without squeezin' the life out of it, unlike some I could name." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're runnin' hot as the Steppes themselves, an' the gryphons can feel it. Cool down a moment before ye mount, or they'll think ye're on fire." },
   },
 
   start = "hello",

@@ -12,7 +12,7 @@ P:NPC {
   key = "frang", id = TODO_NPC("Frang"), name = "Frang", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "brave", "dutiful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_pact" },
   impression = {
     first = "He judges recruits by how fast they get back up.",
     third = "{name} met Frang, the warrior trainer in the Valley of Trials' Den.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "That armor has been chewed on by every boar in the valley, and you still came back walking. Good, because walking back is the first lesson." },
     { id = "n_troll", cat = "class", when = { class = "WARRIOR", race = "Troll" },
       text = "A Darkspear with an axe! Your people fight loose and quick, so I will teach you to hold a line as well, and then you will be dangerous." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "That fever in your blood isn't from the sun, recruit, it's a warlock's pact, and I can see it on you. Fight beside the imp if you must, but don't let the heat make you reckless." },
   },
   start = "hello",
   nodes = {
@@ -188,7 +190,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "calm" }, values = { "wise", "kind" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He talks of the spirits as neighbours to keep on good terms.",
     third = "{name} met Ken'jai, the troll priest trainer in the Valley of Trials.",
@@ -203,6 +205,8 @@ P:NPC {
       text = "Look at you, all torn up like the scorpids had a feast. Come closer and let Ken'jai see if anything be broken under there." },
     { id = "n_orcpriest", cat = "class", when = { class = "PRIEST", race = "Orc" },
       text = "An orc who heals instead of hits, now that be a rare thing. Your people forgot the spirits for a long time, so you be walking an old road almost alone." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you be carrying, mon, it be a warlock's healthstone, and I can smell the life that was squeezed into it. Ken'jai heal you for nothing, so you don't need to go eating somebody else's." },
   },
   start = "hello",
   nodes = {
@@ -364,7 +368,7 @@ P:NPC {
   key = "duokna", id = TODO_NPC("Duokna"), name = "Duokna", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "brisk" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shards" },
   impression = {
     first = "Nobody leaves without being asked about their waterskin.",
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
@@ -376,6 +380,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
       text = "Your coin purse is lighter than a feather, recruit. The boars carry a little copper sometimes, if you are not too proud to look." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks cold, warlock, and I can feel it from behind the counter, so I know you've been filling it with shards again. Buy some bread too, because I don't think souls are very filling." },
   },
   start = "hello",
   nodes = {
@@ -539,7 +545,7 @@ P:NPC {
   key = "uhgar", id = TODO_NPC("Uhgar"), name = "Uhgar", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "proud", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He judges a fighter by the edge they carry.",
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
@@ -551,6 +557,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You have a smith's burns on your hands. Then you know what you are looking at, so I will not bother lying about the quality." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My steel's gone dull where your shadow falls on it, and I polished it this morning. Stand over there by the axes nobody buys, and we'll talk." },
   },
   start = "hello",
   nodes = {
@@ -703,7 +711,7 @@ P:NPC {
   key = "thotar", id = TODO_NPC("Thotar"), name = "Thotar", title = "Hunter Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_shards" },
   impression = {
     first = "He talks about beasts as if they were people worth respecting.",
     third = "{name} met Thotar, who teaches Razor Hill's hunters to read the land and trust their beasts.",
@@ -715,6 +723,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
       text = "Your {pet} keeps an eye on me while you talk, which means it is a good one. Never punish a beast for being wary of strangers." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "My wolf's hackles are up and she's growling at your bag, not at you, which tells me what's inside it. A beast knows a soul in a cage when it smells one." },
   },
   start = "hello",
   nodes = {
@@ -867,7 +877,7 @@ P:NPC {
   key = "kaplak", id = TODO_NPC("Kaplak"), name = "Kaplak", title = "Rogue Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "sly" }, values = { "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "He seems to enjoy being underestimated.",
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
@@ -879,6 +889,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Nice try, but I heard your buckle three steps ago. Wrap it in cloth next time and you might surprise someone who is not me." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Those eyes of yours see through a cloak like it's gauze, don't they? Do me a favour and look somewhere else, because my students are trying to practise." },
   },
   start = "hello",
   nodes = {
@@ -1030,7 +1042,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "warm" }, values = { "kind", "devout" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_taint" },
   impression = {
     first = "She does not hide that she misses the sea.",
     third = "{name} met Tai'jin, the troll priest trainer at Razor Hill.",
@@ -1044,6 +1056,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Look at that armor, mon, it be held together with stubbornness. Let Tai'jin look at the cuts underneath before you go back out." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There be a fel heat coming off you, mon, like the old orcs who drank Mannoroth's blood and never stopped burning. Tai'jin don't judge, but he think you been drinking from a dark cup a long time." },
   },
   start = "hello",
   nodes = {
@@ -1208,7 +1222,7 @@ P:NPC {
   key = "unthuwa", id = TODO_NPC("Un'Thuwa"), name = "Un'Thuwa", title = "Mage Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "senjin" }, temper = { "dry" }, values = { "curious", "proud" },
-  notices = { "class", "arcane" },
+  notices = { "class", "arcane", "lock_armor" },
   impression = {
     first = "He is quietly proud that Darkspear bend the arcane like any elf.",
     third = "{name} met Un'Thuwa, the troll mage trainer of Sen'jin Village.",
@@ -1221,6 +1235,8 @@ P:NPC {
   notice = {
     { id = "n_orcmage", cat = "class", when = { class = "MAGE", race = "Orc" },
       text = "An orc mage, that be a rare bird, mon. Your people's shaman will frown at you, so you better get good enough that they stop." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There be a shell of shadow around you, mon, eating up the light, and my students be watching it instead of their frost. The arcane don't wrap itself round you like a skin, it pass through, and that be the difference." },
   },
   start = "hello",
   nodes = {

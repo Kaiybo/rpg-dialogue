@@ -8,7 +8,7 @@ P:NPC {
   key = "if_bengus", id = TODO_NPC("Bengus Deepforge"), name = "Bengus Deepforge",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "proud", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_taint" },
 
   impression = {
     first = "He judges people by their hands, and says most are soft.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing" } },
       text = "Ye've a smith's burns on yer forearms, I see. Good, for a smith who's never been burned has never stood close enough tae the work." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The forge has gone green at the edges since ye walked in, an' it did the very same thing for the last warlock I had at this anvil. There's somethin' in yer blood that fire knows, so stand back while I'm workin' an' let it settle." },
   },
 
   start = "hello",
@@ -216,7 +218,7 @@ P:NPC {
   key = "if_geofram", id = TODO_NPC("Geofram Bouldertoe"), name = "Geofram Bouldertoe",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "steady" }, values = { "practical", "patient" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He has deep respect for tunnels and none at all for troggs.",
@@ -231,6 +233,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { origin = "dwarf_ironforge_miner" },
       text = "I'd know a miner's walk anywhere, the way ye keep yer head low under a doorway that's plenty high. Which tunnels did ye work, before ye took up adventurin'?" },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's no' a stone from any vein I know, the one wi' the fire sleepin' in it, an' every miner in this hall can feel it. They say yer kind use such stones tae call burnin' things down out o' the sky, an' I'd ask ye never tae do it under a mountain." },
   },
 
   start = "hello",
@@ -412,7 +416,7 @@ P:NPC {
   key = "if_daryl", id = TODO_NPC("Daryl Riknussun"), name = "Daryl Riknussun",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "generous", "proud" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_stones" },
 
   impression = {
     first = "He takes his brother Emrul's spice prices as a personal insult.",
@@ -427,6 +431,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "hunger", when = { profession = { "Cooking" } },
       text = "Ye smell o' woodsmoke an' boar fat, which means ye've been cookin' over a campfire. Good, for that's how every great cook starts." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, is it? I've seen soldiers chew on those after a fight, but a stone's a poor meal, an' it's no' yer own life ye're eatin'. Let me teach ye a proper stew instead, for a stew never asked anybody for their soul." },
   },
 
   start = "hello",
@@ -633,7 +639,7 @@ P:NPC {
   key = "if_emrul", id = TODO_NPC("Emrul Riknussun"), name = "Emrul Riknussun",
   bible = "bibles/great_forge_crafts.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "sharp" }, values = { "practical", "proud" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
 
   impression = {
     first = "He hides his fondness for his brother Daryl under endless complaining.",
@@ -648,6 +654,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { profession = { "Cooking" } },
       text = "Ah, a cook. Let me guess: Daryl taught ye somethin' an' sent ye tae me for the spices, as he always does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The spices have gone flat since ye walked up, an' the saffron smells o' nothin' at all, which it never does. I'll take yer coin, for it spends the same, but I'll air the stall out after ye go." },
   },
 
   start = "hello",
@@ -827,7 +835,7 @@ P:NPC {
   key = "if_nissa", id = TODO_NPC("Nissa Firestone"), name = "Nissa Firestone",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "practical", "compassionate" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
 
   impression = {
     first = "She is gentle with wounds and brisk with everything else.",
@@ -842,6 +850,8 @@ P:NPC {
   notice = {
     { id = "n_hurt", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Yer armor's in tatters, so I'd guess what's under it's no' much better. Let me see, an' don't argue." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've a soul tied up in a stone, I can see the shiver o' it on ye, an' that tells me ye expect tae die. I'd rather ye didnae, for I can bandage a wound but I cannae bandage that, so mind yerself out there." },
   },
 
   start = "hello",

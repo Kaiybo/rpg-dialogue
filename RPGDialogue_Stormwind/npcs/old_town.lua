@@ -7,7 +7,7 @@ P:NPC {
   key = "burlguard", id = TODO_NPC("Harry Burlguard"), name = "Harry Burlguard",
   bible = "bibles/old_town.md", role = "soldier", tier = "quest",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical", "loyal" },
-  notices = { "light", "kin", "soldier" },
+  notices = { "light", "kin", "soldier", "lock_pact" },
   impression = {
     first = "He teaches young warriors by setting them on the tavern regulars.",
     third = "{name} met Harry Burlguard, an old veteran who teaches fighting from his table in the Pig and Whistle.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Stormwind blood. Good, you'll know what an Old Town tavern's like on a Friday, so you won't be shocked when the stools start flying." },
     { id = "n_warrior", cat = "soldier", when = { class = "WARRIOR" },
       text = "You stand like you've been taught, but not taught enough. I can see where you'd drop your guard from here, and so will the next man who swings at you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a heat on you like the fever before a battle, and I've felt it once before, standing too near a Horde warlock's imp at Hillsbrad. I'll thank you to keep your pact on the far side of my table." },
   },
 
   start = "hello",
@@ -232,7 +234,7 @@ P:NPC {
   key = "bartleby", id = TODO_NPC("Bartleby"), name = "Bartleby", title = "Drunk",
   bible = "bibles/old_town.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "fierce" }, values = { "proud" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_stones" },
   impression = {
     first = "He is spoiling for a fight and oddly gracious when he loses.",
     third = "{name} met Bartleby, the Pig and Whistle's most stubborn drunk, and his beloved mug.",
@@ -250,6 +252,8 @@ P:NPC {
       text = "A proper Stormwind sort, all clean boots and good manners. What's a fancy thing like you doing in the Pig and Whistle?" },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You're as drunk as I am! Sit down, sit down, you're the best company I've had all week." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Give it here, because I hear they mend a man in one swallow, and I've a head on me that wants mending. No? Then take it and sit somewhere else, because it's making my ale taste green." },
   },
 
   start = "hello",
@@ -454,7 +458,7 @@ P:NPC {
   key = "elly_langston", id = TODO_NPC("Elly Langston"), name = "Elly Langston", title = "Barmaid", gender = "female",
   bible = "bibles/old_town.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "friendly", "practical" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_shadow" },
   impression = {
     first = "She never spills a drop or loses her temper.",
     third = "{name} met Elly Langston, barmaid at the Pig and Whistle Tavern in Old Town.",
@@ -477,6 +481,8 @@ P:NPC {
       text = "A local, I'd bet. You've the look of someone who's had a Pig and Whistle ale before and come back anyway." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had plenty already, love. I'll pour you water and charge you for ale, and you'll never know the difference." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp over your table's gone dim since you sat down, love, and Reese swears he trimmed the wick this morning. It's not you, is it? Only it does that every time one of yours comes in." },
   },
 
   start = "hello",
@@ -672,7 +678,7 @@ P:NPC {
   key = "ryback", id = TODO_NPC("Stephen Ryback"), name = "Stephen Ryback", title = "Cooking Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "careful", "proud" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_taint" },
   impression = {
     first = "He says he is only a cook, and that ends the subject.",
     third = "{name} met Stephen Ryback, the Pig and Whistle's cook and cooking trainer, who is just a cook, he says.",
@@ -689,6 +695,8 @@ P:NPC {
       text = "You'll have eaten Elwynn boar, then. Most folk cook it too fast, and I'll teach you not to." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You cook already, I can tell by the burn on your wrist. Everybody gets that one; it's how you know you've started." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a smell on you, sulphur and something sweeter under it, the fel getting in deep, I'd guess. I can tell when meat's turned by the smell alone, and I'd not let you near my stew pot." },
   },
 
   start = "hello",
@@ -858,7 +866,7 @@ P:NPC {
   key = "simon_tanner", id = TODO_NPC("Simon Tanner"), name = "Simon Tanner", title = "Leatherworking Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "practical", "hardworking" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_armor" },
   impression = {
     first = "He has made his peace with students who leave for adventure.",
     third = "{name} met Simon Tanner, the leatherworking trainer at the Protective Hide in Old Town.",
@@ -875,6 +883,8 @@ P:NPC {
       text = "Elwynn wolves and boar, that's where most of our hides come from. You'll have hunted a few yourself, I'd wager." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You've been at it already, I can see the awl marks on your fingers. Let's see what you've learned, then." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide you're wearing, conjured and not cured, and I can tell because there's no seam on it anywhere. I've tanned every beast Elwynn has, and I'd give a week's wages to know how it holds together." },
   },
 
   start = "hello",
@@ -1036,7 +1046,7 @@ P:NPC {
   key = "osborne", id = TODO_NPC("Osborne the Night Man"), name = "Osborne the Night Man", title = "Rogue Trainer",
   bible = "bibles/old_town.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "cunning", "loyal" },
-  notices = { "light", "kin", "stealth" },
+  notices = { "light", "kin", "stealth", "lock_eyes" },
   impression = {
     first = "He keeps one hand near his coin purse while he teaches.",
     third = "{name} met Osborne the Night Man, the rogue trainer who stands outside SI:7 in Old Town.",
@@ -1054,6 +1064,8 @@ P:NPC {
       text = "Stormwind born. You'll know that Old Town after dark belongs to people like me, then, so walk on the lit side of the street." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Nice try, but I heard your boots on the third step. Lighter on the heel next time, and you might fool somebody slower." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You can see me, can't you, standing in the dark where nobody's meant to see me. That's a warlock's trick, eyes that find what hides, and I'd rather you didn't use it in SI:7's hallways." },
   },
 
   start = "hello",
@@ -1314,7 +1326,7 @@ P:NPC {
   key = "jasper_fel", id = TODO_NPC("Jasper Fel"), name = "Jasper Fel", title = "Shady Dealer",
   bible = "bibles/old_town.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "careful" },
-  notices = { "light", "kin", "stealth" },
+  notices = { "light", "kin", "stealth", "lock_shards" },
   impression = {
     first = "He knows more about my business than I have told anybody.",
     third = "{name} met Jasper Fel, the soft-spoken dealer who sells supplies inside SI:7.",
@@ -1331,6 +1343,8 @@ P:NPC {
       text = "Stormwind born. Good, you'll understand why we keep the Defias in our sights; they were Stormwind born too, most of them." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "You're standing on the loose board, friend, so I've known you were there for a while. Come out and buy something." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards, maybe more, and you're walking them through Old Town like a purse of coppers. Most folk who carry that kind of cargo learn to keep it quiet, and you'd do well to learn it too." },
   },
 
   start = "hello",

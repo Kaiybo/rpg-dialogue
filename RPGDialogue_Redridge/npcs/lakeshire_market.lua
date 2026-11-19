@@ -9,7 +9,7 @@ P:NPC {
   key = "lamar", id = TODO_NPC("Lamar Veisilli"), name = "Lamar Veisilli", title = "Fruit Seller",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "cheerful" }, values = { "kind", "practical" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
   impression = {
     first = "He polishes every apple before he hands it over.",
     third = "{name} met Lamar Veisilli, Lakeshire's fruit seller.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.3 } },
       text = "You look half starved and half beaten, friend. Buy something with a bit of juice in it before you go back out there." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My apples are going soft on the side your shadow's fallen on, and I only set them out this morning. Stand a little to the left, would you, and I'll sell you the good ones." },
   },
   start = "hello",
   nodes = {
@@ -185,7 +187,7 @@ P:NPC {
   key = "karen_taylor", id = TODO_NPC("Karen Taylor"), name = "Karen Taylor", title = "Blacksmithing & Mining Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "practical", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
   impression = {
     first = "She respects anyone who can swing a hammer and nobody who can't.",
     third = "{name} met Karen Taylor, who sells blacksmithing and mining supplies in Lakeshire.",
@@ -197,6 +199,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "You've got the forearms of someone who swings a hammer for a living, so I'll not waste your time with the cheap picks. The good ones are under the counter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing would save Verner a fortune in iron if he could make it, but I'd sooner the watch went bare than wore that. Mind you don't rub against my ingots." },
   },
   start = "hello",
   nodes = {
@@ -364,7 +368,7 @@ P:NPC {
   key = "kara_adams", id = TODO_NPC("Kara Adams"), name = "Kara Adams", title = "Shield Crafter",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "duty", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "She tests every shield by striking it herself.",
     third = "{name} met Kara Adams, Lakeshire's shield crafter.",
@@ -378,6 +382,8 @@ P:NPC {
       text = "You carry a shield like you've needed one, and I like that. Raise it a hand higher, though; the Blackrock aim for the face." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "That shield's taken a beating, and so have you. Go and see Verner before you go back out, and don't argue with me about it." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward on you, a shield I can't make, and I'll admit I'm jealous. It won't stop a gnoll's axe, though, so if you want something that will, I've a few on the rack." },
   },
   start = "hello",
   nodes = {
@@ -541,7 +547,7 @@ P:NPC {
   key = "vernon_hale", id = TODO_NPC("Vernon Hale"), name = "Vernon Hale", title = "Fishing Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "wry" }, values = { "patient", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
   impression = {
     first = "He grumbles that the murlocs catch more fish than his customers.",
     third = "{name} met Vernon Hale, who sells fishing supplies on the Lakeshire docks.",
@@ -553,6 +559,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "You fish, I can tell by the way you looked at the water before you looked at me. Use the heavy line here; the lake's got teeth." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing like you've swallowed the lake and liked it, so that'll be the spell your sort cast. Go down off the north shore and tell me how many murlocs are really in there, because nobody believes my count." },
   },
   start = "hello",
   nodes = {
@@ -722,7 +730,7 @@ P:NPC {
   key = "sherman", id = TODO_NPC("Sherman Femmel"), name = "Sherman Femmel", title = "Butcher",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "gruff" }, values = { "practical", "hardworking" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
   impression = {
     first = "He knows the wildlife of these hills better than most hunters.",
     third = "{name} met Sherman Femmel, the butcher at the Lakeshire Inn.",
@@ -734,6 +742,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, with a beast at your heel and meat on your belt, I'd wager. Bring me whatever you take in the hills; I'll pay fair for clean kills." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That healthstone's the same green as meat gone bad, and I've always had a guess about what goes into one. I'd thank you to keep it off my block." },
   },
   start = "hello",
   nodes = {

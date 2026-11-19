@@ -6,7 +6,7 @@ P:NPC {
   key = "myranda", id = TODO_NPC("Myranda the Hag"), name = "Myranda the Hag",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "sorrow_hill" }, temper = { "sly" }, values = { "cunning", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "She fools the Scarlet priests with the spells they taught her.",
     third = "{name} met Myranda the Hag, who works illusions from her hut on Sorrow Hill.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. I sat at the feet of priests once, in red robes, and I learned more from them than they ever meant to teach." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Oh dearie, those eyes of yours see straight through a seeming, don't they? Look somewhere else while I'm working, or you'll spoil a perfectly good disguise." },
   },
 
   start = "hello",
@@ -178,7 +180,7 @@ P:NPC {
   key = "chromie", id = TODO_NPC("Chromie"), name = "Chromie",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "andorhal" }, temper = { "cheerful" }, values = { "curious", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "She seems to know what you will say before you say it.",
     third = "{name} met Chromie, a peculiar gnome among the ruins of Andorhal who takes a great interest in the fall of Darrowshire.",
@@ -191,6 +193,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! How lovely. You'll forgive me if I don't talk about Gnomeregan; I find it all very sad." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Each of those shards in your bag is a story that ended early, you know. I keep rather close track of how things are meant to go, and you've been changing a fair few endings." },
   },
 
   start = "hello",

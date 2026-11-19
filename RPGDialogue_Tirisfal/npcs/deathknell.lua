@@ -6,7 +6,7 @@ P:NPC {
   key = "mordo", id = TODO_NPC("Undertaker Mordo"), name = "Undertaker Mordo",
   bible = "bibles/tirisfal.md", role = "worker", tier = "quest",
   communities = { "deathknell" }, temper = { "matter_of_fact" }, values = { "practical" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shards" },
   impression = {
     first = "He buries things, he says, and leaves the explaining to others.",
     third = "{name} met Undertaker Mordo, who tends the graves of Deathknell and welcomes those who rise from them.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 2 },
       text = "Go on, look at your hands. Yes, they're yours, and no, they won't get better, but you'll stop minding." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards hold the ones who'll never rise, who never even got the choice. I bury what's left of the bodies and you carry what's left of the rest, so I suppose we're in the same trade." },
   },
 
   start = "hello",
@@ -459,7 +461,7 @@ P:NPC {
   key = "arren", id = TODO_NPC("Executor Arren"), name = "Executor Arren",
   bible = "bibles/tirisfal.md", role = "soldier", tier = "quest",
   communities = { "deathknell" }, temper = { "clipped" }, values = { "dutiful", "loyal" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "He wants the Scarlet Crusade gone, whether or not they understand why.",
     third = "{name} met Executor Arren, who keeps Deathknell against the Scarlet Crusade camped to its southeast.",
@@ -477,6 +479,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The Crusade did that? They'll do worse if you let them, so get it fixed." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You're wearing demon hide, and it suits Deathknell well enough, since my sentries could use something besides the Crusade to be frightened of. Just keep it away from the fresh graves." },
   },
 
   start = "hello",
@@ -644,7 +648,7 @@ P:NPC {
   key = "aramis", id = TODO_NPC("Aramis Hammerhand"), name = "Aramis Hammerhand",
   bible = "bibles/tirisfal.md", role = "trainer", tier = "quest",
   communities = { "deathknell" }, temper = { "steadfast" }, values = { "devout", "patient" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "It hurts him to hold the Light, and he won't let go.",
     third = "{name} met Aramis Hammerhand in the Deathknell church, who teaches those Forsaken who woke still holding the Light.",
@@ -658,6 +662,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", race = "Scourge" },
       text = "It hurts, doesn't it, the Light in this body? It hurts me too, but don't let go of it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light in my hands just went dim, the way it does when I'm tired, only I'm not tired. It's you, I think, and I'd rather know that than wonder." },
   },
 
   start = "hello",

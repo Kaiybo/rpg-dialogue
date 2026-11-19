@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "major",
   communities = { "brackenwall" }, temper = { "blunt" }, values = { "loyal", "dutiful" },
   likesTone = "blunt", race = "Orc",
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shards", "lock_steed" },
 
   impression = {
     first = "Someone made a liar of his Warchief, and he takes it personally.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "A tauren, good. You'll know the difference between your people and the Grimtotem who'd shame them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something chewed on you, so get patched; I need you on your feet." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag of yours clinks like a cutthroat's purse, and it's colder than the marsh water. Whatever souls you've got in there, keep them out of sight of Theramore's men, because they'll call them evidence." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode a burning horse into Brackenwall, warlock, through the reeds where Theramore's scouts watch. Proudmoore's men are looking for any proof the Horde fired that inn, so walk it in next time, or leave it in the swamp." },
   },
 
   start = "hello",
@@ -440,7 +444,7 @@ P:NPC {
   key = "nazeer", id = TODO_NPC("Nazeer Bloodpike"), name = "Nazeer Bloodpike",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "brackenwall" }, temper = { "suspicious" }, values = { "loyal", "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_soulstone" },
 
   impression = {
     first = "He trusts paper peace about as far as the marsh stays dry.",
@@ -458,6 +462,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Quiet feet, good. I've work for those who can listen at a window without being seen." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone holds your soul in a stone, and in my trade that's the first question I'd ask. Who carries it, and do they want you back, or do they only want you to owe them?" },
   },
 
   start = "hello",

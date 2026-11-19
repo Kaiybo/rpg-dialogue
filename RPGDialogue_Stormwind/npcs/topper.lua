@@ -7,7 +7,7 @@ P:NPC {
   key = "topper", id = TODO_NPC("Topper McNabb"), name = "Topper McNabb",
   bible = "bibles/topper.md", role = "citizen", tier = "major",
   communities = { "stormwind" }, temper = { "dramatic", "warm" }, values = { "hopeful", "generous" },
-  notices = { "wealth", "kit", "state", "status" },
+  notices = { "wealth", "kit", "state", "status", "lock_stones", "lock_shadow" },
 
   barks = {
     { id = "b_spare", text = "A copper for an honest man! Or a dishonest one, I'm not proud!" },
@@ -49,6 +49,10 @@ P:NPC {
       text = "Mind the hooves, mind the hooves! I lost a toe to a carthorse in Goldshire once, and I've only the nine left to give." },
     { id = "n_tabard", cat = "status", when = { tabard = true },
       text = "A tabard and everything! You look like you belong to somebody, and nobody's claimed me since the farm went." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your pocket is a warlock's healthstone, and I know because one of them pressed one into my hand last winter when I'd stopped feeling my feet. It saved me, and I've never once been warm since." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The pigeons all went up off the cobbles when you came round the corner, friend, and they don't do that for the guards. Not much frightens me anymore, but I'll admit the shadow on you made me pull my blanket closer." },
   },
 
   react = {

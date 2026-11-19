@@ -7,7 +7,7 @@ P:NPC {
   key = "nergal", id = TODO_NPC("Nergal"), name = "Nergal", title = "General Goods",
   bible = "bibles/ungoro.md", role = "vendor", tier = "service",
   communities = { "marshals_refuge" }, temper = { "gruff" }, values = { "careful", "profit" },
-  notices = { "race", "hunger" },
+  notices = { "race", "hunger", "lock_taint" },
 
   impression = {
     first = "He won't buy a thing that grew down in the crater.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Another dwarf in this steaming pit! Ye've my sympathy, friend; there's no proper stone down there, only mud and teeth." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye've gone a wee bit green round the edges, an' I don't think it's the crater food. Whatever ye've been dabblin' in, I'd stop, because I've seen expeditions come back lookin' like that an' no' go home." },
   },
 
   start = "hello",
@@ -216,7 +218,7 @@ P:NPC {
   key = "gryfe", id = TODO_NPC("Gryfe"), name = "Gryfe", title = "Flight Master",
   bible = "bibles/ungoro.md", role = "flightmaster", tier = "service",
   communities = { "marshals_refuge" }, temper = { "cheerful" }, values = { "profit" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "To him, a beast that never lands in Un'Goro comes back.",
@@ -230,6 +232,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're a big one, chum! The flyer will carry you, don't worry, but it'll grumble about it all the way to Gadgetzan, and I might charge by the pound." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I charge by weight, chum, and that bag of shards weighs more than it looks, and it hums the whole flight, which upsets the other passengers. Pay up front, keep it shut, and we'll get you over Fire Plume Ridge." },
   },
 
   start = "hello",

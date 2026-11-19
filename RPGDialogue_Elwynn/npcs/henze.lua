@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/henze.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "honest" },
   spiritSensitive = true,
-  notices = { "paladin" },
+  notices = { "paladin", "lock_soulstone" },
   impression = {
     first = "He jokes about having been dead, and I think it helps him.",
     third = "{name} met Henze Faulk, the dwarf who went after his friend Gazin and was caught by the Defias for it.",
@@ -22,6 +22,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN", questActive = TODO_QUEST("The Symbol of Life") },
       text = "Is that the Symbol of Life ye've got there? Then mind yer aim. I'd rather not come back halfway." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've got a bit o' yer soul tucked away in a stone somewhere, haven't ye? I can feel it, an' I'll tell ye for free, comin' back's no' as pleasant as the warlocks make out, so try no' tae need it." },
   },
 
   start = "hello",

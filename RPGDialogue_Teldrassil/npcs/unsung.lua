@@ -9,7 +9,7 @@ P:NPC {
   key = "jeena", id = TODO_NPC("Jeena Featherbow"), name = "Jeena Featherbow", title = "Bowyer",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "dolanaar" }, temper = { "lively", "frank" }, values = { "craft", "self-reliance" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She will happily tell you everything wrong with how you shoot.",
     third = "{name} met Jeena Featherbow, Dolanaar's frank and cheerful bowyer.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A hunter, and your quiver's half empty. Gnarlpine hide is tough, so you'll want the sharper heads before you go near Ban'ethil." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior wanting a bow? Good. Pulling a harpy down to you is a lot safer than climbing up after her." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack hums, and it is a bad hum, the kind my bowstrings make in a cold wind before they snap. Those are soul shards, I suppose, and I would rather you set them down far from my strings." },
   },
 
   start = "hello",
@@ -205,7 +207,7 @@ P:NPC {
   key = "kyra", id = TODO_NPC("Kyra Windblade"), name = "Kyra Windblade", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "steady", "encouraging" }, values = { "courage", "duty" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_armor" },
   impression = {
     first = "She measures students by how they get up, not how they fall.",
     third = "{name} met Kyra Windblade, the steady warrior trainer of Dolanaar.",
@@ -221,6 +223,8 @@ P:NPC {
       text = "You're fresh down from Shadowglen, I can tell by the way you hold your shoulders. Relax them before a grell teaches you to." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You walk like someone who'd rather strike from behind. It works, but one day you'll have to face someone, and I'd like you to be ready." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward you wear is demon skin, and it turns a blow nearly as well as mail, which I will grudgingly admire. Still, armor you summon is armor you lose the moment your will falters, so do not let it teach you to stand careless." },
   },
 
   start = "hello",
@@ -418,7 +422,7 @@ P:NPC {
   key = "cyndra", id = TODO_NPC("Cyndra Kindwhisper"), name = "Cyndra Kindwhisper", title = "Alchemy Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "soft-spoken", "curious" }, values = { "knowledge", "healing" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "She speaks so softly that I leaned in to hear her.",
     third = "{name} met Cyndra Kindwhisper, the quiet alchemy trainer of Dolanaar.",
@@ -432,6 +436,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You've been picking silverleaf, I can smell it on your gloves. Malorne Bladeleaf, our herbalist, must be teaching you well." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Everything I brew takes a season of tending, and you made that in a moment from a fragment of someone's soul, which troubles me more than any poison on my shelf." },
   },
 
   start = "hello",
@@ -610,7 +616,7 @@ P:NPC {
   key = "malorne", id = TODO_NPC("Malorne Bladeleaf"), name = "Malorne Bladeleaf", title = "Herbalism Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "patient", "reverent" }, values = { "nature", "balance" },
-  notices = { "craft", "form" },
+  notices = { "craft", "form", "lock_shadow" },
   impression = {
     first = "He spoke more kindly to the plants than to most people.",
     third = "{name} met Malorne Bladeleaf, the patient herbalism trainer of Dolanaar.",
@@ -624,6 +630,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = { "bear", "cat" } },
       text = "Please don't trample the seedlings with those great paws. They took me a whole season to coax up." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The earthroot under the bench has folded its leaves, which it does at dusk and at nothing else, and yet the sun is high. Whatever darkness you carry, please carry it a little farther from my beds." },
   },
 
   start = "hello",
@@ -796,7 +804,7 @@ P:NPC {
   key = "nadyia", id = TODO_NPC("Nadyia Maneweaver"), name = "Nadyia Maneweaver", title = "Leatherworking Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "hospitable", "particular" }, values = { "home", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
   impression = {
     first = "She is very particular about small, neat stitches.",
     third = "{name} met Nadyia Maneweaver, who teaches leatherworking from her home west of Dolanaar.",
@@ -810,6 +818,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "Let me see that seam on your sleeve. Hmm, it's better than most, though I'd tighten it before it gives way." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There is a soulstone in your pack, unspent, and it pulls at me the way a deep pool pulls at a swimmer. I do not know whose soul it waits for, but I hope they never need it." },
   },
 
   start = "hello",
@@ -991,7 +1001,7 @@ P:NPC {
   key = "radnaal", id = TODO_NPC("Radnaal Maneweaver"), name = "Radnaal Maneweaver", title = "Skinning Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "quiet", "gruff" }, values = { "respect", "craft" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shards" },
   impression = {
     first = "He speaks with real respect for the animals he skins.",
     third = "{name} met Radnaal Maneweaver, the taciturn skinning trainer who shares a house with Nadyia.",
@@ -1005,6 +1015,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { family = "Cat" } },
       text = "You're traveling with a cat, so I'll keep the nightsaber pelts out of its sight. It doesn't seem right to make it watch." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is full of soul shards, and the hides on my rack have stiffened as if the beasts remember dying. Thank them as you pass, if you have any thanks left in you." },
   },
 
   start = "hello",
@@ -1175,7 +1187,7 @@ P:NPC {
   key = "nessa", id = TODO_NPC("Nessa Shadowsong"), name = "Nessa Shadowsong", title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "rutheran" }, temper = { "cheerful", "chatty" }, values = { "friendship", "trade" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
   impression = {
     first = "She talks about Auberdine as if it were next door.",
     third = "{name} met Nessa Shadowsong, the cheerful fishmonger of Rut'theran Village.",
@@ -1189,6 +1201,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "You've got the smell of a proper angler about you, and I mean that kindly. Androl Oakhand, who teaches fishing down by the water, will be pleased to see you." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You've the warlock's breath on you, haven't you, the spell that lets you walk the sea floor like a road? The fish dive deep when your kind come near, so if you're down there anyway, tell me where they've gone." },
   },
 
   start = "hello",
@@ -1403,7 +1417,7 @@ P:NPC {
   key = "androl", id = TODO_NPC("Androl Oakhand"), name = "Androl Oakhand", title = "Fishing Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "rutheran" }, temper = { "slow", "content" }, values = { "patience", "simplicity" },
-  notices = { "craft" },
+  notices = { "craft", "lock_pact" },
   impression = {
     first = "It is oddly restful to stand beside him.",
     third = "{name} met Androl Oakhand, the slow and patient fishing trainer of Rut'theran Village.",
@@ -1417,6 +1431,8 @@ P:NPC {
   notice = {
     { id = "n_skill", cat = "craft", when = { profession = { name = "Fishing", min = 150 } },
       text = "You've learned all I have to teach already, I think. There's an old fisherman in Booty Bay with a book that goes further, if you've the patience to sail that far." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a heat in your cheeks that the sea air ought to cool, and it doesn't, which tells me some imp has made its pact with your blood. Sit in the breeze a while; the fish won't mind, and neither will I." },
   },
 
   start = "hello",

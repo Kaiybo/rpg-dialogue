@@ -9,7 +9,7 @@ P:NPC {
   prejudice = { race = "Gnome", amount = 8, why = "He watches the Venture Company's shredders eat Stonetalon; machines and their makers have become one thing in his mind, which isn't fair to the gnomes." },
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "stonetalon_peak" }, temper = { "calm", "watchful" }, values = { "duty", "nature" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_armor" },
   impression = {
     first = "He watches the smoke in the valleys as if counting it.",
     third = "{name} met Teloren, the watchful hippogryph master of Stonetalon Peak.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "I've heard your people can step off a ledge and drift down on the wind. That's a fine trick for going down, but a hippogryph takes you back up again." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look like the mountain chewed you up on the way. Rest by the inn a while before you fly, because the birds don't like a rider who can't hold on." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Your skin is wrapped in demon hide, and the hippogryphs can smell it even with your demon dismissed. Let it fade before you mount, because a frightened hippogryph over Stonetalon is a long way to fall." },
   },
 
   start = "hello",

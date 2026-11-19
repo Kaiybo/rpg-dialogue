@@ -13,7 +13,7 @@ P:NPC {
   key = "dannal", id = TODO_NPC("Dannal Stern"), name = "Dannal Stern", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "deathknell" }, temper = { "grim" }, values = { "dutiful", "practical" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_armor" },
   impression = {
     first = "He speaks of his soldiering life without wishing it back.",
     third = "{name} met Dannal Stern, the warrior trainer of Deathknell.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "The Rattlecages have been at your armor, I see. Bones bite harder than you would think, so mend it before you go back to the fields." },
     { id = "n_orc", cat = "class", when = { class = "WARRIOR", race = "Orc" },
       text = "An orc in Deathknell, learning from a dead man. When I was alive, I fought your kind on these same fields, and now I am teaching you, which is a strange joke for the world to make." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "A demon-hide ward is no shield, whatever your trainer told you. It'll take a few blows for you and then it'll be gone, and your arm had better know what to do next." },
   },
   start = "hello",
   nodes = {
@@ -181,7 +183,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "deathknell" }, temper = { "cold" }, values = { "devout", "proud" },
   spiritSensitive = true,
-  notices = { "class", "light" },
+  notices = { "class", "light", "lock_shadow" },
   impression = {
     first = "He holds the Light in contempt and the will in reverence.",
     third = "{name} met Dark Cleric Duesten, the priest trainer of Deathknell and a voice of the Cult of Forgotten Shadows.",
@@ -194,6 +196,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "light", when = { class = "PALADIN" },
       text = "The Light still clings to you, and I can smell it on you like smoke. Aramis Hammerhand may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow follows you the way a hound follows its master, which is the right way round. Keep it that way, and you'll have nothing to fear from the Forgotten Shadow, or from anything else." },
   },
   start = "hello",
   nodes = {
@@ -336,7 +340,7 @@ P:NPC {
   key = "kien", id = TODO_NPC("Joshua Kien"), name = "Joshua Kien", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "deathknell" }, temper = { "dry" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shards" },
   impression = {
     first = "He finds it very funny that the dead still need bread.",
     third = "{name} met Joshua Kien, who sells supplies to the newly risen of Deathknell.",
@@ -349,6 +353,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
       text = "Your purse is as empty as a ghoul's head, friend. The fields are full of bones and old coin, if you go looking." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Your bag's clinking with twenty shards if it's clinking with one. Do those need feeding? I sell food, you see, so if they do, I'm the one you want." },
   },
   start = "hello",
   nodes = {
@@ -661,7 +667,7 @@ P:NPC {
   key = "carolai", id = TODO_NPC("Carolai Anise"), name = "Carolai Anise", title = "Alchemy Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "brill" }, temper = { "brisk" }, values = { "curious", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "She thinks the apothecaries make too much noise about their work.",
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
@@ -673,6 +679,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You smell of peacebloom and earthroot, so you've been picking herbs. Good, because an alchemist without herbs is just someone with a lot of empty bottles." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? We bottle healing here, and you lot carve it out of a stone. Mine tastes better, I'm told, but I'll grant that yours doesn't spill." },
   },
   start = "hello",
   nodes = {
@@ -827,7 +835,7 @@ P:NPC {
   key = "neela", id = TODO_NPC("Nurse Neela"), name = "Nurse Neela", title = "First Aid Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "brill" }, temper = { "warm" }, values = { "kind", "practical" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
   impression = {
     first = "She stitches dead flesh as carefully as she once stitched the living.",
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
@@ -839,6 +847,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Oh, look at the state of you! Sit down this minute, and let me see where you're torn before you lose something important." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "A soulstone, is it? That'll bring you back, but it won't stitch you up, and you'll still need bandages on the way down. Don't forget that." },
   },
   start = "hello",
   nodes = {
@@ -993,7 +1003,7 @@ P:NPC {
   key = "zachariah", id = TODO_NPC("Zachariah Post"), name = "Zachariah Post", title = "Undead Horse Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "brill" }, temper = { "dry" }, values = { "practical", "proud" },
-  notices = { "mount", "purse" },
+  notices = { "mount", "purse", "lock_steed" },
   impression = {
     first = "He swears his skeletal horses are better than the living kind.",
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
@@ -1006,6 +1016,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "That's a fine mount you're sitting on, though it'll need feeding and rest. Mine won't." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Fire and fel, and gone the moment you dismount, I'll bet. Mine stand in the yard all night and are still there in the morning, so come back when you want a horse that stays." },
   },
   start = "hello",
   nodes = {

@@ -754,7 +754,7 @@ P:NPC {
   key = "ajeck", id = TODO_NPC("Ajeck Rouack"), name = "Ajeck Rouack",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "nesingwary_camp" }, temper = { "focused" }, values = { "proud", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "She means to take Sin'Dall someday, and says it like plain fact.",
@@ -768,6 +768,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "Show me your bow. Hm, not bad, but your draw's short, so fix that before you go after anything with stripes." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The jungle went quiet when you came through the trees, and I'd bet it smelled what I smell now, which is that scorched, sweet stink of fel all over you. The big cats will catch it a mile off, so wash before you go hunting." },
   },
 
   start = "hello",

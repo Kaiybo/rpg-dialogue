@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "wounds", "form" },
+  notices = { "wounds", "form", "lock_stones" },
   impression = {
     first = "She patches the wounded briskly and expects the gratitude to come later.",
     third = "{name} met Priestess Anetta at Northshire Abbey, who heals the recruits and trusts the Light's long and kindly memory.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "None of that shadow in the infirmary, please, because the wounded have had enough frights. Step out of it and roll up your sleeves." },
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "Another one from the kobold camps. Hold still; you're the ninth today, and the day's still young." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "I can heal what that healthstone heals, and I'd rather you came to me, because a stone like that mends you with a life somebody else lost. The Abbey's door is open, and it costs no one anything." },
   },
 
   start = "hello",
@@ -216,7 +218,7 @@ P:NPC {
   key = "khelden", id = TODO_NPC("Khelden Bremen"), name = "Khelden Bremen", title = "Mage Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "proud" }, values = { "curious", "ambitious" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_armor" },
   impression = {
     first = "His notes scatter every time somebody leaves the door open.",
     third = "{name} met Khelden Bremen, Northshire's mage trainer, who teaches the dull rules that keep the dramatic ones from killing anyone.",
@@ -230,6 +232,8 @@ P:NPC {
   notice = {
     { id = "n_burn", cat = "arcane", when = { class = "MAGE", durability = { max = 0.3 } },
       text = "Singed sleeves! You stood too close to your own fire again. Everyone does it once, but do it twice and I'll start charging you for robes." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward hanging on you, and a sound one, though it drinks the spell rather than turning it, which no master in Dalaran would teach. Mind it doesn't drink more than you meant it to." },
   },
 
   start = "hello",
@@ -459,7 +463,7 @@ P:NPC {
   key = "jorik", id = TODO_NPC("Jorik Kerridan"), name = "Jorik Kerridan", title = "Rogue Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "cunning", "honest" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_eyes" },
   impression = {
     first = "He was listening for my footsteps long before I reached him.",
     third = "{name} met Jorik Kerridan, who teaches lockpicks and knifework behind Northshire Abbey, well out of the Brothers' sight.",
@@ -473,6 +477,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "Nice try, but I heard your buckle. Lose the buckle." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that glassy look, the kind that sees a man in the shadows when he'd rather not be seen. I'll ask you not to look at my students that way, because they've trouble enough learning to hide from each other." },
   },
 
   start = "hello",
@@ -951,7 +957,7 @@ P:NPC {
   key = "lyria", id = TODO_NPC("Lyria Du Lac"), name = "Lyria Du Lac", title = "Warrior Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "proud" }, values = { "brave", "stern" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She greeted me with her shield up and didn't apologise for it.",
     third = "{name} met Lyria Du Lac in Goldshire, who turns Elwynn's farm hands into Stormwind's soldiers.",
@@ -965,6 +971,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", place = "before", when = { class = "WARRIOR", durability = { max = 0.3 } },
       text = "You let them hit you, and a lot. Stormwind's warriors take a beating; they don't invite one." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking with shadow, and every recruit on the yard has stopped swinging to stare at them. Let it burn out before you come any closer, because I've a lesson to finish." },
   },
 
   start = "hello",
@@ -1221,7 +1229,7 @@ P:NPC {
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "steady" }, values = { "pious", "kind" },
   spiritSensitive = true,
-  notices = { "travel", "form" },
+  notices = { "travel", "form", "lock_shadow" },
   impression = {
     first = "She looked at my boots with something close to envy.",
     third = "{name} met Priestess Josetta, who teaches the Light above the noise of the Lion's Pride and envies those who travel.",
@@ -1237,6 +1245,8 @@ P:NPC {
       text = "You've come back wrapped in shadow, I see. I won't ask whether it was the road or the lessons; I'm only glad you came back at all." },
     { id = "n_travel", cat = "travel", when = { minLevel = 20 },
       text = "You've been far, haven't you? I can tell by your boots. I always meant to go far myself, and I meant to for thirty years." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candle on my little altar bowed toward the stairs when you came up them, the way it does each night when something below answers in my students' place. I'll still pray, but I'll pray a little louder while you're here." },
   },
 
   start = "hello",
@@ -1443,7 +1453,7 @@ P:NPC {
   key = "zaldimar", id = TODO_NPC("Zaldimar Wefhellt"), name = "Zaldimar Wefhellt", title = "Mage Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "proud" }, values = { "curious" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_shards" },
   impression = {
     first = "He finds nearly everything at least a little interesting.",
     third = "{name} met Zaldimar Wefhellt of the Wizard's Sanctum, who teaches magic from a modest room above Goldshire's inn.",
@@ -1457,6 +1467,8 @@ P:NPC {
   notice = {
     { id = "n_skyborne", cat = "arcane", when = { race = "Skyborne", class = "MAGE" },
       text = "A High Order mage, in my little room above an inn. The Kirin Tor will be jealous. I intend to enjoy that." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "You've a dozen soul shards in that pack at the very least, and they're pulling at the magic in this room like a drain pulls water. The Kirin Tor locked that sort of thing away, so I'd ask you to leave it on the stairs with my opinions." },
   },
 
   start = "hello",
@@ -1674,7 +1686,7 @@ P:NPC {
   key = "keryn", id = TODO_NPC("Keryn Sylvius"), name = "Keryn Sylvius", title = "Rogue Trainer",
   bible = "bibles/trainers.md", role = "trainer", tier = "service",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "cunning", "witty" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_pact" },
   impression = {
     first = "I'm fairly sure her book isn't the only thing she's watching.",
     third = "{name} met Keryn Sylvius, who trains Goldshire's quiet ones from behind a book she admits is dreadful.",
@@ -1688,6 +1700,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", place = "replace", when = { stealthed = true },
       text = "You're sneaking, in a reading room, where everyone's quiet already. Think about that." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever-glow on you that I've seen on the cellar folk when their imps are near, and it makes you easy to spot in a dark room. A rogue would call that a bad habit, so keep to the stairs until it fades." },
   },
 
   start = "hello",

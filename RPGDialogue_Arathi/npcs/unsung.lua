@@ -7,7 +7,7 @@ P:NPC {
   title = "Superior Macecrafter",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "refuge_pointe" }, temper = { "stubborn", "steady" }, values = { "loyal", "practical" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow" },
 
   impression = {
     first = "He would win the Highlands back one cracked skull at a time.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "One of the Light's own, eh? I've made maces for the Silver Hand in my day, friend, and I'll make one for ye just as gladly, blessed or not." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Yer kit's had a beating, and from the look of the dents, it was the Boulderfist. They hit like a rockslide, so ye'll want something heavy to hit back with." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge fire went low an' blue when ye stepped up, an' that's happened only once before, when a Horde warlock walked past the walls o' Stromgarde. I'll still sell ye a mace, but I'll ask ye tae stand back from the fire while I fetch it." },
   },
 
   start = "hello",

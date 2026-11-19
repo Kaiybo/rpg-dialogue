@@ -224,7 +224,7 @@ P:NPC {
   key = "feldon", id = TODO_NPC("Deputy Feldon"), name = "Deputy Feldon",
   bible = "bibles/lakeshire_folk.md", role = "soldier", tier = "quest",
   communities = { "lakeshire" }, temper = { "anxious" }, values = { "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shards" },
 
   impression = {
     first = "His gnoll count keeps rising, and dry humour keeps him upright.",
@@ -239,6 +239,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls had a go at you, did they? Get that mended before you cross back over, because they smell weakness." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards in your bag, by the clink of it, and if each one's a gnoll I'll take my pen to the count tonight. Please tell me each one's a gnoll." },
   },
 
   start = "hello",
@@ -654,7 +656,7 @@ P:NPC {
   key = "darcy", id = TODO_NPC("Darcy"), name = "Darcy",
   bible = "bibles/lakeshire_folk.md", role = "citizen", tier = "quest",
   communities = { "lakeshire" }, temper = { "bright" }, values = { "kind", "romantic" },
-  notices = { "hunger", "drink" },
+  notices = { "hunger", "drink", "lock_steed" },
 
   impression = {
     first = "She hears all the gossip and swears she repeats only the nice.",
@@ -671,6 +673,8 @@ P:NPC {
       text = "Easy, easy, water next. I'm not having you fall in the lake on my shift." },
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look half-starved and fully beaten, so sit down. Breanna's got something on, and I'll bring it out." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse set the inn's doormat smouldering, and Brianna's furious, but I'll only pass on the nice part, which is that it's the most beautiful horse anybody in Lakeshire has ever seen." },
   },
 
   start = "hello",

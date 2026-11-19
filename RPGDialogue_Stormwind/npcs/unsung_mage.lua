@@ -8,7 +8,7 @@ P:NPC {
   key = "lilyssia", id = TODO_NPC("Lilyssia Nightbreeze"), name = "Lilyssia Nightbreeze", title = "Expert Alchemist",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "restless" }, values = { "duty", "craft" },
-  notices = { "craft", "soldier" },
+  notices = { "craft", "soldier", "lock_shadow" },
   impression = {
     first = "She plainly wishes she were fighting outside the walls instead.",
     third = "{name} met Lilyssia Nightbreeze, a night elf alchemist teaching in Stormwind's Mage Quarter.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You carry herbs with you; I can smell the mageroyal from here. Bring them to me, and I'll show you how to make them worth ten times as much." },
     { id = "n_warrior", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } }, place = "before",
       text = "You've come from the fighting, haven't you? I envy you that, and I'm not ashamed to say it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow on you carries the same smell as the satyrs' fires in Ashenvale, and my sisters would draw their glaives at it. I am only a teacher of potions here, so I'll draw nothing, but I'll not pretend I didn't notice." },
   },
   start = "hello",
   nodes = {
@@ -190,7 +192,7 @@ P:NPC {
   key = "eldraeith", id = TODO_NPC("Eldraeith"), name = "Eldraeith", title = "Herbalism Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "gracious" }, values = { "nature", "alliance" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
   impression = {
     first = "She presents each herb as a gift between two peoples.",
     third = "{name} met Eldraeith, who sells Teldrassil's herbs in the Mage Quarter.",
@@ -202,6 +204,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, place = "before",
       text = "A dwarf, in a shop of herbs! Your people are welcome here, though I have noticed they look for the ale before the flowers." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Your healthstone is cold, which no healing thing should be, and the herbs in my baskets have turned away from it. My people remember what the Highborne made of life before the Sundering, and it began with stones like that." },
   },
   start = "hello",
   nodes = {
@@ -363,7 +367,7 @@ P:NPC {
   key = "georgio_bolero", id = TODO_NPC("Georgio Bolero"), name = "Georgio Bolero", title = "Artisan Tailor",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "vain" }, values = { "beauty", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shards" },
   impression = {
     first = "He is vain about his cut and generous with his lessons.",
     third = "{name} met Georgio Bolero, who teaches tailoring at Duncan's Textiles in the Mage Quarter.",
@@ -377,6 +381,8 @@ P:NPC {
       text = "A tailor, I see it in the way you look at my sleeves. Good, good, then we can speak properly about seams." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Light preserve us, what has happened to your clothes? Never mind, don't tell me, it will only upset me." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your bag is full of shards, and they've put a chill in the felcloth on my table. Mind you, felcloth always seems to like your sort better than it likes me." },
   },
   start = "hello",
   nodes = {
@@ -532,7 +538,7 @@ P:NPC {
   key = "alexandra_bolero", id = TODO_NPC("Alexandra Bolero"), name = "Alexandra Bolero", title = "Tailoring Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "practical" }, values = { "practical", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_pact" },
   impression = {
     first = "She keeps her head while Georgio fusses over hems.",
     third = "{name} met Alexandra Bolero, who sells tailoring supplies at Duncan's Textiles.",
@@ -544,6 +550,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" }, place = "before",
       text = "Running low on coarse thread already? Every new tailor does, so I always keep a box of it nearest the counter." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're warm as a stove, and so's the imp, I'd guess, because the Lamb's lot are always like that when they come up for thread. Don't lean on the black bolts, please, because last time they scorched." },
   },
   start = "hello",
   nodes = {
@@ -705,7 +713,7 @@ P:NPC {
   key = "lawrence_schneider", id = TODO_NPC("Lawrence Schneider"), name = "Lawrence Schneider", title = "Journeyman Tailor",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "family" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shadow" },
   impression = {
     first = "He talks about weaving as though it explained the whole world.",
     third = "{name} met Lawrence Schneider, a young tailor who teaches beginners at Duncan's Textiles.",
@@ -717,6 +725,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 10 }, place = "before",
       text = "You're new to all this, I can tell, and that's perfect, because I like teaching people before they've learned any bad habits." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You've a shadow on you, friend, like a dark thread worked right through the cloth, and it's the first thing I saw. It isn't ruinous yet, but I always say one strong thread can pull a whole bolt out of true." },
   },
   start = "hello",
   nodes = {
@@ -876,7 +886,7 @@ P:NPC {
   key = "ardwyn_cailen", id = TODO_NPC("Ardwyn Cailen"), name = "Ardwyn Cailen", title = "Wand Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "enthusiastic" }, values = { "arcane", "trade" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "She mourns Dalaran mostly for its workshops, and is honest about it.",
     third = "{name} met Ardwyn Cailen, who sells wands at Stormwind Staves in the Mage Quarter.",
@@ -890,6 +900,8 @@ P:NPC {
       text = "A priest, wonderful! Your people are my best customers, because a wand lets you fight without spending the mana you'll need to heal everyone afterwards." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" }, place = "before",
       text = "A warlock. I've a shadow wand you'll like, though I'd thank you not to tell me what you're planning to point it at." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That shadow ward of yours pulls inward, as shadow always does, and every wand on my counter is rattling toward it. Stand back a pace until it fades, please, or I'll be selling kindling." },
   },
   start = "hello",
   nodes = {
@@ -1039,7 +1051,7 @@ P:NPC {
   key = "charys_yserian", id = TODO_NPC("Charys Yserian"), name = "Charys Yserian", title = "Arcane Trinkets Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "quiet" }, values = { "arcane", "curiosity" },
-  notices = { "arcane" },
+  notices = { "arcane", "lock_shards" },
   impression = {
     first = "She speaks softly, as though the trinkets might be listening.",
     third = "{name} met Charys Yserian, who keeps a shop of arcane curios in the Mage Quarter.",
@@ -1051,6 +1063,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "arcane", when = { class = { "MAGE", "WARLOCK" } }, place = "before",
       text = "You feel it too, don't you, that faint hum in the room? Most of my customers never notice it at all." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone you're carrying, and it's the one reagent in Stormwind I'll never stock, because I've read what it brings down. You carry it about like a pocket watch." },
   },
   start = "hello",
   nodes = {
@@ -1212,7 +1226,7 @@ P:NPC {
   key = "wynne_larson", id = TODO_NPC("Wynne Larson"), name = "Wynne Larson", title = "Robe Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "craft", "practical" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "She calls keeping her apprentice a test of faith.",
     third = "{name} met Wynne Larson, who sells robes at Larson Clothiers in the Mage Quarter.",
@@ -1226,6 +1240,8 @@ P:NPC {
       text = "A priest, good. The Cathedral's robes are fine for prayer, but out in the hills you'll want something lined, and I sell the best lined robes in the city." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "That robe has been through a fire or a fight, and possibly both. You'll want a new one, or at least a mend." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Don't try any robes on over that demon skin, please, because the last time someone did, my apprentice had to burn the sleeves. It's a fine-looking ward, I'll grant you, but it's murder on the lining." },
   },
   start = "hello",
   nodes = {

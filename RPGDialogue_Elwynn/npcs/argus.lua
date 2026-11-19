@@ -8,7 +8,7 @@ P:NPC {
   key = "argus", id = TODO_NPC("Smith Argus"), name = "Smith Argus", title = "Journeyman Blacksmith",
   bible = "bibles/argus.md", role = "blacksmith", tier = "service",
   communities = { "goldshire" }, temper = { "proud" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He looked at my armor before my face, and found it wanting.",
     third = "{name} met Smith Argus, a blacksmith who judges people by the state of their armor and rarely approves.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "No armor at all. That's either brave or foolish, and I've seen how both end." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Those are smith's hands, calloused in all the right places. Who taught you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge spits green every time you come near it, and I've had to rake the coals twice since you walked up. I'll make whatever you're after, but stand back from the fire while I work." },
   },
 
   start = "hello",

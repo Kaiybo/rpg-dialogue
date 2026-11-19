@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/city4.md", role = "soldier", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   likesTone = "polite",
-  notices = { "soldier", "kit" },
+  notices = { "soldier", "kit", "lock_shards", "lock_steed" },
   impression = {
     first = "He reads every letter from the provinces twice and answers too few.",
     third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You stand like a soldier. Stormwind's army could use you, if you ever tire of the road. We all tire of it eventually." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been in a real fight, so get to the smiths in the Dwarven District before you go back out. That's an order, though a friendly one." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You're carrying a fortune in soul shards, {class}, and every one of them is a creature that'll never trouble the walls again. I've written that we need more like you and less of what you carry, and I'm still not sure which half I believe." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your mount leaves scorch marks on my parade ground, and the cavalry horses won't go near the place it stood. If I could field a hundred like it against the Blackrock, I'd put up with the smell." },
   },
 
   start = "hello",
@@ -405,7 +409,7 @@ P:NPC {
   key = "renzik", id = TODO_NPC("Renzik \"The Shiv\""), name = "Renzik \"The Shiv\"",
   bible = "bibles/city4.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "He speaks of himself by name, like a goblin selling a legend.",
     third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
@@ -419,6 +423,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Cute, but Renzik saw you come in, pal. Renzik sees everybody come in, 'cause that's the job, and the crown pays him real well not to miss nothin'." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Renzik sees you seein' him, pal, and that's a trick most folk don't have. Somethin' in your eyes catches the shadows Renzik's lot stand in, so do Renzik a favour and stop lookin' at the corners." },
   },
 
   start = "hello",
@@ -603,7 +609,7 @@ P:NPC {
   key = "samuelson", id = TODO_NPC("Major Samuelson"), name = "Major Samuelson",
   bible = "bibles/city4.md", role = "guard", tier = "quest",
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_shadow" },
   impression = {
     first = "He expects visitors to know exactly where they are standing.",
     third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
@@ -616,6 +622,8 @@ P:NPC {
   notice = {
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You carry yourself like you've been drilled. Good. Too many come in here like they're entering a tavern." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The torches by the throne dimmed when you came up the steps, and they don't do that for anyone else who walks into this Keep. You'll keep your hands where I can see them and your business brief." },
   },
 
   start = "hello",
@@ -811,7 +819,7 @@ P:NPC {
   key = "thomas_miller", id = TODO_NPC("Thomas Miller"), name = "Thomas Miller",
   bible = "bibles/city4.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "hardworking" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
 
   barks = {
     { id = "b_bread", text = "Bread! Hot from the oven, or near enough!" },
@@ -828,6 +836,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look like you haven't eaten since Goldshire. Have a roll, go on, and then buy six." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My bread went flat in the basket the moment you stepped up, and I've baked long enough to know a cold draught when it costs me. You've a shadow that sits on you like a damp cellar, friend, and dough hates that." },
   },
 
   start = "hello",

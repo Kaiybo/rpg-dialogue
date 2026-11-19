@@ -7,7 +7,7 @@ P:NPC {
   key = "lightspark", id = TODO_NPC("Argent Quartermaster Lightspark"), name = "Argent Quartermaster Lightspark", title = "The Argent Dawn",
   bible = "bibles/westernplaguelands.md", role = "vendor", tier = "service",
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "brisk" }, values = { "dutiful", "careful" },
-  notices = { "race", "status" },
+  notices = { "race", "status", "lock_shards" },
 
   impression = {
     first = "His ledgers are tidier than most people keep their weapons.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Another gnome this far north, and in this muck! We're a long way from home, you and I, and we're the only two in camp who can reach the bottom shelf without a stool." },
     { id = "n_dawn", cat = "status", when = { reputation = { faction = "Argent Dawn", min = "revered" } },
       text = "Revered among the Dawn! I'll fetch you the good stock from the back, since you've more than earned it out there." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards at the least, by the clink of it, and my pen hand is twitching to write them in the ledger. The Dawn doesn't take shards in trade, of course, so I'd only be counting them out of habit." },
   },
 
   start = "hello",
@@ -225,7 +227,7 @@ P:NPC {
   key = "leonard_porter", id = TODO_NPC("Leonard Porter"), name = "Leonard Porter", title = "Leatherworking Supplies",
   bible = "bibles/westernplaguelands.md", role = "vendor", tier = "service",
   communities = { "chillwind_camp" }, temper = { "dour" }, values = { "craft", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He inspects every hide brought to him for plague.",
@@ -239,6 +241,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You've got a tanner's hands, friend, all stained to the wrist. Tell me you didn't touch anything that was already dead before you killed it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That isn't leather on your shoulders, and I know leather. Whatever beast that ward was skinned from never walked on this earth, and I'll not be asked to stitch it when it tears." },
   },
 
   start = "hello",

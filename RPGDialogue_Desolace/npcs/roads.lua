@@ -173,6 +173,10 @@ P:NPC {
     { id = "g_main", text = "Mind the wheel, friend. That one's been squeaking since Thunder Axe and I'm not fixing it on the road." },
     { id = "g_back", when = { metBefore = true }, text = "Back with the caravan, are you? Good, I'll take any company that helps me watch our tail." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in your pack? I count everything that comes into this caravan, so I'll have to write it down as one green rock, warm, smelling of somebody else's blood." },
+  },
   start = "hello",
   nodes = {
     xwarcl = {
@@ -354,6 +358,10 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Hey, hey, buddy! A fresh face, and you look like someone who can handle a kodo, so come here, come here, because I've got a business opportunity and the paperwork's already drawn up." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite contractor's back! Got time for a little roundup work, buddy? The rates haven't changed, which in Desolace is practically a gift." },
+  },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every kodo in my pen just turned its head toward you and stopped chewing, buddy, which is more attention than they've given anybody all week. Whatever you're carrying, it's bad for the livestock and worse for business." },
   },
   start = "hello",
   nodes = {
@@ -537,6 +545,10 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Thank the Light, a friendly face! Please, keep your voice down; they walk past this door every hour." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I wasn't sure anyone would, not in this place." },
+  },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "The cultists wore that same dark hide over their robes when they prayed to their masters, and I used to watch it twitch in the firelight. I hope you're wearing it for a better reason than they did." },
   },
   start = "hello",
   nodes = {
@@ -868,6 +880,12 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Misha doesn't like you yet. Give her time, and don't make any sudden moves." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Misha remembers you, which is a good sign." },
+  },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Misha's growling at your pack, and she's right to, because there are souls in there crying to be let go. The Horde was once a slave to the things that taught you to take them, so mind you never take one too many." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell of the same fel that soaked into the Horde before Thrall freed it, and you've drunk deep, by the reek of it. Misha won't come near you, and I trust her nose over any warlock's word." },
   },
   start = "hello",
   nodes = {

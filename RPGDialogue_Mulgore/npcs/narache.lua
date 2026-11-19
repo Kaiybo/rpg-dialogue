@@ -6,7 +6,7 @@ P:NPC {
   key = "hawkwind", id = TODO_NPC("Chief Hawkwind"), name = "Chief Hawkwind",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
-  notices = { "greenness", "race", "origin" },
+  notices = { "greenness", "race", "origin", "lock_shards", "lock_soulstone" },
   impression = {
     first = "He mourns his mother, the Greatmother, by standing straighter.",
     third = "{name} met Chief Hawkwind at Camp Narache, who leads the young of his tribe through their first rites.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "You were a calf on the long walk, weren't you? I can always tell, because those who crossed the Barrens with the centaur behind them still look over their shoulder before they sit down." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of the plains. Every one of you who stands up makes the Greatmother's absence lighter." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those stones in your bag hold souls, and I can feel them as cold as the night my mother died. Tell me they were Bristleback, warlock, because I'll not have the spirits of Narache kept in a sack." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry an empty stone meant to hold a soul until it's needed, and I find that a cold thing to keep in a pouch. Among my people a spirit goes to the Earth Mother when it's called, and nobody holds it back." },
   },
 
   start = "hello",
@@ -294,7 +298,7 @@ P:NPC {
   key = "grull", id = TODO_NPC("Grull Hawkwind"), name = "Grull Hawkwind",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   communities = { "narache" }, temper = { "fierce" }, values = { "loyal", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He is fiercely eager, as though the hunt were waiting on him.",
     third = "{name} met Grull Hawkwind, the Chief's son, who leads the hunts of Camp Narache.",
@@ -313,6 +317,8 @@ P:NPC {
       text = "A druid! There's a note waiting for you from your trainer. The wild has been asking for you." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter? Then you already know the first lesson: be patient, and then don't be." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Is that armour made from a demon's hide? It ripples like a lake when a fish turns under it, and my father would cuff me for asking to touch it, so I won't ask." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "remy", id = TODO_NPC("Remy \"Two Times\""), name = "Remy \"Two Times\"",
   bible = "bibles/remy.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" },
-  notices = { "purse", "sneak" },
+  notices = { "purse", "sneak", "lock_shards" },
 
   barks = {
     { id = "b_buying", text = "Buying gold dust, buying gold dust, best price in town!" },
@@ -31,6 +31,8 @@ P:NPC {
       text = "That's a heavy purse, a heavy purse! You'll want a man who knows where to spend it, and you've found one." },
     { id = "n_rogue", cat = "sneak", when = { class = "ROGUE" },
       text = "Hands where I can see them, friend, because I know your sort. I am your sort, on Tuesdays." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That chiming in your pack is soul shards, soul shards, and I'd know the sound anywhere because the cellar's full of it. That's worth a pint to the right ear, but I'll keep it quiet for now, for now." },
   },
 
   react = {

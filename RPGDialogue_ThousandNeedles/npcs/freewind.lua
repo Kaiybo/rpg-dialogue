@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/thousandneedles.md", role = "soldier", tier = "major",
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_eyes" },
 
   impression = {
     first = "Underneath, he is worried about a brother he hasn't written to.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "The Galak marked you. Let it heal, then remember it the next time you see their banners." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A child of the plains, this far into the Needles. Stand with us on the mesa; it is good to see more horns." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "How many souls are rattling in that pack, warlock? Count them before you go down the canyon, and count them again when you come back, so I know how many the Galak are missing." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that green shine that sees what hides, and I'd put you on the cliff watch tonight if I could. The Galak scouts crawl in the shadows below us, so tell me if any of them are closer than they look." },
   },
 
   start = "hello",
@@ -435,7 +439,7 @@ P:NPC {
   key = "rau", id = TODO_NPC("Rau Cliffrunner"), name = "Rau Cliffrunner",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "freewind" }, temper = { "intent" }, values = { "curious", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shards" },
 
   impression = {
     first = "He has a scholar's patience, and a scholar's hunger too.",
@@ -452,6 +456,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "One of the Circle's students. Then you'll understand why moonwell water is never carried lightly." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That stone in your pack is warm, and it smells like the flame the centaur keep around the Cloven Hoof. Tell me it isn't the same kind of fire, warlock, because I've been hoping that was only centaur magic." },
   },
 
   react = {
@@ -881,7 +887,7 @@ P:NPC {
   key = "thalia", id = TODO_NPC("Thalia Amberhide"), name = "Thalia Amberhide",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   communities = { "freewind" }, temper = { "bitter" }, values = { "loyal", "stern" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "Her fingers never stop finding the cord for her lost friend.",
@@ -898,6 +904,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're tauren, so you know the Grimtotem should be family. That's what makes it worse." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "You carry the dark with you, and today I find I don't mind it, because I've been sitting in the dark since Arnak took Lakota. Sit down, if you like, because the shadows here are already mine." },
   },
 
   start = "hello",

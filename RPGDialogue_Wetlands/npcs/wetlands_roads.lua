@@ -6,7 +6,7 @@ P:NPC {
   key = "longbraid", id = TODO_NPC("Longbraid the Grim"), name = "Longbraid the Grim",
   bible = "bibles/wetlands_roads.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "gruff" }, values = { "loyal", "brave" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "He has earned that grim name of his.",
@@ -16,6 +16,11 @@ P:NPC {
   greetings = {
     { id = "g_modr", text = "Keep yer head down, stranger. The Dark Irons have archers on the walls, and they're better shots than they look." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good, because in Dun Modr that's a compliment." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green look on ye, an' the Dark Irons on the wall would know it as well as I do. I've watched good dwarves go that color before, an' none o' them ever came back the way they were." },
   },
 
   start = "hello",
@@ -250,7 +255,7 @@ P:NPC {
   key = "motley_garmason", id = TODO_NPC("Motley Garmason"), name = "Motley Garmason",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "sharp" }, values = { "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He can't stop thinking about the Dark Irons who broke the Span.",
@@ -259,6 +264,11 @@ P:NPC {
 
   greetings = {
     { id = "g_span", text = "Ye've come up the road from Menethil? Then ye've seen what's left of the bridge, and ye know why I'm angry." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye're carryin' soul shards, a good many by the chill, an' I'd give a lot tae see a few more Dark Irons in that bag. Fill it on that bridge, an' I'll no' say a word against ye." },
   },
 
   start = "hello",
@@ -421,7 +431,7 @@ P:NPC {
   key = "ormer_ironbraid", id = TODO_NPC("Ormer Ironbraid"), name = "Ormer Ironbraid",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "proud" }, values = { "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He holds a grudge against each raptor personally.",
@@ -430,6 +440,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Watch the long grass, friend. If it moves and ye didnae move it, run." },
+  },
+
+  notice = {
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer pack's a healthstone, I'd guess, an' I've lost enough diggers tae the raptors that I'd take one for every one o' them. Use it if they get their teeth in ye, an' never mind where it came from." },
   },
 
   start = "hello",
@@ -589,7 +604,7 @@ P:NPC {
   key = "whelgar", id = TODO_NPC("Prospector Whelgar"), name = "Prospector Whelgar",
   bible = "bibles/wetlands_roads.md", role = "scholar", tier = "service",
   communities = { "menethil" }, temper = { "steady" }, values = { "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "He cares more for what's under the mud than in the grass.",
@@ -598,6 +613,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Careful where ye step, friend. Ye could be standin' on a thousand years of history." },
+  },
+
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's a soulstone ye've got, an' I can hear it hummin' from here, which is more than any o' my finds have ever done. Keep it in yer bag while ye're at my dig, for if it starts whisperin', I'll be sendin' it tae Ironforge." },
   },
 
   start = "hello",

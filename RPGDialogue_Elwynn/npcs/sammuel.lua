@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/sammuel.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
-  notices = { "affliction", "light" },
+  notices = { "affliction", "light", "lock_soulstone" },
   impression = {
     first = "He senses curses and sickness as a healer feels for a pulse.",
     third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "There's a curse on you; I can feel it from here. A mage or a druid can lift it, but all I can do is pray." },
     { id = "n_taint", cat = "light", when = { taint = { min = 20 } },
       text = "Something clings to you that the Light doesn't like. I won't ask about it, not today." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound part of your soul into a stone, and I can feel the Light hesitate over you like a hand over a hot pan. I'll still pray for you, though I'll pray that stone stays in its pocket." },
   },
 
   start = "hello",

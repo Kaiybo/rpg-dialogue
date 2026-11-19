@@ -8,7 +8,7 @@ P:NPC {
   key = "dawn", id = TODO_NPC("Dawn Brightstar"), name = "Dawn Brightstar", title = "Arcane Goods",
   bible = "bibles/azora.md", role = "vendor", tier = "service",
   communities = {}, temper = { "brisk" }, values = { "order", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
   impression = {
     first = "She speaks of Theocritus with equal respect and exasperation.",
     third = "{name} met Dawn Brightstar, who sells arcane goods at the top of the Tower of Azora.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A mage! You'll forgive me for watching your hands, since the last student who visited set a scroll alight just by reading it too eagerly." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
       text = "Hm, there's a smell of brimstone about you. Master Theocritus has strong feelings about that sort of magic, so I'd keep it quiet on this floor." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your pack? It's warming the counter right through the canvas, and my master would want to know who taught you to make one, so perhaps don't set it down where he can see." },
   },
   start = "hello",
   nodes = {
@@ -194,7 +196,7 @@ P:NPC {
   key = "kitta", id = TODO_NPC("Kitta Firewind"), name = "Kitta Firewind", title = "Enchanting Trainer",
   bible = "bibles/azora.md", role = "trainer", tier = "service",
   communities = {}, temper = { "eager" }, values = { "craft", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "Whatever the city's mages think of her craft, she plainly loves it.",
     third = "{name} met Kitta Firewind, who teaches enchanting in the Tower of Azora.",
@@ -206,6 +208,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You're a mage, so you already feel the magic in things, don't you? Enchanting is only teaching it to stay where you put it, which is harder than it sounds." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards in your bag are humming at the same pitch as my rods, and it's setting my teeth on edge. A soul makes a dreadful reagent, I'm told, though nobody in Dalaran would ever tell me how they knew." },
   },
   start = "hello",
   nodes = {

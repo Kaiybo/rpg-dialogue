@@ -6,7 +6,7 @@ P:NPC {
   key = "donova", id = TODO_NPC("Donova Snowden"), name = "Donova Snowden",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "warm" }, values = { "curious", "protective" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_breath" },
 
   impression = {
     first = "She means to find out what is poisoning the Winterfall furbolgs.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A druid! Then ye'll feel it too: somethin's poisonin' the furbolgs, an' it's no' natural." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all this way north! We're a long way from Khaz Modan, the both of us." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "Ye're breathin' like a fish, aren't ye, I can see it on ye, that warlock's trick wi' the water! Och, what I'd give tae walk the bottom o' those hot springs an' see where the bubbles start." },
   },
 
   start = "hello",
@@ -266,7 +268,7 @@ P:NPC {
   key = "mauari", id = TODO_NPC("Witch Doctor Mau'ari"), name = "Witch Doctor Mau'ari",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "playful" }, values = { "mystical", "proud" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "She has stopped complaining about the cold, but not feeling it.",
@@ -282,6 +284,8 @@ P:NPC {
       text = "A Darkspear, up here in de ice! You be feelin' de cold in your tusks, eh? Mau'ari feel it too." },
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST", "DRUID" } },
       text = "You know de spirits. Den you know what Mau'ari be talkin' about when she say every beast got a little magic left in it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ah, mon, your bag be full of little crying spirits, and Mau'ari can hear every one of dem. Dey not be happy in dere, but dat be your juju and not mine, so keep dem quiet near my fire." },
   },
 
   start = "hello",

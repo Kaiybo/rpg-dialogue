@@ -175,6 +175,7 @@ P:NPC {
   key = "hiett", id = TODO_NPC("Kimberly Hiett"), name = "Kimberly Hiett", title = "Fletcher",
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "craft", "practical" },
+  notices = { "lock_soulstone" },
   impression = {
     first = "She fletches fast, and still not fast enough for the gnolls.",
     third = "{name} met Kimberly Hiett, Lakeshire's overworked fletcher.",
@@ -182,6 +183,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Arrows, bows and quivers. Buy quick, before the watch takes the lot." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more arrows? I can't say I'm surprised, the way the hills are." },
+  },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's bound your soul in a stone, and I can feel it like a cold spot on a warm day. Good, because the gnolls are coming up the hill again and I'd like you on the wall twice." },
   },
   start = "hello",
   nodes = {
@@ -343,6 +348,7 @@ P:NPC {
   key = "chapal", id = TODO_NPC("Henry Chapal"), name = "Henry Chapal", title = "Gunsmith",
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "dry" }, values = { "craft", "precision" },
+  notices = { "lock_stones" },
   impression = {
     first = "He speaks of dwarven blackpowder the way other men speak of ale.",
     third = "{name} met Henry Chapal, Lakeshire's precise gunsmith.",
@@ -350,6 +356,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Guns, shot and powder. Handle them gently; they don't forgive mistakes." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and with all your eyebrows. That's encouraging." },
+  },
+  notice = {
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a firestone in your pack, and I can feel the heat from here, which in a gunsmith's shop is the worst thing I can feel. Please stand by the door until you've finished your business." },
   },
   start = "hello",
   nodes = {

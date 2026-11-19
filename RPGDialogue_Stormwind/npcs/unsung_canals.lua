@@ -8,7 +8,7 @@ P:NPC {
   key = "lucan_cordell", id = TODO_NPC("Lucan Cordell"), name = "Lucan Cordell", title = "Expert Enchanter",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "measured" }, values = { "craft", "arcane" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_stones" },
   impression = {
     first = "He chooses his words like reagents and expects the same care.",
     third = "{name} met Lucan Cordell, the foremost enchanter in Stormwind.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "There's strange dust in the creases of your pack, which tells me you've been taking things apart. Good; every enchanter begins by unmaking." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" }, place = "before",
       text = "A mage, and you'll think enchanting is beneath you, because your spells fade and mine last. Stay a while, and you may change your mind." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Your spellstone is singing very faintly, in the same pitch as a badly bound enchantment about to slip. It isn't my craft, but I can hear when a binding is under strain, and that one is." },
   },
   start = "hello",
   nodes = {
@@ -191,7 +193,7 @@ P:NPC {
   key = "jessara_cordell", id = TODO_NPC("Jessara Cordell"), name = "Jessara Cordell", title = "Enchanting Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "family" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She is brisk with customers and kind to the apprentices.",
     third = "{name} met Jessara Cordell, who sells enchanting supplies in the Cordells' shop.",
@@ -203,6 +205,8 @@ P:NPC {
   notice = {
     { id = "n_ench", cat = "craft", when = { profession = "Enchanting" }, place = "before",
       text = "You'll want a runed copper rod soon, if you haven't got one already. Everyone thinks they can do without it, and nobody can." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The rods on the counter just dimmed, the way they did when that customer from the Lamb leaned here for half an hour. Would you mind standing back a pace, because Lucan counts them every evening?" },
   },
   start = "hello",
   nodes = {
@@ -362,7 +366,7 @@ P:NPC {
   key = "catherine_leland", id = TODO_NPC("Catherine Leland"), name = "Catherine Leland", title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "salty" }, values = { "practical", "nature" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "She talks about fish the way soldiers talk about old campaigns.",
     third = "{name} met Catherine Leland, who sells fishing supplies on the Stormwind canals.",
@@ -374,6 +378,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" }, place = "before",
       text = "You've got the smell of the lake on you, friend, which is the best perfume there is. Need bait?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Something in your pack is humming, and every fish in my bait bucket has gone to the bottom. Fishermen are patient, but fish aren't, so I'd thank you to stand a bit further off." },
   },
   start = "hello",
   nodes = {
@@ -534,7 +540,7 @@ P:NPC {
   key = "lisbeth_schneider", id = TODO_NPC("Lisbeth Schneider"), name = "Lisbeth Schneider", title = "Clothier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "community" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She measures you with her eyes before you say a word.",
     third = "{name} met Lisbeth Schneider, the clothier of the Canal Tailor and Fit Shop.",
@@ -546,6 +552,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Look at the state of your sleeves, friend. Whatever it was, it won, and you'll want something new before you go out again." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward on you has no seams, and I've been looking for one since you came in, because everything has seams. I measure the Lamb's lot the same as anyone, but I can't fit a coat over that." },
   },
   start = "hello",
   nodes = {

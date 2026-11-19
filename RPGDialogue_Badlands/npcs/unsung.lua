@@ -7,7 +7,7 @@ P:NPC {
   title = "Blacksmithing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "kargath" }, temper = { "jittery", "chatty" }, values = { "greedy", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He is afraid of the Horde and delighted by its money.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A smith, or a miner! Either way, friend, the Badlands is full of ore and also full of things that want to eat you while you dig it out, and I sell the picks for both jobs." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc, good, good! Please tell Warlord Goretooth I'm a very helpful goblin and not at all the sort he needs to shout at, friend, and I'll remember the favour at the counter, in spirit." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone you're packin'? Shiny, buddy, real shiny, and I'd bet a smith could use a heat like that in his forge if it ever came off the market. Shame you lot never sell 'em, but a goblin can dream." },
   },
 
   start = "hello",

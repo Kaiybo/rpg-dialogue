@@ -13,7 +13,7 @@ P:NPC {
   key = "devrak", id = TODO_NPC("Devrak"), name = "Devrak", title = "Wind Rider Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "crossroads" }, temper = { "gruff" }, values = { "dutiful", "proud" },
-  notices = { "travel", "class" },
+  notices = { "travel", "class", "lock_steed" },
   impression = {
     first = "He knows which routes the harpies like to watch.",
     third = "{name} met Devrak, the wind rider master of the Crossroads.",
@@ -25,6 +25,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, and your beast is eyeing my wind riders like they're dinner. Keep it close, because they bite back." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Keep that horse with the burning hooves well back from the roost, because my wind riders are pacing and one has already bitten through its tether. They'll fly you, but they won't breathe the same air as that thing." },
   },
   start = "hello",
   nodes = {
@@ -178,7 +180,7 @@ P:NPC {
   key = "barg", id = TODO_NPC("Barg"), name = "Barg", title = "General Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shadow" },
   impression = {
     first = "He thinks travelers without water are fools, and he is probably right.",
     third = "{name} bought supplies from Barg, who keeps the general goods at the Crossroads.",
@@ -190,6 +192,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 100 } },
       text = "That purse of yours is empty. The quilboar sometimes carry coin, if you're not too squeamish to look." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The water in my barrels goes still and cold whenever you stand near them, like a pond with a snake in it. I don't know what you are under that robe, but you'll buy your water quick and take it with you." },
   },
   start = "hello",
   nodes = {
@@ -346,7 +350,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "cheerful" }, values = { "curious", "shrewd" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shards" },
   impression = {
     first = "She knows which powder a spellcaster needs before they ask.",
     third = "{name} met Hula'mahi, the troll who sells reagents and herbs at the Crossroads.",
@@ -363,6 +367,8 @@ P:NPC {
       text = "You smell of mageroyal and briarthorn, mon. If you be picking in the Barrens, watch for the snakes around the oases." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman, good. You be needing ankhs soon enough, mon, because the spirits only bring you back when you bring the right gift." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ah, the shards in your bag be singing, mon, a thin cold song like ghosts in a jar. Hula'mahi sell powders for every spell the loa allow, but keep those away from my herbs, because they turn the leaves black." },
   },
   start = "hello",
   nodes = {
@@ -539,7 +545,7 @@ P:NPC {
   key = "uthrok", id = TODO_NPC("Uthrok"), name = "Uthrok", title = "Bowyer & Gunsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "blunt" }, values = { "practical", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "He has strong opinions on whether bows or guns are better.",
     third = "{name} met Uthrok, the bowyer and gunsmith of the Crossroads.",
@@ -550,6 +556,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, good. You'll want more arrows than you think out here, because the Barrens are wide and the beasts are fast." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There's a shell of shadow on you, drinking up the light the way dry ground drinks rain. A good bullet would punch right through it, I'd wager, but I'd rather sell you the gun than test it." },
   },
   start = "hello",
   nodes = {
@@ -712,7 +720,7 @@ P:NPC {
   key = "omusa", id = TODO_NPC("Omusa Thunderhorn"), name = "Omusa Thunderhorn", title = "Wind Rider Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "taurajo" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "travel", "weary" },
+  notices = { "travel", "weary", "lock_soulstone" },
   impression = {
     first = "He calls each of his wind riders by name.",
     third = "{name} met Omusa Thunderhorn, the wind rider master of Camp Taurajo.",
@@ -723,6 +731,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look tired and torn, friend. Let a wind rider carry you for a while, the way the herd carries its weary, and rest your legs." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a stone with a soul waiting in it, and I can feel it like a calf crying in a pen far off. My people sing the dead home to the Earth Mother, and I don't like to think of one kept in a pocket." },
   },
   start = "hello",
   nodes = {
@@ -1042,7 +1052,7 @@ P:NPC {
   key = "ironzar", id = TODO_NPC("Ironzar"), name = "Ironzar", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   temper = { "smooth" }, values = { "greedy", "shrewd" },
-  notices = { "purse", "kit" },
+  notices = { "purse", "kit", "lock_shadow" },
   impression = {
     first = "Every blade has a story, and every story raises the price.",
     third = "{name} met Ironzar, the goblin weaponsmith of Ratchet.",
@@ -1053,6 +1063,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 100000 } },
       text = "Now that's a heavy purse, friend, and I can hear it jinglin' from here. Let me show you the good stock, the stuff I keep in the back for valued customers." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's darker than the one under my awning, friend, and it's making my blades look dull, which is bad for business. Stand a little to the left, would you, where the customers can't see it." },
   },
   start = "hello",
   nodes = {

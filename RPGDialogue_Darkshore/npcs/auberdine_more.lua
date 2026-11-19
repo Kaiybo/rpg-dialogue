@@ -8,7 +8,7 @@ P:NPC {
   key = "tharnariun", id = TODO_NPC("Tharnariun Treetender"), name = "Tharnariun Treetender",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "patient" }, values = { "healing", "curious" },
-  notices = { "pet", "form" },
+  notices = { "pet", "form", "lock_taint" },
   impression = {
     first = "He wants a sick bear brought alive, which says most of it.",
     third = "{name} met Tharnariun Treetender, a druid of Auberdine trying to cure the madness spreading through Darkshore's thistle bears.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Keep your companion away from the thistle bears, and away from anything that foams at the mouth. Whatever this is, I do not know yet whether it passes from beast to beast." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Ha, for a moment you gave me a fright! A clear-eyed bear is the finest thing I've seen all week, so stay as you are a moment and let me look at you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is fel in you, more than a novice's dabbling, and it smells exactly like the moss I have been scraping from the bears near the Blackwood camps. I would ask what you have been doing, but I fear you would tell me." },
   },
 
   start = "hello",
@@ -268,7 +270,7 @@ P:NPC {
   key = "elissa", id = TODO_NPC("Sentinel Elissa Starbreeze"), name = "Sentinel Elissa Starbreeze",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   communities = { "auberdine" }, temper = { "brisk" }, values = { "dutiful", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_eyes" },
   impression = {
     first = "She counts crates the way other Sentinels count arrows.",
     third = "{name} met Sentinel Elissa Starbreeze, who keeps Auberdine's stores and its ties to the paladins at Maestra's Post.",
@@ -284,6 +286,8 @@ P:NPC {
       text = "Another human! Delgren's company has taught me that your people keep their promises, so I'll assume you keep yours until you prove otherwise." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin, like Delgren the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You are watching the shadows behind the boats where the cultists like to wait, and I think you see more there than I do. I will not ask what lends you that sight, so long as you tell me what it shows you." },
   },
 
   start = "hello",
@@ -512,7 +516,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/auberdine.md", role = "flightmaster", tier = "service",
   communities = { "auberdine" }, temper = { "cheerful" }, values = { "dutiful", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "The sea wind worries her more than anything on the ground.",
     third = "{name} met Caylais Moonfeather, who keeps the hippogryphs at Auberdine.",
@@ -526,6 +530,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
       text = "Off the Bravery, are you? Don't worry, a hippogryph flies smoother than any gryphon, or so I'm told by every dwarf who has turned green on one." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Please leave your burning horse at the foot of the roost, because the big grey one has already seen it and is pretending to be dead. I have only just got him eating again since the last warlock." },
   },
 
   start = "hello",

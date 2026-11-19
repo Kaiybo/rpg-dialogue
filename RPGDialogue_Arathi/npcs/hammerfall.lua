@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "bitter" }, values = { "loyal" },
   prejudice = { race = "Scourge", amount = 12, why = "The Forsaken were Lordaeron's humans, and some of them kept the camps." },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "For him, the night Doomhammer died was yesterday.",
@@ -26,6 +26,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Another orc, walking free and proud. Were you in the camps, or were you born after? It shows, either way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green in your eyes, and I saw that same green in the eyes of orcs in the camps, the ones still sick for the demon blood. Thrall freed us from it, so be careful how much of it you let back in." },
   },
 
   start = "hello",
@@ -308,7 +310,7 @@ P:NPC {
   key = "torgan", id = TODO_NPC("Tor'gan"), name = "Tor'gan",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "patient" }, values = { "compassionate", "devout" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "He believes the spirits can heal even an orc who gave up.",
@@ -328,6 +330,8 @@ P:NPC {
       text = "A shaman! The elements walk with you, I can feel it from here, and they be glad to find another of us in this hard place." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear blood, like mine. The Witherbark down the hill be no cousins of ours, so don't you go feelin' sorry for them." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The spirits be pullin' back from you, mon, like a cat from a hot stone, and the ground here was quiet before you came. Torgan don't judge you for it, but Torgan feel it, and the spirits feel it worse." },
   },
 
   start = "hello",
@@ -519,7 +523,7 @@ P:NPC {
   key = "korinfel", id = TODO_NPC("Korin Fel"), name = "Korin Fel",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "watchful" }, values = { "protective", "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
 
   impression = {
     first = "She keeps one secret from her husband to keep him alive.",
@@ -534,6 +538,8 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
       text = "You read signs too, I can tell by how you look at the sky. Then you'll understand why I trust what the bones tell me." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You're carrying a soulstone, and an uncast one, which means somebody's soul is waiting to be signed into it. Read that contract carefully before you sign anyone, for I've seen what a careless bargain costs." },
   },
 
   start = "hello",

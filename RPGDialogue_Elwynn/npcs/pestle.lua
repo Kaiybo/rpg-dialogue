@@ -7,7 +7,7 @@ P:NPC {
   key = "pestle", id = TODO_NPC("William Pestle"), name = "William Pestle",
   bible = "bibles/pestle.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "He warns people away from his own bottles, a sensible habit.",
     third = "{name} met William Pestle, Goldshire's alchemist, who sells candles and tinctures and keeps Gramma Stonefield's confidences.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A fellow alchemist! Here, smell this, and closer than that, mind; isn't that marvelous?" },
     { id = "n_herbalist", cat = "craft", when = { profession = "Herbalism" },
       text = "You've peacebloom on your gloves, and you pick it too early, by the way, as everyone does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every candle on my shelf guttered when you came through the door, and I make them to burn steady in a gale. I'll sell you the black ones if you want them, but I'd like to know what you're doing to the white." },
   },
 
   start = "hello",

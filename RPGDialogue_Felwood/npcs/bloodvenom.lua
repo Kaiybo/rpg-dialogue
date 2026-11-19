@@ -282,7 +282,7 @@ P:NPC {
   key = "trull", id = TODO_NPC("Trull Failbane"), name = "Trull Failbane",
   bible = "bibles/felwood.md", role = "soldier", tier = "quest",
   communities = { "bloodvenom_post" }, temper = { "grim" }, values = { "loyal", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_eyes" },
 
   impression = {
     first = "He'll know if I skip any part of my report.",
@@ -300,6 +300,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The forest had you for lunch, so get fixed up before it comes back for supper." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You see what hides, warlock, and I can tell, because your eyes went straight to the corners where my watchers stand. Orgrimmar's eyes are supposed to go unseen, so I'll thank you to stop looking at them." },
   },
 
   start = "hello",

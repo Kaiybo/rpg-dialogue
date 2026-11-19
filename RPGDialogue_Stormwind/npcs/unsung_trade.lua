@@ -9,7 +9,7 @@ P:NPC {
   key = "olivia_burnside", id = TODO_NPC("Olivia Burnside"), name = "Olivia Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "earnest" }, values = { "order", "proud" },
-  notices = { "purse", "watch" },
+  notices = { "purse", "watch", "lock_shards" },
   impression = {
     first = "She says nothing was ever stolen, as if reassuring herself.",
     third = "{name} met Olivia Burnside, a banker of Stormwind who is very proud of her vaults.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Goodness, that's a heavy purse to be carrying about the Trade District. Do let us look after some of it before a cutpurse does." },
     { id = "n_rogue", cat = "watch", when = { class = "ROGUE" }, place = "before",
       text = "I'll keep my eyes on your hands while we talk, if you don't mind. It's nothing personal; I do it with everyone who walks the way you do." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Your pack's as cold as a vault, which is funny, because the warlock boxes downstairs run warm. I keep wondering where the heat goes, and now I think it might be going into bags like yours." },
   },
   start = "hello",
   nodes = {
@@ -190,7 +192,7 @@ P:NPC {
   key = "newton_burnside", id = TODO_NPC("Newton Burnside"), name = "Newton Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "dry" }, values = { "order", "discreet" },
-  notices = { "purse", "trophy" },
+  notices = { "purse", "trophy", "lock_soulstone" },
   impression = {
     first = "He says the bank sees more of the kingdom than the king.",
     third = "{name} met Newton Burnside, a dry and observant banker of Stormwind.",
@@ -202,6 +204,8 @@ P:NPC {
   notice = {
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } }, place = "before",
       text = "You'll not need a large box, I think, and there's no shame in that. Most fortunes in this city began with a small one." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You carry a soulstone, and a man learns a great deal from what someone keeps in reserve. Most folk save gold, but you've saved a life, and I've never had a deposit box that could hold one." },
   },
   start = "hello",
   nodes = {
@@ -374,7 +378,7 @@ P:NPC {
   key = "john_burnside", id = TODO_NPC("John Burnside"), name = "John Burnside", title = "Banker",
   bible = "bibles/unsung.md", role = "banker", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "community", "order" },
-  notices = { "kin", "travel" },
+  notices = { "kin", "travel", "lock_shadow" },
   impression = {
     first = "He would rather hear where I have been than what I brought.",
     third = "{name} met John Burnside, the cheerful banker at the first window of the Bank of Stormwind.",
@@ -386,6 +390,8 @@ P:NPC {
   notice = {
     { id = "n_human", cat = "kin", when = { race = "Human" }, place = "before",
       text = "Stormwind born, are you? Then you'll know my family's name from the old bank, before the orcs burned it down with everything else." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The queue's moved back a pace from you, I notice, and nobody in it quite knows why. It's the shadow on you, I think, though I'd rather be friendly to it than have it in a mood." },
   },
   start = "hello",
   nodes = {
@@ -555,7 +561,7 @@ P:NPC {
   key = "auctioneer_chilton", id = TODO_NPC("Auctioneer Chilton"), name = "Auctioneer Chilton", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "showy" }, values = { "trade", "order" },
-  notices = { "purse", "craft" },
+  notices = { "purse", "craft", "lock_soulstone" },
   impression = {
     first = "He talks about a linen cloth as though it were a crown.",
     third = "{name} met Auctioneer Chilton, a showman of Stormwind's auction house.",
@@ -567,6 +573,8 @@ P:NPC {
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking" } }, place = "before",
       text = "A crafter! Then you're the reason this hall exists, because adventurers sell us the raw stuff and folk like you turn it into something worth bidding on." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's put a soulstone on you, and it's the one thing I've seen that this hall could never sell, because it's already spoken for. I can feel it faintly, like a second pulse in the room." },
   },
   start = "hello",
   nodes = {
@@ -739,7 +747,7 @@ P:NPC {
   key = "auctioneer_fitch", id = TODO_NPC("Auctioneer Fitch"), name = "Auctioneer Fitch", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "precise" }, values = { "order", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shards" },
   impression = {
     first = "He thinks fraud is the greatest danger the city faces.",
     third = "{name} met Auctioneer Fitch, the careful keeper of the auction house's book.",
@@ -754,6 +762,8 @@ P:NPC {
       text = "That purse rides heavy, if you'll forgive a clerk for noticing. Large sums are where the mistakes hide, so I'll be counting twice today." },
     { id = "n_purse_light", cat = "purse", when = { money = { max = 500 } }, place = "before",
       text = "If you're selling to raise coin, I'd advise a modest starting bid. A greedy first price has stranded more goods in this hall than any thief." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You've at least twenty soul shards on you, and if you listed them I'd be required to record each one by origin. I'd hate to write twenty murlocs into the permanent book, so please don't." },
   },
   start = "hello",
   nodes = {
@@ -1057,7 +1067,7 @@ P:NPC {
   key = "auctioneer_jaxon", id = TODO_NPC("Auctioneer Jaxon"), name = "Auctioneer Jaxon", title = "Auctioneer",
   bible = "bibles/unsung.md", role = "auctioneer", tier = "service",
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "community" },
-  notices = { "greenness", "purse" },
+  notices = { "greenness", "purse", "lock_steed" },
   impression = {
     first = "She gives sensible advice on prices and teases you for ignoring it.",
     third = "{name} met Auctioneer Jaxon, the warm and practical auctioneer of Stormwind's hall.",
@@ -1069,6 +1079,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 12 }, place = "before",
       text = "Oh, you're new to the hall, aren't you? Don't list your first linen at the price the nobles pay for silk, love, or it'll be back in your mailbox by morning." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode a burning horse through the Trade District, love, and every buyer in the hall came out to look at it. If I could auction the attention, we'd both retire." },
   },
   start = "hello",
   nodes = {
@@ -1236,7 +1248,7 @@ P:NPC {
   key = "aldwin_laughlin", id = TODO_NPC("Aldwin Laughlin"), name = "Aldwin Laughlin", title = "Guild Master",
   bible = "bibles/unsung.md", role = "worker", tier = "service",
   communities = { "stormwind" }, temper = { "formal" }, values = { "order", "loyal" },
-  notices = { "status" },
+  notices = { "status", "lock_pact" },
   impression = {
     first = "He treats every charter as a small promise made before the crown.",
     third = "{name} met Aldwin Laughlin, who keeps the Stormwind guild registry.",
@@ -1244,6 +1256,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the guild registry. Are you here to found a guild, or to give an old one a new crest?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope your companions are keeping their oaths to one another." },
+  },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You carry a pact on you, I can see it in the flush of your skin, and a pact is a sort of charter, though a darker one than I'd ever register. I hope your demon keeps its side of the bargain better than some guilds keep theirs." },
   },
   start = "hello",
   nodes = {
@@ -1413,7 +1429,7 @@ P:NPC {
   key = "woo_ping", id = TODO_NPC("Woo Ping"), name = "Woo Ping", title = "Weapon Master",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "discipline", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shadow" },
   impression = {
     first = "He says more with one correction than most do with a speech.",
     third = "{name} met Woo Ping, the weapon master who teaches in Weller's Arsenal.",
@@ -1427,6 +1443,8 @@ P:NPC {
       text = "A priest who wants to fight with more than prayer. I can teach you the staff and the dagger, and you'll find that both reward patience, as your faith does." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, place = "before",
       text = "A hunter. You'll want the crossbow from me, I expect, and perhaps a polearm for when the beast reaches you before your bolt does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow moves half a beat behind you, and a weapon master sees such things, because the feet must lead and everything else must follow. Learn the staff, and teach your shadow to keep up." },
   },
   start = "hello",
   nodes = {
@@ -1581,7 +1599,7 @@ P:NPC {
   key = "marda_weller", id = TODO_NPC("Marda Weller"), name = "Marda Weller", title = "Weapons Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "honest" },
-  notices = { "kit", "greenness" },
+  notices = { "kit", "greenness", "lock_stones" },
   impression = {
     first = "She is plainly the reason the arsenal still turns a profit.",
     third = "{name} met Marda Weller, who keeps the books and the second counter at Weller's Arsenal.",
@@ -1595,6 +1613,8 @@ P:NPC {
       text = "Fresh from Northshire, are you? Then buy something cheap and sturdy from me today, and save your silver for something good once you know what you like." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Look at that edge, it's nearly gone. Get it seen to before you go anywhere, or the next thing you hit will be the last." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That firestone of yours is warming my whole counter, and Gunther will smell it from the forge and come out with a hammer. Please keep it in the bag, because I've no apologies left in me this month." },
   },
   start = "hello",
   nodes = {
@@ -1762,7 +1782,7 @@ P:NPC {
   key = "keldric_boucher", id = TODO_NPC("Keldric Boucher"), name = "Keldric Boucher", title = "Arcane Goods Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "learned" }, values = { "craft", "proud" },
-  notices = { "arcane", "craft" },
+  notices = { "arcane", "craft", "lock_shards" },
   impression = {
     first = "He likes being asked, and likes being right even more.",
     third = "{name} met Keldric Boucher, who sells arcane goods at Pestle's Apothecary.",
@@ -1776,6 +1796,8 @@ P:NPC {
       text = "An alchemist, I can always tell by the stains. You'll be wanting vials, and I'd buy a few more than you think you need, because you'll drop one." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" }, place = "before",
       text = "A mage, good. You'll want arcane powder for your brilliance and runes for your portals, and I keep both, which is more than the Mage Quarter's shops can always say." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "My vials have frosted over on your side of the counter, the way that case did before I threw it in the canal. It's the shards in your bag, I'd stake the shop on it." },
   },
   start = "hello",
   nodes = {
@@ -1944,7 +1966,7 @@ P:NPC {
   key = "kyra_boucher", id = TODO_NPC("Kyra Boucher"), name = "Kyra Boucher", title = "Reagent Vendor",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "quick" }, values = { "practical", "community" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She knows every caster's habits by what they buy.",
     third = "{name} met Kyra Boucher, the reagent seller at Pestle's Apothecary.",
@@ -1958,6 +1980,8 @@ P:NPC {
       text = "Light feathers, I expect, for when you'd rather float than fall. The Cathedral's priests buy them by the handful before they go out into the hills." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" }, place = "before",
       text = "A druid! I keep seeds for your rebirth and berries for your gifts, though I'll admit I don't fully understand what you do with them." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That infernal stone in your bag was wrapped in plain paper by somebody, and I'd know my own fold anywhere. Keep it wrapped, please, because a paladin who sees one will follow you all the way to the Mage Quarter." },
   },
   start = "hello",
   nodes = {

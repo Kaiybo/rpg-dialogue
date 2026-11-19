@@ -7,7 +7,7 @@ P:NPC {
   key = "ilthalaine", id = TODO_NPC("Conservator Ilthalaine"), name = "Conservator Ilthalaine",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "delighted" }, values = { "kind", "devout" },
-  notices = { "greenness", "class" },
+  notices = { "greenness", "class", "lock_shadow" },
   impression = {
     first = "He counts the nightsaber cubs like a fond uncle.",
     third = "{name} met Conservator Ilthalaine, who keeps the balance in Shadowglen and delights in the glade he tends.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "Newly woken to the world, and already sent to me! Let us begin gently, for the forest will be less gentle with you later." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A young druid! There's word waiting for you from your teacher. The glade has been expecting you." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The boars I count every morning have all turned their heads toward you, and they do that only for a hunter or a storm. Your shadow lies heavier on the grass than it ought to, {class}, and the balance of this glade feels it." },
   },
 
   start = "hello",
@@ -230,7 +232,7 @@ P:NPC {
   key = "melithar", id = TODO_NPC("Melithar Staghelm"), name = "Melithar Staghelm",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "earnest" }, values = { "dutiful", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
   impression = {
     first = "He is so earnest that I lowered my voice near the roots.",
     third = "{name} met Melithar Staghelm, the earnest young druid who tends Aldrassil's roots and the newcomers who gather beneath them.",
@@ -246,6 +248,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid of the glade. The first lessons are the slowest. They're also the ones you'll lean on longest." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The tree trembled when you stepped onto its roots, as it did when the fel moss crept up from Fel Rock, and I think the green in you has run deeper than your skin. Tread lightly here, I beg you, and do not linger by the saplings." },
   },
 
   react = {
@@ -433,7 +437,7 @@ P:NPC {
   key = "tenaron", id = TODO_NPC("Tenaron Stormgrip"), name = "Tenaron Stormgrip",
   bible = "bibles/teldrassil.md", role = "noble", tier = "major",
   communities = { "shadowglen" }, temper = { "warm" }, values = { "wise", "kind" },
-  notices = { "greenness", "race" },
+  notices = { "greenness", "race", "lock_shadow", "lock_shards" },
   impression = {
     first = "He hopes each young elf will one day climb back up.",
     third = "{name} climbed to the crown of Aldrassil and met Tenaron Stormgrip, who watches over Shadowglen and blesses all who leave it.",
@@ -453,6 +457,10 @@ P:NPC {
       text = "You've grown since you came to the glade, and it shows in how you stand. Soon you'll walk down to Dolanaar for good." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "Child of the kaldorei, the forest remembers us even when we forget it, so remember it in turn." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I last felt this chill in the air at Zin-Azshari, when the Highborne sang in the palace and every candle in the lower city bent toward the towers. You carry the same cold, and I will not pretend I have forgotten where it led." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Fifteen souls or more lie cold in your pack, by the way the air sours around it. The Highborne kept souls in jars and called it scholarship, and Azshara fed them to the Legion all the same." },
   },
 
   start = "hello",
@@ -782,7 +790,7 @@ P:NPC {
   key = "dirania", id = TODO_NPC("Dirania Silvershine"), name = "Dirania Silvershine",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "wistful" }, values = { "kind", "loyal" },
-  notices = { "pet" },
+  notices = { "pet", "lock_pact" },
   impression = {
     first = "Her mind was plainly on a friend who keeps finding trouble.",
     third = "{name} met Dirania Silvershine, a wistful soul of Shadowglen forever worrying over her friend Iverron.",
@@ -795,6 +803,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "What a fine companion! Be good to it, for friends are what get us through the dark parts of the forest." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You are flushed as if with fever, and I wonder if that is the imp's blood pact, because the herbs I keep for fevers have all turned toward you. Do not let Iverron see you so hot and pale, or he will think the venom is catching." },
   },
 
   start = "hello",
@@ -992,7 +1002,7 @@ P:NPC {
   key = "gilshalan", id = TODO_NPC("Gilshalan Windwalker"), name = "Gilshalan Windwalker",
   bible = "bibles/teldrassil.md", role = "questgiver", tier = "quest",
   communities = { "shadowglen" }, temper = { "solitary" }, values = { "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_eyes" },
   impression = {
     first = "I suspect his distance from the spiders is not only for science.",
     third = "{name} met Gilshalan Windwalker, a solitary scholar on Aldrassil's steps who studies the Webwood spiders of Shadowthread Cave.",
@@ -1005,6 +1015,8 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "You work with venoms and draughts? Then you'll understand why I need what I need." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes are following little spiders in the canopy that I can barely see myself, and that is a warlock's sight, if I am any judge. Tell me where they nest, at least, since you can see them better than I can." },
   },
 
   start = "hello",

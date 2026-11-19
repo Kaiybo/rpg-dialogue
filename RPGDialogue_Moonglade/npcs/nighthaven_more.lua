@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught in an untruth in Nighthaven, and the Circle notices that as surely as it notices good work. Keep it in mind when you come to trade." },
   },
 
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? The druids will smell it, I'm afraid, because a warlock's stone always smells faintly of what it was made from. I'd keep it in your pack while you shop, and I'll pretend I didn't notice." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

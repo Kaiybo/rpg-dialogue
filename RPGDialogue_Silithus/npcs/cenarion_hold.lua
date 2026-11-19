@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/silithus.md", role = "soldier", tier = "major",
   communities = { "cenarion_hold" }, temper = { "steady", "proud" }, values = { "dutiful", "loyal", "kind" },
   likesTone = "polite",
-  notices = { "class", "race", "form" },
+  notices = { "class", "race", "form", "lock_shadow", "lock_steed" },
 
   impression = {
     first = "His wife is missing, and he keeps stopping mid-sentence to listen.",
@@ -35,6 +35,10 @@ P:NPC {
       text = "One of the Circle's own, and come all this way. Good; we need every druid who can stand the heat and the hum." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "A child of Elune in Silithus again, after a thousand years of leaving it to the sand. Our ancestors bled for this desert; I'd like us to finish what they started." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The torch by my door leaned away from you as you came in, and in this desert even the fire knows what it fears. I will hear you out, but I will hear you out with my hand on my sword." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse scorched the sand from the gate to my hall, and every sentry on the wall saw the hoofprints burn. The Twilight's Hammer rides things like that, so tether it outside the Hold before someone mistakes you for one of them." },
   },
 
   start = "hello",
@@ -519,7 +523,7 @@ P:NPC {
   bible = "bibles/silithus.md", role = "scholar", tier = "major",
   communities = { "cenarion_hold" }, temper = { "steady", "gentle" }, values = { "curious", "patient", "honest" },
   race = "Dwarf", likesTone = "polite",
-  notices = { "race", "class", "craft" },
+  notices = { "race", "class", "craft", "lock_soulstone", "lock_stones" },
 
   impression = {
     first = "She says the rocks of Silithus are humming.",
@@ -544,6 +548,10 @@ P:NPC {
       text = "Ye've got thorium dust on your boots and slime on your gloves, so you've been in the tunnels. Did ye hear anything strange down there, besides the bugs?" },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, eh? Natalia used to sit where you're standing. She said the crystals sounded like a choir a long way off, and I didn't like the way she smiled when she said it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone ye're carryin'? Bless me, the facets on it are near perfect, though I'd rather not think on what's sittin' inside waitin' for its owner tae die." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "A spellstone, unless I'm mistaken, an' my crystals started hummin' a half-note sharper when ye walked in. Keep it in yer pack, if ye don't mind, because I've no idea what they'd make of each other." },
   },
 
   start = "hello",
@@ -914,7 +922,7 @@ P:NPC {
   key = "proudhorn", id = TODO_NPC("Windcaller Proudhorn"), name = "Windcaller Proudhorn",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "proud" }, values = { "dutiful", "practical" },
-  notices = { "race", "class", "kit" },
+  notices = { "race", "class", "kit", "lock_armor" },
 
   impression = {
     first = "She is certain of victory, provided the supplies hold.",
@@ -934,6 +942,8 @@ P:NPC {
       text = "A druid of the Circle. You'll want to report to the Commander, but you'll want to eat first, and that, I can arrange." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your armour's half in pieces. Vargus at the forge can see to that, and you'll see to it before you go back out." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "My kodo will not stand still while you wear that dark hide, and she has carried grain past scorpids without blinking. Stand by the wagons where she cannot see you, and we will get along well enough." },
   },
 
   start = "hello",
@@ -1190,7 +1200,7 @@ P:NPC {
   key = "vish_kozus", id = TODO_NPC("Vish Kozus"), name = "Vish Kozus", title = "Captain of the Guard",
   bible = "bibles/silithus.md", role = "soldier", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "sharp", "gruff" }, values = { "loyal", "stern" },
-  notices = { "class", "status" },
+  notices = { "class", "status", "lock_eyes" },
 
   impression = {
     first = "His rudeness, I am told, means he likes me.",
@@ -1214,6 +1224,8 @@ P:NPC {
       text = "Horde. Fine, so long as you leave your quarrels with the Alliance at the gate. My infantry aren't fond of paperwork." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance. Fine, so long as you leave your quarrels with the Horde at the gate. My infantry aren't fond of paperwork." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You see what hides, warlock, I can feel your eyes sweeping the shadows. So do I, without any spell, so don't think you see anything in this Hold that I haven't already found." },
   },
 
   start = "hello",
@@ -1453,7 +1465,7 @@ P:NPC {
   key = "calandrath", id = TODO_NPC("Calandrath"), name = "Calandrath", title = "Innkeeper",
   bible = "bibles/silithus.md", role = "innkeeper", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "warm", "gentle" }, values = { "kind", "generous" },
-  notices = { "kit", "craft", "race" },
+  notices = { "kit", "craft", "race", "lock_pact" },
 
   impression = {
     first = "She misses the birds of Auberdine and is learning to cook worms.",
@@ -1477,6 +1489,8 @@ P:NPC {
       text = "You're a leatherworker, aren't you? I'd know that smell of cured hide anywhere; my father's workshop smelled of nothing else." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "Another of our people! Tell me you've come from Darkshore, and tell me the birds are still singing over Auberdine." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed like someone who's sat too close to the oven, and there's no oven here hot enough for that. If it's the imp's bargain warming your blood, have some water, because Silithus will boil you otherwise." },
   },
 
   start = "hello",
@@ -1727,7 +1741,7 @@ P:NPC {
   key = "beetix", id = TODO_NPC("Beetix Ficklespragg"), name = "Beetix Ficklespragg",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "sharp", "warm" }, values = { "loyal", "practical" },
-  notices = { "craft", "status" },
+  notices = { "craft", "status", "lock_shards" },
 
   impression = {
     first = "She fusses over her poisoned cousin like a mother hen.",
@@ -1748,6 +1762,8 @@ P:NPC {
       text = "Ooh, an alchemist! You can tell by the singed eyebrows, pal. Don't touch anything on the left side of the bench, because the left side is where things go boom." },
     { id = "n_poison", cat = "status", when = { debuffType = "Poison" },
       text = "You're a funny colour, pal, and I've seen that colour on Noggle. Sit down before you fall down, and don't lick anything, because I charge for antidotes." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "You've got souls rattling in that bag, pal, I can hear 'em, and I'm telling you now that my cousin's isn't going in one. Noggle's still using it, poisoned or not, so keep your shards pointed somewhere else." },
   },
 
   start = "hello",

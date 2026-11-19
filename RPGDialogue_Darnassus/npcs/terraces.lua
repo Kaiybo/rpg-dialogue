@@ -10,7 +10,7 @@ P:NPC {
   key = "thyntel", id = TODO_NPC("Thyn'tel Bladeweaver"), name = "Thyn'tel Bladeweaver",
   bible = "bibles/terraces.md", role = "soldier", tier = "quest",
   communities = { "darnassus" }, temper = { "wary", "steady" }, values = { "loyal", "dutiful", "careful" },
-  notices = { "class", "soldier" },
+  notices = { "class", "soldier", "lock_shards" },
 
   impression = {
     first = "She guards a missing priestess's memory as fiercely as any gate.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A priest. We lost one of ours, a priestess who was also a Sentinel, and I find I look at every priest a little longer since." },
     { id = "n_human", cat = "soldier", when = { race = "Human", class = { "WARRIOR", "PALADIN" } },
       text = "Stormwind steel on the Warrior's Terrace. Our sisters have fought beside your soldiers in Ashenvale, and some of them even speak well of it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "I count at least ten souls in that satchel, warlock, and I'd like to know which of them were satyrs. If you tell me they all were, I may even believe you." },
   },
 
   start = "hello",
@@ -289,7 +291,7 @@ P:NPC {
   key = "elanaria", id = TODO_NPC("Elanaria"), name = "Elanaria",
   bible = "bibles/terraces.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "proud", "fierce" }, values = { "brave", "dutiful" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_armor" },
 
   impression = {
     first = "A warrior must first show resolve, and she means to see it.",
@@ -308,6 +310,8 @@ P:NPC {
       text = "A priest on the Warrior's Terrace. Good; we break things here, and somebody has to mend them." },
     { id = "n_green", cat = "greenness", when = { class = "WARRIOR", maxLevel = 15 },
       text = "You're young in the art yet, and it shows in your feet. Plant them, and the rest will follow." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You've wrapped yourself in demon hide rather than stand in your own skin, and I can see it from here. Take it off one day and fight, and then I'll know your resolve is your own." },
   },
 
   start = "hello",
@@ -556,7 +560,7 @@ P:NPC {
   key = "mathiel", id = TODO_NPC("Mathiel"), name = "Mathiel",
   bible = "bibles/terraces.md", role = "blacksmith", tier = "quest",
   communities = { "darnassus" }, temper = { "warm", "eager" }, values = { "curious", "generous", "devout" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
 
   impression = {
     first = "He seems to have friends in every forge in the Alliance.",
@@ -575,6 +579,8 @@ P:NPC {
       text = "A fellow smith! Tell me, does your forge run hot or slow? Furen Longbeard, the dwarf smith in Stormwind, swears by slow, and I'm half convinced." },
     { id = "n_dwarf", cat = "craft", when = { race = "Dwarf" },
       text = "A dwarf at my forge! Please, have a look and show me where I'm going wrong. Furen says I fold too often, but he's polite about it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The coals have gone dim since you stepped onto the terrace, just as the rumour said they would, and I have no week to spare. Stand on the far side of the anvil, if you would, and let the forge breathe." },
   },
 
   start = "hello",
@@ -797,7 +803,7 @@ P:NPC {
   title = "Warrior Trainer",
   bible = "bibles/terraces.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "proud", "formal" }, values = { "proud", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_pact" },
 
   impression = {
     first = "She can see a warrior's spirit, or its absence, at a glance.",
@@ -814,6 +820,8 @@ P:NPC {
       text = "There it is, the spirit I spoke of, grown since I last saw you. You've been knocked down and stood up again; I can see it in how you hold your shoulders." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. I have nothing to teach you, but I've owed my life to your kind more than once, so stay as long as you like." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood runs hot with your imp's pact, I can feel it from here, and it has lent you a strength you didn't earn. My students earn theirs blow by blow, so don't stand where they'll envy it." },
   },
 
   start = "hello",
@@ -1008,7 +1016,7 @@ P:NPC {
   key = "moonstalker", id = TODO_NPC("Herald Moonstalker"), name = "Herald Moonstalker",
   bible = "bibles/terraces.md", role = "citizen", tier = "quest",
   communities = { "darnassus" }, temper = { "eager", "chatty" }, values = { "loyal", "friendly" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_steed" },
 
   impression = {
     first = "She loves the sound of a good proclamation, especially her own.",
@@ -1025,6 +1033,8 @@ P:NPC {
       text = "A priest! There's a call to the Plaguelands you'll want to hear, for nobody needs healers like the folk fighting the dead." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 30 },
       text = "My proclamations are mostly for seasoned heroes, I'm afraid. Grow a little, and come back; the calls will still be calling." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "A rider on a burning horse is the sort of thing heralds cry about from the Terrace, and not kindly. Keep it out of the city if you'd like the city to say something better of you." },
   },
 
   start = "hello",
@@ -1225,7 +1235,7 @@ P:NPC {
   title = "General Goods Vendor",
   bible = "bibles/terraces.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "warm", "earnest" }, values = { "generous", "kind" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_stones" },
 
   impression = {
     first = "It is hard not to stand a little straighter at his counter.",
@@ -1240,6 +1250,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 12 },
       text = "Just setting out? Take more food than you think you'll need. Everyone does, the second time." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Who gave you that green stone? It's a warlock's work, by the look of it, and it glows like fel fire in a lantern, so please put it away before anyone sees it by my stall." },
   },
 
   start = "hello",
@@ -1400,7 +1412,7 @@ P:NPC {
   key = "treshala", id = TODO_NPC("Treshala Fallowbrook"), name = "Treshala Fallowbrook",
   bible = "bibles/terraces.md", role = "citizen", tier = "quest",
   communities = { "darnassus" }, temper = { "anxious", "proud" }, values = { "loving", "loyal" },
-  notices = { "class", "death" },
+  notices = { "class", "death", "lock_soulstone" },
 
   impression = {
     first = "Grief makes her fierce rather than small.",
@@ -1417,6 +1429,8 @@ P:NPC {
       text = "A priest. Would you sit with me a moment? I don't need prayers, only someone who knows how to be quiet." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "You're of the Circle, like Heralath. He used to come home with leaves in his hair and mud to his knees, and I miss the mud most of all." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul into a stone so you may come back if you fall, haven't they? I wanted that for my husband once, before I knew what it cost, and now I only want him home." },
   },
 
   start = "hello",
@@ -1643,7 +1657,7 @@ P:NPC {
   key = "darianna", id = TODO_NPC("Darianna"), name = "Darianna",
   bible = "bibles/terraces.md", role = "worker", tier = "service",
   communities = { "darnassus" }, temper = { "eager", "chatty" }, values = { "curious", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "She can't keep still for longer than a sentence.",
@@ -1658,6 +1672,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "You work leather too? Show me your stitching, please, because I really want to see it; Faldron says I learn more from looking than from listening." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your satchel is cold even from over here, and it hums like a hive in winter, so I'd guess it isn't full of herbs. Would you mind setting it down on the far side of the workshop?" },
   },
 
   start = "hello",

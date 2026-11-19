@@ -6,7 +6,7 @@ P:NPC {
   key = "neals", id = TODO_NPC("Brother Neals"), name = "Brother Neals",
   bible = "bibles/neals.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "drink", "faith" },
+  notices = { "drink", "faith", "lock_shadow" },
   impression = {
     first = "He cheerfully admits to failing at moderation, and I trust him more.",
     third = "{name} met Brother Neals, keeper of Northshire Abbey's cellars, who loves a careful tally almost as much as the wine.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You've been sampling, I see. Moderation, friend, and I say that as someone who has failed at it often." },
     { id = "n_priest_gnome", cat = "faith", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome who follows the Light! I'd heard there were some now, but I'd not quite believed it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in the cellar have all bent their flames toward you since you came down, and that only happens in a draught. There's no draught down here, friend, so I'll ask you kindly to keep away from the casks." },
   },
 
   start = "hello",

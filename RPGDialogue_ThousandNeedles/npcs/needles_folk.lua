@@ -194,7 +194,7 @@ P:NPC {
   key = "awenasa", id = TODO_NPC("Awenasa"), name = "Awenasa", title = "Stable Master",
   bible = "bibles/thousandneedles.md", role = "stablemaster", tier = "service",
   communities = { "freewind" }, temper = { "warm" }, values = { "kind", "nature" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
 
   impression = {
     first = "She seems to know every hunter by their pet's name.",
@@ -208,6 +208,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Oh, your {pet} has climbed a long way to get up here. Let it rest by the water a moment, the climb is hard on four legs." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My kodos turned their backs to you all at once, the way they do before a storm comes over the mesa. They'll calm in a moment, I think, but I'd stand downwind of them if I were you." },
   },
 
   start = "hello",
@@ -340,7 +342,7 @@ P:NPC {
   key = "jinky", id = TODO_NPC("Jinky Twizzlefixxit"), name = "Jinky Twizzlefixxit", title = "Engineering Supplies",
   bible = "bibles/thousandneedles.md", role = "vendor", tier = "service",
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_steed" },
 
   impression = {
     first = "She keeps a cheerful tally of which racing team buys more bolts.",
@@ -357,6 +359,8 @@ P:NPC {
       text = "An engineer! You'll want to see my parts, then, and you'll want to see them before the pit crews buy them all." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome! Don't let the goblins hear you cheering for Fizzle, though; I have to sell to them too, and I'd like to keep the peace." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that a felsteed? Look at the heat coming off those hooves! I'd clock it on the Flats if you'd let me, though I suppose it'd melt the timing gear." },
   },
 
   start = "hello",

@@ -6,7 +6,7 @@ P:NPC {
   key = "bor_wildmane", id = TODO_NPC("Bor Wildmane"), name = "Bor Wildmane",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "jovial", "steady" }, values = { "brave", "loyal" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_steed" },
 
   impression = {
     first = "He collects the cult's secret papers and can't read a word.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A brother of the plains! Big brother Huum will want to say something solemn at you; let him, it makes him happy." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Good; you can talk to the land with Huum, and I'll do the part where we hit the cultists." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "The sand jumped where your horse set down its hooves, and the hoofprints are still smoking by the gate. My brother will say the land weeps for it, and today, I think, he will be right." },
   },
 
   start = "hello",
@@ -262,7 +264,7 @@ P:NPC {
   key = "huum_wildmane", id = TODO_NPC("Huum Wildmane"), name = "Huum Wildmane",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "gentle" }, values = { "wise", "patient", "devout" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He says the land of Silithus is weeping.",
@@ -280,6 +282,8 @@ P:NPC {
       text = "Child of the Earth Mother. You feel it too, I think: the ground here is grieving, under all the sand." },
     { id = "n_spirit", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
       text = "You speak to things beyond the living, as I do. Then you'll understand when I say this desert is crowded with the dead." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The spirits went silent when you came near, and now I hear why, because there are spirits in your bag who cannot go home. They are calling for the Earth Mother, and she cannot reach them while you keep them." },
   },
 
   start = "hello",
@@ -486,7 +490,7 @@ P:NPC {
   key = "aurel_goldleaf", id = TODO_NPC("Aurel Goldleaf"), name = "Aurel Goldleaf",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "sharp" }, values = { "patient", "cunning", "curious" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_armor" },
 
   impression = {
     first = "Her disguises are good enough to fool elemental lords.",
@@ -503,6 +507,8 @@ P:NPC {
       text = "You've the look of someone who has worn another person's coat before. Good; my work goes further on someone who knows how to wear it." },
     { id = "n_craft", cat = "craft", when = { profession = { "Blacksmithing", "Leatherworking", "Tailoring", "Jewelcrafting", "Engineering" } },
       text = "Calluses in the right places. You make things, too, so you'll know the difference between something that looks right and something that is right." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide is the best costume I've seen in Silithus, and I've made a few myself. The Twilight's Hammer's ritualists wear something like it, so if I ever need a sigil copied from life, you might be the one I ask." },
   },
 
   start = "hello",
@@ -695,7 +701,7 @@ P:NPC {
   key = "baristolth", id = TODO_NPC("Baristolth of the Shifting Sands"), name = "Baristolth of the Shifting Sands",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "cold" }, values = { "patient", "wise" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_taint" },
 
   impression = {
     first = "He speaks of a thousand-year-old promise as though it were yesterday's.",
@@ -713,6 +719,8 @@ P:NPC {
       text = "One of my own people, though you would not know my face. We have both forgotten much, you and I, but I was made to remember." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid of the Circle. Druids stood on this sand once before, beside the Brood, and some of them were very brave." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is green in you, deeper than your craft alone would put there. I have seen what the fel did to my people before the sands were sealed, so I will keep my promise and my distance both." },
   },
 
   start = "hello",

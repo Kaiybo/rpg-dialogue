@@ -6,7 +6,7 @@ P:NPC {
   key = "dorius", id = TODO_NPC("Dorius Stonetender"), name = "Dorius Stonetender",
   bible = "bibles/gorge_roads.md", role = "scholar", tier = "quest",
   communities = { "thoriumpoint" }, temper = { "eager" }, values = { "curious", "loyal" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He won't leave his missing team behind.",
@@ -15,6 +15,11 @@ P:NPC {
 
   greetings = {
     { id = "g_gorge", text = "Keep yer voice down, friend! The Dark Irons have patrols on every ridge, an' I'd like tae keep my head, seein' as my hat only fits the one." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ye've got soul shards in that pack, a fair heap by the chill comin' off it, an' the stones in my satchel have started tae hum along wi' them. I'll thank ye tae step back a pace before they decide they like the tune." },
   },
 
   start = "hello",

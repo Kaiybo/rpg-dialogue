@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { origin = "human_westfall_farmhand", amount = 10, why = "Lost two wagons of timber to Defias; reads every Westfall accent as a thief in waiting." },
   bible = "bibles/raelen.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "sharp" }, values = { "lawful", "ambitious" },
-  notices = { "idle", "build" },
+  notices = { "idle", "build", "lock_pact" },
   impression = {
     first = "She will never say thank you, but I think she keeps count.",
     third = "{name} met Supervisor Raelen of the Eastvale Logging Camp, for whom the lumber order comes before everything.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "You're drunk, on my camp, in the middle of the day. Do you know what an axe does to a drunk man's foot?" },
     { id = "n_shoulders", cat = "build", when = { class = "WARRIOR" },
       text = "Look at those shoulders. Ever swing an axe at something that isn't trying to kill you? It pays steady." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running hot as a forge-hand, I can see it on your face, and my lads are giving you a wide berth because they think it's fever. If it's catching, keep it off my mill floor, and if it isn't, pick up a bundle." },
   },
 
   start = "hello",

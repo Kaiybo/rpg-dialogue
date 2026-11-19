@@ -527,7 +527,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "booty_bay", "blackwater" }, temper = { "boisterous" }, values = { "brave", "loyal" },
   likesTone = "blunt",
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shadow", "lock_soulstone" },
 
   impression = {
     first = "He laughs like a survivor of many bad ideas, mostly his own.",
@@ -550,6 +550,10 @@ P:NPC {
       text = "You look like you've been keelhauled twice and dried in the sun. Get that armor patched before the Bloodsail notice." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear on my docks! Your people knew these waters before any goblin put a plank on them, and I'd wager you still know how to read a tide." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp on my desk has burned steady through three hurricanes, and it went low and blue the moment you crossed the door. I've kept this port's peace a long time by noticing small things, friend, so let's keep you one of them." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul into a stone and tucked it away against a bad day, I'd wager. Sailors sew a coin in their hem for the ferryman, but that's a bargain of a different weight, and I hope whoever holds it is a friend." },
   },
 
   react = {
@@ -1195,7 +1199,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "chatty" }, values = { "cunning", "ambitious" },
   prejudice = { race = "Gnome", amount = 8, why = "Goblin-gnome rivalry: gnomes give inventions away and undercut the market." },
-  notices = { "craft", "purse" },
+  notices = { "craft", "purse", "lock_shards" },
 
   impression = {
     first = "I suspect he knew my price before I opened my mouth.",
@@ -1215,6 +1219,8 @@ P:NPC {
       text = "A miner! The Baron's always short of good ore, and I'm always short of favors owed, so listen, listen, we should talk numbers." },
     { id = "n_poor", cat = "purse", when = { money = { max = 1000 } },
       text = "Lean times, huh? I can find you work, and finding work is a service, and services cost, but we'll put it on account and sort somethin' out later." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Hold still, pal, because that bag of yours is humming, and I know that hum, since half my stock does it at night. Soul shards, is it? I'd sure like to know what the Bloodsail would pay for a sack like that, though I'd never be the one to ask them." },
   },
 
   start = "hello",
@@ -1567,7 +1573,7 @@ P:NPC {
   key = "mackinley", id = TODO_NPC("\"Sea Wolf\" MacKinley"), name = "\"Sea Wolf\" MacKinley",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "menacing" }, values = { "cunning", "practical" },
-  notices = { "purse", "drink" },
+  notices = { "purse", "drink", "lock_stones" },
 
   impression = {
     first = "I mean to stay out of his debt.",
@@ -1584,6 +1590,8 @@ P:NPC {
       text = "A full purse and a friendly face, the two things that go missing quickest in this town. Hold on to both." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You're three sheets gone. Sit down before you bet something you'll miss in the morning." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your pocket is a warlock's healthstone, and I've watched men bet one at knucklebones and lose it to a fellow who needed it more by morning. A life's a stake like any other, friend, but I'd never take one of those off a table." },
   },
 
   start = "hello",
@@ -1813,7 +1821,7 @@ P:NPC {
   rivals = { "nesingwary" },
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "slick" }, values = { "ambitious", "cunning" },
-  notices = { "purse" },
+  notices = { "purse", "lock_shards" },
 
   impression = {
     first = "His smile never reaches the part about his agents getting killed.",
@@ -1831,6 +1839,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "Oh, you've done well for yourself, sweetheart! Ever thought about investing? I have several opportunities, and some of them are even legal." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty soul shards at least, by the clink, and every one of them a creature that used to walk around. I'll trade in tusks all day, pal, but I draw the line at inventory that used to have opinions." },
   },
 
   start = "hello",
@@ -2298,7 +2308,7 @@ P:NPC {
   key = "smotts", id = TODO_NPC("Captain Hecklebury Smotts"), name = "Captain Hecklebury Smotts",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "vengeful" }, values = { "proud", "stubborn" },
-  notices = { "kit" },
+  notices = { "kit", "lock_taint" },
 
   impression = {
     first = "Sea giants cost him two ships, and he hasn't given up.",
@@ -2313,6 +2323,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Looks like the sea's had a go at you too. Welcome to the club, though I'll warn you the membership's terrible." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a green cast to your skin that the lamplight doesn't explain, and I've seen it once before, on a man who swore he could raise my old crew from the sea floor. I told him no, and some nights I'm still not sure I was right." },
   },
 
   start = "hello",
@@ -2535,7 +2547,7 @@ P:NPC {
   key = "shaky", id = TODO_NPC("\"Shaky\" Phillipe"), name = "\"Shaky\" Phillipe",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "nervous" }, values = { "cautious" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shadow" },
 
   impression = {
     first = "Someone large with a gambling habit is clearly looking for him.",
@@ -2549,6 +2561,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Is that blood, and is it yours? No, don't tell me, and please don't come any closer either." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's falling the wrong way, isn't it? The lantern's over there, so it ought to fall that way, and it doesn't, and I'm going to stand over here now, if that's all right with you." },
   },
 
   start = "hello",
@@ -2781,7 +2795,7 @@ P:NPC {
   key = "crazz", id = TODO_NPC("First Mate Crazz"), name = "First Mate Crazz",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay", "blackwater" }, temper = { "eager" }, values = { "loyal", "fierce" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
 
   impression = {
     first = "He hates the Bloodsail with a steady, practical sort of hatred.",
@@ -2795,6 +2809,8 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "Another goblin, good! You know the sea's just money with waves on it, chum. The Bloodsail want our money, and they can have the waves." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "Is that a shadow ward on you, pal? I watched a Bloodsail witch throw a curse at one of those once, and it just drank the thing down, and I've wanted one ever since, because those dogs fight dirty." },
   },
 
   start = "hello",
@@ -3208,7 +3224,7 @@ P:NPC {
   key = "fizzlebub", id = TODO_NPC("Crank Fizzlebub"), name = "Crank Fizzlebub",
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay" }, temper = { "shifty" }, values = { "greedy", "clever" },
-  notices = { "purse" },
+  notices = { "purse", "lock_stones" },
 
   impression = {
     first = "Nothing he offers will be easy, and that is the point.",
@@ -3222,6 +3238,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
       text = "Oh, you're doing well, I can always tell, it's a gift, like smelling gold through a wall. Let's talk about doing better, sweetheart." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone in your bag, or a spellstone? Either way it's glowing like it's got something to say, and anything that glows for free catches the eye of a businessman like me." },
   },
 
   start = "hello",
@@ -3667,7 +3685,7 @@ P:NPC {
   key = "drizzlik", id = TODO_NPC("Drizzlik"), name = "Drizzlik",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "boastful" }, values = { "proud", "greedy" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "He praises his own leatherwork at length, and the work deserves it.",
@@ -3681,6 +3699,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = { "Leatherworking", "Skinning" } },
       text = "A leatherworker! You've good hands, I can tell, not as good as mine but close, give or take a few hundred gold of talent." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Now that's leather I never stitched, pal, a ward of demon hide shimmering right over your shoulders. It doesn't crack, it doesn't need oiling and it costs you nothing, which makes it the worst competition I've had all year." },
   },
 
   start = "hello",
@@ -3841,7 +3861,7 @@ P:NPC {
   key = "sprogger", id = TODO_NPC("Sprogger"), name = "Sprogger",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "haunted" }, values = { "loyal" },
-  notices = { "drink" },
+  notices = { "drink", "lock_shadow" },
 
   impression = {
     first = "He speaks plainly of the giants, which makes it worse to hear.",
@@ -3855,6 +3875,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy on the grog. The water's closer than you think from these docks, and I'd know." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The stew's gone off the boil, and it never goes off the boil, not with this fire under it. Something about you takes the heat out of a room, {class}, and the captain doesn't need any more cold in his life." },
   },
 
   start = "hello",
@@ -4300,7 +4322,7 @@ P:NPC {
   key = "lozgil", id = TODO_NPC("Wharfmaster Lozgil"), name = "Wharfmaster Lozgil",
   bible = "bibles/stranglethorn.md", role = "worker", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "careful", "practical" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He sees every crate and face off the boats, mine included.",
@@ -4314,6 +4336,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Horde, eh? There's a crate of axes on my dock with your name on it, or your Warchief's name, anyway, and it's been sitting there for days running up storage fees." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Hold there, because I hear crystal in that bag, and the Cartel taxes gems at the gate. Soul shards, are they? There's no column in my ledger for those, so I suppose they'll go under livestock with the demons." },
   },
 
   start = "hello",

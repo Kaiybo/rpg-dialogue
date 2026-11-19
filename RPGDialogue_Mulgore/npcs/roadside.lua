@@ -7,7 +7,7 @@ P:NPC {
   key = "morin", id = TODO_NPC("Morin Cloudstalker"), name = "Morin Cloudstalker",
   bible = "bibles/mulgore.md", role = "questgiver", tier = "quest",
   temper = { "steady" }, values = { "protective", "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_eyes" },
   impression = {
     first = "He has seen caravans burned, and he means every slow word.",
     third = "{name} met Morin Cloudstalker, who watches the roads of Mulgore.",
@@ -19,6 +19,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf on Mulgore's road, walking in the open. That is more honest than your kin at Bael'dun, at least." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes catch the light like a cat's, green and too sharp, and I'd guess they see more on my road than mine do. If you spot anything creeping near the caravans, I'd be grateful to hear of it." },
   },
   start = "hello",
   nodes = {

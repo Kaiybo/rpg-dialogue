@@ -1016,7 +1016,7 @@ P:NPC {
   key = "allison", id = TODO_NPC("Innkeeper Allison"), name = "Innkeeper Allison",
   bible = "bibles/city.md", role = "innkeeper", tier = "service",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "guest", "drink" },
+  notices = { "guest", "drink", "lock_shards" },
   impression = {
     first = "She feeds the newly rich and the newly poor alike.",
     third = "{name} took a room at the Gilded Rose, where Innkeeper Allison keeps the fire lit for every tired traveler.",
@@ -1036,6 +1036,8 @@ P:NPC {
       text = "There you are! Two weeks without a word, and I'd started wondering whether to let your room. I didn't, though I nearly did." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Someone's been to the Pig and Whistle first. Sit down, have some water and then some bread, and then we'll talk about wine." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You're carrying something that keeps the room cold, and I've had the fire banked up twice since you came in. The folk from the Lamb do the same to my parlour, and they always ask for the room nearest the hearth." },
   },
 
   start = "hello",

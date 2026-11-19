@@ -6,7 +6,7 @@ P:NPC {
   key = "lohatu", id = TODO_NPC("Loh'atu"), name = "Loh'atu",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "talrendis_point" }, temper = { "steady", "gentle" }, values = { "kind", "cautious" },
-  notices = { "race", "class", "faction" },
+  notices = { "race", "class", "faction", "lock_shards", "lock_pact" },
 
   impression = {
     first = "He grieves for elven ghosts that aren't his own.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A priest. Good; the dead here are restless, and I think they would listen to you sooner than to an old bull with a staff." },
     { id = "n_horde", cat = "faction", when = { faction = "Horde" },
       text = "You wear the Horde's colours in a Sentinel camp. They will let you be if you let them be, so keep your hands from your weapons." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag hums with captured souls, and the Sentinels heard it before I did, because they have been looking at you since you passed the gate. I will speak for you if they ask, but I will not lie to them about what you carry." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood runs hot as a summer fever, and I can see it in your face. If it is the imp's pact, drink deeply before you go back into the hills, because the Earth Mother's sun does not care what warms you." },
   },
 
   start = "hello",
@@ -465,7 +469,7 @@ P:NPC {
   key = "jarrodenus", id = TODO_NPC("Jarrodenus"), name = "Jarrodenus",
   bible = "bibles/azshara.md", role = "flightmaster", tier = "service",
   communities = { "talrendis_point" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "He won't fly his hippogryphs over the bay after dark.",
@@ -481,6 +485,8 @@ P:NPC {
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
       text = "A sister or brother of the kaldorei, out on the cursed coast. Elune keep you; the hippogryphs will be glad of a familiar voice." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The birds lowered their heads when you came up the path, and they only do that when a storm is coming. I do not think you are a storm, but they have seen this coast burn, and they remember." },
   },
 
   start = "hello",

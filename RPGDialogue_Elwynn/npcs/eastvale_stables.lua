@@ -7,7 +7,7 @@ P:NPC {
   key = "katie_hunter", id = TODO_NPC("Katie Hunter"), name = "Katie Hunter", title = "Horse Breeder",
   bible = "bibles/eastvale_stables.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "brisk" }, values = { "proud", "careful" },
-  notices = { "mount", "race" },
+  notices = { "mount", "race", "lock_steed" },
   impression = {
     first = "She'll talk horses with anyone, but she sells them with great care.",
     third = "{name} met Katie Hunter, the Eastvale horse breeder whose mares belong to Stormwind and whose trust must be earned.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Off that, please, before my mares get ideas, and let me see its hooves while you're at it; it's a habit." },
     { id = "n_other", cat = "race", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
       text = "I'll talk horses with anyone. Selling them is another matter; Stormwind keeps these for its own." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Whatever you rode in on has my mares screaming in their stalls, and it's left burnt hoofprints all the way up the lane. A horse with fire for feet isn't a horse, friend, and I'll not have it near my breeding stock." },
   },
 
   start = "hello",
@@ -187,7 +189,7 @@ P:NPC {
   key = "randal_hunter", id = TODO_NPC("Randal Hunter"), name = "Randal Hunter", title = "Riding Trainer",
   bible = "bibles/eastvale_stables.md", role = "trainer", tier = "service",
   communities = { "eastvale" }, temper = { "patient", "dry" }, values = { "careful", "practical" },
-  notices = { "class", "mount" },
+  notices = { "class", "mount", "lock_shadow" },
   impression = {
     first = "He told me to keep my heels down, though I stood afoot.",
     third = "{name} met Randal Hunter, the Eastvale riding trainer who can't stop teaching even when nobody is in the saddle.",
@@ -203,6 +205,8 @@ P:NPC {
       text = "A paladin. Your order calls its own warhorse, I'm told, but learn on one of ours anyway, because even a holy horse can throw you." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK", minLevel = 40 },
       text = "I've heard what warlocks ride, so don't bring it near the stables; the mares would never forgive me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every horse in the paddock turned its head when you came round the fence, the way they do when a storm's coming over the hills. You've got weather on you, friend, the dark sort, and they smell it long before I see it." },
   },
 
   start = "hello",

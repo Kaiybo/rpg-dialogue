@@ -187,6 +187,11 @@ P:NPC {
     { id = "g_default", text = "Steel, sharpened. You'll want it in this wood." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? Then the blade's done its job, or you've done yours." },
   },
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a green tinge to you, and I've seen that on one man before, and he walked up Raven Hill and came down as Morbent Fel. I'll sell you a blade, but I'll be watching which way you point it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

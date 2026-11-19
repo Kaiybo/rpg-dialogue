@@ -252,7 +252,7 @@ P:NPC {
   key = "fallen_hero", id = TODO_NPC("Fallen Hero of the Horde"), name = "Fallen Hero of the Horde",
   bible = "bibles/swampofsorrows.md", role = "questgiver", tier = "quest",
   communities = { "swamp_of_sorrows" }, temper = { "grave", "brooding" }, values = { "honor" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone" },
 
   impression = {
     first = "He blames orders that never came, and he blames himself more.",
@@ -269,6 +269,8 @@ P:NPC {
       text = "An orc, and young, with the Warchief's freedom on you. My soldiers had that look once, and I led them here." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "A human, on this road? Your mages at Nethergarde watch the Portal as I do, though they cannot see what I have seen." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is bound in a stone against the day you fall, and I can see the tether of it, bright as a chain. I had no such stone when I fell, and you see what came of that." },
   },
 
   start = "hello",

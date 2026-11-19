@@ -7,7 +7,7 @@ P:NPC {
   title = "Gryphon Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "aerie_peak" }, temper = { "hearty", "proud" }, values = { "loyal", "brave" },
-  notices = { "race", "mount" },
+  notices = { "race", "mount", "lock_steed" },
 
   impression = {
     first = "He has little patience for anyone who calls his gryphons mounts.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A dwarf of Ironforge, by yer braids. Ye'll find our birds fly a deal wilder than the ones yer people keep under the mountain, so hold on tight and don't shout at them." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Ye rode up here on that? Leave it at the foot of the Peak, friend; the gryphons think anything with four legs is supper." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye call that thing a mount, don't ye, wi' its hooves on fire an' its eyes like coals? A gryphon's no mount, it's a partner, an' I'll thank ye no' tae compare 'em." },
   },
 
   start = "hello",
@@ -225,7 +227,7 @@ P:NPC {
   title = "Blacksmithing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "aerie_peak" }, temper = { "gruff", "grudging" }, values = { "practical", "honest" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "Under the grumbling, he is proud to keep the Wildhammer forges lit.",
@@ -242,6 +244,8 @@ P:NPC {
       text = "Ye've soot under yer nails, so ye're a smith or a miner or both. Good, because I'm tired of selling flux to folk who think it's some sort o' pipeweed." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, all the way up here. If ye're after gears and springs, I've none; this is a forge shop, not a tinkerer's, so don't go poking at the bellows." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone in yer pack's glowin' hotter than my coal, an' I'd ask ye tae take it outside before it sets fire tae somethin'. I've enough trouble wi' the forge wi'out a warlock's ember in it." },
   },
 
   start = "hello",

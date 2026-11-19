@@ -7,7 +7,7 @@ P:NPC {
   key = "garrett", id = TODO_NPC("Michael Garrett"), name = "Michael Garrett",
   bible = "bibles/undercity.md", role = "flightmaster", tier = "service",
   communities = { "undercity" }, temper = { "dry", "calm" }, values = { "practical" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He shows his bats more warmth than most living things.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A living rider. The bats can smell your blood, so don't take it personally if they lick their lips." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "Keep your pet away from the roost, hunter. My bats are fond of a snack." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The bats are tilting their ears at your bag, listening to the hum of those shards. They'll settle once we're in the air, but don't let one bite the pack." },
   },
 
   start = "hello",
@@ -200,7 +202,7 @@ P:NPC {
   key = "hartwell", id = TODO_NPC("Anastasia Hartwell"), name = "Anastasia Hartwell",
   bible = "bibles/undercity.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "cold", "precise" }, values = { "ambitious" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
 
   impression = {
     first = "She has lost none of her impatience with fools.",
@@ -217,6 +219,8 @@ P:NPC {
       text = "A mage. Good, at least you'll understand what I'm saying." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "Death has left your mind intact, I see, so use it before it rots." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You wear a ward that drinks shadow, which is a sensible thing to do when your craft is mostly shadow. I'll grant you that much sense, at least." },
   },
 
   start = "hello",
@@ -373,7 +377,7 @@ P:NPC {
   key = "zinge", id = TODO_NPC("Apothecary Zinge"), name = "Apothecary Zinge",
   bible = "bibles/undercity.md", role = "questgiver", tier = "service",
   communities = { "undercity" }, temper = { "clinical", "busy" }, values = { "ambitious" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "She talks about her experiments the way others talk about weather.",
@@ -393,6 +397,8 @@ P:NPC {
       text = "A living one. Stand back from the vats, please, because some of these vapors are not kind to lungs that still work." },
     { id = "n_alchemist", cat = "class", when = { profession = "Alchemy" },
       text = "You've the stained fingers of an alchemist. Then you'll understand why I don't like being disturbed." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, carved from a warlock's craft. The Society has tried to replicate them, but the results were unpredictable, and Master Faranell does so hate unpredictable." },
   },
 
   start = "hello",

@@ -7,7 +7,7 @@ P:NPC {
   key = "kurll", id = TODO_NPC("Kurll"), name = "Kurll", title = "Food & Drink",
   bible = "bibles/azshara.md", role = "vendor", tier = "service",
   communities = { "valormok" }, temper = { "stubborn" }, values = { "dutiful", "careful" },
-  notices = { "drink" },
+  notices = { "drink", "lock_stones" },
 
   impression = {
     first = "He serves no grog, knows it's unpopular and doesn't care one bit.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You didn't get that drunk on anything I sell, so somebody's smuggling. Don't tell me who, I'd only have to do something about it." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in your pack, green as a toad, and at least it isn't grog. Eat it if you're hurt, but you'll still have milk with your meal, because I don't care how you heal yourself so long as you stay sober doing it." },
   },
 
   start = "hello",
@@ -202,7 +204,7 @@ P:NPC {
   key = "gruul_darkblade", id = TODO_NPC("Gruul Darkblade"), name = "Gruul Darkblade", title = "Weaponsmith",
   bible = "bibles/azshara.md", role = "vendor", tier = "service",
   communities = { "valormok" }, temper = { "gruff" }, values = { "honor", "craft" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "He has a short temper and a long grudge against Thalassian elves.",
@@ -218,6 +220,8 @@ P:NPC {
       text = "A warrior! Let me see that edge before you go anywhere near the elves. A dull blade gets an orc killed in this place." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "Daggers, eh? Fine, as long as you use them on the elves and not on anybody standing in this camp." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Shadows are boiling on your hands like smoke off a quenched blade, warlock. Keep them off my edges, because I've seen what that does to good steel, and I don't do refunds." },
   },
 
   start = "hello",

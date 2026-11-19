@@ -7,7 +7,7 @@ P:NPC {
   title = "General Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "theramore" }, temper = { "cheerful", "busy" }, values = { "kind", "practical" },
-  notices = { "hunger", "weary" },
+  notices = { "hunger", "weary", "lock_shards" },
 
   impression = {
     first = "She knows every soldier's boot size and every sailor's sweet tooth.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "It's supper time, dear, and you look as though you skipped dinner too. Buy a loaf before the guards come in off watch and clear me out." },
     { id = "n_ressick", cat = "weary", when = { resSick = true },
       text = "Oh, you're pale as milk, dear! The marsh got you, did it? Sit on that barrel a moment before you do anything else." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those stones in your bag are humming loud enough for me to hear over the till. Captain Vimes asks me who buys what, and I tell him, so I'm glad they're not something you bought here." },
   },
 
   start = "hello",
@@ -216,7 +218,7 @@ P:NPC {
   title = "Armorer & Shieldsmith",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "theramore" }, temper = { "gruff", "proud" }, values = { "dutiful", "practical" },
-  notices = { "kit", "class" },
+  notices = { "kit", "class", "lock_armor" },
 
   impression = {
     first = "He takes rust as a personal enemy.",
@@ -233,6 +235,8 @@ P:NPC {
       text = "Look at that. Rusted at the joints and dented at the front, which tells me you've been wading in the marsh and getting hit while you did it." },
     { id = "n_shield", cat = "class", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } },
       text = "You'd carry a shield, by the look of you. Good, because there's no better friend against a raptor than a stout board of oak and iron." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon skin you're wearing, and I'll not call it armour, because I watched what wore that skin before tear through plate I'd made myself. I'll sell you a real shield off the rack if you want one, and that's all." },
   },
 
   start = "hello",
@@ -426,7 +430,7 @@ P:NPC {
   title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "blacksmith", tier = "service",
   communities = { "theramore" }, temper = { "easy", "talkative" }, values = { "practical", "honest" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "His easy manner doesn't match the weapons he sells.",
@@ -444,6 +448,8 @@ P:NPC {
       text = "You'll want something short and quiet, I expect. I've a rack of good daggers by the door, friend, and they sell best to people with your look." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Go on, pick one up and tell me what's wrong with it; every dwarf who comes in here does. I don't mind, because half the time you're right." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone you're carrying? I've heard they put a heat in a blade that no forge can match, and I'd love to see what one does to good Theramore steel, though Hans would never speak to me again." },
   },
 
   start = "hello",

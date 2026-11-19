@@ -207,7 +207,7 @@ P:NPC {
   key = "rigglefuzz", id = TODO_NPC("Rigglefuzz"), name = "Rigglefuzz",
   bible = "bibles/badlands_camps.md", role = "questgiver", tier = "quest",
   communities = { "badlands" }, temper = { "jovial" }, values = { "practical" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "He's convinced buzzard wings are his ticket to riches.",
@@ -216,6 +216,11 @@ P:NPC {
 
   greetings = {
     { id = "g_cook", text = "Hey, hey, you hungry, pal? No? Give it a minute, because one whiff of this grill and you'll be reachin' for your purse." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Whoa, that bag's full of soul shards, pal, and in this market those go for more than my whole grill. Not that I'm buyin', and not that you're sellin', but I'm just sayin', you're walkin' around with a fortune." },
   },
 
   start = "hello",

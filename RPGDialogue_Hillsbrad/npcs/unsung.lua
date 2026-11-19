@@ -7,7 +7,7 @@ P:NPC {
   title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "wry", "patient" }, values = { "practical", "loyal" },
-  notices = { "craft", "weary" },
+  notices = { "craft", "weary", "lock_shards" },
 
   impression = {
     first = "Whatever she and Donald are to each other, she enjoys the secret.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "You smell of the sea and you've a hook in your hat brim, so you're one of us. Mind you don't get it caught on the door frame like Donald does." },
     { id = "n_wet", cat = "weary", when = { deathCause = "drowning" },
       text = "You've the look of someone the bay nearly kept, love. Sit a moment before you go back out; the water's colder than it looks." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks like a tackle box full of sinkers, only colder, and I don't think those are sinkers. Don't let Donald see them, or he'll want to know whether they float." },
   },
 
   start = "hello",
@@ -227,7 +229,7 @@ P:NPC {
   title = "Alchemy Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "anxious", "earnest" }, values = { "careful", "kind" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He reads every label twice and still doesn't sleep.",
@@ -244,6 +246,8 @@ P:NPC {
       text = "An alchemist, or at least a picker, I can see the green on your fingers. Hillsbrad's a good place for herbs, friend, as long as you know which fields to stay out of." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "Light above, one of them, here! Please, I don't want any trouble, and I've nothing in this shop worth stealing for your apothecaries." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Something in your pack is glowing red through the leather, and I can feel the heat of it from behind the counter. I sell candles and chalk and nothing that burns on its own, so do keep it away from the lamp oil." },
   },
 
   start = "hello",
@@ -421,7 +425,7 @@ P:NPC {
   title = "Trade Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "brisk", "friendly" }, values = { "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
 
   impression = {
     first = "Micha tells the town's business through what it buys.",
@@ -436,6 +440,8 @@ P:NPC {
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Engineering" } },
       text = "A crafter, I can always tell by the calluses, and Southshore always needs more of you. Most of my customers are soldiers patching their own boots, and badly." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That pale stone you're carrying looks as if someone inside it is waiting to be let out. I don't ask what goods are for, as a rule, but I'll admit that one has me curious." },
   },
 
   start = "hello",
@@ -624,7 +630,7 @@ P:NPC {
   title = "Merchant Supplier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore", "tarren_mill" }, temper = { "breezy", "sly" }, values = { "greedy", "practical" },
-  notices = { "purse", "race" },
+  notices = { "purse", "race", "lock_shards" },
 
   impression = {
     first = "The goblin sells to both sides of the war and laughs.",
@@ -641,6 +647,8 @@ P:NPC {
       text = "Now there's a purse that jingles in all the right places! Step this way, friend, and let me show you the good stock, the stuff I don't show the soldiers 'cause soldiers haggle." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Go on, have a look at the Overwatch units, buddy, I know you're itchin' to. Don't open the panels, though, 'cause they bite, and the last fella who tried is still payin' for his eyebrows." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Now that's a bag full o' somethin'! Fifteen, twenty shards if I'm countin' the clinks right, and in Booty Bay there's folk who'd pay a fine price just for the privilege of never askin' where they came from." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/badlands.md", role = "soldier", tier = "quest",
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
   prejudice = { class = "WARLOCK", faction = "Horde", amount = 10, why = "An old Horde warrior who remembers Gul'dan's warlocks leading the orcs to demon blood." },
-  notices = { "race", "class", "level" },
+  notices = { "race", "class", "level", "lock_taint" },
 
   impression = {
     first = "He is lonely on that tower and admits to talking to vultures.",
@@ -39,6 +39,8 @@ P:NPC {
       text = "You're young for the Badlands, so stay south of the Spire; the Blackrock eat young things." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. Good; the spirits of this rock have been angry since before I came, and nobody here knows how to ask them why." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's green in your eyes, and I've seen that green before, in the eyes of orcs who drank from Gul'dan's cup. I know what came after it, so mind how much of it you let in, because I won't watch another orc go that way." },
   },
 
   start = "hello",
@@ -1094,7 +1096,7 @@ P:NPC {
   key = "lexlort", id = TODO_NPC("Lexlort"), name = "Lexlort",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "terse" }, values = { "practical", "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
 
   impression = {
     first = "He spends words as though each might be overheard and sold.",
@@ -1108,6 +1110,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "One of ours, in trade if not in uniform. You'll understand why I don't say much." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have a shine on them that sees what's tucked away in shadow, which means you'd probably see me if I wanted to hide. That makes me nervous, and a nervous scout is a careful one, so I suppose I should thank you." },
   },
 
   start = "hello",
@@ -1337,7 +1341,7 @@ P:NPC {
   key = "shulkar", id = TODO_NPC("Innkeeper Shul'kar"), name = "Innkeeper Shul'kar",
   bible = "bibles/badlands.md", role = "innkeeper", tier = "service",
   communities = { "kargath" }, temper = { "warm" }, values = { "generous", "loyal" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shards" },
 
   impression = {
     first = "His inn is the softest corner of a hard place.",
@@ -1357,6 +1361,8 @@ P:NPC {
       text = "You look half dead, and I've got Forsaken guests, so I know what that looks like. Rest, friend." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy, now; the road to the Spire is hard enough sober." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "That bag of yours is fair stuffed with soul shards, and I can hear them clinking from behind the bar. I've a dozen recipes that call for something with that sort of chill, but don't worry, I'll not ask, and you'll not offer." },
   },
 
   start = "hello",

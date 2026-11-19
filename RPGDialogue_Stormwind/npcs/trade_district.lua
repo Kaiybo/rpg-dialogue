@@ -7,7 +7,7 @@ P:NPC {
   key = "renato", id = TODO_NPC("Renato Gallina"), name = "Renato Gallina",
   bible = "bibles/trade_district.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "proud", "friendly" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_shards" },
   impression = {
     first = "He decides everyone has discerning taste before they say a word.",
     third = "{name} met Renato Gallina, who cries the Gallina Winery's wine across the Trade District square.",
@@ -34,6 +34,8 @@ P:NPC {
       text = "A dwarf, and a dwarf who'll tell me wine is for elves, I expect. Try a glass before you say it, and then say it if you still can." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "Ah, you've started without us! Not on Gallina wine, though, I can smell that from here, and it's a shame." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag is cold as a wine cellar, friend, and it clinks like a crate of good bottles, though I suspect it's neither. Take a ticket anyway, because the Lamb's people are my best customers and I'll not lose another." },
   },
 
   start = "hello",
@@ -265,7 +267,7 @@ P:NPC {
   key = "elaine_trias", id = TODO_NPC("Elaine Trias"), name = "Elaine Trias", title = "Mistress of Cheese",
   bible = "bibles/trade_district.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "practical", "cunning" },
-  notices = { "light", "kin", "watch" },
+  notices = { "light", "kin", "watch", "lock_steed" },
   impression = {
     first = "Very little gets past her, and she lets you see that.",
     third = "{name} met Elaine Trias, the Mistress of Cheese in the Trias family's Trade District shop.",
@@ -285,6 +287,8 @@ P:NPC {
       text = "You looked at my stairs before you looked at my cheese. Most people do it the other way round, and the ones who don't usually end up as friends of my husband's." },
     { id = "n_elf", cat = "kin", when = { race = "NightElf" },
       text = "We sell a Darnassian bleu, you know, and I'd value a kaldorei opinion of it. Elling says it has opinions of its own." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse of yours left green fire in the cobbles, and every customer at my counter has stepped round it twice. The cheese smells of sulphur now, so I'd ask you to tie it further down the street next time." },
   },
 
   start = "hello",
@@ -500,7 +504,7 @@ P:NPC {
   key = "mullby", id = TODO_NPC("Thurman Mullby"), name = "Thurman Mullby", title = "General Goods",
   bible = "bibles/trade_district.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "hardworking" },
-  notices = { "light", "kin", "kit" },
+  notices = { "light", "kin", "kit", "lock_soulstone" },
   impression = {
     first = "He keeps a list of everything travellers forget to pack.",
     third = "{name} met Thurman Mullby of Everyday Merchandise, who sells the Trade District what it forgot to pack.",
@@ -517,6 +521,8 @@ P:NPC {
       text = "City born or Elwynn born, you'll know the corner shop, then. My counter's been here longer than the auction house next door." },
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
       text = "Light's sake, friend, you're carrying nothing at all. Start with a bag, and we'll work our way up from there." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You've a soulstone in your bag and nobody to give it to, by the look of you, which is the one thing I can't sell you. Bread and water I have plenty of, though, and you'll want both before you go." },
   },
 
   start = "hello",
@@ -681,7 +687,7 @@ P:NPC {
   key = "gunther_weller", id = TODO_NPC("Gunther Weller"), name = "Gunther Weller", title = "Weapons Merchant",
   bible = "bibles/trade_district.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "proud", "honest" },
-  notices = { "light", "kin", "kit" },
+  notices = { "light", "kin", "kit", "lock_armor" },
   impression = {
     first = "He has little patience for shine and endless patience for balance.",
     third = "{name} met Gunther Weller of Weller's Arsenal, a blunt weapons merchant by the auction house.",
@@ -698,6 +704,8 @@ P:NPC {
       text = "Stormwind steel for a Stormwind hand. You'll find nothing on these walls made further off than Ironforge." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Look at the state of that. You've been hitting stone with it, or something harder, and it's telling you so." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "There's shadow boiling off your hands like smoke off a quenched blade, and you're holding it as if it doesn't sting. Don't touch my steel while it's doing that, because I'll never get the stain out." },
   },
 
   start = "hello",
@@ -862,7 +870,7 @@ P:NPC {
   key = "crier_goodman", id = TODO_NPC("Crier Goodman"), name = "Crier Goodman",
   bible = "bibles/trade_district.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "eager" }, values = { "loyal", "proud" },
-  notices = { "light", "kin", "deed" },
+  notices = { "light", "kin", "deed", "lock_soulstone" },
   impression = {
     first = "He will announce you to the whole street before you introduce yourself.",
     third = "{name} met Crier Goodman, Stormwind's town crier, who calls heroes to the far corners of the world.",
@@ -884,6 +892,8 @@ P:NPC {
       text = "A son or daughter of Stormwind! I cry the King's news, friend, and it's yours before anyone's." },
     { id = "n_level", cat = "deed", when = { minLevel = 55 },
       text = "I know that look, hero. You've been where my notices point, haven't you, and come back to read the next one." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Hear ye, hear ye, here stands someone whose soul is sitting in a stone, and the crier's never had news quite like that! Forgive me, but I can feel it from here, and I'm always the first to say what everybody's thinking." },
   },
 
   start = "hello",
@@ -1120,7 +1130,7 @@ P:NPC {
   key = "dungar", id = TODO_NPC("Dungar Longdrink"), name = "Dungar Longdrink", title = "Gryphon Master",
   bible = "bibles/trade_district.md", role = "flightmaster", tier = "quest",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "practical", "patient" },
-  notices = { "light", "kin", "dwarf" },
+  notices = { "light", "kin", "dwarf", "lock_steed" },
   impression = {
     first = "He is human, whatever his name suggests, and tired of saying so.",
     third = "{name} met Dungar Longdrink, Stormwind's gryphon master at the roost in the Trade District.",
@@ -1138,6 +1148,8 @@ P:NPC {
       text = "One of ours! A Stormwind {g:lad|lass} ought to know a gryphon from a griffon, so tell me you do." },
     { id = "n_dwarf", cat = "dwarf", when = { race = "Dwarf" },
       text = "No, I'm not a dwarf, whatever my name says. I've heard the joke from every dwarf who's ever come up these stairs, so you can save yours." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Keep that burning horse well off my roost, because the gryphons have been shrieking since it came up the road. A bird that smells demon won't settle for an hour, and I've a flight to Lakeshire leaving." },
   },
 
   start = "hello",
@@ -1340,7 +1352,7 @@ P:NPC {
   key = "morgan_pestle", id = TODO_NPC("Morgan Pestle"), name = "Morgan Pestle",
   bible = "bibles/trade_district.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "practical", "careful" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_stones" },
   impression = {
     first = "He measures a person up the way he would measure a powder.",
     third = "{name} met Morgan Pestle, alchemist of Pestle's Apothecary in the Trade District.",
@@ -1357,6 +1369,8 @@ P:NPC {
       text = "From Elwynn, by the look of you? Then you may have met my brother William, at the Goldshire inn, smelling of candle wax." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "You've stained fingers, and that's an alchemist's stain. Who taught you? Someone who didn't make you wear gloves, I see." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That healthstone you carry didn't come off my shelves, so a warlock made it, and I'd like to know which one. My potions do the same work honestly, and I'd thank you to buy from me next time." },
   },
 
   start = "hello",
@@ -1543,7 +1557,7 @@ P:NPC {
   key = "harlan", id = TODO_NPC("Harlan Bagley"), name = "Harlan Bagley",
   bible = "bibles/trade_district.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "hardworking" },
-  notices = { "light", "kin", "kit" },
+  notices = { "light", "kin", "kit", "lock_armor" },
   impression = {
     first = "His armory has never done better, and not knowing why worries him.",
     third = "{name} met Harlan Bagley, who keeps the Lionheart Armory on the Trade District square.",
@@ -1560,6 +1574,8 @@ P:NPC {
       text = "A Stormwind customer! You'll know the Lionheart's been here since the city was rebuilt, then, and that we've never been this busy." },
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
       text = "Light above, you're nearly bare! Step in before the guards think you've been robbed on the bridge." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a demon's hide you're wearing for armour, and it doesn't even show the dents. If it caught on I'd be out of business by the spring, so I'm hoping it smells too bad to catch on." },
   },
 
   start = "hello",

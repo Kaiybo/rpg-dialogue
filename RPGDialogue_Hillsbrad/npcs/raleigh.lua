@@ -12,7 +12,7 @@ P:NPC {
   bible = "bibles/raleigh.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
   prejudice = { class = "WARLOCK", amount = 8, why = "Six years of Crusade sermons he is trying to unlearn." },
-  notices = { "light", "scarlet" },
+  notices = { "light", "scarlet", "lock_shadow" },
 
   impression = {
     first = "He wore the Crusade's red once, and still watches the north road.",
@@ -34,6 +34,8 @@ P:NPC {
       text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
       text = "That letter bears the Crusade's seal, red wax and a burning sword, and I used to press it myself." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Forgive me, but I felt the Light draw back from you when you came in, the way a hand draws back from a hot stove. The Crusade would have called that proof enough, and I'm trying very hard to remember that it isn't." },
   },
 
   start = "hello",

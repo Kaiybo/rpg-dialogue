@@ -9,7 +9,7 @@ P:NPC {
   key = "sara_balloo", id = TODO_NPC("Sara Balloo"), name = "Sara Balloo",
   bible = "bibles/military_ward.md", role = "citizen", tier = "quest",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "loving", "loyal" },
-  notices = { "soldier" },
+  notices = { "soldier", "lock_soulstone" },
 
   impression = {
     first = "She waits for news of her husband Sully and questions every traveler.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A priest. I've had the High Priest's people by, an' they're very kind, but I don't want tae be prayed at today; I only want tae sit." },
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" }, ["not"] = { questDone = TODO_QUEST("Sully Balloo's Letter") } },
       text = "Ye carry yerself like a soldier. Have ye been up through the Wetlands, past Dun Modr? My Sully's posted there." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've a soul bound in a stone, haven't ye? I can see it on ye, a kind o' shiver, an' it makes me wish my Sully had carried one tae the Thandol Span, whatever the priests say about it." },
   },
 
   start = "hello",
@@ -277,7 +279,7 @@ P:NPC {
   key = "kelstrum", id = TODO_NPC("Kelstrum Stonebreaker"), name = "Kelstrum Stonebreaker", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "stern", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "He said I wouldn't last a day under him, and laughed.",
@@ -300,6 +302,8 @@ P:NPC {
       text = "A dwarf warrior, standin' like the Ward taught ye, more or less. Shoulders back; ye're no' carryin' a keg." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "One o' Brandur Ironhammer's paladins, by the shine on ye. Mind ye don't blind my students, for they've enough trouble seein' a punch comin'." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There's a black shell on ye that drinks the light, an' my lads would want tae test it wi' an axe. I'll grant it's a clever piece o' warding, but I'll no' have ye showin' it off in my Hall where they can see." },
   },
 
   start = "hello",
@@ -503,7 +507,7 @@ P:NPC {
   key = "bilban", id = TODO_NPC("Bilban Tosslespanner"), name = "Bilban Tosslespanner", title = "Warrior Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "practical", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He explains swordplay as if it were a faulty machine.",
@@ -520,6 +524,8 @@ P:NPC {
       text = "Due to incompatibility in your class specification, I am unable to train you. I can, however, recommend that you stand behind someone I have trained." },
     { id = "n_gnome_war", cat = "class", when = { class = "WARRIOR", race = "Gnome" },
       text = "A gnome warrior! Low center of gravity, excellent; most opponents' guards are calibrated for a target twice your height." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "I count twenty-plus soul shards in that bag by the clink alone, and I'm usually accurate to within two. That's a great many creatures that aren't walking around any longer, so I'll note it in the file as productive, if somewhat alarming." },
   },
 
   start = "hello",
@@ -720,7 +726,7 @@ P:NPC {
   key = "daera", id = TODO_NPC("Daera Brightspear"), name = "Daera Brightspear", title = "Hunter Trainer",
   bible = "bibles/military_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "steady" }, values = { "practical", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "She seems to trust beasts more than people.",
@@ -737,6 +743,8 @@ P:NPC {
       text = "{pet}, is it? That's a good name, an' the beast'll answer tae it as long as ye feed it, an' longer, if ye're kind." },
     { id = "n_priest", cat = "pet", when = { class = "PRIEST" },
       text = "A priest in the Hall o' Arms. Ye'd make a fair hunter, I think; ye already know how tae keep somethin' alive that'd rather bite ye." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Yon horse wi' the burnin' hooves stays wi' ye for the same reason yer imp does, because ye've a chain on it. A hunter's beast follows because it wants tae, an' that difference is the whole o' my trade, so keep it away from my wolves." },
   },
 
   start = "hello",

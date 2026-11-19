@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   likesTone = "blunt",
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_shards", "lock_armor" },
   impression = {
     first = "I would not want to face the wrong end of his blade.",
     third = "{name} met Executor Zygand, commander of the Deathguard in Tirisfal, who means to see the Scarlet Crusade driven from the glades.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "The zealots marked you. Mend yourself, and then repay them in kind." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "One of our living allies. Tirisfal is not kind to the breathing, so watch the fields." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry souls in your bag the way a soldier carries rations, {class}. Spend them on the Crusade, and let the zealots learn what it means to be harvested." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon-hide ward is exactly the sort of thing the Crusade points to when they call us all monsters. Wear it at the front, where it frightens them, and not in Brill, where it frightens my people." },
   },
 
   start = "hello",
@@ -757,7 +761,7 @@ P:NPC {
   key = "coleman", id = TODO_NPC("Coleman Farthing"), name = "Coleman Farthing",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "bitter" }, values = { "proud" },
-  notices = { "drink" },
+  notices = { "drink", "lock_soulstone" },
   impression = {
     first = "He died defending the Agamands' mills and has not forgiven them.",
     third = "{name} met Coleman Farthing in the Gallows' End, a former mill hand who wants the risen Agamands put to rest for good.",
@@ -772,6 +776,8 @@ P:NPC {
   notice = {
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Drinking? I miss it, you know, the taste of it. Enjoy it for me, there's a good fellow." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's tucked your soul away in a stone, haven't they? I came back once without anyone asking my leave, and I'd have liked to choose, so I envy you a little." },
   },
 
   start = "hello",
@@ -915,7 +921,7 @@ P:NPC {
   key = "gretchen", id = TODO_NPC("Gretchen Dedmar"), name = "Gretchen Dedmar",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "chilly" }, values = { "practical" },
-  notices = { "weary" },
+  notices = { "weary", "lock_pact" },
   impression = {
     first = "What she misses most is being cold.",
     third = "{name} met Gretchen Dedmar, a chilly regular of the Gallows' End who has found a way to keep death's cold at bay for a time.",
@@ -931,6 +937,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Fresh from the spirit healer? You've a bit of the grave on you still, but it fades." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're giving off heat like a hearth, and I can actually feel it, which is more than any fire in this tavern has managed since I woke. Stand there a moment longer, would you?" },
   },
 
   start = "hello",
@@ -1090,7 +1098,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/tirisfal.md", role = "innkeeper", tier = "service",
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_shadow" },
   impression = {
     first = "She once hurt people for a cause, and now she pours drinks.",
     third = "{name} met Innkeeper Renee of the Gallows' End, who left a harder life behind to look after Brill's guests, living and dead alike.",
@@ -1114,6 +1122,8 @@ P:NPC {
       text = "You look like you've been dug up twice. Sit down, love, and whatever you need, I'll bring it." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
       text = "A living guest! We keep food for your sort, and it's fresh, even. Mostly fresh, anyway." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps dipped when you came through the door, and the regulars all looked up, which they don't do for much. Sit by the window, love, and I'll bring your drink over there." },
   },
 
   start = "hello",
@@ -1331,7 +1341,7 @@ P:NPC {
   key = "eleanor", id = TODO_NPC("Eleanor Shackleton"), name = "Eleanor Shackleton",
   bible = "bibles/tirisfal.md", role = "questgiver", tier = "quest",
   communities = { "brill" }, temper = { "composed" }, values = { "curious", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "She told me she was not with the Crusade before I asked.",
     third = "{name} met Eleanor Shackleton, a traveller camped on the road near Brill who teaches anyone willing how to make a proper camp.",
@@ -1347,6 +1357,8 @@ P:NPC {
       text = "A cook? Then you can build a proper campfire already, or nearly, and everything else in a camp starts from that." },
     { id = "n_leather", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker. You'll want to learn the tent. A good tent near a fire makes a night's rest worth twice as much." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse of yours leaves fire in its hoofprints, and the Crusade's scouts could follow that trail all the way from the monastery. If you camp near me tonight, tether it a long way off." },
   },
 
   start = "hello",

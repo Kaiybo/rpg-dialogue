@@ -10,7 +10,7 @@ P:NPC {
   title = "Ditch Digger",
   bible = "bibles/enclave.md", role = "worker", tier = "quest",
   communities = { "darnassus" }, temper = { "proud", "chatty" }, values = { "ambitious", "proud" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards" },
 
   impression = {
     first = "He digs ditches and insists he is a visionary kept down.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "One of the Circle's own. Tell the Arch Druid I'm still out here, would you? He forgets, and I suspect it's on purpose." },
     { id = "n_dirty", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You've been rolling in worse dirt than mine, I see. Mine is at least sorted." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your satchel hums like a dowsing rod over a hidden spring, and I've half a mind to dig right where you're standing. I won't, of course, because it would be very hard to explain to the Archdruid." },
   },
 
   start = "hello",
@@ -253,7 +255,7 @@ P:NPC {
   title = "Rogue Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "cold", "sharp" }, values = { "cunning", "careful" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
 
   impression = {
     first = "Under the chill, she cares deeply about Teldrassil's forests.",
@@ -272,6 +274,8 @@ P:NPC {
       text = "A priest, in the dim corners of the Enclave. Your kind usually stands in the middle of the room and glows; it's restful to see one who doesn't." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I saw you come in, so you can stop that. It was decent work, though, and better than Jannok's couriers ever manage." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have been touched to see what hides, and you looked straight at the student crouched in the corner as you came in. I'll thank you not to ruin a lesson, and I'll remind you that I can see you just as well." },
   },
 
   start = "hello",
@@ -484,7 +488,7 @@ P:NPC {
   title = "Hunter Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "stern", "steady" }, values = { "wise", "proud" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_pact" },
 
   impression = {
     first = "She is stern, but she watches the young ones with pride.",
@@ -503,6 +507,8 @@ P:NPC {
       text = "A good cat, and well kept. Mind its claws in the Enclave; the druids take it personally." },
     { id = "n_pet_any", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
       text = "{pet} looks healthy and alert. That tells me more about you than anything you could say." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "My cat bristles at the heat in your blood, and so do I, for that is an imp's fever in you and not your own warmth. A bond freely made doesn't burn, warlock." },
   },
 
   start = "hello",
@@ -748,7 +754,7 @@ P:NPC {
   title = "Druid Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm", "patient" }, values = { "wise", "loyal" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_shadow" },
 
   impression = {
     first = "He blesses everyone in Cenarius's name, druid or not.",
@@ -767,6 +773,8 @@ P:NPC {
       text = "You wear that shape well, but take it off before you sit down, please. The benches are older than you are." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
       text = "Running indoors? The Arch Druid would have words, and none of them kind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The moss on the stones has drawn back from your boots, and that moss has grown there since the first roots of this city were sunk. I will not offer you tea, but I will ask you to keep to the path." },
   },
 
   start = "hello",

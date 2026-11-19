@@ -7,7 +7,7 @@ P:NPC {
   key = "tommyjoe", id = TODO_NPC("Tommy Joe Stonefield"), name = "Tommy Joe Stonefield",
   bible = "bibles/tommyjoe.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "romantic" },
-  notices = { "craft", "pet" },
+  notices = { "craft", "pet", "lock_armor" },
   impression = {
     first = "He says he's only watching the water, and says it too quickly.",
     third = "{name} met Tommy Joe Stonefield by the river, where he is certainly not waiting for anyone in particular.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "You fish? This bend's the best on the river. I come here to think, mostly. Sometimes I catch something by accident." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Good-looking animal. We had a dog like that. Gramma says it was the only Stonefield with any sense." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Is that your own skin gone dark like that, or are you wearing something? Gramma's stories had a man whose hide turned to a demon's, and I always thought she made that bit up." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "thenysil", id = TODO_NPC("Sentinel Thenysil"), name = "Sentinel Thenysil",
   bible = "bibles/ashenvale.md", role = "soldier", tier = "quest",
   communities = { "astranaar" }, temper = { "measured" }, values = { "dutiful", "devout" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
   impression = {
     first = "She says little, but what she says tends to reach Darnassus.",
     third = "{name} met Sentinel Thenysil of Astranaar, who sends word of proven heroes to Tyrande Whisperwind.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "A human, this deep in Ashenvale. The High Priestess once had harsh words for your people, and she has softer ones now, so earn them." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
       text = "A priest of the Light. The Sisterhood would say we pray to the same dawn by different names, and some days I believe it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The cold off your pack tells me you have taken a great many souls lately, and I hope the satyrs of Satyrnaar gave up most of them. If so, you have done more for Ashenvale than half the travellers on this road." },
   },
 
   start = "hello",
@@ -267,7 +269,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/ashenvale.md", role = "flightmaster", tier = "service",
   communities = { "astranaar" }, temper = { "wry" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
   impression = {
     first = "She flies her birds low over the trees and doesn't apologise.",
     third = "{name} met Daelyshia, the hippogryph master of Astranaar.",
@@ -281,6 +283,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Promise me you won't try to improve the harness. The last one of your folk who tried came down in Lake Iris." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You have a fever-heat on you that the birds do not like, and I would guess an imp has put its pact in your blood. Sit still and let the wind cool you, and they will carry you all the same." },
   },
 
   start = "hello",

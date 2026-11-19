@@ -10,7 +10,7 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   likesTone = "polite",
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_taint" },
   impression = {
     first = "He means to keep Mulgore, and I would not test him.",
     third = "{name} met Cairne Bloodhoof, who leads the tauren tribes of Mulgore from the High Rise of Thunder Bluff.",
@@ -35,6 +35,10 @@ P:NPC {
       text = "The sky-people who came down to Mulgore. The Earthen Ring spoke for you, and the tauren keep the word of friends. Walk freely here." },
     { id = "n_alliance", cat = "race", when = { faction = "Alliance" },
       text = "An outsider on the High Rise. You came in peace, or the Bluffwatchers would have said otherwise. Say what you came to say." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My eyes are old, but I can see the shadow you carry, and it falls toward the totems instead of away from the sun. Thrall told me his people wore that shadow for a generation, so speak plainly and stand in the light while you do." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a fel heat on you, child, the same that Thrall told me burned in the orcs' blood when they drank from Mannoroth's cup. I pray you've gone less deep than they did, because it took them a lifetime and a Warchief to be free of it." },
   },
 
   start = "hello",
@@ -703,7 +707,7 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
   likesTone = "polite",
-  notices = { "form", "race" },
+  notices = { "form", "race", "lock_shards", "lock_steed" },
   impression = {
     first = "He has spent years trying to be worth Malfurion's yes.",
     third = "{name} met Arch Druid Hamuul Runetotem on Elder Rise, the first tauren to learn the druid's path from Malfurion Stormrage.",
@@ -722,6 +726,10 @@ P:NPC {
       text = "Ha! The bear, my favourite. Remember that the bear is strong because it rests, so rest, young one." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne", class = "DRUID" },
       text = "A shen'dorei druid! You honour the elements first, I'm told, which suits me; the Earth Mother is the earth, after all. We'll get along." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in your pack are humming like hornets in a burned tree, and every one of them holds a life that should have gone back to the earth. The Circle teaches that death feeds the land, and you are starving it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That beast you ride is no horse, because the grass burns black under its hooves and the elders' kodos are shying from the lifts. Dismount, please, before it scorches a path across Elder Rise." },
   },
 
   start = "hello",
@@ -1055,7 +1063,7 @@ P:NPC {
   key = "turak", id = TODO_NPC("Turak Runetotem"), name = "Turak Runetotem",
   bible = "bibles/thunderbluff.md", role = "trainer", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "patient" }, values = { "balanced", "wise" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_pact" },
   impression = {
     first = "To him balance is practised daily, like any honest craft.",
     third = "{name} met Turak Runetotem, who helps the Arch Druid train young druids on Elder Rise.",
@@ -1071,6 +1079,8 @@ P:NPC {
   notice = {
     { id = "n_cat", cat = "form", when = { form = "cat" },
       text = "Swift and quiet, the cat. Mind it doesn't make you forget the rest of what you are." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood is running hot as a fever, though you look well enough, and I'd guess your imp put it there. My students take the cat's shape to learn patience, and you've let a fire-spirit settle in your veins instead." },
   },
 
   start = "hello",
@@ -1267,7 +1277,7 @@ P:NPC {
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
   likesTone = "polite",
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_soulstone", "lock_shards" },
   impression = {
     first = "Every courtesy she offered came with a reason she kept to herself.",
     third = "{name} met Magatha Grimtotem, the sharp-tongued Elder Crone of the Grimtotem who dwells on Elder Rise.",
@@ -1291,6 +1301,10 @@ P:NPC {
       text = "Forsaken. Don't flinch; I don't hate you, and our ways might give you back a little of what you lost. Some here think I've other reasons, so let them think." },
     { id = "n_outsider", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } },
       text = "The lesser races walk on Elder Rise now; what a time we live in. Keep your hands where I can see them." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has tucked your soul away in a stone for safekeeping, I see. How touching, and how foolish to trust the hand that holds it, because a soul that can be kept can be kept a very long while." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "So many souls rattling in one bag, and every one of them cold. Cairne would be horrified, which is the most charming thing about you so far." },
   },
 
   start = "hello",
@@ -1655,7 +1669,7 @@ P:NPC {
   key = "pala", id = TODO_NPC("Innkeeper Pala"), name = "Innkeeper Pala",
   bible = "bibles/thunderbluff.md", role = "innkeeper", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_stones" },
   impression = {
     first = "She fusses over her guests like a mother and enjoys every minute.",
     third = "{name} rested at Innkeeper Pala's inn, the Cat and the Shaman, high on the bluffs of Thunder Bluff.",
@@ -1676,6 +1690,8 @@ P:NPC {
       text = "Oh, look at you! Sit, sit; stew first, then sleep, and then you can go and get hurt again, though the Earth Mother knows I wish you wouldn't." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "You look chilled through, but sit by the fire anyway; warm's warm, whatever's underneath." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you carry has a warlock's work on it, child, because it smells of burnt hair and copper. Eat my stew instead, which will mend you just as well and won't have cost anyone their life to make." },
   },
 
   start = "hello",

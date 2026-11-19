@@ -8,7 +8,7 @@ P:NPC {
   key = "if_ulbrek", id = TODO_NPC("Ulbrek Firehand"), name = "Ulbrek Firehand",
   bible = "bibles/wards_cavern.md", role = "stablemaster", tier = "service",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "kind", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He talks to his animals more than he talks to people.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "There's a fine beast at yer heel, an' it's been well fed, I can see. It trusts ye, an' ye cannae buy that wi' any amount o' meat." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Every beast in these stalls is up an' pacin', an' the bear in the third stall is awake, which means yer felsteed's close. I'll no' stable that thing, so leave it outside the cavern, for the sake o' my bear's temper." },
   },
 
   start = "hello",
@@ -202,7 +204,7 @@ P:NPC {
   key = "if_bixi", id = TODO_NPC("Bixi Wobblebonk"), name = "Bixi Wobblebonk",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "friendly", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "Her cheer is slightly alarming, given what she teaches.",
@@ -217,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue! You lot always want daggers, and you always hold them wrong at first. Let me see your grip before you leave." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking with shadow, and it's curling round your fingers like you've just dipped them in ink. A blade never does that, which is exactly my point about blades, so do wash before you handle my stock." },
   },
 
   start = "hello",
@@ -394,7 +398,7 @@ P:NPC {
   key = "if_ormyr", id = TODO_NPC("Ormyr Flinteye"), name = "Ormyr Flinteye",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "sharp" }, values = { "cunning", "discreet" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_eyes" },
 
   impression = {
     first = "He watches the entrance as if expecting someone he'd rather not see.",
@@ -409,6 +413,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I heard ye coming at the third step, so keep practicin'. Ye'll get there." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Yer eyes have a sheen on them like a cat's in lamplight, an' I'd wager they see what's tucked in the shadows o' this cavern. I'll thank ye no' tae point them at my students, for a rogue who's been seen is a rogue who's been taught a lesson." },
   },
 
   start = "hello",
@@ -585,7 +591,7 @@ P:NPC {
   key = "if_grimnur", id = TODO_NPC("Grimnur Stonebrand"), name = "Grimnur Stonebrand",
   bible = "bibles/wards_cavern.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "calm" }, values = { "patient", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
 
   impression = {
     first = "He finds it funny to teach fishing in a cavern without water.",
@@ -600,6 +606,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = { "Fishing" } },
       text = "Ye smell like a lake, friend, an' I mean that kindly. What were they bitin' on?" },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "Ye're breathin' strange, slow an' deep, like a body who could sit under the water an' never come up. I've wished for that a hundred times wi' a snagged line, so if it ever comes off on a fisherman, ye'll know where tae find me." },
   },
 
   start = "hello",
@@ -778,7 +786,7 @@ P:NPC {
   key = "if_tansy", id = TODO_NPC("Tansy Puddlefizz"), name = "Tansy Puddlefizz",
   bible = "bibles/wards_cavern.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "quick" }, values = { "friendly", "inventive" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
 
   impression = {
     first = "She speaks of Grimnur with great affection and mild exasperation.",
@@ -793,6 +801,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = { "Fishing" } },
       text = "Oh, a proper fisher! Tell me what lure you use, and I'll tell you what's wrong with it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My bait worms have all burrowed to the bottom of the tub, and they only do that before a thunderstorm or when something nasty walks in. You seem pleasant enough, but I'll keep the lid on the tub while you browse." },
   },
 
   start = "hello",

@@ -8,7 +8,7 @@ P:NPC {
   key = "jacques", id = TODO_NPC("Emissary Jacques"), name = "Emissary Jacques",
   bible = "bibles/southshore_more.md", role = "noble", tier = "quest",
   communities = { "southshore" }, temper = { "formal" }, values = { "dutiful", "proud" },
-  notices = { "class", "arcane" },
+  notices = { "class", "arcane", "lock_armor" },
 
   impression = {
     first = "It plainly costs him something to ask the Alliance for help.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "You've studied the arcane; I can feel it on you like static. Then you'll understand what it means when a city's ley lines turn against it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. Dalaran has never been comfortable asking the Light for help, but we're past comfortable now." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You're wearing a ward that drinks shadow, which is clever work, and the Violet Citadel would very much like to know where you learned it. I won't be the one to ask, because then I'd have to explain why I was talking to you." },
   },
 
   start = "hello",
@@ -246,7 +248,7 @@ P:NPC {
   key = "kundric", id = TODO_NPC("Kundric Zanden"), name = "Kundric Zanden",
   bible = "bibles/southshore_more.md", role = "scholar", tier = "quest",
   communities = { "southshore" }, temper = { "chatty" }, values = { "curious", "careful" },
-  notices = { "lore", "race" },
+  notices = { "lore", "race", "lock_pact" },
 
   impression = {
     first = "He regards the present mainly as material for later.",
@@ -264,6 +266,8 @@ P:NPC {
       text = "You've the look of someone who reads. Good; nobody in this town reads, and I'm tired of explaining what a century is." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! Dun Garok's just up the road, you know, and your people's part in Southshore's history is badly underwritten. By me, mostly." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever-flush on you, and the pages under my floorboards describe it exactly, a heat the Horde's warlocks shared with every orc in their war band. I'd write it up properly if I didn't think it would frighten the whole of Southshore." },
   },
 
   start = "hello",
@@ -490,7 +494,7 @@ P:NPC {
   key = "kelly", id = TODO_NPC("Barkeep Kelly"), name = "Barkeep Kelly",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "jovial" }, values = { "friendly", "practical" },
-  notices = { "drink", "class" },
+  notices = { "drink", "class", "lock_stones" },
 
   impression = {
     first = "He seems to know every rumour in town before the town does.",
@@ -512,6 +516,8 @@ P:NPC {
       text = "Somebody found the cellar before the bar! Was it Bilger's moonshine? Don't answer; I can tell by the eyes." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin! Bilger will want to talk to you, or hide from you, depending on his mood." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your belt pouch is a warlock's work, and don't bother telling me otherwise, because I've seen men bite one after a brawl and stand up whole. Who made it for you is the question the whole bar will be asking by supper." },
   },
 
   start = "hello",
@@ -704,7 +710,7 @@ P:NPC {
   key = "phin", id = TODO_NPC("Phin Odelic"), name = "Phin Odelic",
   bible = "bibles/southshore_more.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "sharp" }, values = { "curious", "loyal" },
-  notices = { "arcane", "class" },
+  notices = { "arcane", "class", "lock_shards" },
 
   impression = {
     first = "He worries about his friends more than he admits.",
@@ -722,6 +728,8 @@ P:NPC {
       text = "A mage! You'll forgive me for staring; I don't meet many colleagues since I left the Kirin Tor, and fewer who'd admit to knowing me." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. Good; if this is the plague I think it is, we'll need your sort, and plenty of you." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards in your bag give off the same cold I felt in Dalaran's lower vaults after the siege. My friends would want to study them, and I'd much rather they didn't, so let's keep that bag shut while we talk." },
   },
 
   start = "hello",
@@ -934,7 +942,7 @@ P:NPC {
   key = "malvew", id = TODO_NPC("Darren Malvew"), name = "Darren Malvew",
   bible = "bibles/southshore_more.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "gruff" }, values = { "hardworking", "loyal" },
-  notices = { "mount", "animal" },
+  notices = { "mount", "animal", "lock_shadow" },
 
   impression = {
     first = "He swears mountain lions are the worst of Hillsbrad's thieves.",
@@ -950,6 +958,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Now that's a fine animal under you! Treat it right, and keep it away from them hills." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every horse in the barn's got its ears pinned flat since ye walked up, an' the old mare's tryin' to back out through the wall. It ain't yer pet this time, it's you, an' I don't rightly know what to make o' that." },
   },
 
   start = "hello",
@@ -1140,7 +1150,7 @@ P:NPC {
   key = "jessen", id = TODO_NPC("Chef Jessen"), name = "Chef Jessen",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "proud" }, values = { "proud", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_taint" },
 
   impression = {
     first = "It pains him to say why he stopped making his turtle bisque.",
@@ -1156,6 +1166,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! I can tell by the burns. We'll talk, you and I, but you're not getting my bisque recipe." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Something about you has turned the cream on my counter, and that has never once happened before noon. You've a green smell on you, like the camps the orcs were kept in after the war, so please don't lean over the bisque." },
   },
 
   start = "hello",
@@ -1334,7 +1346,7 @@ P:NPC {
   key = "merideth", id = TODO_NPC("Merideth Carlson"), name = "Merideth Carlson",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "proud" }, values = { "proud", "stubborn" },
-  notices = { "class", "mount" },
+  notices = { "class", "mount", "lock_steed" },
 
   impression = {
     first = "The Silver Hand once called her mad, and she hasn't forgiven them.",
@@ -1351,6 +1363,8 @@ P:NPC {
       text = "A paladin, of course. Come to call me mad as well, have you?" },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Hm, that beast you're riding could use a good feed and a better rider. Well, the feed I can help with." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "I can smell that fire-hoofed thing of yours from here, and I can see the burnt path it's left through good pasture. A horse earns its rider over years, and that creature was simply ordered up, so don't expect me to admire it." },
   },
 
   start = "hello",
@@ -1546,7 +1560,7 @@ P:NPC {
   key = "rabonne", id = TODO_NPC("Donald Rabonne"), name = "Donald Rabonne",
   bible = "bibles/southshore_more.md", role = "trainer", tier = "service",
   communities = { "southshore" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_breath" },
 
   impression = {
     first = "He judges nothing that comes in on the tide by its fins.",
@@ -1561,6 +1575,8 @@ P:NPC {
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "A fisher, good! Lindea's got the bait, I've got the lessons, and the bay's got everything else." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You'll be breathing the water today, by the look of you, and you could sit on the bottom of the bay like a crab if you liked. I'd call that cheating if I weren't so jealous, because I've lost more good lures in those weeds than I could ever count." },
   },
 
   start = "hello",

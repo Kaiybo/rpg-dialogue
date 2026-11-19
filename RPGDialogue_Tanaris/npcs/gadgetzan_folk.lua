@@ -7,7 +7,7 @@ P:NPC {
   key = "gimblethorn", id = TODO_NPC("Gimblethorn"), name = "Gimblethorn", title = "Banker",
   bible = "bibles/tanaris.md", role = "banker", tier = "service",
   communities = { "gadgetzan" }, temper = { "dry" }, values = { "careful", "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "He counts every coin twice, once for the Cartel and once himself.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "That's a heavy purse to carry across a desert full of Wastewanders, friend. I'd let the vault carry it, if I were you." },
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } },
       text = "You can keep the vault for your things even with an empty purse, so don't look so worried, friend; nobody here charges you for being broke, though we do note it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tucked your soul into a stone for safekeeping, I see, and that's a deposit this bank never saw a fee for. Whoever's holding it, I hope they're more careful than the fellow whose box knocked at midnight." },
   },
 
   start = "hello",
@@ -265,7 +267,7 @@ P:NPC {
   key = "bera", id = TODO_NPC("Bera Stonehammer"), name = "Bera Stonehammer", title = "Gryphon Master",
   bible = "bibles/tanaris.md", role = "flightmaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "blunt" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She speaks of the desert like a personal insult.",
@@ -279,6 +281,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, this far south! Did you get lost on the way to the mountains, or did someone pay you to come and sweat?" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Leave that burnin' horse at the edge o' town, for the gryphons can smell its hoofprints on the sand from here. I've only just got the roof bird tae come down, an' I'll no' be climbin' up after her again." },
   },
 
   start = "hello",
@@ -515,7 +519,7 @@ P:NPC {
   key = "bulkrek", id = TODO_NPC("Bulkrek Ragefist"), name = "Bulkrek Ragefist", title = "Wind Rider Master",
   bible = "bibles/tanaris.md", role = "flightmaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "gruff" }, values = { "dutiful", "honor" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "He nods at the dwarf across the yard every morning.",
@@ -530,6 +534,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar. It's good to see a face from Durotar in this goblin oven; the sun here is worse than ours, and the company talks more." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I feel it on you, warlock, the same cold the Shadow Council put in the air of our camps on Draenor before the skies went green. My wind riders feel it too, so stand still and let them get used to you." },
   },
 
   start = "hello",
@@ -740,7 +746,7 @@ P:NPC {
   key = "dirge", id = TODO_NPC("Dirge Quikcleave"), name = "Dirge Quikcleave", title = "Butcher",
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "boastful" }, values = { "pride", "profit" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "There is a drought here, but never a shortage of his meat.",
@@ -755,6 +761,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Then you know good meat when you skin it, pal, and you know my prices are fair for it, more or less, mostly less." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The meat on my hooks just turned a shade I don't sell, pal, so step back from the counter a little. I don't know what follows you around, but it isn't good for business, and it's murder on brisket." },
   },
 
   start = "hello",
@@ -963,7 +971,7 @@ P:NPC {
   key = "blizrik", id = TODO_NPC("Blizrik Buckshot"), name = "Blizrik Buckshot", title = "Gunsmith",
   bible = "bibles/tanaris.md", role = "vendor", tier = "service",
   communities = { "gadgetzan" }, temper = { "loud" }, values = { "profit", "inventive" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
 
   impression = {
     first = "He test-fires everything into the same unlucky sand dune.",
@@ -979,6 +987,8 @@ P:NPC {
       text = "A hunter, and I can tell from the squint! Somebody who aims for a living deserves better than that rusty thing on your back, buddy, and I'll give you a fair trade-in, by goblin standards." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf in my shop, so I'll keep my prices honest and my mouth shut about Ironforge barrels. Mostly shut." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That shimmer on your skin is demon armor, pal, and I've always wanted to test a rifle against it, purely for the catalogue. Stand by the dune out back sometime, and I'll bring the bandages." },
   },
 
   start = "hello",
@@ -1160,7 +1170,7 @@ P:NPC {
   key = "trenton", id = TODO_NPC("Trenton Lighthammer"), name = "Trenton Lighthammer",
   bible = "bibles/tanaris.md", role = "blacksmith", tier = "quest",
   communities = { "gadgetzan" }, temper = { "patient" }, values = { "craft", "dedication" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shards" },
 
   impression = {
     first = "He wants something from Zul'Farrak's trolls, and he is patient about it.",
@@ -1177,6 +1187,8 @@ P:NPC {
       text = "Ishnu-alah. You're wondering what one of the kaldorei is doing at a goblin's anvil, and the answer is that steel doesn't care who strikes it." },
     { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Your blade's been well used and badly kept, and it'll fail you at the wrong moment. Bring it to an anvil before you go anywhere near the trolls." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag is cold enough that my anvil's sweating, and I know why, because only soul shards carry a chill like that through the desert. I'll mend your gear as I said I would, but keep that bag off my bench." },
   },
 
   start = "hello",
@@ -1412,7 +1424,7 @@ P:NPC {
   key = "yehkinya", id = TODO_NPC("Yeh'kinya"), name = "Yeh'kinya",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "steamwheedle_port" }, temper = { "sly" }, values = { "secretive", "patient" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He speaks very calmly of a god he claims to disbelieve.",
@@ -1429,6 +1441,8 @@ P:NPC {
       text = "One of the Darkspear, so far from the Echo Isles! Then you've heard the old tales of the Soulflayer, even if your elders hush the young ones when they tell them." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "SHAMAN" } },
       text = "You speak to powers too, mon, so you'll understand an old troll who listens to the dead. We're not so different, you and me." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Yeh'kinya hears them, mon, the little souls in your shards, all singin' small and cold in that bag. Hakkar would drink every one of them, so keep them close and keep them far from the Sunken Temple." },
   },
 
   start = "hello",

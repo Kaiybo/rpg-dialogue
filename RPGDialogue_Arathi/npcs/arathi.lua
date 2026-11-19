@@ -8,7 +8,7 @@ P:NPC {
   communities = { "refuge_pointe" }, temper = { "firm" }, values = { "dutiful", "proud" },
   likesTone = "blunt",
   prejudice = { class = "ROGUE", amount = 10, why = "Syndicate cutthroats in the same leathers keep killing his lookouts." },
-  notices = { "kit", "race" },
+  notices = { "kit", "race", "lock_armor", "lock_shadow" },
 
   impression = {
     first = "She carries ruined Stromgarde like a sword she won't put down.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "You've been fighting, good. Mend and go again, because we've no spare soldiers, so we use every one." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "One of ours, from the south? Stromgarde stood beside Stormwind in the last war, so remember it, if anyone there forgets." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The fire in the brazier just shrank and went cold at the edges, and I watched it happen as you walked into the camp. Stromgarde has enough shadows over it already, so stand where my soldiers can see you and keep that darkness to yourself." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide you're wearing over your gear, and it moves on you like it's still breathing. I've seen my men flinch at less, so I'd thank you to keep a cloak over it while you're in this camp." },
   },
 
   start = "hello",
@@ -759,7 +763,7 @@ P:NPC {
   key = "zengu", id = TODO_NPC("Zengu"), name = "Zengu",
   bible = "bibles/arathi.md", role = "questgiver", tier = "quest",
   communities = { "hammerfall" }, temper = { "patient" }, values = { "loyal", "brave" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_pact" },
 
   impression = {
     first = "He finds it funny to turn a troll-killing sword on the Gurubashi.",
@@ -775,6 +779,8 @@ P:NPC {
       text = "Another hunter, good! You know the waiting part of the hunt be longer than the killing part." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear! Then you know who sent me: the chief want something, and Zengu be bringing it home." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You be runnin' hot, mon, like a fever with no sickness behind it, and Zengu can smell the little fire demon's mark in your blood. Zengu don't mind the heat, but the loa do, so maybe sit downwind." },
   },
 
   start = "hello",
@@ -1025,7 +1031,7 @@ P:NPC {
   key = "adegwa", id = TODO_NPC("Innkeeper Adegwa"), name = "Innkeeper Adegwa",
   bible = "bibles/arathi.md", role = "innkeeper", tier = "service",
   communities = { "hammerfall" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
 
   impression = {
     first = "He offered me rest as though it were the most natural thing.",
@@ -1047,6 +1053,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You carry the spirit healer's chill still, so sit close to the fire; it fades." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "The souls in your bag are crying, little one, faint as wind in dry grass, and I can hear them even over the fire. The Earth Mother would ask you to let them go when you can, though I know you will not." },
   },
 
   start = "hello",

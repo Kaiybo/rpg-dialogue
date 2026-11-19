@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the cubs didn't hiss at you this time. That's a start." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The cubs flattened their ears and went under the rock the moment you came up the path. Sabers smell more than we do, and whatever you carry on you, they decided they don't like it before I'd seen your face." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -229,6 +234,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You come out of the tunnel alive, so the Timbermaw have let you pass. Salfa will not argue with that." },
     { id = "g_back", when = { metBefore = true }, text = "Salfa sees you again. The snow has not frozen you yet, which is good." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Salfa smells the green sickness on you, the same sick-sweet smell the firewater gave the Winterfall. It is in you deeper than your clothes, so Salfa will watch you closely, and you would do well to watch it too." },
   },
 
   start = "hello",
@@ -459,6 +469,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You came back! I hoped you would, because the road to the altar is no safer than it was." },
   },
 
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "The ward you wear drinks the light around you, and the moonlight on the snow goes dim where you stand. I need the altars lit, not darkened, so I'll ask you to walk a step behind the torches when we go." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -653,6 +668,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "A mortal, in Mazthoril. You must be either brave or lost, and I suspect it's the second." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the caves, little one. Malygos's children remember those who come twice." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You carry a great many souls in that little bag, mortal, and I can count them from here. The Legion collected souls just so, in an age you have forgotten and I have not, so forgive me if I watch your hands." },
   },
 
   start = "hello",
@@ -1019,6 +1039,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed, chum! Well, mostly guaranteed, read the small print, and the bits floating in it are mostly turnip." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, eh, chum? Nobody leaves Himmik's hungry, or at least not for long, and never with a full purse." },
+  },
+
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Whatever that glowing green rock is, chum, it's not going in my stew, because I've had enough trouble with warlocks' leftovers. If it's a healthstone, eat it outside, and if it's food, I don't want to know what it was before." },
   },
 
   start = "hello",

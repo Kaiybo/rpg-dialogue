@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "noble", tier = "major",
   temper = { "brash" }, values = { "ambitious", "practical" },
   likesTone = "blunt",
-  notices = { "race" },
+  notices = { "race", "lock_shards", "lock_steed" },
   impression = {
     first = "He tells anyone who stands still that he built Orgrimmar.",
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
@@ -23,6 +23,10 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } },
       text = "Alliance, huh? Don't sweat it, pal, because in Ratchet your gold's the same color as everybody else's, and I count it just as fast." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Pal, you've got enough soul shards in that bag to light up the whole dock at night, and I'm already doing the math on what they'd fetch. Relax, I'm not buying, because the last guy who sold me something with a soul in it came back wanting it returned." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Whoa, that horse's hooves are on fire, pal, and my docks are made of wood. Get off it before you come any closer, because fire insurance in Ratchet costs more than the horse." },
   },
   start = "hello",
   nodes = {
@@ -669,13 +673,17 @@ P:NPC {
   key = "mebok", id = TODO_NPC("Mebok Mizzyrix"), name = "Mebok Mizzyrix",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   temper = { "smooth" }, values = { "ambitious" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
   impression = {
     first = "He never says exactly what his drinks are for.",
     third = "{name} met Mebok Mizzyrix, a goblin peddler of tonics in Ratchet.",
   },
   greetings = {
     { id = "g_hi", text = "Step right up, friend, step right up, because Mebok Mizzyrix has exactly what you need, even if you don't know it yet, and the price is a steal, mostly for me." },
+  },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone you're carrying glows like the bottom of a bad batch, pal, so it's a firestone or a spellstone, and either way it's the only thing in Ratchet brewed stronger than my tonics." },
   },
   start = "hello",
   nodes = {
@@ -846,13 +854,17 @@ P:NPC {
   key = "dizzywig", id = TODO_NPC("Wharfmaster Dizzywig"), name = "Wharfmaster Dizzywig",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   temper = { "harried" }, values = { "practical", "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "He keeps a ledger of every crate that never arrived.",
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
     { id = "g_hi", text = "Mind the crates, mind the ropes and mind the edge, pal, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
+  },
+  notice = {
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Hold on, what's that rock in your pack, pal, the one warm enough to smoke? If it's what I think it is, something big falls out of the sky when you use it, and I'll need a manifest before it lands on my wharf." },
   },
   start = "hello",
   nodes = {

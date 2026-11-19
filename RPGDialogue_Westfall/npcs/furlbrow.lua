@@ -7,7 +7,7 @@ P:NPC {
   key = "furlbrow", id = TODO_NPC("Farmer Furlbrow"), name = "Farmer Furlbrow",
   bible = "bibles/furlbrow.md", role = "farmer", tier = "quest",
   communities = { "westfall_farms" }, temper = { "cowardly" }, values = { "honest" },
-  notices = { "startle", "mount" },
+  notices = { "startle", "mount", "lock_taint" },
   impression = {
     first = "He insists they're only minding the place for now.",
     third = "{name} met Farmer Furlbrow, driven from his pumpkin farm by thieves, who still hopes to go home.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "Light's sake! Don't creep up on a man like that, not out here, not after what we've been through." },
     { id = "n_horse", cat = "mount", when = { mounted = true },
       text = "Lovely animal. Don't let it near our wagon wheel; it's the only one that still turns." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's fel on you, and I know the smell, because I've lain awake wishing I had the nerve to go looking for it. You look like someone who found what I was afraid of finding." },
   },
 
   start = "hello",

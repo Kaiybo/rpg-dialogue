@@ -6,7 +6,7 @@ P:NPC {
   key = "janice", id = TODO_NPC("Janice Felstone"), name = "Janice Felstone",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "felstone_field" }, temper = { "cowardly" }, values = { "loving" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_shadow" },
 
   impression = {
     first = "She doesn't know what she is, and I couldn't tell her.",
@@ -20,6 +20,11 @@ P:NPC {
   },
 
   react = { { id = "r_stealth", on = "stealth", text = "Someone's there, I know it, even though I can't see you. I can't see anything clearly anymore." } },
+
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Patches the barn cat won't come down from the rafters, and she's never been frightened of anyone. Is there something standing behind you? I can't see it, but she can." },
+  },
 
   start = "hello",
   nodes = {
@@ -242,7 +247,7 @@ P:NPC {
   key = "mulgris", id = TODO_NPC("Mulgris Deepriver"), name = "Mulgris Deepriver",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "writhing_haunt", "cenarion_circle" }, temper = { "steady" }, values = { "compassionate", "proud" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_taint" },
 
   impression = {
     first = "Dying, he asked mercy for the sick beasts and none for himself.",
@@ -261,6 +266,8 @@ P:NPC {
       text = "Yes, I speak your tongue, and no, we are not beasts, whatever your soldiers say of us. Put that aside, for the land is dying, and it doesn't care whose flag you fly." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, so you feel it too, the land crying out under the plague. I came to quiet it and I failed, but perhaps you won't." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The land sickens around you, faint as rot under fresh snow, and the plague has taught me to smell such things. It isn't the plague, though, it's something greener, so I'd ask you to walk lightly here." },
   },
 
   start = "hello",
@@ -482,7 +489,7 @@ P:NPC {
   key = "marlene", id = TODO_NPC("Marlene Redpath"), name = "Marlene Redpath",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "sorrow_hill" }, temper = { "gentle" }, values = { "loving" },
-  notices = { "class" },
+  notices = { "class", "lock_soulstone" },
 
   impression = {
     first = "Hope for her niece Pamela is about all she has left.",
@@ -497,6 +504,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
       text = "You carry the Light, I can feel it like a lamp in the window. It's been such a long time since anyone brought a lamp here." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is tied to a stone, isn't it? I can feel it on you like a draught. If only Pamela had had something to bring her back, I'd give anything, anything at all." },
   },
 
   start = "hello",
@@ -665,7 +674,7 @@ P:NPC {
   key = "kirsta", id = TODO_NPC("Kirsta Deepshadow"), name = "Kirsta Deepshadow",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "northridge_hills" }, temper = { "sharp" }, values = { "loyal", "secretive" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_stones" },
 
   impression = {
     first = "She was bleeding quietly and still managed to be funny about it.",
@@ -682,6 +691,8 @@ P:NPC {
       text = "You walk like someone who's been trained not to be seen, and I'd ask who trained you, but I'd rather not know. Call it professional courtesy." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "A Forsaken, out here? Keep your voice down, because the Crusade would love to find us both, and they wouldn't bother asking which of us to burn first." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I can smell it from here, and I've been bleeding long enough to be jealous. Don't worry, I'm too proud to ask for it, mostly." },
   },
 
   start = "hello",

@@ -6,7 +6,7 @@ P:NPC {
   key = "golhine", id = TODO_NPC("Golhine the Hooded"), name = "Golhine the Hooded", title = "Druid Trainer",
   bible = "bibles/felwood.md", role = "trainer", tier = "service",
   communities = { "talonbranch" }, temper = { "quiet" }, values = { "wise", "patient" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_shadow" },
 
   impression = {
     first = "He says the hood only keeps the ash off.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Careful in that shape out there; the bears of Felwood are sick, and they'll take you for kin, and then for food." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The saplings in the glade turned their leaves away from you, and they have only done that once before, when the corruption was close. I teach druids to listen to them, so I will listen now and keep my distance." },
   },
 
   start = "hello",

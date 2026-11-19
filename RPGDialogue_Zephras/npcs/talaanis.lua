@@ -8,7 +8,7 @@ P:NPC {
   key = "talaanis", id = TODO_NPC("Talaanis Shadowsong"), name = "Talaanis Shadowsong", title = "High Elder",
   bible = "bibles/talaanis.md", role = "noble", tier = "major",
   communities = { "zephras_isle" }, temper = { "steady" }, values = { "honest", "lawful" },
-  notices = { "kin", "stranger" },
+  notices = { "kin", "stranger", "lock_shadow", "lock_shards" },
 
   impression = {
     first = "She admits what nobody knows, which reassures me more than promises.",
@@ -39,6 +39,10 @@ P:NPC {
       text = "The High Order's newest, I see. Your ancestors were magisters, so remember it, and remember what Prince Tortheldrin did with power like theirs." },
     { id = "n_stranger", cat = "stranger", when = { ["not"] = { race = "Skyborne" } },
       text = "You're the first of your people I've spoken with. I find I have more questions than manners. Forgive me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The wind changes around you, as if it would rather blow past than touch you, and on this isle we notice where the wind will not go. I don't hold that against you yet, but I'd be a poor elder if I pretended not to see it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry something in that bag that hums beneath the wind, and the elders by the door have stopped talking to listen to it. Keep it closed while you're in Valanaar, if you would, because I'd rather not spend the evening explaining it to the Council." },
   },
 
   start = "hello",

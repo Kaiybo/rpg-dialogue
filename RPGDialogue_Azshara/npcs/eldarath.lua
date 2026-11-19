@@ -6,7 +6,7 @@ P:NPC {
   key = "ogtinc", id = TODO_NPC("Ogtinc"), name = "Ogtinc",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "eldarath_cliffs" }, temper = { "steady", "gentle" }, values = { "kind", "patient" },
-  notices = { "class", "race", "pet" },
+  notices = { "class", "race", "pet", "lock_taint", "lock_shadow" },
 
   impression = {
     first = "He grieves every courser he asks someone to kill.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "A hunter. Good; I am one also. We will understand each other, I think, if you understand the prey as well as the kill." },
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Your companion walks well beside you. {pet} trusts you, and beasts do not trust lightly here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ogtinc smells the fel in you, deep in, the same smell that blew out of Felwood and made the furbolg tribes go mad. The divine path says you can still mend it, so Ogtinc will hope, and also keep upwind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow is heavier than the others, and the grass bends under it where you stand. Ogtinc has watched this cliff for many seasons, and only the ruins below have a shadow like that." },
   },
 
   start = "hello",
@@ -398,7 +402,7 @@ P:NPC {
   key = "peter_galen", id = TODO_NPC("Peter Galen"), name = "Peter Galen",
   bible = "bibles/azshara.md", role = "trainer", tier = "service",
   communities = { "eldarath_cliffs" }, temper = { "steady" }, values = { "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_armor" },
 
   impression = {
     first = "He keeps a list of customers who never came back.",
@@ -413,6 +417,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "profession", when = { profession = "Leatherworking" },
       text = "Ah, a leatherworker. You've got the hands for it, I can tell, and I can teach them to work scale, if you're brave enough to bring me some." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "What kind of hide is that you're wearing? It moves when you breathe, and I've worked dragonscale long enough to know that no honest leather does that, so I'll admire it from over here." },
   },
 
   start = "hello",
@@ -607,7 +613,7 @@ P:NPC {
   key = "kimjael", id = TODO_NPC("Kim'jael"), name = "Kim'jael",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "legash" }, temper = { "cowardly", "sharp" }, values = { "greedy" },
-  notices = { "race", "purse" },
+  notices = { "race", "purse", "lock_shards" },
 
   impression = {
     first = "He paid me fairly and then immediately renegotiated.",
@@ -624,6 +630,8 @@ P:NPC {
       text = "Whoa, whoa, an elf! You're not one of Magus Rimtori's crowd, right? You don't look stuck-up enough, partner, and no offence, which is free." },
     { id = "n_purse", cat = "purse", when = { money = { min = 1000000 } },
       text = "Now there's somebody who knows what a gold coin's for! Let's talk, partner, let's talk." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've got a whole bag of soul shards there, and I know what the Shadow Council's lot pay for those! I'm not saying I'm buying, I'm saying the elves who robbed me might, so maybe wave a few at them." },
   },
 
   start = "hello",
@@ -857,7 +865,7 @@ P:NPC {
   key = "beltis", id = TODO_NPC("Captain Vanessa Beltis"), name = "Captain Vanessa Beltis",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "ruined_reaches" }, temper = { "steady", "proud" }, values = { "brave", "dutiful" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_soulstone" },
 
   impression = {
     first = "She blames herself for every drowned sailor.",
@@ -875,6 +883,8 @@ P:NPC {
       text = "A healer, thank the Light! We had a priest among the passengers, but she's worn to the bone, and most of my crew need mending." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like you've been through a wreck yourself. Sit down a moment before the naga come back." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "You've a soul bound in a stone, I'm told that's what that light around you is. Half my crew went down with the Horizon Scout and nobody kept theirs, so forgive me if I'm a little jealous of you." },
   },
 
   start = "hello",
@@ -1050,7 +1060,7 @@ P:NPC {
   key = "xiggs", id = TODO_NPC("Pilot Xiggs Fuselighter"), name = "Pilot Xiggs Fuselighter",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "ruined_reaches" }, temper = { "jovial", "steady" }, values = { "brave", "loyal" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft", "lock_steed" },
 
   impression = {
     first = "He flies rubbings to Ironforge as a favour and loves every minute.",
@@ -1067,6 +1077,8 @@ P:NPC {
       text = "A dwarf! Ye'll appreciate a proper flyin' machine, unlike some elves I've met who call it a noisy box." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! Don't touch the fuel line, don't touch the rotor, and don't tell me how ye'd have built it better." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that a horse with its hooves on fire? {g:Lad|Lass}, I've had an imp in me engine already, an' I'll not have that beast anywhere near me flyer, so tie it up by the cliff an' I'll come tae you." },
   },
 
   start = "hello",

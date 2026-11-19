@@ -6,7 +6,7 @@ P:NPC {
   key = "milly", id = TODO_NPC("Milly Osworth"), name = "Milly Osworth",
   bible = "bibles/milly.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "drink", "farmhand" },
+  notices = { "drink", "farmhand", "lock_armor" },
   impression = {
     first = "She counts the harvest the Defias cost her in weeks of bread.",
     third = "{name} met Milly Osworth, whose harvest for Northshire Abbey was carried off by the Defias.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Is that our wine on your breath? At least you've good taste." },
     { id = "n_farmhand", cat = "farmhand", when = { origin = "human_westfall_farmhand" },
       text = "You've worked a harvest. I can tell by the way you stand around a crate." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark skin over your arms looks like something a gnoll would wear, if gnolls had money. It gives me the shivers, but if it keeps you alive long enough to bring my grapes home, wear it twice." },
   },
 
   start = "hello",

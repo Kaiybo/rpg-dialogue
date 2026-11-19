@@ -7,7 +7,7 @@ P:NPC {
   key = "maybell", id = TODO_NPC("Maybell Maclure"), name = "Maybell Maclure",
   bible = "bibles/maybell.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "kind", "romantic" },
-  notices = { "stealth", "craft" },
+  notices = { "stealth", "craft", "lock_steed" },
   impression = {
     first = "She blushes easily and lies badly, over a boy across the river.",
     third = "{name} met Maybell Maclure, who counts grapes by the river while thinking of a Stonefield she isn't allowed to see.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Where did you- oh, you frightened me! How do you do that, and could you possibly teach me?" },
     { id = "n_herbs", cat = "craft", when = { profession = "Herbalism" },
       text = "You smell of peacebloom. Tommy Joe picks it by the river for me. He thinks I don't know he picks the same patch every time." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Is that your horse with the fire in its hooves? Pa would faint dead away, but I think it's the most marvellous thing I've ever seen, and I'd give anything to ride it just once." },
   },
 
   react = {

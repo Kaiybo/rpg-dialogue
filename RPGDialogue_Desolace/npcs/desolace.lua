@@ -6,7 +6,7 @@ P:NPC {
   key = "pentigast", id = TODO_NPC("Captain Pentigast"), name = "Captain Pentigast",
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
-  notices = { "kit", "status" },
+  notices = { "kit", "status", "lock_shards", "lock_steed" },
 
   impression = {
     first = "He plays the centaur clans against each other like cards.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You look like you got between two centaur clans. It's an easy mistake, so get patched." },
     { id = "n_stormwind", cat = "status", when = { race = "Human" },
       text = "A face from home. Tell me Stormwind still remembers we're out here." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That bag of yours clinks like a quartermaster's purse, and it's colder than the wind off the Kodo Graveyard. I'll want to know whose souls those are before you bed down inside my walls." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse is burning the grass at our gate, and it's the only grass in Desolace, so I'll ask you to tether it out on the dust. I'll not have Nijel's Point lose its one green patch to a warlock's mount." },
   },
 
   start = "hello",
@@ -358,7 +362,7 @@ P:NPC {
   key = "marandis", id = TODO_NPC("Keeper Marandis"), name = "Keeper Marandis",
   bible = "bibles/desolace.md", role = "noble", tier = "quest",
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
-  notices = { "class", "form" },
+  notices = { "class", "form", "lock_taint" },
 
   impression = {
     first = "Whatever brought him down from Stonetalon, he considers it far from small.",
@@ -372,6 +376,8 @@ P:NPC {
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. Then you know what the Circle asks of its servants, and perhaps one day it will ask more of you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "I can smell it on you, the fel that soaks the ground around the Mannoroc Coven, and it is in your blood now as well. The land there is still dying, and I fear you carry it the way that ground does, deeper than you know." },
   },
 
   react = {
@@ -563,7 +569,7 @@ P:NPC {
   key = "kreldig", id = TODO_NPC("Kreldig Ungor"), name = "Kreldig Ungor",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "nijels_point" }, temper = { "busy" }, values = { "practical", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He is prouder of a patched kettle than of anything else.",
@@ -580,6 +586,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering", "Mining" } },
       text = "Good with yer hands, are ye? The Reclaimers are always hirin' folk who know salvage from scrap." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ye've shards in yer pack, I can hear 'em hummin' from here, an' my lantern's gone dim to match. I'll thank ye to set the bag outside the door while we talk." },
   },
 
   start = "hello",
@@ -1022,7 +1030,7 @@ P:NPC {
   key = "lyshaerya", id = TODO_NPC("Innkeeper Lyshaerya"), name = "Innkeeper Lyshaerya",
   bible = "bibles/desolace.md", role = "innkeeper", tier = "service",
   communities = { "nijels_point" }, temper = { "calm" }, values = { "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "She sweeps the dust as she talks and has given up winning.",
@@ -1040,6 +1048,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've walked back from the spirit healer across a dead land. Sit; nothing here will ask anything of you for an hour." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in my inn bent toward you when you came in, as they did, my grandmother said, when the Highborne walked the halls of Zin-Azshari. I'll pour your drink, but you'll forgive me if I keep the lamps lit late tonight." },
   },
 
   start = "hello",
@@ -1548,7 +1558,7 @@ P:NPC {
   key = "nataka", id = TODO_NPC("Nataka Longhorn"), name = "Nataka Longhorn",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_armor" },
 
   impression = {
     first = "He has grown fond of Desolace and asked me not to tell.",
@@ -1568,6 +1578,8 @@ P:NPC {
       text = "You fish, out here? Good, because there's a catch off the coast I'd like to see before I'm too old to eat it." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the herd, in this grey place. It does me good to see horns that aren't centaur bows." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "My kodo won't stand near you, because that ward of demon hide you wear smells like the walls of Thunder Axe to her. She's wiser than I am about such things, so I'll ask you to keep a little farther off." },
   },
 
   start = "hello",

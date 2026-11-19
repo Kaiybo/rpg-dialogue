@@ -8,7 +8,7 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
   likesTone = "blunt",
   prejudice = { faction = "Horde", race = { "Orc", "Tauren", "Troll" }, amount = 10, why = "The living Horde flinch from the Forsaken, and she returns the contempt." },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards", "lock_armor" },
 
   impression = {
     first = "She measures everyone by their use to the Dark Lady's front.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "One of the living allies. The Horde lends us blades and we are grateful. Keep them pointed south." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR", race = "Scourge" },
       text = "A warrior of the Forsaken, good. The dead don't tire, and neither should we." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry a good many souls in that bag, {class}, and I hope some of them wore Alliance blue, because that is the best use for them. Remember, though, that every one of us in Tarren Mill was somebody's harvest once." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you wear has the same reek that clings to Lord Varimathras, and I have stood close enough to him to know it. Wear it on the Southshore line, where it frightens the right people." },
   },
 
   start = "hello",
@@ -495,7 +499,7 @@ P:NPC {
   key = "lydon", id = TODO_NPC("Apothecary Lydon"), name = "Apothecary Lydon",
   bible = "bibles/hillsbrad.md", role = "scholar", tier = "quest",
   communities = { "tarren_mill" }, temper = { "glum" }, values = { "devoted" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shadow" },
 
   impression = {
     first = "He told me to touch nothing, since most of it kills.",
@@ -516,6 +520,8 @@ P:NPC {
       text = "An alchemist. Do you enjoy it? I used to enjoy things. Now I just find them interesting, in a distant sort of way." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
       text = "You're alive, warm and breathing, and it's very distracting. Try to breathe more quietly, would you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Umpi has gone under the bench, and she never hides from anything, not even the Deathguard. It's the shadow on you she dislikes, so don't take it personally, though I am writing it down." },
   },
 
   start = "hello",

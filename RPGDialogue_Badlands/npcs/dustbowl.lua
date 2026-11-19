@@ -6,7 +6,7 @@ P:NPC {
   key = "ryedol", id = TODO_NPC("Prospector Ryedol"), name = "Prospector Ryedol",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "explorers_league" }, temper = { "weary" }, values = { "loyal", "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "Worry for his partner Hammertoe has worn him through.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' our own, out in this wasteland! Sit a moment, for I've not heard an Ironforge voice in weeks." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone in yer pack, an' it's hummin' like the stone things down in Uldaman did before they woke up. Keep it buttoned, for I've had enough o' things that hum in this canyon." },
   },
 
   start = "hello",

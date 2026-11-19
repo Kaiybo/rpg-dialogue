@@ -6,7 +6,7 @@ P:NPC {
   key = "carlin", id = TODO_NPC("Carlin Redpath"), name = "Carlin Redpath",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "weary" }, values = { "loyal", "kind" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He has never quite forgiven himself for surviving Darrowshire.",
     third = "{name} met Carlin Redpath at Light's Hope Chapel, a survivor of the fall of Darrowshire.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. Joseph wanted the Light's training once, and our father wanted him on the farm, and the farm won. I've wondered since how that day might have gone otherwise." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark ward on your skin, the cultists at Darrowshire wore wards like it while they raised our dead. I know you're not one of them, but my hand went to my sword before my head could stop it." },
   },
 
   start = "hello",
@@ -244,7 +246,7 @@ P:NPC {
   key = "pamela", id = TODO_NPC("Pamela Redpath"), name = "Pamela Redpath",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "darrowshire" }, temper = { "childlike" }, values = { "kind", "lonely" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "She doesn't seem to know she's dead, or doesn't mind.",
     third = "{name} met the ghost of Pamela Redpath in the ruins of Darrowshire, where she still waits for her family.",
@@ -257,6 +259,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "You've got a beard like Papa's friend from the mountains! He used to let me pull it, but only a little." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse is on fire! Is it hurting? It doesn't look like it's hurting, and its hooves are making the grass all black, and I think it's the most beautiful thing I ever saw." },
   },
 
   start = "hello",
@@ -430,7 +434,7 @@ P:NPC {
   key = "smokey", id = TODO_NPC("Smokey LaRue"), name = "Smokey LaRue",
   bible = "bibles/roads.md", role = "questgiver", tier = "service",
   communities = { "light_hope", "argent_dawn" }, temper = { "gruff" }, values = { "practical", "stubborn" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
   impression = {
     first = "He wants Scourge parts and doesn't care how you feel about it.",
     third = "{name} met Smokey LaRue, an ill-tempered dwarf working for the Argent Dawn at Light's Hope Chapel.",
@@ -445,6 +449,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, at last! Somebody here who knows a proper pipe from a burnin' rag." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Ye smell o' fel, an' don't argue wi' me, for I've a nose for foul things an' that's the worst o' them. Scourge bits at least tell ye what they'll cost up front." },
   },
 
   start = "hello",
@@ -631,7 +637,7 @@ P:NPC {
   key = "betina", id = TODO_NPC("Betina Bigglezink"), name = "Betina Bigglezink",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "bright" }, values = { "clever", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She talks about Scholomance cheerfully, which makes it sound worse.",
     third = "{name} met Betina Bigglezink of the Argent Dawn at Light's Hope Chapel, who is building something meant for Scholomance.",
@@ -644,6 +650,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! You'll appreciate this, then: it's alchemy and engineering together, and nothing arcane about it, which I'm rather proud of." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ooh, those shards are putting out a lovely little hum, about a hundred cycles a second, I'd guess. I'd love to put one on my bench, but I've seen what happens when a machine starts listening to a voice." },
   },
 
   start = "hello",

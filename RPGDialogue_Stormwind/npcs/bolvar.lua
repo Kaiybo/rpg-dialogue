@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "lawful", "brave", "honest" },
   likesTone = "blunt",
   spiritSensitive = true,
-  notices = { "reputation", "paladin" },
+  notices = { "reputation", "paladin", "lock_armor", "lock_taint" },
   impression = {
     first = "He looks tired in the way only honest men get tired.",
     third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A paladin of the Light in my hall. Uther would have liked to see more of you. So would I." },
     { id = "n_hero", cat = "reputation", place = "before", when = { minLevel = 50 },
       text = "Veterans of your kind are rare. Rarer every year. Stormwind is grateful, whether or not it remembers to say so." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward you wear is demon hide, isn't it? I fought beside paladins who'd have drawn steel at the sight of it, and I'll only say that the Light in this chamber can feel it as plainly as I can." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is fel on you, {class}, more than the craft alone leaves, and I can see it in the green at the edges of your eyes. Stormwind needs every hand it has, but I'd ask you to remember whose hand you're feeding." },
   },
 
   start = "hello",

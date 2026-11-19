@@ -6,7 +6,7 @@ P:NPC {
   key = "agtor", id = TODO_NPC("Ag'tor Bloodfist"), name = "Ag'tor Bloodfist",
   bible = "bibles/azshara.md", role = "soldier", tier = "quest",
   communities = { "valormok" }, temper = { "steady", "proud" }, values = { "loyal", "brave" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow" },
 
   impression = {
     first = "He believes the Horde will win here because someone has to.",
@@ -28,6 +28,8 @@ P:NPC {
       text = "An orc of Durotar, out in this elf-haunted forest. Good; I'm tired of explaining the Horde to people who aren't in it." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. The spirits here are angry and old, and they don't like us much. Maybe they'll like you better." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The air goes cold and thick around you, warlock, like the air in the old camps before the Horde was freed. Thrall says your kind can serve without that taint, so I'll watch you and hope he's right." },
   },
 
   start = "hello",
@@ -273,7 +275,7 @@ P:NPC {
   key = "jediga", id = TODO_NPC("Jediga"), name = "Jediga",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "valormok" }, temper = { "sharp", "proud" }, values = { "greedy", "proud" },
-  notices = { "race", "drink" },
+  notices = { "race", "drink", "lock_shards" },
 
   impression = {
     first = "She trusts nobody, and the Archmage least of all.",
@@ -294,6 +296,8 @@ P:NPC {
       text = "You smell of a tavern, and I envy you so much I could spit. Where did you find a drink in this forest?" },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "One of ours, and from the city, I'd wager. Tell me the ale in the Drag is still cold." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those soul shards in your bag hum the same note as the tablets the Highborne marked for binding. I sell those for double, and I'm starting to understand why the elves locked them away." },
   },
 
   start = "hello",
@@ -521,7 +525,7 @@ P:NPC {
   key = "kroum", id = TODO_NPC("Kroum"), name = "Kroum",
   bible = "bibles/azshara.md", role = "flightmaster", tier = "service",
   communities = { "valormok" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "His beasts hate the salt wind, and I think he does too.",
@@ -538,6 +542,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. The wind riders are calmer with your kind; something about the smell of the plains." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Get that burning horse away from my roost before it spooks every rider I have. My beasts already hate the salt wind, and I won't have them hating the fire as well." },
   },
 
   start = "hello",

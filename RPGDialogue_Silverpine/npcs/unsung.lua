@@ -8,7 +8,7 @@ P:NPC {
   key = "gwyn", id = TODO_NPC("Gwyn Farrow"), name = "Gwyn Farrow", title = "Mushroom Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "sepulcher" }, temper = { "cheerful" }, values = { "practical", "curious" },
-  notices = { "hunger", "race" },
+  notices = { "hunger", "race", "lock_taint" },
   impression = {
     first = "She knows which mushrooms will kill a living customer.",
     third = "{name} met Gwyn Farrow, the Sepulcher's mushroom merchant.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
       text = "Oh, you're one of the living ones! Then let me steer you toward the caps that won't make you see colours, because some of my stock is meant for stronger stomachs." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The mushrooms by my stall have gone black and smell of brimstone, and it started when you walked up. You've something on you, love, and it isn't good for the crop." },
   },
   start = "hello",
   nodes = {
@@ -174,7 +176,7 @@ P:NPC {
   key = "boynton", id = TODO_NPC("Andrea Boynton"), name = "Andrea Boynton", title = "Clothier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "sepulcher" }, temper = { "fussy" }, values = { "proud", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_armor" },
   impression = {
     first = "Death did nothing to lower her standards.",
     third = "{name} met Andrea Boynton, the clothier of the Sepulcher.",
@@ -188,6 +190,8 @@ P:NPC {
       text = "A tailor! Then you'll understand my pain when I see the stitching on the Deathguards' tabards." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "Good grief, you're barely wearing anything at all! I know we're dead, but have some dignity, please." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide is ruining the drape of your robe, and I'm not even certain which side of the cloth it's on. Wear black over it, and nobody will notice the bulge." },
   },
   start = "hello",
   nodes = {
@@ -342,7 +346,7 @@ P:NPC {
   key = "harly", id = TODO_NPC("Edwin Harly"), name = "Edwin Harly", title = "General Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "sepulcher" }, temper = { "dry" }, values = { "practical" },
-  notices = { "purse", "weary" },
+  notices = { "purse", "weary", "lock_pact" },
   impression = {
     first = "He calls Silverpine a forest that eats travelers.",
     third = "{name} met Edwin Harly, who sells general supplies in the Sepulcher.",
@@ -354,6 +358,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You've been in the forest, I see, and the forest won that round. Stock up before you go back out." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood's running warm, and the worgen will smell that from a mile off. Buy the extra rations, because you'll be running a long way." },
   },
   start = "hello",
   nodes = {

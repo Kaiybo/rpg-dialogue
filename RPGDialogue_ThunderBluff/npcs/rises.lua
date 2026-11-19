@@ -6,7 +6,7 @@ P:NPC {
   key = "zamah", id = TODO_NPC("Apothecary Zamah"), name = "Apothecary Zamah",
   bible = "bibles/thunderbluff.md", role = "questgiver", tier = "quest",
   communities = { "thunder_bluff" }, temper = { "dry" }, values = { "curious", "ambitious" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "She wants serpentbloom, and she is politely vague about why.",
     third = "{name} met Apothecary Zamah, the Forsaken apothecary beneath Thunder Bluff's Spirit Rise.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A tauren who comes down here willingly? Your elders mostly cross the pools to avoid me." },
     { id = "n_undead", cat = "race", when = { race = "Undead" },
       text = "Ah, a fellow citizen of the Undercity. It's pleasant to talk to someone who doesn't flinch." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ah, soul shards, and a good many of them, by the cold coming off your pack. If I had my laboratory instead of a tent on a mesa, I'd be trying very hard to talk you out of a few for study." },
   },
   start = "hello",
   nodes = {

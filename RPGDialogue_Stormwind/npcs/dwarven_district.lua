@@ -8,7 +8,7 @@ P:NPC {
   key = "therum", id = TODO_NPC("Therum Deepforge"), name = "Therum Deepforge", title = "Blacksmithing Trainer",
   bible = "bibles/dwarven_district.md", role = "blacksmith", tier = "service",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "proud", "generous" },
-  notices = { "smith", "kit" },
+  notices = { "smith", "kit", "lock_taint" },
   impression = {
     first = "He reads a person's hands before he looks at their face.",
     third = "{name} met Therum Deepforge, Stormwind's royal armourer and blacksmithing trainer in the Dwarven District.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "That's fine work ye're wearin', an' I'd wager ye made some of it. I've no' seen better armour since I trained under Grumnus Steelshaper at the Great Forge." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "By my beard, what've ye been fightin', a rockslide? Get that mail off an' let somebody mend it before ye take one more step outside these walls." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye've fel on ye, deep, an' my forge fire went green at the edges when ye walked in, same as it did for the Dark Irons. I'll still teach ye, but ye'll stand back from the coals." },
   },
 
   start = "hello",
@@ -207,7 +209,7 @@ P:NPC {
   key = "kaita", id = TODO_NPC("Kaita Deepforge"), name = "Kaita Deepforge", title = "Blacksmithing Supplies",
   bible = "bibles/dwarven_district.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "jovial" }, values = { "practical", "proud" },
-  notices = { "smith", "gnome" },
+  notices = { "smith", "gnome", "lock_shards" },
   impression = {
     first = "She holds a grudge against the Trade District merchants on principle.",
     third = "{name} met Kaita Deepforge, who sells blacksmithing supplies in the Dwarven District.",
@@ -223,6 +225,8 @@ P:NPC {
       text = "Ye smell o' the forge, an' I mean that kindly. A smith who buys from the Trade District is a smith who enjoys payin' twice, so ye've come tae the right place." },
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" },
       text = "One o' the tram-builders! Yer folk dug that tunnel under the sea, an' every crate I sell came down it, so I'll hear no word against gnomes in my shop." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Yer pack clinks like a bag o' cold coal, {g:lad|lass}, an' I know that sound from the cellar crowd. I'd weigh them for ye out o' curiosity, but I'll no' have them on my scales." },
   },
 
   start = "hello",
@@ -399,7 +403,7 @@ P:NPC {
   key = "lilliam", id = TODO_NPC("Lilliam Sparkspindle"), name = "Lilliam Sparkspindle", title = "Engineering Trainer",
   bible = "bibles/dwarven_district.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious" },
-  notices = { "engineer", "gnome" },
+  notices = { "engineer", "gnome", "lock_stones" },
   impression = {
     first = "She is always halfway through a sum and finishes it before answering.",
     third = "{name} met Lilliam Sparkspindle, a gnome who teaches engineering in the Dwarven District.",
@@ -415,6 +419,8 @@ P:NPC {
       text = "Oh my, you're nearly an expert! That means a choice, you know, and a big one, gnomish or goblin, and you can't take it back afterwards. I'll try not to be biased. I'll fail, but I'll try." },
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome" },
       text = "Another gnome! Did you get out early or late? I got out late, and I still count the stairs in my sleep." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone? It's radiating at least forty degrees above the room, and my thermometer has just climbed out of its housing. I would very much like to measure it, purely in the name of science, and I promise not to drop it." },
   },
 
   start = "hello",
@@ -605,7 +611,7 @@ P:NPC {
   key = "gelman", id = TODO_NPC("Gelman Stonehand"), name = "Gelman Stonehand", title = "Mining Trainer",
   bible = "bibles/dwarven_district.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical" },
-  notices = { "miner", "dwarf" },
+  notices = { "miner", "dwarf", "lock_shards" },
   impression = {
     first = "He means to teach enough miners that he can go home.",
     third = "{name} met Gelman Stonehand, the mining trainer of Stonehand Mining in the Dwarven District.",
@@ -622,6 +628,8 @@ P:NPC {
       text = "Ye've been at it a while; I can tell by the dust in yer collar. Another few like ye an' I might get home before my beard goes white." },
     { id = "n_dwarf", cat = "dwarf", when = { race = "Dwarf" },
       text = "A dwarf, thank the Titans! Tell me how the Great Forge looks, an' I'll forgive ye for interruptin'." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's an infernal stone ye're carryin', an' I've dug enough rock tae know it didnae come from any seam in Azeroth. It's heavier than it looks, an' it's warm, an' I'd as soon ye didnae take it near the tram." },
   },
 
   start = "hello",

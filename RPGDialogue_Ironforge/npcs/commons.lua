@@ -8,7 +8,7 @@ P:NPC {
   key = "thorius", id = TODO_NPC("Curator Thorius"), name = "Curator Thorius",
   bible = "bibles/commons.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "warm" }, values = { "curious", "loyal" },
-  notices = { "trophy" },
+  notices = { "trophy", "lock_shadow" },
 
   impression = {
     first = "He loves his brother Dorius more than everything in the museum.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A League explorer! Have ye brought me anythin'? Even a pot shard; I'm very fond o' pot shards." },
     { id = "n_trophy", cat = "trophy", when = { minLevel = 45, questBefore = TODO_QUEST("Proof of Deed") },
       text = "Ye've the look o' someone who's been tae the Searing Gorge an' come back. If ye ever bring back somethin' remarkable, bring it tae me first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps over the titan cases dimmed a hair when ye came through the door, an' they've never done that for a tour before. I'll take ye round all the same, but ye'll forgive me if I walk on the side nearest the lamps." },
   },
 
   start = "hello",
@@ -486,7 +488,7 @@ P:NPC {
   key = "karnik", id = TODO_NPC("Historian Karnik"), name = "Historian Karnik",
   bible = "bibles/commons.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "serious", "loyal" },
-  notices = { "lore" },
+  notices = { "lore", "lock_taint" },
 
   impression = {
     first = "He grieves his partner Hammertoe and hides it behind work.",
@@ -501,6 +503,8 @@ P:NPC {
   notice = {
     { id = "n_explorer", cat = "lore", when = { origin = "dwarf_explorers_league" },
       text = "One o' the League's own. Then ye know what Uldaman means tae us, an' ye'll understand why I'm short wi' folk who don't." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green cast in yer eyes, an' I've read it described before, in the accounts o' the orcs who crossed the Dark Portal. The chroniclers wrote that the color came first an' the cruelty after, so I'd thank ye tae prove the books wrong." },
   },
 
   start = "hello",
@@ -725,7 +729,7 @@ P:NPC {
   key = "belgrum", id = TODO_NPC("Advisor Belgrum"), name = "Advisor Belgrum",
   bible = "bibles/commons.md", role = "noble", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "loyal", "dutiful" },
-  notices = { "reputation" },
+  notices = { "reputation", "lock_armor" },
 
   impression = {
     first = "He reads quickly, frowns slowly, and feels the King's weight.",
@@ -740,6 +744,8 @@ P:NPC {
   notice = {
     { id = "n_rep", cat = "reputation", when = { reputation = { faction = "Ironforge", min = "revered" } },
       text = "The King knows yer name, ye understand. He doesnae say so often, but he keeps a list, an' ye're on it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's no' leather ye've wrapped yerself in but somethin' that was skin on a demon, an' it moves when ye breathe. The King lets yer kind train here, but he'd no' let ye stand at court dressed like that, so mind where ye wear it." },
   },
 
   start = "hello",
@@ -977,7 +983,7 @@ P:NPC {
   key = "marblesten", id = TODO_NPC("Grand Mason Marblesten"), name = "Grand Mason Marblesten",
   bible = "bibles/commons.md", role = "worker", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "proud", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "Under the cheer he is weary of carving memorials to soldiers.",
@@ -992,6 +998,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "A miner! Ye've grit in yer knuckles. If ye ever find a seam o' good white marble, ye'll tell me before ye tell anyone else, won't ye?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Whatever's clinkin' in yer pack is cold enough that the stone dust on my bench has gone damp beside ye. Granite feels heat an' it feels cold, an' I'd sooner it didnae feel whatever's in those wee purple stones." },
   },
 
   start = "hello",
@@ -1201,7 +1209,7 @@ P:NPC {
   key = "gryth", id = TODO_NPC("Gryth Thurden"), name = "Gryth Thurden", title = "Gryphon Master",
   bible = "bibles/commons.md", role = "flightmaster", tier = "service",
   communities = { "ironforge" }, temper = { "proud" }, values = { "proud", "loyal" },
-  notices = { "mount" },
+  notices = { "mount", "lock_steed" },
 
   impression = {
     first = "He swears his gryphons are tougher than the Wildhammers' birds.",
@@ -1216,6 +1224,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Ye'll want tae get down off that before ye go near my birds. They think everythin' on four legs is lunch." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Every gryphon on this ledge has its hackles up, an' it's that burnin' horse o' yers they smell, for they can scent fire on hooves a mile off. Leave it below the stair an' come up on foot, an' we'll get ye flown." },
   },
 
   start = "hello",
@@ -1399,7 +1409,7 @@ P:NPC {
   key = "hulfdan", id = TODO_NPC("Hulfdan Blackbeard"), name = "Hulfdan Blackbeard", title = "Rogue Trainer",
   bible = "bibles/commons.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial", "sharp" }, values = { "cunning", "loyal" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_shards" },
 
   impression = {
     first = "He talks like a pirate who has never seen the sea.",
@@ -1416,6 +1426,8 @@ P:NPC {
       text = "Ha! Ye think I cannae see ye? I trained half the shadows in this cavern, scallywag, an' I know every one o' them by name." },
     { id = "n_priest", cat = "stealth", when = { class = "PRIEST" },
       text = "A priest in the Forlorn Cavern? Either ye're lost, or ye've come tae save us, an' I'm no' sure which frightens me more." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I heard ye comin' before I saw ye, for there's somethin' in yer bag that clinks like coin an' hums like a hive. A rogue's taught tae listen, an' I'll tell ye for free that a pack full o' souls is no' a quiet thing tae carry." },
   },
 
   start = "hello",

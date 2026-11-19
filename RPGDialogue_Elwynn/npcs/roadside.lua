@@ -14,6 +14,11 @@ P:NPC {
     { id = "g_default", text = "Ah, a customer on the open road! Come, come, I carry a little of everything." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again! The road is long, but it keeps bringing me back to good customers." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Now what's that cold glimmer in your pack, friend? I've traded in many odd things up and down this road, but I've never once priced a soul, and I'd as soon not learn how." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {

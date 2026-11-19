@@ -7,7 +7,7 @@ P:NPC {
   key = "thork", id = TODO_NPC("Thork"), name = "Thork",
   bible = "bibles/crossroads.md", role = "soldier", tier = "quest",
   communities = { "crossroads" }, temper = { "firm" }, values = { "loyal", "dutiful" },
-  notices = { "race", "kit", "origin" },
+  notices = { "race", "kit", "origin", "lock_shards" },
   impression = {
     first = "He will not spend soldiers on a grieving man's vengeance.",
     third = "{name} met Thork, the steadfast orc who holds the Crossroads for the Warchief against every threat in the Barrens.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "You've been out among the centaur, by the look of it. Get yourself patched up; the Horde needs you standing." },
     { id = "n_walk", cat = "origin", when = { origin = "tauren_long_migration" },
       text = "You came through here on the long walk to Mulgore, I'd wager, small enough to ride on a kodo. Some of my older grunts fought the Kolkar off your people's flanks on that march, and they still talk about how quiet the calves were." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That bag of yours clinks like a slaver's purse, and I can feel the cold off those shards from here. Every one of them was a life, warlock, so make sure the next ones are quilboar and not caravan drivers." },
   },
 
   start = "hello",
@@ -313,7 +315,7 @@ P:NPC {
   key = "sergra", id = TODO_NPC("Sergra Darkthorn"), name = "Sergra Darkthorn",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "fierce" }, values = { "proud", "fair" },
-  notices = { "gender", "kit" },
+  notices = { "gender", "kit", "lock_armor" },
   impression = {
     first = "She sends people past the walls with a grin.",
     third = "{name} met Sergra Darkthorn, the fierce orc who runs the Crossroads and sends new blood out to prove itself on the Barrens.",
@@ -332,6 +334,8 @@ P:NPC {
       text = "A woman out on the Barrens, making her own name. Good! The Horde has more of us than the old clans ever liked to admit, so go and show them." },
     { id = "n_man", cat = "gender", when = { gender = "male" },
       text = "Before you say it: yes, I lead here. If that bothers you, the road out is that way. If it doesn't, we'll get along fine." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide you've wrapped yourself in, isn't it, and it crawls when you move. I've seen the same on the cultists up at Dreadmist Peak, so stand where my scouts can see your face." },
   },
 
   start = "hello",
@@ -537,7 +541,7 @@ P:NPC {
   key = "mankrik", id = TODO_NPC("Mankrik"), name = "Mankrik",
   bible = "bibles/crossroads.md", role = "soldier", tier = "quest",
   communities = { "crossroads" }, temper = { "grieving" }, values = { "loyal", "vengeful" },
-  notices = { "kit", "kin" },
+  notices = { "kit", "kin", "lock_shadow" },
   impression = {
     first = "His grief for Olgra has gone hard and angry.",
     third = "{name} met Mankrik, a grieving orc who stands watch at the Crossroads waiting for word of his wife Olgra.",
@@ -556,6 +560,8 @@ P:NPC {
       text = "There's fire in you, orc. Good! Point it at the quilboar; they've earned every bit of it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The pigs got to you too? Then you understand, and you're angry, and that's good. Stay angry." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Olgra always said she could smell a warlock by the sulphur on them, and she was right, because I can smell it on you now. She'd have spat at your feet, but she isn't here to do it, and I've lost the heart for it." },
   },
 
   start = "hello",
@@ -756,7 +762,7 @@ P:NPC {
   key = "tonga", id = TODO_NPC("Tonga Runetotem"), name = "Tonga Runetotem",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "measured" }, values = { "balanced", "patient" },
-  notices = { "form", "class" },
+  notices = { "form", "class", "lock_taint" },
   impression = {
     first = "He found what Thunder Bluff sent him for and wishes he hadn't.",
     third = "{name} met Tonga Runetotem, a tauren druid at the Crossroads tracing the sickness that poisons the oases of the Barrens.",
@@ -773,6 +779,8 @@ P:NPC {
   notice = {
     { id = "n_travel", cat = "form", when = { form = "travel" },
       text = "You came in on four legs, and fast. That's good, because the Barrens is big, and the faster we move, the more we can save." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a sickness on you, the same one that's creeping into the oases, and the grass leans away from where you stand. I came out here to find what was poisoning the Barrens, and I'd hate to find another source walking up the road." },
   },
 
   start = "hello",
@@ -1018,7 +1026,7 @@ P:NPC {
   prejudice = { race = "Tauren", class = "DRUID", amount = 10, why = "Tauren druids sniff at his samples and report him to Thunder Bluff; he thinks them sanctimonious about the Society's work." },
   bible = "bibles/crossroads.md", role = "scholar", tier = "quest",
   communities = { "crossroads" }, temper = { "clinical" }, values = { "curious", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
   impression = {
     first = "He swears the Society won't harm the Barrens, mostly.",
     third = "{name} met Apothecary Helbrim of the Royal Apothecary Society, who studies what grows, festers and stings in the Barrens.",
@@ -1039,6 +1047,8 @@ P:NPC {
       text = "You work with reagents? Good, then we'll talk shop, you and I. The others here only ask what's in my bottles so they can avoid it." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Don't look at me like that; we're on the same side. The Society only wants to study the Barrens, not harm it. Mostly." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "I can hear them humming from here, you know, the shards in your bag. The Royal Apothecary Society would give a great deal to study one under glass, though I suspect the soul inside would rather we didn't." },
   },
 
   start = "hello",
@@ -1298,7 +1308,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "boastful" }, values = { "proud" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "So pleased with himself it's almost charming, but I watch my purse.",
     third = "{name} met Darsok Swiftdagger, a boastful blade at the Crossroads who wages his own war on the harpies of the hills.",
@@ -1315,6 +1325,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A fellow blade, eh? Don't get any ideas; I saw you coming from the gate, and nobody sneaks up on Darsok." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that green glint, friend, the kind that finds a rogue in the shadows when he'd rather not be found. Keep looking at me like that and I'll start to feel undressed." },
   },
 
   react = {
@@ -1501,7 +1513,7 @@ P:NPC {
   key = "zargh", id = TODO_NPC("Zargh"), name = "Zargh",
   bible = "bibles/crossroads.md", role = "vendor", tier = "quest",
   communities = { "crossroads" }, temper = { "jolly" }, values = { "generous" },
-  notices = { "hunger", "craft" },
+  notices = { "hunger", "craft", "lock_stones" },
   impression = {
     first = "Mention Gryshka in Orgrimmar and he goes bashful.",
     third = "{name} met Zargh, the jolly butcher of the Crossroads, who has his heart set on a certain innkeeper in Orgrimmar.",
@@ -1515,6 +1527,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Take a look at these cuts of prime zhevra. Well, zhevra, anyway; prime is a strong word for anything in the Barrens." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a warlock's healthstone in your pack? It smells like meat that's been hanging a week and somehow it's still warm, and I'm a butcher, so I know what I'm smelling." },
   },
 
   start = "hello",
@@ -1665,7 +1679,7 @@ P:NPC {
   key = "boorand", id = TODO_NPC("Innkeeper Boorand Plainswind"), name = "Innkeeper Boorand Plainswind",
   bible = "bibles/crossroads.md", role = "innkeeper", tier = "service",
   communities = { "crossroads" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_soulstone" },
   impression = {
     first = "He likes his leaky roof because it lets the stars in.",
     third = "{name} rested at Innkeeper Boorand Plainswind's inn at the Crossroads, where every traveller of the Barrens sleeps sooner or later.",
@@ -1685,6 +1699,8 @@ P:NPC {
       text = "The Barrens beat you up, little one. Sit down and eat; the Barrens will still be out there in the morning, sadly." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy. The floor's flat in here, but it won't feel like it. Sit down before it proves me wrong." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "You've got your soul bound up in a stone somewhere, haven't you, because it hangs off you like a tether. The elders say a spirit should walk to the Earth Mother when it's done, and I'd not want mine kept waiting in a rock, but you'll still get a bed." },
   },
 
   start = "hello",

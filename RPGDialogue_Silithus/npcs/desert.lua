@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/silithus.md", role = "questgiver", tier = "major",
   communities = { "valors_rest" }, temper = { "gentle", "steady" }, values = { "kind", "wise", "devout" },
   likesTone = "polite",
-  notices = { "class", "race", "status" },
+  notices = { "class", "race", "status", "lock_shards", "lock_soulstone" },
 
   impression = {
     first = "He warns me not to wake the past.",
@@ -27,6 +27,10 @@ P:NPC {
       text = "A druid of the Circle. Then you'll feel how thin the ground is here, between what was and what is." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
       text = "Horde colours, at a night elf graveyard. Don't look so wary; the dead don't care, and neither do I." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag is cold, warlock, and it is the cold of these graves, the cold of something that should have gone on and was kept. I keep the dead here so they may rest, so I will ask you not to add to your count among them." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is held in a stone, and someone means to bring you back if the desert takes you. The men and women in these graves had no such promise, and I find I envy you that more than I fear how it was made." },
   },
 
   start = "hello",
@@ -729,7 +733,7 @@ P:NPC {
   key = "rutgar", id = TODO_NPC("Rutgar Glyphshaper"), name = "Rutgar Glyphshaper",
   bible = "bibles/silithus.md", role = "scholar", tier = "quest",
   communities = { "bronzebeard_camp" }, temper = { "gruff", "proud" }, values = { "brave", "curious" },
-  notices = { "race", "status" },
+  notices = { "race", "status", "lock_armor" },
 
   impression = {
     first = "He's certain they've found something huge that Ironforge is ignoring.",
@@ -747,6 +751,8 @@ P:NPC {
       text = "Now there's a proper face! Tell me ye've come with a letter from Ironforge saying the army's on its way, though I can see from your face ye haven't." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance! Good, maybe ye can tell your lords we're still out here, since they've stopped reading our letters." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward ye've got wrapped round ye, isn't it? Good, because whatever got into Natalia's head down in the hives came in through the dark, an' I'd sooner ye kept it out." },
   },
 
   start = "hello",
@@ -1032,7 +1038,7 @@ P:NPC {
   key = "frankal", id = TODO_NPC("Frankal Stonebridge"), name = "Frankal Stonebridge",
   bible = "bibles/silithus.md", role = "scholar", tier = "quest",
   communities = { "bronzebeard_camp" }, temper = { "gruff", "jovial" }, values = { "curious", "honest" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "He thinks the monkey deserves a medal.",
@@ -1050,6 +1056,8 @@ P:NPC {
       text = "A priest, eh? Do me a favour and keep your hands where I can see them. The last priestess who visited this camp did things to my head I'm still not over." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! Can ye read Qiraji, then? I thought not, so you're no better than the rest of us, and we've thirty-eight languages between us." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Yer shadow's fallin' the wrong way, {g:lad|lass}, toward the sun, an' I've been out in this desert long enough tae know it shouldnae. It's the same wrongness the hives have, an' I'd like tae know what draws it tae ye." },
   },
 
   start = "hello",

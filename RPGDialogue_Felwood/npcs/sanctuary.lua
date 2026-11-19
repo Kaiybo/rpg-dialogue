@@ -6,7 +6,7 @@ P:NPC {
   key = "eridan", id = TODO_NPC("Eridan Bluewind"), name = "Eridan Bluewind",
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "emerald_sanctuary" }, temper = { "hopeful" }, values = { "devout", "patient" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_taint" },
 
   impression = {
     first = "She plants a seed every morning to prove there's still green here.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A druid! Can you feel it? The forest is still alive under the poison, and it's screaming, but it's alive." },
     { id = "n_elf", cat = "race", when = { race = "NightElf" },
       text = "One of our own! You'll remember this forest as it was, or your parents will, so help me make it that again." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is green in your eyes, and I have seen that green in every corrupted pool between here and Jaedenar. I am the hopeful sort, so I will hope it fades, but I will also hope you stop feeding it." },
   },
 
   start = "hello",
@@ -518,7 +520,7 @@ P:NPC {
   key = "maybess", id = TODO_NPC("Maybess Riverbreeze"), name = "Maybess Riverbreeze",
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   communities = { "emerald_sanctuary" }, temper = { "earnest" }, values = { "kind", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She believes the forest can be mended one salve at a time.",
@@ -532,6 +534,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Skinning", "Mining", "Enchanting" } },
       text = "You've a trade, and that's good, because the salve needs all kinds of hands: herbs, hides, ore, enchanting dust. Everyone can help heal this place." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in your pack, isn't it, green and warm? I make salves the slow way for the forest, but if your stone would mend a wounded Horde runner on the road, I'll not say no to it." },
   },
 
   start = "hello",
@@ -767,7 +771,7 @@ P:NPC {
   bible = "bibles/felwood.md", role = "questgiver", tier = "quest",
   prejudice = { class = "WARLOCK", amount = 12, why = "the fel that poisoned Felwood came from demon-callers; she fears warlocks carry the curse back in" },
   communities = { "emerald_sanctuary" }, temper = { "determined" }, values = { "protective", "devout" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
 
   impression = {
     first = "She says the curse is no more stubborn than she is.",
@@ -783,6 +787,8 @@ P:NPC {
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { "Herbalism", "Skinning", "Mining", "Enchanting" } },
       text = "Your trade can heal, here, because the salve needs what you gather, and Felwood will thank you, in its slow way." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear the demon's hide, and I last saw it worn in Jaedenar, by men of the Shadow Council who smiled as the forest died around them. I will work beside you, but do not ask me to look at that skin and feel nothing." },
   },
 
   start = "hello",
