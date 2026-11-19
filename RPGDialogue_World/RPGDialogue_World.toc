@@ -75,6 +75,7 @@ emissaries\darkspear_islands.lua
 pools_roles.lua
 pools_citizens.lua
 demons.lua
+my_demons_succ_hunter.lua
 warlock_notice.lua
 asks.lua
 arrivals.lua
