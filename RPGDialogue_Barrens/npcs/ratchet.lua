@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/crossroads.md", role = "noble", tier = "major",
   temper = { "brash" }, values = { "ambitious", "practical" },
   likesTone = "blunt",
-  notices = { "race" },
+  notices = { "race", "lock_shards", "lock_steed" },
   impression = {
     first = "He tells anyone who stands still that he built Orgrimmar.",
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
@@ -23,6 +23,10 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } },
       text = "Alliance, huh? Don't sweat it, pal, because in Ratchet your gold's the same color as everybody else's, and I count it just as fast." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Pal, you've got enough soul shards in that bag to light up the whole dock at night, and I'm already doing the math on what they'd fetch. Relax, I'm not buying, because the last guy who sold me something with a soul in it came back wanting it returned." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Whoa, that horse's hooves are on fire, pal, and my docks are made of wood. Get off it before you come any closer, because fire insurance in Ratchet costs more than the horse." },
   },
   start = "hello",
   nodes = {
@@ -150,6 +154,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "The bruisers care about one thing, pal, which is whether you start trouble on my docks. Your demon's welcome to stand around looking scary for all I care, but if it sets fire to so much as one crate, you're paying for the crate, the fire, the bruiser who puts it out and the paperwork after." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The bruisers care about whether you start trouble on my docks, pal, and right now they care about that thing sniffing at my crates. It can stand around looking scary all it likes, but one scorch mark and you're paying for the crate, the fire, the bruiser and the paperwork after." },
       },
       choices = {
         { text = "Fair rules. My demon won't touch a crate.", next = "BACK", reply = "Then we get along fine, pal, and your demon can loiter wherever it likes. Scary's good for business, as long as it don't touch the merchandise.", fx = { align = { order = 1 } } },
@@ -210,7 +215,7 @@ P:NPC {
         { text = "Need a mage for anything? I'm told I'm expensive.", next = "xmage", when = { class = "MAGE" } },
         { text = "Got any work for a warrior, Gazlowe?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there good hunting near Ratchet, Gazlowe?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "A warlock walks into Ratchet. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "A warlock walks into Ratchet with a demon at heel. Do the bruisers care?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Would Ratchet pay for a priest, Gazlowe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Ratchet welcome paladins, Gazlowe?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I cleared out VanCleef's crew in the Deadmines, Gazlowe.", next = "xcl_dm", when = { cleared = "The Deadmines" } },
@@ -668,13 +673,17 @@ P:NPC {
   key = "mebok", id = TODO_NPC("Mebok Mizzyrix"), name = "Mebok Mizzyrix",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   temper = { "smooth" }, values = { "ambitious" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
   impression = {
     first = "He never says exactly what his drinks are for.",
     third = "{name} met Mebok Mizzyrix, a goblin peddler of tonics in Ratchet.",
   },
   greetings = {
     { id = "g_hi", text = "Step right up, friend, step right up, because Mebok Mizzyrix has exactly what you need, even if you don't know it yet, and the price is a steal, mostly for me." },
+  },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone you're carrying glows like the bottom of a bad batch, pal, so it's a firestone or a spellstone, and either way it's the only thing in Ratchet brewed stronger than my tonics." },
   },
   start = "hello",
   nodes = {
@@ -761,6 +770,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, though they never tell me what for, and I never ask, because that's how a goblin stays in business. Bring me a few raptor horns and I'll mix you something to keep your hands steady while you're shouting at a demon." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, though they never tell me what for, and that demon of yours is reading my labels like it knows better. Bring me a few raptor horns and I'll mix you something to keep your hands steady, and tell it the bottles on the top shelf cost extra to sniff." },
       },
       choices = {
         { text = "A deal's a deal, Mebok. I'll bring the horns.", next = "BACK", reply = "That's what I like, a customer with honor and a hunting knife. Bring me those horns, and your hands will be steady as stone.", fx = { align = { honor = 1 } } },
@@ -796,7 +806,7 @@ P:NPC {
         { text = "What do you sell for warriors, Mebok?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What ingredients do you need from the Barrens, Mebok?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would a priest want with your tonics, Mebok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "I'd guess warlocks buy your tonics too, Mebok.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I'd guess my sort buys your tonics too, Mebok. Discreetly.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Do you have anything for a Forsaken, Mebok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Maybe later.", next = "END" },
       },
@@ -844,13 +854,17 @@ P:NPC {
   key = "dizzywig", id = TODO_NPC("Wharfmaster Dizzywig"), name = "Wharfmaster Dizzywig",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   temper = { "harried" }, values = { "practical", "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "He keeps a ledger of every crate that never arrived.",
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
     { id = "g_hi", text = "Mind the crates, mind the ropes and mind the edge, pal, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
+  },
+  notice = {
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "Hold on, what's that rock in your pack, pal, the one warm enough to smoke? If it's what I think it is, something big falls out of the sky when you use it, and I'll need a manifest before it lands on my wharf." },
   },
   start = "hello",
   nodes = {
@@ -937,6 +951,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "A demon that watches crates? It'd eat the crates, or the dockhands, and then I'd have to write it all down and file a claim. No, my shipments go missing on the coast south of town where the Southsea pirates camp, so if you want to help, pal, take your demon there and leave my docks alone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A demon that watches crates? Yours is already eyeing my dockhands, pal, and I don't have a claim form for whatever it does next. My shipments go missing on the coast south of town where the Southsea pirates camp, so take {pet} there and leave my docks alone." },
       },
       choices = {
         { text = "I'll get your shipments back, wharfmaster.", next = "BACK", reply = "You're a real help, pal, a real help, and I'll put it in the ledger. Mind the pirates, and mind the sharks even more.", fx = { align = { honor = 1 } } },
@@ -976,7 +991,7 @@ P:NPC {
         { text = "Who's stealing from your docks, Dizzywig?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters' goods sell well off Ratchet's docks, Dizzywig?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Your dockhands look like they could use a priest.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Could a demon help guard your docks, Dizzywig?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "My demon could guard your docks, Dizzywig. It doesn't sleep.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Can the Light help find your crates, Dizzywig?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll let you work.", next = "END" },
       },

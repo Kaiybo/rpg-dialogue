@@ -13,7 +13,7 @@ P:NPC {
   key = "dannal", id = TODO_NPC("Dannal Stern"), name = "Dannal Stern", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "deathknell" }, temper = { "grim" }, values = { "dutiful", "practical" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_armor" },
   impression = {
     first = "He speaks of his soldiering life without wishing it back.",
     third = "{name} met Dannal Stern, the warrior trainer of Deathknell.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "The Rattlecages have been at your armor, I see. Bones bite harder than you would think, so mend it before you go back to the fields." },
     { id = "n_orc", cat = "class", when = { class = "WARRIOR", race = "Orc" },
       text = "An orc in Deathknell, learning from a dead man. When I was alive, I fought your kind on these same fields, and now I am teaching you, which is a strange joke for the world to make." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "A demon-hide ward is no shield, whatever your trainer told you. It'll take a few blows for you and then it'll be gone, and your arm had better know what to do next." },
   },
   start = "hello",
   nodes = {
@@ -64,10 +66,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because your demon will die sooner or later, and you'll be left holding whatever's in your hand. I was a soldier once and saw what happened to the ones who trusted their magic alone, so humour me and hold the blade properly." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because your demon will die sooner or later, however sturdy it looks standing there, and you'll be left holding whatever's in your hand. I was a soldier once and saw what happened to the ones who trusted their magic alone, so send it back a few paces and hold the blade properly." },
       },
       choices = {
-        { text = "I'll learn it properly, Dannal.", next = "BACK", reply = "Good. Learn the blade and the shield, and your demon can do the rest.", fx = { align = { order = 1 } } },
-        { text = "My magic is all I need.", next = "BACK", reply = "That's what the last one said, and I put him in the ground myself. Humour me anyway.", fx = { align = { order = -1 } } },
+        { text = "I'll learn it properly, Dannal. Every cut.", next = "BACK", reply = "Good. Learn the blade and the shield, and your demon can do the rest.", fx = { align = { order = 1 } } },
+        { text = "My magic is all the blade I need.", next = "BACK", reply = "That's what the last one said, and I put him in the ground myself. Humour me anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,7 +96,7 @@ P:NPC {
         { text = "I fight from behind, Stern. Any advice for that?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A mage has little need to hold a weapon, Stern.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is a bow worth less than a sword to you, Dannal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Why teach a warlock the sword, Dannal?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why bother teaching me the sword, Dannal?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You must have known knights of the Silver Hand, Dannal.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
@@ -180,7 +183,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "deathknell" }, temper = { "cold" }, values = { "devout", "proud" },
   spiritSensitive = true,
-  notices = { "class", "light" },
+  notices = { "class", "light", "lock_shadow" },
   impression = {
     first = "He holds the Light in contempt and the will in reverence.",
     third = "{name} met Dark Cleric Duesten, the priest trainer of Deathknell and a voice of the Cult of Forgotten Shadows.",
@@ -193,6 +196,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "light", when = { class = "PALADIN" },
       text = "The Light still clings to you, and I can smell it on you like smoke. Aramis Hammerhand may tell you it makes you strong, but I would say it is a chain you have not yet seen." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadow follows you the way a hound follows its master, which is the right way round. Keep it that way, and you'll have nothing to fear from the Forgotten Shadow, or from anything else." },
   },
   start = "hello",
   nodes = {
@@ -310,10 +315,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I see the difference between one who commands and one who is commanded, and that is the only difference that matters. A warlock who masters a demon practises the same faith I teach, and a warlock mastered by one is just another fool on his knees." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You knelt to the Lich King once, as we all did, so you know exactly what it costs to serve something greater than yourself. Never kneel to a demon, and the Forgotten Shadow will have no quarrel with you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I see the difference between one who commands and one who is commanded, and I am watching your demon now to learn which of you is which. A warlock who masters a demon practises the same faith I teach, and one mastered by it is just another fool on his knees." },
       },
       choices = {
-        { text = "I command. I'll never kneel again.", next = "BACK", reply = "Good. Kneeling is how all of us ended up in the Lich King's ranks, so stay on your feet.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Even a warlock needs something to believe in.", next = "BACK", reply = "You already have something, warlock, and it's your own will. Don't go looking for anything else to kneel to.", fx = { align = { light = 1 } } },
+        { text = "I command. I'll never kneel to anything again.", next = "BACK", reply = "Good. Kneeling is how all of us ended up in the Lich King's ranks, so stay on your feet.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Even a warlock needs something to believe in, Cleric.", next = "BACK", reply = "You already have something, warlock, and it's your own will. Don't go looking for anything else to kneel to.", fx = { align = { light = 1 } } },
         { text = "You must have served the Light when you lived.", next = "past" },
       },
     },
@@ -334,7 +340,7 @@ P:NPC {
   key = "kien", id = TODO_NPC("Joshua Kien"), name = "Joshua Kien", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "deathknell" }, temper = { "dry" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shards" },
   impression = {
     first = "He finds it very funny that the dead still need bread.",
     third = "{name} met Joshua Kien, who sells supplies to the newly risen of Deathknell.",
@@ -347,6 +353,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
       text = "Your purse is as empty as a ghoul's head, friend. The fields are full of bones and old coin, if you go looking." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Your bag's clinking with twenty shards if it's clinking with one. Do those need feeding? I sell food, you see, so if they do, I'm the one you want." },
   },
   start = "hello",
   nodes = {
@@ -393,10 +401,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "For the imps, I'm told, though I've never seen one eat, and I've never had the courage to ask. Polite customers, though, always polite, which is more than I could say for the Scourge that used to wander through here." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "For the imps, I'm told, though yours hasn't touched a crumb and only stares at the loaves, which I find worse. Polite customers, though, always polite, so I'll wrap your bread and not ask {pet} what it wants with it." },
       },
       choices = {
-        { text = "I'll buy what I need and keep the imp outside.", next = "BACK", reply = "That's thoughtful of you, and I'll be sure to keep a crust for it on the step.", fx = { align = { order = 1 } } },
-        { text = "My imp eats whatever it likes, Joshua.", next = "BACK", reply = "Then it eats whatever it likes outside my shop, if you please. The bread's for customers.", fx = { align = { order = -1 } } },
+        { text = "I'll buy what I need and leave the imp outside.", next = "BACK", reply = "That's thoughtful of you, and I'll be sure to keep a crust for it on the step.", fx = { align = { order = 1 } } },
+        { text = "My imp eats whatever it likes, Joshua. Pray it likes bread.", next = "BACK", reply = "Then it eats whatever it likes outside my shop, if you please. The bread's for customers.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -422,7 +431,7 @@ P:NPC {
         { text = "I could just conjure my own bread and water.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a warrior need from your shelves, Kien?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you buy meat from hunters, Kien?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Why do warlocks buy extra bread, Joshua?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do my kind buy extra bread, Joshua? Have you guessed?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you think the dead should still say grace, Joshua?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -510,7 +519,7 @@ P:NPC {
     third = "{name} met Rupert Boch, the warlock trainer of Brill.",
   },
   greetings = {
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Ah, a fellow practitioner. Come in, and tell me how your little friend is behaving." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A fellow practitioner, and up all those stairs without complaint. Come in, and tell me how your little friend is behaving." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You aren't a warlock, but you are welcome to look around. Don't touch anything that moves." },
     { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died, unless I'm much mistaken. Don't look so stricken, because half of what I teach was learned from people like you, and none of us here can afford to be squeamish." },
   },
@@ -520,31 +529,112 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hello = {
+      narr = "He closes a ledger on one finger to keep his place, and smiles over it as though you were an item he had been expecting.",
+      lines = {
+        { id = "h_default", key = true, text = "Rupert Boch, warlock and teacher, at your service. I train those in Brill who'd sooner give orders to something with horns than take them." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "Rupert Boch. Every spell I teach is a contract, {class}, with the Nether on one side and you on the other, and my whole art is making certain you get the better of the terms." },
+        { id = "h_lock_void", when = { class = "WARLOCK", minLevel = 10, questBefore = TODO_QUEST("Halgar's Summons") }, text = "Rupert Boch, and you've outgrown my imps, I think. Ageron downstairs has a letter from Carendin Halgar with your name on it, and I'd collect it before he decides to be offended." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my parlour. Your people turned their backs on my craft, I'm told, and went back to the spirits, so I do hope there are no hard feelings." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You commune with the wilds and I commune with things that would eat the wilds, so I suspect we'll get on politely and no further." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in my parlour. You'd be surprised how many of my demons respect a good blade, {class}, and how few of them respect a good argument." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast and my demons are cousins of a sort, {class}, though yours were tamed with patience and mine with somewhat sterner methods." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in my trainers' corner. We both deal in things beyond the veil, though your sort tends to look at mine as if I'd tracked something in on my boots." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in my parlour, how wonderful. The demons are terribly offended, of course, but I find it refreshing to meet someone who has chosen the brighter master." },
+      },
+      again = {
+        { id = "h_again", text = "Is there something else? Do go on, because curious minds are the only kind worth teaching." },
+        { id = "h_again2", text = "Another question? Ask it plainly, and I'll answer it the same way, mostly." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "You keep calling spells contracts.", next = "contract", when = { class = "WARLOCK" } },
+        { text = "Teach me to curse a Scarlet properly.", next = "curse", when = { class = "WARLOCK" } },
+        { text = "I served the Cult once. Does that trouble you?", next = "cult", when = { class = "WARLOCK", origin = "forsaken_cult_remnant" } },
+        { text = "Do you think priests and warlocks are so different, Rupert?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "The fel nearly destroyed my people, Boch. Why should I trust you?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do your demons fear nature, Boch?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Rogues and warlocks have a lot in common, Boch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Isn't warlockry just the arcane with poorer manners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I doubt your demons could stand against a real warrior.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "A demon is nothing like a hunter's beast, Boch.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you think the Light is just another master?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Commanding demons must be dangerous.", next = "danger" },
+        { text = "Why do the Forsaken allow warlocks?", next = "forsaken" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    contract = {
+      lines = { { id = "ct_default", text = "Because that is what they are, and the demons know it even when the students don't. A shadow bolt is a loan of the Nether's spite, a curse is a lease on a man's suffering, and a summoning is a lease on a servant, and every one of them has terms the other party is reading more carefully than you." } },
+      choices = {
+        { text = "And the soul shards are the payment.", next = "contract2" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    contract2 = {
+      big = true,
+      lines = { { id = "ct2_default", text = "The deposit, rather, and you keep it in a bag at your hip where you can count it. I tell my students to take their shards from the Scarlets and the Scourge, since it keeps the accounts tidy and nobody in Brill writes to complain. Where would you take yours?" } },
+      choices = {
+        { text = "From our enemies, and only from them.", next = "BACK", reply = "A warlock with principles and a ledger. I may frame you.", fx = { align = { honor = 1 } } },
+        { text = "From whatever's closest when I need one.", next = "BACK", reply = "Efficient, and very slightly alarming. Do keep it out of the Executor's hearing.", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+
+    curse = {
+      lines = {
+        { id = "cu_default", text = "Properly is the only way I teach it. You lay the curse first and the bolt second, because a man who is already rotting from the inside fights very poorly, and the Scarlets at the Monastery road are a splendid place to practise, since they were going to try to burn you anyway." },
+        { id = "cu_scourge", when = { race = "Scourge" }, text = "With pleasure. Lay the curse first and let it work while you cast, because a Crusader who is already rotting from the inside fights very poorly, and there's a pleasing symmetry in rotting a man who calls you rot." },
+      },
+      choices = {
+        { text = "Do the curses ever turn back on the caster?", next = "curse2" },
+        { text = "I'll practise on the Monastery road.", next = "BACK", reply = "Do, and bring me back a story. The good ones go in my lessons." },
+      },
+    },
+    curse2 = {
+      lines = { { id = "cu2_default", text = "Only on the careless, and only once, since it's very hard to be careless twice when you're dead again. Richard Kerwin in the Undercity will tell you it's all a matter of grammar, and for once that pedant is entirely right." } },
+      choices = {
+        { text = "Then I'll mind my grammar.", next = "BACK", fx = { trait = { careful = 1 } } },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+
+    cult = {
+      big = true,
+      lines = { { id = "cl_default", text = "Not in the least, since the Cult kept excellent libraries and the Dark Lady has seen fit to let us borrow them. What troubles me is whether some part of you still listens for Kel'Thuzad's voice, because the Nether hears that sort of thing and has offers ready. Does it?" } },
+      choices = {
+        { text = "No. I serve the Dark Lady now.", next = "BACK", reply = "Then keep saying it in exactly those words. Contracts love a clear statement of allegiance.", fx = { align = { order = 1 } } },
+        { text = "I serve myself, and nobody else ever again.", next = "BACK", reply = "Ah, a free agent, which is the riskiest kind of party to a contract. I'll teach you anyway, and I'll charge you twice for the warnings.", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I think everything that gives power asks for something back, and the only difference is how politely it asks. My imps want souls and your Light wants you to burn, and I'm not at all certain which of us made the better bargain." } },
       choices = {
         { text = "The Light asks for faith, not souls. There's no bargain.", next = "BACK", reply = "No bargain, you say, and yet it burns you every time you call it. I'd read that contract more closely, paladin.", fx = { align = { light = 1 } } },
         { text = "Perhaps you're right. Power is power, whoever gives it.", next = "BACK", reply = "Then you've just learned the first lesson of my trade, and you're not even a warlock. Do come again.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "We both ask something unseen for power, and we both pay for it, though a priest's bill comes due more politely than mine. The difference, I'd suggest, is that I always read the contract, and in my experience your sort never thought to ask for one." } },
+      lines = { { id = "xhpriest_default", text = "We both ask something unseen for power, and we both pay for it, though a priest's bill comes due more politely than mine. The difference, I'd suggest, is that I always read the contract, and your sort never thought to ask for one." } },
       choices = {
         { text = "Some powers shouldn't be bargained with, Rupert.", next = "BACK", reply = "Some shouldn't, I'll grant you, but most of them have a price, and it's always worth knowing what it is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Perhaps I should start reading contracts too.", next = "BACK", reply = "A priest who reads the small print! I'll be lending you my spectacles next.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Some of them, and some of them would very much like to try, so I keep them on a short leash. A warlock who can't stand behind a warrior doesn't stay a warlock for long, so I've always thought our two trades get along rather well." } },
+      lines = { { id = "xwarcl_default", text = "Some of them couldn't, and some of them would very much like to try, so I keep them on a short leash. A warlock who can't stand behind a warrior doesn't stay a warlock for long, so I've always thought our two trades get along rather well." } },
       choices = {
         { text = "I'll stand in front, then, and you keep them leashed.", next = "BACK", reply = "There's a warrior with sense. Hold the front and I'll keep the leash tight.", fx = { align = { order = 1 } } },
         { text = "Let one off the leash, Boch. I'd like to see it try.", next = "BACK", reply = "I'd rather not, because my imp would enjoy it far too much and you'd never hear the end of it.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhuntcl = {
@@ -556,58 +646,46 @@ P:NPC {
       choices = {
         { text = "My beast stays because it wants to. No chain needed.", next = "BACK", reply = "A lucky hunter, then. Mine stay because they have no choice, and they make sure I never forget it.", fx = { align = { honor = 1 } } },
         { text = "A bond is a bond, Boch, whatever holds it.", next = "BACK", reply = "A bond is a bond, but one breaks gently and the other breaks very messily. Remember which one you hold.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
-    hello = {
-      lines = {
-        { id = "h_default", key = true, text = "Rupert Boch, warlock and teacher, at your service. I train those in Brill who'd sooner give orders to something with horns than take them." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my parlour. Your people turned their backs on my craft, I'm told, and went back to the spirits; I do hope there are no hard feelings." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You commune with the wilds and I commune with things that would eat the wilds, so I suspect we'll get on politely and no further." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in my parlour. You'd be surprised how many of my demons respect a good blade, {class}, and how few of them respect a good argument." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast and my demons are cousins of a sort, {class}, though yours were tamed with patience and mine with somewhat sterner methods." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in my trainers' corner. We both deal in things beyond the veil, I'd say, though your sort tends to look at mine as if I'd tracked something in on my boots." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin in my parlour, how wonderful. The demons are terribly offended, of course, but I find it refreshing to meet one of the dead who has chosen the brighter master." },
-      },
-      choices = {
-        { text = "Do you think priests and warlocks are so different, Rupert?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "The fel nearly destroyed my people, Boch. Why should I trust you?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do your demons fear nature, Boch?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "Commanding demons must be dangerous.", next = "danger" },
-        { text = "Why do the Forsaken allow warlocks?", next = "forsaken" },
-        { text = "Rogues and warlocks have a lot in common, Boch.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Isn't warlockry just the arcane with poorer manners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "I doubt your demons could stand against a real warrior, Boch.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "A demon is nothing like a hunter's beast, Boch.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you think the Light is just another master, Rupert?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
-        { text = "Goodbye.", next = "END" },
-      },
-      again = { { id = "h_again", text = "Is there something else? Do go on, because curious minds are the only kind worth teaching." } },
-    },
+
     danger = {
       lines = { { id = "d_default", text = "Of course it is, and that's exactly why so few do it well. A demon is a contract with teeth, and if you read every word of the contract, the teeth stay on the other side." } },
-      choices = { { text = "And if you don't read every word?", next = "danger_fail" } },
+      choices = {
+        { text = "And if you don't read every word?", next = "danger_fail" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
     },
     danger_fail = {
       lines = { { id = "df_default", text = "Then you become a cautionary tale, and I use your name in my lessons. I already have several names, so please don't add yours to the list." } },
       choices = {
         { text = "Power is worth the risk.", next = "BACK", reply = "It is, if you're careful, and I'm very careful. Come and learn, and try to stay out of my lessons.", fx = { affinity = 2, align = { light = -1 } } },
         { text = "No power is worth bargaining with demons.", next = "BACK", reply = "Then you'll never be a warlock, which is a perfectly sensible choice. I'll wish you luck elsewhere.", fx = { affinity = -2, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to safer subjects, then.", next = "BACK" },
       },
     },
     forsaken = {
-      lines = { { id = "f_default", text = "Because the Dark Lady values anything that can be used against the Scourge, and the Burning Legion are no friends of the Lich King. We were slaves once, so we are not afraid of using what others fear." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "f_default", text = "Because the Dark Lady values anything that can be turned on the Scourge, and the Legion's servants owe the Lich King nothing. We were slaves once, so we are not afraid of using what others fear, and we read our contracts very closely indeed." } },
+      choices = {
+        { text = "And if the Legion comes to collect?", next = "forsaken2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    forsaken2 = {
+      lines = { { id = "f2_default", text = "Then it will find we've spent its servants on its enemies and kept the receipts. The Forsaken have had one master already and we didn't care for the experience, so I can't imagine we'd sign with another." } },
+      choices = {
+        { text = "I'll hold you to that, Boch.", next = "BACK", reply = "Do. I'd hold me to it as well." },
+        { text = "Back to the other matters.", next = "BACK" },
+      },
     },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "You shouldn't, and that's the first sensible thing anyone's said in here today. Your people were bought cheaply by the demons and paid dearly for it, whereas I read the contract, so I think we've both learned something, only not the same thing." } },
       choices = {
         { text = "There's no safe bargain with demons, Boch.", next = "BACK", reply = "There isn't, but there are profitable ones, and I've made a career of them. I'd not recommend it to a shaman.", fx = { align = { light = 1 } } },
-        { text = "Then teach me to read the contract. Power is power.", next = "BACK", reply = "Now there's a student I could teach. Sit down, and mind the imp; he bites.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Then teach me to read the contract. Power is power.", next = "BACK", reply = "Now there's a student I could teach. Sit down, and mind the imp, because he bites.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     druid_q = {
@@ -616,7 +694,7 @@ P:NPC {
       choices = {
         { text = "Nature and the fel don't mix, Boch. Remember that.", next = "BACK", reply = "I'll remember it, druid, the next time my voidwalker sulks near a tree. Nature has never been very fond of me either.", fx = { align = { light = 1 } } },
         { text = "Use whatever works. I don't judge a weapon by its source.", next = "BACK", reply = "Now there's a sensible attitude, and rarer than you'd think among your kind. You'd make a passable warlock.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xrogue = {
@@ -639,7 +717,7 @@ P:NPC {
       },
       choices = {
         { text = "Dalaran's rules kept worse things out, Boch.", next = "BACK", reply = "They kept some out, and they kept others in, and one of those others was Kel'Thuzad. I'll take my honest arrangement, thank you.", fx = { align = { order = 1 } } },
-        { text = "Dalaran's rules were mostly vanity, Boch.", next = "BACK", reply = "Mostly, yes, and a great deal of pointed hats. I'm glad a mage finally said so.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Dalaran's rules were mostly vanity, Boch.", next = "BACK", reply = "Mostly, yes, and a great many pointed hats. I'm glad a mage finally said so.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Isn't commanding demons dangerous, though?", next = "danger" },
       },
     },
@@ -658,7 +736,7 @@ P:NPC {
   key = "carolai", id = TODO_NPC("Carolai Anise"), name = "Carolai Anise", title = "Alchemy Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "brill" }, temper = { "brisk" }, values = { "curious", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "She thinks the apothecaries make too much noise about their work.",
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
@@ -670,6 +748,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You smell of peacebloom and earthroot, so you've been picking herbs. Good, because an alchemist without herbs is just someone with a lot of empty bottles." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? We bottle healing here, and you lot carve it out of a stone. Mine tastes better, I'm told, but I'll grant that yours doesn't spill." },
   },
   start = "hello",
   nodes = {
@@ -716,10 +796,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and they don't ask what's in them, which is how I like it. A minor healing potion is a minor healing potion, whether it's for a warlock, a warrior or a dead man who can't feel his own arm, and the apothecaries make far too much fuss about it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they don't ask what's in them, though your demon is sniffing at the stoppers as if it means to find out. A minor healing potion is a minor healing potion whoever it's for, so keep it off my shelf, and I'll make far less fuss than the apothecaries would." },
       },
       choices = {
         { text = "Then I'll buy healing draughts for the recruits too.", next = "BACK", reply = "That's generous of you, and the recruits will need them more than you think. Bless your coin purse.", fx = { align = { light = 1 } } },
-        { text = "I'll buy for myself. The recruits can fend for themselves.", next = "BACK", reply = "Fair enough, and I'll sell to them myself when they come in bleeding. Somebody always pays in the end.", fx = { align = { light = -1 } } },
+        { text = "I'll buy for myself. The recruits can bleed for themselves.", next = "BACK", reply = "Fair enough, and I'll sell to them myself when they come in bleeding. Somebody always pays in the end.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -745,7 +826,7 @@ P:NPC {
         { text = "Alchemy seems like slow magic to me, Carolai.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should a warrior carry from your shelves, Carolai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What herbs grow out where I hunt, Carolai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'd guess warlocks use your potions, Carolai.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You must sell to those of us who deal with the Nether.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust potions over the Light, Carolai?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -823,7 +904,7 @@ P:NPC {
   key = "neela", id = TODO_NPC("Nurse Neela"), name = "Nurse Neela", title = "First Aid Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "brill" }, temper = { "warm" }, values = { "kind", "practical" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
   impression = {
     first = "She stitches dead flesh as carefully as she once stitched the living.",
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
@@ -835,6 +916,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Oh, look at the state of you! Sit down this minute, and let me see where you're torn before you lose something important." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "A soulstone, is it? That'll bring you back, but it won't stitch you up, and you'll still need bandages on the way down. Don't forget that." },
   },
   start = "hello",
   nodes = {
@@ -907,7 +990,7 @@ P:NPC {
         { text = "You must have been a nurse in life too.", next = "past" },
         { text = "How do you bandage the dead?", next = "dead" },
         { text = "I come back cut up most nights, Nurse.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "My demon took a bite out of me, Neela.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My demon took a bite out of me, Neela. It'll regret it.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do I patch myself up in a fight, Nurse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'd guess you mend beasts now and then, Nurse.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a mage learn first aid, Neela?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -967,10 +1050,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They do that, I'm told, and after the warriors it's the warlocks I see most often. Hold still and let me look, because a bite from something out of the Nether doesn't close the way a dog's does." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I spent my life closing wounds, and you've made a habit of opening doors that ought to stay shut. I'll patch you, of course, but I'd like it known that I disapprove." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do that, I'm told, and yours is still watching you as though it's thinking about a second helping. Hold still and let me look, and send it to the far side of the room, because a bite from something out of the Nether doesn't close the way a dog's does." },
       },
       choices = {
         { text = "Patch me up, and I'll try to stay in one piece.", next = "BACK", reply = "Hold still, then, dear, and tell your demon to stop staring at me. You'll be right as rain.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Disapprove all you like. I'll keep summoning.", next = "BACK", reply = "I don't disapprove, dear, I only stitch, and I'll stitch you as many times as it takes. Do try to keep your fingers.", fx = { align = { order = -1 } } },
+        { text = "Disapprove all you like. I'll keep calling them up.", next = "BACK", reply = "I don't disapprove, dear, I only stitch, and I'll stitch you as many times as it takes. Do try to keep your fingers.", fx = { align = { order = -1 } } },
         { text = "You must have been a nurse in life too.", next = "past" },
       },
     },
@@ -988,7 +1072,7 @@ P:NPC {
   key = "zachariah", id = TODO_NPC("Zachariah Post"), name = "Zachariah Post", title = "Undead Horse Merchant",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "brill" }, temper = { "dry" }, values = { "practical", "proud" },
-  notices = { "mount", "purse" },
+  notices = { "mount", "purse", "lock_steed" },
   impression = {
     first = "He swears his skeletal horses are better than the living kind.",
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
@@ -1001,6 +1085,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "That's a fine mount you're sitting on, though it'll need feeding and rest. Mine won't." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Fire and fel, and gone the moment you dismount, I'll bet. Mine stand in the yard all night and are still there in the morning, so come back when you want a horse that stays." },
   },
   start = "hello",
   nodes = {
@@ -1074,7 +1160,7 @@ P:NPC {
         { text = "Where do the horses come from?", next = "where" },
         { text = "I'd want a living horse over a dead one.", next = "better" },
         { text = "A skeletal horse must be quiet on the road.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Warlocks summon their own steeds, Zachariah.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My steed comes from the Nether, Zachariah. I've no need of yours.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will your horses carry a warrior into a fight, Zachariah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "A dead horse can't keep up on the hunt, Zachariah.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you sell a horse to a mage, Zachariah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -1130,10 +1216,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "So I've heard, and very fine they are, all fire and fel, but they vanish when you're done and mine are still here in the morning. When your summoning fails you on the road to the Bulwark, you'll think of me kindly." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc who'd rather summon a horse than ride a wolf is a thing I never expected to see in Brill. Mine don't bite, either, which is more than your people's wolves can promise." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "So I've heard, and your demon is giving my horses a look they don't care for at all. Your steeds vanish when you're done with them, but mine are still here in the morning, so when your summoning fails you on the road to the Bulwark, you'll think of me kindly." },
       },
       choices = {
         { text = "A beast in the stable is wise, I'll admit.", next = "BACK", reply = "It is, and you'll thank me on the road to the Bulwark. I'll keep one saddled.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll rely on my own summoning, Zachariah.", next = "BACK", reply = "Then I'll wish you a long road and a reliable demon. I'll be here when it fails you.", fx = { align = { order = -1 } } },
+        { text = "I'll trust my own summoning, Zachariah. It burns brighter.", next = "BACK", reply = "Then I'll wish you a long road and a reliable demon. I'll be here when it fails you.", fx = { align = { order = -1 } } },
         { text = "Where do the horses come from?", next = "where" },
       },
     },

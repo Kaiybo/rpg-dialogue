@@ -85,10 +85,10 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I have, in the war, when the orcs brought their warlocks over the mountains, and I saw what those things did to them. Keep your demon away from my maps, and we'll get along well enough." } },
+      lines = { { id = "xlo_default", text = "I have, in the war, when the orcs brought their warlocks over the mountains, and I saw what those things did to them. Keep whatever walks with you away from my maps, and we'll get along well enough." } },
       choices = {
-        { text = "Their power is mine now, scout, not theirs.", next = "BACK", reply = "That is precisely what the orc warlocks told themselves, and look where it got them. Keep it away from my maps, warlock.", fx = { align = { light = -1 } } },
-        { text = "I hold it so it can't hold anyone else.", next = "BACK", reply = "A noble purpose, if it holds, and I hope it does. I will still keep the demon away from my pins.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their power is mine now, scout, not theirs.", next = "BACK", reply = "That is precisely what the orc casters told themselves, and look where it got them. Keep it away from my maps.", fx = { align = { light = -1 } } },
+        { text = "I hold it so it can't hold anyone else.", next = "BACK", reply = "A noble purpose, if it holds, and I hope it does. I will still keep the thing away from my pins.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What are you watching for out there?", next = "watchers" },
       },
     },

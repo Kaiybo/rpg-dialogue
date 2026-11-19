@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the cubs didn't hiss at you this time. That's a start." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The cubs flattened their ears and went under the rock the moment you came up the path. Sabers smell more than we do, and whatever you carry on you, they decided they don't like it before I'd seen your face." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -29,10 +34,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The sabers have long memories, and their mothers remember Felwood and what crawled out of it. I won't turn you away, since the Wintersaber Trainers need every hand against the Winterfall, but I'll ask you to work on the far side of the rock, and I won't ask twice." } },
+      lines = {
+        { id = "xlock_default", text = "The sabers have long memories, and their mothers remember Felwood and what crawled out of it. I won't turn you away, since the Wintersaber Trainers need every hand against the Winterfall, but I'll ask you to work on the far side of the rock, and I won't ask twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The sabers have long memories, and their mothers remember Felwood, and you can see the cubs pressing to the back of the pen now that your servant has arrived. I won't turn you away, since we need every hand against the Winterfall, but take it to the far side of the rock, and I won't ask twice." },
+      },
       choices = {
-        { text = "I'll keep my demon away. The cubs come first.", next = "BACK", reply = "That is kindly said, and the mothers will notice it before I do. Keep it far from the dens, and you'll find us grateful.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear is no reason to be shunned. My demon stays with me.", next = "BACK", reply = "I did not say shunned, I said wary, and the sabers decide their own wariness. Bring it close to the cubs and you'll learn the difference quickly.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "I'll keep it well away. The cubs come first.", next = "BACK", reply = "That is kindly said, and the mothers will notice it before I do. Keep it far from the dens, and you'll find us grateful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fear is no reason to shun me. What's mine stays with me.", next = "BACK", reply = "I did not say shunned, I said wary, and the sabers decide their own wariness. Bring it close to the cubs and you'll learn the difference quickly.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,7 +129,7 @@ P:NPC {
         { id = "h_dd_honored", when = { reputation = { faction = "Wintersaber Trainers", min = "honored" } },
           text = "The trainers speak well of your work these days, and I've begun to believe them. Keep at it, and one season soon we may have a saber that will answer to your voice." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, here, among the sabers. Keep whatever you've bound far from the pens, because the cubs will not eat for days if they catch its scent, and I've no cubs to spare." },
+          text = "The sabers caught your scent before you reached the path. Keep whatever you've bound far from the pens, because the cubs will not eat for days if they catch its scent, and I've no cubs to spare." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at Frostsaber Rock. The sabers grow restless when the Winterfall come close, and a calm voice at night does them more good than you would think, so you're welcome by the pens." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -156,7 +164,7 @@ P:NPC {
         { text = "Could a warrior ride a frostsaber into battle, Rivern?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How does a priest earn a place at Frostsaber Rock?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is a demon's scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is my scent really so dangerous to the cubs, Rivern?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a frostsaber accept a shaman, Rivern?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
@@ -228,6 +236,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Salfa sees you again. The snow has not frozen you yet, which is good." },
   },
 
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Salfa smells the green sickness on you, the same sick-sweet smell the firewater gave the Winterfall. It is in you deeper than your clothes, so Salfa will watch you closely, and you would do well to watch it too." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -288,7 +301,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Something poisons them, the way the Deadwood were poisoned in Felwood, and Salfa does not know if it is the firewater or something worse. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds and not by your stink." } },
+      lines = {
+        { id = "xlock_default", text = "Something poisons them, the way the Deadwood were poisoned in Felwood, and Salfa does not know if it is the firewater or something worse. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds and not by your stink." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Something poisons them, like the Deadwood were poisoned, and Salfa smells a little of the same thing on the creature at your side. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds, though Salfa will keep one eye on that demon all the same." },
+      },
       choices = {
         { text = "Judge me by my deeds. I'll prove myself.", next = "BACK", reply = "Salfa will watch, and Salfa will remember what you do. The elders are slow to trust, but they do not forget a friend.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need furbolg approval.", next = "BACK", reply = "Then Salfa will not give it, and the tunnels will stay closed to you. You can walk around the mountains instead, which takes a long time.", fx = { affinity = -1, align = { honor = -1 } } },
@@ -443,14 +459,22 @@ P:NPC {
   key = "ranshalla", id = TODO_NPC("Ranshalla"), name = "Ranshalla", title = "Priestess of Elune",
   bible = "bibles/winterspring.md", role = "questgiver", tier = "quest",
   communities = { "winterspring_wilds" }, temper = { "earnest" }, values = { "devout", "brave" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Priestess of Elune seeking altars that Highborne demon-bargains once defiled." },
   impression = {
     first = "She is braver than she is careful.",
     third = "{name} met Ranshalla, a priestess of Elune seeking the old altars of Winterspring.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Elune's altars in these hills were defiled once by those who bargained with demons. I'll not walk them lightly beside one of you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've walked the hills with me and the altars stayed quiet. I'm still wary of you, but I'll take your company." },
     { id = "g_default", text = "Elune's light on you, traveller. Have you come to walk with me to the altar?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I hoped you would, because the road to the altar is no safer than it was." },
+  },
+
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "The ward you wear drinks the light around you, and the moonlight on the snow goes dim where you stand. I need the altars lit, not darkened, so I'll ask you to walk a step behind the torches when we go." },
   },
 
   start = "hello",
@@ -466,10 +490,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, so long as your demon stays behind you and never in front. The altars were dark for a reason, and whatever put them out may come back when the torches are lit, so I'll need someone who knows what darkness looks like when it moves." } },
+      lines = {
+        { id = "xlock_default", text = "I would, so long as that creature stays behind you and never in front. The altars were dark for a reason, and whatever put them out may come back when the torches are lit, so I'll need someone who knows what darkness looks like when it moves." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, so long as your demon walks behind you and never in front, and I can see it already does not like standing in Elune's light. The altars were dark for a reason, so I'll need someone who knows what darkness looks like when it moves, and you have brought a fair example." },
+      },
       choices = {
-        { text = "I'll keep my demon behind me. You have my word.", next = "BACK", reply = "Thank you, truly, and I'll trust you with it. I'll light each torch faster knowing you're behind me.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon goes where it's needed, priestess, front or back.", next = "BACK", reply = "Then please, at least don't let it near the flame. The altars are older than either of us.", fx = { align = { order = -1 } } },
+        { text = "I'll keep it behind me. You have my word.", next = "BACK", reply = "Thank you, truly, and I'll trust you with it. I'll light each torch faster knowing you're behind me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It goes where it's needed, priestess, front or back.", next = "BACK", reply = "Then please, at least don't let it near the flame. The altars are older than either of us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -540,8 +567,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I'm a priestess of Elune, and I know exactly what you've bound. Speak, but keep your distance from me and from the altars." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The moonlight doesn't flinch from you as much as I'd feared. What do you need?" },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. That doesn't sit easily with a priestess of Elune, but the hills are dangerous, and two walk to the altars more safely than one." },
+          text = "Whatever you carry doesn't sit easily with a priestess of Elune, but the hills are dangerous, and two walk to the altars more safely than one." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, here in the hills! I've heard that your Light and Elune's grace are not so far apart, and I'd be glad of a shield and a steady heart when I go to the altars." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -574,7 +603,7 @@ P:NPC {
         { text = "You'll want a guard at the altars.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What watches the trail to the altars, Ranshalla?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think the Light and Elune are so alike, Ranshalla?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would Elune's priestess really walk with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would Elune's priestess really walk beside someone like me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the old altars still draw the land's spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune keep you, Ranshalla.", next = "END" },
       },
@@ -646,6 +675,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You return to the caves, little one. Malygos's children remember those who come twice." },
   },
 
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You carry a great many souls in that little bag, mortal, and I can count them from here. The Legion collected souls just so, in an age you have forgotten and I have not, so forgive me if I watch your hands." },
+  },
+
   start = "hello",
   nodes = {
     xapala = {
@@ -689,7 +723,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." } },
+      lines = {
+        { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every flight did, in the War of the Ancients, and I fought creatures very like the one at your heel when your ancestors were still learning fire. That it lowers its eyes from me now is the most honest thing about it, and I find your faith in its leash more amusing than you would like." },
+      },
       choices = {
         { text = "The Legion must never return. I'll see to that.", next = "BACK", reply = "Brave words, and I hope you hold to them, for the Legion counts on mortals who forget. My flight remembers, warlock, always.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Scraps or not, they serve me well enough.", next = "BACK", reply = "Well enough, until they don't, and then the world pays for your confidence. My flight has swept up the ashes of more warlocks than you have met.", fx = { affinity = -1, align = { light = -1 } } },
@@ -733,7 +770,7 @@ P:NPC {
           text = "A hunter, in Mazthoril. You track beasts through the snow, mortal, and I suppose you think yourself a hunter of dragons too, as the young ones always do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You at least bargain with the powers you use instead of stealing them, which puts you a step above the mages, though not a large one." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, in Mazthoril. You trade with the Legion's creatures, mortal, and my flight remembers what the Burning Legion did to this world, even if your kind have forgotten." },
+          text = "You trade with the Legion's creatures, mortal, and you bring their stink into Mazthoril. My flight remembers what the Burning Legion did to this world, even if your kind have forgotten." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue in my caves. You think yourself unseen, but my flight sees through every veil you could draw, and some you have not yet thought of." },
         { id = "h_default", text = "I am Haleh of the blue dragonflight, and these caves are ours to guard. Magic has been stolen and misused across this world, and the blue flight does not forgive those who play with what they don't understand." },
@@ -824,7 +861,13 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Don't draw your blade, mortal, I'm no friend to the satyrs you've been killing. Sit, and hear what Lorax has to say." },
-    { id = "g_back", when = { metBefore = true }, text = "You came back to hear more of Lorax's tale. Few would." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to hear more of Lorax's tale, which is more than most would do for a satyr." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Keep your demon on a short chain, warlock, and don't let it near me. It knows what I am, and it will want to laugh." },
+  },
+  notices = { "class" },
+  notice = {
+    { id = "n_lockpet", cat = "class", when = { class = "WARLOCK", pet = true },
+      text = "Your servant keeps looking at my horns as if it were measuring them for you. Tell it I'm not a warning, though perhaps I ought to be." },
   },
 
   start = "hello",
@@ -835,7 +878,7 @@ P:NPC {
       choices = {
         { text = "Every soul deserves a chance at redemption, even yours.", next = "BACK", reply = "A generous thought, and more than I deserve, but I'll take it gladly. Perhaps you'll prove the Light right about me, and me wrong.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll deal with your demon, but I won't forget what you are.", next = "BACK", reply = "Fair enough, mortal, and I'd think you a fool to forget it. Only free me from that contract, and I'll remember you kindly.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -856,7 +899,7 @@ P:NPC {
       choices = {
         { text = "Then you were snared, Lorax, and the snared can still be freed.", next = "BACK", reply = "Perhaps they can, and I've hoped as much for longer than you've been alive. Help me cut the line, and we'll see.", fx = { align = { light = 1 } } },
         { text = "Then you walked into the snare yourself. You got what you chose.", next = "BACK", reply = "I did, and I won't pretend otherwise. But even a snared beast struggles, and I am struggling still.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave that there.", next = "BACK" },
       },
     },
     xhsham = {
@@ -865,7 +908,7 @@ P:NPC {
       choices = {
         { text = "Spirits can forgive, if you make amends.", next = "BACK", reply = "Then I'll make what amends I can, and pray the spirits are as forgiving as you say. The gorge still owes me some.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "You chose your bargain. Your debts are your own.", next = "BACK", reply = "They are, and I carry them every day in this cold. I only ask for a chance to pay them back.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to your tale, then.", next = "BACK" },
       },
     },
     xmage = {
@@ -892,7 +935,7 @@ P:NPC {
       choices = {
         { text = "Then I'll help you strike back, and pray it's enough.", next = "BACK", reply = "Thank you, and pray loudly, for I'm sure no god has heard my voice in a long age. Together we might still do some good.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Some bargains can't be broken, Lorax. You made yours.", next = "BACK", reply = "Perhaps, and I know it better than you. But I'll strike back all the same, and see what breaks.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xdruid = {
@@ -918,13 +961,14 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue. You might be useful to me, I think, for the demon I bargained with keeps a contract, and contracts can be stolen." },
         { id = "h_default", text = "I am Lorax, and once I was something better than this, before I bargained my soul away to the Legion. Now I want only to strike back at the demon who holds my debt, and I can't do it alone." },
-        { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock, of all things. Then you know already how a demon's bargain works, and how it always ends." },
+        { id = "h_cond", when = { class = "WARLOCK" }, text = "One who bargains with demons, of all things. Then you know already how a demon's bargain works, and how it always ends." },
+        { id = "h_lock_orc", when = { class = "WARLOCK", race = "Orc" }, text = "An orc warlock. Your fathers drank the Legion's gift and mine took its horns, and here we both are in the snow, still paying for it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here, with me? Then perhaps you can tell me whether any god would still hear a satyr, because I stopped expecting it long ago." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You look at me the way the night elves always did, as though you can smell the forest I betrayed, and perhaps you can." },
       },
       again = {
         { id = "h_again1", text = "There is more of the tale, if you have the stomach for it." },
-        { id = "h_again2", text = "Ask. Lorax has nothing but time." },
+        { id = "h_again2", text = "Ask what you like, because Lorax has nothing left but time." },
       },
       choices = {
         { text = "Did the Legion's touch reach Winterspring's land too?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -932,6 +976,7 @@ P:NPC {
         { text = "The other satyrs here seem less sorry than you.", next = "satyrs" },
         { text = "Why hide in Winterspring?", next = "winterspring" },
         { text = "Every bargain has a loophole.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "You were a sorcerer, before the horns.", next = "sorcerer", when = { class = "WARLOCK" } },
         { text = "How did a Highborne mage become a satyr?", next = "xmage", when = { class = "MAGE" } },
         { text = "You want me to steal your contract from a demon?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -948,6 +993,7 @@ P:NPC {
       },
       choices = {
         { text = "I don't see why I should trust a satyr.", next = "tale2" },
+        { text = "Let me think on that. Something else.", next = "BACK" },
       },
     },
     tale2 = {
@@ -961,10 +1007,10 @@ P:NPC {
     },
     satyrs = {
       lines = {
-        { id = "satyrs_default", text = "They chose their masters and they're happy in their chains, and they'd kill me if they found me. Lorax keeps to his cave and keeps his head down." },
+        { id = "satyrs_default", text = "They chose their masters and they're happy in their chains, and they'd kill me if they found me, so Lorax keeps to his cave and keeps his head down." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     winterspring = {
@@ -980,13 +1026,45 @@ P:NPC {
         { id = "warlock_default", text = "Every bargain has one, yes, and the demons write them in for themselves. Find mine for me, warlock, and Lorax will owe you more than a satyr can repay." },
       },
       choices = {
-        { text = "We'll see.", next = "BACK" },
+        { text = "What happens to a warlock who misses it?", next = "warlock2" },
+        { text = "We'll see what I find.", next = "BACK" },
+      },
+    },
+    warlock2 = {
+      narr = "He scrapes one hoof slowly through the snow, back and forth.",
+      lines = { { id = "warlock2_default", text = "Nothing at first, which is the cruel part, because the power is real and you grow used to it, and then one morning you look down and your feet have become hooves. That's how it happened to me, warlock, a little at a time, and every step felt like my own idea." } },
+      choices = {
+        { text = "That won't happen to me. I hold the chain.", next = "warlock3" },
+        { text = "I'll watch my feet. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    warlock3 = {
+      big = true,
+      lines = { { id = "warlock3_default", text = "I said exactly that, in Zin-Azshari, in finer words and a finer robe. So tell me plainly, warlock, if the Legion offered you everything you wanted, what would you say?" } },
+      choices = {
+        { text = "No. Whatever it offered, no.", next = "BACK", reply = "Then say it every morning, out loud, and hope your voice doesn't change. I wish someone had made me practise.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'd take it and turn it against them.", next = "BACK", reply = "That was my plan too, mortal, almost word for word. Look at me closely before you go, and remember the horns.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not answer that.", next = "BACK", reply = "A wise silence, and a worrying one. Lorax will think about it for you." },
+      },
+    },
+    sorcerer = {
+      lines = { { id = "sorcerer_default", text = "I was, in the queen's palace, one of the Highborne who reached through the Well and found something reaching back. Your demonologists draw circles we'd have laughed at, and I still feel the old hunger when I watch one being drawn." } },
+      choices = {
+        { text = "Could you teach me what the Highborne knew?", next = "sorcerer2" },
+        { text = "Let's leave the past alone.", next = "BACK" },
+      },
+    },
+    sorcerer2 = {
+      lines = { { id = "sorcerer2_default", text = "I could, and you'd thank me, and in a few years you'd grow horns of your own and come back to curse me. No, warlock, I'll teach you nothing but my tale, and that's the only lesson I have that's worth the price." } },
+      choices = {
+        { text = "Then tell me the tale.", next = "tale" },
+        { text = "Fair enough. Something else, Lorax.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I was Highborne, once, and a fool. Now I'm only the fool." } },
+    background = { { id = "tp_bg", text = "I was Highborne once, and a fool besides, and now I'm only the fool." } },
     satyrs = { { id = "tp_satyrs", text = "The satyrs were Highborne once, in the old days, and every one of us made a bargain to become what we are. I regret mine every day, and I've no one to blame but myself." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion promised us power, and gave us horns and hooves instead. Never make a bargain with a demon, mortal, because they always win." } },
     highborne = { { id = "tp_highborne", text = "The Highborne were the finest of the Kaldorei, and the proudest. They fell because of their pride, and I followed their example far too closely." } },
@@ -1007,6 +1085,11 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed, chum! Well, mostly guaranteed, read the small print, and the bits floating in it are mostly turnip." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, eh, chum? Nobody leaves Himmik's hungry, or at least not for long, and never with a full purse." },
+  },
+
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Whatever that glowing green rock is, chum, it's not going in my stew, because I've had enough trouble with warlocks' leftovers. If it's a healthstone, eat it outside, and if it's food, I don't want to know what it was before." },
   },
 
   start = "hello",
@@ -1061,7 +1144,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." } },
+      lines = {
+        { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I wouldn't know, chum, and with that one sniffing round my pots I'm not about to find out. The last warlock let his pet into my stew and it set fire to the bench, so step back, keep yours back, and I'll serve you a bowl at the end of the counter." },
+      },
       choices = {
         { text = "I'll keep my demon out of your kitchen.", next = "BACK", reply = "Bless you, chum, and the bench thanks you too. I'll save a scrap of bread for the little fella, outside.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon eats what it likes.", next = "BACK", reply = "Not my stew, it doesn't, chum, not unless it pays like everybody else. And I charge double for fire damage.", fx = { affinity = -1, align = { order = -1 } } },
@@ -1116,7 +1202,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'm not keen to learn." },
+          text = "You want soup? Good, because your little friend looks hungry too, though I'm not sure what imps eat and I'm not keen to learn." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you warm a pot with a spell, chum? Everyone asks, and I keep forgetting to ask a mage myself, and think what I'd save on firewood." },
         { id = "h_default", text = "Himmik's the name, food and drink's the game, and in Everlook that's the most important trade there is, chum. Everything I sell has to come over the pass or through the tunnels, so believe me, at these prices I'm practically robbing myself." },

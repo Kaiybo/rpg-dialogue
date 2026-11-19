@@ -106,7 +106,7 @@ P:NPC {
           text = "I am Nyse, and I keep the wind riders of Freewind Post. From the top of this mesa they'll carry you to Thunder Bluff, to the Crossroads, or south over the salt flats to Gadgetzan." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders always fly smoother with one of you aboard, and I've stopped asking why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you'd like to say a prayer before your flight, the top of the mesa is a fine place for it, and I won't tell anyone." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. The wind riders shy from your kind, so let me calm them first, and keep your companion well back from the roost." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "The wind riders are shying already; they smell something on you. Let me calm them first, and keep whatever walks with you well back from the roost." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You'd make a good rider, quiet as you are. The wind riders don't like noise, and they don't like sudden moves, and you seem to know both." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
@@ -194,7 +194,7 @@ P:NPC {
   key = "awenasa", id = TODO_NPC("Awenasa"), name = "Awenasa", title = "Stable Master",
   bible = "bibles/thousandneedles.md", role = "stablemaster", tier = "service",
   communities = { "freewind" }, temper = { "warm" }, values = { "kind", "nature" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
 
   impression = {
     first = "She seems to know every hunter by their pet's name.",
@@ -208,6 +208,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Oh, your {pet} has climbed a long way to get up here. Let it rest by the water a moment, the climb is hard on four legs." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My kodos turned their backs to you all at once, the way they do before a storm comes over the mesa. They'll calm in a moment, I think, but I'd stand downwind of them if I were you." },
   },
 
   start = "hello",
@@ -240,10 +242,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." } },
+      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's a mercy for both of us, I think, though look, the mesa's gone quiet since your servant came up the path. The animals here are gentle and have done nothing to deserve that fear, so keep it on your side of the mesa and we'll stay friends." } },
       choices = {
         { text = "Your beasts are safe. I'll keep my distance.", next = "BACK", reply = "Then we are friends, and I will keep a pail of water for you whenever you come up the lift.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My servants go where I go. That's final.", next = "BACK", reply = "Then you will have to wait at the edge of the mesa, because my beasts were here first and they have done no wrong.", fx = { align = { light = -1 } } },
+        { text = "What serves me goes where I go. That's final.", next = "BACK", reply = "Then you will have to wait at the edge of the mesa, because my beasts were here first and they have done no wrong.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -270,7 +272,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My animals heal faster when someone kind is near them, I think, so stay a while and keep them company." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. My cats don't care for the smell of the arcane, so let them come to you, and they will, eventually." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "I don't stable demons, warlock, though I'll admit I've wondered what a voidwalker eats. Keep it away from my beasts, because they can feel it, and it frightens them." },
+          text = "The beasts went quiet the moment you stepped off the lift, stranger. Whatever you keep, keep it away from them, because they can feel it, and it frightens them." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue, and you've no pet with you, which means you've no business in my stables. But you're welcome to visit the animals, if you're gentle." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Your charger would be welcome in my stable, if you keep one, and you would be welcome to rest beside it." },
@@ -286,7 +288,7 @@ P:NPC {
         { text = "Does magic frighten the animals you keep?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do you get animals up a mesa?", next = "lift" },
         { text = "Hunters must tame all sorts of beasts around here.", next = "tame" },
-        { text = "My demons need no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What walks with me needs no stable, Awenasa.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the stabled beasts ever fear warriors, Awenasa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the beasts in your stables fear the dead, Awenasa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -340,7 +342,7 @@ P:NPC {
   key = "jinky", id = TODO_NPC("Jinky Twizzlefixxit"), name = "Jinky Twizzlefixxit", title = "Engineering Supplies",
   bible = "bibles/thousandneedles.md", role = "vendor", tier = "service",
   communities = { "mirage_raceway" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_steed" },
 
   impression = {
     first = "She keeps a cheerful tally of which racing team buys more bolts.",
@@ -357,6 +359,8 @@ P:NPC {
       text = "An engineer! You'll want to see my parts, then, and you'll want to see them before the pit crews buy them all." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome! Don't let the goblins hear you cheering for Fizzle, though; I have to sell to them too, and I'd like to keep the peace." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that a felsteed? Look at the heat coming off those hooves! I'd clock it on the Flats if you'd let me, though I suppose it'd melt the timing gear." },
   },
 
   start = "hello",
@@ -438,7 +442,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." } },
+      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Why not? Your {pet}'s right here and I'm already measuring it for the seat, so hold it still a second. Pozzik told me to get out of his garage last time I pitched it, but one look at that thing on the starting line and the tickets would sell themselves." } },
       choices = {
         { text = "Demons don't belong on a race track. Forget it.", next = "BACK", reply = "Oh, fine, fine, but I still think a voidwalker would make a marvellous pit crew, it never gets tired or complains.", fx = { align = { order = 1 } } },
         { text = "I'd lend you my demon for a cut of the purse.", next = "BACK", reply = "Ooh, now that's a business proposal, and I'll draw up a contract tonight, though Pozzik will still throw me out.", fx = { align = { order = -1 } } },
@@ -490,7 +494,7 @@ P:NPC {
         { text = "Something must live out on the salt flats, Jinky.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the racers ever get hurt, Jinky?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the weather really matter so much to the races, Jinky?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "You want a demon to pull a race car, Jinky?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You want a demon to pull a race car, Jinky? Mine bites.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How often do the racers crash, Jinky?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },

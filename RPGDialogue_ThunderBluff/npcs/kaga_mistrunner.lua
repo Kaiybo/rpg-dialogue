@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_default", text = "Plainstrider, kodo and a little boar, all hunted clean in Mulgore and cured properly. Look as long as you like." },
     { id = "g_dead", when = { race = "Scourge" }, text = "You've come up from the Pools, have you? I sell meat for the living, but I suppose your coin spends the same." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "Earth Mother keep you, child of the plains. Come, look, and tell me what your family's cooking these days." },
-    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Keep that creature of yours away from my meat. I don't want it sniffing at anything I mean to sell." },
+    { id = "g_warlock", when = { class = "WARLOCK" }, text = "Keep whatever's crouched in your shadow away from my meat. I don't want it sniffing at anything I mean to sell." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Either you're hungry, or you've another question, and I hope it's the hunger." },
     { id = "g_thanked", priority = 20, when = { npcFlagBefore = "urged_thanks" },
       text = "There you are. I did what you told me, and I've been waiting for someone to say it to, so come here and listen." },
@@ -54,7 +54,7 @@ P:NPC {
         { id = "h_thanked", priority = 20, when = { npcFlagBefore = "urged_thanks" },
           text = "I went down to the Pools and thanked the apothecary for Tahote's leg. She looked at me as though I'd grown a second head, and then said it had been interesting work, and I still don't know what I expected." },
         { id = "h_kept", priority = 10, when = { npcFlagBefore = "kept_secret" },
-          text = "You kept what I told you to yourself, I hope. I've not told my son, and I've not told the elders, and some nights I can't decide whether that makes me a liar." },
+          text = "You've the same smell the Burning Blade had, brimstone and old ash. I'll sell to you, and I'll be glad to see your back once you've bought what you came for." },
       },
       again = {
         { id = "h_again", text = "What else? Ask while I'm cutting, I can do both." },
@@ -67,7 +67,7 @@ P:NPC {
         { text = "What did the Venture Company do to you?", next = "venture" },
         { text = "You don't trust the orcs?", next = "orcs", when = { ["not"] = { class = "WARLOCK" } } },
         { text = "Say it plainly. You want me gone from Thunder Bluff.", next = "xdead", when = { race = "Scourge" } },
-        { text = "My power serves the Horde. I'm not the Burning Blade.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Whatever I am, I serve the Horde. I'm not the Burning Blade.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Cairne welcomed them. Will you doubt the High Chieftain?", next = "xcairne", when = { race = "Tauren" } },
         { text = "Let's see what you have.", next = "BUSINESS" },
         { text = "Earth Mother keep you, Kaga.", next = "END" },
@@ -233,10 +233,10 @@ P:NPC {
 
     xlock = {
       lines = {
-        { id = "xl_default", text = "So the Burning Blade said too, I expect, before the demons had all of them. I've no proof against you and I'll sell to you fairly, but I'll not pretend I'm glad to have a summoner standing at my stall." },
+        { id = "xl_default", text = "So the Burning Blade said too, I expect, before their masters had all of them. I've no proof against you and I'll sell to you fairly, but I'll not pretend I'm glad to have a summoner standing at my stall." },
       },
       choices = {
-        { text = "I command my demons. They will never command me.", next = "BACK", reply = "Every one of them believed that, right up until they didn't. Keep your demons in check, and keep them away from my meat, and we'll have no quarrel.", fx = { align = { order = 1 } } },
+        { text = "What I command will never command me.", next = "BACK", reply = "Every one of them believed that, right up until they didn't. Keep your creatures in check, and keep them away from my meat, and we'll have no quarrel.", fx = { align = { order = 1 } } },
         { text = "What I do with my power is my business.", next = "BACK", reply = "It's your business until it comes up the lift into my city, and then it's mine. Buy what you need, and go in peace, but go.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

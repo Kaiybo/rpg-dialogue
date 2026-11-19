@@ -7,13 +7,17 @@ P:NPC {
   bible = "bibles/wilhelm.md", role = "trainer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "pious", "kind", "honest" },
   spiritSensitive = true,
-  notices = { "kit", "affliction" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Fought in the Second War and saw what Gul'dan's warlocks made of good men; gives warlocks the fence and nothing more." },
+  notices = { "kit", "affliction", "lock_shadow" },
   impression = {
     first = "He says he mends souls, and slowly.",
     third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath costs in practice.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought in the Second War, and I saw what Gul'dan's warlocks made of good men. Stay beyond my fence, and keep that creature further still." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You've no place at a paladin's door, and you know it. Say your piece from where you stand." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept to the fence every time I asked, and you've done good work in Goldshire. I'll speak with you, though I'll not forget what you carry." },
     { id = "g_op_forsaken_hate", when = { opinion = { topic = "forsaken", stance = "hate" } }, text = "Back again? Good. I've been thinking about what you said of the Forsaken, and I'd like you to stay for evening prayers before you go north." },
     { id = "g_default", text = "Brother Wilhelm. Mind the forge smoke, it gets everywhere." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "Back for more? Good, sit down, if you can find a dry spot." },
@@ -29,6 +33,8 @@ P:NPC {
       text = "Polished, every buckle of it. Somebody at the Abbey taught you right." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Poison" } },
       text = "You've picked something up out there, so hold still while I cleanse it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came in, friend, the way a hand flinches from a cold stove, and I felt it before I saw you. That doesn't mean it's given up on you, so don't you give up on it either." },
   },
 
   start = "hello",
@@ -111,7 +117,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." } },
+      lines = {
+        { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around, and that creature at your heel would have to stay behind when you did. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+      },
       choices = {
         { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", reply = "It's always open, friend, and I'll be glad to see you at it. I'm behind the smithy most mornings.", fx = { align = { light = 1 } } },
         { text = "I've no need of redemption. My path is chosen.", next = "BACK", reply = "Then I'll pray for you anyway, quietly. The door won't close.", fx = { align = { light = -1 } } },
@@ -144,7 +153,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll find no books here, only sweat and the Light, though a mage could do worse than learn a little of both." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, here at my door. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
+          text = "You come to my door with a shadow at your heel. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You come to my door smelling of the fel, as bold as you please. I'll speak with you across the fence, and that's as near as you'll come." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've earned a word at my gate, I suppose, though I'll still keep my hammer where I can reach it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the paladin's yard. You're welcome here, and so is your companion, if it keeps off the practice dummies." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand straight enough, so I'd guess someone taught you well before you crossed the sea." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I mend souls, slowly. Do your spirits mend too, or only strike?" },
@@ -166,7 +177,7 @@ P:NPC {
         { text = "Does anything in Goldshire trouble you, Brother?", next = "cellar" },
         { text = "I'd guess a paladin can see through a rogue, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I doubt a warlock can ever be redeemed, Brother.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt a warlock can be redeemed, Brother. I doubt I want to be.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour hunters, Brother Wilhelm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Light and nature seem to serve the same end, Brother.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think spirits can mend a soul, Brother Wilhelm?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

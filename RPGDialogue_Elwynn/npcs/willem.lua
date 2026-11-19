@@ -6,7 +6,7 @@ P:NPC {
   key = "willem", id = TODO_NPC("Deputy Willem"), name = "Deputy Willem",
   bible = "bibles/willem.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "newcomer", "thief", "stranger" },
+  notices = { "newcomer", "thief", "stranger", "lock_soulstone" },
   impression = {
     first = "If there's trouble in the valley, he has already heard of it.",
     third = "{name} met Deputy Willem on the Northshire road, who keeps the Marshal's tallies and an eye on every stranger.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "Look at you, not a scratch on you yet. That won't last, mind; it never does." },
     { id = "n_far", cat = "stranger", when = { outOfPlace = "far", race = { "NightElf", "Skyborne" } },
       text = "Don't get many of your sort coming down the Abbey road. Lost, or looking for work?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { ["not"] = { class = "WARLOCK" }, aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a pale look about you, as if part of you were kept somewhere else, and Drusilla La Salle's students get that look about the folk whose souls they've stoned. Did one of them do that to you, or did you ask?" },
   },
 
   react = {
@@ -103,9 +105,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." } },
+      lines = {
+        { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey, along with whatever they've got watching me the way that one is. The Marshal says they're useful, and I take him at his word, mostly." },
+      },
       choices = {
-        { text = "I'll prove myself useful and keep my demon leashed, deputy.", next = "BACK", reply = "That's all I ask, and I'll sleep a little easier for it. The Marshal will hear about it.", fx = { align = { light = 1 } } },
+        { text = "I'll prove myself useful and keep what I carry leashed, deputy.", next = "BACK", reply = "That's all I ask, and I'll sleep a little easier for it. The Marshal will hear about it.", fx = { align = { light = 1 } } },
         { text = "Your trust doesn't matter. The Marshal's word is enough.", next = "BACK", reply = "It is, I suppose, and I'll not argue with him. Just mind the Abbey on your way past.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -169,7 +174,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage on the Abbey road. Khelden Bremen's sent you down to the vineyard, I'd wager, because the kobolds have been at it again." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, coming down from Drusilla La Salle's graveyard. I'll ask you to keep that thing on a short leash, because the horses don't like it." },
+          text = "Coming down from Drusilla La Salle's graveyard, are you? I'll ask you to keep that thing on a short leash, because the horses don't like it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the bandanas in the vineyard won't count themselves, and the Marshal wants a full tally." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves on the north slope have been bold this week, and the recruits are nervous." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid on the Abbey road! I've a tally of kobolds as long as my arm, so I hope you've come to help me shorten it." },

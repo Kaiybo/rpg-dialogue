@@ -7,7 +7,7 @@ P:NPC {
   key = "lanie_reed", id = TODO_NPC("Lanie Reed"), name = "Lanie Reed", title = "Gryphon Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "wry" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "Living as a guest among Dark Irons still sits strangely with her.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A Bronzebeard face! I'm glad of it, friend; you'd not believe how strange it is to wake every morning surrounded by Dark Irons who mean you no harm." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're runnin' hotter than the Gorge itself, an' that's an imp's blood pact or I'm a gnome. The birds are used tae heat, mind, so climb on an' dinnae fret." },
   },
 
   start = "hello",
@@ -103,9 +105,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." } },
+      lines = {
+        { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. Even with your demon standing right below the roost, the old birds barely lift their heads, which I find both sad and useful." },
+      },
       choices = {
-        { text = "I'll keep my demon away from the young ones.", next = "BACK", reply = "They'll thank you for it, though they'll not say so. Mind their feathers.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep what travels with me away from the young ones.", next = "BACK", reply = "They'll thank you for it, though they'll not say so. Mind their feathers.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the old birds don't mind, then neither do I.", next = "BACK", reply = "That's the sad and useful part, aye. Up you get, then.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -122,7 +127,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon on the ground, please, because a gryphon in the Gorge has enough to worry about with fire elementals and doesn't need a passenger that smells of brimstone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever's at your heel on the ground, please, because a gryphon in the Gorge has enough to worry about with fire elementals and doesn't need a passenger that smells of brimstone." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be glad of a gryphon here, I'd wager, because there's nothing in the Gorge a knight can charge that doesn't either bite back or burst into flames." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light, and a fellow Alliance face besides! Thorium Point's a long way from the Cathedral, so if you've a blessing to spare, my birds and I won't turn it down." },
@@ -154,7 +159,7 @@ P:NPC {
         { text = "Would they welcome a Bronzebeard warrior here?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your gryphons look miserable in this heat.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How do the Dark Irons here take to a paladin?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do your gryphons balk at carrying a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your gryphons balk at carrying someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who's stranger here, a dwarf shaman or a Dark Iron ally?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
@@ -198,7 +203,7 @@ P:NPC {
   key = "grisha", id = TODO_NPC("Grisha"), name = "Grisha", title = "Wind Rider Master",
   bible = "bibles/searinggorge.md", role = "flightmaster", tier = "service",
   communities = { "thorium_point" }, temper = { "gruff" }, values = { "dutiful", "careful" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "She is wary of every dwarf and openly fond of her beasts.",
@@ -214,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar, {g:brother|sister}. Good to see another orc face among all these dwarves; it gets lonely being the only one of us in camp." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone; I can smell the warlock's work on you. In the old Horde the warlocks bound souls for their own use and called it a gift, so I hope yours was given by a friend." },
   },
 
   start = "hello",
@@ -267,10 +274,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. Some of my grunts haven't forgiven the warlocks either, and I'd not ask them to." } },
+      lines = {
+        { id = "xlock_default", text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. Some of my grunts haven't forgiven the warlocks either, and I'd not ask them to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Wind riders came to us in Kalimdor, after the old days, and they never learned to love the fel the way the old Horde did. They've pinned their ears back at your demon, and so have my grunts, and I'll not ask either of them to forgive it, because I remember the blood too." },
+      },
       choices = {
-        { text = "Fel is a tool, and the Horde will need it again.", next = "BACK", reply = "It might, but my grunts won't thank you for saying so. Keep it far from my riders.", fx = { align = { light = -1 } } },
-        { text = "The old warlocks earned that hatred. I'll do better.", next = "BACK", reply = "Then do better, and they'll see it. Deeds, not words, warlock.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That power is a tool, and the Horde will need it again.", next = "BACK", reply = "It might, but my grunts won't thank you for saying so. Keep it far from my riders.", fx = { align = { light = -1 } } },
+        { text = "The old warlocks earned that hatred. I'll do better.", next = "BACK", reply = "Then do better, and they'll see it. Deeds, not words.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
@@ -306,7 +316,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. The air over the Gorge is angry and my riders feel it in their wings, so if you can make it behave, you'll be the most popular passenger I've ever had." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the riders come back from the Cauldron singed and limping, and I can only bandage so much before I run out of linen." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. The Dark Irons here keep their doors locked and their eyes open, so whatever you're planning, don't plan it near my perch." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon on the far side of the perch, because my riders have long memories and short tempers, and they don't like demons." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Keep whatever you've brought on the far side of the perch, because my riders have long memories and short tempers, and they don't like your sort's pets." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. You could teleport home and leave my riders idle, but you came to me, so I'll take it as a compliment." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
@@ -326,7 +336,7 @@ P:NPC {
         { text = "How do you feel about the dwarves here?", next = "dwarves" },
         { text = "Do you get along with the gryphon master?", next = "lanie" },
         { text = "Do your riders mind carrying a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Why do your riders hate demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do your riders glare at me like that?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust the Dark Irons here, Grisha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Your wind riders must hate this place.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Dark Irons keep a close eye on the Horde?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },

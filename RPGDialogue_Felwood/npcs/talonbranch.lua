@@ -6,7 +6,8 @@ P:NPC {
   key = "golhine", id = TODO_NPC("Golhine the Hooded"), name = "Golhine the Hooded", title = "Druid Trainer",
   bible = "bibles/felwood.md", role = "trainer", tier = "service",
   communities = { "talonbranch" }, temper = { "quiet" }, values = { "wise", "patient" },
-  notices = { "class", "form" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Druid who watched Felwood rot from fel; guards the last clean moonwell." },
+  notices = { "class", "form", "lock_shadow" },
 
   impression = {
     first = "He says the hood only keeps the ash off.",
@@ -14,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "This forest was green when I was young, before the demons' servants poisoned it. Keep your fire away from my moonwell." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The moonwell stays clear when you visit now. I still don't like what you carry, but I'll hear you." },
     { id = "g_druid", when = { class = "DRUID" }, text = "You've come far to train in a sick forest, which is good. Sit by the well." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "The moonwell is clean, though little else here is. Rest a moment, if you need to." },
   },
@@ -21,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Careful in that shape out there; the bears of Felwood are sick, and they'll take you for kin, and then for food." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The saplings in the glade turned their leaves away from you, and they have only done that once before, when the corruption was close. I teach druids to listen to them, so I will listen now and keep my distance." },
   },
 
   start = "hello",
@@ -84,7 +89,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because everything outside this glade was green once, and fel made it otherwise. I teach druids to heal the land, and you were taught to burn it, so we start a long way apart, and I would rather not pretend we don't." } },
+      lines = {
+        { id = "xlock_default", text = "Because everything outside this glade was green once, and fel made it otherwise. I teach druids to heal the land, and you were taught to burn it, so we start a long way apart, and I would rather not pretend we don't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because everything outside this glade was green once, and fel made it otherwise, and you have brought some of it to the very edge of my moonwell. I teach druids to heal the land, and you were taught to burn it, so we start a long way apart, and that creature only makes the distance longer." },
+      },
       choices = {
         { text = "Then I'll prove myself by keeping my distance.", next = "BACK", reply = "Then I'll watch, and I'll hope you do. Stay on the far side of the well, and my students will stop staring.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burning is the only thing demons understand.", next = "BACK", reply = "Perhaps, but you were taught to call them, too, and that's where Felwood's sickness started. Burn carefully.", fx = { align = { light = -1 } } },
@@ -130,8 +138,10 @@ P:NPC {
           text = "A warrior. Lean your shield where you like, but don't foul the moonwell; it's the only clean water for a day's walk." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, at the last clean moonwell. Let your beast drink, if it will." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've watched Felwood rot from the fel your kind trades in. Say your piece quietly, and stay clear of the well." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again, and the well still clean. Speak, then." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
+          text = "The last clean moonwell in Felwood rippled when you came near it. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },

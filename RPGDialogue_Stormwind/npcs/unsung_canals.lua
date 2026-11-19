@@ -8,7 +8,7 @@ P:NPC {
   key = "lucan_cordell", id = TODO_NPC("Lucan Cordell"), name = "Lucan Cordell", title = "Expert Enchanter",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "measured" }, values = { "craft", "arcane" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_stones" },
   impression = {
     first = "He chooses his words like reagents and expects the same care.",
     third = "{name} met Lucan Cordell, the foremost enchanter in Stormwind.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "There's strange dust in the creases of your pack, which tells me you've been taking things apart. Good; every enchanter begins by unmaking." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" }, place = "before",
       text = "A mage, and you'll think enchanting is beneath you, because your spells fade and mine last. Stay a while, and you may change your mind." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Your spellstone is singing very faintly, in the same pitch as a badly bound enchantment about to slip. It isn't my craft, but I can hear when a binding is under strain, and that one is." },
   },
   start = "hello",
   nodes = {
@@ -65,9 +67,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They twist them, which is worse, because a twisted enchantment looks perfectly sound until the day it fails. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark on my bench as a warning." } },
+      lines = {
+        { id = "xlock_default", text = "They twist them, which is worse, because a twisted enchantment looks perfectly sound until the day it fails. I once had a cloak from the Lamb come back to me burning green at the hem, and I've kept the scorch mark on my bench as a warning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They twist them, which is worse, and I can feel the runes on my bench twisting already with your servant this close. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark as a warning, so I'd thank you to stand it by the door before I've a second one." },
+      },
       choices = {
-        { text = "I'll keep my demon away from your bench, Lucan.", next = "BACK", reply = "Thank you. Jessara keeps a box of ruined rods at the back, and I'd rather not add to it.", fx = { align = { light = 1 } } },
+        { text = "I'll keep what follows me away from your bench, Lucan.", next = "BACK", reply = "Thank you. Jessara keeps a box of ruined rods at the back, and I'd rather not add to it.", fx = { align = { light = 1 } } },
         { text = "A little green flame never hurt anyone worth worrying about.", next = "BACK", reply = "It hurt my cloak, and my reputation, and very nearly my bench. I'll keep you at arm's length, if you don't mind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -120,7 +125,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll know the difference between enchanting a blade and blasting a hole in one. Most of my customers don't, sadly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. I'll enchant your gear like anyone's, but I'll ask you to keep your demon outside the shop, because the essences react badly to fel." },
+          text = "There's a sourness on you the essences won't like. I'll enchant your gear like anyone's, but I'll ask you to keep whatever follows you outside the shop." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want your blade enchanted, I suppose, as every warrior does, and you'll want it done by tomorrow, as every warrior does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Enchanting a bow is delicate work, because the string flexes and the magic doesn't like being stretched." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people turned away from the arcane long ago, so I'll be curious to hear what you make of my work, and I'll ask you to be honest." },
@@ -138,7 +143,7 @@ P:NPC {
         { text = "Why take on Dalaran's work yourself, Lucan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "A warrior must need a different sort of enchantment, Lucan.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I doubt you can enchant a hunter's bow or rifle, Lucan.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do fel energies really spoil your enchantments?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a certain green fire really spoil your enchantments, Lucan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are blessings and enchantments truly alike, Lucan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins often seek enchantments from you, Lucan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can the arcane ever be used without wounding the land, Lucan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -188,7 +193,7 @@ P:NPC {
   key = "jessara_cordell", id = TODO_NPC("Jessara Cordell"), name = "Jessara Cordell", title = "Enchanting Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "family" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She is brisk with customers and kind to the apprentices.",
     third = "{name} met Jessara Cordell, who sells enchanting supplies in the Cordells' shop.",
@@ -200,6 +205,8 @@ P:NPC {
   notice = {
     { id = "n_ench", cat = "craft", when = { profession = "Enchanting" }, place = "before",
       text = "You'll want a runed copper rod soon, if you haven't got one already. Everyone thinks they can do without it, and nobody can." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The rods on the counter just dimmed, the way they did when that customer from the Lamb leaned here for half an hour. Would you mind standing back a pace, because Lucan counts them every evening?" },
   },
   start = "hello",
   nodes = {
@@ -216,6 +223,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It does, and I've the ruined rods in a box at the back to prove it, because a customer from the Lamb once leaned on the counter for half an hour. Lucan was so cross he didn't speak for a day, which for Lucan is the same as shouting, so you'll understand why I'm careful." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It does, and I've the ruined rods in a box at the back to prove it, all from one customer leaning on the counter for half an hour without a demon in sight. Yours has been in here a minute and the rods on the top shelf are already dimming, so if you'd take it outside, Lucan might speak to me tonight." },
       },
       choices = {
         { text = "I'll keep clear of the counter, Jessara.", next = "BACK", reply = "Thank you. I've had quite enough of that box.", fx = { align = { order = 1 } } },
@@ -301,7 +309,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll sell you rods and dust, but not opinions, because Lucan has enough of those for the whole family." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you now that most of what's sold for that is nonsense." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll not be wanting dust or essences, so I'll ask you to step aside for the paying customers, kindly." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you rods and vials, but I'll ask you not to try out anything near Lucan's formulae, because fel residue ruins a week's work." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've come from the Lamb, haven't you? I'll sell you rods and vials, but I'll ask you not to try out anything near Lucan's formulae, because that cellar's residue ruins a week's work." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? Lucan's busy, but if you need supplies I'll help, so long as your spirits don't bother the apprentices." },
       },
       again = {
@@ -319,7 +327,7 @@ P:NPC {
         { text = "Does the Cathedral buy from your shop, Jessara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever tire of guarding Lucan's time, Jessara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would an enchanter ever want something a druid could gather, Jessara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does fel residue really spoil Lucan's work, Jessara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a little cellar residue really spoil Lucan's work, Jessara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are the apprentices frightened of shamans, Jessara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Jessara.", next = "END" },
       },
@@ -358,7 +366,7 @@ P:NPC {
   key = "catherine_leland", id = TODO_NPC("Catherine Leland"), name = "Catherine Leland", title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "salty" }, values = { "practical", "nature" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "She talks about fish the way soldiers talk about old campaigns.",
     third = "{name} met Catherine Leland, who sells fishing supplies on the Stormwind canals.",
@@ -370,6 +378,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" }, place = "before",
       text = "You've got the smell of the lake on you, friend, which is the best perfume there is. Need bait?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Something in your pack is humming, and every fish in my bait bucket has gone to the bottom. Fishermen are patient, but fish aren't, so I'd thank you to stand a bit further off." },
   },
   start = "hello",
   nodes = {
@@ -385,11 +395,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Patient folk make good fishermen, and your sort seem patient enough, sitting up all night with your candles and your circles. Just don't go summoning anything into the canal to chase the fish, because Arnold tried a firework once and the guards still talk about it." },
+        { id = "xlock_default", text = "Patient folk make good fishermen, and your sort seem patient enough, sitting up all night with your candles and your circles. Just don't go calling anything up into the canal to chase the fish, because Arnold tried a firework once and the guards still talk about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Patient folk make good fishermen, and your sort seem patient enough, though the fish will feel your {pet} glaring at the canal and go straight to the bottom. Just don't go summoning anything into the water to chase them, because Arnold tried a firework once and the guards still talk about it." },
       },
       choices = {
         { text = "Just a pole and patience, then, Catherine.", next = "BACK", reply = "You'll make a fisherman yet, and with fewer burnt candles than my last apprentice.", fx = { align = { order = 1 } } },
-        { text = "A summoned thing in the canal would fish faster.", next = "BACK", reply = "Faster, aye, and the Watch would close the canal for a month. Stick to the pole.", fx = { align = { order = -1 } } },
+        { text = "Something sent into the canal would fish faster, Catherine.", next = "BACK", reply = "Faster, aye, and the Watch would close the canal for a month. Stick to the pole.", fx = { align = { order = -1 } } },
         { text = "Something else, Catherine.", next = "BACK" },
       },
     },
@@ -472,7 +483,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, with a fishing question? Don't look so sheepish; the whole Barracks fishes on its day off, and they're better at it than they let on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you'll want bait for the pike in Stonewatch, or you'll want to tell me you can catch them with your hands." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the bait counter. Arnold says your people never use bait, only patience, and I'd thank you not to say so loudly near my stock." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, buying fishing line? I've sold stranger things to stranger folk, and the fish don't care either way." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Candle wax on your cuffs, and buying fishing line? I've sold stranger things to stranger folk, and the fish don't care either way." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the canal! My prices are the best in the city. Do your spirits fish?" },
       },
       again = {
@@ -490,7 +501,7 @@ P:NPC {
         { text = "Do people ever come to the canals to pray, Catherine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you ever pulled anyone out of the canals, Catherine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is bait really cheating the fish, Catherine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would a warlock make a good fisherman, Catherine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would someone who keeps candles burning all night make a good fisherman?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the fish come back each season, Catherine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Catherine.", next = "END" },
       },
@@ -529,7 +540,7 @@ P:NPC {
   key = "lisbeth_schneider", id = TODO_NPC("Lisbeth Schneider"), name = "Lisbeth Schneider", title = "Clothier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "community" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She measures you with her eyes before you say a word.",
     third = "{name} met Lisbeth Schneider, the clothier of the Canal Tailor and Fit Shop.",
@@ -541,6 +552,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } }, place = "before",
       text = "Look at the state of your sleeves, friend. Whatever it was, it won, and you'll want something new before you go out again." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward on you has no seams, and I've been looking for one since you came in, because everything has seams. I measure the Lamb's lot the same as anyone, but I can't fit a coat over that." },
   },
   start = "hello",
   nodes = {
@@ -584,7 +597,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I say a little prayer after the cellar's lot leave. A seam doesn't care who wears it, and I try to be like a seam." } },
+      lines = {
+        { id = "xlock_default", text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I say a little prayer after the cellar's lot leave. A seam doesn't care who wears it, and I try to be like a seam." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I've never had to measure with one of their servants breathing down my neck. A seam doesn't care who wears it, and I try to be like a seam, but I'll be saying a longer prayer than usual tonight." },
+      },
       choices = {
         { text = "Say the prayer, Lisbeth. I could probably use it.", next = "BACK", reply = "Then I'll say it twice, dear, and you can have the second one free.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I didn't come here for those.", next = "BACK", reply = "Fair enough, dear. You'll have one anyway, after you leave.", fx = { align = { light = -1 } } },
@@ -639,7 +655,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. I measure all sorts here, and I'll measure you too, though I'd thank you to keep anything with horns outside the curtain." },
+          text = "You've the cellar's chill on you. I measure all sorts here, and I'll measure you too, though I'd thank you to keep anything with horns outside the curtain." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a good padded shirt under that mail, or you'll be raw by Goldshire, and I'll fit it properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want something dull and quiet that won't snag on every briar in Elwynn, I'd wager." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I can tell your cloth was sewn in Darnassus, because no human tailor would leave the hems that loose." },

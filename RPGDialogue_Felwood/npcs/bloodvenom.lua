@@ -64,7 +64,7 @@ P:NPC {
         { id = "ww_default", text = "Oh, I knew I'd like you! Most people get very twitchy when I mention what's in the water here, but you've got that lovely green smell about you, so you understand: it isn't evil, it's just extremely concentrated." },
       },
       choices = {
-        { text = "Exactly. Power is power.", next = "BACK", reply = "Exactly, exactly, and nobody else in this miserable post understands it! We should have tea, warlock, green tea.", fx = { align = { light = -1 }, affinity = 2 } },
+        { text = "Exactly. Power doesn't care who drinks it.", next = "BACK", reply = "Exactly, exactly, and nobody else in this miserable post understands it! We should have tea, warlock, green tea.", fx = { align = { light = -1 }, affinity = 2 } },
         { text = "It's evil, Winna. I just use it anyway.", next = "BACK", reply = "Ha! Honest and wicked, my favourite combination. You'll fit right in here, darling.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -167,7 +167,7 @@ P:NPC {
         { text = "A fellow Forsaken. Who sent you here?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Keep your potions away from my pet.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Moonwells were sacred to someone.", next = "tauren", when = { race = "Tauren" } },
-        { text = "Fel is just another reagent to me.", next = "warlock_w", when = { class = "WARLOCK" } },
+        { text = "Fel is a reagent like any other. I only want more of it.", next = "warlock_w", when = { class = "WARLOCK" } },
         { text = "Your work could poison a whole Alliance camp, couldn't it?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "The corrupted moonwell must do something strange to the water.", next = "xmage", when = { class = "MAGE" } },
         { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -282,7 +282,8 @@ P:NPC {
   key = "trull", id = TODO_NPC("Trull Failbane"), name = "Trull Failbane",
   bible = "bibles/felwood.md", role = "soldier", tier = "quest",
   communities = { "bloodvenom_post" }, temper = { "grim" }, values = { "loyal", "practical" },
-  notices = { "kit" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Old grunt who saw what Gul'dan's warlocks made of his clan; Felwood is what their bargains leave behind." },
+  notices = { "kit", "lock_eyes" },
 
   impression = {
     first = "He'll know if I skip any part of my report.",
@@ -290,6 +291,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what Gul'dan's warlocks made of my clan, and I won't watch it happen twice. Give your report and keep your demon out of my camp." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Thrall says we're free of the demon's blood now. Then why does it walk into my post with you?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done honest work for this post, and your pet's stayed quiet. I'm still watching you, but I'm watching the forest harder." },
     { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way you're useful now, and the last useful one still owes me two silver and hasn't come back from Jaedenar." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Felwood didn't stop rotting while you were away. Report what you saw, and leave nothing out." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last sent you out, and I can use that, because the forest has only grown worse. Orgrimmar wants reports, and I want someone who can come back with them." },
@@ -300,6 +304,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The forest had you for lunch, so get fixed up before it comes back for supper." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You see what hides, warlock, and I can tell, because your eyes went straight to the corners where my watchers stand. Orgrimmar's eyes are supposed to go unseen, so I'll thank you to stop looking at them." },
   },
 
   start = "hello",
@@ -394,10 +400,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." } },
+      lines = {
+        { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "So did the Shadow Council, once, and look at what they made of Jaedenar, with servants very like the one standing at your elbow. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open, and on both of you." },
+      },
       choices = {
-        { text = "The Council were traitors. They earned their end.", next = "BACK", reply = "They did, and I'd be glad to see the rest of them follow. You talk like a warlock who's seen what I've seen.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Council were fools. I know where the line is.", next = "BACK", reply = "Every one of them said the same, warlock. Keep your line well marked, because I'll be watching it.", fx = { align = { light = -1 } } },
+        { text = "The Council were traitors. They earned their end.", next = "BACK", reply = "They did, and I'd be glad to see the rest of them follow. You talk like someone who's seen what I've seen.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Council were careless. I know where the line is, and when to cross it.", next = "BACK", reply = "Every one of them said the same. Keep your line well marked, because I'll be watching it.", fx = { align = { light = -1 } } },
         { text = "Watch all you like, then.", next = "BACK" },
       },
     },
@@ -420,8 +429,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's lot sold us to the Legion, and this forest is what that kind of bargain leaves behind. Make your report, and make it short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've earned your place at the fire, near enough. Talk." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, at Bloodvenom. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
+          text = "There's fel on your hands, and here at Bloodvenom we notice that. I'll be watching you as closely as I watch the forest, so don't take it personally when you catch me at it." },
         { id = "h_default", key = true,
           text = "I am Trull Failbane, and Orgrimmar pays me to be its eyes in Felwood. This forest is full of the same fel that once poisoned my people, and the owlbeasts on the Winterspring border are guarding something, so I mean to find out what." },
         { id = "h_guardians", tags = { "news" }, when = { questActive = TODO_QUEST("Wild Guardians") },

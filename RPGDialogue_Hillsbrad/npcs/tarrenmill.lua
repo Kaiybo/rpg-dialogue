@@ -8,7 +8,7 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "cold" }, values = { "loyal", "relentless" },
   likesTone = "blunt",
   prejudice = { faction = "Horde", race = { "Orc", "Tauren", "Troll" }, amount = 10, why = "The living Horde flinch from the Forsaken, and she returns the contempt." },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards", "lock_armor" },
 
   impression = {
     first = "She measures everyone by their use to the Dark Lady's front.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "One of the living allies. The Horde lends us blades and we are grateful. Keep them pointed south." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR", race = "Scourge" },
       text = "A warrior of the Forsaken, good. The dead don't tire, and neither should we." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry a good many souls in that bag, {class}, and I hope some of them wore Alliance blue, because that is the best use for them. Remember, though, that every one of us in Tarren Mill was somebody's harvest once." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you wear has the same reek that clings to Lord Varimathras, and I have stood close enough to him to know it. Wear it on the Southshore line, where it frightens the right people." },
   },
 
   start = "hello",
@@ -187,7 +191,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must. His kind once ruled us through the Lich King, and I watch every dreadlord who walks the Undercity with the same care I'd watch a coiled snake." } },
+      lines = {
+        { id = "xlock_default", text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must. His kind once ruled us through the Lich King, and I watch every dreadlord who walks the Undercity with the same care I'd watch a coiled snake." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must, which is further than I would trust that thing beside you. His kind once ruled us through the Lich King, so I watch every dreadlord like a coiled snake, and I'll watch your demon the same way while it stands in my camp." },
+      },
       choices = {
         { text = "The dreadlord serves us now. Use him.", next = "BACK", reply = "Use him, by all means, but never turn your back on him. The Dark Lady keeps her dreadlord close for a reason, and it is not affection.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Never trust a dreadlord. Watch him as he watches us.", next = "BACK", reply = "You have the instincts of a survivor. Keep them, because the Undercity has a great many shadows and he lives in most of them.", fx = { align = { order = -1 } } },
@@ -229,7 +236,7 @@ P:NPC {
           text = "You carried Lordaeron's colours once; it shows in how you stand. Southshore's watchmen once served the same king, so try to remember which side of the line you are on now." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because Southshore's farms are best taken quietly, and I have no patience for soldiers who announce themselves with a battle cry." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage of the Forsaken or the Horde, it hardly matters. The Dark Lady values any power that can break a human line, and you'll find plenty of lines to break here." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who understands what they cost." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You reek of the Nether, warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who knows exactly what they cost." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
@@ -261,7 +268,7 @@ P:NPC {
         { text = "The Windshapers fight for the Horde.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "How do you want Southshore's farms taken, High Executor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What use does the Dark Lady have for mages, High Executor?", next = "xmage", when = { class = "MAGE" } },
-        { text = "I wouldn't trust Lord Varimathras, High Executor.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I wouldn't trust Lord Varimathras, High Executor. I know what his kind want.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -492,7 +499,7 @@ P:NPC {
   key = "lydon", id = TODO_NPC("Apothecary Lydon"), name = "Apothecary Lydon",
   bible = "bibles/hillsbrad.md", role = "scholar", tier = "quest",
   communities = { "tarren_mill" }, temper = { "glum" }, values = { "devoted" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shadow" },
 
   impression = {
     first = "He told me to touch nothing, since most of it kills.",
@@ -513,6 +520,8 @@ P:NPC {
       text = "An alchemist. Do you enjoy it? I used to enjoy things. Now I just find them interesting, in a distant sort of way." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
       text = "You're alive, warm and breathing, and it's very distracting. Try to breathe more quietly, would you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Umpi has gone under the bench, and she never hides from anything, not even the Deathguard. It's the shadow on you she dislikes, so don't take it personally, though I am writing it down." },
   },
 
   start = "hello",
@@ -627,10 +636,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." } },
+      lines = {
+        { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Umpi is my frog, and she has gone very still under the table since your demon arrived, which is the most sense she has ever shown. Keep it away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." },
+      },
       choices = {
-        { text = "I'll keep my minion far from Umpi. You have my word.", next = "BACK", reply = "Thank you, truly. Umpi can't say it, but she'd thank you too, if frogs did that sort of thing.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon goes where it pleases, Lydon.", next = "BACK", reply = "Then it pleases to go elsewhere, or I'll test the black bottles on it. I'm very attached to that frog.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my minion far from Umpi. For your sake.", next = "BACK", reply = "Thank you, truly. Umpi can't say it, but she'd thank you too, if frogs did that sort of thing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where it pleases, Lydon. So does its hunger.", next = "BACK", reply = "Then it pleases to go elsewhere, or I'll test the black bottles on it. I'm very attached to that frog.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -659,7 +671,7 @@ P:NPC {
         { id = "h_innocents", tags = { "news" }, when = { questActive = TODO_QUEST("Blood of Innocents") },
           text = "A toxin to bleed the violence out of goblins. It needs innocent blood, and the Syndicate's shadow mages have been collecting it for me. How generous of them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them by smell, and a few of them are meant to be found out exactly that way." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You'll want to know whether I've a use for your shards, warlock, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your beast away from the table, because most of what's on it would kill it, and the rest would make it wish it had died." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, standing in my workshop. You must feel something when the Light comes, and I envy that, because the only things I still feel are my work and Umpi." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } },
@@ -684,7 +696,7 @@ P:NPC {
         { text = "Do you miss anything, from before?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "I'd keep Umpi away from my demon, Lydon.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Keep Umpi away from my demon, Lydon. It's been hungry lately.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you test your brews on beasts, Lydon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the Light worth feeling, Lydon, if all it does is burn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to it.", next = "END" },
@@ -917,7 +929,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. Some of my guests used to pray before supper, and now they don't eat supper, so the praying stopped too, but you're welcome to start it up again." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock. Your imp can stay, but if it sets fire to my curtains, as somebody's did last month, I'll be charging you for the curtains." },
+          text = "Your imp can stay, warlock, but if it sets fire to my curtains, as somebody's did last month, I'll be charging you for the curtains, and for the screaming." },
         { id = "h_default", text = "I'm Shay, and I keep the inn. When this town was alive someone else did, and the customers complain less now." },
         { id = "h_clean", when = { metBefore = true }, text = "I polished the bar today. Nobody here eats or drinks much anymore, but a clean bar is a clean bar. Habit's what's left." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night's our busy hour, though everyone's always up here, so I've stopped putting the chairs on the tables." },

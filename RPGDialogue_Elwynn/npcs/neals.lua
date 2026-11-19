@@ -6,13 +6,17 @@ P:NPC {
   key = "neals", id = TODO_NPC("Brother Neals"), name = "Brother Neals",
   bible = "bibles/neals.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "drink", "faith" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Keeps the abbey's cellars; a novice followed one of Drusilla's students into the crypt and came back wrong." },
+  notices = { "drink", "faith", "lock_shadow" },
   impression = {
     first = "He cheerfully admits to failing at moderation, and I trust him more.",
     third = "{name} met Brother Neals, keeper of Northshire Abbey's cellars, who loves a careful tally almost as much as the wine.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Drusilla La Salle's lot again. You've no business in my bell tower, and less in the cellars, so I'll thank you to keep to the yard." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "A novice of ours followed one of your kind down into the crypt last spring and came back up wrong. Keep your distance from the brothers." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept out of the cellars, I'll grant you that. Come up if you like, but I'll be watching where you put your hands." },
     { id = "g_light", text = "Light be with you." },
     { id = "g_manifest", when = { questActive = TODO_QUEST("Grape Manifest") }, text = "Ah, the manifest! Hand it here, friend, and carefully, if you please." },
   },
@@ -22,6 +26,8 @@ P:NPC {
       text = "You've been sampling, I see. Moderation, friend, and I say that as someone who has failed at it often." },
     { id = "n_priest_gnome", cat = "faith", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome who follows the Light! I'd heard there were some now, but I'd not quite believed it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in the cellar have all bent their flames toward you since you came down, and that only happens in a draught. There's no draught down here, friend, so I'll ask you kindly to keep away from the casks." },
   },
 
   start = "hello",
@@ -85,7 +91,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
+      lines = {
+        { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. Your {pet} is standing right beside the new casks, so I'd ask you to take it upstairs before I have to explain another one." },
+      },
       choices = {
         { text = "I'll respect the brothers' wishes and keep to the surface.", next = "BACK", reply = "Thank you, and the brothers will thank you too, though they'll not say it. The upstairs wine's quite good.", fx = { align = { light = 1 } } },
         { text = "Coincidence or not, your wine was never mine to guard.", next = "BACK", reply = "Fair enough, friend, and I'll not hold you to it. But I'd still rather you drank upstairs.", fx = { align = { light = -1 } } },
@@ -114,6 +123,8 @@ P:NPC {
           text = "You've a quiet step, friend, and the Abbey's cellars are full of quiet things, so I'll be watching where you put it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like Drusilla La Salle's students in the cellars." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know where you've come from, and I know what you're learning there. The Light keeps this tower, and you'll not bring your shadows up these stairs." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never once tried the cellar door, so I suppose you may stay, though I'll keep the key in my pocket." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my cellar! Do mind the barrels, friend; each one is accounted for, and you are not." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
@@ -131,7 +142,7 @@ P:NPC {
         { text = "How do I keep my faith when it's hard?", next = "faith", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "About the manifest...", next = "BUSINESS", when = { questActive = TODO_QUEST("Grape Manifest") } },
         { text = "You seem to be guarding something in the Abbey's cellars, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why do the brothers mind warlocks near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do the brothers mind me near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Abbey's cellars hold that a warrior would want?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Something's been at the Abbey's stores, by the look of it.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Abbey make its wine from its own grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

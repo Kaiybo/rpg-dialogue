@@ -171,7 +171,7 @@ P:Views { topic = "burning_blade", views = {
   } },
   { id = "power", text = "Fools, but they've power. You don't sneer at fel magic.", fx = { opinion = { burning_blade = "fear" }, trait = { cautious = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "Sneer, no, but don't admire it either. That power owns the ones who reach for it, every time.", fx = { affinity = -1 } },
-    { id = "b", when = { class = "WARLOCK" }, text = "Coming from a warlock, I'll take that seriously. Just remember the difference between you and them is who holds the leash." },
+    { id = "b", when = { class = "WARLOCK" }, text = "Coming from someone with brimstone on their sleeves, I'll take that seriously. Just remember the difference between you and them is who holds the leash." },
   } },
 } }
 

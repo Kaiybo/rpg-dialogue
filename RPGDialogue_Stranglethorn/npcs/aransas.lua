@@ -9,7 +9,7 @@ P:NPC {
   key = "aransas", id = TODO_NPC("Captain Aransas"), name = "Captain Aransas",
   bible = "bibles/aransas.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "sharp", "steady" }, values = { "loyal", "brave" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_breath" },
 
   impression = {
     first = "She weighs whether you would be any use on a rope.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "Ye walk like someone who knows where the loose boards are, and I mean that kindly. I've a use for that sort of step." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ye look like ye've been dragged behind a ship and left to dry. Get that gear mended before ye go back into the jungle." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "Ye've a warlock's charm on ye that lets a body breathe under the waves, haven't ye? I've lost good men to the deep who'd have given a year's pay for that, and I'd have paid it for them gladly." },
   },
 
   react = {
@@ -80,7 +82,7 @@ P:NPC {
         { text = "Do you think the sea minds being sailed?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How does an honest captain keep pirate company?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Do your sailors listen to the spirits of the sea?", next = "xshaman", when = { class = "SHAMAN" } },
-        { text = "Would you let a warlock aboard your ship?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would you let a warlock aboard your ship, Captain? Think carefully.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good sailing, Captain.", next = "END" },
       },
     },
@@ -465,9 +467,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aboard, aye, but not below decks, and ye'll keep yer little friend away from the powder. I've sailed with worse than warlocks, though few that smelled quite so much of brimstone." } },
+      lines = {
+        { id = "xlock_default", text = "Aboard, aye, but not below decks, and ye'll keep yer little friend away from the powder. I've sailed with worse than warlocks, though few that smelled quite so much of brimstone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aboard, aye, but not below decks, and that thing at yer heel stays well clear of the powder. It's sniffin' at my rigging like it means to taste it, so call it off before my crew starts reachin' for the belaying pins." },
+      },
       choices = {
-        { text = "My demon obeys me. Your powder is safe.", next = "BACK", reply = "Good, because my powder's worth more than yer demon. Keep it fed and quiet, and we'll get on fine.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon obeys me, or it suffers. Your powder is safe.", next = "BACK", reply = "Good, because my powder's worth more than yer demon. Keep it fed and quiet, and we'll get on fine.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where it pleases, Captain.", next = "BACK", reply = "Then it can go overboard, and ye with it if ye argue. My ship, my rules, {class}, and powder's no place for pets.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },

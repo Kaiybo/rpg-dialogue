@@ -1168,7 +1168,7 @@ P:NPC {
         { text = "Tell me about the Burning Blade.", next = "blade" },
         { text = "What is the Book of the Ancients?", next = "book" },
         { text = "One mage to another: what are you truly after?", next = "mage", when = { class = "MAGE" } },
-        { text = "I've walked among demons. Ask me what you like.", next = "lock", when = { class = "WARLOCK" } },
+        { text = "I've walked among demons, and some walk with me. Ask what you like.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Does the Dawn take oaths from such as me?", next = "oath", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Keep your wards strong, Azore.", next = "END" },
       },
@@ -1260,7 +1260,7 @@ P:NPC {
         { id = "lock_d", text = "Very well. When you call one of them, does it come from elsewhere, or was it already near? I have a theory about Desolace, and it is not a comfortable one." },
       },
       choices = {
-        { text = "Here, they come quickly. Too quickly.", next = "BACK", reply = "As I feared. Thank you for your candour; I shall record it without your name.", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Here, they come quickly. Too quickly, and too hungry.", next = "BACK", reply = "As I feared. Thank you for your candour; I shall record it without your name.", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

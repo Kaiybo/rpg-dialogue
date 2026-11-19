@@ -510,7 +510,7 @@ P:NPC {
         { text = "Why teach demon-binding to the newly risen?", next = "why" },
         { text = "How many of your students fail?", next = "fail" },
         { text = "Who is Kayla?", next = "kayla" },
-        { text = "What is the first thing a warlock learns?", next = "first", when = { class = "WARLOCK" } },
+        { text = "What is the first thing one of your students must learn?", next = "first", when = { class = "WARLOCK" } },
         { text = "The Light forbids what you teach.", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll take my leave.", next = "END" },
       },
@@ -543,7 +543,7 @@ P:NPC {
     },
     first = {
       lines = { { id = "fi_default", text = "That a demon's name is a chain, and that whoever speaks it with enough will holds the other end. Your first servant will be an imp, which is a spiteful little thing, but it will teach you to keep your grip while something clever argues with you." } },
-      choices = { { text = "I'll keep my grip. Something else.", next = "BACK" } },
+      choices = { { text = "I'll keep my grip, and tighten it. Something else.", next = "BACK" } },
     },
     light = {
       lines = { { id = "l_default", text = "The Light forbade a great many things in Lordaeron, and the plague was not among the things it prevented. I bear your faith no grudge, but you will understand if my people have stopped asking its permission." } },

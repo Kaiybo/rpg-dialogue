@@ -7,6 +7,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "dutiful", "loyal" },
   likesTone = "blunt",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Watched a hunger for power rot Colonel Kurzen's mind; trusts nothing that bargains with darkness." },
   notices = { "kit", "soldier" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched something dark take hold of the Colonel's mind, and it started with power he couldn't resist. Keep your hands still and your demon farther off." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You'll not take one step past that post with that thing at your heel. Say what you want from there." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for this camp and stayed yourself while you did it, which is more than the Colonel managed. I'll still keep an eye on you." },
     { id = "g_op_light", when = { gossip = { topic = "the_light", stance = "doubt" } }, text = "Brother Nimetz says you don't put much stock in prayer. I don't either, some days, but don't tell him I agreed with you; he takes it hard." },
     { id = "g_halt", text = "Stop there and state your business. If you're one of the Colonel's, you won't be walking out of this camp." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. We've few enough friends this far from Stormwind." },
@@ -110,6 +114,8 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Colonel Kurzen wanted power he had no business holding, and look what it made of him. I'll talk to you, but I've a man with a bow watching you the whole time." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your head where Kurzen lost his. Say your business; the bowman can rest." },
         { id = "h_default", key = true,
           text = "Lieutenant Doren. We came into this jungle under Colonel Kurzen, and something took his mind, and his closest men with it. The rest of us broke away, and we mean to stop him." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
@@ -458,7 +464,8 @@ P:NPC {
   key = "nimetz", id = TODO_NPC("Brother Nimetz"), name = "Brother Nimetz",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
-  notices = { "class", "craft", "form" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "A priest of the Light nursing men whose minds were eaten by something dark." },
+  notices = { "class", "craft", "form", "lock_shadow" },
 
   impression = {
     first = "He tended the sick, and now he studies what drove them mad.",
@@ -466,6 +473,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light teaches mercy, but it does not teach me to bless what you carry. Stay clear of the sick tents, please." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've sat with men whose minds were eaten by something dark, and I'll not have another darkness near them. Say what you need, and I'll answer." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've prayed for you more nights than I'll admit, and you've done this camp only good. Perhaps the Light is working on you after all." },
     { id = "g_op_stormwind", when = { gossip = { topic = "stormwind", stance = "distrust" } }, text = "Lieutenant Doren says you think the nobles have forgotten us. He didn't argue with you, which worried me more than if he had." },
     { id = "g_glass", text = "The Light keep you. Mind your step; I've glassware drying on every flat surface in this camp." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Any news is welcome here, even bad news." },
@@ -478,6 +488,8 @@ P:NPC {
       text = "A servant of the Light, out here! Then pray with me tonight, for these men need it, and so do I." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist! Would you look at this residue for me? I've my suspicions, but a second eye never hurts." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I reached for the Light as you came in, out of habit, to bless whoever comes through the gate, and it shied from you like a horse from a snake. I'll not pretend I understand that, but I'll still offer you a seat by the fire." },
   },
 
   start = "hello",
@@ -577,7 +589,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." } },
+      lines = {
+        { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. Your servant watches the sick tent the way a vulture watches a battlefield, and that frightens me, but if your power could find the cause, I'd still take your help, Light forgive me." },
+      },
       choices = {
         { text = "The Light and I can work together on this.", next = "BACK", reply = "Then let's try, and may the Light forgive us both if it goes wrong. I'll take any help that brings even one of them back.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light failed them. My power won't.", next = "BACK", reply = "The Light didn't fail them, friend, Kurzen did, but I'll take your help all the same. Just don't let your power make you a new kind of madman.", fx = { align = { light = -1 } } },
@@ -599,6 +614,8 @@ P:NPC {
           text = "You travel with a priest, I see. I'd like a word with {companion} before you go, because the madness that took Kurzen's men wasn't a fever, and I'm beginning to think medicine alone won't cure it." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "You've been to the heart of Zul'Gurub and come back whole, which I hadn't thought possible, and the Light be thanked for it. I'd like to hear what you saw there, if you have the stomach to tell me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There is a darkness on you that the Light will not let me ignore. I'll help you if I can, but I'll not have you near my patients." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've done this camp nothing but good, and I've stopped expecting otherwise. Come and sit; mind the glassware." },
         { id = "h_default", key = true,
           text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick, and now I study what made them sick in the mind." },
         { id = "h_mystery", when = { questActive = TODO_QUEST("Kurzen's Mystery") },
@@ -611,7 +628,7 @@ P:NPC {
         { id = "h_maizoth_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mai'Zoth"), days = 3 } },
           text = "I kept my vow, through your hands, and I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you can help me understand what drove Kurzen's men mad, since I've studied every herb and fever in the jungle and found nothing that explains it." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Light makes me wary of your craft, I'll admit, but I've seen worse in this jungle than anything you could summon." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The Light makes me wary of whatever you carry, I'll admit, but I've seen worse in this jungle than anything you could call up." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forgive my staring, but you hold yourself the way Kurzen's men did before the madness took them, and I find myself checking your eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll go deeper into this jungle than any of us, so keep an eye out for strange leaves and roots, if you'd be so kind." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You heal by earth and water, I'm told, and I'd welcome any healer who can tell me what this jungle did to these men's minds." },
@@ -786,7 +803,7 @@ P:NPC {
   key = "thorsen", id = TODO_NPC("Private Thorsen"), name = "Private Thorsen",
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "quest",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "loyal", "brave" },
-  notices = { "stealth", "kit" },
+  notices = { "stealth", "kit", "lock_stones" },
 
   impression = {
     first = "He keeps his voice down and knows more than he says.",
@@ -800,6 +817,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You ran into Kurzen's men, didn't you? They fight like they've got nothing left to lose, and they haven't." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you carry is a healthstone, isn't it, a life squeezed out of something else and kept for later? Half the men I lost in this jungle might have lived with one of those, so I can't bring myself to curse it." },
   },
 
   react = { { id = "r_stealth", on = "stealth", text = "Good, stay low. That's how I lived through Kurzen's camp, mostly." } },
@@ -826,10 +845,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." } },
+      lines = {
+        { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Without a second thought, because they saw demons in every shadow, real or not. A real one like yours, standing there and staring at them with those eyes, would have set the whole camp screaming, and I'm not sure I'd have blamed them." },
+      },
       choices = {
         { text = "Their madness was their own. I'd have walked in anyway.", next = "BACK", reply = "Then you're braver than I was, or madder. Either way, I'd not want to see you walk in there.", fx = { align = { honor = -1 } } },
-        { text = "I'd have left my demon behind, out of respect.", next = "BACK", reply = "That's more respect than they deserve, but it's kind of you. They'd have shot you all the same, mind.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd have left my companion behind, out of respect.", next = "BACK", reply = "That's more respect than they deserve, but it's kind of you. They'd have shot you all the same, mind.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -863,7 +885,7 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true },
           text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Kurzen's men feared magic more than anything, and I'll admit I still flinch a little when I see a spell cast." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I spent months pretending to be one of Kurzen's men, and I'll tell you that his officers would've killed you on sight." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Something in your eyes reminds me of Kurzen's camp. I spent months pretending to be one of his men, and his officers would've killed the likes of you on sight." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Kurzen's men burned a stretch of the jungle north of here to clear a camp, and I'd wager you can still smell it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Kurzen's lot would've called you a heathen, so I'm inclined to like you on principle." },
       },

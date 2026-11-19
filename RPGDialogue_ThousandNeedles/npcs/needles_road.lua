@@ -65,7 +65,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman! Could you ask the spirits for the way back to Freewind? I've gotten so turned around in these canyons." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Are you a priest? My grandmother says priests can hear things the rest of us can't, so maybe you can hear the way back to Freewind." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Are you a mage? Could you make a light? It gets dark in the canyons very fast, and I don't like the dark out here." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "You're a warlock? I'm not scared, I promise, but please keep that thing on your side of the path." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "I'm not scared, I promise. But please keep that thing on your side of the path." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! You scared me, because I didn't hear you at all. Can you teach me to walk like that, so the Galak won't hear me either?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, from Thunder Bluff maybe? My mother wanted me to study with the druids, but I wanted to see the canyons first, and now look at me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin? I've heard about the Forsaken, but nobody told me they could glow. Are you here to help me get back to Freewind?" },
@@ -163,6 +163,10 @@ P:NPC {
     { id = "g_main", text = "Peace, friend. You've come a long way up the mesas." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The wind keeps blowing you up here, same as the dust off the plains." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul has been set in a stone, I see, and it hangs on you like a tether running back to some warlock's hand. The winds up here would carry a spirit home on their own, but each of us walks our own path." },
+  },
   start = "hello",
   nodes = {
     xfpala = {
@@ -214,7 +218,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." } },
+      lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The winds fear what does not belong to this world, and they have died away entirely since your servant came to stand beside you. I do not judge you for it, but I will not pretend the land welcomes it, or you, as gladly as I do." } },
       choices = {
         { text = "Then the land will have to learn to live with me.", next = "BACK", reply = "Perhaps it must, but it will remember what you do, and I hope it remembers something kind.", fx = { align = { light = -1 } } },
         { text = "I'll walk carefully. I mean no harm here.", next = "BACK", reply = "Then walk carefully, and the winds may grow used to you, as I have, little by little.", fx = { affinity = 1, align = { light = 1 } } },
@@ -252,7 +256,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk softly, friend. The Grimtotem and the Galak both keep watch, but neither of them would hear you coming." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. The winds grow still when you pass, and I wonder what they fear. You are of the Horde, so I welcome you, but I ask you to walk carefully here." },
+          text = "The winds grow still when you pass, and I wonder what they fear. You are of the Horde, so I welcome you, but I ask you to walk carefully here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, on the road beneath Freewind. I'd be glad of your company, because the Galak strike at travellers in the canyons, and they do not spare the wounded." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. The Galak fear fire more than spears, so I'd be glad to have you close if they come down from the cliffs." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
@@ -317,6 +321,7 @@ P:NPC {
 P:NPC {
   key = "motega", id = TODO_NPC("Motega Firemane"), name = "Motega Firemane",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 10, why = "Fights the Grimtotem's bargains with dark powers; sees warlockry as the same bargain." },
   impression = {
     first = "He has had enough of the Grimtotem and isn't shy about it.",
     third = "{name} met Motega Firemane, a tauren at Freewind Post in Thousand Needles.",
@@ -324,6 +329,13 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Welcome, traveler. Come, but watch your step on the mesa edges." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the Earth Mother keeps those who walk her paths, though she lets them get very dusty on the way." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Grimtotem trade their honour for power they cannot hold, and so do you. I'll speak with you because Freewind needs help, not because I want to." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I have no kind words for those who bargain with demons. Tell me what you want, and do not offer me anything." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I expected you to sell yourself to whatever you call, as the Grimtotem do. You haven't yet, and I've noticed." },
+  },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear a demon's hide like armour, and I'll admit it would turn a Grimtotem spear better than my own leathers. Still, I'd rather not see what it does when you take it off." },
   },
   start = "hello",
   nodes = {
@@ -358,9 +370,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but power without the Earth Mother's blessing is power that goes astray. Magatha's followers forgot that, and now they kill their own kin for land that was never theirs to take." } },
+      lines = { { id = "xlock_default", text = "No, but power without the Earth Mother's blessing is power that goes astray. Magatha's followers forgot that, and now they kill their own kin for land that was never theirs to take." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, but power without the Earth Mother's blessing goes astray, and I can feel it straining at your side even now. Magatha's followers forgot that blessing, and now they kill their own kin for land that was never theirs to take, so hold yours tighter than they hold theirs." } },
       choices = {
-        { text = "Power is power. I'll use it wisely.", next = "BACK", reply = "Then use it wisely, and remember those who forgot, because their road ends at Darkcloud Pinnacle.", fx = { align = { light = -1 } } },
+        { text = "Power is power, Motega. I'll use it wisely, in my own way.", next = "BACK", reply = "Then use it wisely, and remember those who forgot, because their road ends at Darkcloud Pinnacle.", fx = { align = { light = -1 } } },
         { text = "You're right. I'll remember the Earth Mother.", next = "BACK", reply = "Good, and the Earth Mother will remember you too, which is more than she will do for Magatha's followers.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -386,7 +398,9 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Grimtotem have shamans of their own and they'd love to prove the spirits favor them, so stand with Freewind and let your prayers answer theirs." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. The Grimtotem think the Needles belong to them, so I'd very much like to see your fire prove them wrong at Darkcloud Pinnacle." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "Warlock. The Grimtotem bargain with powers they do not understand, and I hope you understand yours better, because I have seen where that path leads." },
+          text = "The Grimtotem bargain with powers they do not understand. There is a smell on you that tells me you bargain too, and I hope you understand yours better." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know a demon's bargain when I smell one, and you reek of it. Say what you came for, quickly." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You still bargain, I think, but you seem to keep the better end of it. Very well; speak." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde. The Grimtotem are many, and they fight like cornered bulls, but a blade in the dark is something they don't expect." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Grimtotem would spit at you, so you're already on my side." },
@@ -401,7 +415,7 @@ P:NPC {
         { text = "What would you have a shaman do against the Grimtotem, Motega?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "The Grimtotem's spellcasters must be strong.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "You seem hard on the Grimtotem.", next = "s_1" },
-        { text = "My power is not the Grimtotem's, Motega.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What I hold is not the Grimtotem's kind of power, Motega.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you have me strike the Grimtotem unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How do the Grimtotem hunt the Needles, Motega?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would the Grimtotem stand against the Light, Motega?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -731,7 +745,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Daisy, hon, and I keep the times at the Mirage Raceway. If it happens on the track, I've got it on my stopwatch, so nobody argues about who won or who gets paid, and the goblins argue anyway, mostly with the stopwatch." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then don't go calling lightning down on my track, because the last storm cost me a whole afternoon of times." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're praying for one team or the other, kindly do it off the track, because I don't time prayers." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Keep your demon off the track, because if it runs across during a heat it's getting a time, and you won't like what I write next to it." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Keep that thing of yours off the track, because if it runs across during a heat it's getting a time, and you won't like what I write next to it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Don't you dare blink across my finish line, because I can't time a racer who skips half a length, and the gnomes would argue about it for a week." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -812,6 +826,10 @@ P:NPC {
     { id = "g_main", text = "Oh, hello! Careful with that, that's a very expensive wrench, calibrated to a sixteenth of a turn!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you come to see our new design?" },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Ooh, is that a firestone? I'd love to know its operating temperature, purely for science, and the car could use a little extra kick off the line." },
+  },
   start = "hello",
   nodes = {
     xdsham = {
@@ -855,10 +873,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, fire's fire, and I'd love to know if demon fire burns hotter than coal, just for science, of course." } },
+      lines = { { id = "xlock_default", text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, fire's fire, and I'd love to know if demon fire burns hotter than coal, just for science, of course." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, would your {pet} hold still a moment while I put a thermometer near it, because I'd love to know if demon heat burns hotter than coal, just for science, of course." } },
       choices = {
         { text = "Science shouldn't play with fel fire.", next = "BACK", reply = "You're right, of course, and I'll stick to coal, though I'll admit the idea was very tempting.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel fire would make your car unbeatable.", next = "BACK", reply = "Unbeatable and probably explosive, which is the kind of combination Pozzik would love, so I'll stay away from it.", fx = { align = { light = -1 } } },
+        { text = "Fel fire would make your car unbeatable. I could arrange some.", next = "BACK", reply = "Unbeatable and probably explosive, which is the kind of combination Pozzik would love, so I'll stay away from it.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -921,7 +939,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Did you know Gahz'rilla, the hydra in Zul'Farrak, can be summoned with a special mallet? It's the most fascinating thing, and I'd love a mage's view on how it works." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! Do you suppose your imps could help with engines? They like fire, and engines like fire, and I like engines that go fast." },
+          text = "Ooh, you smell like brimstone! Do you suppose your little friends could help with engines? They like fire, and engines like fire, and I like engines that go fast." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Splendid, would you stand near the finish line? Statistically speaking, someone always needs patching up after the third heat, and it's usually a goblin." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -938,7 +956,7 @@ P:NPC {
         { text = "Do you have family on the team?", next = "b2_1" },
         { text = "Is racing a good use of engineering?", next = "s_1" },
         { text = "I never heard of a mallet that summons a hydra.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Imps make poor engineers, Wizzle.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Imps make poor engineers, Wizzle. They eat the wiring.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there room for faith in engineering, Wizzle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "The rivalry with the goblins hardly seems settled fairly.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could racing armor plate work for a warrior, Wizzle?", next = "xwarcl", when = { class = "WARRIOR" } },

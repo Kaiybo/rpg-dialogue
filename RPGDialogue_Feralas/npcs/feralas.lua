@@ -8,7 +8,7 @@ P:NPC {
   prejudice = { { class = "WARLOCK", amount = 15, why = "the Legion's tools; her family died in the War of the Ancients" }, { class = "MAGE", amount = 8, why = "the Highborne's arcane hunger brought the Legion" } },
   communities = { "feathermoon" }, temper = { "intent" }, values = { "loyal", "dutiful", "brave" },
   likesTone = "blunt",
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor", "lock_taint" },
 
   impression = {
     first = "Her loyalty to the High Priestess runs deeper than duty.",
@@ -34,6 +34,10 @@ P:NPC {
       text = "You carry yourself like someone who's held a line. Feralas will test that, and so will I." },
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "Sister, or brother, of the kaldorei: the Sentinels can always use another. Think on it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wear demon hide like a cloak, and I have seen it worn on the flesh of satyrs in Eldre'Thalas, grown into their own skin. Keep it fastened while you stand in my stronghold, because my Sentinels shoot at that shape on sight." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is fel in your blood, warlock, more than your craft needs, and I can see it in the colour of your eyes. That is how the Highborne began, and you know how they ended, so I will not tell you again." },
   },
 
   start = "hello",
@@ -167,9 +171,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "You call upon the same powers that broke the world and turned our own kin into the satyrs that haunt Eldre'Thalas. I will judge you by your deeds while you are here, but I will not forget what you are, and neither will my Sentinels." } },
+      lines = {
+        { id = "xlock_default", text = "You call upon the same powers that broke the world and turned our own kin into the satyrs that haunt Eldre'Thalas. I will judge you by your deeds while you are here, but I will not forget what you are, and neither will my Sentinels." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "You call upon the same powers that broke the world and made our kin into the satyrs of Eldre'Thalas, and you bring a piece of them into my camp. I will judge you by your deeds while you are here, but my Sentinels have their hands on their bows, so keep it at heel, and I will not forget what it is." },
+      },
       choices = {
-        { text = "I master the Legion's power. It doesn't master me.", next = "BACK", reply = "So said the Highborne before they knelt, and I watched them kneel, so forgive me if I wait to see.", fx = { align = { light = -1 } } },
+        { text = "I master what I've bound. It doesn't master me.", next = "BACK", reply = "So said the Highborne before they knelt, and I watched them kneel, so forgive me if I wait to see.", fx = { align = { light = -1 } } },
         { text = "I understand your caution. I'll earn your trust.", next = "BACK", reply = "Then earn it slowly. I miss very little on this island, and I will notice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then let us speak of other things.", next = "BACK" },
       },
@@ -231,7 +238,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You're back, and the sisters will be glad of it; so am I, though I'll deny it if Latronicus asks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "You carry the stench of the Legion, warlock, and every Sentinel on this isle can smell it. You stand on Feathermoon by the grace of the Alliance, and by nothing else." },
+          text = "You carry the stench of the Legion, and every Sentinel on this isle can smell it. You stand on Feathermoon by the grace of the Alliance, and by nothing else." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Alliance. Our people remember too well what arcane hunger did to this world, so I will watch your spells as closely as I watch the naga." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -454,7 +461,7 @@ P:NPC {
   key = "pratt", id = TODO_NPC("Pratt McGrubben"), name = "Pratt McGrubben",
   bible = "bibles/feralas.md", role = "vendor", tier = "quest",
   communities = { "feathermoon" }, temper = { "genial" }, values = { "kind", "practical" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_shadow" },
 
   impression = {
     first = "He calls himself mostly retired from paladin work and busy with leather.",
@@ -470,6 +477,8 @@ P:NPC {
       text = "A leatherworker! Then I've a pattern or two you'll want to earn. Bring me proof of good work and we'll see." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin, out here! I swung a hammer for the Light longer than I care to count, and now I swing a needle. The Light doesn't seem to mind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came in, friend, like a hand pulled from a hot stove, and I felt it as plain as you'd feel a draught. I'm not judging, mind, I'm only telling you, because nobody ever told the warlocks I fought." },
   },
 
   start = "hello",
@@ -555,7 +564,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It worries me, which is different, and it troubles the Sentinels far more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." } },
+      lines = {
+        { id = "xlock_default", text = "It worries me, which is different, and it troubles the Sentinels far more. I've seen what that sort of power does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It worries me, which is different, and it troubles the Sentinels far more, especially with your demon standing at my bench. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, though I'll say a quiet word to the Light for you, and maybe one against it." },
+      },
       choices = {
         { text = "Pray all you like. I don't need it.", next = "BACK", reply = "Then I'll pray quietly, and you won't hear it, and we'll both be happier for the arrangement.", fx = { align = { light = -1 } } },
         { text = "I'll take any prayers you have to spare.", next = "BACK", reply = "Then you'll have them, friend, every morning, and I'll throw in a quick one for your leathers too.", fx = { affinity = 1, align = { light = 1 } } },
@@ -597,7 +609,7 @@ P:NPC {
           text = "Show me the hides, and I'll show you how to make something a Sentinel would be proud to wear. Quality takes patience, and I've got plenty of that now." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Good, because too many of the hides the Sentinels bring me were torn by things I'd like a druid to explain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, is it? I've hung up my hammer, friend, but a man doesn't stop being a paladin all at once, and I'll admit my hand still twitches for it." },
+          text = "There's sulphur on you, friend. I've hung up my hammer, but a man doesn't stop being a paladin all at once, and I'll admit my hand still twitches for it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Now there's a rogue's coat, and it's had a rough time of it, by the look of those seams. Oil those seams before you go near the naga, because creaky leather gets more of your lot killed than bad luck does." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -616,7 +628,7 @@ P:NPC {
         { text = "Teach me something about leather.", next = "leather", when = { profession = "Leatherworking" } },
         { text = "Does the Light answer a leatherworker?", next = "light", when = { class = "PALADIN" } },
         { text = "I skin what I hunt. Any use to you?", next = "hunter_pr", when = { class = "HUNTER" } },
-        { text = "My craft seems to bother you, Pratt.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Something about me seems to bother you, Pratt.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You know a lot about rogues' leathers, Pratt.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does a warrior's armor really need that much tending, Pratt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "You must still feel the Light, Pratt, even without your tabard.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -687,7 +699,7 @@ P:NPC {
   key = "shyria", id = TODO_NPC("Innkeeper Shyria"), name = "Innkeeper Shyria",
   bible = "bibles/feralas.md", role = "innkeeper", tier = "service",
   communities = { "feathermoon" }, temper = { "gentle" }, values = { "kind", "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_stones" },
 
   impression = {
     first = "Her gentle way makes the island feel safer than it is.",
@@ -707,6 +719,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've come back from somewhere grey and far away. Sit; the Sentinels can spare you for an evening." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in your pack? The Sentinels won't touch one, because of whose craft made it, but I keep bandages behind the bar for anyone who comes back from Eldre'Thalas, and I'll not ask which you use." },
   },
 
   start = "hello",
@@ -787,9 +801,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not one of them, and I don't blame them. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a demon in the common room asks more of them than you know." } },
+      lines = {
+        { id = "xlock_default", text = "Not one of them, and I don't blame them. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a thing like yours in the common room asks more of them than you know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not one of them, and I see three already reaching for their bows since your servant came in. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a demon in the common room asks more of them than you know." },
+      },
       choices = {
-        { text = "Then my demon stays on the dock. They deserve their rest.", next = "BACK", reply = "Thank you, and they will thank you too, in their own way, which is by not shooting you.", fx = { align = { order = 1 } } },
+        { text = "Then my companion stays on the dock. They deserve their rest.", next = "BACK", reply = "Thank you, and they will thank you too, in their own way, which is by not shooting you.", fx = { align = { order = 1 } } },
         { text = "Ten thousand years is long enough to learn some tolerance.", next = "BACK", reply = "Perhaps it is, but not for them, and I would not ask them to learn it in my common room.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -815,7 +832,7 @@ P:NPC {
           text = "A warrior, wet through and weary, like every soldier who comes off the boat. Sit by the fire and let the rain run off you for a while." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and with a companion! Bring it in out of the rain, please; the Sentinels' cats sleep by my hearth all the time." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, under my roof. I won't turn anyone from my hearth in this rain, but I'll ask you to leave your companion on the dock, because the Sentinels won't sleep with it in the house." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I won't turn anyone from my hearth in this rain, but whatever's waiting at your heel stays on the dock. The Sentinels won't sleep with it in the house." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The Sentinels will stare, I'm afraid, but they'll share the fire with you, and so will I." },
         { id = "h_dd_raschal", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Courier") }, text = "Ginro came down for a cup last night and didn't drink it, and he told me you found what was left of Raschal's boat. The Sentinels have been quieter at the tables since, the way people are when they've lost one of their own." },
         { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned at least once, I'd say, by the way you eye the channel. Half the stronghold has swallowed too much of that water crossing from the mainland, so take the boat next time, and leave the swimming to the naga." },
@@ -832,7 +849,7 @@ P:NPC {
         { text = "I'd guess the Sentinels don't welcome outsiders easily.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do many warriors come back from the mainland hurt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the Sentinels really bring their cats inside, Shyria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Will the Sentinels really not sleep with a demon near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will the Sentinels really not sleep with my companion near, Shyria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would the Sentinels stare at a dwarf shaman, Shyria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Ginro took Raschal's loss hard, didn't he?", next = "dd_raschal", when = { questDone = TODO_QUEST("The Missing Courier") } },
         { text = "Thank you.", next = "END" },
@@ -879,7 +896,8 @@ P:NPC {
   bible = "bibles/feralas.md", role = "soldier", tier = "major",
   communities = { "mojache" }, temper = { "fierce" }, values = { "loyal", "stern" },
   likesTone = "blunt", race = "Orc",
-  notices = { "class", "kit" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Fights the Gordunni and their fel-touched casters; sees the same rot in every warlock." },
+  notices = { "class", "kit", "lock_shards", "lock_steed" },
 
   impression = {
     first = "His one answer for most problems in Feralas is killing ogres.",
@@ -892,6 +910,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You hit harder than you did when I last saw you, and I can tell that just by looking. Good, then the Gordunni will learn to fear you, and I can send you deeper north." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the camp folk back down, and I'll allow it, once. Save that for the ogres, because they deserve it and our own people don't." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp says you've done good work for Mojache, and I listen when the camp agrees on something. Keep killing ogres, and they'll keep saying it." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "You smell like the Gordunni casters I've been killing all season. Stay on the far side of the fire." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Thrall lets your kind serve, so serve, and leave the talking to those I trust." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more Gordunni casters than you've copied, so I'll say this once: you've done well. I'm still watching." },
   },
 
   notice = {
@@ -901,6 +922,10 @@ P:NPC {
       text = "A warrior, good. The Gordunni are big and stupid, so hit them where it hurts, and that's everywhere if you hit hard enough." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ogre clubs do that. Get mended and go back; they don't stop, so we don't either." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You carry a lot of shards, warlock, and I hope a few of them came off Gordunni shamans. Every ogre caster you put in a stone is one less that kills my warriors, so fill your bag." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That demon horse left burning hoofprints through Camp Mojache, and the kodos have been stamping ever since. Ride it at the ogres, not through my camp." },
   },
 
   start = "hello",
@@ -1000,10 +1025,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it." } },
+      lines = {
+        { id = "xlock_default", text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you and that creature mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it, and where it turns its eyes." },
+      },
       choices = {
         { text = "I'll burn the Gordunni for the Horde.", next = "BACK", reply = "Good. The Horde will remember it, and so will I, and so will the Gordunni, the few who live.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll use my power as I see fit, orc.", next = "BACK", reply = "Then I'll be watching, warlock, and you'll find my eyes are sharper than an ogre's.", fx = { align = { honor = -1 } } },
+        { text = "I'll use what I wield as I see fit, orc.", next = "BACK", reply = "Then I'll be watching, and you'll find my eyes are sharper than an ogre's.", fx = { align = { honor = -1 } } },
         { text = "Enough of that. Let's talk about something else.", next = "BACK" },
       },
     },
@@ -1063,7 +1091,9 @@ P:NPC {
           text = "You came back, and the Gordunni outpost is quieter for it. In time the land will heal, as long as we don't give up on it." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid, good! The Gordunni burn the old trees for their cookfires out west, and I'd like to see what a bear does to an ogre." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. Thrall lets your kind serve the Horde, and so I let you stand in my camp, but the Gordunni have their own dark casters, so you'll understand if I don't care for the smell." },
+          text = "Thrall lets your kind serve the Horde, and so I let you stand in my camp. But the Gordunni have their own dark casters, and you smell like them, so you'll understand if I don't care for it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've no love for your craft, and I won't pretend I do. Say your piece, and then go and kill some ogres." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for Mojache, and I don't forget it. Speak." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk soft for one of the Horde. Good, because the Gordunni sleep in shifts, and a blade that comes in the dark is worth ten that come at noon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1088,7 +1118,7 @@ P:NPC {
         { text = "I could read that orb for you.", next = "mage", when = { class = { "MAGE", "WARLOCK" }, any = { { questActive = TODO_QUEST("The Gordunni Scroll") }, { questActive = TODO_QUEST("The Gordunni Orb") } } } },
         { text = "My people once lived in these hills.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The ogres' shamans call on the elements wrongly.", next = "shaman_ro", when = { class = "SHAMAN" } },
-        { text = "The Gordunni use dark magic too?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The Gordunni dabble in the dark too? I'd like to see how deep.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You'd have me strike the ogres in their sleep?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the Gordunni hide, Rok Orhan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The Gordunni seem to be hurting your braves badly, Rok Orhan.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1368,7 +1398,7 @@ P:NPC {
         { id = "h_rocks", when = { metBefore = true }, text = "I've got a sack of rocks under my bed that might be worth a fortune, or might be rocks, my friend. Science is mostly waiting to find out, and business is mostly pretending you already know." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the earth spirits know anything about the ore the ogres guard up north? Because the rocks under my bed won't tell me, my friend, and I've asked nicely and offered a cut." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and here I thought this camp was all braves and drums! Do your gods care about ore, I wonder? I've a sample that could use a blessing, my friend, or at least an appraisal." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Well, I won't ask where your power comes from if you don't ask where my samples come from, my friend, and that's what we in the trade call a mutual understanding." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "I won't ask where your power comes from, my friend, if you don't ask where my samples come from. That's what we in the trade call a mutual understanding." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! Tell me what you feel off this lump of cobalt, would you, my friend? The Gordunni guard it like their mothers' bones, and I'd like to know why before I price it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -1492,7 +1522,7 @@ P:NPC {
   key = "greul", id = TODO_NPC("Innkeeper Greul"), name = "Innkeeper Greul",
   bible = "bibles/feralas.md", role = "innkeeper", tier = "service",
   communities = { "mojache" }, temper = { "warm" }, values = { "generous" },
-  notices = { "weary" },
+  notices = { "weary", "lock_pact" },
 
   impression = {
     first = "Her fire feels like the safest spot in Feralas.",
@@ -1511,6 +1541,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look worn thin as old hide. Sit; nothing in Feralas can reach you for an hour." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're running warm, friend, warmer than the fire behind me, and I think that is the imp's pact in your blood. Sit away from the hearth and drink some water, because I would like my guests to stay where I put them." },
   },
 
   start = "hello",
@@ -1564,10 +1596,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then you'll forgive me for keeping a bucket of water nearby while you're here, won't you? I'll feed anyone of the Horde who comes to Mojache, but I'd like my roof to stay where it is." } },
+      lines = {
+        { id = "xlock_default", text = "Then you'll forgive me for keeping a bucket of water nearby while you're here, won't you? I'll feed anyone of the Horde who comes to Mojache, but I'd like my roof to stay where it is." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then you'll forgive me for fetching a bucket of water while your demon is standing this close to my thatch, won't you? I'll feed anyone of the Horde who comes to Mojache, and I'll even feed you, but I'd like my roof to stay where it is, so keep it outside." },
+      },
       choices = {
-        { text = "I'll keep my imp in line. You have my word.", next = "BACK", reply = "Thank you, little one, and I will keep the bucket nearby anyway, out of habit.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little chaos is in an imp's nature.", next = "BACK", reply = "Then I will keep two buckets, and I will hope its nature is satisfied by the fire in the pit.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my little one in line. You have my word.", next = "BACK", reply = "Thank you, little one, and I will keep the bucket nearby anyway, out of habit.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little chaos is in its nature. And in mine.", next = "BACK", reply = "Then I will keep two buckets, and I will hope its nature is satisfied by the fire in the pit.", fx = { align = { order = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -1583,7 +1618,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! Sit by my fire and dry those robes, because Feralas rains every day, and I've yet to see a spell that keeps the wet out of a traveler's boots." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "You're welcome at my fire, warlock, as every traveler is. But tell your little companion not to play with the flames, because the last imp that came through set my roof thatch smoldering." },
+          text = "You're welcome at my fire, as every traveler is. But tell that little companion of yours not to play with the flames, because the last imp that came through set my roof thatch smoldering." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior, soaked through and still gripping that weapon! Set it down by the fire, friend; nobody here will steal it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -1602,7 +1637,7 @@ P:NPC {
         { text = "What dangers do travelers bring you word of?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Someone's been asking strange questions at your fire, I'd guess.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Magic could keep the rain away, Greul.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Imps can be hard to control, Greul.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Some companions are hard to control, Greul. Mine likes fire.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you see many warriors come back from the ogre lands, Greul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the hunters of Mojache bring to your fire, Greul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the braves mind a Forsaken paladin, Greul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

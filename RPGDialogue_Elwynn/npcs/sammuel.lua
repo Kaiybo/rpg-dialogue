@@ -7,13 +7,17 @@ P:NPC {
   bible = "bibles/sammuel.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "sharp" }, values = { "pious", "kind", "brave" },
   spiritSensitive = true,
-  notices = { "affliction", "light" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Paladin of the Brotherhood of Northshire; holds demon-binding a betrayal of everything the Light asks." },
+  notices = { "affliction", "light", "lock_soulstone" },
   impression = {
     first = "He senses curses and sickness as a healer feels for a pulse.",
     third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light asks us to stand between the innocent and the dark, and you've chosen to keep the dark on a leash. I'll not train beside it." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel what follows you even when it's hidden. Speak, if you must, but don't think a paladin will call that a gift." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood with the Brotherhood more than once, and I've not forgotten it. I still pray for your soul each night, whether you want me to or not." },
     { id = "g_light", text = "The Light keeps you." },
     { id = "g_lesson", when = { class = "PALADIN" }, text = "Ready for your next lesson?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "Not one of mine, but welcome all the same." },
@@ -27,6 +31,8 @@ P:NPC {
       text = "There's a curse on you; I can feel it from here. A mage or a druid can lift it, but all I can do is pray." },
     { id = "n_taint", cat = "light", when = { taint = { min = 20 } },
       text = "Something clings to you that the Light doesn't like. I won't ask about it, not today." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound part of your soul into a stone, and I can feel the Light hesitate over you like a hand over a hot pan. I'll still pray for you, though I'll pray that stone stays in its pocket." },
   },
 
   start = "hello",
@@ -81,7 +87,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it, even with that creature staring at me while I pray. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+      },
       choices = {
         { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The chapel door is never barred, not even at night.", fx = { align = { light = 1 } } },
         { text = "Save your prayers for those who want them.", next = "BACK", reply = "I would, if they asked, but most never do until it's late. I'll keep you in mine quietly.", fx = { align = { light = -1 } } },
@@ -124,6 +133,8 @@ P:NPC {
           text = "A mage. Khelden Bremen's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's a darkness on you, and I'll not pretend I can't feel it. Northshire took you in, but the Light has made me no promises about you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've come back again, and the darkness with you. I'll speak with you, though I've not stopped praying that you'll put it down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like one of Llane Beshere's recruits, child, but you might find the Light stands with you too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Light walks in the woods as well as the Abbey, child, and I think you know that better than most." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sense no curse on you, only the spirits you walk with. The Light chose me, and something chose you, I think." },
@@ -143,7 +154,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "I doubt the Light watches over rogues, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Light and the arcane seem uneasy under one roof, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would you pray for someone like me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Surely the Light cares for beasts as well, Brother.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think the spirits chose me, Brother Sammuel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

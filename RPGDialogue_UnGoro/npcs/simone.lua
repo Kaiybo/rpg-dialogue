@@ -39,7 +39,7 @@ P:NPC {
       lines = { { id = "fl_default", text = "Friendly? Darling, I'm being positively shy. You've strong arms and a long road behind you, and a girl alone in the crater does so like having someone to look after her." } },
       choices = {
         { text = "Then I'd gladly look after you, Simone.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
-        { text = "I know a demon's charm when I hear one.", next = "flirt_lock", when = { class = "WARLOCK" }, fx = { trait = { cautious = 1 } } },
+        { text = "I know a demon's charm when I hear one. Save it.", next = "flirt_lock", when = { class = "WARLOCK" }, fx = { trait = { cautious = 1 } } },
         { text = "You're lovely, but I'll keep my distance.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
           reply = "Sensible, and a little disappointing. Never mind, darling, I'm terribly patient, and the springs aren't going anywhere." },
         { text = "Save the honeyed words. I'm not interested.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 }, npcFlag = { set = { "flirt_declined" } } },
@@ -76,7 +76,7 @@ P:NPC {
         { text = "Aren't you afraid of the devilsaurs?", next = "fear" },
         { text = "Which tribe are you from, sister?", next = "tribe", when = { race = "Troll" } },
         { text = "Your tracks don't match a troll's stride.", next = "tracks", when = { class = "HUNTER" } },
-        { text = "Something about you reeks of the Nether.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Something about you reeks of the Nether. I know the smell.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The ancient in Felwood sent me for your head.", next = "reveal",
           when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
         { text = "You're very friendly for a stranger, Simone.", next = "flirt", when = { flirt = true } },
@@ -188,7 +188,7 @@ P:NPC {
       big = true,
       lines = { { id = "wls_default", text = "Waiting for a hunter, darling, the way a lure waits for a fish. You bind our kind and make us fetch for you, so tell me what you think: are we servants, or are we only biding our time?" } },
       choices = {
-        { text = "Servants. A demon is a tool, and I hold the leash.", next = "BACK", reply = "A tool, darling? Then you'd better hope your leash is stronger than mine. I've slipped more collars than you've worn.", fx = { align = { order = 1 } } },
+        { text = "Servants. Your kind are tools, and I hold the leash.", next = "BACK", reply = "A tool, darling? Then you'd better hope your leash is stronger than mine. I've slipped more collars than you've worn.", fx = { align = { order = 1 } } },
         { text = "Biding your time. Every binding breaks eventually.", next = "BACK", reply = "Ooh, clever, darling, and you're quite right. Every binding breaks, and when yours does, I'll be the first to say hello.", fx = { align = { order = -1 } } },
         { text = "I'll leave you to your fishing.", next = "BACK" },
       },

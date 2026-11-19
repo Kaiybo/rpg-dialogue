@@ -13,14 +13,22 @@ P:NPC {
     { id = "g_main", text = "Ugh, another visitor. Unless you've got an antidote to sell, buddy, keep your voice down, because my head's charging me interest." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, buddy! Tell me you've brought somethin' that'll make me feel less like death, and tell me it's cheap." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Pal, I'll trade you anything for a bite of that, because the poison's in my blood and Beetix's potions taste like wet boots. I don't care whose soul went into it, I'm desperate here." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because it's a very good soul, thank you, and I've been told it's worth a fortune on the open market! But if you've a curse to spare for those scorpids out in the sand, buddy, I'd call that a fair trade, and I'd not even charge you for the idea." } },
+      lines = {
+        { id = "xlock_default", text = "Because it's a very good soul, thank you, and I've been told it's worth a fortune on the open market! But if you've a curse to spare for those scorpids out in the sand, buddy, I'd call that a fair trade, and I'd not even charge you for the idea." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because it's a very good soul, thank you, and your demon is looking at me like it knows exactly what it's worth! But if you've a curse to spare for those scorpids out in the sand, buddy, I'd call that a fair trade, so long as that thing keeps its distance while we haggle." },
+      },
       choices = {
         { text = "Your soul is safe, Noggle. I'll deal with the scorpids.", next = "BACK", reply = "Whew, that's a relief, buddy, because I was startin' to think you'd brought a contract, and I can't read the small print with this fever.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Careful what you offer a warlock, goblin.", next = "BACK", reply = "Oh, I'm always careful, pal, I just get a little chatty when I'm poisoned, so forget I said it and keep your quill in your pocket.", fx = { align = { light = -1 } } },
+        { text = "Careful what you offer a warlock, goblin. We collect.", next = "BACK", reply = "Oh, I'm always careful, pal, I just get a little chatty when I'm poisoned, so forget I said it and keep your quill in your pocket.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,7 +120,7 @@ P:NPC {
         { text = "Would you rather I went and fought what stung you, Noggle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you really not know what stung you, Noggle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You talk like a dying man, Noggle.", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why would a warlock want your soul, Noggle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why would I want your soul, Noggle? Have you priced it lately?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -165,6 +173,11 @@ P:NPC {
     { id = "g_main", text = "Hear me, traveler! The end draws near, and the bugs are already under your feet, so stop scratching and listen!" },
     { id = "g_back", when = { metBefore = true }, text = "You return! Have you come to hear the truth at last?" },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The darkness walks beside you even at noon, sinner, and the sand turns cold where your shadow falls. Repent while there is still light enough to see your own face, because there won't be when the end comes up from below." },
+  },
+
   start = "hello",
   nodes = {
     xrogue = {
@@ -217,9 +230,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." } },
+      lines = {
+        { id = "xlock_default", text = "The end comes on its own, from beneath the sand, but those who bargain with darkness will meet it sooner and with less surprise. Repent, warlock, while there is still time to choose a better master." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The end comes on its own, from beneath the sand, and you walk toward it with your master's servant at your heel, warlock. Those who bargain with darkness will meet it sooner and with less surprise, so repent, while there is still time to choose a better master than the one that thing serves." },
+      },
       choices = {
-        { text = "I'll consider your warning.", next = "BACK", reply = "Consider it quickly, then, because the sand moves faster than any warlock's thoughts, and it will not wait for you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll consider your warning.", next = "BACK", reply = "Consider it quickly, then, because the sand moves faster than any bargainer's thoughts, and it will not wait for you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll choose my own master, preacher.", next = "BACK", reply = "You will choose, and it will choose you back, and I pray your master is kinder than the one sleeping under these dunes.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Sure, sure.", next = "BACK" },
       },
@@ -268,7 +284,7 @@ P:NPC {
         { text = "I doubt the druids listen to you.", next = "b3_1" },
         { text = "The Light will stand against any darkness.", next = "x_1", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Is there any hope?", next = "s_1" },
-        { text = "Do you think warlocks will bring the end?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you think my kind will bring the end, preacher?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you think is beneath the sand?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do the voices beneath the sand say, Jonathan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The swarm can be fought, Revelator.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -327,6 +343,11 @@ P:NPC {
     { id = "g_main", text = "Lok'tar, warrior! Speak quickly; the Horde has a war to prepare." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water, which is no death for an orc." },
   },
+  notice = {
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood's running hot, warlock, like a fever, and I know that heat from the old camps. The Horde drank deep from that cup once, so keep the imp's pact at a sip." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -388,10 +409,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Well enough, if they stand their ground and don't hide behind their pets. The bugs swarm fast, and a demon can hold a line while you burn them, so long as you keep your nerve." } },
+      lines = {
+        { id = "xlock_default", text = "Well enough, if you stand your ground and don't hide behind your pets. The bugs swarm fast, and a creature like yours can hold a line while you burn them, so long as you keep your nerve." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Well enough, if they stand their ground, and that one of yours looks like it would hold a line. The bugs swarm fast, so put your demon in front and burn them while it holds, and keep your nerve, because I've seen warlocks run and leave their creatures to it." },
+      },
       choices = {
-        { text = "I'll stand my ground and fight beside you.", next = "BACK", reply = "Good. A warlock who stands is worth three who hide, and you'll find I remember the ones who stood.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "My demon fights. I stay back.", next = "BACK", reply = "Then your demon had better hold, because when it falls, the bugs will come straight for the one hiding behind it.", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'll stand my ground and fight beside you.", next = "BACK", reply = "Good. One who stands is worth three who hide, and you'll find I remember the ones who stood.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My pet fights. I stay back and watch.", next = "BACK", reply = "Then your pet had better hold, because when it falls, the bugs will come straight for the one hiding behind it.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "I'll do my part.", next = "BACK" },
       },
     },
@@ -413,7 +437,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade that works from behind, not with the bugs breeding faster than we can kill them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. I've seen your demons fight, and I'll admit they hit hard, so bring them to the hives and let them earn their keep." },
+          text = "You've a cold look, and something with teeth at your heel. Bring it to the hives and let it earn its keep, because I've seen what your sort can do to a bug." },
         { id = "h_default", key = true, text = "I am Krug Skullsplit, and I speak for the Horde's forces here in Silithus. The silithids are a threat to all of Kalimdor, and the Horde will not let them overrun our lands. I lost eleven grunts this month and buried four, because the bugs took the rest whole." },
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -432,7 +456,7 @@ P:NPC {
         { text = "My axe is ready for the swarm.", next = "x_1", when = { class = "WARRIOR" } },
         { text = "We may have to fight beside the Alliance here.", next = "s_1" },
         { text = "What does the Horde need from a rogue here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Warlocks should fight well against the silithid.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What I keep at heel would tear through the silithid.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Horde's war effort must need priests, Krug.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Horde need from its hunters here, Krug?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you need from a mage, Krug?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -501,6 +525,11 @@ P:NPC {
     { id = "g_main", text = "Well met, friend. You've come to the front lines, then, so mind where you sit; the scorpids got into the latrine trench again." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The Alliance needs every hand it can get, and my last two went home with sunstroke and a scorpid in the boot." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I've counted your shards, warlock, because I count everything that comes into my camp, and you're carrying enough to fill a grave. I won't ask whose they were, so long as none of them wore our colours." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -514,9 +543,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Twilight's Hammer calls to things it cannot control, and I don't care to find out what happens when a demon hears the call. You keep a firm hand on your creature, and I'll keep a firm hand on my men, and we'll get on well enough." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Twilight's Hammer calls to things it cannot control, and I don't care to find out what answers when something like yours hears the call. You keep a firm hand on your creature, and I'll keep a firm hand on my men, and we'll get along." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Twilight's Hammer calls to things it cannot control, and your creature is already standing here sniffing the wind toward their camp. Keep a firm hand on it, and I'll keep a firm hand on my men, and if it so much as twitches toward the cult, call it back before I have to." },
+      },
       choices = {
-        { text = "A firm hand it is. My demon answers to me alone.", next = "BACK", reply = "Good. Then I'll trust you, and I'll keep an eye on the cult while you keep both eyes on that thing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A firm hand it is. It answers to me alone.", next = "BACK", reply = "Good. Then I'll trust you, and I'll keep an eye on the cult while you keep both eyes on that thing.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the cult call it. I'll see what answers.", next = "BACK", reply = "Then do it far from my men, because I'll not have the Twilight's Hammer pulling anything out of you in my camp.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -590,7 +622,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock of the Alliance. I'll not ask what you've bound, so long as it fights the swarm and not my soldiers, and so long as it stays well clear of the cult." },
+          text = "I'll not ask what you've got bound in that satchel, so long as it fights the swarm and not my soldiers, and so long as it stays well clear of the cult." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance, at the Hold. We need you badly, because the swarm doesn't take prisoners, and our wounded fill the inn every evening." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -623,7 +655,7 @@ P:NPC {
         { text = "You don't seem to trust the Circle's scouts, Commander.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do you need from a paladin here, Merok?", next = "xapala", when = { class = "PALADIN" } },
         { text = "There seem to be a great many wounded, Merok.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why should my demon stay clear of the cult, Merok?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why should what I carry stay clear of the cult, Merok?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have an Alliance shaman listen for, Merok?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },

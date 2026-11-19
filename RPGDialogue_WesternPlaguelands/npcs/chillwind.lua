@@ -7,7 +7,8 @@ P:NPC {
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "major",
   communities = { "chillwind_camp" }, temper = { "steady", "proud" }, values = { "dutiful", "brave" },
   likesTone = "blunt",
-  notices = { "class", "kit" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Buried soldiers at Andorhal who trusted a demon-caller; the Cult began with people who thought the dark could be leashed." },
+  notices = { "class", "kit", "lock_shadow", "lock_stones" },
 
   impression = {
     first = "He writes the letters himself when a soldier doesn't come back.",
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I buried good men who trusted a demon-caller at Andorhal. Fight the Scourge if you must, but you'll do it where I can see you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You're a warlock, and every soldier in this camp knows it by now. Keep your conjuring outside my palisade, or I'll have you walked out of it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've bled for Chillwind and kept your demons out of my camp, and I've noticed both. I'll still post a guard on you, but he can stand a little further back." },
     { id = "g_camp", text = "On your feet or on your way, soldier, for Chillwind hasn't room for anyone sitting down." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, good. I counted you out of that gate, and I'm glad to count you in again." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "A Silver Hand initiate out of Ironforge! Your Order held together under the mountain when ours came apart up here, soldier, and Chillwind is glad of anyone who kept the oath." },
@@ -31,6 +35,10 @@ P:NPC {
       text = "Lord Shadowbreaker's sending me paladins again, and good. I asked him for twenty, but I'll gladly take one who doesn't flinch at a ghoul." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's in worse shape than my palisade, {class}. Get it mended before the dead on Sorrow Hill finish the job for you." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps burn lower when you stand near them, and MacDonnell has already noticed from across the camp. Stand on my side of the fire and let her stare, because Andorhal needs you more than it needs her approval." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone you're carrying? I've seen a man walk out of Andorhal on one bite of a stone like that, and I'd see a great many more do it if I had a warlock with the time to make them." },
   },
 
   start = "hello",
@@ -136,8 +144,10 @@ P:NPC {
           text = "There's the soldier I'd pick first, if Stormwind ever let me pick anyone. Come in by the fire and tell me what the farms looked like today." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. Say your business and get on the road, because I've no time for anyone I can't count on." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Let's not pretend, warlock. The Cult of the Damned started with folk who thought they could keep the dark on a leash, and I've spent this whole war burning what's left of them in Andorhal. Say your business." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again, and the gate guard didn't even send for me this time. Don't make me regret telling him to stand down." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll say it plain, {class}: I don't like warlocks, but I like the Scourge less, and I'm short of soldiers by about two hundred." },
+          text = "I'll say it plain: there's a smell of sulphur about you I don't like, {name}. But I like the Scourge less, and I'm short of soldiers by about two hundred." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good, {class}, for the last time I asked Stormwind for spellcasters they sent me a priestess and an alchemist and told me to make do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -162,7 +172,7 @@ P:NPC {
         { text = "Put me on the line, Commander.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "I can scout the watchtowers for you.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Ironforge has a stake in this fight too.", next = "x_dwarf", when = { race = "Dwarf" } },
-        { text = "I doubt your soldiers will fight beside a warlock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt your soldiers will want me at their backs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Wouldn't Dalaran send help against Andorhal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'm surprised SI:7 operates this far north, Commander.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -192,10 +202,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." } },
+      lines = {
+        { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll mutter about the sulphur on you the whole way. MacDonnell will be harder, for she has a nose for what you carry, and she thinks the Light ought to burn all of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll fight beside anyone who walks back out of Andorhal with them, though I can see a few of them making the sign of the Light at your demon already. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn, and she'd want to start with that one." },
+      },
       choices = {
-        { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Stand beside them once when the ghouls come over the rise, and the muttering stops.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I don't need their trust, only their silence.", next = "BACK", reply = "Then you'll get their silence, and their muttering besides. I'll take your fire either way.", fx = { align = { honor = -1 } } },
+        { text = "I'll earn their trust in battle, the hard way.", next = "BACK", reply = "Good. Stand beside them once when the ghouls come over the rise, and the muttering stops.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need their trust. Only their silence.", next = "BACK", reply = "Then you'll get their silence, and their muttering besides. I'll take your fire either way.", fx = { align = { honor = -1 } } },
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
@@ -693,11 +706,11 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xw_default", text = "Is it, now? I'll take any hand that turns the Scourge's poison back on them, but don't mistake us for the same sort: I ask the Light for the strength to do it, and you ask something else entirely. Bring me the samples, and keep whatever you've got on a leash near my jars." },
+        { id = "xw_default", text = "Is it, now? I'll take any hand that turns the Scourge's poison back on them, but don't mistake us for the same sort: I ask the Light for strength, and I've a feeling you ask something else entirely. Bring me the samples, and keep whatever rides in that satchel well away from my jars." },
       },
       choices = {
-        { text = "The dead fall either way, Priestess.", next = "BACK", reply = "They do, and I'll grant you that much. Just keep your arts away from my cauldrons.", fx = { affinity = -1, align = { light = -1 } } },
-        { text = "Understood. My arts stay well away from your jars.", next = "BACK", reply = "Thank you, and keep them there. I'll not have a demon sniffing at the counter agent.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead fall either way, Priestess. Does it matter how?", next = "BACK", reply = "They do, and I'll grant you that much. Just keep whatever you carry away from my cauldrons.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Understood. What I carry stays well away from your jars.", next = "BACK", reply = "Thank you, and keep it there. I'll not have anything sniffing at the counter agent.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -727,7 +740,7 @@ P:NPC {
   key = "arbington", id = TODO_NPC("Alchemist Arbington"), name = "Alchemist Arbington",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly" }, values = { "curious", "honest" },
-  notices = { "craft", "greenness" },
+  notices = { "craft", "greenness", "lock_shards" },
 
   impression = {
     first = "Frightened as he is, he keeps working, and I respect that.",
@@ -746,6 +759,8 @@ P:NPC {
       text = "An alchemist, how wonderful! Please don't touch the quickener, though, because it's thirty minutes from useless and about thirty seconds from my eyebrows." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 50 },
       text = "You're rather young for the Plaguelands, aren't you? I'm not judging, mind, since I'm rather old for them, and look how that's going." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "The Scholomance books describe that chill, the cold that comes off a bag of soul shards, and I had hoped I would only ever read about it. Do keep them away from my reagents, because I am never quite sure what will react." },
   },
 
   start = "hello",
@@ -831,7 +846,7 @@ P:NPC {
         { id = "h_pay", when = { metBefore = true },
           text = "Stormwind pays me in coin, mud and the occasional ghoul through the tent wall. I did the sums once, and then I stopped doing sums altogether." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Please don't summon anything, {class}, not here, not near the vials. I'm sure your demon's very well behaved, but this glassware came all the way from Stormwind." },
+          text = "Please don't conjure anything, {name}, not here, not near the vials. There's a sulphur smell on your sleeves, and this glassware came all the way from Stormwind." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you startled me! Please, {class}, cough or something when you come in, for I've reagents on this table that won't forgive a jogged elbow." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -853,7 +868,7 @@ P:NPC {
         { text = "The Light could help with your work.", next = "priest", when = { class = "PRIEST" } },
         { text = "How do you collect what you need from the dead?", next = "alch", when = { profession = "Alchemy" } },
         { text = "You must have studied in Dalaran, Arbington.", next = "x_mage", when = { class = "MAGE" } },
-        { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Scourge's alchemy and mine aren't so far apart.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Need anything fetched quietly from the Scholomance?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the elements upset your work, Arbington?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Scholomance is finished, Arbington. Gandling is dead.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
@@ -875,10 +890,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's precisely what frightens me, for the Scourge's cauldrons are alchemy too, alchemy gone wrong in ambitious hands. I read the Scholomance's books for my work, and I stopped sleeping well somewhere around the second chapter." } },
+      lines = {
+        { id = "xlock_default", text = "That's precisely what frightens me, for the Scourge's cauldrons are alchemy too, alchemy gone wrong in ambitious hands. I read the Scholomance's books for my work, and I stopped sleeping well somewhere around the second chapter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's precisely what frightens me, and your demon staring into my alembics doesn't help. The Scourge's cauldrons are alchemy gone wrong in ambitious hands, so please call it back before it learns anything, because I stopped sleeping well somewhere around the second chapter." },
+      },
       choices = {
-        { text = "Some books should stay closed, alchemist.", next = "BACK", reply = "Some should, and I've read most of them anyway. I'll close the next one, I promise.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Every book is worth reading once, even theirs.", next = "BACK", reply = "Once, and then you'll never sleep again. I'd not recommend it.", fx = { align = { light = -1 } } },
+        { text = "Some books should stay closed, alchemist. I've opened a few.", next = "BACK", reply = "Some should, and I've read most of them anyway. I'll close the next one, I promise.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every book is worth reading once. Even theirs.", next = "BACK", reply = "Once, and then you'll never sleep again. I'd not recommend it.", fx = { align = { light = -1 } } },
         { text = "Let's speak of something else.", next = "BACK" },
       },
     },
@@ -971,7 +989,7 @@ P:NPC {
   key = "weldon", id = TODO_NPC("Weldon Barov"), name = "Weldon Barov",
   bible = "bibles/westernplaguelands.md", role = "noble", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "cowardly", "proud" }, values = { "greedy", "vengeful" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_soulstone" },
 
   impression = {
     first = "Fear and greed have been sharing his face for a long time.",
@@ -990,6 +1008,8 @@ P:NPC {
       text = "Guards! Oh, a Forsaken, here in an Alliance camp? How you got past the sentries I don't care to know, so stay right there." },
     { id = "n_fine", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look dreadful, all rags and dents. Find the family fortune for me and you'll never have to dress like a peasant again." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone? I know one when I see one, believe me. I'd give a great deal for a way back from death that doesn't end the way my brother's did, though I don't suppose you'd part with it." },
   },
 
   start = "hello",
@@ -1118,7 +1138,7 @@ P:NPC {
         { id = "h_sleep", when = { metBefore = true },
           text = "I sleep with my back to the cliff and a sword under my blanket, because of the assassins, you understand. My brother Alexi sends them, and in his place I'd do the same." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. You're not one of Alexi's, are you, {class}? He keeps unpleasant company now that he's dead, and I sleep with a sword under the blanket for good reason." },
+          text = "You're not one of Alexi's, are you? You've the same cold about you, and he keeps unpleasant company now that he's dead. I sleep with a sword under the blanket for good reason." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! My family once kept a Kirin Tor tutor, {class}, and I'm told I was his most promising pupil, whatever Alexi may say about it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -1167,9 +1187,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's not nearly as reassuring as you think it is. Still, if you've a demon to spare, I'd not object to one standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." } },
+      lines = {
+        { id = "xlock_default", text = "That's not nearly as reassuring as you think it is. Still, if whatever follows you about could stand guard outside my tent, I'd not object, for the Argent folk here don't take my fears at all seriously." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's not nearly as reassuring as you think it is, and less so with your demon looking at me like that. Still, since it's standing about anyway, I'd not object to it standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." },
+      },
       choices = {
-        { text = "Your fear is sensible. Keep the sword close.", next = "BACK", reply = "Thank you! At last, someone who takes me seriously. The sword stays exactly where it is.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your fear is sensible, Weldon. Keep the sword close.", next = "BACK", reply = "Thank you! At last, someone who takes me seriously. The sword stays exactly where it is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A coward's fears are no business of mine.", next = "BACK", reply = "Coward? I'm alive, which is more than the brave Barovs can say. Do mind the tent on your way out.", fx = { align = { light = -1 } } },
         { text = "Let's talk of other things.", next = "BACK" },
       },
@@ -1293,7 +1316,7 @@ P:NPC {
   key = "pureheart", id = TODO_NPC("Argent Officer Pureheart"), name = "Argent Officer Pureheart",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp", "argent_dawn" }, temper = { "steady" }, values = { "devout", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_pact" },
 
   impression = {
     first = "Nobody draws steel at her table, whatever colors they wear.",
@@ -1311,6 +1334,8 @@ P:NPC {
       text = "Horde, in an Alliance camp, so easy, everyone, because nobody draws steel at my table. The Dawn doesn't ask what colors you wear, only whether you'll fight the dead." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "Silver Hand? I was too, until Mograine fell and the order went red. Lord Tyrosus and I walked out the same day, and the Light walked out with us, whatever the Crusade says." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've a fevered look about you, and in the plaguelands that makes me reach for a cure, but this heat is an imp's pact, isn't it? Good, because that's one less soul I have to worry over today." },
   },
 
   start = "hello",
@@ -1427,7 +1452,7 @@ P:NPC {
         { id = "h_tyrosus", when = { heardLine = "tyrosus.h_default" },
           text = "You've spoken with Lord Tyrosus? Then you've had more of his time than I have this year. Is he well? He'd never say if he wasn't." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, and I'll not pretend the others at this table like it, {class}. But the Dawn turns away no one who fights the Scourge, and I meant that when I said it." },
+          text = "I'll not pretend the others at this table like the look of you, {name}. But the Dawn turns away no one who fights the Scourge, and I meant that when I said it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage at my table! Alliance or Horde, {class}, your fire burns the dead just the same, and the Dawn is grateful for it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -1451,7 +1476,7 @@ P:NPC {
         { text = "I was raised in the Silver Hand's teachings.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Your soldiers don't look pleased to see me.", next = "horde", when = { faction = "Horde" } },
         { text = "Is there room in the Dawn for the spirits too?", next = "x_shaman", when = { class = "SHAMAN" } },
-        { text = "Does that hold even for fel magic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does that hold even for the darker arts, officer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'm surprised mages of both sides work together here.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Dawn ever need something done quietly?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why must a soldier's weapon stay by the door?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -1482,10 +1507,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It holds for anyone who keeps their power aimed at the dead. Officer Garush at the Bulwark watches warlocks closely, and he has his reasons, but give him time and you'll find he's fair." } },
+      lines = {
+        { id = "xlock_default", text = "It holds for anyone who keeps their power aimed at the dead. Officer Garush at the Bulwark watches your sort closely, and he has his reasons, but give him time and you'll find he's fair." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It holds for anyone who keeps their power aimed at the dead, and I'll judge your {pet} by the same rule, though my hand did go to my sword when it came in. Officer Garush at the Bulwark watches warlocks closely and he'll watch that one closer, but give him time and you'll find he's fair." },
+      },
       choices = {
         { text = "I'll prove my power serves the living.", next = "BACK", reply = "Good. Garush will see it, given time, and so will I.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'll aim it wherever I please, officer.", next = "BACK", reply = "Then aim it well away from the table, warlock. The Dawn has no room for surprises.", fx = { align = { light = -1 } } },
+        { text = "I'll aim it wherever I please, officer.", next = "BACK", reply = "Then aim it well away from this table. The Dawn has no room for surprises.", fx = { align = { light = -1 } } },
         { text = "Understood. Something else.", next = "BACK" },
       },
     },
@@ -1585,7 +1613,7 @@ P:NPC {
   key = "dumah", id = TODO_NPC("Nathaniel Dumah"), name = "Nathaniel Dumah",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "quest",
   communities = { "chillwind_camp" }, temper = { "steady" }, values = { "loyal", "stubborn" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft", "lock_steed" },
 
   impression = {
     first = "He asks after Northridge like a man asking after family.",
@@ -1602,6 +1630,8 @@ P:NPC {
       text = "You've a northern look about you, from Lordaeron before the war, maybe? Don't tell me if it hurts, because most of us who got out don't talk about it." },
     { id = "n_lumber", cat = "craft", when = { profession = { "Engineering", "Blacksmithing" } },
       text = "You work with your hands, I can tell, and my father would have liked you for it. He always judged a man by his calluses." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse leaves burning hoofprints, and the Crusaders at the mill will follow that trail right back to me. Ride it somewhere else, I'd beg you, because my father's mill was built of timber and it can't take a fire." },
   },
 
   start = "hello",
@@ -1656,7 +1686,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." } },
+      lines = {
+        { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd burn anything they think the shadow's touched, and if they saw your demon they'd burn the mill and sing hymns over the ashes. My father built it with his own hands, so whatever you do there, keep that creature well away from the timber, because I'd sooner see it standing with Crusaders in it than ashes with none." },
+      },
       choices = {
         { text = "Your father's mill will stand. You have my word.", next = "BACK", reply = "Thank you. I'll hold you to it, and so will he.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If burning it clears the Crusade out, so be it.", next = "BACK", reply = "It might, and I'd rather it didn't. Find another way, if you can.", fx = { align = { honor = -1 } } },
@@ -1686,7 +1719,7 @@ P:NPC {
           text = "A warrior! The Crusade's got a dozen guards at my father's mill, {class}, and I was hoping someone like you might walk in the front door while the termites see to the back." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. There used to be good deer in the woods round Northridge, {class}, and my father traded planks for venison with the trappers every winter." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take your help against the Crusade gladly, {class}, but they've a long memory for your kind, and they'll burn the mill down around us before they let a demon walk in." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll take your help against the Crusade gladly, but there's a smell of brimstone on you, and they've a long memory for it. They'll burn the mill down around us before they let that walk in." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 30 } }, text = "Word is the Crusade's losing men at Northridge faster than Hearthglen can send them. I'd like my father's mill back with a roof on it, so mind the timber while you're about it." },
       },
       again = {
@@ -1701,7 +1734,7 @@ P:NPC {
         { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The Crusade must be using your father's mill for something.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would the Crusade really burn your father's mill, Nathaniel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Crusade would burn your father's mill to spite someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What did your father say about the Northridge trees, Nathaniel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
         { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1808,7 +1841,7 @@ P:NPC {
   key = "bibilfaz", id = TODO_NPC("Bibilfaz Featherwhistle"), name = "Bibilfaz Featherwhistle", title = "Gryphon Master",
   bible = "bibles/westernplaguelands.md", role = "flightmaster", tier = "service",
   communities = { "chillwind_camp" }, temper = { "jovial" }, values = { "cheerful" },
-  notices = { "race" },
+  notices = { "race", "lock_armor" },
 
   impression = {
     first = "I suspect he works very hard at being so cheery.",
@@ -1823,6 +1856,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here, of all places! I've been talking to gryphons for weeks, and they're lovely creatures, but they really aren't much for conversation." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Phew, that demon-hide ward of yours smells like a singed boot, and the gryphons have noticed too! I'll crank the bellows up a notch, so hold your breath and pray the wind cooperates." },
   },
 
   start = "hello",
@@ -1886,10 +1921,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." } },
+      lines = {
+        { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Biscuits, mostly, and a bellows that blows the sulphur smell downwind, though with your demon standing right at the perch I'd need a bigger bellows and a great many more biscuits. Send it off before you mount, and you'll land in Aerie Peak at the speed you meant to." },
+      },
       choices = {
         { text = "Clever work, Bibilfaz. I'll be gentle with the birds.", next = "BACK", reply = "Thank you! The birds will be gentle with you in return, mostly.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Nine in ten? I'll risk it. Strap me in.", next = "BACK", reply = "Splendid, an adventurous sort! Strap in tight and hold on to your hat.", fx = { align = { order = -1 } } },
+        { text = "Nine in ten? I'll take those odds. Strap me in.", next = "BACK", reply = "Splendid, an adventurous sort! Strap in tight and hold on to your hat.", fx = { align = { order = -1 } } },
         { text = "Something else, Bibilfaz.", next = "BACK" },
       },
     },
@@ -1928,7 +1966,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh dear, the gryphons won't like that smell, no, not one bit, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },
       choices = {
@@ -1944,7 +1982,7 @@ P:NPC {
         { text = "Your gryphons must mind carrying heavy armour.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The gryphons must hate flying over the Plaguelands.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "How do you persuade a gryphon to carry a warlock, Bibilfaz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do you persuade a gryphon to carry someone who smells like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do your gryphons think of the plague winds, Bibilfaz?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },

@@ -14,6 +14,11 @@ P:NPC {
     { id = "g_default", text = "Ah, a customer on the open road! Come, come, I carry a little of everything." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again! The road is long, but it keeps bringing me back to good customers." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Now what's that cold glimmer in your pack, friend? I've traded in many odd things up and down this road, but I've never once priced a soul, and I'd as soon not learn how." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -66,10 +71,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to a demon, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." } },
+      lines = {
+        { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to whatever that is at your heel, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Afraid's a strong word, but I've never sold anything to a demon, and yours is poking about my pack as if it means to start. Call it off, friend, because I don't know what they pay in, and I'll stick to customers with honest coins, if you don't mind." },
+      },
       choices = {
-        { text = "My demon will stay back. You'll deal only with me.", next = "BACK", reply = "That's very decent of you, and I'll be glad of it. I'm sure your little friend is a credit to his kind, but I'd still rather he stayed where I can see him.", fx = { align = { light = 1 } } },
-        { text = "Demons pay in power, Antonio. You'd be surprised.", next = "BACK", reply = "Power doesn't buy bread in Goldshire, friend, and I've a feeling the change comes back in a currency I'd not want in my purse. Copper and silver will do me.", fx = { align = { light = -1 } } },
+        { text = "It will stay back. You'll deal only with me.", next = "BACK", reply = "That's very decent of you, and I'll be glad of it. I'm sure your little friend is a credit to his kind, but I'd still rather he stayed where I can see him.", fx = { align = { light = 1 } } },
+        { text = "Some customers pay in power, Antonio. You'd be surprised.", next = "BACK", reply = "Power doesn't buy bread in Goldshire, friend, and I've a feeling the change comes back in a currency I'd not want in my purse. Copper and silver will do me.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -100,7 +108,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll want something rare, I can tell. I've a crystal from Duskwood that hums in the dark, though I'm not sure it's meant to." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock on my road, and with something at your heel, I see. I'll sell you anything you like, but I'd ask you to keep it out of my packs." },
+          text = "Something's padding along at your heel, friend, and I'd rather not look at it too closely. I'll sell you anything you like, but keep it out of my packs." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the road! I've a whetstone from Ironforge, or near enough, and it'll put an edge on anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! I've a call for luring deer, carved by a man in Duskwood, though he swore it calls wolves too." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf on the Eastvale road! I sell to everyone who stops, so stop, and I'll show you things you won't find in any forest." },
@@ -115,7 +123,7 @@ P:NPC {
         { text = "The road must be dangerous for a man alone.", next = "danger" },
         { text = "You'd do better with a shop in town.", next = "shop" },
         { text = "Where did you come by that humming crystal, Antonio?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Are you afraid of my demon, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are you afraid of what walks at my heel, Antonio?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt your whetstone is really from Ironforge, Perelli.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "They say your deer call brings the wolves.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you sell to the needy at a fair price, Antonio?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

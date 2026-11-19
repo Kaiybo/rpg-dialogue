@@ -7,7 +7,7 @@ P:NPC {
   key = "katie_hunter", id = TODO_NPC("Katie Hunter"), name = "Katie Hunter", title = "Horse Breeder",
   bible = "bibles/eastvale_stables.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "brisk" }, values = { "proud", "careful" },
-  notices = { "mount", "race" },
+  notices = { "mount", "race", "lock_steed" },
   impression = {
     first = "She'll talk horses with anyone, but she sells them with great care.",
     third = "{name} met Katie Hunter, the Eastvale horse breeder whose mares belong to Stormwind and whose trust must be earned.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Off that, please, before my mares get ideas, and let me see its hooves while you're at it; it's a habit." },
     { id = "n_other", cat = "race", when = { ["not"] = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } } } },
       text = "I'll talk horses with anyone. Selling them is another matter; Stormwind keeps these for its own." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Whatever you rode in on has my mares screaming in their stalls, and it's left burnt hoofprints all the way up the lane. A horse with fire for feet isn't a horse, friend, and I'll not have it near my breeding stock." },
   },
 
   start = "hello",
@@ -86,10 +88,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your demon outside the gate." } },
+      lines = {
+        { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave that creature outside the gate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fear it more than they fear wolves, and you can hear them now, kicking at the boards since your demon came through the gate. You could try one of the riding horses in time, but not today, and not with that thing stood in my yard." },
+      },
       choices = {
-        { text = "Your mare comes first. I'll leave my demon at the gate.", next = "BACK", reply = "Thank you, that's more than most of your sort would do. In time, we'll see about a riding horse.", fx = { align = { light = 1 } } },
-        { text = "A horse that can't stand a demon isn't worth riding.", next = "BACK", reply = "Then you'll not be riding mine, and that's an end of it. They're worth more than that.", fx = { align = { light = -1 } } },
+        { text = "Your mare comes first. I'll leave my companion at the gate.", next = "BACK", reply = "Thank you, that's more than most of your sort would do. In time, we'll see about a riding horse.", fx = { align = { light = 1 } } },
+        { text = "A horse that can't stand my company isn't worth riding.", next = "BACK", reply = "Then you'll not be riding mine, and that's an end of it. They're worth more than that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,7 +142,7 @@ P:NPC {
         { text = "Why only for Stormwind's people?", next = "only" },
         { text = "I'd wager you name every one of them.", next = "names" },
         { text = "Someone must have tried to steal your horses before.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do your horses fear a warlock's summons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your horses fear what follows me about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What makes a warhorse different from a farm horse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your horses don't seem to like my pet.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you lose many foals, Katie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -184,7 +189,7 @@ P:NPC {
   key = "randal_hunter", id = TODO_NPC("Randal Hunter"), name = "Randal Hunter", title = "Riding Trainer",
   bible = "bibles/eastvale_stables.md", role = "trainer", tier = "service",
   communities = { "eastvale" }, temper = { "patient", "dry" }, values = { "careful", "practical" },
-  notices = { "class", "mount" },
+  notices = { "class", "mount", "lock_shadow" },
   impression = {
     first = "He told me to keep my heels down, though I stood afoot.",
     third = "{name} met Randal Hunter, the Eastvale riding trainer who can't stop teaching even when nobody is in the saddle.",
@@ -199,7 +204,9 @@ P:NPC {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", minLevel = 40 },
       text = "A paladin. Your order calls its own warhorse, I'm told, but learn on one of ours anyway, because even a holy horse can throw you." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK", minLevel = 40 },
-      text = "I've heard what warlocks ride, so don't bring it near the stables; the mares would never forgive me." },
+      text = "I've heard what your sort ride once they've gone far enough down that road, so don't bring it near the stables; the mares would never forgive me." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every horse in the paddock turned its head when you came round the fence, the way they do when a storm's coming over the hills. You've got weather on you, friend, the dark sort, and they smell it long before I see it." },
   },
 
   start = "hello",
@@ -263,10 +270,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd teach anyone who pays and listens, and I'd sooner you learned on my horses than learned on something you'd called up out of the dark. A horse forgives a bad rider, and I'm told your other mounts don't." } },
+      lines = {
+        { id = "xlock_default", text = "I'd teach anyone who pays and listens, and I'd sooner you learned on my horses than learned on something you'd called up out of the dark. A horse forgives a bad rider, and I'm told your other mounts don't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd teach anyone who pays and listens, though I'd sooner your servant waited by the fence, because every horse in the paddock has its ears pinned back. A horse forgives a bad rider, and I'm told your other mounts don't." },
+      },
       choices = {
-        { text = "I'd rather ride an honest horse than a summoned beast.", next = "BACK", reply = "Good, and an honest horse will serve you better than anything that bites. Come for a lesson.", fx = { align = { light = 1 } } },
-        { text = "A summoned steed never tires. Your horses can't say that.", next = "BACK", reply = "Maybe not, but they don't bite either, and they don't need feeding with souls. I'll keep my horses.", fx = { align = { light = -1 } } },
+        { text = "I'd rather ride an honest horse than anything out of the dark.", next = "BACK", reply = "Good, and an honest horse will serve you better than anything that bites. Come for a lesson.", fx = { align = { light = 1 } } },
+        { text = "My other mounts never tire. Your horses can't say that.", next = "BACK", reply = "Maybe not, but they don't bite either, and they don't need feeding with souls. I'll keep my horses.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -289,7 +299,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Your kind always want to ride at first and then decide halfway to Stormwind that walking was faster." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. I'll teach you to ride if you want it, though your sort will be riding something else soon enough, I hear." },
+          text = "I'll teach you to ride if you want it, though I hear your sort end up on something else, with fire where its hooves should be." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll ride well, I think, because your sort already know how to stay upright while something tries to throw you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to ride with your beast trotting alongside, I suppose, and that takes a calm horse and a calmer rider." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, I'm told, and the first night elf to come to my yard. I don't suppose you need lessons, if you can turn into something with four legs yourself." },
@@ -303,7 +313,7 @@ P:NPC {
         { text = "You make people wait a long while before they ride.", next = "wait" },
         { text = "Can a priest ride like a knight?", next = "priest", when = { class = "PRIEST" } },
         { text = "Why do mages give up on riding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I doubt you'd teach a warlock to ride your horses.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt you'd put someone like me on one of your horses.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a warrior fight from the saddle, Randal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will a horse ride beside a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'd guess paladins ride differently from other folk, Randal.", next = "xapala", when = { class = "PALADIN" } },

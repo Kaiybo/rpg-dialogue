@@ -15,10 +15,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Yes? Be quick about it; I've a circle drawn and it doesn't like to wait." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A young warlock. Good; you look like you'd rather command something than be commanded, which is the first lesson, and you've learned it already." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Piercing the Veil") }, text = "Bring me three skulls from the Rattlecages by the old smithy, not two and not four, and not cracked, please." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Piercing the Veil") }, text = "How is your imp? Still sulking, I expect. They always sulk the first week." },
+    { id = "g_default", text = "If you've a question, be quick about it, because I've a circle drawn and it doesn't like to wait." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A young warlock, and you look like you'd rather command something than be commanded. That's the first lesson, and you seem to have learned it on your own." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Piercing the Veil") }, text = "Three skulls from the Rattlecages by the old smithy, if you please, and not cracked ones, because a cracked skull leaks." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Piercing the Veil") }, text = "How is your imp? Still sulking, I expect, since they always sulk the first week." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you come back still in one piece. Your imp must be keeping you alive, or keeping you amused." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your power's grown since Deathknell. I can feel the things that listen to you now, and there are more of them than there were." },
   },
@@ -26,110 +26,161 @@ P:NPC {
   notice = {
     { id = "n_imp", cat = "pet", when = { class = "WARLOCK", pet = { family = "Imp" } },
       text = "Your imp is giving me a look. Tell it I bound a hundred of its cousins before it was spawned, and I'll not take its cheek." },
+    { id = "n_void", cat = "pet", when = { class = "WARLOCK", pet = { family = "Voidwalker" } },
+      text = "A voidwalker at your back already, so Halgar has had his hands on you. Did he tell you about his own first binding, or does he still pretend there wasn't one?" },
     { id = "n_green", cat = "greenness", when = { maxLevel = 4 },
-      text = "You've barely stopped twitching from the grave. Sit, steady yourself, and then we'll talk about calling things from beyond it." },
+      text = "You've barely stopped twitching from the grave, so sit and steady yourself, and then we'll talk about calling things from beyond it." },
   },
 
   start = "hello",
   nodes = {
     hello = {
+      narr = "She keeps one finger on the open page of a book as she talks, as though it might turn itself.",
       lines = {
         { id = "h_default", key = true, text = "Venya Marthand. I teach warlocks, which is to say I teach the dead how to make other things do as they're told. Death has a great many drawbacks, but fear of demons isn't one of them, and that makes us excellent students." },
         { id = "h_before", when = { class = "WARLOCK", questBefore = TODO_QUEST("Piercing the Veil") },
-          text = "You're ready to learn binding, I think. A servant from beyond the veil needs an anchor, and the skull of something that was held by another's will makes the best anchor there is." },
+          text = "You're ready to learn binding, I think. A servant from beyond the veil needs an anchor, and the skull of something that was once held by another's will makes the best anchor there is." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Piercing the Veil"), days = 3 } },
-          text = "You've summoned and bound your imp, and it hasn't eaten you, which puts you ahead of a student I won't name. Don't be fooled by its size; it's cleverer and stronger than it looks, and so are you." },
+          text = "You've summoned and bound your imp, and it hasn't eaten you, which puts you ahead of a student I won't name. Don't be fooled by its size, because it's cleverer than it looks, and so, I hope, are you." },
+        { id = "h_lock_up", when = { class = "WARLOCK", minLevel = 10 },
+          text = "You've grown past what I can teach you here, though you're welcome to my conversation. Brill is where you'll go next, and after Brill the Magic Quarter, where they keep the bigger circles." },
         { id = "h_notlock", when = { ["not"] = { class = "WARLOCK" } },
-          text = "You're not one of mine, so I've nothing to teach you. Still, you can stand there, provided you don't step on the chalk." },
+          text = "You're not one of mine, so I've nothing to teach you. You can stand there all the same, provided you don't step on the chalk." },
       },
       again = {
         { id = "h_again", text = "What else? I won't repeat myself, so listen properly this time." },
-        { id = "h_again2", text = "Ask, then. My circle can wait a little longer." },
+        { id = "h_again2", text = "Ask, then. My circle can wait a little longer, though it sulks." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Train me. I've tasted enough to want the rest.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Why skulls?", next = "skulls" },
         { text = "What is an imp, really?", next = "imp" },
+        { text = "What comes after the imp?", next = "after", when = { class = "WARLOCK" } },
+        { text = "You keep a small bag of grey stones on your belt.", next = "shards", when = { class = "WARLOCK" } },
         { text = "Isn't trafficking with demons dangerous?", next = "danger" },
         { text = "How does one of the Forsaken become a warlock?", next = "become" },
         { text = "What happened to the smithy?", next = "smithy" },
+        { text = "The Light would cleanse that circle.", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'll leave you to your circle.", next = "END" },
       },
     },
 
     skulls = {
-      lines = { { id = "s_default", text = "Because the Rattlecages were bound to the Scourge's will, and the bone remembers being bound. Give a demon an anchor that already knows obedience, and the binding takes far more easily than if you tried it on a clean bone." } },
+      lines = { { id = "s_default", text = "Because the Rattlecages were bound to the Scourge's will, and the bone remembers being bound. Give a demon an anchor that already knows obedience, and the binding takes far more easily than it would on a clean bone." } },
       choices = {
         { text = "So we use the Scourge's own work against it.", next = "skulls_stance" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     skulls_stance = {
       big = true,
-      lines = { { id = "ss_default", text = "We use whatever's to hand, and the Scourge left bones lying about in every field. Some of my students find it distasteful to work with the remains of their old masters' servants, and I find it efficient." } },
+      lines = { { id = "ss_default", text = "We use whatever's to hand, and the Scourge left bones lying in every field from here to Andorhal. Some of my students find it distasteful to work with the remains of their old masters' servants, and I find it efficient." } },
       choices = {
-        { text = "Efficient, I'd call it. Nothing goes to waste.", next = "BACK", reply = "Exactly so, and the Scourge would be appalled to see its leftovers turned against it, which only makes the work sweeter. You'll find a pile of fresh skulls behind the chapel when you need them.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'd rather not build my power on their bones.", next = "BACK", reply = "A tender conscience, and in a warlock, too. Keep it if you can, but the Nether won't care whose bones you stand on, only how firmly you stand.", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Efficient, I'd call it. Nothing goes to waste.", next = "BACK", reply = "The Scourge would be appalled to see its leftovers turned against it, which only makes the work sweeter. You'll find plenty more skulls by the smithy when you need them.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'd rather not build my power on their bones.", next = "BACK", reply = "A tender conscience, and in a warlock, too. Keep it if you can, though the Nether won't care whose bones you stand on, only how firmly you stand.", fx = { align = { light = 1 } } },
+        { text = "Back to the lessons, then.", next = "BACK" },
       },
     },
 
     imp = {
-      lines = { { id = "i_default", text = "A small, spiteful creature of the Burning Legion, the least of its servants, and the one every warlock begins with. It throws fire, it complains constantly, and it knows far more than it lets on." } },
+      lines = { { id = "i_default", text = "A small, spiteful creature of the Burning Legion, the least of its servants and the one every warlock begins with. It throws fire, it complains constantly, and it knows far more than it lets on." } },
       choices = {
         { text = "Does it hate being bound?", next = "imp_hate" },
-        { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
+        { text = "Let's talk about something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
       },
     },
     imp_hate = {
       lines = { { id = "ih_default", text = "Bitterly, and it will tell you so every day. That's why you never let it see you hesitate, because an imp that smells doubt will start testing the edges of the binding, and the edges are where students lose fingers." } },
       choices = {
         { text = "I'll keep it in line.", next = "imp_line" },
-        { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
+        { text = "Something else, Venya.", next = "BACK", fx = { learn = { "burning_legion" } } },
       },
     },
     imp_line = {
       big = true,
-      lines = { { id = "il_default", text = "You will, or you'll learn otherwise in a hurry. Some warlocks rule their demons with cruelty, and some with a sort of grudging partnership, and both kinds survive, though only one sleeps well." } },
+      lines = { { id = "il_default", text = "You will, or you'll learn otherwise in a hurry. Some warlocks rule their demons with cruelty and some with a sort of grudging partnership, and both kinds survive, though only one of them sleeps well." } },
       choices = {
         { text = "A firm hand, always. Demons respect nothing else.", next = "BACK", reply = "Respect is a generous word for what a demon feels, but fear will do nicely in its place. Just never let it see you tired, because it's always watching for that.", fx = { align = { order = 1 }, learn = { "burning_legion" } } },
-        { text = "I'll bargain with it. Partners work harder.", next = "BACK", reply = "Partners, is it? It'll work harder, certainly, and it'll also be reading every word of the bargain for the loophole. Write your terms carefully and sleep with one eye open.", fx = { align = { order = -1 }, learn = { "burning_legion" } } },
-        { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } },
+        { text = "I'll bargain with it. Partners work harder.", next = "BACK", reply = "It'll work harder, certainly, and it'll read every word of the bargain for the loophole. Write your terms carefully and sleep with one eye open.", fx = { align = { order = -1 }, learn = { "burning_legion" } } },
+        { text = "Back to the lessons, then.", next = "BACK", fx = { learn = { "burning_legion" } } },
+      },
+    },
+
+    after = {
+      lines = {
+        { id = "af_default", text = "Brill first, where Rupert Boch will teach you to curse a man so that he rots on his feet. Then, once you've some real practice behind you, Carendin Halgar sends for you from the Undercity, and you'll learn to call a voidwalker, which is a very different sort of guest." },
+        { id = "af_void", when = { pet = { family = "Voidwalker" } }, text = "You know already, because you've a voidwalker behind you. After that comes the succubus, then the felhunter, and every one of them is bound in its own way, with its own price, and Halgar or his blind assistant will tell you each one when you're ready." },
+      },
+      choices = {
+        { text = "What's different about a voidwalker?", next = "after2" },
+        { text = "Halgar. What sort of man is he?", next = "halgar" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    after2 = {
+      lines = { { id = "af2_default", text = "An imp you bind with an anchor, but a voidwalker you have to beat down in the circle with your own hands until it understands who's master. It doesn't complain, it doesn't speak, and it takes every blow meant for you while it waits for you to slip." } },
+      choices = {
+        { text = "I won't slip.", next = "BACK", reply = "Everyone says that before their first voidwalker, and most of them are right. I'd like you to be one of the most." },
+        { text = "That sounds worse than an imp.", next = "BACK", reply = "It's quieter, which isn't the same as better. I'd rather a demon who tells me what it thinks." },
+      },
+    },
+    halgar = {
+      lines = { { id = "ha_default", text = "Impatient, gifted and proud of both, and he keeps the chalk of the students he's lost in a box by his door. He was overconfident once, at his own first binding, and I think he's spent every year since making sure none of us forget what it cost him." } },
+      choices = {
+        { text = "What did it cost him?", next = "BACK", reply = "Ask him, if you're brave, and watch his hands when he answers. That'll tell you more than his words." },
+        { text = "I'll mind my manners with him.", next = "BACK", reply = "Mind your circles. He forgives bad manners far sooner than bad chalk." },
+      },
+    },
+
+    shards = {
+      lines = { { id = "sh_default", text = "Soul shards, and you'll carry a bag of your own before long. When you drain the life from something as it dies, you can tear loose a sliver of what made it go, and that sliver is the coin every summoning past the imp is paid in." } },
+      choices = {
+        { text = "Whose souls are these?", next = "shards2" },
+        { text = "I'll start collecting, then.", next = "BACK", reply = "Collect them from the Scourge and the Scarlets, if you'd like my advice. Neither will miss what they're losing." },
+      },
+    },
+    shards2 = {
+      big = true,
+      lines = { { id = "sh2_default", text = "These were Scarlet Crusaders on the road to the monastery, mostly, and one very surprised cultist of the Damned. Some of my students go pale the first time they feel a shard come loose in their hand, and I'd like to know which sort you are." } },
+      choices = {
+        { text = "They'd have burned me. I'll sleep well.", next = "BACK", reply = "So would they, on our pyres. I find that a great comfort when I'm counting the bag.", fx = { align = { light = -1 } } },
+        { text = "I'll take them, but I won't pretend it's clean.", next = "BACK", reply = "Good, because it isn't, and the warlocks who pretend otherwise are the ones the Nether finds easiest to talk to.", fx = { align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
 
     danger = {
-      lines = { { id = "d_default", text = "For the living, terribly, because a demon can promise them anything and the living want so many things. We want very little, now, and a creature that has nothing to offer you has no hold on you." } },
+      lines = { { id = "d_default", text = "For the living, terribly, because a demon can promise them anything and the living want so many things. We want very little now, and a creature that has nothing to offer you has very little hold on you." } },
       choices = {
         { text = "Surely we still want something.", next = "danger_want" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     danger_want = {
       big = true,
       lines = { { id = "dw_default", text = "Vengeance, mostly, and demons are very happy to help with that, which is the one danger I'd warn you about. Want your vengeance, but want it for yourself, and never let something from the Nether want it on your behalf." } },
       choices = {
-        { text = "My vengeance is my own. I'll keep it so.", next = "BACK", reply = "Good, and say it again every night, because the demons will keep offering. The ones who keep their vengeance their own are the ones I still have the pleasure of teaching.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "My vengeance is my own. I'll keep it so.", next = "BACK", reply = "Then say it again every night, because the demons will keep offering. The ones who keep their vengeance their own are the ones I still have the pleasure of teaching.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If a demon helps me get it, so be it.", next = "BACK", reply = "That's the very sentence every warlock says before something else starts doing the wanting for them. I'll remember you said it, if only for the cautionary tale.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the lessons, then.", next = "BACK" },
       },
     },
 
     become = {
       lines = {
-        { id = "b_default", text = "The same way anyone does, by wanting power more than they fear what it costs. Lordaeron hanged warlocks, when it caught them, so there were never many of us alive, but the Undercity is far more broad-minded." },
-        { id = "b_scourge", when = { race = "Scourge", class = "WARLOCK" }, text = "You've already done it, so you tell me. You woke up, looked at what was left of you, and decided you'd rather command than kneel, and the rest is technique." },
+        { id = "b_default", text = "The same way anyone does, by wanting power more than they fear what it costs. Lordaeron hanged warlocks when it caught them, so there were never many of us alive, but the Undercity is far more broad-minded." },
+        { id = "b_scourge", when = { race = "Scourge", class = "WARLOCK" }, text = "You've already done it, so you tell me. You woke up, looked at what was left of you, and decided you'd rather command than kneel, and the rest is only technique." },
       },
       choices = {
         { text = "Were you a warlock before you died?", next = "become_before" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     become_before = {
       lines = { { id = "bb_default", text = "I was a woman who read books she shouldn't have, in a house in Lordaeron where nobody asked what I read. I don't remember the house, but I remember the books, every page of them, and I think that tells you which mattered to me more." } },
       choices = {
-        { text = "That's a little chilling, Venya.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "That's a little chilling, Venya.", next = "BACK", reply = "Only a little? I must be losing my touch.", fx = { affinity = 1 } },
+        { text = "Back to the lessons, then.", next = "BACK" },
       },
     },
 
@@ -137,21 +188,32 @@ P:NPC {
       lines = { { id = "sm_default", text = "The Scourge came through the north of Deathknell before the Dark Lady drove them out, and the forge was where they made their stand. The Rattlecages still wander around it, waiting for orders that will never come." } },
       choices = {
         { text = "Do they suffer?", next = "smithy_suffer" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     smithy_suffer = {
-      lines = { { id = "sms_default", text = "I don't think there's enough of them left to suffer, and I hope not. Taking their skulls is the kindest thing anyone's done for them in years, so do it quickly and don't be squeamish." } },
+      narr = "She glances north toward the smithy, and her finger finally leaves the page.",
+      lines = { { id = "sms_default", text = "I don't think there's enough of them left to suffer, and I hope there isn't. Taking their skulls is the kindest thing anyone's done for them in years, so do it quickly and don't be squeamish." } },
       choices = {
         { text = "I'll make it quick.", next = "BACK" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+
+    xlight = {
+      big = true,
+      lines = { { id = "xl_default", text = "It would, and then I'd draw it again, and we'd both have wasted an afternoon. Your Light raised no hand when the plague came through these graves, so you'll forgive me if I trust a circle I drew myself." } },
+      choices = {
+        { text = "The Light still answers the Forsaken who seek it.", next = "BACK", reply = "Sarvis says much the same, and I've no quarrel with whatever answers him. My circle answers me, and that's the arrangement I prefer.", fx = { align = { light = 1 } } },
+        { text = "Fair. The Light did little enough for Lordaeron.", next = "BACK", reply = "There's a priest I could talk to. Don't let Sarvis hear you say it.", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    burning_legion = { { id = "tp_legion", text = "The Legion are the masters of the things I bind. Fear them, study them, and never once believe a word they say." } },
-    _none = { { id = "tp_none", text = "Not in my books, and I've read a great many. Ask Shadow Priest Sarvis; he likes to talk." } },
+    burning_legion = { { id = "tp_legion", text = "The Legion are the masters of the things I bind. Fear them and study them, and never once believe a word they say." } },
+    _none = { { id = "tp_none", text = "That's not in my books, and I've read a great many. Ask Shadow Priest Sarvis, who likes to talk." } },
   },
 }
 
@@ -305,7 +367,7 @@ P:NPC {
         { text = "What's the first spell you teach?", next = "first" },
         { text = "Does death change magic?", next = "death" },
         { text = "I remember a little of my old training.", next = "xmemory", when = { class = "MAGE", race = "Scourge" } },
-        { text = "Fire's my art too, after a fashion.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Fire's my art too, though mine burns from a darker place.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -368,7 +430,7 @@ P:NPC {
     },
     xwarlock = {
       lines = { { id = "xw_default", text = "After a fashion, yes, and a fashion I don't teach and won't, though I'll admit your shadowbolts are tidier than my students' fireballs. Venya can tell you about your fire, and I'll stick to mine." } },
-      choices = { { text = "Fair enough, Isabella.", next = "BACK" } },
+      choices = { { text = "Fair enough, Isabella. Keep to your candles.", next = "BACK" } },
     },
     death = {
       lines = { { id = "de_default", text = "Less than you'd fear. The mind keeps what it used most, and magic is a deep habit, so the risen mages usually find it sooner than they find their own names. That's either comforting or terrible, and I change my mind about which every week." } },

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: World |cff8a8a8a1.41.0|r
+## Title: RPG Dialogue: World |cff8a8a8a1.42.0|r
 ## Notes: Shared dialogue for RPG Dialogue: towns, topics, claims, throughlines, origins, role pools and fallbacks.
 ## Author: RPG Dialogue
-## Version: 1.41.0
+## Version: 1.42.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.world
@@ -75,6 +75,12 @@ emissaries\darkspear_islands.lua
 pools_roles.lua
 pools_citizens.lua
 demons.lua
+bound_imp.lua
+bound_voidwalker.lua
+bound_succubus.lua
+bound_felhunter.lua
+bound_demon.lua
+warlock_notice.lua
 asks.lua
 arrivals.lua
 wanderers\spoogledorf.lua

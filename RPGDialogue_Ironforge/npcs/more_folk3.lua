@@ -1322,28 +1322,34 @@ P:NPC {
     third = "{name} met Gimrizz Shadowcog, the warlock trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
-    { id = "g_hi", text = "Close the door. The dwarves are tolerant so long as they don't have to look, and I prefer to keep them tolerant." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. You're intact, and so, I assume, is your judgment. We shall see." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock. Alamar Grimm taught you at Anvilmar, I expect, which means you know the incantations and have been told a great deal about whose fault everything is." },
+    { id = "g_hi", text = "Close the door behind you. The dwarves are tolerant so long as they don't have to look, and I prefer to keep them tolerant." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back intact, and I'll assume your judgment has too until you show me otherwise." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Alamar Grimm taught you at Anvilmar, I expect, which means you know the incantations and have been told a great deal about whose fault everything is." },
+    { id = "g_lockh", when = { class = "WARLOCK", race = "Human" }, text = "A human warlock in Kharanos is rare enough that I'll want to know who taught you before I teach you anything, so sit down and tell me." },
   },
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Your hands are steady and your eyes are tired. That is the correct arrangement. Reverse them, and I would not teach you." },
+      text = "Your hands are steady and your eyes are tired, which is the correct arrangement. Reverse them and I would not teach you." },
     { id = "n_pal", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin. You'll want to tell me what I am. Azar Stronghammer does so weekly, on the stair, and I've begun to time him." },
+      text = "A paladin, and you'll want to tell me what I am. Azar Stronghammer does so weekly on the stair, and I've begun to time him." },
   },
   start = "hello",
   nodes = {
     hello = {
+      narr = "He's standing over a chalk circle with a brass rule, measuring its radius for what is clearly not the first time today.",
       lines = {
-        { id = "h_default", text = "Gimrizz Shadowcog. I teach the binding and use of demons, here, behind the ale casks, by arrangement with an innkeeper who asks no questions. A demon is an engine that wants to kill its operator. I teach people to operate it anyway." },
+        { id = "h_default", text = "Gimrizz Shadowcog. I teach the binding and use of demons behind the ale casks, by arrangement with an innkeeper who asks no questions, and I teach it on the understanding that a demon is an engine that wants to kill its operator." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "I teach the binding and use of demons behind the ale casks, and I teach it on one understanding: a demon is an engine that wants to kill its operator. If you've come here thinking otherwise, Alamar has failed you and I'll start over." },
       },
       again = {
-        { id = "h_again", text = "What else? Be brief." },
-        { id = "h_again2", text = "Yes. Continue." },
+        { id = "h_again", text = "What else? Keep it brief, because the circle's drying." },
+        { id = "h_again2", text = "Carry on, if you've more to ask, and I'll keep measuring." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Is there another question? Ask it now, while the room's quiet, rather than later in the snow when it isn't." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS" },
+        { text = "My imp likes me, I think.", next = "likes", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "When can I bind something bigger than an imp?", next = "void", when = { class = "WARLOCK", maxLevel = 15 } },
         { text = "Why does Kharanos put up with a warlock?", next = "kharanos" },
         { text = "What's the first rule you teach?", next = "rule" },
         { text = "Why would a gnome take up this craft?", next = "why" },
@@ -1353,46 +1359,68 @@ P:NPC {
       },
     },
     kharanos = {
-      lines = { { id = "kharanos_default", text = "Because the Frostmane have shamans and the troggs have numbers, and a village with twelve mountaineers cannot be particular. Belm gave me the room. Senir Whitebeard knows, and has decided that he doesn't. It is a very dwarven sort of arrangement." } },
-      choices = { { text = "And the priest upstairs?", next = "kharanos_priest" }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "kharanos_default", text = "Because the Frostmane have shamans and the troggs have numbers, and a village with twelve mountaineers cannot be particular. Belm gave me the room, and Senir Whitebeard knows I'm here and has decided that he doesn't, which is a very dwarven sort of arrangement." } },
+      choices = { { text = "And the priest upstairs?", next = "kharanos_priest" }, { text = "Let's talk about something else.", next = "BACK" } },
     },
     kharanos_priest = {
-      lines = { { id = "kharanos_priest_default", text = "Maxan Anvol and I have spoken once. He said that my craft imperils my soul, and I said that his cots were full, and that I could empty the ridge of what was filling them. We have not needed to speak since. He takes my students when they are burned." } },
-      choices = { { text = "He heals them, all the same.", next = "BACK", reply = "He does, and I've noted it. I don't pretend the man is a hypocrite.", fx = { trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "kharanos_priest_default", text = "Maxan Anvol and I have spoken once. He said that my craft imperils my soul, and I said that his cots were full and that I could empty the ridge of what was filling them, and we have not needed to speak since, though he takes my students when they are burned." } },
+      choices = { { text = "He heals them, all the same.", next = "BACK", reply = "He does, and I've noted it, so I don't pretend the man is a hypocrite.", fx = { trait = { kind = 1 } } }, { text = "Back to the craft, then.", next = "BACK" } },
     },
     rule = {
-      lines = { { id = "rule_default", text = "That the demon is never on your side. An imp will flatter you, a voidwalker will obey you, and both are measuring the binding the whole time for the place it is weakest. A student who says \"my imp likes me\" is sent home that day." } },
-      choices = { { text = "That seems severe.", next = "rule_severe" }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "rule_default", text = "That the demon is never on your side. An imp will flatter you and a voidwalker will obey you, and both are measuring the binding the whole time for the place it is weakest, so a student who tells me \"my imp likes me\" is sent home that day." } },
+      choices = { { text = "That seems severe.", next = "rule_severe" }, { text = "I'll keep my opinions of my imp to myself.", next = "BACK" } },
     },
     rule_severe = {
       big = true,
-      lines = { { id = "rule_severe_default", text = "I had a student, a clever one, who grew fond of her imp and loosened its binding by one clause, as a kindness. It burned her workshop and two neighbours' besides. She lived. I have refused to teach her since, though she asks each month." } },
+      lines = { { id = "rule_severe_default", text = "I had a student, a clever one, who grew fond of her imp and loosened its binding by one clause, as a kindness. It burned her workshop and two neighbours' besides, and she lived, and I have refused to teach her since, though she asks each month." } },
       choices = {
-        { text = "You're right to refuse. Some mistakes should close the door for good.", next = "BACK", reply = "That is my position. Control once surrendered is surrendered again.", fx = { align = { order = 1 } } },
-        { text = "Teach her again. Nobody learns the rule better than one who broke it.", next = "BACK", reply = "Hm. That is not without logic. Dannie says the same, and I had dismissed it as sentiment.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "You're right to refuse. Some mistakes should close the door.", next = "BACK", reply = "That is my position, because control once surrendered is surrendered more easily the second time.", fx = { align = { order = 1 } } },
+        { text = "Teach her again. Nobody knows the rule better now.", next = "BACK", reply = "Hm, that is not without logic. Dannie says the same, and I had dismissed it as sentiment.", fx = { align = { order = -1 } } },
+        { text = "Does she still keep the imp?", next = "BACK", reply = "No. Dannie sent it back herself, and it went without a word, which I found more troubling than if it had screamed." },
       },
     },
+    likes = {
+      lines = { { id = "likes_default", text = "No, it doesn't, and you'll stop thinking so before you leave this room. Tell me what it did that made you believe it, and I'll tell you what it wanted." } },
+      choices = {
+        { text = "It warned me about an ambush.", next = "likes2" },
+        { text = "It says I'm its favourite master.", next = "likes2", reply = "It says that to all of them, and it means it the way a lock means it to a key." },
+      },
+    },
+    likes2 = {
+      lines = { { id = "likes2_default", text = "Then it wanted you alive a little longer, because a living master can be talked into a looser binding and a dead one cannot. Send it back tonight, call it fresh in the morning, and watch how quickly it starts again." } },
+      choices = { { text = "That's a sour thing to learn.", next = "BACK", reply = "Sour is cheap, and the alternative is expensive.", fx = { trait = { cautious = 1 } } } },
+    },
+    void = {
+      lines = { { id = "void_default", text = "Around your tenth season of the craft you'll be ready for a voidwalker, and I won't be the one binding it. Lago Blackwrench in the Forlorn Cavern sends our people to Gakin the Darkbinder in Stormwind, and you'll need a soul shard and a steady stomach." } },
+      choices = {
+        { text = "How do I come by a soul shard?", next = "void2" },
+        { text = "Lago, then Gakin. I'll remember.", next = "BACK" },
+      },
+    },
+    void2 = {
+      lines = { { id = "void2_default", text = "You drain the life from something as it dies, and what's left of it stays in your keeping. Do it to a Frostmane or a trogg rather than to a boar, because a boar's soul is a poor small thing and the voidwalker will know." } },
+      choices = { { text = "I'll pick my quarry with care.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
     why = {
-      lines = { { id = "why_default", text = "Gnomeregan fell to troggs and to radiation, and neither was stopped by engineering. I am an engineer. When your tools fail, you find stronger tools, and you read the warnings on them very carefully." } },
+      lines = { { id = "why_default", text = "Gnomeregan fell to troggs and to radiation, and neither was stopped by engineering. I am an engineer, and when your tools fail, you find stronger tools and read the warnings on them very carefully." } },
       choices = {
         { text = "And when Gnomeregan is retaken?", next = "BACK", reply = "Then I shall put the tools down. I have written the date in my notes, with a blank beside it.", fx = { trait = { curious = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Stronger tools, careful hands.", next = "BACK" },
       },
     },
     dannie = {
       lines = { { id = "dannie_default", text = "Dannie Fizzwizzle, who trains the demons themselves once they are bound. She talks to them, which I discourage, and they obey her better than they obey me, which I have not been able to explain." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Perhaps they like being talked to.", next = "BACK", reply = "Nothing in the Nether likes anything, but I grant you they respond to it, and that bothers me." }, { text = "Something else, then.", next = "BACK" } },
     },
     blame = {
-      lines = { { id = "blame_default", text = "No. Alamar Grimm does, loudly, at Anvilmar, and it wins him nothing but a cold seat by the fire. The dwarves gave us a hall in their capital and asked no rent. I don't mistake a neighbour for an army." } },
-      choices = { { text = "A fair way to see it.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "blame_default", text = "No. Alamar Grimm does, loudly, at Anvilmar, and it wins him nothing but a cold seat by the fire, whereas the dwarves gave us a hall in their capital and asked no rent. I don't mistake a neighbour for an army." } },
+      choices = { { text = "A fair way to see it.", next = "BACK", fx = { affinity = 1 } }, { text = "Alamar lost more than most.", next = "BACK", reply = "He did, and so did I, and I've chosen not to make the dwarves pay for it." } },
     },
   },
   topics = {
     dannie = { { id = "tp_dannie", text = "Dannie Fizzwizzle is competent and far too cheerful. The demons find her confusing, and I suspect that is her method." } },
     alamar = { { id = "tp_alamar", text = "Alamar Grimm teaches the beginners at Anvilmar. He is skilled and bitter, and his students arrive here needing the second quality removed." } },
-    belm = { { id = "tp_belm", text = "The innkeeper sends down a plate at night and has never once come down the stair himself. I consider that an excellent neighbour." } },
+    belm = { { id = "tp_belm", text = "The innkeeper sends down a plate at night and has never once come down the stair himself, which makes him an excellent neighbour." } },
     background = { { id = "tp_bg", text = "I was a pressure engineer on the fourth level. I learned there what happens when a containment fails, and I have applied it since." } },
     _none = { { id = "tp_none", text = "I have no information on that, and I don't speculate." } },
   },
@@ -1413,26 +1441,33 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Hello! Don't mind the smell, it's only brimstone, and you stop noticing after about a fortnight." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Nothing's followed you in, has it? No, good, though one does have to ask." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock! Lovely. Bring it out, then, and let's see what sort of manners it has." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock! Lovely. Bring it out, then, and let's see whether it fears you yet." },
+    { id = "g_void", when = { class = "WARLOCK", pet = { family = "Voidwalker" } }, text = "Oh, a voidwalker, and a big gloomy one too! Mind the beam, dear, it's only six feet up and they never look." },
   },
   notice = {
-    { id = "n_imp", cat = "class", when = { class = "WARLOCK" },
+    { id = "n_imp", cat = "class", when = { class = "WARLOCK", pet = { family = "Imp" } },
       text = "Your imp is sulking, I can tell from how you keep glancing down. It's been told off recently and it thinks it didn't deserve it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest! You're very welcome, truly. Would you mind standing a little to the left? You're making the voidwalker go a funny colour." },
+      text = "A priest! You're very welcome, truly, but would you mind standing a little to the left? You're making the voidwalker go a funny colour." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "Oh, a mage! Would you hold out your hand a moment? The felhunter's asleep in the corner, and I'd love to see whether it wakes up." },
   },
   start = "hello",
   nodes = {
     hello = {
+      narr = "She's sitting cross-legged on an upturned keg with a fat notebook open on her knees and a pencil behind each ear.",
       lines = {
-        { id = "h_default", text = "I'm Dannie Fizzwizzle! Gimrizz teaches the warlocks to bind a demon, and I teach the demon what's expected of it afterwards. They don't want to learn, of course, but they do want things, and anything that wants things can be taught." },
+        { id = "h_default", text = "I'm Dannie Fizzwizzle! Gimrizz teaches the warlocks to bind a demon, and I teach the demon what's expected of it afterwards, and they don't want to learn, of course, but they do want things, and anything that wants things can be taught." },
       },
       again = {
         { id = "h_again", text = "What else? I've a little time before the next one's due." },
-        { id = "h_again2", text = "Yes, go on!" },
+        { id = "h_again2", text = "Yes, go on! I'll keep writing while you talk, if you don't mind." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Anything else about your little horror? I can always use another page." },
       },
       choices = {
         { text = "Train my demon.", next = "BUSINESS" },
+        { text = "Have a look at my demon, would you?", next = "look", when = { class = "WARLOCK" } },
+        { text = "What does my demon hate most?", next = "hates", when = { class = "WARLOCK", minLevel = 10 } },
         { text = "You don't seem afraid of them.", next = "afraid" },
         { text = "How do you teach something that hates you?", next = "teach" },
         { text = "Gimrizz says you talk to them.", next = "talk" },
@@ -1442,50 +1477,83 @@ P:NPC {
         { text = "Goodbye, Dannie.", next = "END" },
       },
     },
-    afraid = {
-      lines = { { id = "afraid_default", text = "I'm afraid of troggs, and of green fog, and of the sound a lift makes when the cable goes. I've met all three. An imp is a small angry thing on a leash, and compared to the stairs out of Gnomeregan it's very nearly company." } },
+    look = {
+      lines = {
+        { id = "look_imp", when = { pet = { family = "Imp" } }, text = "Oh, he's a sharp one, look at those eyes going round the room counting the exits! He's not plotting anything yet, but he's taking notes, just like me, so give him plenty of work and not much to watch." },
+        { id = "look_void", when = { pet = { family = "Voidwalker" } }, text = "Hello, you! He's very solid, and very bored, and bored is exactly what you want in a voidwalker. If he ever starts looking interested in something, dear, come and tell me straight away." },
+        { id = "look_succ", when = { pet = { family = "Succubus" } }, text = "She's looking at you, not at me, which is a good sign for me and a less good one for you. Give her short orders and don't let her see you smile at her jokes." },
+        { id = "look_fel", when = { pet = { family = "Felhunter" } }, text = "Oh, a felhunter! He's sniffing at my pencils, because I charmed them to sharpen themselves, and he can smell the spell. Feed him on a mage's magic and never on yours, and he'll be the best friend you'll never quite have." },
+        { id = "look_default", text = "Oh, you haven't got it out! Call it up next time, because I can't tell anything from a description, and warlocks always describe them far too kindly." },
+      },
       choices = {
-        { text = "That's a hard way to lose your fear.", next = "BACK", reply = "It is. I wouldn't recommend it. But I did come out of it very difficult to startle.", fx = { trait = { kind = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Is there anything I'm doing wrong?", next = "look2" },
+        { text = "Thank you, Dannie.", next = "BACK" },
+      },
+    },
+    look2 = {
+      lines = { { id = "look2_default", text = "You keep it on the same side of you all the time, which means it's learned where you're slow to turn. Wren Darkspring taught me that, through the post, and she's never wrong about that sort of thing." } },
+      choices = { { text = "I'll switch sides now and then.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    hates = {
+      lines = { { id = "hates_default", text = "Let me look it up! Imps hate being laughed at, voidwalkers hate whistling, and succubi hate being ignored, which is the most useful one on the list. I haven't found a single thing a felhunter hates apart from going hungry, and I've been looking for three years." } },
+      choices = {
+        { text = "What's the use of knowing what they hate?", next = "hates2" },
+        { text = "I'll start whistling.", next = "BACK", reply = "Not too much, or he'll sulk for a week, and a sulking voidwalker is like living with a thundercloud.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    hates2 = {
+      big = true,
+      lines = { { id = "hates2_default", text = "It's the only lever you've got besides the binding, and the binding is a big blunt lever that wears every time you pull it. Gimrizz says using their hatreds is petty and beneath the craft. What do you think?" } },
+      choices = {
+        { text = "Gimrizz is right. Hold the binding and nothing else.", next = "BACK", reply = "You and he'd get on beautifully, and I mean that kindly.", fx = { align = { order = 1 } } },
+        { text = "Use whatever works. They'd do the same to me.", next = "BACK", reply = "They would, and they do, so I don't feel a bit bad about the whistling.", fx = { align = { order = -1 } } },
+      },
+    },
+    afraid = {
+      lines = { { id = "afraid_default", text = "I'm afraid of troggs, and of green fog, and of the sound a lift makes when the cable goes, and I've met all three. An imp is a small angry thing on a leash, and compared to the stairs out of Gnomeregan it's very nearly company." } },
+      choices = {
+        { text = "That's a hard way to lose your fear.", next = "BACK", reply = "It is, and I wouldn't recommend it, but I did come out of it very difficult to startle.", fx = { trait = { kind = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     teach = {
-      lines = { { id = "teach_default", text = "You find out what it wants and what it can't stand. An imp wants to be listened to, so you ignore it until it obeys. A voidwalker wants to be left alone, so you give it a task and then peace. A succubus wants you to argue, so you never do." } },
-      choices = { { text = "And a felhunter?", next = "teach_fel" }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "teach_default", text = "You find out what it wants and what it can't stand. An imp wants to be listened to, so you ignore it until it obeys, and a voidwalker wants to be left alone, so you give it a task and then peace, and a succubus wants you to argue, so you never do." } },
+      choices = { { text = "And a felhunter?", next = "teach_fel" }, { text = "Something else, then.", next = "BACK" } },
     },
     teach_fel = {
-      lines = { { id = "teach_fel_default", text = "Hungry. Always hungry, for magic, the way a dog's hungry for scraps. You feed it on your enemy's spells and never, ever on your own, or it starts looking at you between meals. I have that underlined twice." } },
-      choices = { { text = "Never feed it my own magic. Understood.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "teach_fel_default", text = "A felhunter is hungry, always, for magic, the way a dog's hungry for scraps. You feed it on your enemy's spells and never, ever on your own, or it starts looking at you between meals, and I have that underlined twice." } },
+      choices = { { text = "Never feed it my own magic. Understood.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     talk = {
       big = true,
-      lines = { { id = "talk_default", text = "I do, and he hates it. He says a demon is an engine and one doesn't chat with an engine. But they answer, you see. They lie, mostly, but a lie tells you what the liar wants. I've learned more about the Burning Legion from one bored imp than from any book." } },
+      lines = { { id = "talk_default", text = "I do, and he hates it, because he says a demon is an engine and one doesn't chat with an engine. But they answer, you see, and they lie mostly, but a lie tells you what the liar wants, and I've learned more about the Burning Legion from one bored imp than from any book." } },
       choices = {
-        { text = "Gimrizz is right. Listen to a demon long enough and it will own you.", next = "BACK", reply = "That's what he says, word for word. I do keep a clock running, and I stop when it rings.", fx = { align = { order = 1 } } },
-        { text = "Keep talking. Knowledge is worth the risk, wherever it comes from.", next = "BACK", reply = "I think so too! I go carefully, though, because I'm cheerful and not stupid.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Gimrizz is right. Listen long enough and it will own you.", next = "BACK", reply = "That's what he says, word for word, so I keep a clock running and stop when it rings.", fx = { align = { order = 1 } } },
+        { text = "Keep talking. Knowledge is worth the risk.", next = "BACK", reply = "I think so too! I go carefully, though, because I'm cheerful, not stupid.", fx = { align = { order = -1 } } },
+        { text = "What has the imp told you?", next = "BACK", reply = "That the Legion is very large and very old and doesn't think about us at all, which I found oddly comforting." },
       },
     },
     notes = {
-      lines = { { id = "notes_default", text = "What each one hates! This imp can't bear singing. That voidwalker goes sullen if you whistle. I've forty pages. When a warlock comes back saying their demon's turned difficult, I look it up, and nine times in ten the cure is on the list." } },
+      lines = { { id = "notes_default", text = "What each one hates! This imp can't bear singing, and that voidwalker goes sullen if you whistle, and I've forty pages of it. When a warlock comes back saying their demon's turned difficult, I look it up, and nine times in ten the cure is on the list." } },
       choices = {
-        { text = "What does the singing do?", next = "BACK", reply = "He puts his claws over his ears and does exactly as he's told. The dwarves next door provide it free, every night.", fx = { trait = { witty = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "What does the singing do?", next = "BACK", reply = "He puts his claws over his ears and does exactly as he's told, and the dwarves next door provide it free, every night.", fx = { trait = { witty = 1 } } },
+        { text = "Forty pages is a lot of hatred.", next = "BACK", reply = "It's a lot of demons, dear, and I've only just started." },
       },
     },
     brewers = {
-      lines = { { id = "brewers_default", text = "Ragnar Thunderbrew came down once to say the lager had gone a bit sulphurous. I moved the summoning circle four feet east and it cleared right up. He sends down a jug at Winter Veil now, and we've agreed not to discuss which batch." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "brewers_default", text = "Ragnar Thunderbrew came down once to say the lager had gone a bit sulphurous. I moved the summoning circle four feet east and it cleared right up, and he sends down a jug at Winter Veil now, and we've agreed not to discuss which batch." } },
+      choices = { { text = "Wise of you both.", next = "BACK" } },
     },
     imp = {
-      lines = { { id = "imp_default", text = "The imp, always, and they arrive here with one already. Alamar Grimm binds the first at Anvilmar and Wren Darkspring teaches it its place. After that comes the voidwalker, which is a great deal quieter, and the warlocks usually look relieved." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "imp_default", text = "The imp, always, and they arrive here with one already, because Alamar Grimm binds the first at Anvilmar and Wren Darkspring teaches it its place. After that comes the voidwalker, which is a great deal quieter, and the warlocks usually look relieved." } },
+      choices = { { text = "And after the voidwalker?", next = "BACK", reply = "The succubus, and then they stop looking relieved for a while." } },
     },
   },
   topics = {
     gimrizz = { { id = "tp_gimrizz", text = "Gimrizz Shadowcog is the most careful person I've ever met. He's never once smiled at me, and he's never once let a student get hurt." } },
     maxan = { { id = "tp_maxan", text = "The priest upstairs patches up our students when they've been silly. He disapproves very quietly, which I appreciate." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "I ran the lifts on the east shaft. I don't like to say more than that." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "I ran the lifts on the east shaft, and I don't like to say more than that." } },
+    wren = { { id = "tp_wren", text = "Wren Darkspring writes to me from Anvilmar about every imp she trains, and I write back about every one I see again. We've never met, which seems silly when you say it aloud." } },
     background = { { id = "tp_bg", text = "I was a lift operator, and then I wasn't. Gimrizz needed somebody who didn't startle, and I needed something to do with that." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea! I could ask the imp, but you wouldn't be able to trust the answer." } },
   },
@@ -1777,28 +1845,33 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Hello. Come round to this side of the bench, if you would, so you're not standing between the imp and the door." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. It's quieter today, and Alamar has only complained twice." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "You've bound your first, I see. Good. Let it look at me, and don't speak for a moment." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "You've bound your first, I see, so let it have a look at me, and don't speak for a moment while it does." },
+    { id = "g_vet", when = { class = "WARLOCK", minLevel = 20 }, text = "You've come a long way back to a little valley, and you've brought something bigger than an imp with you, I think. Sit down, and tell me how you've been." },
   },
   notice = {
-    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Your imp keeps to your left side. It's learned you're right-handed. Change hands now and then, so it can't be sure." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK", pet = { family = "Imp" } },
+      text = "Your imp keeps to your left side, because it's learned you're right-handed, so change hands now and then and don't let it be sure." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "Branstock sends his novices over to look at us, so they'll know what they're praying against. You're welcome to look, so long as you don't bless anything." },
   },
   start = "hello",
   nodes = {
     hello = {
+      narr = "She has a small tin of burn salve open on the bench beside her, and her own fingers are shiny with it.",
       lines = {
-        { id = "h_default", text = "I'm Wren Darkspring. When a novice binds an imp, Alamar teaches the novice and I teach the imp. It's a small demon and a spiteful one, and it has to learn in its first week that spite gets it nowhere here." },
+        { id = "h_default", text = "I'm Wren Darkspring. When a novice binds an imp, Alamar teaches the novice and I teach the imp, and it's a small demon and a spiteful one, so it has to learn in its first week that spite gets it nowhere here." },
       },
       again = {
-        { id = "h_again", text = "Was there something else?" },
-        { id = "h_again2", text = "Yes? Go on, quietly." },
+        { id = "h_again", text = "Was there something else? Take your time." },
+        { id = "h_again2", text = "Yes? Go on, but quietly, because the imp's only just settled." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Anything else you've noticed about it? The small things are usually the important ones." },
       },
       choices = {
         { text = "Train my demon.", next = "BUSINESS" },
+        { text = "My imp set fire to my sleeve again.", next = "sleeve", when = { class = "WARLOCK", maxLevel = 12 } },
+        { text = "Does it ever stop being frightening?", next = "fear", when = { class = "WARLOCK" } },
         { text = "How do you teach an imp its place?", next = "teach" },
-        { text = "How do you bear working beside Alamar?", next = "alamar" },
+        { text = "Alamar can't be easy to work beside.", next = "alamar" },
         { text = "What do the dwarves make of you?", next = "dwarves" },
         { text = "Why did you take up this work?", next = "why" },
         { text = "What happens when a novice loses control?", next = "lose" },
@@ -1807,49 +1880,82 @@ P:NPC {
       },
     },
     teach = {
-      lines = { { id = "teach_default", text = "By being duller than it is. An imp wants a reaction. It insults you, it sets fire to your sleeve, it tells you your mother never loved you. If you answer in the same flat voice every time, it runs out of things to try in about four days." } },
-      choices = { { text = "And on the fifth day?", next = "teach_fifth" }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "teach_default", text = "By being duller than it is. An imp wants a reaction, so it insults you and sets fire to your sleeve and tells you your mother never loved you, and if you answer in the same flat voice every time, it runs out of things to try in about four days." } },
+      choices = { { text = "And on the fifth day?", next = "teach_fifth" }, { text = "Let's talk about something else.", next = "BACK" } },
     },
     teach_fifth = {
-      lines = { { id = "teach_fifth_default", text = "On the fifth day it does as it's told, and sulks. That's the best you'll get from an imp, and it's enough. Anyone who tells you theirs is loyal has an imp that's being patient." } },
-      choices = { { text = "Obedient and sulking. I'll settle for that.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "teach_fifth_default", text = "On the fifth day it does as it's told, and sulks. That's the best you'll get from an imp, and it's enough, and anyone who tells you theirs is loyal has an imp that's being patient." } },
+      choices = { { text = "Obedient and sulking. I'll settle for that.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    sleeve = {
+      lines = { { id = "sleeve_default", text = "Let me see the arm first, and then we'll talk about the imp. It's testing whether you'll shout, and every time you shout, it's learned something, so the next time, put the fire out and say nothing at all." } },
+      choices = {
+        { text = "It's hard not to shout when you're on fire.", next = "sleeve2" },
+        { text = "Nothing at all. I'll try.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    sleeve2 = {
+      lines = { { id = "sleeve2_default", text = "It is, and that's why it chose fire. Keep a wet cloth on your belt for a week, and you'll find it's much easier to be dull when you're already prepared." } },
+      choices = { { text = "A wet cloth. Thank you, Wren.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    fear = {
+      lines = {
+        { id = "fear_gnome", when = { race = "Gnome" }, text = "It gets quieter, but I hope it never stops altogether, for your sake. We came out of Gnomeregan with plenty of fear left over, and I've found it's better spent here than on bad dreams." },
+        { id = "fear_default", text = "It gets quieter, but I hope it never stops altogether, for your sake. The warlocks who stop being frightened are the ones Alamar writes on his list." },
+      },
+      choices = {
+        { text = "Alamar keeps a list?", next = "fear2" },
+        { text = "Then I'll stay frightened.", next = "BACK", reply = "A little, and sensibly, the way you'd be frightened of a cliff edge." },
+      },
+    },
+    fear2 = {
+      lines = { { id = "fear2_default", text = "He does, in his breast pocket, and he thinks I don't know about it. Please don't ask him, because he'll tell you, and it costs him more than he lets on." } },
+      choices = { { text = "I won't ask.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
     alamar = {
-      lines = { { id = "alamar_default", text = "The same way, really. He says something bitter, and I say good morning. He's a frightened man who got most of his crew out and can only remember the ones he didn't. I'd be sour too." } },
+      lines = { { id = "alamar_default", text = "The same way, really. He says something bitter and I say good morning, because he's a frightened man who got most of his crew out and can only remember the ones he didn't, and I'd be sour too." } },
       choices = {
-        { text = "You're kinder to him than he deserves.", next = "BACK", reply = "I don't think kindness goes by deserving. Otherwise there'd be very little of it about.", fx = { trait = { kind = 1 } } },
+        { text = "You're kinder to him than he deserves.", next = "BACK", reply = "I don't think kindness goes by deserving, or there'd be very little of it about.", fx = { trait = { kind = 1 } } },
         { text = "Does he know you see that?", next = "BACK", reply = "I hope not, because he'd be mortified.", fx = { trait = { discreet = 1 } } },
       },
     },
     dwarves = {
-      lines = { { id = "dwarves_default", text = "They're polite, and they stand a step further back than they would from anyone else. Thran Khorman nods to me. Bromos Grummner doesn't, and I don't blame him, he's a paladin. Durnan Furcutter mended my cloak for nothing and wouldn't hear about it." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "dwarves_default", text = "They're polite, and they stand a step further back than they would from anyone else. Thran Khorman nods to me and Bromos Grummner doesn't, which I can't blame him for, since he's a paladin, and Durnan Furcutter mended my cloak for nothing and wouldn't hear a word about it." } },
+      choices = {
+        { text = "No dwarf has ever asked you to teach them?", next = "dwarves2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    dwarves2 = {
+      lines = { { id = "dwarves2_default", text = "One did, a young mountaineer, very late one night and very quietly. I told him to sleep on it and come back in a week, and he never came back, and I think that was the right ending for him." } },
+      choices = { { text = "You might have had a student.", next = "BACK", reply = "I might have had a very unhappy one, in a clan that wouldn't speak his name. Some doors are better left shut." } },
     },
     why = {
-      lines = { { id = "why_default", text = "I was a nurse on the residential levels. When the fog came there was a locked door and children behind it, and nothing I knew how to do would open it. A warlock opened it. I asked him afterwards to teach me, and I've never asked myself whether I should have." } },
+      lines = { { id = "why_default", text = "I was a nurse on the residential levels. When the fog came there was a locked door with children behind it, and nothing I knew how to do would open it, and a warlock opened it, so I asked him afterwards to teach me, and I've never asked myself whether I should have." } },
       choices = { { text = "Then you chose well.", next = "BACK", fx = { affinity = 1 } }, { text = "That's a heavy reason to carry.", next = "BACK", reply = "It's lighter than the door was.", fx = { trait = { kind = 1 } } } },
     },
     lose = {
       big = true,
-      lines = { { id = "lose_default", text = "It's happened once here. A novice's imp slipped its binding and went for the fire, where the recruits sleep. I had a choice: banish it, which takes a count of ten, or break it, which is instant and hurts the novice badly. I broke it. She couldn't cast for a month." } },
+      lines = { { id = "lose_default", text = "It's happened once here. A novice's imp slipped its binding and went for the fire where the recruits sleep, and I had a choice between banishing it, which takes a count of ten, or breaking it, which is instant and hurts the novice badly, and I broke it, and she couldn't cast for a month." } },
       choices = {
-        { text = "You chose rightly. One novice's pain against a hall of sleepers is no choice.", next = "BACK", reply = "That's what I tell myself. She's forgiven me, which I find harder than if she hadn't.", fx = { align = { light = 1 } } },
-        { text = "Ten seconds wasn't long. You should have spared your student.", next = "BACK", reply = "I've counted to ten many times since, to see how long it is. I still don't know.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "You chose rightly. A hall of sleepers outweighs one novice's pain.", next = "BACK", reply = "That's what I tell myself. She's forgiven me, which I find harder than if she hadn't.", fx = { align = { light = 1 } } },
+        { text = "Ten seconds wasn't long. You should have spared your student.", next = "BACK", reply = "I've counted to ten many times since, to see how long it is, and I still don't know.", fx = { align = { light = -1 } } },
+        { text = "Where is she now?", next = "BACK", reply = "In Kharanos, with Gimrizz, and doing well. She writes at Winter Veil." },
       },
     },
     onward = {
-      lines = { { id = "onward_default", text = "To Kharanos, when they've outgrown the valley. Gimrizz Shadowcog teaches there, and Dannie Fizzwizzle takes their demons on from me. Dannie writes to ask what each imp hates, for her notebook, and I write back. It's the only post I get." } },
+      lines = { { id = "onward_default", text = "To Kharanos, when they've outgrown the valley, where Gimrizz Shadowcog teaches and Dannie Fizzwizzle takes their demons on from me. Dannie writes to ask what each imp hates, for her notebook, and I write back, and it's the only post I get." } },
       choices = {
         { text = "That sounds like a friendship.", next = "BACK", reply = "I suppose it is, though we've never met. I'd like to, one day, when the pass is quiet.", fx = { trait = { kind = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Kharanos it is, then.", next = "BACK" },
       },
     },
   },
   topics = {
     alamar = { { id = "tp_alamar", text = "Alamar Grimm is a very good teacher who believes he's a bad man. I think he's wrong about the second." } },
     branstock = { { id = "tp_branstock", text = "Branstock Khalder brings us tea in the evenings and leaves it on the bench without a word. Alamar drinks it and says it's stewed." } },
-    imps = { { id = "tp_imps", text = "Never laugh at one. They can bear being hated, and they can't bear being found funny." } },
+    imps = { { id = "tp_imps", text = "Never laugh at one. They can bear being hated, but they can't bear being found funny." } },
+    dannie = { { id = "tp_dannie", text = "Dannie Fizzwizzle in Kharanos, who writes the most cheerful letters about the most horrible creatures. I keep every one." } },
     background = { { id = "tp_bg", text = "I nursed children in Gnomeregan. The work isn't as different as you'd think." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. I keep to this corner, mostly." } },
   },

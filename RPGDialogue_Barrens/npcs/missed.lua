@@ -284,86 +284,190 @@ P:NPC {
     third = "{name} met Takar the Seer, a human hermit in the southern Barrens who looks through time for those who ask.",
   },
   greetings = {
-    { id = "g_default", text = "There you are, {class}. I had the kettle on a little early, I'm afraid, but you've made good time across the grass." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Was the crossing hard, warlock? You've come a long way from the Mage Quarter, and I know who sent you and what you're after." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, just as I thought you'd be. Do sit, since the hyenas rarely trouble this fire." },
+    { id = "g_default", text = "There you are, {class}. I put the kettle on a little early, I'm afraid, but you've made good time across the grass." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Was the crossing hard, warlock? You've come a long way from the cellar under the Slaughtered Lamb, and I know who sent you and what you're after." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "You may stand by the fire, but I'll ask you to keep your hands where I can see them. I've watched what your people do to lone travellers, and I'd rather not watch it twice." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, just as I thought you'd be. Do sit down, since the hyenas rarely trouble this fire." },
   },
   notice = {
     { id = "n_nelf", cat = "class", when = { race = "NightElf" },
-      text = "One of the kaldorei, here in the open sun. I've looked at a great deal of your people's past, and I hope you'll forgive the intrusion." },
+      text = "One of the kaldorei, out here in the open sun. I've looked at a great deal of your people's past, and I hope you'll forgive the intrusion." },
+    { id = "n_succ", cat = "class", when = { class = "WARLOCK", pet = { family = "Succubus" } },
+      text = "So you bound her after all, and she's watching me as if I were a door she hasn't found the key to yet. Keep her on your side of the fire, if you would." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
         { id = "h_devourer", when = { questActive = TODO_QUEST("Devourer of Souls") },
-          text = "Gakin was wise to send you to me, and fear not, for I can help. You need a symbol of love to tempt the creature you mean to bind, and I've looked across the world for one on your behalf." },
+          text = "Gakin was wise to send you to me, and don't fear, because I can help. You need a symbol of love to tempt the creature you mean to bind, and I've looked across the world for one on your behalf." },
+        { id = "h_heartswood", tags = { "news" }, when = { questActive = TODO_QUEST("Heartswood") },
+          text = "You haven't been to Ordil'Aran yet, I can see it on your boots. The heartswood is waiting where the two lovers fell, in the north-west of Ashenvale, and it has been waiting a good deal longer than you have." },
+        { id = "h_love", tags = { "news" }, when = { questActive = TODO_QUEST("What Is Love?") },
+          text = "You have the heartswood, and it's warm in your pack, isn't it? It will stay warm for a long while yet, and that is the very thing the demon will want from it." },
+        { id = "h_bound", when = { class = "WARLOCK", pet = { family = "Succubus" } },
+          text = "I watched you bind her a dozen times before you ever came to me, and in most of those you kept your head. I'm glad to see this was one of them." },
+        { id = "h_horde", when = { faction = "Horde" },
+          text = "I am Takar, and I am no use to the Horde, I'm afraid. The water shows me more of your people's past than I'd like, so say what you came to say and I'll answer what I can." },
         { id = "h_default", text = "I am Takar, and people call me a seer, which is near enough. I look over the world and back through the mists of its years, and now and then somebody crosses an ocean to ask me what I saw." },
       },
       again = {
-        { id = "h_again", text = "Yes, I thought you'd ask something more. Go on." },
-        { id = "h_again2", text = "Ask away, {class}. I'll try to look surprised." },
+        { id = "h_again", text = "Yes, I thought you'd ask something more. Go on, the kettle's barely warm." },
+        { id = "h_again2", text = "Ask away, {class}, and I'll try to look surprised at the question." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "There's more you want to know about her, I expect. Every one of Gakin's students asks the same three things, though not always in the same order." },
       },
       choices = {
         { text = "Why would a seer live out here, among the Horde?", next = "why" },
         { text = "What do you see when you look?", next = "see" },
         { text = "The tauren camp is close. Do they trouble you?", next = "tauren" },
         { text = "Where is this symbol of love?", next = "heart", when = { questActive = TODO_QUEST("Devourer of Souls") } },
-        { text = "What do you know of my craft?", next = "craft", when = { class = "WARLOCK" } },
+        { text = "What do you know of my craft, Seer? Speak plainly.", next = "craft", when = { class = "WARLOCK" } },
+        { text = "What has love to do with binding a demon?", next = "love", when = { class = "WARLOCK" } },
+        { text = "My voidwalker won't come near your fire.", next = "void", when = { class = "WARLOCK", pet = { family = "Voidwalker" } } },
+        { text = "You help warlocks call up demons, seer?", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "You're a long way from your own people, human.", next = "horde", when = { faction = "Horde" } },
         { text = "I'll leave you to your fire.", next = "END" },
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because a city is terribly loud to a man with my sort of ears. In Stormwind I saw every stone's whole history every time I crossed the street, and here there is only grass, which remembers very little and says less." } },
+      lines = { { id = "w_default", text = "Because a city is terribly loud to a man with my sort of ears. In Stormwind I saw every stone's whole history every time I crossed the street, and here there's only grass, which remembers very little and says less." } },
       choices = {
         { text = "Don't your friends want you back?", next = "why2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     why2 = {
-      lines = { { id = "w2_default", text = "Gakin writes now and then to say I ought to return to civilization, as he puts it. I always mean to answer, and then I look ahead and see that I didn't, so I save myself the ink." } },
-      choices = { { text = "That's one way to keep up a friendship.", next = "BACK", fx = { affinity = 1 } } },
+      lines = { { id = "w2_default", text = "Gakin writes now and then to say I ought to come back to civilisation, as he puts it. I always mean to answer, and then I look ahead and see that I didn't, so I save myself the ink." } },
+      choices = {
+        { text = "That's one way to keep up a friendship.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You could still surprise yourself and write.", next = "BACK", reply = "I could, and once or twice I've seen myself do it. He never writes back about those letters, which tells me something about my handwriting." },
+      },
     },
     see = {
-      lines = { { id = "s_default", text = "Whatever I turn toward, though the old things are clearest, because they have stopped moving. I've watched the War of the Ancients more times than I'd like, and it doesn't get any easier to see how it ends for most of them." } },
+      lines = { { id = "s_default", text = "Whatever I turn toward, though the old things are clearest, because they've stopped moving. I've watched the War of the Ancients more times than I'd like, and it doesn't get any easier to see how it ends for most of them." } },
       choices = {
         { text = "And the future?", next = "see2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Back to the matter at hand, then.", next = "BACK" },
       },
     },
     see2 = {
-      lines = { { id = "s2_default", text = "The future is mist with shapes in it, and I've learned not to describe the shapes. A man who is told what's coming walks straight into it trying to get out of the way, and I've enough on my conscience." } },
+      lines = { { id = "s2_default", text = "The future is mist with shapes in it, and I've learned not to describe the shapes. A man who is told what's coming walks straight into it trying to get out of the way, and I've enough on my conscience already." } },
       choices = {
         { text = "You must have seen something of mine.", next = "see3" },
-        { text = "Something else, Takar.", next = "BACK" },
+        { text = "Then I won't ask. Something else, Takar.", next = "BACK" },
       },
     },
     see3 = {
-      lines = { { id = "s3_default", text = "I saw you arrive, and I saw you leave again on your own feet, which is more than I see for many who come this way. You'll have to be content with that, {class}, and so will I." } },
-      choices = { { text = "On my own feet will do. Something else.", next = "BACK" } },
+      lines = {
+        { id = "s3_default", text = "I saw you arrive, and I saw you leave again on your own feet, which is more than I see for many who come this way. You'll have to be content with that, {class}, and so will I." },
+        { id = "s3_lock", when = { class = "WARLOCK" }, text = "I saw you leave on your own feet, and something walking a step behind you that wasn't there when you came. You'll have to be content with that, warlock, because I've said more than I meant to already." },
+      },
+      choices = { { text = "On my own feet will do. What else is there?", next = "BACK" } },
     },
     tauren = {
-      lines = { { id = "t_default", text = "Their braves come to the edge of the firelight, look at me for a while, and go away again. I think they've decided a lone old man talking to the air is more likely holy than dangerous, and I've done nothing to correct them." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "t_default", text = "They come to the edge of the firelight, look at me for a while, and go away again. I think they've decided a lone old man talking to the air is more likely holy than dangerous, and I've done nothing to correct them." } },
+      choices = {
+        { text = "Are you holy, or dangerous?", next = "tauren2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    tauren2 = {
+      lines = { { id = "t2_default", text = "Neither, I'm afraid, only old and a little tired of looking. Their seers on the mesa at Thunder Bluff would understand me better than mine ever did, but I've never quite worked up the courage to walk there." } },
+      choices = { { text = "Perhaps one day you'll see yourself go.", next = "BACK", fx = { affinity = 1 } } },
     },
     heart = {
+      narr = "He tips the kettle and watches the steam as if it were writing something.",
       lines = { { id = "h2_default", text = "Long ago two elven lovers fought the Legion side by side, and they died within a breath of each other on the same ground. A tree grew where they fell, which the elves call the heartswood, and you'll find it in the ruins of Ordil'Aran in the north-west of Ashenvale." } },
       choices = {
         { text = "It seems a poor use for such a thing.", next = "heart2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Ashenvale's a long walk. What guards the ruins?", next = "heart3" },
+        { text = "I'll find it. Let me ask something else first.", next = "BACK" },
       },
     },
     heart2 = {
+      big = true,
       lines = { { id = "h3_default", text = "It is, and I'm glad that it troubles you, because a warlock it didn't trouble is one I'd not have helped. The demon you're after feeds on exactly this, so see that you remain the one holding the bait." } },
-      choices = { { text = "I'll remember who holds it. Something else.", next = "BACK" } },
+      choices = {
+        { text = "The lovers are long dead. Their tree can serve the living.", next = "BACK", reply = "That's very nearly what Gakin said, and he's lived a long while on that sort of sense. I only hope the tree sees it the same way.", fx = { align = { light = -1 } } },
+        { text = "I'll take only what I need, and leave the rest of the tree.", next = "BACK", reply = "Then you'll come back from Ordil'Aran a little better than you went, which is rare for that errand. I've watched worse students take an axe to the whole trunk.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll remember who holds the bait. Something else.", next = "BACK" },
+      },
+    },
+    heart3 = {
+      lines = { { id = "h4_default", text = "Nothing that loves you, I'm afraid, because the Legion left more than a tree behind in that part of the forest. Go carefully among the stones, and if the night elves ask your business, tell them the truth, since they'll know if you don't." } },
+      choices = { { text = "The truth, then. What else should I know?", next = "BACK" } },
+    },
+    love = {
+      lines = {
+        { id = "lv_default", text = "Everything, which is why it works. A succubus doesn't want your blood or your soul to begin with; she wants to be wanted, and she'll take whatever you give her and call it her due." },
+        { id = "lv_low", when = { class = "WARLOCK", maxLevel = 17 }, text = "Everything, though you'll not need to know it for a little while yet. A succubus wants to be wanted, and Gakin won't send you to me until he thinks you can be wanted and still say no." },
+      },
+      choices = {
+        { text = "So the heartswood is a lure.", next = "love2" },
+        { text = "I've no plans to be tempted by a demon.", next = "love2", fx = { trait = { proud = 1 } } },
+        { text = "Back to the lessons, then.", next = "BACK" },
+      },
+    },
+    love2 = {
+      lines = { { id = "lv2_default", text = "It's a lure, and it's also a mirror, because she'll show you what you most want to see in it. I've watched a hundred students bind her, and the ones who fail aren't the weak ones, they're the lonely ones." } },
+      choices = {
+        { text = "And which am I, Takar?", next = "love3" },
+        { text = "I'll keep that in mind. Something else.", next = "BACK" },
+      },
+    },
+    love3 = {
+      big = true,
+      lines = {
+        { id = "lv3_default", text = "That's for you to say, not me, and I'd rather you said it to me here than to her later. So tell me, what do you think you'll do when she asks for something you'd like to give?" },
+        { id = "lv3_human", when = { race = "Human" }, text = "You're from Stormwind, and you've likely left someone there who doesn't write either. Tell me, what will you do when she wears that someone's face and asks you nicely?" },
+      },
+      choices = {
+        { text = "Refuse her, every time, and make her hate me for it.", next = "BACK", reply = "Good, though she'll hate you either way, and it's better to be hated for the right reason. Gakin will be pleased, and you may tell him I said so.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give her a little, so she works harder for more.", next = "BACK", reply = "Some do it that way, and a few even last. I've seen how it ends for the rest, though, so forgive me if I don't wish you luck with it.", fx = { align = { order = -1 } } },
+        { text = "I don't know yet. That's honest, at least.", next = "BACK", reply = "It's honest, and it's the best answer I've heard this year. Keep not knowing a while longer, and keep looking hard at her.", fx = { trait = { cautious = 1 } } },
+      },
     },
     craft = {
       lines = { { id = "c_default", text = "Enough to know that those who practise it rarely grow old, and that Gakin has managed to, which is why I trust his students more than most. He teaches them to be afraid at the proper moments." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "You've seen warlocks in the past, too.", next = "craft2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    craft2 = {
+      lines = {
+        { id = "c2_default", text = "I've seen Gul'dan in the water more than once, bent over his books while the orc clans burned for him, and I'd rather not see him again. Your art is the same art, and the only difference I can find is what each of you is willing to burn." },
+        { id = "c2_orc", when = { race = "Orc" }, text = "I've seen Gul'dan in the water more than once, bent over his books while your clans burned for him, and I'd rather not see him again. I won't pretend to know what it's like to carry that blood, {class}, but I've seen what it cost." },
+      },
+      choices = {
+        { text = "I'll burn nothing that isn't mine to burn.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Gul'dan was a fool. I'm not.", next = "BACK", reply = "He thought the same of the warlocks before him, I'm sorry to say. I've watched him think it.", fx = { trait = { proud = 1 } } },
+      },
+    },
+    void = {
+      lines = { { id = "vd_default", text = "No, it won't, because it can feel me looking at where it came from, and nothing out of the Void likes to be looked at. Give it a moment and it will drift back to you, sulking in the way they do." } },
+      choices = { { text = "It sulks often enough. What else is there?", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    light = {
+      big = true,
+      lines = { { id = "li_default", text = "I help Gakin's students go about it carefully, which isn't quite the same thing. They'd do it anyway, you understand, and a warlock who knows what he's reaching for comes home more often than one who guesses." } },
+      choices = {
+        { text = "Then you're as guilty as they are.", next = "BACK", reply = "Perhaps I am, and I've seen the reckoning for it more than once, though I'll not tell you how it goes. I find I can live with it, which may be the worst thing about me.", fx = { align = { light = 1 } } },
+        { text = "Better a careful warlock than a reckless one.", next = "BACK", reply = "That's my whole defence, and I'm relieved to hear it from someone with the Light on them. I'll sleep a little easier tonight.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, seer.", next = "BACK" },
+      },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "I am, and I chose to be, so there's no need to remind me. Your braves haven't harmed me yet, and I haven't given them a reason, and I'd like us both to go on that way." } },
+      choices = {
+        { text = "No one here will harm you, old man.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then I'll leave you to your fire.", next = "END" },
+      },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I was a man of Stormwind once, and I left when the seeing grew too loud. I'd rather not say more, and I know that you won't press me." } },
+    background = { { id = "tp_bg", text = "I was a man of Stormwind once, and I left when the seeing grew too loud. I'd rather not say more, and I know already that you won't press me." } },
+    burning_legion = { { id = "tp_legion", text = "I've watched it come to this world in the water, once at the Well of Eternity and once at Hyjal, and either time was more than enough. Ask Gakin about it, since he looks at it from much closer than I'd care to." } },
     _none = { { id = "tp_none", text = "I haven't looked that way, {class}, and I'd rather not guess. Guessing is how seers get a bad name." } },
   },
 }

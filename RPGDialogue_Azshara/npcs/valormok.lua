@@ -6,7 +6,8 @@ P:NPC {
   key = "agtor", id = TODO_NPC("Ag'tor Bloodfist"), name = "Ag'tor Bloodfist",
   bible = "bibles/azshara.md", role = "soldier", tier = "quest",
   communities = { "valormok" }, temper = { "steady", "proud" }, values = { "loyal", "brave" },
-  notices = { "race", "class" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Loyal Horde officer whose father died in the camps still sick for the demon's blood." },
+  notices = { "race", "class", "lock_shadow" },
 
   impression = {
     first = "He believes the Horde will win here because someone has to.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Thrall broke the demon's hold on us, and you went looking for it again. I'll use your hands here, but I'll never trust them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "My father died in the camps still sick for the blood Gul'dan's warlocks fed us. Don't stand so close." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for Valormok like any grunt, and your demon has kept its claws for the elves. I'll call you Horde, and don't expect more than that." },
     { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon, for we have dead to avenge." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
@@ -28,6 +32,8 @@ P:NPC {
       text = "An orc of Durotar, out in this elf-haunted forest. Good; I'm tired of explaining the Horde to people who aren't in it." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. The spirits here are angry and old, and they don't like us much. Maybe they'll like you better." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The air goes cold and thick around you, warlock, like the air in the old camps before the Horde was freed. Thrall says your kind can serve without that taint, so I'll watch you and hope he's right." },
   },
 
   start = "hello",
@@ -98,10 +104,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think the Horde paid for demon power once, and I never want us paying that price again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." } },
+      lines = {
+        { id = "xlock_default", text = "I think the Horde paid for demon power once, and I never want us paying that price again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think the Horde paid for demon power once, and I never want us paying that price again, and the sight of {pet} at your side reminds me what we paid with. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us, and I'll judge you by what you and your creature do here." },
+      },
       choices = {
         { text = "Judge me by my deeds, then. I'll fight with honor.", next = "BACK", reply = "Then I'll judge you by them, and gladly, if they're honest. The Horde has room for that.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Power is power. The Horde needs every weapon.", next = "BACK", reply = "That's what the Shadow Council said, warlock, and look where it got us. I'll watch you all the same.", fx = { align = { honor = -1 } } },
+        { text = "Power is power. The Horde needs every weapon.", next = "BACK", reply = "That's what the Shadow Council said, and look where it got us. I'll watch you all the same.", fx = { align = { honor = -1 } } },
         { text = "Can't argue with that.", next = "BACK" },
       },
     },
@@ -140,8 +149,10 @@ P:NPC {
           text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so keep your hands where I can see them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Gul'dan's warlocks poured the demon's blood down our throats, and you carry their craft. Say your business, and keep it short." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for Valormok, so I'll hear you. Don't push it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. I don't love your kind, but you're Horde and we need hands, so I won't turn you away, not with elves in the woods and naga on the shore." },
+          text = "I know that smell, and I don't love your kind, but you're Horde and we need hands, so I won't turn you away, not with elves in the woods and naga on the shore." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. Good, because the elves have scouts in the woods, and I need someone who can find them before they find us." },
         { id = "h_default", key = true,
@@ -165,7 +176,7 @@ P:NPC {
         { text = "The spirits of your dead deserve rites.", next = "rites", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "I'm a warrior. Let me answer for your dead.", next = "warrior_ag", when = { class = "WARRIOR" } },
         { text = "Who was this elf mage who turned on you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do you think warlocks shame the Horde?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you think my kind shames the Horde?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Someone's scouting Valormok.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your fallen want a priest's words, Ag'tor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can a hunter find the elves who betrayed you?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -270,7 +281,7 @@ P:NPC {
   key = "jediga", id = TODO_NPC("Jediga"), name = "Jediga",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "valormok" }, temper = { "sharp", "proud" }, values = { "greedy", "proud" },
-  notices = { "race", "drink" },
+  notices = { "race", "drink", "lock_shards" },
 
   impression = {
     first = "She trusts nobody, and the Archmage least of all.",
@@ -291,6 +302,8 @@ P:NPC {
       text = "You smell of a tavern, and I envy you so much I could spit. Where did you find a drink in this forest?" },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "One of ours, and from the city, I'd wager. Tell me the ale in the Drag is still cold." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those soul shards in your bag hum the same note as the tablets the Highborne marked for binding. I sell those for double, and I'm starting to understand why the elves locked them away." },
   },
 
   start = "hello",
@@ -356,7 +369,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, and they make my skin crawl, but they sell for more than the plain ones. The Highborne dabbled in everything, and some of what they wrote down would make even a warlock think twice." } },
+      lines = {
+        { id = "xlock_default", text = "A few, and they make my skin crawl, but they sell for more than the plain ones. The Highborne dabbled in everything, and some of what they wrote down would make even a warlock think twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they make my skin crawl, which is what your demon is doing to me now, standing over my crates like it can read them. The Highborne dabbled in everything, and some of what they wrote would make even a warlock think twice, so keep it away from the tablets." },
+      },
       choices = {
         { text = "I'll pass. Some knowledge is too dangerous.", next = "BACK", reply = "Wise, and you'll sleep better for it. I'll sell them to someone less careful.", fx = { align = { light = 1 } } },
         { text = "I'll take the dark ones. Knowledge is power.", next = "BACK", reply = "Knowledge is power, and power is coin, and coin is what I'm here for. I'll set aside the dark ones.", fx = { affinity = 1, align = { light = -1 } } },
@@ -393,7 +409,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! Finally, someone who understands business. I've got tablets to sell and buyers to find, and I could use someone who knows how to move goods quietly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock, here? You'll be wanting the darker tablets, I expect, the ones with the demon scribbles on them. They cost extra." },
+          text = "You'll be wanting the darker tablets, I expect, by the look of you, the ones with the demon scribbles on them. They cost extra." },
         { id = "h_default", key = true,
           text = "Jediga, and I'm not out here for glory or honour, before you ask, which makes me a poor sort of orc by Orgrimmar's reckoning. One orc's wounded pride put me in this forest, and I mean to make enough coin out of my exile to buy my way home, with some help from the Archmage on his cliff." },
         { id = "h_tablets", when = { questActive = TODO_QUEST("Stealing Knowledge") },
@@ -419,7 +435,7 @@ P:NPC {
         { text = "You and me both, I could use a drink.", next = "drink", when = { drunk = true } },
         { text = "I'm an orc mage. These tablets interest me.", next = "mage_jd", when = { race = "Orc", class = "MAGE" } },
         { text = "Who buys Highborne tablets out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Are there demonic tablets among the Highborne ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Are there darker tablets among the Highborne ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You seem eager to get home, Jediga.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there business here for a warrior, Jediga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the naga do with the tablets, Jediga?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -515,7 +531,7 @@ P:NPC {
   key = "kroum", id = TODO_NPC("Kroum"), name = "Kroum",
   bible = "bibles/azshara.md", role = "flightmaster", tier = "service",
   communities = { "valormok" }, temper = { "steady" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "His beasts hate the salt wind, and I think he does too.",
@@ -532,6 +548,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. The wind riders are calmer with your kind; something about the smell of the plains." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Get that burning horse away from my roost before it spooks every rider I have. My beasts already hate the salt wind, and I won't have them hating the fire as well." },
   },
 
   start = "hello",
@@ -586,10 +604,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." } },
+      lines = {
+        { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They hate them, and so do I, and you can hear them screaming at yours from here. Send it away before you come near the roost, because if one of my beasts gets spooked badly enough to break a wing, you'll walk back to Orgrimmar and carry its feed besides." },
+      },
       choices = {
         { text = "Fair. The beasts come first.", next = "BACK", reply = "Good. Glad we understand each other.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon stays with me.", next = "BACK", reply = "Then you'll walk back to Orgrimmar. Your choice.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "What's mine stays with me.", next = "BACK", reply = "Then you'll walk back to Orgrimmar. Your choice.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "I'll keep it away.", next = "BACK" },
       },
     },
@@ -632,7 +653,7 @@ P:NPC {
           text = "Hunter. Your beast is quiet, and the riders like that." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "Warlock. Keep your demon away from the wind riders." },
+          text = "I smell brimstone. Keep whatever you carry away from the wind riders." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Rogue. You're quiet, which I like, because the wind riders hate noise almost as much as I do." },
         { id = "h_default", key = true,
@@ -647,7 +668,7 @@ P:NPC {
         { text = "The wind riders can't like it here.", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
-        { text = "Do your wind riders fear demons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do your wind riders fear what I carry?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you ever fly scouts over the elf camps?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why do your riders hate Azshara so, Kroum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your wind riders ever fly into the fighting, Kroum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },

@@ -8,6 +8,7 @@ P:NPC {
   key = "doran", id = TODO_NPC("Doran Steelwing"), name = "Doran Steelwing",
   bible = "bibles/aerie_riders.md", role = "soldier", tier = "service",
   communities = { "aerie_peak" }, temper = { "fierce", "blunt" }, values = { "brave", "loyal" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Gryphon rider; his brother was burned out of the sky by an orc warlock over Grim Batol." },
   notices = { "class", "race" },
 
   impression = {
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "A warlock in Aerie Peak! Keep yer demon off the landin', or I'll throw it off myself." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I flew against the Horde's warlocks in the Second War, an' I've no' forgotten. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've flown against the Vilebranch an' brought nothin' foul back wi' ye. I'll drink wi' ye, but I'll no' sit wi' my back tae ye." },
     { id = "g_default", text = "Another face at the Peak. If ye're here tae fight trolls, ye're welcome, an' if ye're here tae sightsee, ye're in the way." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior, by the look o' that shield! Good, we've trolls enough for everyone." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? How many trolls this time? Round up, I won't check." },
@@ -89,6 +93,8 @@ P:NPC {
 
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My brother's gryphon was burned out o' the sky by an orc warlock's fire over Grim Batol, an' he fell wi' it. Tell me what ye want an' keep yer distance." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've killed enough trolls that I'll talk tae ye like a rider. Dinnae push yer luck, mind." },
         { id = "h_default", key = true,
           text = "Doran Steelwing. I fly for the Peak, an' I've spent more o' my life starin' down at Witherbark an' Vilebranch than I'd like tae count, an' not one o' them got any prettier for it." },
         { id = "h_dd_falling", when = { deathCause = "falling" },

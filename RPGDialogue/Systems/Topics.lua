@@ -39,7 +39,18 @@ end
 
 -- Known topics, most recently learned first. Each: { id, name, category, learned, asked, archived, standard }
 -- With npcKey, topics that NPC said they could speak to ("What do you know?") carry knows = true.
-function Topics.Known(includeArchived, npcKey)
+-- disp: this NPC's disposition now. A standard topic with `maxDisposition` (0.90.0) only shows
+-- when they think that little of you (or less), one with `minDisposition` only when they think
+-- that well of you; without disp, neither kind is listed.
+local function moodFits(def, disp)
+  if def.maxDisposition == nil and def.minDisposition == nil then return true end
+  if type(disp) ~= "number" then return false end
+  if def.maxDisposition and disp > def.maxDisposition then return false end
+  if def.minDisposition and disp < def.minDisposition then return false end
+  return true
+end
+
+function Topics.Known(includeArchived, npcKey, disp)
   local out = {}
   local now = C.Now()
   local mem = npcKey and ns.char.npc[npcKey]
@@ -64,7 +75,9 @@ function Topics.Known(includeArchived, npcKey)
   local std = {}
   for _, id in ipairs(standardIds()) do
     local def = ns.Data.topics[id]
-    std[#std + 1] = { id = id, name = def.name, category = def.category or "anyone", learned = math.huge, standard = true }
+    if moodFits(def, disp) then
+      std[#std + 1] = { id = id, name = def.name, category = def.category or "anyone", learned = math.huge, standard = true }
+    end
   end
   for i = #std, 1, -1 do table.insert(out, 1, std[i]) end
   return out

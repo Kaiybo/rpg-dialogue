@@ -6,7 +6,7 @@ P:NPC {
   key = "quae", id = TODO_NPC("Quae"), name = "Quae",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "goshek_watch" }, temper = { "brisk" }, values = { "dutiful", "sharp" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "She speaks as if each word costs a moment of watching.",
     third = "{name} met Quae, one of Phin Odelic's agents, keeping watch on Go'Shek Farm in the Arathi Highlands.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You move like someone who's done this before. That's a comfort, out here." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The shadows just stretched the wrong way along the rocks, toward you, and I'm fairly sure it wasn't the sun. Keep low and keep quiet, because the orcs at Go'Shek might not notice it, but I did." },
   },
 
   start = "hello",
@@ -135,10 +137,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met a demon that knew how to be boring." } },
+      lines = {
+        { id = "xlock_default", text = "It might, but the Forsaken down there keep dark company of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met anything from the dark that knew how to be boring." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and your demon has been staring down at that farm like it wants to be anything but, so keep it low behind the ridge." },
+      },
       choices = {
-        { text = "Boring it is. I'll keep the demon back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and I've grown very fond of boring since I came up this ridge.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let them notice. My demon could clear that farm alone.", next = "BACK", reply = "It could, and it might bring every Forsaken in Arathi down on our heads. Please, not yet.", fx = { align = { order = -1 } } },
+        { text = "Boring it is. I'll keep my creature back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and I've grown very fond of boring since I came up this ridge.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them notice. What I keep could clear that farm alone.", next = "BACK", reply = "It could, and it might bring every Forsaken in Arathi down on our heads. Please, not yet.", fx = { align = { order = -1 } } },
         { text = "Something else, Quae.", next = "BACK" },
       },
     },
@@ -159,7 +164,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, keep low, please, because armour flashes in the sun and the orcs at Go'Shek notice anything that flashes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good. Your eyes are probably better than mine, so tell me what you see moving down at Go'Shek Farm, and keep your voice down." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Keep that hammer low and that shine lower, {class}, because the orcs down at Go'Shek Farm would spot holy light from the other side of the Highlands." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, keep low, and keep that demon lower, {class}, because the last thing Kinelory needs is to turn round and see something with horns behind her." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep low, and keep whatever trails you lower, friend, because the last thing Kinelory needs is to turn round and see something with horns behind her." },
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
@@ -173,7 +178,7 @@ P:NPC {
         { text = "Why not just attack Go'Shek Farm outright, Quae?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for at Go'Shek Farm, Quae?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you have a paladin do about Go'Shek Farm, Quae?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "A demon would make a good scout down at Go'Shek, Quae.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Something of mine could scout Go'Shek unseen, Quae. It doesn't need sleep.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should I listen for at Go'Shek Farm, Quae?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay low, then, and farewell.", next = "END" },
       },
@@ -250,7 +255,7 @@ P:NPC {
   key = "kinelory", id = TODO_NPC("Kinelory"), name = "Kinelory",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "goshek_watch" }, temper = { "nervous" }, values = { "brave", "loyal" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "She is plainly frightened and will do the dangerous thing anyway.",
     third = "{name} met Kinelory, Quae's partner in Phin Odelic's service, who means to waylay a Forsaken courier near Go'Shek Farm.",
@@ -267,6 +272,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armour's in worse shape than my nerves, and that's saying something. Mend it before we go anywhere near that road." },
+    { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
+      text = "Your hands are smoking, did you know that? It's a black sort of smoke, curling round your fingers, and I'd rather walk behind you than in front, if that's all the same to you." },
   },
 
   start = "hello",
@@ -338,7 +345,7 @@ P:NPC {
         { id = "h_strike", tags = { "news" }, when = { questActive = TODO_QUEST("Kinelory Strikes") },
           text = "Ready, are you? Stay close and keep his guards off me, and I'll do the rest, as long as my hands stop shaking first." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! Oh dear, please don't take that the wrong way, {class}, it's only that the courier is Forsaken, and one spooky thing at a time is about all my nerves can manage." },
+          text = "Oh dear, there's a chill on you, {class}, please don't take that the wrong way, it's only that the courier is Forsaken, and one spooky thing at a time is about all my nerves can manage." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Oh, a hunter, that's, well, that's very good, because you can shoot the courier's guards from a distance, and then I won't have to see them coming." },
@@ -350,7 +357,7 @@ P:NPC {
         { text = "Why go after him yourself?", next = "why" },
         { text = "You must have a plan.", next = "plan" },
         { text = "Quae says you're braver than you are sensible.", next = "quae", when = { heardLine = "quae.cp_default" } },
-        { text = "I'll keep my demon behind you, then.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Then I'll keep what follows me walking behind you.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Want some help ambushing the Forsaken courier?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You're frightened, Kinelory. Why go after the courier yourself?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
@@ -373,7 +380,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Behind me is worse, actually, for I'd keep looking back at it instead of at the road. Perhaps out front, where the courier can be frightened instead of me, which seems fairer all round." } },
+      lines = { { id = "xlock_default", text = "Behind me is worse, actually, for I'd keep looking back at it instead of at the road. Perhaps out front, where the courier can be frightened instead of me, which seems fairer all round." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Behind me is worse, actually, for I've been looking back at it the whole time we've been talking, and I'd do the same on the road. Perhaps out front, where the courier can be frightened of it instead of me, which seems fairer all round." },
+      },
       choices = {
         { text = "Using fear on the enemy is fair play.", next = "BACK", reply = "Fair, perhaps, but terrifying, which I suppose is the point. Out front, then, where I can't see it.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather beat him fairly, without tricks.", next = "BACK", reply = "Thank you. I'd rather beat him with my own feet and my own nerve.", fx = { align = { honor = 1 } } },
@@ -425,7 +434,7 @@ P:NPC {
   key = "phizzlethorpe", id = TODO_NPC("Professor Phizzlethorpe"), name = "Professor Phizzlethorpe",
   bible = "bibles/roads.md", role = "scholar", tier = "quest",
   communities = { "drywhisker" }, temper = { "flustered" }, values = { "curious", "learned" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
   impression = {
     first = "He talks faster than he walks, which worries me given the kobolds.",
     third = "{name} met Professor Phizzlethorpe, a gnome scholar stranded among the kobolds of Drywhisker Gorge.",
@@ -438,6 +447,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A fellow gnome, out here! Splendid, you'll understand the equations, and you'll certainly understand the kobolds' smell." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's bound your soul into a stone, haven't they? I can see the shimmer of it on you, and as a scientist I find it fascinating, though as a man who'd prefer to stay alive I find it a little reassuring too." },
   },
 
   start = "hello",
@@ -518,10 +529,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." } },
+      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only in books, and the books were unkind to your profession, though none of them mentioned how warm it gets standing beside one of your servants. So far you've been helpful and it hasn't tried to eat me, and by my calculations that already puts you both ahead of the kobolds." },
+      },
       choices = {
-        { text = "That's a fair judgement, Professor. I'll keep the demon civil.", next = "BACK", reply = "Thank you. Civil demons make for much better footnotes than uncivil ones.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The books were right about some of us, Professor.", next = "BACK", reply = "How refreshingly honest! I'll add a footnote to the books, then, with your permission.", fx = { align = { light = -1 } } },
+        { text = "Fair enough, Professor. My demon stays civil, for now.", next = "BACK", reply = "Thank you. Civil demons make for much better footnotes than uncivil ones.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The books were right about some of us. Mind which kind I am.", next = "BACK", reply = "How refreshingly honest! I'll add a footnote to the books, then, with your permission.", fx = { align = { light = -1 } } },
         { text = "Something else, Professor.", next = "BACK" },
       },
     },
@@ -540,7 +553,7 @@ P:NPC {
         { id = "h_priestcl", when = { class = "PRIEST" }, text = "A priest! I was half hoping someone would come along to read my last rites, {class}, though I'd much rather you read the road to the coast instead." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've read that your kind can speak with the very stones, {class}, so perhaps you could ask the gorge why it lets kobolds live in it, for I've been wondering." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, splendid, a fellow scholar! Do forgive the state of me, {class}, for the kobolds have had me living on cave water and indignation for a week." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Good heavens, is that a demon? I've read about them, of course, {class}, but reading is so much less alarming than seeing one blink at you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Good heavens, is that a demon? I've read about them, of course, friend, but reading is so much less alarming than seeing one blink at you." },
       },
       choices = {
         { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
@@ -555,7 +568,7 @@ P:NPC {
         { text = "You must have been afraid for your life, Professor.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What do you want to know about the gorge, Professor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What were you studying before the kobolds came, Professor?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Have you never met a warlock before, Professor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have you never met a warlock before, Professor? You're trembling.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck, Professor.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes, yes? Quickly, please, before they come back for the rest of my wax and the last of my calculations." } },

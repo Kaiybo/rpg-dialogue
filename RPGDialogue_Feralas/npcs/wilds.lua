@@ -96,7 +96,7 @@ P:NPC {
         { id = "h_c0", when = { race = "Dwarf" }, text = "A fellow son or daughter of Ironforge, out here in the jungle! Ye'll understand, then, why a dwarf goes this far for the perfect brew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I don't hold with spirits much myself, but if you can bless a barrel, I'll call it a fair morning's work." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? I don't know whose gods you answer to, friend, but most gods I've heard of approve of a decent ale, so we'll get on." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock, out here in the wilds. Well, I'll not pretend I like it, but a thirsty soul is a thirsty soul, and I'll not turn you away from my fire." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Ye've a whiff o' brimstone about ye, out here in the wilds. Well, I'll not pretend I like it, but a thirsty soul is a thirsty soul, and I'll not turn ye away from my fire." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Quiet boots in the jungle! Ye'd do well out here, friend, because the beasts of Feralas hear a dwarf coming a mile off, and I've the teeth marks in my backside to prove it." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -374,6 +374,11 @@ P:NPC {
     { id = "g_main", text = "Hush, friend. The forest listens, as it has since the days of the Ancients, and so do the Grimtotem." },
     { id = "g_back", when = { metBefore = true }, text = "Elune guide you. You've returned, and I'm glad of it." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The freed creatures will not come near you, because they can hear what you carry in your bag. Some of those souls were wild things once, I think, and wild things know their own." },
+  },
+
   start = "hello",
   nodes = {
     xpt_kindal = {
@@ -417,10 +422,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." } },
+      lines = {
+        { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps not, but what you carry harms everything it touches, and look how the creature at your side has already set the beasts thrashing in their cages. If you would help free them from the Grimtotem, I'll not refuse you, but send it back first, and stand well back while they flee." },
+      },
       choices = {
         { text = "I'll stand back. Their freedom matters more.", next = "BACK", reply = "Thank you. Freedom given gently is the kind the forest remembers.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fear won't save them. My power might.", next = "BACK", reply = "Your power might, but the creatures would flee it as they flee the Grimtotem, so please stand back.", fx = { align = { light = -1 } } },
+        { text = "Fear won't save them. What I wield might.", next = "BACK", reply = "Your power might, but the creatures would flee it as they flee the Grimtotem, so please stand back.", fx = { align = { light = -1 } } },
         { text = "Let us speak of other things.", next = "BACK" },
       },
     },
@@ -467,7 +475,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Kindal Moonweaver. The Grimtotem have been trapping the wild creatures of Feralas and caging them, and I mean to see every one of them freed." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Freedom for All Creatures") }, text = "The cages are in the Grimtotem compound. Open them, and the creatures will find their own way home; they know these woods better than we do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Do not come near the creatures, warlock, for they fear you more than they fear the Grimtotem. I can see it in their eyes when you pass." },
+          text = "Do not come near the creatures, for they fear you more than they fear the Grimtotem. I can see it in their eyes when you pass, and I wonder what they see." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! Good, because the Grimtotem guard their cages closely, and I need someone who can open a lock before the guards notice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -552,6 +560,7 @@ P:NPC {
 P:NPC {
   key = "angelas", id = TODO_NPC("Angelas Moonbreeze"), name = "Angelas Moonbreeze",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
+  prejudice = { class = "WARLOCK", amount = 12, why = "Sees in every warlock the Highborne who became the satyrs of Eldre'Thalas." },
   impression = {
     first = "She keeps her eye on the ruins of the old highborne.",
     third = "{name} met Angelas Moonbreeze at Feathermoon Stronghold in Feralas.",
@@ -559,7 +568,15 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Ishnu-alah, traveller. Feathermoon welcomes those who come in peace." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon. Elune has kept you, I see." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The satyrs of Eldre'Thalas began exactly where you stand now. Do not expect courtesy from me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Sentinels keep watch on the satyrs, and I keep watch on you. Say what you came to say." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have not become what I feared you would, at least not yet. I will still watch you, but I will speak with you civilly." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has set your soul in a stone, and I can feel Elune's light slide around it like water round a rock. I will pray for you all the same, and I hope you trust the hand that holds it." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -611,7 +628,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I pray to Elune you never will be. But every satyr in those ruins once believed it was the master of its own bargain, so I'll ask you to forgive my distance, and to remember what they became." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I pray to Elune you never will be. But every satyr in those ruins once believed it was the master of its own bargain, so I'll ask you to forgive my distance, and to remember what they became." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I pray to Elune you never will be, though the thing beside you is closer kin to the satyrs than you like to think. Every satyr in those ruins once believed it was the master of its own bargain, so forgive my distance, and remember what they became." },
+      },
       choices = {
         { text = "I'll remember, and I won't make their mistake.", next = "BACK", reply = "Then I will hope you remember it always, because the satyrs once said the same, and they forgot.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Their mistake was weakness. I'm not weak.", next = "BACK", reply = "The satyrs said that too, before the demons wore them like cloaks, so I will keep my distance.", fx = { align = { light = -1 } } },
@@ -671,7 +691,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Alliance, here among the ruins of our own Highborne. Look well at what is left of Eldre'Thalas, friend, because it is what becomes of those who love magic more than their own people." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Warlock. The satyrs of Eldre'Thalas were once kaldorei, before they bargained with powers very like your own, and I see them every time I look at you." },
+          text = "The satyrs of Eldre'Thalas were once kaldorei, before they bargained with powers very like the ones I smell on you. I see them every time I look at you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You carry the same fel that turned our Highborne into satyrs. I will speak with you because Feathermoon needs hands, not because I wish to." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have kept yourself from the path the satyrs walked, so far. Speak, and I will listen." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light. You'll find little of it in the old Highborne ruins across this land, because the magic that broke the world still festers there." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -693,7 +715,7 @@ P:NPC {
         { text = "Arcane magic needn't be dangerous.", next = "x_1", when = { class = "MAGE" } },
         { text = "Should the ruins be studied or sealed?", next = "s_1" },
         { text = "Are there still Highborne within those ruins?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I'm no satyr, Angelas.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'm no satyr, Angelas. Not yet.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What haunts the Highborne ruins, Angelas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Highborne deserve what became of them?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Something besides ogres must lurk in the highborne ruins, Angelas.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -754,6 +776,11 @@ P:NPC {
     { id = "g_main", text = "The Earth Mother walks with you, stranger. Come, sit near the fire; the rain will not reach you here." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The winds told me you would be." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The birds stopped singing when you came near, and my own wolf will not look at you. They are not wrong about everything, so I will not tell them they are wrong about you." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -793,7 +820,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the creatures you bind, and a tauren does not forget that, even beside an ally." } },
+      lines = {
+        { id = "xlock_default", text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the creatures you bind, and a tauren does not forget that, even beside an ally." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It may, and I will not turn it away when the Gordunni come. But the Earth Mother did not make the thing that stands beside you now, and a tauren does not forget that, even beside an ally, even when it fights well." },
+      },
       choices = {
         { text = "Victory is all that matters in war.", next = "BACK", reply = "Victory is everything, yes. But I have seen braves win in ways that kept them from sleeping for years afterward, and I would not wish that on you.", fx = { align = { honor = -1 } } },
         { text = "I'll use my power to protect Mojache.", next = "BACK", reply = "Then you are welcome beside me, and I will trust your power as long as it guards the camp.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -811,7 +841,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like a shadow in the grass, and a shadow is what we need against the Gordunni. Their camps are many, but their sentries are lazy." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "Warlock. You are of the Horde, and so I will fight beside you against the ogres, but I will not call what you do honorable." },
+          text = "You are of the Horde, and so I will fight beside you against the ogres. But I know what walks in your shadow, and I will not call what you do honorable." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I trust a newcomer only as far as their blade has proven, and yours has proven nothing to me yet, Light or no Light." },
@@ -828,7 +858,7 @@ P:NPC {
         { text = "The gordunni magi seem to worry you.", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Should we make peace with Feathermoon?", next = "s_1" },
         { text = "Should I strike the Gordunni from hiding?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What I wield wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How can I prove myself to you, Hadoken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've cut down a great many Gordunni, Hadoken.", next = "dd_gordunni", when = { killed = { name = "Gordunni", min = 40 } } },
@@ -977,7 +1007,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Jangdor Swiftstrider, and I work the hides of Feralas into armor worthy of hunters. Hadoken Swiftstrider hunts the ogres, and I make sure the hunters who follow him come home whole." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your kind need room to move when the totems go down, so I'll want to fit you for armor that doesn't fight you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Cloth is fine for prayer, I suppose, but a little leather under your robe never hurt anyone who meets the gordunni." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Your demon will scorch any leather I make, so I won't be fitting it, but I'll gladly fit you." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Whatever follows you will scorch any leather I make, so I won't be fitting it, but I'll gladly fit you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! Your leathers are worn thin where the knives rub, and they creak like an old tree. Let me show you what proper Feralas hide can do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },

@@ -224,9 +224,9 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Each of those warlocks was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Each of those dark men was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
       choices = {
-        { text = "I'll never become that.", next = "warlock2", fx = { align = { light = 1 } } },
+        { text = "I'll never become that, Bishop. I'm far more careful than he was.", next = "warlock2", fx = { align = { light = 1 } } },
         { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
       },
     },
@@ -260,7 +260,7 @@ P:NPC {
   key = "kristoff", id = TODO_NPC("Brother Kristoff"), name = "Brother Kristoff",
   bible = "bibles/cathedral_square.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "curious" },
-  notices = { "priest", "craft" },
+  notices = { "priest", "craft", "lock_armor" },
   impression = {
     first = "He rehearses his sermon to anyone standing still.",
     third = "{name} met Brother Kristoff outside the Cathedral, a priest preparing a sermon on fortitude from a book about iron.",
@@ -277,6 +277,8 @@ P:NPC {
       text = "You'll know the prayer of Fortitude, {g:brother|sister}; every priest learns it early. Have you ever wondered why it's that word, and not strength or health? That's my whole sermon, really." },
     { id = "n_smith", cat = "craft", when = { any = { { profession = "Blacksmithing" }, { profession = "Mining" } } },
       text = "You work with metal! Then you'll know better than I do that iron is strongest when it's been through the fire, and I'd love to hear you say it in your own words." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That armour of yours is not steel, nor leather either, but hide that remembers being alive, and my book on metallurgy has no chapter for that. I may write one, if you'll stand still while I look." },
   },
 
   start = "hello",
@@ -294,6 +296,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it. I don't mean it unkindly, because you plainly have will enough for two, and I'd only say a sermon needs a warning in the middle, and you'd make a fine one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it, and your demon is the oil I'd point to. You plainly have will enough for two, so I'd only say a sermon needs a warning in the middle, and the pair of you standing there would make a fine one." },
       },
       choices = {
         { text = "Then let me be the warning. Use it well.", next = "BACK", reply = "You'd make a fine example, my friend, and a good sermon. I'll pray it holds.", fx = { align = { light = 1 } } },
@@ -367,7 +370,7 @@ P:NPC {
           text = "A mage! You'll know about stresses and strains, surely, since the book says iron and the arcane both crack along the same lines, or at least my book does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Tell me, do you fletch your own arrows? I've been reading about the tempering of arrowheads for my sermon, and I've lost track of the metaphor entirely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'd make a fine chapter, because a tree endures the winter without a word of complaint, and that's fortitude if anything is. May I borrow you for my sermon?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Splendid, I've been looking for an example of fortitude gone astray, if you'd stand still a moment." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's cellar about you, friend, and a will like iron. Splendid, I've been looking for an example of fortitude gone astray, if you'd stand still a moment." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf! And a shaman! You may be just the illustration my sermon on the fortitude of the spirit has been lacking." },
       },
       again = {
@@ -482,7 +485,7 @@ P:NPC {
   key = "sarno", id = TODO_NPC("Brother Sarno"), name = "Brother Sarno",
   bible = "bibles/cathedral_square.md", role = "priest", tier = "quest",
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
-  notices = { "stealth", "gnome", "priest" },
+  notices = { "stealth", "gnome", "priest", "lock_shards" },
   impression = {
     first = "He worries about the gnomes' ruined city as though it were his.",
     third = "{name} met Brother Sarno, who welcomes every visitor at the door of the Cathedral of Light.",
@@ -501,6 +504,8 @@ P:NPC {
       text = "Oh, a gnome! I pray for Gnomeregan every evening, I hope you know that. I don't know if the Light listens to prayers about machinery, but I keep trying." },
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "Welcome home, {g:brother|sister}! It's always good to see robes coming back through the door rather than going out of it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Oh! Something in your bag just turned the candle by the door blue. Never mind, it does that sometimes, though I'll confess it mostly does it when your sort walk in, so welcome anyway!" },
   },
 
   start = "hello",
@@ -545,7 +550,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Of course you are, because the door doesn't ask what you've studied, and neither do I. The Light can sort out the rest, and in my experience it's a good deal kinder about it than people are." } },
+      lines = {
+        { id = "xlock_default", text = "Of course you are, because the door doesn't ask what you've studied, and neither do I. The Light can sort out the rest, and in my experience it's a good deal kinder about it than people are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of course you are, because the door doesn't ask what you've studied, though I'll admit your {pet} gave the doorframe a long look on its way through. The Light can sort out the rest, and in my experience it's a good deal kinder about it than people are, or than that thing is likely to be." },
+      },
       choices = {
         { text = "Then I'll try to earn that welcome, Brother.", next = "BACK", reply = "You needn't earn it, my friend, but I'll be glad if you try.", fx = { align = { light = 1 } } },
         { text = "I'll take the welcome and keep my studies to myself.", next = "BACK", reply = "That's quite all right. The Light knows what you've studied, and it hasn't locked the door.", fx = { align = { light = -1 } } },
@@ -708,7 +716,7 @@ P:NPC {
   key = "thomas_altar", id = TODO_NPC("Thomas"), name = "Thomas",
   bible = "bibles/cathedral_square.md", role = "child", tier = "quest",
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "dutiful" },
-  notices = { "priest", "paladin" },
+  notices = { "priest", "paladin", "lock_shadow" },
   impression = {
     first = "He is proud of his secret errands and too loud about them.",
     third = "{name} met Thomas, an altar boy who walks the length of the Cathedral and runs the Bishop's errands.",
@@ -724,6 +732,8 @@ P:NPC {
       text = "Are those real priest's robes, from the High Priestess? I'm going to have some when I'm older, Brother Joshua says, if I learn my prayers and stop running in the nave." },
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
       text = "You're a paladin! Is the armour heavy, and do you have to polish it yourself, or does a squire do it, because I'd do it for free if you needed someone." },
+    { id = "n_lock_shadow", cat = "lock_shadow", place = "before", when = { class = "WARLOCK" },
+      text = "The candles all leaned away from you when you came in, every one down the row, and I'm the one who has to relight them if they go out. Could you stand a little further from the altar, please?" },
   },
 
   start = "hello",
@@ -741,6 +751,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Brother Joshua says to pray for them, and Brother Crowley says something I'm not allowed to repeat, and the Bishop just sighs. I think you look sad more than wicked, but please don't tell the priests I talked to you, because I'm meant to be carrying candles." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Brother Joshua says to pray for warlocks, and Brother Crowley says something I'm not allowed to repeat, and they'd both say a lot more if they saw what's standing behind you. You look sad more than wicked, but please take it out before the priests come, because I'm meant to be carrying candles and it keeps watching the flames." },
       },
       choices = {
         { text = "I won't tell, Thomas. Go and carry your candles.", next = "BACK", reply = "Thank you! You're nicer than Brother Crowley says. I'll go now.", fx = { align = { light = 1 } } },
@@ -814,7 +825,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You walk like the Barracks men, all stompy, and the priests always tell them to walk softer in here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? You've got a bow, so you must be, unless you stole it, but you don't look like a thief." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a druid, aren't you? I can tell by the leaves on your boots, and the Bishop says nobody else in Stormwind ever brings leaves in." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! Are you a warlock? I've never met one, not properly, only seen them going down to the Lamb at night." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! You smell like the stairs down to the Lamb. I've never met anyone from there, not properly, only seen them going down at night." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman? I won't tell anyone. I'm very good at secrets. Mostly very good. Are you on a secret errand too?" },
       },
       again = {
@@ -832,7 +843,7 @@ P:NPC {
         { text = "What do the priests say about warriors, Thomas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever seen the woods outside the city, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I tell you what a moonwell looks like, Thomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What do the priests say about warlocks, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the priests say about the folk from the Lamb, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are you on a secret errand right now, Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
@@ -908,14 +919,14 @@ P:NPC {
   prejudice = { class = "WARLOCK", amount = 12, why = "An imp from a Slaughtered Lamb lodger set the orphanage linen alight two winters back." },
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "dutiful" },
-  notices = { "refugee", "young", "priest" },
+  notices = { "refugee", "young", "priest", "lock_soulstone" },
   impression = {
     first = "She remembers every child who has passed through her door.",
     third = "{name} met Orphan Matron Nightingale, who keeps Stormwind's orphanage and remembers every child by name.",
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows a warlock home." },
+    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows you home." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, then, and mind the boots by the door. I was wrong about you, I think, though I'll still count the children after you've gone." },
     { id = "g_door", text = "Mind the step; small feet have worn it crooked." },
     { id = "g_week", when = { questActive = TODO_QUEST("Children's Week") }, text = "Take good care of your little one, {class}. They'll remember this week for years." },
@@ -929,6 +940,8 @@ P:NPC {
       text = "A priest! The children say their prayers better when someone in robes is listening, so if you've a quarter-hour this evening, it would be a kindness." },
     { id = "n_young", cat = "young", when = { maxLevel = 9 },
       text = "You're hardly older than my eldest, and already out on the roads. Be careful, {class}; I'd rather not meet any more children because of what happened to their parents." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "A soulstone has bound you, {class}, I can feel the cold of it from here. I've buried too many people who had no second chance, and I'm not sure whether to envy you or pity whoever made yours." },
   },
 
   start = "hello",
@@ -937,7 +950,7 @@ P:NPC {
       big = true,
       lines = { { id = "prej_default", text = "No, I don't, and I'll not dress it up for you. Two winters back a warlock lodging at the Slaughtered Lamb let his imp loose, and it came through our kitchen window and set the linen alight with the little ones asleep upstairs." } },
       choices = {
-        { text = "I bind demons so they can't hurt anyone. That's the whole point.", next = "prej_a", fx = { align = { light = -1 } } },
+        { text = "What I keep is chained so it hurts no one. That's the point.", next = "prej_a", fx = { align = { light = -1 } } },
         { text = "You're right to be careful. I'll keep my distance from the children.", next = "prej_b", fx = { align = { light = 1 } } },
         { text = "What would put your mind at ease, Matron?", next = "prej_calm", fx = { affinity = 1 } },
         { text = "Let's speak of something else.", next = "BACK" },
@@ -968,10 +981,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I fear what the world does to children, {class}, and I've seen enough of it to have no fear left over for you in particular. But I've had boys come back from the Mage Quarter with burns they wouldn't explain, so I'll thank you to keep away from the young ones who've begun asking questions about power." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear what the world does to children, {class}, and I've no fear left over for you or for the thing at your side. But the older boys are already crowding the window to look at it, and I've had boys come back from the Mage Quarter with burns they wouldn't explain, so take it away from my door before one of them asks how it's done." },
       },
       choices = {
         { text = "I'll keep away from them, Matron. You have my word.", next = "BACK", reply = "Thank you, {class}. That means more than you'd think.", fx = { align = { light = 1 } } },
-        { text = "If they ask, they'll find out anyway.", next = "BACK", reply = "Then I'll pray they ask someone kinder than the Lamb. Please, don't be the one they find.", fx = { align = { light = -1 } } },
+        { text = "Children who ask about power always find it, Matron. One way or another.", next = "BACK", reply = "Then I'll pray they ask someone kinder than the Lamb. Please, don't be the one they find.", fx = { align = { light = -1 } } },
         { text = "Something else, Matron.", next = "BACK" },
       },
     },
@@ -1051,7 +1065,7 @@ P:NPC {
           text = "A mage! The older children have been begging for someone to tell them what the Mage Quarter does all day, and I've run out of ways to say I don't know." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Many of the children here are the sons and daughters of soldiers, {class}, and they will watch you very closely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The children will want to see your companion, {class}, and I'll ask you to keep it calm; some of them have had frights enough." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at the orphanage door. I'll ask you plainly to keep whatever you carry well away from my children." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's smoke on your coat, at the orphanage door. I'll ask you plainly to keep whatever you carry well away from my children." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've children here whose fathers died at orc hands, and some of them will hear spirit-talk and think of axes. Speak gently, please." },
       },
       again = {
@@ -1164,7 +1178,7 @@ P:NPC {
   key = "shellene", id = TODO_NPC("Shellene"), name = "Shellene",
   bible = "bibles/cathedral_square.md", role = "citizen", tier = "service",
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
-  notices = { "priest" },
+  notices = { "priest", "lock_stones" },
   impression = {
     first = "She scolds the orphans and blesses them in the same breath.",
     third = "{name} met Shellene, who looks after the children in Stormwind's orphanage.",
@@ -1178,6 +1192,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "priest", when = { class = "PRIEST" },
       text = "Oh, a priest! Would you say a blessing over them before you go? They sleep better after, I swear it, and so do I." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "You've a healthstone in your satchel, I can see the green through the leather. I've prayed over children with fevers I couldn't break, and I'd be lying if I said I'd never wished for one, Light forgive me." },
   },
 
   start = "hello",
@@ -1195,6 +1211,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd like to believe it, because I pray over every child every night and I'd hate to think any of them was beyond it. If the Light can find a way to a canal urchin who bit me twice last week, I suppose it can find a way to you, though you might meet it halfway." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd like to believe it, because I pray over every child every night and I'd hate to think any of them was beyond it. If the Light can find a way to a canal urchin who bit me twice last week, it can find a way to you, though I'll pray it leaves your demon behind, because I can feel it watching me even now." },
       },
       choices = {
         { text = "I'll try to meet it halfway, Shellene.", next = "BACK", reply = "That's all I ask, love. The Light will meet you the rest of the way.", fx = { align = { light = 1 } } },
@@ -1288,7 +1305,7 @@ P:NPC {
         { text = "Do the children ever leave the city, Shellene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the children look up to paladins, Shellene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the children ever ask about the night elves, Shellene?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would the Light see a warlock right too, Shellene?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the Light find its way to someone like me, Shellene?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Will you let me show the children something of the spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },

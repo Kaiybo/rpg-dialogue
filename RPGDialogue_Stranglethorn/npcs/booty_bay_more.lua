@@ -7,7 +7,7 @@ P:NPC {
   title = "Gryphon Master",
   bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
   communities = { "booty_bay" }, temper = { "dry", "steady" }, values = { "practical" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_steed" },
 
   impression = {
     first = "Gryphons and pirates both bite if you look at them wrong.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A dwarf, good; you'll know to hold the harness and not the feathers. Half my passengers grab the feathers, and then the bird sulks for a week." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You're green round the edges. Sit down a moment before you climb up, because if you're sick over the jungle, the bird will never let you forget it." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "You rode in on a horse with fire for hooves, and every bird in the roost is pressed against the back wall now. Leave the beast down the pier next time, if you'd be so kind, or I'll be all evening coaxing them to eat." },
   },
 
   start = "hello",
@@ -105,7 +107,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry you, but they'll grumble the whole way, because a gryphon knows what's been near you and doesn't care for it. Dismiss your demon before you mount, keep a light hand on the reins, and the bird will take you north without any trouble at all." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry you, but they'll grumble the whole way, because a gryphon knows what's been near you and doesn't care for it. Dismiss your demon before you mount, keep a light hand on the reins, and the bird will take you north without any trouble at all." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but they'll grumble the whole way, and with that thing standing right there they're already shrieking in the roost. Dismiss your demon before you mount, give the birds a moment to settle, and they'll take you north without any trouble." },
+      },
       choices = {
         { text = "I'll dismiss it. Your birds deserve that courtesy.", next = "BACK", reply = "That's decent o' ye, and the birds'll notice. A gryphon remembers kindness as well as it remembers a grudge.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go, Gyll.", next = "BACK", reply = "Then it'll ride in yer lap and the bird'll fly crooked the whole way. Don't say I didn't warn ye when ye land in the bay.", fx = { align = { order = -1 } } },
@@ -114,7 +119,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon well back from the ledge, please, because a gryphon that smells one will try to throw its rider into the cove, and I've had to fish two out already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever's at your heel well back from the ledge, please, because a gryphon that smells that sort will try to throw its rider into the cove, and I've had to fish two out already." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Flying north, I hope, because the birds are restless today and a calm passenger settles them better than any treat, though they'd tell you they want something other than fish." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds like a rider in plate, strange as it sounds, because it sits them steady, though your armor will smell of fish by the time you land." },
         { id = "h_default", key = true,
@@ -200,7 +205,7 @@ P:NPC {
   title = "Wind Rider Master",
   bible = "bibles/stranglethorn.md", role = "flightmaster", tier = "service",
   communities = { "booty_bay" }, temper = { "gruff" }, values = { "practical", "loyal" },
-  notices = { "race" },
+  notices = { "race", "lock_pact" },
 
   impression = {
     first = "The beasts trust him more than he trusts anybody.",
@@ -215,6 +220,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Big one, aren't you? The riders will carry you, but they'll groan about it the whole way to Grom'gol, so don't take it personally, and don't ask me for the light-rider rate." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You've got a fever on you, pal, the kind an imp's blood pact puts in a body, and the wind riders can smell it hot as a forge. Stand downwind, same as always, and they'll forgive you by the time we're over the jungle." },
   },
 
   start = "hello",
@@ -278,7 +285,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. I don't blame them, pal, and I'll ask you to stand downwind while I saddle one up for you." } },
+      lines = {
+        { id = "xlock_default", text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. I don't blame them, pal, and I'll ask you to stand downwind while I saddle one up for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. Hear them hissing up in the roost now? That's your {pet} they're smelling, pal, so send it off and stand downwind while I saddle one up." },
+      },
       choices = {
         { text = "I'll stand downwind and keep my imp on a short leash.", next = "BACK", reply = "Downwind is good. Short leash is better. You'll fly, and the beast will only mutter.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The beasts will have to get used to it.", next = "BACK", reply = "They've had twenty years to get used to it, and they haven't yet. Ride with your imp and the beast will take the long way down.", fx = { align = { order = -1 } } },
@@ -304,7 +314,7 @@ P:NPC {
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Wrong side of the ledge, buddy. Your gryphons are round with Gyll, and my riders don't care for the smell of Stormwind or its coin." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. The wind riders don't mind you, but I keep an eye on my saddlebags all the same, because the last rogue I flew lightened them by eleven silver." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon away from the wind riders, because they've got long memories, and they don't care for anything that smells of the old Horde's fel." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Keep that thing of yours away from the wind riders, because they've got long memories, and they don't care for anything that smells of the old Horde's fel." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind a heavy rider so long as you don't kick, and warriors always kick, so sit still, pal, or pay for the bruises." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? Then you'll know better than to feed my wind riders anything, and you'll know why." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, on my ledge. The wind riders know the Earth Mother's people by smell, and they sit quieter for it, so stay close while I saddle one." },
@@ -381,7 +391,7 @@ P:NPC {
   title = "Banker",
   bible = "bibles/stranglethorn.md", role = "banker", tier = "service",
   communities = { "booty_bay" }, temper = { "smooth", "careful" }, values = { "greedy", "lawful" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "My savings get more affection here than most families do.",
@@ -396,6 +406,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "My, my, that purse has a lovely weight to it. Have you considered how much lovelier it would look in a vault?" },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that an unspent soulstone in your bag? I've had depositors keep stranger things in their boxes, pal, but nobody's ever explained to me how the Cartel would value a soul on the books." },
   },
 
   start = "hello",
@@ -459,7 +471,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. The wards keep the whispering in and the demons out, and I've never once had to explain a missing coin to anyone." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. The wards keep the whispering in and the demons out, and I've never once had to explain a missing coin to anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. Your demon's pressing its face to the vault wards right now and getting nowhere, which is exactly what we pay the wizards for, so do call it back before it scuffs the paint." },
+      },
       choices = {
         { text = "Smart of the Cartel. I'll keep my demon away.", next = "BACK", reply = "You're a sensible warlock, friend, and rarer than gold. Keep it outside and we'll get along fine.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your wards won't stop a determined summoner.", next = "BACK", reply = "Maybe not, friend, but the Bruisers will, and the Baron's displeasure is worse than any demon. I'd not test it.", fx = { align = { order = -1 } } },
@@ -591,7 +606,7 @@ P:NPC {
   title = "Blade Trader",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "shrewd" }, values = { "greedy", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "Every blade comes with a famous owner, and I believe a third.",
@@ -605,6 +620,8 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "ROGUE" } },
       text = "You hold your weight like someone who's used a blade more than once. Good; I prefer selling to people who'll appreciate the edge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Funny thing, friend, but the crate under my counter just went quiet, which it never does, and I think it's listening to your bag. Whatever's humming in there is louder than my blade, and I'd thank you not to get the two of them talking." },
   },
 
   start = "hello",
@@ -677,7 +694,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Blast if I know, friend; I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." } },
+      lines = {
+        { id = "xlock_default", text = "Blast if I know, friend; I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Blast if I know, friend; it came off a drowned Bloodsail and it's hummed ever since, mostly at night. The rats won't go near that crate, but your demon hasn't taken its eyes off it, which settles the question of whether it's a good sign or a bad one." },
+      },
       choices = {
         { text = "Something that hums like that is best destroyed, Jutak.", next = "BACK", reply = "Maybe it is, and I'd not argue too hard. I'll keep it in the back until somebody braver decides.", fx = { align = { light = 1 } } },
         { text = "Sell it to me. I'll learn what's inside it.", next = "BACK", reply = "Then you're braver than me, friend, and probably richer soon. Take it, and don't tell me what you learn.", fx = { affinity = 1, align = { light = -1 } } },
@@ -769,7 +789,7 @@ P:NPC {
   title = "Superior Weaponsmith",
   bible = "bibles/stranglethorn.md", role = "blacksmith", tier = "service",
   communities = { "booty_bay" }, temper = { "proud", "blunt" }, values = { "proud", "practical" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_shadow" },
 
   impression = {
     first = "Her steel is good enough that the boasting hardly matters.",
@@ -785,6 +805,8 @@ P:NPC {
       text = "You've a smith's forearms and a smith's burns. Look all you like; you'll know quality when you see it, and most of my customers couldn't tell a good edge from a butter knife." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's falling to pieces, and the jungle won't wait for you to mend it. Get to a smith before you leave the cove." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge has been cherry-red since dawn, and it went dim and sulky the moment you walked in, the way it does when the sea fog rolls through. I don't ask questions, as you know, but I'd like my fire back when you go." },
   },
 
   start = "hello",
@@ -848,7 +870,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. I don't ask questions, and I don't put my name on the hilt." } },
+      lines = {
+        { id = "xlock_default", text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. I don't ask questions, and I don't put my name on the hilt." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. Your servant's breathing on my good steel and I'll be polishing that smell out for a week, so I don't ask questions and I don't put my name on the hilt." },
+      },
       choices = {
         { text = "I'll buy one. Your work speaks for itself.", next = "BACK", reply = "My work does speak, and it speaks steel. Take one and use it well, whatever well means to you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "No questions asked is a fine policy for a smith.", next = "BACK", reply = "It is, and it keeps me in business. I'll make the dagger and leave the rest to you.", fx = { align = { honor = -1 } } },
@@ -892,7 +917,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Zarena Cromwind. I sell the best steel south of Stormwind and north of nowhere, to anyone who'll pay for it. Sailors rust, pirates break and I get rich, so it's a fair arrangement." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want new steel, I hope, and not some rusted cutlass off a dead pirate, because a blade that fails you in the jungle is no blade at all." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll not be needing much steel, I'd guess, but I make a fine ritual dagger, if your kind still uses such things." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You'll not be needing much steel, I'd guess, but I make a fine ritual dagger, if your kind still bleed things on altars." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Now there's a warrior who knows what good steel feels like, I hope, because you won't find any on the secondhand tables down the pier." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I don't make bows, so you'll want Haren for that, but nobody on this coast makes a better hatchet for when a panther gets past your arrows." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You don't need my steel, I know, but someone in your party will, so do me a favor and point them my way." },

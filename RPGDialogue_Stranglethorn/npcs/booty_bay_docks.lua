@@ -242,7 +242,7 @@ P:NPC {
   key = "mazk", id = TODO_NPC("Mazk Snipeshot"), name = "Mazk Snipeshot",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "salesy", "brash" }, values = { "profit" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_steed" },
 
   impression = {
     first = "He likes loud things and says so proudly.",
@@ -259,6 +259,8 @@ P:NPC {
       text = "A hunter! Now there's somebody who appreciates a fine barrel, buddy, so take a look at the long rifles, and don't look at the price tag till you've held one." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! You folks know your guns, so don't go telling me Ironforge makes them better, because I've heard it, and Ironforge charges twice as much for the beard on the stock." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "That horse of yours left burning hoofprints all the way up the pier, pal, and the Baron's going to bill somebody for the planks. I don't suppose it's for sale, because I know a few buyers in Undermine who'd love a mount that never needs hay." },
   },
 
   start = "hello",
@@ -313,10 +315,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. The trouble with demons is they never seem to carry any money, so I'd need you to sign for it, and I'd charge you extra for the scorch marks." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. The trouble with demons is they never seem to carry any money, so I'd need you to sign for it, and I'd charge you extra for the scorch marks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. Your demon's been eyeing my powder kegs since you walked up, though, and since it clearly doesn't carry any money, you'll sign for it and pay extra for the scorch marks." },
+      },
       choices = {
         { text = "My demon doesn't need a gun. Keep your blunderbuss.", next = "BACK", reply = "Suit yourself, but I'll bet that imp would love a little popgun. It'd be the scariest four inches in Stranglethorn.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Arm the imp. Let's see what happens.", next = "BACK", reply = "Ha! Now there's an idea with a market in it, pal. Bring the little fella round and I'll see if I've got anything in his size.", fx = { align = { order = -1 } } },
+        { text = "Arm the imp. I'd like to see who it shoots first.", next = "BACK", reply = "Ha! Now there's an idea with a market in it, pal. Bring the little fella round and I'll see if I've got anything in his size.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },

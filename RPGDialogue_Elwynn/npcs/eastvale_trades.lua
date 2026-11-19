@@ -8,7 +8,7 @@ P:NPC {
   key = "rallic", id = TODO_NPC("Rallic Finn"), name = "Rallic Finn", title = "Bowyer",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "quiet" }, values = { "craft", "patient" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_shards" },
   impression = {
     first = "He talks about wood the way some men talk about horses.",
     third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Let me see how you hold that bow. Hm, your draw is good, but you're gripping the riser like it owes you money, so loosen the hand and the arrow will thank you." },
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! If you ever have a good hide to spare, bring it here, because a quiver's only as good as the leather it's sewn from." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Is that your pack clinking? It sounds like a bag of glass, and every time it clinks, the hair on my arm stands up like there's a bear in the brush." },
   },
   start = "hello",
   nodes = {
@@ -37,7 +39,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, and they'd say so to your face if they weren't afraid of you, and that thing at your heel is making them more afraid by the minute. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+      },
       choices = {
         { text = "I'll help with the beasts and earn their trust.", next = "BACK", reply = "Good, and they'll come round once the bears stop sitting on the bundles. Start up north.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them be afraid. Fear keeps tongues still.", next = "BACK", reply = "It keeps them still, aye, and it keeps them from buying from you too. Think on that.", fx = { align = { honor = -1 } } },
@@ -112,7 +117,7 @@ P:NPC {
           text = "A mage in a bowyer's shop. You'll be after a staff, I expect, and I'll tell you now I only make them when the wood tells me to." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at a bowyer's bench! You'll want a bow for pulling something toward you, I expect, and that's a fair use of one." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and you're looking at my staves the way I look at them, so I reckon you hear the grain as well as I do." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Not much call for bows in your line, I'd guess, but you're welcome to look while I work." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Not much call for bows in your line, I'd guess, whatever your line is. You're welcome to look while I work." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Wood has a spirit, if you ask me, and you can feel it in a good stave." },
       },
       again = {
@@ -132,7 +137,7 @@ P:NPC {
         { text = "The loggers must have needed a healer this season, Rallic.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever wish you'd taken up the sword, Rallic?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever feel guilty about the trees the mill cuts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I'd guess the loggers don't think much of warlocks, Rallic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess the loggers don't think much of folk like me, Rallic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The trees here feel as if they have spirits, Rallic.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Rallic.", next = "END" },
       },
@@ -202,7 +207,7 @@ P:NPC {
   key = "lindgren", id = TODO_NPC("Drake Lindgren"), name = "Drake Lindgren", title = "General & Trade Supplies",
   bible = "bibles/eastvale_trades.md", role = "vendor", tier = "service",
   communities = { "eastvale" }, temper = { "shrewd" }, values = { "practical", "thrift" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He seemed to like me better once I bought something.",
     third = "{name} met Drake Lindgren, who keeps Eastvale Logging Camp in general goods and trade supplies.",
@@ -214,6 +219,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "You're a tailor, I can tell by the needle calluses. I keep thread and dye on the back shelf, and Sara Timberlain buys most of it, so don't dawdle." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's no ordinary stone you're carrying, because it's black as pitch and the shop cat won't go near the counter. Whatever it calls down out of the sky, I'd rather it didn't call it down on Eastvale." },
   },
   start = "hello",
   nodes = {
@@ -267,7 +274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. Half of them watched your demon follow you up the road, so I'd rather not give them any more reason to believe it." },
+      },
       choices = {
         { text = "That's wise, Drake. Some things shouldn't be sold over a counter.", next = "BACK", reply = "Thank you, and the loggers will thank you too, if they ever hear of it. I'll keep it that way.", fx = { align = { light = 1 } } },
         { text = "Fear's bad for trade. You're losing coin to superstition.", next = "BACK", reply = "Maybe I am, but I'd rather lose the coin than lose the loggers. They're my neighbours.", fx = { align = { light = -1 } } },
@@ -302,7 +312,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll be wanting reagents, I suppose. I carry a few, but the tower charges less, which is the one thing I'll never say in front of a customer." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in Eastvale. I'll tell you now that I don't carry anything your trade needs." },
+          text = "I know what you are, and I'll tell you now that I don't carry anything your trade needs." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a whetstone and some linen, and I've both, counted twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are on the right, shot on the left, and before you ask, I've counted those too." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Kaldorei, and a long way from the sea you crossed. I've never sold to one of your people before, so tell me what a druid runs short of and I'll see if the cart brings it." },
@@ -318,7 +328,7 @@ P:NPC {
         { text = "How do the carts fare on the road?", next = "road" },
         { text = "Who else should I know in Eastvale?", next = "camp" },
         { text = "Why would you send customers to the tower?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would you sell to a warlock if you did carry it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you sell it to me, if you did carry it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do warriors forget to buy before they leave Eastvale?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You seem the sort to give to the needy quietly, Drake.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -392,6 +402,11 @@ P:NPC {
     { id = "g_default", text = "Mind the sawdust, friend; it gets everywhere and never comes out." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Come to watch an honest man work, or to keep him from it?" },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The saw's gone dull twice since you came near the mill, and the shadows on the woodpile lean toward you like the trees lean in a wind. Raelen will blame me for the blade either way, so would you stand on the far side of the stacks?" },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -453,7 +468,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." } },
+      lines = {
+        { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Supervisor Raelen counts every beam, and that {pet} of yours is standing right beside the saw, looking at it. I've nothing against you personally, but if a blade goes wrong with your servant this close, it's my back she takes it out of." },
+      },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", reply = "Thank you, and my back thanks you too. Raelen's a hard one.", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", reply = "It's mine, friend, and I'll thank you to remember it. Go round the long way.", fx = { align = { light = -1 } } },
@@ -505,7 +523,7 @@ P:NPC {
         { text = "Why did the crews leave wood in the forest?", next = "bundles" },
         { text = "I know this work. I was a woodsman here.", next = "woodsman", when = { origin = "human_eastvale_woodsman" } },
         { text = "Should a rogue really make noise around loggers?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why keep a warlock away from the mill?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why keep me away from the mill? Afraid of what might happen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You look like you've fought off a bear or two yourself.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The bears around the mill seem to be getting bold.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does anyone pray for the woods you cut, Terry?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

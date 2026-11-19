@@ -7,7 +7,7 @@ P:NPC {
   key = "nergal", id = TODO_NPC("Nergal"), name = "Nergal", title = "General Goods",
   bible = "bibles/ungoro.md", role = "vendor", tier = "service",
   communities = { "marshals_refuge" }, temper = { "gruff" }, values = { "careful", "profit" },
-  notices = { "race", "hunger" },
+  notices = { "race", "hunger", "lock_taint" },
 
   impression = {
     first = "He won't buy a thing that grew down in the crater.",
@@ -26,13 +26,18 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Another dwarf in this steaming pit! Ye've my sympathy, friend; there's no proper stone down there, only mud and teeth." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye've gone a wee bit green round the edges, an' I don't think it's the crater food. Whatever ye've been dabblin' in, I'd stop, because I've seen expeditions come back lookin' like that an' no' go home." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater's full o' strange things, an' strange things make folk sick, so I'll sell clean food an' buy nothin', an' ye can call me a coward if ye like." } },
+      lines = {
+        { id = "xlock_default", text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater's full o' strange things, an' strange things make folk sick, so I'll sell clean food an' buy nothin', an' ye can call me a coward if ye like." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater makes folk sick, an' that creature o' yours makes my bread sick just lookin' at it, so I'll sell ye clean food, an' it'll stand back while I do." },
+      },
       choices = {
         { text = "That's not cowardice, Nergal. That's sense.", next = "BACK", reply = "Aye, that's what I tell myself on the long nights, an' it's grand tae hear it from someone else. Besides, a live coward sells more meal than a dead hero.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You're leaving good coin on the table, old man.", next = "BACK", reply = "Good coin, is it? Ye can't spend it in a devilsaur's belly, warlock. I'll keep my old bones up here, thank ye.", fx = { align = { order = -1 } } },
@@ -213,7 +218,7 @@ P:NPC {
   key = "gryfe", id = TODO_NPC("Gryfe"), name = "Gryfe", title = "Flight Master",
   bible = "bibles/ungoro.md", role = "flightmaster", tier = "service",
   communities = { "marshals_refuge" }, temper = { "cheerful" }, values = { "profit" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "To him, a beast that never lands in Un'Goro comes back.",
@@ -227,6 +232,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "You're a big one, chum! The flyer will carry you, don't worry, but it'll grumble about it all the way to Gadgetzan, and I might charge by the pound." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I charge by weight, chum, and that bag of shards weighs more than it looks, and it hums the whole flight, which upsets the other passengers. Pay up front, keep it shut, and we'll get you over Fire Plume Ridge." },
   },
 
   start = "hello",
@@ -268,9 +275,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, chum, and I'd like to keep it that way, so tell your {pet} to stop eyeing my flyer like it's dinner. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because I'm not flying anything over Fire Plume Ridge that might catch." },
+      },
       choices = {
-        { text = "Fair terms. My imp will sit still.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fair terms. My imp will sit still, or suffer.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pay in advance? You don't trust anybody, do you?", next = "BACK", reply = "Trust? Chum, trust is free and burned flyers are expensive. Pay first, fly second, and everybody lands happy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -386,7 +396,7 @@ P:NPC {
         { text = "Do your passengers really pray up there?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Your flyers must get attacked over the crater.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the crater beasts ever go after your flyers?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Has an imp ever actually set a bird alight?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Has an imp ever actually set one of your birds alight?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Goodbye.", next = "END" },
       },
     },

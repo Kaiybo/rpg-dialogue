@@ -63,7 +63,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "He does, citizen, and it says that what you summon, you answer for, as though you'd done the deed with your own hands. I'd keep that in mind if anything with horns wanders into town." } },
+      lines = { { id = "xlo_default", text = "He does, citizen, and it says that whatever you call up, you answer for, as though you'd done the deed with your own hands. I'd keep that in mind if anything with horns wanders into town." } },
       choices = {
         { text = "Fair ruling. I'll answer for it.", next = "BACK", reply = "A sensible answer, citizen, and the court will remember it. I hope the occasion never arises.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Prove it was mine first, Bailiff.", next = "BACK", reply = "I'd prefer not to have to, citizen, and I suspect you'd prefer it too. Keep it out of town, and we'll both be spared the paperwork.", fx = { align = { honor = -1 } } },
@@ -122,7 +122,7 @@ P:NPC {
         { text = "I've kept the peace with a sword before, Bailiff.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Does the law in Lakeshire cover spellcraft?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the court pay a bounty on gnolls, Bailiff?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I suppose the Magistrate has a ruling on warlocks too.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I suppose the Magistrate has a ruling on people like me too.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the condemned get a priest before the sentence is carried out?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Lakeshire law say anything about hunting in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Magistrate distrust shamans, Bailiff?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -224,7 +224,7 @@ P:NPC {
   key = "feldon", id = TODO_NPC("Deputy Feldon"), name = "Deputy Feldon",
   bible = "bibles/lakeshire_folk.md", role = "soldier", tier = "quest",
   communities = { "lakeshire" }, temper = { "anxious" }, values = { "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_shards" },
 
   impression = {
     first = "His gnoll count keeps rising, and dry humour keeps him upright.",
@@ -239,6 +239,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Gnolls had a go at you, did they? Get that mended before you cross back over, because they smell weakness." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "Twenty shards in your bag, by the clink of it, and if each one's a gnoll I'll take my pen to the count tonight. Please tell me each one's a gnoll." },
   },
 
   start = "hello",
@@ -254,7 +256,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." } },
+      lines = {
+        { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's what I can't decide, and your {pet} watching me write isn't helping, because I've never had to put a demon in a ledger before. Help me bring the gnoll count down and I'll put the pair of you with the soldiers, and the Magistrate needn't hear about the rest." },
+      },
       choices = {
         { text = "Put me with the soldiers. I'll earn it.", next = "BACK", reply = "Then the soldiers' column it is, once the count drops. The Magistrate needn't trouble himself with details.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Keep me out of your columns entirely, Deputy.", next = "BACK", reply = "That's harder than it sounds, but I'll do my best. Some things don't fit in a ledger.", fx = { align = { order = -1 } } },
@@ -326,7 +331,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've any blessing that makes the count go down, I'd take it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because the count is getting to the point where I'd like someone who can stand in front of it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't suppose you can tell how many gnolls are in those trees just by sniffing, because I've lost count again." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll add you to the count, I suppose, though I'm not sure which column you go in." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a look about you I can't put in a column. I'll add you to the count, I suppose, and leave the rest blank." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Redridge", min = 40 } }, text = "For the first time since I took this post, the gnoll count's gone down instead of up, and I've a fair idea why. Keep at it, and I might have to learn to count backwards." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Good, I'm counting gnolls and the count keeps going up. Your lightning might bring it down again." },
       },
@@ -347,7 +352,7 @@ P:NPC {
         { text = "Do you count the fallen as carefully as the gnolls, Deputy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has Stormwind answered any of your reports, Deputy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The gnolls seem to have grown bold, Deputy.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Which column would you put a warlock in, Deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Which column would you put someone like me in, Deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many gnolls are there now, Deputy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
@@ -494,7 +499,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "Safer for whom, I'd like to know? There's a girl at the inn who'd never speak to me again if I let something like that near her, so walk your demon on the far side of the road, if you please." } },
+      lines = { { id = "xlo_default", text = "Safer for whom, I'd like to know? There's a girl at the inn who'd never speak to me again if I let something like that near her, so walk it on the far side of the road, if you please." } },
       choices = {
         { text = "Far side it is. Your girl's safe from it.", next = "BACK", reply = "Thank you, and she'll thank you too, if she ever hears of it. The far side, please.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "She'll get used to it, Parker.", next = "BACK", reply = "She won't, I promise you that, and neither will I. The far side, if you please.", fx = { align = { light = -1 } } },
@@ -564,7 +569,7 @@ P:NPC {
         { text = "I can blink past anything on that road.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What comes down from the hills onto your road, Parker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should I watch for in the hills, Parker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Your road would be safer with a demon walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Your road would be safer with what follows me walking it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you worry about not coming back from the road, Parker?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should someone walk the road with you, Parker?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Something about these hills worries you, Parker.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -651,7 +656,7 @@ P:NPC {
   key = "darcy", id = TODO_NPC("Darcy"), name = "Darcy",
   bible = "bibles/lakeshire_folk.md", role = "citizen", tier = "quest",
   communities = { "lakeshire" }, temper = { "bright" }, values = { "kind", "romantic" },
-  notices = { "hunger", "drink" },
+  notices = { "hunger", "drink", "lock_steed" },
 
   impression = {
     first = "She hears all the gossip and swears she repeats only the nice.",
@@ -668,6 +673,8 @@ P:NPC {
       text = "Easy, easy, water next. I'm not having you fall in the lake on my shift." },
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look half-starved and fully beaten, so sit down. Breanna's got something on, and I'll bring it out." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse set the inn's doormat smouldering, and Brianna's furious, but I'll only pass on the nice part, which is that it's the most beautiful horse anybody in Lakeshire has ever seen." },
   },
 
   start = "hello",
@@ -699,7 +706,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." } },
+      lines = {
+        { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That they eat babies and curse the crops, which is silly, though yours keeps staring at my tray like it's thinking about something. I only pass on the nice parts, so I'll tell everyone it sat still and minded its manners, if you'll make sure it does." },
+      },
       choices = {
         { text = "Tell them that, Darcy. I'll live up to it.", next = "BACK", reply = "Oh, I knew you would, love. I'll tell them you said thank you twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them believe the worst. It keeps them away.", next = "BACK", reply = "They'll believe what I tell them, love, and I'll tell them nice things. You can't stop me.", fx = { align = { light = -1 } } },
@@ -785,7 +795,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit by the window, because the soldiers behave themselves better with someone holy in the room." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock! I won't tell anyone, I promise, though the whole inn will know by supper, because it's that sort of inn." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you smell of struck matches, love, like the cellar folk in Stormwind! I won't tell anyone, I promise, though the whole inn will know by supper." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love, and a shaman, too! Sit away from the wobbly table, and I'll tell you only the nice gossip, I promise." },
       },
       again = {
@@ -807,7 +817,7 @@ P:NPC {
         { text = "Do the soldiers ever ask you to pray for them, Darcy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Lakeshire needs protecting most, Darcy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does Lakeshire say about my people, Darcy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What does Lakeshire's gossip say about warlocks, Darcy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do Lakeshire's gossips whisper about the likes of me, Darcy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's the nicest gossip in Lakeshire, Darcy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I grew up in Lakeshire, Darcy. What gossip have I missed?", next = "xorig_lake", when = { origin = "human_redridge_born" } },
         { text = "Just passing through.", next = "END" },
@@ -1215,7 +1225,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "My kitchen has a fire that never goes out, and it's called me getting up at four. If you're offering something from wherever your sort draws their fire, I'll thank you kindly and keep cooking on plain wood." } },
       choices = {
         { text = "Plain wood suits honest food.", next = "BACK", reply = "It does, and it always has. My soldiers can taste a fancy fire, and they don't trust it.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel fire cooks faster, you know.", next = "BACK", reply = "Faster, maybe, but my soldiers would taste it. Plain wood, thank you.", fx = { align = { light = -1 } } },
+        { text = "My fire cooks faster, you know, and it never goes cold.", next = "BACK", reply = "Faster, maybe, but my soldiers would taste it. Plain wood, thank you.", fx = { align = { light = -1 } } },
         { text = "How many soldiers do you feed?", next = "count" },
       },
     },

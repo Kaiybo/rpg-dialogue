@@ -11,13 +11,17 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "pious", "lawful", "stern" },
   likesTone = "polite",
   spiritSensitive = true,
-  notices = { "kit", "readiness" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Lord of the Silver Hand; the order was raised against the Horde's dark magic and he holds demon-binding beneath contempt." },
+  notices = { "kit", "readiness", "lock_shadow", "lock_steed" },
   impression = {
     first = "He judges a person first by how they keep their gear.",
     third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Silver Hand was raised to fight the darkness your craft serves. Say what you came to say, and don't expect a lord of the Hand to take yours." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can smell the fel on you from across the hall. Stand there, and don't come a step nearer to my students." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come here in good faith more often than I expected. My contempt for your craft hasn't changed, but I'll grant you a word." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "The Light's protection on you today. Now, what have you learned since I saw you last?" },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "The Light's protection on you. You'll find no lessons for your path here." },
     { id = "g_veteran", when = { class = "PALADIN", minLevel = 50 }, text = "You've come far. Far enough that we should speak about what comes next." },
@@ -28,6 +32,10 @@ P:NPC {
       text = "Your harness is neglected. A paladin who can't care for their own gear will not care for a charger. Remember that; you'll need it someday." },
     { id = "n_ready", cat = "readiness", when = { class = "PALADIN", minLevel = 40 },
       text = "You carry yourself like someone who's been tested, and that's good. The tests don't end; they only grow quieter, and harder." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light flinched when you came through that door, {class}, the way a flame does when a cellar is opened. I've trained my paladins to notice that, and I'd be failing them if I pretended I hadn't." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That beast you ride is no horse, whatever shape it wears, and my own charger has been stamping in its stall since you came in. The Silver Hand earned its mounts by oath, and I'd ask what you paid for yours." },
   },
 
   start = "hello",
@@ -72,7 +80,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." } },
+      lines = {
+        { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There is a place for every soul who turns back, and I have seen a few do it, though never one who brought a demon into this hall to ask. Until you send it away, I'll speak to you civilly, and I'll keep my hammer within reach of it rather than of you." },
+      },
       choices = {
         { text = "Perhaps one day, my lord, though it won't come easy.", next = "BACK", reply = "Nothing worth having comes easy, and the Light least of all. My door will be open on the day you knock.", fx = { align = { light = 1 } } },
         { text = "I've no intention of turning back, my lord.", next = "BACK", reply = "Then I'll pray for you all the same, and keep my hammer close. That's as civil as I can be.", fx = { align = { light = -1 } } },
@@ -112,6 +123,8 @@ P:NPC {
           text = "A rogue in the Cathedral's training hall. I'll assume you came in by the door, and I'll ask you to leave by it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've brought the stink of the fel into this hall, and I'd be a fool not to notice. Say what you came to say." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "You've brought the fel into a hall of the Silver Hand, and I'll not pretend to welcome it. Speak quickly, and keep your creature at the door." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've not once brought trouble into this hall, so you may speak, though I'll still not call you friend." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll find nothing to learn here but discipline, and I'd wager the Quarter teaches little of that." },
@@ -136,7 +149,7 @@ P:NPC {
         { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "Do the Silver Hand look down on rogues, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Silver Hand need hunters, Lord Shadowbreaker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is there no place in the Light for a warlock, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there a place in the Light for someone who walked too far, my lord?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Silver Hand count druids among its allies, my lord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Silver Hand respect the mages of Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can the Silver Hand trust a dwarf who speaks to spirits?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -432,9 +445,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." } },
+      lines = {
+        { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every night, in the same breath as the paladins, and tonight I'll add a word for the thing beside you, though I couldn't tell you whether it hears prayers at all. The Light is wider than Lord Shadowbreaker's patience, which is fortunate, because he's been watching your demon since you came in." },
+      },
       choices = {
-        { text = "Pray for me, then. I'd be glad of it.", next = "BACK", reply = "Then I'll pray tonight, and every night after. The Light has room for you, warlock, whether or not you ask it.", fx = { align = { light = 1 } } },
+        { text = "Pray for me, then. I'd be glad of it.", next = "BACK", reply = "Then I'll pray tonight, and every night after. The Light has room for you, whether or not you ask it.", fx = { align = { light = 1 } } },
         { text = "Save your prayers, Arthur, because I've chosen my path.", next = "BACK", reply = "I'll pray anyway, I'm afraid, and you needn't thank me. Some habits are kinder than they look.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -504,7 +520,7 @@ P:NPC {
         { text = "Would the Light forgive the things I've done, Arthur?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you pray for your enemies, Arthur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light teach anything about the hunt, Arthur?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you pray for warlocks, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you pray for the ones the Church condemns, Arthur?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do paladins pray differently from priests, Arthur?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you think the Light hears a prayer said to the moon, Arthur?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light listen to a mage, Arthur?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -604,7 +620,7 @@ P:NPC {
   key = "elmore", id = TODO_NPC("Grimand Elmore"), name = "Grimand Elmore",
   bible = "bibles/city2.md", role = "blacksmith", tier = "quest",
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_armor" },
   impression = {
     first = "His praise is so rare that it nearly sounds like an insult.",
     third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
@@ -620,6 +636,8 @@ P:NPC {
       text = "Smith's hands! Let me see the burns. Aye, ye've been at it, so keep at it, an' in twenty years ye might be adequate." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.2 } },
       text = "Who made that armor? No, dinnae tell me, because whoever it was, it's given up on ye." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide ye've wrapped yerself in, an' I can smell it over the forge, sulphur an' somethin' worse. Ye'll get no barding fitted over that, for the iron would never sit right on it." },
   },
 
   start = "hello",
@@ -628,10 +646,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll forge ye a fine dagger wi' a good balance, an' ye can do whatever ye like wi' it after it leaves my bench. What I willnae do is hammer fel-touched iron, for I tried it once, when I was young an' stupid, an' the metal sang at me for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll forge ye a fine dagger wi' good balance, but tell yer {pet} tae stop sniffin' round my quench barrel, for the water's started steamin' an' I've no' heated it. I tried hammerin' fel-touched iron once, when I was young an' stupid, an' the metal sang at me for a week, so I'll have none o' that here." },
       },
       choices = {
-        { text = "A plain dagger, then, Elmore. I'll keep the fel away.", next = "BACK", reply = "That's a bargain, then. A clean dagger fer a clean hand, an' I'll make it the best in the District.", fx = { align = { light = 1 } } },
-        { text = "Fel iron sings for a reason, Elmore. You should listen.", next = "BACK", reply = "It sings, aye, like a drunk at closin', an' it ruins every anvil it touches. I'll nae listen, thank ye.", fx = { align = { light = -1 } } },
+        { text = "A plain dagger, then, Elmore, kept clean of anything I carry.", next = "BACK", reply = "That's a bargain, then. A clean dagger fer a clean hand, an' I'll make it the best in the District.", fx = { align = { light = 1 } } },
+        { text = "That iron sang for a reason, Elmore. You should have listened.", next = "BACK", reply = "It sings, aye, like a drunk at closin', an' it ruins every anvil it touches. I'll nae listen, thank ye.", fx = { align = { light = -1 } } },
         { text = "Something else, Elmore.", next = "BACK" },
       },
     },
@@ -724,7 +743,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see that blade. Hm, someone's sharpened it with a cobblestone, and I'll thank you not to tell me it was you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a blacksmith's shop. You'll be wanting arrowheads, I suppose, or an axe for the camp, because no smith alive makes a good bow." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my shop, an' ye've no use for half o' what I make, since ye grow yer own claws. Dinnae let that stop ye admirin' it, mind." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I don't forge for demons, but I'll sell you a dagger, and that's as far as my anvil goes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a sour heat about ye that I know from bad iron. I'll no' forge for what ye keep, but I'll sell ye a dagger, an' that's as far as my anvil goes." },
       },
       again = {
         { id = "h_again", text = "What else? The forge doesnae wait." },
@@ -745,7 +764,7 @@ P:NPC {
         { text = "Do you ever bless your weapons before you sell them, Elmore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What makes your barding better than any other, Elmore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a dwarven smith ever forge a druid's staff, Elmore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you forge something for a warlock, Elmore?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you forge for someone whose hands smell of brimstone, Elmore?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Another time.", next = "END" },
       },
     },
@@ -828,7 +847,7 @@ P:NPC {
   key = "milton", id = TODO_NPC("Milton Sheaf"), name = "Milton Sheaf", title = "Librarian",
   bible = "bibles/city2.md", role = "scholar", tier = "quest",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
-  notices = { "lore" },
+  notices = { "lore", "lock_shards" },
   impression = {
     first = "He believes the books are sleeping, so one whispers.",
     third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
@@ -842,6 +861,8 @@ P:NPC {
   notice = {
     { id = "n_reader", cat = "lore", when = { bookRead = "The Seven Kingdoms" },
       text = "You've read The Seven Kingdoms, and properly, I can tell, not just the pictures! Come back any time, and bring clean hands." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Whatever's in your satchel is humming very softly, in a key I've only heard once, from those books the Archbishop's clerks took away. Please don't set it on the reading table, because the pages curl." },
   },
 
   start = "hello",
@@ -859,6 +880,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away for safekeeping. I miss them, I'll confess, because a library that only keeps the books it approves of is half a library, but I'd not let you near them now even if I had them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away. I'll confess I'm glad they're gone now, because your servant is looking along my shelves as though it knows exactly which gap they left, and I'd not like to see what it did if it found one." },
       },
       choices = {
         { text = "The clerks were right to take them, Milton.", next = "BACK", reply = "I suppose they were, and I've told myself so every winter since. I still miss the bindings, mind you.", fx = { align = { order = 1 } } },
@@ -952,7 +974,7 @@ P:NPC {
         { text = "Do you need books brought from the wilds, Milton?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the library hold the Silver Hand's history, Milton?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are any of those books about my people worth reading, Milton?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does the Royal Library keep any books on my arts, Milton?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are there books the Royal Library keeps locked away, Milton?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are there any books on shamanism here, Milton?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you read.", next = "END" },
       },
@@ -1036,7 +1058,7 @@ P:NPC {
   key = "elling", id = TODO_NPC("Elling Trias"), name = "Elling Trias", title = "Cheesemaker",
   bible = "bibles/city2.md", role = "vendor", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
-  notices = { "watch" },
+  notices = { "watch", "lock_stones" },
   impression = {
     first = "Nobody has ever insisted so firmly on selling only cheese.",
     third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
@@ -1050,6 +1072,8 @@ P:NPC {
   notice = {
     { id = "n_watch", cat = "watch", when = { class = "ROGUE" },
       text = "You looked at the cellar door before you looked at the cheese. Everyone who does that ends up working for the same people. Hello, colleague." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That's a spellstone you've got, isn't it, or a firestone, by the heat coming off your pack. I hear the Lamb's people talk about them over the counter, and I've learned to look honest and say nothing." },
   },
 
   start = "hello",
@@ -1067,10 +1091,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "All sorts buy my cheese, and I pay very close attention to what they say while they're buying it, because a cheesemaker hears all kinds of things. The folk from the Lamb buy the strongest cheddar I have, and they talk more than they think, so I'm very fond of them in my way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "All sorts buy my cheese, and the folk from the Lamb buy the strongest cheddar I have and talk more than they think. Your demon hasn't said a word since you came in, mind, but it's listened to every one of mine, and I'm not used to being the one who's overheard." },
       },
       choices = {
         { text = "Then you'll hear only good things from me, Elling.", next = "BACK", reply = "I'm sure I will, friend, though I'll be listening all the same. It's a cheesemaker's habit.", fx = { align = { order = 1 } } },
-        { text = "I'll talk where nobody's listening, then.", next = "BACK", reply = "Wise. Though you'd be surprised where a man buying cheddar can turn up, friend.", fx = { align = { order = -1 } } },
+        { text = "Then I'll talk only where nobody's left to listen.", next = "BACK", reply = "Wise. Though you'd be surprised where a man buying cheddar can turn up, friend.", fx = { align = { order = -1 } } },
         { text = "Something else, Elling.", next = "BACK" },
       },
     },
@@ -1151,7 +1176,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want something that keeps on the march, and nothing keeps like a good hard cheese, I promise you that." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you live on what you catch, but even the best hunter wants something besides venison now and then, don't they?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Now, I sell cheese, only cheese, and nothing that ever lived in a forest, so you've no cause to look at me like that." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, buying cheese? Of course. Everyone has to eat, even the folk from the Lamb." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Buying cheese, are we, with the Lamb's chill still on your coat? Of course. Everyone has to eat, even the folk from down there." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Well, I sell cheese, only cheese, nothing but plain good cheese, and your spirits are welcome to inspect it if they like." },
       },
       again = {
@@ -1170,7 +1195,7 @@ P:NPC {
         { text = "Is cheesemaking all you do, Elling?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would a cheesemaker need to say he's honest?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What exactly are you afraid I'll sniff out, Elling?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do warlocks buy your cheese, Elling?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the Slaughtered Lamb's regulars buy your cheese, Elling?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the spirits make of your cheese, Elling?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing.", next = "END" },
       },

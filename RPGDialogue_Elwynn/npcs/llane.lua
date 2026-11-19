@@ -6,13 +6,17 @@ P:NPC {
   key = "llane", id = TODO_NPC("Llane Beshere"), name = "Llane Beshere",
   bible = "bibles/llane.md", role = "trainer", tier = "service",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "fitness", "stance" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran who watched a warlock's demon walk through his shield line." },
+  notices = { "fitness", "stance", "lock_armor" },
   impression = {
     first = "He corrected my stance before he asked what I wanted.",
     third = "{name} met Llane Beshere, Northshire's warrior trainer, who teaches a proper stance as if it were scripture.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood in a shield line in the Second War and watched a demon walk through it like it was paper. Don't bring one into my yard." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You let something else bleed for you, and then you call it fighting. I've no respect for that, and I'll not pretend I have." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood your own ground a time or two, I'll grant you. I still don't care for your creature, but you've earned a word." },
     { id = "g_feet", text = "Feet apart, recruit. Now, what do you need?" },
     { id = "g_drills", when = { class = "WARRIOR" }, text = "Back for more drills?" },
   },
@@ -22,6 +26,8 @@ P:NPC {
       text = "You died recently; I can see it in how you stand. Sit down before you fall down." },
     { id = "n_naked", cat = "fitness", when = { nearlyNaked = true, class = "WARRIOR" },
       text = "A warrior without armor is a target with opinions." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's a ward of demon hide crawling up your arms, isn't it? My recruits wear honest mail and earn every dent in it, so mind you don't stand where they can see you better armoured than they are." },
   },
 
   start = "hello",
@@ -76,9 +82,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." } },
+      lines = {
+        { id = "xlock_default", text = "It's happened twice, and once it was a little horned thing that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's happened twice, and once the straw went up while the recruit beside it was still swinging. I'll ask you to keep that creature away from my dummies, because my recruits have stopped swinging altogether to watch it, and I'd sooner they learned to fight than to stare." },
+      },
       choices = {
-        { text = "I'll keep my imp leashed and away from your recruits.", next = "BACK", reply = "Good, and the straw will thank you. Find a dummy on the far end.", fx = { align = { light = 1 } } },
+        { text = "I'll keep what follows me leashed and away from your recruits.", next = "BACK", reply = "Good, and the straw will thank you. Find a dummy on the far end.", fx = { align = { light = 1 } } },
         { text = "Your recruits could do with a real fight now and then.", next = "BACK", reply = "Real fights come soon enough, and I'd rather they lived to see them. Leave my recruits alone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,7 +122,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the practice yard. Stand at the back, recruit, because my warriors swing wide." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, here in the yard. Keep that creature off my training dummies, because they're hard enough to replace as it is." },
+          text = "A warlock in my yard, and don't think I can't tell. Keep that creature off my training dummies, because they're hard enough to replace as it is." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my yard, and you know I can tell. I've seen what your kind calls up, so keep it off my dummies and away from my recruits." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. You've never let that creature near my recruits, and that counts for something here, even if it's not much." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you stand like someone who's never been knocked down by anything but weather. We'll see about that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your stance is wrong; spirits or not, you'll be knocked down. Then you'll get back up, and that's the lesson." },
       },
@@ -132,7 +143,7 @@ P:NPC {
         { text = "What do you think of the other trainers here?", next = "trainers" },
         { text = "Would you train a rogue alongside your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Your warriors don't seem to respect the mages here.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Your dummies look like a warlock's pet has been at them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Your dummies look like something with claws has been at them.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a warrior trainer think of hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What can a warrior teach a paladin, Llane?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A warrior could learn a lot from watching a bear fight.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

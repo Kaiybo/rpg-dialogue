@@ -92,7 +92,7 @@ P:NPC {
     xlock = {
       lines = { { id = "xlo_default", text = "I've heard that, and I've melted Blackrock blades that hissed in the quench like a cat in a bath. Bring me their steel if you like, but I'll be the one deciding what goes in the fire." } },
       choices = {
-        { text = "Burn the curse out and make it clean steel.", next = "BACK", reply = "That's what I meant to do, and it's good to hear a warlock say it, strangely enough. Clean steel goes to Lakeshire's guards and nobody else.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn the curse out and make it clean steel.", next = "BACK", reply = "That's what I meant to do, and it's good to hear one of your sort say it, strangely enough. Clean steel goes to Lakeshire's guards and nobody else.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep the hiss. A cursed edge bites deeper.", next = "BACK", reply = "Then you'll not get it from my forge, and I'll thank you not to suggest it again. I've a clean anvil and I mean to keep it.", fx = { align = { light = -1 } } },
         { text = "How long have you been smithing?", next = "smith" },
       },

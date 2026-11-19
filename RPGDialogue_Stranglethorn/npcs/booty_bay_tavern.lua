@@ -9,7 +9,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/stranglethorn.md", role = "trainer", tier = "service",
   communities = { "booty_bay" }, temper = { "sharp" }, values = { "cunning", "practical" },
-  notices = { "stealth", "purse" },
+  notices = { "stealth", "purse", "lock_eyes" },
 
   impression = {
     first = "He lets you think he knew you were coming.",
@@ -32,6 +32,8 @@ P:NPC {
       text = "Nice try, but every third board in this tavern was laid by a goblin to squeak on purpose, and you found two of them." },
     { id = "n_rich", cat = "purse", when = { money = { min = 300000 } },
       text = "You're carrying more gold than anyone should into a pirate tavern. Split it between two pouches, and keep the fat one where nobody would think to reach." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes followed my student when he slipped into the corner, and nobody's eyes do that without a warlock's trick behind them. I'd thank you not to spoil my lessons, because teaching folk to vanish is how I pay for my room." },
   },
 
   react = {
@@ -114,7 +116,7 @@ P:NPC {
         { text = "What could a rogue teach a warrior?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Can a beast learn to move quietly?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Your students must fear a mage or two.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Have you ever traded secrets with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have you ever traded secrets with someone like me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a cat teach your students more than you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits ever give a rogue away?", next = "xsham", when = { class = "SHAMAN" } },
         { text = "You watch the door, Strom. Why are you watching me?", next = "flirt", when = { flirt = true } },
@@ -440,7 +442,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Some secrets cost more than they're worth, and the ones that talk back cost the most." } },
+      lines = {
+        { id = "xlock_default", text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Some secrets cost more than they're worth, and the ones that talk back cost the most." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Yours is watching me the same way his did, like it already knows what I'd trade, and the answer's still no." },
+      },
       choices = {
         { text = "You were wise. Some knowledge should stay buried.", next = "BACK", reply = "I was, and I'd say it again tomorrow. Some names should stay in the dark where they were found.", fx = { align = { light = 1 } } },
         { text = "Your loss. A demon's name is a sharp tool.", next = "BACK", reply = "Sharp, yes, and it cuts the hand that holds it. I'll keep my poisons and my soul, thank you.", fx = { align = { light = -1 } } },
@@ -493,7 +498,7 @@ P:NPC {
   key = "tokal", id = TODO_NPC("Tokal"), name = "Tokal",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "watchful" }, values = { "proud", "practical" },
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shadow" },
 
   impression = {
     first = "She says to make it quick, and means it as advice.",
@@ -512,6 +517,8 @@ P:NPC {
       text = "Another night elf. Sit where I can see your hands, and don't take it personally, since I've had a bad year for your kind." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You look like you came through Desolace the hard way, but everybody does, because the place grinds you down to the rivets." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candle at this table has burned straight all night, and now it leans away from you as if it wants to leave. I've seen that happen before, at that fortress up north, and I didn't like it then either." },
   },
 
   start = "hello",
@@ -875,7 +882,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. If that's your kind of magic, sit on the far side of the table from me." } },
+      lines = {
+        { id = "xlock_default", text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. If that's your kind of magic, sit on the far side of the table from me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. And you've brought one right up to my table, so sit on the far side and keep that thing on the far side of you." },
+      },
       choices = {
         { text = "The Burning Blade disgust me too.", next = "BACK", reply = "Good, then we agree on something. The Burning Blade are what the Horde was before Thrall, and I've no stomach for them.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
         { text = "My demons are leashed. Theirs leash them.", next = "BACK", reply = "Leashed, aye, until the day the leash slips. I hope you hold yours tighter than they hold theirs.", fx = { align = { light = -1 }, learn = { "burning_blade" } } },

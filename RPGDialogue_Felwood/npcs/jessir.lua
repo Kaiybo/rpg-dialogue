@@ -99,7 +99,7 @@ P:NPC {
         { text = "That's a fine wolf at your side.", next = "della" },
         { text = "What happened to Trey in there?", next = "trey", when = { questDone = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "Trey was of my order. I'll see him avenged.", next = "xpala", when = { class = "PALADIN" } },
-        { text = "I know warlocks. The Council isn't what I am.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I've seen the Council's work. I am nothing like them.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Horde has its own debt with the Council.", next = "xhorde", when = { faction = "Horde" } },
         { text = "Farewell, Jessir.", next = "END" },
       },

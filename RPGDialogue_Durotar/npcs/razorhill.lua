@@ -7,7 +7,8 @@ P:NPC {
   bible = "bibles/durotar.md", role = "soldier", tier = "major",
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
   race = "Orc", likesTone = "blunt",
-  notices = { "kit", "greenness" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Remembers the old Horde's warlocks burning the clans to the bone; he holds Razor Hill against that kind of rot." },
+  notices = { "kit", "greenness", "lock_shards", "lock_armor" },
   impression = {
     first = "He holds Razor Hill as if all of Durotar depended on it.",
     third = "{name} met Gar'Thok, the terse commander of Razor Hill, who holds Durotar's crossroads for the Horde.",
@@ -20,6 +21,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You left here a recruit and came back looking like a warrior of the Horde. Good, because I have harder work for you now, and harder blood to spill." },
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you put the fear into somebody around here without spilling blood. Durotar respects that, and so do I." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts tell me you've been doing work for Razor Hill, and doing it properly. Keep that up and you'll have a name here." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "A warlock in Razor Hill. My grunts have orders to watch you, and so do I." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Gul'dan's warlocks sold our people to demons once. Do your work for the Horde, but don't ask me to like you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done honest work for Razor Hill, and I've counted every bit of it. I still don't trust what you carry, but I'll trust you a little." },
   },
 
   notice = {
@@ -27,6 +31,10 @@ P:NPC {
       text = "Your gear is falling off you, so fix it. A grunt who can't hold his armor together can't hold a line." },
     { id = "n_green", cat = "greenness", when = { maxLevel = 6 },
       text = "Out of the valley and already at my door. Good, but don't think that makes you a veteran." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "How many shards are rattling in that bag, warlock, twenty or more? Tell me they all came off the Burning Blade at Skull Rock, because I count those the way I count smuggled steel." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You've put on the demon's skin, I see, the same dark ward the warlocks wore when they marched with the Horde in the Second War. I was a grunt then, and I learned to stand downwind of anyone wearing it." },
   },
 
   start = "hello",
@@ -77,10 +85,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch you the way I watch the coast. The Burning Blade are crawling through the hills, so if you're really Horde, prove it on them first, and quickly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch that thing at your heel the way I watch the coast. The Burning Blade are crawling through the hills, so if you're really Horde, set your {pet} on them first, and quickly." },
       },
       choices = {
         { text = "Point me at the Blade. I'll prove it there.", next = "BACK", reply = "Skull Rock, then, and don't come back until the Blade's thinner. Do that, and I'll stop watching you so closely.", fx = { align = { order = 1 } } },
-        { text = "I serve the Horde my way, not by proving myself.", next = "BACK", reply = "Your way is fine, as long as I see it working. Until then, I'll keep watching, warlock.", fx = { align = { order = -1 } } },
+        { text = "I serve the Horde my way, not by proving myself.", next = "BACK", reply = "Your way is fine, as long as I see it working. Until then, I'll keep watching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,7 +139,9 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid in Razor Hill. You're a long way from Mulgore's grass and Durotar won't feed you half so kindly, but the Horde's glad of you all the same." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll be plain, since that's my way. I know what you are, and the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I'll be blunter than usual. Gul'dan's kind cost my clan its best warriors, and you walk in wearing his stink, so state your business." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've served this town well, and I know it. Speak, but keep it short." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
@@ -143,7 +154,7 @@ P:NPC {
         { text = "I track well. Where do you need eyes?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I see Darkspear standing your watch too.", next = "troll", when = { race = "Troll" } },
         { text = "Where could a mage be useful to Razor Hill?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you still give orders to someone like me, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragefire Chasm is cleared, commander.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "I hold the Sen'jin gate, Commander. We share a coast.", next = "xorig_spear", when = { origin = "troll_senjin_spear" } },
@@ -293,6 +304,8 @@ P:NPC {
     { id = "g_prej", when = { prejudiced = true }, text = "A warlock in Razor Hill. I'll be honest with you, because I'm honest with everyone I might have to kill: every Burning Blade cultist I ever buried started out telling me they could control it." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I've watched you a long while now, warlock, and you've given me nothing to hunt. Few of your kind manage that, and I'll say so to anyone who asks." },
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow. Our people drank demon blood once; I won't let the Blade pour it for us again." },
+    { id = "g_zelk_resolved", when = { class = "WARLOCK", thread = { id = "lock_zelk", state = "resolved" } }, text = "The warlock who doesn't kneel. I'm still watching you, mind, but these days I find I'm watching for the Blade behind you, and not in front." },
+    { id = "g_zelk_soured", when = { class = "WARLOCK", thread = { id = "lock_zelk", state = "soured" } }, text = "Zelk's admirer, in daylight at least. Say what you've come to say and be on the road before the sun goes down." },
     { id = "g_bb_resolved", when = { thread = { id = "burning_blade", state = "resolved" } }, text = "Word came down from Orgrimmar that the Warchief has heard the whole tale of the Blade from you, from the valley caves to the Cleft of Shadow. Good; I'll keep watching the hills, and he can watch the smiling ones in his own city." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons, or any blood on your blade?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I, and my back has the knots to prove it. Tell me what you saw out there." },
@@ -302,7 +315,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I'll be watching you, the way I watch every one of you, so don't take it personally; take it seriously." },
+      text = "I'll be watching you, the way I watch every one who smells like you, so don't take it personally; take it seriously." },
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "You're light on your feet, and the Blade use people like you to carry their messages. Make sure you never carry one." },
   },
@@ -338,6 +351,31 @@ P:NPC {
     prej_orgnil_why = {
       lines = { { id = "prej_orgnil_why_default", text = "My own brother-in-arms, Zelk, a good warlock who taught at the Cleft. He went south to hunt the Blade the way I do, and he came back wearing their sigil and calling me by my old camp number. I put him down myself at Skull Rock." } },
       choices = { { text = "I see. Let me answer you, then.", next = "prej_orgnil" }, { text = "Something else.", next = "BACK" } },
+    },
+    zelk_end = {
+      big = true,
+      lines = { { id = "zelk_end_default", key = true,
+        text = "Then you've heard him called a scholar, and a fool, and a friend, and every one of those was true. So answer me the one question I never got to ask him, warlock: what makes you any different from Zelk?" } },
+      again = { { id = "zelk_end_again", text = "You've answered me once. I'm still turning it over, and I've not decided yet if I believe you." } },
+      choices = {
+        { text = "I bind demons, Orgnil. I never kneel to them.", next = "zelk_kneel",
+          fx = { thread = { id = "lock_zelk", state = "resolved" }, align = { order = 1 }, affinity = 1 },
+          journal = { first = "I told Orgnil Soulscar I bind demons and never kneel to them. He took his hand off his axe.", third = "{name} told Orgnil Soulscar a warlock binds demons and never kneels." } },
+        { text = "Zelk was a scholar, and you killed him for it.", next = "zelk_scholar",
+          fx = { thread = { id = "lock_zelk", state = "soured" }, align = { order = -1 }, affinity = -2 },
+          journal = { first = "I told Orgnil Soulscar he'd killed a scholar in Zelk. He told me to stay out of Razor Hill after dark.", third = "{name} told Orgnil Soulscar he had killed a scholar in Zelk." } },
+        { text = "Let me think on it first.", next = "BACK" },
+      },
+    },
+    zelk_kneel = {
+      lines = { { id = "zelk_kneel_default",
+        text = "Zelk said much the same at the start, but he said it to the Blade, and you've said it to me. I'll hold you to it, warlock, and I'll take my hand off my axe for now, which is more than I've done for anyone from the Cleft in years." } },
+      choices = { { text = "Hold me to it, then.", next = "BACK" }, { text = "Farewell, Orgnil.", next = "END" } },
+    },
+    zelk_scholar = {
+      lines = { { id = "zelk_scholar_default",
+        text = "A scholar who wore their sigil and called me by my camp number. You'll forgive me if I don't mourn him the way you'd like. Keep out of Razor Hill after dark, warlock, because I'll not be the one who waits to find out how much you've studied." } },
+      choices = { { text = "Something else.", next = "BACK" }, { text = "I'll go.", next = "END" } },
     },
     prej_orgnil_calm = {
       lines = { { id = "prej_orgnil_calm_default", text = "Hm. A warlock who doesn't argue. I've not met many of those, and none of them were Burning Blade, so perhaps there's hope for you yet." } },
@@ -460,6 +498,9 @@ P:NPC {
         { text = "The Burning Blade's magic must be poisoning Durotar.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Where do the Blade hide?", next = "hide" },
         { text = "You watch me like I'm one of them, Orgnil.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I've walked Zelk's road from the Valley to the Cleft.", next = "zelk_end",
+          when = { class = "WARLOCK", thread = { id = "lock_zelk", beat = "b2_orgnil", state = "unfolding" },
+                   any = { { thread = { id = "lock_zelk", beat = "b3_ganrul" } }, { thread = { id = "lock_zelk", beat = "b3_neeru" } } } } },
         { text = "I could carry false messages to the Blade for you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would a mage be any use against the Burning Blade?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where do the Burning Blade hide, Orgnil?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -481,7 +522,7 @@ P:NPC {
           text = "A troll warlock is a stranger thing than an orc one, and the Blade would love to recruit the first of your people. They'll come to you sweetly, and when they do, you'll come straight to me." },
       },
       choices = {
-        { text = "Fair. Watch me, then, and judge me by what I do.", next = "BACK", reply = "I will, and closely. Show me your demon's leash, and I'll judge accordingly.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Fair. Watch me, then, and judge me by what I do.", next = "BACK", reply = "I will, and closely. Show me how short you keep that leash, and I'll judge accordingly.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I don't answer to you, lawman.", next = "BACK", reply = "You answer to the Horde, and I'm the Horde's eyes in Razor Hill. Don't forget that.", fx = { affinity = -2, align = { order = -1 } } },
       },
     },
@@ -516,7 +557,7 @@ P:NPC {
   gender = "male",
   bible = "bibles/durotar.md", role = "innkeeper", tier = "service",
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shadow" },
   impression = {
     first = "He is as dry as Durotar, but he does check the blankets.",
     third = "{name} rested at Innkeeper Grosk's inn in Razor Hill, the safest bed in a land of rocks and scorpids.",
@@ -538,6 +579,8 @@ P:NPC {
       text = "You look like the spirit healer sent you back with a list of complaints. Sit down before you fall down." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "That's enough for now. The grunts don't carry drunks home; they leave them for the scorpids." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lanterns in my common room just dropped low and green, and I'll bet a barrel it's you. Sit by the hearth where the light's strongest, warlock, because I'll not have my regulars drinking in the dark." },
   },
 
   start = "hello",
@@ -637,11 +680,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
+        { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most of the ones who smell of sulphur are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar, and I'll tell you now, yours is the third demon this week to sniff at my blankets. Most warlocks are decent enough, but I count the blankets afterward, and the water bucket's by the door." },
       },
       choices = {
-        { text = "Fair rules. My imp sleeps outside.", next = "BACK", reply = "Then you're welcome here, and so is your imp, as long as it's outside. Sleep well.", fx = { align = { order = 1 } } },
-        { text = "My imp goes where I go, innkeeper.", next = "BACK", reply = "Then the bucket stays by the door, and you'll be paying for any scorch marks. Mind it.", fx = { align = { order = -1 } } },
+        { text = "Fair rules. My little friend sleeps outside.", next = "BACK", reply = "Then you're welcome here, and so is it, as long as it's outside. Sleep well.", fx = { align = { order = 1 } } },
+        { text = "What's mine goes where I go, innkeeper.", next = "BACK", reply = "Then the bucket stays by the door, and you'll be paying for any scorch marks. Mind it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -700,7 +744,7 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A tauren druid! Mind your horns on the beam, and if you're looking for anything green out there, I'm sorry to say it's all rocks and scorpids." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? If you can talk the sky into raining on Durotar you'll be the first, and I'll want to hear how you did it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You crept in like a scorpid under a blanket, rogue. Kaplak the rogue trainer keeps his burrow under the floor, if you were looking for it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, but whatever's with you sleeps outside. The last one set fire to the straw just to see what would happen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want a bed that isn't on fire, I suppose, so keep your spells outside." },
@@ -717,7 +761,7 @@ P:NPC {
         { text = "Rogues must cause trouble at your inn.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'd guess few warlocks stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess few folk of my sort stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Are you smiling at me, Grosk? I didn't know you could.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "grosk_fl_rebuff" } } },
@@ -740,7 +784,7 @@ P:NPC {
   key = "brakk", id = TODO_NPC("Brakk"), name = "Brakk",
   bible = "bibles/durotar.md", role = "questgiver", tier = "quest",
   communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_steed" },
   impression = {
     first = "Walls, he says, are for people who have stopped walking.",
     third = "{name} met Brakk, a wandering orc who camps across Durotar and keeps a journal of every fire he has ever built.",
@@ -754,6 +798,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook? Then you can build a real campfire, and everything else in a camp is built around one." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse is scorching the scrub everywhere it steps, and it's going in my journal tonight, right beside the one who rode it. I've seen worgs, wolves and kodos, but in the camps or out of them, I never saw anyone ride a demon." },
   },
 
   start = "hello",
@@ -828,11 +874,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that a warlock serves the Horde or answers to it, and I write that in my journal beside every warlock I meet, just so I remember." },
+        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that your sort serves the Horde or answers to it, and I write that in my journal beside every one I meet, just so I remember." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. I'm writing your demon into my journal as we speak, how it stands and how it watches, because the Warchief made it plain that a warlock serves the Horde or answers to it." },
       },
       choices = {
         { text = "Write that I serve the Horde, Brakk.", next = "BACK", reply = "I'll write it, and gladly. The Warchief would want to hear it from me too.", fx = { align = { order = 1 } } },
-        { text = "Write what you like. My power is my own.", next = "BACK", reply = "Your power, then, and I'll write that too. But the Warchief reads my journals, and he'll wonder.", fx = { align = { order = -1 } } },
+        { text = "Write what you like. What I hold is my own.", next = "BACK", reply = "Your power, then, and I'll write that too. But the Warchief reads my journals, and he'll wonder.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -852,7 +899,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Sit by my fire, then. But tell whatever's in your shadow to keep to the dark side of it." },
       },
       choices = {
         { text = "You were in the camps, Brakk. Does Tiragarde bring it back?", next = "dd_kultiras", when = { killed = { name = "Kul Tiras", min = 15 } } },
@@ -864,7 +911,7 @@ P:NPC {
         { text = "I'd guess you never got your purse back.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Have you met many warlocks on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Have you met many of my sort on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would your journal say about me, Brakk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },

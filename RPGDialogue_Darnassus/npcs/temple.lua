@@ -140,7 +140,7 @@ P:NPC {
       },
       choices = {
         { text = "I bind it so it can't bind anyone else.", next = "BACK", reply = "That is the best answer a warlock has ever given me, and I will think on it tonight. I will still stand a little nearer the door.", fx = { align = { light = 1 } } },
-        { text = "Comfort isn't what I came for, Priestess.", next = "BACK", reply = "No, I suppose it isn't, and Elune will not give you any either until you ask for it. She is patient, warlock, far more than I am.", fx = { align = { light = -1 }, affinity = -1 } },
+        { text = "Comfort isn't what I came for, Priestess.", next = "BACK", reply = "No, I suppose it isn't, and Elune will not give you any either until you ask for it. She is patient, far more patient than I am.", fx = { align = { light = -1 }, affinity = -1 } },
         { text = "Could Elune ever forgive one like me?", next = "warlock_a2" },
       },
     },
@@ -206,7 +206,7 @@ P:NPC {
         { text = "You don't trust arcane magic, do you?", next = "arcane" },
         { text = "The High Priestess must carry a heavy load.", next = "tyrande" },
         { text = "Is there a place for a mage in Elune's house?", next = "mage_a", when = { class = "MAGE" } },
-        { text = "You've noticed what I carry. Say it.", next = "warlock_a", when = { class = "WARLOCK" } },
+        { text = "You're staring at my satchel. Choose your next words carefully.", next = "warlock_a", when = { class = "WARLOCK" } },
         { text = "The Light makes a soldier of me, Priestess.", next = "paladin_a", when = { class = "PALADIN" } },
         { text = "Does Elune really look kindly on the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the priestesses pray for warriors, Alathea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -545,8 +545,8 @@ P:NPC {
         { id = "ws_default", text = "Elune once heard a man who served the Twilight's Hammer, and he'd done worse than summon an imp, I promise you. Whether you want her to listen is the harder question, and only you can answer it." },
       },
       choices = {
-        { text = "I want to be heard. Even like this.", next = "BACK", reply = "Then you will be heard, warlock, exactly as you are. Elune does not need you to be clean before she listens.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "I don't need a goddess. I have my pact.", next = "BACK", reply = "Your pact will not mourn you when you are gone, but Elune would. I hope you remember that one day.", fx = { align = { light = -1 } } },
+        { text = "I want to be heard. Even like this.", next = "BACK", reply = "Then you will be heard, exactly as you are. Elune does not need you to be clean before she listens.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "I don't need a goddess. I've made other arrangements.", next = "BACK", reply = "Your pact will not mourn you when you are gone, but Elune would. I hope you remember that one day.", fx = { align = { light = -1 } } },
         { text = "Something else, Priestess.", next = "BACK" },
       },
     },
@@ -586,7 +586,7 @@ P:NPC {
         { text = "What is this golden tablet?", next = "tablet", when = { any = { { questActive = TODO_QUEST("Prayer to Elune") }, { questDone = TODO_QUEST("Prayer to Elune") } } } },
         { text = "Surely some deeds can't be forgiven.", next = "forgive" },
         { text = "What do the people who can't sleep tell you?", next = "listen" },
-        { text = "Could Elune hear a warlock, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
+        { text = "Would Elune listen to someone who walks in shadow, Priestess?", next = "warlock_s", when = { class = "WARLOCK" } },
         { text = "Do priestesses hear confessions from rogues?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do priestesses distrust the arcane so deeply?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do warriors come to you to talk, Astarii?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -671,7 +671,8 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "class" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Temple healer who has drawn fel-sickness out of wounded Sentinels too often." },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "She treats prayer as a craft and has no patience for speeches.",
@@ -679,6 +680,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent too many nights drawing fel-sickness out of wounded Sentinels to pretend I don't know what you are. Stand back from the altar." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been in and out of this Temple and never once brought trouble with you. I'll say that much, though I'll still keep an eye on your hands." },
     { id = "g_short", text = "Elune be with you. If you're here to learn, let's begin; if not, the pool is that way." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more training? Good, because your hands are steadier than last time, I think." },
   },
@@ -686,6 +689,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = { "Human", "Dwarf", "Gnome" } },
       text = "One of the Light's own, here for lessons. Alathea's the one for the long talks; I'm the one for the practice, so roll up your sleeves." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone holds a life that was never yours, and Elune knows whose it was even if you do not. Let me heal you myself, and keep it for a day when there's no one near." },
   },
 
   start = "hello",
@@ -753,9 +758,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think you've chosen a hurt and called it a tool, and that's the hardest sort to heal because you won't let anyone near it. If you ever want to set it down, come back here, and I'll help however I can." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think you've chosen a hurt and called it a tool, and the tool is standing beside you, watching me as if I meant to take it away. If you ever want to set it down, come back here without it, and I'll help however I can." },
       },
       choices = {
-        { text = "Maybe one day. Thank you for the offer.", next = "BACK", reply = "You are welcome, warlock, and I mean it. The door will be open.", fx = { align = { light = 1 } } },
+        { text = "Maybe one day. Thank you for the offer.", next = "BACK", reply = "You are welcome, and I mean it. The door will be open.", fx = { align = { light = 1 } } },
         { text = "I don't need mending. My power works fine.", next = "BACK", reply = "Your power works fine, yes, and you look worse for it every time you come. The offer stands.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -787,7 +793,9 @@ P:NPC {
         { id = "h_default", text = "I am Jandria, and I teach the practical side of things here: how to keep your mana when the fight runs long, and how to heal a Sentinel who won't stop moving." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night is when the wounded come up from the portal, so I keep my hands busy and my lessons short." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mana's a practical matter, mage, and you burn through it faster than any priest I train. Want some advice for the long fights?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Temple. I teach healing, not banishing, but I've read enough to know what that is at your heel." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know a demon-caller when one walks in, and I won't pretend otherwise for courtesy's sake. Keep that creature away from my students." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You're back, and as quiet as last time. Good. Ask what you need, and keep your company away from the pool." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach healing, not banishing, but I've read enough to know what is sitting at your heel. Let's not pretend otherwise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, you're the one who'll be bleeding while my students learn to work quickly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Good, you heal too, so you know what it's like to keep a Sentinel standing while she's still running at the enemy." },
@@ -858,7 +866,7 @@ P:NPC {
   title = "Priest Trainer",
   bible = "bibles/temple.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "gentle", "watchful" }, values = { "devout", "careful" },
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_shadow" },
 
   impression = {
     first = "She notices everything and says about half of it.",
@@ -875,6 +883,8 @@ P:NPC {
       text = "Your armor has seen hard roads, and you're carrying them in your shoulders. Sit by the water before you do anything else." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Human" },
       text = "A priest from Stormwind, and you've come all this way to learn from us. That pleases me more than I'd like to admit." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The pool darkened as you came near it, just a little, the way water darkens under a passing cloud. There is no cloud tonight, and I think you know that." },
   },
 
   start = "hello",
@@ -962,9 +972,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A shadow sitting a little apart from you, like a guest who hasn't been invited to the table. The pool doesn't judge, it only shows, and I'd ask you to look into it yourself some night and see what you make of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Tonight it shows more than a shadow, because your servant is standing at the edge of the pool and the water has gone dark all around its reflection. The pool doesn't judge, it only shows, so look into it yourself some night when you've come alone and see what you make of it." },
       },
       choices = {
-        { text = "I'll look, and I'll face what I see.", next = "BACK", reply = "Then you are braver than most, warlock, and I will pray you like what you find. The pool is always honest.", fx = { align = { light = 1 } } },
+        { text = "I'll look, and I'll face what I see.", next = "BACK", reply = "Then you are braver than most, and I will pray you like what you find. The pool is always honest.", fx = { align = { light = 1 } } },
         { text = "I know what I carry. I needn't look.", next = "BACK", reply = "Perhaps you do, but the pool might still surprise you. It surprised me the first time.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -979,7 +990,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The moonlight on the pool went still when you came in, and it does that for the Circle more often than for anyone else." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, warlock, and it only does that for a few. Don't worry, I've seen it go dimmer." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, and it only does that for a few. Don't worry, I've seen it go dimmer." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and your spirits are restless today; I notice such things. The Temple pool shows the moon even on cloudy nights, so perhaps it can calm them." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
@@ -994,7 +1005,7 @@ P:NPC {
         { text = "What does the moonlight tell a priest, Lariia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does my armor really spoil your watching, Lariia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the moonlight on the pool tell you tonight, Lariia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What does the moonlight show of a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does the moonlight show when I stand in it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the pool really show the moon always, Lariia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
@@ -1042,7 +1053,7 @@ P:NPC {
   key = "aquinne", id = TODO_NPC("Sister Aquinne"), name = "Sister Aquinne",
   bible = "bibles/temple.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "earnest", "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_taint" },
 
   impression = {
     first = "She speaks of Lady Sathrah like someone she knew and mourns.",
@@ -1060,6 +1071,8 @@ P:NPC {
       text = "You're a priest! I've never spoken properly with one of the Light's. Do you study the way we do, with books and a teacher who sighs at you?" },
     { id = "n_green", cat = "greenness", when = { maxLevel = 15 },
       text = "You look as new to all this as I am. That's all right; the priestesses say the moon is kindest to beginners." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The flowers on the steps have wilted where you walked, and their petals have the green rot at the edges that the blooms in Felwood have. I'll pray for you tonight, and for them." },
   },
 
   start = "hello",
@@ -1127,6 +1140,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, yes, though the priestesses say fear is a poor teacher and pity a better one. I'll pray for you tonight, if you'll let me, and I'll keep the flowers between us until I've finished." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, yes, and more of your servant than of you, because it hasn't stopped watching me since you came up the steps. The priestesses say fear is a poor teacher and pity a better one, so I'll pray for you tonight, and I'll keep the flowers between us until I've finished." },
       },
       choices = {
         { text = "Pray if you like. I won't refuse it.", next = "BACK", reply = "Thank you, and I will say a good one, I promise. The flowers will stay right where they are, though.", fx = { align = { light = 1 } } },
@@ -1184,7 +1198,7 @@ P:NPC {
         { id = "h_tears", when = { questActive = TODO_QUEST("Tears of the Moon") },
           text = "You're going after Lady Sathrah, aren't you? Be gentle with her, if you can, because she was beautiful once." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Oh, a mage! I've never spoken to one properly, because the priestesses don't really approve. Is it true you can make flowers bloom out of season?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Elune protect me, that's a demon, isn't it? I'm sorry, I didn't mean to stare, only I've never seen one up close." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Elune protect me, what is that beside you? I'm sorry, I didn't mean to stare, only it has such horrible eyes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh, a warrior! The priestesses say I should practice my healing on someone who actually gets hurt, but please don't take that as an invitation." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I study out here among the flowers, and I've always wondered whether they say more to one of the Circle than they ever say to me." },
@@ -1296,7 +1310,7 @@ P:NPC {
   title = "Banker",
   bible = "bibles/temple.md", role = "banker", tier = "service",
   communities = { "darnassus" }, temper = { "formal", "steady" }, values = { "careful", "honest" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "Nothing leaves her vault without a reason she can write down.",
@@ -1311,6 +1325,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "You carry a good deal on your person, if you'll forgive my noticing. We do have boxes for that, and none of them has ever been robbed." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "If you mean to store that soulstone with us, I'll ask you to think again, because the whole vault would know it was there. Keep it on your own person, please, along with your stranger possessions." },
   },
 
   start = "hello",
@@ -1378,6 +1394,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Your servant is looking at my strongboxes as if it can hear something in them already, so please keep it and your stranger possessions well away from the counter." },
       },
       choices = {
         { text = "Agreed. Nothing that whispers goes in your vault.", next = "BACK", reply = "Thank you, because the last one was a very long night. Our accounts will stay friendly.", fx = { align = { order = 1 } } },
@@ -1413,7 +1430,7 @@ P:NPC {
         { id = "h_voucher", tags = { "news" }, when = { questActive = TODO_QUEST("Calm Before the Storm") },
           text = "Gracina Spiritmight has told me to expect you. When you bring her voucher, I'm to withdraw something from her account and present it to you, so congratulations would seem to be in order." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Everything here is guarded and recorded, rogue, so do not take it amiss if I watch your hands while we talk." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll keep your deposits, warlock, as I keep anyone's, though I'll ask you not to store anything that whispers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll keep your deposits as I keep anyone's, though something in your pack just moved. I'll ask you not to store anything that whispers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please sheathe that before you lean on the counter, because the last warrior who didn't scratched it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your Circle leaves very little in my vaults, I find, though the ones who go into the long sleep do like to know their things will be here when they wake." },

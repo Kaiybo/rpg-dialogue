@@ -7,7 +7,7 @@ P:NPC {
   key = "falkhaan", id = TODO_NPC("Falkhaan Isenstrider"), name = "Falkhaan Isenstrider",
   bible = "bibles/falkhaan.md", role = "questgiver", tier = "quest",
   communities = { "northshire", "goldshire" }, temper = { "steady" }, values = { "kind", "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_soulstone" },
   impression = {
     first = "He sends tired travelers to bed with a herald's pride.",
     third = "{name} was pointed toward Goldshire's inn by Falkhaan Isenstrider, who keeps watch over the road and cares that travelers rest.",
@@ -31,6 +31,8 @@ P:NPC {
       text = "Was it kobolds or wolves that did that? You've the look of someone who's had a morning of both." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Ah, you've found the inn already, I see, or else a bottle found you first." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a pale look about you, as if part of your soul were set aside somewhere for safekeeping. I've sent young soldiers through that door with less, but I never thought to see one carrying their own way back from the grave." },
   },
 
   start = "hello",
@@ -83,7 +85,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because I send tired farmhands and young soldiers through that same door, and none of them ever came back up with something like that at their heel. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+      },
       choices = {
         { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", reply = "I'll hold you to that, and so will Farley. Go on down.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What happens in the cellar isn't their business.", next = "BACK", reply = "Maybe not, but they sleep above it, friend. Keep it quiet.", fx = { align = { light = -1 } } },
@@ -174,7 +179,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, everybody needs somewhere to sleep, and I'll point you to the Lion's Pride like anyone else, though I suspect you know the cellar already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Everybody needs somewhere to sleep, and I'll point you to the Lion's Pride like anyone else, though I suspect you know the cellar already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and tired, I'd say! Rest at the Lion's Pride, friend. Farley never waters his drinks, and the beds are clean." },
       },
       again = {
@@ -197,7 +202,7 @@ P:NPC {
         { text = "I'd guess you see plenty of hunters on this road.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You must try to stop the tired from going on, Falkhaan.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anywhere quiet in Elwynn, away from the road?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does it bother you, sending warlocks down to the inn's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does it bother you, knowing who you send down to the inn's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many travellers come through Goldshire, Falkhaan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do companies like ours keep the roads safe, Falkhaan?", next = "xpt_falkhaan", when = { party = true } },
         { text = "I'll find my own bed, thanks.", next = "END" },

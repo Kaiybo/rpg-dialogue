@@ -8,7 +8,7 @@ P:NPC {
   key = "suzetta", id = TODO_NPC("Suzetta Gallina"), name = "Suzetta Gallina",
   bible = "bibles/canals.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "practical", "loyal" },
-  notices = { "light", "kin", "drink" },
+  notices = { "light", "kin", "drink", "lock_stones" },
   impression = {
     first = "She tallies every free bottle her brother promises, then pours them anyway.",
     third = "{name} met Suzetta Gallina, who runs her family's winery on the Stormwind canals.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A Stormwind face. You've walked past our door a hundred times, I expect, and never once come in, until Renato shouted at you." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had a few already, haven't you? I'll pour you something gentle and you'll thank me in the morning." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone at your belt is a warlock's work, because the Lamb's lot pay their tab in them when the coin runs out. Renato takes them, the soft fool, and I can never find a column in the ledger to put them in." },
   },
 
   start = "hello",
@@ -43,6 +45,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, they buy, and they buy the cheapest red we stock by the barrel, and they never once ask the vintage. Renato once gave them a crate of tickets for free tastings, and I spent a month mopping up after a pack of grim folk in black robes who never once said thank you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, they buy, the cheapest red we stock by the barrel, and they never once ask the vintage. They don't usually bring their companions into the shop, though, and I'd thank you to keep yours away from the casks, because Renato swears the smell of sulphur gets into the cork." },
       },
       choices = {
         { text = "Then I'll pay for my bottle and say thank you.", next = "BACK", reply = "Thank you. You're the first from that end of town who's said it.", fx = { align = { honor = 1 } } },
@@ -114,7 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind your elbows near the shelves, please; the last soldier who leaned on them cost us two casks and a very long argument with Roberto." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you smell of the woods, which is nicer than most of what walks in off the canals. Roberto will want to know if you've seen any wild boar near the vineyards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you can talk sense into the boars at our vineyard you'd be the first, and Roberto would stop complaining for a whole week." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll take your wine like anyone else, I hope, and not ask me to pour a glass for the little one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of the Lamb's end of town about you. You'll take your wine like anyone else, I hope, and not ask me to pour a glass for whatever follows you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, is it? If your spirits can tell me where my brother sends all his free bottles, I'll pour you one myself." },
       },
       again = {
@@ -215,7 +218,7 @@ P:NPC {
   key = "ol_emma", id = TODO_NPC("Ol' Emma"), name = "Ol' Emma",
   bible = "bibles/canals.md", role = "citizen", tier = "quest",
   communities = { "stormwind" }, temper = { "prickly" }, values = { "stubborn", "loyal" },
-  notices = { "light", "kin", "refugee" },
+  notices = { "light", "kin", "refugee", "lock_shadow" },
   impression = {
     first = "There's grief under her grumbling, and she doesn't want it noticed.",
     third = "{name} met Ol' Emma, the grumbling water carrier of the canals, who came south from Lordaeron long ago.",
@@ -238,6 +241,8 @@ P:NPC {
       text = "City born, are you? You've the look of somebody who's never carried their own water, though I'll forgive you if you carry one bucket now." },
     { id = "n_refugee", cat = "refugee", when = { origin = "human_lordaeron_refugee" },
       text = "You talk like the north, you do. Don't tell me which village; I'd only ask after folk you won't have news of." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow's leaning the wrong way, dearie, toward the lamp instead of away from it, and I saw shadows do that once before, in Lordaeron, the winter the grain went bad. I'll carry my water round the other side of you, if it's all the same." },
   },
 
   start = "hello",
@@ -282,10 +287,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." } },
+      lines = {
+        { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten me? I came south with the plague at my back, dearie, and I've had worse than your {pet} staring at me over a bucket of water. It's the folk who come up those stairs looking hungry that I mind, and that thing of yours has the very same look about it." },
+      },
       choices = {
-        { text = "I keep what I bind on a short leash, Emma.", next = "BACK", reply = "See that you do, dearie. I've seen what comes back up those stairs.", fx = { align = { light = 1 } } },
-        { text = "Hungry is how you get anywhere in this world, Emma.", next = "BACK", reply = "Hungry gets you places, aye, and it gets you into the canal with a knife in your back, too. Mind yourself, dearie.", fx = { align = { light = -1 } } },
+        { text = "What I keep stays on a short leash, Emma. Always.", next = "BACK", reply = "See that you do, dearie. I've seen what comes back up those stairs.", fx = { align = { light = 1 } } },
+        { text = "Hunger is the only thing that ever got anyone anywhere, Emma.", next = "BACK", reply = "Hungry gets you places, aye, and it gets you into the canal with a knife in your back, too. Mind yourself, dearie.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -682,7 +690,7 @@ P:NPC {
   key = "arnold_leland", id = TODO_NPC("Arnold Leland"), name = "Arnold Leland", title = "Fishing Trainer",
   bible = "bibles/canals.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "light", "kin", "craft" },
+  notices = { "light", "kin", "craft", "lock_breath" },
   impression = {
     first = "Talking to him slows my pulse a little.",
     third = "{name} met Arnold Leland, who teaches fishing on the Stormwind canals beside Catherine Leland's supply stall.",
@@ -699,6 +707,8 @@ P:NPC {
       text = "Stormwind born? Then you'll have fished these canals as a nipper, everybody did, and caught nothing but boots." },
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "You've a fisher's hands, I can see the line calluses. Where have you been casting? Somewhere with better fish than this, I hope." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing like someone who's had the lake poured into them and never noticed, which is one of your spells, I'd wager. If I could breathe under the canal for an hour, I'd know every fish in Stormwind by name." },
   },
 
   start = "hello",
@@ -716,10 +726,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Fishing's use to everybody, because the fish don't care who you are or what you keep in your satchel. Sit on the bank for an hour with nothing to do but watch a float, and you'll learn what's been rattling around in your head, and maybe you'll want some of it out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fishing's use to everybody, because the fish don't care who you are, though they might care about that thing glaring into the canal from the bank. Leave it at home next time, sit for an hour with nothing to do but watch a float, and you'll learn what's been rattling around in your head." },
       },
       choices = {
         { text = "I could use an hour of quiet. Teach me.", next = "BACK", reply = "Then sit down here and hold this line. The fish will do the teaching.", fx = { align = { light = 1 } } },
-        { text = "My head's full of useful things, Arnold. I'll keep them.", next = "BACK", reply = "Then keep them, and keep thinking. I'll keep fishing.", fx = { align = { light = -1 } } },
+        { text = "What rattles in my head is useful, Arnold. I'll keep every word.", next = "BACK", reply = "Then keep them, and keep thinking. I'll keep fishing.", fx = { align = { light = -1 } } },
         { text = "Something else, Arnold.", next = "BACK" },
       },
     },
@@ -802,7 +813,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior with a fishing question? Don't look so surprised; plenty of soldiers fish, because it's the only time anybody lets them sit down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll fish well, I'd bet, because you already know how to wait for something to come to you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the water's edge. You've the stillness of someone who listens to rivers, and I'd say you were halfway to being a fisherman already." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, fishing? Well, the fish won't mind, and I'll not mind either, so long as your friend keeps out of the water." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold about you, friend, like a cellar in winter. Well, the fish won't mind, and I'll not mind either, so long as your friend keeps out of the water." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the water, now. Sit a while. I hear your sort and the fish might have a word or two in common." },
       },
       again = {
@@ -820,7 +831,7 @@ P:NPC {
         { text = "Is fishing really like prayer, Arnold?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could a paladin learn anything from fishing, Arnold?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever give a fish back to the canal, Arnold?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Is fishing any use to someone like me, Arnold?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is fishing any use to someone with a head full of whispers, Arnold?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the canal fish ever seem restless to you, Arnold?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
@@ -861,7 +872,7 @@ P:NPC {
   key = "morris_lawry", id = TODO_NPC("Morris Lawry"), name = "Morris Lawry",
   bible = "bibles/canals.md", role = "citizen", tier = "service",
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "cunning" },
-  notices = { "light", "kin", "purse" },
+  notices = { "light", "kin", "purse", "lock_shards" },
   impression = {
     first = "He tells two different stories about how he lost his farm.",
     third = "{name} met Morris Lawry, a canal beggar with a story for every passer-by.",
@@ -883,6 +894,8 @@ P:NPC {
       text = "A Stormwind face, ye'll know what it's like to fall on hard times in this city, then. Or ye will, one day, so be kind now." },
     { id = "n_rich", cat = "purse", when = { money = { min = 1000000 } },
       text = "Light above, ye clink when ye walk! Surely a coin or two won't be missed from a purse like that." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "'Ere, somethin' in yer bag's clinkin' like coin, guv, only it's cold as a grave when I brush past it. I'll carry most things for two coppers, but not them, not if ye doubled it." },
   },
 
   start = "hello",
@@ -927,7 +940,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Blackmail? Me? Never, guv, I'm only a poor bloke who forgets things easier when his belly's full. Plenty o' folk go down those stairs, an' I've never told on one of 'em, so ye've nothing to fear from Morris." } },
+      lines = {
+        { id = "xlock_default", text = "Blackmail? Me? Never, guv, I'm only a poor bloke who forgets things easier when his belly's full. Plenty o' folk go down those stairs, an' I've never told on one of 'em, so ye've nothing to fear from Morris." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Blackmail? Me? Never, guv, an' certainly not with yer friend there breathin' brimstone down me collar. Plenty o' folk go down those stairs an' I've never told on one of 'em, so ye can tell it to stop lookin' at me like I'm supper." },
+      },
       choices = {
         { text = "Keep your silence for its own sake, Morris, not for coin.", next = "BACK", reply = "That's a noble thought, guv, and an empty belly. I'll try.", fx = { align = { honor = 1 } } },
         { text = "Here's a copper, and your memory had better stay short.", next = "BACK", reply = "Bless you, guv! My memory's shorter than my last meal.", fx = { align = { honor = -1 } } },
@@ -1003,7 +1019,7 @@ P:NPC {
         { text = "Begging can't be your only trade, Morris.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I doubt you know much about keeping armor, Morris.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who buys pelts without asking questions, Morris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are you trying to blackmail me, Morris? Think very carefully.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want a blessing, Morris, or a coin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the guards say you took, Morris?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Was it really the orcs that took your farm, Morris?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1057,7 +1073,7 @@ P:NPC {
   key = "billy_canals", id = TODO_NPC("Billy"), name = "Billy",
   bible = "bibles/canals.md", role = "child", tier = "service",
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious" },
-  notices = { "light", "kin", "wonder" },
+  notices = { "light", "kin", "wonder", "lock_steed" },
   impression = {
     first = "He catches mostly boots and swears he once landed a giant.",
     third = "{name} met Billy, a boy on the Stormwind canals with a fish story for every occasion.",
@@ -1078,6 +1094,8 @@ P:NPC {
       text = "Did you fish here when you were little? Did you catch anything? I bet I catch more." },
     { id = "n_pet", cat = "wonder", when = { pet = true },
       text = "Whoa, is that yours? If it eats fish, I'll catch it one, a really big one, the biggest in the canal!" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse's feet are on fire! Adam's never going to believe me, so can you ride it past the fishing spot so he sees, because otherwise he'll say I made it up again." },
   },
 
   start = "hello",
@@ -1095,9 +1113,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Does it bite? Adam says imps bite and set your hair on fire, but Adam also says there's a fish in the canal as big as a boat, and that's me, I said that first. My mum says not to talk to people from the Lamb, though, so maybe I'll just wave at it from over here." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Is that it? It's looking at me, and Adam said they set your hair on fire, but Adam also says there's a fish in the canal as big as a boat. My mum says not to talk to people from the Lamb, so I'm only going to wave at it, and you can tell it I said hello." },
       },
       choices = {
-        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, imp! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
+        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, little thing! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
         { text = "Come closer, Billy. It won't bite much.", next = "BACK", reply = "Really? Mum would kill me, but she'd have to catch me first!", fx = { align = { order = -1 } } },
         { text = "Something else, Billy.", next = "BACK" },
       },
@@ -1186,7 +1205,7 @@ P:NPC {
         { text = "Shall I bless your fishing line, Billy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you want to know what a paladin really does, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I tell you how a druid swims like a seal, Billy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you want to meet my imp, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you want to meet the little thing that follows me, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want to hear what the water says, Billy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck fishing, Billy.", next = "END", fx = { affinity = 1 } },
       },
@@ -1239,7 +1258,7 @@ P:NPC {
   key = "philmor", id = TODO_NPC("Manifest Clerk Philmor"), name = "Manifest Clerk Philmor",
   bible = "bibles/canals.md", role = "worker", tier = "quest",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "dutiful", "practical" },
-  notices = { "light", "kin", "kit" },
+  notices = { "light", "kin", "kit", "lock_shards" },
   impression = {
     first = "He says the work is open to all and safety is mine.",
     third = "{name} met Manifest Clerk Philmor, who keeps the cargo manifests at Stormwind Harbor.",
@@ -1256,6 +1275,8 @@ P:NPC {
       text = "City folk, good. You'll know the Trade District, then, and won't get lost carrying a parcel through it." },
     { id = "n_strong", cat = "kit", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Broad shoulders, sturdy boots, and I'd guess you've lifted heavier than a cargo crate. I've work for you, if you want it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "You're carrying twenty of them if you're carrying one, because I know the clink of that cargo from the Mage Quarter crates. If you were a crate I'd have to log you, and I don't have a column for souls." },
   },
 
   start = "hello",
@@ -1273,10 +1294,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Crates come in marked for the Mage Quarter, and some of them are lighter than they should be and colder than they ought to be, and I sign for them all the same. I'm a manifest clerk, not a magistrate, and if the city guard wants to open a crate, they can do it on their own time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Crates come in marked for the Mage Quarter, lighter than they should be and colder than they ought to be, and I sign for them all the same. I'll admit your demon peering over my ledger makes me want to sign a good deal faster, which I suspect is the point of bringing it." },
       },
       choices = {
         { text = "Then the guard should hear about the cold crates.", next = "BACK", reply = "They've heard, and they've signed my report, and nothing's happened. I'll keep signing.", fx = { align = { order = 1 } } },
-        { text = "Sign and don't ask. A wise clerk.", next = "BACK", reply = "Wise, or frightened. I've stopped asking which.", fx = { align = { order = -1 } } },
+        { text = "Sign and don't ask, Philmor. Clerks who ask tend to vanish.", next = "BACK", reply = "Wise, or frightened. I've stopped asking which.", fx = { align = { order = -1 } } },
         { text = "Something else, Philmor.", next = "BACK" },
       },
     },
@@ -1363,7 +1385,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and with arms on you, too. If you're looking for work, the dockhands have all gone off to Westfall and I've crates stacked to the rafters." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, are you? Then you'll be wanting to know whether the furs from Darkshore came in, and the answer is yes, but I can't find them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my docks. A good share of the cargo on these piers comes up from Menethil, and some of it came from your Auberdine before that, so I'd guess you took the same long road." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The work's open to anyone, and so is the risk, but don't bring that thing near my ledgers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's something in your satchel that moves when you don't. The work's open to anyone, and so is the risk, but don't bring that thing near my ledgers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Shaman, eh? If you can talk the sea into carrying our cargo gently, the harbour has work for you. Your safety's your own affair." },
       },
       again = {

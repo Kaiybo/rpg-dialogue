@@ -8,7 +8,7 @@ P:NPC {
   key = "argus", id = TODO_NPC("Smith Argus"), name = "Smith Argus", title = "Journeyman Blacksmith",
   bible = "bibles/argus.md", role = "blacksmith", tier = "service",
   communities = { "goldshire" }, temper = { "proud" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He looked at my armor before my face, and found it wanting.",
     third = "{name} met Smith Argus, a blacksmith who judges people by the state of their armor and rarely approves.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "No armor at all. That's either brave or foolish, and I've seen how both end." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Those are smith's hands, calloused in all the right places. Who taught you?" },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My forge spits green every time you come near it, and I've had to rake the coals twice since you walked up. I'll make whatever you're after, but stand back from the fire while I work." },
   },
 
   start = "hello",
@@ -58,10 +60,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
+      lines = {
+        { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. Yours is hanging about my quench barrel as if it's thirsty, so call it off before the water starts to boil." },
+      },
       choices = {
         { text = "Right. A smith should keep his forge clean.", next = "BACK", reply = "It should, and I'll keep mine that way. Find another smith for the marks.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", reply = "Superstitious, am I? Maybe so, but I sleep fine at night, and they can cut their own marks.", fx = { align = { light = -1 } } },
+        { text = "You're superstitious, Argus. A mark is only as dangerous as its owner.", next = "BACK", reply = "Superstitious, am I? Maybe so, but I sleep fine at night, and they can cut their own marks.", fx = { align = { light = -1 } } },
         { text = "Something else, Argus.", next = "BACK" },
       },
     },
@@ -150,7 +155,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and that blade's been put to honest use, by the nicks in it. Leave it on the bench and I'll take the worst of them out." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a blade for skinning and a quiver for everything else. I can sharpen the one, but I don't make arrows, so don't ask." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a buckle of steel on you, so I expect you've come for directions rather than repairs." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I mend blades and buckles, and I'll mend yours, but I won't mend whatever's following you about." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I mend blades and buckles, and I'll mend yours, but I won't mend whatever's following you about. Don't think I haven't seen it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf with totems on his belt. I don't know what your spirits make of that armour, but I'd say it needs mending before it needs blessing." },
       },
       again = {
@@ -171,7 +176,7 @@ P:NPC {
         { text = "Do you forge anything a hunter would want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does a paladin's armor need from a smith, Argus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I doubt your forge has much for someone who fights as a bear.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I'd guess you get a few warlocks at your forge, Argus.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Some of your customers come up from the inn cellar, don't they, Argus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a shaman's fire spirit help at your forge, Argus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },

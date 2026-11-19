@@ -13,15 +13,15 @@ P:NPC {
     third = "{name} met Dane Winslow, who trains warlocks' demons in the graveyard at Northshire Abbey.",
   },
   greetings = {
-    { id = "g_default", text = "Good day. If you've no business with the things beyond, mine isn't with you, and we may part friends." },
-    { id = "g_2", when = { metBefore = true }, text = "You again. The brothers haven't driven me off yet, as you see." },
-    { id = "g_3", when = { class = "WARLOCK" }, text = "Ah, a practitioner. Weary of one of your charges, perhaps, or hoping for one with a more agreeable name?" },
+    { id = "g_default", text = "Good day. If you've no business with the things beyond, then mine isn't with you, and we may part friends." },
+    { id = "g_2", when = { metBefore = true }, text = "You again. The Brothers haven't driven me off yet, as you see." },
+    { id = "g_3", when = { class = "WARLOCK" }, text = "Ah, a practitioner. Are you weary of one of your charges, or only hoping for one with a more agreeable name?" },
   },
   notice = {
     { id = "n_1", cat = "fel", when = { class = "WARLOCK" },
-      text = "Your minion's bound a touch loosely, if you'll forgive a professional remark. It hasn't noticed yet. I'd see to it before it does." },
+      text = "If you'll forgive a professional remark, your minion's bound a touch loosely. It hasn't noticed yet, and I'd see to it before it does." },
     { id = "n_2", cat = "light", when = { class = { "PRIEST", "PALADIN" } },
-      text = "One of the abbey's own. I pay my respects to the graves and I trouble no one, and I'd be obliged if that were reported accurately." },
+      text = "One of the Abbey's own. I pay my respects to the graves and trouble no one, and I'd be obliged if that were reported accurately." },
     { id = "n_3", cat = "class", when = { class = "MAGE" },
       text = "A student of the arcane. We're cousins of a sort, you and I, though your side of the family prefers not to say so at table." },
   },
@@ -29,93 +29,133 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "hello_1", text = "Dane Winslow. I instruct the servants that warlocks call up, and when a servant has outlived its use, I arrange for its dismissal, permanently, so that another may be summoned in its place. It's delicate work, and I'm paid for the delicacy." },
-        { id = "hello_2", when = { class = "WARLOCK" }, text = "Dane Winslow. You know the art, so I'll be plain; I can teach your minions what they're slow to learn, and I can unmake one you've tired of, for a consideration. Mistress La Salle teaches the summoner, and I see to the summoned." },
-        { id = "hello_3", when = { class = { "PRIEST", "PALADIN" } }, text = "Dane Winslow. I expect you'd rather I gave my trade another name, so let us say I'm a keeper of difficult animals, and that none of them has ever got loose on consecrated ground." },
+        { id = "hello_1", text = "I'm Dane Winslow. I instruct the servants that warlocks call up, and when a servant has outlived its use, I arrange for its dismissal, permanently, so that another may be summoned in its place. It's delicate work, and I'm paid for the delicacy." },
+        { id = "hello_2", when = { class = "WARLOCK" }, narr = "He takes a small notebook from his coat and opens it to a clean page, pencil ready.", text = "I'm Dane Winslow. You know the art, so I'll be plain: I can teach your minions what they're slow to learn, and I can unmake one you've tired of, for a consideration. Mistress La Salle teaches the summoner, and I see to the summoned." },
+        { id = "hello_3", when = { class = { "PRIEST", "PALADIN" } }, text = "I'm Dane Winslow. I expect you'd rather I gave my trade another name, so let us say I'm a keeper of difficult animals, and that none of them has ever got loose on consecrated ground." },
+        { id = "hello_4", when = { class = "WARLOCK", minLevel = 20 }, text = "You've come a long way back to a graveyard, and with a good deal more on your books than when you left. I keep notes on every pairing I've seen, so tell me how they've treated you." },
       },
       again = {
         { id = "hello_again1", text = "Was there something further?" },
-        { id = "hello_again2", text = "Go on. I've a great deal of patience; the work requires it." },
-        { id = "hello_again3", text = "Yes?" },
+        { id = "hello_again2", text = "Go on. I've a great deal of patience, because the work requires it." },
+        { id = "hello_again3", when = { class = "WARLOCK" }, text = "Something more for the ledger, then?" },
       },
       choices = {
         { text = "I need your services.", next = "BUSINESS" },
         { text = "Why work in a graveyard?", next = "graveyard" },
         { text = "What becomes of a minion you unmake?", next = "unmake" },
         { text = "What you do is an abomination.", next = "abomination" },
-        { text = "My imp won't stop talking. Is that usual?", next = "imp", when = { class = "WARLOCK" } },
-        { text = "Which servant is the hardest to keep in hand?", next = "hardest", when = { class = "WARLOCK", minLevel = 20 } },
+        { text = "My imp never stops talking. Is that usual, or should I silence it?", next = "imp", when = { class = "WARLOCK" } },
+        { text = "Which servant is likeliest to slip its chains, Winslow?", next = "hardest", when = { class = "WARLOCK", minLevel = 20 } },
         { text = "How do the abbey's brothers stand you?", next = "brothers" },
+        { text = "You talk about binding as if it were a contract.", next = "contract", when = { class = "WARLOCK" } },
         { text = "Good day, Winslow.", next = "END" },
       },
     },
     graveyard = {
       lines = {
-        { id = "graveyard_1", text = "It's quiet, the brothers come here only to bury, and nobody lingers to ask what a gentleman is doing among the headstones. Besides, the dead make undemanding neighbours. They don't inform on one, and they never ask to borrow anything." },
+        { id = "graveyard_1", text = "It's quiet, the Brothers come out here only to bury, and nobody lingers to ask what a gentleman is doing among the headstones. Besides, the dead make undemanding neighbours; they don't inform on one, and they never ask to borrow anything." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     unmake = {
       lines = {
-        { id = "unmake_1", text = "It goes back to wherever such things wait, with its bond to the summoner cut cleanly. I'm told it's unpleasant for the creature. I've never heard one thank me, though the imps have a good deal else to say on the way out." },
+        { id = "unmake_1", text = "It goes back to wherever such things wait, with its bond to the summoner cut cleanly. I'm told it's unpleasant for the creature, though I've never heard one thank me; the imps have a great deal else to say on the way out." },
       },
       choices = {
         { text = "And the warlock?", next = "warlock" },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'd rather not know more. Something else.", next = "BACK" },
       },
     },
     warlock = {
       lines = {
-        { id = "warlock_1", text = "Is free to call another, with a new name and, one hopes, better manners. People imagine a warlock commands a kind of demon. In truth each has one particular servant of each kind, and some pairings are simply unhappy." },
+        { id = "warlock_1", text = "The warlock is free to call another, with a new name and, one hopes, better manners. People imagine a warlock commands demons by the dozen, but in truth each has one particular servant of each kind, and some pairings are simply unhappy." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Does the old one remember the warlock?", next = "warlock_remember", when = { class = "WARLOCK" } },
+        { text = "Back to other matters, then.", next = "BACK" },
       },
+    },
+    warlock_remember = {
+      lines = { { id = "wr_1", text = "I've always assumed so, and I've never met anyone who wanted to test it. That's the one clause in the arrangement I can't strike out for you, so I'd advise you not to unmake too many of them." } },
+      choices = { { text = "I'll keep that in mind.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     abomination = {
       big = true,
       lines = {
-        { id = "abomination_1", text = "So the brothers tell me, in gentler words. I'd ask you to consider that these creatures are being summoned whether I stand here or not. I only make certain that the ones in Elwynn are obedient, and that the disobedient ones are gone." },
+        { id = "abomination_1", text = "So the Brothers tell me, in gentler words. I'd ask you to consider that these creatures are being summoned whether I stand here or not, and that I only make certain the ones in Elwynn are obedient and the disobedient ones are gone." },
       },
       choices = {
         { text = "Then better a careful hand than none.", next = "BACK", reply = "Just so. I'm glad to meet someone who thinks past the first shudder.", fx = { align = { light = -1 }, affinity = 1 } },
-        { text = "No leash makes a demon safe. This should end.", next = "BACK", reply = "A common view, and an honest one. I'll go on being careful, all the same.", fx = { align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "No leash makes a demon safe. This should end.", next = "BACK", reply = "It's a common view, and an honest one. I'll go on being careful all the same.", fx = { align = { light = 1 } } },
+        { text = "Let's leave it there.", next = "BACK" },
       },
     },
     imp = {
       lines = {
-        { id = "imp_1", text = "Entirely usual, I regret to say. An imp obeys because it must and talks because it can, and the talking is where it keeps its rebellion. Give it work. A busy imp complains about the work, which is at least a change of subject." },
+        { id = "imp_1", text = "Entirely usual, I regret to say. An imp obeys because it must and talks because it can, and the talking is where it keeps its rebellion, so give it work. A busy imp complains about the work instead, which is at least a change of subject." },
+        { id = "imp_named", when = { pet = { family = "Imp" } }, text = "Entirely usual, I regret to say, and {pet} has been commenting on my coat since you arrived. An imp obeys because it must and talks because it can, so give it work; a busy imp complains about the work, which is at least a change of subject." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "What does it say when you're not listening?", next = "imp_say" },
+        { text = "I'll keep it busy. Something else.", next = "BACK" },
+      },
+    },
+    imp_say = {
+      lines = { { id = "imp_say_1", text = "Mostly it boasts of the Legion's great lords, as though it had dined with them, and of what it will do to you when it's free. I write the boasts down, because now and then one of them is true, and Mistress La Salle likes to know which." } },
+      choices = { { text = "That's unsettling. Let's talk of something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    contract = {
+      lines = {
+        { id = "contract_1", text = "Because it is one, and a far stricter one than any I drew up in Stormwind. The circle is the witness, the shard is the seal, and the terms are whatever your will can hold; the moment it holds less, the demon reads the clause you forgot." },
+      },
+      choices = {
+        { text = "Then what clause do most warlocks forget?", next = "contract_clause" },
+        { text = "Contracts can be broken by the stronger party.", next = "contract_broken" },
+      },
+    },
+    contract_clause = {
+      lines = { { id = "cc_1", text = "Duration. Young warlocks bind a servant and assume it's settled, as though a contract were a thing that happened once. It isn't; you are renewing it every moment the demon stands beside you, and the day you're tired, or frightened, or drunk in that inn, the term lapses." } },
+      choices = { { text = "Every moment, then. I'll remember.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    contract_broken = {
+      big = true,
+      lines = { { id = "cb_1", text = "They can, and that's why one never wants to be the weaker party. Tell me, when you look at your servant, which of you do you believe is stronger?" } },
+      choices = {
+        { text = "I am. It obeys because I make it.", next = "BACK", reply = "Good, and keep believing it; belief is half the binding. The other half is never being wrong about it.", fx = { align = { order = 1 } } },
+        { text = "It is, and it's only biding its time.", next = "BACK", reply = "An honest answer, and a rare one. Come and see me before it finishes biding.", fx = { align = { order = -1 }, affinity = 1 } },
       },
     },
     hardest = {
       lines = {
-        { id = "hardest_1", text = "The succubus, without question. A voidwalker resents you honestly, and a felhunter only wants feeding. She'll agree with everything you say for a month, and on the first day of the next you'll find you've been obeying her for three weeks." },
+        { id = "hardest_1", text = "The succubus, without question. A voidwalker resents you honestly and a felhunter only wants feeding, but she'll agree with everything you say for a month, and on the first day of the next you'll find you've been obeying her for three weeks." },
+        { id = "hardest_succ", when = { pet = { family = "Succubus" } }, text = "The one at your side, and I say it with her listening, because she knows it already. She'll agree with everything you say for a month, and on the first day of the next you'll find you've been obeying her for three weeks." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "How do I know if it's already happened?", next = "hardest_know" },
+        { text = "Then I'll watch her. Something else.", next = "BACK" },
       },
+    },
+    hardest_know = {
+      lines = { { id = "hk_1", text = "Ask yourself when you last gave her an order she disliked. If you can't remember, then I'm afraid you have your answer, and you'll want to give one today, in front of witnesses." } },
+      choices = { { text = "I'll give one today.", next = "BACK", fx = { trait = { stern = 1 } } } },
     },
     brothers = {
       lines = {
-        { id = "brothers_1", text = "With effort, on both sides. Brother Sammuel won't look at me, and Brother Neals looked once and then offered me wine, which I thought handsome of him. Marshal McBride has decided that so long as nothing follows me out of the graveyard, I'm the abbey's problem and not his." },
+        { id = "brothers_1", text = "With effort, on both sides. Brother Sammuel won't look at me, and Brother Neals looked once and then offered me wine, which I thought handsome of him. Marshal McBride has decided that so long as nothing follows me out of the graveyard, I'm the Abbey's problem and not his." },
       },
       choices = {
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },
   topics = {
     background = { { id = "tp_background", text = "I kept accounts for a merchant house in Stormwind, once. One learns a great deal about binding contracts in that trade, and I found it carried over." } },
-    northshire_abbey = { { id = "tp_northshire_abbey", text = "A good, plain house of the Light, and more tolerant than it knows. I've stood in its graveyard a good while now, and it has only prayed at me." } },
-    advice = { { id = "tp_advice", text = "Never let a servant choose its own task, however small. That's the first inch, and they are all of them patient." } },
-    rumors = { { id = "tp_rumors", text = "A novice of the abbey ran off with a book he'd no business reading. Mistress La Salle is displeased, and I'd not care to be the novice." } },
-    _none = { { id = "tp_none", text = "That lies outside my field, and I never speak outside my field. It's how I've kept it." } },
+    northshire_abbey = { { id = "tp_northshire_abbey", text = "It's a good, plain house of the Light, and more tolerant than it knows. I've stood in its graveyard a good while now, and it has only prayed at me." } },
+    advice = { { id = "tp_advice", text = "Never let a servant choose its own task, however small, because that's the first inch, and they are all of them patient." } },
+    rumors = { { id = "tp_rumors", text = "A novice of the Abbey ran off with a book he'd no business reading. Mistress La Salle is displeased, and I'd not care to be the novice." } },
+    _none = { { id = "tp_none", text = "That lies outside my field, and I never speak outside my field; it's how I've kept it." } },
   },
 }
 

@@ -9,7 +9,7 @@ P:NPC {
   key = "jeena", id = TODO_NPC("Jeena Featherbow"), name = "Jeena Featherbow", title = "Bowyer",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "dolanaar" }, temper = { "lively", "frank" }, values = { "craft", "self-reliance" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She will happily tell you everything wrong with how you shoot.",
     third = "{name} met Jeena Featherbow, Dolanaar's frank and cheerful bowyer.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A hunter, and your quiver's half empty. Gnarlpine hide is tough, so you'll want the sharper heads before you go near Ban'ethil." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior wanting a bow? Good. Pulling a harpy down to you is a lot safer than climbing up after her." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack hums, and it is a bad hum, the kind my bowstrings make in a cold wind before they snap. Those are soul shards, I suppose, and I would rather you set them down far from my strings." },
   },
 
   start = "hello",
@@ -109,11 +111,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Run, mostly, or let your servant take the blows while you catch your breath, which is what I've seen your kind do on the road to Darnassus. My hunters can't count on that, so they practise until their arms ache, and I'd say the same to you with a wand." },
+        { id = "xlock_default", text = "Run, mostly, or let that creature take the blows while you catch your breath, which is what I've seen your sort do on the road to Darnassus. My hunters can't count on that, so they practise until their arms ache, and I'd say the same to you with a wand." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Run, mostly, or let your servant take the blows while you catch your breath. Yours looks ready enough for it, standing there between us as though I were the threat, but it won't always be there, so practise with a wand until your arms ache the way my hunters do." },
       },
       choices = {
-        { text = "Fair. I'll practise with my wand.", next = "BACK", reply = "A wand is better than nothing, warlock, and a good deal better than running. Practise well.", fx = { align = { order = 1 } } },
-        { text = "My servant takes the blows. That's what it's for.", next = "BACK", reply = "It is, until it falls, and then you will wish you had practised. I have seen it happen.", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll practise with my wand.", next = "BACK", reply = "A wand is better than nothing, and a good deal better than running. Practise well.", fx = { align = { order = 1 } } },
+        { text = "My companion takes the blows. That's what it's for.", next = "BACK", reply = "It is, until it falls, and then you will wish you had practised. I have seen it happen.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
@@ -127,7 +130,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior buying from me? Most of your lot think a bow is a stick for poking people from a distance." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and with a bow I didn't sell you, by the look of it. Let me see how you hold it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need my bows, I know, but plenty of young druids passing through still buy a quiver for a friend, so I'm always glad to see you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You can't draw a bow, I know, but I'd love to know what you'll do when the Gnarlpine get close and your spells run dry." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You can't draw a bow, I know, but I'd love to know what you'll do when the Gnarlpine get close and your spells run dry." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Spirits or no, I'd wager you hold a bow wrong, as everyone does at first, so let me show you how the Sentinels hold one." },
       },
       again = {
@@ -146,7 +149,7 @@ P:NPC {
         { text = "Do the Sentinels really pray before they shoot?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin fight up close, Jeena?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Circle mind that you sell bows to hunters, Jeena?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What should a warlock do when the spells run dry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What should I do when the spells run dry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What am I doing wrong with my bow, Jeena?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Jeena.", next = "END" },
       },
@@ -204,7 +207,7 @@ P:NPC {
   key = "kyra", id = TODO_NPC("Kyra Windblade"), name = "Kyra Windblade", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "steady", "encouraging" }, values = { "courage", "duty" },
-  notices = { "class", "greenness" },
+  notices = { "class", "greenness", "lock_armor" },
   impression = {
     first = "She measures students by how they get up, not how they fall.",
     third = "{name} met Kyra Windblade, the steady warrior trainer of Dolanaar.",
@@ -220,6 +223,8 @@ P:NPC {
       text = "You're fresh down from Shadowglen, I can tell by the way you hold your shoulders. Relax them before a grell teaches you to." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You walk like someone who'd rather strike from behind. It works, but one day you'll have to face someone, and I'd like you to be ready." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward you wear is demon skin, and it turns a blow nearly as well as mail, which I will grudgingly admire. Still, armor you summon is armor you lose the moment your will falters, so do not let it teach you to stand careless." },
   },
 
   start = "hello",
@@ -320,11 +325,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Not wrong, only risky, because the day your servant falls you'll have to stand up by yourself. I measure a student by how they get up, and I'd like to know you can do it without help." },
+        { id = "xlock_default", text = "Not wrong, only risky, because the day that thing falls you'll have to stand up by yourself. I measure a student by how they get up, and I'd like to know you can do it without help." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not wrong, only risky, because the day your servant falls you'll have to stand up by yourself. It's watching me now as though it means to step in on your behalf, so send it to the edge of the yard, and let me see how you get up without it." },
       },
       choices = {
         { text = "I'll learn to stand on my own.", next = "BACK", reply = "Then you will be a warlock I would trust beside me. Come back, and we will begin.", fx = { align = { honor = 1 } } },
-        { text = "That's what the servant is for, trainer.", next = "BACK", reply = "It is, until it falls, and then it is only you. I would rather you could stand alone.", fx = { align = { honor = -1 } } },
+        { text = "That's what it's for, trainer. Better it bleeds than me.", next = "BACK", reply = "It is, until it falls, and then it is only you. I would rather you could stand alone.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -339,7 +345,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll still want to know how to fight when something reaches you, so don't think my lessons aren't for you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't train with me, but I've watched young druids take a beating from the Gnarlpine and get back up in bear shape, and that's half of what I teach." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, in Dolanaar? You're a long way from any tower, and I'd guess you've noticed by now how far a Gnarlpine can run while you're still casting." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I train warriors to stand their ground, and I see you've brought something to stand it for you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I train warriors to stand their ground, and I see you've brought something to stand it for you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I measure students by how they get up, not by how they fall, and I suspect your spirits have helped you up more than once." },
       },
       again = {
@@ -355,7 +361,7 @@ P:NPC {
         { text = "Should your students learn to lean on a healer, Kyra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have your students learn from a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage learn anything from a warrior, Kyra?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is it wrong to let my servant take the blows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is it wrong to let my companion take the blows?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think falling teaches more than winning, Kyra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Kyra.", next = "END" },
         { text = "What will you teach me before Darnassus, Kyra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -416,7 +422,7 @@ P:NPC {
   key = "cyndra", id = TODO_NPC("Cyndra Kindwhisper"), name = "Cyndra Kindwhisper", title = "Alchemy Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "soft-spoken", "curious" }, values = { "knowledge", "healing" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "She speaks so softly that I leaned in to hear her.",
     third = "{name} met Cyndra Kindwhisper, the quiet alchemy trainer of Dolanaar.",
@@ -430,6 +436,8 @@ P:NPC {
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You've been picking silverleaf, I can smell it on your gloves. Malorne Bladeleaf, our herbalist, must be teaching you well." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? Everything I brew takes a season of tending, and you made that in a moment from a fragment of someone's soul, which troubles me more than any poison on my shelf." },
   },
 
   start = "hello",
@@ -515,9 +523,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Earthroot and peacebloom are gentle things, and mine always seem to wilt near anything that came out of the Twisting Nether. Perhaps it's only my fancy, but I'd rather not lose a morning's harvest finding out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Earthroot and peacebloom are gentle things, and mine always seem to wilt near anything that came out of the Twisting Nether. Your demon is standing right beside my best bed, and I'd swear the petals are curling already, so would you call it back before I lose a morning's harvest?" },
       },
       choices = {
-        { text = "I'll leave it outside. Your herbs come first.", next = "BACK", reply = "Thank you, warlock. The last imp through here wilted a whole bed of silverleaf just by sulking at it.", fx = { align = { light = 1 } } },
+        { text = "I'll leave it outside. Your herbs come first.", next = "BACK", reply = "Thank you. The last little horror through here wilted a whole bed of silverleaf just by sulking at it.", fx = { align = { light = 1 } } },
         { text = "Fancy, then. It stays with me.", next = "BACK", reply = "Then please keep it on the far side of the garden, at least. The herbs wilt so easily.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -530,7 +539,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please be gentle with my shelves, because potions don't like being jostled, and neither do I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You walk where the herbs grow, so tell me, have you seen any peacebloom near the lake?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm glad, because you'll hear what the herbs are saying better than I can, and I've been worried about the peacebloom near the Gnarlpine camps." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you alchemy if you'd like, the same as anyone, though I'll ask you to leave your servant outside, because the herbs don't like it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll teach you alchemy if you'd like, the same as anyone, though I'll ask you to leave your companion outside, because the herbs don't like it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Lean in, please, for I speak softly. Every herb on Teldrassil has something to tell me, and perhaps your spirits do too." },
       },
       again = {
@@ -548,7 +557,7 @@ P:NPC {
         { text = "Do potions and prayers heal in the same way, Cyndra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would your potions serve a paladin in a long fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's wrong with the peacebloom by the Gnarlpine camps, Cyndra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why would the herbs mind my servant, Cyndra?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would the herbs mind my companion, Cyndra?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do herbs really speak to you, Cyndra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Cyndra.", next = "END" },
       },
@@ -607,7 +616,7 @@ P:NPC {
   key = "malorne", id = TODO_NPC("Malorne Bladeleaf"), name = "Malorne Bladeleaf", title = "Herbalism Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "patient", "reverent" }, values = { "nature", "balance" },
-  notices = { "craft", "form" },
+  notices = { "craft", "form", "lock_shadow" },
   impression = {
     first = "He spoke more kindly to the plants than to most people.",
     third = "{name} met Malorne Bladeleaf, the patient herbalism trainer of Dolanaar.",
@@ -621,6 +630,8 @@ P:NPC {
   notice = {
     { id = "n_bear", cat = "form", when = { form = { "bear", "cat" } },
       text = "Please don't trample the seedlings with those great paws. They took me a whole season to coax up." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The earthroot under the bench has folded its leaves, which it does at dusk and at nothing else, and yet the sun is high. Whatever darkness you carry, please carry it a little farther from my beds." },
   },
 
   start = "hello",
@@ -686,9 +697,10 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "There's no herb on Teldrassil that grew for darkness, and if you are looking for one, you will not find it here. Keep your questions for your trainers in Stormwind, and keep whatever you carry away from my beds." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "There's no herb on Teldrassil that grew for darkness, and if you are looking for one, you will not find it here. Your servant is standing in my peacebloom as if it wants to prove otherwise, so take it out of my beds, and keep your questions for your trainers in Stormwind." },
       },
       choices = {
-        { text = "Only curiosity. I'll leave your beds alone.", next = "BACK", reply = "Then you are welcome, warlock, and so is your curiosity. Leave the beds as you found them.", fx = { align = { light = 1 } } },
+        { text = "Only curiosity. I'll leave your beds alone.", next = "BACK", reply = "Then you are welcome, and so is your curiosity. Leave the beds as you found them.", fx = { align = { light = 1 } } },
         { text = "Every herb has a dark use, if you look.", next = "BACK", reply = "Perhaps, if you look for it, but I would rather you did not. Look for the light in them instead.", fx = { align = { light = -1 } } },
         { text = "How do you gather properly?", next = "gather" },
       },
@@ -792,7 +804,7 @@ P:NPC {
   key = "nadyia", id = TODO_NPC("Nadyia Maneweaver"), name = "Nadyia Maneweaver", title = "Leatherworking Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "hospitable", "particular" }, values = { "home", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
   impression = {
     first = "She is very particular about small, neat stitches.",
     third = "{name} met Nadyia Maneweaver, who teaches leatherworking from her home west of Dolanaar.",
@@ -806,6 +818,8 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "Let me see that seam on your sleeve. Hmm, it's better than most, though I'd tighten it before it gives way." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There is a soulstone in your pack, unspent, and it pulls at me the way a deep pool pulls at a swimmer. I do not know whose soul it waits for, but I hope they never need it." },
   },
 
   start = "hello",
@@ -891,10 +905,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. The trouble is the servant, which sits in the corner and stares at Radnaal until he can't skin straight." },
+        { id = "xlock_default", text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. The trouble is the thing they bring, which sits in the corner and stares at Radnaal until he can't skin straight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. And here's the trouble already, your servant staring at Radnaal from across the yard, so if you want lessons, it waits out of his sight." },
       },
       choices = {
-        { text = "I'll leave it outside while I learn.", next = "BACK", reply = "Thank you, warlock. Radnaal would have thrown it out by the tail, and then lectured me for an hour.", fx = { align = { order = 1 } } },
+        { text = "I'll leave it outside while I learn.", next = "BACK", reply = "Thank you. Radnaal would have thrown it out by the tail, and then lectured me for an hour.", fx = { align = { order = 1 } } },
         { text = "Radnaal will have to get used to it.", next = "BACK", reply = "He will not, I am afraid, and neither will the hides. Leave it outside, please.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -909,7 +924,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your leather's been stitched in a hurry, and I'd love to take it apart and do it properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting leather that moves quietly through the brush, and that I can do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in our house! Come in, and mind the hides by the door, because Radnaal says the Circle always looks at them as though they were old friends." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Come in all the same, but mind that your servant doesn't scorch my hides, because a scorch mark ruins a whole day's stitching." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Come in all the same, but mind that creature of yours doesn't scorch my hides, because a scorch mark ruins a whole day's stitching." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome as a guest! I am particular about small things, the way my mother's mother was, and I imagine your spirits must be particular too." },
       },
       again = {
@@ -928,7 +943,7 @@ P:NPC {
         { text = "Do the hides ever trouble you, Nadyia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you really make a jerkin to go under plate?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is it hard to make leather for a druid, Nadyia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do warlocks ever take up leatherworking?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do folk like me ever take up leatherworking?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why are you so particular, Nadyia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Nadyia.", next = "END" },
       },
@@ -986,7 +1001,7 @@ P:NPC {
   key = "radnaal", id = TODO_NPC("Radnaal Maneweaver"), name = "Radnaal Maneweaver", title = "Skinning Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "dolanaar" }, temper = { "quiet", "gruff" }, values = { "respect", "craft" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shards" },
   impression = {
     first = "He speaks with real respect for the animals he skins.",
     third = "{name} met Radnaal Maneweaver, the taciturn skinning trainer who shares a house with Nadyia.",
@@ -1000,6 +1015,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { family = "Cat" } },
       text = "You're traveling with a cat, so I'll keep the nightsaber pelts out of its sight. It doesn't seem right to make it watch." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is full of soul shards, and the hides on my rack have stiffened as if the beasts remember dying. Thank them as you pass, if you have any thanks left in you." },
   },
 
   start = "hello",
@@ -1065,10 +1082,11 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Keep it away from my hides, and from Nadyia's, and from me. The kaldorei have seen what the Legion's servants do to living things, and a dead nightsaber deserves better than to be singed by one." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Keep it away from my hides, and from Nadyia's, and from me, and I mean that thing standing behind you right now. The kaldorei have seen what the Legion's servants do to living things, and I can smell the scorch on it from here, so it waits outside." },
       },
       choices = {
-        { text = "Understood. It stays well away.", next = "BACK", reply = "Thank you, warlock. Fel-scorch never comes out of a hide, and Nadyia would have had words with us both.", fx = { align = { light = 1 } } },
-        { text = "It's a tool, like your knife.", next = "BACK", reply = "My knife never burned a forest, warlock. Keep it away from me.", fx = { align = { light = -1 } } },
+        { text = "Understood. It stays well away.", next = "BACK", reply = "Thank you. Fel-scorch never comes out of a hide, and Nadyia would have had words with us both.", fx = { align = { light = 1 } } },
+        { text = "It's a tool, like your knife.", next = "BACK", reply = "My knife never burned a forest. Keep that thing away from me.", fx = { align = { light = -1 } } },
         { text = "What's the best hide here?", next = "best" },
       },
     },
@@ -1116,7 +1134,7 @@ P:NPC {
         { text = "Skinning's just knifework. I've plenty of that.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Should I skin what I kill, Radnaal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you honor the beasts you skin, Radnaal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "My servant could help you, if you like.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My companion could help you, if you like.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you give thanks for every beast you skin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you teach skinning to a paladin, Radnaal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How can a druid make peace with skinning, Radnaal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1169,7 +1187,7 @@ P:NPC {
   key = "nessa", id = TODO_NPC("Nessa Shadowsong"), name = "Nessa Shadowsong", title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "rutheran" }, temper = { "cheerful", "chatty" }, values = { "friendship", "trade" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
   impression = {
     first = "She talks about Auberdine as if it were next door.",
     third = "{name} met Nessa Shadowsong, the cheerful fishmonger of Rut'theran Village.",
@@ -1183,6 +1201,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "You've got the smell of a proper angler about you, and I mean that kindly. Androl Oakhand, who teaches fishing down by the water, will be pleased to see you." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You've the warlock's breath on you, haven't you, the spell that lets you walk the sea floor like a road? The fish dive deep when your kind come near, so if you're down there anyway, tell me where they've gone." },
   },
 
   start = "hello",
@@ -1268,9 +1288,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd guess they can feel it, the way they feel a storm coming before the sky turns, so they dive deep and stay there. Laird in Auberdine swears it's the same over there, and he and I don't agree about anything, so it must be true." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they can feel it, the way they feel a storm coming before the sky turns, so they dive deep and stay there. Look at the water now, with your {pet} on the pier, not a ripple anywhere, and I'll grant Laird was right about one thing in his life." },
       },
       choices = {
-        { text = "Then it'll wait on the dock, and the fish can sulk in peace.", next = "BACK", reply = "Thank you, warlock, and the fish will be grateful. So will I.", fx = { align = { order = 1 } } },
+        { text = "Then it'll wait on the dock, and the fish can sulk in peace.", next = "BACK", reply = "Thank you, and the fish will be grateful. So will I.", fx = { align = { order = 1 } } },
         { text = "The fish will have to get over it.", next = "BACK", reply = "They will not, I am afraid, and neither will the fishermen. Leave it on the dock, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1306,7 +1327,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the docks! Mind your armor near the edge, because nobody wants to fish you out." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know what a good catch is worth, since you know what it took to land it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've seen your sort slip into the water as a seal and come up halfway to Auberdine, and you don't know how much I envy you on a cold morning." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran! The fish won't bite with your servant leaning over the water, I promise you, so let it wait on the dock." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The fish won't bite with that creature of yours leaning over the water, I promise you, so let it wait on the dock." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every boat and every fisherman on this shore, and Auberdine across the water is like a second home to me." },
       },
       again = {
@@ -1326,7 +1347,7 @@ P:NPC {
         { text = "What's troubling your friends in Auberdine, Nessa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anyone on the docks need help, Nessa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the fish mind a druid swimming among them, Nessa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why won't the fish bite near my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why won't the fish bite near my companion?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the boats to Auberdine run safely, Nessa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Nessa.", next = "END" },
       },
@@ -1396,7 +1417,7 @@ P:NPC {
   key = "androl", id = TODO_NPC("Androl Oakhand"), name = "Androl Oakhand", title = "Fishing Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "rutheran" }, temper = { "slow", "content" }, values = { "patience", "simplicity" },
-  notices = { "craft" },
+  notices = { "craft", "lock_pact" },
   impression = {
     first = "It is oddly restful to stand beside him.",
     third = "{name} met Androl Oakhand, the slow and patient fishing trainer of Rut'theran Village.",
@@ -1410,6 +1431,8 @@ P:NPC {
   notice = {
     { id = "n_skill", cat = "craft", when = { profession = { name = "Fishing", min = 150 } },
       text = "You've learned all I have to teach already, I think. There's an old fisherman in Booty Bay with a book that goes further, if you've the patience to sail that far." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a heat in your cheeks that the sea air ought to cool, and it doesn't, which tells me some imp has made its pact with your blood. Sit in the breeze a while; the fish won't mind, and neither will I." },
   },
 
   start = "hello",
@@ -1495,6 +1518,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I couldn't say, and I wouldn't guess, because a man who fishes long enough learns not to guess what's under the water. I'll only say that patience serves you better here than any pact, so set the line and wait." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I couldn't say, and I wouldn't guess, because a man who fishes long enough learns not to guess what's under the water. Though I'll say your servant's been staring into it since you sat down, and the fish have noticed, so set the line and let patience do what a pact can't." },
       },
       choices = {
         { text = "Patience it is. I'll learn your way.", next = "BACK", reply = "Then sit, and we will wait together. The fish are patient too.", fx = { align = { light = 1 } } },
@@ -1520,7 +1544,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit down, put the sword aside and hold this pole, and see whether you can stand to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know about waiting already, I expect, so we'll get along." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Patience is the heart of fishing, and I'm told the Circle can sleep for years, so you may be the only students who find my lessons too short." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll have to be patient to learn fishing, and I've found your kind usually are, if only because you're waiting for something." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'll have to be patient to learn fishing, and I've found folk with your look usually are, if only because you're waiting for something." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I do everything slowly, fishing and talking alike, as my people always have, and your spirits might enjoy the pace." },
       },
       again = {
@@ -1539,7 +1563,7 @@ P:NPC {
         { text = "Is fishing really so much like prayer, Androl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What could fishing teach a paladin, Androl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is fishing much like a druid's patience, Androl?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What do you think warlocks are waiting for, Androl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do you think I'm waiting for, Androl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is slowness the secret of fishing, Androl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Androl.", next = "END" },
       },

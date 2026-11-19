@@ -176,7 +176,7 @@ P:NPC {
         { text = "This bar could use some of the Blue Recluse's cheer.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why haven't your shipments come through, Daniels?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What game would sell well at your bar, Daniels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "The Blackrock have warlocks, Daniels. I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Whatever the Blackrock casters are, Daniels, I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers tell you what they've seen out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the soldiers keep the peace in your bar, Daniels?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What became of your stock, Daniels?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

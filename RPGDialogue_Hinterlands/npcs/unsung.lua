@@ -7,7 +7,7 @@ P:NPC {
   title = "Gryphon Master",
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "aerie_peak" }, temper = { "hearty", "proud" }, values = { "loyal", "brave" },
-  notices = { "race", "mount" },
+  notices = { "race", "mount", "lock_steed" },
 
   impression = {
     first = "He has little patience for anyone who calls his gryphons mounts.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "A dwarf of Ironforge, by yer braids. Ye'll find our birds fly a deal wilder than the ones yer people keep under the mountain, so hold on tight and don't shout at them." },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Ye rode up here on that? Leave it at the foot of the Peak, friend; the gryphons think anything with four legs is supper." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Ye call that thing a mount, don't ye, wi' its hooves on fire an' its eyes like coals? A gryphon's no mount, it's a partner, an' I'll thank ye no' tae compare 'em." },
   },
 
   start = "hello",
@@ -87,7 +89,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Always, an' they don't like it, but they're soldiers at heart an' they'll carry ye anyway, so long as ye don't bring yer wee friend on the saddle. Treat a Wildhammer gryphon wi' respect an' it'll fly through a storm for ye, an' treat it ill an' ye'll find out how far it is tae the ground." } },
+      lines = {
+        { id = "xlock_default", text = "Always, an' they don't like it, but they're soldiers at heart an' they'll carry ye anyway, so long as ye don't bring yer wee shadow on the saddle. Treat a Wildhammer gryphon wi' respect an' it'll fly through a storm for ye, an' treat it ill an' ye'll find out how far it is tae the ground." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Always, an' they don't like it, an' they like it even less wi' yer demon stood right here on the perch. They'll carry ye anyway, for they're soldiers at heart, but send the thing off before ye mount, or ye'll find out how far it is tae the ground." },
+      },
       choices = {
         { text = "I'll treat your gryphons with respect, Guthrum.", next = "BACK", reply = "Good. They'll carry ye smoother for it, an' I'll sleep easier.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A beast is a beast. It'll carry me regardless.", next = "BACK", reply = "It will, aye, an' it'll remember ye. I've seen a bird wait three years tae nip a rider who kicked it once, an' it got him good.", fx = { align = { honor = -1 } } },
@@ -111,7 +116,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand my birds better than most, then, for ye know a beast's a comrade an' no a saddle wi' feathers." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons don't take kindly tae shapechangers, so stay on two legs on the platform, if ye please." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds'll carry ye gladly, {class}, an' I'll ask ye tae say a word for the riders who've no' come back from Jintha'Alor this season, for there's been more than I'd like." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Ye'll fly, {class}, for ye're Alliance an' that's the rule, but the birds'll know what ye are, so dinnae expect a smooth ride." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye'll fly, {g:lad|lass}, for ye're Alliance an' that's the rule, but the birds'll smell what ye've been handlin', so dinnae expect a smooth ride." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The birds are restless, and so am I." },
@@ -130,7 +135,7 @@ P:NPC {
         { text = "Do your gryphons get along with a hunter's beast, Guthrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Wildhammer worry about the land, Guthrum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "You must have lost riders to Jintha'Alor, Guthrum.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Do gryphons always know what a warlock is, Guthrum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do gryphons always know what a rider's hiding, Guthrum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a Wildhammer gryphon carry an Ironforge shaman gladly, Guthrum?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Fair winds.", next = "END" },
       },
@@ -222,7 +227,7 @@ P:NPC {
   title = "Blacksmithing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "aerie_peak" }, temper = { "gruff", "grudging" }, values = { "practical", "honest" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "Under the grumbling, he is proud to keep the Wildhammer forges lit.",
@@ -239,6 +244,8 @@ P:NPC {
       text = "Ye've soot under yer nails, so ye're a smith or a miner or both. Good, because I'm tired of selling flux to folk who think it's some sort o' pipeweed." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, all the way up here. If ye're after gears and springs, I've none; this is a forge shop, not a tinkerer's, so don't go poking at the bellows." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That stone in yer pack's glowin' hotter than my coal, an' I'd ask ye tae take it outside before it sets fire tae somethin'. I've enough trouble wi' the forge wi'out a warlock's ember in it." },
   },
 
   start = "hello",
@@ -335,7 +342,7 @@ P:NPC {
         { text = "Someone at the Peak must be buying all this iron.", next = "buyers" },
         { text = "The road up the mountain looks dangerous.", next = "road" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
-        { text = "Does a warlock's custom bother the Wildhammer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would the Wildhammer mind my coin, if they knew where my power came from?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You must lose a good deal on that mountain path.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it hard keeping the Wildhammer forges supplied, Harggan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the Witherbark ever attacked your carts, Harggan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -358,9 +365,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' some o' them lost kin to it. If ye're buyin' from me, buy it quiet, an' don't summon anythin' in the shop." } },
+      lines = {
+        { id = "xlock_default", text = "They'd mind plenty, for they remember the Horde's demon fire over these hills, an' some o' them lost kin to it. If ye're buyin' from me, buy it quiet, an' don't call up anythin' in the shop." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' I can see two o' them through my window starin' at yer demon now. If ye're buyin' from me, buy it quick, an' take that thing back out the door wi' ye." },
+      },
       choices = {
-        { text = "Demon fire burned your hills. I won't forget that.", next = "BACK", reply = "Thank ye. Some o' the old riders will be glad tae hear it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That fire burned your hills. I won't forget it.", next = "BACK", reply = "Thank ye. Some o' the old riders will be glad tae hear it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. The Horde just used it better.", next = "BACK", reply = "Better? Ye'll no' say that in front o' the riders, if ye want tae keep yer teeth.", fx = { align = { light = -1 } } },
         { text = "I'll mind my manners. Something else.", next = "BACK" },
       },

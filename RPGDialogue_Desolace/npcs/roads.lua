@@ -173,6 +173,10 @@ P:NPC {
     { id = "g_main", text = "Mind the wheel, friend. That one's been squeaking since Thunder Axe and I'm not fixing it on the road." },
     { id = "g_back", when = { metBefore = true }, text = "Back with the caravan, are you? Good, I'll take any company that helps me watch our tail." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone in your pack? I count everything that comes into this caravan, so I'll have to write it down as one green rock, warm, smelling of somebody else's blood." },
+  },
   start = "hello",
   nodes = {
     xwarcl = {
@@ -207,10 +211,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." } },
+      lines = { { id = "xlock_default", text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos are lowing at your demon now the same way they did then, so take it to the back of the caravan, or I'll be rounding them up for another two days." } },
       choices = {
         { text = "My minion follows my word. Your kodos are safe.", next = "BACK", reply = "Thank you, and I'll mark it in the ledger, because a promise like that is worth writing down.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your kodos will learn. Demons aren't going anywhere.", next = "BACK", reply = "They won't, I promise you, and if they stampede again, I'll be adding the cost to your account.", fx = { align = { order = -1 } } },
+        { text = "Your kodos will learn. Demons aren't going anywhere, and neither am I.", next = "BACK", reply = "They won't, I promise you, and if they stampede again, I'll be adding the cost to your account.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -262,7 +266,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, good. If anything goes wrong on this run, you'll be the one patching up the drivers, and I'll write down how many bandages you used." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Don't conjure anything into my wagons, please, because I count the crates, and an extra one is just as much trouble as a missing one." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Then you'll appreciate that every lock on this caravan was bought from a goblin who swore it couldn't be picked, and I'd hate to find out he lied." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Please keep that little fellow of yours away from the kodos, because they spook at the smell of him and I'm the one who has to calm them down." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Please keep that little fellow of yours away from the kodos. They spook at the smell of him, and I'm the one who has to calm them down." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in full plate, in Desolace! You'll cook in that, you know, but I'll gladly put you on the books as caravan guard if you can keep up with a kodo." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, would you mind having a word with the kodos? They've been sulking since Feralas, and a sulking kodo walks half as fast and eats twice as much." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because if anything goes wrong between here and Feralas, you're the closest thing to a healer this caravan has ever had." },
@@ -278,7 +282,7 @@ P:NPC {
         { text = "What does the back of the caravan need most?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do you ever cheat the books?", next = "s_1" },
         { text = "Someone seems to be selling your route, Rigger.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Have your kodos always feared demons, Rigger?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have your kodos always feared demons, Rigger, or only mine?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the centaur hit the back of the caravan, Rigger?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the caravan ever lose kodos to wild beasts, Rigger?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You'll want protecting on this road, Rigger.", next = "xapala", when = { class = "PALADIN" } },
@@ -355,6 +359,10 @@ P:NPC {
     { id = "g_main", text = "Hey, hey, buddy! A fresh face, and you look like someone who can handle a kodo, so come here, come here, because I've got a business opportunity and the paperwork's already drawn up." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite contractor's back! Got time for a little roundup work, buddy? The rates haven't changed, which in Desolace is practically a gift." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every kodo in my pen just turned its head toward you and stopped chewing, buddy, which is more attention than they've given anybody all week. Whatever you're carrying, it's bad for the livestock and worse for business." },
+  },
   start = "hello",
   nodes = {
     xwarcl = {
@@ -397,7 +405,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd. The trouble is every kodo in the Graveyard bolts at the first whiff of brimstone, so your demon would cost me more in runaways than it saves." } },
+      lines = { { id = "xlock_default", text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd. The trouble is every kodo in the Graveyard bolts at the first whiff of brimstone, so your demon would cost me more in runaways than it saves." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd, but I can smell the brimstone on your demon from here. Every kodo in the Graveyard would bolt at the first whiff of it, so that thing costs me more in runaways than it saves." } },
       choices = {
         { text = "My demons aren't hired hands. Find another shepherd.", next = "BACK", reply = "Fair enough, pal, and I'll find someone without the brimstone smell, though it'll cost me more.", fx = { align = { order = 1 } } },
         { text = "A demon will work if the price is right. Make an offer.", next = "BACK", reply = "Ha, now you're talkin', but you'll keep the little horror well downwind of the herd, or it's on your bill.", fx = { affinity = 1, align = { order = -1 } } },
@@ -538,6 +546,10 @@ P:NPC {
     { id = "g_main", text = "Thank the Light, a friendly face! Please, keep your voice down; they walk past this door every hour." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I wasn't sure anyone would, not in this place." },
   },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "The cultists wore that same dark hide over their robes when they prayed to their masters, and I used to watch it twitch in the firelight. I hope you're wearing it for a better reason than they did." },
+  },
   start = "hello",
   nodes = {
     xdsham = {
@@ -590,9 +602,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know enough to say, and I hope I never will. All I know is that they kneel to their demons and pray to them, and I've never once heard any of them give an order to one." } },
+      lines = { { id = "xlock_default", text = "I don't know enough to say, and I hope I never will. All I know is that they kneel to their demons and pray to them, and I've never once heard any of them give an order to one." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know enough to say, and I hope I never will, though please, could it stop looking at me like that? All I know is that they kneel to their demons and pray to them, and yours is looking at me the very same way theirs did." } },
       choices = {
-        { text = "I command my demon. I'll never kneel to one.", next = "BACK", reply = "Good, because I've seen what happens to those who kneel, and it isn't power that they get.", fx = { align = { order = 1 } } },
+        { text = "I hold the chain. I'll never kneel to what's on the end of it.", next = "BACK", reply = "Good, because I've seen what happens to those who kneel, and it isn't power that they get.", fx = { align = { order = 1 } } },
         { text = "Perhaps they know something I don't. Power is power.", next = "BACK", reply = "Please don't say that, not here, because those are the exact words they used when they took me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -631,7 +643,7 @@ P:NPC {
         { text = "Did they treat you badly in here, Dalinda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "They must have let things slip while they held you, Dalinda.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How many sorcerers do they have here, Dalinda?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do the Burning Blade warlocks differ from me, Dalinda?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How do the cultists differ from someone like me, Dalinda?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The cult has ruined the land around here.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can the spirits help us out of here, Dalinda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
@@ -804,7 +816,7 @@ P:NPC {
         { text = "Tell me about the Burning Blade.", next = "b1_1" },
         { text = "Why do they call you Demonslayer?", next = "b2_1" },
         { text = "What of Dalinda Malem?", next = "b3_1" },
-        { text = "I command demons too, and I serve no cult.", next = "x_1", when = { class = "WARLOCK" } },
+        { text = "I've stood near that fire too. I serve no cult.", next = "x_1", when = { class = "WARLOCK" } },
         { text = "Some of the Blade's followers might still be saved.", next = "s_1" },
         { text = "How do you get past the Blade's sentries, Vahlarriel?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What kind of magic do the Blade's sorcerers use, Vahlarriel?", next = "xmage", when = { class = "MAGE" } },
@@ -868,6 +880,12 @@ P:NPC {
   greetings = {
     { id = "g_main", text = "Misha doesn't like you yet. Give her time, and don't make any sudden moves." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Misha remembers you, which is a good sign." },
+  },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Misha's growling at your pack, and she's right to, because there are souls in there crying to be let go. The Horde was once a slave to the things that taught you to take them, so mind you never take one too many." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell of the same fel that soaked into the Horde before Thrall freed it, and you've drunk deep, by the reek of it. Misha won't come near you, and I trust her nose over any warlock's word." },
   },
   start = "hello",
   nodes = {
@@ -938,9 +956,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." } },
+      lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I hold it against anyone who thinks the demons can be mastered, and that one at your heel is waiting for the day you slip, as they all do. Thrall broke the chain that bound the Horde, and I'll not watch you forge a new link in it." } },
       choices = {
-        { text = "I master my demons. The old Horde was weak, not cursed.", next = "BACK", reply = "The old Horde thought itself strong too, and it drank the blood, so do not tell me it was weak.", fx = { align = { order = -1 } } },
+        { text = "I master what I bind. The old Horde was weak, not cursed.", next = "BACK", reply = "The old Horde thought itself strong too, and it drank the blood, so do not tell me it was weak.", fx = { align = { order = -1 } } },
         { text = "I know the price. I won't let the Horde pay it again.", next = "BACK", reply = "Remember it every day, because the Horde has forgotten once already, and I was there when it did.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
@@ -979,7 +997,7 @@ P:NPC {
         { text = "I was born behind a fence in the human camps.", next = "o_camp", when = { origin = "orc_camp_born" } },
         { text = "My clan cuts Ashenvale's trees. Does that sit badly with you?", next = "big_wild", when = { origin = "orc_warsong_kin" } },
         { text = "What do the wilds teach that the cities don't, Rexxar?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you hold the orcs' past against warlocks, Rexxar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you hold the orcs' past against my kind, Rexxar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The wilds must teach a warrior things no city can.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How did you and Misha come to hunt together, Rexxar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You seem to judge creatures differently from most, Rexxar.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

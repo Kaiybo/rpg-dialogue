@@ -90,7 +90,7 @@ P:NPC {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. You will want ankhs, and I keep them well stocked, because nobody asks for one twice in the same life." },
     { id = "n_warlock", cat = "fel", when = { class = "WARLOCK" },
-      text = "I sell to your kind as to any other, warlock. I only ask that you open nothing in my shop that you bought in the Cleft." },
+      text = "I sell to your kind as to any other. I only ask that you open nothing in my shop that you bought in the Cleft." },
   },
   start = "hello",
   nodes = {

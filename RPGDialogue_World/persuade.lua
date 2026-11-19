@@ -589,3 +589,116 @@ P:Pool { id = "gated_innkeeper", role = "innkeeper", askOnly = true, topics = {
     { id = "g1", text = "What's said in my house stays in my house, friend, at least until I know who's asking." },
   },
 } }
+
+---------------------------------------------------------------------------
+-- When they dislike you (0.90.0). Three "ask anyone" topics that only show at Cold or worse
+-- ("spite" only at Hostile), answered by what's turning them against you (`grudge`).
+---------------------------------------------------------------------------
+P:Generic { id = "grudges", topics = {
+  -- Advice given in spite: rude, and still true.
+  advice = {
+    { id = "adv_sour1", when = { disposition = { max = 34 } }, text = "Advice? Fine. Never fight two at once, never pull more than you can kill, and never come back here." },
+    { id = "adv_sour2", when = { disposition = { max = 34 } }, text = "Keep your bags full of bandages and your mouth shut. The second one you've plainly never managed." },
+    { id = "adv_sour3", when = { disposition = { max = 34 }, maxLevel = 20 }, text = "Train your skills every time you level, whelp. Then at least you'll die for a better reason." },
+    { id = "adv_sour4", when = { disposition = { max = 19 } }, text = "Want some advice? The guards here know your face. Stay out of trouble in this town, or they'll make trouble for you." },
+    { id = "adv_sour5", when = { disposition = { max = 34 }, faction = "Horde" }, text = "Watch the roads near Alliance towns. Their guards don't ask questions first, and nobody here would miss you." },
+    { id = "adv_sour6", when = { disposition = { max = 34 }, faction = "Alliance" }, text = "Stay clear of the Horde's towns. Their guards cut first and ask after, and I'd not lose sleep over it." },
+  },
+  grievance = {
+    { id = "gr1", text = "My problem? I don't like you, and I don't have to explain myself to you." },
+    { id = "gr2", text = "You know full well what you did. Don't stand there pretending you don't." },
+    { id = "gr_wronged", when = { grudge = "wronged" }, text = "You said what you said to me, and I haven't forgotten a word of it. Neither should you." },
+    { id = "gr_wronged2", when = { grudge = { worst = "wronged" } }, text = "I gave you a fair hearing once, and you threw it back in my face. That's my problem." },
+    { id = "gr_prej_h", when = { grudge = "prejudice", faction = "Horde" }, text = "Look at you, and then look at the folk who raised me. Some things don't need saying, {class}." },
+    { id = "gr_prej_a", when = { grudge = "prejudice", faction = "Alliance" }, text = "I've seen what your kind does when nobody's watching. I'll not pretend otherwise to be polite." },
+    { id = "gr_prej", when = { grudge = { worst = "prejudice" } }, text = "It's not what you've done. It's what you are, and I'll not apologise for seeing it plainly." },
+    { id = "gr_tone_p", when = { grudge = "tone", tone = "polite" }, text = "All that bowing and scraping. Say what you mean plainly, or don't bother me at all." },
+    { id = "gr_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You talk to me like I'm a dog in the road. Mind your tongue and we'll see." },
+    { id = "gr_pers", when = { grudge = "persuade" }, text = "You tried to push me about, and I'm still sore from it. Did you think I'd forget so quickly?" },
+    { id = "gr_town", when = { grudge = "town" }, text = "Folk around here talk, and nobody here has a kind word for you. I've no reason to be the first." },
+    { id = "gr_rival", when = { grudge = "rival" }, text = "I've seen who you keep company with. A friend of theirs is no friend of mine." },
+    { id = "gr_values", when = { grudge = "values" }, text = "I know what sort you are by now. I've watched how you carry yourself, and I don't like it." },
+    { id = "gr_temper", when = { grudge = { worst = "temper" } }, text = "Don't flatter yourself. I don't like anybody much, and you're no exception." },
+    { id = "gr_enemy", when = { grudge = "enemy" }, text = "You're standing in the wrong town wearing the wrong colours. That's problem enough for anybody." },
+  },
+  amends = {
+    { id = "am1", text = "Leave me be for a while. That would be a start." },
+    { id = "am2", text = "Words won't do it. Show me you're better than I think you are, and maybe I'll notice." },
+    { id = "am_wronged", when = { grudge = "wronged" }, text = "Talk to me like I'm worth something next time. I'll know it when I hear it." },
+    { id = "am_prej", when = { grudge = "prejudice" }, text = "Time, maybe. Prove me wrong often enough and I might stop expecting the worst of you." },
+    { id = "am_tone_p", when = { grudge = "tone", tone = "polite" }, text = "Stop dressing every word up in ribbons and just talk to me like a person." },
+    { id = "am_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "Learn some manners. A civil word costs you nothing, and it might buy you something." },
+    { id = "am_pers", when = { grudge = "persuade" }, text = "Give it a few days and don't try that again. I cool off, but I don't forget twice." },
+    { id = "am_town", when = { grudge = "town" }, text = "Do this town some good. When my neighbours start speaking well of you, so might I." },
+    { id = "am_rival", when = { grudge = "rival" }, text = "Pick your friends more carefully. Until then, there's nothing to make right." },
+    { id = "am_values", when = { grudge = "values" }, text = "Be a different sort of person. I don't expect you will, mind, but that's the price." },
+    { id = "am_temper", when = { grudge = { worst = "temper" } }, text = "Make it right? I'm like this with everyone, so don't take it to heart." },
+    { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't. Not while you wear those colours, and not in this place." },
+  },
+  spite = {
+    { id = "sp1", text = "You want it to your face? Fine. I think you're trouble, and the sooner you're gone the better I'll sleep." },
+    { id = "sp2", text = "I think you're the sort who leaves graves behind and calls it heroism. Now get out of my sight." },
+    { id = "sp3", text = "I think the world would be a quieter place without you in it, and I'm not the only one." },
+    { id = "sp_wronged", when = { grudge = { worst = "wronged" } }, text = "I think you're cruel and you enjoy it. I've met your sort before, and they always end badly." },
+    { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your people are a plague, and you're no different from the rest. There, I've said it." },
+    { id = "sp_pers", when = { grudge = "persuade" }, text = "I think you're a bully who's never been hit back. One day you will be, and I hope I'm there." },
+    { id = "sp_town", when = { grudge = { worst = "town" } }, text = "I think this town would cheer to see you ride out and never come back. I'd lead the cheering." },
+    { id = "sp_enemy_h", when = { grudge = "enemy", faction = "Alliance" }, text = "I think you're an Alliance dog sniffing round our walls, and the guards should've put you down." },
+    { id = "sp_enemy_a", when = { grudge = "enemy", faction = "Horde" }, text = "I think you're a savage who got past the gate, and I'm counting the moments till the guard notices." },
+    { id = "sp_low", when = { maxLevel = 15 }, text = "I think you're a whelp with a sword who's going to get somebody killed. Probably yourself, if I'm lucky." },
+    { id = "sp_high", when = { minLevel = 50 }, text = "I think all that power's gone to your head. You walk about like the world owes you, and it doesn't." },
+  },
+} }
+
+P:Pool { id = "grudges_guard", role = "guard", askOnly = true, topics = {
+  grievance = {
+    { id = "g1", text = "My problem is that I've got my eye on you, and I don't like what I see." },
+    { id = "g_town", when = { grudge = "town" }, text = "Half the complaints I hear this week have your name in them. That's my problem." },
+  },
+  amends = {
+    { id = "a1", text = "Keep the peace, keep your blade sheathed, and keep out of my way. Do that long enough and we'll be square." },
+  },
+  spite = {
+    { id = "s1", text = "I think you're one wrong step from a cell, and I'd like to be the one who turns the key." },
+  },
+} }
+
+P:Pool { id = "grudges_innkeeper", role = "innkeeper", askOnly = true, topics = {
+  grievance = {
+    { id = "g1", text = "You've been trouble under my roof, and I can't afford trouble. That's all there is to it." },
+  },
+  amends = {
+    { id = "a1", text = "Pay what you owe, drink quietly, and don't start anything in my common room. That's how." },
+  },
+  spite = {
+    { id = "s1", text = "I think I'd sooner rent your bed to a kobold. At least it'd only steal the candles." },
+  },
+} }
+
+-- A fresh copy per role: each pool indexes its own lines.
+local function tradeGrudges() return {
+  grievance = {
+    { id = "g1", text = "Your coin's as good as anyone's, so I'll take it. That doesn't mean I have to like you." },
+  },
+  amends = {
+    { id = "a1", text = "Be a good customer for a while. Polite, quick and no haggling over every copper." },
+  },
+  spite = {
+    { id = "s1", text = "I think I'd charge you double if the guild would let me, and I'd sleep soundly after." },
+  },
+} end
+for _, role in ipairs({ "vendor", "blacksmith", "auctioneer", "banker" }) do
+  P:Pool { id = "grudges_" .. role, role = role, askOnly = true, topics = tradeGrudges() }
+end
+
+P:Pool { id = "grudges_trainer", role = "trainer", askOnly = true, topics = {
+  grievance = {
+    { id = "g1", text = "I teach because it's my duty, not because I enjoy your company. Don't mistake the one for the other." },
+  },
+  amends = {
+    { id = "a1", text = "Show me you deserve what I teach you. Use it well, and use it for the right reasons." },
+  },
+  spite = {
+    { id = "s1", text = "I think teaching you was a mistake, and I'll be answering for it long after you're gone." },
+  },
+} }

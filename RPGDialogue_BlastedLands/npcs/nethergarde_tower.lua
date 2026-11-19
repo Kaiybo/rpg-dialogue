@@ -7,7 +7,7 @@ P:NPC {
   key = "nina_lightbrew", id = TODO_NPC("Nina Lightbrew"), name = "Nina Lightbrew", title = "Alchemy Supplies",
   bible = "bibles/blastedlands.md", role = "vendor", tier = "service",
   communities = { "nethergarde" }, temper = { "brisk" }, values = { "craft", "careful" },
-  notices = { "craft", "arcane" },
+  notices = { "craft", "arcane", "lock_shards" },
 
   impression = {
     first = "She thinks the strange plants here deserve more respect.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "An alchemist! Have you tried anything with the plants out in the wastes yet? They grow in that red clay, of all places, and they're not like anything in Elwynn." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "Another mage for the tower? No, you're just visiting, I can tell; the ones who live here look much more tired." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag's frosting at the seams in this heat, which means soul shards, and a good many of them. I've wondered whether they'd keep my potions cold up here, but I don't think I could sleep with them on the shelf." },
   },
 
   start = "hello",
@@ -105,10 +107,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. The Watchers keep an eye on who comes up these stairs, so buy what you need and keep your demon downstairs, and nobody will make trouble for you." } },
+      lines = {
+        { id = "xlock_default", text = "Mana potions and anything that settles the stomach, mostly, since calling things up near the Portal leaves people green for days. The Watchers keep an eye on who comes up these stairs, so buy what you need and keep your companion downstairs, and nobody will make trouble for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. I did say keep your demon downstairs, though, and the Watchers on the landing are already reaching for their swords, so buy what you need and walk it back down." },
+      },
       choices = {
-        { text = "I'll keep my demon downstairs, Nina. Rules are rules.", next = "BACK", reply = "Thank you, the Watchers will be grateful, and so will my stomach. The stairs are narrow enough without a demon on them.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon stays with me, Watchers or no Watchers.", next = "BACK", reply = "Then you'll have to drink your potions on the stairs, I'm afraid. The Watchers have rules, and so do I.", fx = { align = { order = -1 } } },
+        { text = "It stays downstairs, Nina. Rules are rules.", next = "BACK", reply = "Thank you, the Watchers will be grateful, and so will my stomach. The stairs are narrow enough without that thing on them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What's mine stays with me, Watchers or no Watchers.", next = "BACK", reply = "Then you'll have to drink your potions on the stairs, I'm afraid. The Watchers have rules, and so do I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,7 +134,7 @@ P:NPC {
       lines = {
         { id = "h_dd_bloodmages", when = { questDone = TODO_QUEST("The Basilisk's Bite") },
           text = "I hear you've been fetching beast parts for the bloodmages out in the wastes. I don't approve of their methods, but I'd love to know what they're doing with those basilisk scales, purely professionally." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll be wanting something to settle you, I expect, because everyone who calls up demons this close to the Portal comes up these stairs sooner or later looking pale." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'll be wanting something to settle you, I expect, because everyone who does what you do this close to the Portal comes up these stairs sooner or later looking pale." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, all the way up the tower stairs! Healing potions are on the left shelf, and yes, I know you'll want the large ones." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -162,7 +167,7 @@ P:NPC {
         { text = "Which potion should a warrior carry near the Portal, Nina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'd guess the plants out here poison the animals.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What grows in the Blasted Lands that interests an alchemist, Nina?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What do warlocks usually buy from you, Nina?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the pale ones who climb these stairs buy, Nina?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the wastes' plants tell an alchemist, Nina?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },

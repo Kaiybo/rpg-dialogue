@@ -9,7 +9,7 @@ P:NPC {
   prejudice = { race = "Gnome", amount = 8, why = "He watches the Venture Company's shredders eat Stonetalon; machines and their makers have become one thing in his mind, which isn't fair to the gnomes." },
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "stonetalon_peak" }, temper = { "calm", "watchful" }, values = { "duty", "nature" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_armor" },
   impression = {
     first = "He watches the smoke in the valleys as if counting it.",
     third = "{name} met Teloren, the watchful hippogryph master of Stonetalon Peak.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "I've heard your people can step off a ledge and drift down on the wind. That's a fine trick for going down, but a hippogryph takes you back up again." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You look like the mountain chewed you up on the way. Rest by the inn a while before you fly, because the birds don't like a rider who can't hold on." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Your skin is wrapped in demon hide, and the hippogryphs can smell it even with your demon dismissed. Let it fade before you mount, because a frightened hippogryph over Stonetalon is a long way to fall." },
   },
 
   start = "hello",
@@ -118,11 +120,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They will, because the Sentinels say you fight for the Alliance, and I trust their word over my own unease. Dismiss your demon before you mount, though, because a frightened hippogryph over Stonetalon is a long way to fall." },
+        { id = "xlock_default", text = "They will, because the Sentinels say you fight for the Alliance, and I trust their word over my own unease. Send away whatever walks with you before you mount, though, because a frightened hippogryph over Stonetalon is a long way to fall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because the Sentinels say you fight for the Alliance, though the whole roost is shifting and hissing at your {pet} as we speak. Dismiss it before you mount, because a frightened hippogryph over Stonetalon is a long way to fall." },
       },
       choices = {
         { text = "I'll dismiss it before I fly.", next = "BACK", reply = "Thank you. My birds will carry you gently, now that they can't smell it.", fx = { align = { light = 1 } } },
-        { text = "My demon rides where I ride.", next = "BACK", reply = "Then it will ride alone, because no hippogryph of mine will take it. Dismiss it, or walk down the mountain.", fx = { align = { light = -1 } } },
+        { text = "What walks with me rides where I ride.", next = "BACK", reply = "Then it will ride alone, because no hippogryph of mine will take it. Dismiss it, or walk down the mountain.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,7 +142,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I can see by how your beast watches the hippogryphs that it knows what a flying predator is." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll see the smoke from up here too, I expect, and you'll know there are wounded somewhere beneath it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, though you'll want to hold on tight, because the mountain winds don't respect armour." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The hippogryphs will carry you, but they'll ruffle their feathers the whole way, and so will I." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The hippogryphs will carry you, but they've been ruffling their feathers since you walked up, and so have I." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks to the winds. My hippogryphs fly through the smoke from the vale every day and tell me nothing, so perhaps the wind will tell you." },
       },
       again = {
@@ -160,7 +163,7 @@ P:NPC {
         { text = "Do the hippogryphs fear predators up here, Teloren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Someone below must need a healer, Teloren.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin watch for from up here?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Will your hippogryphs carry a warlock, Teloren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your hippogryphs carry me, and what walks with me, Teloren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does the smoke from the vale tell you, Teloren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Teloren.", next = "END" },
       },

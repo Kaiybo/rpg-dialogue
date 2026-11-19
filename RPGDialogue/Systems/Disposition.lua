@@ -302,6 +302,35 @@ function Disp.Compute(info, mem, ctx)
   return clamp(v, 0, 100), why
 end
 
+-- What's pulling them against you (0.90.0), as a set of words for the `grudge` condition:
+-- wronged (your affinity with them is below 0), town, values (your traits or alignment),
+-- temper (they're sour with everyone), rival (you're friends with someone they hate),
+-- prejudice, tone, persuade (a Taunt or Intimidate that still stings), enemy (unfriendly
+-- reaction). Only reasons worth 3 points or more against you count.
+Disp.GRUDGE_OF = {
+  affinity = "wronged", prejudice = "prejudice", unfriendly = "enemy", persuade = "persuade",
+}
+function Disp.Grudges(info, mem, ctx)
+  local _, why = Disp.Compute(info, mem, ctx)
+  local out, worst, worstD = {}, nil, 0
+  for _, r in ipairs(why) do
+    local reason, d = r[1], r[2]
+    if d <= -3 then
+      local g = Disp.GRUDGE_OF[reason]
+      if not g then
+        if reason:find("^town:") then g = "town"
+        elseif reason:find("^rival:") then g = "rival"
+        elseif reason:find("^tone:") then g = "tone"
+        elseif reason:find("^temper ") then g = "temper"
+        else g = "values" end
+      end
+      out[g] = true
+      if d < worstD then worst, worstD = g, d end
+    end
+  end
+  return out, worst
+end
+
 -- The value for the NPC of a conversation environment (cached per conversation, and
 -- recomputed after anything that could move it: affinity, standing, traits).
 function Disp.For(env, ctx)

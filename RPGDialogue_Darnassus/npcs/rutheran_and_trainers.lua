@@ -99,10 +99,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Many of them flew over Hyjal when the Legion burned it, and the rest learned their fear from those that did. Dismiss your servant on the dock, and they'll fly you as gently as anyone." },
+        { id = "xlock_default", text = "Many of them flew over Hyjal when the Legion burned it, and the rest learned their fear from those that did. Send that creature away on the dock, and they'll fly you as gently as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Many of them flew over Hyjal when the Legion burned it, and they remember it now, which is why the whole roost has gone silent to watch your servant. Dismiss it on the dock, and they'll fly you as gently as anyone." },
       },
       choices = {
-        { text = "I'll dismiss it on the dock.", next = "BACK", reply = "Thank you, warlock, truly. The birds will never know you did it, but I will, and I will remember it of you.", fx = { align = { honor = 1 } } },
+        { text = "I'll dismiss it on the dock.", next = "BACK", reply = "Thank you, truly. The birds will never know you did it, but I will, and I will remember it of you.", fx = { align = { honor = 1 } } },
         { text = "They'll carry it if I command it.", next = "BACK", reply = "Then you will be walking to Auberdine, because no bird of mine flies with that thing on its back. Command whatever else you like, but not my roost.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -128,7 +129,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, flying on to Auberdine? Hold on tight and don't lean, because armor makes the birds nervous." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My birds can smell your companion from here, so let me settle them before you come any closer." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You could swim to Auberdine in seal shape if you liked, but my hippogryphs are faster and a good deal drier." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Rut'theran. My hippogryphs will carry you across to Auberdine, but not your servant, because they've a long memory of the Legion's fires." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My hippogryphs are shifting on their perches, and I think you know why. They'll carry you to Auberdine, but not what follows you, for they remember the Legion's fires." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The sea wind has been an old friend of mine for a very long time, so tell me, does your wind spirit know it too?" },
       },
       again = {
@@ -278,11 +279,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because patience and a sound grip will save you on the day your servant falls and your spells run dry, and that day comes for everyone. I teach daggers, staves and blades, and I teach them to anyone who'll stand still and listen." },
+        { id = "xlock_default", text = "Because patience and a sound grip will save you on the day whatever fights for you falls and your spells run dry, and that day comes for everyone. I teach daggers, staves and blades, and I teach them to anyone who'll stand still and listen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because patience and a sound grip will save you on the day your servant falls and your spells run dry, and that day comes for everyone. Yours is watching me as though it knows the day and is counting toward it, so pick up a staff and let's make sure you're ready." },
       },
       choices = {
-        { text = "Teach me, then. I'll stand and listen.", next = "BACK", reply = "Good, because the lessons I teach a warlock are the ones that keep him alive when everything else has gone. Stand here and watch my feet.", fx = { align = { order = 1 } } },
-        { text = "My servant holds the line, and I don't ask more of it.", next = "BACK", reply = "Then pray your servant never falls, because it will not mourn you when it does. I teach the grip for the day it does.", fx = { align = { order = -1 } } },
+        { text = "Teach me, then. I'll stand and listen.", next = "BACK", reply = "Good, because the lessons I teach your sort are the ones that keep you alive when everything else has gone. Stand here and watch my feet.", fx = { align = { order = 1 } } },
+        { text = "What I bring holds the line for me. I need no blade.", next = "BACK", reply = "Then pray it never falls, because it will not mourn you when it does. I teach the grip for the day it does.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -297,7 +299,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, I'll have someone to teach who won't flinch when the staff comes round." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I teach bows here, though the hunters always tell me they know better." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll want a staff or a mace, and I'll teach you either, though you'll fight half your battles with claws and never thank me for it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can teach you the staff and the dagger, though most of your kind would rather let something else hold the line." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ink on your fingers and sulphur on your cloak. I can teach you staff and dagger, though your sort usually lets something else hold the line." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your footwork is sloppy, spirits or no, so stand properly, as a Sentinel would." },
       },
       again = {
@@ -315,7 +317,7 @@ P:NPC {
         { text = "Must a priest learn weapons as well, Ilyenia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you teach a paladin as you teach the Sentinels?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why should a druid learn weapons when the claws do the work?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why should a warlock learn a weapon at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why should someone with my gifts bother learning a weapon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a shaman learn proper footwork, Ilyenia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -451,10 +453,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Of your servant, though she's no fonder of you for bringing it. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
+        { id = "xlock_default", text = "Of what follows you, though she's no fonder of you for bringing it. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of your servant, and you can see it in her now, pressed against my legs with every hair on end since it came round the tree. Beasts know the fel by its stink, as surely as they know fire, and every hunter in Darnassus will read the same thing in their pets the moment you walk past." },
       },
       choices = {
-        { text = "Then I'll keep my distance from your cats.", next = "BACK", reply = "That is courteous of you, warlock, and the cats will notice it even if they never warm to you. Keep the creature far behind you as well.", fx = { align = { light = 1 } } },
+        { text = "Then I'll keep my distance from your cats.", next = "BACK", reply = "That is courteous of you, and the cats will notice it even if they never warm to you. Keep the creature far behind you as well.", fx = { align = { light = 1 } } },
         { text = "Your cat can get used to it.", next = "BACK", reply = "She will not, and neither will I. The fel does not belong among living things, and a beast knows that before we do.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -486,7 +489,7 @@ P:NPC {
         { id = "h_default", text = "I am Jeen'ra Nightrunner, and I teach the hunters of Darnassus to track, to shoot and to bond with the wild beasts of Teldrassil, as our hunters did in the forests of the old world." },
         { id = "h_cond", when = { class = "HUNTER" }, text = "Ah, one of mine. Your beast trusts you; I can see it in how it stands. I can teach you skills, but I can't teach that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd make a fine tracker, rogue, if only you'd learn to follow something other than a purse." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has had her ears flat and her tail low since you walked up, and I've learned to trust her over my own eyes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior among the hunters. The beasts in the pens are watching you, so try not to rattle that armor." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Come and sit, and tell me what walks beside you; the people can wait." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The cats in the pens have stopped pacing, and they only do that for one of the Circle, so come in and let them look at you." },
@@ -505,7 +508,7 @@ P:NPC {
         { text = "What would a hunter teach a rogue about tracking?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there anything a warrior can learn from hunters?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter of Darnassus learn first, Jeen'ra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is your cat afraid of me or of my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is your cat afraid of me, or of what follows me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hunters ever ask a priest for help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will the beasts of Teldrassil trust a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do the beasts settle for a druid, Jeen'ra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

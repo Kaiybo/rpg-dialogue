@@ -7,7 +7,7 @@ P:NPC {
   title = "Fishing Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "wry", "patient" }, values = { "practical", "loyal" },
-  notices = { "craft", "weary" },
+  notices = { "craft", "weary", "lock_shards" },
 
   impression = {
     first = "Whatever she and Donald are to each other, she enjoys the secret.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "You smell of the sea and you've a hook in your hat brim, so you're one of us. Mind you don't get it caught on the door frame like Donald does." },
     { id = "n_wet", cat = "weary", when = { deathCause = "drowning" },
       text = "You've the look of someone the bay nearly kept, love. Sit a moment before you go back out; the water's colder than it looks." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks like a tackle box full of sinkers, only colder, and I don't think those are sinkers. Don't let Donald see them, or he'll want to know whether they float." },
   },
 
   start = "hello",
@@ -105,10 +107,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." } },
+      lines = {
+        { id = "xlock_default", text = "One, a few summers back, and he tried to use some little horned thing of his as bait, and Donald still tells the story at the bar. It came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One, a few summers back, and he tried to use his imp as bait, and yours is eyeing the lake right now as if it heard the story. That one came back up angry and singed, so I'll sell you a proper lure and some advice, and you can tell {pet} it's staying on the dock." },
+      },
       choices = {
         { text = "A proper lure it is. I'll pay a fair price.", next = "BACK", reply = "Bless you for that. Donald can keep his one story, and I'll keep my customers dry.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The imp could use a swim, frankly.", next = "BACK", reply = "Ha, maybe it could, though I'd rather it did its swimming elsewhere. Donald's still not forgiven the last one.", fx = { align = { order = -1 } } },
+        { text = "That little brute of mine could use a swim, frankly.", next = "BACK", reply = "Ha, maybe it could, though I'd rather it did its swimming elsewhere. Donald's still not forgiven the last one.", fx = { align = { order = -1 } } },
         { text = "Something else, Lindea.", next = "BACK" },
       },
     },
@@ -128,7 +133,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want fishing line, I expect, though it makes a handy bowstring in a pinch, and a handier tripwire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want snares and line, I suppose, and maybe a hook or two in case the hills turn out stingy." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Donald says your people fish with a spear and a prayer, and I can't sell you the prayer, but I've plenty of spears." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock buying fishing gear, now I've seen everything. You'll want the sturdy line, I'd guess, because something tells me you won't be patient with the snags." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You've the look of someone who doesn't fish for pleasure. You'll want the sturdy line, I'd guess, because something tells me you won't be patient with the snags." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tide waits for no one, but I can." },
@@ -147,7 +152,7 @@ P:NPC {
         { text = "Have soldiers bought your line for tripwires, Lindea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters buy fishing gear from you, Lindea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the fishermen take too much from the bay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I doubt many warlocks buy fishing gear from you, Lindea.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I doubt many folk like me buy fishing gear from you, Lindea.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would you rather I didn't ask the fish, Lindea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
@@ -224,7 +229,7 @@ P:NPC {
   title = "Alchemy Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "anxious", "earnest" }, values = { "careful", "kind" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He reads every label twice and still doesn't sleep.",
@@ -241,6 +246,8 @@ P:NPC {
       text = "An alchemist, or at least a picker, I can see the green on your fingers. Hillsbrad's a good place for herbs, friend, as long as you know which fields to stay out of." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "Light above, one of them, here! Please, I don't want any trouble, and I've nothing in this shop worth stealing for your apothecaries." },
+    { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Something in your pack is glowing red through the leather, and I can feel the heat of it from behind the counter. I sell candles and chalk and nothing that burns on its own, so do keep it away from the lamp oil." },
   },
 
   start = "hello",
@@ -295,7 +302,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." } },
+      lines = {
+        { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles and chalk and a few herbs for the less unpleasant rituals, and I'd sell them faster if your demon weren't lingering over my baskets. I've watched what the apothecaries up the hill brew, and I'll not have Southshore's name on anything that goes into a summoning, least of all with one standing in my shop." },
+      },
       choices = {
         { text = "Then I'll buy my reagents from someone less fussy.", next = "BACK", reply = "I'll not stop you, friend, though I'd ask you not to tell me where. Some things I'd rather not know about.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your fear is foolish. Reagents are just tools.", next = "BACK", reply = "Tools, perhaps, but I've seen what they're used for. I'll stay a foolish apothecary and keep my conscience clean.", fx = { align = { order = -1 } } },
@@ -317,7 +327,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Nandar Branson, alchemy supplies. I keep the vials clean and the reagents dry, and I try not to think too much about what the apothecaries in Tarren Mill are mixing up there in their cauldrons." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, and I'll warn you that the good ones come from the Alterac hills, which means they're expensive and hard won." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I don't want to know where you get them." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You'll want black candles and chalk, I suppose, and I'll tell you now that's all I sell your sort, and I don't want to know what else you get, or where." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of those who goes up toward Tarren Mill, then, and I'd beg you to carry an antidote, because what they're brewing up there won't care how thick your armour is." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're out in the hills, I'd pay well for herbs from the higher slopes, so long as you pick them above the streams the Forsaken have been fouling." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf one! I've a hundred questions about herbs and no one to ask, so don't be surprised if I follow you around." },
@@ -334,7 +344,7 @@ P:NPC {
         { text = "A town like this must go through a lot of potions.", next = "buyers" },
         { text = "The Light could help those sick farms.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Why are reagents from Alterac so hard to come by, Nandar?", next = "xmage", when = { class = "MAGE" } },
-        { text = "What reagents do you sell to warlocks, Nandar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What reagents do you sell for the quieter rituals, Nandar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What antidote would protect me from the Forsaken, Nandar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which streams have the Forsaken fouled, Nandar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should herbs be gathered freely in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -415,7 +425,7 @@ P:NPC {
   title = "Trade Supplies",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "brisk", "friendly" }, values = { "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_soulstone" },
 
   impression = {
     first = "Micha tells the town's business through what it buys.",
@@ -430,6 +440,8 @@ P:NPC {
   notice = {
     { id = "n_crafter", cat = "craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Engineering" } },
       text = "A crafter, I can always tell by the calluses, and Southshore always needs more of you. Most of my customers are soldiers patching their own boots, and badly." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That pale stone you're carrying looks as if someone inside it is waiting to be let out. I don't ask what goods are for, as a rule, but I'll admit that one has me curious." },
   },
 
   start = "hello",
@@ -511,7 +523,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." } },
+      lines = {
+        { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Your demon seems to approve of the black, judging by how it's watching the bolt, and I'll not ask why, since a sale's a sale and the Menethil cart doesn't run on curiosity." },
+      },
       choices = {
         { text = "Honest robes for honest coin. I've nothing to hide.", next = "BACK", reply = "Then you'll be my favourite sort of customer. Pay in silver and nobody here will ask a thing.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Best not to ask, Micha. Keep it that way.", next = "BACK", reply = "I'd planned to, friend. What folk wear in the privacy of their own homes is none of a trader's business.", fx = { align = { honor = -1 } } },
@@ -532,7 +547,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want leather strips and heavy thread for those straps, I'd guess, since every soldier who comes back from the fields has something torn." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Bring me good hides from the hills and I'll find a crafter who needs them, since half of Southshore's leatherworkers are short on everything but complaints." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Do your people use thread and leather, or do you just grow your clothes on trees? I'm only partly joking." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I sell to every trade that walks in, but I'll say now that I've no use for anything that whispers, so if you're selling, I'm not buying." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I sell to every trade that walks in, but I'll say now that I've no use for anything that whispers, so if you're selling, I'm not buying." },
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
@@ -550,7 +565,7 @@ P:NPC {
         { text = "The soldiers here must mend their own gear, Micha.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hides do Southshore's crafters need most, Micha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Where does Southshore's leather come from, Micha?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What does a warlock buy from a trade supplier, Micha?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does someone in a darker trade buy from you, Micha?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I doubt Southshore sells much to shamans, Micha.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
@@ -615,7 +630,7 @@ P:NPC {
   title = "Merchant Supplier",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "southshore", "tarren_mill" }, temper = { "breezy", "sly" }, values = { "greedy", "practical" },
-  notices = { "purse", "race" },
+  notices = { "purse", "race", "lock_shards" },
 
   impression = {
     first = "The goblin sells to both sides of the war and laughs.",
@@ -632,6 +647,8 @@ P:NPC {
       text = "Now there's a purse that jingles in all the right places! Step this way, friend, and let me show you the good stock, the stuff I don't show the soldiers 'cause soldiers haggle." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Go on, have a look at the Overwatch units, buddy, I know you're itchin' to. Don't open the panels, though, 'cause they bite, and the last fella who tried is still payin' for his eyebrows." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Now that's a bag full o' somethin'! Fifteen, twenty shards if I'm countin' the clinks right, and in Booty Bay there's folk who'd pay a fine price just for the privilege of never askin' where they came from." },
   },
 
   start = "hello",
@@ -722,10 +739,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." } },
+      lines = {
+        { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked into Lordamere Lake smokin' like a chimney. So yer demon can stand right there where I can see it, pal, and if it so much as breathes on a sprocket, the repairs go on yer tab at full goblin rates." },
+      },
       choices = {
-        { text = "I'll keep my imp away from your robots.", next = "BACK", reply = "Good, 'cause I'm still payin' off the last one, and the lake's charging me interest. Keep that little fella on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Imps go where they want. Build better robots.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my imp away from your robots. Probably.", next = "BACK", reply = "Good, 'cause I'm still payin' off the last one, and the lake's charging me interest. Keep that little fella on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Imps go where they please. Build robots that burn slower.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -764,7 +784,7 @@ P:NPC {
         { text = "Your wares look like a bit of everything.", next = "goods" },
         { text = "A gnome machine seems an odd guard for a goblin.", next = "gnome", when = { race = "Gnome" } },
         { text = "Do you really sell to both Southshore and Tarren Mill, Zixil?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "How did an imp short out your robot, Zixil?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How did an imp short out your robot, Zixil? Mine would have done worse.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who blessed your salt, Zixil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell weapons to the Forsaken, Zixil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a goblin sell a warrior, Zixil?", next = "xwarcl", when = { class = "WARRIOR" } },

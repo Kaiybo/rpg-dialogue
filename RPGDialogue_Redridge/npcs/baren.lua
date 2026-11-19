@@ -7,7 +7,7 @@ P:NPC {
   key = "baren", id = TODO_NPC("Dockmaster Baren"), name = "Dockmaster Baren",
   bible = "bibles/baren.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "honest", "witty" },
-  notices = { "craft", "swim" },
+  notices = { "craft", "swim", "lock_shards" },
 
   impression = {
     first = "He warns about loose planks like a man who has fallen through.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A fisher! Then you'll understand. Lake Everstill was the best water in the kingdom, and now it's the best water in the kingdom for murlocs." },
     { id = "n_wet", cat = "swim", when = { questObjective = { TODO_QUEST("Murloc Poachers"), left = { max = 3 } } },
       text = "You smell like the east shore. That's a compliment, out here. It means you've been working." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've a bag full of shards, and I'd wager half of them were murlocs, judging by the smell off it. Keep filling it, because I've boats to count and fewer of them every week." },
   },
 
   start = "hello",
@@ -40,9 +42,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
+      lines = {
+        { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though that demon at your heel has half my dockhands mending nets at the far end. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+      },
       choices = {
-        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever you summon off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever walks behind you off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", reply = "Silence you'll have, then, since that's mostly what fishermen give anyway. Just don't be surprised if they cross themselves when you pass.", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
@@ -117,7 +122,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my docks. Mind your step on the boards, and keep your pet away from the boats, because the fishermen are jumpy enough with the murlocs about." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a chill come onto my docks with you, stranger. Mind your step on the boards, and keep whatever follows you away from the boats, because the fishermen are jumpy enough with the murlocs about." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Murloc", min = 30 } }, text = "The fishermen tell me the murlocs on the north shore are fewer than they were, and somebody's been leaving them on the rocks. I'll count that in my ledger as a good week." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, on my docks. Mind the loose planks, and if your water spirits can keep the murlocs off my boats, I'll owe you a drink." },
       },
@@ -138,7 +143,7 @@ P:NPC {
         { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the fishermen fear warlocks more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the fishermen fear the likes of me more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The murlocs seem to have got worse on the lake, Dockmaster.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },

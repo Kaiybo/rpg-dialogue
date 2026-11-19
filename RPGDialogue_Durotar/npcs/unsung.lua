@@ -12,7 +12,8 @@ P:NPC {
   key = "frang", id = TODO_NPC("Frang"), name = "Frang", title = "Warrior Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "brave", "dutiful" },
-  notices = { "class", "weary" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Has buried recruits killed by Burning Blade imps; every warlock looks like their next recruiter." },
+  notices = { "class", "weary", "lock_pact" },
   impression = {
     first = "He judges recruits by how fast they get back up.",
     third = "{name} met Frang, the warrior trainer in the Valley of Trials' Den.",
@@ -20,12 +21,17 @@ P:NPC {
   greetings = {
     { id = "g_war", when = { class = "WARRIOR" }, text = "On your feet, recruit! If you are here, you have bruises to show me, and I want to see them." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "You are not one of mine, but stand up straight anyway; the Den does not like a slouch." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried two recruits this season because of the Burning Blade's imps. You'll forgive me if I don't turn my back on you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Stand over there, away from my recruits. I'll not have them thinking a demon's master is someone to copy." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've trained with the others and never once called that thing to finish a fight for you. Fine; you can stand closer, but not too close." },
   },
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "That armor has been chewed on by every boar in the valley, and you still came back walking. Good, because walking back is the first lesson." },
     { id = "n_troll", cat = "class", when = { class = "WARRIOR", race = "Troll" },
       text = "A Darkspear with an axe! Your people fight loose and quick, so I will teach you to hold a line as well, and then you will be dangerous." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "That fever in your blood isn't from the sun, recruit, it's a warlock's pact, and I can see it on you. Fight beside the imp if you must, but don't let the heat make you reckless." },
   },
   start = "hello",
   nodes = {
@@ -73,11 +79,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I blame the power and anyone who trusts it, though I'll admit some of you are fighting the Blade too. Fight at my recruits' side, and keep your imp off their heels, and I'll judge you by that." },
+        { id = "xlock_default", text = "I blame the power and anyone who trusts it, though I'll admit some of your sort are fighting the Blade too. Fight at my recruits' side, and keep whatever follows you off their heels, and I'll judge you by that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I blame the power and anyone who trusts it, and I see you trust yours enough to bring it right up to my recruits. Fight at their side and keep that thing off their heels, and I'll judge you by that, because they're watching it far more than they're watching the Blade." },
       },
       choices = {
         { text = "Then I'll fight at their shoulder, where they can see me.", next = "BACK", reply = "Then they'll see you fight, and they'll judge you fairly. So will I, from right behind you.", fx = { align = { order = 1 } } },
-        { text = "Your blame is your own business, warrior.", next = "BACK", reply = "It is, and I'll keep it, warlock. Show me different, and maybe I'll change it.", fx = { align = { order = -1 } } },
+        { text = "Your blame is your own business, warrior.", next = "BACK", reply = "It is, and I'll keep it. Show me different, and maybe I'll change it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,7 +127,9 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I've seen what the Burning Blade's imps leave of a recruit's face, and I've buried two of them this season." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I've seen what the Burning Blade's imps leave of a recruit's face, and I've buried two this season. You've the same smell about you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Same smell as the Burning Blade's lot, and I've dug the graves for what they leave behind. Speak your piece and keep your imp out of my yard." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've not shamed the Den yet, so I suppose you've earned a word or two. Go on, then." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in the Den! Stand back from my ring, because my recruits throw each other, and I won't have them throwing a spellcaster." },
       },
@@ -134,7 +143,7 @@ P:NPC {
         { text = "You fight like someone who learned the hard way.", next = "past" },
         { text = "Does the Horde need rogues as much as warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd guess you train hunters too, Frang.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do you blame all warlocks for the Burning Blade?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you blame everyone who smells of sulphur for the Burning Blade?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What should a mage learn from your recruits, Frang?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the recruits fear a paladin, Frang?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your recruits.", next = "END" },
@@ -187,7 +196,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "valley_of_trials" }, temper = { "calm" }, values = { "wise", "kind" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_stones" },
   impression = {
     first = "He talks of the spirits as neighbours to keep on good terms.",
     third = "{name} met Ken'jai, the troll priest trainer in the Valley of Trials.",
@@ -202,6 +211,8 @@ P:NPC {
       text = "Look at you, all torn up like the scorpids had a feast. Come closer and let Ken'jai see if anything be broken under there." },
     { id = "n_orcpriest", cat = "class", when = { class = "PRIEST", race = "Orc" },
       text = "An orc who heals instead of hits, now that be a rare thing. Your people forgot the spirits for a long time, so you be walking an old road almost alone." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone you be carrying, mon, it be a warlock's healthstone, and I can smell the life that was squeezed into it. Ken'jai heal you for nothing, so you don't need to go eating somebody else's." },
   },
   start = "hello",
   nodes = {
@@ -249,11 +260,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But I watch what you bring with you, and if your demon touch a recruit, I won't be healing it." },
+        { id = "xlock_default", text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But I watch what you bring with you, and if that thing touch a recruit, I won't be healing it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But that servant of yours be standing over my cots like a vulture, mon, and if it touch a recruit, I won't be healing it, so call it back." },
       },
       choices = {
-        { text = "Fair. My demon keeps its distance from the recruits.", next = "BACK", reply = "Then we get along fine, mon. The loa be watching that demon, and so am I.", fx = { align = { light = 1 } } },
-        { text = "My demon does what I tell it. That's all.", next = "BACK", reply = "Then tell it to stay away from my recruits, mon, or you be healing yourself next time.", fx = { align = { light = -1 } } },
+        { text = "Fair. What follows me keeps its distance from the recruits.", next = "BACK", reply = "Then we get along fine, mon. The loa be watching that thing, and so am I.", fx = { align = { light = 1 } } },
+        { text = "What follows me does what I tell it. That's all.", next = "BACK", reply = "Then tell it to stay away from my recruits, mon, or you be healing yourself next time.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -294,7 +306,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The spirits and the Loa be cousins, mon, so you and Ken'jai already be family of a sort." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon! You mend the body with green magic and I mend it with the loa's blessing, so come and help me with Frang's recruits whenever you like." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! You can make the fire, and I can mend the burns, so between us the young ones will learn quick." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, you come to a priest's hut. Either you be very brave or you be very hurt, and I hope it be the second." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You come to a priest's hut with that cold on you, mon. Either you be very brave or you be very hurt, and I hope it be the second." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Frang send you over to get patched up again, or did you come on your own feet this time?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast get hurt out there too, I bet, and nobody in the valley know how to fix it but you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, mon? Ken'jai mend priests, warriors and whoever else fall down, and rogues fall down too, just more quietly." },
@@ -309,7 +321,7 @@ P:NPC {
         { text = "Do Darkspear priests and mages often work together?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do Frang's recruits keep you busy, Ken'jai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a priest heal a hunter's beast, Ken'jai?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I'd guess you won't heal a warlock, Ken'jai.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you won't heal someone like me, Ken'jai.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you heal rogues too, Ken'jai?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a troll priest and a Forsaken paladin work together?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
@@ -362,7 +374,7 @@ P:NPC {
   key = "duokna", id = TODO_NPC("Duokna"), name = "Duokna", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "valley_of_trials" }, temper = { "brisk" }, values = { "practical" },
-  notices = { "purse", "hunger" },
+  notices = { "purse", "hunger", "lock_shards" },
   impression = {
     first = "Nobody leaves without being asked about their waterskin.",
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
@@ -374,6 +386,8 @@ P:NPC {
   notice = {
     { id = "n_broke", cat = "purse", when = { money = { max = 50 } },
       text = "Your coin purse is lighter than a feather, recruit. The boars carry a little copper sometimes, if you are not too proud to look." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag clinks cold, warlock, and I can feel it from behind the counter, so I know you've been filling it with shards again. Buy some bread too, because I don't think souls are very filling." },
   },
   start = "hello",
   nodes = {
@@ -459,11 +473,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Bread, mostly, because you all think about soul shards and forget your stomachs. Buy food and water before you go down into the valley, and never feed any of it to the imp, because it'll only spit it back at you." },
+        { id = "xlock_default", text = "Bread, mostly, because your sort think about soul shards and forget their stomachs. Buy food and water before you go down into the valley, and never feed any of it to the little one, because it'll only spit it back at you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bread, mostly, because you all think about soul shards and forget your stomachs, and I see your demon is already eyeing my water barrel. Buy food and water before you go down into the valley, and don't let it near the bread, because it'll only spit it back at you." },
       },
       choices = {
         { text = "I'll share mine with the recruits who forget theirs.", next = "BACK", reply = "That's kind of you, and the recruits will remember it. Buy a little extra, then, because they always forget.", fx = { align = { light = 1 } } },
-        { text = "Every recruit carries their own. I won't share mine.", next = "BACK", reply = "Fair enough, as long as you carry enough for yourself. The imp still doesn't get any.", fx = { align = { light = -1 } } },
+        { text = "Every recruit carries their own. I won't share mine.", next = "BACK", reply = "Fair enough, as long as you carry enough for yourself. The little one still doesn't get any.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -478,7 +493,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage? You can conjure water, so you're the one recruit who won't need my waterskins. Shame, they're good waterskins." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me guess: you've got an axe and nothing else, and you want to know why you're always thirsty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want food for your beast as well as yourself, and you'd be surprised how many hunters forget the second part." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Did you remember water? Your demon won't fetch it for you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Did you remember water? Whatever follows you won't fetch it." },
       },
       choices = {
         { text = "Do you keep supplies aside for healers, Duokna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -491,7 +506,7 @@ P:NPC {
         { text = "Is there anything you sell that a mage needs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do new warriors forget to buy, Duokna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the beasts of Durotar eat, Duokna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "What do warlocks forget to carry, Duokna?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do folk with my studies forget to carry, Duokna?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the dead need supplies, Duokna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'm fine for now.", next = "END" },
       },
@@ -536,7 +551,7 @@ P:NPC {
   key = "uhgar", id = TODO_NPC("Uhgar"), name = "Uhgar", title = "Weaponsmith",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "proud", "craft" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "lock_shadow" },
   impression = {
     first = "He judges a fighter by the edge they carry.",
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
@@ -548,6 +563,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You have a smith's burns on your hands. Then you know what you are looking at, so I will not bother lying about the quality." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My steel's gone dull where your shadow falls on it, and I polished it this morning. Stand over there by the axes nobody buys, and we'll talk." },
   },
   start = "hello",
   nodes = {
@@ -605,9 +622,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. I sell honest steel to honest Horde, and I'd like to keep it that way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. You've got that same sulphur stink trailing behind you on that thing, so it stays off my counter, and I'll sell honest steel to you alone." },
       },
       choices = {
-        { text = "Honest steel suits me. I'll keep my craft separate.", next = "BACK", reply = "Good, then we'll get along. I've no time for the ones who slip poison on my edges and blame the steel.", fx = { align = { light = 1 } } },
+        { text = "Honest steel suits me. I'll keep my other work separate.", next = "BACK", reply = "Good, then we'll get along. I've no time for the ones who slip poison on my edges and blame the steel.", fx = { align = { light = 1 } } },
         { text = "Green glow sells, Uhgar. You're missing out.", next = "BACK", reply = "Green glow sells to the Burning Blade, and they don't pay for long. I'll stick to steel.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -638,7 +656,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in a weapon shop. You'll want a staff or a mace, then, and something heavy enough that the Kul Tirans notice it before they notice the claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers. You know the kind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Put that training axe down before you embarrass us both, and let me show you something with an edge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want a gun or a bow from somebody else, but you'll want something for close work from me." },
       },
@@ -653,7 +671,7 @@ P:NPC {
         { text = "Mages here can't need much of a staff.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What weapon suits a warrior in Durotar, Uhgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would a hunter need your blades, Uhgar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Warlocks must have tried to sell you cursed weapons.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Someone must have tried to sell you cursed weapons.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why don't orcs like hammers, Uhgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -699,7 +717,7 @@ P:NPC {
   key = "thotar", id = TODO_NPC("Thotar"), name = "Thotar", title = "Hunter Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_shards" },
   impression = {
     first = "He talks about beasts as if they were people worth respecting.",
     third = "{name} met Thotar, who teaches Razor Hill's hunters to read the land and trust their beasts.",
@@ -711,6 +729,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
       text = "Your {pet} keeps an eye on me while you talk, which means it is a good one. Never punish a beast for being wary of strangers." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "My wolf's hackles are up and she's growling at your bag, not at you, which tells me what's inside it. A beast knows a soul in a cage when it smells one." },
   },
   start = "hello",
   nodes = {
@@ -755,7 +775,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A beast follows a hunter because it chooses to, and your demon follows you because it can't do anything else. I won't call you a cultist, but I'll tell you plainly that the land doesn't like what you've chained to you." },
+        { id = "xlock_default", text = "A beast follows a hunter because it chooses to, and that thing follows you because it can't do anything else. I won't call you a cultist, but I'll tell you plainly that the land doesn't like what you've chained to you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A beast follows a hunter because it chooses to, and yours follows you because it can't do anything else, which I can see in the way it watches your back instead of the road. I won't call you a cultist, but the land doesn't like what you've chained to you, and neither do I." },
       },
       choices = {
         { text = "Then I'll keep it far from your beasts.", next = "BACK", reply = "Thank you, and my wolf thanks you too. Keep it far, and we'll get along.", fx = { align = { light = 1 } } },
@@ -807,7 +828,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, I think, and from Mulgore by the look of you. You will find the beasts of Durotar leaner and meaner than your plainstriders, but they are honest, and they will teach you if you let them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, I think. You and I listen to the same land, though you hear the spirits in it and I hear the beasts, so tell me what Durotar says to you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk like a cat on rock, rogue, and the scorpids don't even notice you. That's a skill worth having in Durotar." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your beast doesn't belong in this land, warlock, and every beast that does can tell. My wolf has been growling since you came up the hill." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your beast doesn't belong in this land, and every beast that does can tell. My wolf has been growling since you came up the hill." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' corner. Stay and listen, because a warrior who reads the land charges at the right enemy." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You've no beast with you, but I'll talk about them anyway, because I talk about them to everyone." },
       },
@@ -820,7 +841,7 @@ P:NPC {
         { text = "How do you choose a companion?", next = "choose" },
         { text = "What could a hunter teach a rogue?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What should a warrior learn from the land, Thotar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "A demon isn't so different from a hunter's pet.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What follows me isn't so different from a hunter's pet.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What should a mage know about Durotar's beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do the beasts shy from me, Thotar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've tracked the scrub from the valley to the Barrens, Thotar.", next = "xorig_track", when = { origin = "orc_durotar_tracker" } },
@@ -862,7 +883,7 @@ P:NPC {
   key = "kaplak", id = TODO_NPC("Kaplak"), name = "Kaplak", title = "Rogue Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "sly" }, values = { "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "He seems to enjoy being underestimated.",
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
@@ -874,6 +895,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Nice try, but I heard your buckle three steps ago. Wrap it in cloth next time and you might surprise someone who is not me." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Those eyes of yours see through a cloak like it's gauze, don't they? Do me a favour and look somewhere else, because my students are trying to practise." },
   },
   start = "hello",
   nodes = {
@@ -930,11 +953,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though that green glow of yours lights up a dark alley like a bonfire. Work with my people if you like, but keep your demon out of sight, because it'll get us both killed." },
+        { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though that green glow of yours lights up a dark alley like a bonfire. Work with my people if you like, but keep that thing out of sight, because it'll get us both killed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Sometimes, when someone needs a curse and a knife on the same target, though that thing beside you glows worse than you do. Work with my people if you like, but send your demon away before we move, because it'll light up the alley and get us both killed." },
       },
       choices = {
-        { text = "I'll keep the imp out of sight. Agreed.", next = "BACK", reply = "Good, then we'll work together. Keep that imp out of the burrow and away from my students.", fx = { align = { order = 1 } } },
-        { text = "My imp goes where it pleases. Deal with it.", next = "BACK", reply = "Then I'll deal with it by keeping you out of my burrow. Choose.", fx = { align = { order = -1 } } },
+        { text = "I'll keep it out of sight. Agreed.", next = "BACK", reply = "Good, then we'll work together. Keep it out of the burrow and away from my students.", fx = { align = { order = 1 } } },
+        { text = "What's mine goes where it pleases. Deal with it.", next = "BACK", reply = "Then I'll deal with it by keeping you out of my burrow. Choose.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -971,7 +995,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so I'll keep one eye on the shadows while we talk." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, down in the burrow. Your imp's light is giving away my hiding place, so put it out or take it outside." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Down in the burrow with a light like that? Your little friend is giving away my hiding place, so put it out or take it outside." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, all noise and steel. The grunts upstairs could use you more than I can, though I'll admit you'd make a fine distraction." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You move almost quietly enough to be one of mine, though your beast gives you away." },
       },
@@ -985,7 +1009,7 @@ P:NPC {
         { text = "Could a mage ever learn to move unseen?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'd guess rogues work with warriors, Kaplak.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a hunter learn to move like a rogue, Kaplak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do rogues and warlocks ever work together?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do rogues ever work with my sort?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust a paladin in your burrow, Kaplak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I scout the Echo Isles by night, Kaplak.", next = "xorig_spy", when = { origin = "troll_echo_isles_spy" } },
         { text = "Goodbye.", next = "END" },
@@ -1024,7 +1048,7 @@ P:NPC {
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "razor_hill" }, temper = { "warm" }, values = { "kind", "devout" },
   spiritSensitive = true,
-  notices = { "class", "weary" },
+  notices = { "class", "weary", "lock_taint" },
   impression = {
     first = "She does not hide that she misses the sea.",
     third = "{name} met Tai'jin, the troll priest trainer at Razor Hill.",
@@ -1038,6 +1062,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "Look at that armor, mon, it be held together with stubbornness. Let Tai'jin look at the cuts underneath before you go back out." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There be a fel heat coming off you, mon, like the old orcs who drank Mannoroth's blood and never stopped burning. Tai'jin don't judge, but he think you been drinking from a dark cup a long time." },
   },
   start = "hello",
   nodes = {
@@ -1114,10 +1140,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They don't like it, mon, because what you call comes from a dark place that never fed anybody. But back at Sen'jin we knew the voodoo had its dark corners too, so Tai'jin won't throw stones, as long as you keep your demon away from my wounded." },
+        { id = "xlock_default", text = "They don't like it, mon, because it comes from a dark place that never fed anybody. But back at Sen'jin we knew the voodoo had its dark corners too, so Tai'jin won't throw stones, as long as you keep that thing away from my wounded." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They don't like it, mon, and they like it less now it be standing in my tent, because what you call comes from a dark place that never fed anybody. Tai'jin won't throw stones, since the voodoo got its dark corners too, but take {pet} away from my wounded right now." },
       },
       choices = {
-        { text = "I'll keep my demon well away from your wounded.", next = "BACK", reply = "The loa thank you, mon. My wounded need quiet, and a demon never once been quiet.", fx = { align = { light = 1 } } },
+        { text = "I'll keep it well away from your wounded.", next = "BACK", reply = "The loa thank you, mon. My wounded need quiet, and nothing like that ever been quiet.", fx = { align = { light = 1 } } },
         { text = "Your loa can think whatever they like.", next = "BACK", reply = "They will, mon, and they won't be kind. Keep it away anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1139,7 +1166,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Un'Thuwa's student, are you? He sends me the ones who burn their own fingers, so I hope you be more careful." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Hold still while I look at you, because the grunts here never tell me when they be bleedin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you got scratches from somethin' with claws. Let me see them, mon, before they go bad in this heat." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, mon. The loa don't like what you carry, but Tai'jin, she mend you anyway if you get hurt." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The loa don't like what you carry, mon. But Tai'jin, she mend you anyway if you get hurt." },
       },
       choices = {
         { text = "How do Darkspear shamans differ from the orcs'?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1152,7 +1179,7 @@ P:NPC {
         { text = "The Darkspear seem to trust mages more than orcs do.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Are the grunts of Razor Hill hurt often, Tai'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wounds from beasts go bad quickly here, Tai'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "What do the loa think of warlocks, Tai'jin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the loa think of what I carry, Tai'jin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is my Light so different from yours, Tai'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I sing for Bwonsamdi, Tai'jin, for our dead on the isles.", next = "xorig_bwon", when = { origin = "troll_bwonsamdi_singer" } },
         { text = "Farewell, Tai'jin.", next = "END" },
@@ -1201,7 +1228,7 @@ P:NPC {
   key = "unthuwa", id = TODO_NPC("Un'Thuwa"), name = "Un'Thuwa", title = "Mage Trainer",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "senjin" }, temper = { "dry" }, values = { "curious", "proud" },
-  notices = { "class", "arcane" },
+  notices = { "class", "arcane", "lock_armor" },
   impression = {
     first = "He is quietly proud that Darkspear bend the arcane like any elf.",
     third = "{name} met Un'Thuwa, the troll mage trainer of Sen'jin Village.",
@@ -1214,6 +1241,8 @@ P:NPC {
   notice = {
     { id = "n_orcmage", cat = "class", when = { class = "MAGE", race = "Orc" },
       text = "An orc mage, that be a rare bird, mon. Your people's shaman will frown at you, so you better get good enough that they stop." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "There be a shell of shadow around you, mon, eating up the light, and my students be watching it instead of their frost. The arcane don't wrap itself round you like a skin, it pass through, and that be the difference." },
   },
   start = "hello",
   nodes = {
@@ -1271,6 +1300,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The arcane be a river, and the fel be the poison someone pour in it. The orcs who drank that poison nearly died of it, and Zalazane's dark voodoo be a poison of its own, so I teach my students to keep well clear of both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The arcane be a river, and the fel be the poison someone pour in it, and I can smell that poison coming off your servant from across the room. The orcs who drank it nearly died of it, so I teach my students to keep well clear, and I'll ask you to keep it out of their sight." },
       },
       choices = {
         { text = "Then I'll keep the poison far from your river.", next = "BACK", reply = "Then the river stay clean, mon, and the fish don't float.", fx = { align = { light = 1 } } },
@@ -1311,7 +1341,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the stubborn way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon, in my hut. You bend your own body and I bend the arcane, and I be curious which of us has the harder time keepin' our shape." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my hut! You can't learn from me, mon, but you be welcome to admire the books, as long as you don't pocket any." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, warlock, and I don't touch what you touch. Keep that imp out of my hut, please, because it be eyeing my scrolls." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, and I don't touch what you touch. Keep that little thing out of my hut, please, because it be eyeing my scrolls." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, in the mage's hut. You lost, or you come to see what real power look like?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon, and a beast with you. The beasts don't like the smell of my spells, but they get used to it." },
       },
@@ -1326,7 +1356,7 @@ P:NPC {
         { text = "Would you really suspect me of stealing books?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic help a warrior, Un'Thuwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is the arcane really so different from the fel?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is the arcane really so different from what I practise?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Light interest a troll mage, Un'Thuwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I learned my first spells from Zandalari scrolls, Un'Thuwa.", next = "xorig_zand", when = { origin = "troll_zandalari_scrolls" } },
         { text = "Goodbye.", next = "END" },

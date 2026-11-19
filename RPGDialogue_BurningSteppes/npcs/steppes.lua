@@ -134,7 +134,7 @@ P:NPC {
         { text = "Why not just eat me?", next = "devour" },
         { text = "I have a molt from Kalaran Windblade.", next = "molt", when = { questDone = TODO_QUEST("Divine Retribution") } },
         { text = "The Light isn't afraid of you, dragon.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "I bargain with demons. A dragon doesn't frighten me.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "I bargain with demons. A dragon is only a bigger lizard.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would a dragon teach a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Dragons hoard and I take. We're not so different.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Steel would serve me well enough against you, dragon.", next = "xwarcl", when = { class = "WARRIOR" } },

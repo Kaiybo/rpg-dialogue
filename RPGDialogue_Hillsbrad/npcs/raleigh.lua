@@ -12,7 +12,7 @@ P:NPC {
   bible = "bibles/raleigh.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "grave", "guarded" }, values = { "honest", "devout" },
   prejudice = { class = "WARLOCK", amount = 8, why = "Six years of Crusade sermons he is trying to unlearn." },
-  notices = { "light", "scarlet" },
+  notices = { "light", "scarlet", "lock_shadow" },
 
   impression = {
     first = "He wore the Crusade's red once, and still watches the north road.",
@@ -20,7 +20,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej1", when = { prejudiced = true }, text = "A warlock. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
+    { id = "g_prej1", when = { prejudiced = true }, text = "There's something cold about you. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Close the door, and forgive me if I sit nearer the candle than you. Part of me still counts the steps to the pyre whenever a warlock walks in, and I hate that part of me." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, and sit wherever you like. I caught myself defending a warlock to the innkeeper last night, and I think the warlock was you." },
     { id = "g_door", text = "Close the door behind you, and then tell me who sent you." },
@@ -34,6 +34,8 @@ P:NPC {
       text = "One of the faithful, I see. They'll want you most of all up north, just as they wanted me." },
     { id = "n_scarlet", cat = "scarlet", when = { questActive = TODO_QUEST("Down the Scarlet Path") },
       text = "That letter bears the Crusade's seal, red wax and a burning sword, and I used to press it myself." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Forgive me, but I felt the Light draw back from you when you came in, the way a hand draws back from a hot stove. The Crusade would have called that proof enough, and I'm trying very hard to remember that it isn't." },
   },
 
   start = "hello",
@@ -180,10 +182,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and the thing standing at your shoulder makes it harder to answer, because everything the Crusade taught me says to burn it where it stands. But the Light teaches mercy too, so I'll look at you and not at it, and pray I remember which teaching I believe." },
+      },
       choices = {
         { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", reply = "I'll try, and I'll thank you for saying it. It's easier to hold on when someone else believes it too.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", reply = "Some things, yes, and that's exactly the thought that lit every pyre I ever stood beside. Mind where it leads you.", fx = { align = { light = -1 } } },
+        { text = "The Crusade wasn't wrong about everything. Some things deserve the fire.", next = "BACK", reply = "Some things, yes, and that's exactly the thought that lit every pyre I ever stood beside. Mind where it leads you.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -212,7 +217,7 @@ P:NPC {
         { id = "h_cl_cath", tags = { "news" }, when = { cleared = "Scarlet Cathedral", faction = "Alliance" },
           text = "You've stood in the cathedral and come back down its steps, and I can see it on you. I knelt at that altar for six years, and I never thought I'd be glad to hear it had gone quiet." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Close the door, and I'll ask you plainly: were you sent by the Crusade? You move like the men they send for those of us who left." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I know what you are. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so you'll pardon me if I check the window." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },

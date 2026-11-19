@@ -134,6 +134,10 @@ P:NPC {
   notice = {
     { id = "n_fel", cat = "fel", when = { class = "WARLOCK", pet = { family = "Imp" } },
       text = "Your imp's grinning at me again. Tell it that if it sets fire to my robes, I'll send it home in pieces." },
+    { id = "n_felhunter", cat = "fel", when = { class = "WARLOCK", pet = { family = "Felhunter" } },
+      text = "Your felhunter keeps sniffing at my sleeve, because I've a ward stitched into the cuff. Call it off before it eats a week of my work." },
+    { id = "n_taint", cat = "fel", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've been spending more of yourself than you've earned back. I can count it in the hollows under your eyes, and I'm rarely wrong about sums." },
   },
   start = "hello",
   nodes = {
@@ -146,34 +150,56 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city remembers the blood curse and would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris, your trainer up in the Valley of Wisdom, has already said it twice this season." },
-        { id = "h_lock", when = { class = "WARLOCK" }, text = "Mirket, and you're one of mine, so show me your hands. Chalk under the nails means you've been practicing, and clean nails mean you've been lying to me." },
+        { id = "h_default", key = true, text = "I'm Mirket, and I teach warlocks. The rest of the city remembers the blood curse and would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "I'm Mirket, and you're a shaman, so you'll be wanting to tell me the spirits disapprove of me. Save your breath, because Kardris up in the Valley of Wisdom has already said it twice this season." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "I'm Mirket, and you're one of mine, so show me your hands. Chalk under the nails means you've been practising, and clean nails mean you've been lying to me." },
+        { id = "h_lock40", when = { class = "WARLOCK", minLevel = 40 }, text = "I'm Mirket, and you've lasted long enough that I've stopped keeping a grave dug for you. Show me your hands anyway, because old habits keep old warlocks alive." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick, my next student's late." },
+        { id = "h_again", text = "What else? Be quick, because my next student's late." },
         { id = "h_again2", text = "Go on, then. I keep a tally of wasted minutes, and I've started a new column for you." },
+        { id = "h_again3", text = "Ask. You've used four minutes so far, which is about average for someone who hasn't been bitten yet." },
       },
       choices = {
+        { text = "Teach me what you know.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "What's a healthstone really worth?", next = "stones", when = { class = "WARLOCK", minLevel = 10, maxLevel = 49 } },
+        { text = "I'm ready to ride a felsteed.", next = "steed", when = { class = "WARLOCK", minLevel = 40, maxLevel = 59 } },
+        { text = "Tell me about the Ritual of Doom.", next = "doom", when = { class = "WARLOCK", minLevel = 60 } },
+        { text = "I lost my grip on my voidwalker once.", next = "lock_slip", when = { class = "WARLOCK" } },
         { text = "Why does the city tolerate warlocks?", next = "tolerate" },
         { text = "Demons nearly destroyed the orcs.", next = "demons" },
         { text = "What's the worst mistake your students make?", next = "circle" },
         { text = "What do you make of Zevrost?", next = "zevrost" },
         { text = "What do you look for in a student?", next = "student" },
-        { text = "I lost my grip on my voidwalker once.", next = "lock_slip", when = { class = "WARLOCK" } },
+        { text = "My voidwalker slipped its bindings once. I made it regret that.", next = "lock_slip", when = { class = "WARLOCK" } },
         { text = "The spirits truly don't approve of you.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "My father drank the blood, and it nearly killed him.", next = "orc_blood", when = { race = "Orc" } },
-        { text = "Teach me what you know.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach me what you know. All of it.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "I wore the Burning Blade's mark once, Mirket.", next = "xorig_bdef", when = { origin = "orc_blade_defector" } },
         { text = "Farewell, Mirket.", next = "END" },
       },
     },
     tolerate = {
-      lines = { { id = "to_default", text = "Because the Warchief is practical, whatever the shamans whisper in his ear. Every warlock in the Cleft is one the Horde can watch, and one the Searing Blade didn't get to first." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "to_default", text = "Because the Warchief is practical, whatever the shaman whisper in his ear. Every warlock in the Cleft is one the Horde can watch, and one the Searing Blade didn't get to first." } },
+      choices = {
+        { text = "Who are the Searing Blade?", next = "searing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    searing = {
+      narr = "She jabs a chalky finger at the dark mouth of Ragefire Chasm behind the vendors.",
+      lines = { { id = "se_default", text = "The Burning Blade's cellar dwellers, living right under our feet in Ragefire Chasm with Taragaman the Hungerer and whatever else they've called up down there. Every orc they recruit is one more reason the city glares at this Cleft, and I resent them for that more than for the demons." } },
+      choices = {
+        { text = "Then why not clear them out yourself?", next = "searing2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    searing2 = {
+      lines = { { id = "se2_default", text = "Because if a warlock goes into Ragefire and comes out again, half the city will wonder what she agreed to while she was down there. I send my students in with a warrior and a shaman beside them, so there are witnesses, and I've found that works better than any amount of honesty." } },
+      choices = { { text = "Witnesses. That's clever.", next = "BACK", reply = "It's arithmetic. A warlock alone is a suspect, and a warlock in a party is a weapon." } },
     },
     demons = {
-      lines = { { id = "de_default", text = "They did, because our fathers bowed to them and drank what they were offered. A warlock doesn't bow; a warlock holds the leash, and if you can't tell the difference, you shouldn't be standing in the Cleft." } },
+      lines = { { id = "de_default", text = "They did, because our fathers bowed to them and drank what they were offered. A warlock doesn't bow, a warlock holds the leash, and if you can't tell the difference you shouldn't be standing in the Cleft." } },
       choices = {
         { text = "What if the leash breaks?", next = "leash" },
         { text = "Something else.", next = "BACK" },
@@ -184,35 +210,35 @@ P:NPC {
       lines = { { id = "le_default", text = "Then the warlock dies, and usually the warlock deserved it for being careless. I've buried three students who thought they were stronger than they were, and I'll bury more, because the Horde needs the power whether or not it likes the price." } },
       choices = {
         { text = "Power the Horde needs is worth the risk.", next = "BACK", reply = "You understand it, then. Most who come down that ramp pretend they don't.", fx = { align = { light = -1 } } },
-        { text = "No power is worth bargaining with demons.", next = "BACK", reply = "Then you're in the wrong trade, and the wrong part of the city. Go back up the ramp.", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "No power is worth bargaining with demons.", next = "BACK", reply = "Then you're in the wrong trade and the wrong part of the city, so go back up the ramp.", fx = { affinity = -1, align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     circle = {
-      lines = { { id = "ci_default", text = "Sloppy circles. Most of my students draw a binding circle the way a grunt signs his name, crooked and in a hurry, and one gap the width of a hair lets the imp stroll out smiling. So I make them draw a hundred before they're allowed to draw one that matters." } },
+      lines = { { id = "ci_default", text = "It's sloppy circles, every time. Most of my students draw a binding circle the way a grunt signs his name, crooked and in a hurry, and a gap the width of a hair lets the imp stroll out smiling, so I make them draw a hundred before they're allowed to draw one that matters." } },
       choices = {
         { text = "A hundred circles? That seems excessive.", next = "circle_hundred" },
         { text = "Something else.", next = "BACK" },
       },
     },
     circle_hundred = {
-      lines = { { id = "ch_default", text = "Excessive is digging a grave behind Ragefire, which I've done three times now. Every one of those students drew a circle that was good enough, and I'll tell you, {class}, 'good enough' is the most expensive phrase in the Cleft." } },
-      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+      lines = { { id = "ch_default", text = "Excessive is digging a grave behind Ragefire, which I've done three times now. Every one of those students drew a circle that was good enough, and I'll tell you, {class}, that 'good enough' is the most expensive phrase in the Cleft." } },
+      choices = { { text = "I'll remember that. Let's move on.", next = "BACK" } },
     },
     zevrost = {
-      lines = { { id = "ze_default", text = "Zevrost whispers, wears black and stands in the darkest corner of the Cleft as though the shadows hired him. He's capable, I'll grant him that, but half of what he teaches is theater, and demons have never once been impressed by theater." } },
+      lines = { { id = "ze_default", text = "Zevrost whispers, wears black and stands in the darkest corner of the Cleft as though the shadows hired him. He's capable, I'll grant him that, but half of what he teaches is theatre, and no demon was ever impressed by theatre." } },
       choices = {
-        { text = "And what are you, if not theater?", next = "zevrost_me" },
+        { text = "And what are you, if not theatre?", next = "zevrost_me" },
         { text = "Something else.", next = "BACK" },
       },
     },
     zevrost_me = {
       big = true,
-      lines = { { id = "zm_default", text = "Arithmetic, {class}. I know what a demon wants, what it can take from me and how long my will holds, and I've never needed a cloak to explain any of it." } },
+      lines = { { id = "zm_default", text = "I'm arithmetic, {class}. I know what a demon wants, what it can take from me and how long my will holds, and I've never needed a cloak to explain any of it." } },
       choices = {
-        { text = "Cold discipline beats mystery. You're right.", next = "BACK", reply = "Exactly. Zevrost's robes and whispers are for those who can't do the sums.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fear is a weapon too. Zevrost knows it.", next = "BACK", reply = "Fear is a weapon, aye, and Zevrost wields it well. But arithmetic never fails you when the demon tests you.", fx = { affinity = -1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Cold discipline beats mystery. You're right.", next = "BACK", reply = "It does. Zevrost's robes and whispers are for warlocks who can't do the sums.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear is a weapon too. Zevrost knows it.", next = "BACK", reply = "Fear is a weapon, I'll grant, and he wields it well, but arithmetic never fails you when a demon tests you.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Back to the lessons, then.", next = "BACK" },
       },
     },
     student = {
@@ -226,35 +252,86 @@ P:NPC {
     },
     st_protect = {
       lines = { { id = "sp_default", text = "Everyone says that, and about half of them mean it. Mean it a little longer than the others did, and you might outlive them." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "I intend to.", next = "BACK" } },
     },
     st_want = {
-      lines = { { id = "sw_default", text = "Good, an honest answer at last. Wanting power is no sin in the Cleft, but needing it is how the leash ends up around your own neck." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "sw_default", text = "That's an honest answer at last. Wanting power is no sin in the Cleft, but needing it is how the leash ends up around your own neck." } },
+      choices = { { text = "Wanting, not needing. I'll mind the difference.", next = "BACK" } },
     },
     st_curious = {
       lines = { { id = "sc_default", text = "Curiosity dug most of my graves for me, so be curious somewhere else, and from a sensible distance." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Fair enough. Something else, then.", next = "BACK" } },
     },
     lock_slip = {
       lines = { { id = "ls_default", text = "Once is a lesson and twice is a funeral, so tell me you drew a fresh circle afterward instead of shouting at it. The void doesn't care how loud you are, only how sure." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "I drew a fresh one, and bound it again.", next = "BACK", reply = "Then you'll do. Most of them run to Kurgul crying instead, and Kurgul feeds them tea." },
+        { text = "I shouted at it, honestly.", next = "BACK", reply = "Of course you did. Draw a hundred circles tonight, and don't come back until your wrist aches." },
+      },
+    },
+    stones = {
+      lines = { { id = "hs_default", text = "One shard and a moment's work, and in exchange a grunt's life when he's down to his last breath. I make my students hand them out to every party they travel with, because nothing teaches the Horde to tolerate us faster than being saved by us." } },
+      choices = {
+        { text = "And the soulstone?", next = "stones2" },
+        { text = "Back to the other questions.", next = "BACK" },
+      },
+    },
+    stones2 = {
+      lines = { { id = "hs2_default", text = "That costs the same shard and buys something much rarer, which is a second chance for whoever carries it. Give it to your healer, never to yourself, because a warlock who comes back alone is only a warlock who dies twice." } },
+      choices = { { text = "The healer gets it. Understood.", next = "BACK", reply = "Good. You'd be amazed how many of them have to be told." } },
+    },
+    steed = {
+      lines = { { id = "fs_default", text = "Then pay for the lesson and stop telling me about it, because the felsteed is the one demon in the Cleft that's glad to be called. It wants to run, and it will run you straight into a Scarlet patrol if you let it, so hold the reins harder than you think you need to." } },
+      choices = {
+        { text = "Glad to be called? Why that one?", next = "steed2" },
+        { text = "Show me the lesson, then.", next = "BUSINESS" },
+      },
+    },
+    steed2 = {
+      lines = { { id = "fs2_default", text = "Because it was bred in the Nether to carry Legion riders to war, and carrying you is the nearest thing to war it can find. Don't mistake its eagerness for loyalty; it would carry a doomguard just as happily, and probably faster." } },
+      choices = { { text = "Let's talk about something else.", next = "BACK" } },
+    },
+    doom = {
+      narr = "She stops counting on her fingers for the first time, and her hand stays closed.",
+      lines = { { id = "do_default", text = "The ritual takes you and four others, a demonic figurine from Hagrus and every scrap of nerve you own. It calls a doomguard, and the price is one of the five, chosen by the Nether and not by you, so before you start you'd better be at peace with whichever one it takes." } },
+      choices = {
+        { text = "That's not arithmetic. That's dice.", next = "doom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    doom2 = {
+      big = true,
+      lines = { { id = "do2_default", text = "It's arithmetic with a die in the middle, which is the worst kind. A doomguard can break a line that would kill twenty grunts, and the ritual costs one warlock, and I've never once been able to make those numbers feel right. What would you do?" } },
+      choices = {
+        { text = "One life for twenty is a fair trade.", next = "BACK", reply = "The sums agree with you. I'm only telling you the sums won't help you sleep.", fx = { align = { light = -1 } } },
+        { text = "I won't ask friends to stand in that circle.", next = "BACK", reply = "Then you'll never call one, and the Horde may pay for your scruples one day. I'm not sure that's wrong.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
     },
     shaman = {
       big = true,
       lines = { { id = "sh_default", text = "Then the spirits can take their complaint to Kardris, who'll carry it down the ramp personally, as usual. Your elements bargain with you and my demons obey me, and I'm not convinced yours is the safer arrangement." } },
       choices = {
-        { text = "The elements are partners, not slaves. That's the difference.", next = "BACK", reply = "Partners who leave when they're angry. I'll take obedience, shaman, and you can keep your bargains.", fx = { align = { light = 1 } } },
+        { text = "The elements are partners, not slaves. That's the difference.", next = "BACK", reply = "They're partners who leave when they're angry. I'll take obedience, shaman, and you can keep your bargains.", fx = { align = { light = 1 } } },
         { text = "Obedience is cleaner than bargaining, I'll admit.", next = "BACK", reply = "At last, a shaman with sense. Don't tell Kardris you said so.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave the spirits out of it.", next = "BACK" },
       },
     },
     orc_blood = {
-      lines = { { id = "ob_default", text = "Then he bowed to the demons, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologize for the Cleft, because nobody here has bowed to anything." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "ob_default", text = "Then he bowed to the demons, and Grom Hellscream paid with his life in Ashenvale to undo it. I'm sorry for your father, but I won't apologise for the Cleft, because nobody here has bowed to anything." } },
+      choices = {
+        { text = "He'd say you're walking the same road.", next = "orc_blood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc_blood2 = {
+      lines = { { id = "ob2_default", text = "He'd be wrong, and he'd have earned the right to say it. Your father drank because a warlock told him it was strength; I teach my students to read the bottle before they lift it, and to put it down." } },
+      choices = { { text = "I'll tell him that, if he'll listen.", next = "BACK", reply = "He won't, and I wouldn't either, in his place. Tell him anyway." } },
     },
   },
   topics = {
+    burning_blade = { { id = "tp_blade", text = "They're the reason every warlock in Orgrimmar gets looked at sideways. I'd count that against them even if they'd never summoned a thing." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps us where he can see us, and I'd do the same in his place. I'd also want the ledgers, and I suspect he has them." } },
     _none = { { id = "tp_none", text = "That isn't worth the chalk it would take to write down. Ask me about binding demons, or go and bother a grunt." } },
   },
 }
@@ -273,13 +350,16 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Bring me your demon, and let's see what we can teach it this time." },
-    { id = "g_imp", when = { pet = { family = "Imp" } }, text = "Ah, an imp. Hello, little one, and stop pulling faces at me." },
+    { id = "g_imp", when = { pet = { family = "Imp" } }, text = "Oh, you've brought an imp, and it's pulling faces at me already. Hello, little one, and do stop that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I keep a list of demons who owe me an apology, and yours is near the top." },
     { id = "g_succ", when = { pet = { family = "Succubus" } }, text = "Put the whip away, my dear. I've heard every one of your compliments before and believed none of them." },
+    { id = "g_fh", when = { pet = { family = "Felhunter" } }, text = "Sit, and stop nosing at my grimoires. Your felhunter has better manners than most, {name}, but it's still hungry for every spell in this room." },
   },
   notice = {
     { id = "n_void", cat = "fel", when = { pet = { family = "Voidwalker" } },
       text = "Your voidwalker's drifting a little to the left. They do that when they're bored, so give it something to hit soon." },
+    { id = "n_nopet", cat = "fel", when = { class = "WARLOCK", ["not"] = { pet = true } },
+      text = "You've come down without a demon at your heel. Either you dismissed it to talk to me in private, or you've lost it, and I'd like to know which." },
   },
   start = "hello",
   nodes = {
@@ -292,29 +372,35 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood, and my books make sure the demons serve us now." },
-        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and I sell the grimoires that teach demons like your sulky voidwalker new ways to serve. They never say thank you, but they remember who was kind to them, in their way." },
-        { id = "h_felhunter", when = { pet = { family = "Felhunter" } }, text = "Kurgul, and your felhunter has been sniffing at my grimoires since you came down the ramp. Keep it on your side of the counter, please, because it eats magic the way a wolf eats mutton." },
+        { id = "h_default", key = true, text = "I'm Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood, and my books make sure the demons serve us now." },
+        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "I'm Kurgul, and I sell the grimoires that teach demons like your sulky voidwalker new ways to serve. They never say thank you, but they remember who was kind to them, in their way." },
+        { id = "h_felhunter", when = { pet = { family = "Felhunter" } }, text = "I'm Kurgul, and your felhunter has been sniffing at my grimoires since you came down the ramp. Keep it on your side of the counter, please, because it eats magic the way a wolf eats mutton." },
+        { id = "h_succ", when = { pet = { family = "Succubus" } }, text = "I'm Kurgul, and your succubus has already told me three lies about you and one about herself. I believed the one about herself, because it was the least flattering." },
       },
       again = {
         { id = "h_again", text = "Anything else? My grimoires don't like being left open." },
         { id = "h_again2", text = "Go on, I'm listening, and so is your demon, though it'll pretend it isn't." },
+        { id = "h_again3", text = "Ask away. The Duke of Ashes used to interrupt at this point, but he's not here, thank the ancestors." },
       },
       choices = {
+        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "My imp won't stop setting fire to things.", next = "imp_fire", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "My succubus mocks me when no one's looking.", next = "succ", when = { class = "WARLOCK", pet = { family = "Succubus" } } },
+        { text = "What should I feed a felhunter's hunger?", next = "fh", when = { class = "WARLOCK", pet = { family = "Felhunter" } } },
         { text = "Do demons have personalities?", next = "personal" },
         { text = "Where do the grimoires come from?", next = "books" },
         { text = "Do you really know every demon's name?", next = "names" },
         { text = "What does Mirket think of your methods?", next = "mirket" },
         { text = "What's the worst thing a warlock can do?", next = "peeve" },
-        { text = "My imp won't stop setting fire to things.", next = "imp_fire", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "My imp keeps burning things I never told it to burn.", next = "imp_fire", when = { class = "WARLOCK", pet = { family = "Imp" } } },
         { text = "Demons seem uneasy around me.", next = "forsaken", when = { race = "Scourge" } },
-        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Show me your grimoires, the ones you keep off the shelf.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "I learned your craft to break Zalazane's hexes, Kurgul.", next = "xorig_hex", when = { origin = "troll_hex_breaker" } },
         { text = "Farewell, Kurgul.", next = "END" },
       },
     },
     personal = {
-      lines = { { id = "pe_default", text = "Oh, very much so, and none of them nice. Imps are vain and spiteful, voidwalkers are quiet and sulky, and succubi will try to talk you out of your own name if you let them." } },
+      lines = { { id = "pe_default", text = "They very much do, and none of them are nice. Imps are vain and spiteful, voidwalkers are quiet and sulky, felhunters are hungry dogs with too many teeth, and succubi will try to talk you out of your own name if you let them." } },
       choices = {
         { text = "I almost pity them.", next = "pity" },
         { text = "Something else.", next = "BACK" },
@@ -322,30 +408,46 @@ P:NPC {
     },
     pity = {
       big = true,
-      lines = { { id = "pi_default", text = "Pity a demon? They'd burn this city to the ground and laugh about it, so I find pity comes hard. But I don't torment them more than I need to, because a tormented demon is a dangerous one." } },
+      lines = { { id = "pi_default", text = "Pity a demon? They'd burn this city to the ground and laugh about it, so pity comes hard to me. But I don't torment them more than I need to, because a tormented demon is a dangerous one." } },
       choices = {
         { text = "They're tools. Use them however works.", next = "BACK", reply = "Spoken like Mirket, and she'd agree. Use them, then, but don't come to me when they bite.", fx = { align = { light = -1 } } },
         { text = "Even a demon shouldn't be tormented for sport.", next = "BACK", reply = "Then we agree, which is rarer down here than you'd think. A tormented imp spends the rest of its binding plotting your death.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     books = {
       lines = { { id = "bo_default", text = "Some were copied from the old Shadow Council's books, the ones that weren't burned, and some I wrote myself after years of watching. I'd rather not say which ones are which, because people get nervous." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The Shadow Council's books? Here, in Orgrimmar?", next = "books2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    books2 = {
+      narr = "Kurgul lays a broad hand flat on the nearest grimoire, the way you'd steady a restless hound.",
+      lines = { { id = "bo2_default", text = "Copies of copies, and I took out everything that wasn't about the demons themselves. Gul'dan's lot wrote down how to make a demon obey and, in the same hand, how to make an orc obey, and I've burned every page of the second kind I ever found." } },
+      choices = {
+        { text = "You burned Shadow Council lore? Thrall would approve.", next = "BACK", reply = "The Warchief has never asked, and I've never offered. Some kindnesses are best done quietly." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
     },
     names = {
       lines = { { id = "na_default", text = "All of them, and each one gave me a false name first. There was an imp down here last spring who called himself the Duke of Ashes, and he stole my good quill and ate it in front of me, very slowly." } },
       choices = {
         { text = "Why bother remembering their names?", next = "names_why" },
+        { text = "What became of the Duke of Ashes?", next = "duke" },
         { text = "Something else.", next = "BACK" },
       },
     },
     names_why = {
       lines = { { id = "nw_default", text = "Because a demon whose name you remember behaves a little better, the way a whelp does when you know its mother. They hate it, of course, which is half the reason I do it." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Back to the other questions.", next = "BACK" } },
+    },
+    duke = {
+      lines = { { id = "du_default", text = "His warlock went out to the Barrens and came back without him, and I'm told he set fire to a centaur's tent on the way out of this world, which I find I can't hold against him. I kept his name on my list anyway, and if he's ever called again, I'll want my quill back." } },
+      choices = { { text = "You miss him, don't you?", next = "BACK", reply = "Don't be absurd. I miss the quill." } },
     },
     mirket = {
-      lines = { { id = "mi_default", text = "Mirket thinks I'm soft and says so every time we pass on the ramp. Mirket holds the leash and I keep the kennel, though I'll point out that my imps bite fewer students." } },
+      lines = { { id = "mi_default", text = "Mirket thinks I'm soft and says so every time we pass on the ramp. She holds the leash and I keep the kennel, though I'll point out that my imps bite fewer students than hers do." } },
       choices = {
         { text = "Which of you is right?", next = "mirket_who" },
         { text = "Something else.", next = "BACK" },
@@ -353,11 +455,11 @@ P:NPC {
     },
     mirket_who = {
       big = true,
-      lines = { { id = "mw_default", text = "Both of us, which neither of us will ever admit. A leash without care makes a demon spiteful, and care without a leash gets you eaten, so I suppose the Cleft needs the pair of us bickering." } },
+      lines = { { id = "mw_default", text = "Both of us, which neither of us will ever admit. A leash without care makes a demon spiteful and care without a leash gets you eaten, so I suppose the Cleft needs the pair of us bickering." } },
       choices = {
-        { text = "A firm hand works better than kindness.", next = "BACK", reply = "That's Mirket's way, and it works, mostly. But the demons she leashes hate her for it.", fx = { align = { order = 1 } } },
+        { text = "A firm hand works better than kindness.", next = "BACK", reply = "That's Mirket's way, and it works, mostly. The demons she leashes hate her for it, though.", fx = { align = { order = 1 } } },
         { text = "Care keeps a demon steadier than fear does.", next = "BACK", reply = "It does, and I'm glad to hear someone else say it. Mirket thinks I'm soft, but my demons don't bite.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     peeve = {
@@ -377,26 +479,54 @@ P:NPC {
     },
     pa_joke = {
       lines = { { id = "pj_default", text = "Ha! That's kinder than anything the warlocks say to theirs. Say it every day, and mean the second part." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Every morning, then.", next = "BACK" } },
     },
     pa_listen = {
-      lines = { { id = "pl_default", text = "Listening carefully is exactly right, and believing it is exactly wrong. You'll make a decent warlock, or a very interesting corpse." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "pl_default", text = "Listening carefully is right, and believing what it tells you is wrong. You'll make a decent warlock, or a very interesting corpse." } },
+      choices = { { text = "I'd rather be the warlock.", next = "BACK" } },
     },
     pa_silent = {
       lines = { { id = "ps_default", text = "Then it'll serve you like a weapon, which is to say until it breaks. Don't come crying to me when it does, because I'll be taking its side." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Let's talk about something else.", next = "BACK" } },
     },
     imp_fire = {
       lines = { { id = "if_default", text = "Of course it won't, because it's bored and it wants you to look at it. Give it something to burn on purpose, a quilboar or a centaur, and it'll leave your bedroll alone." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Something to burn on purpose. Got it.", next = "BACK" } },
+    },
+    succ = {
+      lines = { { id = "su_default", text = "She mocks you because she's measuring you, and every little cut tells her where you bleed. Lash of Pain and Soothing Kiss are in my books, and Seduction after that, but the thing that keeps her in hand isn't in any book at all." } },
+      choices = {
+        { text = "Then what keeps her in hand?", next = "succ2" },
+        { text = "Show me the books, then.", next = "BUSINESS" },
+      },
+    },
+    succ2 = {
+      big = true,
+      lines = { { id = "su2_default", text = "Not caring what she thinks of you, which is harder than it sounds for most of the young ones. Gan'rul says you must be firm with her; I say you must be bored by her. Which do you think suits you better?" } },
+      choices = {
+        { text = "Firm. She'll learn who rules.", next = "BACK", reply = "Gan'rul will be pleased. She'll fight you for it, every day, but she'll lose.", fx = { align = { order = 1 } } },
+        { text = "Bored. Let her talk to the wall.", next = "BACK", reply = "Oh, I like that. Nothing wounds a succubus like a master who yawns.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    fh = {
+      lines = { { id = "fh_default", text = "Magic, and as much of it as you can find. Turn it loose on a mage's shield or a priest's blessing and let Devour Magic do its work, and save Spell Lock for the caster you can't afford to let finish a sentence." } },
+      choices = {
+        { text = "Does it ever turn on me?", next = "fh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fh2 = {
+      lines = { { id = "fh2_default", text = "It sniffs at you every day, because you're full of the very magic it craves. Strahad Farsan will have told you it's loyal to the hand that feeds it; I'd say feed it often, and never let it go hungry near you." } },
+      choices = { { text = "Feed it often. Understood.", next = "BACK" } },
     },
     forsaken = {
       lines = { { id = "fo_default", text = "They would be, because they can't smell any fear on you, and fear is how a demon reads a mortal. A voidwalker beside a Forsaken looks almost lost, which I find rather sweet." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Sweet isn't a word I hear often.", next = "BACK", reply = "Down here it isn't heard at all, so treasure it." } },
     },
   },
   topics = {
+    burning_legion = { { id = "tp_legion", text = "Every demon I've ever trained came from the Legion's kennels first. I like to think mine are happier, though they'd never say so." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, but I'll ask my imp. It lies, but sometimes it lies interestingly." } },
   },
 }

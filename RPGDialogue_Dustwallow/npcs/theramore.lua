@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "noble", tier = "major",
   communities = { "theramore" }, temper = { "earnest", "sharp" }, values = { "wise", "kind", "dutiful" },
   private = { "arthas", "stratholme" },
-  notices = { "class", "race", "form" },
+  notices = { "class", "race", "form", "lock_shadow", "lock_soulstone" },
 
   impression = {
     first = "She would rather hear bad news early, and she means it.",
@@ -31,6 +31,10 @@ P:NPC {
       text = "A mage! Dalaran trained me, once. Whoever trained you, I hope they taught you that power is the easy part." },
     { id = "n_highborne", cat = "race", when = { race = "NightElf" },
       text = "Your people and mine stood together at Mount Hyjal, and I haven't forgotten. I hope we never have to again." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in the hall dimmed when you came in, and I don't think you noticed, which concerns me more than if you had. I spent years in Dalaran learning what that means, and I'd rather we talked in the light." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, and I can feel the thread of it from here. Dalaran forbade that magic for good reasons, but I've buried enough friends to understand why someone would want the choice." },
   },
 
   start = "hello",
@@ -388,6 +392,7 @@ P:NPC {
     x_warlock = {
       lines = {
         { id = "xwl_default", text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so I'm not comfortable with what you keep at your heel. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so you'll forgive me if I keep an eye on the demon in my audience chamber. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
       },
       choices = {
         { text = "Then trust me as you trust the orcs.", next = "x_warlock_trust" },
@@ -759,7 +764,7 @@ P:NPC {
   key = "tervosh", id = TODO_NPC("Archmage Tervosh"), name = "Archmage Tervosh",
   bible = "bibles/dustwallow.md", role = "scholar", tier = "quest",
   communities = { "theramore" }, temper = { "brisk" }, values = { "loyal", "curious" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_shards" },
 
   impression = {
     first = "Between her errands and his books, his garden gets little of him.",
@@ -775,6 +780,8 @@ P:NPC {
       text = "Another mage. Kirin Tor? I never cared for committees myself; I prefer to be useful on my own." },
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "An herbalist! Have you seen my garden? Don't step on the briarthorn; it holds a grudge." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You're carrying enough soul shards to light a small tower, and I can feel them pulling at the wards I keep on this room. Kel'Thuzad started with curiosity and a bag of trinkets, so I hope yours is only a bag." },
   },
 
   start = "hello",
@@ -881,10 +888,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We studied it the way a physician studies plague, carefully and with the windows open. Kel'Thuzad was a member of our council once, and his fascination with forbidden magic led straight to the Cult of the Damned, so you'll understand why I'm wary." } },
+      lines = {
+        { id = "xlock_default", text = "We studied it the way a physician studies plague, carefully and with the windows open. Kel'Thuzad was a member of our council once, and his fascination with forbidden magic led straight to the Cult of the Damned, so you'll understand why I'm wary." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We studied it the way a physician studies plague, carefully and with the windows open, and I'm tempted to open one now with your demon in the room. Kel'Thuzad was a member of our council once, and his fascination led straight to the Cult of the Damned, so you'll understand why I'm watching your servant and not you." },
+      },
       choices = {
         { text = "Knowledge isn't evil, Archmage. Kel'Thuzad chose his path himself.", next = "BACK", reply = "He did, and that's what frightens me most. Knowledge didn't make him evil, it only made him dangerous when he chose to be.", fx = { align = { light = -1 } } },
-        { text = "Your caution is earned. I'll keep my craft honest.", next = "BACK", reply = "Thank you, that's all I'd ask of any warlock. Keep it honest, and we'll get along.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your caution is earned. I'll keep my craft honest.", next = "BACK", reply = "Thank you, that's all I'd ask of anyone in your line of study. Keep it honest, and we'll get along.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -944,7 +954,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Please don't look too closely at my garden; I've read every herbal in Theramore, and they're all wrong about swamp soil." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "I'll be keeping an eye on my books, because a rogue in a mage's study is like a cat in a fishmonger's, and I'm fond of both." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my tower. The Lady has asked me to judge by deeds rather than by schools, and I'm trying, though I'll confess my wards are less patient than I am." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The Lady has asked me to judge by deeds rather than by schools, and I'm trying. I'll confess my wards started humming the moment you came up the stairs, and they are less patient than I am." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I have three books that say it can't be done and one that says it was done long ago, and I'd very much like to know which is right." },
         { id = "h_dd_hoof", tags = { "news" }, when = { questDone = TODO_QUEST("Suspicious Hoofprints") }, text = "Captain Vimes showed me your report about the hoofprints at the Shady Rest, and I confess it spoiled my supper. If it wasn't orcs who burned that inn, then someone wants us to believe it was, and that is a far more dangerous thing." },
       },
@@ -960,7 +970,7 @@ P:NPC {
         { text = "A gnome could rig your garden proper irrigation.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Your herbs would grow better by moonlight.", next = "x_nightelf", when = { race = "NightElf" } },
         { text = "Do you fear for your books in Theramore, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "The Kirin Tor must have studied warlock magic, Archmage.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Kirin Tor must keep studies of the darker schools, Archmage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the mages and the faithful of Theramore get along?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Theramore's peace rest on arms or on trust?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Mages tend to look down on warriors, Archmage.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1055,7 +1065,8 @@ P:NPC {
   key = "vimes", id = TODO_NPC("Captain Garran Vimes"), name = "Captain Garran Vimes",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "direct", "sharp" }, values = { "dutiful", "lawful" },
-  notices = { "race", "kit" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran; he saw what the Horde's warlocks unleashed and doesn't trust the craft in anyone's hands." },
+  notices = { "race", "kit", "lock_armor" },
 
   impression = {
     first = "Everyone else blames the Horde for the inn, and he isn't everyone.",
@@ -1068,6 +1079,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the inn case hasn't moved an inch in that time. I'm glad you're back, because I've run out of people who look for evidence instead of culprits." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Someone in the city tells me you were caught in a lie, and I'll tell you plainly what that means to me. I build cases on testimony, so from now on I'll be checking yours twice." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you put the fear into one of our citizens, and I'll remind you that threats are the Guard's business in Theramore, not yours. Keep it outside the walls." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've looked into enough burnt buildings to know what a summoned thing leaves behind. Be careful what you say to me, stranger." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Lady says we judge by deeds, so I'll judge yours, and closely. Don't give me a reason." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your deeds have stood up to my scrutiny, and that's not nothing. I'll still be watching, but not as closely as before." },
   },
 
   notice = {
@@ -1075,6 +1089,8 @@ P:NPC {
       text = "Lok'tar. Yes, I speak a bit of your tongue, more than anyone else in the garrison; it's useful in a land full of misunderstandings." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something out there has been at you, so get mended. I need my witnesses alive." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's demon hide showing at your collar, and half of Theramore will see it before you've reached the gate. After the Shady Rest, folk are looking for someone to blame, so button your coat and walk carefully." },
   },
 
   start = "hello",
@@ -1177,7 +1193,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a warlock walking about, some of them will want to hang you too." } },
+      lines = {
+        { id = "xlock_default", text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they catch the smell of sulphur on you, some of them will want to hang you too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a demon walking the streets at your heel, they'll want a rope for you as well, so I'd keep it out of sight." },
+      },
       choices = {
         { text = "Then I'll keep my distance and help you find the truth.", next = "BACK", reply = "Thank you, that's the sensible thing, and I appreciate it. Stay out of sight, and help me find who did this.", fx = { align = { order = 1 } } },
         { text = "Let them try. I'm not hiding for anyone's comfort.", next = "BACK", reply = "Then they'll try, and I'll have to stop them, and that's one more fight I don't need. Keep your head down, at least.", fx = { align = { order = -1 } } },
@@ -1219,7 +1238,9 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You read a room before you walked into it, and I noticed. That's useful, because I need someone who sees what's hidden rather than what's convenient." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Archmage Tervosh is too busy to help me, so maybe you can tell me whether a fire looks different when someone starts it with magic." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Before you tell me the Horde burned the Shady Rest because they're the Horde, hear me out, because I've stood in those ashes and they don't tell me that." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Theramore. I'll not ask what you keep at your heel, but I'll ask you to keep it away from the Hyal family, because they've lost enough." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll not ask what you keep at your heel, stranger, but I'll ask you to keep it away from the Hyal family, because they've lost enough." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what warlocks did in the Second War, and I'll not forget it because you smile at me. Keep that thing away from the Hyal family, and keep it away from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept to the law in Theramore, and I'll grant you that much. Now, what do you need?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I don't judge a soldier by how they fight, only by whether they tell me the truth, so let's start there." },
         { id = "h_dd_soup", when = { questDone = TODO_QUEST("Mudrock Soup and Bugs") }, text = "Morgan Stern tells everyone I had two bowls of the tortoise soup you helped him make, and I'd like it known I had three. Don't spread that around the barracks, mind." },
         { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "Hendel wore our tabard and stood our watch, and you're the one who pulled the rot out. I've been through every soldier's record since, twice, and I'm still not sleeping well." },
@@ -1349,7 +1370,7 @@ P:NPC {
   key = "tesoran", id = TODO_NPC("Adjutant Tesoran"), name = "Adjutant Tesoran",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "theramore" }, temper = { "orderly" }, values = { "dutiful", "practical" },
-  notices = { "kit" },
+  notices = { "kit", "lock_stones" },
 
   impression = {
     first = "I'd guess he could find any soldier's record blindfolded.",
@@ -1367,6 +1388,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Equipment damaged in the field. I'd file a report, but you're not one of ours, so get it fixed anyway." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Regulations require me to log any warlock's stones carried within the keep, and you appear to be carrying at least one healthstone. I'll put it down under medical supplies, which I think is honest, and the Captain will think is generous." },
   },
 
   start = "hello",
@@ -1412,10 +1435,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The regulations say every soldier and every beast of burden must be counted, and your companion is close enough to either for my purposes. Captain Vimes once told me a good record has saved more lives than a good sword, and I've chosen to believe him." } },
+      lines = {
+        { id = "xlock_default", text = "The regulations say every soldier and every beast of burden must be counted, and your companion is close enough to either for my purposes. Captain Vimes once told me a good record has saved more lives than a good sword, and I've chosen to believe him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The regulations say every soldier and every beast of burden must be counted, and I've already written {pet} down under beasts, which I hope it doesn't take personally. Captain Vimes says a good record saves more lives than a good sword, so I'd be grateful if it held still while I note the colour of its eyes." },
+      },
       choices = {
         { text = "Record it, then. Rules are rules.", next = "BACK", reply = "Thank you, that makes my job easier. I'll put it down as a beast of burden, if that suits you.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My servant is my own business, not Theramore's.", next = "BACK", reply = "It may be, but it's in Theramore now, so it's on my books. I'll write it down quietly, at least.", fx = { align = { order = -1 } } },
+        { text = "My companion is my own business, not Theramore's.", next = "BACK", reply = "It may be, but it's in Theramore now, so it's on my books. I'll write it down quietly, at least.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1451,7 +1477,7 @@ P:NPC {
           text = "Some of the Admiral's men never accepted that his war was over, and our records say where they went. Our records are very thorough." },
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll need your name for the ledger, and I'll need it twice, I think. Once for you, and once for whatever you've got following you." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll note your arrival, and I'll note also that the chapel could use another pair of hands, since the Guard has had more funerals this year than the record likes." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, from Ironforge. I don't have a line in the ledger for that, so I'll write field support and trust the Lady won't ask." },
@@ -1468,7 +1494,7 @@ P:NPC {
         { text = "What became of the Admiral's men?", next = "daelin", when = { any = { { questActive = TODO_QUEST("Daelin's Men") }, { questDone = TODO_QUEST("Daelin's Men") } } } },
         { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "Do you keep records on Theramore's mages too, Adjutant?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Must you record my companion too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Plenty of soldiers seem to desert out here, Adjutant.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the scouts' records say about the marsh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the records say about this year's dead, Adjutant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1561,7 +1587,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/dustwallow.md", role = "innkeeper", tier = "service",
   communities = { "theramore" }, temper = { "steady" }, values = { "loyal", "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_pact" },
 
   impression = {
     first = "She fed me before she asked a single thing about me.",
@@ -1587,6 +1613,8 @@ P:NPC {
       text = "You've come a long way back from somewhere cold. Sit down, and I'll bring soup." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "One more and you'll be swimming home. The crocolisks would enjoy that more than you would." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Look at you, love, flushed like you've run all the way from the docks, and you're warm as toast. If that's the imp's doing, sit by the window and have some cold water, because the sailors will think you've caught a fever." },
   },
 
   start = "hello",
@@ -1672,7 +1700,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. A demon in the common room and I'd lose the lot of them to the docks." } },
+      lines = {
+        { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. Your little fellow in the common room and I'd lose the lot of them to the docks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Worse, love, and with that one in my doorway I'm watching three of them reach for their hats already. They won't whistle aboard ship and won't sail without a coin under the mast, so a demon in the common room will empty it to the docks, which is why I'd like yours outside before they bolt." },
+      },
       choices = {
         { text = "Then he waits outside, and the gulls can stare at him.", next = "BACK", reply = "That'd suit me, and the sailors too. Thank you, love.", fx = { align = { order = 1 } } },
         { text = "Superstition's their problem. He stays where I stay.", next = "BACK", reply = "Then you'll both be sleeping at the docks, love. My inn, my rules.", fx = { align = { order = -1 } } },
@@ -1694,7 +1725,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You moved through my common room without spilling a drink or bumping a chair, and no soldier's ever managed that, so I suppose that makes you a rogue." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Another mage at my tables! Half of Theramore's tower eats here, and they all want their tea hotter than I can make it, so don't you start." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my tables, love! Sit by the fire, because the damp gets into plate faster than anything, and I've seen your lot rattle when they stand up." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, love? Leave the little fellow by the door and don't let him near the bread, because the sailors are a superstitious lot and they'll not eat a crumb he's breathed on." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Leave the little fellow peeking out behind you by the door, love, and don't let him near the bread. The sailors are a superstitious lot, and they'll not eat a crumb he's breathed on." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at my tables! Sit down, and tell me whether the spirits mind a bit of rain, because Theramore has plenty to share." },
         { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "The whole common room is talking about Private Hendel, and half of them are saying your name in the same breath. I served that man ale every week for a year and never once thought he was anything but dull." },
         { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned, haven't you? You've that look the sailors get after a bad night in the harbor, so sit near the fire and dry out properly before you go anywhere near the water again." },

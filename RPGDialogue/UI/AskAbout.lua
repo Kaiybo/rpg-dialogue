@@ -35,8 +35,8 @@ local function refresh()
   local text = panel.search:GetText()
   local s = ns.Conversation.session
   local npcKey = s and s.memKey
-  local list = ns.Topics.Filter(ns.Topics.Known(showArchive, npcKey), text)
   local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
+  local list = ns.Topics.Filter(ns.Topics.Known(showArchive, npcKey, disp), text)
   filtered = ns.Topics.Rows(list, text ~= nil and text ~= "")
   for i = 1, MAX_ROWS do
     local row = panel.rows[i]

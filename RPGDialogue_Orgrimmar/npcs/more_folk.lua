@@ -639,7 +639,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! The robes on the left are cut for spellwork, with room in the sleeves so your hands move freely." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock! We keep the darker bolts at the back, out of the light, where they hold their colour and nobody stares." },
+      text = "We keep the darker bolts at the back, out of the light, where they hold their colour and nobody stares. I think you'll want those." },
     { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Friend, I say this with respect, but you are wearing rags with a memory of thread in them. Let me help before someone mistakes you for a peon." },
   },
@@ -874,7 +874,7 @@ P:NPC {
   },
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock, of course. You all come to me after Mirket and Zevrost, and you all want the darkest wood I've got." },
+      text = "Come up from Mirket and Zevrost, have you? You all do, and you all want the darkest wood I've got." },
     { id = "n_staff", cat = "kit", when = { class = { "MAGE", "PRIEST", "DRUID", "SHAMAN" } },
       text = "You hold that one too near the top. Drop your hand a span, and it will stop pulling your shoulder." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
@@ -1346,6 +1346,7 @@ P:NPC {
   key = "nazgrel", id = TODO_NPC("Nazgrel"), name = "Nazgrel", title = "Advisor to Thrall",
   bible = "bibles/more_folk.md", role = "soldier", tier = "quest",
   communities = { "orgrimmar" }, temper = { "stern", "watchful" }, values = { "loyal", "honorable" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Frostwolf who has served Thrall since the camps; he saw what Gul'dan's warlocks did to the Horde." },
   notices = { "class", "race" },
   impression = {
     first = "Nazgrel stands near the Warchief's throne and watches the door more than the throne. He is a Frostwolf of the old kind, plain in speech and slow to trust, and he measures everyone who enters by what they might do with a blade.",
@@ -1356,6 +1357,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. I remember your face, and I remember that you gave me no cause to." },
     { id = "g_orc", when = { race = "Orc" }, text = "Throm-ka. Stand straight, you are in Grommash Hold, and the name over the door was paid for in blood." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone some weeks. The reports that crossed my table with your name in them were mostly to your credit." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched the Warchief free our people from the sickness Gul'dan's warlocks poured into them. You carry that same sickness in your bag, and I will not forget it." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Warchief allows your craft to serve the Horde. I serve the Warchief, so I allow it too, but nothing more than that." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Your reports have been clean and your demons have stayed leashed. I still keep an eye on you in this hall, but it is one eye now, not two." },
   },
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
@@ -1370,6 +1374,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Nazgrel of the Frostwolves. I rode at the Warchief's side when this land was won, and now I stand at it, and I will tell you plainly that I liked the riding better." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Warchief tolerates warlocks in his Horde, and I am not the Warchief. Say your business, and keep your hands where my guards can see them." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have served the Horde without letting the fel serve itself. I note it, and I am still watching." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "I am Nazgrel of the Frostwolves. Your people stood with us at Stonetalon and at Hyjal, and I do not forget who was beside me when the sky burned." },
         { id = "h_troll", when = { race = "Troll" }, text = "I am Nazgrel of the Frostwolves. Vol'jin sits at the Warchief's right hand and has earned the seat, and I extend to his tribe the trust I give to him." },
       },
@@ -2352,7 +2358,7 @@ P:NPC {
         { text = "Orc enchanters can't have been common before.", next = "orcs" },
         { text = "Who works the Runeworks with you?", next = "shop" },
         { text = "What would you set into a weapon like mine?", next = "weapon", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "SHAMAN", "PALADIN" } } },
-        { text = "This looks close to what warlocks do with souls.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "This looks close to what some do with souls. I would know.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your runes.", next = "END" },
       },
     },
@@ -3496,40 +3502,47 @@ P:NPC {
   key = "groldar", id = TODO_NPC("Grol'dar"), name = "Grol'dar", title = "Warlock Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "grim", "proud" }, values = { "ambitious", "cunning" },
-  notices = { "class" },
+  notices = { "class", "fel" },
   impression = {
     first = "Grol'dar teaches warlocks in the Darkfire Enclave and is old enough to remember when his kind ruled the Horde. He insists the art can be mastered without being served, and has plainly said so often.",
     third = "{name} met Grol'dar, an old orc warlock who trains in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
-    { id = "g_default", text = "You may come as far as the brazier. Past it, I expect a reason." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Either you've grown curious or you've grown careless, and I'll know which before you leave." },
+    { id = "g_default", text = "You may come as far as the brazier, but past it I'll expect a reason." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned. Either you've grown curious or you've grown careless, and I'll know which before you leave." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another who carries the fire. Come closer, then, and let me see how much of it is carrying you." },
+    { id = "g_orclock", when = { race = "Orc", class = "WARLOCK" }, text = "Another orc who carries the fire, as I did when I was young and stupid. Come closer and let me see whether you're the first of those things or the second." },
   },
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Your demon is quiet behind your eyes, and too quiet for my liking. When one of them stops arguing, it has started planning." },
+      text = "Your demon is quiet behind your eyes, too quiet for my liking. When one of them stops arguing, it has started planning." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "A shaman, in the Darkfire Enclave. The spirits will be shouting at you to leave, so I'll not keep you long." },
+      text = "A shaman in the Darkfire Enclave. The spirits will be shouting at you to leave, so I'll not keep you long." },
+    { id = "n_taint", cat = "fel", when = { taint = { min = 40 } },
+      text = "The brazier leaned toward you when you came in. It does that for those who've drunk deep, and I'd rather it didn't do it for you." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Grol'dar. I teach the binding of demons and the shaping of fel fire, here, where the Warchief permits it and his spies can count us. I've taught it in worse places and to worse ends." },
-        { id = "h_lock", when = { class = "WARLOCK" }, text = "Grol'dar. You've chosen the hardest road an orc can walk in this city, so I'll give you the rule first. You command it, always, and the day you bargain with it you are finished." },
+        { id = "h_default", key = true, text = "I am Grol'dar. I teach the binding of demons and the shaping of fel fire here, where the Warchief permits it and his spies can count us, and I've taught it in worse places and to worse ends." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "I am Grol'dar, and you've chosen the hardest road an orc's city can offer, so I'll give you the rule first. You command it, always, and the day you bargain with it you are finished." },
         { id = "h_orc", when = { race = "Orc" }, text = "I am Grol'dar, and you're an orc, so you know what my kind did. I'll not ask you to forgive it, only to understand that somebody must know these arts when the demons come again." },
+        { id = "h_lock50", when = { class = "WARLOCK", minLevel = 50 }, text = "I am Grol'dar, and you've come far enough that I can teach you the thing I fear most in this craft. Sit, if your legs will let you, and we'll talk about the sky raining stone." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? Choose with care." },
-        { id = "h_again2", text = "Go on. I answer most questions once." },
-        { id = "h_again3", text = "Speak. The fire is patient and I am nearly so." },
+        { id = "h_again", text = "What else would you ask? Choose with care, because I give most answers only once." },
+        { id = "h_again2", text = "Go on. The fire is patient, and I'm nearly so." },
+        { id = "h_again3", text = "Speak. I've had a long life of listening to worse questions than yours." },
       },
       choices = {
-        { text = "I've come for instruction, Grol'dar.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I've come to learn how to hold it tighter, Grol'dar.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach me to call down an infernal.", next = "infernal", when = { class = "WARLOCK", minLevel = 50 } },
+        { text = "My imp keeps offering me bargains.", next = "imp_bargain", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "The elders spit when an orc warlock walks by.", next = "elders", when = { race = "Orc", class = "WARLOCK" } },
         { text = "You were a warlock in the old Horde.", next = "old" },
         { text = "Why does Thrall allow this enclave at all?", next = "allowed" },
-        { text = "Who else practices down here?", next = "enclave" },
+        { text = "Who else practises down here?", next = "enclave" },
         { text = "Your imp keeps staring at me.", next = "imp" },
         { text = "The Forsaken don't share the orcs' dread of your art.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll stay on my side of the brazier.", next = "END" },
@@ -3537,72 +3550,120 @@ P:NPC {
     },
     old = {
       lines = {
-        { id = "old_default", text = "I was, though I was young and of no rank, a carrier of other warlocks' books. I saw the shaman cast down and the circles raised, and I thought we had been handed the strength of gods. We had been handed a leash, and I didn't feel it until it was pulled." },
+        { id = "old_default", text = "I was, though I was young and of no rank, a carrier of other warlocks' books. I saw the shaman cast down and the circles raised, and I thought we'd been handed the strength of gods, when we'd been handed a leash that I didn't feel until it was pulled." },
       },
       choices = {
         { text = "When was it pulled?", next = "old2" },
+        { text = "Did you ever see Gul'dan himself?", next = "guldan" },
         { text = "Something else.", next = "BACK" },
       },
     },
     old2 = {
       lines = {
-        { id = "old2_default", text = "When the blood was drunk, and after, when it wore thin. The power left us all at once, and the whole Horde sat down in the dirt of the camps and couldn't lift its head. I had a spellbook and no will to open it. That is what serving them buys you, in the end." },
+        { id = "old2_default", text = "When the blood was drunk, and after, when it wore thin. The power left us all at once, and the whole Horde sat down in the dirt of the camps and couldn't lift its head; I had a spellbook and no will to open it, and that is what serving them buys you in the end." },
       },
       choices = {
         { text = "And still you teach it.", next = "old3" },
-        { text = "Something else, Grol'dar.", next = "BACK" },
+        { text = "Let's talk about something else, Grol'dar.", next = "BACK" },
       },
     },
     old3 = {
       big = true,
       narr = "He looks into the brazier, and the green in it climbs a little, as if it had been addressed.",
       lines = {
-        { id = "old3_default", text = "Still, and I'll tell you why. The Legion came back at Hyjal, and it will come again, and the shaman can't bind a doomguard or read what's scratched on a summoning stone. Someone must know the enemy's own arts. I'd rather it were an orc who has already paid for the knowledge." },
+        { id = "old3_default", text = "Still, and I'll tell you why. The Legion came back at Hyjal and it will come again, and the shaman can't bind a doomguard or read what's scratched on a summoning stone, so someone must know the enemy's own arts, and I'd rather it were an orc who has already paid for the knowledge." },
       },
       choices = {
         { text = "Then you serve the Horde. A hard duty, but a duty.", next = "BACK", reply = "I've never heard it called duty by anyone who didn't carry the fire. I'll remember that you said it.", fx = { align = { honor = 1 } } },
         { text = "You tell yourself that. The fire wants to be used.", next = "BACK", reply = "It does, and so does a sword. I've heard your warning from wiser mouths, and I'm still my own master.", fx = { align = { honor = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's leave the old Horde be.", next = "BACK" },
+      },
+    },
+    guldan = {
+      narr = "His jaw works for a moment before he answers, as though the name had a taste.",
+      lines = { { id = "gd_default", text = "Once, from far off, on the road below Blackrock Spire: an old orc bent over a staff, with demons walking beside him like hounds. Everyone around me bowed, and I bowed lowest of all, and I'd give a great deal to stand up straight in that memory now." } },
+      choices = {
+        { text = "You were young. Everyone bowed.", next = "BACK", reply = "Everyone did, and that's the whole of the problem. Don't take comfort from a crowd." },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     allowed = {
       lines = {
-        { id = "allowed_default", text = "Because he is not a fool. He could drive us out, and then we'd practice in caves where no one watches, as some already do. Here he knows our names, and the Shattered Hand sits at the mouth of this cleft counting who comes and goes. I'd do the same in his place." },
+        { id = "allowed_default", text = "Because he's not a fool. He could drive us out, and then we'd practise in caves where nobody watches, as some already do, but here he knows our names, and the Shattered Hand sits at the mouth of this Cleft counting who comes and goes. I'd do the same in his place." },
       },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
+      choices = { { text = "Back to the other questions, then.", next = "BACK" } },
     },
     enclave = {
       lines = {
-        { id = "enclave_default", text = "Mirket and Zevrost teach beside me, and Kurgul sees to the demons themselves. Gan'rul Bloodeye is the eldest of us and the only one the Warchief speaks to directly. Neeru Fireblade keeps his own tent further along, and I advise my students to be civil to him and nothing more." },
+        { id = "enclave_default", text = "Mirket and Zevrost teach beside me, and Kurgul sees to the demons themselves. Gan'rul Bloodeye is the eldest of us and the one the Warchief speaks to, and Neeru Fireblade keeps his own tent further along, where I advise my students to be civil to him and nothing more." },
       },
       choices = {
+        { text = "Why only civil to Neeru?", next = "enclave2" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    enclave2 = {
+      lines = { { id = "en2_default", text = "Because he speaks for us very well, and I've noticed that the ones who speak for warlocks always want something from warlocks in return. That's an old man's suspicion and nothing more, and I'll not repeat it louder than this." } },
+      choices = { { text = "I didn't hear it.", next = "BACK", reply = "Good. Neither did the imp, I hope." } },
+    },
     imp = {
       lines = {
-        { id = "imp_default", text = "It stares at everyone, and it's weighing how you'd burn. Pay it no mind and, above all, don't speak to it. They take any answer as the opening of a bargain, and it has been trying to open one with me for eleven years." },
+        { id = "imp_default", text = "It stares at everyone, because it's weighing how you'd burn. Pay it no mind and, above all, don't speak to it, because they take any answer as the opening of a bargain, and this one has been trying to open one with me for eleven years." },
       },
+      choices = { { text = "Eleven years? What does it offer?", next = "imp_bargain" }, { text = "Something else.", next = "BACK" } },
+    },
+    imp_bargain = {
+      lines = { { id = "ib_default", text = "Small things, always small. A warmer fire on a cold night, the name of a student who'll betray me, a dream of the old days when the circles were full. It never asks for anything in return, which is how I know the price is enormous." } },
       choices = {
+        { text = "Mine offered to burn a rival's tent.", next = "imp_bargain2", when = { class = "WARLOCK", pet = { family = "Imp" } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    imp_bargain2 = {
+      big = true,
+      lines = { { id = "ib2_default", text = "Of course it did, and it'll burn the tent without asking if you so much as smile at the idea. What did you tell it?" } },
+      choices = {
+        { text = "Nothing. I gave it an order and walked on.", next = "BACK", reply = "Then you've learned in one season what took me ten years. Keep walking.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I said maybe. The rival deserved it.", next = "BACK", reply = "And now it owns a maybe of yours, and it will spend it at the worst moment. Take it back, if you still can.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    elders = {
+      lines = { { id = "el_default", text = "They spat at me too, and some still do, and I've never once wiped it off where they could see. They lived through what the warlocks did, and a little spit is a small price for the camps. What do you do when it happens?" } },
+      choices = {
+        { text = "I let them spit. They've earned that much.", next = "BACK", reply = "Then you'll be a warlock the Horde can live with. That's rarer than a powerful one.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll make them need me, and they'll stop.", next = "BACK", reply = "They will, and they'll hate you more for it. Gul'dan made them need him too, remember.", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    infernal = {
+      lines = { { id = "in_default", text = "I saw them fall at Hyjal, burning stones the size of a war wagon, and every one that landed broke a line. The spell calls one down from that same sky and holds it for as long as your will holds, which is never as long as you hope." } },
+      choices = {
+        { text = "And when my will breaks?", next = "infernal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    infernal2 = {
+      lines = { { id = "in2_default", text = "Then it turns on you and on whoever stands near you, and nothing short of killing it will stop it. Buy an Infernal Stone from Hagrus, cast it far from anyone you love, and send it back the moment the fight is done, before it remembers what it is." } },
+      choices = {
+        { text = "Far from anyone I love. Teach me.", next = "BUSINESS" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     forsaken = {
       lines = {
-        { id = "forsaken_default", text = "No, and I find that restful and troubling in about equal parts. Your people ask what a thing can do and never what it did to those who used it before. I've had Forsaken students master in a season what took me five years, and I don't sleep well afterward." },
+        { id = "forsaken_default", text = "No, and I find that restful and troubling in about equal parts. Your people ask what a thing can do and never what it did to those who used it before, and I've had Forsaken students master in a season what took me five years, and I don't sleep well afterward." },
       },
       choices = {
         { text = "We have less left to lose. It makes us quick.", next = "BACK", reply = "Then lose it slowly. I'd not see the Dark Lady's people learn my lesson the way mine did.", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
   },
   topics = {
-    burning_blade = { { id = "tp_burning_blade", text = "Fools who think they'll be favored when their masters return. I taught some of them, to my shame, before I knew what they were." } },
+    burning_blade = { { id = "tp_burning_blade", text = "They're fools who think they'll be favoured when their masters return. I taught some of them, to my shame, before I knew what they were." } },
     burning_legion = { { id = "tp_burning_legion", text = "They don't hate us. We were a tool that broke, and they'd pick us up again without a thought." } },
-    thrall = { { id = "tp_thrall", text = "He looks at me as a healer looks at a poison he keeps on the shelf, and I've no quarrel with it." } },
+    thrall = { { id = "tp_thrall", text = "He looks at me the way a healer looks at a poison he keeps on the shelf, and I've no quarrel with that." } },
     advice = { { id = "tp_advice", text = "Command, and never bargain. If you find yourself explaining your reasons to a demon, it's already too late." } },
     _none = { { id = "tp_none", text = "That knowledge isn't mine, and I've learned not to pretend to knowledge I lack." } },
   },

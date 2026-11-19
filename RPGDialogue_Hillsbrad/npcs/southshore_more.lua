@@ -8,7 +8,7 @@ P:NPC {
   key = "jacques", id = TODO_NPC("Emissary Jacques"), name = "Emissary Jacques",
   bible = "bibles/southshore_more.md", role = "noble", tier = "quest",
   communities = { "southshore" }, temper = { "formal" }, values = { "dutiful", "proud" },
-  notices = { "class", "arcane" },
+  notices = { "class", "arcane", "lock_armor" },
 
   impression = {
     first = "It plainly costs him something to ask the Alliance for help.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "You've studied the arcane; I can feel it on you like static. Then you'll understand what it means when a city's ley lines turn against it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. Dalaran has never been comfortable asking the Light for help, but we're past comfortable now." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You're wearing a ward that drinks shadow, which is clever work, and the Violet Citadel would very much like to know where you learned it. I won't be the one to ask, because then I'd have to explain why I was talking to you." },
   },
 
   start = "hello",
@@ -125,7 +127,7 @@ P:NPC {
         { text = "I'd heard Dalaran was in ruins.", next = "ruins" },
         { text = "I trained in Dalaran's ways. Tell me plainly.", next = "mage", when = { class = "MAGE" } },
         { text = "My order came to the Kirin Tor from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
-        { text = "Does Dalaran have room for a warlock's help?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Does Dalaran have room for help it would rather not name?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The Syndicate must be spying on Dalaran's envoy, Emissary.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What troubles in Dalaran need the Light's help, Emissary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin help the Kirin Tor, Emissary?", next = "xapala", when = { class = "PALADIN" } },
@@ -218,7 +220,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." } },
+      lines = {
+        { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Dalaran has a long memory where your arts are concerned, and I'd swear the ward-stone in my pocket went cold the moment your demon came near. I'd be grateful for your help, and more grateful still if you never mentioned it, or let that thing within sight of the Violet Citadel." },
+      },
       choices = {
         { text = "Dalaran's wards keep out the wrong things.", next = "BACK", reply = "Exactly so, and I'm glad you understand. Keep your arts quiet, and nobody will need to test them.", fx = { align = { order = -1 } } },
         { text = "Discretion it is. Dalaran's rules are Dalaran's rules.", next = "BACK", reply = "Thank you. You'd be surprised how many of your kind take offence at that.", fx = { affinity = 1, align = { order = 1 } } },
@@ -243,7 +248,7 @@ P:NPC {
   key = "kundric", id = TODO_NPC("Kundric Zanden"), name = "Kundric Zanden",
   bible = "bibles/southshore_more.md", role = "scholar", tier = "quest",
   communities = { "southshore" }, temper = { "chatty" }, values = { "curious", "careful" },
-  notices = { "lore", "race" },
+  notices = { "lore", "race", "lock_pact" },
 
   impression = {
     first = "He regards the present mainly as material for later.",
@@ -261,6 +266,8 @@ P:NPC {
       text = "You've the look of someone who reads. Good; nobody in this town reads, and I'm tired of explaining what a century is." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! Dun Garok's just up the road, you know, and your people's part in Southshore's history is badly underwritten. By me, mostly." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever-flush on you, and the pages under my floorboards describe it exactly, a heat the Horde's warlocks shared with every orc in their war band. I'd write it up properly if I didn't think it would frighten the whole of Southshore." },
   },
 
   start = "hello",
@@ -342,7 +349,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
+      lines = {
+        { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War, though I never thought I'd have one of their servants standing in my study. There are older pages about Alterac's court magi too, but those stay under the floorboards, and I'll thank your demon to stop staring at the boards." },
+      },
       choices = {
         { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", reply = "I will, every blackened hill and every name. If I don't, someone in Stormwind who's never seen the place will write it for me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some pages are better burned than kept, Kundric.", next = "BACK", reply = "Burned, maybe, but somebody would only write them again, and badly. I'll keep them, and keep them locked.", fx = { align = { honor = -1 } } },
@@ -364,7 +374,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stand still a moment while I note your arms, because my records of Southshore's defenders are very thin, and I've had to guess at the sword sizes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Excellent, because the town records have a gap where the beasts of Hillsbrad ought to be, and nobody who knows about them has ever stood still long enough." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! I've a whole shelf of guesses about your people and not one proper source, so if you've an hour, I've a quill." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's a thing I've not had the chance to write down properly. Hillsbrad's histories are full of your kind, mostly as the reason something burned." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Now there's a face I'd like to write down properly. Hillsbrad's histories are full of folk who smell as you do, mostly as the reason something burned." },
       },
       again = {
         { id = "h_again", text = "What else? I'll keep writing while you think." },
@@ -384,7 +394,7 @@ P:NPC {
         { text = "Someone must have defended Southshore in the Second War, Kundric.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the Southshore records say about the beasts here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you write about the druids, historian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What do Hillsbrad's histories say about warlocks, Kundric?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do Hillsbrad's histories say about the old dark casters, Kundric?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you write about me, Kundric?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
@@ -484,7 +494,7 @@ P:NPC {
   key = "kelly", id = TODO_NPC("Barkeep Kelly"), name = "Barkeep Kelly",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "jovial" }, values = { "friendly", "practical" },
-  notices = { "drink", "class" },
+  notices = { "drink", "class", "lock_stones" },
 
   impression = {
     first = "He seems to know every rumour in town before the town does.",
@@ -506,6 +516,8 @@ P:NPC {
       text = "Somebody found the cellar before the bar! Was it Bilger's moonshine? Don't answer; I can tell by the eyes." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin! Bilger will want to talk to you, or hide from you, depending on his mood." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in your belt pouch is a warlock's work, and don't bother telling me otherwise, because I've seen men bite one after a brawl and stand up whole. Who made it for you is the question the whole bar will be asking by supper." },
   },
 
   start = "hello",
@@ -578,9 +590,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He did, and the warlock let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." } },
+      lines = {
+        { id = "xlock_default", text = "He did, and the fellow let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He did, and the warlock let him, though that one had the sense to leave his demon outside, which you haven't. Bilger hasn't lifted a sword in years, but he's looking at yours from across the room right now, and I'd not want to be the one who tests his old oaths." },
+      },
       choices = {
-        { text = "The warlock was wise not to fight. Respect the old man.", next = "BACK", reply = "He was, and Bilger's never let anyone forget it. The warlock still buys his ale elsewhere, mind.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He was wise not to fight. Respect the old man.", next = "BACK", reply = "He was, and Bilger's never let anyone forget it. The fellow still buys his ale elsewhere, mind.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I wouldn't have run. A broom doesn't scare me.", next = "BACK", reply = "Then you'd have been on the floor with a sore head, because Bilger can still swing a broom.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -592,7 +607,7 @@ P:NPC {
         { id = "h_talk_done", when = { questDone = TODO_QUEST("Talk of the Town") },
           text = "You saw to that business of mine, and folk have been talking about you since, so you're part of the talk of the town now. Enjoy it while it lasts." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my bar, and you'll want something warm, I'd guess, since your lot never stop shivering after a ride down from Dalaran." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my bar? You're braver than most, because the last one who came in here was chased out by Bilger with a broom and a lot of shouting about the Silver Hand." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Brave of you, coming to my bar smelling of sulphur, because the last one who did was chased out by Bilger with a broom and a lot of shouting about the Silver Hand." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest at my bar! Folk will mind their language for an hour or so, which is a rest for my ears, and Bilger might even come up from the cellar." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -615,7 +630,7 @@ P:NPC {
         { text = "Gossip seems a strange way to run an inn.", next = "gossip_right" },
         { text = "Gossip's my trade too. Want to compare notes?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do many mages come down from Dalaran to drink, Kelly?", next = "xmage", when = { class = "MAGE" } },
-        { text = "I heard Bilger chased a warlock out with a broom, Kelly.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I heard Bilger chased someone out with a broom. Someone like me.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does Southshore have a priest of its own, Kelly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Bilger say about the old days, Kelly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Who's been picking fights with Tarren Mill, then?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -695,7 +710,7 @@ P:NPC {
   key = "phin", id = TODO_NPC("Phin Odelic"), name = "Phin Odelic",
   bible = "bibles/southshore_more.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "sharp" }, values = { "curious", "loyal" },
-  notices = { "arcane", "class" },
+  notices = { "arcane", "class", "lock_shards" },
 
   impression = {
     first = "He worries about his friends more than he admits.",
@@ -713,6 +728,8 @@ P:NPC {
       text = "A mage! You'll forgive me for staring; I don't meet many colleagues since I left the Kirin Tor, and fewer who'd admit to knowing me." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. Good; if this is the plague I think it is, we'll need your sort, and plenty of you." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards in your bag give off the same cold I felt in Dalaran's lower vaults after the siege. My friends would want to study them, and I'd much rather they didn't, so let's keep that bag shut while we talk." },
   },
 
   start = "hello",
@@ -785,7 +802,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." } },
+      lines = {
+        { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and I'd ask your demon to stop sizing me up while I explain it, because it's making me lose my place." },
+      },
       choices = {
         { text = "People matter more than towers. You chose rightly.", next = "BACK", reply = "Thank you. I've wondered more than once whether I was right.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Kirin Tor's power protects everyone. You abandoned them.", next = "BACK", reply = "Perhaps I did, and perhaps they'd say so too. I'd still rather be here than reading in a tower.", fx = { align = { light = -1 } } },
@@ -802,7 +822,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hints of a New Plague?"), days = 7 } },
           text = "So my two troublemakers are alive after all! Ha! Those two are irreplaceable, as friends and as company on the road, and I owe you for both of them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Good, because my little band has plenty of curiosity and no stealth at all, and the Forsaken up at Tarren Mill always see us coming." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I left the Kirin Tor partly because they were too quick to judge people by their schools of magic, so I'll give you a fair chance, but please keep your demon away from my friends." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I left the Kirin Tor partly because they were too quick to judge people by their schools of magic, and I can guess yours. I'll give you a fair chance, but please keep whatever answers to you away from my friends." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! If the Forsaken really are brewing a new plague up at Tarren Mill, you're exactly who I'd want standing behind me when we find it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -922,7 +942,7 @@ P:NPC {
   key = "malvew", id = TODO_NPC("Darren Malvew"), name = "Darren Malvew",
   bible = "bibles/southshore_more.md", role = "questgiver", tier = "quest",
   communities = { "southshore" }, temper = { "gruff" }, values = { "hardworking", "loyal" },
-  notices = { "mount", "animal" },
+  notices = { "mount", "animal", "lock_shadow" },
 
   impression = {
     first = "He swears mountain lions are the worst of Hillsbrad's thieves.",
@@ -938,6 +958,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Now that's a fine animal under you! Treat it right, and keep it away from them hills." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every horse in the barn's got its ears pinned flat since ye walked up, an' the old mare's tryin' to back out through the wall. It ain't yer pet this time, it's you, an' I don't rightly know what to make o' that." },
   },
 
   start = "hello",
@@ -997,7 +1019,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." } },
+      lines = {
+        { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "'Cause my horses can smell it a mile off, an' yours is close enough now that the mare's already kickin' her stall. Take it back down the lane, friend, because a horse knows what's natural an' what ain't, an' that thing at your heel ain't." },
+      },
       choices = {
         { text = "Understood. My horse can sleep well clear of your stables.", next = "BACK", reply = "That's kind, an' my horses'll thank you, though they'll never say so.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your horses will learn to share. Times are changing.", next = "BACK", reply = "Maybe they are, but horses don't change for nobody. You'll keep yours clear, all the same.", fx = { align = { order = -1 } } },
@@ -1025,7 +1050,7 @@ P:NPC {
         { id = "h_later", when = { questDone = TODO_QUEST("Costly Menace") },
           text = "Ain't lost a single foal since you went up them hills. The horses are sleepin' easier, and so am I." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now don't you go eyein' my horses, friend, 'cause I count 'em every night an' I'd know if one went missin'." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, eh? Now, I heard tell your kind can call up a horse made o' fire, an' I'll tell you right now, it ain't welcome in my stable." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "My horses went quiet when you came round the fence. Now, I heard tell some folk can call up a horse made o' fire, an' I'll tell you right now, it ain't welcome in my stable." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say, would you say a word over my old gelding Barley? The lions got him last week, an' I buried him up the hill, but it don't feel finished somehow." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1125,7 +1150,7 @@ P:NPC {
   key = "jessen", id = TODO_NPC("Chef Jessen"), name = "Chef Jessen",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "proud" }, values = { "proud", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_taint" },
 
   impression = {
     first = "It pains him to say why he stopped making his turtle bisque.",
@@ -1141,6 +1166,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! I can tell by the burns. We'll talk, you and I, but you're not getting my bisque recipe." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Something about you has turned the cream on my counter, and that has never once happened before noon. You've a green smell on you, like the camps the orcs were kept in after the war, so please don't lean over the bisque." },
   },
 
   start = "hello",
@@ -1210,7 +1237,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." } },
+      lines = {
+        { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. Your demon can stand there breathing in my stew all it likes, but it isn't getting a bowl, because a good meal doesn't ask where you learned your trade, only that whoever eats it has a soul." },
+      },
       choices = {
         { text = "Good food for all who pay. That's a fair kitchen.", next = "BACK", reply = "That's the only kind of kitchen I know how to run. Sit down, and I'll find you something hot.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Forsaken at your table? They'd poison the soup.", next = "BACK", reply = "Not in my kitchen, they wouldn't. I'd taste it first.", fx = { align = { honor = -1 } } },
@@ -1232,7 +1262,7 @@ P:NPC {
           text = "A paladin! You'll be hungry, then, because I've never fed a knight yet who didn't ask for seconds and then thirds." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you'll eat properly, I hope, because a fighting man can't live on hardtack, and Southshore has the best cooking north of Stormwind, whatever Darkshire says." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Perhaps you can tell me what's happened to the turtles, for my bisque has been ruined by their absence." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen? Fine, but if that imp of yours so much as breathes on my stock pot, I'll cook it, and I'll serve it to Bilger, and he won't notice." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "In my kitchen with that smell on you? Fine, but if whatever trails you so much as breathes on my stock pot, I'll cook it, and I'll serve it to Bilger, and he won't notice." },
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
@@ -1251,7 +1281,7 @@ P:NPC {
         { text = "Did the Silver Hand ever eat at your table, Jessen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a warrior need to eat, Chef?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What has happened to the turtles here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you really cook for anyone, Jessen, even warlocks?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you really cook for anyone, Jessen, whatever they keep at heel?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I doubt the murlocs alone keep the turtles away.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Smells good in here. Goodbye, Jessen.", next = "END" },
       },
@@ -1316,7 +1346,7 @@ P:NPC {
   key = "merideth", id = TODO_NPC("Merideth Carlson"), name = "Merideth Carlson",
   bible = "bibles/southshore_more.md", role = "vendor", tier = "quest",
   communities = { "southshore" }, temper = { "proud" }, values = { "proud", "stubborn" },
-  notices = { "class", "mount" },
+  notices = { "class", "mount", "lock_steed" },
 
   impression = {
     first = "The Silver Hand once called her mad, and she hasn't forgiven them.",
@@ -1333,6 +1363,8 @@ P:NPC {
       text = "A paladin, of course. Come to call me mad as well, have you?" },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Hm, that beast you're riding could use a good feed and a better rider. Well, the feed I can help with." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "I can smell that fire-hoofed thing of yours from here, and I can see the burnt path it's left through good pasture. A horse earns its rider over years, and that creature was simply ordered up, so don't expect me to admire it." },
   },
 
   start = "hello",
@@ -1396,10 +1428,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." } },
+      lines = {
+        { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They offend every horse I've ever bred, and so does the thing at your heel, because half my paddock just bolted for the far fence. A good horse is trained, loved and trusted over years, and a summoned creature is only bound, so keep it well back from my rails while we talk." },
+      },
       choices = {
         { text = "A beast that chooses you won't bolt. I agree.", next = "BACK", reply = "Then we agree, and I'm glad of it. A horse that chooses you is a horse that stays.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", reply = "Never tires or dies, and never loves you either. I'll take my horses, thank you.", fx = { align = { light = -1 } } },
+        { text = "A steed is a steed. Mine never tires, and never dies.", next = "BACK", reply = "Never tires or dies, and never loves you either. I'll take my horses, thank you.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -1426,7 +1461,7 @@ P:NPC {
         { id = "h_feed_done", when = { questDone = TODO_QUEST("Manna-Enriched Horse Feed") },
           text = "You paid me for wrongs you didn't commit, paladin. I misjudged you, and I don't say that often, but I'm keeping the money." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're a rogue, and I'll say this plainly: I don't sell horses to those who'd sell them on, and you look like you know exactly what my horses would fetch in Alterac." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and you'll not need one of my horses, I suppose, since you've got your own fiery beast that doesn't need feeding or brushing." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You'll not need one of my horses, I suppose, if half of what I've heard about your sort is true. A fiery beast that doesn't need feeding or brushing, they say." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
@@ -1446,7 +1481,7 @@ P:NPC {
         { text = "The Silver Hand seems to have been wrong about you.", next = "silverhand" },
         { text = "My people ride nightsabers. Why horses?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do you think rogues would really sell your horses, Merideth?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "I'd guess warlocks' steeds offend you, Merideth.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'd guess the steeds my sort ride offend you, Merideth.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why did the Cathedral think you mad, Merideth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What sort of horse would you sell a warrior, Merideth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a hunter's beast so different from one of your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1525,7 +1560,7 @@ P:NPC {
   key = "rabonne", id = TODO_NPC("Donald Rabonne"), name = "Donald Rabonne",
   bible = "bibles/southshore_more.md", role = "trainer", tier = "service",
   communities = { "southshore" }, temper = { "calm" }, values = { "patient", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_breath" },
 
   impression = {
     first = "He judges nothing that comes in on the tide by its fins.",
@@ -1540,6 +1575,8 @@ P:NPC {
   notice = {
     { id = "n_fisher", cat = "craft", when = { profession = "Fishing" },
       text = "A fisher, good! Lindea's got the bait, I've got the lessons, and the bay's got everything else." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You'll be breathing the water today, by the look of you, and you could sit on the bottom of the bay like a crab if you liked. I'd call that cheating if I weren't so jealous, because I've lost more good lures in those weeds than I could ever count." },
   },
 
   start = "hello",
@@ -1620,7 +1657,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." } },
+      lines = {
+        { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and right now it's standing on my jetty frightening off the whole bay. The fish take their own time, and they'll take a good deal longer with {pet} glowering at the water, so sit easy and send it back a few paces." },
+      },
       choices = {
         { text = "Patience is a discipline. I'll learn it gladly, Donald.", next = "BACK", reply = "Then sit on the pier with me some evening, and we'll learn it together.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't wait on fish. I'll find another way.", next = "BACK", reply = "There's no other way with fish, friend, but you're welcome to try. I'll be watching.", fx = { align = { order = -1 } } },
@@ -1643,7 +1683,7 @@ P:NPC {
           text = "A paladin! You'll not want fishing lessons, I'd guess, but sit a while anyway, because a man in heavy armour learns patience fast on a dock." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all steel and impatience, I'd guess. Fishing might do you good, for there's no line in the world that'll bite faster because you glared at it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then we're in the same trade, more or less, since you wait for the beast and I wait for the fish, and we've both got the cold feet to show for it." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll find fishing a strange trade after yours, I expect, because there's nothing to bind and nothing to command, only the line and the water and the waiting." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You'll find fishing a strange trade after yours, I expect, because there's nothing to bind and nothing to command, only the line and the water and the waiting." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
@@ -1661,7 +1701,7 @@ P:NPC {
         { text = "What can a knight learn from a fisherman, Donald?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I doubt fishing has much to teach a warrior, Donald.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing the bay so different from hunting the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Can a warlock learn anything from fishing, Donald?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What could someone in my line of work learn from fishing, Donald?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The bay must speak to you, Donald, after all these years.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Tight lines.", next = "END" },
       },

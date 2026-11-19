@@ -7,7 +7,7 @@ P:NPC {
   key = "tommyjoe", id = TODO_NPC("Tommy Joe Stonefield"), name = "Tommy Joe Stonefield",
   bible = "bibles/tommyjoe.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "romantic" },
-  notices = { "craft", "pet" },
+  notices = { "craft", "pet", "lock_armor" },
   impression = {
     first = "He says he's only watching the water, and says it too quickly.",
     third = "{name} met Tommy Joe Stonefield by the river, where he is certainly not waiting for anyone in particular.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "You fish? This bend's the best on the river. I come here to think, mostly. Sometimes I catch something by accident." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Good-looking animal. We had a dog like that. Gramma says it was the only Stonefield with any sense." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Is that your own skin gone dark like that, or are you wearing something? Gramma's stories had a man whose hide turned to a demon's, and I always thought she made that bit up." },
   },
 
   start = "hello",
@@ -78,7 +80,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." } },
+      lines = {
+        { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but there's one of them standing right behind you, so I suppose she didn't." },
+      },
       choices = {
         { text = "Gramma's stories are worth heeding. I'll be careful.", next = "BACK", reply = "Good, because I'd hate for Gramma to be right and you to be the proof. She'd never let me hear the end of it.", fx = { align = { light = 1 } } },
         { text = "Gramma's stories are for children. Bargains make power.", next = "BACK", reply = "Don't let Gramma hear you say that, or she'll have a new story by supper, and you'll be in it.", fx = { align = { light = -1 } } },

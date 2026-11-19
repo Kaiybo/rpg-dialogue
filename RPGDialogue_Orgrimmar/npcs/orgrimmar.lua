@@ -31,7 +31,7 @@ P:NPC {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. The elements spoke to me when I had nothing else. Listen to them, and they'll never leave you alone." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. The Horde has a long, bitter history with your arts, and I'll judge you by what you do with them, as will everyone else." },
+      text = "The Horde has a long, bitter history with the arts you carry, and I'll judge you by what you do with them, as will everyone else." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "The Forsaken stand with us. I don't claim to understand the Dark Lady, but I understand being made into something you never chose." },
   },
@@ -221,7 +221,7 @@ P:NPC {
           when = { heardLine = "neeru.h_default" },
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Hidden Enemies") }, { trait = "skeptical" } } } },
           fail = { next = "neeru_not_yet", fx = { affinity = -1 } } },
-        { text = { normal = "I'm a warlock, Warchief. How does the Horde see me?", polite = "I'm a warlock, Warchief. If I may, how does the Horde see me?", blunt = "I'm a warlock. How does the Horde see me?" }, next = "warlock", when = { class = "WARLOCK" } },
+        { text = { normal = "Some call my path the old sickness, Warchief. How does the Horde see me?", polite = "Some call my path the old sickness, Warchief. If I may, how does the Horde see me?", blunt = "They call my path the old sickness. How does the Horde see me?" }, next = "warlock", when = { class = "WARLOCK" } },
         { text = { normal = "The elements answer me, Warchief, as they answered you.", polite = "With respect, Warchief, the elements answer me as they answered you.", blunt = "The elements answer me, same as they answered you." }, next = "shaman", when = { class = "SHAMAN" } },
         { text = { normal = "I'm an orc who studies the arcane. Does that trouble you?", polite = "I'm an orc who studies the arcane, Warchief. Does that trouble you?", blunt = "I'm an orc mage. Does that bother you?" }, next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = { normal = "I'm Forsaken, and the Light still answers me.", polite = "With respect, Warchief, I'm Forsaken, and the Light still answers me.", blunt = "I'm Forsaken, and the Light answers me anyway." }, next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
@@ -259,8 +259,8 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll use it to atone for what was done.", next = "warlock_atone" },
-        { text = "I'll bind demons to serve the Horde, never the reverse.", next = "BACK", reply = "Then you're a warlock I can trust, and there aren't many. Bind them well, and never let them bind you.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The demons made us strong, Warchief. That's simply true.", next = "BACK", reply = "It's true, and it's a truth I'd rather forget. They made us strong, and they made us slaves.", fx = { affinity = -3, align = { light = -1 } } },
+        { text = "What I bind will serve the Horde, Warchief, never the reverse.", next = "BACK", reply = "Then you're a warlock I can trust, and there aren't many. Bind them well, and never let them bind you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The old pacts made us strong, Warchief. You know that's true.", next = "BACK", reply = "It's true, and it's a truth I'd rather forget. They made us strong, and they made us slaves.", fx = { affinity = -3, align = { light = -1 } } },
       },
     },
     warlock_atone = {
@@ -981,7 +981,7 @@ P:NPC {
         { text = { normal = "The loa and the Earth Mother can't agree on much.", polite = "With respect, chief, the loa and the Earth Mother can't agree on much.", blunt = "The loa and the Earth Mother don't agree on much." }, next = "druid_q", when = { class = "DRUID" } },
         { text = { normal = "Why follow Thrall?", polite = "If I may ask, chief, why do you follow Thrall?", blunt = "Why follow Thrall, then?" }, next = "thrall" },
         { text = { normal = "Something happened to the Echo Isles, I hear.", polite = "Forgive me, chief, but I hear something happened to the Echo Isles.", blunt = "I hear you lost the Echo Isles." }, next = "isles" },
-        { text = { normal = "I deal with demons, chief. Does the tribe mind?", polite = "I deal with demons, chief. Does the tribe mind, if I may ask?", blunt = "I deal with demons. Does the tribe mind?" }, next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = { normal = "I walk with the things that ruined the orcs, chief. Does the tribe mind?", polite = "I walk with the things that ruined the orcs, chief. Does the tribe mind, if I may ask?", blunt = "I walk with what ruined the orcs. Does the tribe mind?" }, next = "warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = { normal = "The spirits talk to me too, Vol'jin.", polite = "The spirits speak to me too, chief, if I may say so.", blunt = "The spirits talk to me too." }, next = "shaman", when = { race = "Troll", class = "SHAMAN" } },
         { text = { normal = "I hunt heads for the Darkspear.", polite = "I hunt heads for the Darkspear, chief, and proudly.", blunt = "I take heads for the Darkspear." }, next = "hunter", when = { race = "Troll", class = "HUNTER" } },
         { text = { normal = "You don't trust the Forsaken, do you?", polite = "With respect, chief, you don't trust the Forsaken, do you?", blunt = "You don't trust my kind, do you?" }, next = "forsaken", when = { race = "Scourge" } },
@@ -1012,7 +1012,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring home power for the tribe, nothing more.", next = "BACK", reply = "Then the tribe will be glad to see you come home, mon. Just make sure nothin' follow you back.", fx = { affinity = 1, align = { light = -1 } } },
-        { text = "I'll keep the demons on a short leash, for the tribe.", next = "BACK", reply = "That be all I ask, mon. Keep them short, and the tribe will stop whispering.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll keep what I call on a short leash, for the tribe.", next = "BACK", reply = "That be all I ask, mon. Keep them short, and the tribe will stop whispering.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "What should I bring, then?", next = "warlock_bring" },
       },
     },
@@ -1370,7 +1370,7 @@ P:NPC {
         { text = { normal = "Thrall's patience will be the death of the Horde.", polite = "With respect to the Warchief, his patience will be the Horde's death.", blunt = "Thrall's too patient, and it'll kill the Horde." }, tag = "Deceive", next = "neeru_opinion",
           check = { pass = { any = { { disposition = { min = 60 } }, { class = "WARLOCK" }, { trait = "cruel" } } } },
           fail = { next = "neeru_loyal", fx = { affinity = -1 } } },
-        { text = { normal = "I'm a warlock. What can the Cleft teach me?", polite = "I'm a warlock, sir. What might the Cleft teach me?", blunt = "I'm a warlock. What can I learn here?" }, next = "warlock", when = { class = "WARLOCK" } },
+        { text = { normal = "I've outgrown my first lessons. What can the Cleft truly teach me?", polite = "I've outgrown my first lessons, sir. What might the Cleft truly teach me?", blunt = "What can the Cleft teach me that the trainers won't?" }, next = "warlock", when = { class = "WARLOCK" } },
         { text = { normal = "An orc mage. I suppose you find that amusing.", polite = "I'm an orc mage, sir. I suppose you find that amusing.", blunt = "I'm an orc mage. Go ahead and laugh." }, next = "orcmage", when = { race = "Orc", class = "MAGE" } },
         { text = { normal = "The elements would rather I stayed out of here.", polite = "Forgive me, but the elements would rather I stayed out of here.", blunt = "The elements don't want me here." }, next = "shaman", when = { class = "SHAMAN" } },
         { text = { normal = "Do you keep watch on the rogues of the Cleft too?", polite = "If I may ask, do you watch the Cleft's rogues as well?", blunt = "Do you watch the rogues down here too?" }, next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -1441,7 +1441,7 @@ P:NPC {
         { text = "The Legion enslaved us. They're our oldest enemy.", next = "fire_hate", fx = { affinity = -1, align = { light = 1 }, opinion = { burning_legion = "hate" } } },
         { text = "Demons are tools. A strong will can use them.", next = "fire_useful", fx = { affinity = 2, align = { light = -1 }, opinion = { demons = "useful" } } },
         { text = "The power was real, but the price was too high.", next = "fire_danger", fx = { opinion = { demons = "dangerous" } } },
-        { text = "I bind demons every day. They answer to me now.", next = "fire_control", when = { class = "WARLOCK" }, fx = { affinity = 1, opinion = { demons = "control" } } },
+        { text = "I bind them daily now. Every one of them answers to me.", next = "fire_control", when = { class = "WARLOCK" }, fx = { affinity = 1, opinion = { demons = "control" } } },
         { text = "I won't answer that here.", next = "BACK" },
       },
     },
@@ -1544,7 +1544,7 @@ P:NPC {
   gender = "female",
   bible = "bibles/orgrimmar.md", role = "innkeeper", tier = "service",
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
-  notices = { "weary", "hunger" },
+  notices = { "weary", "hunger", "lock_shadow" },
   impression = {
     first = "Mention Zargh and she grows flustered, which is charming.",
     third = "{name} found a seat at the Broken Tusk, where Innkeeper Gryshka feeds Orgrimmar's warriors and keeps the inn loud.",
@@ -1565,6 +1565,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.25 } },
       text = "You've got blood everywhere, and some of it's yours. Sit down and eat before you fall down. Meat first, always meat first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles on that table guttered the moment you sat down, and the grunts noticed before I did. Order quickly, warlock, because they've started telling stories about the Shadow Council." },
   },
 
   start = "hello",
@@ -1705,10 +1707,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Plenty of grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I mind, and so does every grunt in this room, and you can see them all watching it over their mugs. Take that horror back out the door you brought it through, and if it scorches one of my tables on the way, you'll be scrubbing it yourself." },
       },
       choices = {
         { text = "Fair. It waits outside, out of respect.", next = "BACK", reply = "Thank you. The grunts won't say it, but they'll drink easier for it.", fx = { align = { light = 1 } } },
-        { text = "It's harmless. Your grunts should grow thicker skin.", next = "BACK", reply = "Thicker skin? They've got scars from the demon blood, warlock. Leave it outside.", fx = { align = { light = -1 } } },
+        { text = "It's harmless. Your grunts should grow thicker skin.", next = "BACK", reply = "Thicker skin? They've got scars from the demon blood. Leave it outside.", fx = { align = { light = -1 } } },
         { text = "What do you cook best, Gryshka?", next = "best" },
       },
     },
@@ -1758,7 +1761,7 @@ P:NPC {
         { text = "Your regulars talk a lot after a few drinks, Gryshka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I could keep your hearth burning with a spell, Gryshka.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Warriors must cause you plenty of trouble, Gryshka.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Mind if my little companion warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went down Ragefire Chasm, Gryshka. It's quiet now.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "We're a company now, Gryshka. Any advice for us?", next = "xpt_gryshka", when = { party = { size = { min = 2 } } } },
@@ -1825,7 +1828,7 @@ P:NPC {
   key = "gamon", id = TODO_NPC("Gamon"), name = "Gamon",
   bible = "bibles/orgrimmar.md", role = "citizen", tier = "service",
   communities = { "orgrimmar" }, temper = { "resigned" }, values = { "patient" },
-  notices = { "class", "drink" },
+  notices = { "class", "drink", "lock_soulstone" },
   impression = {
     first = "He always gets back up, which is the saddest and bravest thing.",
     third = "{name} met Gamon, a weary tauren in Orgrimmar who has been knocked down so often he no longer asks why.",
@@ -1843,6 +1846,8 @@ P:NPC {
       text = "A warrior? I was one too, once, back in Mulgore, and then I started drinking, and then people started hitting me. I'm not sure which came first anymore." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "You're drunk too, finally someone who understands! Sit down, only please don't hit me." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone put your soul in a stone, friend, I can feel it, and I wish someone would do that for me. Then the grunts could knock me down every night and I'd just keep getting back up." },
   },
 
   start = "hello",
@@ -1910,7 +1915,8 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
+        { id = "xwarlock_default", text = "Everything frightens me now, friend, so whatever's creeping along behind you is just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything frightens me now, friend, and I'll admit your demon frightens me more than most, standing there grinning at me while I sweep. Still, the orcs tell me what the warlocks did to them in the old wars, and being knocked down by grunts every night is a kinder fate than that." },
       },
       choices = {
         { text = "You're right to be wary. I'll stay careful.", next = "BACK", reply = "Stay careful, friend. I'd hate to see you end up on this floor next to me.", fx = { align = { light = 1 } } },
@@ -1960,7 +1966,7 @@ P:NPC {
         { text = "Why does everyone attack you?", next = "why" },
         { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Did you ever hunt, Gamon, before you ended up on this floor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "My demon seems to frighten you, Gamon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Something about me seems to frighten you, Gamon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You carry yourself like an old warrior, Gamon. What happened?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'd bet a mage has knocked you down before.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

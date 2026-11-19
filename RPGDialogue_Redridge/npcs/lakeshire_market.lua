@@ -9,7 +9,7 @@ P:NPC {
   key = "lamar", id = TODO_NPC("Lamar Veisilli"), name = "Lamar Veisilli", title = "Fruit Seller",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "cheerful" }, values = { "kind", "practical" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
   impression = {
     first = "He polishes every apple before he hands it over.",
     third = "{name} met Lamar Veisilli, Lakeshire's fruit seller.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.3 } },
       text = "You look half starved and half beaten, friend. Buy something with a bit of juice in it before you go back out there." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My apples are going soft on the side your shadow's fallen on, and I only set them out this morning. Stand a little to the left, would you, and I'll sell you the good ones." },
   },
   start = "hello",
   nodes = {
@@ -35,9 +37,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." } },
+      lines = {
+        { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep that creature of yours away from the barrels, because I've no idea what it would do to my fruit." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not the strangest customer this week. Your demon has been staring at that barrel of reds since you walked up, though, and I'd swear the ones nearest it have started to go soft." },
+      },
       choices = {
-        { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what a demon does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what that thing does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My pet goes where it likes, Lamar.", next = "BACK", reply = "Then I'll keep my eye on it and my hand on the lid. The apples are for paying customers only.", fx = { align = { order = -1 } } },
         { text = "Something else, Lamar.", next = "BACK" },
       },
@@ -110,7 +115,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Take an apple; they're from the old orchards, grown by people who'd want you to have one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Take an apple, and don't take two when I'm not looking, because I always know." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make an apple grow faster? No? Then can you keep one from going soft? I'd be glad of that." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, take an apple anyway; I'd think even warlocks get hungry." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold look about you, friend. Well, take an apple anyway; I'd think even your sort get hungry." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have an apple, polished, of course, from orchards that were old friends of mine before the orcs came." },
       },
       again = {
@@ -128,7 +133,7 @@ P:NPC {
         { text = "Who's working your orchards now, Lamar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do you always know when apples go missing, Lamar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your apples spoil before they sell, Lamar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Aren't you wary of warlocks, Lamar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Aren't you wary of customers like me, Lamar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You must miss the orchards, Lamar.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Lamar.", next = "END" },
       },
@@ -182,7 +187,7 @@ P:NPC {
   key = "karen_taylor", id = TODO_NPC("Karen Taylor"), name = "Karen Taylor", title = "Blacksmithing & Mining Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "practical", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_armor" },
   impression = {
     first = "She respects anyone who can swing a hammer and nobody who can't.",
     third = "{name} met Karen Taylor, who sells blacksmithing and mining supplies in Lakeshire.",
@@ -194,6 +199,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "You've got the forearms of someone who swings a hammer for a living, so I'll not waste your time with the cheap picks. The good ones are under the counter." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing would save Verner a fortune in iron if he could make it, but I'd sooner the watch went bare than wore that. Mind you don't rub against my ingots." },
   },
   start = "hello",
   nodes = {
@@ -208,7 +215,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." } },
+      lines = {
+        { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cages, chains, I couldn't say, and with that thing breathing heat on my anvil I care to know even less. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+      },
       choices = {
         { text = "The bridge comes first. I'd never take from it.", next = "BACK", reply = "Good, and you'll find me a fair seller once the gnolls are gone. The bridge needs every bar.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Promises can be broken for the right coin.", next = "BACK", reply = "Not my promises, friend, and not for any coin. Go and find your iron elsewhere.", fx = { align = { honor = -1 } } },
@@ -289,7 +299,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, among the picks and coal? You'll want nothing here, I'd guess, but you're welcome to warm your hands at the brazier." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's someone who knows what a hammer does to your shoulder by sundown, and I respect you for it already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll not want to hear about mining, I'd guess, since I'm told your folk think a hole in a hill is a wound." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell coal, flux and iron bars, and none of it's any use to you, I'd guess, unless you're building something you shouldn't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I sell coal, flux and iron bars, and none of it's any use to someone with hands like yours, I'd guess, unless you're building something you shouldn't." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Can you swing a hammer, or just call lightning? I respect only one of those." },
       },
       again = {
@@ -309,7 +319,7 @@ P:NPC {
         { text = "I'd guess fewer miners come back from the hills these days, Karen.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the Guard's claim on Verner's iron fair, Karen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your miners take more from the hills than they need?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What would a warlock build with iron, Karen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you guess I'd build with iron, Karen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you respect anyone who can't swing a hammer, Karen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -358,7 +368,7 @@ P:NPC {
   key = "kara_adams", id = TODO_NPC("Kara Adams"), name = "Kara Adams", title = "Shield Crafter",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "duty", "craft" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
   impression = {
     first = "She tests every shield by striking it herself.",
     third = "{name} met Kara Adams, Lakeshire's shield crafter.",
@@ -372,6 +382,8 @@ P:NPC {
       text = "You carry a shield like you've needed one, and I like that. Raise it a hand higher, though; the Blackrock aim for the face." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "That shield's taken a beating, and so have you. Go and see Verner before you go back out, and don't argue with me about it." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward on you, a shield I can't make, and I'll admit I'm jealous. It won't stop a gnoll's axe, though, so if you want something that will, I've a few on the rack." },
   },
   start = "hello",
   nodes = {
@@ -386,10 +398,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." } },
+      lines = {
+        { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Looking at yours up close, maybe not, because I can't even tell where on it a gnoll would think to aim. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+      },
       choices = {
         { text = "Steel's a fine thing. I'd trust your shields.", next = "BACK", reply = "Then you'll get a good one, and I'll sleep easier. Steel's honest, at least.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demon's worth ten of your shields, Kara.", next = "BACK", reply = "Ten? Then it'll be ten times as hard to replace. I'll keep my shields, thank you.", fx = { align = { light = -1 } } },
+        { text = "What guards me is worth ten of your shields, Kara.", next = "BACK", reply = "Ten? Then it'll be ten times as hard to replace. I'll keep my shields, thank you.", fx = { align = { light = -1 } } },
         { text = "Something else, Kara.", next = "BACK" },
       },
     },
@@ -461,7 +476,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's someone who knows what a shield is for, and I'd wager you hold it like you mean it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've seen what your people carry into a fight, which is mostly nothing, so I suppose you've no use for my shields." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll be wanting a buckler, I hope, because I've seen your sort try to parry with a dagger, and it ends badly." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll not want a shield, I expect, but your demon might, if it's the sort that stands in front." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'll not want a shield, I expect, but that brute I've seen at your heel might, if it's the sort that stands in front." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. A shield's the most important thing a soldier carries. Do your spirits shield you, or do you need one?" },
       },
       again = {
@@ -479,7 +494,7 @@ P:NPC {
         { text = "Will a paladin's shield stand against the Blackrock, Kara?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would I need a shield when I can wear a bear's hide?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Should a rogue really carry a shield, Kara?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you think a demon needs a shield, Kara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think what guards me needs a shield, Kara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "A shield seems a small thing to fuss over, Kara.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Kara.", next = "END" },
       },
@@ -532,7 +547,7 @@ P:NPC {
   key = "vernon_hale", id = TODO_NPC("Vernon Hale"), name = "Vernon Hale", title = "Fishing Supplies",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "wry" }, values = { "patient", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_breath" },
   impression = {
     first = "He grumbles that the murlocs catch more fish than his customers.",
     third = "{name} met Vernon Hale, who sells fishing supplies on the Lakeshire docks.",
@@ -544,6 +559,8 @@ P:NPC {
   notice = {
     { id = "n_fish", cat = "craft", when = { profession = "Fishing" },
       text = "You fish, I can tell by the way you looked at the water before you looked at me. Use the heavy line here; the lake's got teeth." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { class = "WARLOCK", aura = { 5697 } },
+      text = "You're breathing like you've swallowed the lake and liked it, so that'll be the spell your sort cast. Go down off the north shore and tell me how many murlocs are really in there, because nobody believes my count." },
   },
   start = "hello",
   nodes = {
@@ -558,7 +575,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." } },
+      lines = {
+        { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, to a fellow who wanted the line for something else and wouldn't say what, and he had a thing like yours lurking at his heel too. I sold it anyway, because a sale's a sale, but I've wondered about it since, and your {pet} looking at my spools isn't helping me stop." },
+      },
       choices = {
         { text = "If I buy line, it's for fish. You've my word.", next = "BACK", reply = "Your word's good enough for me. Line's on the counter.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Wonder all you like. I don't explain myself.", next = "BACK", reply = "Then I'll wonder, and I'll sell you the line anyway. A sale's a sale.", fx = { align = { honor = -1 } } },
@@ -645,7 +665,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll be the sort who thinks the murlocs have as much right to the lake as anyone, I suppose." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll be wanting a fishing line, I hope, and not a garrotte, because I only sell the one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you freeze the lake? Only a bit, mind, so the murlocs would get stuck." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Not much fishing in your line, I'd guess, unless you count fishing for souls." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Not much fishing in your line, I'd guess, unless you count fishing for souls. Folk talk, you know." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Murlocs catch more fish than my customers. Can your water spirits change that?" },
       },
       again = {
@@ -664,7 +684,7 @@ P:NPC {
         { text = "Do the murlocs fish Lake Everstill bare, Vernon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the murlocs steal from the fishermen, Vernon?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would freezing the lake really help, Vernon?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Have you ever sold tackle to a warlock, Vernon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you ever sold line to someone who never fished, Vernon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The murlocs seem to be catching all the fish, Vernon.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
@@ -710,7 +730,7 @@ P:NPC {
   key = "sherman", id = TODO_NPC("Sherman Femmel"), name = "Sherman Femmel", title = "Butcher",
   bible = "bibles/lakeshire_market.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "gruff" }, values = { "practical", "hardworking" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
   impression = {
     first = "He knows the wildlife of these hills better than most hunters.",
     third = "{name} met Sherman Femmel, the butcher at the Lakeshire Inn.",
@@ -722,6 +742,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, with a beast at your heel and meat on your belt, I'd wager. Bring me whatever you take in the hills; I'll pay fair for clean kills." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That healthstone's the same green as meat gone bad, and I've always had a guess about what goes into one. I'd thank you to keep it off my block." },
   },
   start = "hello",
   nodes = {
@@ -736,7 +758,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." } },
+      lines = {
+        { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, blood, the odd heart, and I said no every time, though none of them brought the thing along to sniff at my hooks the way yours is doing now. A butcher's trade is feeding people, friend, so call it away from the block before I lose my appetite and my custom both." },
+      },
       choices = {
         { text = "You're right. Your trade should stay clean.", next = "BACK", reply = "It is, and it'll stay that way. Feeding people's enough for one man.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bones and blood are only leftovers to you.", next = "BACK", reply = "They're not leftovers, they're someone's dinner or broth. Not for sale, friend.", fx = { align = { light = -1 } } },
@@ -821,7 +846,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Not one of the beasts on this block was killed cruelly, I'll have you know, so you can save the look." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! The knives on this block are mine, friend, and I count them every night." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You couldn't keep my meat cold, could you? The ice house was the first thing the gnolls broke into." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Don't ask me for anything strange, mind; I sell boar, bear and condor, and that's all." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Don't ask me for anything strange, mind. I sell boar, bear and condor, and that's all, whatever you've heard." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down; I'll tell you about the hills' wildlife while I cut. The cleaver does the punctuating." },
       },
       again = {
@@ -840,7 +865,7 @@ P:NPC {
         { text = "What's changed in the hills' wildlife since the orcs came?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'd not have thought anyone stole from a butcher, Sherman.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did the gnolls really break into your ice house, Sherman?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "What strange things do warlocks ask a butcher for, Sherman?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do your stranger customers ask a butcher for, Sherman?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you know the hills better than the hunters, Sherman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },

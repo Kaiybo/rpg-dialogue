@@ -579,8 +579,8 @@ P:NPC {
         { text = "Who were the trolls who built the temple?", next = "atalai" },
         { text = "Why did the Warchief send you here?", next = "warlock" },
         { text = "The exile spoke of a prophecy.", next = "prophecy", when = { any = { { questActive = TODO_QUEST("Return to Fel'Zerul") }, { questDone = TODO_QUEST("Return to Fel'Zerul") } } } },
-        { text = "How do you keep your demons leashed?", next = "kin", when = { class = "WARLOCK" } },
-        { text = "I'm a troll warlock. Am I the Atal'ai's heir?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "How do you keep yours from turning on you?", next = "kin", when = { class = "WARLOCK" } },
+        { text = "The Atal'ai reached for power too. Am I their heir?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "The spirits told me what warlocks did to our people.", next = "k_shaman", when = { race = "Orc", class = "SHAMAN" } },
         { text = "A mage could break the temple's wards, I think.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could get close to the temple unseen.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -1111,7 +1111,7 @@ P:NPC {
   key = "karakul", id = TODO_NPC("Innkeeper Karakul"), name = "Innkeeper Karakul",
   bible = "bibles/swampofsorrows.md", role = "innkeeper", tier = "service",
   communities = { "stonard" }, temper = { "gruff" }, values = { "generous" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_stones" },
 
   impression = {
     first = "He makes you take your boots off before he makes you eat.",
@@ -1131,6 +1131,8 @@ P:NPC {
       text = "You look half-drowned and half-dead, so sit and eat, in that order." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Slow down, because if you fall in the swamp drunk, the crocolisks get supper." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Keep that green stone in your pack, because the last warlock who cracked one at my table left the whole room smelling like a fel pit. The scouts already blame me for the onions." },
   },
 
   start = "hello",
@@ -1188,7 +1190,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of the warlocks who buys Greshka's grimoires brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." } },
+      lines = {
+        { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of the warlocks who buys Greshka's grimoires brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothing yet, and I'd like to keep it that way, though your {pet} has been eyeing my onion sacks since it came through the door. The last one a warlock brought through here ate half a sack out of spite, and I'm still getting looks from the scouts, so yours waits outside." },
+      },
       choices = {
         { text = "Mine behaves. I'll answer for it.", next = "BACK", reply = "Answer for it, aye, and I'll hold you to that. Count your own onions if it doesn't.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Imps are imps. Count your onions.", next = "BACK", reply = "Count them? I'll count them, and I'll bill you for every one it eats.", fx = { align = { honor = -1 } } },
@@ -1214,7 +1219,7 @@ P:NPC {
           text = "Bengor came in for supper last night and finished the bowl himself, without a scout to hold the spoon. He told me the murloc that broke him is dead, and that you killed it, so sit down and eat." },
         { id = "h_dd_drown", when = { deathCause = "drowning" },
           text = "I hear the swamp pulled you under and kept you a while. Boots off at the door, and dry yourself by the fire before you drip on my floor." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Boots off at the door, and the imp's too, if it has any, and keep it off the hearth while the stew's on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Boots off at the door, and the little one's too, if it has any, and keep it off the hearth while the stew's on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at my table? You could conjure your own supper, I know, so either you're being polite or you've tasted the stew." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Sit down and eat, and if you've any pull with the water spirits, ask them to keep the swamp out of my cellar." },
         { id = "h_druidx", when = { class = "DRUID" },

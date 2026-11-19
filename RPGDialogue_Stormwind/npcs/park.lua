@@ -9,7 +9,7 @@ P:NPC {
   prejudice = { class = "MAGE", amount = 8, why = "Kaldorei memory of the Sundering; polite but cool to arcanists." },
   bible = "bibles/park.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
-  notices = { "form", "priest", "kaldorei" },
+  notices = { "form", "priest", "kaldorei", "lock_taint" },
   impression = {
     first = "He insists peace can be found even inside stone walls.",
     third = "{name} met Sheldras Moontree, a night elf druid who teaches in Stormwind's Park.",
@@ -30,6 +30,8 @@ P:NPC {
       text = "A priest of the human Light, come to the trees. Your Cathedral rings a bell at sunset for my people, did you know? It is a kindness I never thanked them for." },
     { id = "n_kaldorei", cat = "kaldorei", when = { race = "NightElf" },
       text = "Far from Teldrassil, aren't we both? I come here when the walls feel close; the trees are young and human-planted, but they try very hard." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The fel taint is in you deep, {class}, and the grass has yellowed where you stand. I teach balance, and I will not refuse you, but you have tipped further than you know." },
   },
 
   start = "hello",
@@ -96,10 +98,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fear what it hungers for, which is everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and every door you open invites them back a little further." } },
+      lines = {
+        { id = "xlock_default", text = "I fear what it hungers for, which is everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and every door you open invites them back a little further." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear what it hungers for, and standing here I can feel it hungering, for the trees and the water and everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and you have brought one to stand on the grass among the saplings." },
+      },
       choices = {
         { text = "Then I'll open my doors rarely, and close them firmly.", next = "BACK", reply = "Then perhaps this Park will forgive your coming, in time. I will hold you to your word.", fx = { align = { light = 1 } } },
-        { text = "The Legion's servants serve me now. That's the difference.", next = "BACK", reply = "So they always seem, until they don't. I will not stand between you and your choices, but I will watch them.", fx = { align = { light = -1 } } },
+        { text = "Whatever it once served, it serves me now, Sheldras.", next = "BACK", reply = "So they always seem, until they don't. I will not stand between you and your choices, but I will watch them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -164,7 +169,7 @@ P:NPC {
         { text = "Humans planted these trees for you, didn't they?", next = "human", when = { race = "Human" } },
         { text = "Why do the trees shy from the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can a warrior find balance, Sheldras?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you fear what I've summoned, Sheldras?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you fear what walks at my heel, Sheldras?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a paladin's Light ever rest, Sheldras?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there balance in what I do, Sheldras?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think shamans and druids share a path, Sheldras?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -307,7 +312,7 @@ P:NPC {
   key = "shylamiir", id = TODO_NPC("Shylamiir"), name = "Shylamiir", title = "Herbalism Trainer",
   bible = "bibles/park.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "proud", "curious" },
-  notices = { "herbalist", "druid" },
+  notices = { "herbalist", "druid", "lock_stones" },
   impression = {
     first = "She wants a plant from inside Dalaran's walls.",
     third = "{name} met Shylamiir, a night elf herbalist in Stormwind's Park who doubts anyone's skill matches her own.",
@@ -323,6 +328,8 @@ P:NPC {
       text = "Another herbalist, hmm. I doubt your skill matches mine, but I can teach you a few proper techniques, so you'll at least stop tearing the roots." },
     { id = "n_druid", cat = "druid", when = { class = "DRUID" },
       text = "A druid. Then you'll know why I can't stand the way humans pick flowers: by the stem, all at once, as if the plant had done something to them." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That stone at your hip is as green as new moss, and yet nothing living grew it. I have watched peacebloom wither beside one, and I would ask you not to carry it through my beds." },
   },
 
   start = "hello",
@@ -340,6 +347,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Perhaps, if you can tell me why the grave moss growing outside the Slaughtered Lamb is twice the size of any I have found in Elwynn's crypts. I suspect the answer, and I do not like it, but a herbalist should know what feeds the things she studies." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, if you can tell me why the grave moss outside the Slaughtered Lamb grows twice the size of any in Elwynn's crypts, though I see the moss at my feet is leaning toward your servant already. I suspect the answer, and I do not like it, but a herbalist should know what feeds the things she studies." },
       },
       choices = {
         { text = "I'll tell you what I know, and leave the moss alone.", next = "BACK", reply = "Then you are more sensible than I feared. Leave the moss to me, and I will let you know what feeds it.", fx = { align = { light = 1 } } },
@@ -413,7 +421,7 @@ P:NPC {
           text = "A rogue, so I'll assume you know your way into places that aren't yours. I may have work for you one day, though I'd rather not admit it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You walk past the herbs as if they were nothing, as warriors always do, and yet you'll be grateful for them when you bleed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then you've walked through more of the world than most who come to this Park, and you'll know how to look at what grows underfoot." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something cold walks with you into my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, which is an interruption, but perhaps a useful one. Do your spirits know where plants grow best, or only where the stone is loudest?" },
       },
       again = {
@@ -429,7 +437,7 @@ P:NPC {
         { text = "Which herbs should a warrior carry, Shylamiir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What grows here that surprises you, Shylamiir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you need help gathering herbs, Shylamiir?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Could a warlock be useful to an herbalist, Shylamiir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could someone who knows the Lamb's cellar be useful to an herbalist?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What plant do you want from Dalaran, Shylamiir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance", any = { { questActive = TODO_QUEST("A Green Sample") }, { questDone = TODO_QUEST("A Green Sample") }, { heardLine = "shylamiir.h_sample" } } } },
         { text = "I'll let you work.", next = "END" },
       },

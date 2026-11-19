@@ -47,23 +47,33 @@ function Conv.DetectRole(ctx, interactionName)
   local role = roleFromPatterns(cap and cap.subtitle, W.SUBTITLE_ROLES)
   role = role or roleFromPatterns(ctx.npcSubtitle or nil, W.SUBTITLE_ROLES)
   role = role or (interactionName and W.INTERACTION_ROLES[interactionName])
+  -- Your own demon (0.90.0): a warlock can talk to the servant at their side.
+  if not role and ctx.npcMine and C.CreatureType(ctx.unit) == "Demon" then return Conv.BoundRole(ctx.npcFamily) end
   role = role or roleFromPatterns(ctx.npcName or nil, W.NAME_ROLES)
   -- Anyone else friendly who walks and talks is a citizen: townsfolk pools answer them, so
   -- the people in the streets can be spoken to too (0.35.0). Beasts and critters aren't.
   -- A friendly demon (a warlock's bound servant, an imp with his own business) answers from
   -- the demon pool, not the townsfolk's (0.84.0).
   if not role and Conv.IsCitizen(ctx) then
-    role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName) or "citizen"
+    role = (C.CreatureType(ctx.unit) == "Demon") and Conv.DemonRole(ctx.npcName, ctx.npcFamily) or "citizen"
   end
   return role
 end
 
+-- Your own demon, by family: my_imp, my_voidwalker, my_succubus, my_felhunter; anything
+-- else you hold (an enslaved demon, a doomguard, an infernal) is my_demon (0.90.0).
+local BOUND = { imp = "my_imp", voidwalker = "my_voidwalker", succubus = "my_succubus", felhunter = "my_felhunter" }
+function Conv.BoundRole(family)
+  return BOUND[type(family) == "string" and family:lower() or ""] or "my_demon"
+end
+
 -- Demons that can't talk (hounds, steeds, walking stone) get their own small pool.
 local MUTE_DEMONS = { "felhunter", "felhound", "felstalker", "infernal", "felsteed", "dreadsteed" }
-function Conv.DemonRole(name)
+function Conv.DemonRole(name, family)
   local lower = type(name) == "string" and name:lower() or ""
+  local fam = type(family) == "string" and family:lower() or ""
   for _, w in ipairs(MUTE_DEMONS) do
-    if lower:find(w, 1, true) then return "demon_beast" end
+    if lower:find(w, 1, true) or fam:find(w, 1, true) then return "demon_beast" end
   end
   return "demon"
 end
@@ -1272,11 +1282,12 @@ function Conv.Ask(topic)
   -- Disposition gates (0.85.0): Cold or worse, they keep to small talk; secrets and personal
   -- matters wait until they're Warm.
   local gates = ns.db.settings.dispositionGates ~= false
-  local gateNeed = gates and Engine.TopicGate(s.info, topic, s.ctx, s.env)
+  -- Cowed (0.90.0): frightened into talking, they skip the gates for this conversation.
+  local gateNeed = gates and not s.cowed and Engine.TopicGate(s.info, topic, s.ctx, s.env)
   if gateNeed then Conv.AskGated(topic, gateNeed); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
   local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
-  if brushoff and gates then
+  if brushoff and gates and not s.cowed then
     local held = Engine.HeldAnswerNeed(s.info, topic, s.ctx, s.env)
     if held then Conv.AskGated(topic, held); return end
   end
@@ -1288,8 +1299,10 @@ function Conv.Ask(topic)
     text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
   end
   if w and not brushoff then ns.Topics.RecordAnswer(topic, s.memKey, s.info and s.info.name, w.gid) end
-  local linked = Conv.Hear(text, topic)
   local tdef = ns.Data.topics[topic]
+  local blurt = tdef and tdef.blurts and not brushoff and Conv.Blurt(s, tdef.blurts)
+  if blurt then text = text .. " " .. blurt end
+  local linked = Conv.Hear(text, topic)
   Conv.Log("ask", tdef and tdef.name or topic)
   Conv.Log("npc", text)
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
@@ -1313,6 +1326,22 @@ function Conv.Ask(topic)
     Conv.OfferChoices(s)
   end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- In anger they let something useful slip (0.90.0): a topic's `blurts` (true, or a chance
+-- 0-1) follows the answer with the NPC's own `blurts` line, or a local rumor behind an angry
+-- lead-in. Returns the text, or nil.
+function Conv.Blurt(s, chance)
+  if type(chance) == "number" and math.random() >= chance then return nil end
+  local w = Engine.PickBlurt(s.info, s.ctx, s.env)
+  if not w then return nil end
+  Conv.Shown(w)
+  local body = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+  if w.src ~= "own" then
+    local leads = L.BLURT_LEADS
+    body = leads[math.random(#leads)] .. " " .. body
+  end
+  return body
 end
 
 -- They won't talk about it yet (0.85.0): a refusal in their voice, remembered as "won't
@@ -1361,6 +1390,11 @@ function Conv.Persuade(action)
   local say = Engine.PickSay and Engine.PickSay(s.info, action, ctx, env)
   local ok = P.Try(action, s.info, s.mem, ctx)
   local result = ok and "success" or "fail"
+  -- Cowed (0.90.0): frighten someone who already hates you and they'll answer anything,
+  -- secrets included, for the rest of this conversation.
+  local cowed = ok and action == "intimidate" and before and ns.Disposition
+    and before < ns.Disposition.GATE_ORDINARY and not s.cowed
+  if cowed then s.cowed = true; env.cowed = true end
   local paired = say and type(say.line[result]) == "string" and say.line[result] or nil
   local w = not paired and Engine.PickPersuade(s.info, action, result, ctx, env) or nil
   local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
@@ -1386,6 +1420,7 @@ function Conv.Persuade(action)
   if ns.db.settings.checkResults ~= false then
     notes[#notes + 1] = (ok and L.CHECK_PASSED or L.CHECK_FAILED):format(name)
   end
+  if cowed then notes[#notes + 1] = L.COWED_NOTE:format(s.info.name or "") end
   if before and ns.Disposition then
     local after = ns.Disposition.For(env, ctx)
     if ns.Disposition.Tier(after) ~= ns.Disposition.Tier(before) then
@@ -1953,7 +1988,16 @@ local function live(event, keys, changed)
     for _, k in ipairs(keys) do before[k] = ctx[k] end
     ns.Context.Refresh(ctx, keys)
     if not changed(before, ctx) then return end
+    -- An aura reaction answers the buff that just landed, not one already worn: while
+    -- picking, the context sees only the newly gained auras.
+    local auras = ctx.auras
+    if event == "aura" then
+      local fresh = {}
+      for id in pairs(auras or {}) do if not (before.auras or {})[id] then fresh[id] = true end end
+      rawset(ctx, "auras", fresh)
+    end
     local w = Engine.PickReaction(s.info, event, ctx, s.env)
+    if event == "aura" then rawset(ctx, "auras", auras) end
     if w then
       Conv.Shown(w)
       View(s).ShowReaction(Tokens.Render(w.line.text, ctx, s.env, w.line.when))

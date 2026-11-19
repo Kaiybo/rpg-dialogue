@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/badlands.md", role = "soldier", tier = "quest",
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
   prejudice = { class = "WARLOCK", faction = "Horde", amount = 10, why = "An old Horde warrior who remembers Gul'dan's warlocks leading the orcs to demon blood." },
-  notices = { "race", "class", "level" },
+  notices = { "race", "class", "level", "lock_taint" },
 
   impression = {
     first = "He is lonely on that tower and admits to talking to vultures.",
@@ -39,6 +39,8 @@ P:NPC {
       text = "You're young for the Badlands, so stay south of the Spire; the Blackrock eat young things." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "A shaman. Good; the spirits of this rock have been angry since before I came, and nobody here knows how to ask them why." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's green in your eyes, and I've seen that green before, in the eyes of orcs who drank from Gul'dan's cup. I know what came after it, so mind how much of it you let in, because I won't watch another orc go that way." },
   },
 
   start = "hello",
@@ -177,7 +179,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Good, because Thrall led us out of the fel's shadow once, and I'll not watch any orc of mine crawl back into it. Serve the Horde with your imps if you must, but the day you serve the imps instead, I'll know, and so will my axe." } },
+      lines = {
+        { id = "xlock_default", text = "Good, because Thrall led us out of the fel's shadow once, and I'll not watch any orc of mine crawl back into it. Serve the Horde with your little horrors if you must, but the day you serve them instead, I'll know, and so will my axe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Good, because Thrall led us out of the fel's shadow once, and now you stand in my hall with a piece of that shadow at your heel. Serve the Horde with it if you must, but the day you serve it instead, I'll know, and my axe will find it before it finds you." },
+      },
       choices = {
         { text = "Power is power. The Horde should use every weapon.", next = "BACK", reply = "Every weapon, aye, until it turns in your hand. Thrall paid for that lesson, and so did I.", fx = { align = { light = -1 } } },
         { text = "The fel is a tool, never a master. I'll remember.", next = "BACK", reply = "Remember it every day, and you'll be welcome in Kargath. Forget it once, and I'll remind you.", fx = { affinity = 1, align = { light = 1 } } },
@@ -229,7 +234,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Up at the Spire, Rend's orcs still keep the old ways, fel and all, and I'd like to know which side of that line you stand on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You carry the old stink, I see. Up at the Spire, Rend's orcs still keep the old ways, fel and all, and I'd like to know which side of that line you stand on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, eh? The old Horde had warlocks and no mages, and I've decided I like your lot better, because at least you set the right things on fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I've always wished I could send someone up the Spire road who didn't clank, because my grunts sound like a smithy falling down the stairs." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -275,7 +280,7 @@ P:NPC {
         { text = "My people have no stake in Blackrock feuds.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Send me up the Spire, Warlord. I won't clank.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you put mages on Kargath's walls, Warlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I stand with Thrall, Warlord. What I bind serves the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Kargath looks short of healers, Warlord.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does a Forsaken paladin trouble you, Warlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -747,7 +752,7 @@ P:NPC {
           text = "I know where you learned it, darling, and I won't say it aloud in an orc town. We've all got something from before that we'd rather keep in the cellar." },
       },
       choices = {
-        { text = "My demons are tools. Nothing more.", next = "BACK", reply = "Tools, yes, sharp ones that bite back. Do keep them pointed away from me, darling.", fx = { align = { light = -1 } } },
+        { text = "My demons are tools. I break the ones that bite.", next = "BACK", reply = "Tools, yes, sharp ones that bite back. Do keep them pointed away from me, darling.", fx = { align = { light = -1 } } },
         { text = "I'd rather be rid of them, if I could.", next = "BACK", reply = "Wouldn't we all, darling. Some of us carry far worse than an imp, and we smile anyway.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1092,7 +1097,7 @@ P:NPC {
   key = "lexlort", id = TODO_NPC("Lexlort"), name = "Lexlort",
   bible = "bibles/badlands.md", role = "questgiver", tier = "quest",
   communities = { "kargath" }, temper = { "terse" }, values = { "practical", "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
 
   impression = {
     first = "He spends words as though each might be overheard and sold.",
@@ -1106,6 +1111,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "One of ours, in trade if not in uniform. You'll understand why I don't say much." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have a shine on them that sees what's tucked away in shadow, which means you'd probably see me if I wanted to hide. That makes me nervous, and a nervous scout is a careful one, so I suppose I should thank you." },
   },
 
   start = "hello",
@@ -1157,7 +1164,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It could, and then it would tell whoever asked it nicely, or whoever offered more. I don't trust a spy I can't buy, and I can't buy a demon, so I'll keep to orcs." } },
+      lines = { { id = "xlock_default", text = "It could, and then it would tell whoever asked it nicely, or whoever offered more. I don't trust a spy I can't buy, and I can't buy a demon, so I'll keep to orcs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It could, and then it would tell whoever asked it nicely, or whoever offered more, and yours has been listening to every word I've said since you came in. I don't trust a spy I can't buy, and I can't buy that thing, so send it outside and I'll keep to orcs." },
+      },
       choices = {
         { text = "Demons serve whoever binds them strongest. I bind well.", next = "BACK", reply = "Bind well, do you? So did the old Horde, and look where it got them. Keep it away from my reports.", fx = { align = { light = -1 } } },
         { text = "You're right. Demons shouldn't be trusted with secrets.", next = "BACK", reply = "Good. Your imp's a talker, and I'd rather it talked to you than to the Blackrock.", fx = { align = { light = 1 } } },
@@ -1175,7 +1184,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp talks, which makes it a bad spy, so keep it in your pocket while you're near my reports." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your little pet talks, which makes it a bad spy, so keep it in your pocket while you're near my reports." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Your spells are loud, and loud is useless to me, though I'll admit you're handy when the quiet way goes wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, which is useful to me, since spirits don't sell plans to the Blackrock, and that already puts them ahead of Grark Lorkrub, our traitor." },
@@ -1212,7 +1221,7 @@ P:NPC {
         { text = "Teach me something about the trade.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
         { text = "Why do you call spells loud?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "A demon could watch the Spire for you.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Something of mine could watch the Spire for you, unseen.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What loud work do you have, Lexlort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll be your hands.", next = "END", reply = "Good, then you'll be my hands, and the imp stays in your pocket. Come back when you've something to report.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
@@ -1333,7 +1342,7 @@ P:NPC {
   key = "shulkar", id = TODO_NPC("Innkeeper Shul'kar"), name = "Innkeeper Shul'kar",
   bible = "bibles/badlands.md", role = "innkeeper", tier = "service",
   communities = { "kargath" }, temper = { "warm" }, values = { "generous", "loyal" },
-  notices = { "weary", "drink" },
+  notices = { "weary", "drink", "lock_shards" },
 
   impression = {
     first = "His inn is the softest corner of a hard place.",
@@ -1353,6 +1362,8 @@ P:NPC {
       text = "You look half dead, and I've got Forsaken guests, so I know what that looks like. Rest, friend." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy, now; the road to the Spire is hard enough sober." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 20 } },
+      text = "That bag of yours is fair stuffed with soul shards, and I can hear them clinking from behind the bar. I've a dozen recipes that call for something with that sort of chill, but don't worry, I'll not ask, and you'll not offer." },
   },
 
   start = "hello",
@@ -1416,7 +1427,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Burned it black, pot and all, and then sat on the ladle laughing at me. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." } },
+      lines = {
+        { id = "xlock_default", text = "Burned it black, pot and all, and then sat on the ladle laughing at me. Its master paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Burned it black, pot and all, and then sat on the ladle laughing at me, and yours is eyeing that same ladle now, so I'll be keeping it in my hand. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." },
+      },
       choices = {
         { text = "I'll keep mine leashed. Your hearth is safe.", next = "BACK", reply = "Thank you, and my pots thank you too. The hearth's seen enough imps for one lifetime.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps will be imps. Blame the stew, not the imp.", next = "BACK", reply = "Blame the stew? My stew's never burned itself black. Keep it leashed, or keep it outside.", fx = { align = { order = -1 } } },
@@ -1444,7 +1458,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, and an imp with you. Keep it off the hearth, because the last one decided my stew needed more fire, and the grunts haven't forgiven either of us." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Something with horns is trailing you. Keep it off the hearth, because the last one decided my stew needed more fire, and the grunts haven't forgiven either of us." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my fire. You could conjure your own bread and water, I know, so I'll take it kindly that you came in anyway." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. My grunts sleep with their coin under their pillows when your kind take a bunk, so be a good guest and let them snore in peace." },
         { id = "h_shamancl", when = { class = "SHAMAN" },

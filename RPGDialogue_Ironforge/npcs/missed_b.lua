@@ -509,12 +509,15 @@ P:NPC {
     { id = "g_lock", when = { class = "WARLOCK", race = "Gnome" }, text = "There you are, and about time too. I've been watching for young gnomes with that particular scorch on their sleeves, and you're the third this month." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and nothing has followed you down here, which I always check." },
     { id = "g_lamb", when = { questActive = TODO_QUEST("The Slaughtered Lamb") }, text = "You're still in Ironforge? Gakin is expecting you in Stormwind, and he's not a man who enjoys expecting." },
+    { id = "g_void", when = { class = "WARLOCK", pet = { family = "Voidwalker" } }, text = "You've a voidwalker at your heel, so Gakin did his part and you did yours. Let me have a look at the binding, if it'll hold still for me." },
   },
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK", ["not"] = { race = "Gnome" } },
-      text = "A practitioner, and not one of mine. Calder teaches the tall ones in the back of Bonegrip's shop, if that's who you came for." },
+      text = "You're a practitioner, though not one of mine. Calder teaches the tall ones in the back of Bonegrip's shop, if that's who you came for." },
     { id = "n_gnome", cat = "gnome", when = { race = "Gnome", ["not"] = { class = "WARLOCK" } },
       text = "You're a long way from the bright end of Tinker Town, cousin. Most of our people prefer not to know this cavern exists." },
+    { id = "n_taint", cat = "class", when = { class = "WARLOCK", taint = { min = 40 } },
+      text = "Hold your hand out flat for me a moment. That tremor in the fingers isn't cold, and you'd do well to go a week without summoning anything larger than an imp." },
   },
   start = "hello",
   nodes = {
@@ -523,16 +526,23 @@ P:NPC {
         { id = "h_default", text = "Lago Blackwrench. I study a branch of the sciences that the High Tinker's council would rather not fund, and I do it down here, where the ventilation is poor and so is the gossip." },
         { id = "h_lock", when = { class = "WARLOCK", race = "Gnome" },
           text = "Lago Blackwrench, and I look out for our people who take up the dark arts, because somebody ought to. A demon is a machine that wants to kill its operator, and I'd like you to learn that from me and not from the demon." },
+        { id = "h_lockh", when = { class = "WARLOCK", race = "Human" },
+          text = "Lago Blackwrench. I look after the gnomes who come down here with a demon on a leash, but a binding is a binding whoever holds it, so I'll answer your questions too." },
       },
       again = {
         { id = "h_again", text = "What else? I've nothing but time and darkness down here." },
         { id = "h_again2", text = "Go on, and do keep your voice at a reasonable volume." },
+        { id = "h_again3", when = { class = "WARLOCK" }, text = "Anything further? I'd rather answer ten questions now than one after an accident." },
       },
       choices = {
+        { text = "Who can teach me to bind a voidwalker?", next = "gakin", when = { class = "WARLOCK", race = "Gnome", minLevel = 10 } },
+        { text = "Gakin's summoned me again. What does he want?", next = "succubus", when = { class = "WARLOCK", minLevel = 20 } },
+        { text = "I've heard of a book called the Tome of the Cabal.", next = "cabal", when = { class = "WARLOCK", minLevel = 30 } },
+        { text = "Give me your safety lecture, then.", next = "rules", when = { class = "WARLOCK" } },
         { text = "What exactly do you study?", next = "study" },
-        { text = "Why hide down here?", next = "cavern" },
+        { text = "This seems a gloomy place to hide.", next = "cavern" },
         { text = "A gnome warlock seems an odd thing to be.", next = "odd" },
-        { text = "Who can teach me to bind a demon?", next = "gakin", when = { class = "WARLOCK", race = "Gnome" } },
+        { text = "Who can teach me to bind a demon, and keep it bound?", next = "gakin", when = { class = "WARLOCK", race = "Gnome" } },
         { text = "I'll leave you to the dark.", next = "END" },
       },
     },
@@ -540,43 +550,108 @@ P:NPC {
       lines = { { id = "s_default", text = "Summoning, binding and the careful measurement of both. My people approach everything as a problem of engineering, and I've found that a summoning circle has tolerances just as a boiler does, with rather worse consequences for exceeding them." } },
       choices = {
         { text = "What happens when one fails?", next = "study2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     study2 = {
       lines = { { id = "s2_default", text = "With a boiler you lose the workshop, and with a circle you may lose the person and keep the workshop, which is worse to come home to. I've seen one failure and I don't intend to see a second, so I write every step down." } },
       choices = {
         { text = "Whose failure was it?", next = "study3" },
-        { text = "Something else.", next = "BACK" },
+        { text = "Writing it down seems wise.", next = "BACK" },
       },
     },
     study3 = {
-      lines = { { id = "s3_default", text = "A colleague's, in Gnomeregan, some while before the troggs. I'll say no more than that it's the reason I stand in this tunnel and stop young warlocks before they try anything clever on their own." } },
-      choices = { { text = "Then it's good that you do. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      narr = "He unclasps his hands from behind his back and looks at them, as if checking they're both still there.",
+      lines = { { id = "s3_default", text = "A colleague's, in Gnomeregan, some while before the troggs. She skipped a step because she'd done it a hundred times, and the thing she was holding noticed before she did, and that's the reason I stand in this tunnel stopping young warlocks before they try anything clever on their own." } },
+      choices = {
+        { text = "Then it's good that you do.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Everyone skips a step eventually.", next = "BACK", reply = "Yes, which is why I'd like you to skip yours here, in front of me, while I'm holding the chalk." },
+      },
     },
     cavern = {
       lines = { { id = "c_default", text = "The dwarves have a practical arrangement, which is that anything they'd rather not look at goes in the Forlorn Cavern. The rogues are on one side and Bonegrip's shop is on the other, and nobody asks anybody anything." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The dwarves don't take up warlockry themselves?", next = "dwarves" },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    dwarves = {
+      lines = { { id = "dw_default", text = "Hardly ever, and the one or two who do keep very quiet about it, because to a dwarf a demon smells of the Dark Iron and Thaurissan's ruin. I know of one in the Library who digs for the Explorers' League and has never once said the word aloud, and I'll not tell you his name." } },
+      choices = { { text = "I wouldn't ask you to.", next = "BACK", fx = { trait = { discreet = 1 } } }, { text = "Back to you, then.", next = "BACK" } },
     },
     odd = {
-      lines = { { id = "o_default", text = "Is it? We are the most curious people on Azeroth, and curiosity doesn't stop politely at the edge of what's approved. I'd say it's odder that there are so few of us, and I put that down to good sense in the rest." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "o_default", text = "Is it? We are the most curious people on Azeroth, and curiosity doesn't stop politely at the edge of what's approved. Since the fall there are a good many more of us than there were, which I put down to grief more than to curiosity." } },
+      choices = {
+        { text = "Grief is a poor reason to call up demons.", next = "odd2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    odd2 = {
+      big = true,
+      lines = { { id = "o2_default", text = "It is, and it's the commonest one I see. So tell me, since you've an opinion, what should I do with a grieving young gnome who's already called something up?" } },
+      choices = {
+        { text = "Teach them properly. They'll do it anyway.", next = "BACK", reply = "That's my policy too, and the High Tinker's council calls it encouragement.", fx = { align = { order = -1 } } },
+        { text = "Report them. The city has a right to know.", next = "BACK", reply = "Then they'd hide, and a hidden warlock is the dangerous sort, but I take your point.", fx = { align = { order = 1 } } },
+        { text = "I don't know. That's a hard question.", next = "BACK", reply = "It is, and I've been asking it for two years without an answer." },
+      },
+    },
+    rules = {
+      lines = { { id = "r_default", text = "Rule one, chalk your circle fresh every time, because old chalk is where things get out. Rule two, never summon tired, and rule three, if your demon is being agreeable, stop and ask yourself what it wants." } },
+      choices = {
+        { text = "What if it's agreeable and I can't tell why?", next = "rules2" },
+        { text = "Fresh chalk, rested, suspicious. Understood.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    rules2 = {
+      lines = {
+        { id = "r2_imp", when = { pet = { family = "Imp" } }, text = "Then send it back and call it fresh, and see whether the new one is quite so pleasant. Your imp is listening to this, by the way, and it's not pleased with me." },
+        { id = "r2_default", text = "Then send it back and call it fresh, and see whether the new one is quite so pleasant. Nine times in ten the cure is as dull as that, and the tenth time you'll be glad you did it." },
+      },
+      choices = { { text = "Back to my other questions.", next = "BACK" } },
     },
     gakin = {
-      lines = { { id = "g_default", text = "Not I, because I watch and I warn and that is the extent of it. You want Gakin the Darkbinder, who keeps to the cellar of a tavern called the Slaughtered Lamb in Stormwind's Mage Quarter, and he'll set you your first binding.", fx = { learn = { "slaughtered_lamb" } } } },
+      lines = { { id = "gk_default", text = "Not I, because I watch and I warn and that is the extent of it. You want Gakin the Darkbinder, who keeps to the cellar of a tavern called the Slaughtered Lamb in Stormwind's Mage Quarter, and he'll set you your first true binding.", fx = { learn = { "slaughtered_lamb" } } } },
       choices = {
         { text = "A tavern cellar in Stormwind?", next = "gakin2" },
-        { text = "Something else.", next = "BACK" },
+        { text = "What sort of man is Gakin?", next = "gakin3" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     gakin2 = {
       lines = { { id = "g2_default", text = "The humans hide their warlocks under a public house, and we hide ours behind a fishing pool, so nobody may sneer. Take the tram from Tinker Town, be polite to Gakin, and don't touch anything on his shelves." } },
-      choices = { { text = "I'll keep my hands to myself. Something else.", next = "BACK" } },
+      choices = { { text = "I'll keep my hands to myself.", next = "BACK" } },
+    },
+    gakin3 = {
+      lines = { { id = "g3_default", text = "Exacting, and a little vain about it, and very good at what he does. He'll send you out into Elwynn for something a voidwalker needs before he lets you near his circle, so go with a full belly and a spare shard." } },
+      choices = { { text = "A spare shard. I'll remember.", next = "BACK" } },
+    },
+    succubus = {
+      lines = { { id = "su_default", text = "If Gakin's sent for you a second time, it'll be about the succubus, and I'd sooner give you my warning before he gives you his instructions. A voidwalker wants to be left alone, but a succubus wants to be wanted, and she'll find the soft place in you faster than you'll find it yourself." } },
+      choices = {
+        { text = "How do I guard against that?", next = "succubus2" },
+        { text = "I'm not that easily charmed.", next = "BACK", reply = "Everybody says that the day before, and nobody says it the day after.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    succubus2 = {
+      lines = { { id = "su2_default", text = "Keep a written note of every order you give her, and read it back at night. If you find you've been giving fewer orders and more explanations, send her back to the Nether for a week, and don't let her persuade you it's cruel." } },
+      choices = { { text = "Orders, not explanations. Back to the rest.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    cabal = {
+      lines = { { id = "cb_default", text = "Then you've been talking to Strahad Farsan in Ratchet, or to somebody who has. The Tome teaches the felhunter, and it was torn up and scattered on purpose, which tells you how much its last owners trusted their successors." } },
+      choices = {
+        { text = "Where are the pieces?", next = "cabal2" },
+        { text = "Another time, then.", next = "BACK" },
+      },
+    },
+    cabal2 = {
+      lines = { { id = "cb2_default", text = "In more than one place, and I'll only point you at the nearest. Krom Stoutarm in the Library knows where a piece of it went, though he'll look at the floor for a good while before he admits it.", fx = { learn = { "tome_of_the_cabal" } } } },
+      choices = { { text = "I'll ask him gently.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a boiler inspector in Gnomeregan, which is better training for this work than you'd suppose." } },
     slaughtered_lamb = { { id = "tp_lamb", text = "A tavern in Stormwind's Mage Quarter with a cellar full of warlocks. Ask for Gakin the Darkbinder." } },
+    tome_of_the_cabal = { { id = "tp_tome", text = "The book that teaches the felhunter, torn up and scattered by people who didn't trust their heirs. Krom Stoutarm knows something about one piece." } },
     _none = { { id = "tp_none", text = "I've no data on that, and I don't speculate without data." } },
   },
 }

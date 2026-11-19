@@ -9,7 +9,7 @@ P:NPC {
   communities = { "gevrek" }, temper = { "steady" }, values = { "loyal", "devout", "proud" },
   likesTone = "polite", private = { "two_orders" },
   spiritSensitive = true,
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_pact" },
   impression = {
     first = "She is determined the tauren never regret welcoming her people.",
     third = "{name} met Ayessa Dawnsinger, leader of the Windshapers at Camp Gev'rek in Mulgore.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "You've walked the elemental trials; I can see it in how you stand, and that is good." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Thunder Bluff opened its gates to us. We won't forget that, and we won't make the tauren regret it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The elements in this camp have drawn back from you like water from a hot stone, and my Windshapers have stopped their chant to listen. The Earthen Ring taught us to hear what the world is saying, and right now it is saying something about you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's a fever in your blood that no sickness put there, the heat of some small fire-thing, and the spirits around me can feel it burning. Whoever bound you into that pact, I hope they paid for it themselves." },
   },
 
   start = "hello",
@@ -130,11 +134,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
+        { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your companion out of our camp, out of respect for them and for us." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "We fear what we don't understand, and the Gev'rek hunters have gone still and silent since your demon walked into camp. They owe Thunder Bluff their welcome, so I'd ask you to take it back to the edge of the trees, out of respect for them and for us." },
       },
       choices = {
         { text = "I'll keep it out of your camp, Elder.", next = "BACK", reply = "Thank you, and Gev'rek thanks you, though the young ones will still stare. Come to us without it, and you will be welcome.", fx = { align = { order = 1 } } },
-        { text = "Your people will have to get used to me.", next = "BACK", reply = "They may, in time, but I would rather they never had to. Gev'rek is a guest on tauren ground, and I will not have them shamed by us.", fx = { align = { order = -1 } } },
+        { text = "Your people will have to get used to me. Eventually.", next = "BACK", reply = "They may, in time, but I would rather they never had to. Gev'rek is a guest on tauren ground, and I will not have them shamed by us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -147,7 +152,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A mage, at Gev'rek. My people shape the wind, so we know a little of what it is to bend the world, and to be careful when we do." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll speak plainly, as I try to with everyone: the wind goes still around you, and my people notice." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "I'll speak plainly, as I try to with everyone: the wind goes still around you, and my people notice." },
         { id = "h_windshaper", when = { origin = "skyborne_windshaper" }, text = "You passed the trials and took the sapta before we left the isle, and you came down with us anyway. The winds that sheltered us are gone, but Gev'rek is full of people who swore to them, and you're one of the few who still says the oath aloud." },
       },
       choices = {
@@ -163,7 +168,7 @@ P:NPC {
         { text = "The beasts of the plains must be strange to your people.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess the Windshapers practise the arcane too.", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
-        { text = "Your people seem to fear warlocks, Elder.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Your people seem to fear what follows me, Elder.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers find the Light strange, Ayessa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My skysight dims each season, Elder. I fear the day it's gone.", next = "xorig_totem", when = { origin = "skyborne_gevrek_totem_keeper" } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },

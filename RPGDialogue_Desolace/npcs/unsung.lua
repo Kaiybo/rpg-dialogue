@@ -7,7 +7,7 @@ P:NPC {
   title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nijels_point" }, temper = { "brisk", "wry" }, values = { "practical", "loyal" },
-  notices = { "weary", "kit" },
+  notices = { "weary", "kit", "lock_soulstone" },
 
   impression = {
     first = "She talks about the wasteland as though it were a tiresome joke.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "Desolace got you, didn't it? Everyone looks like that after their first trip down. Sit, have some water, and try not to go back until you can stand straight." },
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "You're half-dressed, friend, and the sun down there will burn you raw. I don't sell armor, but you'll want a cloak at the very least." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tied your soul to a stone, haven't they? I've seen warlocks do that for their friends before they go down to Thunder Axe, and the ones with stones tend to come back, so I suppose it's a kindness of sorts." },
   },
 
   start = "hello",
@@ -96,10 +98,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." } },
+      lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not badly, just carefully, because the Burning Blade are a few days' walk south, and your demon standing in my doorway does remind them of it. Send it off while you shop, spend your coin and keep your temper, and they'll come round, the way they did with me." } },
       choices = {
         { text = "Coin spent, temper kept. I can manage that.", next = "BACK", reply = "Good, then you'll find the Point less frightened of you than you'd expect, given time.", fx = { align = { order = 1 } } },
-        { text = "Their fear isn't my problem to fix.", next = "BACK", reply = "It isn't, but it'll be your problem when they won't sell you anything, so it's worth a little patience.", fx = { align = { order = -1 } } },
+        { text = "Their fear isn't my problem to fix. It might be useful.", next = "BACK", reply = "It isn't, but it'll be your problem when they won't sell you anything, so it's worth a little patience.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -124,7 +126,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, because in Desolace most thieves can't be bothered to pretend." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you could conjure me a shipment that arrives on time, because the caravan certainly can't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want more water than you think and less armor than you're wearing, though I don't expect you'll take my advice on the second." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, browsing my shelves. Soul shards I don't stock, and I'll thank you not to ask where I'd even get them." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Browsing my shelves with those ink-black fingers? Soul shards I don't stock, and I'll thank you not to ask where I'd even get them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've seeds for sale, if you think there's anywhere down in Desolace they might take, though I've never sold a packet to anyone who came back to tell me it worked." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! You can ask the dust where it all comes from, because I've been sweeping it for three years and it just keeps coming." },
       },
@@ -143,7 +145,7 @@ P:NPC {
         { text = "What do warriors usually forget to buy, Christi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Hunters must bring strange things back up from Desolace.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the soldiers here run short of most, Christi?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do people at Nijel's Point treat warlocks badly, Christi?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do people at Nijel's Point treat folk like me badly, Christi?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Nobody could plant anything down there, surely, Christi.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does all that dust trouble you, Christi?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
@@ -207,7 +209,7 @@ P:NPC {
   title = "Food & Drink",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nijels_point" }, temper = { "warm", "talkative" }, values = { "kind", "practical" },
-  notices = { "hunger", "drink" },
+  notices = { "hunger", "drink", "lock_pact" },
 
   impression = {
     first = "She worries over every traveler who goes down into Desolace.",
@@ -224,6 +226,8 @@ P:NPC {
       text = "It's near supper, dear, and the stew's been on since noon. Have a bowl now, while the patrol's still out and there's some left in the pot." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "You've had a drop or two, haven't you? Eat some bread, dear, and drink some water, and don't go down that path until you've got your feet under you." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "You're flushed like you've a fever, and I've seen that on warlocks before, so I'd guess it's their imp's doing. Have some water before you eat, because the bread won't help with that." },
   },
 
   start = "hello",
@@ -277,10 +281,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, and they're the quietest customers I have, which I suppose makes sense if your companions are always listening. One of them told me the imps eat anything, so I've started locking the bread away at night, just in case." } },
+      lines = {
+        { id = "xlock_default", text = "A few, and they're the quietest customers I have, which I suppose makes sense if your companions are always listening. One of them told me the little red ones eat anything, so I've started locking the bread away at night, just in case." },
+      },
       choices = {
-        { text = "I'll keep my imp in hand. Your bread is safe.", next = "BACK", reply = "Thank you, dear, and I'll unlock the bread for you, though I'll keep one eye on the little fellow.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Imps go where they please. Lock the bread away.", next = "BACK", reply = "Then I'll lock it away twice, dear, and you can have yours with a side of my suspicion.", fx = { align = { order = -1 } } },
+        { text = "I'll keep my little friend in hand. Your bread is safe.", next = "BACK", reply = "Thank you, dear, and I'll unlock the bread for you, though I'll keep one eye on the little fellow.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "It goes where it pleases. Lock the bread away.", next = "BACK", reply = "Then I'll lock it away twice, dear, and you can have yours with a side of my suspicion.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -324,7 +330,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Sit down and eat, dear, because there's nothing growing down there worth putting in your mouth." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Are you a mage? Then promise me you'll eat my bread before you eat that conjured stuff, because it can't be good for you to live on magic and water." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Well, everyone eats, and I'll feed you as well as anyone, but please keep the little red thing off my tables, because it bit the last loaf I set out." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Everyone eats, and I'll feed you as well as anyone. But please keep the little red thing that's peeking out from behind you off my tables, because the last one bit a loaf." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You there, with the quiet boots. If you're hungry, you only have to ask, dear, because I'd far rather feed you than count my loaves after you've gone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! You'll eat before you go down there, spirits or no spirits, because Desolace takes more out of you than any of them give back." },
       },
@@ -339,7 +345,7 @@ P:NPC {
         { text = "How are the soldiers holding up?", next = "soldiers" },
         { text = "Do many travelers come through?", next = "travelers" },
         { text = "Conjured food seems good enough to me, Janet.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you get many warlocks at Nijel's Point, Janet?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you get many quiet customers like me at Nijel's Point, Janet?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The soldiers at Nijel's Point look worn out.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Nijel's Point need most from someone like me?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the soldiers here eat well enough to fight, Janet?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },

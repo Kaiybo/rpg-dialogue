@@ -41,7 +41,7 @@ P:NPC {
         { text = "Any who call on demons are traitors to the Horde.", next = "op_r1", fx = { affinity = 1, align = { order = 1 }, trait = { stern = 1 }, opinion = { demons = "hate" } } },
         { text = "Power is power. Use the demon, then break it.", next = "op_r2", fx = { affinity = -1, align = { order = -1 }, opinion = { demons = "useful" } } },
         { text = "Thrall allows warlocks. I'll trust his judgment.", next = "op_r3", fx = { trait = { practical = 1 }, opinion = { demons = "tolerate", warchief = "trust" } } },
-        { text = "I command my demons, Dreka. They don't command me.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
+        { text = "My demons crawl when I tell them to, Dreka. Never the reverse.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful" } }, when = { class = "WARLOCK" } },
         { text = "I've no stomach for that talk.", next = "BACK" },
       },
     },

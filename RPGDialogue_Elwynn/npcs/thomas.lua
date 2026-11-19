@@ -7,13 +7,17 @@ P:NPC {
   key = "thomas", id = TODO_NPC("Guard Thomas"), name = "Guard Thomas",
   bible = "bibles/thomas.md", role = "questgiver", tier = "quest",
   communities = { "eastvale" }, temper = { "steady" }, values = { "lawful", "brave" },
-  notices = { "kit", "death" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "His father died in the Second War under fire the Horde's warlocks called down." },
+  notices = { "kit", "death", "lock_shards" },
   impression = {
     first = "He hasn't forgotten the two men he sent north along the river.",
     third = "{name} met Guard Thomas, who keeps the eastern bridge and still waits for word of his missing men.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died in the Second War under fire the Horde's warlocks called down. You'll stay on the east side of this bridge, and that's my last word." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Two of my footmen went upriver and never came back, and I'll not lose a third to whatever walks behind you. Keep your distance." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've helped on this bridge more than once, and I've not forgotten it. I still don't like what you carry, and I'll still be watching it." },
     { id = "g_business", text = "State your business with the Stormwind Army." },
     { id = "g_search", when = { questActive = TODO_QUEST("Find the Lost Guards") }, text = "Have you found anything? Look north along the river, citizen; anything at all will help." },
     { id = "g_after", when = { questDone = TODO_QUEST("Report to Thomas") }, text = "Citizen, you have my thanks still, and you always will." },
@@ -25,6 +29,8 @@ P:NPC {
       text = "Your gear's not fit for the frontier, and I've buried men who thought theirs was, so see a smith in Goldshire." },
     { id = "n_died_here", cat = "death", when = { deathsHere = { min = 2 } },
       text = "You've been carried off this road twice already. I'd rather not write a third report with your name in it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "The guards in Stormwind are told to count the shards on your lot, and I make it a good dozen in that pack. I'll not write it down, seeing as I need your help, but I counted." },
   },
 
   start = "hello",
@@ -56,7 +62,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." } },
+      lines = {
+        { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever that is lurking at your heel. Still, Rolf and Malakai went north along the river and didn't come back, so if your servant can sniff out what happened to them, I'll not ask how." },
+      },
       choices = {
         { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", reply = "The truth's all I'm asking, however hard it is. Go north along the water, and come back and tell me what you find.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll look, but I'll do it my own way.", next = "BACK", reply = "Your way's your business, so long as you look. I've no time to be particular about who does the searching.", fx = { align = { honor = -1 } } },
@@ -159,7 +168,9 @@ P:NPC {
           text = "A mage. Stand behind me on the bridge if there's trouble, because I'd rather you burned the wolves than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you can read tracks, I've some by the lake I'd like explained, and none of them are friendly." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at my bridge. If you've come from the east, you'll know the forest grows less friendly with every mile." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take what help I can get on this bridge, but I'll ask you to keep your demons on the east side of it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a look about you I don't care for, friend. I'll take what help I can get on this bridge, but whatever walks with you stays on the east side of it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know that smell, and I know what it means. Whatever walks with you stays across the river, and so do you, unless you've good reason." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "It's you again. You've done this bridge some good, so come across, though your friend still waits on the other side." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Prowler", min = 20 } }, text = "Fewer prowlers on the road these past nights, and the loggers say it's your doing. That's one less thing for me to watch from this bridge, and I'm grateful for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked Marshal Dughan for soldiers and got you, and you'll do. Can your spirits find my two missing men?" },
       },
@@ -182,7 +193,7 @@ P:NPC {
         { text = "I'd guess you pray for the men under your command, Thomas.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do at your bridge, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes the forest east of here so unfriendly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "You wouldn't trust a warlock on your bridge, I'd wager.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "You wouldn't trust someone like me on your bridge, I'd wager.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What happened to your men, Guard Thomas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Carry on, guard.", next = "END" },
       },

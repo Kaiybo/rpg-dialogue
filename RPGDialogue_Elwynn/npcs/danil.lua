@@ -6,7 +6,7 @@ P:NPC {
   key = "danil", id = TODO_NPC("Brother Danil"), name = "Brother Danil",
   bible = "bibles/danil.md", role = "vendor", tier = "service",
   communities = { "northshire" }, temper = { "sharp" },
-  notices = { "purse", "kit" },
+  notices = { "purse", "kit", "lock_soulstone" },
   impression = {
     first = "He mentions the leaking Abbey roof often, and not by accident.",
     third = "{name} browsed the humble stores of Brother Danil, who never lets a customer forget that the Abbey roof leaks.",
@@ -21,6 +21,8 @@ P:NPC {
   notice = {
     { id = "n_naked", cat = "kit", when = { nearlyNaked = true },
       text = "I don't sell trousers. I wish I did, for your sake." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "There's a stone somewhere holding a piece of your soul against the day you fall, isn't there? I can feel the tug of it, like a coin sewn into a hem, and I'll pray at vespers that whoever keeps it keeps it kindly." },
   },
 
   start = "hello",
@@ -72,7 +74,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." } },
+      lines = {
+        { id = "xlock_default", text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a soul in shadow had to starve. I sell to you as I'd sell to anyone, and then I pray a little extra at vespers." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Brothers mind very much, but they mind empty bellies more, and the Light never said a warlock had to starve. I'll sell to you as I'd sell to anyone, though I'd thank you to keep your servant away from the bread, and I'll be praying a good deal more than a little at vespers tonight." },
+      },
       choices = {
         { text = "Your charity does you credit, Brother. I'm grateful for it.", next = "BACK", reply = "You're welcome, and the Light's welcome too, if you ever want it. Go well.", fx = { align = { light = 1 } } },
         { text = "Save your prayers. I'll pay for bread, not pity.", next = "BACK", reply = "Then you'll have both, whether you like it or not. That's how charity works.", fx = { align = { light = -1 } } },
@@ -130,7 +135,7 @@ P:NPC {
         { text = "Arrows. As many as I can carry.", next = "arrows", when = { class = "HUNTER" } },
         { text = "I can't afford much, Brother.", next = "poor", when = { money = { max = 500 } } },
         { text = "You seem to think a rogue would rob the Abbey.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "I'd guess the Brothers mind you selling to warlocks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess the Brothers mind some of the folk you feed.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a recruit need most from your wagon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Abbey feed the poor from your wagon, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin need from your wagon, Brother?", next = "xapala", when = { class = "PALADIN" } },

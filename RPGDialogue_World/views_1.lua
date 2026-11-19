@@ -232,8 +232,8 @@ P:Views { topic = "morganth", views = {
     { id = "b", text = "Don't say failure in front of him, though. He already believes it, and that's the trouble." },
   } },
   { id = "power", when = { class = "WARLOCK" }, text = "Power isn't evil. He just chose the wrong masters to serve.", fx = { opinion = { morganth = "understand" }, align = { light = -1 }, trait = { proud = 1 } }, replies = {
-    { id = "a", text = "That's a warlock's argument, and I'll thank you not to make it near Lakeshire. Folk there lost their keep to that kind of power.", fx = { affinity = -1 } },
-    { id = "b", text = "Maybe so. Just remember that every warlock who went bad said much the same, right up until the end." },
+    { id = "a", text = "That's the kind of argument they make in the Slaughtered Lamb's cellar, and I'll thank you not to make it near Lakeshire. Folk there lost their keep to that kind of power.", fx = { affinity = -1 } },
+    { id = "b", text = "Maybe so. Just remember that every one of his sort who went bad said much the same, right up until the end." },
   } },
   { id = "fear", text = "Sorcery like his frightens me more than any orc's axe.", fx = { opinion = { morganth = "fear" }, align = { light = 1 }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "It should. An axe only takes your life, and a warlock can take your soul along with it." },

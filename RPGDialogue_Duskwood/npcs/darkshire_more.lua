@@ -280,6 +280,7 @@ P:NPC {
   key = "sorigal", id = TODO_NPC("Watchmaster Sorigal"), name = "Watchmaster Sorigal",
   bible = "bibles/darkshire_more.md", role = "soldier", tier = "quest",
   communities = { "darkshire" }, temper = { "brisk" }, values = { "dutiful", "practical" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Lost drivers and a caravan to felhounds on the road to Nethergarde." },
   notices = { "class", "travel" },
 
   impression = {
@@ -288,6 +289,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The last time I saw a felhound, it was eating one of my drivers on the road to Nethergarde. You'll forgive me if I don't shake your hand." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Nethergarde stands where it stands to keep your sort of friends on the far side of the Portal. If you've business, say it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've carried my crates without losing one, which is more than I expected. I still don't like what walks with you." },
     { id = "g_default", text = "If you're here about the caravan, it's late. If you're not, it's still late." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. People I've met twice are worth more to me than wagons." },
     { id = "g_crate", when = { questActive = TODO_QUEST("Supplies for Nethergarde") }, text = "Why are you still here? Those stones are losing their charge while we talk!" },
@@ -379,6 +383,8 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Nethergarde asks for bandages as often as it asks for stone, and I've never once had enough of either." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and you'll want to know why Nethergarde needs so much. I'll tell you, if you'll carry a crate while I do." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Nethergarde's there to watch for the demons you call friends, and I've lost drivers to them on the road. Say your business, and don't expect a smile." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've hauled for Nethergarde and the wagons came back whole. I'll hear you out." },
         { id = "h_default", key = true,
           text = "Watchmaster Sorigal. Every crate bound for Nethergarde Keep passes through my hands in Darkshire, and too many of them never reach Lungertz at the other end." },
         { id = "h_vital", tags = { "news" }, when = { questActive = TODO_QUEST("Vital Supplies") },
@@ -408,7 +414,7 @@ P:NPC {
         { text = "Your crates go missing on the road. Who's taking them?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "An escort would see your crates safely to Nethergarde, Watchmaster.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Something must trouble your wagons on that road, Watchmaster.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Nethergarde watches the Portal. My kind know its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Nethergarde watches the Portal. Some of us still feel its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does Nethergarde need that a priest could give?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your wagons don't seem well guarded, Watchmaster.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does Nethergarde matter so much to Duskwood?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -601,7 +607,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "Ha! I'll put that on a sign, if Althea lets me. Mind you don't drink it near a candle, because I've seen a man lose his eyebrows and he didn't even have your sort of help." } },
       choices = {
         { text = "I'll keep my fire out of your bottles.", next = "BACK", reply = "Thank you, friend, and so do the bottles. They've enough fire in them already.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A little extra fire never hurt moonshine.", next = "BACK", reply = "It never hurt the moonshine, but it hurt the drinker plenty. No fel in my jugs, please.", fx = { align = { light = -1 } } },
+        { text = "A little extra fire never hurt moonshine.", next = "BACK", reply = "It never hurt the moonshine, but it hurt the drinker plenty. No strange fires in my jugs, please.", fx = { align = { light = -1 } } },
         { text = "Who drinks here?", next = "regulars" },
       },
     },
@@ -930,7 +936,7 @@ P:NPC {
   key = "herble", id = TODO_NPC("Herble Baubbletump"), name = "Herble Baubbletump",
   bible = "bibles/darkshire_more.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "chatty" }, values = { "curious", "proud" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_shards" },
 
   impression = {
     first = "He calls a Darkshire gnome an exile who found somewhere darker.",
@@ -947,6 +953,8 @@ P:NPC {
       text = "One of us! You don't see many of us this far south, not since the city. Come in, come in, and tell me who you were apprenticed to." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! I can tell by the scorch marks. You'll want the bronze tubes, and so does everyone, so be quick about it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards are resonating at roughly a third of an octave below middle C, and every spring in my shop has started humming along. I won't ask to open one, as that's precisely the sort of curiosity that costs a gnome his eyebrows." },
   },
 
   start = "hello",
@@ -964,6 +972,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've thought about it, because an imp is really just a very small furnace with opinions, and I'd love to put one in a boiler. But every gnome I've known who tried that sort of thing ended up with no eyebrows and a very angry boiler, so I've decided to stay a coward about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'll admit your {pet} has me thinking again, because it's practically radiating heat and it isn't even trying. But every gnome I've known who tried that sort of thing ended up with no eyebrows and a very angry boiler, so I'll admire it from over here, thank you." },
       },
       choices = {
         { text = "Wise of you, Herble. Some things shouldn't be bolted down.", next = "BACK", reply = "That's my thinking, exactly. Eyebrows are hard to grow back.", fx = { align = { order = 1 } } },
@@ -1048,7 +1057,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Big, strong, likely to hit things, and I sell parts for gadgets that don't need any of that, so you're in the wrong house!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, a gnome who sells gun parts likes a hunter, because hunters like guns, and guns like parts!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Your people and mine haven't much in common, I'd guess, except that we've both lost a home lately and ended up somewhere damp." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I don't suppose your imp could tell me why it smells of burnt gears whenever it's near my shop?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, hello! I don't suppose that little red fellow of yours could tell me why it smells of burnt gears whenever it's near my shop?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in Darkshire! I'm an exile from Gnomeregan who found somewhere even darker, and I'd guess you've wandered a long way from home too." },
       },
       again = {
@@ -1068,7 +1077,7 @@ P:NPC {
         { text = "Do the gnomes of Gnomeregan keep priests, Herble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could your gadgets help hold Darkshire against the dead?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your machines can't be good for the forest, Herble.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do engineers ever use what warlocks summon, Herble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has an engineer ever harnessed something with horns, Herble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt gnomes would understand shamanism, Herble.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll mind the shelf on my way out. Goodbye.", next = "END" },
       },
@@ -1149,7 +1158,7 @@ P:NPC {
   key = "farrin", id = TODO_NPC("Farrin Daris"), name = "Farrin Daris",
   bible = "bibles/darkshire_more.md", role = "citizen", tier = "service",
   communities = { "darkshire" }, temper = { "anxious" }, values = { "loving", "cautious" },
-  notices = { "soldier", "weary" },
+  notices = { "soldier", "weary", "lock_soulstone" },
 
   impression = {
     first = "He can't visit his father's grave anymore, and it's eating him alive.",
@@ -1167,6 +1176,8 @@ P:NPC {
       text = "You're wearing colours! Are you from Stormwind, and has Stormwind finally sent soldiers, or is it only you?" },
     { id = "n_weary", cat = "weary", when = { deathsHere = { min = 1 } },
       text = "You've been out there and come back looking worse. That's what happens, and that's why I stay in." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tied your soul to a stone so you can come back if you fall, and out here, where the dead get up on their own, I'm not sure that comforts me. Mind you come back as yourself, if it comes to it." },
   },
 
   start = "hello",
@@ -1200,6 +1211,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'm afraid of most things lately, so you're in good company, but I'll tell you plainly what frightens me most. Somebody is raising the dead out there, and you're the first person I've met who might understand how, which makes me wonder whether you'd stop it or take notes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm afraid of most things lately, so you're in good company, though that creature at your side is doing nothing to help. Somebody is raising the dead out there, and you're the first person I've met who might understand how, which makes me wonder whether you'd stop it or take notes." },
       },
       choices = {
         { text = "I'd stop it, Farrin. Raising your father isn't my work.", next = "BACK", reply = "Then you're the first I've trusted with it. Thank you, truly.", fx = { align = { light = 1 } } },

@@ -6,7 +6,7 @@ P:NPC {
   key = "krusk", id = TODO_NPC("Krusk"), name = "Krusk",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "grim" }, values = { "loyal", "brave" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_pact" },
 
   impression = {
     first = "He shares a town with the dead and would rather not.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Lok'tar! It's good to see a green face in this town of grey ones. Stand close, and help me get mine home." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Then you'll understand that being taken alive is worse than dying, and that's where my brothers are." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your blood is running hot, I can see it in your face, and my father's generation carried the same heat after they drank from Mannoroth's cup. I know it is only an imp's pact, but you'll forgive me if my hand stays near my axe." },
   },
 
   start = "hello",
@@ -94,10 +96,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." } },
+      lines = {
+        { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think any power that once enslaved us could do it again, and I can feel the old blood stir just standing this close to your demon. Thrall freed us at too high a price to risk it, so you'll have to prove you hold that thing and not the other way round." },
+      },
       choices = {
         { text = "Then I'll prove it with my deeds, not my words.", next = "BACK", reply = "Deeds are all an orc trusts. Show me yours, and I'll show you my respect.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Horde needs every power it can get. Even mine.", next = "BACK", reply = "Every power, you say, and that is what Gul'dan said too. Be careful the power doesn't decide you belong to it.", fx = { align = { order = -1 } } },
+        { text = "The Horde needs every power it can get. Mine most of all.", next = "BACK", reply = "Every power, you say, and that is what Gul'dan said too. Be careful the power doesn't decide you belong to it.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -122,7 +127,7 @@ P:NPC {
         { id = "h_goldir_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Gol'dir"), days = 3 } },
           text = "Gol'dir is free. He led us here, and he's been hauling stone for human thieves in Strahnbrad since, and the first thing he asked was who leads us now. I'm ashamed to say it's me." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been with my band at Durnholde, perhaps the humans wouldn't have caught us by surprise, and I'd have more friends left to drink with." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I know the smell of what you serve. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, someone in this town who fights with a blade and still breathes air. Sit, and tell me you've come to help me pay back the Syndicate." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde. The Syndicate hid in the Durnholde ruins like rats, and I'd have given much for someone who could track rats." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are one of the dead, and you call on the Light like the human knights who guarded the camps. I do not know what to make of that, but I have seen stranger things since I came to these hills." },
@@ -144,7 +149,7 @@ P:NPC {
         { text = "I was born in a human camp myself.", next = "camp", when = { origin = { "orc_camp_born", "orc_camp_primer" } } },
         { text = "I'm Forsaken. Speak plainly about us.", next = "scourge", when = { race = "Scourge" } },
         { text = "How did the Syndicate catch your band at Durnholde, Krusk?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you think warlocks still endanger the Horde, Krusk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you think my kind still endanger the Horde, Krusk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You look like a man who means to go back to Durnholde.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I could track the Syndicate at Durnholde for you, Krusk.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does the Light of the camps still trouble you, Krusk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -384,7 +389,7 @@ P:NPC {
   key = "humbert", id = TODO_NPC("Deathguard Humbert"), name = "Deathguard Humbert",
   bible = "bibles/tarrenmill_more.md", role = "guard", tier = "quest",
   communities = { "tarren_mill" }, temper = { "sheepish" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_eyes" },
 
   impression = {
     first = "He's a Deathguard without a sword, and he knows how that looks.",
@@ -400,6 +405,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc! If you see any dwarves at Dun Garok with a Forsaken blade, you'll know where it came from." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes have that sheen, the one that sees through anything trying to sneak past. Where were you the evening those dwarf scouts walked right by me and took everything I owned?" },
   },
 
   start = "hello",
@@ -460,10 +467,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." } },
+      lines = {
+        { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, and seeing yours standing there with that look in its eyes, I'm surer of it than ever. The High Executor would have my head if she saw a demon wandering the camp, so walk it past my post quickly, and I'll pretend my two eyes failed me again." },
+      },
       choices = {
         { text = "Your eyes are enough. Keep watch and you'll be fine.", next = "BACK", reply = "My eyes failed me last time, but you're right, I suppose. I'll keep watching and try not to blink.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Use what you have. A demon is a better guard than a dead man.", next = "BACK", reply = "Tempting, but Darthalia would have both our heads mounted on the gate. I'll stick with my eyes.", fx = { align = { order = -1 } } },
+        { text = "Use what you have. A demon makes a better guard than a corpse.", next = "BACK", reply = "Tempting, but Darthalia would have both our heads mounted on the gate. I'll stick with my eyes.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -482,7 +492,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Humbert's Sword"), days = 3 } },
           text = "My sword! I've been wearing it everywhere, even indoors. Deathguard Samsa says I'm overdoing it, but Samsa never lost his." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'd ask your demon to guard my tent, warlock, but I suppose it would steal more than the dwarves ever did." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which I can't claim to be. Don't look at my belt, please, because there's no sword on it, and I know." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, and twice my size. I don't suppose you could track a pack of dwarven scouts by smell? Mine has been gone for years." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I'd ask you to bless my borrowed club, only I think it would be wasted on it, and the dwarves of Dun Garok would just steal that too." },
@@ -499,7 +509,7 @@ P:NPC {
         { text = "I'd guess the others haven't let you forget it.", next = "teasing" },
         { text = "A Forsaken without a sword? Shameful.", next = "scourge", when = { race = "Scourge" } },
         { text = "How did the dwarves steal your gear, Humbert?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Would you really trust a demon to guard your tent, Humbert?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would you really trust a demon to guard your tent, Humbert? Mine bites.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a Deathguard lose his sword, Humbert?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Dwarven scouts slipped past a Deathguard. That's hard to believe.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "The dwarves of Dun Garok might respect a Forsaken paladin, Humbert.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -655,7 +665,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest! You couldn't say a few words over my skulls, could you? Not a blessing exactly, just something to make them feel welcome on the wall." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock! Tell me, do your demons collect anything? I've always thought an imp would appreciate a good skull." },
+          text = "Ah, one who keeps demons! Tell me, do they collect anything? I've always thought an imp would appreciate a good skull." },
         { id = "h_default", key = true,
           text = "Deathguard Samsa. While you're out slaying humans and pillaging farms, I stand at this post, so I've taken up a hobby: skulls, human ones, from the fields." },
         { id = "h_skulls", when = { questActive = TODO_QUEST("Souvenirs of Death") },
@@ -740,7 +750,7 @@ P:NPC {
   key = "tallow", id = TODO_NPC("Tallow"), name = "Tallow",
   bible = "bibles/tarrenmill_more.md", role = "soldier", tier = "quest",
   communities = { "tarren_mill" }, temper = { "contemptuous" }, values = { "relentless" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_armor" },
 
   impression = {
     first = "He doesn't much care whether the help he sends survives.",
@@ -757,6 +767,8 @@ P:NPC {
       text = "A warrior. We'll see if you've earned the word yet, or if you just carry it." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look beaten. Come back when you look like you did the beating." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark hide crawling over your shoulders would turn an arrow, I'd wager, and Hammerfall needs every arrow turned that it can get. Take it to Arathi and let the orcs complain about the smell once the walls are still standing." },
   },
 
   start = "hello",
@@ -820,7 +832,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." } },
+      lines = {
+        { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anything that keeps an orc alive at Hammerfall belongs there, including the creature lurking at your heel. The orcs will stare at it and mutter about their history, but they're the ones being overrun, so they can argue about it afterward." },
+      },
       choices = {
         { text = "Victory is all that matters. Use every weapon.", next = "BACK", reply = "Use every weapon, yes, so long as it's pointed at the Alliance. Hammerfall needs what you can bring.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The orcs' history deserves respect. I'll fight with my own hands.", next = "BACK", reply = "Your hands, then, and your conscience. The orcs will respect it, even if I don't care either way.", fx = { align = { honor = 1 } } },
@@ -842,7 +857,7 @@ P:NPC {
         { id = "h_hammer_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Hammer May Fall") },
           text = "You came back from Arathi on your own legs. Drum Fel must be pleased, or desperate; probably both." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, longer than the soft-skinned recruits they send me." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Your demon could hold a line at Hammerfall for a while, warlock, longer than the soft-skinned recruits they send me, and it would bleed less." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hammerfall needs scouts as much as shields, I'm told, so you might be some use to the orcs, if you don't die on the way." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal the whole of Hammerfall's sick tents in an afternoon. Why aren't you there?" },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll want to heal everyone you pass, I expect, but save it for Hammerfall, where the orcs need it more than the dead here do." },
@@ -858,7 +873,7 @@ P:NPC {
         { text = "Your axe has seen hard use.", next = "axe" },
         { text = "I'm a warrior. Test me yourself.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What is Stromgarde planning against Hammerfall, Tallow?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Some say demons don't belong on the Horde's battlefields, Tallow.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Some say demons don't belong on the Horde's battlefields. They're cowards, Tallow.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would a hunter do at Hammerfall, Tallow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should druids fight in the Horde's wars, Tallow?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'd likely be more use at Hammerfall, Tallow.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1008,7 +1023,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. The bats can't hear prayers, or they choose not to, so save yours for the landing at Revantusk, because that one needs it." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock. Keep your demon out of the roost, please, because the bats can smell what it is and they won't settle for hours afterward." },
+          text = "Keep your demon out of the roost, please, because the bats can smell what it is and they won't settle for hours afterward." },
         { id = "h_default", key = true,
           text = "Zarise, bat handler. They fly to the Undercity and to Hammerfall, and over the mountains to Revantusk, and they'll bring you back if you're polite to them." },
         { id = "h_night", when = { timeOfDay = "night" },
@@ -1160,7 +1175,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. I keep holy candles for the ones who still need them, and I don't ask whether they burn them for the Light or the loa or something darker." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock. I don't stock anything for demons, so don't ask, but your imp is welcome to look as long as it keeps its hands to itself." },
+          text = "I don't stock anything for demons, so don't ask, but your imp is welcome to look as long as it keeps its claws to itself." },
         { id = "h_default", key = true,
           text = "Kayren Soothallow, general goods. The dead need less than the living, but we still need rope, and somebody has to sell it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want rope, I'd guess, and flash powder, and perhaps a little food for the road, since I hear the living still eat." },

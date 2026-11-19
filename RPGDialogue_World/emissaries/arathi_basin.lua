@@ -68,7 +68,7 @@ P:NPC {
         { text = "Why should Darnassus bleed for human fields?", next = "k_nelf", when = { race = "NightElf" } },
         { text = "Does the Light go with you into the basin?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Who tends to the fallen at Arathi?", next = "xpriest", when = { class = "PRIEST" } },
-        { text = "Would the League take a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would the League take someone with my sort of talents?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there work for someone who fights from the shadows?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go to Arathi when I'm ready.", next = "END" },
       },
@@ -296,10 +296,10 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "The League would take you, I expect, because the League takes anyone who'll stand on the Alliance's side of the field. I'd ask you not to summon anything near the graves, though, because I've had enough of the dead being disturbed." },
+        { id = "xl_default", text = "The League would take you, I expect, because the League takes anyone who'll stand on the Alliance's side of the field. I'd ask you to keep whatever you've got in that satchel away from the graves, though, because I've had enough of the dead being disturbed." },
       },
       choices = {
-        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", reply = "Thank you, warlock, truly, because half the men in my company buried family in those graves, and they'll fight easier knowing you mean it.", fx = { align = { order = 1 } } },
+        { text = "I'll respect the graves. They're not mine to use.", next = "BACK", reply = "Thank you, truly, because half the men in my company buried family in those graves, and they'll fight easier knowing you mean it.", fx = { align = { order = 1 } } },
         { text = "War doesn't stop at a gravestone, emissary.", next = "BACK", reply = "Maybe not, but my men's grandfathers lie under those stones, and if you raise so much as a whisper there, you'll find the League's swords turned the wrong way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -381,7 +381,7 @@ P:NPC {
         { text = "Da Darkspear don't trust your apothecaries, mon.", next = "k_troll", when = { race = "Troll" } },
         { text = "What do the Forsaken do with the land they take?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I worked Arathi soil once, before I died.", next = "k_forsaken", when = { race = "Scourge" } },
-        { text = "Do the Defilers have use for a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the Defilers need someone who brings hungry things?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Forsaken still have priests. Do they go to Arathi?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Any work for a warrior who doesn't care who's buried there?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Is there work for someone who moves quietly?", next = "xrogue", when = { class = "ROGUE" } },
@@ -586,7 +586,7 @@ P:NPC {
         { id = "xl_default", text = "The Defilers have use for anyone with power and no squeamishness about where it comes from. Bring your demons to the Lumber Mill, and let the League's footmen meet them." },
       },
       choices = {
-        { text = "They'll be hungry when they arrive.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "They'll arrive hungry, and leave well fed.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

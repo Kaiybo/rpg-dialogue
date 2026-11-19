@@ -6,7 +6,7 @@ P:NPC {
   key = "milly", id = TODO_NPC("Milly Osworth"), name = "Milly Osworth",
   bible = "bibles/milly.md", role = "questgiver", tier = "quest",
   communities = { "northshire" }, temper = { "steady" },
-  notices = { "drink", "farmhand" },
+  notices = { "drink", "farmhand", "lock_armor" },
   impression = {
     first = "She counts the harvest the Defias cost her in weeks of bread.",
     third = "{name} met Milly Osworth, whose harvest for Northshire Abbey was carried off by the Defias.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "Is that our wine on your breath? At least you've good taste." },
     { id = "n_farmhand", cat = "farmhand", when = { origin = "human_westfall_farmhand" },
       text = "You've worked a harvest. I can tell by the way you stand around a crate." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark skin over your arms looks like something a gnoll would wear, if gnolls had money. It gives me the shivers, but if it keeps you alive long enough to bring my grapes home, wear it twice." },
   },
 
   start = "hello",
@@ -86,7 +88,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." } },
+      lines = {
+        { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd accept a gnoll's help if it brought my harvest back, and your servant there looks like it would frighten a whole camp of Defias off the field just by standing in it. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." },
+      },
       choices = {
         { text = "Trust carefully, Milly. I'll earn yours fairly.", next = "BACK", reply = "I'll hold you to that, and I'll count my fingers anyway. It's nothing personal.", fx = { align = { light = 1 } } },
         { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", reply = "That's what I told myself, and here you are. Bring my grapes home and I'll not ask questions.", fx = { align = { light = -1 } } },
@@ -135,7 +140,7 @@ P:NPC {
           when = { origin = "human_westfall_farmhand" } },
         { text = "I'll pray the Light watches over your vineyard.", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Could a rogue help you get your harvest back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would you really take a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really take help from someone like me, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "There seem to be a good many Defias in the vineyard, Milly.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

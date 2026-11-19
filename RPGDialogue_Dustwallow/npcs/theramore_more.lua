@@ -210,7 +210,7 @@ P:NPC {
   key = "morgan_stern", id = TODO_NPC("Morgan Stern"), name = "Morgan Stern",
   bible = "bibles/dustwallow.md", role = "questgiver", tier = "quest",
   communities = { "theramore" }, temper = { "cheerful", "fussy" }, values = { "practical", "generous" },
-  notices = { "craft", "hunger" },
+  notices = { "craft", "hunger", "lock_shadow" },
 
   impression = {
     first = "He believes good soup holds a wall better than hard bread.",
@@ -227,6 +227,8 @@ P:NPC {
       text = "You smell of a cookfire, and a good one. I can always tell a fellow cook by the singed sleeves." },
     { id = "n_hungry", cat = "hunger", when = { timeOfDay = "dusk" },
       text = "You've the look of someone who's skipped supper. Don't do that out here; the marsh eats the hungry first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The cream in my bowl just turned the moment you came through the door, and I'd skimmed it this morning. I'm not saying it was you, but it's never done that for Captain Vimes." },
   },
 
   start = "hello",
@@ -308,9 +310,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." } },
+      lines = {
+        { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made its master pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. Your {pet} is looking at my cheese right now, so I'll tell you what I told him, which is that you'll pay for anything it touches and you'll wash every pot." },
+      },
       choices = {
-        { text = "I'll keep my imp out of your kitchen, Morgan.", next = "BACK", reply = "Thank you, the cheese and I both appreciate it. The cat's still not forgiven anyone.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my little one out of your kitchen, Morgan.", next = "BACK", reply = "Thank you, the cheese and I both appreciate it. The cat's still not forgiven anyone.", fx = { align = { order = 1 } } },
         { text = "If he's hungry, he eats. That's how it works.", next = "BACK", reply = "Then he can pay for the cheese and wash the pots, same as the last one. That's how it works in my kitchen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -334,7 +339,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll make you a deal: you don't conjure any of that tasteless bread near my kitchen, and I won't sneer at your tea." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The marsh gives us plenty, if you know where to look, and I imagine you know better than I do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit, sit, you'll have soup before anything else, because I've never seen a holy warrior yet who couldn't do with a second bowl." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen! You can stay, but if that imp of yours puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You can stay in my kitchen, but if that little thing peeking round your legs puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mudrock", min = 30 } }, text = "You've been thinning out the Mudrock tortoises, I can tell, because the fishermen say the shore's safe to walk again. If any of those came home in a sack, my soup pot's waiting." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I've cooked turtle for envoys and sailors alike, but never for someone who might thank the turtle." },
         { id = "h_dd_pagle", when = { questDone = TODO_QUEST("Nat Pagle, Angler Extreme") }, text = "I hear you've been fishing with Nat Pagle out on that island of his, and that he actually let you catch something. If you ever bring back more than you can eat, my pot has room for it, and I won't ask how much he drank while you fished." },
@@ -352,7 +357,7 @@ P:NPC {
         { text = "Troll cooking would put fire in that pot.", next = "x_troll", when = { race = "Troll" } },
         { text = "Does feeding the soldiers feel like holy work, Morgan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who goes hungry in Theramore, Morgan?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "You sound as if a demon's been in your kitchen before, Morgan.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You sound as if something like mine has been in your kitchen before, Morgan.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll bring you what the pot needs.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
         { text = "I'd guess thieves raid your kitchen now and then, Morgan.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
@@ -443,7 +448,8 @@ P:NPC {
   title = "Trauma Surgeon",
   bible = "bibles/dustwallow.md", role = "trainer", tier = "quest",
   communities = { "theramore" }, temper = { "brisk", "exacting" }, values = { "kind", "dutiful" },
-  notices = { "craft", "kit" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Stitched up soldiers the old Horde's warlocks burned, in the field hospitals of the Second War." },
+  notices = { "craft", "kit", "lock_stones" },
 
   impression = {
     first = "I suspect his calm is something he decides on every morning.",
@@ -453,6 +459,9 @@ P:NPC {
   greetings = {
     { id = "g_tent", text = "Wash your hands if you're coming in, and keep your voice level. Wounded men listen to tone before they listen to words." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again, and I hope you've washed your hands." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I spent the Second War stitching up men the Horde's warlocks had burned to the bone. Forgive me if my hands aren't steady around you." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll treat anyone who comes through that door, because that's my oath. I don't have to like it, and I don't." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never brought me a patient burned by your own hand, and believe me, I've looked. Sit down, then." },
   },
 
   notice = {
@@ -460,6 +469,8 @@ P:NPC {
       text = "Your bandages are tied with a field knot, so somebody taught you properly. Good; most people learn on themselves, and badly." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your armor's taken a beating, which usually means the body under it has too. Sit, and let me look at you before you go anywhere." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've watched one close a wound I'd have cut wide for, and I've never decided whether to be grateful or appalled. Grateful, I think, so long as I don't ask where the life in it came from." },
   },
 
   start = "hello",
@@ -521,9 +532,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." } },
+      lines = {
+        { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and seeing your demon in my infirmary, I think I'd sooner not have the practice again, so keep it by the door." },
+      },
       choices = {
-        { text = "My craft is for demons, not soldiers. You have my word.", next = "BACK", reply = "Good, that's all I'd ask. I've no wish to cut wide again in my lifetime.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What I know is for the Legion's creatures, not soldiers. You have my word.", next = "BACK", reply = "Good, that's all I'd ask. I've no wish to cut wide again in my lifetime.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A weapon wounds. Blame whoever holds it.", next = "BACK", reply = "A fair point, and true enough in the abstract. But I'm the one who has to cut wide, and I'd rather not.", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -554,7 +568,9 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("Triage") },
           text = "You came through triage with your head clear and your hands steady. There are surgeons with letters after their names who couldn't say the same." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the hands of someone who knows where to put a blade, and I'm glad to see they're steady. The marsh teaches me what poisons do to a body, and I suspect you've studied them from the other side." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll be frank, there's a smell on you I remember from the field hospitals. I've bandaged too many soldiers who met the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "That smell is the field hospitals all over again. I'll keep my oath and treat you if I must, but don't expect warmth." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I've watched you long enough to know you're not the ones I remember. Not quite, anyway. Where does it hurt?" },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I teach field medicine, and I'd like to see how a shaman's healing compares with a clean bandage." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've died more than once, and recently, by the look of your color. I don't treat that sort of thing, but I can tell you the spirit healer is not a substitute for a bandage." },
@@ -571,7 +587,7 @@ P:NPC {
         { text = "I heal with the Light. Why bother with bandages?", next = "x_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "Do you treat the dead who walk, Doctor?", next = "x_scourge", when = { race = "Scourge" } },
         { text = "You must see a lot of poisoned wounds, Doctor.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Have you treated fel wounds before, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Have you treated wounds that keep burning after the fire's out, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What wounds do you see most from the soldiers, Doctor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'd guess you treat beasts as well as soldiers, Doctor.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },

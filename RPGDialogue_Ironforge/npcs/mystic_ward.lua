@@ -212,7 +212,7 @@ P:NPC {
           fail = { next = "worry_no", fx = { affinity = -1 } } },
         { text = "I'm a paladin, High Priest. Teach me what the priests know.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I listen to the earth, High Priest, not the Light.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
-        { text = "Will you turn me away for the fel, High Priest?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Will you turn me away for what I've bargained with, High Priest?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Does the Light shine on rogues too, High Priest?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What have the gnome mages taught your priests?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light favour warriors, High Priest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -593,8 +593,9 @@ P:NPC {
   key = "theodrus", id = TODO_NPC("Theodrus Frostbeard"), name = "Theodrus Frostbeard", title = "Priest Trainer",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "pious", "dutiful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Priest of the Light; has buried priests who tried to bargain with demons." },
   spiritSensitive = true,
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "His warnings are kindly meant, though the scowl hides it.",
@@ -602,6 +603,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know fel when it walks intae my hall, an' it just did. Say what ye need an' keep yer hands where I can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Light'll hear anyone, but I'm no' the Light, an' I've no' got its patience. What d'ye want?" },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've come back often enough wi'out trouble that I've stopped reachin' for my mace. I'm still prayin' for ye, mind, an' still watchin'." },
     { id = "g_warn", text = "Don't turn yer back on the Light; it may be the one thing that saves ye some day." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Back for more learnin'? Good, for ye cannae have too much o' it." },
   },
@@ -613,6 +617,8 @@ P:NPC {
       text = "A dwarf o' the Light, an' standin' straight, too. Good, for there's nae sense in prayin' hunched." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A fighter wi' nae prayer in ye at all, by the look. Ye'll want one some day, when the healer's out o' reach, so learn a short one now." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles on the altar bent away from ye when ye walked in, all at once, like grass in a wind. I'll no' bless ye, for the Light flinches from what's on ye, but my door's open if ye ever want tae talk about that road back." },
   },
 
   start = "hello",
@@ -667,10 +673,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few warlocks ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." } },
+      lines = {
+        { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few who've gone where ye've gone ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There's always a road back, but it's narrow an' steep, an' I doubt yer demon would let ye take the first step wi'out draggin' at yer heel. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me, though that thing'll have tae stay behind at the start." },
+      },
       choices = {
         { text = "Perhaps someday. I'll remember the offer, Theodrus.", next = "BACK", reply = "I'll hold ye tae it, an' I'll be waitin', for I've walked that road wi' a few before, an' some o' them made it home.", fx = { align = { light = 1 } } },
-        { text = "I've no need of a road back. I like where I am.", next = "BACK", reply = "Then I'll no' push ye, but the offer stands, for I've seen warlocks change their minds at the very end o' things.", fx = { align = { light = -1 } } },
+        { text = "I've no need of a road back. I like where I am.", next = "BACK", reply = "Then I'll no' push ye, but the offer stands, for I've seen yer sort change their minds at the very end o' things.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -703,8 +712,10 @@ P:NPC {
           text = "Ye came in quiet. Folk who come in quiet usually want somethin' from the Hall, so say what it is an' I'll decide if ye can have it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage come tae a priest? I'll warn ye as I warn everyone: the arcane can lead a soul away from the Light if ye let it." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've buried priests who thought they could reason wi' a demon an' its master. Ask yer question, then take that stink back down tae the Forlorn Cavern where it belongs." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I'll answer ye, an' I'll no' pretend I'm glad tae, but ye've no' brought anythin' foul through that door yet. Keep it that way." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll no' turn ye away, warlock, for the Light turns nobody away, but I'll tell ye plainly ye've already taken the first step down the road I warn folk about." },
+          text = "I'll no' turn ye away, for the Light turns nobody away, but I can see the shadow on ye, an' I'll tell ye plainly ye've already taken the first step down the road I warn folk about." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Don't turn yer back on the Light, for it'll stand beside ye in the shield wall when nothin' else will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't turn yer back on the Light out in the snows, for it's colder out there than ye think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say tae ye what I say tae everyone: don't turn yer back on the Light, whatever goddess ye pray to." },
@@ -727,7 +738,7 @@ P:NPC {
         { text = "What should a young priest learn first?", next = "first", when = { class = "PRIEST" } },
         { text = "What's a priest to a fighter like me?", next = "fighter", when = { ["not"] = { class = "PRIEST" } } },
         { text = "How could the arcane lead a soul from the Light?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is there any road back for a warlock, Theodrus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there any road back from where I've gone, Theodrus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How does the Light stand beside a warrior, Theodrus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Light must be some comfort out in the high snows.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's a paladin's greatest danger, Theodrus?", next = "xapala", when = { class = "PALADIN" } },
@@ -793,7 +804,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gentle" }, values = { "kind", "patient" },
   spiritSensitive = true,
-  notices = { "weary" },
+  notices = { "weary", "lock_taint" },
 
   impression = {
     first = "He notices tired people before they notice themselves.",
@@ -810,6 +821,8 @@ P:NPC {
       text = "Ye've been givin' it all away again, haven't ye, an' come back from the edge for it? Sit a moment before ye train; the Light'll wait for a priest tae catch her breath." },
     { id = "n_weary", cat = "weary", when = { resSick = true },
       text = "Ye've the grey look o' someone the spirit healer sent back, an' no' long ago. Sit by the brazier a while, an' then we'll talk about whatever ye came for." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ye're goin' green, friend, faint round the eyes an' the nails, an' I've seen that color on orcs in the internment camps. It's no' too late, whatever it whispers tae ye, an' I'll pray for ye tonight whether ye ask or no'." },
   },
 
   start = "hello",
@@ -864,7 +877,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." } },
+      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge, though I'll confess the kind word comes harder wi' yer demon watchin' me. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no', once that thing's out o' the Hall." },
+      },
       choices = {
         { text = "Your prayers are welcome, Toldren. Thank you.", next = "BACK", reply = "Then ye'll have them every night. There's a quiet chair here whenever ye need one.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I don't need them.", next = "BACK", reply = "Fair enough, but I'll say them anyway, quietly, for the Light doesnae need yer permission tae care what becomes o' ye.", fx = { align = { light = -1 } } },
@@ -902,7 +917,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ah, a rogue. What can I do for ye? Most o' yer sort come tae me for healin' they don't want tae explain." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. What can I do for ye? I'll help where I can, though I'll admit I'm no' sure what a priest can offer ye." },
+          text = "What can I do for ye? I'll help where I can, though by the look o' ye I'm no' sure what a priest can offer." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye look tired, if ye don't mind my sayin' so; sit a moment before ye go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye look as though ye've slept on the ground more than in a bed lately, so sit an' rest a while." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look tired, if ye don't mind my sayin'. Sit a while, for the Hall's open tae anyone, whatever they pray to." },
@@ -919,7 +934,7 @@ P:NPC {
         { text = "How do you keep from running dry?", next = "dry" },
         { text = "I came out of the abbey at Northshire.", next = "abbey", when = { origin = "human_abbey_novice" } },
         { text = "Do rogues often come to you for quiet healing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "What could a priest offer a warlock, Toldren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What could a priest offer someone the Light already frowns on?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Many warriors must come to you for healing, Toldren.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters come to you often, Toldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins come to you for help, Toldren?", next = "xapala", when = { class = "PALADIN" } },
@@ -987,7 +1002,7 @@ P:NPC {
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "warm" }, values = { "friendly", "dutiful" },
   spiritSensitive = true,
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
 
   impression = {
     first = "She makes every stranger welcome, briskly and very well.",
@@ -1004,6 +1019,8 @@ P:NPC {
       text = "Cathedral robes, an' they've seen weather. The Light's no' fussy about where ye learned yer hymns, an' neither am I." },
     { id = "n_ne", cat = "race", when = { race = "NightElf", class = "PRIEST" },
       text = "A priestess o' Elune, under the mountain! I've a message for yer kind more often than ye'd think, so check wi' me before ye leave." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The wards on the Hall are hummin' at somethin' in yer pack, an' I'm fairly sure it's soul shards. Mages store power in crystals as well, but ours didnae have tae die tae fill them, so I'd ask ye tae keep the bag closed." },
   },
 
   start = "hello",
@@ -1058,7 +1075,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." } },
+      lines = {
+        { id = "xlock_default", text = "They fought the Legion long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost, so I'm glad there's no kaldorei in the Hall this minute tae see yer demon. If ye want peace here, leave the creature at the door when they come callin', for one look at it an' they'd remember everythin' at once." },
+      },
       choices = {
         { text = "I'll leave my creatures outside when they visit.", next = "BACK", reply = "Thank ye. The kaldorei visit rarely, an' I'd like them tae leave thinkin' well o' the Hall.", fx = { align = { light = 1 } } },
         { text = "Their old wounds aren't my responsibility, Braenna.", next = "BACK", reply = "No, they're no', but ye'll be standin' in their temple soon enough, an' a wee bit o' courtesy goes a long way.", fx = { align = { light = -1 } } },
@@ -1096,7 +1116,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! The kaldorei priestesses would have opinions about ye, for their people's history wi' the arcane is a long an' bitter one." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in the Hall o' Mysteries! I'll ask ye tae keep yer distance from the night elf priestesses who visit, for they've long memories about demons." },
+          text = "Ye've a cold about ye that doesnae belong in the Hall o' Mysteries. I'll ask ye tae keep yer distance from the night elf priestesses who visit, for they've long memories about such things." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be headin' out o' the city, then, an' I might have a letter or two for ye tae carry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll know the roads better than any courier, an' I've letters that need a sure foot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've had letters from the Temple o' the Moon pass through my hands, though I'm no' sure the sisters meant them for a dwarf tae sort." },
@@ -1115,7 +1135,7 @@ P:NPC {
         { text = "Do night elves pray to the same Light?", next = "elune" },
         { text = "It is strange, praying without stars.", next = "stars", when = { race = "NightElf" } },
         { text = "Why are the night elves bitter about the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why do the night elves remember demons so keenly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do the night elves remember the old enemy so keenly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What letters need carrying, Braenna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the roads give your letters much trouble, Braenna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What letters come for the Silver Hand now, Braenna?", next = "xapala", when = { class = "PALADIN" } },
@@ -1178,8 +1198,9 @@ P:NPC {
   key = "tiza", id = TODO_NPC("Tiza Battleforge"), name = "Tiza Battleforge",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "steady", "proud" }, values = { "pious", "dutiful", "generous" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Paladin; her father followed Turalyon through the Dark Portal and never came back." },
   spiritSensitive = true,
-  notices = { "paladin" },
+  notices = { "paladin", "lock_stones" },
 
   impression = {
     first = "She sends young paladins to help people who can never repay them.",
@@ -1187,6 +1208,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Dinnae come a step closer. I know what ye are, an' so does every paladin in this ward." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Demon-caller. I'll speak wi' ye because the King's law says I must, an' for no other reason." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've kept yer creatures away from my paladins, as I asked. That counts for somethin', though no' for much." },
     { id = "g_light", text = "The Light be wi' ye. Speak, an' I'll listen." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "A paladin! Stand up straight an' tell me what ye've done for someone who couldnae repay ye." },
   },
@@ -1196,6 +1220,8 @@ P:NPC {
       text = "One o' Duthorian Rall's, from Stormwind? Ye've the Stormwind way o' holdin' a hammer, like it's goin' tae be painted. Hold it like it's goin' tae be used." },
     { id = "n_dwarf_pal", cat = "paladin", when = { class = "PALADIN", race = "Dwarf" },
       text = "A dwarf o' the Silver Hand. Brandur Ironhammer sent ye, I'll wager; he sends me all his best an' then sulks about it." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in yer bag, an' I can feel it from here, a wee green ache like somebody's stolen breath. The Light heals for free, an' it heals clean, so I'll ask ye no' tae drink from that stone in this chapel." },
   },
 
   start = "hello",
@@ -1241,10 +1267,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." } },
+      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "On sight, an' I'd no' stop them, an' I'll tell ye plainly that two o' them have their hands on their hammers now wi' yer demon standin' there. Keep it close an' keep it quiet, an' we'll have no trouble, for a demon is a demon whoever's holdin' its leash." },
+      },
       choices = {
         { text = "I'll keep it close and quiet, Tiza. You have my word.", next = "BACK", reply = "I'll hold ye tae it. My paladins are young an' eager, an' I'd rather no' explain tae their mothers why one o' them got bitten.", fx = { align = { light = 1 } } },
-        { text = "Your paladins would regret it. My demons bite back.", next = "BACK", reply = "Maybe they would, but I'd regret it more, an' I'll no' have that sort o' talk in the Hall, so keep yer threats tae yerself.", fx = { align = { light = -1 } } },
+        { text = "Your paladins would regret it. What I keep bites back.", next = "BACK", reply = "Maybe they would, but I'd regret it more, an' I'll no' have that sort o' talk in the Hall, so keep yer threats tae yerself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1281,8 +1309,10 @@ P:NPC {
           text = "A priest! We'd be lost wi'out yer kind; it's yer lot patchin' up my husband right now. Thank ye, on his behalf, for he'll forget tae." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue come tae see a paladin's mentor? I'll hear ye, but I'll no' pretend I'm comfortable wi' yer trade." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father went through the Dark Portal wi' Turalyon an' never came back, an' it was warlocks who tore that door open. Say yer piece an' go." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've caused me no grief, I'll grant ye that. Ask, then, an' I'll answer as plain as I can." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! I'll no' have yer creatures near my paladins, for they're trained tae smite first an' ask after." },
+          text = "I'll no' have whatever ye keep near my paladins, for they're trained tae smite first an' ask after, an' they'll smell it on ye." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I send my young paladins tae help folk who cannae repay them, an' hunters do the same more often than ye'd think." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Hall o' Mysteries. I put young paladins on the path tae virtue, an' I'd wager yer path's every bit as long." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've nothin' against the arcane, but I'll say my young paladins learn more from a day helpin' a farmer than from a week o' books." },
@@ -1301,7 +1331,7 @@ P:NPC {
         { text = "My family's carried the Silver Hand since the Second War.", next = "hand", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "I'm no paladin, but I'd stand with one.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Why are paladins uneasy with rogues, Tiza?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would your paladins really attack a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your paladins really attack my companion, Tiza?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do hunters help folk who can't repay them, Tiza?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your husband give the priests much trouble, Tiza?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a druid's duty to the wild a virtue too?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1438,7 +1468,7 @@ P:NPC {
   key = "muiredon", id = TODO_NPC("Muiredon Battleforge"), name = "Muiredon Battleforge",
   bible = "bibles/mystic_ward.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "loyal", "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_pact" },
 
   impression = {
     first = "Underneath the jokes he is sick with worry for his friend Narm.",
@@ -1458,6 +1488,8 @@ P:NPC {
       text = "Another priest! Are ya the one doin' the stitchin' now? No? Then sit there an' don't poke, for I've been poked enough this week." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", race = "Dwarf" },
       text = "A paladin wi' a proper beard, jus' like Narm. He'd like ya, an' he'd tell ya so, loudly." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "*cough* Ye're givin' off heat like a stove, friend, an' it's no' honest heat, it's an imp's pact sittin' in yer blood. My wounds feel it, an' they ache, but I'll no' complain, for I've had worse company in the Dark Iron cells." },
   },
 
   start = "hello",
@@ -1532,6 +1564,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'd thank it after. Tiza would have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'll say the same o' that thing at yer heel, though it's a mercy Tiza's no' here tae see it by my bed. She'd have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
       },
       choices = {
         { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", reply = "She usually is. I'd still thank the trogg, frying pan an' all.", fx = { align = { order = 1 } } },
@@ -1558,7 +1591,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I'd stand, but the priest says if I move again she'll sew my mouth shut as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have sharp eyes, an' I could have used a pair when I went spyin' south o' Helm's Bed Lake." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' have any leaves that'd stop these stitches itchin', would ye? I'm askin' for a friend, an' the friend is me." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Dinnae mind me, I'm only half-stitched, but if yer servant could keep its claws away from the bandages I'd be grateful." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Dinnae mind me, I'm only half-stitched, but if whatever trails ye could keep its claws away from the bandages I'd be grateful." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! If ye've any healin' waters, I'll take them, for the priests have run out o' patience wi' me, if no' o' prayers." },
       },
       again = {
@@ -1577,7 +1610,7 @@ P:NPC {
         { text = "What did you see south of Helm's Bed Lake, Muiredon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did the Dark Irons teach you, Muiredon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The Dark Irons gave you those wounds, I'd guess.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you fight Dark Irons beside a warlock, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you fight Dark Irons beside someone the Light frowns on, Muiredon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call on fire against you, Muiredon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Mend well, Muiredon.", next = "END" },
       },
@@ -1911,7 +1944,7 @@ P:NPC {
   key = "milstaff", id = TODO_NPC("Milstaff Stormeye"), name = "Milstaff Stormeye", title = "Portal Trainer",
   bible = "bibles/mystic_ward.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "proud", "sharp" }, values = { "proud", "curious" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He doubted I had the mental acuity to grasp portal magic.",
@@ -1928,6 +1961,8 @@ P:NPC {
       text = "A priest. You fold the world with prayers, I fold it with geometry, and only one of us can show his working." },
     { id = "n_young_mage", cat = "class", when = { class = "MAGE", maxLevel = 39 },
       text = "A young mage, and impatient, I expect. Portals begin at forty seasons of study, or the equivalent; come back when you've done the equivalent." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "You're carrying an infernal stone, and I can feel its pull on the ley lines like a stone dropped in a pond. A portal opens a door politely, but that thing knocks a hole in the sky and drops a burning giant through it, and I'd like you to keep it well away from my geometry." },
   },
 
   start = "hello",
@@ -1982,7 +2017,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
+      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough to worry me, for both tear a hole in the world, and the proof is standing at your heel, which asked nobody's permission to come through. I've studied the geometry of it longer than you've been alive, so please don't argue it, and please tell your demon to stop examining my runes." },
+      },
       choices = {
         { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", reply = "Thank you. I'll still check the geometry of any circle you draw near my tower, of course.", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", reply = "Then I'll take my leave of the conversation, because a mage who talks like that is usually halfway to a very bad end.", fx = { align = { light = -1 } } },
@@ -2017,7 +2054,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue wanting to know about portals? I doubt you possess the mental acuity, but go on, and keep your hands where I can measure them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock asking about portals, are you? I'll tell you now, I won't teach you to open anything, because your kind's openings have a habit of letting things in, and I've the figures to prove it." },
+          text = "Asking about portals, are you, with that cold on your hands? I'll tell you now, I won't teach you to open anything, because your sort's openings have a habit of letting things in, and I've the figures to prove it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I doubt very much that you're here to study portal magic, but do go on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please do keep any beast you have well away from the portal stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'm told your people can step to Moonglade without a single equation, and I find that personally offensive." },
@@ -2034,7 +2071,7 @@ P:NPC {
         { text = "Why must I wait for portals?", next = "wait", when = { class = "MAGE", maxLevel = 39 } },
         { text = "The Kirin Tor brought my people to Dalaran.", next = "sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "Could a rogue ever use one of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Are warlock summonings really like portals?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the circles some folk draw really like portals, Milstaff?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a portal carry a warrior to the front, Milstaff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's beast pass through one of your portals?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do portals and prayer have anything in common, Milstaff?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

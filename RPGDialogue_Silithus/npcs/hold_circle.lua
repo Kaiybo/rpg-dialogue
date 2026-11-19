@@ -6,7 +6,7 @@ P:NPC {
   key = "bor_wildmane", id = TODO_NPC("Bor Wildmane"), name = "Bor Wildmane",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "jovial", "steady" }, values = { "brave", "loyal" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_steed" },
 
   impression = {
     first = "He collects the cult's secret papers and can't read a word.",
@@ -26,6 +26,8 @@ P:NPC {
       text = "A brother of the plains! Big brother Huum will want to say something solemn at you; let him, it makes him happy." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Good; you can talk to the land with Huum, and I'll do the part where we hit the cultists." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "The sand jumped where your horse set down its hooves, and the hoofprints are still smoking by the gate. My brother will say the land weeps for it, and today, I think, he will be right." },
   },
 
   start = "hello",
@@ -98,10 +100,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not demons, I think, but something worse, things from the earth and the sky that shouldn't be awake. My brother says the land weeps when they call them, and I believe him, because the sand shakes out there." } },
+      lines = {
+        { id = "xlock_default", text = "Worse, I think, things from the earth and the sky that shouldn't be awake. My brother says the land weeps when they call them, and I believe him, because the sand shakes out there." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not demons, I think, though your servant is staring at the sand as if it hears something beneath it. Things from the earth and the sky that should not be awake, my brother says, and the land weeps when they are called, so perhaps your creature knows more of it than we do." },
+      },
       choices = {
         { text = "Then we'll stop them before they wake anything else.", next = "BACK", reply = "That's what I like to hear, friend, so go on, and come back with their papers and your hide in one piece.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "I'd like to see what they summon.", next = "BACK", reply = "You'd like it less than you think, friend, because the sand shakes for days afterward, and my brother doesn't sleep at all.", fx = { align = { light = -1 } } },
+        { text = "I'd like to see what they call up.", next = "BACK", reply = "You'd like it less than you think, friend, because the sand shakes for days afterward, and my brother doesn't sleep at all.", fx = { align = { light = -1 } } },
         { text = "That's grim.", next = "BACK" },
       },
     },
@@ -128,7 +133,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Big brother says you lot can read the crazies' papers before they know they've lost them, and I'd believe it, because I can't read a word of them myself." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, eh? The crazies out west summon all sorts of things, and I'd love to know whether your demon could tell me what they're doing." },
+          text = "Your hands smell of brimstone, friend. The crazies out west summon all sorts of things, and I'd love to know whether you could tell me what they're doing." },
         { id = "h_default", key = true,
           text = "We've got more than one enemy in Silithus, friend. While everyone's watching the bugs, my big brother and I keep a close eye on the Twilight's Hammer crazies out west, and believe me, they need watching, the way a herd needs watching when the wolves are near." },
         { id = "h_texts", tags = { "news" }, when = { questActive = TODO_QUEST("Secret Communication") },
@@ -155,7 +160,7 @@ P:NPC {
         { text = "It must be hard fighting so far from Mulgore.", next = "tauren", when = { race = "Tauren" } },
         { text = "Let me break some cultist heads, Bor.", next = "x_warrior", when = { class = "WARRIOR" } },
         { text = "What do the cult's papers say?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "I'd guess the Twilight's Hammer use demons.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'd guess the Twilight's Hammer call up worse than imps.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Twilight's Hammer pray to anything, Bor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the Twilight's Hammer leave much of a trail, Bor?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -259,7 +264,8 @@ P:NPC {
   key = "huum_wildmane", id = TODO_NPC("Huum Wildmane"), name = "Huum Wildmane",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "gentle" }, values = { "wise", "patient", "devout" },
-  notices = { "race", "class" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Tauren spirit-walker; the spirits recoil from fel and he takes their side." },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He says the land of Silithus is weeping.",
@@ -267,6 +273,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The spirits of this desert flee from you, and I will not call them back for your sake. Speak, and I will listen, but no more than that." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You walk with a thing the Earth Mother never made. I will not share my fire with it, or with you." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have grown used to you, slowly, as they grow used to a scar. I am the same; I will not welcome you, but I no longer turn away." },
     { id = "g_default", text = "The spirits of this place call out, {name}. Listen, and you'll hear them." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the land seems a little quieter for it, like the plains after the rain has passed." },
     { id = "g_vyral", when = { questDone = TODO_QUEST("Vyral the Vile") }, text = "Twilight's Run is silent now. The spirits thank you, though they have no words for it." },
@@ -277,6 +286,8 @@ P:NPC {
       text = "Child of the Earth Mother. You feel it too, I think: the ground here is grieving, under all the sand." },
     { id = "n_spirit", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
       text = "You speak to things beyond the living, as I do. Then you'll understand when I say this desert is crowded with the dead." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The spirits went silent when you came near, and now I hear why, because there are spirits in your bag who cannot go home. They are calling for the Earth Mother, and she cannot reach them while you keep them." },
   },
 
   start = "hello",
@@ -331,7 +342,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." } },
+      lines = {
+        { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The spirits do not judge, they only remember, and they have drawn far back from us now that your demon stands here. They remember the Twilight's Hammer calling things up from the deep, so prove to them you are different, and they may come close enough to speak again." },
+      },
       choices = {
         { text = "I'll prove it. The spirits deserve peace.", next = "BACK", reply = "Speak gently, then, and act kindly. Sit at the Hold's edge some evening, and in time they may come close enough to show you what they have seen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I don't need the spirits' approval.", next = "BACK", reply = "You may not need it, but you walk upon their land. I have seen a dune swallow a whole cult camp that thought the same.", fx = { affinity = -1, align = { light = -1 } } },
@@ -362,8 +376,10 @@ P:NPC {
           text = "A rogue. You walk softly, as the land likes, and I think the cult's leaders will not hear you until you are already among them." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. The land of Silithus weeps, and your Light shines bright in a place that has been dark for a long time, so I ask you to shine it gently." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Earth Mother did not make the thing that walks behind you, and the spirits here have suffered enough. I will hear you because I must, but my heart is closed to you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The spirits still go quiet when you come, but they no longer flee, and I have learned something from them. Speak." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock walks among us, and the spirits of Silithus fall silent. You carry something that does not belong in this land, and the land knows it." },
+          text = "The spirits of Silithus fall silent when you walk among us. You carry something that does not belong in this land, and the land knows it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, {name}. The spirits of the land are wary of the arcane, but they are not unkind, and they will listen if you speak with respect." },
         { id = "h_default", key = true,
@@ -392,7 +408,7 @@ P:NPC {
         { text = "The dead here are restless. Can they be helped?", next = "spirit_help", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "Who can help me reach the cult's masters?", next = "aurel", when = { questDone = TODO_QUEST("Vyral the Vile") } },
         { text = "My people speak with the loa, not the Earth Mother.", next = "x_troll", when = { race = "Troll" } },
-        { text = "The spirits must judge me for my power.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The spirits fall quiet around me. Do they judge me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How should a mage speak to the spirits?", next = "xmage", when = { class = "MAGE" } },
         { text = "What wounds the land here most, Huum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Defending and fighting seem much the same to me, Huum.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -480,7 +496,7 @@ P:NPC {
   key = "aurel_goldleaf", id = TODO_NPC("Aurel Goldleaf"), name = "Aurel Goldleaf",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "sharp" }, values = { "patient", "cunning", "curious" },
-  notices = { "class", "craft" },
+  notices = { "class", "craft", "lock_armor" },
 
   impression = {
     first = "Her disguises are good enough to fool elemental lords.",
@@ -497,6 +513,8 @@ P:NPC {
       text = "You've the look of someone who has worn another person's coat before. Good; my work goes further on someone who knows how to wear it." },
     { id = "n_craft", cat = "craft", when = { profession = { "Blacksmithing", "Leatherworking", "Tailoring", "Jewelcrafting", "Engineering" } },
       text = "Calluses in the right places. You make things, too, so you'll know the difference between something that looks right and something that is right." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide is the best costume I've seen in Silithus, and I've made a few myself. The Twilight's Hammer's ritualists wear something like it, so if I ever need a sigil copied from life, you might be the one I ask." },
   },
 
   start = "hello",
@@ -551,7 +569,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. If you see a sigil I've copied badly, say so, and I'll fix it before it gets someone killed." } },
+      lines = {
+        { id = "xlock_default", text = "Some of their rituals look much like the ones you seem to know, from what the druids tell me, and a forgery must match every detail. If you see a sigil I've copied badly, say so, and I'll fix it before it gets someone killed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. Your demon has been reading my sigils over my shoulder this whole time, which is unsettling, but if either of you sees one I've copied badly, say so before it gets someone killed." },
+      },
       choices = {
         { text = "I'll help. A good forgery saves lives.", next = "BACK", reply = "Then come and look at my sigils, and tell me where I've gone wrong, because a mistake here costs more than coin.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Forgery's dishonest work, even for a good cause.", next = "BACK", reply = "Dishonest, perhaps, but the Twilight's Hammer are far worse, and I've found I can sleep beside that particular sin.", fx = { align = { honor = 1 } } },
@@ -581,7 +602,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I make masks good enough to fool an elemental duke, so I notice faces, and yours looks as if it has prayed over a great many of the dead." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. The cultists' medallions I forge would fool their masters, I think, but a warlock's eye might see through them, so tell me if they look wrong to you." },
+          text = "The cultists' medallions I forge would fool their masters, I think, but your eye might see through them. You have the look of someone who knows those sigils, so tell me if they look wrong." },
         { id = "h_default", key = true,
           text = "The Circle has learned many of the earth's secrets since Malfurion first walked the Dream, and a craftsman would do well to listen to these druids. I listen, and then I make what they need, which lately has been a great many lies in metal and cloth." },
         { id = "h_sent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Aurel Goldleaf"), days = 3 } },
@@ -611,7 +632,7 @@ P:NPC {
         { text = "Sending me in disguise hardly seems honourable.", next = "honor" },
         { text = "I've worn a false face before.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Why not an illusion instead of a disguise?", next = "x_mage", when = { class = "MAGE" } },
-        { text = "Do the Twilight's Hammer use warlock magic?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the Twilight's Hammer use rites like the ones I know?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would your disguises fool the cult's own priests, Aurel?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could you disguise a warrior well enough to fool the cult?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -686,7 +707,7 @@ P:NPC {
   key = "baristolth", id = TODO_NPC("Baristolth of the Shifting Sands"), name = "Baristolth of the Shifting Sands",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   communities = { "cenarion_hold" }, temper = { "steady", "cold" }, values = { "patient", "wise" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_taint" },
 
   impression = {
     first = "He speaks of a thousand-year-old promise as though it were yesterday's.",
@@ -704,6 +725,8 @@ P:NPC {
       text = "One of my own people, though you would not know my face. We have both forgotten much, you and I, but I was made to remember." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid of the Circle. Druids stood on this sand once before, beside the Brood, and some of them were very brave." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There is green in you, deeper than your craft alone would put there. I have seen what the fel did to my people before the sands were sealed, so I will keep my promise and my distance both." },
   },
 
   start = "hello",
@@ -791,7 +814,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Something older than your demons, and hungrier, sealed away a thousand years ago by those who paid dearly for it. I made my promise then, and I keep it still, and I will not speak more of it to one who bargains with fire." } },
+      lines = {
+        { id = "xlock_default", text = "Something older than your demons, and hungrier, sealed away a thousand years ago by those who paid dearly for it. I made my promise then, and I keep it still, and I will not speak more of it to one who bargains with fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Something older than your demons, and hungrier, and I see that the one beside you has gone very still at the mention of it. I made my promise a thousand years ago, and I keep it still, and I will not speak more of it to one who bargains with fire, nor to the fire itself." },
+      },
       choices = {
         { text = "I respect your promise, Watcher. I won't pry.", next = "BACK", reply = "Then you have my thanks, and perhaps one day I will tell you what I cannot tell you now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your secrets won't stay secret forever.", next = "BACK", reply = "They will not, mortal, because a promise held for a thousand years is not one I will let slip to you.", fx = { affinity = -1, align = { light = -1 } } },
@@ -810,7 +836,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, mortal, whose magic flows like sand through the hourglass. The Brood would find you interesting, and so do I, though perhaps not for the reasons you would wish." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, mortal, and the hive stirs at your coming. The things you bind are small beside what waits behind the Scarab Wall, and I would not have you mistake one for the other." },
+          text = "The hive stirs at your coming, mortal. The things you bind are small beside what waits behind the Scarab Wall, and I would not have you mistake one for the other." },
         { id = "h_default", key = true,
           text = "The land around us shudders, and the hive answers. I made a promise a thousand years past, mortal, and the time to keep it draws near, for the sands are shifting once more." },
         { id = "h_tomorrow", tags = { "news" }, when = { questActive = TODO_QUEST("What Tomorrow Brings") },
@@ -833,7 +859,7 @@ P:NPC {
         { text = "Our people fought here once.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "The land remembers the old war, Watcher.", next = "x_druid", when = { class = "DRUID" } },
         { text = "What does the Brood see in mages?", next = "xmage", when = { class = "MAGE" } },
-        { text = "What waits behind the Scarab Wall?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What waits behind the Scarab Wall, Watcher?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What can a priest do against the swarm, Baristolth?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You speak as one who stood before the hive yourself.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How does one read the tracks of the hive, Baristolth?", next = "xhuntcl", when = { class = "HUNTER" } },

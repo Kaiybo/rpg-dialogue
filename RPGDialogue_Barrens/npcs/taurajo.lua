@@ -6,7 +6,7 @@ P:NPC {
   key = "jorn", id = TODO_NPC("Jorn Skyseer"), name = "Jorn Skyseer",
   bible = "bibles/taurajo.md", role = "trainer", tier = "quest",
   communities = { "taurajo" }, temper = { "patient" }, values = { "wise", "kind" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_pact" },
   impression = {
     first = "Beside him, the empty Barrens began to look far less empty.",
     third = "{name} met Jorn Skyseer, the patient tauren at Camp Taurajo who teaches hunters to see the life hidden on the Barrens.",
@@ -27,6 +27,8 @@ P:NPC {
       text = "A hunter? Then you're my student, whether you meant to be or not. Sit down." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your companion trusts you; I can see it in how it stands. Earn that every day." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Your skin is flushed like a lion's before it springs, and I'd guess the little fire-thing you keep has put a fever in your blood. The plainstriders will smell it long before you're in bowshot, so hunt downwind." },
   },
 
   start = "hello",
@@ -114,11 +116,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Patience, if you'll take it, because a hunter waits for the beast to come to him, and I think your kind is too used to calling things that come at once. Watch the herds on the plain for an hour before you go after the centaur, and you'll see more than your demon ever told you." },
+        { id = "xwarlock_default", text = "Patience, if you'll take it, because a hunter waits for the beast to come to him, and I think your kind is too used to calling things that come at once. Watch the herds on the plain for an hour before you go after the centaur, and you'll see more than anything that whispers to you ever showed you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Patience, if you'll take it, and I see your demon has none, because it hasn't stopped watching the herd since you arrived. Sit with me and watch the plain for an hour, and you'll learn more of the centaur than that thing at your heel could ever tell you." },
       },
       choices = {
         { text = "I'll learn your stillness, Jorn. Power can wait.", next = "BACK", reply = "That's a rare thing to hear from one of your kind, and it gladdens me. Watch the herds tomorrow, and come tell me what they taught you.", fx = { align = { order = 1 } } },
-        { text = "I've no time for waiting. My power answers now.", next = "BACK", reply = "And what answers quickly leaves quickly, or it stays and takes more than it gave. I hope your power is kinder to you than I fear.", fx = { align = { order = -1 } } },
+        { text = "I've no time for waiting. What I call answers now.", next = "BACK", reply = "And what answers quickly leaves quickly, or it stays and takes more than it gave. I hope your power is kinder to you than I fear.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -141,7 +144,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at Taurajo. The Earth Mother speaks to you through the elements and to me through the beasts, and I think we would both tell you to sit quietly and listen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in Taurajo. You've come to the right place, because the Barrens teach patience to anyone who listens, even those who carry axes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You will not find many of your kind among my students, but sit, because stillness is a lesson for anyone who listens." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Taurajo. Sit, then, and be still, because stillness is a lesson for every path, even yours." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Sit, then, and be still, because stillness is a lesson for every path. Even the one that leaves that cold about you." },
       },
       choices = {
         { text = "The great beasts of the Barrens must carry strong spirits.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -155,7 +158,7 @@ P:NPC {
         { text = "The beasts seem uneasy when I cast near them.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from you, Jorn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "A hunter must have little need of a priest, Jorn.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is there anything someone like me could learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Jorn.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "Why would she send companions we wouldn't choose?", next = "xpt_jorn", when = { party = { race = "Tauren" } } },
@@ -250,7 +253,7 @@ P:NPC {
   key = "mangletooth", id = TODO_NPC("Mangletooth"), name = "Mangletooth",
   bible = "bibles/taurajo.md", role = "questgiver", tier = "quest",
   communities = { "taurajo" }, temper = { "scheming" }, values = { "cunning" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
   impression = {
     first = "He offers deals from his cage as though he held the keys.",
     third = "{name} met Mangletooth, a caged Razormane quilboar at Camp Taurajo with a grudge against his own kin and a deal for anyone who listens.",
@@ -264,6 +267,8 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "*snort* Tall cow-folk keep Mangletooth in a cage. Mangletooth remembers every face." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "*snort* Your shadow is wrong, because it lies toward the sun and not away. The Death's Head crones in the Kraul cast shadows like that, and Mangletooth does not trust them either." },
   },
 
   start = "hello",
@@ -353,10 +358,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "*snort* The fire-thing you carry stinks worse than a Bristleback, and Agamaggan's children kneel to nothing. Mangletooth knows what such things are, because they always want something, and they always come back for it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "*snort* The fire-thing stands right there and stinks worse than a Bristleback, and it stares at Mangletooth like it knows him. Agamaggan's children kneel to nothing, and Mangletooth knows such things always want something, so it can stare and get nothing." },
       },
       choices = {
-        { text = "Everything kneels eventually, quilboar, even your god.", next = "BACK", reply = "*snort* The demon-talker sounds just like the voices Charlga hears. Agamaggan will not kneel, and neither will Mangletooth, so go and kneel to your fire-thing yourself.", fx = { align = { light = -1 } } },
-        { text = "Then we agree on one thing. Demons can't be trusted.", next = "BACK", reply = "*snort* Then the warlock is smarter than most warlocks. Keep the fire-thing on a short leash, and keep it far away from Mangletooth's cage.", fx = { align = { light = 1 } } },
+        { text = "Everything kneels eventually, quilboar. Even your god.", next = "BACK", reply = "*snort* The demon-talker sounds just like the voices Charlga hears. Agamaggan will not kneel, and neither will Mangletooth, so go and kneel to your fire-thing yourself.", fx = { align = { light = -1 } } },
+        { text = "Then we agree on one thing. Demons can't be trusted, mine included.", next = "BACK", reply = "*snort* Then the warlock is smarter than most warlocks. Keep the fire-thing on a short leash, and keep it far away from Mangletooth's cage.", fx = { align = { light = 1 } } },
         { text = "Why would you help us at all?", next = "why" },
       },
     },
@@ -400,7 +406,7 @@ P:NPC {
         { text = "I could freeze that lock and shatter it, quilboar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which Bristlebacks need killing, Mangletooth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'd guess the quilboar keep beasts of their own.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your geomancers would kneel to what I keep, quilboar.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Razormane have priests of their own, Mangletooth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Mangletooth seems to fear the Light.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into Razorfen Kraul, Mangletooth.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul" } },
@@ -451,7 +457,7 @@ P:NPC {
   key = "tatternack", id = TODO_NPC("Tatternack Steelforge"), name = "Tatternack Steelforge",
   bible = "bibles/taurajo.md", role = "blacksmith", tier = "quest",
   communities = { "taurajo" }, temper = { "curious" }, values = { "curious", "practical" },
-  notices = { "craft", "kit" },
+  notices = { "craft", "kit", "lock_armor" },
   impression = {
     first = "To him every weapon is a letter from its wielder's hand.",
     third = "{name} met Tatternack Steelforge, a curious smith at Camp Taurajo who studies the weapons of every people the Horde meets.",
@@ -466,6 +472,8 @@ P:NPC {
       text = "A smith! Then you'll know what I mean: the quilboar's crude spears teach me more than a dozen fine orc blades." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "That armor's taken a beating, and an interesting one. Centaur, I'd guess, from the cuts." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward on you, the dark hide crawling over your shoulders, does it turn a blade? I'll note it in my book either way, though I'd rather study plain mail that doesn't watch me back." },
   },
 
   start = "hello",
@@ -534,11 +542,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everything belongs in it, because the Warchief wants to know what every people fights with, and I write it all down whether or not I like it. I'll note what your demon does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
+        { id = "xwarlock_default", text = "Everything belongs in it, because the Warchief wants to know what every people fights with, and I write it all down whether or not I like it. I'll note what that thing of yours does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything belongs in it, and I'm writing down how your demon is standing at my forge right now, because the Warchief wants to know. I'll note what it does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
       },
       choices = {
         { text = "Write it plainly. I serve the Horde, as you do.", next = "BACK", reply = "Plainly, then, and I'll underline it so the Warchief sees it. Serve the Horde well, and nobody will remember what the Burning Blade did with the same art.", fx = { align = { order = 1 } } },
-        { text = "Write what you like. I'll fight how I choose.", next = "BACK", reply = "I will, and I'll write that too, word for word. The Warchief is a fair reader, warlock, but he reads carefully.", fx = { align = { order = -1 } } },
+        { text = "Write what you like. I'll fight how I choose.", next = "BACK", reply = "I will, and I'll write that too, word for word. The Warchief is a fair reader, but he reads carefully.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -552,7 +561,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Let me see that weapon you carry, because I've met hunters with a dozen different bows and guns, and every one tells a story." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've a chapter on the Horde's holy implements still to write for the Warchief, and I'd be grateful to know whether yours have ever been used in anger." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've a chapter for the Warchief on how each people fights, and your kind fight in whatever shape suits the moment, which makes for very difficult notes." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! I've studied every weapon the Barrens has shown me, but never the kind you keep on a leash." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I've studied every weapon the Barrens has shown me, but never the kind that smells like you do. Do you keep it on a leash?" },
       },
       choices = {
         { text = "What have you learned so far?", next = "learned" },
@@ -563,7 +572,7 @@ P:NPC {
         { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Priests can't carry many weapons worth writing down.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Warlocks probably don't belong in your study, Tatternack.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My sort probably doesn't belong in your study, Tatternack.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a paladin teach you, Tatternack?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
@@ -604,7 +613,7 @@ P:NPC {
   key = "byula", id = TODO_NPC("Innkeeper Byula"), name = "Innkeeper Byula",
   bible = "bibles/taurajo.md", role = "innkeeper", tier = "service",
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shards" },
   impression = {
     first = "She has never found the hyenas' laughter funny.",
     third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
@@ -621,6 +630,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "The road back from the spirit healer is long. Sit, and let the stew warm you back into your body." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You'll keep that bag of shards off my tables, because the cold off them curdles the milk and the herders will blame me. I don't know what you keep in those little stones, but they hum like something unhappy." },
   },
 
   start = "hello",
@@ -719,10 +730,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Your demon can wait outside where the hyenas can laugh at it. The tauren of Taurajo have heard what the Burning Blade did in Durotar, and I'll not have one of those things sitting by my hearth while the kodo herders eat, whatever the Warchief allows." },
+        { id = "xwarlock_default", text = "Whatever follows you can wait outside where the hyenas can laugh at it. The tauren of Taurajo have heard what the Burning Blade did in Durotar, and I'll not have one of those things sitting by my hearth while the kodo herders eat, whatever the Warchief allows." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I said outside, and yet here it is, dripping sulphur on my floor where the kodo herders eat. The tauren of Taurajo have heard what the Burning Blade did in Durotar, so send your demon out to the hyenas, whatever the Warchief allows." },
       },
       choices = {
-        { text = "I'll leave it outside. Your hearth deserves that respect.", next = "BACK", reply = "Thank you, warlock, because the herders would have left otherwise, and I'd have lost a night's trade. The hyenas will keep your demon company.", fx = { align = { light = 1 } } },
+        { text = "I'll leave it outside. Your hearth deserves that respect.", next = "BACK", reply = "Thank you, because the herders would have left otherwise, and I'd have lost a night's trade. The hyenas will keep it company.", fx = { align = { light = 1 } } },
         { text = "Where I go, it goes. The Warchief allows it.", next = "BACK", reply = "The Warchief allows it in Orgrimmar, and this is my hearth, not his. Keep it outside, or eat your supper outside with it.", fx = { align = { light = -1 } } },
         { text = "What's Taurajo like for travelers?", next = "camp" },
       },
@@ -778,7 +790,7 @@ P:NPC {
         { text = "Travelers must try slipping out without paying.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Who threatens Camp Taurajo, Byula?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter know about the southern Barrens, Byula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Is what follows me welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The kodo herders look like they need tending, Byula.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does Taurajo welcome a Forsaken paladin, Byula?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

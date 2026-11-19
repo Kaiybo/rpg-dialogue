@@ -7,7 +7,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "pa_maclure", id = TODO_NPC("Pa Maclure"), name = "Pa Maclure",
   bible = "bibles/maclures.md", role = "farmer", tier = "quest", communities = { "goldshire" },
-  temper = { "stubborn" }, values = { "proud", "family" }, notices = { "stealth", "kin" },
+  temper = { "stubborn" }, values = { "proud", "family" }, notices = { "stealth", "kin", "lock_shadow" },
   impression = {
     first = "He looks at the Stonefield fields like a storm cloud.",
     third = "{name} met Pa Maclure, head of the Maclure family, who will hear nothing good said of the Stonefields.",
@@ -21,6 +21,8 @@ P:NPC {
       text = "Who's that creeping in my rows? Show yourself! If a Stonefield sent you, you can creep right back." },
     { id = "n_human", cat = "kin", when = { origin = "human_westfall_farmhand" },
       text = "You've a farmer's hands, Westfall by the look of them. Then you know what land costs a family, and what it's worth keeping." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The dog's gone under the porch and won't come out, and she only does that for thunder and Stonefields. You've brought something cold up my lane, stranger, and I'll ask you to keep it on the path." },
   },
   start = "hello",
   nodes = {
@@ -74,7 +76,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." } },
+      lines = {
+        { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear anything I don't understand, and I don't understand you, or that thing standing at your heel looking at my vines. The Stonefields would say I fear everything, but I'd ask you to walk it back to the road all the same." },
+      },
       choices = {
         { text = "Your caution is fair. I'll keep away from your vines.", next = "BACK", reply = "That's more courtesy than I expected, and I'll thank you for it. Keep that creature well clear of the trellis.", fx = { align = { light = 1 } } },
         { text = "Fear won't save your vines. Strength will.", next = "BACK", reply = "Strength didn't keep the Defias off my crates, stranger. I'll trust my pitchfork and my own eyes.", fx = { align = { light = -1 } } },
@@ -129,7 +134,7 @@ P:NPC {
         { text = "The vines look healthy this year.", next = "vines" },
         { text = "Tell me about your children.", next = "children" },
         { text = "I'd guess the Defias come up this way.", next = "defias", when = { any = { { questDone = TODO_QUEST("Brotherhood of Thieves") }, { class = "ROGUE" } } } },
-        { text = "Do you fear a warlock will harm your vines?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think I'd harm your vines, if I wanted to?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you have a warrior settle your feud, Pa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The boars must give you trouble in the vines.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you ever make peace with the Stonefields, Pa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -234,7 +239,7 @@ P:NPC {
 P:NPC {
   key = "joshua_maclure", id = TODO_NPC("Joshua Maclure"), name = "Joshua Maclure", title = "Vintner",
   bible = "bibles/maclures.md", role = "vendor", tier = "service", communities = { "goldshire" },
-  temper = { "easygoing" }, values = { "practical", "family" }, notices = { "drink" },
+  temper = { "easygoing" }, values = { "practical", "family" }, notices = { "drink", "lock_shards" },
   impression = {
     first = "He poured me a taste of wine before I'd asked the price.",
     third = "{name} met Joshua Maclure, who sells drink at the Maclure Vineyards and smooths over what Pa says.",
@@ -246,6 +251,8 @@ P:NPC {
   notice = {
     { id = "n_drink", cat = "drink", when = { drunk = { min = 2 } },
       text = "Easy, friend. I'll sell you water, not wine, until you can find your way home without the fence's help." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your pack's chilling the bottles on my table, I can feel it from here, and a vintner knows what cold does to a red. Keep it on the floor, if you'd be so kind." },
   },
   start = "hello",
   nodes = {
@@ -260,7 +267,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. I judge a customer by their coin and their manners, and you've both, so far." } },
+      lines = {
+        { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and folk like you are well down the list. I judge a customer by their coin and their manners, and you've both, so far." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. That creature of yours might climb it, mind, if it keeps hanging about the casks, but I judge a customer by coin and manners, and you've both, so far." },
+      },
       choices = {
         { text = "Then I'll keep my manners, Joshua.", next = "BACK", reply = "Good, and I'll keep pouring as long as you do. That's the only rule at this table.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Manners are cheap. Coin's what you really want.", next = "BACK", reply = "Coin's what keeps the vines watered, but manners are what keep Pa from coming out with the pitchfork. Mind both.", fx = { align = { honor = -1 } } },
@@ -349,7 +359,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want something strong, I expect. I've a red that'll stand up to anything you've fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf! Here, have a taste, because I've never poured for one of your people and I'd love to know what you make of it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a strange look about you, friend. Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have a taste of the wine, and don't mind Pa's grumbling; your spirits might like it even if he doesn't." },
       },
       again = {
@@ -368,7 +378,7 @@ P:NPC {
         { text = "Does your family ever pray together, Joshua?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes a vine give good grapes, besides the weather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does your family distrust warlocks, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your family distrust folk like me, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your father seems to grumble a lot, Joshua.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },

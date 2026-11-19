@@ -29,7 +29,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Some do, the gentler ones, and I have watched peacebloom close its petals as a warlock passed by on the path to the Mage Quarter. My people learned long ago what the Burning Legion's touch does to growing things, and I will teach you herbs, but not where my plants can see." },
+        { id = "xlock_default", text = "Some do, the gentler ones, and I have watched peacebloom close its petals as one of the Lamb's people passed by on the path to the Mage Quarter. My people learned long ago what the Burning Legion's touch does to growing things, and I will teach you herbs, but not where my plants can see." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, the gentler ones, and the peacebloom in my basket has closed every petal since your servant came near it. My people learned long ago what the Legion's touch does to growing things, and I will teach you herbs, but I'll ask you to send that thing well beyond the path first." },
       },
       choices = {
         { text = "Then I'll keep to the path, Tannysa, and your plants be.", next = "BACK", reply = "Thank you. They will open again once you have passed, and I will not have to coax them.", fx = { align = { light = 1 } } },
@@ -134,7 +135,7 @@ P:NPC {
         { text = "Do your people's priestesses heal with herbs, Tannysa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the kaldorei have warriors of faith like paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the human gardens make you homesick, Tannysa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do your herbs really wilt near warlocks, Tannysa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your herbs really wilt when I walk past, Tannysa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think human gardens hear the earth, Tannysa?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Tannysa.", next = "END" },
       },
@@ -224,9 +225,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I like being the one in between, where a burn is only a burn." } },
+      lines = {
+        { id = "xlock_default", text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I like being the one in between, where a burn is only a burn." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I'll dress a burn for anyone, but I'll ask your demon to wait out of arm's reach while I work, because it's watching my bandages the way a dog watches a butcher." },
+      },
       choices = {
-        { text = "A burn from the fel is never only a burn, Shaina.", next = "BACK", reply = "No, it isn't, and I've learned that the hard way. I'll take more care with them, thank you.", fx = { align = { light = 1 } } },
+        { text = "Some burns are never only burns, Shaina. Mind the green ones.", next = "BACK", reply = "No, it isn't, and I've learned that the hard way. I'll take more care with them, thank you.", fx = { align = { light = 1 } } },
         { text = "A burn's a burn, and I'm glad you see it so.", next = "BACK", reply = "Most of the time, yes, and I'm glad of it. Mind you stay out of my book, though.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -279,7 +283,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You'll need this lesson, I'd guess, because knife wounds bleed like a stuck pig and they're always in awkward places." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Warlocks always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
+          text = "The Lamb's people always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be patching up your beast as often as yourself, I'd wager, so you'll be wanting to learn properly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You can close a wound with a word, I hear, so I'll not be teaching you much, though you might teach me a thing or two." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll want to learn to bandage properly, because frost nips and fire scorches, and neither one heals on its own." },
@@ -296,7 +300,7 @@ P:NPC {
         { text = "You must have seen some terrible wounds, Shaina.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A warrior ought to know how to bandage a wound, Shaina.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does first aid work on a hunter's pet, Shaina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do many warlocks come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many of the Lamb's people come to you for bandages?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do bandages still matter when there are healers, Shaina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you tended many soldiers from the front, Shaina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a bandage still matter to someone who heals with nature, Shaina?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -340,6 +344,7 @@ P:NPC {
   key = "stover", id = TODO_NPC("Frederick Stover"), name = "Frederick Stover", title = "Bow & Arrow Merchant",
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft", "practical" },
+  notices = { "lock_stones" },
   impression = {
     first = "He talks about his yew the way some men talk about wine.",
     third = "{name} met Frederick Stover, a cheerful bowyer of the Trade District.",
@@ -347,6 +352,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Bows and arrows, friend, the finest yew this side of the Greymane Wall!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that bow serve you well? Of course it did." },
+  },
+  notice = {
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "There's a firestone in your pack, I'd wager, because my yew's warping toward you like it's stood too near a stove. Keep it off my rack, friend, and I'll give you all the advice about yew you could want." },
   },
   start = "hello",
   nodes = {
@@ -363,10 +372,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Arrows, if you've a mind to learn the bow, and advice about yew, which I give to everyone whether they want it or not. A warlock I knew once said a well-made stave reminded him of something growing, and he bought a bow just to keep in his room." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Arrows, if you've a mind to learn the bow, and advice about yew, which I give to everyone whether they want it or not. A warlock I knew once said a good stave reminded him of something growing, but yours is staring at my staves as if they're kindling, so perhaps take it outside while we talk." },
       },
       choices = {
         { text = "Then I'll buy a bow and learn to use it properly.", next = "BACK", reply = "Splendid, friend! I'll pick you a good yew stave, and we'll see whether you take to it.", fx = { align = { honor = 1 } } },
-        { text = "I'll keep my curses. Your bows are for lesser folk.", next = "BACK", reply = "Lesser folk? Well, friend, lesser folk have been putting arrows through warlocks for a long time. Mind that.", fx = { align = { honor = -1 } } },
+        { text = "I've deadlier ways to kill, Frederick. Bows are for lesser folk.", next = "BACK", reply = "Lesser folk? Well, friend, lesser folk have been putting arrows through warlocks for a long time. Mind that.", fx = { align = { honor = -1 } } },
         { text = "Something else, Frederick.", next = "BACK" },
       },
     },
@@ -448,7 +458,7 @@ P:NPC {
           text = "A mage! You won't want a bow, I suppose, though I sold arrows to a mage once, and he set every one alight before he loosed it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a bow stall! Plenty of soldiers carry a bow for when the enemy won't come close enough, so don't be shy." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be judging my yew, I expect, because your Sentinels carry bows that make mine look like kindling." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, looking at bows? Well, all comers are welcome, though I've never sold a bow to one of your sort." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ash on your cuffs and an eye on my bows? Well, all comers are welcome, though I've never sold a bow to one of your sort." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying bows? Your people usually want guns. Does the yew speak to your spirits?" },
       },
       again = {
@@ -466,7 +476,7 @@ P:NPC {
         { text = "Do pilgrims ever buy bows from you, Frederick?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins have any use for archers, Frederick?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever wonder what the tree thought of becoming a bow, Frederick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Have you anything for a warlock, Frederick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you anything for someone who doesn't fight fair, Frederick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What makes good yew, Frederick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Frederick.", next = "END" },
       },
@@ -506,6 +516,7 @@ P:NPC {
   key = "felicia_gump", id = TODO_NPC("Felicia Gump"), name = "Felicia Gump", title = "Florist",
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "chatty" }, values = { "beauty", "community" },
+  notices = { "lock_shadow" },
   impression = {
     first = "She knows who is courting, marrying or being buried by their flowers.",
     third = "{name} met Felicia Gump, Stormwind's chatty florist.",
@@ -513,6 +524,10 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Flowers, herbs and seasonings, dear! Something for a sweetheart, or something for the pot?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! Did your sweetheart like the roses? Or was it the pot, after all?" },
+  },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "My lilies are drooping on your side of the stall, dear, and I only watered them an hour ago. It's the shadow on you, I think, because the marigolds by the door are the only ones that don't seem to mind." },
   },
   start = "hello",
   nodes = {
@@ -556,7 +571,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only near a few, dear, and mostly folk who've come up from the Lamb, though I'm sure it's coincidence. I keep a pot of marigolds by the door for them, because marigolds are tougher than lilies and don't mind much." } },
+      lines = {
+        { id = "xlock_default", text = "Only near a few, dear, and mostly folk who've come up from the Lamb, though I'm sure it's coincidence. I keep a pot of marigolds by the door for them, because marigolds are tougher than lilies and don't mind much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only near a few, dear, and I'm sure it's coincidence, though my lilies have been drooping since your {pet} stopped beside them. I keep a pot of marigolds by the door for your sort, because marigolds are tougher than lilies, so perhaps it could wait over there with them." },
+      },
       choices = {
         { text = "I'm sorry for your lilies, so I'll keep my distance.", next = "BACK", reply = "Thank you, dear, that's very considerate. The lilies thank you too.", fx = { align = { light = 1 } } },
         { text = "Flowers die anyway, Felicia, and I only hurry them along.", next = "BACK", reply = "Oh, how unkind, dear, and in front of my marigolds! Mind you don't walk too close to the roses.", fx = { align = { light = -1 } } },

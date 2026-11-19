@@ -372,7 +372,7 @@ P:NPC {
         { text = "Do Frostwolves trust the Forsaken?", next = "k_forsaken", when = { race = "Scourge" } },
         { text = "Do the spirits of Alterac speak to you?", next = "xsham", when = { class = "SHAMAN" } },
         { text = "Do the Frostwolves still ride wolves into battle?", next = "xhunt", when = { class = "HUNTER" } },
-        { text = "The Frostwolves knew Gul'dan. What do they think of warlocks?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The Frostwolves knew Gul'dan. What do they think of those who walk his road?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do your warriors fight in the snow?", next = "xwar", when = { class = "WARRIOR" } },
         { text = "I've heard the dwarves call a forest giant.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Strength and honor, Frostwolf.", next = "END" },
@@ -574,7 +574,7 @@ P:NPC {
       big = true,
       lines = { { id = "xl_default", text = "Gul'dan's warlocks sold our people to the demons and sent my clan into exile for refusing to follow. I will take your help in the valley, warlock, but the Frostwolves have long memories, and I will be watching what you call up." } },
       choices = {
-        { text = "That was Gul'dan's sin, not mine. I serve the Horde.", next = "BACK", reply = "Words are easy, warlock, and Gul'dan had many of them, but if your deeds in the valley match them, the Frostwolves will remember that as long as they remember the rest.", fx = { align = { light = 1 } } },
+        { text = "That was Gul'dan's sin, not mine. I serve the Horde.", next = "BACK", reply = "Words are easy, and Gul'dan had many of them, but if your deeds in the valley match them, the Frostwolves will remember that as long as they remember the rest.", fx = { align = { light = 1 } } },
         { text = "Power is power. I'll use whatever keeps the valley.", next = "BACK", reply = "That is the answer Gul'dan gave my people before he damned us, so do not be surprised when you find my wolves standing between you and the rest of the clan.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

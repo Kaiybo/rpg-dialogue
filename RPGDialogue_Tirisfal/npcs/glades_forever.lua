@@ -9,6 +9,7 @@ P:NPC {
   key = "tf_hadric", id = TODO_NPC("Hadric Harlson"), name = "Hadric Harlson", title = "The Argent Dawn",
   bible = "bibles/glades_forever.md", role = "questgiver", tier = "quest",
   communities = { "argent_dawn" }, temper = { "steady" }, values = { "dutiful", "devout" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Argent Dawn cult-hunter; the Cult of the Damned's ritualists began where warlocks stand." },
   notices = { "class", "race" },
   impression = {
     first = "He saves his coldest disgust for the Scourge's living servants.",
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I hunt people who make bargains in the dark, and I'd wager you've made a few yourself. Keep your hands where I can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "The Deathguard may welcome warlocks, but the Argent Dawn has buried too many of its own to cultists who started out just like you. Speak, and quietly." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought the cult beside me and never once turned your power on the wrong side. I'll watch you still, but I've stopped counting your spells." },
     { id = "g_default", text = "Be careful, {class}. There are cultists nearby." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Keep low; the cult has eyes in the grass." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown formidable since you helped me here. The Dawn could use you in the Plaguelands one day, if you ever have the stomach for it." },
@@ -32,6 +36,8 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Hadric Harlson, of the Argent Dawn. I know what you are, and I'll be plain: the cultists I hunt out here started by calling on the same things you do, so give me cause to trust you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I've stopped expecting you to turn on me, which is more than I can say for most who carry the shadow. Keep low; the cult is close." },
         { id = "h_default", key = true,
           text = "Hadric Harlson, of the Argent Dawn. Keep your voice down, {class}, because there are Cult of the Damned skulking around the outskirts of the city, and I want them to hear nothing until we're on them." },
         { id = "h_emissary", tags = { "news" }, when = { questActive = TODO_QUEST("The Argent Emissary") },

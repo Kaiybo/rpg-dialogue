@@ -7,6 +7,7 @@ P:NPC {
   key = "marris", id = TODO_NPC("Marshal Marris"), name = "Marshal Marris",
   bible = "bibles/marris.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "lawful" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." },
   notices = { "soldier", "trophy" },
 
   impression = {
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
     { id = "g_op_demons_forbid", when = { opinion = { topic = "demons", stance = "forbid" } }, text = "You again, the one who'd close the warlocks' cellar under the Slaughtered Lamb. My fourth report went off with your opinion in it; I said a sensible traveller agreed." },
     { id = "g_op_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Keeshan says you've no time for any orc, Thrall's or otherwise. Good, because my walls have no time for them either, so take a post." },
     { id = "g_watch", text = "Keep your eyes east, friend; with the Blackrock it's always the east." },
@@ -45,7 +49,7 @@ P:NPC {
         { text = "Demons are demons. Stormwind should shut that cellar down.", next = "op_demons_1", fx = { opinion = { demons = "forbid" }, align = { light = 1 }, trait = { pious = 1 }, affinity = 2 } },
         { text = "A weapon's a weapon. Better ours than only the orcs'.", next = "op_demons_2", fx = { opinion = { demons = "useful" }, align = { light = -1 }, trait = { practical = 1 }, affinity = -1 } },
         { text = "Train them, and watch them. Closely.", next = "op_demons_3", fx = { opinion = { demons = "dangerous" }, trait = { cautious = 1 } } },
-        { text = "I command demons myself, Marshal, and I'm on your wall.", next = "op_demons_4", when = { class = "WARLOCK" }, fx = { opinion = { demons = "useful" }, affinity = -2 } },
+        { text = "I keep worse things than their casters do, Marshal, and I'm on your wall.", next = "op_demons_4", when = { class = "WARLOCK" }, fx = { opinion = { demons = "useful" }, affinity = -2 } },
         { text = "That's the Keep's business, not mine.", next = "BACK" },
       },
     },
@@ -145,6 +149,8 @@ P:NPC {
           text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what Blackrock shadow magic does to a man, and I don't care who's casting it. Tell me what you want, and be quick." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a hearing in Lakeshire, more than once. Speak, and I'll listen, though I won't stand too close." },
         { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake, orcs who never sleep and a boar called Bellygrub in the gardens. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },
@@ -181,7 +187,7 @@ P:NPC {
         { text = "I can scout Render's Valley for you.", next = "hunter", when = { class = "HUNTER" } },
         { text = "I can get into Stonewatch unseen, Marshal.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Your guard's spread thin. I can hold a line with fire.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "The Blackrock shadowcasters won't be the only ones with demons.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Blackrock shadowcasters won't be the only ones with things in the dark.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who buries your guards who fall in the hills, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Lakeshire strike Stonewatch, Marshal, or hold the walls?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can Lakeshire hold against the Blackrock, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

@@ -10,7 +10,7 @@ P:NPC {
   title = "Ditch Digger",
   bible = "bibles/enclave.md", role = "worker", tier = "quest",
   communities = { "darnassus" }, temper = { "proud", "chatty" }, values = { "ambitious", "proud" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_shards" },
 
   impression = {
     first = "He digs ditches and insists he is a visionary kept down.",
@@ -29,6 +29,8 @@ P:NPC {
       text = "One of the Circle's own. Tell the Arch Druid I'm still out here, would you? He forgets, and I suspect it's on purpose." },
     { id = "n_dirty", cat = "kit", when = { durability = { max = 0.3 } },
       text = "You've been rolling in worse dirt than mine, I see. Mine is at least sorted." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your satchel hums like a dowsing rod over a hidden spring, and I've half a mind to dig right where you're standing. I won't, of course, because it would be very hard to explain to the Archdruid." },
   },
 
   start = "hello",
@@ -115,7 +117,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, warlock, though I'd still thank you to keep your servant out of my ditch, because it scratches." },
+        { id = "xlock_default", text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, I think, though I'd still thank you to keep your little friend out of my ditch, because it scratches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, warlock, but your servant is standing in my ditch as we speak, so would you please call it out before it scratches the sides in?" },
       },
       choices = {
         { text = "The druids have reasons to watch me. Not you.", next = "BACK", reply = "That is a little hurtful, even if it is true. I suppose a ditch is not quite as alarming as whatever that is lurking behind you.", fx = { align = { order = 1 } } },
@@ -139,7 +142,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A real mage, here among the dirt piles! Could you make these move themselves? No, the druids would have my ears for it, forget I asked." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! At last, someone else the druids look down on. Mind the dirt, though, because it's been arranged very carefully." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you've a smell about you like a snuffed candle. At last, someone else the druids look down on! Mind the dirt, though, because it's been arranged very carefully." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Please don't step in the dirt. I am a visionary, you know, held back by lesser minds for a good few centuries now, and I think your spirits would understand." },
       },
       again = {
@@ -252,7 +255,7 @@ P:NPC {
   title = "Rogue Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "cold", "sharp" }, values = { "cunning", "careful" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
 
   impression = {
     first = "Under the chill, she cares deeply about Teldrassil's forests.",
@@ -271,6 +274,8 @@ P:NPC {
       text = "A priest, in the dim corners of the Enclave. Your kind usually stands in the middle of the room and glows; it's restful to see one who doesn't." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I saw you come in, so you can stop that. It was decent work, though, and better than Jannok's couriers ever manage." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "Your eyes have been touched to see what hides, and you looked straight at the student crouched in the corner as you came in. I'll thank you not to ruin a lesson, and I'll remind you that I can see you just as well." },
   },
 
   start = "hello",
@@ -337,11 +342,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. I'll tell you plainly that if your demon so much as turns toward a student of mine, I'll have my blade in it before it finishes turning." },
+        { id = "xlock_default", text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. I'll tell you plainly that if that thing at your heel so much as turns toward a student of mine, I'll have my blade in it before it finishes turning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. Your demon is watching my students right now, and I'll tell you plainly that if it so much as turns toward one of them, I'll have my blade in it before it finishes turning." },
       },
       choices = {
         { text = "Fair. I'll keep it leashed while I'm here.", next = "BACK", reply = "Good, because I would hate to have to explain a dead servant to the Sentinels. Keep it closer than your purse.", fx = { align = { light = 1 } } },
-        { text = "You'd find my servant harder to kill than you think.", next = "BACK", reply = "Many have said that to me, and I have heard it from fewer of them twice. Keep it leashed anyway, warlock.", fx = { align = { light = -1 } } },
+        { text = "What walks with me is harder to kill than you think.", next = "BACK", reply = "Many have said that to me, and I have heard it from fewer of them twice. Keep it leashed anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -387,7 +393,7 @@ P:NPC {
         { id = "h_sethir_done", when = { questDone = TODO_QUEST("Destiny Calls") },
           text = "Sethir's journal said what I feared: the sickness in Darkshore's forests is creeping into ours. You did well, but this is beyond a rogue's reach now." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You aren't a rogue, so I can't teach you anything. You are a mage, though, and that makes you very easy to hear coming." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Enclave. You're bolder than most of my students, and I don't mean that kindly." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something cold came into the Enclave with you. You're bolder than most of my students, and I don't mean that kindly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. Most who come down these steps clatter like a cart full of pans." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my alcove. You can't learn anything from me, but your Circle ought to be listening harder to what Teldrassil's forests are trying to tell it." },
@@ -406,7 +412,7 @@ P:NPC {
         { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What could a rogue teach a warrior, Syurna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do rogues and hunters stalk the same way, Syurna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do the kaldorei hate warlocks, or only fear them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the kaldorei hate people like me, or only fear us?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do our trades both work in the dark, Syurna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you doubt a paladin's justice, Syurna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should the Circle be hearing in the forests, Syurna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -482,7 +488,7 @@ P:NPC {
   title = "Hunter Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "stern", "steady" }, values = { "wise", "proud" },
-  notices = { "class", "pet" },
+  notices = { "class", "pet", "lock_pact" },
 
   impression = {
     first = "She is stern, but she watches the young ones with pride.",
@@ -501,6 +507,8 @@ P:NPC {
       text = "A good cat, and well kept. Mind its claws in the Enclave; the druids take it personally." },
     { id = "n_pet_any", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
       text = "{pet} looks healthy and alert. That tells me more about you than anything you could say." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { class = "WARLOCK", aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "My cat bristles at the heat in your blood, and so do I, for that is an imp's fever in you and not your own warmth. A bond freely made doesn't burn, warlock." },
   },
 
   start = "hello",
@@ -556,9 +564,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A hunter's companion is bound by trust and freely given, while your servant is bound by chains and hates you for them. The forest knows the difference, and you'll find every beast in Teldrassil does too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A hunter's companion is bound by trust and freely given, while your servant is bound by chains and hates you for them. Watch the way {pet} looks at you when you turn your back, and then tell me the forest is wrong to know the difference." },
       },
       choices = {
-        { text = "Then I'll treat my servant with care, at least.", next = "BACK", reply = "That is a start, warlock, and more than most of your kind offer. Even a chained thing feels kindness.", fx = { align = { light = 1 } } },
+        { text = "Then I'll be gentler with what I keep, at least.", next = "BACK", reply = "That is a start, and more than most who walk your road offer. Even a chained thing feels kindness.", fx = { align = { light = 1 } } },
         { text = "Chains work. Trust is slower and less reliable.", next = "BACK", reply = "Chains work until they break, and every chain does in the end. I would not want to be near you on that day.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -645,7 +654,7 @@ P:NPC {
         { id = "h_beast_done", when = { questDone = TODO_QUEST("Training the Beast") },
           text = "You and your companion have grown since we last spoke. Remember the balance, and we shall speak again when you're ready for more." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like a hunter stalking, rogue, only without the respect. The forest still notices you, even if the guards don't." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts are restless, warlock, and so am I. Whatever walks behind you is no part of the balance I teach." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts have been restless since you came in, and so am I. Whatever walks behind you is no part of the balance I teach." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and I cannot greet you without remembering it." },
@@ -667,7 +676,7 @@ P:NPC {
         { text = "My rifle serves me as well as any bow.", next = "gun_h", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "What does a hunter think of a rogue's stealth?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can a warrior keep the balance as a hunter does?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is my companion really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does a priest have any place in the balance, Jocaste?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there no evil in the wild, Jocaste?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do hunters and druids keep the same balance, Jocaste?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -745,7 +754,8 @@ P:NPC {
   title = "Druid Trainer",
   bible = "bibles/enclave.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm", "patient" }, values = { "wise", "loyal" },
-  notices = { "form", "class" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Heals land the Legion burned; sees warlocks as keeping its fire alive." },
+  notices = { "form", "class", "lock_shadow" },
 
   impression = {
     first = "He blesses everyone in Cenarius's name, druid or not.",
@@ -753,6 +763,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Cenarius bless you, I say to everyone, though the words stick today. The groves I heal were burned by the masters you bargain with." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've watched you come and go, and no grove has blackened behind you yet. Cenarius bless you, then, and I'll try to mean it." },
     { id = "g_cenarius", text = "The blessings of Cenarius be yours, {class}." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Back again, young druid? Good; the forest has been waiting for you to grow into it." },
   },
@@ -764,6 +776,8 @@ P:NPC {
       text = "You wear that shape well, but take it off before you sit down, please. The benches are older than you are." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
       text = "Running indoors? The Arch Druid would have words, and none of them kind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The moss on the stones has drawn back from your boots, and that moss has grown there since the first roots of this city were sunk. I will not offer you tea, but I will ask you to keep to the path." },
   },
 
   start = "hello",
@@ -860,10 +874,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "There is, slowly, and so Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, so you'll understand why I do not offer you tea." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There is, slowly, and so Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, and the grass under your servant is browning as we speak, so you'll understand why I do not offer you tea." },
       },
       choices = {
-        { text = "Then I'll be the careful kind of summoner.", next = "BACK", reply = "There is such a thing, though there are far too few of you. I will hold you to it, warlock.", fx = { align = { light = 1 } } },
-        { text = "The fel burns quicker than you heal. That's your problem.", next = "BACK", reply = "It does, and that is exactly why I refuse to stop. I have walked Felwood, warlock, and I would not wish its poisoned springs on anyone.", fx = { align = { light = -1 } } },
+        { text = "Then I'll be the careful kind, whatever you take me for.", next = "BACK", reply = "There is such a thing, though there are far too few of you. I will hold you to it.", fx = { align = { light = 1 } } },
+        { text = "Rot spreads quicker than you heal. That's your problem, druid.", next = "BACK", reply = "It does, and that is exactly why I refuse to stop. I have walked Felwood, and I would not wish its poisoned springs on anyone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -905,7 +920,9 @@ P:NPC {
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Body and Heart") },
           text = "You've met the Great Bear, I can tell; you stand differently. Mathrengyl chose well." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Enclave, studying us studying the land. I suppose that's fair, since we spend enough time wondering about you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal what the fel has burned, warlock, so you'll understand if I'd rather you kept walking." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I spend my years healing the scars the Legion left on this world, and you trade with its servants. You'll forgive me if I don't bless you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I still don't like what you carry, but you've kept it leashed longer than I expected. What is it you need?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal burned places, and you smell faintly of one. You'll understand if I'd rather you kept walking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Cenarius bless you, rogue, even if you walk too quietly for the young druids' comfort. They're used to hearing people coming before they see them." },
@@ -925,7 +942,7 @@ P:NPC {
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do druids think of warriors, Denatharion?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your young druids envy a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Is there any healing for what the fel has done?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there any healing for what was done to Felwood?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What can young druids learn from a priest, Denatharion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is iron really at war with the forest, Denatharion?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Cenarius bless rogues as well, Denatharion?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

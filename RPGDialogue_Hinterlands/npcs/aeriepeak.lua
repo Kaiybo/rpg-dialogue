@@ -8,7 +8,7 @@ P:NPC {
   communities = { "aerie_peak" }, temper = { "boisterous" }, values = { "proud", "brave", "loyal" },
   likesTone = "blunt", race = "Dwarf",
   prejudice = { race = "Dwarf", faction = "Alliance", exceptOrigin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" }, amount = 6, why = "Old Wildhammer grudge against Ironforge since the War of the Three Hammers." },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_shards" },
 
   impression = {
     first = "He says a Wildhammer and his gryphon are one creature.",
@@ -33,6 +33,10 @@ P:NPC {
       text = "A dwarf o' Ironforge, here among the Wildhammer! The mountain's fine, {g:lad|lass}, but ye've no seen anythin' till ye've seen it from a gryphon's back." },
     { id = "n_hunter", cat = "class", when = { class = { "HUNTER", "SHAMAN" } },
       text = "Ye've the look o' someone who knows beasts, so the gryphons'll like ye, probably." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Ye've the same shadow on ye as the Horde's warlocks who burned these hills, an' my riders will see it the moment ye land. I'll vouch for ye, but I'd keep it hooded." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Those shards in yer pack hum like the Horde's camps did the night before they fired these hills, an' I've no' forgotten the sound. Spend 'em on the Vilebranch, an' I'll call it even." },
   },
 
   start = "hello",
@@ -211,7 +215,7 @@ P:NPC {
         { text = "Point me at the trolls, thane.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "The Hinterlands' forests are sick. I can feel it.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Could a gnome ride one of your gryphons?", next = "xgnome", when = { race = "Gnome" } },
-        { text = "Will Aerie Peak suffer a warlock who fights the trolls?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will Aerie Peak suffer someone with dark gifts, if they kill trolls?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The arcane could help you against the trolls, Thane.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Wildhammer have any use for someone who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'd guess the Wildhammer have little place for the Light, Thane.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -244,11 +248,14 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll suffer anyone who fights the Vilebranch, for they cut hearts out on their altars an' I've no room tae be choosy. But the Horde's warlocks burned these hills in the Second War, an' I flew against 'em, so keep yer wee beasties close an' off my landin'." } },
+      lines = {
+        { id = "xlock_default", text = "I'll suffer anyone who fights the Vilebranch, for they cut hearts out on their altars an' I've no room tae be choosy. But the Horde's warlocks burned these hills in the Second War, an' I flew against 'em, so whatever ye keep, keep it close an' off my landin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll suffer anyone who fights the Vilebranch, for I've no room tae be choosy, but I'll no' pretend I like seein' that thing stood on my peak. I flew against the Horde's warlocks in the Second War, so keep yer demon close, an' keep it well away from the gryphons' landin'." },
+      },
       choices = {
-        { text = "I'll keep my demons leashed. Watch me if you like.", next = "BACK", reply = "Good. Watch ye I will, an' if they stay leashed, ye'll find me a fair host.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep what I command leashed. Watch me if you like.", next = "BACK", reply = "Good. Watch ye I will, an' if it stays leashed, ye'll find me a fair host.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. I'll burn the trolls however I please.", next = "BACK", reply = "Burn 'em, aye, but if one spark lands on my aerie, ye'll answer tae me an' a very angry gryphon.", fx = { align = { light = -1 } } },
-        { text = "Enough about demons. Let's talk about something else.", next = "BACK" },
+        { text = "Enough of that. Let's talk about something else.", next = "BACK" },
       },
     },
     gryphons = {
@@ -424,7 +431,7 @@ P:NPC {
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "gruff" }, values = { "loyal", "practical" },
   prejudice = { race = "Gnome", amount = 8, why = "Gnomish flying machines spook his gryphons." },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "I don't think he has ever lost an argument with a troll.",
@@ -443,6 +450,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter, eh? Keep yer pet away from the gryphons, or they'll eat it an' then look at ye for more." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide ye've wrapped round yerself stinks o' somethin' that never flew, an' the mothers in the aeries will smell it a mile off. Ye'll want tae wash before ye go near the nests, no offence." },
   },
 
   start = "hello",
@@ -527,7 +536,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
+      lines = {
+        { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She'd attack anythin' that smells wrong near her nest, an' that beastie at yer heel smells wronger than you, {g:lad|lass}. She's watchin' it from the roost already, so walk it back down the ramp, for I'll no' be arguin' wi' a mother gryphon on yer behalf." },
+      },
       choices = {
         { text = "I'll give her nest a wide berth, then.", next = "BACK", reply = "Good. She'll thank ye by no' eatin' ye, which is the best thanks she gives anybody, me included.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then keep her leashed. I go where I need to.", next = "BACK", reply = "She'll no' be leashed, {g:lad|lass}, she's a gryphon. Go round, or go home.", fx = { align = { order = -1 } } },
@@ -562,7 +574,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want tae fight the trolls, I suppose, an' ye'll want a gryphon tae get there, an' ye'll want me tae trust ye wi' one, which I don't yet." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons are wary of ye, I can tell, but they'll settle once they know ye're no threat tae the aeries." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds'll moan about the weight o' that plate, {class}, but they'll carry ye, an' I'd wager the trolls at Jintha'Alor have never seen holy light come down on 'em from the sky." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that thing o' yours well away from the nests, {class}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever's trailin' ye well away from the nests, {g:lad|lass}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Witherbark", min = 30 } }, text = "The riders say the Witherbark have gone quiet in the south, an' they've stopped throwin' spears at my birds. Somebody's been teachin' 'em manners, an' I've a fair idea who." },
       },
       again = { { id = "h_again", text = "What is it? Be quick, they're wantin' fed." } },
@@ -579,7 +591,7 @@ P:NPC {
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would a paladin be any use against Jintha'Alor, Talonaxe?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would Keenclaw really attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would Keenclaw really go for my throat, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The gryphons seem to sense the spirits, Talonaxe.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "A gryphon could surely carry two riders, Gryphon Master.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "You don't care much for gnomes, Talonaxe.", next = "prej", when = { prejudiced = true } },
@@ -661,7 +673,8 @@ P:NPC {
   key = "fraggar", id = TODO_NPC("Fraggar Thundermantle"), name = "Fraggar Thundermantle",
   bible = "bibles/hinterlands.md", role = "questgiver", tier = "quest",
   communities = { "aerie_peak" }, temper = { "solemn" }, values = { "devout", "protective" },
-  notices = { "class" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Wildhammer shaman; the spirits of the Hinterlands still grieve the Horde warlocks' burning." },
+  notices = { "class", "lock_taint" },
 
   impression = {
     first = "His eyes are failing, but he hears the land's unhappiness.",
@@ -669,6 +682,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The spirits are screamin', an' I know why. Ye're a warlock, an' ye've no friend among them, nor in me." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I cannae see ye well, but I can feel the fel on ye like a burn. Speak, an' then leave my fire." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits still flinch when ye come, but ye've done them no harm I can find. Sit, then, though I'll no' turn my back." },
     { id = "g_spirits", text = "Sit, friend. My eyes are no' what they were, but I hear the land well enough, an' it's no' happy." },
     { id = "g_away", when = { away = 14 }, text = "Is that you, friend? I'd know that step even after {away} away, an' the land's been askin' where ye went." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye sound heavier on yer feet than ye did, an' I don't mean yer belly. Ye've grown strong since we last spoke, an' the spirits mark it." },
@@ -678,6 +694,8 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "DRUID" } },
       text = "Ye hear the spirits too. Then ye'll know what I mean when I say the trolls' altars make 'em weep." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "The land's whisperin' about ye, sayin' ye smell o' green fire an' far-off places. I cannae see ye well, but the land's got sharp eyes." },
   },
 
   start = "hello",
@@ -791,6 +809,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Horde's warlocks burned these hills in the Second War, an' the spirits o' this land havenae stopped grievin'. I'll hear ye because I must, but ye'll get no blessin' from me." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've come back often, an' the land hasnae soured where ye walked. I'll hear ye out, though the spirits an' I are still wary." },
         { id = "h_pt_shaman", tags = { "news" }, when = { party = { class = "SHAMAN" }, faction = "Alliance" },
           text = "{companion} speaks to the storm; I can smell the rain on them from here. You don't see that in Ironforge's folk often, and it does an old Wildhammer's heart good." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -905,7 +925,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." } },
+      lines = {
+        { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Aye, they do, an' they're near hidin' now wi' that thing stood right beside ye. Whatever ye carry, it's no' from this world, an' I can feel the land shrink from yer demon, sick enough as it is wi' troll blood on the altars." },
+      },
       choices = {
         { text = "I'll keep it bound while I'm here.", next = "BACK", reply = "Thank ye. The land breathes easier already.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The land will just have to bear it.", next = "BACK", reply = "It will, aye, but it'll remember ye for it. Walk carefully.", fx = { affinity = -2, align = { light = -1 } } },
@@ -931,7 +954,7 @@ P:NPC {
   key = "thulfram", id = TODO_NPC("Innkeeper Thulfram"), name = "Innkeeper Thulfram",
   bible = "bibles/hinterlands.md", role = "innkeeper", tier = "service",
   communities = { "aerie_peak" }, temper = { "jovial" }, values = { "generous", "friendly" },
-  notices = { "drink", "weary" },
+  notices = { "drink", "weary", "lock_stones" },
 
   impression = {
     first = "He says everyone ends up at his bar sooner or later.",
@@ -955,6 +978,8 @@ P:NPC {
       text = "Ha! Now ye're drinkin' like a Wildhammer, but don't go near the gryphons like that." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Ye look like ye've been dead a wee while, so sit down; ale fixes most things, an' stew fixes the rest." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer belt's a warlock's work, an' a good one by the look o' it. Ye'll no' be needin' my stew, then, but I'll pour ye a drink anyway." },
   },
 
   start = "hello",
@@ -1070,7 +1095,7 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Your riders seem to have plenty to talk about.", next = "riders" },
         { text = "What's the strongest thing you pour?", next = "strong" },
-        { text = "Will you serve a warlock under your roof, innkeeper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will you serve someone with my sort of craft, innkeeper?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd guess few spellcasters come through Aerie Peak.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you hear much worth knowing behind that bar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do the riders pray to before they fly, Thulfram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1104,7 +1129,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll serve anyone who pays an' doesnae set the place alight. But the riders flew against the Horde's warlocks in the Second War, an' some still drink tae friends that fire took, so I'd keep yer craft quiet at the bar." } },
+      lines = {
+        { id = "xlock_default", text = "I'll serve anyone who pays an' doesnae set the place alight. But the riders flew against the Horde's dark casters in the Second War, an' some still drink tae friends that fire took, so I'd keep yer craft quiet at the bar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays an' doesnae set the place alight, but there's riders at that bar who flew against the Horde's warlocks, an' every one o' them has turned tae look at yer demon. Send it outside, {g:lad|lass}, an' keep yer craft quiet, an' ye'll drink in peace." },
+      },
       choices = {
         { text = "I'll keep quiet. Their grief deserves respect.", next = "BACK", reply = "Thank ye. They'll no' say it, but they'll notice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old grief shouldn't stop me using what works.", next = "BACK", reply = "Maybe no', but ye'll keep it out o' my inn all the same.", fx = { align = { light = -1 } } },

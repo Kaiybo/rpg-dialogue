@@ -7,7 +7,7 @@ P:NPC {
   key = "beardo", id = TODO_NPC("Auctioneer Beardo"), name = "Auctioneer Beardo",
   bible = "bibles/tanaris.md", role = "auctioneer", tier = "service",
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_stones" },
 
   impression = {
     first = "He talks prices like weather, and he never once stopped smiling.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 2000000 } },
       text = "Now there's a purse that walks into an auction house and makes the whole room sit up straight, sweetheart! Welcome, welcome, and do browse slowly, and bid quickly." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "That glowing rock in your pack, is that a spellstone? Folks have asked me to list them, and I never can, because they won't leave the warlock who made them, which is a shame, because the bidding would be wild." },
   },
 
   start = "hello",
@@ -104,7 +106,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle, which still sold for nine silver. I've learned to look at everything twice, and when in doubt, I call the Bruisers and let them open it." } },
+      lines = {
+        { id = "xlock_default", text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle, which still sold for nine silver. I've learned to look at everything twice, and when in doubt, I call the Bruisers and let them open it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle. Yours is no beetle, though, and it's already reaching for the lot table, so keep it off the merchandise or I'll call the Bruisers to bid on it." },
+      },
       choices = {
         { text = "Sensible rules. I'll keep to them.", next = "BACK", reply = "A warlock who keeps the rules, pal, now that's a rare lot, and I'll be glad to have you bidding as long as your little friend stays outside.", fx = { align = { order = 1 } } },
         { text = "Rules like that cost you the best sales, Beardo.", next = "BACK", reply = "And they save me from the worst explosions, friend, so I'll lose the odd sale and keep my eyebrows, which I'm rather attached to.", fx = { align = { order = -1 } } },
@@ -221,7 +226,7 @@ P:NPC {
   key = "laziphus", id = TODO_NPC("Laziphus"), name = "Laziphus", title = "Stable Master",
   bible = "bibles/tanaris.md", role = "stablemaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "weary" }, values = { "careful" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
 
   impression = {
     first = "He complains about the Water Company's prices to anyone who stands still.",
@@ -235,6 +240,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "{pet} is panting, friend. Let it have a drink before we talk business, because a hot beast is a cranky beast, and cranky beasts break stalls I have to pay for." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Don't try to stable that thing, pal, because a burning horse in a straw stall is how Gadgetzan loses another stable. Your other beasts are welcome in the shade, but that one stays outside the gate." },
   },
 
   start = "hello",
@@ -276,10 +283,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it did something to that shade that looked an awful lot like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." } },
+      lines = {
+        { id = "xlock_default", text = "Then it did something to that shade that looked an awful lot like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then it did something to that shade that looked an awful lot like eating, and your {pet} is giving my stable the same hungry look. I'm not paying the Water Company to cool beasts that don't need cooling, so keep it with you and out of my stalls." },
+      },
       choices = {
-        { text = "My demons are my business, not yours.", next = "BACK", reply = "It's your business till it eats my shade, pal, and then it's my business and my invoice, so let's keep it out of my stable.", fx = { align = { order = -1 } } },
-        { text = "Fair. I'll keep my servant with me.", next = "BACK", reply = "Much obliged, friend, and the stable's yours anytime you need it, so long as the little fellow sits with you and not with my cats.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demons are my business, Laziphus. Not yours.", next = "BACK", reply = "It's your business till it eats my shade, pal, and then it's my business and my invoice, so let's keep it out of my stable.", fx = { align = { order = -1 } } },
+        { text = "Fair. I'll keep my servant at my side.", next = "BACK", reply = "Much obliged, friend, and the stable's yours anytime you need it, so long as the little fellow sits with you and not with my cats.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,7 +360,7 @@ P:NPC {
         { text = "How do you keep animals alive out here?", next = "heat" },
         { text = "What sort of beasts come through?", next = "beasts" },
         { text = "Do you keep mounts too?", next = "mounts" },
-        { text = "Voidwalkers don't eat, Laziphus.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Voidwalkers don't eat, Laziphus. They feed.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I could conjure water for your beasts.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you let me tend your sick beasts, Laziphus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors ever leave their mounts with you, Laziphus?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -408,7 +418,7 @@ P:NPC {
   key = "buzzek", id = TODO_NPC("Buzzek Bracketswing"), name = "Buzzek Bracketswing", title = "Engineering Trainer",
   bible = "bibles/tanaris.md", role = "trainer", tier = "service",
   communities = { "gadgetzan" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_stones" },
 
   impression = {
     first = "He respects anyone who can keep all ten fingers.",
@@ -425,6 +435,8 @@ P:NPC {
       text = "Scorch marks on your sleeves, and you still have your eyebrows! You're one of us, buddy, and a careful one at that, which is rare and very valuable." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome in my hut! I won't hold it against you, as long as you don't call my work crude in front of the customers." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Is that a firestone glowing in your bag? Hold it near my boiler sometime, pal, because I'd love to know if it runs hotter than coal, though not so near that it takes the roof again." },
   },
 
   start = "hello",
@@ -506,10 +518,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll admit I've wondered, because they don't mind heat, they work for nothing and they're small enough to fit into the boilers. But the one time I tried it, the imp set the bellows on fire and laughed, and I don't think it was on my side, or on my payroll." } },
+      lines = {
+        { id = "xlock_default", text = "I'll admit I've wondered, because they don't mind heat, they work for nothing and they're small enough to fit into the boilers. But the one time I tried it, the imp set the bellows on fire and laughed, and I don't think it was on my side, or on my payroll." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll admit I've wondered, because they don't mind heat and they work for nothing. But your demon's been staring at my boilers since you walked in, and the last one I let near them set the bellows on fire and laughed, so it stays well clear of the shop floor." },
+      },
       choices = {
         { text = "Demons don't belong in workshops. Leave it be.", next = "BACK", reply = "Couldn't agree more, friend, and the bellows agree too, wherever they landed after that imp got through with them.", fx = { align = { order = 1 } } },
-        { text = "I could train mine to help, given time.", next = "BACK", reply = "You can try, pal, but you'll do it outside my workshop and well away from my bellows, because I can't afford another set.", fx = { align = { order = -1 } } },
+        { text = "I could break mine to the work, given time.", next = "BACK", reply = "You can try, pal, but you'll do it outside my workshop and well away from my bellows, because I can't afford another set.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -604,7 +619,7 @@ P:NPC {
   key = "pikkle", id = TODO_NPC("Pikkle"), name = "Pikkle", title = "Mining Trainer",
   bible = "bibles/tanaris.md", role = "trainer", tier = "service",
   communities = { "gadgetzan" }, temper = { "blunt" }, values = { "profit", "craft" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_taint" },
 
   impression = {
     first = "He knows where the good rock is and expects thanks for sharing.",
@@ -620,6 +635,8 @@ P:NPC {
       text = "There's rock dust in your boots, chum, and that's the right kind of dirt, the kind that turns into money. What have you been digging, and where, and how much of it?" },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf asking a goblin about mining? Either you're very humble or very lost, and I'll charge you the same either way." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There's a green sheen on you like the one on ore that's been near something foul, pal, and miners learn to leave that ore in the ground. I'll still teach you, but scrub your hands before you touch my picks." },
   },
 
   start = "hello",
@@ -701,10 +718,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every warlock who's tried tells me the same, so I'd guess so. Voidwalkers are strong enough, but they just stand there looking at the rock, and imps only want to set it on fire, which doesn't help anyone get the ore out." } },
+      lines = {
+        { id = "xlock_default", text = "Every warlock who's tried tells me the same, so I'd guess so. Voidwalkers are strong enough, but they just stand there looking at the rock, and imps only want to set it on fire, which doesn't help anyone get the ore out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every warlock who's tried tells me the same, so I'd guess so. Yours is standing over my ore cart like it's thinking about it, but I've yet to see a demon swing a pick, so go ahead and prove me wrong or let it keep staring at the rock." },
+      },
       choices = {
         { text = "A pick and honest sweat, then. I'll learn it properly.", next = "BACK", reply = "Now there's a smart one, friend, and I'll teach you the swing that saves your back, because the ore won't come out by itself.", fx = { align = { order = 1 } } },
-        { text = "Mine could learn. It only needs the right orders.", next = "BACK", reply = "I'll believe it when I see an imp dig without setting the hill on fire, pal, and I'll sell tickets to the show.", fx = { align = { order = -1 } } },
+        { text = "Mine could learn. It only needs the right punishment.", next = "BACK", reply = "I'll believe it when I see an imp dig without setting the hill on fire, pal, and I'll sell tickets to the show.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -752,7 +772,7 @@ P:NPC {
         { text = "Could a warrior learn mining from you, Pikkle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts out in the hills bother your miners, Pikkle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the miners often get attacked, Pikkle?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "I've heard a demon will refuse to dig, Pikkle.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "They say a demon will refuse to dig, Pikkle. Mine wouldn't dare.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is mining hard work out here, Pikkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },

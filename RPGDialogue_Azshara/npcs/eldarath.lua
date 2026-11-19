@@ -6,7 +6,7 @@ P:NPC {
   key = "ogtinc", id = TODO_NPC("Ogtinc"), name = "Ogtinc",
   bible = "bibles/azshara.md", role = "questgiver", tier = "major",
   communities = { "eldarath_cliffs" }, temper = { "steady", "gentle" }, values = { "kind", "patient" },
-  notices = { "class", "race", "pet" },
+  notices = { "class", "race", "pet", "lock_taint", "lock_shadow" },
 
   impression = {
     first = "He grieves every courser he asks someone to kill.",
@@ -29,6 +29,10 @@ P:NPC {
       text = "A hunter. Good; I am one also. We will understand each other, I think, if you understand the prey as well as the kill." },
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Your companion walks well beside you. {pet} trusts you, and beasts do not trust lightly here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "Ogtinc smells the fel in you, deep in, the same smell that blew out of Felwood and made the furbolg tribes go mad. The divine path says you can still mend it, so Ogtinc will hope, and also keep upwind." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Your shadow is heavier than the others, and the grass bends under it where you stand. Ogtinc has watched this cliff for many seasons, and only the ruins below have a shadow like that." },
   },
 
   start = "hello",
@@ -89,7 +93,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
+      lines = {
+        { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken, and even your demon has broken something, Ogtinc thinks. If you really wish to help, gather what the Circle needs, and use your power and your servant only against those who would sicken the land further." },
+      },
       choices = {
         { text = "I'll use my power only to protect the land.", next = "BACK", reply = "Then Ogtinc is glad of you, and the land will be too. That is how mending begins.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use my power as I see fit.", next = "BACK", reply = "Ogtinc cannot stop you, but Ogtinc hopes you will think of Felwood when you do.", fx = { affinity = -1, align = { light = -1 } } },
@@ -124,7 +131,7 @@ P:NPC {
           text = "A warrior. Ogtinc sees how heavy your blade is, and how often it is used, and he hopes you know that not every creature in these ruins must die." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "You walk with a demon's shadow, warlock, and the spirits of this cliff go quiet when you come near. Ogtinc does not turn away anyone who would help the land, but he asks you to remember what fel has done to it." },
+          text = "You walk with a demon's shadow, and the spirits of this cliff go quiet when you come near. Ogtinc does not turn away anyone who would help the land, but he asks you to remember what fel has done to it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue moves like a hunter, quiet and patient, and Ogtinc respects that. The coursers of these ruins are hard to approach, and quiet feet would serve you well among them." },
         { id = "h_default", key = true,
@@ -162,7 +169,7 @@ P:NPC {
         { text = "Cenarius guide your hunt, brother.", next = "druid", when = { class = "DRUID" } },
         { text = "The Timbermaw call me friend.", next = "timbermaw", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
         { text = "My people are kin to yours, I've heard.", next = "tauren_og", when = { race = "Tauren" } },
-        { text = "Can someone who uses fel help heal the land?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Can someone who carries what I carry help heal the land?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the Ruins of Eldarath need from a healer, Ogtinc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Some creatures here must deserve the blade, Ogtinc.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -395,7 +402,7 @@ P:NPC {
   key = "peter_galen", id = TODO_NPC("Peter Galen"), name = "Peter Galen",
   bible = "bibles/azshara.md", role = "trainer", tier = "service",
   communities = { "eldarath_cliffs" }, temper = { "steady" }, values = { "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_armor" },
 
   impression = {
     first = "He keeps a list of customers who never came back.",
@@ -410,13 +417,18 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "profession", when = { profession = "Leatherworking" },
       text = "Ah, a leatherworker. You've got the hands for it, I can tell, and I can teach them to work scale, if you're brave enough to bring me some." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "What kind of hide is that you're wearing? It moves when you breathe, and I've worked dragonscale long enough to know that no honest leather does that, so I'll admire it from over here." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." } },
+      lines = {
+        { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, and your demon is the first customer who looks nervous at a pile of scales. I don't ask what a customer does with my wares, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
+      },
       choices = {
         { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", reply = "Good idea, and I'd like to keep my list short. Dragons have long memories and short tempers.", fx = { align = { order = 1 } } },
         { text = "Let them come. My demon could use the practice.", next = "BACK", reply = "Then I'll start your line on the list now, friend, and save myself the ink later. Good luck.", fx = { align = { order = -1 } } },
@@ -525,7 +537,7 @@ P:NPC {
         { id = "h_dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } },
           text = "You've been fighting the blue dragonkin up near the Ruins of Eldarath, and you're still alive. I'll take you off the list I keep, then, at least for this week." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, in my camp. You'll want dragonscale like the rest of them, I expect, though I'll warn you now that dragons don't care for demons any more than they care for me." },
+          text = "You've a sulphur smell about you, friend. You'll want dragonscale like the rest of them, I expect, though dragons don't care for demons any more than they care for me." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, in my camp! Dragons don't care about the spirits any more than they care about banners, but you're welcome all the same, and I'll offer my condolences before you go hunting anything with scales." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -601,7 +613,7 @@ P:NPC {
   key = "kimjael", id = TODO_NPC("Kim'jael"), name = "Kim'jael",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "legash" }, temper = { "cowardly", "sharp" }, values = { "greedy" },
-  notices = { "race", "purse" },
+  notices = { "race", "purse", "lock_shards" },
 
   impression = {
     first = "He paid me fairly and then immediately renegotiated.",
@@ -618,13 +630,18 @@ P:NPC {
       text = "Whoa, whoa, an elf! You're not one of Magus Rimtori's crowd, right? You don't look stuck-up enough, partner, and no offence, which is free." },
     { id = "n_purse", cat = "purse", when = { money = { min = 1000000 } },
       text = "Now there's somebody who knows what a gold coin's for! Let's talk, partner, let's talk." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "You've got a whole bag of soul shards there, and I know what the Shadow Council's lot pay for those! I'm not saying I'm buying, I'm saying the elves who robbed me might, so maybe wave a few at them." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." } },
+      lines = {
+        { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten, chase, chew on, I'm not picky, and looking at your {pet}, I think it's done all three before breakfast! They thought they could knife a loyal goblin partner and keep his gear, so name your price for the pair of you, and I'll pay half of it." },
+      },
       choices = {
         { text = "Half? I'll do it for the full price, goblin.", next = "BACK", reply = "Full price? Partner, you drive a hard bargain, and I respect that in a business associate. Fine, full price, but no chewing on the gear.", fx = { align = { honor = -1 } } },
         { text = "I'll help you, but no demon chews on anyone.", next = "BACK", reply = "No chewing? Fine, fine, you're a stickler, but I can work with a stickler. Just bring back my stuff.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -848,7 +865,7 @@ P:NPC {
   key = "beltis", id = TODO_NPC("Captain Vanessa Beltis"), name = "Captain Vanessa Beltis",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "ruined_reaches" }, temper = { "steady", "proud" }, values = { "brave", "dutiful" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "lock_soulstone" },
 
   impression = {
     first = "She blames herself for every drowned sailor.",
@@ -866,16 +883,21 @@ P:NPC {
       text = "A healer, thank the Light! We had a priest among the passengers, but she's worn to the bone, and most of my crew need mending." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You look like you've been through a wreck yourself. Sit down a moment before the naga come back." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "You've a soul bound in a stone, I'm told that's what that light around you is. Half my crew went down with the Horizon Scout and nobody kept theirs, so forgive me if I'm a little jealous of you." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see a demon sitting by the fire." } },
+      lines = {
+        { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see that thing sitting by the fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. Every man on this beach has gone quiet since your demon walked up, and they've seen enough monsters for one lifetime, so I'd ask you to send it away before they reach for their swords." },
+      },
       choices = {
-        { text = "I'll keep my demon away from your crew, Captain.", next = "BACK", reply = "Thank you, and they'll thank you too, though they won't say it. They've had enough of monsters.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your crew should get used to it. The naga are worse.", next = "BACK", reply = "They're getting used to the naga, warlock, which is plenty. Keep it close, please.", fx = { align = { light = -1 } } },
+        { text = "I'll keep what follows me away from your crew, Captain.", next = "BACK", reply = "Thank you, and they'll thank you too, though they won't say it. They've had enough of monsters.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your crew should get used to it. The naga are worse.", next = "BACK", reply = "They're getting used to the naga, which is plenty. Keep it close, please.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -932,7 +954,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Spitelash", min = 40 } },
           text = "My lads say the Spitelash don't sing on the beach at night anymore, and they've slept better than they have since the Horizon Scout went down. I've a fair idea who to thank." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, on my beach. I've sailors here who'd jump at their own shadows after what the naga did, so keep that creature quiet and close, and we'll get along fine." },
+          text = "There's something cold about you, and I've sailors here who'd jump at their own shadows after what the naga did, so keep that creature quiet and close, and we'll get along fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, ahoy! Can you shoot naga from the barricade? My sailors can barely shoot straight on a calm sea, never mind with the naga coming up the beach." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -1038,7 +1060,7 @@ P:NPC {
   key = "xiggs", id = TODO_NPC("Pilot Xiggs Fuselighter"), name = "Pilot Xiggs Fuselighter",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "ruined_reaches" }, temper = { "jovial", "steady" }, values = { "brave", "loyal" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft", "lock_steed" },
 
   impression = {
     first = "He flies rubbings to Ironforge as a favour and loves every minute.",
@@ -1055,6 +1077,8 @@ P:NPC {
       text = "A dwarf! Ye'll appreciate a proper flyin' machine, unlike some elves I've met who call it a noisy box." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer! Don't touch the fuel line, don't touch the rotor, and don't tell me how ye'd have built it better." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Is that a horse with its hooves on fire? {g:Lad|Lass}, I've had an imp in me engine already, an' I'll not have that beast anywhere near me flyer, so tie it up by the cliff an' I'll come tae you." },
   },
 
   start = "hello",
@@ -1070,10 +1094,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So keep it on a short leash, if ye please, while I'm flyin' these rubbings north." } },
+      lines = {
+        { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So keep it on a short leash, if ye please, while I'm flyin' these rubbings north." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, an' once was plenty, an' if that one so much as looks at my flyer, ye'll be walkin' home! The last one got into the engine an' laughed the whole way down, so keep it well back from the propeller, if ye please, while I'm flyin' these rubbings north." },
+      },
       choices = {
         { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", reply = "Bless ye, an' my flyer thanks ye too. She's still got scorch marks from the last one.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My imp goes where it pleases. You'll manage.", next = "BACK", reply = "I'll manage, an' so will she, but if she catches fire, ye're walkin' home. Fair warnin'.", fx = { align = { order = -1 } } },
+        { text = "My little friend goes where it pleases. You'll manage.", next = "BACK", reply = "I'll manage, an' so will she, but if she catches fire, ye're walkin' home. Fair warnin'.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1157,7 +1184,7 @@ P:NPC {
         { id = "h_dd_crew", when = { questDone = TODO_QUEST("A Crew Under Fire") },
           text = "Beltis says ye fought the naga off her crew in the Ruined Reaches, an' I saw it from up top on my rounds. Ye looked like a wee hero from up there, an' I'll tell 'em so in Ironforge." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, wantin' a lift? Fine by me, so long as yer wee beastie doesn't chew the fuel line, because I'll not be explainin' that tae Ironforge." },
+          text = "Wantin' a lift? Fine by me, so long as yer wee beastie doesn't chew the fuel line, because I'll not be explainin' that tae Ironforge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, eh? Well, the gyrocopter's a wee thing, but if ye leave the shield on the ground I can just about manage ye, an' the naga'll never see us comin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1191,7 +1218,7 @@ P:NPC {
         { text = "The Ruins of Eldarath must be dangerous, Xiggs.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen much from the air over Azshara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does the Explorers' League want with these ruins?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "I'd guess you've had trouble with demons in your flyer, Xiggs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess something like mine has given your flyer trouble before, Xiggs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Explorers' League know about dwarf shamans, Xiggs?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },

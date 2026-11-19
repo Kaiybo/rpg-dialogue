@@ -100,9 +100,10 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the warlocks of the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth whenever he sees an imp." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth seeing one, so don't stand it so close to me when you speak." },
       },
       choices = {
-        { text = "I'll earn your respect openly, in battle.", next = "BACK", reply = "I'll be watching for it. Fight well enough, warlock, and maybe the old taste of fel will fade from my mouth.", fx = { align = { honor = 1 } } },
+        { text = "I'll earn your respect openly, in battle.", next = "BACK", reply = "I'll be watching for it. Fight well enough, and maybe the old taste of fel will fade from my mouth.", fx = { align = { honor = 1 } } },
         { text = "I don't need respect. I need results.", next = "BACK", reply = "Results, then, but don't expect the old Horde to forget. Results won't buy their trust.", fx = { align = { honor = -1 } } },
         { text = "Who else trains in the valley?", next = "valley" },
       },
@@ -147,7 +148,7 @@ P:NPC {
         { text = "Honor doesn't win wars, Grezz. Results do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What makes a warrior of the Horde, Grezz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a hunter learn to fight up close, Grezz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I doubt warlocks have any honor, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I doubt my kind has any honor in your eyes, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'd guess your warriors think little of mages.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you train beside a paladin, Grezz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Two warriors in one band. How should we fight together?", next = "xpt_grezz", when = { class = "WARRIOR", party = { sameClass = true } } },
@@ -285,11 +286,12 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt any demon trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
+        { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt anything from the Nether trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The same way I judge a hunter's beast, by whether it fights well and trusts you, and yours hasn't looked at you once since you walked in. Keep it fed and keep it leashed, and get it away from my students' pets, because you can see them all pressed against the far wall." },
       },
       choices = {
         { text = "I'll keep it leashed and away from your pets.", next = "BACK", reply = "Thank you. The last imp in my yard set a student's cat on fire, and she still hasn't forgiven me.", fx = { align = { order = 1 } } },
-        { text = "My demon goes wherever I send it.", next = "BACK", reply = "Then it doesn't go near my students' pets, or we'll have words. Keep it close.", fx = { align = { order = -1 } } },
+        { text = "What serves me goes wherever I send it.", next = "BACK", reply = "Then it doesn't go near my students' pets, or we'll have words. Keep it close.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,7 +314,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the hunters' range. You hunt with your own teeth instead of a bow, which I respect, though I'd like to see you tame a boar that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' range? Stay a while, because you could do worse than learn to throw an axe straight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine, and with a beast in tow. Show me how it heels, because a pet that doesn't heel is a pet that gets you killed." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your companion's a demon, so I won't ask to see it, but I'll ask how you treat it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Something walks at your heel that was never a beast. I won't ask to see it, but I'll ask how you treat it." },
       },
       choices = {
         { text = "Echeyakee was hard to track, Ormak.", next = "dd_echeyakee", when = { killed = { name = "Echeyakee" } } },
@@ -325,7 +327,7 @@ P:NPC {
         { text = "My polymorph tames a beast faster than you can.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from a hunter, Ormak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "How would you judge a warlock's demon, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "How would you judge a companion that was never a beast, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Hunters can't think much of the Light, I'd guess.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My raptor's from the Sen'jin pens. She bites everyone but me.", next = "xorig_raptor", when = { origin = "troll_raptor_rider" } },
         { text = "Farewell, Ormak.", next = "END" },
@@ -476,6 +478,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't hate you, but they turn away from you, and that's worse. When our people began bargaining with demons, the spirits of Draenor went silent, and it took Thrall years to coax them back, so I'll ask you not to walk too near my students." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't hate you, but they turn away from you, and I feel them going now, the closer your servant stands to the fire. When our people bargained with demons, the spirits of Draenor went silent, and it took Thrall years to coax them back, so please don't bring it any nearer." },
       },
       choices = {
         { text = "I understand. I'll keep my distance from them.", next = "BACK", reply = "Thank you. The spirits are frightened of what you carry, and I can't blame them.", fx = { align = { light = 1 } } },
@@ -565,25 +568,32 @@ P:NPC {
   key = "zevrost", id = TODO_NPC("Zevrost"), name = "Zevrost",
   bible = "bibles/orgrimmar.md", role = "trainer", tier = "service",
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "ambitious", "cunning" },
-  notices = { "class" },
+  notices = { "class", "fel" },
   impression = {
     first = "He insists the power he teaches is only a tool.",
     third = "{name} met Zevrost, the warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
     { id = "g_hi", text = "Welcome to the Cleft. The rats down here are friendlier than the faces above, and better fed." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Come in out of the light, my friend. Nobody up there will miss you, and down here someone always notices when you're gone." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still in one piece, I see. The Cleft keeps a student's place for as long as the student keeps their nerve." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The city whispers that someone took one of your tales for the truth. That's a useful skill for a student of shadow, provided you remember who you must never lie to." },
+  },
+  notice = {
+    { id = "n_succ", cat = "fel", when = { class = "WARLOCK", pet = { family = "Succubus" } },
+      text = "Your succubus is smiling at me. I'd smile back, but I know exactly what she's pricing, and I'm not for sale." },
+    { id = "n_taint", cat = "fel", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a little green under the skin of your wrists, my friend. Don't hide it from me; hide it from the guards at the top of the ramp." },
   },
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Threaten? It despises them, which is not the same. But you are dead, and the Light answers you anyway, so I suspect you understand better than most that power doesn't care who holds it, only how firmly." } },
+      lines = { { id = "xfpala_default", text = "Threaten? It despises them, which is not the same thing. But you are dead and the Light answers you anyway, so I suspect you understand better than most that power doesn't care who holds it, only how firmly." } },
       choices = {
-        { text = "The Light is no mere tool, Zevrost.", next = "BACK", reply = "Isn't it? You wield it, and it answers, which sounds very like a tool to me. Believe what you like.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light is no mere tool, Zevrost.", next = "BACK", reply = "Isn't it? You wield it and it answers, which sounds very like a tool to me, but believe what you like.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Power is power, however it shines.", next = "BACK", reply = "Ah, you see it! Hold it firmly, and it won't matter what colour it shines.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhpriest = {
@@ -592,16 +602,16 @@ P:NPC {
       choices = {
         { text = "The difference is that I don't bind anyone, Zevrost.", next = "BACK", reply = "Not yet, priest, but the shadow is very persuasive. We'll see.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Perhaps we're not so different. I'll remember that.", next = "BACK", reply = "I'll remember it too. The Valley of Wisdom needn't hear about our little understanding.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every use, I assure you, though most warriors don't care for the answer. A demon guards the front of a fight well enough, but a warrior beside us keeps the enemy's eyes off the caster, and a warlock who isn't being stabbed is a warlock who wins." } },
       choices = {
-        { text = "I'd never fight beside a demon. The Horde learned that lesson.", next = "BACK", reply = "Then you'll fight alone, and the demon will win the fight anyway. Your loss, warrior.", fx = { align = { light = 1 } } },
+        { text = "I'd never fight beside a demon. The Horde learned that lesson.", next = "BACK", reply = "Then you'll fight alone, and the demon will win the fight anyway. That's your loss, warrior.", fx = { align = { light = 1 } } },
         { text = "If a demon wins the fight, I'll fight beside it.", next = "BACK", reply = "Now there's a practical warrior, rarer than a quiet imp. We'll work well together.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhuntcl = {
@@ -611,9 +621,9 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your beast loves you, and mine would devour me the moment I faltered, so I suppose the difference is trust. Your {pet} doesn't care for me, I see, because animals can smell the Twisting Nether on our robes." },
       },
       choices = {
-        { text = "Trust is stronger than any binding, warlock.", next = "BACK", reply = "Perhaps, but trust can be betrayed, and will never forgets. I'll keep my bindings.", fx = { align = { light = 1 } } },
+        { text = "Trust is stronger than any binding, warlock.", next = "BACK", reply = "Perhaps, but trust can be betrayed, and a binding never forgets. I'll keep my bindings.", fx = { align = { light = 1 } } },
         { text = "Binding by will sounds more reliable than trust.", next = "BACK", reply = "It is, and it's why I sleep at all, though not soundly. Come and study, if you like.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xhsham = {
@@ -622,7 +632,7 @@ P:NPC {
       choices = {
         { text = "Nothing the demons gave was worth what it cost us.", next = "BACK", reply = "Perhaps, and I won't argue it with a shaman. But the power was real, and so were the victories.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power, and only fools refuse a weapon.", next = "BACK", reply = "Then you've understood the Cleft better than most of the Valley. Welcome, shaman.", fx = { align = { light = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     xrogue = {
@@ -633,7 +643,7 @@ P:NPC {
       choices = {
         { text = "Good. The Warchief's watch keeps us all honest.", next = "BACK", reply = "It does, and we behave impeccably for it. You'll find the Cleft very polite.", fx = { align = { order = 1 } } },
         { text = "Secrets are what keep the Cleft alive.", next = "BACK", reply = "They do, and you understand the Cleft better than most. Keep yours well.", fx = { align = { order = -1 } } },
-        { text = "What is the Cleft of Shadow?", next = "cleft" },
+        { text = "What is the Cleft of Shadow, really?", next = "cleft" },
       },
     },
     xmage = {
@@ -643,7 +653,7 @@ P:NPC {
       },
       choices = {
         { text = "I want power to protect, not to hold.", next = "BACK", reply = "Protect, hold, it's all the same once you have it. Tell yourself what you like, mage.", fx = { align = { light = 1 } } },
-        { text = "True enough. We both want more, and that's fine.", next = "BACK", reply = "Exactly, and I'm glad someone in this city admits it. We'll get along.", fx = { align = { light = -1 } } },
+        { text = "True enough. We both want more, and that's fine.", next = "BACK", reply = "I'm glad someone in this city admits it. We'll get along, you and I.", fx = { align = { light = -1 } } },
         { text = "Isn't this the magic that ruined the orcs?", next = "ruin" },
       },
     },
@@ -653,56 +663,118 @@ P:NPC {
       choices = {
         { text = "The Warchief permits you, and I'll watch you as closely as he does.", next = "BACK", reply = "Then watch closely, druid, and you'll find nothing to report. I'm very careful.", fx = { align = { order = 1 } } },
         { text = "Power is power. I won't judge how you choose to hold yours.", next = "BACK", reply = "A druid with sense, how refreshing. Hold yours, and I'll hold mine.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, here in the Cleft. Now there's a thing. The Light and my arts rarely share a room, and yet here we both are, serving the same Warchief." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, here in the Cleft, now there's a thing. The Light and my arts rarely share a room, and yet here we both are, serving the same Warchief." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in the Cleft of Shadow. You'll find the shadows here darker than the ones you pray in, but you'll find we have that much in common." },
         { id = "h_default", key = true, text = "I am Zevrost, and I teach those with the will to command what others fear. The Warchief permits us, so long as we remember who serves whom." },
-        { id = "h_warlock", when = { class = "WARLOCK" }, text = "Ah, one of mine. Your demon is well leashed, I hope, because the guards above notice when it isn't." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Cleft of Shadow. Your path and mine both began with the shamans of Draenor, though you'd rather forget it, so do try not to glare at my students." },
+        { id = "h_warlock", when = { class = "WARLOCK" }, text = "One of mine, and welcome. Your demon is well leashed, I hope, because the guards above notice when it isn't, and they never notice when it is." },
+        { id = "h_fslock", when = { race = "Scourge", class = "WARLOCK" }, text = "A Forsaken warlock, down from Undercity's Magic Quarter to see how the orcs do it. You'll find us more nervous than your teachers and, I like to think, more careful." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Cleft of Shadow. Your path and mine both began with the shaman of Draenor, though you'd rather forget it, so do try not to glare at my students." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in the Cleft of Shadow. You change your own flesh and call it nature, and I bind demons and call it discipline, so perhaps we're less different than your kind would like." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, here among the warlocks? How brave of you, or how lost. The Valley of Honor is up the stairs and well away from us." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, here among the warlocks? How brave of you, or how lost; the Valley of Honor is up the stairs and well away from us." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with a pet of flesh and fur. We warlocks keep pets as well, though ours are rather harder to feed." },
       },
+      again = {
+        { id = "h_again", text = "More questions? Curiosity is the first step to power, after all." },
+        { id = "h_again2", text = "Go on, I'm in no hurry. Nobody in the Cleft is ever in a hurry, except to leave before the guards change." },
+        { id = "h_again3", text = "Ask, my friend. I'll answer, and you can decide later how much of it to believe." },
+      },
       choices = {
+        { text = "Teach me, Zevrost.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "What do you teach that Mirket doesn't?", next = "fear", when = { class = "WARLOCK" } },
+        { text = "The fel whispers to me when I sleep.", next = "whisper", when = { class = "WARLOCK", taint = { min = 20 } } },
+        { text = "I died to a warlock's plague once. Now I am one.", next = "plague", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "Is a priest's shadow anything like your craft, Zevrost?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Your kind traded the elements for demons. Was it worth it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How can you call demon magic a mere tool, Zevrost?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "This is the magic that ruined the orcs.", next = "ruin" },
-        { text = "What is the Cleft of Shadow?", next = "cleft" },
-        { text = "Rogues and warlocks share the Cleft. Friendly neighbors, I'm sure.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Rogues and warlocks share the Cleft. Friendly neighbours, I'm sure.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The arcane is cleaner than what you teach, Zevrost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks have any use for warriors, Zevrost?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How is a demon different from a hunter's beast, Zevrost?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The Light must threaten your arts, Zevrost.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "This is the magic that ruined the orcs.", next = "ruin" },
+        { text = "You talk like a merchant with something to sell.", next = "sell" },
+        { text = "What is the Cleft of Shadow?", next = "cleft" },
         { text = "I'll go.", next = "END" },
       },
-      again = { { id = "h_again", text = "More questions? Curiosity is the first step to power, after all." } },
+    },
+    fear = {
+      lines = { { id = "fe_default", text = "Fear, mostly. Mirket teaches you the sums, and I teach you the moment a man's courage leaves him and he turns his back to run, because that moment is worth more than any curse in your book. You'll learn Fear first, Howl of Terror later, and Death Coil for the one who won't break." } },
+      choices = {
+        { text = "Mirket calls that theatre.", next = "fear2" },
+        { text = "Show me the spells, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fear2 = {
+      narr = "He smiles slowly, and steps back half a pace so the shadow of the Cleft wall falls across his face.",
+      lines = { { id = "fe2_default", text = "She does, and she's right, and she's never understood why that isn't an insult. A frightened enemy makes mistakes your arithmetic can't predict, and every one of those mistakes is a gift to you, so learn her sums and my theatre both, and you'll outlive us." } },
+      choices = { { text = "Sums and theatre. I'll learn both.", next = "BACK", reply = "Good. Don't tell her I said she was right; she'd never let me forget it." } },
+    },
+    whisper = {
+      big = true,
+      lines = { { id = "wh_default", text = "Of course it does, and it will promise you things, sensible things at first. Every warlock in this Cleft hears it, my friend, and the only difference between us and the Burning Blade is what we do in the morning. What do you mean to do?" } },
+      choices = {
+        { text = "Listen, and take what's useful.", next = "BACK", reply = "Ambitious, and honest about it. Take it, then, but count what you take, or someone else will count it for you.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Shut it out, whatever it offers.", next = "BACK", reply = "Admirable, and harder than it sounds. Tell me in a year whether you still can.", fx = { align = { light = 1 } } },
+        { text = "I'd rather not say.", next = "BACK", reply = "Wise. Down here, that's the safest answer anyone gives." },
+      },
+    },
+    plague = {
+      lines = { { id = "pl_default", text = "Kel'Thuzad's cult gave you the plague, and now you take up the craft that cult was built on. I don't pity you; I envy you a little, because you've seen the end of this road already and came back to walk it with your eyes open." } },
+      choices = {
+        { text = "I walk it to burn the Scourge.", next = "BACK", reply = "Then the Dark Lady chose her warlocks well. Burn them thoroughly, and I'll teach you how." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    sell = {
+      lines = { { id = "se_default", text = "Everyone in the Cleft is selling something, and I'm only honest enough to sound like it. The rogues sell silence and the reagent man sells shards and candles, and I sell the idea that you can hold this power and stay yourself." } },
+      choices = {
+        { text = "And is that idea true?", next = "sell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sell2 = {
+      lines = { { id = "se2_default", text = "It's true for the ones who believe it hardest and check it most often. The old warlocks believed it once and stopped checking, and you know what came of them, so I sell the belief and I insist on the checking." } },
+      choices = { { text = "A merchant who insists on quality, then.", next = "BACK", reply = "It is, and my prices are fair, or at least they're Orgrimmar prices." } },
     },
     ruin = {
-      lines = { { id = "r_default", text = "The orcs were ruined by bowing to demons, not by learning their names. A warlock commands, and a slave obeys, and there is all the difference in the world between them." } },
-      choices = { { text = "And if the demon wins, the warlock is lost.", next = "ruin_wins" } },
+      lines = { { id = "r_default", text = "The orcs were ruined by bowing to demons, not by learning their names. A warlock commands and a slave obeys, and there is all the difference in the world between them." } },
+      choices = {
+        { text = "And if the demon wins, the warlock is lost.", next = "ruin_wins" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
     },
     ruin_wins = {
-      lines = { { id = "rw_default", text = "Then the warlock was weak, and the Horde is better rid of him. That is the price of the art, and every student of mine pays it willingly." } },
+      big = true,
+      lines = { { id = "rw_default", text = "Then the warlock was weak, and the Horde is better rid of him. That's the price of the art, and every student of mine pays it willingly." } },
       choices = {
         { text = "Power like that should be watched closely.", next = "BACK", reply = "It should, and I watch it more closely than anyone. That's the art.", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Strength takes risks. The weak can stay above.", next = "BACK", reply = "Exactly, and the weak are welcome to their sunlight. Down here, we take the risk.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Strength takes risks. The weak can stay above.", next = "BACK", reply = "And the weak are welcome to their sunlight. Down here, we take the risk.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "BACK" },
       },
     },
     cleft = {
-      lines = { { id = "c_default", text = "The lowest part of the city, where rogues and warlocks and the less welcome trades keep their shops. The Warchief knows we are here, and so long as we pay the guards on time, he doesn't come down to look." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "c_default", text = "It's the lowest part of the city, where rogues and warlocks and the less welcome trades keep their shops. The Warchief knows we're here, and so long as we pay the guards on time, he doesn't come down to look." } },
+      choices = {
+        { text = "And the cave at the bottom?", next = "cleft2" },
+        { text = "Back to the other questions.", next = "BACK" },
+      },
+    },
+    cleft2 = {
+      lines = { { id = "c2_default", text = "Ragefire Chasm, where the Searing Blade keep their own little congregation under our feet. They're the reason the guards count us so carefully, and I can't say I blame the guards." } },
+      choices = { { text = "Let's talk about something else.", next = "BACK" } },
     },
   },
   topics = {
     _none = { { id = "tp_none", text = "Some things are better left unasked in the Cleft, friend." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The Legion's power is a tool, nothing more, and a tool can be used by anyone with the will to master it. The old warlocks lost that mastery, and I do not intend to make their mistake." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief tolerates us, which is wiser than most. He knows the Horde needs every weapon it can find, even ones that make him uncomfortable." } },
-    forsaken = { { id = "tp_forsaken", text = "The Forsaken have warlocks too, and they are less squeamish than ours. I find them refreshing company, if a little cold." } },
-    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal was our door into this world, and the warlocks of the old Horde opened it. Whatever lies on the other side is still waiting, and I would very much like to know what." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's power is a tool, nothing more, and a tool can be used by anyone with the will to master it. The old warlocks lost that mastery, and I don't intend to make their mistake." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief tolerates us, which is wiser than most would be. He knows the Horde needs every weapon it can find, even the ones that make him uncomfortable." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have warlocks too, and they're less squeamish than ours. I find them refreshing company, if a little cold." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal was our door into this world, and the warlocks of the old Horde opened it. I sometimes wonder what's left of Draenor on the other side, though I'm in no hurry to find out." } },
   },
 }

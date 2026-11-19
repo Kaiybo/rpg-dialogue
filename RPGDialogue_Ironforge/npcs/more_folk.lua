@@ -873,14 +873,15 @@ P:NPC {
   communities = { "ironforge" }, temper = { "cold", "precise" }, values = { "power", "knowledge" },
   notices = { "class", "race" },
   impression = {
-    first = "He speaks as if each word costs him, and rarely blinks.",
+    first = "Alexander Calder stands among Gerrig Bonegrip's shelves in a dark coat, a tall human in a cavern built for dwarves. He speaks as if each word costs him, and he rarely blinks.",
     third = "{name} met Alexander Calder, a human warlock trainer in the Forlorn Cavern.",
   },
   greetings = {
     { id = "g_night", when = { timeOfDay = "night" }, text = "The cavern is quieter at this hour, and I prefer it. Speak softly, if you must speak." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back down the stairs. Most do not, once they have seen the shelves." },
-    { id = "g_hi", text = "Yes? If you've come to learn, I'll teach you. If not, I'd prefer you didn't linger." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Welcome back. Your servants are well, I trust?" },
+    { id = "g_hi", text = "Yes? If you've come to learn, I'll teach you, and if not, I'd prefer you didn't linger among the books." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Another of the craft, and in one piece. I trust your servants have been behaving themselves?" },
+    { id = "g_lockh", when = { class = "WARLOCK", race = "Human" }, text = "A human warlock under Ironforge rather than under Stormwind. Either the Lamb's cellar was too crowded for you, or you have the sense I had." },
   },
   notice = {
     { id = "n_holy", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
@@ -889,21 +890,26 @@ P:NPC {
       text = "A gnome. Your people take to this art more readily than the dwarves do, and I have never decided whether that is curiosity or simply a lack of fear." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "You carry the shadow well. Some take years to stop flinching from it." },
+    { id = "n_steed", cat = "class", when = { class = "WARLOCK", minLevel = 40 },
+      text = "You have walked a long way on your own feet for someone of your standing. We should speak about that." },
   },
   start = "hello",
   nodes = {
     hello = {
+      narr = "He closes the book he was reading without marking the page, as though he already knows where he left off.",
       lines = {
-        { id = "h_default", text = "Alexander Calder. I teach those who would master the shadow, in a cavern where nobody asks too many questions. The dwarves tolerate us, which is more than Stormwind ever did." },
-        { id = "h_lock", when = { class = "WARLOCK" }, text = "Ah, a student. What would you learn today?" },
+        { id = "h_default", text = "Alexander Calder. I teach those who would master the shadow, in a cavern where nobody asks too many questions, and the dwarves tolerate us, which is more than Stormwind ever did." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "Then you are a student, and I will tell you what I tell all of them: I teach power, and what you do with it is a matter for you and whatever gods still speak to you. What would you learn today?" },
       },
       again = {
         { id = "h_again3", text = "You have more questions. Ask them quietly, please, because Gerrig's customers startle easily." },
         { id = "h_again", text = "Is there anything else? I would ask you to be brief." },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", when = { class = "WARLOCK" }, text = "Go on, then, and ask what you came down here to ask." },
       },
       choices = {
-        { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I'm tired of walking everywhere.", next = "steed", when = { class = "WARLOCK", minLevel = 40 } },
+        { text = "What do you teach that the gnomes don't?", next = "power", when = { class = "WARLOCK" } },
         { text = "Why teach here, and not in Stormwind?", next = "stormwind" },
         { text = "Isn't what you teach dangerous?", next = "danger" },
         { text = "You teach out of the back of a bookshop.", next = "shop" },
@@ -913,13 +919,32 @@ P:NPC {
     },
     stormwind = {
       lines = { { id = "st_default", text = "There are warlocks in Stormwind, beneath the Slaughtered Lamb, but they're watched closely by the Church. Here, the dwarves care more about whether we pay our rent than what we do with our evenings." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who teaches in the Lamb's cellar?", next = "lamb" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    lamb = {
+      lines = {
+        { id = "lb_default", text = "Demisette Cloyce, who trained me and still writes to remind me of it, and Gakin the Darkbinder, who sets the bindings. They are good teachers working under a cathedral's shadow, and a teacher who is always looking over his shoulder cannot look closely at anything else." },
+      },
+      choices = {
+        { text = "Is that the only reason you left?", next = "lamb2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    lamb2 = {
+      lines = { { id = "lb2_default", text = "No. Some years ago the Defias broke into the cellar and carried off tomes that should never have left it, and the Church's answer was to watch us harder rather than to catch the thieves. I decided I would rather be trusted by dwarves than suspected by my own city." } },
+      choices = {
+        { text = "The Defias have warlocks of their own, then.", next = "BACK", reply = "They have stolen books and a few fools who can read them, and that is worse than having warlocks." },
+        { text = "That's a fair grievance.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     danger = {
-      lines = { { id = "da_default", text = "Of course it is, and so is a forge, and so is a rifle. Power is always dangerous to those who can't control it." } },
+      lines = { { id = "da_default", text = "Of course it is, and so is a forge, and so is a rifle. Power is always dangerous to those who can't control it, and only somewhat less dangerous to those who can." } },
       choices = {
         { text = "And can you control it?", next = "danger_control" },
-        { text = "Something else.", next = "BACK" },
+        { text = "I'll take your word for it.", next = "BACK" },
       },
     },
     danger_control = {
@@ -927,8 +952,38 @@ P:NPC {
       lines = { { id = "dc_default", text = "I've controlled it for twenty years, and I'm still here. Tell me, do you think power should be feared, or mastered?" } },
       choices = {
         { text = "Feared. Some power should never be touched.", next = "BACK", reply = "Then you'll never be a warlock, and perhaps that's for the best.", fx = { align = { light = 1 } } },
-        { text = "Mastered. Fear is for the weak.", next = "BACK", reply = "Now that's an answer I can respect. Come back if you change your mind about learning.", fx = { align = { light = -1 } } },
+        { text = "Mastered. Fear is for the weak.", next = "BACK", reply = "Now that's an answer I can respect, and I'd ask you to remember it the first time you're afraid.", fx = { align = { light = -1 } } },
       },
+    },
+    power = {
+      lines = {
+        { id = "pw_gnome", when = { race = "Gnome" }, text = "Briarthorn and Thistleheart teach you to keep a demon from killing you, which is necessary and dull. I teach you what to do with it once it has stopped trying, and that is the part that wins wars against the Legion." },
+        { id = "pw_default", text = "The gnomes teach you to keep a demon from killing you, which is necessary and dull. I teach you what to do with it once it has stopped trying, and that is the part that wins wars against the Legion." },
+      },
+      choices = {
+        { text = "You sound ambitious for a teacher.", next = "power2" },
+        { text = "Back to the other questions.", next = "BACK" },
+      },
+    },
+    power2 = {
+      big = true,
+      lines = { { id = "pw2_default", text = "I am ambitious, and I see no shame in it, since the Burning Legion is the most ambitious thing in creation and I would rather not meet it with modest goals. What about you, {class}? Why did you take this road?" } },
+      choices = {
+        { text = "For power. I'll not be weak again.", next = "BACK", reply = "An honest answer, and a dangerous one, which is how the honest ones usually are.", fx = { align = { light = -1 } } },
+        { text = "To turn the Legion's weapons back on them.", next = "BACK", reply = "That's the answer the gnomes give, and I've noticed they live longer than the rest of us.", fx = { align = { light = 1 } } },
+        { text = "I'm still working that out.", next = "BACK", reply = "Then work it out before your demon does it for you." },
+      },
+    },
+    steed = {
+      lines = { { id = "sd_default", text = "Then you're ready for the Felsteed, which is a demon of the Nether made to carry a rider and nothing more. I teach the summoning of it here, and it will bear you faster than any horse in Katie Hunter's paddock, though it will never once be glad of you." } },
+      choices = {
+        { text = "A demon that only carries me? Is it safe?", next = "steed2" },
+        { text = "Then teach me.", next = "BUSINESS" },
+      },
+    },
+    steed2 = {
+      lines = { { id = "sd2_default", text = "Safer than most, because it has no wit to plot with, only hooves and fire. Feed it nothing, thank it never, and dismiss it before you dismount in a town, because the dwarves have very long memories for scorched cobbles." } },
+      choices = { { text = "Never thank it. Noted.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     shop = {
       lines = { { id = "sh_default", text = "Gerrig Bonegrip rents me the corner, and in return my students buy his books. It is a sensible arrangement, since he asks nothing about my lessons and I ask nothing about where his manuscripts come from." } },
@@ -940,18 +995,18 @@ P:NPC {
     },
     shop_gerrig = {
       lines = { { id = "sg_default", text = "He is a collector, and collectors are safer than believers. A man who wants a forbidden book in order to own it will rarely do anything so foolish as read it aloud." } },
-      choices = { { text = "That is a thin sort of comfort.", next = "BACK", reply = "It is the only sort this cavern offers, and I have learned to be content with it." }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "That is a thin sort of comfort.", next = "BACK", reply = "It is the only sort this cavern offers, and I have learned to be content with it." }, { text = "Let's move on.", next = "BACK" } },
     },
     shop_students = {
-      lines = { { id = "ss_default", text = "Very few. Most who come down these stairs are gnomes out of Tinker Town or humans who found Stormwind too watchful, and I turn away the ones who are only angry. Anger is a poor reason to open a door that does not close again." } },
+      lines = { { id = "ss_default", text = "Very few, because a dwarf who feels the pull of it usually drinks until it goes away. Most who come down these stairs are gnomes out of Tinker Town or humans who found Stormwind too watchful, and I turn away the ones who are only angry, since anger is a poor reason to open a door that does not close again." } },
       choices = {
         { text = "At least you turn some away.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     holy = {
       lines = { { id = "hy_default", text = "That is more generous than your Church has ever been, and I will accept it in the spirit you offer it. Control is the whole of what I teach, as it happens, and the rest is only vocabulary." } },
-      choices = { { text = "Then we understand each other.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Then we understand each other.", next = "BACK", fx = { affinity = 1 } }, { text = "I'll keep an eye on you all the same.", next = "BACK", reply = "Do, by all means. I have been watched by better." } },
     },
   },
   topics = {
@@ -959,8 +1014,9 @@ P:NPC {
     demons = { { id = "tp_demons", text = "They are servants, and a servant you do not watch becomes a master. That is the first lesson, and for some students it is also the last." } },
     forlorn_cavern = { { id = "tp_cavern", text = "It is damp, ill lit, and avoided by everyone with a reputation to keep. I could not have designed a better classroom." } },
     gerrig = { { id = "tp_gerrig", text = "My landlord. He pays for books that others would burn, and I find it more restful not to ask why." } },
-    background = { { id = "tp_bg", text = "I'm a teacher. What I teach is my own affair." } },
-    _none = { { id = "tp_none", text = "I have no interest in that." } },
+    slaughtered_lamb = { { id = "tp_lamb", text = "The tavern in Stormwind's Mage Quarter where I learned the craft, under Demisette Cloyce. The ale was poor and the lessons were not." } },
+    background = { { id = "tp_bg", text = "I am a teacher from Stormwind who preferred a mountain over his head to a cathedral. The rest is my own affair." } },
+    _none = { { id = "tp_none", text = "I have no interest in that, and I suspect you have better people to ask." } },
   },
 }
 

@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "Wards are the useful part. I'll study them.", next = "BACK", reply = "A wise choice, and the one I'd have made at your age. Wards are where all the real cleverness lives.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "Wards only teach you what's behind them.", next = "BACK", reply = "Precisely why I'll show you nothing else, {class}. Some doors I prefer to leave closed, and locked, and warded.", fx = { align = { light = -1 } } },
+        { text = "Wards only teach you what's behind them.", next = "BACK", reply = "Precisely why I'll show you nothing else, my friend. Some doors I prefer to leave closed, and locked, and warded.", fx = { align = { light = -1 } } },
       },
     },
     sky_xy = {
@@ -484,7 +484,7 @@ P:NPC {
   key = "sanath", id = TODO_NPC("Sanath Lim-yo"), name = "Sanath Lim-yo",
   bible = "bibles/azshara.md", role = "questgiver", tier = "quest",
   communities = { "xylems_tower" }, temper = { "proud", "sharp" }, values = { "proud", "dutiful" },
-  notices = { "race", "class", "kit" },
+  notices = { "race", "class", "kit", "lock_taint" },
 
   impression = {
     first = "He insulted my clothes, face and reasons, then got bored of it.",
@@ -504,6 +504,8 @@ P:NPC {
       text = "A mage, here to grovel for lessons. My master will love you; he adores an audience." },
     { id = "n_kit", cat = "kit", when = { nearlyNaked = true },
       text = "You've come to see the Archmage dressed like that? That's bold, in the way that falling off a cliff is bold." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You've a faint green glow about the face, which is vulgar, and you're tracking it all over my master's floor. He'll find it fascinating, of course, so I'll be the one who has to scrub." },
   },
 
   start = "hello",
@@ -558,7 +560,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." } },
+      lines = {
+        { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My master studies everything, and nothing he finds is quite as interesting as himself, though your demon might come close, the way he would stare at it. The Highborne dabbled in the demonic, so there are tablets he keeps locked away, and I'd rather you not bring that thing near his door." },
+      },
       choices = {
         { text = "Some knowledge should stay locked away.", next = "BACK", reply = "Wise, and my master would agree, though he'd never say so. He's not always as reckless as he looks.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd like to read those tablets myself.", next = "BACK", reply = "Then you'll have to get past my master, and then past me, and I'm much less pleasant. I'd not try it.", fx = { align = { light = -1 } } },

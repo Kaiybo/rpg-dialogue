@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-19)
+- Warlocks: NPCs react to the demon at your side, your Demon Armor, soul shards, soulstones and Fel Taint. Where warlockry is banned, warlocks speak in hints and people sense rather than name it; some NPCs openly dislike warlocks. Warlock trainers and quest-givers rewritten and deepened.
+
 ## 1.31.0 (2026-11-18)
 - More named NPCs the earlier passes missed now have conversations, and thin ones have more to say. New files: restart the game fully.
 - Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.

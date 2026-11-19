@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You'll think enchanting is a lesser art, as your kind usually do, until you try to hold a spell inside a cloak for a year." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. Don't bring your fel up here; it sours the rods, and I can smell it on you from the path." },
+      text = "Don't bring that up here; I can smell it on you from the path, sulphur and worse. It sours the rods." },
   },
 
   start = "hello",

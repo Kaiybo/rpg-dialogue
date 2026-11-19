@@ -6,14 +6,22 @@ P:NPC {
   key = "kayneth", id = TODO_NPC("Kayneth Stillwind"), name = "Kayneth Stillwind", title = "",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "forest_song" }, temper = { "tense" }, values = { "dutiful", "protective" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Watches Demon Fall Canyon nightly and has seen what crawls out of it." },
   impression = {
     first = "He speaks like a man counting arrows.",
     third = "{name} met Kayneth Stillwind, who keeps watch at Forest Song in eastern Ashenvale.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watch Demon Fall Canyon every night, and you smell like what crawls out of it. Make this quick." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been through Forest Song more than once and nothing followed you up from the canyon. That's something, though not much." },
     { id = "g_default", text = "Welcome to Forest Song, {class}, the last kind word you'll hear before Felwood." },
     { id = "g_back", when = { metBefore = true }, text = "You're back in the east, then, and in one piece. The Forsaken's last messenger came back in several." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is green in your eyes that was not there when you first came through Forest Song, or perhaps I never looked properly. You have been down where Felwood bleeds into this forest, I think, and it has followed you back." },
   },
 
   start = "hello",
@@ -125,11 +133,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched folk like you go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. Your demon is looking down the road toward it like a hound that smells home, and I've never asked what warlocks find in that canyon, because I'd rather not know." },
       },
       choices = {
         { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", reply = "Then thin them, and gladly, and come back to tell me. The canyon has too many already.", fx = { align = { light = 1 } } },
-        { text = "I go down there to learn. That's my own business.", next = "BACK", reply = "It is, warlock, but my Sentinels will watch you go down, and come up. Mind what you learn.", fx = { align = { light = -1 } } },
+        { text = "I go down there to learn. What I learn is my own business.", next = "BACK", reply = "It is, but my Sentinels will watch you go down, and come up. Mind what you learn.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -146,7 +155,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Forest Song, and welcome. The Forsaken carry their sickness into the eastern woods and the demons foul the canyon, so I'll take every healer of the land the Circle can spare." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Half my watch is spent counting demons in the canyon, and now I've one more to count. Say what you want." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again. I've mostly stopped counting you with the canyon's lot. What is it?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a sulphur smell on you, with Demon Fall Canyon just to the south of us. I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other, so perhaps your spirits might help me count arrows." },
@@ -240,6 +251,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again, and still holding that thing wrong, I see. Come in, then." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Stand back from the drying rack, if you would, because the yew has gone dark along the grain where your shadow fell. I'll have to split that stave for kindling now, and it was a good one." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -309,10 +325,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the wood takes on whatever's near it while it dries, and I won't have a bow that smells of the Burning Legion. Laugh if you like, but a good bow knows things, and I've broken the ones that learned the wrong things over my knee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the wood takes on whatever's near it while it dries, and your servant is standing right beside my drying rack. If one stave of mine comes away smelling of the Burning Legion, I'll break it over my knee and send you the bill, so walk it downwind." },
       },
       choices = {
         { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", reply = "Thank you. You'll get a better bow for it, I promise you.", fx = { align = { honor = 1 } } },
-        { text = "Wood is wood. You're superstitious, bowyer.", next = "BACK", reply = "Superstitious, yes, and alive. I'll keep my staves away from your servant.", fx = { align = { honor = -1 } } },
+        { text = "Wood is wood. You're superstitious, bowyer.", next = "BACK", reply = "Superstitious, yes, and alive. I'll keep my staves away from that creature.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -328,7 +345,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want a bow, I suppose, but you're welcome to rest your feet while I work." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock out here, of all places. You won't want a bow, and I'd thank you to keep that thing of yours away from my drying staves." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You won't want a bow, I think, and I'd thank you to keep that thing of yours away from my drying staves." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Show me how you hold a bow, because your spirits won't straighten a crooked grip, and the Sentinels never forgive one." },
       },
       again = {
@@ -346,7 +363,7 @@ P:NPC {
         { text = "Do you ever wish for company out here, Bhaldaran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why keep my servant away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why keep my companion away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd have thought a shaman had no need of a bow, Bhaldaran.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
@@ -485,7 +502,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The water spirits along this shore have been uneasy since the naga came up out of the bay, and I'd value your ear on it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest who walks with the Horde. The naga leave our wounded bleeding in the surf, so whatever answers your prayers, Light or loa or shadow, I'll be glad of your hands here." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and a long way from any library. The naga have sorceresses of their own out on the strand, so I hope your fire burns hotter than their water." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I remember what your craft did to my people, and I serve a Warchief who chose to let you live, so I'll keep faith with him and watch you all the same." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "I know what you are, and I remember what your craft did to my people. I serve a Warchief who chose to let your kind live, so I'll keep faith with him and watch you all the same." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move like someone who doesn't want to be counted, which suits me. The elves have eyes in every tree around this strand, and I'd like a few of my own." },
         { id = "h_default", text = "I am Karang, and this outpost is the Horde's foothold on the western shore. The naga crawl up from the water, the elves watch from the trees, and somewhere out in the bay lies Blackfathom Deeps, full of things worse than either." },
         { id = "h_cond", when = { race = "Orc" }, text = "An orc of the Horde, good. You'll know we didn't come to this coast to admire it, so let us speak plainly." },

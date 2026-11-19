@@ -16,6 +16,11 @@ P:NPC {
     { id = "g_default", text = "Mail, shields and a few good helms. Nothing fancy, but it'll stop a kobold's pick." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. That's the armor doing its job." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You've a soulstone in that pack, haven't you? It's the same cold dark I wouldn't build that iron cage to hold, and I'll ask you to keep it well away from my shields." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -77,7 +82,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." } },
+      lines = {
+        { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. Looking at that thing beside you now, I'm surer of it, because no cage of mine would hold those eyes, and I'd not want to be the smith who tried." },
+      },
       choices = {
         { text = "Your iron should stay clean, Godric. You're right to refuse.", next = "BACK", reply = "I'm glad somebody agrees, and gladder it's one of your sort. Bring me a lock to mend any day you like, but never a cage.", fx = { align = { light = 1 } } },
         { text = "A good cage keeps everyone safer. You should reconsider.", next = "BACK", reply = "Safer for whom, I'd ask, and I'll not lose sleep over the answer. Find yourself another smith, because my iron stays honest.", fx = { align = { light = -1 } } },
@@ -111,7 +119,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll not be wanting my plate, I expect, though you'll be glad of whoever's wearing it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, and Drusilla La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
+          text = "You've graveyard mud on your boots and a look I've seen on La Salle's students. You'll have nothing to do with my forge, then, unless you need a cage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want mail that bends at the shoulder, so the bow doesn't fight you." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a link of mail on you, which offends me as an armorer and impresses me as a man. I suppose that bark-skin trick serves you well enough." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want leather, not my mail, I expect, but you'll be glad of whoever's wearing it when you're caught." },
@@ -126,7 +134,7 @@ P:NPC {
         { text = "Something around here wrecks a lot of shields.", next = "dents" },
         { text = "I doubt the recruits listen to you much.", next = "recruits" },
         { text = "Do you think mages owe your plate-wearers something?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Have you ever made a cage for a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has anyone ever asked you to forge a cage for something living, Godric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why would I want a shield over a better sword, Godric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you make mail that lets me draw a bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever pray over your work, Godric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -180,6 +188,11 @@ P:NPC {
     { id = "g_default", text = "Cloth and leather, friend, sewn here at the Abbey. Mind the hems; they're new." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. No tears in that sleeve yet, I hope?" },
   },
+  notice = {
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That hide over your shoulders isn't anything I sell, and it's shedding something black onto my good linen. I'll mend your robes all day, but I can't mend whatever that is." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -232,7 +245,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They come back with mud from the graves and soot from whatever they've been burning, and I spend more time mending their robes than the priests' and the mages' together. The Brothers say it's penance for selling to them, but I think it's just mud." } },
+      lines = {
+        { id = "xlock_default", text = "They come back with mud from the graves and soot from whatever they've been burning, and I spend more time mending their robes than the priests' and the mages' together. The Brothers say it's penance for selling to them, but I think it's just mud." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They come back with mud from the graves and soot from whatever they've been burning, and I'd wager the thing at your heel is where the soot comes from. Keep it away from my folded stock, because I spend more time mending your lot's robes than the priests' and the mages' together." },
+      },
       choices = {
         { text = "I'll take better care of your work, Dermot.", next = "BACK", reply = "That's very good of you, though I'll believe it when I see clean hems. A little less grave mud would do us both good.", fx = { align = { light = 1 } } },
         { text = "Robes are for wearing out. That's the trade.", next = "BACK", reply = "I suppose it is, though most trades don't wear out quite so fast as yours. I'll keep my needle busy either way.", fx = { align = { light = -1 } } },
@@ -266,7 +282,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Dark leather, I suppose, and nothing that squeaks. I've sold to your sort before, though they never come back to say how it went." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. You'll be after a robe, and I'll sell you one, though I'll ask you to keep it out of the graveyard mud." },
+          text = "Soot on your sleeves and grave mud on your hem, so I can guess whose student you are. I'll sell you a robe, but keep this one out of the graveyard." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my shop! Padding, then, for under your mail, and I've some that's barely been sat on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want leather that doesn't snag on the brambles by the vineyards, and I've just the thing." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in Northshire, and that's finer stitching on your sleeve than any of mine. I'd ask who made it if I thought you'd tell me." },
@@ -333,6 +349,11 @@ P:NPC {
     { id = "g_default", text = "Swords, maces an' axes, every one forged honest. Pick one an' hold it the right way round, if ye please." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer fingers. Good, that means ye listened." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Yer pack's clinkin' like a bag o' cold gems, {g:lad|lass}, an' I've handled enough gems tae know they shouldnae hum. Keep it off my anvil, for I'll no' have a soul rattlin' about in my steel." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -346,7 +367,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. Drusilla La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." } },
+      lines = {
+        { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. Drusilla La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. An' keep yer {pet} back from my anvil, because it's been glarin' at the steel like it's got opinions, an' a straight blade doesn't care what a demon thinks of it." },
+      },
       choices = {
         { text = "Plain it is. I've no need to frighten anyone.", next = "BACK", reply = "Sensible, an' the guards'll thank ye for it. A plain blade does its work an' nobody stares at ye on the road.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take the wicked-looking one. Fear has its uses.", next = "BACK", reply = "Fear's a fine tool till it makes the guards draw on ye. I'll sell it ye, but dinnae come cryin' when ye're stopped at every gate.", fx = { align = { light = -1 } } },
@@ -432,7 +456,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll hold a blade like it means somethin', or I'll know why." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do ye carry a gun, or one o' those bows? I'll forgive the bow, if ye're a good shot." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf! I've no' seen one o' yer folk since Ironforge, an' never one who walked intae a smithy on purpose." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers an' staves, an' I'll sell one tae ye, though I'd wager my beard ye mean tae do yer killin' some other way." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a cold look about ye, an' I can guess who taught ye. I sell daggers an' staves, an' I'll sell one tae ye, though I'd wager my beard ye mean tae do yer killin' some other way." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, by the look o' ye! Well, if the stone talks tae ye, ye'll know how tae hold a blade better than these humans." },
       },
       again = {
@@ -450,7 +474,7 @@ P:NPC {
         { text = "I'd guess dwarves pray before battle, Janos.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "You'd forge a fine hammer for a paladin, I'd wager.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do dwarves have any love for the forest, Janos?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Which blade would you sell a warlock, Janos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Which blade would you sell someone whose spells sometimes fail, Janos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You must miss Ironforge, Janos.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
@@ -490,14 +514,23 @@ P:NPC {
   key = "paxton", id = TODO_NPC("Brother Paxton"), name = "Brother Paxton", title = nil,
   bible = "bibles/northshire_smiths.md", role = "priest", tier = "service",
   communities = { "northshire" }, temper = { "gentle" }, values = { "faith", "mercy" },
+  prejudice = { class = "WARLOCK", amount = 10, why = "Heals novices burned and chilled when Drusilla's students' summonings go wrong." },
   impression = {
     first = "He seems to know every bruised recruit by name.",
     third = "{name} met Brother Paxton, who walks Northshire's grounds healing the recruits.",
   },
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent too many nights healing novices your fellows burned by mistake. Keep your creature away from the wounded, or I'll call the guard." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll heal any soul who comes to me hurt, but I won't pretend I'm glad to see you. Say what you need." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never brought me a burned novice yet, which is more than I can say for your teachers. Go on, then, but carefully." },
     { id = "g_default", text = "Light be with you. If you're hurt, say so; that's what I'm walking about for." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again, and standing upright, praise the Light." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light goes quiet around you, as quiet as a chapel with the candles out, and I've felt that only a few times before. I'll still mend you if you're hurt, but I wanted you to know that I noticed." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -559,7 +592,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." } },
+      lines = {
+        { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I can feel it draw back from the creature standing at your side. I'll still mend you if you come to me hurt, though I'll ask you to send that thing away before I lay hands on you." },
+      },
       choices = {
         { text = "I'm grateful for your mercy, Brother. I'll remember it.", next = "BACK", reply = "I hope you will, and I hope you'll come to me before you need to. I walk past the graveyard gate every evening, whatever you've been doing.", fx = { align = { light = 1 } } },
         { text = "I don't need the Light. My power answers to me.", next = "BACK", reply = "Then I'll pray for you all the same, and you needn't thank me for it. Come back if your power ever fails you.", fx = { align = { light = -1 } } },
@@ -593,6 +629,8 @@ P:NPC {
           text = "A mage! Khelden Bremen's students always come to me with burns on their fingers, and I mend them and tell them to be more careful, though they never are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come from Drusilla La Salle's graveyard. I can feel it on you, and I'll admit it makes me uneasy." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Another of Drusilla La Salle's students, walking the Abbey grounds as if you belonged here. I mend the hurts your kind leaves behind, and I'm tired of it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ah, you. You're the one who's never once left a novice for me to mend. Come in, and keep your friend at the gate." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be the reason I walk the long way round to the barracks, I expect, with linen in both hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I mend your beasts too, you know, if they'll let me close enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, here at the Abbey! If you can mend a wolf bite, I'll gladly share the work, because the recruits bring me more than I can carry." },
@@ -607,7 +645,7 @@ P:NPC {
         { text = "Why walk, instead of staying in the Abbey?", next = "walk" },
         { text = "What do the Abbey's scribes use for ink, Brother?", next = "ink" },
         { text = "Khelden's students seem to burn themselves often.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "The Light must turn a warlock away, Brother.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there anything the Light turns away, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You must mend a great many warriors, Brother Paxton.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will the Light mend a hunter's beast, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's the hardest wound you've mended on these grounds, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

@@ -19,6 +19,11 @@ P:NPC {
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I've heard you were caught in an untruth in Nighthaven, and the Circle notices that as surely as it notices good work. Keep it in mind when you come to trade." },
   },
 
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? The druids will smell it, I'm afraid, because a warlock's stone always smells faintly of what it was made from. I'd keep it in your pack while you shop, and I'll pretend I didn't notice." },
+  },
+
   start = "hello",
   nodes = {
     xdsham = {
@@ -98,10 +103,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's been done, I'm told, though not often, and never by talking. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." } },
+      lines = {
+        { id = "xlock_default", text = "It's been done, I'm told, though not often, and never by talking. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's been done, I'm told, though not often, and never by talking, and certainly never with a demon standing at the warlock's elbow in the grove. Help heal what your craft has harmed, in Felwood and wherever else the land is sick, and the druids may yet forgive the company you keep." },
+      },
       choices = {
         { text = "Then I'll heal what I can, for the forest's sake.", next = "BACK", reply = "Then the forest will feel it, and the druids will notice in time. They'll grumble about your company all the while, but they'll notice.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Forgiveness is their concern. I'll keep my company.", next = "BACK", reply = "That's your right, warlock, and the Circle won't force you. But I hope you'll think on what you carry.", fx = { align = { light = -1 } } },
+        { text = "Forgiveness is their concern. I'll keep my company.", next = "BACK", reply = "That's your right, and the Circle won't force you. But I hope you'll think on what you carry.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,7 +147,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, but I'm glad to see what you'll grow." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The Circle's goods are counted twice a day, and I'm the one who counts them, so I'd ask you to keep your hands where I can see them." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Most of what I hold was made by druid hands, without a spark of the arcane in it, and the Circle prefers it that way." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who keep demons." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend anyone who smells of brimstone." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. You're one of ours, and you'll find I keep the Circle's goods for those who've earned its trust, so let's see how far you've come." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle sells its wares to those it trusts, and I'll admit I'm curious how a child of Ironforge earns it." },
       },
@@ -156,7 +164,7 @@ P:NPC {
         { text = "Does the Circle trust a priest of the Horde?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Circle trust a rogue at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does the Circle prefer goods without the arcane in them?", next = "xmage", when = { class = "MAGE" } },
-        { text = "I doubt a warlock could ever win the Circle's friendship.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I doubt someone like me could ever win the Circle's friendship.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "So how does one earn the Circle's trust?", next = "xdruid", when = { class = "DRUID" } },

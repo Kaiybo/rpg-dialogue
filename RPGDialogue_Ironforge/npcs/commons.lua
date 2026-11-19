@@ -8,7 +8,7 @@ P:NPC {
   key = "thorius", id = TODO_NPC("Curator Thorius"), name = "Curator Thorius",
   bible = "bibles/commons.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "warm" }, values = { "curious", "loyal" },
-  notices = { "trophy" },
+  notices = { "trophy", "lock_shadow" },
 
   impression = {
     first = "He loves his brother Dorius more than everything in the museum.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "A League explorer! Have ye brought me anythin'? Even a pot shard; I'm very fond o' pot shards." },
     { id = "n_trophy", cat = "trophy", when = { minLevel = 45, questBefore = TODO_QUEST("Proof of Deed") },
       text = "Ye've the look o' someone who's been tae the Searing Gorge an' come back. If ye ever bring back somethin' remarkable, bring it tae me first." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamps over the titan cases dimmed a hair when ye came through the door, an' they've never done that for a tour before. I'll take ye round all the same, but ye'll forgive me if I walk on the side nearest the lamps." },
   },
 
   start = "hello",
@@ -103,11 +105,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' a demon standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by a curious imp." },
+        { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' yer wee shadow standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by somethin' curious." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An' now there's a demon standin' over the cases, which is the very thing I was afraid of, for there's titan-work in them an' I've no notion what it'll make o' yer {pet}. My brother Dorius risks his neck in the Searing Gorge for every stone he sends me, so keep it back from the glass, for it's starin' at them like it's hungry." },
       },
       choices = {
-        { text = "Understood. My demon waits by the door.", next = "BACK", reply = "Thank ye kindly. I'd rather no' find out what titan-work thinks o' demons, an' Dorius would never forgive me if I did.", fx = { align = { order = 1 } } },
-        { text = "Your relics are sturdier than you think, Curator.", next = "BACK", reply = "Maybe they are, but I'd rather no' learn it the hard way, so keep yer demon by the door an' I'll keep my relics in one piece.", fx = { align = { order = -1 } } },
+        { text = "Understood. What follows me waits by the door.", next = "BACK", reply = "Thank ye kindly. I'd rather no' find out what titan-work thinks o' the likes o' it, an' Dorius would never forgive me if I did.", fx = { align = { order = 1 } } },
+        { text = "Your relics are sturdier than you think, Curator.", next = "BACK", reply = "Maybe they are, but I'd rather no' learn it the hard way, so keep yer creature by the door an' I'll keep my relics in one piece.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -134,7 +137,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Mind the titan-work behind the glass, for the last one o' yer kind who leaned close made every rune on it glow, an' I had tae sit down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then ye'll want tae see the east hall, for there's armor there from the War o' the Three Hammers that still has the dents tae prove it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the Hall o' Explorers! I'll gladly give ye the tour, but I'll ask yer wee servant tae wait by the door, for some o' these relics are older than its masters." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Welcome tae the Hall o' Explorers! I'll gladly give ye the tour, but whatever's skulkin' at yer heel can wait by the door, for some o' these relics are older than anythin' it answers tae." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' a dwarf at that! I've no case in this museum for what ye are, an' I've half a mind tae start one." },
       },
       again = {
@@ -154,7 +157,7 @@ P:NPC {
         { text = "Which pieces in the museum belonged to warriors, Curator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you ever kept relics of faith in the museum, Curator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Whose gauntlet is that by the north wall, Curator?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Why must my servant wait by the door, Curator?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why must my companion wait by the door, Curator?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would the museum ever display a shaman's totem, Curator?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What's the best find a company ever brought you?", next = "xpt_thorius", when = { party = true } },
         { text = "Another time, Curator.", next = "END" },
@@ -485,7 +488,7 @@ P:NPC {
   key = "karnik", id = TODO_NPC("Historian Karnik"), name = "Historian Karnik",
   bible = "bibles/commons.md", role = "scholar", tier = "quest",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "serious", "loyal" },
-  notices = { "lore" },
+  notices = { "lore", "lock_taint" },
 
   impression = {
     first = "He grieves his partner Hammertoe and hides it behind work.",
@@ -500,6 +503,8 @@ P:NPC {
   notice = {
     { id = "n_explorer", cat = "lore", when = { origin = "dwarf_explorers_league" },
       text = "One o' the League's own. Then ye know what Uldaman means tae us, an' ye'll understand why I'm short wi' folk who don't." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green cast in yer eyes, an' I've read it described before, in the accounts o' the orcs who crossed the Dark Portal. The chroniclers wrote that the color came first an' the cruelty after, so I'd thank ye tae prove the books wrong." },
   },
 
   start = "hello",
@@ -536,9 +541,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A historian has opinions about everyone, but I've read what the warlocks o' the Horde did tae this land. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." } },
+      lines = {
+        { id = "xlock_default", text = "A historian has opinions about everyone, an' I've read what the warlocks o' the Horde did tae this land. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A historian has opinions about everyone, an' I've read what the warlocks o' the Horde did tae this land, so ye'll forgive me for closin' this book while yer demon's eyes are on the page. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." },
+      },
       choices = {
-        { text = "I'll turn it on the Shadowforge and the Horde, nothing else.", next = "BACK", reply = "I'll take ye at yer word. The Shadowforge have earned it, an' the Horde's warlocks twice over.", fx = { align = { light = 1 } } },
+        { text = "I'll turn it on the Shadowforge and the Horde, nothing else.", next = "BACK", reply = "I'll take ye at yer word. The Shadowforge have earned it, an' the Horde twice over.", fx = { align = { light = 1 } } },
         { text = "History is written by the strong. I intend to be strong.", next = "BACK", reply = "Aye, it is, an' I've read a great many o' the strong, an' most o' them ended badly, so mind which history ye're writin'.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -722,7 +730,7 @@ P:NPC {
   key = "belgrum", id = TODO_NPC("Advisor Belgrum"), name = "Advisor Belgrum",
   bible = "bibles/commons.md", role = "noble", tier = "quest",
   communities = { "ironforge" }, temper = { "steady" }, values = { "loyal", "dutiful" },
-  notices = { "reputation" },
+  notices = { "reputation", "lock_armor" },
 
   impression = {
     first = "He reads quickly, frowns slowly, and feels the King's weight.",
@@ -737,6 +745,8 @@ P:NPC {
   notice = {
     { id = "n_rep", cat = "reputation", when = { reputation = { faction = "Ironforge", min = "revered" } },
       text = "The King knows yer name, ye understand. He doesnae say so often, but he keeps a list, an' ye're on it." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That's no' leather ye've wrapped yerself in but somethin' that was skin on a demon, an' it moves when ye breathe. The King lets yer kind train here, but he'd no' let ye stand at court dressed like that, so mind where ye wear it." },
   },
 
   start = "hello",
@@ -800,7 +810,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It tolerates them because they're trained in this city an' watched in this city, an' I'd rather know where ye are. The King has no love for yer craft, but he has less for the Dark Irons, so ye'll find work if ye point it the right way." } },
+      lines = { { id = "xlock_default", text = "It tolerates them because they're trained in this city an' watched in this city, an' I'd rather know where ye are. The King has no love for yer craft, but he has less for the Dark Irons, so ye'll find work if ye point it the right way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It tolerates them because they're trained in this city an' watched in this city, an' I see ye've brought yer {pet} intae the King's own hall tae make the point. The King has no love for yer craft, but he has less for the Dark Irons, so point that thing the right way an' ye'll find work." },
+      },
       choices = {
         { text = "Point me at the Dark Irons, and I'll prove my worth.", next = "BACK", reply = "Then I'll point, an' gladly, for the Dark Irons have been walkin' our halls in plain coats, an' I'd like them found.", fx = { align = { light = 1 } } },
         { text = "The King will need my craft long before I need his love.", next = "BACK", reply = "Maybe so, but the King's love is what keeps ye in the city, so I'd no' be too quick tae test how much he can spare.", fx = { align = { light = -1 } } },
@@ -843,7 +855,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the King's side door! If ye've come from the Hall o' Mysteries wi' a petition, I'll hear it, but keep it brief, for there's a queue." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll speak plain, as the King would want: there's a warlock in the throne room, an' every guard in the room has a hand on his axe. Say what ye came tae say." },
+          text = "I'll speak plain, as the King would want: ye've brought a smell o' brimstone intae the throne room, an' every guard here has a hand on his axe. Say what ye came tae say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe plenty tae hunters, an' the throne remembers it." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
@@ -862,7 +874,7 @@ P:NPC {
         { text = "What does Ironforge want from Stormwind, Advisor?", next = "k_human", when = { race = "Human" } },
         { text = "What use does the throne have for quiet folk?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How does the throne view the mages of Ironforge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does the throne tolerate warlocks, Advisor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the throne tolerate people with my sort of learning, Advisor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does the King ask of Ironforge's warriors these days?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the throne have any use for hunters, Advisor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The court must pray for the King's daughter.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -972,7 +984,7 @@ P:NPC {
   key = "marblesten", id = TODO_NPC("Grand Mason Marblesten"), name = "Grand Mason Marblesten",
   bible = "bibles/commons.md", role = "worker", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "proud", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "Under the cheer he is weary of carving memorials to soldiers.",
@@ -987,6 +999,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "A miner! Ye've grit in yer knuckles. If ye ever find a seam o' good white marble, ye'll tell me before ye tell anyone else, won't ye?" },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Whatever's clinkin' in yer pack is cold enough that the stone dust on my bench has gone damp beside ye. Granite feels heat an' it feels cold, an' I'd sooner it didnae feel whatever's in those wee purple stones." },
   },
 
   start = "hello",
@@ -1059,10 +1073,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Granite's patient, but it remembers heat, an' I've seen a block crack clean in two from less than a demon's breath. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
+        { id = "xlock_default", text = "Granite's patient, but it remembers heat, an' I've seen a block crack clean in two from less than that wee thing's breath. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Granite's patient, but it remembers heat, an' I can feel the warmth comin' off yer demon from here, so walk it the long way round my block, if ye please. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
       },
       choices = {
-        { text = "I'll keep it away. Sully deserves a perfect stone.", next = "BACK", reply = "Thank ye kindly. Sully's widow has waited long enough, an' I'll no' have his stone crack because o' a careless demon.", fx = { align = { honor = 1 } } },
+        { text = "I'll keep it away. Sully deserves a perfect stone.", next = "BACK", reply = "Thank ye kindly. Sully's widow has waited long enough, an' I'll no' have his stone crack because o' some careless creature.", fx = { align = { honor = 1 } } },
         { text = "Stone is stone. Carve faster, Grand Mason.", next = "BACK", reply = "Faster? The dead dinnae care how fast, only that it's right, an' I'll carve it right if it takes me till spring.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -1086,7 +1101,7 @@ P:NPC {
           text = "A mage, is it? I've seen yer kind try tae shape stone wi' spells, an' it never once came out square." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind ye come home in one piece, for I've carved enough warriors' names this year tae last me a lifetime." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll have an eye for a shape, then, an' I've always said a good hunter would make a passable mason." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Mind where yer servant stands, for I've a block o' Alterac granite set aside for the King's memorial, an' if it scorches the stone I'll be carvin' yer name next." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Mind where ye stand, for somethin' about ye is givin' off heat. I've a block o' Alterac granite set aside for the King's memorial, an' if it scorches I'll be carvin' yer name next." },
       },
       again = {
         { id = "h_again", text = "What else? I've a block coolin' an' a chisel itchin'." },
@@ -1105,7 +1120,7 @@ P:NPC {
         { text = "Why would a hunter make a good mason?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the families ask for prayers carved on the memorials?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "There must be paladins among the names you've carved.", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would my servant really harm your granite, Grand Mason?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would my little companion really harm your granite, Grand Mason?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Grand Mason.", next = "END" },
       },
     },
@@ -1195,7 +1210,7 @@ P:NPC {
   key = "gryth", id = TODO_NPC("Gryth Thurden"), name = "Gryth Thurden", title = "Gryphon Master",
   bible = "bibles/commons.md", role = "flightmaster", tier = "service",
   communities = { "ironforge" }, temper = { "proud" }, values = { "proud", "loyal" },
-  notices = { "mount" },
+  notices = { "mount", "lock_steed" },
 
   impression = {
     first = "He swears his gryphons are tougher than the Wildhammers' birds.",
@@ -1210,6 +1225,8 @@ P:NPC {
   notice = {
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Ye'll want tae get down off that before ye go near my birds. They think everythin' on four legs is lunch." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Every gryphon on this ledge has its hackles up, an' it's that burnin' horse o' yers they smell, for they can scent fire on hooves a mile off. Leave it below the stair an' come up on foot, an' we'll get ye flown." },
   },
 
   start = "hello",
@@ -1255,10 +1272,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fly anyone the King lets through the gates, an' that includes you, so long as yer creature stays on the ground. The gryphon doesnae care what ye are, only what it can smell." } },
+      lines = { { id = "xlock_default", text = "I fly anyone the King lets through the gates, an' that includes you, so long as yer creature stays on the ground. The gryphon doesnae care what ye are, only what it can smell." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fly anyone the King lets through the gates, an' that includes you, but yer creature stays on the ground, an' ye can see why from how my birds are shiftin' on the perch. A gryphon doesnae care what ye are, only what it can smell, an' every one o' them can smell that." },
+      },
       choices = {
         { text = "It stays behind, Gryth. I won't frighten your birds.", next = "BACK", reply = "Thank ye. The birds have no love for anythin' that smells o' brimstone, an' neither have I.", fx = { align = { light = 1 } } },
-        { text = "My servant goes where I go. The birds will learn.", next = "BACK", reply = "Then ye'll be walkin', for my birds will no' learn that lesson while I'm their master, an' I'll no' make them.", fx = { align = { light = -1 } } },
+        { text = "What follows me goes where I go. The birds will learn.", next = "BACK", reply = "Then ye'll be walkin', for my birds will no' learn that lesson while I'm their master, an' I'll no' make them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1311,7 +1330,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "The gryphons have smelled ye comin', so ye might as well step up properly an' stop lurkin' by the pillar." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Keep yer imp well back from the roost, if ye please. The gryphons went daft the last time one o' those wee things came near, an' I spent an hour gettin' them down off the ceilin'." },
+          text = "Keep whatever's at yer heel well back from the roost, if ye please. The gryphons went daft the last time somethin' like it came near, an' I spent an hour gettin' them down off the ceilin'." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ironforge gryphons have carried dwarven warriors since the Second War, an' they've never dropped one, whatever the Wildhammers say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Then ye'll appreciate a beast that can stand the heat o' the Great Forge, for there's none hardier than mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be wantin' tae teleport, I suppose, an' leave my gryphons standin' idle, but a portal never once showed anyone the view over Loch Modan." },
@@ -1328,7 +1347,7 @@ P:NPC {
         { text = "Keeping gryphons under a mountain can't be easy.", next = "keep" },
         { text = "My people rode gryphons at Aerie Peak.", next = "k_wild", when = { origin = "dwarf_wildhammer_kin" } },
         { text = "Do the gryphons really mind someone quiet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Would you fly a warlock if I asked?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your gryphons fly me, whatever they smell on me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do Ironforge gryphons carry warriors to the front?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons stand the heat of the Forge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your riders must come back wounded often, Gryth.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1391,7 +1410,7 @@ P:NPC {
   key = "hulfdan", id = TODO_NPC("Hulfdan Blackbeard"), name = "Hulfdan Blackbeard", title = "Rogue Trainer",
   bible = "bibles/commons.md", role = "trainer", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial", "sharp" }, values = { "cunning", "loyal" },
-  notices = { "stealth" },
+  notices = { "stealth", "lock_shards" },
 
   impression = {
     first = "He talks like a pirate who has never seen the sea.",
@@ -1408,6 +1427,8 @@ P:NPC {
       text = "Ha! Ye think I cannae see ye? I trained half the shadows in this cavern, scallywag, an' I know every one o' them by name." },
     { id = "n_priest", cat = "stealth", when = { class = "PRIEST" },
       text = "A priest in the Forlorn Cavern? Either ye're lost, or ye've come tae save us, an' I'm no' sure which frightens me more." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "I heard ye comin' before I saw ye, for there's somethin' in yer bag that clinks like coin an' hums like a hive. A rogue's taught tae listen, an' I'll tell ye for free that a pack full o' souls is no' a quiet thing tae carry." },
   },
 
   start = "hello",
@@ -1462,10 +1483,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We share a dark corner an' a bad reputation, an' that's about all. Yer demons make my lads jumpy, but I'll grant ye a felhunter's nose would be handy on a job." } },
+      lines = {
+        { id = "xlock_default", text = "We share a dark corner an' a bad reputation, an' that's about all. Yer creatures make my lads jumpy, but I'll grant ye a felhunter's nose would be handy on a job." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We share a dark corner an' a bad reputation, an' yer demons make my lads jumpy, an' that one's makin' them jumpier, standin' there in the dark like it belongs. I'll grant ye a felhunter's nose would be handy on a job, though, whatever ye've brought down here tonight." },
+      },
       choices = {
-        { text = "My demons stay leashed. I'll not lend them out for thieving.", next = "BACK", reply = "Fair enough, matey, an' my lads will sleep easier for it, though I'll admit I'm a wee bit disappointed.", fx = { align = { honor = 1 } } },
-        { text = "For the right share, Blackbeard, my felhunter could be very handy.", next = "BACK", reply = "Ha, a warlock who knows the value o' a share, an' I'll keep it in mind, matey, though my lads will want it muzzled.", fx = { align = { honor = -1 } } },
+        { text = "What I keep stays leashed. I'll not lend it out for thieving.", next = "BACK", reply = "Fair enough, matey, an' my lads will sleep easier for it, though I'll admit I'm a wee bit disappointed.", fx = { align = { honor = 1 } } },
+        { text = "For the right share, my felhunter could sniff out anything you like.", next = "BACK", reply = "Ha, a warlock who knows the value o' a share, an' I'll keep it in mind, matey, though my lads will want it muzzled.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1518,7 +1542,7 @@ P:NPC {
         { text = "The King's guards were muttering about some heist.", next = "heist", when = { any = { { questActive = TODO_QUEST("Kingly Shakedown") }, { questDone = TODO_QUEST("Kingly Shakedown") } } } },
         { text = "What does the Circle want from me now?", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "The Forlorn Cavern seems to be up to something, Blackbeard.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do rogues and warlocks get along down here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the cavern's other residents get along with your lads?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have you any use for a warrior down here, Blackbeard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters and rogues ever work together, Blackbeard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your rogues ever need a priest, Blackbeard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

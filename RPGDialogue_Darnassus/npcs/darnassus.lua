@@ -12,13 +12,17 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   likesTone = "blunt", private = { "malfurion" },
   spiritSensitive = true,
-  notices = { "fel", "race", "class", "form" },
+  prejudice = { class = "WARLOCK", amount = 15, why = "Led the Sisterhood against the Legion at Hyjal and buried hundreds of priestesses; holds every demon-caller answerable." },
+  notices = { "fel", "race", "class", "form", "lock_shadow", "lock_shards" },
   impression = {
     first = "She speaks as though Elune is listening, and perhaps she is.",
     third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood beneath Nordrassil while the Legion burned our forests, and I know the stench of its servants. Keep that creature leashed in my temple, or my priestesses will put it down." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Elune grants her light to all who seek it, but I am not Elune. Speak, demon-caller, and be brief." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have walked these halls many times, and nothing foul has followed you out of them. I will not call you friend, but I will hear you." },
     { id = "g_temple", text = "You stand in the Temple of the Moon, so speak plainly. Elune hears everything said here, and I have little time for what she would not care to hear." },
     { id = "g_kin", when = { race = "NightElf" }, text = "Ishnu-alah, child of the kaldorei, and Elune's light be on you. Tell me what you need of me." },
     { id = "g_back", when = { metBefore = true }, text = "So you have returned. Good; those who come back to me usually have something worth saying." },
@@ -40,6 +44,10 @@ P:NPC {
       text = "Eldre'Thalas... I remember it as a city of light. I am told your people left it rather than bow to a prince's purge, and that speaks well of them." },
     { id = "n_shadow", cat = "form", place = "before", when = { form = "shadow" },
       text = "You wear shadow in the Temple of the Moon. Elune lights the dark, but she has never needed to wear it, so set it aside while we speak." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Mother Moon's light bends away from you, as it bent away from the Highborne in the last days of Zin-Azshari. I will speak with you, but I will not pretend I cannot see it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "You carry souls in that satchel, warlock, and I can hear them, faint as the voices I heard beneath the walls of Zin-Azshari. Mind what you do with them in my city." },
   },
 
   react = {
@@ -140,10 +148,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I have watched what demons do to those who call them servants, so I will pray for you, and I will watch you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I knew the eyes of your servant's kind long before you were born, so I will pray for you, and I will watch it." },
       },
       choices = {
-        { text = "Then watch. I'll give you no reason to raise a bow.", next = "BACK", reply = "Then I will hold my bow and watch, warlock, and pray you keep your word. Many before you meant it too.", fx = { align = { order = 1 } } },
-        { text = "Your fear is ten thousand years old. My craft is not.", next = "BACK", reply = "The Legion's hunger is older than my fear, warlock, and your craft is its newest door. Tread softly in my city.", fx = { align = { order = -1 } } },
+        { text = "Then watch. I'll give you no reason to raise a bow.", next = "BACK", reply = "Then I will hold my bow and watch, and pray you keep your word. Many before you meant it too.", fx = { align = { order = 1 } } },
+        { text = "Your fear is ten thousand years old. My craft is not.", next = "BACK", reply = "The Legion's hunger is older than my fear, and your craft is its newest door. Tread softly in my city.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -285,7 +294,9 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 75 } },
           text = "You return, and I find I am glad of it, which is rarer in this temple than you might think. Speak freely, friend of the kaldorei." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, warlock, and I am letting it. Do not mistake that for welcome." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Sisterhood buried hundreds at Hyjal because mortals bargained with the Legion, as you have. Say what you came to say, and summon nothing beneath this roof." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I have watched you as I would watch any blade drawn near my people, and you have not turned on us yet. Speak." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, and I am letting it. Do not mistake that for welcome." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of Elune's forests. The Sentinels ride with hunters on every border we hold, and I am glad of each bow that joins them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits. Elune's light falls on all who come in peace, though in ten thousand years I have not seen your path among our allies before." },
       },
@@ -311,7 +322,7 @@ P:NPC {
         { text = "The Explorers' League digs your ruins in Darkshore.", next = "dwarf_t", when = { race = "Dwarf" } },
         { text = "Does Elune have any use for one who works unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the Sentinels have need of hunters, High Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Why do you tolerate me at all, High Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why suffer me in your city at all, High Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does Darnassus need from its priests, High Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would you send a paladin, High Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Elune look kindly on a shaman, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -819,8 +830,8 @@ P:NPC {
         { id = "wf_default", text = "You have seen it because you carry it. Felwood was a forest of the Circle once, and the masters of your craft rotted it to the root, so tell me why I should let you stand under my tree." },
       },
       choices = {
-        { text = "I'll carry it to burn the demons out.", next = "BACK", reply = "A fire set to burn a fire is still a fire, warlock. I have seen what is left of Felwood.", fx = { align = { light = -1 } } },
-        { text = "I'm learning how to put it down.", next = "BACK", reply = "Then put it down quickly, before it puts you down. Felwood is full of those who waited too long.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I carry it so I can turn it on the Legion's own.", next = "BACK", reply = "A fire set to burn a fire is still a fire. I have seen what is left of Felwood.", fx = { align = { light = -1 } } },
+        { text = "I'm learning to master it, and one day to set it down.", next = "BACK", reply = "Then put it down quickly, before it puts you down. Felwood is full of those who waited too long.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Can Felwood be cleansed?", next = "warlock_f2" },
       },
     },
@@ -934,7 +945,7 @@ P:NPC {
         { text = "My people's druids honour the winds.", next = "sky", when = { class = "DRUID", race = "Skyborne" } },
         { text = "My nightsaber and I keep the balance too, Archdruid.", next = "hunter_f", when = { class = "HUNTER" } },
         { text = "The arcane could heal this tree faster.", next = "mage_f", when = { class = "MAGE" } },
-        { text = "I've seen what the fel does to a forest.", next = "warlock_f", when = { class = "WARLOCK" } },
+        { text = "I've walked Felwood, Archdruid. I know exactly how a forest rots.", next = "warlock_f", when = { class = "WARLOCK" } },
         { text = "Does the Circle ever need work done quietly, Archdruid?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has the Archdruid any use for a warrior's blade?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you have any use for priests, Archdruid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1144,13 +1155,16 @@ P:NPC {
   key = "mathrengyl", id = TODO_NPC("Mathrengyl Bearwalker"), name = "Mathrengyl Bearwalker",
   bible = "bibles/darnassus.md", role = "trainer", tier = "quest",
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
-  notices = { "form", "class" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Cenarion druid of Malfurion's teaching; has spent millennia mending what fel does to living things." },
+  notices = { "form", "class", "lock_taint" },
   impression = {
     first = "Every question gets a patient answer from him, even the foolish ones.",
     third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent ten thousand years mending what the fel does to living things, and you carry it by choice. Keep your distance from my students." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come to the Enclave often enough without harm, and I'll admit as much. I still smell the fel on you, though, and I've not stopped minding it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
@@ -1163,6 +1177,8 @@ P:NPC {
       text = "Ah, the bear sits well on you. The Great Bear Spirit chose rightly." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
       text = "You wear the cat indoors, I see. The Great Cat Spirit is as playful as it is deadly, so please be the first of those in here." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "You carry the smell of Felwood on you, the sick green rot that soaked into its roots, and it is in your skin as well as your clothes. Do not walk barefoot on this branch, because Teldrassil is young and remembers everything." },
   },
 
   start = "hello",
@@ -1250,10 +1266,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I have walked through Felwood, which was Ashenvale's green heart before the Legion's taint soaked into it, and the trees there still weep. Druids are healing it one grove at a time, and I'd thank you not to make us start over in Teldrassil." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I have walked through Felwood, which was Ashenvale's green heart before the Legion's taint soaked into it, and the trees there still weep, and the moss where your servant stands is already turning grey. Druids are healing Felwood one grove at a time, and I'd thank you not to make us start over in Teldrassil." },
       },
       choices = {
-        { text = "I'll keep my servants far from these groves.", next = "BACK", reply = "That is courteous, warlock, and the trees will notice it even if the Circle does not. Felwood still weeps.", fx = { align = { light = 1 } } },
-        { text = "Felwood was the Legion's doing. My power answers to me.", next = "BACK", reply = "The Legion said much the same to the Highborne once. I hope your power never answers to anyone else.", fx = { align = { light = -1 } } },
+        { text = "Whatever follows me will stay far from these groves.", next = "BACK", reply = "That is courteous, and the trees will notice it even if the Circle does not. Felwood still weeps.", fx = { align = { light = 1 } } },
+        { text = "Felwood was the Legion's doing. What I hold answers only to me.", next = "BACK", reply = "The Legion said much the same to the Highborne once. I hope your power never answers to anyone else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1345,7 +1362,9 @@ P:NPC {
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be, only that it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and in my mind they are all growling at you right now." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and so would every bear I ever trained. State your business, and do not call your servant up beneath these trees." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Back again. You've given me no cause to put you out, which is more than I expected of a demon-caller. Ask your question." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, and every one of them would be growling at you now. Something about you smells wrong." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students still crash through the underbrush like tauren, and they could stand to watch you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root, so sit and tell me what the spirits say to you." },
@@ -1367,7 +1386,7 @@ P:NPC {
         { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
         { text = "Why do the old druids step aside from a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How does a druid's bond with beasts differ from a hunter's?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Have you ever seen what a demon does to a forest?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have you walked Felwood, and seen what's left of it?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You wanted to ask me something, Mathrengyl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Circle have any use for a rogue, Mathrengyl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are the druid's way and the shaman's really so close, Mathrengyl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1475,7 +1494,7 @@ P:NPC {
   key = "amoora", id = TODO_NPC("Priestess A'moora"), name = "Priestess A'moora",
   bible = "bibles/darnassus.md", role = "priest", tier = "quest",
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
-  notices = { "class", "death", "origin" },
+  notices = { "class", "death", "origin", "lock_soulstone" },
   impression = {
     first = "She calls me 'little star' as if she'd known me for years.",
     third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
@@ -1497,6 +1516,8 @@ P:NPC {
       text = "You were on the mountain, weren't you, little star? You have that look so many of us have now, counting the days as if each one had to be paid back. Elune isn't keeping a ledger, and I promise you she never was." },
     { id = "n_novice", cat = "origin", when = { origin = "nightelf_priestess" },
       text = "Ah, one of the Temple's novices, still learning to read her silences. Don't let the elder sisters hurry you, little star, because I spent my first century certain she'd forgotten my name." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is not wholly here, little star, because some part of it waits in a stone for the day you fall. Elune gathers her children home herself, and I would ask you to trust her a little more than that stone." },
   },
 
   start = "hello",
@@ -1601,7 +1622,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a shadow at your heel. The Sisterhood remembers the Legion too well to welcome your servant inside, so leave it at the door and come in as yourself." },
+        { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a shadow at your heel. The Sisterhood remembers the Legion too well to welcome what follows you inside, so leave it at the door and come in as yourself." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Elune turns no one away, little star, but her light shows what we carry, and tonight it shows your servant itself, standing on the temple steps for all the Sisterhood to see. Leave it out in the dark where it belongs, and come in as yourself." },
       },
       choices = {
         { text = "I'll leave it at the door, Priestess.", next = "BACK", reply = "Thank you, little star, and Elune will thank you too. Pick it up again when you go.", fx = { align = { light = 1 } } },
@@ -1751,7 +1773,7 @@ P:NPC {
   key = "gracina", id = TODO_NPC("Gracina Spiritmight"), name = "Gracina Spiritmight",
   bible = "bibles/darnassus.md", role = "scholar", tier = "quest",
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
-  notices = { "lore", "trophy" },
+  notices = { "lore", "trophy", "lock_armor" },
   impression = {
     first = "Something in the southern deserts frightens her, and she doesn't frighten easily.",
     third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
@@ -1768,6 +1790,8 @@ P:NPC {
   notice = {
     { id = "n_skinner", cat = "trophy", when = { profession = "Skinning" },
       text = "A skinner! Then you've handled more of Azeroth's creatures than most scholars ever will. Tell me what you've seen." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That ward of demon hide is very like the one described in the old Highborne accounts I keep sealed, down to the way it writhes when you turn. I would sketch it if I were braver, and I find today that I am not." },
   },
 
   start = "hello",
@@ -1813,7 +1837,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I could learn much, and I will admit the temptation, but the Highborne began by studying too. I will read about your servant in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
+        { id = "xlock_default", text = "I could learn much, and I will admit the temptation, but the Highborne began by studying too. I will read about what walks with you in old books written by those who fought its kind, and I'll leave it to you whether you end up in the next one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I could learn much, and with your servant standing before me I admit the temptation is sharper. But the Highborne began by studying too, so I will read about its kind in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
       },
       choices = {
         { text = "Then I'll make sure the books speak kindly of me.", next = "BACK", reply = "They will, if you give them good reason, though old books are slow to change their minds. I will be glad to read the new pages.", fx = { align = { light = 1 } } },
@@ -1871,7 +1896,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "Another priest. People forget the Sisterhood studies as well as prays. Someone ought to write down everything that crawls under the moon." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, and you've arrived at a fitting moment. I've been reading about creatures that the arcane drew here from elsewhere, and none of them are kind." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study creatures that do not belong in this world, warlock, and I can see one standing behind you. I'd rather it didn't come any closer to my notes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study creatures that do not belong in this world, and I can see the shape of one standing behind you. I'd rather it came no closer to my notes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll have met more creatures up close than any of my scholars, I imagine, and with less time to take notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at last. You of all people should care when something crawls out of the earth that the earth never made, so I would value your eyes on my specimens." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would love to hear what you've seen in them, whenever you'd care to share." },
@@ -1892,7 +1917,7 @@ P:NPC {
         { text = "I've tracked beasts across Kalimdor. These insects too.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "What creatures does the arcane draw into this world?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you want a warrior to bring back specimens, Gracina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Couldn't you learn more about demons from a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Your books only guess at the Legion. I could tell you more.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are the silithid an evil a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle know about these insects of yours?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you have a rogue bring you, Gracina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1987,7 +2012,7 @@ P:NPC {
   key = "saelienne", id = TODO_NPC("Innkeeper Saelienne"), name = "Innkeeper Saelienne", gender = "female",
   bible = "bibles/darnassus.md", role = "innkeeper", tier = "service",
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_steed" },
   impression = {
     first = "She warned me not to look down, so of course I did.",
     third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
@@ -2012,6 +2037,8 @@ P:NPC {
       text = "You've had a hard road, so sit down. Moonberry juice first, then sleep, and then whatever comes after." },
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
       text = "Don't look down from the terrace, friend. Everyone does it once, and once is enough." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "If that is your horse with the burning hooves, it will not cross the bridge to my inn, because the branch is old wood and very dry. Leave it on the ground, and it can think about the drop from there." },
   },
 
   start = "hello",
@@ -2136,10 +2163,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because my guests sleep badly enough with the inn rocking in the wind, and they won't sleep at all with a demon at the foot of the bed. The branch is broad and the drop is long, so it can think about that." },
+        { id = "xlock_default", text = "Because my guests sleep badly enough with the inn rocking in the wind, and they won't sleep at all with that thing at the foot of the bed. The branch is broad and the drop is long, so it can think about that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because my guests sleep badly enough with the inn rocking in the wind, and two of them have already asked for other rooms since yours came up the ramp. The branch is broad and the drop is long, so it can stand out there and think about that." },
       },
       choices = {
-        { text = "Fair. My servant can take the branch.", next = "BACK", reply = "Thank you, and I will not ask what it does out there. My guests will sleep soundly.", fx = { align = { order = 1 } } },
+        { text = "Fair. It can take the branch, then.", next = "BACK", reply = "Thank you, and I will not ask what it does out there. My guests will sleep soundly.", fx = { align = { order = 1 } } },
         { text = "I'll keep it where I please, innkeeper.", next = "BACK", reply = "Then you will keep it somewhere else, I am afraid, for my guests deserve their rest. The branch has plenty of room.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -2188,7 +2216,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've the look of someone who sleeps with one hand on a hilt. My beds don't bite, I promise, though the branches do creak." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please don't bring anything you've skinned upstairs, because the last guest who did left the room smelling of wet wolf for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be the one guest who doesn't mind the branches swaying at night, I expect, so long as you don't turn into a bear on my good linen." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll get a room like anyone else, but your servant sleeps outside on the branch, and I wish it luck." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'll get a room like anyone else, but whatever trails you sleeps out on the branch. It smells of brimstone, and I wish it luck." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and welcome. Please don't look down from the terrace, for my inn rocks gently with the World Tree, and I suspect your spirits will enjoy it more than your stomach." },
       },
       again = {
@@ -2207,7 +2235,7 @@ P:NPC {
         { text = "Do many of your guests come in hurt, Saelienne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your people find paladins strange, Saelienne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids often stay at your inn, Saelienne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why must my servant sleep out on the branch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My companion is quiet and harmless. Why must it sleep outside?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do travellers ever fall from your terrace, Saelienne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do many outsiders stay at your inn?", next = "xpt_saelienne", when = { party = { race = "Dwarf" } } },
         { text = "Do you ever rest yourself, Saelienne?", next = "fl_rest", when = { flirt = true } },

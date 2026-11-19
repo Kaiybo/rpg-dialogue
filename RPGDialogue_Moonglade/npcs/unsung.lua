@@ -9,7 +9,7 @@ P:NPC {
   key = "daeolyn", id = TODO_NPC("Daeolyn Summerleaf"), name = "Daeolyn Summerleaf", title = "General Goods",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nighthaven" }, temper = { "serene", "welcoming" }, values = { "peace", "hospitality" },
-  notices = { "race", "weary" },
+  notices = { "race", "weary", "lock_soulstone" },
   impression = {
     first = "She believes Moonglade's peace rubs off on anyone who stays long enough.",
     third = "{name} met Daeolyn Summerleaf, who keeps Nighthaven's general store open to all.",
@@ -25,6 +25,8 @@ P:NPC {
       text = "Welcome, friend of the Earth Mother. Your people's druids have made Nighthaven a little louder and a good deal warmer, and I'm glad of both." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
       text = "You've come through Felwood, haven't you? Everyone who does looks like that. Rest here for a while; nothing in the grove will trouble you." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone has bound your soul in a stone, and the lake went quiet when you came down the path. I don't pretend to understand it, but I hope the one who holds it loves you, because that's a great deal to carry." },
   },
 
   start = "hello",
@@ -106,10 +108,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, so I judge the person before the craft." } },
+      lines = {
+        { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, so I judge the person before the craft." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like your servant, which is watching the lake very strangely, but I've seen warlocks sit by the water as quietly as any druid, so I judge the person before the craft." },
+      },
       choices = {
         { text = "Then judge me by my peace. I'll keep it here.", next = "BACK", reply = "I will, and gladly. Just leave your companion outside, if you would, because it still frightens the moths.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Judge me how you like. The fel serves me well.", next = "BACK", reply = "Then I hope it serves you outside the grove, and never inside it. The Keeper watches very closely.", fx = { align = { light = -1 } } },
+        { text = "Judge me how you like. What serves me, serves me well.", next = "BACK", reply = "Then I hope it serves you outside the grove, and never inside it. The Keeper watches very closely.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -137,7 +142,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, welcome to Nighthaven! The grove is quieter than any temple, and I've seen priests of every sort stay a day longer than they meant to." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't skulk here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The druids get a bit prickly about magic, but I've always thought a mage's company makes the evenings shorter, and Nighthaven's evenings are very long." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome to my wares like anyone else the grove lets in, though I'd thank you to keep your companion outside, because it frightens the moths." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You're welcome to my wares like anyone else the grove lets in, though I'd thank you to keep your companion outside, because it frightens the moths." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, home in Nighthaven. The grove's always a little brighter when one of the Circle comes back from the road, and I'll see you have what you need for the next one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, welcome to Nighthaven! I've seen shamans sit by the lake for hours, just listening, but never one from Ironforge." },
       },
@@ -207,7 +212,7 @@ P:NPC {
   key = "malvor", id = TODO_NPC("Malvor"), name = "Malvor", title = "Herbalist",
   bible = "bibles/unsung.md", role = "trainer", tier = "service",
   communities = { "nighthaven" }, temper = { "dreamy", "gentle" }, values = { "nature", "wonder" },
-  notices = { "craft", "form" },
+  notices = { "craft", "form", "lock_shadow" },
   impression = {
     first = "He is gentle, and a little hard to bring back to earth.",
     third = "{name} met Malvor, Nighthaven's dreamy herbalist.",
@@ -223,6 +228,8 @@ P:NPC {
       text = "You carry a satchel of herbs from places I've never been. May I look? I promise not to keep anything." },
     { id = "n_tree", cat = "form", when = { form = { "bear", "cat", "moonkin" } },
       text = "Please watch where you put those feet. The young plants here grow slowly, and they have very little patience for paws." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The moonpetals closed up as you came in, every one of them, and they only do that when the clouds come. There aren't any clouds, so I think it must be you, and I think they'll open again once you've gone." },
   },
 
   start = "hello",
@@ -295,7 +302,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, as surely as a hand pulls back from a flame. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." } },
+      lines = {
+        { id = "xlock_default", text = "They do, as surely as a hand pulls back from a flame. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, as surely as a hand pulls back from a flame, and you can watch them curl away from your demon this very moment. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." },
+      },
       choices = {
         { text = "Then I'll stand back and let them grow.", next = "BACK", reply = "Thank you. I'll tell them it was your idea, and they'll grow a little straighter for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Plants that flinch from power won't survive the world.", next = "BACK", reply = "They've survived ten thousand years, so I think they'll manage. Felwood didn't survive power, after all.", fx = { align = { light = -1 } } },
@@ -325,7 +335,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here among the herbs. Moonglade's plants grow so close to the Dream that some say they listen to prayers, so do keep yours gentle." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, among my herbs. You'll know your poisons, I expect, and I'm afraid Moonglade's plants are too sleepy and too gentle to give you any." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Do be careful casting near the herb beds, because the plants here dream, I think, and I'd hate to see what the arcane does to their dreams." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The herbs pull away from you a little, can you see it? I don't think they mean any offence, because they're only very sensitive to fel." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The herbs pull away from you a little, can you see it? I don't think they mean any offence, because they're only very sensitive to fel." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, among the herbs. You'll feel it too, I think, how close the Dream lies to the soil here, and how the plants grow as if they're listening." },
       },
       again = {
@@ -339,7 +349,7 @@ P:NPC {
         { text = "Do Moonglade's herbs really listen to prayers?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "There's no poison growing anywhere in Moonglade?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would the arcane do to a dreaming plant?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do your herbs really shrink from the fel?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your herbs really shrink from me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the herbs here really dream?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts of Moonglade eat your herbs?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should Moonglade's herbs be sold to anyone who asks?", next = "xdruid", when = { class = "DRUID" } },
@@ -392,7 +402,7 @@ P:NPC {
   key = "narianna", id = TODO_NPC("Narianna"), name = "Narianna", title = "Bowyer",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "nighthaven" }, temper = { "practical", "dry" }, values = { "readiness", "honesty" },
-  notices = { "class" },
+  notices = { "class", "lock_steed" },
   impression = {
     first = "She sees no contradiction in selling bows in so peaceful a place.",
     third = "{name} met Narianna, the practical bowyer of Nighthaven.",
@@ -406,6 +416,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Your beast won't need to hunt here, so let it rest while you shop." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse has scorched three patches in the grass outside, and the druids will notice before you've finished shopping. Tie it on the far side of the hills, and I'll keep your bowstrings ready when you come back." },
   },
 
   start = "hello",
@@ -478,10 +490,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They dislike anything that comes into the world from somewhere it shouldn't, and a demon fits that rather well. I'm a practical woman, so I'll say it plainly: keep your pets on the far side of the hills, and nobody here will trouble you." } },
+      lines = {
+        { id = "xlock_default", text = "They dislike anything that comes into the world from somewhere it shouldn't, and a demon fits that rather well. I'm a practical woman, so I'll say it plainly: keep your pets on the far side of the hills, and nobody here will trouble you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They dislike anything that comes into the world from somewhere it shouldn't, and the one beside you came from very much somewhere it shouldn't. I'm a practical woman, so I'll say it plainly: send it back over the hills, and nobody here will trouble you." },
+      },
       choices = {
-        { text = "Then my imp waits beyond the hills, sulking.", next = "BACK", reply = "Good. A sulking imp on the far side of the hills is the best kind there is.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demons go where I go. Practical, as you say.", next = "BACK", reply = "Practical, yes, but the druids may not see it that way. Keep it close and quiet, at least.", fx = { align = { light = -1 } } },
+        { text = "Then my little friend waits beyond the hills, sulking.", next = "BACK", reply = "Good. Sulking on the far side of the hills is the best place for it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What's mine goes where I go. Practical, as you say.", next = "BACK", reply = "Practical, yes, but the druids may not see it that way. Keep it close and quiet, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -508,7 +523,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want a bow, I imagine, but the roads out of Moonglade run through Felwood and Winterspring, and a prayer can't stop an arrow." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow for when the dagger doesn't reach, and I'll not ask what you're aiming at, so long as it's outside the grove." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, at a bowyer's stall. You'll be telling me a fireball does the same work as an arrow, I expect, and you'd be right, but my arrows don't run out of mana." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I've nothing to sell you, since you can't draw a bow, though I'd say the druids would sooner see you try than summon something." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I've nothing to sell you, since you've never drawn a bow, though the druids would sooner see you try than call up whatever you keep." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You've claws and moonfire, so you'll not need a bow, I suppose, but the roads out of Moonglade are cruel ones, and I'd still feel better if you carried something." },
       },
       again = {
@@ -522,7 +537,7 @@ P:NPC {
         { text = "A prayer's really no match for an arrow?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You'd sell to a rogue, knowing what they'll do?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "An arrow's no better than a spell.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do the druids really hate summoning that much?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the druids really hate what I keep that much?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would a warrior need a bow?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the Circle's druids ever take up the bow?", next = "xdruid", when = { class = "DRUID" } },

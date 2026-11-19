@@ -9,7 +9,7 @@ P:NPC {
   key = "bernice", id = TODO_NPC("\"Auntie\" Bernice Stonefield"), name = "\"Auntie\" Bernice Stonefield",
   bible = "bibles/bernice.md", role = "questgiver", tier = "quest",
   communities = { "goldshire" }, temper = { "proud" }, values = { "honest", "stern" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She guards her kitchen like a fortress and her grudges like heirlooms.",
     third = "{name} met Auntie Bernice Stonefield, a baker with strong opinions about pie crusts and the Maclure family.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Then you know a pork belly pie wants patience and good boar, and that most folk rush the crust. Don't you rush the crust." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The milk's turned in the jug, and it was fresh this morning, so I'll guess it's you and not the cow. Come in and eat anyway, but I'll do the pouring." },
   },
 
   start = "hello",
@@ -39,10 +41,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy Maclure." } },
+      lines = {
+        { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy Maclure." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But your friend's already got one foot through my kitchen door and its eye on the cooling pies, so out it goes, because the last thing that came in uninvited was Billy Maclure." },
+      },
       choices = {
         { text = "Of course, Auntie. I'll leave it outside.", next = "BACK", reply = "Thank you, dear, and mind it doesn't eat the chickens. Sit down and I'll cut you a slice.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "It goes where I go, Auntie. Sorry.", next = "BACK", reply = "Then it can sit by the door and behave itself, and you'll get no pie for it. Rules are rules.", fx = { align = { order = -1 } } },
+        { text = "It goes where I go, Auntie. It always will.", next = "BACK", reply = "Then it can sit by the door and behave itself, and you'll get no pie for it. Rules are rules.", fx = { align = { order = -1 } } },
         { text = "Something else, Auntie.", next = "BACK" },
       },
     },
@@ -133,7 +138,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Wipe your boots, then; I've just swept, and I don't sweep twice for anyone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen yard! Look at the turnips if you like, but mind the vineyard side, because the Maclures watch this fence like hawks." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, sit down anyway; I've fed worse, and I've fed Billy, which is worse than most." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of someone who doesn't sleep much, dear. Well, sit down anyway; I've fed worse, and I've fed Billy, which is worse than most." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind my kitchen, and no, your spirits won't tell me who stole my necklace; I already know." },
       },
       again = {
@@ -154,7 +159,7 @@ P:NPC {
         { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is something wrong with your turnips, Auntie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Feeding a warlock must bother you, Auntie.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Feeding someone like me must bother you, Auntie.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who stole your necklace, Auntie Bernice?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
@@ -290,7 +295,7 @@ P:NPC {
   key = "ma_stonefield", id = TODO_NPC("Ma Stonefield"), name = "Ma Stonefield",
   bible = "bibles/ma_stonefield.md", role = "farmer", tier = "quest",
   communities = { "goldshire" }, temper = { "sharp" }, values = { "stern", "honest" },
-  notices = { "trophy" },
+  notices = { "trophy", "lock_steed" },
   impression = {
     first = "She says she is not a crier, and I believe her.",
     third = "{name} met Ma Stonefield, whose cabbages are being devoured by the Brackwells' prize sow, Princess.",
@@ -305,6 +310,8 @@ P:NPC {
   notice = {
     { id = "n_collar", cat = "trophy", place = "before", when = { questReady = TODO_QUEST("Princess Must Die!") },
       text = "Is that her collar, the brass one? Give it here; I'm hanging it over the door." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "If that's your horse with its feet on fire, get it off my cabbages before it burns the lot. Light knows the Maclures will say I did it myself to spite them." },
   },
 
   start = "hello",
@@ -364,10 +371,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." } },
+      lines = {
+        { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Light, no, and your thing's already standing among my cabbages, which is exactly what I didn't want. Kill the sow with an honest blade, and take that creature back outside the fence before the hens stop laying." },
+      },
       choices = {
-        { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good. An honest blade's the way I'd want it done, and I'll not look while you do it.", fx = { align = { light = 1 } } },
-        { text = "My demon would make short work of her. Your loss.", next = "BACK", reply = "My loss I'll live with, so long as I don't have to watch. Keep it outside.", fx = { align = { light = -1 } } },
+        { text = "I'll use my own hands, Ma. It stays outside the fence.", next = "BACK", reply = "Good. An honest blade's the way I'd want it done, and I'll not look while you do it.", fx = { align = { light = 1 } } },
+        { text = "It would make short work of her, Ma. Your loss.", next = "BACK", reply = "My loss I'll live with, so long as I don't have to watch. Keep it outside.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -429,7 +439,7 @@ P:NPC {
         { text = "Westfall lost whole farms to the Defias.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
         { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "My demon could deal with the Brackwells' pig.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Something of mine could deal with the Brackwells' pig, Ma.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is the Brackwells' pig really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has anything besides the pig troubled your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
@@ -543,7 +553,7 @@ P:NPC {
   key = "billy", id = TODO_NPC("Billy Maclure"), name = "Billy Maclure",
   bible = "bibles/billy.md", role = "child", tier = "quest",
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "witty" },
-  notices = { "food", "wonder" },
+  notices = { "food", "wonder", "lock_shards" },
   impression = {
     first = "He swore he didn't do it before I'd accused him of anything.",
     third = "{name} met young Billy Maclure, accused of a theft he swears he didn't commit and hungry enough to bargain over it.",
@@ -560,6 +570,8 @@ P:NPC {
       text = "You smell like a kitchen; got anything, even a crust? I'm not fussy, I'm a growing boy, Ma says." },
     { id = "n_cat", cat = "wonder", place = "replace", when = { form = "cat" },
       text = "Kitty, a big kitty! Do you eat kobolds, because you should, there's loads of them up at the mine." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Are those soul shards in your bag? Tommy Joe says they've got real ghosts inside, and I'd trade you a whole pie just to hold one for a minute." },
   },
 
   start = "hello",
@@ -575,7 +587,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because everybody accuses me of something, and you look like you'd do something worse than shout about it. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." } },
+      lines = {
+        { id = "xlock_default", text = "Because everybody accuses me of something, and you look like you'd do something worse than shout about it. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because everybody accuses me of something, and that thing behind you has been looking at me since you came up as if it already knows what I've done. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." },
+      },
       choices = {
         { text = "I believe you, Billy. Knowing things isn't stealing.", next = "BACK", reply = "Thank you! Nobody ever believes me, but you do. I'll tell you anything you want for a pie.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Knowing where things go sounds suspicious, Billy.", next = "BACK", reply = "Everybody says that, but I'm only clever. Ask anyone. Well, don't ask anyone.", fx = { align = { order = 1 } } },
@@ -659,7 +674,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You could beat up Goldtooth! Only don't tell anyone I said, because I wasn't there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "You're a night elf! I didn't take anything, before you ask, and I've never even seen one of your lot before." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I didn't take anything of yours, I swear, and I didn't even look at your bag." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Your bag just moved! I didn't take anything of yours, I swear, and I didn't even look at it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "I didn't do it! Oh, you're a shaman. Well, I still didn't do it, whatever it was." },
       },
       again = {
@@ -678,7 +693,7 @@ P:NPC {
         { text = "I'd guess your ma makes you say your prayers, Billy.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why didn't you tell anyone what you saw, Billy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you know about the animals round the farm, Billy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Why do you think a warlock would accuse you, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do you think I'd accuse you, Billy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you think you didn't do, Billy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "See you, Billy.", next = "END" },
       },

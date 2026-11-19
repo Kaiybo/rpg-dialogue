@@ -8,7 +8,7 @@ P:NPC {
   key = "if_bengus", id = TODO_NPC("Bengus Deepforge"), name = "Bengus Deepforge",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "gruff" }, values = { "proud", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "lock_taint" },
 
   impression = {
     first = "He judges people by their hands, and says most are soft.",
@@ -23,6 +23,8 @@ P:NPC {
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing" } },
       text = "Ye've a smith's burns on yer forearms, I see. Good, for a smith who's never been burned has never stood close enough tae the work." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The forge has gone green at the edges since ye walked in, an' it did the very same thing for the last warlock I had at this anvil. There's somethin' in yer blood that fire knows, so stand back while I'm workin' an' let it settle." },
   },
 
   start = "hello",
@@ -77,9 +79,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll no' find out, an' that's the point. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." } },
+      lines = {
+        { id = "xlock_default", text = "I'll no' find out, an' that's the point. Somebody came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll no' find out, an' that's the point, so keep yer demon back from the anvil, for it's starin' at my coals like it's thinkin' o' improvin' them. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." },
+      },
       choices = {
-        { text = "Then I'll keep fel fire far from honest metal.", next = "BACK", reply = "Thank ye. Honest metal has enough enemies wi'out fel fire addin' itself tae the list.", fx = { align = { light = 1 } } },
+        { text = "Then I'll keep that fire far from honest metal.", next = "BACK", reply = "Thank ye. Honest metal has enough enemies wi'out that sort o' fire addin' itself tae the list.", fx = { align = { light = 1 } } },
         { text = "Black steel has uses, Bengus. You just didn't find them.", next = "BACK", reply = "Uses, aye, maybe, but none I'd want in my forge or on my back, so take yer black steel somewhere else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -112,7 +117,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Great Forge! Mind ye don't try tae light it, for it's never gone out an' it doesnae need yer help." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll warn ye once, warlock: the Great Forge doesnae take kindly tae fel fire, an' neither do I." },
+          text = "I'll warn ye once: the Great Forge doesnae take kindly tae green fire, an' neither do I, an' ye've the smell o' it on ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Show me yer hands, then, for I can tell what a warrior's made of by the calluses." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I make a good arrowhead an' a better gun barrel, but I'll leave the shootin' tae ye." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Great Forge. Let me see yer hands; soft, as I thought, though I'll grant ye a bear's paws were never made for tongs." },
@@ -130,7 +135,7 @@ P:NPC {
         { text = "Where should a new smith find ore?", next = "ore" },
         { text = "A paladin's hammer is only as good as its maker.", next = "k_pally", when = { class = "PALADIN" } },
         { text = "Has a mage ever tried to light the Great Forge?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Does fel fire really harm the Great Forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does green fire really harm the Great Forge, Bengus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn to work metal, Bengus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge gun barrels for hunters, Bengus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anything holy about the Great Forge, Bengus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -214,7 +219,7 @@ P:NPC {
   key = "if_geofram", id = TODO_NPC("Geofram Bouldertoe"), name = "Geofram Bouldertoe",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "steady" }, values = { "practical", "patient" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He has deep respect for tunnels and none at all for troggs.",
@@ -229,6 +234,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { origin = "dwarf_ironforge_miner" },
       text = "I'd know a miner's walk anywhere, the way ye keep yer head low under a doorway that's plenty high. Which tunnels did ye work, before ye took up adventurin'?" },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That's no' a stone from any vein I know, the one wi' the fire sleepin' in it, an' every miner in this hall can feel it. They say yer kind use such stones tae call burnin' things down out o' the sky, an' I'd ask ye never tae do it under a mountain." },
   },
 
   start = "hello",
@@ -283,10 +290,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Too many, an' every one makes them twitch. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' a demon in the dark is apt tae swing a pick first an' ask after." } },
+      lines = {
+        { id = "xlock_default", text = "Too many, an' every one makes them twitch. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' somethin' wi' horns in the dark is apt tae swing a pick first an' ask after." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Too many, an' every one makes them twitch, an' ye can see two o' my lads reachin' for their picks this very minute. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' yer demon in the dark is apt tae swing first an' ask after." },
+      },
       choices = {
-        { text = "I'll keep the creature close and out of their way.", next = "BACK", reply = "Thank ye. My lads are twitchy enough these days wi'out a demon wanderin' about in the dark.", fx = { align = { light = 1 } } },
-        { text = "If they swing at my demon, they'll regret it.", next = "BACK", reply = "Then ye'll find a pick in the face is the least o' yer worries, for my lads swing hard when they're frightened.", fx = { align = { light = -1 } } },
+        { text = "I'll keep the creature close and out of their way.", next = "BACK", reply = "Thank ye. My lads are twitchy enough these days wi'out somethin' unholy wanderin' about in the dark.", fx = { align = { light = 1 } } },
+        { text = "If they swing at what's mine, they'll regret it.", next = "BACK", reply = "Then ye'll find a pick in the face is the least o' yer worries, for my lads swing hard when they're frightened.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -330,7 +340,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, aye? Ye'll want tae learn the deep tunnels, I reckon, for there's plenty o' places a body could hide down there." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Warlock, ye'll want tae keep yer creature out o' my tunnels, for the miners down there are jumpy enough wi' the troggs about." },
+          text = "Ye'll want tae keep yer creature out o' my tunnels, for the miners down there are jumpy enough wi' the troggs about." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; a miner wi' a warrior at his back goes deeper an' comes back sooner, an' that's the best kind o' minin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? There's no' much tae hunt underground, though the troggs might disagree wi' me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind dislike holes in the ground, I'm told, which makes this an awkward meetin', for I teach folk how tae dig them." },
@@ -408,7 +418,7 @@ P:NPC {
   key = "if_daryl", id = TODO_NPC("Daryl Riknussun"), name = "Daryl Riknussun",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "jovial" }, values = { "generous", "proud" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_stones" },
 
   impression = {
     first = "He takes his brother Emrul's spice prices as a personal insult.",
@@ -423,6 +433,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "hunger", when = { profession = { "Cooking" } },
       text = "Ye smell o' woodsmoke an' boar fat, which means ye've been cookin' over a campfire. Good, for that's how every great cook starts." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, is it? I've seen soldiers chew on those after a fight, but a stone's a poor meal, an' it's no' yer own life ye're eatin'. Let me teach ye a proper stew instead, for a stew never asked anybody for their soul." },
   },
 
   start = "hello",
@@ -505,7 +517,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "It's helped everyone else who's sat at this kettle, so I dinnae see why ye'd be any different. Just keep yer wee imp off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
+        { id = "xlock_default", text = "It's helped everyone else who's sat at this kettle, so I dinnae see why ye'd be any different. Just keep that wee horned thing off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's helped everyone else who's sat at this kettle, an' I'll gladly ladle ye some, though yer demon's been leanin' over the steam an' I dinnae think it's admirin' the broth. Just keep it off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
       },
       choices = {
         { text = "Thank you, Daryl. I'll gladly eat.", next = "BACK", reply = "Ye're welcome, an' eat as much as ye like, for my kettle doesnae care what ye carry, only whether ye're hungry.", fx = { align = { light = 1 } } },
@@ -526,7 +539,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll have been livin' on hard biscuits, I'd wager, an' I can fix that in an afternoon." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a cook's best friend, for ye bring me the meat an' I'll show ye what tae do wi' it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know yer herbs, then, an' a cook who knows his herbs is halfway tae a good stew." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Sit down an' have a sausage, for there's no trouble in the world a good meal cannae shrink, an' ye look like ye've a few." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Sit down an' have a sausage, for there's no trouble in the world a good meal cannae shrink, an' ye look like ye've a few, an' some ye'd rather no' name." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman at the Bronze Kettle! Ye'll know a good fire, then, so tell me true if mine's any good." },
       },
       again = {
@@ -546,7 +559,7 @@ P:NPC {
         { text = "I'd guess you cook for the sick now and then, Daryl.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin eat before a long march, Daryl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could you cook something without meat for a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Can a good meal really help a warlock, Daryl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can a good meal really help someone carrying what I carry, Daryl?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does a shaman cook any differently, Daryl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll come back hungry.", next = "END" },
       },
@@ -628,7 +641,7 @@ P:NPC {
   key = "if_emrul", id = TODO_NPC("Emrul Riknussun"), name = "Emrul Riknussun",
   bible = "bibles/great_forge_crafts.md", role = "vendor", tier = "service",
   communities = { "ironforge" }, temper = { "sharp" }, values = { "practical", "proud" },
-  notices = { "hunger" },
+  notices = { "hunger", "lock_shadow" },
 
   impression = {
     first = "He hides his fondness for his brother Daryl under endless complaining.",
@@ -643,6 +656,8 @@ P:NPC {
   notice = {
     { id = "n_hungry", cat = "hunger", when = { profession = { "Cooking" } },
       text = "Ah, a cook. Let me guess: Daryl taught ye somethin' an' sent ye tae me for the spices, as he always does." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The spices have gone flat since ye walked up, an' the saffron smells o' nothin' at all, which it never does. I'll take yer coin, for it spends the same, but I'll air the stall out after ye go." },
   },
 
   start = "hello",
@@ -697,7 +712,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some do, for they say a warlock's gold comes from places it shouldnae. I'll take yours, mind, for it spends the same, but I'll no' pretend there's nobody in the Commons who'll look at ye sideways." } },
+      lines = {
+        { id = "xlock_default", text = "Some do, for they say gold like yours comes from places it shouldnae. I'll take it, mind, for it spends the same, but I'll no' pretend there's nobody in the Commons who'll look at ye sideways." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, for they say a warlock's gold comes from places it shouldnae, an' havin' yer demon stand by while ye count it out doesnae help. I'll take yours, mind, for it spends the same, but the cook at the next stall has moved his whole pot tae the far side since ye arrived." },
+      },
       choices = {
         { text = "My coin's honestly earned, Emrul. You've nothing to fear.", next = "BACK", reply = "I'll take ye at yer word. I've no' the time tae ask where every copper's been anyway.", fx = { align = { light = 1 } } },
         { text = "Where my gold came from is none of your business.", next = "BACK", reply = "Fair enough, an' I'll no' ask, but I'll count it twice before I take it, for coin from strange places sometimes comes back for itself.", fx = { align = { light = -1 } } },
@@ -742,7 +760,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue! I'll be watchin' my spice jars, mind, for some o' them cost more than a sword." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock wantin' spices? I'll be checkin' yer coin for brimstone before I take it." },
+          text = "Spices, is it? I'll be checkin' yer coin for brimstone before I take it, by the smell o' ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want salt, then, for there's nothin' sadder than a soldier's supper wi'out it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll be the one bringin' Daryl his meat, then, an' I'll be the one makin' it taste o' somethin'." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' herbs, then, an' I've a few that Daryl doesnae even know the names of." },
@@ -759,7 +777,7 @@ P:NPC {
         { text = "Where do your spices come from?", next = "spices" },
         { text = "Which recipe would you recommend?", next = "recipe" },
         { text = "Do rogues steal spices from you often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do people really worry about warlocks' coin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do people really worry where my coin comes from?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever give spices to the poor, Emrul?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -820,7 +838,7 @@ P:NPC {
   key = "if_nissa", id = TODO_NPC("Nissa Firestone"), name = "Nissa Firestone",
   bible = "bibles/great_forge_crafts.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "brisk" }, values = { "practical", "compassionate" },
-  notices = { "weary" },
+  notices = { "weary", "lock_soulstone" },
 
   impression = {
     first = "She is gentle with wounds and brisk with everything else.",
@@ -835,6 +853,8 @@ P:NPC {
   notice = {
     { id = "n_hurt", cat = "weary", when = { durability = { max = 0.25 } },
       text = "Yer armor's in tatters, so I'd guess what's under it's no' much better. Let me see, an' don't argue." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Ye've a soul tied up in a stone, I can see the shiver o' it on ye, an' that tells me ye expect tae die. I'd rather ye didnae, for I can bandage a wound but I cannae bandage that, so mind yerself out there." },
   },
 
   start = "hello",
@@ -889,9 +909,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing." } },
+      lines = {
+        { id = "xlock_default", text = "Some o' yer sort do, an' I've patched up a few dwarves who came out o' a fight paler than they went in. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in, so ye'll understand why I've put my cot between yer demon an' my patients. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing, which is more than I can say for that one." },
+      },
       choices = {
-        { text = "A bandage it is, Nissa. I'll leave your patients be.", next = "BACK", reply = "Thank ye, for my patients have enough troubles wi'out a warlock drawin' on them while they're lyin' still.", fx = { align = { light = 1 } } },
+        { text = "A bandage it is, Nissa. I'll leave your patients be.", next = "BACK", reply = "Thank ye, for my patients have enough troubles wi'out somebody drawin' on them while they're lyin' still.", fx = { align = { light = 1 } } },
         { text = "Their life serves me better than it serves them.", next = "BACK", reply = "Then ye'll no' be welcome in my infirmary, an' I'll be tellin' the guards tae keep ye well away from my patients.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -935,7 +958,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage wantin' tae learn bandagin'? Good, for ye'll be the first tae fall when the trolls charge." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll teach ye, warlock, but I'll no' have ye drainin' my patients' life tae heal yerself." },
+          text = "I'll teach ye, but I've seen that grey look on fighters before, an' I'll no' have ye drainin' my patients' life tae heal yerself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll be bleedin' on my floor sooner or later, so ye might as well learn tae stop it yerself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want tae learn bandagin' for yer own sake, for yer beast mends quicker than ye do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Yer kind heal wi' the green, I hear, an' I'll no' say no tae the help, so long as ye don't bleed on my floor." },
@@ -952,7 +975,7 @@ P:NPC {
         { text = "Who can teach me beyond what you know?", next = "beyond" },
         { text = "You must see a great many forge burns.", next = "wounds" },
         { text = "Why would mages fall first in a fight?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Do warlocks really steal life to heal themselves?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is it true some folk steal life to mend themselves, Nissa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Should a warrior learn bandaging, Nissa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters get hurt often, Nissa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you resent priests, Nissa, for doing your work with prayers?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

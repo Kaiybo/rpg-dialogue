@@ -7,6 +7,7 @@ P:NPC {
   key = "danuvin", id = TODO_NPC("Captain Danuvin"), name = "Captain Danuvin", title = "The People's Militia",
   bible = "bibles/danuvin.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "brave", "stern" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "His father died when the Horde's warlocks burned Stormwind in the First War." },
   notices = { "trophy", "kit" },
   impression = {
     first = "He counts gnoll paws the way a banker counts coin.",
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The orcs' warlocks burned Stormwind with my father inside it, and you carry the same stink. Stand away from my recruits." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I know a demon-caller when one walks up my hill. Say what you want and keep that thing on a short leash." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done the work, and my recruits have stopped staring at you. I haven't stopped watching you, but I'll take your help." },
     { id = "g_op_defias_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "You're the soft-hearted one who'd send thieves home with a warning. Well, we let one go last week, on your account, and we'll see what comes of it." },
     { id = "g_line", text = "Fall in or move along." },
     { id = "g_paws", when = { questActive = TODO_QUEST("Patrolling Westfall") }, text = "Paws, is it? Count them out on the table, and if it isn't eight, back out you go." },
@@ -88,12 +92,12 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xlo_default", text = "I've heard of your sort, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
-        { id = "xlo_gnome", when = { race = "Gnome" }, text = "Small as you are, you've a big shadow following you about, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
+        { id = "xlo_default", text = "I've heard of your sort, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if whatever follows you bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
+        { id = "xlo_gnome", when = { race = "Gnome" }, text = "Small as you are, you've a big shadow following you about, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if that shadow bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
       },
       choices = {
-        { text = "My demon serves me. That's all you need to know.", next = "BACK", reply = "That's not all I need, but it's all I'll get, I suppose. Keep it pointed at the Defias and we'll get along.", fx = { align = { light = -1 } } },
-        { text = "I'll keep it on a short leash around your people.", next = "BACK", reply = "I'd thank you for that, and so would my farmers. Most of them have never seen a demon, and I'd like it to stay that way.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It serves me, Captain. That's all you need to know.", next = "BACK", reply = "That's not all I need, but it's all I'll get, I suppose. Keep it pointed at the Defias and we'll get along.", fx = { align = { light = -1 } } },
+        { text = "I'll keep it on a short leash around your people.", next = "BACK", reply = "I'd thank you for that, and so would my farmers. Most of them have never seen a thing like that, and I'd like it to stay that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What do the gnolls want here?", next = "gnolls" },
       },
     },
@@ -128,6 +132,8 @@ P:NPC {
 
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, is it? I've heard your kind can turn into bears. If that's true, I'd like a few for the coast road." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My father died when the Horde's warlocks burned Stormwind, so don't expect a welcome. Say your piece, and be quick about it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've patrolled like you mean it, whatever walks at your heel. I'll grant you that much and no more." },
         { id = "h_default", text = "Captain Danuvin, of the People's Militia. I organize the farmers who were too stubborn to leave, and stubborn makes good soldiers." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Patrolling Westfall") },
           text = "The gnolls aren't just raiding; they work with the thieves in the mines. Somebody feeds them and points them at us." ,
@@ -160,7 +166,7 @@ P:NPC {
         { text = "A hunter could teach your recruits to track.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Your farmers fight in the open, Captain. I'd teach them to fight dirty.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A few fire spells would thin the gnolls quickly, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What walks beside me is worse than any gnoll, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your militia must take Defias prisoners now and then, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your militia fight beside a shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

@@ -6,13 +6,17 @@ P:NPC {
   key = "carlin", id = TODO_NPC("Carlin Redpath"), name = "Carlin Redpath",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "weary" }, values = { "loyal", "kind" },
-  notices = { "class" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Saw the Cult of the Damned's dark-callers bring down Darrowshire and his brother Joseph." },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He has never quite forgiven himself for surviving Darrowshire.",
     third = "{name} met Carlin Redpath at Light's Hope Chapel, a survivor of the fall of Darrowshire.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched men with that same darkness on them open Darrowshire to the dead. I can't help how I look at you, so don't ask me to." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Joseph died because the cult made deals with things in the dark. Speak, if you must, but stay over there." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Darrowshire, and I owe you for that, whatever else you are. I'll still say a prayer when you go, though, and you needn't ask what for." },
     { id = "g_chapel", text = "Light keep you, friend. Sit a moment, if you're not in a hurry; few people stop to talk to an old man about an old battle." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. I'd hoped you would, though I couldn't say why." },
     { id = "g_xrefugee", when = { origin = "human_lordaeron_refugee" }, text = "You came out of Lordaeron as a child, didn't you? Then you got further than most of Darrowshire did, and I'm glad of it, so sit and let me tell you about the town your family never got to see." },
@@ -23,6 +27,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. Joseph wanted the Light's training once, and our father wanted him on the farm, and the farm won. I've wondered since how that day might have gone otherwise." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That dark ward on your skin, the cultists at Darrowshire wore wards like it while they raised our dead. I know you're not one of them, but my hand went to my sword before my head could stop it." },
   },
 
   start = "hello",
@@ -118,10 +124,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They came behind the Scourge, raising our dead as fast as we fell, so that every man Joseph lost came back to fight against him. I still see their robes when I close my eyes, so if you've any honest work for the Dawn, I'd be glad to see dark magic turned the other way for once." } },
+      lines = {
+        { id = "xlock_default", text = "They came behind the Scourge, raising our dead as fast as we fell, so that every man Joseph lost came back to fight against him. I still see their robes when I close my eyes, so whatever it is you practise, I'd be glad to see it turned the other way for once." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They came behind the Scourge, raising our dead as fast as we fell, and I still see their robes when I close my eyes. Seeing your demon by the door brings it all back, so if you've honest work for the Dawn, turn that creature on the Cult and let dark magic go the other way for once." },
+      },
       choices = {
-        { text = "I'll turn my power on the Cult, Carlin. I promise.", next = "BACK", reply = "Thank you. I'll hold you to that, and so would Joseph, if he were here to.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Power is power. The Cult just used it better.", next = "BACK", reply = "They used it to raise my brother against his own men. I'd want you to use it better.", fx = { align = { light = -1 } } },
+        { text = "I'll turn what I know on the Cult, Carlin. I promise.", next = "BACK", reply = "Thank you. I'll hold you to that, and so would Joseph, if he were here to.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. The Cult simply used it better.", next = "BACK", reply = "They used it to raise my brother against his own men. I'd want you to use it better.", fx = { align = { light = -1 } } },
         { text = "Something else, Carlin.", next = "BACK" },
       },
     },
@@ -153,7 +162,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll not turn you away, {class}, for the Dawn doesn't, but I saw the Cult of the Damned's necromancers at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and I saw your sort at Darrowshire, calling up horrors while my brother held the square. The Dawn says I must speak with you, so I will." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You came back, and you've done more for Darrowshire's ghosts than I ever managed. I still don't like what you carry, but I'm glad of you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll not turn you away, for the Dawn doesn't. But you've a look about you I saw on the Cult of the Damned's people at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never leaves those who stand their ground." },
       },
       choices = {
@@ -241,7 +252,7 @@ P:NPC {
   key = "pamela", id = TODO_NPC("Pamela Redpath"), name = "Pamela Redpath",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "darrowshire" }, temper = { "childlike" }, values = { "kind", "lonely" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "She doesn't seem to know she's dead, or doesn't mind.",
     third = "{name} met the ghost of Pamela Redpath in the ruins of Darrowshire, where she still waits for her family.",
@@ -254,6 +265,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "You've got a beard like Papa's friend from the mountains! He used to let me pull it, but only a little." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Your horse is on fire! Is it hurting? It doesn't look like it's hurting, and its hooves are making the grass all black, and I think it's the most beautiful thing I ever saw." },
   },
 
   start = "hello",
@@ -326,10 +339,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A bit, but not as much as the pale people, because they were big and smelled bad and they broke my dolly. If your monster's nice to me, I'll be nice to it, and maybe it can help find my dolly's pieces, because it looks very good at finding things." } },
+      lines = {
+        { id = "xlock_default", text = "A bit, but not as much as the pale people, because they were big and smelled bad and they broke my dolly. If your monster's nice to me, I'll be nice to it, and maybe it can help find my dolly's pieces, because it looks very good at finding things." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A bit, because it's looking right at me and it never blinks, but the pale people were bigger and smelled worse and they broke my dolly. Does {pet} like dolls? If it's nice to me, I'll be nice to it, and maybe it can help find my dolly's pieces." },
+      },
       choices = {
         { text = "It'll be nice to you, Pamela. I promise.", next = "BACK", reply = "Then I'll be nice to it too. Can it help find my dolly's pieces?", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "It doesn't do nice, Pamela. Keep your distance.", next = "BACK", reply = "Oh. I'll stay over here, then. It looks a bit grumpy.", fx = { align = { light = -1 } } },
+        { text = "It doesn't do nice, Pamela. Stay back from it.", next = "BACK", reply = "Oh. I'll stay over here, then. It looks a bit grumpy.", fx = { align = { light = -1 } } },
         { text = "Something else, Pamela.", next = "BACK" },
       },
     },
@@ -424,7 +440,7 @@ P:NPC {
   key = "smokey", id = TODO_NPC("Smokey LaRue"), name = "Smokey LaRue",
   bible = "bibles/roads.md", role = "questgiver", tier = "service",
   communities = { "light_hope", "argent_dawn" }, temper = { "gruff" }, values = { "practical", "stubborn" },
-  notices = { "race" },
+  notices = { "race", "lock_taint" },
   impression = {
     first = "He wants Scourge parts and doesn't care how you feel about it.",
     third = "{name} met Smokey LaRue, an ill-tempered dwarf working for the Argent Dawn at Light's Hope Chapel.",
@@ -439,6 +455,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, at last! Somebody here who knows a proper pipe from a burnin' rag." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "Ye smell o' fel, an' don't argue wi' me, for I've a nose for foul things an' that's the worst o' them. Scourge bits at least tell ye what they'll cost up front." },
   },
 
   start = "hello",
@@ -541,7 +559,7 @@ P:NPC {
         { id = "h_compound", tags = { "news" }, when = { questActive = TODO_QUEST("Smokey's Special Compound") },
           text = "Ye've got the bits? Good, toss 'em in the bin, not on me bench. The compound's half done, an' it's a mean thing when it's interrupted." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, eh? Ye'll no mind the smell in here, {class}, for I've seen what yer imps leave behind, an' my workshop's cleaner by comparison." },
+          text = "Ye'll no mind the smell in here, I'd wager, for there's a whiff o' brimstone on ye already, an' my workshop's cleaner by comparison." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Ye've light fingers, {class}, I can see it from here. Good, for the Scourge bits I need come off the dead quicker if ye know how tae cut a purse." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -562,7 +580,7 @@ P:NPC {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
         { text = "That compound smells dreadful.", next = "compound" },
         { text = "I'd guess they call you Smokey for a reason.", next = "name" },
-        { text = "Do you ever use fel in your brews, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you ever brew with darker things than rot, Smokey?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Brewing with Scourge parts seems like desecration, Smokey.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
@@ -586,10 +604,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Never, an' I'll thank ye no tae suggest it where the paladins can hear. Scourge bits are foul enough, but they're honest foul, an' fel's the kind o' foul that comes wi' a price ye cannae see on the label." } },
+      lines = {
+        { id = "xlock_default", text = "Never, an' I'll thank ye no tae suggest it where the paladins can hear. Scourge bits are foul enough, but they're honest foul, an' fel's the kind o' foul that comes wi' a price ye cannae see on the label." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Never, an' I'll thank ye no tae suggest it wi' yer demon standin' there sniffin' at my kettles. Scourge bits are foul enough, but they're honest foul, an' whatever that thing's breathin' over my brew is the kind o' foul wi' a price ye cannae see on the label." },
+      },
       choices = {
-        { text = "Wise. Fel always costs more than it looks.", next = "BACK", reply = "It does, every time. I'll stick tae honest rot, thank ye.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel would make your brews twice as strong.", next = "BACK", reply = "Twice as strong an' ten times as dangerous. No, thank ye, an' keep yer voice down.", fx = { align = { light = -1 } } },
+        { text = "Wise. Some things always cost more than they look.", next = "BACK", reply = "It does, every time. I'll stick tae honest rot, thank ye.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A darker ingredient would make your brews twice as strong.", next = "BACK", reply = "Twice as strong an' ten times as dangerous. No, thank ye, an' keep yer voice down.", fx = { align = { light = -1 } } },
         { text = "Something else, Smokey.", next = "BACK" },
       },
     },
@@ -622,7 +643,7 @@ P:NPC {
   key = "betina", id = TODO_NPC("Betina Bigglezink"), name = "Betina Bigglezink",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "light_hope", "argent_dawn" }, temper = { "bright" }, values = { "clever", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "She talks about Scholomance cheerfully, which makes it sound worse.",
     third = "{name} met Betina Bigglezink of the Argent Dawn at Light's Hope Chapel, who is building something meant for Scholomance.",
@@ -635,6 +656,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! You'll appreciate this, then: it's alchemy and engineering together, and nothing arcane about it, which I'm rather proud of." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ooh, those shards are putting out a lovely little hum, about a hundred cycles a second, I'd guess. I'd love to put one on my bench, but I've seen what happens when a machine starts listening to a voice." },
   },
 
   start = "hello",
@@ -735,7 +758,7 @@ P:NPC {
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "Oh, a warlock! Please don't let your imp near my bench, {class}, for it'll eat the copper wiring, and I've only got the one spool." },
+          text = "Oh! Please keep whatever's in that satchel away from my bench, {name}. Something in there is scratching, and I've only got the one spool of copper wiring." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Perfect, {class}, for I've a device that wants an arcane jolt to wake it up, and the last time I used a lightning rod I lost my eyebrows." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -756,7 +779,7 @@ P:NPC {
         { text = "What is Scholomance?", next = "scholo" },
         { text = "You seem to be building something clever.", next = "gambit" },
         { text = "A gnome seems far from home at Light's Hope.", next = "why" },
-        { text = "Fel could power your contraptions, Betina.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "There are darker fuels than steam, Betina.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What's your device for, Betina?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a blessing work through gnomish machinery, Betina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why fight the Scholomance with devices instead of knights, Betina?", next = "xapala", when = { class = "PALADIN" } },
@@ -781,10 +804,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It could, and that's exactly why I'd never let it, for a machine that runs on demons will want what demons want sooner or later. Steam, sparks and a little arcane are bad enough, and at least they don't whisper." } },
+      lines = {
+        { id = "xlock_default", text = "There are, and that's exactly why I'd never touch them, for a machine that runs on something hungry will want what it wants sooner or later. Steam, sparks and a little arcane are bad enough, and at least they don't whisper." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It could, and that's exactly why I'd never let it, and why I'd like your demon to stop staring at my steam boiler like that. A machine that runs on demons will want what demons want sooner or later, and at least steam and sparks don't whisper." },
+      },
       choices = {
-        { text = "A wise rule. Fel corrupts everything it touches.", next = "BACK", reply = "It does, and nobody's ever convinced me otherwise. No demons in my machines.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fel's only energy. You're being superstitious.", next = "BACK", reply = "Superstitious, maybe, but I've still got all my fingers. I'll stick with steam.", fx = { align = { light = -1 } } },
+        { text = "A wise rule. Some power corrupts everything it touches.", next = "BACK", reply = "It does, and nobody's ever convinced me otherwise. Nothing hungry in my machines.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is only power. You're being superstitious.", next = "BACK", reply = "Superstitious, maybe, but I've still got all my fingers. I'll stick with steam.", fx = { align = { light = -1 } } },
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },

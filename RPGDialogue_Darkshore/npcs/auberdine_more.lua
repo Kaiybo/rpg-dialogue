@@ -8,13 +8,16 @@ P:NPC {
   key = "tharnariun", id = TODO_NPC("Tharnariun Treetender"), name = "Tharnariun Treetender",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "auberdine" }, temper = { "patient" }, values = { "healing", "curious" },
-  notices = { "pet", "form" },
+  prejudice = { class = "WARLOCK", amount = 11, why = "Druid nursing corrupted bears; blames fel taint for the sickness." },
+  notices = { "pet", "form", "lock_taint" },
   impression = {
     first = "He wants a sick bear brought alive, which says most of it.",
     third = "{name} met Tharnariun Treetender, a druid of Auberdine trying to cure the madness spreading through Darkshore's thistle bears.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "My bears are sick with something foul, and you walk in smelling of foulness. Stay back from the cages, because I'll not risk it." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've helped more than you've harmed around Auberdine, I'll give you that. I still keep you away from the cages." },
     { id = "g_bears", text = "Mind the cage, friend; it is empty now, but I hope it will not stay that way for long." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with all your fingers. The bears have not had the better of you yet, I see." },
     { id = "g_hope", when = { questDone = TODO_QUEST("Tharnariun's Hope") },
@@ -29,6 +32,8 @@ P:NPC {
       text = "Keep your companion away from the thistle bears, and away from anything that foams at the mouth. Whatever this is, I do not know yet whether it passes from beast to beast." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Ha, for a moment you gave me a fright! A clear-eyed bear is the finest thing I've seen all week, so stay as you are a moment and let me look at you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "There is fel in you, more than a novice's dabbling, and it smells exactly like the moss I have been scraping from the bears near the Blackwood camps. I would ask what you have been doing, but I fear you would tell me." },
   },
 
   start = "hello",
@@ -92,11 +97,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
+        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by whatever you keep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. My cubs have backed into their pens at the sight of your servant, so leave it here when you go, because I need a sick bear brought to me alive, not torn apart by a demon." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", reply = "Spoken like one who knows what fel does to a living thing. I will not ask how you came to know it.", fx = { align = { light = 1 } } },
-        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", reply = "A sickness can be cured, warlock, if someone cares enough to try. I would rather try than give up.", fx = { align = { light = -1 } } },
+        { text = "A sickness is a sickness. Put the poor beasts down.", next = "BACK", reply = "A sickness can be cured, if someone cares enough to try. I would rather try than give up.", fx = { align = { light = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -126,7 +132,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then you may understand that a sick bear is still a patient, even if it is a patient that wants to tear your arm off." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll ask you to keep your demon well back from my bears, because whatever is souring their blood, it smells a good deal like what follows you." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Whatever is poisoning my bears, your kind has poisoned better forests than this one. Say your business from where you stand." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The bears don't growl at you as much as they did, and nor do I. What is it?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever trails you well back from my bears. Whatever is souring their blood smells a good deal like it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Thistle Bear", min = 20 } },
           text = "You've put down a good many of the thistle bears, I hear, and I'll not scold you, because a mad bear is a danger to everyone. But one brought to me alive could teach me more than a hundred carcasses." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The thistle bears are sick, and I want one brought to me alive, so perhaps your spirits could calm it where my potions cannot." },
@@ -149,7 +157,7 @@ P:NPC {
         { text = "Must I kill the thistle bears, Tharnariun?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a priest's healing touch the sickness in the bears?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should I kill the maddened bears, or leave them be?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you think fel magic made the bears sick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think something darker made the bears sick?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do you want a sick bear alive, Tharnariun?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
       },
@@ -267,7 +275,7 @@ P:NPC {
   key = "elissa", id = TODO_NPC("Sentinel Elissa Starbreeze"), name = "Sentinel Elissa Starbreeze",
   bible = "bibles/auberdine.md", role = "soldier", tier = "quest",
   communities = { "auberdine" }, temper = { "brisk" }, values = { "dutiful", "fair" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_eyes" },
   impression = {
     first = "She counts crates the way other Sentinels count arrows.",
     third = "{name} met Sentinel Elissa Starbreeze, who keeps Auberdine's stores and its ties to the paladins at Maestra's Post.",
@@ -283,6 +291,8 @@ P:NPC {
       text = "Another human! Delgren's company has taught me that your people keep their promises, so I'll assume you keep yours until you prove otherwise." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin, like Delgren the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { class = "WARLOCK", aura = { 132, 2970, 11743 } },
+      text = "You are watching the shadows behind the boats where the cultists like to wait, and I think you see more there than I do. I will not ask what lends you that sight, so long as you tell me what it shows you." },
   },
 
   start = "hello",
@@ -339,10 +349,11 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I am sure you do, and you bring the proof of it with you, standing there at your shoulder for every Sentinel to see. Delgren would want you in irons for less, so tell me where they meet, and then take that creature somewhere the Sentinels are not." },
       },
       choices = {
-        { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you, warlock. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
-        { text = "Their methods aren't wrong, only their masters.", next = "BACK", reply = "Their masters are the whole of what is wrong with them, warlock. Be careful whose methods you share.", fx = { align = { light = -1 } } },
+        { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
+        { text = "Their methods aren't wrong, only their masters.", next = "BACK", reply = "Their masters are the whole of what is wrong with them. Be careful whose methods you share.", fx = { align = { light = -1 } } },
         { text = "Who are Delgren and his paladins?", next = "delgren_e" },
       },
     },
@@ -417,7 +428,7 @@ P:NPC {
         { text = "Your stores would be easy to lift, Sentinel.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the humans at Maestra's Post fight well, Sentinel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does Auberdine need from its hunters, Sentinel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Dark Strand bargain with the Legion. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do Auberdine's stores run short of healing supplies?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do the Sentinels and the Silver Hand work together?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the druids need from your stores, Sentinel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -510,7 +521,7 @@ P:NPC {
   title = "Hippogryph Master",
   bible = "bibles/auberdine.md", role = "flightmaster", tier = "service",
   communities = { "auberdine" }, temper = { "cheerful" }, values = { "dutiful", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
   impression = {
     first = "The sea wind worries her more than anything on the ground.",
     third = "{name} met Caylais Moonfeather, who keeps the hippogryphs at Auberdine.",
@@ -524,6 +535,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome" } },
       text = "Off the Bravery, are you? Don't worry, a hippogryph flies smoother than any gryphon, or so I'm told by every dwarf who has turned green on one." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Please leave your burning horse at the foot of the roost, because the big grey one has already seen it and is pretending to be dead. I have only just got him eating again since the last warlock." },
   },
 
   start = "hello",
@@ -599,10 +612,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They'll carry you, but not your servant, and I'd ask you to dismiss it before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
+        { id = "xlock_default", text = "They'll carry you, but not that thing of yours, and I'd ask you to send it off before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not your servant, and I can already hear them stamping in the roost with it standing here. Dismiss it now, please, because a hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
       },
       choices = {
-        { text = "I'll dismiss it. The birds come first.", next = "BACK", reply = "Thank you, warlock. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },
+        { text = "I'll send it off. The birds come first.", next = "BACK", reply = "Thank you. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },
         { text = "They'll get used to it, or they'll learn.", next = "BACK", reply = "They will not, I am afraid, and you will be walking. Dismiss it, please.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -627,7 +641,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My birds have watched your companion since you climbed the rise, and I think they're deciding whether it's prey." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The birds are calmer around healers, I find, and they've had little enough calm this season." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be heavy in the saddle, but my birds have carried worse, and they'll carry you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My birds have gone stiff in the feathers, and they only do that when the wind carries something they don't like." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My birds have gone stiff in the feathers since you came up, and they only do that when the wind carries something they don't like." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My hippogryphs have moods like the weather over the sea, so perhaps your wind spirits will understand them better than I do." },
       },
       again = {
@@ -647,7 +661,7 @@ P:NPC {
         { text = "Do your hippogryphs hunt on their own, Caylais?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your hippogryphs ever come back hurt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it a paladin's place to guard the flight paths?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Will your hippogryphs carry a warlock, Caylais?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your hippogryphs carry me, Caylais, or only some of us?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are your hippogryphs troubled lately, Caylais?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },

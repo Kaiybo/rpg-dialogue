@@ -7,13 +7,17 @@ P:NPC {
   key = "dughan", id = TODO_NPC("Marshal Dughan"), name = "Marshal Dughan",
   bible = "bibles/dughan.md", role = "questgiver", tier = "major",
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" }, likesTone = "polite",
-  notices = { "reputation", "bounty" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Second War veteran who saw what the Horde's warlocks did to men on the line; leaves the inn cellar alone on orders, not by choice." },
+  notices = { "reputation", "bounty", "lock_shards", "lock_steed" },
   impression = {
     first = "He looks at me like one more pair of hands.",
     third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I know what you are, and I know where you sleep, under the Lion's Pride. I'm told to leave that cellar alone, so I will, but don't mistake an order for a welcome." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "In the Second War I saw what the Horde's warlocks did to the men on the line. You'll forgive me if I keep my hand near my sword while we talk." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Goldshire, and I've counted every time. I still don't like what follows you, and I'll still be watching it." },
     { id = "g_op_peace_against", when = { gossip = { topic = "peace", stance = "against" } }, text = "Farley tells me you'd never make peace with the orcs. Good, keep that, but save it for the orcs, and not for every Defias in a scarf." },
     { id = "g_op_varian_dead", when = { opinion = { topic = "varian", stance = "dead" } }, text = "Ah, it's you. I'll ask you again not to tell my farmers the king is dead; they've enough to frighten them with the gnolls." },
     { id = "g_desk", text = "Make it quick, friend; I've half of Elwynn on this desk." },
@@ -32,6 +36,10 @@ P:NPC {
       text = "Is that what I think it is? Put it on the desk, slowly, because I want the guards to see it." },
     { id = "n_town_hero", cat = "reputation", when = { townStanding = { town = "goldshire", min = 55 } },
       text = "The Lion's Pride wants to buy you a drink and the farmers out east want to name a pig after you, and I've told them both to wait." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "How many of those purple stones are you carrying? My guards count them like contraband when your sort come through, and I'd like to know whose souls I'm letting into Goldshire before I let them in." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Get that horse off my road before it sets the hedges alight, because I've already had one report of scorched hoofprints on the Goldshire road and I'm not writing a second. Stormwind's stables don't breed beasts with burning feet, so I won't ask where you got it." },
   },
 
   start = "hello",
@@ -125,10 +133,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." } },
+      lines = {
+        { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I see you've brought one of your creatures up those stairs already, so keep it at your heel in my town hall and we'll get along." },
+      },
       choices = {
         { text = "Nothing will come up those stairs while I'm down there.", next = "BACK", reply = "That's all I ask, and I'll hold you to it. My guards have enough to worry about.", fx = { align = { light = 1 } } },
-        { text = "What I summon is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },
+        { text = "What happens below those stairs is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -228,7 +239,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and I've no blessed idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in my town square. You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone." },
+          text = "You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone. Keep your voice down in my square." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my square, out in the daylight. Say your business plainly, and then go back down to that cellar where I don't have to look at you." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I've stopped reaching for my sword when you walk in, which is more than I can say for the rest of that cellar's lot." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Light's sake, the last shamans I saw were burning farms for the Horde, but I need hands, and yours look steady." },
       },
       again = {

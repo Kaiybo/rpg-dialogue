@@ -13,13 +13,21 @@ P:NPC {
     { id = "g_main", text = "Hold up there. Let me see if you're injured before you come any closer." },
     { id = "g_back", when = { metBefore = true }, text = "You made it back, and in one piece. My brother's tent can't say the same, since a stegodon sat on it last night." },
   },
+  notice = {
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode into the Refuge on a horse with its hooves on fire, and the devilsaurs could see that from the other side of the crater. Next time leave it at the ridge, because I'm the one who'll be digging the graves." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." } },
+      lines = {
+        { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it, and I'd not let {pet} wander too far from you to find out. If your demon can keep the beasts busy while you get clear, use it, and don't be proud about it, because I've buried people who were sure of themselves." },
+      },
       choices = {
-        { text = "Good advice. I'll keep my demon as a shield, not a show.", next = "BACK", reply = "That's the way of it. Let the beasts chew on your demon while you put a ridge between you and them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Good advice. My demon will be a shield, not a show.", next = "BACK", reply = "That's the way of it. Let the beasts chew on your demon while you put a ridge between you and them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon can handle anything this crater throws at it.", next = "BACK", reply = "I said the same about my rifle once, so I did, and the crater taught me otherwise. Keep your demon close and your feet closer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -135,7 +143,7 @@ P:NPC {
         { text = "Who in the Refuge needs healing most?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the expedition leave before more people die?", next = "xapala", when = { class = "PALADIN" } },
         { text = "You must have tracked some dangerous beasts in the crater.", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Would a devilsaur really eat a demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Would a devilsaur really eat a demon? I'd pay to see that.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -188,6 +196,11 @@ P:NPC {
     { id = "g_main", text = "The Earth Mother walks here, stranger, and so do great beasts. Tread carefully." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, hunter. The trails have missed you." },
   },
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The raptors went quiet when you came up the path, and they are never quiet. The creatures of Un'Goro smell what you are before they see you, and that is why I keep my spear close and my distance closer." },
+  },
+
   start = "hello",
   nodes = {
     xmage = {
@@ -266,9 +279,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." } },
+      lines = {
+        { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. Your demon was made somewhere else entirely, and you can hear how the raptors have gone quiet since it came, so they know it, even if your own people pretend not to." },
+      },
       choices = {
-        { text = "Power is power. I use what answers me.", next = "BACK", reply = "Power answers many, warlock, and not all who answer are friends. Use it carefully, under the Earth Mother's sky.", fx = { align = { light = -1 } } },
+        { text = "Power is power. I use whatever answers me.", next = "BACK", reply = "Power answers many, warlock, and not all who answer are friends. Use it carefully, under the Earth Mother's sky.", fx = { align = { light = -1 } } },
         { text = "I keep it leashed. I know the danger better than you.", next = "BACK", reply = "Then you are wiser than most who carry it. Keep it leashed, and the crater will tolerate you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "We should speak of other things.", next = "BACK" },
       },
@@ -304,7 +320,7 @@ P:NPC {
         { text = "The Earth Mother guide you, Torwa.", next = "x_1", when = { race = "Tauren" } },
         { text = "Perhaps Lar'korwi should be left alone.", next = "s_1" },
         { text = "Is it dishonorable to hunt from hiding?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Does my magic offend you, hunter?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does what I carry offend you, hunter?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there room in this crater for a priest's prayers?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there no place for a warrior's strength in Un'Goro?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What has Lar'korwi taught you?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -373,6 +389,11 @@ P:NPC {
     { id = "g_main", text = "Oh! Mind the sprouts, please, they're very delicate." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! The sprouts are growing nicely, thank you for asking." },
   },
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "The bloodpetals just leaned away from your bag, which is fascinating, because they lean toward everything else! Whatever's in there is cold and humming, and I don't suppose you'd let me put a seedling next to it for science?" },
+  },
+
   start = "hello",
   nodes = {
     xrogue = {
@@ -443,7 +464,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." } },
+      lines = {
+        { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, just a little, the way they lean from a cold draught, and look, they lean even more from that creature of yours! I don't know what that means, and I'm not sure I want to, but if you'd both stand still by that pot for a moment, I'd be ever so grateful for the data." },
+      },
       choices = {
         { text = "Study it. Every power should be understood.", next = "BACK", reply = "I will, and I'll write down every lean and every shudder. Larion will say I'm wasting ink.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Maybe the plants know better than we do.", next = "BACK", reply = "Maybe they do! They certainly knew to lean away from you before I knew why.", fx = { align = { light = 1 } } },
@@ -478,7 +502,7 @@ P:NPC {
         { text = "Is there magic in your bloodpetals?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
         { text = "Is it right to experiment on living plants?", next = "s_1" },
         { text = "Would you really have me cast at your bloodpetals?", next = "xmage", when = { class = "MAGE" } },
-        { text = "The plants lean away from me?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The plants lean away from me? How flattering.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a blessing really help your plants grow?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would they only lash at people who flinch?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Plants that hunt animals? You can't be serious.", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -536,11 +560,19 @@ P:NPC {
     { id = "g_main", text = "Oh, thank the Cartel, a person! I thought I'd never see another face, buddy, let alone one that might have a canteen." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, buddy! I wasn't sure you would, and I'd have bet against it, which shows what I know." },
   },
+  notice = {
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Is that a healthstone? I've been walking for days, buddy, and I'm so tired I'd eat it whole if you let me. I don't even care that a warlock made it, I just want to get home to Spraggle in one piece." },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, buddy, I've just heard stories, and your demon is staring at me like the stories were true. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of it, I promise, or at least I'll try not to look at it." },
+      },
       choices = {
         { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", reply = "You will? Oh, buddy, you're a lifesaver, a real lifesaver. I'll follow you anywhere, as long as it's away from here.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You should be frightened. It keeps you careful.", next = "BACK", reply = "Frightened? Buddy, I've been frightened for days, and I'm very careful now. Too careful to sleep.", fx = { align = { light = -1 } } },
@@ -634,7 +666,7 @@ P:NPC {
         { text = "You must have seen some beasts out here while you were lost.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How did you get so lost, Ringo?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have the ferns answered you yet?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Why would I want your soul, of all things?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why would I want your soul, of all things? It's hardly worth much.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -686,14 +718,22 @@ P:NPC {
     { id = "g_main", text = "Hey, careful there, friend! The water's hotter than it looks, and I can't afford the lawsuit." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend! Got any readings for me? Readings are money, and money's the only thing hotter than this water." },
   },
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "You've got a soulstone in that pack, and I know because I tried to buy one once for my retirement plan. Imagine it, a goblin who can't die until the springs pay out, and nobody would sell me one!" },
+  },
+
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan, and you've just walked a demon right up to the steam! The crater's dangerous enough without scaring off the paying guests, so take it over by the tar pits, where nobody's paying attention." },
+      },
       choices = {
         { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", reply = "You're a gem, pal, a real gem. My retirement plan thanks you, and so do my knees.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A demon would draw a crowd, you know. Think about it.", next = "BACK", reply = "A crowd? Friend, a demon by the springs would scare off every customer I've got. Thanks for the thought, though.", fx = { align = { order = -1 } } },
+        { text = "A demon would draw a crowd, you know. Think on it.", next = "BACK", reply = "A crowd? Friend, a demon by the springs would scare off every customer I've got. Thanks for the thought, though.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -815,7 +855,7 @@ P:NPC {
         { text = "Hot water won't fix a warrior's wounds.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do the beasts keep clear of the springs?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You'd really sell holy bathwater?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Had any trouble with demons round the springs?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Had any trouble with demons round the springs, Krakle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

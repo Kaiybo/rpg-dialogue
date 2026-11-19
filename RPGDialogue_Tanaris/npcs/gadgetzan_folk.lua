@@ -7,7 +7,7 @@ P:NPC {
   key = "gimblethorn", id = TODO_NPC("Gimblethorn"), name = "Gimblethorn", title = "Banker",
   bible = "bibles/tanaris.md", role = "banker", tier = "service",
   communities = { "gadgetzan" }, temper = { "dry" }, values = { "careful", "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "He counts every coin twice, once for the Cartel and once himself.",
@@ -24,6 +24,8 @@ P:NPC {
       text = "That's a heavy purse to carry across a desert full of Wastewanders, friend. I'd let the vault carry it, if I were you." },
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } },
       text = "You can keep the vault for your things even with an empty purse, so don't look so worried, friend; nobody here charges you for being broke, though we do note it." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone's tucked your soul into a stone for safekeeping, I see, and that's a deposit this bank never saw a fee for. Whoever's holding it, I hope they're more careful than the fellow whose box knocked at midnight." },
   },
 
   start = "hello",
@@ -149,10 +151,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and finally we buried it in the dunes and charged the owner for the trouble." } },
+      lines = {
+        { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and finally we buried it in the dunes and charged the owner for the trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Twice, and the second time the box started knocking from the inside at midnight. Your demon keeps sniffing at my lockers the way that box used to knock, so I'll thank you to keep it at your heel, because I've no more dune to bury things in." },
+      },
       choices = {
         { text = "Sensible. Some things shouldn't be kept at all.", next = "BACK", reply = "We agreed in the end, friend, though I still charged the burial to the depositor, because the Cartel doesn't do anything for free.", fx = { align = { order = 1 } } },
-        { text = "You buried something valuable. That was a waste.", next = "BACK", reply = "A waste, friend, until it knocks at midnight, and then you'll pay anyone with a shovel to put it somewhere else.", fx = { align = { order = -1 } } },
+        { text = "You buried something valuable. A waste.", next = "BACK", reply = "A waste, friend, until it knocks at midnight, and then you'll pay anyone with a shovel to put it somewhere else.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -191,7 +196,7 @@ P:NPC {
           text = "A hunter. Your beast stays outside the vault, I'm afraid, because the last one that came in ate a deposit slip and the dispute is still unresolved." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at the bank. I'll keep your gold safe, friend, but I'll remind you that the Cartel's vault holds Horde gold too, and I won't hear any complaints about it." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Sulphur on your cuffs, friend, so I know your trade. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
         { id = "h_dd_rep", when = { reputation = { faction = "Gadgetzan", min = "revered" } }, text = "Ah, one of the Baron's very favourite customers, according to the books, and the books never lie, friend, which is more than I can say for the Baron. Your box is right where you left it, and I've personally checked the lock twice." },
       },
       again = {
@@ -262,7 +267,7 @@ P:NPC {
   key = "bera", id = TODO_NPC("Bera Stonehammer"), name = "Bera Stonehammer", title = "Gryphon Master",
   bible = "bibles/tanaris.md", role = "flightmaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "blunt" }, values = { "dutiful" },
-  notices = { "race" },
+  notices = { "race", "lock_steed" },
 
   impression = {
     first = "She speaks of the desert like a personal insult.",
@@ -276,6 +281,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, this far south! Did you get lost on the way to the mountains, or did someone pay you to come and sweat?" },
+    { id = "n_lock_steed", cat = "lock_steed", when = { aura = { 5784, 23161 } },
+      text = "Leave that burnin' horse at the edge o' town, for the gryphons can smell its hoofprints on the sand from here. I've only just got the roof bird tae come down, an' I'll no' be climbin' up after her again." },
   },
 
   start = "hello",
@@ -410,10 +417,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry ye, so long as the demon stays dismissed until ye land. I had a bird refuse tae fly once wi' an imp on the saddle, an' it took me an hour tae talk her down from the roof." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry ye, so long as whatever ye keep stays put away till ye land. I had a bird refuse tae fly once wi' a horned wee thing on the saddle, an' it took me an hour tae talk her down from the roof." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry ye, so long as the demon's dismissed before ye go near the roost. Listen tae them now, screechin' at the smell of that thing, so send it off an' give the birds a moment, or I'll be up on the roof for another hour talkin' one down." },
+      },
       choices = {
-        { text = "I'll dismiss him before I ride. Spare the roof.", next = "BACK", reply = "Bless ye, and my birds'll thank ye, though ye'll not hear it over their grumbling about the heat.", fx = { align = { order = 1 } } },
-        { text = "My demon goes where I go, Bera.", next = "BACK", reply = "Then ye'll walk, friend, because my birds have more sense than tae carry a demon, and so have I.", fx = { align = { order = -1 } } },
+        { text = "I'll put it away before I ride. Spare the roof.", next = "BACK", reply = "Bless ye, and my birds'll thank ye, though ye'll not hear it over their grumbling about the heat.", fx = { align = { order = 1 } } },
+        { text = "What travels with me goes where I go, Bera.", next = "BACK", reply = "Then ye'll walk, friend, because my birds have more sense than tae carry it, and so have I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -439,7 +449,7 @@ P:NPC {
           text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawin' bandits, and by my beard they could stand to meet you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep whatever ye've got in that satchel away from the roost, friend. My gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
         { id = "h_dd_fall", when = { deathCause = "falling" }, text = "Ye've taken a long fall somewhere and walked back from it, I can tell by how ye eye the edge of the roost. Hold the reins and let the gryphon do the flyin', and ye'll never meet the ground that fast again." },
       },
@@ -458,7 +468,7 @@ P:NPC {
         { text = "Does the orc across the yard give you any trouble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Wastewanderers raiding your gryphon crates, Bera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons get on with hunters' beasts, Bera?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Will your gryphons carry a warlock at all, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your gryphons carry someone who smells of brimstone, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The desert wind can't be kind to your gryphons, Bera.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you miss Ironforge out here, Bera?", next = "xpt_bera", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
@@ -509,7 +519,7 @@ P:NPC {
   key = "bulkrek", id = TODO_NPC("Bulkrek Ragefist"), name = "Bulkrek Ragefist", title = "Wind Rider Master",
   bible = "bibles/tanaris.md", role = "flightmaster", tier = "service",
   communities = { "gadgetzan" }, temper = { "gruff" }, values = { "dutiful", "honor" },
-  notices = { "race" },
+  notices = { "race", "lock_shadow" },
 
   impression = {
     first = "He nods at the dwarf across the yard every morning.",
@@ -524,6 +534,8 @@ P:NPC {
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "Lok'tar. It's good to see a face from Durotar in this goblin oven; the sun here is worse than ours, and the company talks more." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "I feel it on you, warlock, the same cold the Shadow Council put in the air of our camps on Draenor before the skies went green. My wind riders feel it too, so stand still and let them get used to you." },
   },
 
   start = "hello",
@@ -621,7 +633,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." } },
+      lines = {
+        { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. You bring that thing to my roost and I smell the old chains on it, the ones my people wore when the warlocks led us, so I will carry you where you need to go, but the demon stays on the ground and I will not pretend to like it." },
+      },
       choices = {
         { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Then keep them that way, young one. The Horde has paid enough for the old ones' sins, and I carry the camp scars to prove it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is what made the Horde strong.", next = "BACK", reply = "That power made us slaves, warlock, and Thrall broke those chains with his own hands, so do not speak of it to me again.", fx = { align = { light = -1 } } },
@@ -657,7 +672,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", race = "Tauren" },
           text = "A druid of Thunder Bluff. The riders trust your kind, and they say you smell of the plains." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock of the Horde. The old Horde drank deep of that well, and the Warchief has not forgotten it, so I hope you drink from it more carefully than they did." },
+          text = "You carry something the old Horde drank deep of, and the Warchief has not forgotten it. I hope you drink from that well more carefully than they did." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move softly for one of the Horde, which the wind riders will like, since they dislike stomping. I hope you move as softly around the Bruisers, because they don't take kindly to anyone who looks too sly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -678,7 +693,7 @@ P:NPC {
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do the wind riders take the heat?", next = "riders" },
         { text = "Do you trust the goblins here?", next = "goblins" },
-        { text = "You don't seem to trust warlocks, Bulkrek.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You don't seem to trust my sort, Bulkrek.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What's wrong with looking sly, Bulkrek?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the wounded fly out through you, Bulkrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your wind riders really bite weak riders, Bulkrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -731,7 +746,7 @@ P:NPC {
   key = "dirge", id = TODO_NPC("Dirge Quikcleave"), name = "Dirge Quikcleave", title = "Butcher",
   bible = "bibles/tanaris.md", role = "vendor", tier = "quest",
   communities = { "gadgetzan" }, temper = { "boastful" }, values = { "pride", "profit" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
 
   impression = {
     first = "There is a drought here, but never a shortage of his meat.",
@@ -746,6 +761,8 @@ P:NPC {
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter! Then you know good meat when you skin it, pal, and you know my prices are fair for it, more or less, mostly less." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The meat on my hooks just turned a shade I don't sell, pal, so step back from the counter a little. I don't know what follows you around, but it isn't good for business, and it's murder on brisket." },
   },
 
   start = "hello",
@@ -800,7 +817,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it has better taste than my regulars, I'll give it that. But it can admire from over there, because I've seen what imps do with fire, and my kitchen isn't going to be the punchline." } },
+      lines = {
+        { id = "xlock_default", text = "Then it has better taste than my regulars, I'll give it that. But it can admire from over there, because I've seen what imps do with fire, and my kitchen isn't going to be the punchline." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then it has better taste than my regulars, I'll give it that. But it's leaning over my stew pot right now like it's thinking about seasoning it, so it can admire from over there, because my kitchen isn't going to be the punchline." },
+      },
       choices = {
         { text = "My servant goes where I please.", next = "BACK", reply = "And my kitchen goes where I please, pal, which is to say, away from your little friend, so mind the stove.", fx = { align = { order = -1 } } },
         { text = "I'll keep the imp out of your soup.", next = "BACK", reply = "Bless you, friend, and if you do, I'll toss the imp a scrap of something charred so it doesn't feel left out.", fx = { affinity = 1, align = { order = 1 } } },
@@ -883,7 +903,7 @@ P:NPC {
         { text = "Tell me about these chimaerok chops.", next = "chops", when = { minLevel = 55 } },
         { text = "Any tips for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "You seem to have no love for conjured food, Dirge.", next = "xmage", when = { class = "MAGE" } },
-        { text = "My imp only wants to admire your work.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My imp only wants to admire your work. And your knives.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever cook for the hungry who can't pay?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where does your meat come from in a drought, Dirge?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the greatest living chef feed a warrior, Dirge?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -951,7 +971,7 @@ P:NPC {
   key = "blizrik", id = TODO_NPC("Blizrik Buckshot"), name = "Blizrik Buckshot", title = "Gunsmith",
   bible = "bibles/tanaris.md", role = "vendor", tier = "service",
   communities = { "gadgetzan" }, temper = { "loud" }, values = { "profit", "inventive" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_armor" },
 
   impression = {
     first = "He test-fires everything into the same unlucky sand dune.",
@@ -967,6 +987,8 @@ P:NPC {
       text = "A hunter, and I can tell from the squint! Somebody who aims for a living deserves better than that rusty thing on your back, buddy, and I'll give you a fair trade-in, by goblin standards." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf in my shop, so I'll keep my prices honest and my mouth shut about Ironforge barrels. Mostly shut." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That shimmer on your skin is demon armor, pal, and I've always wanted to test a rifle against it, purely for the catalogue. Stand by the dune out back sometime, and I'll bring the bandages." },
   },
 
   start = "hello",
@@ -1048,7 +1070,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the dune out back, and only on purpose, mostly. I test every rifle before I sell it, and I've only lost my eyebrows twice, which for a gunsmith in Gadgetzan is a very good record." } },
+      lines = {
+        { id = "xlock_default", text = "Only the dune out back, and only on purpose, mostly. I test every rifle before I sell it, and I've only lost my eyebrows twice, which for a gunsmith in Gadgetzan is a very good record." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the dune out back, and only on purpose, mostly. Your demon's watching my powder flasks a little too closely for a fellow with my record, so walk it to the far side of the stall before I lose my eyebrows a third time." },
+      },
       choices = {
         { text = "I'll keep him well away. Your eyebrows have suffered enough.", next = "BACK", reply = "Much obliged, friend, because my eyebrows have only just grown back, and I'd hate for them to go again before the auction.", fx = { align = { order = 1 } } },
         { text = "He does what he likes. Move the kegs.", next = "BACK", reply = "Move the kegs? Pal, I'd sooner move the shop, and if your imp so much as sneezes near them, you're paying for the roof.", fx = { align = { order = -1 } } },
@@ -1145,7 +1170,7 @@ P:NPC {
   key = "trenton", id = TODO_NPC("Trenton Lighthammer"), name = "Trenton Lighthammer",
   bible = "bibles/tanaris.md", role = "blacksmith", tier = "quest",
   communities = { "gadgetzan" }, temper = { "patient" }, values = { "craft", "dedication" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shards" },
 
   impression = {
     first = "He wants something from Zul'Farrak's trolls, and he is patient about it.",
@@ -1162,6 +1187,8 @@ P:NPC {
       text = "Ishnu-alah. You're wondering what one of the kaldorei is doing at a goblin's anvil, and the answer is that steel doesn't care who strikes it." },
     { id = "n_warrior", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
       text = "Your blade's been well used and badly kept, and it'll fail you at the wrong moment. Bring it to an anvil before you go anywhere near the trolls." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag is cold enough that my anvil's sweating, and I know why, because only soul shards carry a chill like that through the desert. I'll mend your gear as I said I would, but keep that bag off my bench." },
   },
 
   start = "hello",
@@ -1240,7 +1267,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Steel is steel, and I've said so to every customer who's asked. But the Legion broke my people once, and I'll not pretend I've forgiven those who call its servants by name, so take your gear and be on your way when it's done." } },
+      lines = {
+        { id = "xlock_default", text = "Steel is steel, and I've said so to every customer who's asked. But the Legion broke my people once, and I'll not pretend I've forgiven those who call its servants by name, so take your gear and be on your way when it's done." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Steel is steel, and I've said so to every customer who's asked. But you've brought one of the Legion's own creatures into my smithy, and it's watching my fire like it remembers something, so take your gear and be on your way, and take that thing with you." },
+      },
       choices = {
         { text = "I bind demons. I don't serve them.", next = "BACK", reply = "So said many of the Highborne before they knelt, and I will believe you when I see the end of it, not before.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Legion's power is mine to use.", next = "BACK", reply = "Then take your gear and go, because I will not have that said in front of my forge twice.", fx = { align = { light = -1 } } },
@@ -1323,7 +1353,7 @@ P:NPC {
         { text = "A night elf working steel?", next = "kaldorei" },
         { text = "Tell me what a smith wants with trolls.", next = "smith_talk", when = { profession = "Blacksmithing" } },
         { text = "Not every mage follows the Highborne's road.", next = "xmage", when = { class = "MAGE" } },
-        { text = "You'll still work for a warlock?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "You'll still work for someone like me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Which kind of priest would you trust, Trenton?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do you need troll temper so badly, Trenton?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What can you tell from my hammer, Trenton?", next = "xapala", when = { class = "PALADIN" } },
@@ -1394,7 +1424,7 @@ P:NPC {
   key = "yehkinya", id = TODO_NPC("Yeh'kinya"), name = "Yeh'kinya",
   bible = "bibles/tanaris.md", role = "questgiver", tier = "quest",
   communities = { "steamwheedle_port" }, temper = { "sly" }, values = { "secretive", "patient" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards" },
 
   impression = {
     first = "He speaks very calmly of a god he claims to disbelieve.",
@@ -1411,6 +1441,8 @@ P:NPC {
       text = "One of the Darkspear, so far from the Echo Isles! Then you've heard the old tales of the Soulflayer, even if your elders hush the young ones when they tell them." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "SHAMAN" } },
       text = "You speak to powers too, mon, so you'll understand an old troll who listens to the dead. We're not so different, you and me." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Yeh'kinya hears them, mon, the little souls in your shards, all singin' small and cold in that bag. Hakkar would drink every one of them, so keep them close and keep them far from the Sunken Temple." },
   },
 
   start = "hello",
@@ -1479,7 +1511,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. A warlock who deals in souls should know better than most what Hakkar would do with yours." } },
+      lines = {
+        { id = "xlock_default", text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. A warlock who deals in souls should know better than most what Hakkar would do with yours." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. Your servant listens too, warlock, I can see it in its eyes, so ask yourself whose voice it would answer if Hakkar called." },
+      },
       choices = {
         { text = "Hakkar's priests should be destroyed.", next = "BACK", reply = "Ya, mon, every one of dem, and Yeh'kinya will dance on de ashes when it's done.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. Even a dead god's.", next = "BACK", reply = "Dat's what de Atal'ai said, mon, right before Hakkar drank dem dry, so you think about dat.", fx = { align = { light = -1 } } },
@@ -1567,7 +1602,7 @@ P:NPC {
         { text = "Why study the old gods at all?", next = "why" },
         { text = "Why live among goblins at a port?", next = "port" },
         { text = "My elders never spoke of such gods.", next = "darkspear", when = { race = "Troll" } },
-        { text = "Is the Atal'ai god still a danger?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is the Atal'ai god still a danger, old one?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you put stock in book magic, Yeh'kinya?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there something you need taken, old one?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Which loa should a priest fear in Tanaris, Yeh'kinya?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

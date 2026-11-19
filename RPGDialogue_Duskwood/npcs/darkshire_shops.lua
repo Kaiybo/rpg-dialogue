@@ -78,7 +78,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "Candles and oil and flour, dear, and nothing darker than burnt toast. If you want that sort of thing, try young Alyssa at Madame Eva's, though you didn't hear it from me." } },
       choices = {
         { text = "I'll keep it out of your shop, Mabel.", next = "BACK", reply = "Thank you, dear, and I'll not say another word about it. Mind how you go.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Darker arts keep this town alive, Mabel.", next = "BACK", reply = "Maybe they do, dear, but not from my shelf. Try Alyssa, as I said.", fx = { align = { light = -1 } } },
+        { text = "Darker things than candles keep this town alive, Mabel.", next = "BACK", reply = "Maybe they do, dear, but not from my shelf. Try Alyssa, as I said.", fx = { align = { light = -1 } } },
         { text = "Where do your supplies come from?", next = "supplies" },
       },
     },
@@ -138,7 +138,7 @@ P:NPC {
         { text = "Your candles would burn brighter with a cantrip.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The Watch must keep you busy with lamp oil, Mabel.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need fresh game for your flour and bread trade, Mabel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "I doubt you sell anything for the darker arts, Mabel.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I doubt you sell anything the priests wouldn't bless, Mabel.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Night Watch ever ask for blessed candles, Mabel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How long can Darkshire last on what reaches your shop?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your lamp oil come from the forest, Mabel, or from elsewhere?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -553,7 +553,7 @@ P:NPC {
   key = "matt_johnson", id = TODO_NPC("Matt Johnson"), name = "Matt Johnson", title = "Mining Trainer",
   bible = "bibles/darkshire_shops.md", role = "trainer", tier = "service",
   communities = { "darkshire" }, temper = { "weary" }, values = { "craft", "cautious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "He teaches mining where nobody dares go down a mine.",
     third = "{name} met Matt Johnson, Darkshire's mining trainer.",
@@ -565,6 +565,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "craft", when = { profession = "Mining" },
       text = "You've dust in the creases of your hands, so you've been underground. Did you come out the same way you went in? That's all I ask of my students." },
+    { id = "n_lock_infernal", cat = "lock_shards", when = { class = "WARLOCK", carrying = 5565 },
+      text = "That black stone in your pack isn't from any seam I know, and it's warm the way the old shafts near the Rolling Hills get warm before something comes up. Whatever it's for, don't drop it down a mine." },
   },
   start = "hello",
   nodes = {
@@ -581,6 +583,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "You could light a tunnel without a lamp, I suppose, and that would've saved a few men I knew. But I've seen what's down the old shafts near the Rolling Hills, and some of it doesn't like fire at all, and some of it likes it far too much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "You could light a tunnel without a lamp, I suppose, and that would've saved a few men I knew. But I've seen what's down the old shafts near the Rolling Hills, and some of it doesn't like fire at all, and I reckon it'd like the look of your servant even less than I do." },
       },
       choices = {
         { text = "Then I'll go down with a lamp, Matt, like your crew did.", next = "BACK", reply = "That's the right way, and you'll come back. Light the lamp twice.", fx = { align = { light = 1 } } },
@@ -662,7 +665,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? You've the arms for a pick, if not the patience, and I've the dead mine shafts to put you in, if you can stand the dark." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know the trails better than I do now. Do you see old mine shafts out there, in the trees?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll not be keen on mining, I'd guess, but if you're willing to learn, I'm willing to teach, and there's precious few of either in Darkshire." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll teach you to swing a pick if you like, but don't bring that imp down a shaft, there's enough fire in the bad air already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a whiff of the pit about you. I'll teach you to swing a pick if you like, but don't bring that little firebrand down a shaft; there's enough fire in the bad air already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a student at last! Nobody dares go down a mine here anymore, so your earth spirits might be a help." },
       },
       again = {
@@ -681,7 +684,7 @@ P:NPC {
         { text = "Did your old crew get the rites they deserved, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What drove the miners out of these hills, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Duskwood's miners seem to have stopped digging altogether.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Could my arts help a miner in Duskwood, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could what I carry help a miner in Duskwood, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why don't people mine here anymore, Matt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
@@ -733,7 +736,7 @@ P:NPC {
   key = "danielle", id = TODO_NPC("Danielle Zipstitch"), name = "Danielle Zipstitch", title = "Tailoring Supplies",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "chatty" }, values = { "craft", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shadow" },
   impression = {
     first = "She talks the way she sews, quickly and without dropping a stitch.",
     third = "{name} met Danielle Zipstitch, who sells tailoring supplies upstairs in Madame Eva's house in Darkshire.",
@@ -745,6 +748,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "A tailor! I could tell by the neat hem on your cloak, and I'm never wrong about hems. Come and look at the dyes." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every bolt of white linen on that table has gone a shade greyer since you came in, dear, which is very dramatic of you and terrible for business. Madame Eva would call it an omen, and I'd call it a reason to stand by the black velvet." },
   },
   start = "hello",
   nodes = {
@@ -776,7 +781,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I sell robes to anyone who pays, dear, though I'd ask you to keep your companion off my bolts, because velvet doesn't take kindly to claws. Madame Eva says the dark arts are a door you can't close again, and I say that's very dramatic of her and good for business either way." },
+        { id = "xlock_default", text = "I sell robes to anyone who pays, dear, though I'd ask you to keep your companion off my bolts, because velvet doesn't take kindly to claws. Madame Eva says what you're dabbling in is a door you can't close again, and I say that's very dramatic of her and good for business either way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell robes to anyone who pays, dear, though your companion is already standing on my bolts, so I'll ask you to move it before the velvet gets ideas. Madame Eva says the dark arts are a door you can't close again, and I say that's very dramatic of her and good for business either way." },
       },
       choices = {
         { text = "I'll keep the door half shut, Danielle, and the claws off.", next = "BACK", reply = "Half shut is better than none, dear, and the velvet thanks you. Mind the claws.", fx = { align = { light = 1 } } },
@@ -857,7 +863,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast on our stairs! Sheri will faint if it sheds on the good silk, so keep it on the landing, there's a love." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid on our stairs! Madame Eva went quiet downstairs the moment you came in, and that only happens when someone interesting walks by." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh, you came up those stairs without a single creak, and I didn't think that was possible. You'll have to teach me the trick." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've a black velvet that would suit you down to the ground, and it won't show the scorch marks." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you've the look of someone who wears black on purpose! I've a velvet that would suit you down to the ground, and it won't show the scorch marks." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I hear everything Eva's visitors say on the stairs. Do your spirits gossip too?" },
       },
       again = {
@@ -877,7 +883,7 @@ P:NPC {
         { text = "The Night Watch seems to wear your cloth, Danielle.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do Eva's visitors say about the forest on the stairs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What gossip comes through your floorboards, Danielle?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do you sell robes for one of my calling, Danielle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you sell robes that hide scorch marks, Danielle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do Eva's visitors say on the stairs, Danielle?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Danielle.", next = "END" },
       },
@@ -930,7 +936,7 @@ P:NPC {
   key = "sheri", id = TODO_NPC("Sheri Zipstitch"), name = "Sheri Zipstitch", title = "Tailoring Supplies",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "anxious" }, values = { "cautious", "craft" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
   impression = {
     first = "She jumps at every creak on the stairs.",
     third = "{name} met Sheri Zipstitch, who sells tailoring supplies with Danielle above Madame Eva's house.",
@@ -942,6 +948,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "You sew, don't you? Then you'll understand why I keep the good thread locked up; Danielle gives it away to anyone with a sad story." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 12 } },
+      text = "I've counted the cold coming off your pack, and it's at least a dozen soul shards, and I counted twice because my hands were shaking. Danielle says I fret too much, but please don't set it on the ledgers." },
   },
   start = "hello",
   nodes = {
@@ -958,6 +966,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everything frightens me, so please don't take it personally, but yes, a little, because it looks at the window the same way the thing outside does. Danielle says I fret too much, and maybe I do, but I keep the books and somebody has to count what could go wrong." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything frightens me, so please don't take it personally, but yes, and more now it's in the shop, because it keeps looking at the window the same way the thing outside does. Danielle says I fret too much, and maybe I do, but I've counted three ways this could go wrong already." },
       },
       choices = {
         { text = "I'll keep it on the landing, Sheri, and away from you.", next = "BACK", reply = "Thank you, oh thank you, and keep it facing the wall if you can. I'd be grateful.", fx = { align = { light = 1 } } },
@@ -1314,7 +1323,7 @@ P:NPC {
   key = "kzixx", id = TODO_NPC("Kzixx"), name = "Kzixx", title = "Rare Goods",
   bible = "bibles/darkshire_shops.md", role = "vendor", tier = "service",
   communities = {}, temper = { "smooth" }, values = { "greedy", "freedom" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
   impression = {
     first = "Nothing in the forest worries him, so long as business is good.",
     third = "{name} met Kzixx, a goblin trader selling rare goods by the Darkened Bank road in Duskwood.",
@@ -1326,6 +1335,8 @@ P:NPC {
   notice = {
     { id = "n_goblin", cat = "race", when = { race = "Goblin" },
       text = "Ha! Another goblin out in this wet dump? Don't you dare undercut me, pal, 'cause this road's mine, bought and paid for, and I got the receipts around here somewhere." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "Is that a soulstone, chum? Kzixx knows a fella down south who'd pay forty silver for one of those, maybe fifty if nobody asked questions, and nobody ever asks. Don't you go sellin' it to anybody else before you've talked to me." },
   },
   start = "hello",
   nodes = {
@@ -1342,6 +1353,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "For you, chum, I got shards, real ones, maybe, and a book with a lock on it I never opened 'cause the lock's warm. Business is business and Kzixx doesn't ask, but if that book starts whisperin' to you, you didn't buy it from me, and there's no returns on whisperin' goods." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "For you, chum, I got shards, real ones, maybe, and a book with a lock on it that's gone warmer since your {pet} walked in. Business is business and Kzixx doesn't ask, but if your friend there wants a sniff of the merchandise, that's a browsing fee, and it ain't cheap." },
       },
       choices = {
         { text = "I'll take your word on the shards, Kzixx, and pay fair.", next = "BACK", reply = "That's what I like, a customer with trust. On my mother's ledger, they're real, maybe.", fx = { align = { honor = 1 } } },
@@ -1442,7 +1454,7 @@ P:NPC {
         { text = "Where does a goblin come by holy relics, Kzixx?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'd wager you'd sell to anyone, Kzixx, even the Defias.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever sold anything that came out of Ashenvale, Kzixx?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Anything here for a warlock, Kzixx?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What have you got that a warlock would kill for, Kzixx?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Nothing in Duskwood seems to worry you, Kzixx.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll pass.", next = "END" },
       },

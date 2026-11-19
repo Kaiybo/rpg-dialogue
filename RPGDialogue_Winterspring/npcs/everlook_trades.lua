@@ -7,7 +7,7 @@ P:NPC {
   key = "grizzlin", id = TODO_NPC("Auctioneer Grizzlin"), name = "Auctioneer Grizzlin",
   bible = "bibles/winterspring.md", role = "auctioneer", tier = "service",
   communities = { "everlook" }, temper = { "brisk" }, values = { "profit" },
-  notices = { "purse" },
+  notices = { "purse", "lock_soulstone" },
 
   impression = {
     first = "The cold is good for business, since nobody lingers to haggle.",
@@ -21,13 +21,18 @@ P:NPC {
   notice = {
     { id = "n_poor", cat = "purse", when = { money = { max = 1000 } },
       text = "Light purse, eh, chum? Then sell before you buy, because in Everlook the selling's the easy part and the buying will cost you, plus the Cartel's cut." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's an uncast soulstone you're carrying, and I know because I tried to list one once and the Cartel told me no auction house will touch a stone that holds a man's soul. Pity, because the bids would have been something to see." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because it comes out of Felwood's satyrs and the Shadow Council's lot at Jaedenar, and nobody likes fetching it. Tailors want it, warlocks want it, and the fellows who bring it want danger money, so the bidding gets hot even when the weather doesn't." } },
+      lines = {
+        { id = "xlock_default", text = "Because it comes out of Felwood's satyrs and the Shadow Council's lot at Jaedenar, and nobody likes fetching it. Tailors want it, warlocks want it, and the fellows who bring it want danger money, so the bidding gets hot even when the weather doesn't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because it comes out of Felwood and Jaedenar, and nobody likes fetching it, though I notice your {pet} is taking a keen interest in the lot number. Tailors want it, warlocks want it, and the bidding gets hot, so you might tell it to stop staring at the other bidders, because that's not how auctions work." },
+      },
       choices = {
         { text = "I'll fetch my own felcloth before I pay those prices.", next = "BACK", reply = "Go right ahead, pal, and while you're in Jaedenar, bring me back a spare bolt or two on consignment. Half the felcloth in this house came from folks who said exactly that.", fx = { align = { order = 1 } } },
         { text = "Then I'll buy it all and sell it back at twice the price.", next = "BACK", reply = "Ha! Now you're thinkin' like a trade prince, friend, and I'll take my listing fee on every bolt both ways. The house always wins, see, that's the beauty of it.", fx = { align = { order = -1 } } },
@@ -121,7 +126,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You'll be after felcloth, I'll wager, and so is half of Everlook, so if you want it, bid early and bid high, pal, because the prices only go one way and it ain't down." },
+          text = "You've got the look of somebody after felcloth, pal, and so is half of Everlook, so if you want it, bid early and bid high, because the prices only go one way and it ain't down." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now, you'll be wanting a fine warhammer, I expect, and I've got three on the block, though one of them came from a Scarlet fella and I'd not ask too many questions about him." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -200,7 +205,7 @@ P:NPC {
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   prejudice = { race = "Dwarf", amount = 8, why = "a gunsmith's trade grudge: every dwarf tells him Ironforge does it better, and Ironforge powder cost a cousin his eyebrows" },
   communities = { "everlook" }, temper = { "eager" }, values = { "profit", "craft" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
 
   impression = {
     first = "He takes more pride in his gun oil than seems reasonable.",
@@ -218,6 +223,8 @@ P:NPC {
       text = "A hunter! Let me guess, pal, your gun froze up on the road from Felwood and you're here for proper oil. Everybody's does, sooner or later, and sooner's better for business." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "That blade's seen some furbolgs, buddy, I can tell from the nicks. Come and look at something that's seen fewer, and I'll even give you a fair price for the scrap." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "Demon hide, is it? Looks very spooky, friend, but a wolf's tooth or a Winterfall axe will still find the gap, so take a look at my mail before you trust your hide to a demon's skin." },
   },
 
   start = "hello",
@@ -240,9 +247,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." } },
+      lines = {
+        { id = "xlock_default", text = "Because demons are fickle, friend, and steel isn't. I sold a lovely dagger to a warlock last winter who swore he'd never need it, and he came back a month later, without his voidwalker, to thank me personally, and he bought a second one in case." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because demons are fickle, friend, and steel isn't, and I'm saying that with yours standing right there, which ought to tell you how sure I am. A warlock last winter swore he'd never need a dagger, then came back without his voidwalker and bought two, so think of this as insurance against the one at your heel." },
+      },
       choices = {
-        { text = "Sound advice. A wise warlock doesn't rely on demons alone.", next = "BACK", reply = "There's a warlock who'll live to come back, friend, and I'll see you here when you do. Steel doesn't sulk, and it's never once demanded a soul shard.", fx = { align = { order = 1 } } },
+        { text = "Sound advice. Demons turn, and steel doesn't care who holds it.", next = "BACK", reply = "There's a warlock who'll live to come back, friend, and I'll see you here when you do. Steel doesn't sulk, and it's never once demanded a soul shard.", fx = { align = { order = 1 } } },
         { text = "My demon will never leave me. Keep your dagger.", next = "BACK", reply = "Never say never, friend, that's what the last one said too, and he came back crawling. When your little pal walks off, the dagger'll still be here, waiting.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -329,7 +339,7 @@ P:NPC {
         { id = "h_alt_class", when = { alt = { sameClass = true } },
           text = "Another {altclass}! {alt} bought steel off me a while back and complained the whole time about the cold, so you've got a lot to live up to, pal, or down to, depending how you look at it." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You don't need much from me, I suppose, but every warlock I've met has wished for a good dagger the day their demon wandered off, so take a look at the case." },
+          text = "You don't need much from me, I suppose, but every warlock I've met has wished for a good dagger the day their demon wandered off, so take a look at the case." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Now you're my sort of customer, and I'll tell you straight that most swords in Kalimdor go brittle at forty below, but not mine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -362,7 +372,7 @@ P:NPC {
         { text = "Why would a sword go brittle in the cold, Wixxrak?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Your gun oil must be something special.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you sell to the hunters who chase the frostsabres?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Why would a warlock need one of your daggers, Wixxrak?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why would I need one of your daggers, Wixxrak?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You've got something against dwarves, Wixxrak?", next = "pj_wixx", when = { prejudiced = true } },
         { text = "Goodbye.", next = "END" },
       },
@@ -409,7 +419,7 @@ P:NPC {
   key = "qia", id = TODO_NPC("Qia"), name = "Qia", title = "Trade Supplies",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   communities = { "everlook" }, temper = { "dry" }, values = { "profit", "careful" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "She treats thread as a serious matter, and she's probably right.",
@@ -423,6 +433,8 @@ P:NPC {
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
       text = "A tailor! You'll want rune thread, then, and I've some, though not much, so don't tell the others in town, because scarcity's the only thing up here that keeps my prices honest." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "I can hear those shards rattling from here, friend, and that's a sound I know, because it means you've outgrown your pouch. I keep soul pouches on the back shelf, and I'll not ask what's in yours, but I do wish they wouldn't hum at me while I count." },
   },
 
   start = "hello",
@@ -486,7 +498,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, and they're my best customers for felcloth and soul pouches both. I don't ask what goes in the pouches, because I'd rather not know and it doesn't change the price, but I do ask 'em to pay before they open the box." } },
+      lines = {
+        { id = "xlock_default", text = "A few, and they're my best customers for felcloth and soul pouches both. I don't ask what goes in the pouches, because I'd rather not know and it doesn't change the price, but I do ask 'em to pay before they open the box." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they're my best customers for felcloth and soul pouches both, though most of them leave their companions outside. I don't ask what goes in the pouches, but I'd ask your demon to stop watching me like I'm the next thing that does, and I'll still want paying before the box opens." },
+      },
       choices = {
         { text = "Wise. Some things are best left unasked.", next = "BACK", reply = "Exactly, pal, and the pouches don't get any lighter if I ask. I like my customers alive and my questions short.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You should know what you're selling, and to whom.", next = "BACK", reply = "I know whom, pal, they're the ones with coin and a little red friend. As for what, the Cartel doesn't pay me to wonder.", fx = { align = { order = 1 } } },
@@ -525,7 +540,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You're wearing cloth in Winterspring, so I'll assume you either have a spell for the cold or you're mad, and I sell felcloth to both kinds." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! You'll be wanting felcloth, I expect, since your lot never want anything else. I keep it in the back so it doesn't stink up the thread." },
+          text = "You'll be wanting felcloth, I expect, since your lot never want anything else. I keep it in the back so it doesn't stink up the thread." },
         { id = "h_default", key = true,
           text = "Qia, trade supplies, right here beside the bank and the auction house, which is the best address in Everlook. Every crafter in town buys from me sooner or later, pal, because the next shop with thread is a long, cold walk away, and I've priced in every step of it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be after thread for your robes, I expect, because nothing tears a robe faster than a Winterspring wind." },
@@ -541,7 +556,7 @@ P:NPC {
         { text = "The crafters here must be short of something.", next = "needs" },
         { text = "Where does your stock come from?", next = "stock" },
         { text = "I've never known where felcloth comes from.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do many warlocks buy from you?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do many of my sort buy from you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do priests often come to you for robe cloth, Qia?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd have thought the padding under armour would keep in the cold.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What hides sell best in Everlook, Qia?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -586,7 +601,7 @@ P:NPC {
   key = "azzleby", id = TODO_NPC("Azzleby"), name = "Azzleby", title = "Stable Master",
   bible = "bibles/winterspring.md", role = "stablemaster", tier = "service",
   communities = { "everlook" }, temper = { "cheerful" }, values = { "kind" },
-  notices = { "pet" },
+  notices = { "pet", "lock_shadow" },
 
   impression = {
     first = "He likes the beasts better than their owners and doesn't hide it.",
@@ -600,6 +615,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = true },
       text = "Look at your {pet}, shivering! Bring it here a minute, pal, the stove's lit, and it's earned a warm-up even if you haven't, and I won't even put it on your bill." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Every beast in my stable just backed into its stall, and that's not the cold, that's you, friend. They smell what you work with, so stand downwind of the gate and let 'em settle before we talk." },
   },
 
   start = "hello",
@@ -642,7 +659,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A pet loves its hunter, and you can see it in the way it waits by my gate. Your demon serves you because it must, and every beast in my stable knows the difference the moment it smells one." } },
+      lines = {
+        { id = "xlock_default", text = "A pet loves its hunter, and you can see it in the way it waits by my gate. Your demon serves you because it must, and every beast in my stable knows the difference the moment it smells one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A pet loves its hunter, and it waits by my gate because it wants to, while yours stands there because it has no choice. Every beast in my stable woke up kicking when you walked in, so they know the difference, and I'd be grateful if you'd move it upwind." },
+      },
       choices = {
         { text = "You're right. A beast's loyalty is the honest kind.", next = "BACK", reply = "You get it, pal, and my bears get it too, which is why they growl at you. A beast that loves you will follow you into a blizzard.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear works just as well as love.", next = "BACK", reply = "Maybe so, pal, but fear doesn't wait by the gate when you're gone. You'll find that out one day, and I hope it's somewhere safe.", fx = { affinity = -1, align = { light = -1 } } },
@@ -686,7 +706,7 @@ P:NPC {
           text = "A warrior. You've no beast to stable, I expect, unless you count the bear-sized grudge you're carrying, so I'll just ask you to keep your voice down near the stalls." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The beasts in my stable perk up when your kind come by, so stand near the stalls as long as you like and warm them up a bit." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. I board beasts, pal, not demons, so don't ask me to stable your voidwalker, because the last one frightened my bears so badly they wouldn't eat, and a bear that won't eat is money I already spent on fish." },
+          text = "I board beasts, pal, not demons, so don't ask me to stable your voidwalker, because the last one frightened my bears so badly they wouldn't eat, and a bear that won't eat is money I already spent on fish." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. I suppose you've no beast to stable, unless you count the sheep you turn people into, and I don't board those either." },
         { id = "h_default", key = true,
@@ -703,7 +723,7 @@ P:NPC {
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Keeping beasts warm up here can't be easy.", next = "warm" },
         { text = "Do hunters tame much in Winterspring?", next = "tame" },
-        { text = "Is a demon really so different from a pet?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is a demon really so different from a pet? Both obey.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would a polymorphed sheep be welcome in your stables?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the beasts in your stable suffer the cold, Azzleby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why keep my voice down near the stalls?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -749,7 +769,7 @@ P:NPC {
   key = "evie", id = TODO_NPC("Evie Whirlbrew"), name = "Evie Whirlbrew", title = "Alchemy Supplies",
   bible = "bibles/winterspring.md", role = "vendor", tier = "service",
   communities = { "everlook" }, temper = { "eager" }, values = { "craft", "profit" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
 
   impression = {
     first = "She seems delighted by every herb that grows in the snow.",
@@ -763,13 +783,18 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "Your fingers are stained green, so you're one of us! Have you tried brewing with something that grows in the snow yet? It's not like anything down south." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green lump in your pack is a healthstone, love, a warlock's work by the look of it, and it's stolen life squeezed into a rock. I do the same thing honestly with a flask and some peacebloom, but I'll admit yours is quicker." },
   },
 
   start = "hello",
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last time somebody knocked one over, the whole shop smelled of Felwood for a week, and my icecap went brown, and that was forty gold of icecap, love. I don't mind selling the stuff, because a sale's a sale, but I won't have it near the good herbs, so you'll have to ask for it nicely." } },
+      lines = {
+        { id = "xlock_default", text = "Because the last time somebody knocked one over, the whole shop smelled of Felwood for a week, and my icecap went brown, and that was forty gold of icecap, love. I don't mind selling the stuff, because a sale's a sale, but I won't have it near the good herbs, so you'll have to ask for it nicely." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last spill made my whole shop smell of Felwood, love, and now your demon's brought the same smell in on its own and is standing far too close to my icecap. A sale's a sale, and I'll fetch you what you want from the high shelf, but I'll do it a lot faster if it waits by the door." },
+      },
       choices = {
         { text = "Fel has no place near clean herbs. I'll mind the shelf.", next = "BACK", reply = "Oh, would you, love? Thank you, and I'll keep the good icecap on the top shelf, well away from your elbows. Forty gold is a lot to lose to a sneeze.", fx = { align = { light = 1 } } },
         { text = "Your icecap will survive. Bring the whole shelf down.", next = "BACK", reply = "Oh no, no, no, not the shelf, love, please don't even joke about that! I'll take my chances with the icecap in the back room, thank you very much.", fx = { align = { light = -1 } } },
@@ -863,7 +888,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! Oh, you'll be after my felcloth dye and maybe a little demonic ink, though I'll confess I keep those on the high shelf, because they do smell dreadful." },
+          text = "Oh, you'll be after my felcloth dye and maybe a little demonic ink, I can always tell, though I'll confess I keep those on the high shelf, because they do smell dreadful." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I've a theory about you lot, which is that your Light works just like a healing potion, only slower and cheaper, and I'd love to watch you test it against one of mine." },
         { id = "h_warcl", when = { class = "WARRIOR" },

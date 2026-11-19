@@ -6,7 +6,7 @@ P:NPC {
   key = "myranda", id = TODO_NPC("Myranda the Hag"), name = "Myranda the Hag",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "sorrow_hill" }, temper = { "sly" }, values = { "cunning", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "She fools the Scarlet priests with the spells they taught her.",
     third = "{name} met Myranda the Hag, who works illusions from her hut on Sorrow Hill.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest. I sat at the feet of priests once, in red robes, and I learned more from them than they ever meant to teach." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Oh dearie, those eyes of yours see straight through a seeming, don't they? Look somewhere else while I'm working, or you'll spoil a perfectly good disguise." },
   },
 
   start = "hello",
@@ -87,7 +89,7 @@ P:NPC {
         { text = "You seem to know the Crusade very well.", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
         { text = "Why help anyone against the Crusade?", next = "tirion" },
-        { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do you know of shadow and its prices, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Someone must have taught you to work illusions, Myranda.", next = "xmage", when = { class = "MAGE" } },
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I doubt your seeming could pass me off as a Crusader.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -121,7 +123,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid eventually, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." } },
+      lines = {
+        { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid eventually, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough to stay out of it, dearie, and enough to see the bill already written in the way your demon watches you. Every warlock I've known paid eventually, and the price was never coin, so a seeming's the safer trade, since the worst it does is show you your own face." },
+      },
       choices = {
         { text = "I'll stop before the price comes due.", next = "BACK", reply = "They all say that, dearie, and some of them even manage it. I'll light a candle for you, in case.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I know the price, and I'll pay it gladly.", next = "BACK", reply = "Then pay it, and may it be cheap. I'll not be at your side when the bill comes.", fx = { align = { light = -1 } } },
@@ -175,7 +180,7 @@ P:NPC {
   key = "chromie", id = TODO_NPC("Chromie"), name = "Chromie",
   bible = "bibles/roads.md", role = "questgiver", tier = "quest",
   communities = { "andorhal" }, temper = { "cheerful" }, values = { "curious", "kind" },
-  notices = { "race" },
+  notices = { "race", "lock_shards" },
   impression = {
     first = "She seems to know what you will say before you say it.",
     third = "{name} met Chromie, a peculiar gnome among the ruins of Andorhal who takes a great interest in the fall of Darrowshire.",
@@ -188,6 +193,8 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! How lovely. You'll forgive me if I don't talk about Gnomeregan; I find it all very sad." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Each of those shards in your bag is a story that ended early, you know. I keep rather close track of how things are meant to go, and you've been changing a fair few endings." },
   },
 
   start = "hello",
@@ -251,10 +258,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
+      lines = {
+        { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, I read all sorts, and I've always been good at guessing how stories end, and your demon has the look of a character who's waiting for the last chapter. The ones about people who bargain with things from beyond tend to end badly, so keep a firm hand on it, because I'd very much like yours to be the exception." },
+      },
       choices = {
         { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", reply = "Good! I'd very much like your story to end well, and I'm usually right about these things.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My story's mine to write. I'll take the risk.", next = "BACK", reply = "It is, and I'll be interested to see how it goes. Do be careful with the ending.", fx = { align = { light = -1 } } },
+        { text = "My story is mine to write, ending and all.", next = "BACK", reply = "It is, and I'll be interested to see how it goes. Do be careful with the ending.", fx = { align = { light = -1 } } },
         { text = "Something else, Chromie.", next = "BACK" },
       },
     },

@@ -6,7 +6,7 @@ P:NPC {
   key = "ravenholdt", id = TODO_NPC("Lord Jorach Ravenholdt"), name = "Lord Jorach Ravenholdt",
   bible = "bibles/roads.md", role = "noble", tier = "quest",
   communities = { "ravenholdt" }, temper = { "cool" }, values = { "discreet", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_eyes" },
   impression = {
     first = "He is courteous the way a blade is polished.",
     third = "{name} met Lord Jorach Ravenholdt, master of the hidden manor in the Alterac hills and no friend of the Syndicate.",
@@ -20,6 +20,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "One of the trade, and not a Syndicate hireling, I trust. They tend to arrive here wearing their colours and leave without them." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "You have that sheen in your eyes, the kind that sees straight into the dark corners where my people stand. I'll ask you to keep it to yourself under my roof, because a guest who can count my sentries is a guest I must start counting too." },
   },
 
   start = "hello",
@@ -163,9 +165,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." } },
+      lines = {
+        { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and yours has been studying my doors since you walked in. The Syndicate has dabbled in darker help, I'm told, so tell your servant to keep its eyes on the carpet while you convince me you aren't their messenger." },
+      },
       choices = {
-        { text = "I serve no Syndicate. My demons answer to me alone.", next = "BACK", reply = "Good. Then you're the one guest I needn't worry about, so long as your demons stay exactly as loyal as you claim.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I serve no Syndicate. What I bind answers to me alone.", next = "BACK", reply = "Good. Then you're the one guest I needn't worry about, so long as your creatures stay exactly as loyal as you claim.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everyone's loyalty has a price, my lord, even mine.", next = "BACK", reply = "Honesty, at least, which is rarer than loyalty in Alterac. I'll remember your price, and I'll remember you told me it existed.", fx = { align = { honor = -1 } } },
         { text = "Let us speak of other things.", next = "BACK" },
       },
@@ -186,7 +191,7 @@ P:NPC {
         { id = "h_emblems", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Emblems") },
           text = "Those Syndicate emblems, yes. Every one you cut from a Syndicate cloak is a man who will not be reporting to the Perenoldes tonight, and I count them carefully." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at Ravenholdt. The Kirin Tor's servants do not usually find this house, so I must assume either great skill or a very good guide, and I am curious which." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You are welcome under my roof as any guest is, though my people will watch your shadow more closely than they watch you." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock under my roof. You are welcome as any guest is, though my people will watch your shadow more closely than they watch you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Alliance at Ravenholdt, which is rarer than you might think. My guests seldom ask the Light for anything, and I suspect the Light prefers it that way." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -202,7 +207,7 @@ P:NPC {
         { text = "I can't tell what sort of house this is.", next = "house" },
         { text = "I've walked in shadows a while. Is there a place for me here?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Dalaran sits close to your hills, my lord.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Why does Ravenholdt watch warlocks so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why does Ravenholdt watch my sort so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does a house of shadows need a priest's prayers, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever know of Ravenholdt, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "A house of shadows can have little use for a warrior, my lord.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -275,7 +280,7 @@ P:NPC {
   key = "ansirem", id = TODO_NPC("Archmage Ansirem Runeweaver"), name = "Archmage Ansirem Runeweaver",
   bible = "bibles/roads.md", role = "scholar", tier = "service",
   communities = { "dalaran" }, temper = { "proud" }, values = { "learned", "dutiful" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
   impression = {
     first = "He speaks of Dalaran's walls like a man who helped build them.",
     third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch at Dalaran's newly opened gate.",
@@ -290,6 +295,8 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You can feel the wards, then, pressing at the back of your teeth. Good; it means you were taught properly." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "I can feel the cold off the crystals in your pack from across the road, and each one hums in a slightly different key. Kel'Thuzad kept a drawer of them in his study, we learned too late, and not one of us thought to ask whose voices they were." },
   },
 
   start = "hello",
@@ -429,7 +436,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." } },
+      lines = {
+        { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He sat on our council, and he was brilliant, and he bound things very like the one at your heel before he went looking for worse. We cast him out too late and Dalaran paid for it twice, so forgive me if I keep one eye on your {pet} while I tell you so." },
+      },
       choices = {
         { text = "His choices were his own. Knowledge didn't damn him.", next = "BACK", reply = "That is the comfortable answer, and I wish I believed it more firmly. Knowledge offered him the door, and he walked through it smiling.", fx = { align = { light = -1 } } },
         { text = "Then I'll learn from his fall and keep my craft in check.", next = "BACK", reply = "That's all any of us can do, and more than most bother to. Keep a close watch on yourself, and ask someone you trust to watch as well.", fx = { affinity = 1, align = { light = 1 } } },
@@ -444,7 +454,7 @@ P:NPC {
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Alliance" },
           text = "There's a rumour in the camps that Arugal is dead and his keep has gone quiet, and I find I want very badly for it to be true. If you were the one who climbed those stairs, I'd rather hear it from you than from the guards." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing at Dalaran's gate. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, at Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last of your school I knew well was Kel'Thuzad, and look what came of him." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You carry a chill to Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last man I knew who carried it was Kel'Thuzad, and look what came of him." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light at Dalaran's gate. The Kirin Tor are not a pious order, I'll admit, but we buried a great many of our own after Archimonde came through, and we were glad of every priest who came to say the words." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -603,7 +613,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage of the Horde. The Syndicate keep shadow mages in these camps, and I have watched them work for months, so do not take it ill if I flinch when you raise your hands." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
-          text = "A warlock, and of the Horde. I remember what your kind made of us before Thrall, so open this door if you've come to open it, and keep your demons on the far side of it." },
+          text = "I know that stink, warlock. I remember what your kind made of us before Thrall, so open this door if you've come to open it, and keep your demons on the far side of it." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
           text = "You came in quietly, and the guards never heard a thing. Good, because a Syndicate camp is full of men who sleep with one eye open and a hand on a knife." },
         { id = "h_default", key = true,
@@ -684,7 +694,7 @@ P:NPC {
   key = "hinott", id = TODO_NPC("Serge Hinott"), name = "Serge Hinott",
   bible = "bibles/roads.md", role = "trainer", tier = "service",
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "careful", "curious" },
-  notices = { "craft" },
+  notices = { "craft", "lock_stones" },
   impression = {
     first = "He speaks of poisons the way a baker speaks of bread.",
     third = "{name} met Serge Hinott, the Forsaken alchemist who teaches in Tarren Mill.",
@@ -697,6 +707,8 @@ P:NPC {
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { "Alchemy" } },
       text = "You smell of the trade, which is a compliment, though few take it as one." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone at your belt, isn't it? The Society has spent years trying to bottle what you carve out of a stolen soul, and I'd give a month's work to know why yours keeps fresh while ours curdle by Tuesday." },
   },
 
   start = "hello",
@@ -769,7 +781,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, though the Society frowns on anything it can't fully control, and it would frown hardest at your demon sniffing round my shelves. I keep my fel reagents in a separate cupboard with a separate key, so you can tell the thing that cupboard is locked and the key is in my pocket." },
+      },
       choices = {
         { text = "Control is everything. Keep your cupboards locked.", next = "BACK", reply = "That's my rule exactly, and it has kept all ten of my fingers on my hands. Well, most of them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Society is too cautious. Push the work further.", next = "BACK", reply = "Easy to say when you don't answer to the Society. I'll push it a little, in my own cupboard, and say nothing to anyone.", fx = { align = { order = -1 } } },
@@ -789,7 +804,7 @@ P:NPC {
         { id = "h_living", when = { faction = "Alliance" },
           text = "A living one from Southshore's side of the hills. I'll not sell to you, but you can listen, I suppose, and then you can walk away quickly." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Then you'll want to know which of my bottles will put a man to sleep and which will put him under, and I'll tell you, because the Dark Lady's enemies deserve both." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your craft and mine aren't so different: we both mix things that should never meet and hope we're standing back far enough." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Your craft and mine aren't so different, warlock: we both mix things that should never meet and hope we're standing back far enough." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing draughts, I expect, since your kind treat the front line as a place to stand rather than a place to leave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring me the glands from the Hillsbrad bears and the venom from the Alterac spiders, and I'll pay you better than any tanner in Tarren Mill." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, and a herbalist too, I'd wager. Tell me, do your people ever cut a root without first asking its pardon, or is that only a story?" },
@@ -801,7 +816,7 @@ P:NPC {
         { text = "Your bench is crowded with flasks, Serge.", next = "brews" },
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
         { text = "What poisons does Tarren Mill make for its rogues, Serge?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you ever use fel reagents in your alchemy, Serge?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you ever use fel reagents, Serge? The ones that bite back?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you brew for someone who fights on the front line?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You brew with the land's herbs. Do you waste them?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

@@ -8,7 +8,7 @@ P:NPC {
   key = "grimbooze", id = TODO_NPC("Grimbooze Thunderbrew"), name = "Grimbooze Thunderbrew",
   bible = "bibles/hills_and_shore.md", role = "vendor", tier = "service",
   communities = {}, temper = { "jovial" }, values = { "craft", "freedom" },
-  notices = { "race", "drink" },
+  notices = { "race", "drink", "lock_stones" },
   impression = {
     first = "The rhymes are terrible and the lager is not.",
     third = "{name} met Grimbooze Thunderbrew, a rhyming dwarf who brews lager in the Dagger Hills of Westfall.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "A dwarf on my doorstep, as far from the forge as myself! Ye'll be wanting a taste of the real stuff, not the swill they sell on a Stormwind shelf." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
       text = "Ye're swaying already, I see by yer feet, so sit yerself down on that barrel and take a wee seat." },
+    { id = "n_lock_spellstone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
+      text = "Yer firestone glows like an ember o' doom, an' it's warmin' my still from across the whole room. I'll ask ye tae keep it well out o' my brew, for I've no wish tae taste what yer fire would do." },
   },
   start = "hello",
   nodes = {
@@ -37,11 +39,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Yer fel fire, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
+        { id = "xlock_default", text = "Yer green flame, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
         { id = "xlock_more1", text = "Plain coal from the hills is the fire I trust, and a Thunderbrew's lager is honest or bust." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Yer fel fire, ye say, with yer servant there sniffin' me mash? I'll thank ye, but nay, for a lager that's boiled over brimstone tastes of naught but sulphur and ash!" },
       },
       choices = {
-        { text = "Then I'll keep my fel off your fire, Grimbooze.", next = "BACK", reply = "A guest with some manners, now that's a fine sight, and my still and my fire both thank ye tonight!", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep my flame well away from your fire, Grimbooze.", next = "BACK", reply = "A guest with some manners, now that's a fine sight, and my still and my fire both thank ye tonight!", fx = { align = { honor = 1 } } },
         { text = "Your loss. It would brew twice as fast.", next = "BACK", reply = "Twice as fast and twice as foul, and it'd make a ghoul howl, so I'll take my slow fire and leave yours to the owl.", fx = { align = { honor = -1 } } },
         { text = "Something else, Grimbooze.", next = "BACK" },
       },
@@ -121,7 +124,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter with bow and a beast at the heel! Ye'll want a fine lager to go with yer meal, for a boar on the spit and a keg on the side is the best thing in Westfall, I'll say it with pride!" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my still, and a welcome one too, for a blessing on barley does wonders for brew!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the forests, all silver and green, the tallest young drinker this still's ever seen! Ye'll know a good crop when ye stand in a field, so come taste the lager and judge the hill's yield." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a sight, with a fire in yer hand that's not quite right! Keep that green flame away from my still, for it's lager I brew here, and not something ill!" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Well now, there's a sight, with a fire in yer hand that's not quite right! Keep that green flame away from my still, for it's lager I brew here, and not something ill!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, a dwarf, who talks to air! Come sit and have a beer, it's better than what your spirits share." },
       },
       again = {
@@ -141,7 +144,7 @@ P:NPC {
         { text = "Would you let me bless your still, Grimbooze?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you sell your lager to the Defias, if they paid?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your barley thrives where Westfall's wheat died. What's the secret?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Could my fel fire heat your still, Grimbooze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could a green flame of mine heat your still, Grimbooze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does your lager really need a rhyme, Grimbooze?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your still.", next = "END" },
       },
@@ -281,7 +284,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "That little red thing? It'd burn my nets first and laugh about it, I reckon. I've fished this shore with nothing but a knife and patience, and the murlocs and I have an understanding, mostly." } },
       choices = {
         { text = "Fire settles murlocs, Kriggon. Let it work.", next = "BACK", reply = "It'd settle my nets too, and my boat, I reckon. I'll stick with my oar.", fx = { align = { light = -1 } } },
-        { text = "I'll keep the imp well away from your nets.", next = "BACK", reply = "I'd thank you for that, and so would my nets. They've been mended enough this year.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep my companion well away from your nets.", next = "BACK", reply = "I'd thank you for that, and so would my nets. They've been mended enough this year.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Why do you stay on this shore?", next = "stay" },
       },
     },
@@ -339,7 +342,7 @@ P:NPC {
         { text = "That lighthouse up the coast looks abandoned.", next = "lighthouse" },
         { text = "Why stay in Westfall at all?", next = "stay" },
         { text = "The murlocs wouldn't hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "My imp would burn those murlocs off your beach.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "My little companion would burn those murlocs off your beach.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "There seem to be more murlocs on this shore than fish, Kriggon.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever hunt the murlocs yourself, Kriggon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say words for those lost on this shore?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

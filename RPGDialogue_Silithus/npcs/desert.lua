@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/silithus.md", role = "questgiver", tier = "major",
   communities = { "valors_rest" }, temper = { "gentle", "steady" }, values = { "kind", "wise", "devout" },
   likesTone = "polite",
-  notices = { "class", "race", "status" },
+  notices = { "class", "race", "status", "lock_shards", "lock_soulstone" },
 
   impression = {
     first = "He warns me not to wake the past.",
@@ -27,6 +27,10 @@ P:NPC {
       text = "A druid of the Circle. Then you'll feel how thin the ground is here, between what was and what is." },
     { id = "n_horde", cat = "status", when = { faction = "Horde" },
       text = "Horde colours, at a night elf graveyard. Don't look so wary; the dead don't care, and neither do I." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Your bag is cold, warlock, and it is the cold of these graves, the cold of something that should have gone on and was kept. I keep the dead here so they may rest, so I will ask you not to add to your count among them." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Your soul is held in a stone, and someone means to bring you back if the desert takes you. The men and women in these graves had no such promise, and I find I envy you that more than I fear how it was made." },
   },
 
   start = "hello",
@@ -185,7 +189,7 @@ P:NPC {
         { text = "The Circle must mind the Horde being here.", next = "horde", when = { faction = "Horde" } },
         { text = "Rabine Saturna sends his regards.", next = "rabine", when = { questDone = TODO_QUEST("Wasteland") } },
         { text = "Would you free my soul too, druid?", next = "x_forsaken", when = { race = "Scourge" } },
-        { text = "I bind souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "What I carry feeds on souls, druid. Does that trouble you?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "The dead of Southwind don't rest easy.", next = "xmage", when = { class = "MAGE" } },
         { text = "Someone will try robbing these graves sooner or later.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the dead of Valor's Rest want, Layo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -318,11 +322,12 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xwl_default", text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep. But you came to Valor's Rest and told me plainly, and I would rather speak with an honest warlock than a dishonest priest." },
+        { id = "xwl_default", text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep. But you came to Valor's Rest and said it to my face, and I would rather speak with an honest soul-taker than a dishonest priest." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep, and you have brought your servant to stand among them too. Still, you came to Valor's Rest and told me plainly, and I would rather speak with an honest warlock and an honest demon than a dishonest priest." },
       },
       choices = {
-        { text = "The souls I take belong to my enemies.", next = "x_warlock_enemies" },
-        { text = "Power is power, druid.", next = "BACK", fx = { affinity = -1 } },
+        { text = "The souls I take belong to my enemies. No one else.", next = "x_warlock_enemies" },
+        { text = "Power is power, druid. Graves are full of the squeamish.", next = "BACK", fx = { affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -653,7 +658,7 @@ P:NPC {
         { id = "xw_default", text = "Welcomed you? They'd have handed you a robe and a candle and a seat near the front, and then they'd have watched you very closely, mind. The Hammer loves anyone who can talk to things that shouldn't be talked to, right up until you start asking what those things are saying back." },
       },
       choices = {
-        { text = "I'd have taken the robe and robbed them blind.", next = "BACK", reply = "Ha, I'd have liked to see their faces, though I'd have been well out of the camp before they realised.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'd have taken the robe, and their secrets, and left them bleeding.", next = "BACK", reply = "Ha, I'd have liked to see their faces, though I'd have been well out of the camp before they realised.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd never kneel to madmen like that.", next = "BACK", reply = "Good, good, because I knelt, and I've regretted it every day since, and I wouldn't wish that on anyone.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -728,7 +733,7 @@ P:NPC {
   key = "rutgar", id = TODO_NPC("Rutgar Glyphshaper"), name = "Rutgar Glyphshaper",
   bible = "bibles/silithus.md", role = "scholar", tier = "quest",
   communities = { "bronzebeard_camp" }, temper = { "gruff", "proud" }, values = { "brave", "curious" },
-  notices = { "race", "status" },
+  notices = { "race", "status", "lock_armor" },
 
   impression = {
     first = "He's certain they've found something huge that Ironforge is ignoring.",
@@ -746,6 +751,8 @@ P:NPC {
       text = "Now there's a proper face! Tell me ye've come with a letter from Ironforge saying the army's on its way, though I can see from your face ye haven't." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance! Good, maybe ye can tell your lords we're still out here, since they've stopped reading our letters." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "That's a shadow ward ye've got wrapped round ye, isn't it? Good, because whatever got into Natalia's head down in the hives came in through the dark, an' I'd sooner ye kept it out." },
   },
 
   start = "hello",
@@ -796,7 +803,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not often, but then we don't often dig in the hives. We've lost good people down there, an' I'll not pretend I'm fond o' demons, but a warlock knows what it looks like when somethin' crawls into a mind, an' after what happened tae Natalia, I'd value that." } },
+      lines = {
+        { id = "xlock_default", text = "Not often, but then we don't often dig in the hives. We've lost good people down there, an' I'll not pretend I'm fond o' what ye keep at heel, but ye'd know what it looks like when somethin' crawls into a mind, an' after what happened tae my diggers, that's worth a great deal." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not often, but then we don't often dig in the hives, an' I'll say this for yer demon, it doesnae look the type tae panic in the dark. I'll not pretend I'm fond o' the creature, but a warlock knows what it looks like when somethin' crawls into a mind, an' after Natalia, I'd value that." },
+      },
       choices = {
         { text = "I'll watch for that kind of corruption. You have my word.", next = "BACK", reply = "Bless ye for that, an' if ye see it, shout, because I'd rather lose a dig than lose another digger tae those tunnels.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take what the hives hold, whatever whispers in there.", next = "BACK", reply = "Whatever whispers in there, eh? Then ye'll go alone, an' I'll not be the one sendin' the letter home tae your kin.", fx = { align = { light = -1 } } },
@@ -890,7 +900,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, in Bronzebeard's camp? Well, the Explorers' League doesn't turn away a pair o' hands, so long as yer pet keeps its claws off the finds." },
+          text = "You smell of struck matches, friend, an' I've a fair idea why. Well, the Explorers' League doesn't turn away a pair o' hands, so long as whatever follows ye keeps its claws off the finds." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Are ye daft, wanderin' out here in robes? The sand gets in everywhere, an' I mean everywhere, so mind yer spellbooks." },
@@ -938,7 +948,7 @@ P:NPC {
         { text = "The silithid must trouble the camp often.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need guarded at the encampment, Rutgar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What wanders into your camp from the desert at night, Rutgar?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Does the League often take warlocks into the hives, Rutgar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does the League often take someone like me into the hives, Rutgar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The ground here hums. What have your digs found under it?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
@@ -1028,7 +1038,7 @@ P:NPC {
   key = "frankal", id = TODO_NPC("Frankal Stonebridge"), name = "Frankal Stonebridge",
   bible = "bibles/silithus.md", role = "scholar", tier = "quest",
   communities = { "bronzebeard_camp" }, temper = { "gruff", "jovial" }, values = { "curious", "honest" },
-  notices = { "class", "race" },
+  notices = { "class", "race", "lock_shadow" },
 
   impression = {
     first = "He thinks the monkey deserves a medal.",
@@ -1046,6 +1056,8 @@ P:NPC {
       text = "A priest, eh? Do me a favour and keep your hands where I can see them. The last priestess who visited this camp did things to my head I'm still not over." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! Can ye read Qiraji, then? I thought not, so you're no better than the rest of us, and we've thirty-eight languages between us." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "Yer shadow's fallin' the wrong way, {g:lad|lass}, toward the sun, an' I've been out in this desert long enough tae know it shouldnae. It's the same wrongness the hives have, an' I'd like tae know what draws it tae ye." },
   },
 
   start = "hello",
@@ -1109,7 +1121,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they've not come near Silithus in a thousand years, not since the wall went up, an' now they're circlin' like vultures. Somethin's drawin' them here, an' I'd like tae know what before it draws them down on our heads." } },
+      lines = {
+        { id = "xlock_default", text = "Because they've not come near Silithus in a thousand years, not since the wall went up, an' now they're circlin' like vultures. Somethin's drawin' them here, an' I'd like tae know what before it draws them down on our heads." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they've not come near Silithus in a thousand years, an' now they're circlin' like vultures, an' ye'll notice yer demon's been watchin' the sky as long as I have. Somethin's drawin' them here, an' if that thing o' yours can smell what it is, I'd like tae know before it draws them down on our heads." },
+      },
       choices = {
         { text = "The dragons should be watched. You're right to worry.", next = "BACK", reply = "Glad somebody agrees, because Rutgar only laughs an' tells me tae dig, an' I'm tired o' being laughed at.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Dragons are trouble. Let them be.", next = "BACK", reply = "Let them be, aye, if they'll let us be, but I've a feeling they've not come all this way just tae admire the view.", fx = { align = { order = -1 } } },
@@ -1134,7 +1149,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Ye'd get on wi' Glibb, I reckon, because that monkey can lift a sandwich out of yer hand before ye know it's gone." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock! The dragons overhead don't like yer sort, I'll wager, an' neither do the bugs, so keep yer demon close while ye're in my camp." },
+          text = "The dragons overhead don't like the look o' ye, I'll wager, an' neither do the bugs. Whatever's riding in yer shadow, keep it close while ye're in my camp." },
         { id = "h_default", key = true,
           text = "Look up at the sky, friend! There are dragons over this desert, when not one of the flights has come near Silithus in a thousand years, so the Qiraji are up to something, mark my words. After what happened to Natalia, I take nothing out here lightly." },
         { id = "h_natalia", tags = { "news" }, when = { questActive = TODO_QUEST("Dearest Natalia") },
@@ -1161,7 +1176,7 @@ P:NPC {
         { text = "Those spells she used... I know them.", next = "priest", when = { class = "PRIEST" } },
         { text = "Natalia's magic: was it arcane at all?", next = "x_mage", when = { class = "MAGE" } },
         { text = "That monkey looks like a born thief.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Why do you watch the dragons so closely?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why do you watch the dragons so closely, Frankal?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A warrior would stand little chance against a dragon.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Your monkey doesn't seem to like me, Frankal.", next = "xhuntcl", when = { class = "HUNTER" } },

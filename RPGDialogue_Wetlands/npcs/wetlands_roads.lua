@@ -6,7 +6,8 @@ P:NPC {
   key = "longbraid", id = TODO_NPC("Longbraid the Grim"), name = "Longbraid the Grim",
   bible = "bibles/wetlands_roads.md", role = "soldier", tier = "quest",
   communities = { "menethil" }, temper = { "gruff" }, values = { "loyal", "brave" },
-  notices = { "race" },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Saw his clan fall to orcs with warlocks and dragons around Grim Batol." },
+  notices = { "race", "lock_taint" },
 
   impression = {
     first = "He has earned that grim name of his.",
@@ -14,8 +15,16 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "Ye're a warlock, an' dinnae bother tellin' me otherwise. I've no use for yer kind." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've buried too many friends burned by green fire tae make a welcome o' ye. Say yer piece." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've fought beside us an' kept yer dark arts tae yerself. I'll still no' smile, but that was never about ye." },
     { id = "g_modr", text = "Keep yer head down, stranger. The Dark Irons have archers on the walls, and they're better shots than they look." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathin'? Good, because in Dun Modr that's a compliment." },
+  },
+
+  notice = {
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "There's a green look on ye, an' the Dark Irons on the wall would know it as well as I do. I've watched good dwarves go that color before, an' none o' them ever came back the way they were." },
   },
 
   start = "hello",
@@ -84,7 +93,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect it from our side o' the Span. But I've seen good dwarves turn tae worse things when the fightin' went bad, so mind ye keep hold o' yerself." } },
+      lines = { { id = "xlock_default", text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect it from our side o' the Span. But I've seen good dwarves turn tae worse things when the fightin' went bad, so mind ye keep hold o' yerself." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, maybe, for the Dark Irons are no strangers tae dark arts themselves, an' they'd no' expect a thing like yers comin' at them from our side o' the Span. But I've seen good dwarves turn tae worse when the fightin' went bad, an' that demon's watchin' ye like it's waitin' for the day, so keep hold o' yerself." },
+      },
       choices = {
         { text = "I'll keep hold. I control it, not the reverse.", next = "BACK", reply = "Ye say that, an' I believe ye mean it, as did the last one who said it tae me. Keep sayin' it every mornin', an' keep meanin' it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "When the fighting goes bad, I'll use whatever works.", next = "BACK", reply = "An' that's just how it starts, wi' whatever works. I'll take yer help against the Dark Irons, but I'll be watchin' ye closer than I watch them.", fx = { align = { light = -1 } } },
@@ -174,7 +185,9 @@ P:NPC {
           text = "A druid, out here! I've no quarrel wi' yer kind, only wi' the Dark Irons an' the dragons over Grim Batol." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, for Dun Modr needs every arm it can get, and it's had precious few." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have come up past the raptors, then, which tells me you know your trade." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take any help that's goin', though I'll no' smile about it, an' they'll tell ye I dinnae smile about anythin'." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My clan fell at Grim Batol when the orcs came wi' their warlocks an' their dragons, an' I was one o' the few who walked out. Ye'll get nothin' from me but what the King's orders demand." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ye've proved more use than I'd have guessed. I'll answer ye, but I'll no' forget what ye carry." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've the eyes o' someone who reads what he shouldnae. I'll take any help that's goin', though I'll no' smile about it, an' they'll tell ye I dinnae smile about anythin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Dark Irons have their own fire-callers, an' they used them on us at Dun Modr. I'll judge ye by what ye do, but I'll be watchin'." },
       },
       again = {
@@ -193,7 +206,7 @@ P:NPC {
         { text = "What could a hunter do for Dun Modr?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who tends your wounded out here, Longbraid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you ask of a paladin, Longbraid?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Would a warlock be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would some darker help be any use against the Dark Irons, Longbraid?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Dark Irons call fire at Dun Modr, Longbraid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My companion is a warrior. Was that your trade too?", next = "xpt_warrior", when = { party = { class = "WARRIOR" }, faction = "Alliance" } },
         { text = "Hold fast, Longbraid.", next = "END" },
@@ -248,7 +261,7 @@ P:NPC {
   key = "motley_garmason", id = TODO_NPC("Motley Garmason"), name = "Motley Garmason",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "sharp" }, values = { "loyal" },
-  notices = { "class" },
+  notices = { "class", "lock_shards" },
 
   impression = {
     first = "He can't stop thinking about the Dark Irons who broke the Span.",
@@ -257,6 +270,11 @@ P:NPC {
 
   greetings = {
     { id = "g_span", text = "Ye've come up the road from Menethil? Then ye've seen what's left of the bridge, and ye know why I'm angry." },
+  },
+
+  notice = {
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
+      text = "Ye're carryin' soul shards, a good many by the chill, an' I'd give a lot tae see a few more Dark Irons in that bag. Fill it on that bridge, an' I'll no' say a word against ye." },
   },
 
   start = "hello",
@@ -272,7 +290,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, an' I'd sleep sound after, for they killed good dwarves on that bridge an' laughed while they did it. Longbraid says I'm too angry tae think straight, an' he may be right, but anger's what I've got left." } },
+      lines = { { id = "xlock_default", text = "I would, an' I'd sleep sound after, for they killed good dwarves on that bridge an' laughed while they did it. Longbraid says I'm too angry tae think straight, an' he may be right, but anger's what I've got left." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, an' I'd sleep sound after, an' sounder still knowin' a thing like yers had been at them. Longbraid says I'm too angry tae think straight, an' maybe that's why I'm no' half as frightened o' yer demon as I ought tae be." },
+      },
       choices = {
         { text = "Don't let it eat you, Motley. That's my trade's lesson.", next = "BACK", reply = "Easy for ye tae say, wi' yer fancy dark books an' yer warnings. It's eatin' me already, if ye want the truth, an' I cannae seem tae stop it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Anger keeps you alive out here. Hold on to it.", next = "BACK", reply = "Aye, that's what I keep tellin' Longbraid, an' he never listens. Ye're the first who's said it back tae me, an' I'll no' forget it.", fx = { align = { light = -1 } } },
@@ -348,7 +368,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? The Dark Irons at the Span leave tracks like anyone else, an' I'd like tae know where they lead." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've no time for trees an' moss, for I've a grudge tae tend, but ye're welcome tae stand an' listen while I tend it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The Dark Irons blew the Span wi' powder, an' I'd like tae see them meet somethin' that burns hotter." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Fine by me, for I'd set every demon in the Nether on the Dark Irons if I thought it'd bring the Span back." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a whiff o' the pit about ye. Fine by me, for I'd set every horror in the Nether on the Dark Irons if I thought it'd bring the Span back." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "Ye've been at the Dark Irons, I hear, an' there's fewer of them crawlin' over the Span's ruins than there were. It'll no' bring the bridge back, but it's a start, an' I thank ye for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Good. The Dark Irons fight wi' fire an' powder, an' I'll take any dwarf who can answer them in kind." },
       },
@@ -367,7 +387,7 @@ P:NPC {
         { text = "Should the Dark Irons answer to a court, or your axe?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to rebuild the Thandol Span?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a mage help you against the Dark Irons, Motley?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "You'd really use demons against them, Motley?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really use any weapon against them, Motley, however dark?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Will you fight the Dark Irons with fire, Motley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck, Motley.", next = "END" },
       },
@@ -417,7 +437,7 @@ P:NPC {
   key = "ormer_ironbraid", id = TODO_NPC("Ormer Ironbraid"), name = "Ormer Ironbraid",
   bible = "bibles/wetlands_roads.md", role = "questgiver", tier = "quest",
   communities = { "menethil" }, temper = { "proud" }, values = { "brave" },
-  notices = { "class" },
+  notices = { "class", "lock_stones" },
 
   impression = {
     first = "He holds a grudge against each raptor personally.",
@@ -426,6 +446,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Watch the long grass, friend. If it moves and ye didnae move it, run." },
+  },
+
+  notice = {
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That green stone in yer pack's a healthstone, I'd guess, an' I've lost enough diggers tae the raptors that I'd take one for every one o' them. Use it if they get their teeth in ye, an' never mind where it came from." },
   },
 
   start = "hello",
@@ -441,7 +466,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. Fire sends them off for a night, but they remember, an' they come back angrier, so whatever ye set on them, make sure it finishes the job." } },
+      lines = { { id = "xlock_default", text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. Fire sends them off for a night, but they remember, an' they come back angrier, so whatever ye set on them, make sure it finishes the job." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Precious little, an' that's the trouble, for they've taken diggers an' mules an' they keep comin' back for more. I'd like tae see them try it wi' yer demon standin' guard, but they remember, an' they come back angrier, so if ye set it on them, make sure it finishes the job." },
+      },
       choices = {
         { text = "I'll drive them off, not wipe them out.", next = "BACK", reply = "Drive them off, then, if ye've the patience for it. I warn ye, they've come back angrier every time, an' I've the scars tae prove it.", fx = { align = { light = 1 } } },
         { text = "Not one of them leaves the marsh alive.", next = "BACK", reply = "That's what I needed tae hear. Wipe out the lot, an' maybe my lads can work wi'out lookin' over their shoulders.", fx = { affinity = 1, align = { light = -1 } } },
@@ -514,7 +541,7 @@ P:NPC {
           text = "The raptors round the dig need thinnin', and I want the big ones gone most of all. Do it for me, and do it for the lads they took." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand; the raptors come at the dig in packs, an' I could use someone who'll stand firm while they circle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll be tellin' me the raptors are only doin' what raptors do, an' I'll be tellin' ye they killed my friends, so let's save each other the breath." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Good, for the raptors here are cleverer than they've any right tae be, an' I'd like tae see one try tae outwit a demon." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Somethin' about ye makes my mule shy. Good, for the raptors here are cleverer than they've any right tae be, an' I'd like tae see one try tae outwit whatever ye keep." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mottled", min = 30 } }, text = "The raptors round the dig are fewer an' warier, an' the diggers swear it's because o' you. That's the first good news I've had out here in a month." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The raptors here are the worst I've ever seen. Can ye speak tae beasts, or only tae rocks?" },
       },
@@ -583,7 +610,7 @@ P:NPC {
   key = "whelgar", id = TODO_NPC("Prospector Whelgar"), name = "Prospector Whelgar",
   bible = "bibles/wetlands_roads.md", role = "scholar", tier = "service",
   communities = { "menethil" }, temper = { "steady" }, values = { "curious" },
-  notices = { "race" },
+  notices = { "race", "lock_soulstone" },
 
   impression = {
     first = "He cares more for what's under the mud than in the grass.",
@@ -592,6 +619,11 @@ P:NPC {
 
   greetings = {
     { id = "g_dig", text = "Careful where ye step, friend. Ye could be standin' on a thousand years of history." },
+  },
+
+  notice = {
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "That's a soulstone ye've got, an' I can hear it hummin' from here, which is more than any o' my finds have ever done. Keep it in yer bag while ye're at my dig, for if it starts whisperin', I'll be sendin' it tae Ironforge." },
   },
 
   start = "hello",
@@ -607,9 +639,11 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you, so dinnae get yer hopes up." } },
+      lines = { { id = "xlock_default", text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you, so dinnae get yer hopes up." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light, though yer demon's been sniffin' round the crates as if it hopes otherwise. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you or yer {pet}, so dinnae get yer hopes up." },
+      },
       choices = {
-        { text = "Ironforge is the right place for it, Whelgar.", next = "BACK", reply = "It is, an' the scholars there will make sense o' it, which I cannae. I'm glad tae hear a warlock say so, if I'm honest.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ironforge is the right place for it, Whelgar.", next = "BACK", reply = "It is, an' the scholars there will make sense o' it, which I cannae. I'm glad tae hear ye say so, if I'm honest.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Scholars hoard what they fear. I'd put it to use.", next = "BACK", reply = "Put it tae use? No' while I'm prospector here, ye'll no'. The League's careful wi' what it finds, an' so am I.", fx = { align = { order = -1 } } },
         { text = "Something else, Whelgar.", next = "BACK" },
       },
@@ -691,7 +725,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The dig could use one, for my diggers keep looking over their shoulders instead of at the ground." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the raptors know this ground better than any of my maps, and you'll know the raptors." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a good few thousand years, an' I'd like tae know if ye recognise anythin' we've dug up." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind where ye step, for if ye summon anythin' on top o' my trenches, I'll have ye fillin' them back in." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Mind where ye step at my dig, stranger, for if ye wake anythin' on top o' my trenches, I'll have ye fillin' them back in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at my excavation! I've bones in the ground here older than Ironforge, an' I'd dearly like tae know what the earth makes o' my diggin' them up." },
         { id = "dd_ormer", when = { questDone = TODO_QUEST("Ormer's Revenge") },
           text = "Ormer tells me you've been thinning the raptors around my dig with him. I can hear myself think now, which is a mixed blessing, since mostly I think about raptors." },
@@ -710,7 +744,7 @@ P:NPC {
         { text = "What have you found that needs a priest's eye, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I wonder if your dig is worth the lives it's cost.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's the strangest thing you've pulled out of the mud?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Has your dig turned up anything a warlock should know about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Has your dig turned up anything that hums, Whelgar? I'd like to know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What has your dig turned up that worries you, Whelgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },

@@ -12,7 +12,7 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 -- picks the thread back up once (the cb_ lines in hello).
 P:Pool {
   id = "spirithealer", role = "spirithealer", tier = "major", spiritSensitive = true,
-  notices = { "death", "dark" },
+  notices = { "death", "dark", "lock_soulstone", "lock_shards", "lock_stones", "lock_shadow", "lock_taint" },
   temper = { "sharp", "steady" },
   greetings = {
     { id = "g_again", when = { deaths = { min = 5 } }, text = "You again, and your file grows thicker every time I open it." },
@@ -30,6 +30,18 @@ P:Pool {
       text = "Back already? Your footprints from last time are still on the hill." },
     { id = "n_mind", cat = "dark", place = "after", when = { insanity = { min = 40 } },
       text = "Your thoughts came over in pieces, so I have set them out in order for you, though they were not in that order when you arrived." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } }, place = "after",
+      text = "There is a stone in your pack shaped to hold a soul, and I know whose shape it has been waiting for. Once you promise yourself to it, you will not climb this hill when you fall; you will go into the stone instead, and in all my years no one has told me what the waiting is like in there." },
+    { id = "n_lock_soulstone_given", cat = "lock_soulstone", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5232, 16892, 16893, 16895, 16896 } }, place = "after",
+      text = "Someone has given you a stone to keep a soul in, a warlock by the cold of it. If they bind you to it, your next death goes somewhere I cannot follow, so let me look at you properly now, in case the next page of your file is one I do not get to write." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } }, place = "after",
+      text = "You carry souls in your pack, small purple ones, and not one of them ever came up this hill. I keep a list of those who never arrived, and I think I have just found some of the names." },
+    { id = "n_lock_stones", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } }, place = "after",
+      text = "That green stone in your pack has a heartbeat in it that is not yours. Eat it down there if you must, but do not tell me whose it was, because I would have to write it down." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" }, place = "before",
+      text = "Your shadow came up the hill with you, and nobody's shadow does that. It is sitting by the door, and I would rather it waited outside." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } }, place = "after",
+      text = "There is a green thread tied to you that runs back down the hill and further, to something that has never been alive and does not intend to die. It is not mine to cut, but I wish you would." },
   },
   start = "hello",
   nodes = {

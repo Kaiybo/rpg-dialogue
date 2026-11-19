@@ -425,8 +425,8 @@ P:NPC {
         { id = "ce_default", text = "Barrels, and tenants who pay on time and don't break the furniture. I go as far as the barrels, and I don't ask past them." },
       },
       choices = {
-        { text = "Wise man.", next = "BACK", fx = { affinity = 1 } },
-        { text = "You should ask.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "You're a wise man, Farley. Stay one.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You should ask, Farley. You'd want to know what sleeps under your roof.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     dwarf = {

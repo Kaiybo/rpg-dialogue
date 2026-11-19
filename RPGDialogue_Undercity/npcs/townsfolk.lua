@@ -25,6 +25,11 @@ P:NPC {
     { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living customer, how refreshing. Your coins are perfectly safe here, and so are you, mostly." },
   },
 
+  notice = {
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The lamp on my counter goes dim whenever you lean over it, and I've noticed it does that for your sort. I'll count your coins twice, if you don't mind, and not because I doubt you." },
+  },
+
   start = "hello",
   nodes = {
     xfpala = {
@@ -70,10 +75,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and I've learned to label them all very carefully, because a clerk who can't account for a box that hums is not much of a clerk. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and I've learned to label them all very carefully, and I'll ask your demon to stop looming over the counter where the clerks can see it. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
       },
       choices = {
-        { text = "I'll keep my vault in order, Montague.", next = "BACK", reply = "Splendid. An orderly vault is the foundation of an orderly life, or unlife.", fx = { align = { order = 1 } } },
-        { text = "What I keep there is none of your business.", next = "BACK", reply = "Quite right, until it starts humming at the clerks. Then it becomes my business very quickly.", fx = { align = { order = -1 } } },
+        { text = "My vault will stay quiet and orderly, Montague.", next = "BACK", reply = "Splendid. An orderly vault is the foundation of an orderly life, or unlife.", fx = { align = { order = 1 } } },
+        { text = "What I keep there is none of your business, clerk.", next = "BACK", reply = "Quite right, until it starts humming at the clerks. Then it becomes my business very quickly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -105,7 +111,7 @@ P:NPC {
         { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "My gear might be safer in your vaults than on my back.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bank with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Do warlocks keep strange things in your vaults?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What strange things do my kind lock in your vaults, Montague?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I seem to unsettle you, Mister Montague.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
       },
@@ -198,7 +204,7 @@ P:NPC {
   key = "maulray", id = TODO_NPC("Anya Maulray"), name = "Anya Maulray", title = "Stable Master",
   bible = "bibles/townsfolk.md", role = "stablemaster", tier = "service",
   communities = { "undercity" }, temper = { "gentle" }, values = { "kind", "patient" },
-  notices = { "pet" },
+  notices = { "pet", "lock_steed" },
   impression = {
     first = "She is softer with her beasts than with any of the living.",
     third = "{name} met Anya Maulray, the stable master of the Undercity.",
@@ -212,6 +218,8 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { named = true } },
       text = "{pet} is pressing close to you, look, and not to me. That's what trust looks like on a beast, and it's not easily won down here." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "Don't bring that burning horse down into my stables, or I'll have every beast here kicking its stall to pieces. Leave it in the courtyard, if you must keep it at all." },
   },
 
   start = "hello",
@@ -275,7 +283,7 @@ P:NPC {
         { text = "How do the beasts fare underground?", next = "under" },
         { text = "Why tend beasts at all, now?", next = "why" },
         { text = "Your beasts never hear me coming, Anya.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Would your beasts tolerate my demon, Anya?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your beasts will smell my demon, Anya. Will they bolt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I doubt your beasts would take to a warrior, Anya.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the beasts fear mages, Anya?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your beasts fear the Light I carry, Anya?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -340,10 +348,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Not for a moment, and I don't blame them, because a beast knows a thing that doesn't belong in the world when it smells one. Leave it at the top of the stair, and I'll not have to calm every animal in the stable afterward." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You ought to know better, since your people's wolves never cared for the warlocks' pets, or so a grunt told me once. Leave the demon at the top of the stair, please." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Not for a moment, and you can hear them now, every one of them kicking at its stall since your demon came down the stair. Take it back to the top and wait there, and I'll not have to calm every animal in the stable afterward." },
       },
       choices = {
-        { text = "I'll leave it at the stair. Your beasts come first.", next = "BACK", reply = "Thank you. The beasts will settle quicker for it, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon goes where I go, Anya.", next = "BACK", reply = "Then it can wait at the top of the stair with you, warlock. My beasts come first here.", fx = { align = { order = -1 } } },
+        { text = "I'll leave it at the stair. I'd not have your beasts panic.", next = "BACK", reply = "Thank you. The beasts will settle quicker for it, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go. Your beasts can learn fear.", next = "BACK", reply = "Then it can wait at the top of the stair with you, warlock. My beasts come first here.", fx = { align = { order = -1 } } },
         { text = "How do the beasts fare underground?", next = "under" },
       },
     },
@@ -366,7 +375,7 @@ P:NPC {
   key = "archibald", id = TODO_NPC("Archibald"), name = "Archibald", title = "Weapon Master",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "stern" }, values = { "disciplined", "proud" },
-  notices = { "class" },
+  notices = { "class", "lock_armor" },
   impression = {
     first = "He expects to be obeyed and is surprised when he is.",
     third = "{name} met Archibald, the weapon master of the Undercity's War Quarter.",
@@ -380,6 +389,8 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "Your grip's wrong. Thumb over, not under, or that blade will twist out of your hand on the first hard parry. Fix it now and thank me later." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "That demon hide you're wearing crackles every time you move, and it will turn a blade or two before it burns away. Drill with me anyway, so your arms still know their work when it's gone." },
   },
 
   start = "hello",
@@ -427,10 +438,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because one day your demon will fall, and you'll be left with nothing but your own hands. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because one day your demon will fall, and I doubt that one will see you through every fight, whatever it thinks of itself. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
       },
       choices = {
-        { text = "Yes, sir. I'll drill every day.", next = "BACK", reply = "Good. Your arms will thank you when your demon's gone.", fx = { align = { order = 1 } } },
-        { text = "I've no time for drills, Archibald.", next = "BACK", reply = "Then I'll see you on the slab, warlock. Make time.", fx = { align = { order = -1 } } },
+        { text = "Then I'll drill, in case my demon ever fails me.", next = "BACK", reply = "Good. Your arms will thank you when your demon's gone.", fx = { align = { order = 1 } } },
+        { text = "My demons do my fighting, Archibald. I've no time for drills.", next = "BACK", reply = "Then I'll see you on the slab, warlock. Make time.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -459,7 +471,7 @@ P:NPC {
         { text = "Is a staff worth learning properly, Archibald?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which weapon suits a warrior best, weapon master?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "A crossbow seems a poor trade for a good bow.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Why should a warlock learn a blade, Archibald?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why would a warlock stoop to the blade, Archibald?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I expect you'll drill me like any other soldier, Archibald.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -545,7 +557,7 @@ P:NPC {
   key = "vanbrunt", id = TODO_NPC("James Van Brunt"), name = "James Van Brunt", title = "Blacksmithing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "gruff" }, values = { "diligent" },
-  notices = { "profession", "wounds" },
+  notices = { "profession", "wounds", "lock_taint" },
   impression = {
     first = "He has nothing left but the work, and he does it well.",
     third = "{name} met James Van Brunt, the blacksmithing trainer of the Undercity.",
@@ -561,6 +573,8 @@ P:NPC {
       text = "Your armour's falling off you in pieces. If you're not going to look after it, at least let someone who cares do it for you." },
     { id = "n_smith", cat = "profession", when = { profession = { name = "Blacksmithing", min = 150 } },
       text = "You've good callouses for a smith. Keep them; you'll need them for the heavier work." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "You smell like the fel-touched ore they keep asking me to work. I'll make you honest armour, but don't expect it to sit right on someone who smells like that." },
   },
 
   start = "hello",
@@ -637,7 +651,7 @@ P:NPC {
         { text = "That ore must come from a long way off.", next = "ore" },
         { text = "The Deathguard must keep you busy.", next = "guard" },
         { text = "Can you forge a dagger that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "I'd guess warlocks ask you for strange things, Van Brunt.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You must be brought some strange metals, Van Brunt.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What armour should a warrior trust, Van Brunt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can you make mail light enough for a hunter, Van Brunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a mage learn smithing, Van Brunt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -702,10 +716,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They ask me to work fel-touched ore now and then, and I tell them no, because metal that whispers isn't metal I'll put my name to. Bring me honest iron and I'll make you honest work." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a smith in the capital who went over to the Cult before the end and forged for them, and he never made anything clean again. Keep your demons away from my forge, and we'll get on fine." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They ask me to work fel-touched ore, and I tell them no, and I'll tell your demon the same if it keeps nosing about my anvil. Metal that whispers isn't metal I'll put my name to, so bring me honest iron and I'll make you honest work." },
       },
       choices = {
-        { text = "Honest iron, then. I'll respect your forge.", next = "BACK", reply = "Thank you. Honest iron makes honest work, and that's my name on it.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fel-touched or not, metal's metal, Van Brunt.", next = "BACK", reply = "It isn't, and I'll not argue the point twice. Find another smith.", fx = { align = { order = -1 } } },
+        { text = "Honest iron, then. I'll keep the whispers from your forge.", next = "BACK", reply = "Thank you. Honest iron makes honest work, and that's my name on it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Whispering or not, metal holds an edge, Van Brunt.", next = "BACK", reply = "It isn't, and I'll not argue the point twice. Find another smith.", fx = { align = { order = -1 } } },
         { text = "Is smithing different when you're dead?", next = "dead" },
       },
     },
@@ -725,7 +740,7 @@ P:NPC {
   key = "killian", id = TODO_NPC("Brom Killian"), name = "Brom Killian", title = "Mining Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "practical" },
-  notices = { "profession" },
+  notices = { "profession", "lock_shards" },
   impression = {
     first = "Every tunnel under the city strikes him as a missed opportunity.",
     third = "{name} met Brom Killian, the mining trainer of the Undercity.",
@@ -739,6 +754,8 @@ P:NPC {
   notice = {
     { id = "n_miner", cat = "profession", when = { profession = { name = "Mining", min = 125 } },
       text = "Iron dust on your sleeves. You've been working proper veins, then, not just the copper that any child can find." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Crystals like those don't come out of any vein I've ever dug. Pretty, though, and they hum, which ore never does, so I'll take your word they're not worth mining for." },
   },
 
   start = "hello",
@@ -786,10 +803,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I asked a warlock that once, and he looked at me as if I'd buried him a second time. A pity, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I asked a warlock that once and he looked at me as if I'd buried him a second time, though yours is looking down the shaft as if it might actually consider it. A pity it's not the demon who decides, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
       },
       choices = {
         { text = "I'll dig with my own hands, Killian.", next = "BACK", reply = "Good, and the ore will be all the better for it. Pick's by the door.", fx = { align = { order = 1 } } },
-        { text = "If my demon digs, I keep the ore.", next = "BACK", reply = "Then I'd like to see it dig first. I'll believe it when I see it.", fx = { align = { order = -1 } } },
+        { text = "If my demon digs, the ore is mine, Killian.", next = "BACK", reply = "Then I'd like to see it dig first. I'll believe it when I see it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -816,7 +834,7 @@ P:NPC {
         { text = "Can magic find ore faster than a pick, Killian?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Mining can't be much use to a warrior, Killian.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the hills hide their ore, Killian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "A demon could dig your tunnels for you, Killian.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "A voidwalker never tires, Killian. It could dig your tunnels.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a paladin's Light have any use in the mines, Brom?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
@@ -902,7 +920,7 @@ P:NPC {
   key = "lavinia_crowe", id = TODO_NPC("Lavinia Crowe"), name = "Lavinia Crowe", title = "Enchanting Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "proud" }, values = { "curious", "precise" },
-  notices = { "profession", "class" },
+  notices = { "profession", "class", "lock_soulstone" },
   impression = {
     first = "She is particular and proud, and her lessons are better for it.",
     third = "{name} met Lavinia Crowe, the enchanting trainer of the Undercity's Magic Quarter.",
@@ -918,6 +936,8 @@ P:NPC {
       text = "You've a little dust on your fingertips, and it glitters. You've been breaking things down, then, and I approve." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage. You throw your magic out into the world and let it go, whereas we enchanters keep ours and put it somewhere useful. Both have their place, but mine is tidier." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { carrying = { 5232, 16892, 16893, 16895, 16896 } },
+      text = "There's a soul bound in that stone you're carrying, held in an object the way I bind power into a ring. It's a cruder craft than mine, but I'll admit it works." },
   },
 
   start = "hello",
@@ -981,7 +1001,7 @@ P:NPC {
         { text = "How does enchanting work?", next = "how" },
         { text = "You must have learned this in Dalaran.", next = "dalaran" },
         { text = "I'd have thought it hard for the dead to work magic.", next = "dead" },
-        { text = "Can enchanting bind a demon, Lavinia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could your enchantments chain a demon, Lavinia?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could enchanting make my blades quieter, Lavinia?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Enchanting could make my weapon strike harder, Lavinia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can enchanting do anything for a hunter, Lavinia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -1041,10 +1061,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "It binds power into objects, and a demon is not an object, however much your trainers would like you to think so. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and once was enough." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We dead mages kept to the arcane and you dead warlocks went down another road entirely, and the Magic Quarter is big enough for us both, mostly. Do keep your imp out of my dust; it eats it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "It binds power into objects, and a demon is not an object, though yours is standing so still I could almost be fooled. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and I'd rather {pet} didn't take an interest in my rods." },
       },
       choices = {
         { text = "I'll keep the crafts apart, as you say.", next = "BACK", reply = "Good, and you'll keep your fingers too. That ring took three of its owner's.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Every craft bends if you push it hard enough.", next = "BACK", reply = "Every craft bends, and some of them snap. I've seen the snapping, and I'd not recommend it.", fx = { align = { order = -1 } } },
+        { text = "Every craft bends if you're willing to break it.", next = "BACK", reply = "Every craft bends, and some of them snap. I've seen the snapping, and I'd not recommend it.", fx = { align = { order = -1 } } },
         { text = "How does enchanting work?", next = "how" },
       },
     },
@@ -1079,7 +1100,7 @@ P:NPC {
   key = "cward", id = TODO_NPC("Carolyn Ward"), name = "Carolyn Ward", title = "Rogue Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "sharp" }, values = { "cunning", "loyal" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_eyes" },
   impression = {
     first = "Her loyalty to the Dark Lady is plain, and nothing else is.",
     third = "{name} met Carolyn Ward, a rogue trainer of the Undercity.",
@@ -1093,6 +1114,8 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I can see you, you know. Your shadow is wrong on the left, so drop your shoulder, and you might fool someone who isn't me." },
+    { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
+      text = "Your eyes see through shadow, which is a rude thing to bring into my quarter. My students are trying to learn how to hide, and you're spoiling the lesson." },
   },
 
   start = "hello",
@@ -1157,7 +1180,7 @@ P:NPC {
         { text = "What's the most important thing a rogue can learn?", next = "lesson" },
         { text = "Not every rogue can be loyal.", next = "disloyal" },
         { text = "Do rogues and mages ever work together, Ward?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Have your rogues any use for a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could your rogues use someone who curses from the dark?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your rogues ever need a warrior, Carolyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Could a hunter learn anything from your rogues, Carolyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You seem to think I'm still loyal to the Silver Hand, Carolyn.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1221,10 +1244,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Rarely, because a demon is the least subtle thing in the Undercity, and that includes the abominations. Still, a warlock who can curse a man from across a room has a certain charm, if he learns to stand somewhere dark and keep his imp quiet." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock, in my quarter, and you've the sense to ask instead of barging in. A curse from across a room has a certain quiet charm, if you learn to keep that demon of yours out of the light." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Rarely, because a demon is the least subtle thing in the Undercity, and yours has just made three of my students forget their lessons. Still, a warlock who can curse a man from across a room has a certain charm, if he learns to stand somewhere dark and leave that thing at home." },
       },
       choices = {
-        { text = "I'll learn to work quietly, then.", next = "BACK", reply = "Good. A quiet warlock is a dangerous warlock, and I'd like more of those.", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll fight in the open, demon and all.", next = "BACK", reply = "Then you'll never work for me, warlock. Go and make your noise elsewhere.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll learn to curse quietly, from the shadows.", next = "BACK", reply = "Good. A quiet warlock is a dangerous warlock, and I'd like more of those.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll kill in the open, demon and all.", next = "BACK", reply = "Then you'll never work for me, warlock. Go and make your noise elsewhere.", fx = { align = { honor = 1 } } },
         { text = "Not every rogue can be loyal.", next = "disloyal" },
       },
     },
@@ -1253,6 +1277,11 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Welcome, welcome! Everything here is deadly, so please do look but don't lick." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did the last batch do its job? It always does, but I like to hear about it." },
+  },
+
+  notice = {
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "A healthstone, is it? Pity. Everything I sell is meant to stop a heart, and that stone undoes half my work, so keep it in your pocket while you're browsing." },
   },
 
   start = "hello",
@@ -1317,7 +1346,7 @@ P:NPC {
         { text = "Selling poison seems a wicked trade.", next = "wicked" },
         { text = "Some of your wares look very strange indeed.", next = "strange" },
         { text = "What would a mage want from your shelves, Graves?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do your poisons work on demons, Graves?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would your poisons kill a demon, Graves?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What poisons should a warrior watch for, Graves?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make of the venom my quarry carries, Graves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would a paladin have any use for your poisons, Ezekiel?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1381,10 +1410,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Some of them do, and the ones that don't are very interesting to watch fail. The Magic Quarter's warlocks buy from me now and then, for when a pet turns on its master, and they never tell me whether it worked." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking after poisons for demons, now that's a customer with history. Some of my stock works on them and some only annoys them, and I'm afraid you'll have to find out which by experiment, preferably nowhere near my shelves." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Some of them do, and the ones that don't are very interesting to watch fail, so forgive me for looking at your {pet} with professional curiosity. The Magic Quarter's warlocks buy from me for when a pet turns on its master, and you might keep that in mind the next time it looks at you like that." },
       },
       choices = {
-        { text = "A wise warlock keeps a vial for his own demon.", next = "BACK", reply = "A wise warlock indeed. I'll sell you the strongest I've got.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon won't turn. I don't need your vials.", next = "BACK", reply = "They all say that, and then they come back in a hurry. I'll keep one on the shelf for you.", fx = { align = { order = -1 } } },
+        { text = "Anyone wise keeps a vial ready for their own demon.", next = "BACK", reply = "A wise warlock indeed. I'll sell you the strongest I've got.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon knows better than to turn. Keep your vials.", next = "BACK", reply = "They all say that, and then they come back in a hurry. I'll keep one on the shelf for you.", fx = { align = { order = -1 } } },
         { text = "Some of your wares look very strange indeed.", next = "strange" },
       },
     },
@@ -1408,7 +1438,7 @@ P:NPC {
   key = "edras", id = TODO_NPC("Mary Edras"), name = "Mary Edras", title = "First Aid Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "brisk" }, values = { "kind", "practical" },
-  notices = { "wounds" },
+  notices = { "wounds", "lock_pact" },
   impression = {
     first = "Her briskness is plainly how she cares.",
     third = "{name} met Mary Edras, the first aid trainer of the Undercity.",
@@ -1422,6 +1452,8 @@ P:NPC {
   notice = {
     { id = "n_wounds", cat = "wounds", place = "before", when = { durability = { max = 0.3 } },
       text = "You're in a state, and I'm sure you can't feel half of it. Sit down and let me check you before you walk off with a blade still in your back." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "There's heat in your blood, a fever that isn't a fever, and I see it on warlocks and the people who fight beside them. It won't kill you, but it won't stop an arrow either, so buy a bandage." },
   },
 
   start = "hello",
@@ -1498,7 +1530,7 @@ P:NPC {
         { text = "You have a healer's hands.", next = "life" },
         { text = "Where can I learn more than you teach?", next = "more" },
         { text = "Rogues bleed more than they admit, Edras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
-        { text = "Life Tap leaves me hollow, Edras. Can you help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I bleed myself for power, Edras. Can you patch the holes?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Warriors seem to get their wounds all wrong, Mary.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I tend my beast's wounds before my own, Mary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why should a mage learn first aid, Mary?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -1564,10 +1596,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Bandages won't put back what you've traded away, but they'll help with what your demon does to you afterward. I've told the Magic Quarter's warlocks the same for years, and they never listen until they faint on my floor." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You're spending blood you can't make again as quickly as the living can, which is a poor bargain for one of us. Bind what you can, rest when you can, and don't faint on my floor." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Bandages won't put back what you've traded away, and your demon standing over you while I wrap them won't help either. I've told the Magic Quarter's warlocks the same for years, so send it to the corner and sit down before you faint on my floor." },
       },
       choices = {
         { text = "I'll listen, Edras, before I faint.", next = "BACK", reply = "Good. Before you faint is much better than after.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fainting is the price of power, Edras.", next = "BACK", reply = "Then pay it in my chair, warlock, and I'll stitch you up for free.", fx = { align = { order = -1 } } },
+        { text = "Blood is the price of power, Edras. I'll pay it.", next = "BACK", reply = "Then pay it in my chair, warlock, and I'll stitch you up for free.", fx = { align = { order = -1 } } },
         { text = "You have a healer's hands.", next = "life" },
       },
     },
@@ -1586,7 +1619,7 @@ P:NPC {
   key = "cromwell", id = TODO_NPC("Armand Cromwell"), name = "Armand Cromwell", title = "Fishing Trainer",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "undercity" }, temper = { "calm" }, values = { "patient" },
-  notices = { "profession" },
+  notices = { "profession", "lock_breath" },
   impression = {
     first = "He finds it funny to fish in canals full of green poison.",
     third = "{name} met Armand Cromwell, the fishing trainer of the Undercity.",
@@ -1600,6 +1633,8 @@ P:NPC {
   notice = {
     { id = "n_angler", cat = "profession", when = { profession = { name = "Fishing", min = 150 } },
       text = "There's lake weed on your boots, and it's fresh. You've been out at Brightwater, then, and a good long while by the look of it." },
+    { id = "n_lock_breath", cat = "lock_breath", when = { aura = { 5697 } },
+      text = "You can breathe underwater now, can you? Then you'll know how green these canals are from the bottom, and you'll know why I fish elsewhere." },
   },
 
   start = "hello",
@@ -1647,10 +1682,11 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Anyone can, if they've the patience, and the dead have plenty of that. The canals here are green with the apothecaries' leavings, so practise here and fish somewhere cleaner, and send the demon away first, because the fish can tell." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can, if they've the patience, and the dead have plenty of that. But fish can tell when a demon's standing on the bank, and they've all gone to the bottom since yours arrived, so send it away and practise somewhere cleaner than these canals." },
       },
       choices = {
         { text = "I'll send it away and sit patiently.", next = "BACK", reply = "Thank you. The fish are nervous enough with the green.", fx = { align = { light = 1 } } },
-        { text = "My demon stays. The fish can be frightened.", next = "BACK", reply = "Then you'll catch nothing, friend, and the demon will eat my bait. Send it away.", fx = { align = { light = -1 } } },
+        { text = "My demon stays. Let the fish learn fear.", next = "BACK", reply = "Then you'll catch nothing, friend, and the demon will eat my bait. Send it away.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1678,7 +1714,7 @@ P:NPC {
         { text = "I could freeze the canal and fish through the ice.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can fishing teach a warrior, Armand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much different from hunting, Armand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Can a warlock learn to fish, Cromwell?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Even I need a quiet hour, Cromwell. Will you teach me to fish?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Light might cleanse these canals, Armand.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },

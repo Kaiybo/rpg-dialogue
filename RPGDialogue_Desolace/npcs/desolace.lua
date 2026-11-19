@@ -6,7 +6,8 @@ P:NPC {
   key = "pentigast", id = TODO_NPC("Captain Pentigast"), name = "Captain Pentigast",
   bible = "bibles/desolace.md", role = "soldier", tier = "major",
   communities = { "nijels_point" }, temper = { "calculating" }, values = { "dutiful", "cunning" },
-  notices = { "kit", "status" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Has buried soldiers the Burning Blade sent back to him in pieces." },
+  notices = { "kit", "status", "lock_shards", "lock_steed" },
 
   impression = {
     first = "He plays the centaur clans against each other like cards.",
@@ -21,6 +22,9 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since we last talked, and I can see it from here. A fighter like you is worth a squad on this ridge, and I mean to use you that way." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone at the Point round to your way of thinking, and I'd like that knack on my side when I next deal with the clans. The Gelkis enjoy a good argument, and the Magram don't." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word on the ridge is that someone caught you in a lie, and I play enough games with the centaur to know what that costs. Lie to them if you must, but don't lie to the people holding this post with you." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried soldiers the Burning Blade sent back to me in pieces, and every one of those cultists started with a summoning circle. Keep your hands where I can see them." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "You'll be watched while you're in my camp. Take that as an order rather than an insult, though I'd not blame you for taking it as both." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done my garrison more good than harm, which is more than I expected of you. I'm still watching, mind." },
   },
 
   notice = {
@@ -28,6 +32,10 @@ P:NPC {
       text = "You look like you got between two centaur clans. It's an easy mistake, so get patched." },
     { id = "n_stormwind", cat = "status", when = { race = "Human" },
       text = "A face from home. Tell me Stormwind still remembers we're out here." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "That bag of yours clinks like a quartermaster's purse, and it's colder than the wind off the Kodo Graveyard. I'll want to know whose souls those are before you bed down inside my walls." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That horse is burning the grass at our gate, and it's the only grass in Desolace, so I'll ask you to tether it out on the dust. I'll not have Nijel's Point lose its one green patch to a warlock's mount." },
   },
 
   start = "hello",
@@ -113,10 +121,12 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." } },
+      lines = {
+        { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that whatever you keep doesn't slip while you're watching theirs." },
+      },
       choices = {
-        { text = "My demons answer to me. Judge me by what I bring back.", next = "BACK", reply = "Then I'll judge you by it, and if what you bring back is worth having, I'll not ask how you carried it.", fx = { align = { order = -1 } } },
-        { text = "I'll keep the imp leashed and follow your orders, Captain.", next = "BACK", reply = "That's all I ask, and you'll find I'm a fair captain to those who keep their leash short.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What I keep answers to me. Judge me by what I bring back.", next = "BACK", reply = "Then I'll judge you by it, and if what you bring back is worth having, I'll not ask how you carried it.", fx = { align = { order = -1 } } },
+        { text = "I'll keep it leashed and follow your orders, Captain.", next = "BACK", reply = "That's all I ask, and you'll find I'm a fair captain to those who keep their leash short.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -155,7 +165,9 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Circle at Nijel's Point. Keeper Marandis has his own business in Desolace, and I'd be obliged if one of you told me what it is." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and from the look of you, one who can throw fire farther than my archers can shoot. I won't ask where you studied, so long as you're willing to do it from my ridge." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Nijel's Point. I'll be plain with you: the last people out here who trafficked with demons were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "I'll be plain with you, since you've a look I've learned to read: the last people out here who trafficked with the Nether were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There's the Nether on you, and I've learned to read that look. My men will follow you round the Point, and I'll not apologise for it." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a straight hearing from me, and I don't give those lightly. Go on." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "The Kolkar have been licking their wounds since you went through their camps, and the other clans have noticed. I'd call that a useful kind of message." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The centaur hold their ancestors close, and if they see a dwarf calling on the earth, I've no idea whether they'll respect you or come at you twice as hard." },
       },
@@ -174,7 +186,7 @@ P:NPC {
         { text = "Betraying a clan sits ill with the Light.", next = "paladin_pg", when = { class = "PALADIN" } },
         { text = "Stormwind's soldiers march through our forests to get here.", next = "nelf_pg", when = { race = "NightElf" } },
         { text = "I can't think Nijel's Point has much use for a mage, Captain.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Will you trust a warlock on your ridge, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Will you trust me on your ridge, Captain, whatever you've guessed?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'd guess you want the centaur camps scouted, Captain.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could a shaman help you play the centaur against each other?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Maraudon's princess is dead, Captain. The centaur lost their mother.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Alliance" } },
@@ -358,7 +370,8 @@ P:NPC {
   key = "marandis", id = TODO_NPC("Keeper Marandis"), name = "Keeper Marandis",
   bible = "bibles/desolace.md", role = "noble", tier = "quest",
   communities = { "nijels_point" }, temper = { "formal" }, values = { "proud", "devout" },
-  notices = { "class", "form" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Cenarion keeper; to her every warlock carries the Legion's corruption toward the grove." },
+  notices = { "class", "form", "lock_taint" },
 
   impression = {
     first = "Whatever brought him down from Stonetalon, he considers it far from small.",
@@ -367,11 +380,16 @@ P:NPC {
 
   greetings = {
     { id = "g_keeper", text = "You stand before a keeper of the grove, under Elune's eye. Speak carefully; my time is the Circle's, not mine." },
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Legion burned my people's forests with the very fire you carry. Speak from where you stand, and come no nearer to the grove." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "I will not call you welcome here, and I will not pretend to. Say what you must, and then go." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have kept your fel away from my grove for a long while now. That does not make us friends, but I will hear you without bracing for the worst." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid. Then you know what the Circle asks of its servants, and perhaps one day it will ask more of you." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { taint = { min = 30 } },
+      text = "I can smell it on you, the fel that soaks the ground around the Mannoroc Coven, and it is in your blood now as well. The land there is still dying, and I fear you carry it the way that ground does, deeper than you know." },
   },
 
   react = {
@@ -418,10 +436,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
+      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I have walked the corrupted ground around the Mannoroc Coven, and the thing beside you smells of it, the same burnt air that has hung over that valley since the Legion came. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
       choices = {
-        { text = "I'll turn the fel against the demons. It's a weapon.", next = "BACK", reply = "The fel is a weapon that cuts both ways, and I have seen the ground it leaves behind, so please be careful.", fx = { align = { light = -1 } } },
-        { text = "You're right to be wary. I'll keep my pacts away from the green.", next = "BACK", reply = "Thank you, and the green will thank you, though it cannot speak, and I will speak for it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll turn it against the demons themselves. It's a weapon.", next = "BACK", reply = "The fel is a weapon that cuts both ways, and I have seen the ground it leaves behind, so please be careful.", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. I'll keep what I carry away from the green.", next = "BACK", reply = "Thank you, and the green will thank you, though it cannot speak, and I will speak for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
     },
@@ -483,7 +501,9 @@ P:NPC {
         { id = "h_strong", when = { minLevel = 45 },
           text = "You've grown strong, so hear it: a princess of the earth, Theradras, holds the body of one dear to the Circle, and we mean to take it back." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "You smell of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The fel clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Something clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know the stench of the Burning Legion's craft, and it is on you. Do not call anything into this clearing while I live." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have never once broken your word in this clearing. I still mistrust what you are, but I will speak with you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle has spoken with tauren who hear the elements for a long time, but I did not expect to hear the earth answer one of Ironforge." },
       },
@@ -496,7 +516,7 @@ P:NPC {
         { text = "Tell me of Theradras.", next = "theradras", when = { minLevel = 45 } },
         { text = "I hunt these lands. The beasts are wrong here.", next = "hunter_md", when = { class = "HUNTER" } },
         { text = "Do the keepers distrust all mages, Keeper?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Why does the fel trouble you so much, Keeper?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why does that smell trouble you so much, Keeper?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Can the Light do anything for a land this broken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "There must be evil here that a paladin should root out, Keeper.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle ever need a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -563,7 +583,7 @@ P:NPC {
   key = "kreldig", id = TODO_NPC("Kreldig Ungor"), name = "Kreldig Ungor",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "nijels_point" }, temper = { "busy" }, values = { "practical", "friendly" },
-  notices = { "craft" },
+  notices = { "craft", "lock_shards" },
 
   impression = {
     first = "He is prouder of a patched kettle than of anything else.",
@@ -580,6 +600,8 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering", "Mining" } },
       text = "Good with yer hands, are ye? The Reclaimers are always hirin' folk who know salvage from scrap." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Ye've shards in yer pack, I can hear 'em hummin' from here, an' my lantern's gone dim to match. I'll thank ye to set the bag outside the door while we talk." },
   },
 
   start = "hello",
@@ -643,7 +665,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
+      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Soul shards I'll not touch, an' I'll thank ye to keep yer demon from pokin' at my shelves, for it's had its nose in the candles twice already. I've chalk an' good thick string besides, but the Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
       choices = {
         { text = "I'll buy honestly and keep my business tidy.", next = "BACK", reply = "That's all I ask, an' I'll throw in an extra candle for the courtesy.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My business is mine. Sell me the chalk and ask nothing.", next = "BACK", reply = "Fair enough, friend, but I'll still be watchin' for soul shards, an' I'll not be shy about askin' then.", fx = { align = { order = -1 } } },
@@ -698,7 +720,7 @@ P:NPC {
         { id = "h_salvage", when = { metBefore = true }, text = "Found a perfectly good kettle in the dust yesterday, wi' a centaur arrow through it. I patched it, an' it makes tea fine; that's Reclaimers' work in one kettle." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Light-fingered sort, are ye? I can tell by how ye looked at me crates afore ye looked at me, an' I'll ask ye to keep yer hands where Reclaimers Inc. can see 'em." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Grand, because I've a crate o' scrolls an' trinkets from the old ruins that might be priceless or might explode, an' I've no way o' tellin' which." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? Ye're welcome to warm yer hands, but if anythin' o' yours gets into me reagents, ye'll be payin' for the lot." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Ye've the look o' someone who buys chalk by the pound. Ye're welcome to warm yer hands, but if anythin' o' yours gets into me reagents, ye'll be payin' for the lot." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now dinnae give me that look, because everythin' I dig up out o' this dust was dead long afore Reclaimers Inc. came along." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! The lads at the Reclaimers would give a week's wages tae ask ye what the earth's buried an' where." },
       },
@@ -711,7 +733,7 @@ P:NPC {
         { text = "The Explorers' League would call you looters.", next = "dwarf_kr", when = { race = "Dwarf" } },
         { text = "Does Reclaimers Inc. ever buy things that are quietly recovered?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You must pull all sorts of relics out of Desolace, Kreldig.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do you stock anything a warlock might need, Kreldig?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you stock anything for work done in chalk circles, Kreldig?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you ever find the dead along with their belongings?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is salvage from the fallen honest work, Kreldig?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What arms have the Reclaimers pulled from Desolace, Kreldig?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -826,10 +848,10 @@ P:NPC {
     warlock_an = {
       big = true,
       lines = {
-        { id = "wan_default", text = "Take one? Friend, the Crusade would take one to the pyre, and I'd have to stand by and watch it done. Put that craft away while you're near me, and pray to the Light that it isn't too late for you." },
+        { id = "wan_default", text = "Forgive? Friend, I've seen that look and smelled that sulphur before, and the Crusade takes such folk to the pyre while I stand by and watch. Put that craft away while you're near me, and pray to the Light that it isn't too late for you." },
       },
       choices = {
-        { text = "I fight the undead too, with what I have.", next = "BACK", reply = "Then you are fighting the right enemy, and I will pray that the craft does not turn on you first.", fx = { align = { light = -1 } } },
+        { text = "I fight the undead too, with whatever I have.", next = "BACK", reply = "Then you are fighting the right enemy, and I will pray that the craft does not turn on you first.", fx = { align = { light = -1 } } },
         { text = "Maybe it isn't too late. Pray for me.", next = "BACK", reply = "I will, and gladly, and I hope you will let me, because I would rather save you than watch you burn.", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
@@ -896,7 +918,7 @@ P:NPC {
         { text = "I doubt the Crusade welcomes those who don't follow the Light.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why should a paladin join the Scarlet Crusade, Brother?", next = "xpt_anton", when = { party = { class = "PALADIN" }, faction = "Alliance" } },
         { text = "I'll go to the valley.", next = "END", reply = "Then the Light go with you, friend, and may you find only quiet graves and nothing walking among them.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
+        { text = "Is there anything the Crusade refuses to forgive, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
         { text = "What would the Crusade want with someone like me, Brother?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Crusade trust mages after Dalaran, Brother?", next = "xmage", when = { class = "MAGE" } },
         { text = "What does the Crusade ask of its warriors, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1022,7 +1044,7 @@ P:NPC {
   key = "lyshaerya", id = TODO_NPC("Innkeeper Lyshaerya"), name = "Innkeeper Lyshaerya",
   bible = "bibles/desolace.md", role = "innkeeper", tier = "service",
   communities = { "nijels_point" }, temper = { "calm" }, values = { "kind" },
-  notices = { "weary" },
+  notices = { "weary", "lock_shadow" },
 
   impression = {
     first = "She sweeps the dust as she talks and has given up winning.",
@@ -1040,6 +1062,8 @@ P:NPC {
   notice = {
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You've walked back from the spirit healer across a dead land. Sit; nothing here will ask anything of you for an hour." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The candles in my inn bent toward you when you came in, as they did, my grandmother said, when the Highborne walked the halls of Zin-Azshari. I'll pour your drink, but you'll forgive me if I keep the lamps lit late tonight." },
   },
 
   start = "hello",
@@ -1130,9 +1154,11 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." } },
+      lines = {
+        { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. Someone with your smell walking in here reminds them of all that, however polite you are about it." },
+      },
       choices = {
-        { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", reply = "Thank you, and they will sleep easier for it, as will I.", fx = { align = { order = 1 } } },
+        { text = "I'll keep my companion out of sight, for their sake.", next = "BACK", reply = "Thank you, and they will sleep easier for it, as will I.", fx = { align = { order = 1 } } },
         { text = "They'll have to get used to me. I've earned my place.", next = "BACK", reply = "Perhaps you have. Give them a season, and keep your temper while they stare.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1159,7 +1185,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something all the same." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you warm the hearth a little? I'm only joking, though the dust does make the fire sulk, and I'd not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, at the edge of Desolace. Sit, and let me feed you before you go down, because I've seen what that dust does to armour, and to the people inside it." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome at my hearth like anyone else, but leave your companion outside, please, because the soldiers here have seen what the Burning Blade do with theirs." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "You're welcome at my hearth like anyone else, but leave whatever follows you outside, please. The soldiers here have seen what the Burning Blade do with theirs." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Sit by the fire, if you like; the spirits of this land have little warmth left, and you look as though you've been listening to them a long while." },
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping; the sand comes back faster than I can push it out." } },
@@ -1175,7 +1201,7 @@ P:NPC {
         { text = "Do many warriors rest here before going down, Lyshaerya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Little can still live down in Desolace, I'd think.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What becomes of the folk who go down there, Lyshaerya?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "The soldiers here seem to fear warlocks more than centaur.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The soldiers here seem to fear me more than the centaur.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the spirits of Desolace still speak, Lyshaerya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just a room, thank you.", next = "END" },
       },
@@ -1227,7 +1253,7 @@ P:NPC {
 
   notice = {
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock. I've killed a great many who walked your road too far, so don't make me add you to the count." },
+      text = "I've killed a great many who walked your road too far. Don't make me add you to the count." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Satyr claws, by the look of it. They fight dirty, so learn to fight dirtier." },
   },
@@ -1362,7 +1388,7 @@ P:NPC {
         { text = "Does the Horde have other worries out here?", next = "relations" },
         { text = "You must miss home, out here.", next = "home" },
         { text = "What did the demon lord do to Maurin?", next = "corrupter", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
-        { text = "Not every warlock is the Blade.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Not everyone who walks my road is the Blade.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Do you trust the Forsaken who fight beside you?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm an orc mage, not a warlock.", next = "orc_mage", when = { race = "Orc", class = "MAGE" } },
         { text = "The spirits here are sick with demon taint.", next = "shaman_tk", when = { class = "SHAMAN" } },
@@ -1472,7 +1498,7 @@ P:NPC {
       },
       choices = {
         { text = "Then watch me.", next = "BACK", fx = { affinity = 1, trait = { proud = 1 } } },
-        { text = "Count away, then.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Count away, then. I'll be counting too.", next = "BACK", fx = { affinity = 2 } },
       },
     },
     forsaken = {
@@ -1548,7 +1574,7 @@ P:NPC {
   key = "nataka", id = TODO_NPC("Nataka Longhorn"), name = "Nataka Longhorn",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "easygoing" }, values = { "patient", "practical" },
-  notices = { "craft", "race" },
+  notices = { "craft", "race", "lock_armor" },
 
   impression = {
     first = "He has grown fond of Desolace and asked me not to tell.",
@@ -1568,6 +1594,8 @@ P:NPC {
       text = "You fish, out here? Good, because there's a catch off the coast I'd like to see before I'm too old to eat it." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "One of the herd, in this grey place. It does me good to see horns that aren't centaur bows." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "My kodo won't stand near you, because that ward of demon hide you wear smells like the walls of Thunder Axe to her. She's wiser than I am about such things, so I'll ask you to keep a little farther off." },
   },
 
   start = "hello",
@@ -1632,9 +1660,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." } },
+      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ground where nothing grows, and kodos that will not walk past the fortress walls, and mine are pulling at their tethers now that your servant has come close. My elders say the land remembers wounds, and Desolace has more than any place I know, so I ask you to add no new ones." } },
       choices = {
-        { text = "The fel is a tool. I don't answer to the Legion.", next = "BACK", reply = "Perhaps not, but the land does not know that, and it will remember you all the same.", fx = { align = { light = -1 } } },
+        { text = "Their fire is a tool. I don't answer to the Legion.", next = "BACK", reply = "Perhaps not, but the land does not know that, and it will remember you all the same.", fx = { align = { light = -1 } } },
         { text = "I'll leave the land as I found it. You have my word.", next = "BACK", reply = "Thank you, and the land will thank you, in its slow way, which is by not getting worse.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else, Nataka.", next = "BACK" },
       },
@@ -1679,7 +1707,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come all the way out to Desolace. The land here could use a prayer, though I think it would be content just to be left alone for a while." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came up so quietly the fish didn't even notice, which is more than I can manage. Sit, if you like, and tell me what you're really doing in Desolace." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, out here with the fishermen. If you could conjure a fish that bites, I'd call it the greatest magic I've ever seen." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I will keep my line between us, if you don't mind, because I've seen what the Burning Blade leave behind at Thunder Axe, and it doesn't sit well with me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I will keep my line between us, if you don't mind. I've seen what the Burning Blade leave behind at Thunder Axe, and you carry a little of that smell." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken with the Light in hand. The Earth Mother sends us all kinds of surprises, and I think you might be the strangest one I've seen in Desolace." },
       },
       again = {

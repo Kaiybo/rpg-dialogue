@@ -8,13 +8,17 @@ P:NPC {
   bible = "bibles/rall.md", role = "questgiver", tier = "quest",
   communities = { "stormwind" }, temper = { "sharp" }, values = { "pious", "stern", "honest" },
   spiritSensitive = true,
-  notices = { "readiness", "humility" },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Spirit-sensitive paladin; the fel on a warlock sits on him like a draught from a grave." },
+  notices = { "readiness", "humility", "lock_armor" },
   impression = {
     first = "He calls the Light a debt owed to those who cannot repay.",
     third = "{name} met Duthorian Rall in the Cathedral of Light, who tests the paladins sent to him from across the kingdom.",
   },
 
   greetings = {
+    { id = "g_prejlock1", when = { prejudiced = true }, text = "I feel what you carry the way you'd feel a draught from an open grave. The doors are open to you, but I'll be standing between you and the altar." },
+    { id = "g_prejlock2", when = { prejudiced = true }, text = "Charity is owed to all, and I'll give you mine, but trust is something else. You'll have to earn that, and I doubt you will." },
+    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been here often enough, and done no harm I could find. Charity I've always given you; a little trust may be due as well, a very little." },
     { id = "g_op_crusade", when = { opinion = { topic = "scarlet_crusade", stance = "hardline" } }, text = "I hear you've a taste for the Crusade's way of doing things. Sit with me a while before you ride north, and let me tell you what Hearthglen was before the red." },
     { id = "g_test", text = "Ready? No one ever is, so come anyway." },
     { id = "g_wilhelm", tags = { "news" }, when = { questRecent = { TODO_QUEST("Tome of Divinity"), days = 2 } }, text = "Wilhelm sent you, and he thinks well of you. Let us see if he's right." },
@@ -26,6 +30,8 @@ P:NPC {
       text = "You've come into the Cathedral in pieces. Readiness is a virtue too. Mend that, then we'll speak of the Light." },
     { id = "n_proud", cat = "humility", when = { class = "PALADIN", minLevel = 30 },
       text = "You've grown strong since your first test. Strength is the easy part. Tell me you still remember why you picked up the sword." },
+    { id = "n_lock_ward", cat = "lock_armor", when = { class = "WARLOCK", aura = { 6229, 11739, 11740, 28610 } },
+      text = "You wear a ward against shadow, which I find strange, since shadow is the thing you deal in. Perhaps even you have learned to fear what you call, and that is a better beginning than most I test." },
   },
 
   start = "hello",
@@ -107,7 +113,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." } },
+      lines = {
+        { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd test anyone who asked, though you'd fail the first test before it began, because a path of giving doesn't start with a demon standing at your shoulder. Still, I've seen stranger roads lead back to the Light, and if you ever send that thing away for good, come and ask me again." },
+      },
       choices = {
         { text = "Maybe one day I'll take your test, Rall.", next = "BACK", reply = "My door is open, and the tome is on the shelf. I won't hold my breath, but I won't bar it either.", fx = { align = { light = 1 } } },
         { text = "I'll keep my road, and you can keep your tests.", next = "BACK", reply = "Fair. I'll pray for you all the same, and you needn't thank me for it.", fx = { align = { light = -1 } } },
@@ -164,6 +173,8 @@ P:NPC {
           text = "A rogue in the Cathedral district. The Light doesn't mind where you've been, but it does ask where you're going." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "The Cathedral's doors are open to you as they are to everyone, though you'll understand if I stand beside them while you're here." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The fel hangs on you like smoke, and I'd know it anywhere. Say what you must, and then let these halls breathe again." },
+        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I still feel the cold when you come in, though I've stopped bracing against it, which I suppose is a start." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll fight as hard as any paladin, I don't doubt, though without the Light behind you, you'll need to be twice as careful." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The paladins I test spend their days in halls and chapels, and I sometimes wish they'd spend a week in the woods with someone like you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral district. I test paladins, not druids, but I'd guess your goddess asks something of you the way the Light asks something of us." },
@@ -185,7 +196,7 @@ P:NPC {
         { text = "I doubt the Light has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you test someone on a darker road, as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light ask a debt of druids too, Duthorian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light ever test a mage, Rall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do your tests ask of paladins, Duthorian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

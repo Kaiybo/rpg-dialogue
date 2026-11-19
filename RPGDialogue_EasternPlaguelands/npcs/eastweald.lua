@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "eastweald" }, temper = { "weary" }, values = { "honorable", "loyal", "kind" },
   likesTone = "polite", private = { "silver_hand" },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shadow", "lock_steed" },
 
   impression = {
     first = "He carries his losses quietly, and his kindness hasn't soured.",
@@ -30,6 +30,10 @@ P:NPC {
       text = "An orc. I knew one, long ago, a good one, and defending him cost me everything I had. I'd do it again." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. I was one, before they took it from me. Tell me the order still teaches mercy, and lie, if you must." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light stirs in me when you come near, uneasy, like an old hound that smells a storm coming. I've learned not to judge a soul by that alone, but I'll admit it makes me want to pray." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "That's a fine-looking horse, if a horse can be called fine with its hooves on fire. I'd be careful riding it near the Crusade's patrols, because they'll see the flames from Hearthglen and call it proof of everything they preach." },
   },
 
   start = "hello",
@@ -142,7 +146,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You keep coming back to an old man's riverbank, and I've stopped pretending I don't look forward to it. Sit, and tell me the world hasn't forgotten what mercy is." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "I can feel what you carry, {class}, and once I'd have drawn steel at the sight of you. I've learned to wait and see what a person does before I judge what they are." },
+          text = "I can feel what you carry, friend, cold as a cellar draught, and once I'd have drawn steel at the sight of you. I've learned to wait and see what a person does before I judge what they are." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. I knew a few of the Kirin Tor in better days, {class}, when Dalaran's towers were the brightest thing in Lordaeron, and I miss the sight more than I'd have guessed." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -162,7 +166,7 @@ P:NPC {
         { text = "So an orc saved your life.", next = "eitrigg", when = { race = { "Orc", "Human", "Dwarf" }, heardLine = "tirion.s_default" } },
         { text = "Would you show mercy to the dead, Tirion?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "What turns a soldier into a zealot?", next = "x_warrior", when = { class = "WARRIOR" } },
-        { text = "And what do you see in me, Tirion?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "And what do you feel in me, Tirion?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you blame Dalaran for not stopping the plague?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a paladin think less of someone who works unseen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'd guess you still hunt these woods, Tirion.", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -193,7 +197,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes nerve, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." } },
+      lines = {
+        { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes nerve, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Someone who chose a dangerous road and is still walking it, with the proof of it standing right beside you. I won't pretend I'm easy with your demon so near my line, and the Crusade would call you damned for it, but I'll be fishing here, and I'll think better of you than they do." },
+      },
       choices = {
         { text = "I'll use it only against the dead. You have my word.", next = "BACK", reply = "Thank you. That's all I'd ask of any soul who walks this road.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My power isn't for your approval, old man.", next = "BACK", reply = "It isn't, and I'd not want it to be. I only hope you aim it well.", fx = { align = { light = -1 } } },
@@ -381,7 +388,7 @@ P:NPC {
   communities = { "marris_stead" }, temper = { "cold" }, values = { "loyal", "proud" },
   likesTone = "blunt", private = { "lordaeron" },
   prejudice = { race = "Troll", amount = 10, why = "A ranger lord of Quel'Thalas who fought the Amani; he sees all trolls the same." },
-  notices = { "race", "class" },
+  notices = { "race", "class", "lock_shards", "lock_armor" },
 
   impression = {
     first = "He measured me as a tool and found me barely adequate.",
@@ -401,6 +408,10 @@ P:NPC {
       text = "A hunter. I was the finest ranger in Lordaeron, once; the elves trained me, and hated that I was good at it. You may prove useful." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One of the Queen's own. Then you know the debt we owe her, so repay it here." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
+      text = "Your bag is heavy with souls, {class}. Good. Every one of them that came out of a Scourge husk is one the Lich King cannot raise again." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You wrap yourself in demon hide like a cloak. The Dark Lady wears nothing she did not take herself, and neither do I, so be sure you took that, and that it isn't wearing you." },
   },
 
   start = "hello",
@@ -511,7 +522,7 @@ P:NPC {
         { id = "h_back", when = { metBefore = true },
           text = "Still alive? Adequate; most of those she sends me are not." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock. The Undercity has its own masters of shadow, {class}, and the Dark Lady keeps them close, for she knows how quickly a servant becomes a master." },
+          text = "A warlock. The Undercity keeps its own masters of shadow, {class}, and the Dark Lady holds them close, for she knows how quickly a servant becomes a master." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. Dalaran's people were scattered across this kingdom when the plague came, {class}, and a fair number of them now serve the Dark Lady in the Undercity." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -533,7 +544,7 @@ P:NPC {
         { text = "Teach me the ranger's craft, Blightcaller.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "We both woke in the dark, Blightcaller.", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "I'm an elf, Blightcaller. Does that trouble you?", next = "x_skyborne", when = { race = "Skyborne" } },
-        { text = "Does the Banshee Queen fear her warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does the Banshee Queen fear what her warlocks keep chained?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You don't seem to trust mages, Blightcaller.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you set me on the Scarlet zealots, Blightcaller?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What more would you have a warrior do, Blightcaller?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -565,10 +576,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." } },
+      lines = {
+        { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She fears nothing, but she remembers, for she was a servant to a master once, much as that thing beside you is servant to you now. Watch how it watches you, {class}, and keep it on a short chain, or one morning you'll wake to find yourself its pet." },
+      },
       choices = {
         { text = "My demons serve me. That will never change.", next = "BACK", reply = "Good, if it's true. I'll be watching for the morning it isn't, and I'll have an arrow ready.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Chains break. I'll be ready when they do.", next = "BACK", reply = "A wise answer, and a rarer one than you'd think. Keep a blade near, and sleep facing the door.", fx = { align = { order = -1 } } },
+        { text = "Chains break. I'll be waiting with a knife when they do.", next = "BACK", reply = "A wise answer, and a rarer one than you'd think. Keep a blade near, and sleep facing the door.", fx = { align = { order = -1 } } },
         { text = "Something else, Blightcaller.", next = "BACK" },
       },
     },

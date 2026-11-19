@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/dustwallow.md", role = "soldier", tier = "major",
   communities = { "brackenwall" }, temper = { "blunt" }, values = { "loyal", "dutiful" },
   likesTone = "blunt", race = "Orc",
-  notices = { "race", "kit" },
+  notices = { "race", "kit", "lock_shards", "lock_steed" },
 
   impression = {
     first = "Someone made a liar of his Warchief, and he takes it personally.",
@@ -28,6 +28,10 @@ P:NPC {
       text = "A tauren, good. You'll know the difference between your people and the Grimtotem who'd shame them." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Something chewed on you, so get patched; I need you on your feet." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "That bag of yours clinks like a cutthroat's purse, and it's colder than the marsh water. Whatever souls you've got in there, keep them out of sight of Theramore's men, because they'll call them evidence." },
+    { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
+      text = "You rode a burning horse into Brackenwall, warlock, through the reeds where Theramore's scouts watch. Proudmoore's men are looking for any proof the Horde fired that inn, so walk it in next time, or leave it in the swamp." },
   },
 
   start = "hello",
@@ -125,10 +129,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and a felhound loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." } },
+      lines = {
+        { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and something from the Nether loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Theramore already believes we burned that inn, and your demon standing here in plain sight of the road would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever, so send it away before a scout sees it from the trees." },
+      },
       choices = {
-        { text = "You're right. I'll keep my servants close until this is settled.", next = "BACK", reply = "Good, that's the sense I need from every warlock in this camp. When this is over, you can let them stretch their legs.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let the humans see what the Horde can summon. Fear keeps peace.", next = "BACK", reply = "Fear keeps nothing but grudges, and grudges keep nothing but war. Keep your servants close, warlock, or I'll keep you close instead.", fx = { align = { order = -1 } } },
+        { text = "You're right. I'll keep what serves me close until this is settled.", next = "BACK", reply = "Good, that's the sense I need from everyone in this camp. When this is over, you can let them stretch their legs.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the humans see what the Horde can call. Fear keeps peace.", next = "BACK", reply = "Fear keeps nothing but grudges, and grudges keep nothing but war. Keep your servants close, or I'll keep you close instead.", fx = { align = { order = -1 } } },
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
@@ -197,7 +204,7 @@ P:NPC {
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the truth about that inn won't be found by shouting at the gates of Theramore, and you know how to listen where others stomp." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Thrall forgives the old ways in those who serve him well, and I'll do the same, but keep your demons away from the human road while the inn still smokes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Thrall forgives the old ways in those who serve him well, and I can smell you've kept some of them. I'll do the same, but keep anything you've called away from the human road while the inn still smokes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Good, because if this turns ugly with Theramore there'll be wounded on both sides of the marsh, and I want you on this side of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore's full of your kind, wearing blue and doing the Lady's bidding, and I'd like someone on our side who knows what they're capable of." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "Word is the Grimtotem in the marsh are a good deal fewer than they were, and they're not happy about it. Neither am I, though only because I'd have liked to watch." },
@@ -226,7 +233,7 @@ P:NPC {
         { text = "We fight together, Krog. Point us at the truth.", next = "xpt_krog", when = { party = { size = 4 }, faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", reply = "Good. Come back with it, and come back before Theramore does, and Brackenwall will owe you a drink.", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why keep what I call off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you march on Theramore if the Warchief ordered it, Krog?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "You'll have read the tracks near the Shady Rest, Krog.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would Theramore's humans trust a Forsaken paladin, Krog?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -437,7 +444,7 @@ P:NPC {
   key = "nazeer", id = TODO_NPC("Nazeer Bloodpike"), name = "Nazeer Bloodpike",
   bible = "bibles/dustwallow.md", role = "soldier", tier = "quest",
   communities = { "brackenwall" }, temper = { "suspicious" }, values = { "loyal", "cunning" },
-  notices = { "class", "stealth" },
+  notices = { "class", "stealth", "lock_soulstone" },
 
   impression = {
     first = "He trusts paper peace about as far as the marsh stays dry.",
@@ -455,6 +462,8 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Quiet feet, good. I've work for those who can listen at a window without being seen." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Someone holds your soul in a stone, and in my trade that's the first question I'd ask. Who carries it, and do they want you back, or do they only want you to owe them?" },
   },
 
   start = "hello",
@@ -506,7 +515,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." } },
+      lines = {
+        { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it, and the one at your side does not look like it tells the truth. One demon caught in the Lady's halls would cut the peace for good, so for now I keep my spies on two legs, and yours stays here with me." },
+      },
       choices = {
         { text = "Peace on paper is still peace. Don't risk it.", next = "BACK", reply = "It is, and I'll not risk it lightly. My spies stay on two legs until the Warchief says otherwise.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every tool. The Alliance surely does.", next = "BACK", reply = "The Alliance surely does, and I don't doubt it. But the first demon caught in their halls ends the peace, and I'll not be the one who sent it.", fx = { align = { order = -1 } } },
@@ -542,7 +554,7 @@ P:NPC {
           text = "Their infiltrators sit on the islands east of here and count our ogres. Make sure their masters get a different sort of report back." },
         { id = "h_wet", when = { metBefore = true }, text = "Another report from Theramore, soaked through. Everything in this marsh is soaked through, even the secrets." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore is full of your kind, Kirin Tor refugees with long memories, so I'd like to hear how you think one of them thinks." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I hear you keep a little helper. One that could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
         { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, and the Stonemaul trust you more than they trust me." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Theramore would count you a threat twice over, and for once I think they'd be right." },
         { id = "h_dd_justice", tags = { "news" }, when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Krog tells me the business of the burned inn is finished, and that you finished it. I'll admit I didn't think the peace would survive that one, so I'm glad to be wrong, for once." },
@@ -563,7 +575,7 @@ P:NPC {
         { text = "I can listen at windows.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I know wounds. Let me hear about Marg's.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Do Theramore's mages worry you, Nazeer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Would you really send an imp to spy on Theramore, Nazeer?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you really send my little helper to spy on Theramore, Nazeer?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Theramore's soldiers drilling has Brackenwall uneasy, I'd guess.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why would Theramore count me a threat, Nazeer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },

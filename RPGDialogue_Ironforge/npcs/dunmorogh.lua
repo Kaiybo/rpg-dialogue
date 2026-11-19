@@ -6,7 +6,7 @@ P:NPC {
   key = "eric", id = TODO_NPC("Eric Brighthammer"), name = "Eric Brighthammer",
   bible = "bibles/dunmorogh.md", role = "questgiver", tier = "quest",
   communities = { "kharanos" }, temper = { "hearty" }, values = { "friendly", "practical" },
-  notices = { "craft", "weary" },
+  notices = { "craft", "weary", "lock_shards" },
 
   impression = {
     first = "He has slept under more stars than roofs and prefers it.",
@@ -23,6 +23,8 @@ P:NPC {
       text = "A cook! Then you can build a proper campfire, and up in these hills that's the difference between a camp and a grave." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "You look chilled through, and not from the snow. Sit by the fire a while; nothing helps quite like it." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Whatever ye've got in that pack is colder than the wind off the peaks, an' my fire's leanin' away from it. Come an' sit anyway, but set the bag on the far side, so the flames have a bit o' room tae breathe." },
   },
 
   start = "hello",
@@ -94,6 +96,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've shared a fire with worse, friend, a trogg once, though he didn't stay long. Out here under the stars I judge a body by whether they put the fire out properly in the morning, and nothing else." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've shared a fire with worse, friend, a trogg once, though your demon's the first guest who seemed to warm the fire rather than the other way round. Out here under the stars I judge a body by whether they put the fire out properly in the morning, so see it doesn't relight the thing after we've gone." },
       },
       choices = {
         { text = "Then I'll leave your camp as I found it.", next = "BACK", reply = "Good, then you're welcome at my fire any night, and I'll judge you a better guest than the trogg, which isn't saying much but it's true.", fx = { align = { order = 1 } } },
@@ -118,7 +121,7 @@ P:NPC {
           text = "A mage, and just in time, because my flint's gone damp and the fire's sulking. I don't suppose you'd mind?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit by the fire and warm your sword arm, then, for the Frostmane don't wait for anyone to thaw." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've slept out under the stars more nights than I can count, but I'd guess you've slept out as a bear, which is cheating." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Come sit by the fire, and let your little friend sit on the far side, for it's warm enough without it adding anything." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Come sit by the fire, and let that little shadow of yours sit on the far side, for it's warm enough without it adding anything." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Then you'll know what I mean when I say the mountain has moods. Most dwarves look at me strangely when I say it." },
       },
       again = {
@@ -138,7 +141,7 @@ P:NPC {
         { text = "What sort of prayers do you want said at your fire, Eric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you want help keeping this road safe, Eric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How do you keep warm out here without a bear's coat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do you mind a warlock at your fire, Eric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you mind someone with my sort of company at your fire, Eric?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What moods have you noticed in the mountain, Eric?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay warm.", next = "END" },
       },
@@ -226,7 +229,7 @@ P:NPC {
   key = "sten", id = TODO_NPC("Sten Stoutarm"), name = "Sten Stoutarm",
   bible = "bibles/dunmorogh.md", role = "questgiver", tier = "quest",
   communities = { "coldridge" }, temper = { "gruff" }, values = { "practical", "friendly" },
-  notices = { "greenness", "race" },
+  notices = { "greenness", "race", "lock_shards" },
 
   impression = {
     first = "He complains about green recruits, then gives them work anyway.",
@@ -246,6 +249,8 @@ P:NPC {
       text = "Fresh as new snow, ye are. Ye'll want gloves, so bring me some wolf meat an' they're yers." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome! Ye'll be one o' the lucky ones out o' Gnomeregan, then. Welcome to the cold; ye'll get used to it, probably." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Green as grass an' already clinkin' wi' soul shards, are ye? That gnome who came through last month had a bag like that, an' the troggs in Coldridge wouldnae go near him, so maybe there's somethin' tae it." },
   },
 
   start = "hello",
@@ -291,7 +296,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." } },
+      lines = {
+        { id = "xlock_default", text = "It's for a gnome who came through last month wi' ink-black fingers, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all, for it's started rattlin' since yer demon came up the path. Most folk in Coldridge have heard tales o' what warlocks did in the war, an' the young ones are starin' at that thing already, so ye'll find them slow tae trust ye." },
+      },
       choices = {
         { text = "I'll earn their trust slowly. That's only fair.", next = "BACK", reply = "That's fair, an' it'll work, for the folk in Coldridge are slow tae warm but they never forget a kindness, nor a slight.", fx = { align = { light = 1 } } },
         { text = "Let them keep their tales. I've work to do.", next = "BACK", reply = "Fair enough, but tales have a way o' growin' if they're no' answered, so mind ye dinnae give them anythin' new tae tell.", fx = { align = { light = -1 } } },
@@ -435,7 +443,7 @@ P:NPC {
   key = "grelin", id = TODO_NPC("Grelin Whitebeard"), name = "Grelin Whitebeard",
   bible = "bibles/dunmorogh.md", role = "noble", tier = "quest",
   communities = { "coldridge" }, temper = { "determined" }, values = { "loyal", "dutiful" },
-  notices = { "kit" },
+  notices = { "kit", "lock_pact" },
 
   impression = {
     first = "He feels trouble in his beard and blames his apprentice.",
@@ -450,6 +458,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The Frostmane gave ye a hiding. Sit by the fire an' let the camp mend ye." },
+    { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
+      text = "Ye're runnin' hot, friend, hot as a forge wi' the bellows goin', an' my beard's standin' up like it does when the Frostmane are near. Somebody's put an imp's mark on yer blood, an' I'd keep it well away from the troll caves." },
   },
 
   start = "hello",
@@ -520,11 +530,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. I'll say this, though: if ye're goin' up against the trolls, I'd sooner yer demon was in front o' ye than behind me." },
+        { id = "xlock_default", text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. I'll say this, though: if ye're goin' up against the trolls, I'd sooner yer creature was in front o' ye than behind me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. Now I've seen yer demon up close, I'll say this much: I'd sooner it was in front o' ye on the troll path than behind me, an' I'd thank ye tae walk it round the far side o' my fire." },
       },
       choices = {
-        { text = "I'll fight the trolls fairly, demon or no.", next = "BACK", reply = "I'll take ye at yer word. The Frostmane have enough dark things o' their own wi'out us bringin' more tae the hills.", fx = { align = { honor = 1 } } },
-        { text = "My demon goes where I send it. Mind your beard.", next = "BACK", reply = "Hmph, it's well minded, thank ye, but I'll be keepin' my beard well clear o' yer demon, an' I'll thank ye tae do the same.", fx = { align = { honor = -1 } } },
+        { text = "I'll fight the trolls fairly, with or without my companion.", next = "BACK", reply = "I'll take ye at yer word. The Frostmane have enough dark things o' their own wi'out us bringin' more tae the hills.", fx = { align = { honor = 1 } } },
+        { text = "What I keep goes where I send it. Mind your beard.", next = "BACK", reply = "Hmph, it's well minded, thank ye, but I'll be keepin' my beard well clear o' that creature, an' I'll thank ye tae do the same.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -548,7 +559,7 @@ P:NPC {
           text = "A mage would be handy against the Frostmane, for their shamans throw ice like snowballs an' I'm tired o' ducking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good; my beard's been itchin' all mornin', an' that usually means somethin' wi' tusks is about tae come over the hill." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My beard's been itchin' all mornin', an' I'd say yer arrival explains it as well as anythin' does." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My beard's been itchin' since mornin', an' now I know why, so keep that thing o' yours away from my apprentice, or he'll faint again." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My beard's been itchin' since mornin', an' now I know why, so keep that thing o' yours away from my apprentice, or he'll faint again." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Frostmane", min = 30 } },
           text = "The Frostmane up in the caves have been a good deal quieter since ye started thinnin' them out, an' my beard's stopped itchin' for the first time in a month. Keep at it, an' I'll see the King hears who tae thank." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, here. The Frostmane have shamans o' their own, an' I've watched them dance round their fires from up the slope, so I'll trust ye're no' takin' lessons from them." },
@@ -571,7 +582,7 @@ P:NPC {
         { text = "What do the trolls worship, out there in the caves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How shall I deal with the Frostmane, Envoy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Frostmane have shamans who speak to the beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "A warlock must make your beard itch, Grelin.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Something about me makes your beard itch, Grelin. I can tell.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the Frostmane witch doctors really speak to spirits, Envoy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
@@ -660,7 +671,7 @@ P:NPC {
   key = "senir", id = TODO_NPC("Senir Whitebeard"), name = "Senir Whitebeard",
   bible = "bibles/dunmorogh.md", role = "noble", tier = "quest",
   communities = { "kharanos" }, temper = { "measured" }, values = { "dutiful", "wise" },
-  notices = { "race" },
+  notices = { "race", "lock_stones" },
 
   impression = {
     first = "He offered his sympathy for my having met his brother.",
@@ -674,6 +685,8 @@ P:NPC {
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' the clan, eh? The Senate sees the trolls as a nuisance, but I see them as a warning, so watch the hills." },
+    { id = "n_lock_healthstone", cat = "lock_stones", when = { carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "That's a healthstone in yer pack, green as a bog-light, an' I know a warlock made it whether ye did or no'. Use it if ye must, for I'd rather ye lived, but I'll no' pretend I like knowin' whose life ye're drinkin' when ye do." },
   },
 
   start = "hello",
@@ -728,7 +741,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Both of ye bargain wi' things that ought tae be left alone, an' both of ye think ye've the better o' the bargain. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold." } },
+      lines = { { id = "xlock_default", text = "Both of ye bargain wi' things that ought tae be left alone, an' both of ye think ye've the better o' the bargain. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Both of ye bargain wi' things that ought tae be left alone, but the troll seers at least dinnae bring theirs tae my door an' stand it on the step watchin' me like that. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold, an' I'll judge that thing on it too." },
+      },
       choices = {
         { text = "Judge me on my deeds, Envoy. I'll give you good ones.", next = "BACK", reply = "Then I'll watch them, an' if they're good, I'll write them down, for deeds are what the Senate reads, no' bargains.", fx = { align = { light = 1 } } },
         { text = "I've the better of my bargain. The trolls don't.", next = "BACK", reply = "Maybe ye have, an' I'll hope so, but I've seen the bargains the Frostmane make, an' they all thought they'd the better o' them too.", fx = { align = { light = -1 } } },
@@ -789,7 +804,7 @@ P:NPC {
         { text = "You look cold, envoy.", next = "cold" },
         { text = "I could slip into the hold unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Is Frostmane Hold as cold as they say?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is a warlock really like a troll witch doctor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Am I really so like a troll witch doctor, Envoy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How strong is Frostmane Hold, Senir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Frostmane trolls seem to hunt the same beasts we do.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone gone into Frostmane Hold and not come back?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -886,7 +901,7 @@ P:NPC {
   prejudice = { race = "Gnome", amount = 6, why = "Fond grumble: refugees rewired his mash tun to stir itself at three in the morning." },
   bible = "bibles/dunmorogh.md", role = "citizen", tier = "quest",
   communities = { "kharanos" }, temper = { "jovial" }, values = { "proud", "generous" },
-  notices = { "drink", "craft" },
+  notices = { "drink", "craft", "lock_shadow" },
 
   impression = {
     first = "He will fight anyone who doubts his ale, though politely.",
@@ -904,6 +919,8 @@ P:NPC {
       text = "Ha! Ye've found the good stuff. Steady on yer feet, now, for the floor's older than it looks." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "A cook! Can ye roast a boar? I've a family recipe that needs both hands an' meat." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The barrels at the back have started tickin' like they do when a storm's comin', an' there's no storm, so I'm guessin' it's you. Stand by the door if ye would, for a good brew catches whatever's in the air, an' ye've a whiff o' brimstone about ye." },
   },
 
   start = "hello",
@@ -1015,9 +1032,11 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." } },
+      lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a brew picks up whatever's near it, an' I can already smell brimstone driftin' toward the vats from where yer demon's standin'. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone, but that thing drinks nothin' an' it waits out in the snow." },
+      },
       choices = {
-        { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", reply = "Thank ye. I'll put a bowl o' scraps by the door for it; even a demon deserves somethin' warm in this weather, maybe.", fx = { align = { light = 1 } } },
+        { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", reply = "Thank ye. I'll put a bowl o' scraps by the door for it; even a wee horror deserves somethin' warm in this weather, maybe.", fx = { align = { light = 1 } } },
         { text = "A hint of brimstone might improve it, Ragnar.", next = "BACK", reply = "Improve it? I'll have ye know Thunderbrew's been perfect for three generations, an' brimstone's no' gettin' near it while I live.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1079,7 +1098,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "If ye're here tae lift a cask, ye're too late; the brewers count them twice a day, an' they're meaner than I am." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in the distillery! I'll pour ye an ale, but if yer wee demon touches the vats, I'll pour the ale over it." },
+          text = "That's a whiff o' brimstone in my distillery! I'll pour ye an ale, but if yer wee creature touches the vats, I'll pour the ale over it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll no' be one o' those that frowns at a dwarf for sellin' boar ribs, I hope, for they're the best in Dun Morogh." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I'll thank ye no' tae chill my ale wi' a spell, for Thunderbrew's served at cellar cold an' no colder, an' I'll fight anyone who says otherwise." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye'll know about fire, then, an' if ye can tell my stills tae burn steadier, I'll pour ye the first cask." },
@@ -1100,7 +1119,7 @@ P:NPC {
         { text = "I cook. Will you share the recipe?", next = "cookrecipe", when = { profession = "Cooking" } },
         { text = "Your supplier joined the army? So did half my company.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Have casks gone missing from the distillery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why worry about my demon and your vats?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why worry about my companion and your vats?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you buy boar ribs from a hunter, Ragnar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Thunderbrews really want their ale blessed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should be done about the Dark Irons who stole your recipe?", next = "xapala", when = { class = "PALADIN" } },
@@ -1228,7 +1247,7 @@ P:NPC {
   key = "belm", id = TODO_NPC("Innkeeper Belm"), name = "Innkeeper Belm", gender = "male",
   bible = "bibles/dunmorogh.md", role = "innkeeper", tier = "service",
   communities = { "kharanos" }, temper = { "sociable" }, values = { "generous", "friendly" },
-  notices = { "weary", "race" },
+  notices = { "weary", "race", "lock_soulstone" },
 
   impression = {
     first = "He put a mug in my hand before I'd asked.",
@@ -1257,6 +1276,8 @@ P:NPC {
       text = "A gnome! We toast a gnome in this inn every night fer savin' the town, as ye'll see." },
     { id = "n_bear", cat = "origin", when = { origin = "dwarf_bear_tracker" },
       text = "Ah, the Kharanos {g:lad|lass} wi' the bear! I remember ye trailin' them through the drifts when ye were knee-high tae a ram, an' now one's trailin' you. Keep it off the hearthrug, for it sheds." },
+    { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
+      text = "Somebody's tied yer soul tae a stone, an' I can see it on ye, a wee shiver round the edges like heat off a road. That means ye mean tae die somewhere soon an' come back, so ye'd best rest well tonight, for whatever ye're plannin'." },
   },
 
   start = "hello",
@@ -1311,7 +1332,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the miners complain about the smell an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, but I've a whole inn tae keep content." } },
+      lines = { { id = "xlock_default", text = "Because the miners complain about the smell an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, but I've a whole inn tae keep content." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the miners complain about the smell, an' there's one o' them holdin' his nose at the bar right now, an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, or even yer {pet}, but I've a whole inn tae keep content." },
+      },
       choices = {
         { text = "That's fair. I'll keep my creatures out of sight.", next = "BACK", reply = "Thank ye kindly, for it keeps the peace, an' the little ones sleep better, an' the miners grumble about the ale instead.", fx = { align = { light = 1 } } },
         { text = "Your guests' nightmares aren't my concern, Belm.", next = "BACK", reply = "They're mine, then, an' my inn's mine too, so either ye keep yer creatures out o' sight or ye'll be sleepin' in the snow.", fx = { align = { light = -1 } } },
@@ -1377,7 +1400,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Ye'll want a room near the hearth, I expect, though I'd ask ye no' tae light it yerself; the last one singed my eyebrows." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, eh? There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers." },
+          text = "There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers, if it's all the same tae ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit ye down; a warrior's earned a pint by breakfast in Dun Morogh, whatever else they've done." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ragnar'll want tae see ye, for he's mad for boar ribs an' short o' anyone tae bring them." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
@@ -1399,7 +1422,7 @@ P:NPC {
         { text = "What's Rhapsody Malt?", next = "malt" },
         { text = "This inn seems full of trainers.", next = "trainers" },
         { text = "Did a mage really singe your eyebrows?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why put a warlock at the end of the hall?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why put me at the end of the hall, Belm?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many warriors stop at your inn, Belm?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters ever stay at the inn, Belm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your guests must come back from the valley hurt, Belm.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

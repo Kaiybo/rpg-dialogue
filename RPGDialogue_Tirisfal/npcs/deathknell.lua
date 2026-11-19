@@ -6,7 +6,7 @@ P:NPC {
   key = "mordo", id = TODO_NPC("Undertaker Mordo"), name = "Undertaker Mordo",
   bible = "bibles/tirisfal.md", role = "worker", tier = "quest",
   communities = { "deathknell" }, temper = { "matter_of_fact" }, values = { "practical" },
-  notices = { "greenness" },
+  notices = { "greenness", "lock_shards" },
   impression = {
     first = "He buries things, he says, and leaves the explaining to others.",
     third = "{name} met Undertaker Mordo, who tends the graves of Deathknell and welcomes those who rise from them.",
@@ -24,6 +24,8 @@ P:NPC {
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 2 },
       text = "Go on, look at your hands. Yes, they're yours, and no, they won't get better, but you'll stop minding." },
+    { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 5 } },
+      text = "Those shards hold the ones who'll never rise, who never even got the choice. I bury what's left of the bodies and you carry what's left of the rest, so I suppose we're in the same trade." },
   },
 
   start = "hello",
@@ -88,7 +90,7 @@ P:NPC {
         { text = "What happened to me?", next = "what" },
         { text = "My hands itch for locks and pockets, Mordo.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Where do the dead learn their magic, Mordo?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the risen often turn to darker pacts, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'd guess beasts dig at your graves, Mordo.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You must have buried paladins here too, Mordo.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "You were there when I woke, Mordo. Remember what I asked?", next = "xorig_binder", when = { origin = "forsaken_vengeful_binder" } },
@@ -173,10 +175,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "A fair few, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde paid for that knowledge." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A fair few, because a mind that has heard the Lich King's voice isn't easily frightened by a demon's, and yours hasn't frightened me yet. Maximillion teaches it here and I bury the ones who fail his lessons, so study hard, and tell your servant I've no interest in its opinion of my graves." },
       },
       choices = {
-        { text = "I'll master it carefully, and keep to the rules.", next = "BACK", reply = "That's what they all say on their first day, but I'll believe you a little more than most. Study hard, and I'll keep my shovel dry.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Rules are for the ones who fail, Mordo.", next = "BACK", reply = "That's what the last three said, and I buried every one of them. I'll dig your hole a little deeper, just in case.", fx = { align = { order = -1 } } },
+        { text = "I'll master it slowly, and keep to the rules.", next = "BACK", reply = "That's what they all say on their first day, but I'll believe you a little more than most. Study hard, and I'll keep my shovel dry.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Rules are for the ones who end up in your graves, Mordo.", next = "BACK", reply = "That's what the last three said, and I buried every one of them. I'll dig your hole a little deeper, just in case.", fx = { align = { order = -1 } } },
         { text = "What happened to all of us, Mordo?", next = "what" },
       },
     },
@@ -298,7 +301,7 @@ P:NPC {
         { text = "I woke with a sword arm and no prayers, Sarvis.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who are the Forsaken?", next = "forsaken" },
         { text = "The Light still answers me, Sarvis.", next = "paladin", when = { class = "PALADIN" } },
-        { text = "I deal in fel and shadow, like you.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I deal in shadow too, Sarvis, and in worse things.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I studied magic in life. I doubt it matters now.", next = "mage", when = { class = "MAGE" } },
         { text = "I'd rather work where nobody's looking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Is there anything worth hunting near Deathknell, Sarvis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -334,8 +337,8 @@ P:NPC {
           text = "You knelt to the Cult before you died, didn't you? I can always tell; the Cult's people stand a little too comfortably near the Scourge's leftovers. Don't let the old habits drag you back." },
       },
       choices = {
-        { text = "My bargains serve the Dark Lady, no one else.", next = "BACK", reply = "Good, keep it that way, and keep your demon in front of you. The Dark Lady rewards loyalty, and the Nether rewards nothing at all.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My bargains serve me. That's the point of freedom.", next = "BACK", reply = "Freedom, is it? The Lich King called it something similar, and look where his bargains got us. Keep your contracts short, at least.", fx = { align = { order = -1 } } },
+        { text = "My bargains serve the Dark Lady, and no one else.", next = "BACK", reply = "Good, keep it that way, and keep your demon in front of you. The Dark Lady rewards loyalty, and the Nether rewards nothing at all.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My bargains serve me. That is what freedom tastes like.", next = "BACK", reply = "Freedom, is it? The Lich King called it something similar, and look where his bargains got us. Keep your contracts short, at least.", fx = { align = { order = -1 } } },
       },
     },
     mage = {
@@ -458,7 +461,7 @@ P:NPC {
   key = "arren", id = TODO_NPC("Executor Arren"), name = "Executor Arren",
   bible = "bibles/tirisfal.md", role = "soldier", tier = "quest",
   communities = { "deathknell" }, temper = { "clipped" }, values = { "dutiful", "loyal" },
-  notices = { "kit" },
+  notices = { "kit", "lock_armor" },
   impression = {
     first = "He wants the Scarlet Crusade gone, whether or not they understand why.",
     third = "{name} met Executor Arren, who keeps Deathknell against the Scarlet Crusade camped to its southeast.",
@@ -476,6 +479,8 @@ P:NPC {
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "The Crusade did that? They'll do worse if you let them, so get it fixed." },
+    { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
+      text = "You're wearing demon hide, and it suits Deathknell well enough, since my sentries could use something besides the Crusade to be frightened of. Just keep it away from the fresh graves." },
   },
 
   start = "hello",
@@ -547,7 +552,7 @@ P:NPC {
         { text = "Give me a post, Executor. I can fight.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Point me at a Crusade camp, Executor. They won't see me.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My fire is yours to aim, Executor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Would you take a warlock's help, Executor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you take help from something with claws, Executor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I could shame the Crusade with the Light, Executor.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
@@ -619,10 +624,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I take any help that kills Crusaders and doesn't eat my sentries. Keep your demon in front of you when you go to Solliden, and if it turns, you'll be the one to put it down." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The converts at Solliden are farm boys who still believe the Light will save them, and a demon at their door will teach them otherwise. It isn't pretty work, but it's work, and you seem made for it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I take any help that kills Crusaders and doesn't eat my sentries, and two of them have stopped watching Solliden to watch your demon instead. Keep it in front of you when you go, and if it turns, you'll be the one to put it down." },
       },
       choices = {
-        { text = "If it turns, I'll put it down myself.", next = "BACK", reply = "See that you do, warlock, because my sentries won't be so polite about it.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon answers to me, not to the Deathguard.", next = "BACK", reply = "Then it had better behave around the Deathguard, or it'll answer to my blade before it answers to you.", fx = { align = { order = -1 } } },
+        { text = "If it turns, I'll unmake it myself.", next = "BACK", reply = "See that you do, warlock, because my sentries won't be so polite about it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon answers to me, Executor. Not to the Deathguard.", next = "BACK", reply = "Then it had better behave around the Deathguard, or it'll answer to my blade before it answers to you.", fx = { align = { order = -1 } } },
         { text = "Why do the Crusaders hate us so?", next = "hate" },
       },
     },
@@ -642,7 +648,7 @@ P:NPC {
   key = "aramis", id = TODO_NPC("Aramis Hammerhand"), name = "Aramis Hammerhand",
   bible = "bibles/tirisfal.md", role = "trainer", tier = "quest",
   communities = { "deathknell" }, temper = { "steadfast" }, values = { "devout", "patient" },
-  notices = { "class" },
+  notices = { "class", "lock_shadow" },
   impression = {
     first = "It hurts him to hold the Light, and he won't let go.",
     third = "{name} met Aramis Hammerhand in the Deathknell church, who teaches those Forsaken who woke still holding the Light.",
@@ -656,6 +662,8 @@ P:NPC {
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN", race = "Scourge" },
       text = "It hurts, doesn't it, the Light in this body? It hurts me too, but don't let go of it." },
+    { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
+      text = "The Light in my hands just went dim, the way it does when I'm tired, only I'm not tired. It's you, I think, and I'd rather know that than wonder." },
   },
 
   start = "hello",
@@ -727,7 +735,7 @@ P:NPC {
         { text = "What does the Dark Lady think of us?", next = "sylvanas", when = { class = "PALADIN" } },
         { text = "A dead man in the Light. I can't think how you stand it.", next = "other", when = { ["not"] = { class = "PALADIN" } } },
         { text = "The arcane doesn't burn me the way your Light burns you.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "You hold the Light and I hold demons. We're both mad.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You hold the Light and I hold demons. We're both mad, Aramis.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll keep training.", next = "END", reply = "Then go and train, and may your spirits keep you better than the Light kept me. I'll be here if you need someone to listen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light may have no room for a plain soldier, Aramis.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Light and the hunt have anything in common, Aramis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -821,10 +829,11 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Perhaps, though I'd say the Light hurts me because it is good and I am not, while your demons don't hurt you because they are exactly what they seem. I know which of us is lying to himself less, and I'm not sure it's me." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The Cult of the Damned trafficked with dark powers too, and I watched them call it freedom right up until they knelt to the Scourge. You're Forsaken now and not a cultist, so mind that you stay the master and not the meal." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, though I'd say the Light hurts me because it is good and I am not, while your demon stands there at ease because it is exactly what it seems. Look at it watching the two of us, and tell me which of us is lying to himself less, because I'm not sure it's me." },
       },
       choices = {
-        { text = "Power is power. I'll use whatever answers me.", next = "BACK", reply = "Power is power, until it asks for something back. Mind what your demons are writing down while you're not watching.", fx = { align = { light = -1 } } },
-        { text = "Maybe I'll find my way back to the Light someday.", next = "BACK", reply = "Then I'll keep the door open for you, warlock, and the Light will burn us both when you come through it. That's what welcome looks like now.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. I'll take whatever answers my call.", next = "BACK", reply = "Power is power, until it asks for something back. Mind what your demons are writing down while you're not watching.", fx = { align = { light = -1 } } },
+        { text = "Perhaps I'll crawl back to the Light someday.", next = "BACK", reply = "Then I'll keep the door open for you, warlock, and the Light will burn us both when you come through it. That's what welcome looks like now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Why does the Light still answer any of us?", next = "why" },
       },
     },

@@ -8,7 +8,7 @@ P:NPC {
   key = "mallory", id = TODO_NPC("Alchemist Mallory"), name = "Alchemist Mallory", title = "Alchemy Trainer",
   bible = "bibles/herb_house.md", role = "trainer", tier = "service",
   communities = {}, temper = { "intent" }, values = { "precision", "craft" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_stones" },
   impression = {
     first = "His potion had more of his attention than I did.",
     third = "{name} met Alchemist Mallory, who teaches alchemy from a hillside house east of Stormwind's gates.",
@@ -22,6 +22,8 @@ P:NPC {
       text = "You've stained fingertips, so you've been at the mortar already. Yellow means earthroot, if I'm any judge, and you've been grinding it too hard." },
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "A rogue. You'll be wanting to learn poisons one day, I expect, and I'll tell you now that I teach cures, not the other thing." },
+    { id = "n_lock_stone", cat = "lock_stones", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5512, 19004, 19005, 5511, 19006, 19007, 5509, 19008, 19009, 5510, 19010, 19011, 9421, 19012, 19013 } },
+      text = "Who gave you that healthstone? It's no draught of mine, and it glows the wrong green for anything brewed honestly, so I'd like to know which of the cellar folk is handing them out." },
   },
   start = "hello",
   nodes = {
@@ -75,7 +77,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." } },
+      lines = {
+        { id = "xlock_default", text = "Because one of the cellar students from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. Your servant has been reading my top shelf since you came in, which is exactly why the poisons stay up there." },
+      },
       choices = {
         { text = "That's a wise rule, Mallory. Keep the poisons high.", next = "BACK", reply = "I'm glad you see it, because not everyone with your sort of books does. Healing draughts are on the low shelf, and you're welcome to them.", fx = { align = { light = 1 } } },
         { text = "Nightshade has its uses. You're too careful by half.", next = "BACK", reply = "Uses, yes, and I've seen most of them, which is exactly why it's out of reach. You'll find me careful by a whole shelf, not by half.", fx = { align = { light = -1 } } },
@@ -198,7 +203,7 @@ P:NPC {
   key = "pomeroy", id = TODO_NPC("Herbalist Pomeroy"), name = "Herbalist Pomeroy", title = "Herbalism Trainer",
   bible = "bibles/herb_house.md", role = "trainer", tier = "service",
   communities = {}, temper = { "warm" }, values = { "nature", "patient" },
-  notices = { "craft", "class" },
+  notices = { "craft", "class", "lock_taint" },
   impression = {
     first = "She speaks of Elwynn's hillsides as if each one were a friend.",
     third = "{name} met Herbalist Pomeroy, who teaches herbalism beside Alchemist Mallory east of Stormwind's gates.",
@@ -212,6 +217,8 @@ P:NPC {
       text = "You've a gatherer's hands, I can tell; there's green under every nail. Good, because it's the only honest way to learn." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! You'll know some of what I teach already and argue with the rest, I expect. Your people talk to the plants, I'm told, and I've only ever talked at them." },
+    { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
+      text = "The mint on my counter has wilted since you came in, and you've a green sheen on your skin like Duskwood moss. Whatever you've been handling, it's soaked into you deeper than any herb I'd sell." },
   },
   start = "hello",
   nodes = {
@@ -226,10 +233,13 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." } },
+      lines = {
+        { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they're picky about it, which I like in a customer, though they usually leave their company outside. Your {pet} keeps leaning over my peacebloom, and two pots have wilted already, so I'd be grateful if it waited by the door." },
+      },
       choices = {
         { text = "You're right not to gather there, Pomeroy.", next = "BACK", reply = "I'm glad you agree, because I've no wish to be digging among the dead. The living grow plenty to keep me busy.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", reply = "Maybe I am, but I'll sleep better for it. Let the warlocks dig in Duskwood themselves if they need it that badly.", fx = { align = { light = -1 } } },
+        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", reply = "Maybe I am, but I'll sleep better for it. Let that lot dig in Duskwood themselves if they need it that badly.", fx = { align = { light = -1 } } },
         { text = "Something else, Pomeroy.", next = "BACK" },
       },
     },
@@ -304,7 +314,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your sort pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ink on your fingers and sulphur on your cloak! I've heard some folk pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The hillsides here are friends of mine, so I wonder if your earth spirits know them too." },
       },
       again = {
@@ -323,7 +333,7 @@ P:NPC {
         { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do herbs and prayer heal the same way, Pomeroy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Elwynn needs your herbs most, Pomeroy?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "I'd guess warlocks buy herbs from you now and then, Pomeroy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess some of your customers want stranger herbs, Pomeroy.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The hills here seem to have spirits of their own, Pomeroy.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
