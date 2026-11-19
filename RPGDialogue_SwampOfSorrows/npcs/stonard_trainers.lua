@@ -54,7 +54,7 @@ P:NPC {
         { text = "What's the first thing you teach?", next = "lesson" },
         { text = "What do you make of Greshka?", next = "greshka" },
         { text = "Do you know Fel'zerul, who watches the temple?", next = "felzerul" },
-        { text = "How do I keep my demons in hand?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My demons grow bolder. How do I keep them crawling?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The elements remember what your kind did, Kartosh.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your lessons.", next = "END" },
       },

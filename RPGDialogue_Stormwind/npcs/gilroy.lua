@@ -65,7 +65,7 @@ P:NPC {
         { text = "Where did you learn your trade?", next = "dalaran" },
         { text = "What's the Mage Quarter like to live in?", next = "quarter" },
         { text = "I knew the Citadel too, before the gates closed.", next = "xdalaran", when = { origin = "human_dalaran_stray" } },
-        { text = "Do you ever copy warlock texts?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Would you copy a text the Church wouldn't want copied?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Let me see your scrolls.", next = "BUSINESS" },
         { text = "Good day, Adair.", next = "END" },
       },

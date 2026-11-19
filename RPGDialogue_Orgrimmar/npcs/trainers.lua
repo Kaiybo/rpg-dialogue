@@ -102,7 +102,7 @@ P:NPC {
         { id = "xwarlock_default", text = "Some do, and I'll fight beside one if the Warchief asks it of me. But the warlocks of the Shadow Council sold our people to demons, and every orc who fought in the old Horde gets that taste in his mouth whenever he sees an imp." },
       },
       choices = {
-        { text = "I'll earn your respect openly, in battle.", next = "BACK", reply = "I'll be watching for it. Fight well enough, warlock, and maybe the old taste of fel will fade from my mouth.", fx = { align = { honor = 1 } } },
+        { text = "I'll earn your respect openly, in battle.", next = "BACK", reply = "I'll be watching for it. Fight well enough, and maybe the old taste of fel will fade from my mouth.", fx = { align = { honor = 1 } } },
         { text = "I don't need respect. I need results.", next = "BACK", reply = "Results, then, but don't expect the old Horde to forget. Results won't buy their trust.", fx = { align = { honor = -1 } } },
         { text = "Who else trains in the valley?", next = "valley" },
       },
@@ -147,7 +147,7 @@ P:NPC {
         { text = "Honor doesn't win wars, Grezz. Results do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What makes a warrior of the Horde, Grezz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a hunter learn to fight up close, Grezz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "I doubt warlocks have any honor, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I doubt my kind has any honor in your eyes, Grezz.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'd guess your warriors think little of mages.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you train beside a paladin, Grezz?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Two warriors in one band. How should we fight together?", next = "xpt_grezz", when = { class = "WARRIOR", party = { sameClass = true } } },
@@ -285,11 +285,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt any demon trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
+        { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt anything from the Nether trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
       },
       choices = {
         { text = "I'll keep it leashed and away from your pets.", next = "BACK", reply = "Thank you. The last imp in my yard set a student's cat on fire, and she still hasn't forgiven me.", fx = { align = { order = 1 } } },
-        { text = "My demon goes wherever I send it.", next = "BACK", reply = "Then it doesn't go near my students' pets, or we'll have words. Keep it close.", fx = { align = { order = -1 } } },
+        { text = "What serves me goes wherever I send it.", next = "BACK", reply = "Then it doesn't go near my students' pets, or we'll have words. Keep it close.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -312,7 +312,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the hunters' range. You hunt with your own teeth instead of a bow, which I respect, though I'd like to see you tame a boar that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' range? Stay a while, because you could do worse than learn to throw an axe straight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine, and with a beast in tow. Show me how it heels, because a pet that doesn't heel is a pet that gets you killed." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your companion's a demon, so I won't ask to see it, but I'll ask how you treat it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Something walks at your heel that was never a beast. I won't ask to see it, but I'll ask how you treat it." },
       },
       choices = {
         { text = "Echeyakee was hard to track, Ormak.", next = "dd_echeyakee", when = { killed = { name = "Echeyakee" } } },
@@ -325,7 +325,7 @@ P:NPC {
         { text = "My polymorph tames a beast faster than you can.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from a hunter, Ormak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "How would you judge a warlock's demon, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "How would you judge a companion that was never a beast, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Hunters can't think much of the Light, I'd guess.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "My raptor's from the Sen'jin pens. She bites everyone but me.", next = "xorig_raptor", when = { origin = "troll_raptor_rider" } },
         { text = "Farewell, Ormak.", next = "END" },

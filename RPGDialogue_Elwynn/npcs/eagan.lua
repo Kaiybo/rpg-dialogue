@@ -150,7 +150,7 @@ P:NPC {
         { text = "Teach me a cleaner cut?", next = "skin", when = { profession = "Skinning" } },
         { text = "Would you skin me, if I were a bear?", next = "druid", when = { class = "DRUID" } },
         { text = "Would a quiet step get me close to those wolves?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "The wolves on the ridge seem to smell my demon, Eagan.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The wolves on the ridge seem to smell something on me, Eagan.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do wolves fight a warrior, Eagan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

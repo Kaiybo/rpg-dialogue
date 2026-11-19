@@ -170,7 +170,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, a mage! I know a fellow in Stormwind who sells books that would curl your hair, curl your hair, if that's the sort of thing you're after." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, a warlock! You'll want to speak to Remen Marcot down in the cellar, and I didn't tell you, I didn't tell you." },
+          text = "Cellar business, cellar business! You'll want to speak to Remen Marcot down below, and I didn't tell you, I didn't tell you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, a warrior! I know a fellow who sells swords, two fellows, in fact, and they both owe me money." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, a hunter! I've a fellow who sells arrows, a good fellow, mostly arrows, mostly good!" },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, a night elf! I know a fellow who knows a fellow who once sold a bear's tooth to one of your people, true as I'm standing here." },

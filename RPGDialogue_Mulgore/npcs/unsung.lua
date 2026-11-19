@@ -94,7 +94,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Because the orcs told them how demons once turned the Horde into something it never wanted to be, and the young believe every story they hear. Show them you're patient and in command of what you carry, and the fear will pass, as most fears do." },
+        { id = "xwarlock_default", text = "Because the orcs told them how demons once turned the Horde into something it never wanted to be, and they can smell brimstone on you. Show them you're patient and in command of what you carry, and the fear will pass, as most fears do." },
       },
       choices = {
         { text = "I'll earn their trust, Harutt. They'll see.", next = "BACK", reply = "They will, given time. Show them one spell that helps instead of burns, and half of them will follow you about the camp.", fx = { align = { light = 1 } } },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear's shape before long, so come and watch my braves, because a bear that fights every battle ends up a rug in somebody's tent." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Narache. I teach strength, young one, and you'll need it even if you strike from the shadows." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, at Camp Narache! We don't see many here, though the trolls who pass through say your sort are clever." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll speak plainly, young one, because the braves are frightened of your sort and I won't lie to them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll speak plainly, young one. The braves have been whispering about you since you came into camp, and I won't lie to them about what they smell." },
       },
       choices = {
         { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -126,7 +126,7 @@ P:NPC {
         { text = "Is a druid's bear any different from a warrior's strength?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What could a rogue learn from you, Harutt?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The braves don't seem to trust mages, Harutt.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Why do the braves fear warlocks, Harutt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do the braves go quiet when I pass, Harutt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you train beside a paladin, Harutt?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Harutt.", next = "END" },
       },
@@ -334,7 +334,7 @@ P:NPC {
         { text = "How do you listen to the elements?", next = "listen" },
         { text = "Someone must have taught the tauren the shaman's way.", next = "tradition" },
         { text = "I'm an orc shaman. Is our way different?", next = "orc", when = { race = "Orc", class = "SHAMAN" } },
-        { text = "Your elements don't fear my demon, do they?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Your elements don't fear what walks with me, do they?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is the arcane so different from the elements?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior thank the elements, Meela?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does my companion hear, Meela?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -499,11 +499,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They do, because they know when something doesn't belong in the world, and your demon doesn't. I won't send you away, because the Horde accepts you, but please keep it far from the wild whenever you can." },
+        { id = "xwarlock_default", text = "They do, because they know when something doesn't belong in the world, and that companion of yours doesn't. I won't send you away, because the Horde accepts you, but please keep it far from the wild whenever you can." },
       },
       choices = {
         { text = "I'll keep it from the wild, Gart.", next = "BACK", reply = "Thank you. The plainstriders scatter at the smell of it, and I spend all evening calling them back.", fx = { align = { light = 1 } } },
-        { text = "The wild will have to get used to it.", next = "BACK", reply = "It won't, warlock, and it'll flee from you instead. You'll walk these plains a long while without seeing a living thing.", fx = { align = { light = -1 } } },
+        { text = "The wild will have to get used to it.", next = "BACK", reply = "It won't, and it'll flee from you instead. You'll walk these plains a long while without seeing a living thing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -518,7 +518,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Most of my students are tauren, and the creatures of Narache rarely see a troll or a Forsaken, so do not mind if the plainstriders stare." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You move like a cat, almost, though a cat doesn't carry knives." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The night elves who taught my people were wary of magic like yours, but I've seen it do good." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The creatures go quiet when you walk past, and so do I, I'm afraid." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The creatures go quiet when you walk past, stranger, and so do I, I'm afraid." },
       },
       choices = {
         { text = "What does a druid know of fighting, Gart?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -531,7 +531,7 @@ P:NPC {
         { text = "What would the creatures here make of a priest, Gart?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a rogue learn from the creatures, Gart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why are the night elves wary of mages, Gart?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "The creatures seem to fear my demon, Gart.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The creatures seem to fear my companion, Gart.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the creatures fear me, Gart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Gart.", next = "END" },
       },
@@ -692,11 +692,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But I've heard what the Burning Blade did in Durotar, and I'll keep a spear near my hand whenever you're near the barracks." },
+        { id = "xwarlock_default", text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But I've heard what the Burning Blade did in Durotar, and you carry the same smell, so I'll keep a spear near my hand whenever you're near the barracks." },
       },
       choices = {
         { text = "I'll follow the Warchief's rules, as you do.", next = "BACK", reply = "Good, that's all I ask of anyone, tauren or orc or otherwise. Cairne gave Thrall his word, and I keep it.", fx = { align = { order = 1 } } },
-        { text = "Watch me all you like. I answer to myself.", next = "BACK", reply = "Then I'll keep watching, and my spear will stay near my hand. Answer to yourself, warlock, but don't answer to anything else.", fx = { align = { order = -1 } } },
+        { text = "Watch me all you like. I answer to myself.", next = "BACK", reply = "Then I'll keep watching, and my spear will stay near my hand. Answer to yourself, but don't answer to anything else.", fx = { align = { order = -1 } } },
         { text = "What threats does Mulgore face?", next = "threats" },
       },
     },
@@ -737,7 +737,7 @@ P:NPC {
         { text = "The tauren seem fond of the Horde.", next = "horde" },
         { text = "Your warriors fight in the open. I prefer the flanks.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a hunter learn the shield-wall, Krang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "A warlock fights for the Horde too, Krang.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My kind fights for the Horde too, Krang, whatever the stories say.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Your warriors must trust priests, Krang.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should druids fight in the Horde's battles, Krang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do mages belong at the borders, Krang?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -877,11 +877,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I sell to anyone with coin and the arms to lift what I make, though warlocks tend to want daggers and I don't make many. I'll say this, though: a demon is a poor shield, and a good staff has never once turned on its owner." },
+        { id = "xwarlock_default", text = "I sell to anyone with coin and the arms to lift what I make, though your sort tends to want daggers and I don't make many. I'll say this, though: whatever you keep is a poor shield, and a good staff has never once turned on its owner." },
       },
       choices = {
-        { text = "I'll carry my own staff and fight my own fights.", next = "BACK", reply = "Good. A staff never whispers at you in the night, warlock, and I'll find you a sturdy one.", fx = { align = { honor = 1 } } },
-        { text = "My demon serves me better than any staff.", next = "BACK", reply = "For now, maybe. Carry a staff anyway, warlock, for the day it decides it would rather serve itself.", fx = { align = { honor = -1 } } },
+        { text = "I'll carry my own staff and fight my own fights.", next = "BACK", reply = "Good. A staff never whispers at you in the night, and I'll find you a sturdy one.", fx = { align = { honor = 1 } } },
+        { text = "What serves me now serves better than any staff.", next = "BACK", reply = "For now, maybe. Carry a staff anyway, warlock, for the day it decides it would rather serve itself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -895,7 +895,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want something for close work, then, and I've axes light enough for a hunter's arm." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've no little daggers for you, I'm afraid, though I have a staff that would make a Palemane gnoll think twice about his life." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You'll grow your own claws soon enough, but until then you'll want a good heavy staff, because a little one in your hands would look ridiculous." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll want a staff, then, and none of mine are small, so I hope you're strong." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You'll want a staff, then, by the look of those ink-black fingers. None of mine are small, so I hope you're strong." },
       },
       choices = {
         { text = "What weapon suits a shaman of the plains, Mahnott?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -908,7 +908,7 @@ P:NPC {
         { text = "What should a hunter carry for close work, Mahnott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would a priest need a big weapon, Mahnott?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a druid need your weapons, Mahnott?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "I'd guess you won't sell weapons to warlocks.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess you won't sell weapons to someone like me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you sell a hammer to a paladin, Mahnott?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
@@ -1040,7 +1040,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "They do, the ones who come down the road from Orgrimmar, and they're always hungry, because I think the spells take more out of them than they let on. This loaf is from the fields east of the village, and it'll put back whatever your magic takes." },
+        { id = "xwarlock_default", text = "They do, the ones who come down the road from Orgrimmar with their dark robes, and they're always hungry. I think their spells take more out of them than they let on, and this loaf will put back whatever your magic takes." },
       },
       choices = {
         { text = "Thank you, Jhawna. I'll pay you fairly for it.", next = "BACK", reply = "Thank you, dear, though I'd have given it to you anyway. Eat it slowly, it's better that way.", fx = { align = { honor = 1 } } },
@@ -1057,7 +1057,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have plainstrider meat to trade, I hope, because I'd love to try a new pie." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! We bless the first loaf of every harvest to the Earth Mother, and I've always wondered whether your people bless their bread too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Then you'll know whether the Earth Mother is happy with the wheat this year, because the Venture Company's dust keeps settling on the eastern farms and I can't tell anymore." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! I'd offer you bread, but I don't know whether your demon eats, so I'll offer it to you instead." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You look hungry, dear, the way the quiet ones from Orgrimmar always do. Have some bread before whatever you're carrying eats first." },
       },
       choices = {
         { text = "Do the old songs over the wheat still matter, Jhawna?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1071,7 +1071,7 @@ P:NPC {
         { text = "What do you bake with a hunter's game, Jhawna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Your ovens could use a blessing, Jhawna.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a druid help the eastern farms, Jhawna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "I'd guess even warlocks buy your bread, Jhawna.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "I'd guess even folk of my calling buy your bread, Jhawna.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the tauren mind a paladin's company, Jhawna?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },

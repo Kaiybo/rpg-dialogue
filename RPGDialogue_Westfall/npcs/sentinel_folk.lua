@@ -302,7 +302,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I'll want to, and I won't, because there's no form for demon damage and I'm not inventing one. Just keep it away from the ammunition crates, since one spark there and Sentinel Hill becomes a crater." } },
+      lines = { { id = "xlo_default", text = "I'll want to, and I won't, because there's no form for whatever that thing of yours is and I'm not inventing one. Just keep it away from the ammunition crates, since one spark there and Sentinel Hill becomes a crater." } },
       choices = {
         { text = "I'll answer for anything it breaks.", next = "BACK", reply = "That's decent of you, and I'll not write it down unless I must. Keep it clear of the crates.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If it breaks something, write down Defias.", next = "BACK", reply = "Ha, half the ledger's already Defias, so it'd hardly stand out. Keep it clear of the crates, all the same.", fx = { align = { honor = -1 } } },
@@ -558,7 +558,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast stays on the ground, I'm afraid; the gryphons don't share their backs with anything that might bite." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The birds don't mind your sort, since you smell of candles and not of blood." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Mind the plate, because it pinches the feathers, and the gryphons will let you know about it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that imp off the perch, would you? The birds have long memories and short tempers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Keep that smoky little thing off the perch, would you? The birds have long memories and short tempers." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick, the birds are restless." },
@@ -749,7 +749,7 @@ P:NPC {
     xlock = {
       lines = { { id = "xlo_default", text = "Can you now? Then tell me what's moving round Moonbrook after midnight, because the lights I've seen there aren't lanterns. Whatever your eyes are borrowed from, I'll take a report from them all the same." } },
       choices = {
-        { text = "I'll use whatever sight I've got, borrowed or not.", next = "BACK", reply = "Then you'll be the most useful warlock I've ever met. Tell me what you see.", fx = { align = { light = -1 } } },
+        { text = "I'll use whatever sight I've got, borrowed or not.", next = "BACK", reply = "Then you'll be the most useful stranger I've met this year. Tell me what you see.", fx = { align = { light = -1 } } },
         { text = "I'll trust my own eyes, not the ones I borrow.", next = "BACK", reply = "Wise, maybe, but your own eyes don't see in the dark. Either way, tell me.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What lights did you see?", next = "see_lights" },
       },
@@ -930,7 +930,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A bowstring, maybe, if your imp chews through your satchel straps like I've heard they do. Otherwise you're wasting each other's time, though I'll say a warlock on Sentinel Hill is one more thing the Defias have to think about, and I like that well enough." },
+        { id = "xlock_default", text = "A bowstring, maybe, if that little horror of yours chews through your satchel straps like I've heard they do. Otherwise you're wasting each other's time, though I'll say a warlock on Sentinel Hill is one more thing the Defias have to think about, and I like that well enough." },
       },
       choices = {
         { text = "I'll pay for any string, at your price.", next = "BACK", reply = "That's the right answer, and I'll take it. Strings are extra, as ever.", fx = { align = { honor = 1 } } },
@@ -1005,7 +1005,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at a bowyer's bench. You'll not want a bow, I'd guess, but you're welcome to watch." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Hammers and maces for your lot, I know, so I've nothing for you but a fine bowstring to admire." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have opinions about my staves, I expect, since I'm told your people grow the finest bow wood in the world." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my bench. You'll want a wand, not a bow, and I don't sell wands." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ink on your fingers and a smell of struck matches. You'll want a wand, not a bow, and I don't sell wands." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Westfall wood is poor, so I make up the difference with patience. Strings are extra." },
       },
       again = {

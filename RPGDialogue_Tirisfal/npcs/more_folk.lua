@@ -158,7 +158,7 @@ P:NPC {
         { id = "bt_void", when = { pet = { family = "Voidwalker" } }, text = "A voidwalker that talks back is a rare thing, and I would watch it closely, because they usually save their hatred up in silence. Keep it busy with new work, {class}, and let it spend its temper on your enemies." },
       },
       choices = {
-        { text = "Then I'll keep it busy and let it sulk.", next = "BACK", reply = "Let it sulk as loudly as it likes, so long as it obeys. Sulking is the only freedom it has left, and it costs you nothing." },
+        { text = "Then I'll work it hard, and let it sulk in the dark.", next = "BACK", reply = "Let it sulk as loudly as it likes, so long as it obeys. Sulking is the only freedom it has left, and it costs you nothing." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -202,10 +202,10 @@ P:NPC {
         { id = "h_again3", text = "Was there something more? The imps on this shelf have no patience, and I have only a little." },
       },
       choices = {
-        { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Show me the grimoires. All of them.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "How do you teach a demon anything?", next = "grimoires" },
         { text = "Odd place to keep demon books, a tavern.", next = "tavern" },
-        { text = "My demon talks back more than I'd like.", next = "backtalk", when = { class = "WARLOCK" } },
+        { text = "My demon talks back. I'd like it to stop, permanently.", next = "backtalk", when = { class = "WARLOCK" } },
         { text = "Which demon gives its master the most trouble?", next = "kinds" },
         { text = "You and Rupert Boch seem to share a trade.", next = "rupert" },
         { text = "I'll leave you to your books.", next = "END" },
@@ -929,7 +929,7 @@ P:NPC {
     ageron = {
       lines = { { id = "ag_default", text = "Ageron Kargal keeps his books in order and his customers in line, so no, not him. It's the pupils who worry me, because every one of them has an imp, and every imp thinks a cellar full of oil is the funniest thing it has ever seen." } },
       choices = {
-        { text = "Mine stays on a short leash.", next = "BACK", reply = "See that it does, {class}. I've a bucket of sand by the stairs, and I'm not particular about whether it lands on the fire or the imp." },
+        { text = "Mine stays on a short leash, and it knows the cost of slipping.", next = "BACK", reply = "See that it does, {class}. I've a bucket of sand by the stairs, and I'm not particular about whether it lands on the fire or the imp." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -949,7 +949,7 @@ P:NPC {
         { text = "Executor Zygand sends his regards. And his motivator.", next = "motivate", when = { questActive = TODO_QUEST("Discipline") } },
         { text = "What's actually kept down here?", next = "stores" },
         { text = "You hear the whole tavern through that ceiling.", next = "ceiling" },
-        { text = "Does Ageron's shelf upstairs ever worry you?", next = "ageron", when = { class = "WARLOCK" } },
+        { text = "Ageron's shelf upstairs is full of fire. Does that worry you?", next = "ageron", when = { class = "WARLOCK" } },
         { text = "I'll go back up.", next = "END" },
       },
     },
@@ -1748,11 +1748,11 @@ P:NPC {
         { id = "h_again3", text = "Ask it, then. I do enjoy a question I haven't heard this week." },
       },
       choices = {
-        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Show me your grimoires. I want the hungrier ones.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Two demon trainers, in one small tavern.", next = "two" },
         { text = "You speak to the demon before its master.", next = "speak" },
         { text = "Where do the books come from?", next = "books" },
-        { text = "How do I know when my demon is ready for more?", next = "ready", when = { class = "WARLOCK" } },
+        { text = "How will I know when my demon is ready for heavier chains?", next = "ready", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -1806,7 +1806,7 @@ P:NPC {
         { id = "rd_imp", when = { pet = { family = "Imp" } }, text = "With an imp, when it has stopped complaining about the last book and started complaining about being bored. That one of yours is nearly there, by the sound of it, so it wants perhaps another week of honest work." },
       },
       choices = {
-        { text = "I'll watch for the pause.", next = "BACK", reply = "Do. Most never learn to see it, and those are the ones whose demons I end up selling on.", fx = { affinity = 1 } },
+        { text = "I'll watch for the pause, and punish it.", next = "BACK", reply = "Do. Most never learn to see it, and those are the ones whose demons I end up selling on.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

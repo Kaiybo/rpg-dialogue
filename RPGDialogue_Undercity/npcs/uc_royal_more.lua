@@ -147,8 +147,8 @@ P:NPC {
       choices = {
         { text = "Why work as a cartographer if you hate maps?", next = "job" },
         { text = "What sort of books do you want?", next = "books" },
-        { text = "Tell me about the Tome of the Cabal.", next = "tome", when = { class = "WARLOCK" } },
-        { text = "Do you know Strahad Farsan?", next = "strahad", when = { class = "WARLOCK" } },
+        { text = "Tell me about the Tome of the Cabal, and what it once held.", next = "tome", when = { class = "WARLOCK" } },
+        { text = "What do you know of Strahad Farsan in Ratchet?", next = "strahad", when = { class = "WARLOCK" } },
         { text = "Which books does the city actually have?", next = "shelf" },
         { text = "Who else reads, down here?", next = "readers" },
         { text = "I've been to places your maps get wrong.", next = "wrong", when = { minLevel = 30 } },
@@ -178,7 +178,7 @@ P:NPC {
     tome = {
       lines = { { id = "to_default", text = "The Tome of the Cabal was written by the first warlocks to summon a felhunter unaided, and it was once kept in Lordaeron's own library. Someone vandalized it and tore out nearly half its pages, which is a crime I can barely bring myself to speak of." } },
       choices = {
-        { text = "Where did the missing pages go?", next = "tome2" },
+        { text = "Who holds the missing pages now? I want them.", next = "tome2" },
         { text = "Something else.", next = "BACK" },
       },
     },

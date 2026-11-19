@@ -38,7 +38,7 @@ P:NPC {
         { text = "What is she teaching today?", next = "lesson" },
         { text = "You haven't summoned anything yourself yet.", next = "practice" },
         { text = "Who are the other two?", next = "others" },
-        { text = "What was your first binding like for you? Mine went badly.", next = "binding", when = { class = "WARLOCK" } },
+        { text = "My first binding went badly, Adrian. It left scars.", next = "binding", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your lesson.", next = "END" },
       },
     },
@@ -66,7 +66,7 @@ P:NPC {
     },
     binding = {
       lines = { { id = "b_default", text = "Badly how, exactly? No, tell me nothing, because she says a warlock's first failure is the one lesson nobody else can teach. I shall simply stand here and imagine it, which is worse." } },
-      choices = { { text = "Mind your chalk lines, Adrian.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Mind your chalk lines, Adrian. Mine nearly cost me a hand.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {

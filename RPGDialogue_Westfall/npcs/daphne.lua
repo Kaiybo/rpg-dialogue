@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my hill! The soil up here is tired, but the apple trees still try, bless them, and I suspect you'll notice." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my hill, and with something smoky trailing behind. Mind my apples, and we'll get along fine." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something smoky trails up my hill behind you, love. Mind my apples, and we'll get along fine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, all the way up here? Have an apple. If your spirits can tell me when Jordan will write again, I'd count it a kindness." },
       },
       again = {

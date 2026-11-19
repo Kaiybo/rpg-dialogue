@@ -223,11 +223,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Warlocks pay, mostly, because they've other things to worry about than a copper here and there, and I like that in a customer. What I don't like is a demon sniffing at my cloth, so keep it back from the stall and we'll do business at the full price." },
+        { id = "xlock_default", text = "Your sort pay, mostly, because you've other things to worry about than a copper here and there, and I like that in a customer. What I don't like is that thing sniffing at my cloth, so keep it back from the stall and we'll do business at the full price." },
       },
       choices = {
         { text = "Fair terms, Gina. I'll keep it back.", next = "BACK", reply = "Good, then we'll get along. Keep the beast where I can see it.", fx = { align = { order = 1 } } },
-        { text = "Full price for that? Perhaps my companion should do the haggling.", next = "BACK", reply = "The imp can decide, and the price stays the same. Try me.", fx = { align = { order = -1 } } },
+        { text = "Full price for that? Perhaps my companion should do the haggling.", next = "BACK", reply = "The little beast can decide, and the price stays the same. Try me.", fx = { align = { order = -1 } } },
         { text = "Something else, Gina.", next = "BACK" },
       },
     },
@@ -301,7 +301,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll ask me for charity, I suppose, and I'll say no, but you're welcome to ask." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Honest folk, your sort, so you'll pay what it's worth and not haggle, I hope." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say before you ask that I don't take payment in acorns, however blessed they are, so bring coin." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I don't sell soul shards, so don't ask, and I don't buy them either." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whatever you're after, I don't sell soul shards, so don't ask, and I don't buy them either." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My prices are fair, considering every spool came down a road full of thieves. Your spirits won't haggle, I hope." },
       },
       again = {
@@ -595,7 +595,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "One just like it ate a sweet roll off my counter last week, and I'll thank you not to tell me it was a different imp. Keep it on your shoulder and off my shelves." } },
+      lines = { { id = "xlo_default", text = "One just like it ate a sweet roll off my counter last week, and I'll thank you not to tell me it was a different one. Keep it on your shoulder and off my shelves." } },
       choices = {
         { text = "I'll pay for anything it takes.", next = "BACK", reply = "Good, then we'll get along. I'll keep the sweet rolls out of reach anyway.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It was hungry, and your shelves were open.", next = "BACK", reply = "It was, and it was rude. Keep it on your shoulder, please.", fx = { align = { honor = -1 } } },

@@ -622,7 +622,7 @@ P:NPC {
       choices = {
         { text = "What does a demon trainer teach?", next = "teach" },
         { text = "Why keep shop in a graveyard?", next = "graves" },
-        { text = "My imp talks back. Is that usual?", next = "imp", when = { class = "WARLOCK" } },
+        { text = "My imp has started talking back. Is that usual, or is it testing me?", next = "imp", when = { class = "WARLOCK" } },
         { text = "A foul trade, beside an abbey.", next = "foul", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll leave you to it.", next = "END" },
       },

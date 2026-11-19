@@ -185,7 +185,7 @@ P:NPC {
         { text = "I doubt the Light has much use for a rogue.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What separates a warrior from a paladin, Duthorian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would a paladin learn from a hunter, Duthorian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Would you test a warlock as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you test someone on a darker road, as you test paladins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light ask a debt of druids too, Duthorian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would the Light ever test a mage, Rall?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do your tests ask of paladins, Duthorian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

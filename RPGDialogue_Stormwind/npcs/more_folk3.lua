@@ -2762,7 +2762,7 @@ P:NPC {
         { text = "Mages should answer to the same law as anyone.", next = "law" },
         { text = "What's the worst the Quarter's given you?", next = "worst" },
         { text = "I trained in the tower. We weren't that bad.", next = "tower", when = { class = "MAGE" } },
-        { text = "You know what's under that tavern.", next = "cellar", when = { class = "WARLOCK" } },
+        { text = "You know what's under that tavern, Officer. Keep knowing it quietly.", next = "cellar", when = { class = "WARLOCK" } },
         { text = "Good day, Officer.", next = "END" },
       },
     },

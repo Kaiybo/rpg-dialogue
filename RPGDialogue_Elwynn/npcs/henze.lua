@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ye walk like Gazin does, quiet as a cat. Are ye one o' the king's eyes as well, or just a thief wi' good manners?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Is that a demon ye've got wi' ye? I've been dead once already, so I'd be obliged if ye'd keep it from takin' an interest." },
+          text = "What's that creepin' along behind ye? I've been dead once already, so I'd be obliged if ye'd keep it from takin' an interest." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'd have been handy in that Defias camp, so ye would; I could've done with someone bigger than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Is that a dwarven rifle, or a bow? Either way, I like a body who hits things from a distance." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf! I was dead a good while, so I've missed who's been comin' an' goin', but you're a fine surprise to wake up to." },

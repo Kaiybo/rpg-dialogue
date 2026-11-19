@@ -169,7 +169,7 @@ P:NPC {
         { text = "My training ended when the Hand broke apart.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Gregor Greystone in Everlook sends his regards.", next = "gregor", when = { heardLine = "gregor.h_default" } },
         { text = "What does the Dawn need from a healer?", next = "priest_dawn", when = { class = "PRIEST" } },
-        { text = "Will the Dawn take a warlock's help?", next = "x_warlock", when = { class = "WARLOCK" } },
+        { text = "Will the Dawn take help it would rather not name, my lord?", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Why would Kirin Tor mages join the Dawn and not Dalaran?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'd guess the Argent Dawn has little use for rogues.", next = "xrogue", when = { class = "ROGUE" } },
@@ -292,10 +292,10 @@ P:NPC {
     },
     x_warlock = {
       lines = {
-        { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that you keep your demons outside these walls; this chapel has seen enough of things that do not belong here." },
+        { id = "xw_default", text = "The Dawn will take help from anyone who stands against the Scourge and keeps their word, which is the very reason I left the Silver Hand when it stopped believing that. I ask only that whatever answers your call stays outside these walls; this chapel has seen enough of things that do not belong here." },
       },
       choices = {
-        { text = "My demons stay outside. You have my word.", next = "BACK", reply = "Thank you. Your word is enough for me, and the stables will be glad of it too.", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
+        { text = "What follows me stays outside. You have my word.", next = "BACK", reply = "Thank you. Your word is enough for me, and the stables will be glad of it too.", fx = { affinity = 2, align = { honor = 1 }, standing = { light_hope = 1 } } },
         { text = "What I bring with me is my own affair, my lord.", next = "BACK", reply = "Within the chapel walls, it's mine. Keep them outside, or keep yourself outside with them.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -512,7 +512,7 @@ P:NPC {
         { id = "h_sacrifice", when = { metBefore = true },
           text = "They call me Revered, though I'd rather they didn't. I only did what anyone would, if they'd already lost everything else." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock. The Dawn's living members flinch at us both, {class}, but I think the Scourge flinches more, and that is all I ask of my own darkness." },
+          text = "You and I both carry a darkness, {name}, and the Dawn's living members flinch at us alike. But I think the Scourge flinches more, and that is all I ask of my own." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Forgive my face, {class}, for the plague took it before the Banshee Queen gave me back my mind, and mages in particular tend to stare." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -531,7 +531,7 @@ P:NPC {
         { text = "Who is Ras Frostwhisper?", next = "ras", when = { heardLine = "leonid.h_ras" } },
         { text = "We're the same, you and I.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
-        { text = "Do you see your undeath as a weapon too?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you see your undeath as a weapon too, Revered?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
         { text = "The Dawn's living soldiers can't trust you easily, Leonid.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I doubt beasts can tell you aren't Scourge, Leonid.", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -553,7 +553,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
+      lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. What you keep is a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
       choices = {
         { text = "I know who I am. The darkness doesn't change that.", next = "BACK", reply = "Good. Hold on to that, and the darkness will stay a tool and never become a master.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe the weapon is who I am now.", next = "BACK", reply = "Then I'll pray it's a weapon pointed the right way. Be careful.", fx = { align = { light = -1 } } },

@@ -584,7 +584,7 @@ P:NPC {
     thread_fel = {
       lines = {
         { id = "tf_default", text = "I won't stock felcloth, whatever the warlocks pay. It comes off the satyrs in Felwood, and it carries the Legion's stink in every thread, and I'll not have it in the same room as a druid's robe." },
-        { id = "tf_lock", when = { class = "WARLOCK" }, text = "I won't stock felcloth, and you'll forgive me for saying so to a warlock. It comes off the satyrs in Felwood, and the Legion's stink is in every thread; take your business to someone with fewer druids for customers." },
+        { id = "tf_lock", when = { class = "WARLOCK" }, text = "I won't stock felcloth, and I suspect you of all people know why. It comes off the satyrs in Felwood, and the Legion's stink is in every thread; take your business to someone with fewer druids for customers." },
       },
       choices = {
         { text = "Good. Nothing of the Legion belongs here.", next = "BACK", fx = { align = { light = 1 } } },

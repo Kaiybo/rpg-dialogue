@@ -180,7 +180,7 @@ P:NPC {
         { text = "My family has feuds too, in Stormwind.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Dwarves feud for generations, Gramma. It never ends well.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Who is the pie spoken for, Gramma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Most folk don't care to sit with a warlock, Gramma.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Most folk don't care to sit with someone like me, Gramma.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have a warrior fight for, Gramma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your family must have hunted, in the old days.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would mend the feud between the families, Gramma?", next = "xapala", when = { class = "PALADIN" } },

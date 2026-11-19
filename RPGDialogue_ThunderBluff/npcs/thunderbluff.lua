@@ -179,11 +179,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "I did, with my eyes open, because Thrall told me himself what the demon blood did to his people and what it cost them to be free of it. If he keeps your kind under watch, I trust him, but you should know that every tauren on these bluffs is watching too." },
+        { id = "xwarlock_default", text = "I did, with my eyes open, because Thrall told me himself what the demon blood did to his people and what it cost them to be free of it. I can smell the old smoke on you, young one, and every tauren on these bluffs can smell it too." },
       },
       choices = {
-        { text = "Then I'll give your people nothing to fear.", next = "BACK", reply = "Then you will find the tauren slow to fear and quick to welcome. Show them who you are, and in time they will stop watching.", fx = { align = { order = 1 } } },
-        { text = "Watch me all you like. I'll do as I must.", next = "BACK", reply = "Then we will watch, and you will do as you must, and we will see where it leads. I hope it leads somewhere I can be proud of, warlock.", fx = { align = { order = -1 } } },
+        { text = "Then your people will find nothing in me worth fearing.", next = "BACK", reply = "Then you will find the tauren slow to fear and quick to welcome. Show them who you are, and in time they will stop watching.", fx = { align = { order = 1 } } },
+        { text = "Let them watch. They'll see only what I choose to show.", next = "BACK", reply = "Then we will watch, and you will show what you choose, and we will see where it leads. I hope it leads somewhere I can be proud of.", fx = { align = { order = -1 } } },
         { text = "Why do you follow Thrall at all?", next = "thrall" },
       },
     },
@@ -503,7 +503,7 @@ P:NPC {
         { text = "My work is done in shadow, chieftain. Is there honor in it?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The tauren seem to fear the arcane, chieftain.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunt teach the tauren, Cairne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "You allied with orcs who still keep their old pacts, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "My companion is Forsaken. Was the Horde right to take them?", next = "xpt_cairne", when = { party = { race = "Scourge" } } },
         { text = "I've fought the Grimtotem, Chieftain. Many of them.", next = "dd_grimtotem", when = { killed = { name = "Grimtotem", min = 40 } } },
@@ -854,11 +854,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "No, and I won't soften that for you, because the Circle exists to heal what demons and their servants broke. You may walk in Thunder Bluff under Cairne's peace, but in Moonglade the druids would see only what you carry." },
+        { id = "xwarlock_default", text = "No, and I won't soften that for you. The Circle exists to heal what the Legion and its servants broke, and there is a cold about you that I felt from across the rise. You may walk here under Cairne's peace, but Moonglade would see straight through you." },
       },
       choices = {
-        { text = "Then I'll stay away from Moonglade. That's fair.", next = "BACK", reply = "It is fair, and kind, and I'm grateful you see it so. Thunder Bluff is wide enough for you, even if Moonglade is not.", fx = { align = { light = 1 } } },
-        { text = "Their loss. Power is neither good nor evil.", next = "BACK", reply = "Power is a tool, as you say, but the hand matters more than the tool. The Circle has seen too many hands in its time to trust yours on your word alone.", fx = { align = { light = -1 } } },
+        { text = "Then I'll keep clear of Moonglade. That much is fair.", next = "BACK", reply = "It is fair, and kind, and I'm grateful you see it so. Thunder Bluff is wide enough for you, even if Moonglade is not.", fx = { align = { light = 1 } } },
+        { text = "Their loss. Power is a tool, and only fools fear tools.", next = "BACK", reply = "Power is a tool, as you say, but the hand matters more than the tool. The Circle has seen too many hands in its time to trust yours on your word alone.", fx = { align = { light = -1 } } },
         { text = "What's the most important lesson you learned?", next = "lesson" },
       },
     },
@@ -916,7 +916,7 @@ P:NPC {
         { text = "Malfurion must have spoken of the arcane.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would the fiercest warriors be the most patient, Arch Druid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "The druids must watch over Mulgore's beasts, Arch Druid.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "The Cenarion Circle might accept a warlock someday.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could the Cenarion Circle ever make room for someone like me?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into the Wailing Caverns to wake Naralex, Arch Druid.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
@@ -1138,11 +1138,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Balance is practised daily, like any honest craft, and a warlock practises holding something that would gladly devour them. Perhaps you understand balance better than my students do, then, but if you ever let go, the balance will set itself right, and you won't like how." },
+        { id = "xwarlock_default", text = "Balance is practised daily, like any honest craft, and you practise holding something that would gladly devour you. Perhaps you understand it better than my students, then, but if you ever let go, the balance will set itself right, and you won't like how." },
       },
       choices = {
-        { text = "I'll hold it, Turak, every day.", next = "BACK", reply = "That's the hardest discipline I've ever heard of, and you carry it every day. I hope your hands never tire.", fx = { align = { order = 1 } } },
-        { text = "The balance can look after itself.", next = "BACK", reply = "It will, warlock, and that's my warning. You may not like what it looks like when it does.", fx = { align = { order = -1 } } },
+        { text = "I'll hold it, Turak, every day, however hard it pulls.", next = "BACK", reply = "That's the hardest discipline I've ever heard of, and you carry it every day. I hope your hands never tire.", fx = { align = { order = 1 } } },
+        { text = "The balance can look after itself. I have other concerns.", next = "BACK", reply = "It will, and that's my warning. You may not like what it looks like when it does.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1166,7 +1166,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The Arch Druid and your elders argue over tea about which of us listens better, and neither of them ever wins." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Elder Rise. The Arch Druid won't mind, but the cubs will stare, because they think warriors are bears that forgot to change back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on Elder Rise. Welcome, friend; I teach balance here, and I suspect you keep a balance of your own, between the hurts you mend and the hurts you can cause." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock among the druids. Balance asks that I welcome you, though it does not ask me to like your demon." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The balance asks me to welcome you, and I will. It does not ask me to like the thing that waits so patiently at your heel." },
       },
       choices = {
         { text = "Is there balance in a priest's power, Turak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -1181,7 +1181,7 @@ P:NPC {
         { text = "A cat druid moves as quietly as I do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
-        { text = "A warlock can't keep the balance, I'd guess.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could someone holding back a hungry thing ever keep the balance?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Am I out of balance, Turak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Princess Theradras is defeated, Turak.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
@@ -1468,11 +1468,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "The Grimtotem fear very little, and certainly not a little imp on a chain. But I've seen what demons made of the orcs, and I'll tell you what Cairne won't, which is that any power that makes you its servant is a poor bargain, however strong it feels." },
+        { id = "xwarlock_default", text = "The Grimtotem fear very little, child, and certainly not some small hungry thing on a chain. But I've seen what demons made of the orcs, and I'll tell you what Cairne won't: any power that makes you its servant is a poor bargain, however strong it feels." },
       },
       choices = {
-        { text = "You're right. I'll never let it master me.", next = "BACK", reply = "Good, see that you never do. The orcs said the same once, and look what it cost them.", fx = { align = { light = 1 } } },
-        { text = "Strength is strength, whatever it costs me.", next = "BACK", reply = "Then you'll pay, child, and pay dearly, as everyone does. I only hope your strength is worth the price.", fx = { align = { light = -1 } } },
+        { text = "You're right. Nothing I keep will ever be my master.", next = "BACK", reply = "Good, see that you never do. The orcs said the same once, and look what it cost them.", fx = { align = { light = 1 } } },
+        { text = "Strength is strength, and I'll pay whatever it asks of me.", next = "BACK", reply = "Then you'll pay, child, and pay dearly, as everyone does. I only hope your strength is worth the price.", fx = { align = { light = -1 } } },
         { text = "And what do the Grimtotem want?", next = "want" },
       },
     },
@@ -1519,7 +1519,7 @@ P:NPC {
         { text = "Your earth magic and my arcane aren't so different.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You might need protection on Elder Rise, Magatha.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the Grimtotem hunt, Magatha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "The Grimtotem must fear demons, Elder Crone.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Surely even the Grimtotem fear what walks at my heel, Elder Crone.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
@@ -1771,11 +1771,11 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Everyone's welcome, child, and everyone gets the same stew, but not everyone gets to bring a demon in among my guests. Leave it at the door, and if it gets cold out there, well, I'm told that's what demons are for." },
+        { id = "xwarlock_default", text = "Everyone's welcome, child, and everyone gets the same stew, but not everyone brings that sulphur stink in among my guests. Leave whatever follows you at the door, and if it gets cold out there, well, I doubt it minds the cold." },
       },
       choices = {
-        { text = "I'll leave it outside, Pala.", next = "BACK", reply = "Good, child, and you'll get a full bowl for your manners. The demon can sulk outside, I'm sure it's used to it.", fx = { align = { order = 1 } } },
-        { text = "My demon stays by my side.", next = "BACK", reply = "Then you'll eat your stew outside with it, child. The night air's good for the digestion, they say.", fx = { align = { order = -1 } } },
+        { text = "My companion will wait outside, Pala.", next = "BACK", reply = "Good, child, and you'll get a full bowl for your manners. Your little friend can sulk outside; I'm sure it's used to it.", fx = { align = { order = 1 } } },
+        { text = "What walks with me stays with me, Pala.", next = "BACK", reply = "Then you'll eat your stew outside with it, child. The night air's good for the digestion, they say.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1799,7 +1799,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can sleep upstairs, and the stew is the same for both of you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in, come in, and sit by the fire, for you healers never stop to eat, and you look as if you've been praying on an empty stomach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Sit with the others by the fire, love, because they'll want you on their side the next time the shamans start the old argument." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Sit down and I'll bring you stew, but your demon waits outside with the kodos." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Sit down, child, and I'll bring you stew. Whatever's been scratching at my door since you came in can wait outside with the kodos." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Some of the young druids came through the Cat and the Shaman saying a stranger had been down the Wailing Caverns ahead of them. Sit down, because anyone who's breathed that air needs a bowl of something hot." },
         { id = "h_dd_auld", tags = { "news" }, when = { questDone = TODO_QUEST("A Vengeful Fate") }, text = "Old Auld Stonespire sat at my fire last night and ate a whole bowl without grumbling once, which I've never once seen before. Word on the Lower Rise is that you brought back Charlga Razorflank's heart, and I think that's the reason." },
         { id = "h_dd_deaths", when = { deaths = { min = 10 } }, text = "You've the look of someone who has walked back from the spirit healer more than once, and recently. Sit by the fire a while; the bluffs will still be here when you've rested." },
@@ -1815,7 +1815,7 @@ P:NPC {
         { text = "I'd guess warriors behave in your inn, Pala.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Hunters must bring you game for the stew, Pala.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would the Cat and the Shaman welcome someone the spirits shun?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been down the Wailing Caverns, Pala.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Should a company keep to its own kind, Pala?", next = "xpt_pala", when = { party = { kin = true } } },

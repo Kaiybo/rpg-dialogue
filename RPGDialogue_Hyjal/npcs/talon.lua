@@ -120,7 +120,7 @@ P:NPC {
         { text = "I'm of the Circle. How can I help?", next = "xdruid", when = { class = "DRUID" } },
         { text = "This mountain was ours. Why did we leave it?", next = "xnelf", when = { race = "NightElf" } },
         { text = "My people fought here. Do you remember them?", next = "xhuman", when = { race = "Human" } },
-        { text = "Why does the fel bother you so much?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why do you flinch whenever I come near?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What hunts on these slopes?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Does the Horde have friends up here?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Fair winds, Thisalee.", next = "END" },
@@ -390,7 +390,7 @@ P:NPC {
         { id = "xl_default", text = "Because fel is what made this mountain sick. It rained down when the Legion came, the brambles drank it, and they are still killing things years later, so I flinch at what you carry." },
       },
       choices = {
-        { text = "I use it so others don't have to.", next = "BACK", reply = "Perhaps you do, and I'd like to believe it, but the brambles only meant to drink the rain, and look at them now.", fx = { align = { light = 1 } } },
+        { text = "I bear this burden so others never have to.", next = "BACK", reply = "Perhaps you do, and I'd like to believe it, but the brambles only meant to drink the rain, and look at them now.", fx = { align = { light = 1 } } },
         { text = "Power's power. Your brambles don't scare me.", next = "BACK", reply = "They should, because they don't care what you think you are, and they'll grow straight through you the same as everything else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

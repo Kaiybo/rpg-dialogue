@@ -164,7 +164,7 @@ P:NPC {
         { id = "h_badges_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Stromgarde Badges"), days = 3 } },
           text = "The badges went out with the last rider south, and some families will open a letter this month and finally know. So thank you, and I don't say that often." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in Stromgarde's camp, {class}. I've lost too many soldiers this year to turn away anyone who'll fight, but I'll have someone watching you." },
+          text = "You carry yourself like someone with a cellar full of secrets, {class}. I've lost too many soldiers this year to turn away anyone who'll fight, but I'll have someone watching you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The Syndicate have pulled back from the roads, and my scouts found their camps half empty. Stromgarde's dead are a little better avenged tonight, and I have you to thank for it." },
         { id = "h_dd_plague", when = { questDone = TODO_QUEST("Hints of a New Plague?") },
           text = "Quae tells me you helped her chase the Forsaken courier across the Highlands. I don't like to think what the Undercity's brewing, but I'd rather know than not." },
@@ -203,7 +203,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire. Fight the Syndicate with whatever you must, but keep the fel out of my soldiers' sight." } },
+      lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on the kind of fire the orcs once brought here. Fight the Syndicate with whatever you must, but keep it out of my soldiers' sight." } },
       choices = {
         { text = "Then I'll keep it out of sight, as you ask.", next = "BACK", reply = "Thank you. My soldiers have enough to fear without wondering who stands beside them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pride won't win back Stromgarde, Captain. Power will.", next = "BACK", reply = "Power is what Perenolde wanted, too, and you can see where that took Alterac. Keep it from my banner.", fx = { align = { order = -1 } } },
@@ -549,7 +549,7 @@ P:NPC {
         { text = "The Witherbark are trolls. Do you trust me?", next = "troll", when = { race = "Troll" } },
         { text = "Korin worries for you, Drum Fel.", next = "korin", when = { questDone = TODO_QUEST("The Real Threat") } },
         { text = "The elements are with Hammerfall, chieftain.", next = "xshaman", when = { class = "SHAMAN" } },
-        { text = "I wield fel magic. Does that trouble you?", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I carry a power the Horde once paid for dearly. Does that trouble you?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The Dark Lady sends her regards to Hammerfall.", next = "xforsaken", when = { race = "Scourge" } },
         { text = "The Boulderfist ogres must fear magic.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What should I look for among the Witherbark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -1178,7 +1178,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "The Earth Mother turns no child away, but the things you bargain with have no mother, and they want to be fed. Take care what you feed them, {class}, for a hungry thing grows." } },
       choices = {
         { text = "I feed it only what I choose. I'm careful.", next = "BACK", reply = "Then stay careful always, child. My uncle was careful with his kodo for twenty years, and it only took one bad morning.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let it grow. A strong demon serves me better.", next = "BACK", reply = "A strong demon is a hungry one, and you cannot feed it from my kitchen. I will pray to the Earth Mother for you.", fx = { align = { light = -1 } } },
+        { text = "Let it grow. The hungrier it is, the harder it works for me.", next = "BACK", reply = "A hungry servant is a dangerous one, and you cannot feed it from my kitchen. I will pray to the Earth Mother for you.", fx = { align = { light = -1 } } },
         { text = "Something else, Adegwa.", next = "BACK" },
       },
     },

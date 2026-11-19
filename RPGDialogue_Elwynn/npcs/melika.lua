@@ -53,7 +53,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but I'll not have demons sitting on my benches." } },
       choices = {
         { text = "A guest is a guest. That's fair of you, Melika.", next = "BACK", reply = "Thank you, it's how I've always run things. Bread and cheese for anybody, and no demons on the benches.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demon's better company than half your guests.", next = "BACK", reply = "Maybe so, but it's not paying for supper, so it can wait outside. Your table's by the window.", fx = { align = { light = -1 } } },
+        { text = "What I keep is better company than half your guests.", next = "BACK", reply = "Maybe so, but it's not paying for supper, so it can wait outside. Your table's by the window.", fx = { align = { light = -1 } } },
         { text = "Something else, Melika.", next = "BACK" },
       },
     },
@@ -131,7 +131,7 @@ P:NPC {
           text = "A mage. Zaldimar's upstairs, if you're after him, and he'll want his supper sent up, so take it with you if you're going." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a hot meal and a bath, I expect, and I'll give you the meal; the bath you'll find yourself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If that animal's coming in, it eats in the yard; I won't have it under the tables begging." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your sort eat at odd hours, so I'll keep a bowl back, but don't bring anything to my table that doesn't eat stew." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've come up from the cellar, by the chill on you. Your sort eat at odd hours, so I'll keep a bowl back, but don't bring anything to my table that doesn't eat stew." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You look like you've walked a long way. Sit down; I'll find you a quiet table." },
       },
       again = {
@@ -151,7 +151,7 @@ P:NPC {
         { text = "Warriors must cause you some trouble, Melika.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will you let my beast eat in the yard, at least?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is anyone in Goldshire in danger, Melika?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do warlocks from the cellar eat with the other guests, Melika?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the cellar folk eat with the other guests, Melika?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You seem to notice everything about your guests, Melika.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
       },
     },

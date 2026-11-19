@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Curiosity is the first sign of a good warlock, and greed is the second." },
       },
       choices = {
-        { text = "What will you teach me next?", next = "lessons", when = { class = "WARLOCK" } },
+        { text = "What will you teach me to bind next?", next = "lessons", when = { class = "WARLOCK" } },
         { text = "Who is Cazul?", next = "cazul" },
         { text = "Why does Orgrimmar allow warlocks at all?", next = "why" },
         { text = "What will you tell Zankaja about Dogran?", next = "zankaja", when = { questDone = TODO_QUEST("Love's Gift") } },
@@ -170,7 +170,7 @@ P:NPC {
     zankaja = {
       lines = { { id = "zk_default", text = "In the bluffs of Orgrimmar, west of the wind rider tower, lives Zankaja, and she waits for the return of her mate. He went to the Crossroads and hasn't come home, and her heart is full of exactly the sort of devotion a succubus craves." } },
       choices = {
-        { text = "You'd use her grief as bait.", next = "bait" },
+        { text = "So her grief is the bait.", next = "bait" },
         { text = "Something else.", next = "BACK" },
       },
     },

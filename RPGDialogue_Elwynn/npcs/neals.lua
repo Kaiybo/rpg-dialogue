@@ -131,7 +131,7 @@ P:NPC {
         { text = "How do I keep my faith when it's hard?", next = "faith", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "About the manifest...", next = "BUSINESS", when = { questActive = TODO_QUEST("Grape Manifest") } },
         { text = "You seem to be guarding something in the Abbey's cellars, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Why do the brothers mind warlocks near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why do the brothers mind me near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Abbey's cellars hold that a warrior would want?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Something's been at the Abbey's stores, by the look of it.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Abbey make its wine from its own grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

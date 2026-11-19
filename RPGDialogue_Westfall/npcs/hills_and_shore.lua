@@ -37,7 +37,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Yer fel fire, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
+        { id = "xlock_default", text = "Yer green flame, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
         { id = "xlock_more1", text = "Plain coal from the hills is the fire I trust, and a Thunderbrew's lager is honest or bust." },
       },
       choices = {
@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter with bow and a beast at the heel! Ye'll want a fine lager to go with yer meal, for a boar on the spit and a keg on the side is the best thing in Westfall, I'll say it with pride!" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my still, and a welcome one too, for a blessing on barley does wonders for brew!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from the forests, all silver and green, the tallest young drinker this still's ever seen! Ye'll know a good crop when ye stand in a field, so come taste the lager and judge the hill's yield." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a sight, with a fire in yer hand that's not quite right! Keep that green flame away from my still, for it's lager I brew here, and not something ill!" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Well now, there's a sight, with a fire in yer hand that's not quite right! Keep that green flame away from my still, for it's lager I brew here, and not something ill!" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, a dwarf, who talks to air! Come sit and have a beer, it's better than what your spirits share." },
       },
       again = {

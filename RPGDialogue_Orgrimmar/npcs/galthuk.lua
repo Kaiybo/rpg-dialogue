@@ -54,7 +54,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" },
           text = "The tauren are honest folk, if slow to anger and slower still to come down off those mesas. I've no quarrel with you, and I can't say that about the trolls or the corpses." },
         { id = "h_warlock", when = { class = "WARLOCK" },
-          text = "A warlock. You know what your kind did to my people the last time we listened to them, and still the Warchief lets you keep your hole in the Cleft of Shadow." },
+          text = "You know what your kind did to my people the last time we listened to them. And still the Warchief lets you keep your hole in the Cleft of Shadow." },
         { id = "h_soft", priority = 20, when = { npcFlagBefore = "told_brother" },
           text = "You're the one I told about my brother Grukar. I've not told anyone else and I'd like it kept that way, but I'm glad I said it out loud once." },
         { id = "h_agreed", priority = 10, when = { npcFlagBefore = "agreed_dead", ["not"] = { race = "Scourge" } },

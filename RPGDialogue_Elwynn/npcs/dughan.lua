@@ -128,7 +128,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." } },
       choices = {
         { text = "Nothing will come up those stairs while I'm down there.", next = "BACK", reply = "That's all I ask, and I'll hold you to it. My guards have enough to worry about.", fx = { align = { light = 1 } } },
-        { text = "What I summon is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },
+        { text = "What happens below those stairs is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -228,7 +228,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and I've no blessed idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in my town square. You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone." },
+          text = "You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone. Keep your voice down in my square." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Light's sake, the last shamans I saw were burning farms for the Horde, but I need hands, and yours look steady." },
       },
       again = {

@@ -1144,9 +1144,9 @@ P:NPC {
         { id = "xlock_default", text = "Not much frightens me anymore, friend, after losing the farm and sleeping out here through a Stormwind winter. Your little friend looks like it's eaten better than I have this week, mind, and if it can spare a crust, I'll take it." },
       },
       choices = {
-        { text = "Here's a coin for you, Topper, and nothing for the imp.", next = "xlock2", fx = { align = { light = 1 } } },
-        { text = "The imp needs its food more than you do.", next = "xlock2", fx = { align = { light = -1 } } },
-        { text = "Has a warlock ever offered you a bargain?", next = "xlock2" },
+        { text = "Here's a coin for you, Topper, and nothing for my little friend.", next = "xlock2", fx = { align = { light = 1 } } },
+        { text = "My little friend needs feeding more than you do, Topper.", next = "xlock2", fx = { align = { light = -1 } } },
+        { text = "Has anyone like me ever offered you a bargain, Topper?", next = "xlock2" },
       },
     },
     xlock2 = {

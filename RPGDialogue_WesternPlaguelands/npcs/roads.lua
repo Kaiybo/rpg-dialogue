@@ -87,7 +87,7 @@ P:NPC {
         { text = "You seem to know the Crusade very well.", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
         { text = "Why help anyone against the Crusade?", next = "tirion" },
-        { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do you know of shadow and its prices, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Someone must have taught you to work illusions, Myranda.", next = "xmage", when = { class = "MAGE" } },
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I doubt your seeming could pass me off as a Crusader.", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -254,7 +254,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
       choices = {
         { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", reply = "Good! I'd very much like your story to end well, and I'm usually right about these things.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My story's mine to write. I'll take the risk.", next = "BACK", reply = "It is, and I'll be interested to see how it goes. Do be careful with the ending.", fx = { align = { light = -1 } } },
+        { text = "My story is mine to write, ending and all.", next = "BACK", reply = "It is, and I'll be interested to see how it goes. Do be careful with the ending.", fx = { align = { light = -1 } } },
         { text = "Something else, Chromie.", next = "BACK" },
       },
     },

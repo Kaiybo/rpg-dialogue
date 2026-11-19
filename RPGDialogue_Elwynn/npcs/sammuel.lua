@@ -143,7 +143,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "I doubt the Light watches over rogues, Brother.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Light and the arcane seem uneasy under one roof, Brother.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would you pray for someone like me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Surely the Light cares for beasts as well, Brother.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you think the spirits chose me, Brother Sammuel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

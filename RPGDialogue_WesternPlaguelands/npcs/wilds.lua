@@ -103,7 +103,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I don't know, and I don't want to, but they come up out of the wheat at dusk and walk the fences, and one of them wears John's coat. Please keep your little shadow close, because I couldn't bear it if anything else came into this house." } },
       choices = {
         { text = "It stays close, Janice. Nothing will harm you here.", next = "BACK", reply = "Thank you, and do keep it away from the window. John's coat is out there, and I can't bear to look.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My demon has seen worse than your ghouls, Janice.", next = "BACK", reply = "I'm sure it has, and I'm sure you mean to comfort me, but please, keep it close all the same.", fx = { align = { light = -1 } } },
+        { text = "My demon has seen far worse than your ghouls, Janice.", next = "BACK", reply = "I'm sure it has, and I'm sure you mean to comfort me, but please, keep it close all the same.", fx = { align = { light = -1 } } },
         { text = "Something else, Janice.", next = "BACK" },
       },
     },
@@ -372,7 +372,7 @@ P:NPC {
         { text = "Were the wolves so quiet, Mulgris, before the plague?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the spirits tell you here, Mulgris?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The arcane might have cured you, Mulgris.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Do the beasts really fear warlocks, Mulgris?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the beasts really fear what walks with me, Mulgris?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll ease their suffering.", next = "END", reply = "Thank you, child of the stone, for they suffer and I can no longer go to them. Walk gently among them, and the Earth Mother will know your kindness even when they do not.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Sick wolves are no concern of mine.", next = "END", reply = "Then go your way, and may the Earth Mother find you kinder hands than mine when your own time comes.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "There must be something that can be done for you.", next = "cure", when = { ["not"] = { questActive = TODO_QUEST("Glyphed Oaken Branch") } } },
@@ -739,7 +739,7 @@ P:NPC {
         { text = "Elling Trias sends his regards.", next = "elling", when = { heardLine = "elling.h_default" } },
         { text = "Who trained you, then?", next = "rogue", when = { class = "ROGUE" } },
         { text = "The Crusade would burn me on sight. Does that bother you?", next = "x_forsaken", when = { race = "Scourge" } },
-        { text = "Would a warlock even get close to Hearthglen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could someone like me even get close to Hearthglen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How bad were Hearthglen's defenses, really?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Hearthglen's garrison must be strong.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "So the Crusade hunts spies with dogs.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -758,9 +758,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But a demon sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." } },
+      lines = { { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But something sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." } },
       choices = {
-        { text = "The Crusade deserves no mercy. Use me.", next = "BACK", reply = "There's a warlock after my own heart. Make it a loud demon, if you can manage it.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Crusade deserves no mercy. Use me, and what I bring.", next = "BACK", reply = "There's someone after my own heart. Make it loud, whatever it is.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'd rather not provoke the Crusade without need.", next = "BACK", reply = "Fair enough, and a good deal wiser than me. I'll find another way in.", fx = { align = { light = 1 } } },
         { text = "Something else, scout.", next = "BACK" },
       },
@@ -1102,7 +1102,7 @@ P:NPC {
         { id = "xw_default", text = "I did, {g:sir|madam}; for six months I watched them from the servants' passages, and I learned more than any maid should. Forgive me if I keep my distance, for you carry something of the same chill they did, and I have not forgotten where it led." },
       },
       choices = {
-        { text = "I'm nothing like them, Eva.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'm nothing like them, Eva. Not yet.", next = "BACK", fx = { affinity = 1 } },
         { text = "Power isn't evil. Only what it's used for.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

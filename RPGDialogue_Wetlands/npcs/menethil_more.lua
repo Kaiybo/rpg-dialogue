@@ -124,7 +124,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll turn it against them, nothing more.", next = "BACK", reply = "End theirs an' leave it at that, an' I'll ask no more questions. Go north, an' keep yer distance from my lads.", fx = { align = { light = 1 } } },
-        { text = "Their power can serve better hands than theirs.", next = "BACK", reply = "Better hands? I've heard that from every cultist that ever swung from a rope. I'll be watchin' ye, warlock.", fx = { align = { light = -1 } } },
+        { text = "Their power can serve better hands than theirs.", next = "BACK", reply = "Better hands? I've heard that from every cultist that ever swung from a rope. I'll be watchin' ye, warlock, mark that.", fx = { align = { light = -1 } } },
         { text = "What should be done about the Dragonmaw?", next = "dragonmaw" },
       },
     },
@@ -198,7 +198,7 @@ P:NPC {
         { text = "I came through Algaz. It's bad.", next = "through", when = { questDone = TODO_QUEST("The Algaz Gauntlet") } },
         { text = "Send me to Algaz, Ironjaw. I'll hold the pass.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "I can carry your reports where the road's cut.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "The Dragonmaw are orcs. I know their old magic.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "The Dragonmaw are orcs. I know their old magic better than they do.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you need watched on the Algaz road, Ironjaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Dragonmaw must have killed a good many at Algaz, Ironjaw.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Algaz reports say about the Dragonmaw, Ironjaw?", next = "xapala", when = { class = "PALADIN" } },
@@ -326,7 +326,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trust anybody who'd go, an' that's the truth of it. The raptors have the road tae Whelgar's dig, an' I've heard yer sort can set things on beasts that'd make even a raptor think twice, so if ye're goin' east, look for her, would ye?" } },
+      lines = { { id = "xlock_default", text = "I'd trust anybody who'd go, an' that's the truth of it. The raptors have the road tae Whelgar's dig, an' I'd guess ye've ways o' settin' things on beasts that'd make even a raptor think twice, so if ye're goin' east, look for her, would ye?" } },
       choices = {
         { text = "I'll find her, Tarrel. You have my word.", next = "BACK", reply = "Yer word? Then I'll hold ye tae it, an' I'll pray for ye every night till ye're back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'm going east for my own reasons. We'll see.", next = "BACK", reply = "Yer own reasons, eh? Then I'll hope they lead ye past the dig, an' that ye keep an eye out for her.", fx = { align = { honor = -1 } } },
@@ -416,7 +416,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Would ye go east, to Whelgar's dig? I know it's a lot to ask, but I cannae go myself, an' Merrin's out there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'd know how to read a road, then, an' I need somebody to read the east road for me." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know the beasts o' this marsh, then, an' I'd give a lot tae know if the raptors have gone mad or were always like this." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? I'm a simple weaver, an' I'll no' pretend I understand yer trade, but ye look like ye could walk the east road an' come back." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'm a simple weaver, an' I'll no' pretend I understand whatever it is ye carry about ye, but ye look like ye could walk the east road an' come back." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Ye might be able tae help. My Merrin's at Whelgar's dig, an' she's no' written in near two weeks. Could the earth tell ye if she's well?" },
       },
       again = {
@@ -437,7 +437,7 @@ P:NPC {
         { text = "Shall I pray for Merrin's safe return, Tarrel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should I bring back from the dig, Tarrel?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The raptors seem bolder near Whelgar's dig than they used to be.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you trust a warlock to look for Merrin, Tarrel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you trust a stranger with dark habits to find Merrin, Tarrel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Shall I ask the earth about Merrin, Tarrel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I hope she writes soon.", next = "END", fx = { affinity = 1 } },
       },
@@ -621,7 +621,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! James used to bring back crocolisk tails for the stew before he left, and I've never found a hunter who did them better." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid from across the sea! You might have heard of Theramore, then, where my brother James keeps an inn." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, is it? Mind the tables; James used to say the quick-fingered ones always order the cheapest ale and leave with the most." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. James would have muttered a prayer and fetched Brother Glorin, but I've stood behind a bar too long to fuss over who drinks at it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "James would have muttered a prayer and fetched Brother Glorin at the sight of those ink-black fingers, but I've stood behind a bar too long to fuss over who drinks at it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. James would have liked you; he always said the Alliance would only win if it stopped being afraid of new things." },
       },
       again = {
@@ -834,7 +834,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Kalimdor's crying out for warriors, friend, for there are centaur and quilboar and worse across the sea, and all of it wants testing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have I told you about the beasts of Kalimdor, friend? Nightsabers, striders and birds as tall as a man, or so the sailors say." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of Kalimdor! Now here's someone who can tell these landlubbers I'm not exaggerating about the forests over there." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's someone Kalimdor's never seen the like of, for the night elves will either run from you or fill you with arrows, and both would make a fine story." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Now there's a face Kalimdor will remember, for the night elves will either run from whatever follows you or fill you with arrows, and both would make a fine story." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You'd love Kalimdor. They say the whole land's alive with spirits, and the orcs over there are thick with your kind. Er, their kind. You know what I mean." },
       },
       again = {
@@ -854,7 +854,7 @@ P:NPC {
         { text = "Do the folk you send across ever find comfort there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Theramore must be safe for the folk you send, Jack.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you tell folk about Kalimdor, Red Jack?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would Kalimdor welcome a warlock, Jack?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would Kalimdor ask fewer questions about my sort of power, Jack?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would a dwarf shaman be welcome in Kalimdor, Red Jack?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Maybe someday.", next = "END" },
       },
@@ -960,7 +960,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Burn them, freeze them, set a demon on them; I'll no' ask how, so long as ye dinnae ask me what's in it." } },
+      lines = { { id = "xlock_default", text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Burn them, freeze them, set that shadow o' yers on them; I'll no' ask how, so long as ye dinnae ask me what's in it." } },
       choices = {
         { text = "I won't pry, Sida. Your bag's your business.", next = "BACK", reply = "Thank ye, that's all I ask. There's nothin' in it but a few letters an' a comb, anyway.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll get your bag, but I'll look inside it.", next = "BACK", reply = "Look if ye like, an' ye'll find letters from my granny an' a comb. I hope ye enjoy the read.", fx = { align = { honor = -1 } } },
@@ -1033,7 +1033,7 @@ P:NPC {
           text = "My bag! I'd thought it gone for good. Keep that other bit ye found in it; wash it first, though, an' I mean properly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? Good, for the oozes out by the tomb don't care how sharp yer tongue is, only how sharp yer axe is." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Well, don't go sniffin' about after me like a hound, for where I go is my own business." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If that thing o' yers can eat oozes, I've a job for it, an' if it cannae, keep it away from me." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "That shadow at yer heel moves when ye don't. If it can eat oozes, I've a job for it, an' if it cannae, keep it away from me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I go out tae Ironbeard's Tomb every week, an' I'll tell ye, the earth there's no' at rest. Maybe ye can tell me why." },
       },
       again = {
@@ -1239,7 +1239,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want to learn to fish, then, for a soldier who can feed himself is worth two who can't." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Fishing's just hunting with a longer arm and a good deal more waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, does a druid shaped like a seal count as a fisherman, or is that cheating?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I once watched a warlock fish with a little imp holding the line, and it caught more than I did, which I'll never forgive." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a look about you I've seen before. A stranger once fished off this pier with some little horned thing holding the line, and it caught more than I did, which I'll never forgive." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can you tell the fish to bite? No, don't answer that; it would ruin the sport." },
       },
       again = {
@@ -1258,7 +1258,7 @@ P:NPC {
         { text = "Do the sailors ask you for luck before they sail, Riggs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the drowned sailors in the bay trouble your fishing, Riggs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lives deepest in the bay, Riggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you teach a warlock to fish, Riggs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you teach me to fish, Riggs, knowing what else I do?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think the water favours some fishermen, Harold?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good fishing.", next = "END" },
       },
@@ -1345,7 +1345,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
+      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you did something brave, of course, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
       choices = {
         { text = "Then I'll earn the hero's verse, Camerick.", next = "BACK", reply = "Then I'll wait for it, with my lute tuned and my quill sharp. Do something heroic, and I'll make the tavern weep.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Villains get the best lines anyway. Keep them.", next = "BACK", reply = "They do, don't they? Very well, you'll be the villain, and I'll give you a sneer they'll remember for years.", fx = { align = { honor = -1 } } },
@@ -1434,7 +1434,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, splendid, because every good song needs a warrior, and I've been stuck here writing songs about rain." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a whole verse about raptors and I've never seen one up close, which you'll agree is a problem." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You've the look of a song I haven't written yet, and I've had little else to write about lately but rain." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've a song about a warlock and his imp, though nothing rhymes with imp but limp and shrimp, so it's mostly about seafood." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, a dark one! I've a song about a sorcerer and his horned little servant, though nothing rhymes with servant but fervent, so it's mostly about a very keen goat." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I've a song about Wildhammer shamans calling storms over the Hinterlands, but none about a Bronzebeard. Give me a week and I'll write one." },
         { id = "dd_halyndor", when = { questDone = TODO_QUEST("Lifting the Curse") },
           text = "I'm writing a song about the Wave Mistress and her drowned captain, and you're in the third verse, if Fitzsimmons tells it true. I've still not found a rhyme for Halyndor." },
@@ -1456,7 +1456,7 @@ P:NPC {
         { text = "Do you need to see a raptor to write about one?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You ought to sing of the soldiers at Menethil, Camerick.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What songs do humans sing about my people, Camerick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Nobody would write a song about a warlock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "No bard would write a song about the things I do.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would your song about a Bronzebeard shaman say, Camerick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you ever write love songs, Camerick?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "camerick_flirt_no" } } },
         { text = "Some other time.", next = "END" },
@@ -1621,10 +1621,10 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xwl_default", text = "I've heard what you lot ride, with the burning hooves and the eyes like coals, and I'll say only that no horse of mine would stand in a stable beside it. Keep it well away from my paddock if you ever get one." },
+        { id = "xwl_default", text = "I've heard what your sort rides, with the burning hooves and the eyes like coals, and I'll say only that no horse of mine would stand in a stable beside it. Keep it well away from my paddock if you ever get one." },
       },
       choices = {
-        { text = "Fair. I'd not frighten your herd.", next = "BACK", reply = "Thank you, that's all I ask. My herd's skittish enough without a demon horse snorting fire at them.", fx = { align = { light = 1 } } },
+        { text = "Fair. I'd not frighten your herd.", next = "BACK", reply = "Thank you, that's all I ask. My herd's skittish enough without a hellish thing snorting fire at them.", fx = { align = { light = 1 } } },
         { text = "Mine will never tire. Yours will.", next = "BACK", reply = "Never tire, aye, and never love you either. I'll take a tired horse that knows my voice any day.", fx = { align = { light = -1 } } },
         { text = "Is the trade fair, though?", next = "fair" },
       },

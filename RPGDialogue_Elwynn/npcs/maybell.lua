@@ -52,7 +52,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
+      lines = { { id = "xlock_default", text = "Pa says your sort deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
       choices = {
         { text = "You should choose your friends yourself, Maybell.", next = "BACK", reply = "I've always thought so, and Pa's never agreed. You'd better go before he sees us talking.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", reply = "He does, I know, and I love him for it. But he's not always right about who's dangerous.", fx = { align = { order = 1 } } },
@@ -132,7 +132,7 @@ P:NPC {
           text = "You're a mage! Do you know any spells that could carry a letter across the river without anyone seeing?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Could you stand at the river crossing for a bit? Only if anyone comes, you could look terribly fierce." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must be good at going places without being seen, and I'd love to know how you do it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? Oh, you won't tell Pa I spoke to you, will you? He thinks I'm wicked enough already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You smell like a snuffed candle, and Pa says only one sort of person does. Oh, you won't tell Pa I spoke to you, will you? He thinks I'm wicked enough already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! You talk to spirits? Could you, perhaps, tell me whether a certain boy is thinking of me?" },
       },
       again = {

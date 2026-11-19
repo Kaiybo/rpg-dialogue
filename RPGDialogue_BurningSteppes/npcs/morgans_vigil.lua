@@ -145,7 +145,7 @@ P:NPC {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "A full company at Morgan's Vigil, and you've no notion how rare that is. Most who come up from Redridge come in ones and twos, and the Blackrock see them coming from the mountain." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 40 } }, text = "The scouts tell me you've been cutting down Blackrock orcs all across the Steppes, and the camps are quieter for it. Keep at it, but don't get careless, because Rend notices when his numbers drop." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "General Drakkisath is dead in the high halls of the Spire, and you were there to see it. I'll write the report tonight, deputy, and for once I'll enjoy writing it." },
         { id = "h_default", key = true,
@@ -192,7 +192,7 @@ P:NPC {
         { text = "Put me on the line, Marshal. I'm a soldier.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "I heard mages came up here. What became of them?", next = "k_mage", when = { class = "MAGE" } },
         { text = "I could scout the mountain for you, unseen.", next = "k_rogue", when = { class = { "ROGUE", "HUNTER" } } },
-        { text = "Few marshals would put a warlock on their line.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Few marshals would put someone like me on their line.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Stormwind ever send anything to help this land, Marshal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Some would be troubled that I fight with the elements, Marshal.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Drakkisath is dead, Marshal. The upper Spire is broken.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
@@ -606,7 +606,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I have read what the fel made of the satyrs and seen what it made of the orcs. Every warlock tells me they hold the leash, and I hope you're the first of them who is right." } },
+      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I have read what the fel made of the satyrs and seen what it made of the orcs. Everyone who walks your path tells me they hold the leash, and I hope you're the first of them who is right." } },
       choices = {
         { text = "I hold the leash, Helendis. I'll prove it.", next = "BACK", reply = "Then I will watch, and hope, and be glad if you do. Prove it slowly; I have time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leashes are for the timid. I'll do as I please.", next = "BACK", reply = "Then you are the same as all the others, and I will grieve for you when it turns on you. I have done it before, more often than I would like.", fx = { align = { order = -1 } } },
@@ -637,7 +637,7 @@ P:NPC {
         { id = "h_pt_kaldorei", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
           text = "{companion} is of my people, and far from the forests, as I am. It is strange to meet a kaldorei among the ash, but I am glad of it, for the humans here do not understand why I flinch when the mountain breathes fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, among the Alliance. That doesn't sit easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something walks with you that does not belong among the Alliance. That doesn't sit easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so I'll be watching your hands while we talk." },
         { id = "h_default", key = true,
           text = "I am Helendis Riverhorn, sent from Darnassus to learn what is happening in these mountains. Life in the Steppes is all conflict, and I have spent a long while working out who profits from it." },
@@ -985,10 +985,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enlist them, drill them and give them a uniform, soldier, though the imp will need a very small one. Every Firegut ogre on Dreadmaul Rock is an enemy of the Vigil, and I'm not fussy about who helps me with them." } },
+      lines = { { id = "xlock_default", text = "Enlist them, drill them and give them a uniform, soldier, though the little one will need a very small one. Every Firegut ogre on Dreadmaul Rock is an enemy of the Vigil, and I'm not fussy about who helps me with them." } },
       choices = {
-        { text = "My demons serve the Vigil, sir!", next = "BACK", reply = "Splendid, soldier! I'll have a uniform made, very small, for the imp.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demons serve me, not the Vigil.", next = "BACK", reply = "Then they're mercenaries, soldier, and I don't pay mercenaries. Winky disapproves too.", fx = { align = { order = -1 } } },
+        { text = "What follows me serves the Vigil, sir!", next = "BACK", reply = "Splendid, soldier! I'll have a uniform made, very small, for the little one.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What follows me serves me, not the Vigil.", next = "BACK", reply = "Then they're mercenaries, soldier, and I don't pay mercenaries. Winky disapproves too.", fx = { align = { order = -1 } } },
         { text = "Something else, sir.", next = "BACK" },
       },
     },
@@ -1014,7 +1014,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Firegut", min = 30 } }, text = "There's Firegut blood on you at last, soldier, and plenty of it by the reports. Dreadmaul Rock is feeling it, so don't stop now." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Winky says we oughtn't to enlist demons, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Winky says we oughtn't to enlist your sort of friends, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, reporting for duty! Excellent, soldier; Winky says artillery wins wars, and you're the nearest thing to artillery we've had all month." },
         { id = "h_default", key = true,
           text = "Oralius, of the Vigil and of Ironforge before that, and the only one here who keeps his head about him, whatever Captain Winky says. We strike the enemy before the enemy strikes us, soldier, and today is a striking sort of day." },
@@ -1053,7 +1053,7 @@ P:NPC {
         { text = "Are you well, Oralius? The Light can ease a troubled mind.", next = "priest", when = { class = "PRIEST" } },
         { text = "Does Captain Winky need a rogue on his crew?", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "What would you have your artillery do, sir?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Would you really enlist my demons, sir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really enlist what follows me, sir?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What should a scout watch for, sir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who exactly is Captain Winky, Oralius?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you have a shaman strike first, Oralius?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1280,7 +1280,7 @@ P:NPC {
         { text = "A mage needs to be careful near that much fire.", next = "mage", when = { class = "MAGE" } },
         { text = "You must think of Gnomeregan often.", next = "gnome", when = { race = "Gnome" } },
         { text = "Let me look at your mages' burns.", next = "priest", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
-        { text = "My imps don't mind fire, Jalinda.", next = "k_lock", when = { class = "WARLOCK" } },
+        { text = "What I keep doesn't mind fire, Jalinda.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "I could scout Pyron's quarry for you, Jalinda.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Who's Pyron, and why do you need a shield against him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happened to your mule, Jalinda?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1362,10 +1362,10 @@ P:NPC {
       lines = {
         { id = "xlk_default", text = "No, they don't, do they? I've thought about it, I'll admit, sending something that won't burn through the door first. But Marshal Maxwell would have my hide, and my mages would have the rest, and I'm not sure they'd be wrong." },
         { id = "xlk_gnome", when = { race = "Gnome" },
-          text = "No, they don't, and I've thought about asking you gnome warlocks for exactly that, since we're all scraping by on whatever works since Gnomeregan. But Maxwell would have my hide, and I'm not sure he'd be wrong." },
+          text = "No, they don't, and I've thought about asking gnomes of your sort for exactly that, since we're all scraping by on whatever works since Gnomeregan. But Maxwell would have my hide, and I'm not sure he'd be wrong." },
       },
       choices = {
-        { text = "Then let the imps go first. It saves lives.", next = "BACK", reply = "It might, and I've been tempted, really, I've even worked out the summoning sums. But I'm terribly afraid of what Maxwell would say, and of the imps, a little.", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "Then send my little ones in first. It saves lives.", next = "BACK", reply = "It might, and I've been tempted, really, I've even worked out the binding sums. But I'm terribly afraid of what Maxwell would say, and of them, a little.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Maxwell's right. Some help costs too much.", next = "BACK", reply = "I think so too, and it's good to hear someone else say it. Thank you.", fx = { align = { light = 1 } } },
       },
     },
@@ -1483,7 +1483,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock? Do keep your imp away from the porcelain, because it's older than Stormwind, and so, apparently, is my patience with imps." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Do keep that smoky little thing away from the porcelain, darling, because it's older than Stormwind, and so, apparently, is my patience." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Wonderful; you can tell me which of these pieces still hum with old enchantment, because the Count adores anything that glows in the dark." },
         { id = "h_default", key = true,
           text = "Mayara Brightwing, here on behalf of Count Remington Ridgewell of Stormwind. The Count collects beautiful things, and the Dark Irons left a great many beautiful things lying in the ash." },
@@ -1724,16 +1724,16 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, once the demon's gone an' the smell's faded a bit, which takes longer than ye'd think. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so I'll no' have them frightened on their own perch." } },
+      lines = { { id = "xlock_default", text = "Aye, once that creature's gone an' the smell's faded a bit, which takes longer than ye'd think. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so I'll no' have them frightened on their own perch." } },
       choices = {
         { text = "I'll put it away. The birds come first.", next = "BACK", reply = "Thank ye, an' they'll calm down soon enough. Good o' ye.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon's none of your birds' business, Borgus.", next = "BACK", reply = "It is when it's sittin' on their perch, an' I'll thank ye tae remember that. Away wi' it.", fx = { align = { order = -1 } } },
+        { text = "What I keep is none of your birds' business, Borgus.", next = "BACK", reply = "It is when it's sittin' on their perch, an' I'll thank ye tae remember that. Away wi' it.", fx = { align = { order = -1 } } },
         { text = "Something else, Borgus.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, eh? The birds can smell a demon a mile off, an' they'll no' let ye near if yer pet's out, so tuck it away before ye come up tae the perch." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ye've a smell on ye, eh? The birds can catch it a mile off, an' they'll no' let ye near if yer pet's out, so tuck it away before ye come up tae the perch." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, is it? Mind, the birds know a light step when they hear one, an' they hate bein' crept up on more than they hate the smoke." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, wantin' a gryphon? Ye could pop off tae Ironforge in a flash o' light, but I'll no' say no tae a customer who likes the long way round." },
         { id = "h_default", key = true,
@@ -1765,7 +1765,7 @@ P:NPC {
         { text = "Have your gryphons ever carried soldiers into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "A druid might help your gryphons with the ash, Borgus.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Will your gryphons carry a warlock at all, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will your gryphons carry someone who smells like me, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your gryphons feel the spirits, Borgus?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
       },

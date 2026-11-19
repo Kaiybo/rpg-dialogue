@@ -167,7 +167,7 @@ P:NPC {
         { text = "How do you teach the craft?", next = "method" },
         { text = "That's a large scorch mark behind you.", next = "scorch" },
         { text = "What do you make of Doctor Halsey?", next = "halsey" },
-        { text = "What's the best thing you make that burns?", next = "burn", when = { class = "WARLOCK" } },
+        { text = "What do you make that burns slowly enough to hurt?", next = "burn", when = { class = "WARLOCK" } },
         { text = "I'll get out of the way.", next = "END" },
       },
     },
@@ -220,7 +220,7 @@ P:NPC {
     burn = {
       lines = { { id = "burn_1", text = "A fire oil thick enough to cling, which I brew for the deathguards and which your imp would think was its birthday. I'll teach you the making of it when your hand is steady enough, and not one day before, because I have only the one wall left." } },
       choices = {
-        { text = "I can wait for a steady hand.", next = "BACK", reply = "A patient warlock. Now I truly have seen everything this city has to show." },
+        { text = "I can wait. Patience makes the burning sweeter.", next = "BACK", reply = "A patient warlock. Now I truly have seen everything this city has to show." },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -965,7 +965,7 @@ P:NPC {
       choices = {
         { text = "How do you see, without eyes?", next = "sight" },
         { text = "What is it like, working for Carendin Halgar?", next = "halgar" },
-        { text = "Why the hearts of the pure?", next = "hearts", when = { class = "WARLOCK" } },
+        { text = "Why the hearts of the pure? Is innocence so sweet to her?", next = "hearts", when = { class = "WARLOCK" } },
         { text = "Farsan. I've met a Farsan in Ratchet.", next = "name", when = { class = "WARLOCK" } },
         { text = "You tend the circles by touch.", next = "circles" },
         { text = "I'll go quietly, Godrick.", next = "END" },
@@ -1015,8 +1015,8 @@ P:NPC {
     hearts = {
       lines = { { id = "hearts_1", text = "A succubus is drawn to what she can spoil. Those zealots of the Crusade who haunt the Glades burn with a clean certainty, and she can smell it from the other side of the Nether. Three such hearts in the circle, and she will come to see what all the brightness is about." } },
       choices = {
-        { text = "And then I bind her.", next = "hearts2" },
-        { text = "That's a grim sort of bait.", next = "hearts2" },
+        { text = "And then she's mine to bind.", next = "hearts2" },
+        { text = "Grim bait. Though I can't say I mind it.", next = "hearts2" },
         { text = "Another matter.", next = "BACK" },
       },
     },
@@ -1024,7 +1024,7 @@ P:NPC {
       big = true,
       lines = { { id = "hearts2_1", text = "It is bait, and then it is binding, yes. The Scarlets would burn you and me alike and call it a kindness, so I do not weep for them. Still, I ask every student the same thing before they go. Does it sit easily with you?" } },
       choices = {
-        { text = "They chose this war. It sits easily.", next = "BACK", reply = "Then you will sleep, and she will find less to work with. Good.", fx = { align = { light = -1 } } },
+        { text = "They chose this war. Their hearts are fair payment.", next = "BACK", reply = "Then you will sleep, and she will find less to work with. Good.", fx = { align = { light = -1 } } },
         { text = "No, and I hope it never does.", next = "BACK", reply = "Keep that. A warlock who has stopped minding is very nearly a demon's meal already.", fx = { align = { light = 1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },

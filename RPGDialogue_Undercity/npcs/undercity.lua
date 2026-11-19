@@ -175,7 +175,7 @@ P:NPC {
         { text = "I carry the Light, my lady, though it burns.", next = "paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "I still pray to the Light, my lady.", next = "priest", when = { race = "Scourge", class = "PRIEST" } },
         { text = "I'd serve you as a knife in the dark, my lady.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "I served the Cult once, before the end.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
+        { text = "I wore the Cult's robes once, and I learned a great deal.", next = "cult", when = { race = "Scourge", class = "WARLOCK" } },
         { text = "My people spoke for yours. Was it a mistake?", next = "tauren", when = { race = "Tauren" } },
         { text = "My spells are yours, my lady.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You must ask much of your warriors, my lady.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -231,14 +231,14 @@ P:NPC {
       big = true,
       lines = { { id = "cu_default", text = "Then you knelt to Kel'Thuzad, and you helped spread the plague that made us all. Many of my people would hang you in the Apothecarium for that, and I'm not certain they'd be wrong. Tell me why I shouldn't." } },
       choices = {
-        { text = "Because I know how the Scourge thinks. Use me.", next = "BACK", reply = "A practical answer, and the only one that would have saved you. Serve me well, and the Apothecarium will wait a while longer.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I owe no one apologies. Least of all the dead.", next = "BACK", reply = "Bold, and foolish, and very nearly worth admiring. Watch your back in my city, cultist.", fx = { affinity = -2, align = { order = -1 } } },
+        { text = "I know how the Scourge thinks. Use that, and use me.", next = "BACK", reply = "A practical answer, and the only one that would have saved you. Serve me well, and the Apothecarium will wait a while longer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I apologize to no one, my lady. Least of all the dead.", next = "BACK", reply = "Bold, and foolish, and very nearly worth admiring. Watch your back in my city, cultist.", fx = { affinity = -2, align = { order = -1 } } },
         { text = "I have no reason, my lady. Only regret.", next = "cult_regret" },
       },
     },
     cult_regret = {
       lines = { { id = "cr_default", text = "Regret is a luxury of the living. Make it useful instead: the Cult still crawls in the north, and you know their signs. Bring me their names." } },
-      choices = { { text = "You'll have their names.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "You'll have their names, and whatever else I take from them.", next = "BACK", fx = { affinity = 2 } } },
     },
     tauren = {
       lines = { { id = "ta_default", text = "That depends on what your elders hoped to gain. Cairne speaks of a cure, and I let him, because his hope bought us a seat in the Horde. If he finds one, I'll consider it. Until then, the debt stands, and I'm aware of it." } },
@@ -803,7 +803,7 @@ P:NPC {
         { text = "What does a dreadlord make of the Emerald Dream?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You have your guards, Varimathras. I have my shield.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "A dreadlord serving the Dark Lady seems unlikely.", next = "serve" },
-        { text = "I command demons too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I hold demons on a leash too, dreadlord.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The Light answers me. That must trouble you.", next = "paladin", when = { class = "PALADIN" } },
         { text = "What does a dreadlord make of the arcane?", next = "mage", when = { class = "MAGE" } },
         { text = "I'd serve the Dark Lady from your shadow, Varimathras.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -825,8 +825,8 @@ P:NPC {
           text = "A troll who whispers into the Nether. Your people's spirits must be terribly jealous. Do tell me what you hear; I may recognize the voice." },
       },
       choices = {
-        { text = "I'll tell the Dark Lady first, dreadlord.", next = "BACK", reply = "Naturally, as any loyal servant would. I'll hear about it soon enough regardless.", fx = { affinity = -2, align = { order = 1 } } },
-        { text = "And if something larger answers, I'll come to you.", next = "BACK", reply = "How very wise of you. I'll be waiting, as I always am.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "The Dark Lady will hear of it first, dreadlord. Not you.", next = "BACK", reply = "Naturally, as any loyal servant would. I'll hear about it soon enough regardless.", fx = { affinity = -2, align = { order = 1 } } },
+        { text = "If something larger answers, you'll be the first to know.", next = "BACK", reply = "How very wise of you. I'll be waiting, as I always am.", fx = { affinity = 2, align = { order = -1 } } },
       },
     },
     paladin = {
@@ -1103,7 +1103,7 @@ P:NPC {
         { text = "Whatever you're making smells dreadful.", next = "making" },
         { text = "I need poisons for my blades. Can you help?", next = "rogue", when = { class = "ROGUE" } },
         { text = "I trained in Dalaran. Your work looks like magic to me.", next = "mage", when = { class = "MAGE" } },
-        { text = "I doubt your brews would work on demons.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I wonder what your brews would do to a demon.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "My people's elders treat the Forsaken. Do you work with them?", next = "tauren", when = { race = "Tauren" } },
         { text = "You must need samples from the beasts I hunt, Faranell.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the Apothecarium want with a paladin, Master Apothecary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1139,8 +1139,8 @@ P:NPC {
     warlock = {
       lines = { { id = "wl_default", text = "I haven't the faintest idea, and I'd adore finding out! Lend me your imp for an afternoon, nothing dangerous, I swear, and we'll both learn something. Well, I will, at least; I can't promise the imp will be learning." } },
       choices = {
-        { text = "Take the imp. It's been mouthy anyway.", next = "BACK", fx = { affinity = 2, trait = { cruel = 1 } } },
-        { text = "My imp is not your test subject.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
+        { text = "Take the imp. A little pain will teach it manners.", next = "BACK", fx = { affinity = 2, trait = { cruel = 1 } } },
+        { text = "No. The imp is mine, and I don't lend what's mine.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
       },
     },
     tauren = {
@@ -1364,7 +1364,7 @@ P:NPC {
         { text = "You speak of Thule with no love at all.", next = "thule" },
         { text = "I studied in Dalaran too. Do you miss it?", next = "mage", when = { class = "MAGE", race = "Scourge" } },
         { text = "An orc mage. What does Dalaran's man make of that?", next = "orcmage", when = { race = "Orc", class = "MAGE" } },
-        { text = "I made bargains for power, as Thule did.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I've struck bargains in the dark, as Thule did.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I'd guess a mage has little use for a thief, Bethor.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warrior might be of use against a lich, Bethor.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Has any power ever kept faith with the dead, Bethor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -1394,8 +1394,8 @@ P:NPC {
       big = true,
       lines = { { id = "wl_default", text = "As Thule did? He sold himself whole, and you rent pieces of yourself by the hour, but the ledger is kept by the same people. I don't judge you for it, but I'll be watching what you trade, because I didn't watch him, and I should have." } },
       choices = {
-        { text = "Watch, then. I know where my line is.", next = "BACK", reply = "Good, and keep it there, warlock. Thule thought he knew his too.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Thule was weak. He sold too cheaply.", next = "BACK", reply = "Weak, perhaps, but he believed he was getting a fair price. That's the trap, warlock, not the price.", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Watch, then. I know exactly where my line is drawn.", next = "BACK", reply = "Good, and keep it there, warlock. Thule thought he knew his too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Thule was weak. He sold himself far too cheaply.", next = "BACK", reply = "Weak, perhaps, but he believed he was getting a fair price. That's the trap, warlock, not the price.", fx = { affinity = -2, align = { light = -1 } } },
       },
     },
     xhhunt = {
@@ -1605,7 +1605,7 @@ P:NPC {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do rogues get a chair here too, Norman?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warm fire would suit your common room, Norman.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
-        { text = "Is there a chair for my demon too, Norman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "My demon is hungry, Norman. Is there a seat for it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The regulars seem to mind a paladin among them, Norman.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do many living folk travel with the Forsaken, Norman?", next = "xpt_norman", when = { party = { race = "Scourge" } } },
         { text = "What's the talk at your tables, Norman?", next = "op_peace" },
@@ -1681,8 +1681,8 @@ P:NPC {
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "There's a place for it on the floor, and you'll find the floor is stone, which is the only thing down here your demon can't scorch. I've nothing against it in principle, only against what it does to leather." },
       },
       choices = {
-        { text = "It'll sit on the floor, as you say.", next = "BACK", reply = "Thank you, and my upholstery thanks you too. I'll find it a cushion, of sorts.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "My demon sits where it pleases, Norman.", next = "BACK", reply = "Then it can please itself on the floor, friend, or outside. Good leather's hard to come by.", fx = { align = { order = -1 } } },
+        { text = "It'll crouch on the floor, as you say.", next = "BACK", reply = "Thank you, and my upholstery thanks you too. I'll find it a cushion, of sorts.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon sits where I allow it, Norman. Not where you do.", next = "BACK", reply = "Then it can please itself on the floor, friend, or outside. Good leather's hard to come by.", fx = { align = { order = -1 } } },
         { text = "Can I ask you something else, Norman?", next = "BACK" },
       },
     },

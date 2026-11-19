@@ -463,7 +463,7 @@ P:NPC {
         { text = "How did you lose your eyes?", next = "eyes" },
         { text = "What do you see, exactly?", next = "see" },
         { text = "What is it like to serve Carendin Halgar?", next = "carendin" },
-        { text = "There's a Farsan teaching warlocks in Ratchet.", next = "strahad", when = { class = "WARLOCK" } },
+        { text = "There's a Farsan in Ratchet who teaches what you teach.", next = "strahad", when = { class = "WARLOCK" } },
         { text = "What do you see behind me?", next = "seeme" },
         { text = "I'll leave you to the Temple.", next = "END" },
       },

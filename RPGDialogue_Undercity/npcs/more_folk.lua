@@ -154,12 +154,12 @@ P:NPC {
         { id = "h_again3", text = "You are still here, so I assume there is another question. Ask it properly." },
       },
       choices = {
-        { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Then teach me the lessons that cost more, master.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What makes a good warlock?", next = "good" },
         { text = "Do you work with the other trainers here?", next = "others" },
         { text = "This hall smells of brimstone and chalk.", next = "hall" },
         { text = "What do you think of the mages next door?", next = "mages" },
-        { text = "My first summoning nearly went wrong.", next = "first", when = { class = "WARLOCK" } },
+        { text = "My first summoning very nearly ate me alive.", next = "first", when = { class = "WARLOCK" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -217,15 +217,15 @@ P:NPC {
     first = {
       lines = { { id = "f_default", text = "Then you have learned the most useful lesson I teach, and you learned it without my help. Tell me what went wrong, briefly, and do not flatter yourself in the telling." } },
       choices = {
-        { text = "I rushed the circle.", next = "first2" },
-        { text = "The imp talked, and I listened.", next = "first2" },
+        { text = "I rushed the circle. I wanted it too badly.", next = "first2" },
+        { text = "The imp whispered, and I listened far too long.", next = "first2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     first2 = {
       lines = { { id = "f2_default", text = "Of course you did. Every student does one or the other, and the ones who admit it are the ones I can teach. Carendin Halgar keeps the deeper rites further in, and when you are ready for a greater servant it is he who will test you, not I." } },
       choices = {
-        { text = "I'll be ready for him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be ready for him, and for whatever he calls up.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2403,12 +2403,12 @@ P:NPC {
         { id = "h_again3", text = "Ask it, before something in here gets bored." },
       },
       choices = {
-        { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Show me the grimoires, and the ones you keep back.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "How do you train a demon with a book?", next = "book" },
         { text = "You sound fond of them.", next = "fond" },
         { text = "Which servant gives the most trouble?", next = "trouble" },
         { text = "How do you get on with the warlock masters?", next = "masters" },
-        { text = "My demon's stopped obeying the small commands.", next = "obey", when = { class = "WARLOCK" } },
+        { text = "My demon has started testing its chains. Not with the small orders yet.", next = "obey", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -2459,15 +2459,15 @@ P:NPC {
     obey = {
       lines = { { id = "o_default", text = "Then it's testing whether you still mean it. They do that when the warlock's tired, or distracted, or newly sure of himself. Which are you?" } },
       choices = {
-        { text = "Tired. I've been travelling hard.", next = "obey2" },
-        { text = "Sure of myself, I suppose.", next = "obey2" },
+        { text = "Tired. I've been bleeding for it on the road.", next = "obey2" },
+        { text = "Sure of myself. Perhaps a little too sure.", next = "obey2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     obey2 = {
       lines = { { id = "o2_default", text = "Then say the small commands aloud for a week, every one, as if it were the first day. It will sulk, and then it will obey, because you'll have reminded it that you're paying attention. It's nearly always that." } },
       choices = {
-        { text = "I'll do it. Thank you, Martha.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll remind it who holds the chain. Thank you, Martha.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

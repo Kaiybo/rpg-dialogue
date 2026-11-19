@@ -701,7 +701,7 @@ P:NPC {
     routes_felwood = {
       lines = {
         { id = "rf_default", text = "Like flying over a wound that's gone bad. The riders keep high so the beasts don't breathe it, and when they land at Bloodvenom they want water and a good long rest, and I don't blame them, because I've smelled that forest myself." },
-        { id = "rf_lock", when = { class = "WARLOCK" }, text = "You'd know the stink better than I would, warlock, since it's the same green fire your sort plays with. Burned into the trees by the Legion, the druids say, and it hasn't let go." },
+        { id = "rf_lock", when = { class = "WARLOCK" }, text = "You'd know the stink better than I would, since it's the same green fire your sort plays with. Burned into the trees by the Legion, the druids say, and it hasn't let go." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

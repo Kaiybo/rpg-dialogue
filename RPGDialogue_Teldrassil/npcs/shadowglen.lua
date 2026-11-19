@@ -99,10 +99,10 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Everything that walks here shifts the balance a little, so I count the cubs and the boars and the grellkin every morning. Your servant would tip the scale like a stone dropped in a moonwell, so keep it close, and I'll count you with the rest." },
+        { id = "xlock_default", text = "Everything that walks here shifts the balance a little, so I count the cubs and the boars and the grellkin every morning. What walks with you would tip the scale like a stone dropped in a moonwell, so keep it close, and I'll count you with the rest." },
       },
       choices = {
-        { text = "I'll keep it close. The glade deserves care.", next = "BACK", reply = "Elune keep you for that, warlock, for the glade is fragile still and its young ones frighten easily. Keep it close until you are past the moonwell.", fx = { align = { order = 1 } } },
+        { text = "I'll keep it close. The glade deserves care.", next = "BACK", reply = "Elune keep you for that, for the glade is fragile still and its young ones frighten easily. Keep it close until you are past the moonwell.", fx = { align = { order = 1 } } },
         { text = "The balance can bear one more creature.", next = "BACK", reply = "It can, perhaps, but I would rather not test it. Keep it close, please.", fx = { align = { order = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
@@ -138,7 +138,7 @@ P:NPC {
         { id = "h_grown", when = { minLevel = 20 },
           text = "You've grown since the glade last saw you. Out there in the world, is the balance kept any better than in here?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in Shadowglen! The glade is lovely, but even lovely places need someone to stand between them and harm." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in Shadowglen? I never expected one here among the cubs, and I'd ask you to mind them, because they're curious little things." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Mind the cubs, stranger. They're curious little things, and they've gone very still since you came up the path." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grell", min = 20 } },
           text = "The grells have thinned since you began your work in the glade, and the balance is easier to keep for it. Take care not to tip it the other way, though, because Shadowglen needs a few of everything, even grells." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! The morning light delights me every day, and one who speaks with spirits delights me too. Ishnu-alah, and welcome to Shadowglen." },
@@ -160,7 +160,7 @@ P:NPC {
         { text = "What threatens Shadowglen, Conservator?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does keeping the balance ever trouble you, Conservator?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there any evil in Shadowglen a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Does a warlock upset the balance of Shadowglen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do I upset the balance of Shadowglen, Mardant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the nightsaber cubs know the spirits, Conservator?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Conservator.", next = "END" },
       },
@@ -324,7 +324,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I believe it can, the way it felt the fel moss creeping up from Fel Rock before any of us saw it, and it hasn't been easy since. Keep your servant back, and the tree and I will both thank you." },
+        { id = "xlock_default", text = "I believe it can, the way it felt the fel moss creeping up from Fel Rock before any of us saw it, and it hasn't been easy since. Keep that creature back, and the tree and I will both thank you." },
       },
       choices = {
         { text = "I'll keep it well back from the roots.", next = "BACK", reply = "It still remembers the fel moss creeping up from Fel Rock, and it will rest easier with that thing well back. So will I, to be honest.", fx = { align = { light = 1 } } },
@@ -348,7 +348,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Lower your voice near the roots, please, because Aldrassil has heard enough clashing steel for one age." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The young ones of Aldrassil learn the bow and the beast together, and I'm glad to see one who has stuck with it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, beneath Aldrassil! Forgive me for staring, but I've never seen one this close to the old tree, and I can't help wondering whether it hums for you as it hums for us." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock beneath Aldrassil. I'll ask you plainly to keep your servant away from the roots, because the old tree has felt enough of the fel already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The roots of Aldrassil shivered when you came up the ramp. Keep whatever follows you away from them, because the old tree has felt enough of the fel already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Speak softly near the roots, for I believe Aldrassil hears every word, as the old forests of Ashenvale did. Do your spirits hear it too?" },
       },
       again = {
@@ -364,7 +364,7 @@ P:NPC {
         { text = "Could a prayer do Aldrassil any good, Melithar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What did you read about the Silver Hand, Melithar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Aldrassil mind the arcane, Melithar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Can Aldrassil really feel my servant, Melithar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can Aldrassil really feel what walks with me, Melithar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does Aldrassil actually hear us, Melithar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to the roots.", next = "END", fx = { affinity = 1 } },
         { text = "Does Aldrassil mind warriors training beneath it?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -528,7 +528,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll turn it against the Legion, never for it.", next = "BACK", reply = "Then the Legion will learn to fear you, and I will be glad of it. Never forget which side you stand on.", fx = { align = { light = 1 } } },
-        { text = "Your war is over. Mine is just beginning.", next = "BACK", reply = "Mine will never be over, warlock, not while I remember Hyjal. I hope yours ends better than it began.", fx = { align = { light = -1 } } },
+        { text = "Your war is over. Mine is only beginning.", next = "BACK", reply = "Mine will never be over, not while I remember Hyjal. I hope yours ends better than it began.", fx = { align = { light = -1 } } },
         { text = "What happened at Hyjal?", next = "hyjal" },
       },
     },
@@ -617,7 +617,7 @@ P:NPC {
         { text = "My bow is strung. What should I hunt first?", next = "hunter_tn", when = { class = "HUNTER" } },
         { text = "I learned to move quietly before I could fight.", next = "rogue_tn", when = { class = "ROGUE" } },
         { text = "I came a long way to study your great tree.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I'd heard the kaldorei fought demons once.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd heard the kaldorei fought the Legion once.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the moon look different from Aldrassil's crown?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin owe the young elves of Shadowglen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will you bless a druid's road, Tenaron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -876,11 +876,11 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'd rather you went yourself, if you don't mind my saying, because Iverron would faint clean away if a demon came to fetch him. Bring back what he needs for the antidote, and I'll not ask what helped you do it." },
+        { id = "xlock_default", text = "I'd rather you went yourself, if you don't mind my saying, because Iverron would faint clean away if that thing came to fetch him. Bring back what he needs for the antidote, and I'll not ask what helped you do it." },
       },
       choices = {
         { text = "I'll go myself. Iverron's had enough fright.", next = "BACK", reply = "Thank you, and he will be so glad of it. He has had a very bad week.", fx = { align = { honor = 1 } } },
-        { text = "My servant will go. Iverron can faint.", next = "BACK", reply = "He will, and then he will tell the whole of Shadowglen about it. Please go yourself.", fx = { align = { honor = -1 } } },
+        { text = "My companion will go. Iverron can faint.", next = "BACK", reply = "He will, and then he will tell the whole of Shadowglen about it. Please go yourself.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -920,7 +920,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know spider tracks when you see them, and there are far too many near the cave today." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Iverron has gone near the spider cave again, and I keep thinking a druid's healing might do more for that venom than anything I can brew." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, here? You couldn't magic away spider venom, I suppose, because Iverron's gone into the Webwood again." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in Shadowglen, and I suppose your servant doesn't mind spider venom? Iverron's gone and got himself bitten again." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I suppose that little horror of yours doesn't mind spider venom? Iverron's gone and got himself bitten again." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Forgive me, my friend is in the spider cave again and I keep looking for him, so if your spirits can see further than I can, please ask them." },
       },
       again = {
@@ -936,7 +936,7 @@ P:NPC {
         { text = "Is Iverron's poison beyond a priest's help, Dirania?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who needs protecting here, Dirania?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can't magic help Iverron, Dirania?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Should my servant go into the Webwood for Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Should my companion go into the Webwood for Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is your friend often in danger, Dirania?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help him.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Should I go into the Webwood after him, Dirania?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1085,7 +1085,7 @@ P:NPC {
         { id = "xlock_default", text = "Afraid is a strong word, though I'll admit it's the one I'd use. The spiders at least are honest about wanting to eat me, and I can't tell what that creature of yours wants, which is worse in a scholar's book." },
       },
       choices = {
-        { text = "It wants what I tell it to. Nothing more.", next = "BACK", reply = "I hope so, warlock, for both our sakes. The spiders at least are honest about it.", fx = { align = { order = 1 } } },
+        { text = "It wants what I tell it to want. Nothing more.", next = "BACK", reply = "I hope so, for both our sakes. The spiders at least are honest about it.", fx = { align = { order = 1 } } },
         { text = "You're wise to fear it, scholar.", next = "BACK", reply = "Thank you, and I will go on fearing it, from a respectful distance. The spiders are quite enough.", fx = { align = { order = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
@@ -1107,7 +1107,7 @@ P:NPC {
           text = "The egg has gone to Darnassus with the venom, and I'll follow when I'm done here, or when it hatches, whichever comes first." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to study the Webwood spiders up close, I suppose, which is the opposite of my method." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll want to tell me the Webwood spiders are part of the balance too, and I won't argue, though I'd like the balance to keep its fangs to itself." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, on Aldrassil's steps. I study the Webwood spiders from a careful distance, and I'd like to study your servant from a slightly greater one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study the Webwood spiders from a careful distance, and I'd like to study whatever is behind you from a slightly greater one." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Webwood", min = 20 } },
           text = "By my count, and I do count, you've cut the Webwood's numbers down by a fair few. The spiders are no less hungry for it, but there are fewer of them, which from a distance is the next best thing." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I study the Webwood spiders, mostly from a respectful distance, and I suspect your spirits could study them a good deal more closely than I'd care to." },
@@ -1128,7 +1128,7 @@ P:NPC {
         { text = "Have the spiders taken anyone from the glade, Gilshalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would the spiders hear a paladin coming, Gilshalan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Webwood spiders really part of the balance, Gilshalan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Are you afraid of my servant, Gilshalan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are you afraid of my companion, Gilshalan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why study the spiders from a distance, Gilshalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go to the cave.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },

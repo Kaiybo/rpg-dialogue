@@ -164,7 +164,7 @@ P:NPC {
           text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I can't see well any more, but I can smell sulphur, and I've smelled it before." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I can't see well any more, but I can smell sulphur on you, and I've smelled it before." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, I hear, by the step. I ran the Stormwind Guard once, and I fought orc shamans in the Second War. Forgive an old man if he's wary." },
       },
       again = {

@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = { { id = "xl_default", text = "It does, and I won't insult you by pretending otherwise. The thing at your heel was born of the same Legion my people bled to drive from this world, and every bargain your kind makes with it leaves a door open behind you." } },
       choices = {
-        { text = "I hold the leash. The Legion's creatures serve me now.", next = "BACK", reply = "So said many of the Highborne, once, before the Legion answered their call. I hope you are wiser than they were, truly.", fx = { align = { light = -1 } } },
+        { text = "I hold the leash, Nara, and what's on it answers to me.", next = "BACK", reply = "So said many of the Highborne, once, before the Legion answered their call. I hope you are wiser than they were, truly.", fx = { align = { light = -1 } } },
         { text = "Then I'll keep my doors shut beneath your trees.", next = "BACK", reply = "I am sorry for it, and I will not pretend I am not relieved. Elune keep you on whatever road you take.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

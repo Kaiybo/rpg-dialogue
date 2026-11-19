@@ -358,8 +358,8 @@ P:NPC {
       },
       choices = {
         { text = "Then you'll know if I ever lose control.", next = "lamb_control" },
-        { text = "Watching warlocks is wise.", next = "BACK", reply = "Someone has to. The trouble is that Gakin knows he's watched, and he watches right back.", fx = { align = { order = 1 } } },
-        { text = "What we do in the cellar is our business.", next = "BACK", reply = "Until it walks up the stairs. Then it becomes my business, and I don't enjoy my business.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Watching that cellar is wise, Master Shaw.", next = "BACK", reply = "Someone has to. The trouble is that Gakin knows he's watched, and he watches right back.", fx = { align = { order = 1 } } },
+        { text = "What happens in the cellar is no concern of yours, Shaw.", next = "BACK", reply = "Until it walks up the stairs. Then it becomes my business, and I don't enjoy my business.", fx = { affinity = -1, align = { order = -1 } } },
       },
     },
     lamb_control = {
@@ -868,13 +868,13 @@ P:NPC {
         { id = "h_again2", text = "Something else? Keep your voice down." },
       },
       choices = {
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach me more, Gakin. I'm hungry for it.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "This place feels like more than a tavern cellar.", next = "lamb" },
         { text = "There are a lot of dwarves and gnomes down here.", next = "khaz" },
         { text = "You spoke of Surena as if she mattered.", next = "surena", when = { questDone = TODO_QUEST("Surena Caledon") } },
         { text = "The Church would shut this place down.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
-        { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARLOCK" } },
-        { text = "Who's really the master, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
+        { text = "What should I be practising in the dark hours, Gakin?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Who truly holds the chain, Gakin, the warlock or the demon?", next = "master", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's books taught me more than any cellar.", next = "gnome_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "The other trainers here seem a mixed lot.", next = "others" },
         { text = "Why do the Quarter's mages look down on you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -944,8 +944,8 @@ P:NPC {
           text = "Your circles, and your sleep. A tired warlock draws a crooked circle, and a crooked circle is an invitation. I've buried two students who forgot that." },
       },
       choices = {
-        { text = "My imp doesn't ask for things.", next = "practise_imp" },
-        { text = "I'll keep it short of everything.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "My imp never asks me for anything. It knows better.", next = "practise_imp" },
+        { text = "I'll keep it starved of everything but orders.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
     practise_imp = {
@@ -956,8 +956,8 @@ P:NPC {
       big = true,
       lines = { { id = "master_l", text = "Whoever forgets first. The demon never forgets what it is, so the work is all on your side: remember, every hour, that it hates you, and that it's yours." } },
       choices = {
-        { text = "Then I'll never forget.", next = "BACK", reply = "Good. Say it every morning, and you'll outlive most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A little freedom makes a demon more useful.", next = "master_free", fx = { align = { order = -1 } } },
+        { text = "Then I'll never forget it hates me, or that it's mine.", next = "BACK", reply = "Good. Say it every morning, and you'll outlive most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A demon on a longer chain kills more usefully.", next = "master_free", fx = { align = { order = -1 } } },
         { text = "It might stop hating me one day.", next = "master_hate" },
       },
     },
@@ -976,8 +976,8 @@ P:NPC {
           text = "You took them off the shelves while everyone else was running, I'd guess; I've had three gnomes down here with the same story. The books didn't tell you what they cost their last owners, so I will." },
       },
       choices = {
-        { text = "A demon is only a system with inputs.", next = "gnome_lock_sys" },
-        { text = "Then teach me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A demon is only a system with inputs, and I control them.", next = "gnome_lock_sys" },
+        { text = "Then teach me what the books left out.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     gnome_lock_sys = {
@@ -1202,7 +1202,7 @@ P:NPC {
         { text = "Do people bring their troubles to the Gilded Rose, Allison?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has the Gilded Rose ever needed a paladin, Allison?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you keep a room with the window open for a druid, Allison?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do warlocks stay at the Gilded Rose, Allison?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the Lamb's regulars ever take rooms at the Gilded Rose, Allison?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you get many strange guests at the Gilded Rose, Allison?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "How do companies usually split their takings here?", next = "xpt_allison", when = { party = true } },
         { text = "Just passing through.", next = "END" },

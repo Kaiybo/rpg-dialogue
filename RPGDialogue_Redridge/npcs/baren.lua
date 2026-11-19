@@ -42,7 +42,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
       choices = {
-        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever you summon off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever walks behind you off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", reply = "Silence you'll have, then, since that's mostly what fishermen give anyway. Just don't be surprised if they cross themselves when you pass.", fx = { align = { honor = -1 } } },
         { text = "Something else, Baren.", next = "BACK" },
       },
@@ -117,7 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my docks. Mind your step on the boards, and keep your pet away from the boats, because the fishermen are jumpy enough with the murlocs about." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a chill come onto my docks with you, stranger. Mind your step on the boards, and keep whatever follows you away from the boats, because the fishermen are jumpy enough with the murlocs about." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Murloc", min = 30 } }, text = "The fishermen tell me the murlocs on the north shore are fewer than they were, and somebody's been leaving them on the rocks. I'll count that in my ledger as a good week." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, on my docks. Mind the loose planks, and if your water spirits can keep the murlocs off my boats, I'll owe you a drink." },
       },

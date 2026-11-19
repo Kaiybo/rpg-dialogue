@@ -129,7 +129,7 @@ P:NPC {
         { text = "The vines look healthy this year.", next = "vines" },
         { text = "Tell me about your children.", next = "children" },
         { text = "I'd guess the Defias come up this way.", next = "defias", when = { any = { { questDone = TODO_QUEST("Brotherhood of Thieves") }, { class = "ROGUE" } } } },
-        { text = "Do you fear a warlock will harm your vines?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you think I'd harm your vines, if I wanted to?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Would you have a warrior settle your feud, Pa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The boars must give you trouble in the vines.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you ever make peace with the Stonefields, Pa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -260,7 +260,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. I judge a customer by their coin and their manners, and you've both, so far." } },
+      lines = { { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and folk like you are well down the list. I judge a customer by their coin and their manners, and you've both, so far." } },
       choices = {
         { text = "Then I'll keep my manners, Joshua.", next = "BACK", reply = "Good, and I'll keep pouring as long as you do. That's the only rule at this table.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Manners are cheap. Coin's what you really want.", next = "BACK", reply = "Coin's what keeps the vines watered, but manners are what keep Pa from coming out with the pitchfork. Mind both.", fx = { align = { honor = -1 } } },
@@ -349,7 +349,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want something strong, I expect. I've a red that'll stand up to anything you've fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf! Here, have a taste, because I've never poured for one of your people and I'd love to know what you make of it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a strange look about you, friend. Pa won't like it, but Pa doesn't like anybody, so you're in good company. What can I sell you?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have a taste of the wine, and don't mind Pa's grumbling; your spirits might like it even if he doesn't." },
       },
       again = {
@@ -368,7 +368,7 @@ P:NPC {
         { text = "Does your family ever pray together, Joshua?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your family safe out here, Joshua?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes a vine give good grapes, besides the weather?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Does your family distrust warlocks, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does your family distrust folk like me, Joshua?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your father seems to grumble a lot, Joshua.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },

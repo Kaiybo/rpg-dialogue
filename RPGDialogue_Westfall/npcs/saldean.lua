@@ -130,7 +130,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I didn't need a warlock to tell me that, though I'll admit it's a strange comfort to hear it said aloud. Something puts the walk in those scarecrows, and it isn't Westfall straw." } },
+      lines = { { id = "xlo_default", text = "I didn't need the likes of you to tell me that, though I'll admit it's a strange comfort to hear it said aloud. Something puts the walk in those scarecrows, and it isn't Westfall straw." } },
       choices = {
         { text = "I'll find what moves them and turn it to my use.", next = "BACK", reply = "Turn it to your use, eh? I'll not ask what you mean by that, so long as it's off my land.", fx = { align = { light = -1 } } },
         { text = "I'll burn them down and let the darkness go with them.", next = "BACK", reply = "That's what I'd do, if I knew how. Burn them, and I'll stand at the edge and cheer.", fx = { affinity = 1, align = { light = 1 } } },

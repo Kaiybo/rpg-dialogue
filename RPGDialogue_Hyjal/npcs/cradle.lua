@@ -52,7 +52,7 @@ P:NPC {
         { text = "You do what must be done. I respect that.", next = "op_r1", fx = { affinity = 1, align = { order = -1 }, opinion = { demon_hunters = "respect" } } },
         { text = "You've let the enemy inside you. That's how it starts.", next = "op_r2", fx = { align = { order = 1 }, trait = { cautious = 1 }, opinion = { demon_hunters = "distrust" } } },
         { text = "Illidan's followers belong in the Watchers' chains.", next = "op_r3", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 }, opinion = { demon_hunters = "hate" } } },
-        { text = "We both bargain with demons. We're not so different.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful", demon_hunters = "kin" } }, when = { class = "WARLOCK" } },
+        { text = "We both bargained with the Legion for power. Don't pretend otherwise.", next = "op_r4", fx = { affinity = -1, opinion = { demons = "useful", demon_hunters = "kin" } }, when = { class = "WARLOCK" } },
         { text = "I'll keep my judgment to myself.", next = "BACK" },
       },
     },
@@ -69,7 +69,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r4 = {
-      lines = { { id = "op_r4_default", text = "I do not bargain, warlock. I take, and I never let what I took speak back to me, so pray that you can say the same." } },
+      lines = { { id = "op_r4_default", text = "I do not bargain. I take, and I never let what I took speak back to me, so pray that you can say the same." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hello = {
@@ -108,7 +108,7 @@ P:NPC {
         { text = "Your power is fel. How can it be trusted?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Sentinels say your kind betrayed us.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I stood on these slopes when the Tree gave up its gifts.", next = "xsurvivor", when = { origin = "nightelf_hyjal_survivor" } },
-        { text = "You and I are not so different.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Strip away the glaives, and you and I are much the same.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does a demon hunter see in me?", next = "xshadow", when = { form = "shadow" } },
         { text = "Farewell, hunter.", next = "END" },
       },
@@ -271,7 +271,7 @@ P:NPC {
         { id = "xlo_default", text = "We are very different. You bargain with demons and call it mastery, and I took one into myself so that I would never need to bargain again. One day yours will call in the debt, and I hope I am not the one sent to collect it." },
       },
       choices = {
-        { text = "My servants obey. That's all I need.", next = "BACK", reply = "Then may they keep obeying, warlock, for your sake, because the day they stop, you will learn how little mastery a contract buys.", fx = { align = { light = -1 } } },
+        { text = "My servants obey, or they suffer. That's all I need.", next = "BACK", reply = "Then may they keep obeying, for your sake, because the day they stop, you will learn how little mastery a contract buys.", fx = { align = { light = -1 } } },
         { text = "I hope you never have to.", next = "BACK", reply = "So do I, more than you know, but hope is a thin ward against what you carry, and I will keep my glaives close all the same.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

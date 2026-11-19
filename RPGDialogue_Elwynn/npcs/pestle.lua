@@ -115,7 +115,7 @@ P:NPC {
           text = "Quick hands and a quiet step. I've a few things on the back shelf that your sort might find useful, if you're asking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Something for the bruises, perhaps, or a candle to read your letters home by?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've a salve for scratches, and a candle that keeps the midges off, if you're camping by the lake." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles and small mercies, and I suspect you'll want more of the first than the second." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Black candles, is it? I sell candles and small mercies, and I suspect you'll want more of the first than the second." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't drink from that bottle, or that one either; your spirits may protect you, but my potions won't." },
       },
       again = {
@@ -137,7 +137,7 @@ P:NPC {
         { text = "There must be a tincture for a warrior's aches, Pestle.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you make anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is your private potion for an honest purpose, Pestle?", next = "xapala", when = { class = "PALADIN", any = { { questActive = TODO_QUEST("Collecting Kelp") }, { questActive = TODO_QUEST("The Escape") }, { topicKnown = "maybell_tommy" } } } },
-        { text = "I'd guess Crowe's warlock students buy their candles here, William.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I'd guess the cellar under the inn burns a lot of your candles, William.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your potions sound dangerous, William.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Nothing for now.", next = "END" },
       },

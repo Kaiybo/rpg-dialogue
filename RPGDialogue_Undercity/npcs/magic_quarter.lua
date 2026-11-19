@@ -52,7 +52,7 @@ P:NPC {
         { text = "What sort of thing do you call out of the Nether?", next = "void" },
         { text = "Why does the Dark Lady allow warlocks?", next = "allow" },
         { text = "You didn't learn all this from books alone.", next = "learned" },
-        { text = "I'm ready for the binding, Halgar.", next = "binding", when = { class = "WARLOCK" } },
+        { text = "I'm ready to break the voidwalker, Halgar.", next = "binding", when = { class = "WARLOCK" } },
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
@@ -126,8 +126,8 @@ P:NPC {
         { id = "bi_active", when = { questActive = TODO_QUEST("The Binding") }, text = "Take the glyphs to the circle, speak the words the way I taught you, and when the voidwalker rises, beat it down until it understands. It respects nothing else, and nor should you." },
       },
       choices = {
-        { text = "I'll be its master, not its partner.", next = "BACK", reply = "Good. It will test you anyway, so start as you mean to go on.", fx = { align = { order = 1 } } },
-        { text = "I'd rather earn its loyalty than beat it.", next = "BACK", reply = "Earn its loyalty? A demon's loyalty is a knife pointed at your back, waiting. I'd beat it first.", fx = { align = { order = -1 } } },
+        { text = "I'll be its master. It will kneel or it will burn.", next = "BACK", reply = "Good. It will test you anyway, so start as you mean to go on.", fx = { align = { order = 1 } } },
+        { text = "I'd rather earn its loyalty. Fear cracks, but loyalty holds.", next = "BACK", reply = "Earn its loyalty? A demon's loyalty is a knife pointed at your back, waiting. I'd beat it first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -178,11 +178,11 @@ P:NPC {
       choices = {
         { text = "Why does careful matter so much?", next = "careful" },
         { text = "You have the manner of a teacher.", next = "before" },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Train me. I'm hungry for more.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What do you teach a new warlock first?", next = "imp" },
         { text = "What do you think of Kaal Soulreaper?", next = "kaal" },
         { text = "Where did you learn the dark arts?", next = "learned" },
-        { text = "My imp keeps arguing with its own contract.", next = "imp_trouble", when = { class = "WARLOCK" } },
+        { text = "My imp keeps picking at its contract, hunting for a loophole.", next = "imp_trouble", when = { class = "WARLOCK" } },
         { text = "Good day, Kerwin.", next = "END" },
       },
     },
@@ -229,8 +229,8 @@ P:NPC {
     imp_trouble = {
       lines = { { id = "it_default", text = "Then you've left it room, and it's found it. Write the binding again tonight, plainly and with no flourishes, and read it to the imp twice, and it will sulk, which is how you'll know you've won." } },
       choices = {
-        { text = "Thank you. I'll write it again.", next = "BACK", fx = { affinity = 1, trait = { careful = 1 } } },
-        { text = "Or I could just burn it.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "I'll write it again, and leave it no room to breathe.", next = "BACK", fx = { affinity = 1, trait = { careful = 1 } } },
+        { text = "Or I could burn it until it stops arguing.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
     kaal = {
@@ -307,7 +307,7 @@ P:NPC {
       choices = {
         { text = "Soulreaper can't have been your name in life.", next = "name" },
         { text = "What are soul shards for, really?", next = "shards" },
-        { text = "Teach me, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach me what the others won't, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Murdered by a king, you said?", next = "arthas" },
         { text = "What does a warlock owe the Dark Lady?", next = "loyalty" },
         { text = "Should I be afraid of you?", next = "theatre" },
@@ -833,7 +833,7 @@ P:NPC {
         { text = "I'd guess the warlocks are your best customers.", next = "customers" },
         { text = "Where do you get it all?", next = "source" },
         { text = "Why is there a horseshoe over your table?", next = "horseshoe" },
-        { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
+        { text = "Do you sell soul shards, or must I harvest my own?", next = "shards", when = { class = "WARLOCK" } },
         { text = "I'll need an ankh or two, Hannah.", next = "ankh", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Goodbye, Hannah.", next = "END" },

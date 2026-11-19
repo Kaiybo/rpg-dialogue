@@ -37,13 +37,13 @@ P:NPC {
         { id = "h_again", text = "Anything else? Quickly, before he finds my ink again." },
       },
       choices = {
-        { text = "Teach my demon something new.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Teach my demon something new. It's grown restless.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "How do you teach a demon?", next = "teach" },
         { text = "Whose imp is that?", next = "imp" },
         { text = "Does he have a name?", next = "name" },
         { text = "How does one of the risen end up training demons?", next = "risen" },
         { text = "The rest of Deathknell can't love having demons about.", next = "others" },
-        { text = "My imp won't listen to a word I say.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "My imp ignores every word I say. I'm tempted to unmake it.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Shadow Priest Sarvis can't approve of all this.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'll go.", next = "END" },
       },
@@ -107,7 +107,7 @@ P:NPC {
     xwarlock = {
       lines = { { id = "xw_default", text = "Of course he won't, because you've been asking. Tell him, flatly, and give him a reason to want what you want, such as the promise of something to set on fire later." } },
       choices = {
-        { text = "Tell him, don't ask him. I'll try that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Tell him, don't ask him. I'll make him want it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

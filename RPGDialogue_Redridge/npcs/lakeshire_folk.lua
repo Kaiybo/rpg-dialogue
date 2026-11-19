@@ -63,7 +63,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "He does, citizen, and it says that what you summon, you answer for, as though you'd done the deed with your own hands. I'd keep that in mind if anything with horns wanders into town." } },
+      lines = { { id = "xlo_default", text = "He does, citizen, and it says that whatever you call up, you answer for, as though you'd done the deed with your own hands. I'd keep that in mind if anything with horns wanders into town." } },
       choices = {
         { text = "Fair ruling. I'll answer for it.", next = "BACK", reply = "A sensible answer, citizen, and the court will remember it. I hope the occasion never arises.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Prove it was mine first, Bailiff.", next = "BACK", reply = "I'd prefer not to have to, citizen, and I suspect you'd prefer it too. Keep it out of town, and we'll both be spared the paperwork.", fx = { align = { honor = -1 } } },
@@ -326,7 +326,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've any blessing that makes the count go down, I'd take it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because the count is getting to the point where I'd like someone who can stand in front of it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't suppose you can tell how many gnolls are in those trees just by sniffing, because I've lost count again." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll add you to the count, I suppose, though I'm not sure which column you go in." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a look about you I can't put in a column. I'll add you to the count, I suppose, and leave the rest blank." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Redridge", min = 40 } }, text = "For the first time since I took this post, the gnoll count's gone down instead of up, and I've a fair idea why. Keep at it, and I might have to learn to count backwards." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Good, I'm counting gnolls and the count keeps going up. Your lightning might bring it down again." },
       },
@@ -494,7 +494,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "Safer for whom, I'd like to know? There's a girl at the inn who'd never speak to me again if I let something like that near her, so walk your demon on the far side of the road, if you please." } },
+      lines = { { id = "xlo_default", text = "Safer for whom, I'd like to know? There's a girl at the inn who'd never speak to me again if I let something like that near her, so walk it on the far side of the road, if you please." } },
       choices = {
         { text = "Far side it is. Your girl's safe from it.", next = "BACK", reply = "Thank you, and she'll thank you too, if she ever hears of it. The far side, please.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "She'll get used to it, Parker.", next = "BACK", reply = "She won't, I promise you that, and neither will I. The far side, if you please.", fx = { align = { light = -1 } } },
@@ -785,7 +785,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit by the window, because the soldiers behave themselves better with someone holy in the room." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock! I won't tell anyone, I promise, though the whole inn will know by supper, because it's that sort of inn." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you smell of struck matches, love, like the cellar folk in Stormwind! I won't tell anyone, I promise, though the whole inn will know by supper." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love, and a shaman, too! Sit away from the wobbly table, and I'll tell you only the nice gossip, I promise." },
       },
       again = {

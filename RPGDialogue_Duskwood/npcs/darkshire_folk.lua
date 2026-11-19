@@ -120,7 +120,7 @@ P:NPC {
         { text = "Glory under the Light.", next = "priest", when = { class = "PRIEST" } },
         { text = "I'm a druid, not a beast.", next = "druid", when = { class = "DRUID" } },
         { text = "I wear the Light into battle, Carevin.", next = "paladin", when = { class = "PALADIN" } },
-        { text = "My arts could serve your hunt.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "What I know of the dark could serve your hunt.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "I can move past the lamps unseen, Jonathan.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Fire works well on the dead, I hear.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does your household need from a warrior, Jonathan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -237,7 +237,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "wl_default", text = "My hunt is for the things your arts call up, so no, I don't think they could. Leave Darkshire with the same shadow you came in with, and we'll have no quarrel." } },
+      lines = { { id = "wl_default", text = "My hunt is for the things your sort call up, so no, I don't think it could. Leave Darkshire with the same shadow you came in with, and we'll have no quarrel." } },
       choices = {
         { text = "You fight fire with water. I fight it with fire.", next = "BACK", reply = "Then you'll burn more than the dead, warlock, and I'll be watching. Leave as you came.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Fair. I'll stay out of your way.", next = "BACK", reply = "That's all I ask, and we'll have no quarrel. Good evening.", fx = { affinity = 1, align = { light = 1 } } },
@@ -328,7 +328,7 @@ P:NPC {
     xlock = {
       lines = { { id = "xlo_default", text = "Say that again in front of Jonathan and you'll have an arrow for an answer, friend. We lay the dead down, and we don't take them up again for ourselves, whatever they teach you in the cellars of Stormwind." } },
       choices = {
-        { text = "You're right. The dead deserve their rest.", next = "BACK", reply = "That's right, and you'll stay welcome here for saying it. Keep your arts away from them.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. The dead deserve their rest.", next = "BACK", reply = "That's right, and you'll stay welcome here for saying it. Keep whatever you practise away from them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Laid down or taken up, they're useful.", next = "BACK", reply = "Then you'd best leave Darkshire before Jonathan hears it. I'll not stop him.", fx = { align = { light = -1 } } },
         { text = "Have you seen anything strange out there?", next = "ravenhill" },
       },
@@ -1063,12 +1063,12 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. Your imp, now, your imp eats in the yard, since the last time somebody's pet came into my kitchen I lost a whole pan of fritters and a good deal of my eyebrows." },
+        { id = "xlock_default", text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. Your little friend, now, your little friend eats in the yard, since the last time somebody's pet came into my kitchen I lost a whole pan of fritters and a good deal of my eyebrows." },
         { id = "xlock_more1", text = "And don't tell the Night Watch what you are while you're eating, because they argue with their mouths full and it puts the other customers off." },
       },
       choices = {
-        { text = "The imp eats in the yard, then. Your kitchen, your rules.", next = "BACK", reply = "Thank you, my favourite, and my eyebrows thank you too. It's nice in the yard, mostly.", fx = { align = { order = 1 } } },
-        { text = "My imp goes where I go, Grual, kitchen or not.", next = "BACK", reply = "Then it'll eat in the yard with you, my favourite. My kitchen, my rules.", fx = { align = { order = -1 } } },
+        { text = "It eats in the yard, then. Your kitchen, your rules.", next = "BACK", reply = "Thank you, my favourite, and my eyebrows thank you too. It's nice in the yard, mostly.", fx = { align = { order = 1 } } },
+        { text = "What's mine goes where I go, Grual, kitchen or not.", next = "BACK", reply = "Then it'll eat in the yard with you, my favourite. My kitchen, my rules.", fx = { align = { order = -1 } } },
         { text = "Something else, Grual.", next = "BACK" },
       },
     },
@@ -1131,7 +1131,7 @@ P:NPC {
           text = "A priest! Would you bless the stew? It's had a long week, the poor stew." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a double helping, then, because nobody swings a sword in this wood on an empty stomach, not twice anyway." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're my new favourite customer, and you've arrived just as the stew's ready, which is a sign if ever I saw one." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You're my favourite customer tonight, so long as that little demon of yours keeps its claws out of my crab cakes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You're my favourite customer tonight, so long as that smoky little thing at your heel keeps its claws out of my crab cakes." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My favourite customer! Sit down, eat; my kitchen's the warmest place in Darkshire, spirits or no." },
       },
       again = {
@@ -1151,7 +1151,7 @@ P:NPC {
         { text = "What does a warrior eat before facing Duskwood's dead, Grual?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your kitchen must feed the Night Watch too, Grual.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you cook anything that grows wild in these woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Do warlocks get fed at the Scarlet Raven, Grual?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Scarlet Raven feed folk the Watch won't name, Grual?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd wager you call everyone your favourite, Grual.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
@@ -1759,7 +1759,7 @@ P:NPC {
         { id = "xlock_default", text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. I've had Morbent Fel's sort described to me by men who barely got away, so I'd ask you, quite plainly, not to go turning into that." },
       },
       choices = {
-        { text = "I won't. My arts have limits, and I keep them.", next = "BACK", reply = "Good, and I'll hold you to it, because Darkshire has had its fill of men who thought they knew their limits.", fx = { align = { light = 1 } } },
+        { text = "I won't. I know my limits, and I keep them.", next = "BACK", reply = "Good, and I'll hold you to it, because Darkshire has had its fill of men who thought they knew their limits.", fx = { align = { light = 1 } } },
         { text = "Fel was clumsy, Clarise. I won't be.", next = "BACK", reply = "That's exactly what Fel would have said. I'll keep an eye on you.", fx = { align = { light = -1 } } },
         { text = "Something else, Clarise.", next = "BACK" },
       },
@@ -1838,7 +1838,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a proper one by the look of you! Mind where the sparks land, and show me that blade before you get yourself killed with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting arrowheads that bite into worg hide, then, and they've a thick hide, I promise you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my forge. Mind the sparks, because I don't care how close you are with nature, a hot coal still burns." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my forge. Keep your little friend out of the coals; it'll want to bathe in them, and I want them for steel." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Smoke follows you in like a stray dog. Keep your little friend out of the coals; it'll want to bathe in them, and I want them for steel." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't stand where the sparks fly. There's a Gnarltree for every part of a fighter, and you'll need all of us." },
       },
       again = {

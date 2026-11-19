@@ -35,9 +35,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." } },
+      lines = { { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep that creature of yours away from the barrels, because I've no idea what it would do to my fruit." } },
       choices = {
-        { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what a demon does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what that thing does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My pet goes where it likes, Lamar.", next = "BACK", reply = "Then I'll keep my eye on it and my hand on the lid. The apples are for paying customers only.", fx = { align = { order = -1 } } },
         { text = "Something else, Lamar.", next = "BACK" },
       },
@@ -110,7 +110,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Take an apple; they're from the old orchards, grown by people who'd want you to have one." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Take an apple, and don't take two when I'm not looking, because I always know." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make an apple grow faster? No? Then can you keep one from going soft? I'd be glad of that." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, take an apple anyway; I'd think even warlocks get hungry." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold look about you, friend. Well, take an apple anyway; I'd think even your sort get hungry." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have an apple, polished, of course, from orchards that were old friends of mine before the orcs came." },
       },
       again = {
@@ -289,7 +289,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, among the picks and coal? You'll want nothing here, I'd guess, but you're welcome to warm your hands at the brazier." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Now there's someone who knows what a hammer does to your shoulder by sundown, and I respect you for it already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll not want to hear about mining, I'd guess, since I'm told your folk think a hole in a hill is a wound." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell coal, flux and iron bars, and none of it's any use to you, I'd guess, unless you're building something you shouldn't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I sell coal, flux and iron bars, and none of it's any use to someone with hands like yours, I'd guess, unless you're building something you shouldn't." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Can you swing a hammer, or just call lightning? I respect only one of those." },
       },
       again = {
@@ -461,7 +461,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! There's someone who knows what a shield is for, and I'd wager you hold it like you mean it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've seen what your people carry into a fight, which is mostly nothing, so I suppose you've no use for my shields." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll be wanting a buckler, I hope, because I've seen your sort try to parry with a dagger, and it ends badly." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll not want a shield, I expect, but your demon might, if it's the sort that stands in front." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You'll not want a shield, I expect, but that brute I've seen at your heel might, if it's the sort that stands in front." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. A shield's the most important thing a soldier carries. Do your spirits shield you, or do you need one?" },
       },
       again = {
@@ -645,7 +645,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll be the sort who thinks the murlocs have as much right to the lake as anyone, I suppose." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll be wanting a fishing line, I hope, and not a garrotte, because I only sell the one." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you freeze the lake? Only a bit, mind, so the murlocs would get stuck." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Not much fishing in your line, I'd guess, unless you count fishing for souls." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Not much fishing in your line, I'd guess, unless you count fishing for souls. Folk talk, you know." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Murlocs catch more fish than my customers. Can your water spirits change that?" },
       },
       again = {
@@ -821,7 +821,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Not one of the beasts on this block was killed cruelly, I'll have you know, so you can save the look." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! The knives on this block are mine, friend, and I count them every night." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You couldn't keep my meat cold, could you? The ice house was the first thing the gnolls broke into." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Don't ask me for anything strange, mind; I sell boar, bear and condor, and that's all." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Don't ask me for anything strange, mind. I sell boar, bear and condor, and that's all, whatever you've heard." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down; I'll tell you about the hills' wildlife while I cut. The cleaver does the punctuating." },
       },
       again = {

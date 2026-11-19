@@ -28,7 +28,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." } },
+      lines = { { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without your sort of company besides." } },
       choices = {
         { text = "I'll keep my distance from the wounded.", next = "BACK", reply = "Thank you, and they'll thank you too, if they notice at all. Most of them are too far gone to notice anything.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The wounded have bigger worries than me.", next = "BACK", reply = "They do, and you'd not be one of them if you'd seen their faces. Keep it out of sight all the same.", fx = { align = { light = -1 } } },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I fly the wounded out, so I'd be grateful if you'd see to them before they go up." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, plate and all, though they'll complain the whole way." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My birds have gone still for you, which they only do for folk who smell of the forest, so I'd say they like you." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons don't love the smell of brimstone, so be gentle when you mount, and keep your hands out of their feathers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My gryphons don't love the smell of brimstone, and you're thick with it. Be gentle when you mount, and keep your hands out of their feathers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My gryphons are calm around you, which is rare. Do your wind spirits fly with them?" },
       },
       again = {
@@ -280,7 +280,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll forgive the feathers on the floor, since every goose in Redridge has given something to the war." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll not be wanting arrows, I expect, unless it's to throw them, and I'll ask you not to." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I could use a little warmth to dry the glue on my fletchings, if you've a spare spark and a steady hand." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your demon's eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something at your heel is eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I make arrows as fast as I can, and it's still not enough for the gnolls. Your lightning would help." },
       },
       again = {
@@ -442,7 +442,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you to step back from the powder kegs, not because I don't trust you, but because I don't trust anything near powder." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Guns are loud, friend, so I'd guess you're here for the powder, and I'll be asking what it's for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Keep your fire away from my powder kegs, if you'd be so kind, because I'd like to keep my fine record." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise. I know that look." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, and a shaman too! Dwarven blackpowder is like good ale, you know, so tell me, do your fire spirits approve of it?" },
       },
       again = {

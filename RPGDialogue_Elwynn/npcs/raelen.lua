@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to fight bears, good; if you're here to cut wood, better, but I'll take either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The bears and wolves up north are your trade, I'd think, and they're my problem." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and if you've come to tell me the trees have feelings, get in line behind the bowyer. I've an order due in Stormwind by the week's end." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If that demon of yours can carry timber, I'll pay it a wage, and if it can't, I've no use for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "If that thing at your heel can carry timber, I'll pay it a wage, and if it can't, I've no use for it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've bundles to count and deadlines to meet. Talk quickly, and keep your spirits away from the timber." },
       },
       again = {
@@ -171,7 +171,7 @@ P:NPC {
         { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stormwind doesn't seem to have sent you any protection, Raelen.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would it take to make the mill cut fewer trees?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Would you really hire a demon, Raelen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you really hire whatever I could send you, Raelen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You look short of workers for these deadlines, Raelen.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },

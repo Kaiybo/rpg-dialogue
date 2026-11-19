@@ -141,7 +141,7 @@ P:NPC {
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "Your fingers be twitching, mon. Too much arcane and not enough sleep will do that, so go and rest before you blow something up." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
-      text = "A warlock in my lodge, and I can smell the brimstone from here. Don't touch anything, mon, and especially not the books." },
+      text = "I can smell the brimstone on you from here, mon. Don't touch anything, and especially not the books." },
   },
   start = "hello",
   nodes = {
@@ -195,7 +195,7 @@ P:NPC {
       choices = {
         { text = "You sound like you've seen that happen.", next = "danger_seen" },
         { text = "Then why teach it at all?", next = "teach_why" },
-        { text = "Warlocks handle power better than mages.", next = "danger_warlock", when = { class = "WARLOCK" } },
+        { text = "Mages only borrow their power. Some of us take ours.", next = "danger_warlock", when = { class = "WARLOCK" } },
         { text = "Something else.", next = "BACK" },
       },
     },
