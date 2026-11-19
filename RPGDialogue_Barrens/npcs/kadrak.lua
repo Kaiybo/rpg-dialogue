@@ -51,6 +51,28 @@ P:NPC {
         { text = "Something else, Kadrak.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Less than I make of the elves, these days, but the Warsong never forget a jailer. Grom Hellscream sat in a human camp with the lethargy in him, and it took Thrall himself to wake him, so don't ask a Warsong to love them." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "You know the story, so I'll keep it short. Grom sat in a human camp with the lethargy in him until Thrall woke him, and no Warsong forgets the walls that held him." },
+      },
+      choices = {
+        { text = "Do the Warsong still want war with them?", next = "hu_stance" },
+        { text = "The humans and elves are allies now.", next = "BACK", reply = "Allies of a sort, and the humans send soldiers into Ashenvale now and then. I'd rather fight one enemy at a time, but nobody asked me.", fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Some do, loudly, in their cups. But the Warchief freed Grom from that camp, and Grom died for the Warchief's Horde, so I keep the Warchief's peace with the humans and save my axe for the forest." },
+      },
+      choices = {
+        { text = "Grom would have kept the peace too. For Thrall.", next = "BACK", reply = "Maybe he would, though he'd have complained about it every day. Keep it, then, and complain all you like.", fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Grom would want his jailers to pay. I'll see to it.", next = "BACK", reply = "Hah! That sounds more like the Grom I knew, I'll admit. But the jailers are mostly dead, {class}, and the ones left behind Theramore's walls are the Warchief's business.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_honor", when = { honorKills = { min = 50 } },
@@ -76,6 +98,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, and make it quick." },
       },
       choices = {
+        { text = "What do you make of humans, Kadrak?", next = "hu_view" },
         { text = "I've been fighting the Silverwing in the gulch, Kadrak.", next = "dd_honor", when = { honorKills = { min = 50 } } },
         { text = "Why is the Horde pushing into Ashenvale?", next = "ashenvale" },
         { text = "Tell me about the Warsong.", next = "warsong" },

@@ -80,3 +80,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 ### Voices (authored, not canon)
 - Beardo: eager, smiling, prices everything; the neutral house lists for both factions and charges more for it. Laziphus: weary, grumbles about water bills, kind to the animals. Buzzek: cheerful about explosions, exiled to the south hut by the bank. Pikkle: blunt mining goblin; mithril and truesilver in the hills, thorium west in Un'Goro.
 - Authored: Buzzek's roof replaced twice and his good left ear; Laziphus's long tongs for scorpids; Pikkle dug for the Cartel before teaching.
+
+## Humans (human patch)
+- Marin: Stormwind's 'safety levy' (authored, twelve percent) on Steamwheedle goods after his elixir skeletons; flag marin_human_soft.
+- Sprinkle: humans cook grey and call her 'the little green cook'; flag sprinkle_human_soft.

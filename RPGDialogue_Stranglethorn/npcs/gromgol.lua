@@ -132,6 +132,28 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "There are, and none of them are here for the scenery. Nesingwary's hunters shoot everything with fur north of us, Stormwind's rebels sulk in their camp by the river, and Booty Bay sells them all the powder they want." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "There are, and you'd fit right in with them if you had a bit more skin. Nesingwary's hunters shoot everything north of us, Stormwind's rebels sit in their camp by the river, and Booty Bay sells them powder." },
+      },
+      choices = {
+        { text = "Do they ever come against Grom'gol?", next = "hu_stance" },
+        { text = "The rebels deserted their own colonel, I hear.", next = "BACK", reply = "So they say, and I'll give them that much: they saw a mad commander and walked away from him. Plenty of orcs wish they'd done the same with Gul'dan.", fx = { learn = { "humans" } } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Not yet, because they're as busy with the raptors and the trolls as we are. The goblins keep the peace in their bay, and outside it every human and every orc in this jungle pretends the other isn't there, so long as the caravans keep moving." },
+      },
+      choices = {
+        { text = "Then let them pretend. The caravans matter more.", next = "BACK", reply = "That's a quartermaster's thinking, and I like it. Every caravan to Stonard counts for more than a dead hunter.", fx = { align = { order = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Let me hunt the hunters. Nesingwary's camp is close.", next = "BACK", reply = "Close and well armed, and those dwarves with him can shoot. Start that war on your own time, {class}, and don't bring it back to my walls.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the far seer can't be everywhere, and my grunts fight harder with the elements at their backs." },
@@ -158,6 +180,7 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, but speak while you walk if you can." },
       },
       choices = {
+        { text = "There are humans all over this jungle, Commander.", next = "hu_view" },
         { text = "Do your grunts still remember the shamans from before the warlocks?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Grom'gol need from its spellcasters, Commander?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Do your grunts respect this jungle, or only fight it?", next = "druid_talk", when = { class = "DRUID" } },
@@ -537,6 +560,27 @@ P:NPC {
         { text = "I owe you no proof, Nimboya.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "Nimboya make them troll-killers, because dat be what they made a sword for. Trol'kalar hang on dis wall now, and the humans of Arathor forged it for nothing but cutting down trolls." },
+        { id = "hum_v_troll", when = { race = "Troll" },
+          text = "You see dat sword on the wall, Darkspear? Trol'kalar, the humans' troll-killer, and they forged it for nothing but our necks, so don't let any human tell you dey just came for trade." },
+      },
+      choices = {
+        { text = "And the humans in Stranglethorn now?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "The hunter Nesingwary come here to shoot our jungle's tigers and panthers for a book, and they hang the skins up like trophies. Nimboya hate them for it, but they don't bother Yenniku's captors either, so Nimboya don't have time for them yet." },
+      },
+      choices = {
+        { text = "Yenniku first. The humans can wait their turn.", next = "BACK", reply = "Dat be right, dat be the only right answer. Go and bring Nimboya those heads, and we talk about humans after.", fx = { align = { honor = 1 }, opinion = { humans = "distrust" } } },
+        { text = "Steal their trophies. Make them feel what they take.", next = "BACK", reply = "Ha, you got a mean streak, mon! Nimboya like it, a little. But you do it far from Grom'gol, so the goblins don't come asking.", fx = { align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodscalp", min = 30 } }, text = "The Bloodscalp camps be quieter since you start walking through them, mon, and quiet Bloodscalp be the best kind, while Nimboya keep looking for the boy." },
@@ -570,6 +614,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, and I tell you what I can." },
       },
       choices = {
+        { text = "What do you make of humans, Nimboya?", next = "hu_view" },
         { text = "Who is Yenniku?", next = "yenniku" },
         { text = "Do the jungle trolls fear a warrior's axe, Nimboya?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "Who do you think took him?", next = "bloodscalp" },
@@ -1175,6 +1220,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them a people who take without asking, much as we once did. The hunters at Nesingwary's camp kill the jungle's great cats for sport, and the spirits of this place cry out every time, the same way Ashenvale cried out at our axes." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were one of them, and you came back from death a different thing, so perhaps you see them more clearly than I do. They take without asking, as we once did, and the jungle's spirits cry out at Nesingwary's guns." },
+      },
+      choices = {
+        { text = "You sound almost sympathetic to them.", next = "hu_stance" },
+        { text = "Something else, Far Seer.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "Not sympathy, but memory. We came through the Dark Portal as invaders and burned Stormwind to the ground before any human ever built a camp for us, and Thrall says an orc who forgets that is only waiting to become Blackmoore." },
+      },
+      choices = {
+        { text = "Thrall is right. We were the invaders first.", next = "BACK", reply = "Then you understand what the Warchief asks of us, and why it is so hard. Remember it in the jungle, and walk gently past their camp.", fx = { align = { honor = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Whatever we did, the camps paid it back tenfold.", next = "BACK", reply = "Many say so, and I will not argue the arithmetic of suffering with you. But a debt you count that carefully is a debt you mean to collect, young one.", fx = { align = { honor = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_mokthardin", tags = { "news" }, when = { party = { class = "SHAMAN" }, faction = "Horde" },
@@ -1203,6 +1269,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The elements are in no hurry tonight." },
       },
       choices = {
+        { text = "What do you make of humans, Far Seer?", next = "hu_view" },
         { text = "The jungle spirits are angry here. The trolls stir them.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What kind of power?", next = "power" },
         { text = "Whatever you're making looks like fine work.", next = "ench" },

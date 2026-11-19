@@ -18,6 +18,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "Whoa, whoa, a human! Don't touch the flyer, pal, don't even look at it too hard, because the last human who touched it called it quaint." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "shizzle_human_soft" }, priority = 10,
+      text = "Hey, it's my favourite human! Come look at the flyer, pal; you're the only one of your kind who doesn't call it quaint." },
     { id = "g_default", text = "Hey, hey, pal, you look like somebody who isn't scared of big flappy lizards. Got a minute? Got a minute for a business opportunity?" },
     { id = "g_flyer", when = { questActive = TODO_QUEST("Shizzle's Flyer") }, text = "Scales, buddy, webbed scales, off the pterrordax out west in the Screaming Reaches. Every one you bring is a rivet in my ticket home." },
     { id = "g_flyer_done", when = { questDone = TODO_QUEST("Shizzle's Flyer") }, text = "She's got wings now, pal, real wings! I haven't flown her yet, but I've sat in her and made the noises, and that's practically the same." },
@@ -35,8 +39,81 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hu_shizzle = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans, pal? The expedition folk at the Refuge are half of 'em human, explorers and scientists all very excited about rocks, and every one of 'em looks at my flyer like I'm building a bomb. Which, to be fair, it might be, but it's rude to assume." },
+      },
+      choices = {
+        { text = "Do the humans here treat you badly?", next = "hu_shizzle_2" },
+        { text = "Why would they think it's a bomb?", next = "hu_shizzle_2" },
+        { text = "Something else, Shizzle.", next = "BACK" },
+      },
+    },
+    hu_shizzle_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Not badly, pal, just like the help. They ask me to fix their gear and call it tinkering, and then the Refuge's name goes on the discoveries and mine goes on nothing, and back in Booty Bay a human lord once paid me for a clockwork songbird with a letter of credit from a bank that turned out to be a pigeon coop." },
+      },
+      choices = {
+        { text = "Humans are fair, mostly. That lord was one bad egg.", next = "BACK",
+          reply = "One bad egg with a pigeon coop, pal, but sure, sure, I'll give the rest of 'em the benefit of the doubt. The doubt's on account, mind you, with interest.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Humans use goblins and forget them. Bill them first, Shizzle.", next = "BACK",
+          reply = "Bill first, build later! Pal, I should've had that tattooed on my wrench years ago. You're a natural.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Shizzle.", next = "BACK" },
+      },
+    },
+    hu_shizzle_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Because every human in this crater's either a scientist who wants to borrow my parts or a hunter who thinks I'm in the way of his shot, pal. You're not either of those, are ya? You're not holding a notebook." },
+      },
+      choices = {
+        { text = "What happened to the parts they borrowed?", next = "BACK",
+          reply = "They're in a crate marked Expedition Property, pal, in a hand that is not my hand. I'm considering it a long-term loan with interest." },
+        { text = "I don't want your parts, Shizzle. I want to see it fly.", tag = "Persuade", next = "hu_shizzle_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { trait = "curious" } } } },
+          fail = { next = "hu_shizzle_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Shizzle.", next = "BACK" },
+      },
+    },
+    hu_shizzle_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "shizzle_human_soft" } } },
+          text = "You wanna see it fly? Pal, nobody's said that to me since I got down here, not even me! All right, you're one of the good ones, and when this thing gets off the ground you can say you believed in it." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Shizzle.", next = "BACK" },
+      },
+    },
+    hu_shizzle_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "That's what the scientist said too, right before he asked for my spare rotor. I'll think about it, pal, from a safe distance." },
+      },
+      choices = {
+        { text = "Something else, Shizzle.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_shizzle_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Closer every day, pal, and I think about you every time I tighten a bolt, which is a lot of bolts. You're the only human who ever asked the right question." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Human, huh? Listen, pal, I know the expedition folk say goblins are all scams and fireworks, but this flyer's real, and it's only a little bit fireworks." },
         { id = "h_default", key = true, text = "Name's Shizzle, inventor, entrepreneur and, at present, a castaway, so here's the deal, friend. I came down into this crater on a job, the job went sideways, and now I'm stuck, so I'm building myself a flyer out of parts and stubbornness, and all she needs now is a pair of wings." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Shizzle's Flyer") },
           text = "The best wing stuff in the crater is webbed scales off the pterrordax in the Screaming Reaches, out west, light as paper and tough as a banker. I'd go get 'em myself, but I've seen what those things do to a goblin, and I'm attached to my arms." },
@@ -57,6 +134,9 @@ P:NPC {
         { text = "Are you really that scared of pterrordax?", next = "scared" },
         { text = "Let me see your engine work.", next = "xeng", when = { profession = "Engineering" } },
         { text = "The pterrordax don't scare me, Shizzle.", next = "dd_pterrordax", when = { killed = { name = "Pterrordax", min = 20 } } },
+        { text = "What do you make of humans, Shizzle?", next = "hu_shizzle" },
+        { text = "Why so jumpy around humans, Shizzle?", next = "hu_shizzle_x", when = { race = "Human" } },
+        { text = "Is the flyer any closer to flying, Shizzle?", next = "hu_shizzle_ns", when = { race = "Human", npcFlagBefore = "shizzle_human_soft" } },
         { text = "I'll leave you to your bolts.", next = "END" },
       },
     },
@@ -160,6 +240,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "The humans at the Refuge treat goblins like the help, pal; they borrow my parts and call my flyer quaint. One of 'em once paid me with a letter of credit from a pigeon coop." } },
     steamwheedle = { { id = "tp_sw", text = "Good people, the Cartel, until you're stuck in a crater and they've got your contract in a drawer. Then they're very good at not answering letters." } },
     venture_company = { { id = "tp_vc", text = "Venture boys would strip my flyer to the frame and sell me the bolts back, pal. Keep 'em away from her." } },
     _none = { { id = "tp_none", text = "Dunno, pal, and I'm not paid to know. I'm not paid at all, come to think of it." } },

@@ -41,3 +41,7 @@ Reliable, aggressive.
 
 ## Topics
 background, advice
+
+## Humans (human patch)
+Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
+- Regthar Deathgate: contempt. Humans are soft, good at walls, and only beat a Horde rotten with Gul'dan's treachery; the centaur fight harder.

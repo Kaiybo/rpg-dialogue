@@ -163,6 +163,28 @@ P:NPC {
         { text = "Something else, Thork.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them the reason my walls are as tall as they are. Theramore built Northwatch Hold on the coast south of here, and its soldiers ride out to raid our caravans whenever they think the Warchief isn't looking." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You'd know their habits better than I would, having been one. Northwatch Hold sits on the coast south of here, and its soldiers ride out after our caravans whenever they think the Warchief isn't looking." },
+      },
+      choices = {
+        { text = "Isn't there a truce with Theramore?", next = "hu_stance" },
+        { text = "Northwatch looks like Durnholde's little brother.", next = "BACK", reply = "Ha! I've said the same, and I never saw Durnholde from the outside. A human fort is a human fort, {class}, all walls and arrogance.", fx = { opinion = { humans = "distrust" } } },
+        { text = "Something else, Thork.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "There's a truce on paper, and the Lady of Theramore signed it. But Northwatch's captains don't seem to have read it, so I post grunts on the southern road and say nothing about it to Orgrimmar unless I have bodies to count." },
+      },
+      choices = {
+        { text = "Then answer them in kind. Burn Northwatch to the ground.", next = "BACK", reply = "If the Warchief ever gives that order, I'll carry the torch myself. Until then, the Crossroads holds, and holding is harder than burning.", fx = { align = { order = -1 }, opinion = { humans = "hate" } } },
+        { text = "Hold the road and report it. The Warchief decides.", next = "BACK", reply = "That's what I do, and it's why the Crossroads still stands. Spoken like someone who'd keep a post, {class}.", fx = { align = { order = 1 }, opinion = { humans = "distrust" }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_counterattack", tags = { "news" }, when = { questDone = TODO_QUEST("Counterattack!") },
@@ -195,6 +217,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 30 } }, text = "The caravans have been getting through, and my scouts say the Kolkar have pulled back from the road. I hear your name in that, so keep it up, and the Crossroads will owe you." },
       },
       choices = {
+        { text = "What do you make of humans, Thork?", next = "hu_view" },
         { text = "The Kolkar broke at Regthar's stockade, Thork.", next = "dd_counterattack", when = { questDone = TODO_QUEST("Counterattack!") } },
         { text = "Someone close to me reported to you, Thork.", next = "xalt_thork", when = { alt = true } },
         { text = "The spirits could help you hold the Crossroads, Thork.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -719,6 +742,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I used to, every day of my life, and Olgra used to tell me to stop wasting my anger on people who weren't in the room. Now the quilboar have taken her, and I have no anger left over for anyone else." },
+        { id = "hum_v_undead", when = { race = "Scourge" },
+          text = "You were one of them, weren't you? I used to hate them every day, until Olgra told me to stop wasting my anger, and now the quilboar have taken her and I have none left over for you or them." },
+      },
+      choices = {
+        { text = "What did Olgra think of them?", next = "hu_stance" },
+        { text = "I'll keep looking for her on the roads.", next = "BACK", reply = "Thank you. Look south, where the pigs camp, and come and tell me what you find, even if it's the worst thing.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "She said a human guard gave her a blanket once, in the camp, and the next day the same guard beat an old orc half to death. She said that was humans all over, and that you had to judge them one at a time or go mad trying." },
+      },
+      choices = {
+        { text = "She was wise. One at a time is fair.", next = "BACK", reply = "She was wiser than me, and she knew it, and she never let me forget it. I'd give anything to hear her say so again.", fx = { align = { light = 1 }, opinion = { humans = "mixed" } } },
+        { text = "One blanket doesn't pay for the beatings. Judge them all.", next = "BACK", reply = "That's what I used to say to her, and she'd just laugh at me. Say it to the horizon, {class}, I'm done arguing with the dead.", fx = { align = { light = -1 }, opinion = { humans = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_any", tags = { "news" }, when = { party = true },
@@ -740,6 +785,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Razormane", min = 40 } }, text = "The Razormane are fewer than they were, and I know whose work that is. It doesn't bring her back, but I sleep a little better knowing they bleed too." },
       },
       choices = {
+        { text = "Do you hate the humans too, Mankrik?", next = "hu_view" },
         { text = "Do you want me to listen for Olgra's spirit?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The tauren druids might help you search, Mankrik.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Tell me about Olgra.", next = "olgra" },

@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "A human, is it? Your lords in Stormwind still owe this town for a decade of rum, friend, so you'll forgive me if I ask for coin before conversation." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "revilgaz_human_soft" }, priority = 10,
+      text = "Ah, the human who settles accounts. Come up and stand where I can see you, friend; you're the only one of your kind in my ledger with a clean page." },
     { id = "g_op_trolls", when = { gossip = { topic = "trolls", stance = "hate" } }, text = "My Bruisers tell me you called the trolls savages, and to the Zandalari emissary's face. Brave of you, friend, and bad for business, so next time do it outside my harbor." },
     { id = "g_op_venture", when = { opinion = { topic = "venture_company", stance = "useful" } }, text = "Ah, my friend with an eye for cheap lumber! Come in, come in; a person who knows a bargain is always welcome on my balcony." },
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them, and my time up here runs about a gold piece a minute. So state your business, friend, and keep it profitable." },
@@ -203,8 +207,81 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    hu_revilgaz = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans are the best customers in the cove and the worst debtors on the Great Sea, friend, and I've the ledgers to prove both. Their lords buy rum and silk by the shipload on a handshake, and then they go home to Stormwind and forget the hand they shook belonged to a goblin." },
+      },
+      choices = {
+        { text = "Then why give them credit at all?", next = "hu_revilgaz_2" },
+        { text = "The Bloodsail are mostly human, aren't they?", next = "hu_revilgaz_2" },
+        { text = "Something else, Baron.", next = "BACK" },
+      },
+    },
+    hu_revilgaz_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Because their gold spends as well as anyone's when it finally turns up, and because the ones who don't pay at least don't stab you. The Bloodsail are humans who decided paying was optional altogether, out of Kul Tiras and Stormwind's gutters, and two of them came up these very stairs to collect on me with a knife." },
+      },
+      choices = {
+        { text = "Most humans pay their debts in the end. Give them credit.", next = "BACK",
+          reply = "In the end, friend, is where all the interest lives, so I suppose I can't complain. Keep talking like that and you'll make a fine banker.",
+          fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "Never trust a human's promise. Take the coin up front.", next = "BACK",
+          reply = "Now that's a philosophy I could hang over the door. Don't tell my human customers I agreed with you; they still think I'm charming.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Baron.", next = "BACK" },
+      },
+    },
+    hu_revilgaz_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "I like human gold fine, friend; it's human promises I can't stand. I've a ledger in that desk with Stormwind's noble houses in it going back twenty years, and not one of them has paid a copper of interest, because they think owing a goblin doesn't count." },
+      },
+      choices = {
+        { text = "Which houses owe you?", next = "BACK",
+          reply = "That's privileged information, friend, and privileged information costs extra. Let's just say a few of them sit in the House of Nobles and vote on tariffs against Steamwheedle goods." },
+        { text = "Judge me by my coin, Baron, not some lord's ledger.", tag = "Persuade", next = "hu_revilgaz_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" } } } },
+          fail = { next = "hu_revilgaz_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Baron.", next = "BACK" },
+      },
+    },
+    hu_revilgaz_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "revilgaz_human_soft" } } },
+          text = "Fair's fair, and that's the first sensible thing a human's said on this balcony all season. I'll judge you by your coin, friend, and so far your coin's been very well behaved." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Baron.", next = "BACK" },
+      },
+    },
+    hu_revilgaz_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "Everybody says that, friend, and then the ledger fills up with their names. Spend a little more in my town and say it again." },
+      },
+      choices = {
+        { text = "Something else, Baron.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_revilgaz_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Clean as a new sail, friend, and I don't say that lightly, because I know exactly what a clean page is worth. Every lord in Stormwind should be so lucky." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Another human on my balcony, and let me guess, you're good for it. They all are, friend, right up until the bill comes, so let's keep this short and paid for." },
         { id = "dd_exalted_rev", when = { reputation = { faction = "Booty Bay", min = "exalted" } },
           text = "Well, if it isn't Booty Bay's favourite customer! My accountants tell me you've done more for this port than half my bruisers put together, and I pay my bruisers very well, so that's a compliment worth its weight in gold." },
 
@@ -271,6 +348,9 @@ P:NPC {
         { text = "We're no pirates, Baron. We're honest adventurers.", next = "xpt_revilgaz", when = { party = { size = 4 } } },
         { text = "You mentioned someone who looks like me, Baron. Who?", next = "xalt_revilgaz", when = { alt = true } },
         { text = "I built bombs for the Cartel here, Baron. It ended badly.", next = "xorig_bombs", when = { origin = "gnome_goblin_bombmaker" } },
+        { text = "What do you make of humans, Baron?", next = "hu_revilgaz" },
+        { text = "You don't seem to like humans much, Baron.", next = "hu_revilgaz_x", when = { race = "Human" } },
+        { text = "Is my page in the ledger still clean, Baron?", next = "hu_revilgaz_ns", when = { race = "Human", npcFlagBefore = "revilgaz_human_soft" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -486,6 +566,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Humans are the best customers in the cove and the worst debtors on the Great Sea. The Bloodsail are mostly humans too, friend, and they tried to collect on me with a knife." } },
     knows = {
       { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason and within budget." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -535,6 +616,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "Ahoy, a human! You're not wearing Bloodsail red, so I'll not throw you down the stairs yet, but I'm watching your sleeves for a cutlass." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "seahorn_human_soft" }, priority = 10,
+      text = "There's my honest human! Come up, come up; you're the only one of your kind on this deck I'd trust at my back, and the Earth Mother knows I've not said that often." },
     { id = "g_op_kirintor", when = { gossip = { topic = "kirin_tor", stance = "contempt" } }, text = "Ha! Catelyn told me you called the Dalaran wizards frightened old men under a glass bowl. She laughed so hard she spilled her grog, and she never spills her grog!" },
     { id = "g_deck", text = "Up the stairs and still breathing! That's a good start, for I've watched orcs come down those stairs headfirst." },
     { id = "g_back", when = { metBefore = true }, text = "The tide's brought you back! I like a sailor who can find the way home, which is more than this old bull ever managed with Mulgore." },
@@ -679,8 +764,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_seahorn = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans! Half the Bloodsail Buccaneers are men out of Kul Tiras and Stormwind's back alleys, matey, so I've crossed more human cutlasses than I've shaken human hands. Then again, the best navigator I ever sailed with was a Lordaeron girl who read the stars the way a shaman reads the wind." },
+      },
+      choices = {
+        { text = "What became of your navigator?", next = "hu_seahorn_2" },
+        { text = "Why do so many humans turn pirate?", next = "hu_seahorn_2" },
+        { text = "Something else, Fleet Master.", next = "BACK" },
+      },
+    },
+    hu_seahorn_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "The Kul Tiran navy hangs every pirate it catches, and when the wars ended it paid off its own sailors with a handshake, so half of them walked straight to the Bloodsail because the sea and the cutlass were all they knew. My navigator went down under a Bloodsail broadside off the Cape, matey, fighting her own kind, and the Earth Mother keep her." },
+      },
+      choices = {
+        { text = "They breed pirates and then hang them. Hypocrites, the lot.", next = "BACK",
+          reply = "Ha! You'd do well in the Blackwater, matey, for that's what every one of us says over the third rum. Mind you don't say it to a Kul Tiran with a rope handy.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Your navigator proves it. Judge the sailor, not the flag.", next = "BACK",
+          reply = "Aye, and she'd have clipped my horn for saying otherwise. I'll drink to that, matey, and to her, and to the next honest human who climbs these stairs.",
+          fx = { align = { honor = 1 }, opinion = { humans = "respect" } } },
+        { text = "Something else, Fleet Master.", next = "BACK" },
+      },
+    },
+    hu_seahorn_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Because nine times in ten, a human sneaking about the Salty Sailor is, matey. The Bloodsail send their spies up these stairs dressed as merchants and dockhands, and two of them have already tried to put a knife in the Baron." },
+      },
+      choices = {
+        { text = "How do you tell the spies from honest folk?", next = "BACK",
+          reply = "The spies are always very polite and never drink, and an honest human sailor is neither. I've yet to see that fail, though the Earth Mother knows I keep testing it." },
+        { text = "Would a Bloodsail spy walk up and say so to your face?", tag = "Persuade", next = "hu_seahorn_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "brave" } } } },
+          fail = { next = "hu_seahorn_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Fleet Master.", next = "BACK" },
+      },
+    },
+    hu_seahorn_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "seahorn_human_soft" } } },
+          text = "Ha! No, a spy would be buying me rum by now and asking after the Baron's sleeping hours. You've a fair point and a straight face, matey, and I'll stop watching your sleeves." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Fleet Master.", next = "BACK" },
+      },
+    },
+    hu_seahorn_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "That's exactly what a clever one would say, matey, and the Bloodsail have a few clever ones. Come back when I've seen you drink." },
+      },
+      choices = {
+        { text = "Something else, Fleet Master.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_seahorn_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Not yours, matey, only everyone else's. An honest human's a rare enough catch in these waters that I'd hate to throw one back." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Human sailors make me count my crew, matey, because the last few came aboard smiling and left with a Bloodsail flag in their pocket. Speak plain, and keep your hands where the Baron's goons can see them." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Ha! I'd swear I've seen you on my docks before, but that was a {altrace} called {alt}, flying the other banner, with the very same green look about the gills. The sea doesn't care whose colors you're sick over, friend, and neither do I." },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
@@ -738,6 +896,9 @@ P:NPC {
         { text = "Do your sailors really think a druid can calm a storm, Fleet Master?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Would the Blackwater Raiders ever sail with a warlock, Fleet Master?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Have you ever sailed with a dwarf shaman, Fleet Master?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do you make of humans, Fleet Master?", next = "hu_seahorn" },
+        { text = "You look at me like I'm Bloodsail, Fleet Master.", next = "hu_seahorn_x", when = { race = "Human" } },
+        { text = "Still watching my sleeves, Fleet Master?", next = "hu_seahorn_ns", when = { race = "Human", npcFlagBefore = "seahorn_human_soft" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -1170,6 +1331,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Half the Bloodsail are humans out of Kul Tiras and Stormwind's back alleys, so I've crossed more human cutlasses than I've shaken human hands. Then again, the best navigator I ever had was a Lordaeron girl, Earth Mother keep her." } },
     knows = {
       { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },
     },
@@ -1207,6 +1369,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "A human! Pull up a chair, pal, and keep a hand on your purse like you're doing already, because I can see you doing it and I'm a little hurt." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "krazek_human_soft" }, priority = 10,
+      text = "My favourite human! Sit down, sit down, pal; I've got Stormwind gossip so fresh it's still wriggling, and you're the one human I'd tell it to first." },
     { id = "g_prej1", when = { prejudiced = true }, text = "A gnome, at my desk! No offence, pal, but your people give away blueprints for free, and every time you do it, a goblin somewhere loses a contract." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Well, well, a gnome in Booty Bay. Hands where I can see 'em, pal, because the last one of your folk who sat in that chair took my best pen apart to see how it worked." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Hey, it's my favourite gnome! Don't tell anybody I said that, pal, because it's bad for business, but you've been a valued customer and I've stopped counting my pens." },
@@ -1377,8 +1543,81 @@ P:NPC {
         { text = "Never mind the notes, Krazek.", next = "BACK" },
       },
     },
+    hu_krazek = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans? Pal, humans are my bread and butter, because nobody buys gossip like a human, especially about other humans. They'd pay a gold piece to hear which Stormwind lord is broke and two to hear whose wife ran off with a sailor, and then they go home and tell everybody goblins are crooks, which is insulting and only about half true." },
+      },
+      choices = {
+        { text = "What do humans want to know most?", next = "hu_krazek_2" },
+        { text = "Why only half true?", next = "hu_krazek_2" },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    hu_krazek_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Right now it's the king, pal: where Varian went, whether he's dead, and who's really running things while the boy sits on the throne. I sell the same rumour to the Stormwind folk and the Theramore folk and they both pay full price, because humans don't talk to each other, they just talk about each other." },
+      },
+      choices = {
+        { text = "Humans gossip because they care about each other. That's no flaw.", next = "BACK",
+          reply = "Care, sure, pal, the way a cat cares about a mouse hole. But I'll grant you they worry about that boy king like he's their own kid, and that's kinda sweet, for a market.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Humans are a nation of busybodies. Fleece them, Krazek.", next = "BACK",
+          reply = "Now that's the spirit, pal! I'll put you down as a business consultant, unpaid, which is the best kind for me.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    hu_krazek_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Because humans haggle like dwarves and pay like gnomes, pal, and then they go home to Stormwind and tell everybody goblins are swindlers. I'm just pricin' in the reputation damage, which is a perfectly normal business expense." },
+      },
+      choices = {
+        { text = "Do you charge every race differently?", next = "BACK",
+          reply = "Every customer's a special case, pal. Orcs pay quick, trolls pay in shrunken heads if you let 'em, and night elves don't pay at all, so humans are right about in the middle." },
+        { text = "I've never called a goblin a swindler. Treat me fair.", tag = "Persuade", next = "hu_krazek_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" } } } },
+          fail = { next = "hu_krazek_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    hu_krazek_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "krazek_human_soft" } } },
+          text = "Huh, you know what, you haven't, and I'd know, because listening's my whole job. All right, pal, you get the respect and the good chair, and if anybody asks, I'm still hard on the rest of 'em." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Krazek.", next = "BACK" },
+      },
+    },
+    hu_krazek_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "That's what the last human said, right before he told the whole Salty Sailor I sold him a fake treasure map. Which I did, pal, but that's beside the point." },
+      },
+      choices = {
+        { text = "Something else, Krazek.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_krazek_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "For you, pal, always. Word is a Stormwind lord's been selling the crown's grain to the Defias in Westfall, and I'd tell that to anybody else for twenty silver, so consider yourself loved." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Krazek knows a human when he sees one, pal, because you've got that look like you're checking your purse is still there. It is, for now, so relax." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Hold on, hold on, I've got you written down already, except you were a {altrace} called {alt} and flying the other colors at the time! I sold that bit of news to both sides by lunchtime, pal, so let's see if you're worth a fresh page or just a footnote." },
         { id = "h_alt_class", when = { alt = { sameClass = true } },
@@ -1433,6 +1672,9 @@ P:NPC {
         { text = "You've got a problem with gnomes, Krazek?", next = "prej", when = { prejudiced = true } },
         { text = "What do your notes say about my look-alike, Krazek?", next = "xalt_krazek", when = { alt = true } },
         { text = "Do night elves buy your gossip, Krazek?", next = "ne_krazek" },
+        { text = "What do you make of humans, Krazek?", next = "hu_krazek" },
+        { text = "Why do you charge humans double, Krazek?", next = "hu_krazek_x", when = { race = "Human" } },
+        { text = "Any fresh gossip for a fair human, Krazek?", next = "hu_krazek_ns", when = { race = "Human", npcFlagBefore = "krazek_human_soft" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -1582,6 +1824,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "Humans buy more gossip than anybody, pal, mostly about other humans. They also think every goblin's a crook, which is insulting and only about half true." } },
     knows = {
       { id = "tp_knows", text = "Pick a subject, any subject, buddy! I've got a rumor on all of 'em and a price tag on most." },
     },

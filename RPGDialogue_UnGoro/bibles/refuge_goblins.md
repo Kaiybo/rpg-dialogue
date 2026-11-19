@@ -39,3 +39,6 @@ steamwheedle, venture_company.
 - Shizzle came with a crystal-hunting crew for an unnamed Gadgetzan employer; a devilsaur stepped on the wagon; flyer parts (shredder engine, crate seat, propeller traded from Gibbert for a sword); cousin's rocket chair.
 - Quixxil as the expedition's fixer/supply man; skimming as "overhead"; selling raptor eggs to Booty Bay collectors.
 - Gibbert's crate-and-devilsaur story; kodo driver's hazard pay; "investor" in Shizzle's flyer.
+
+## Humans (human patch)
+- Shizzle: the Refuge's human scientists treat goblins as the help and call the flyer quaint; flag shizzle_human_soft.

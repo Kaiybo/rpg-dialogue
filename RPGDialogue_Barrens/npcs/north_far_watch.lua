@@ -66,6 +66,27 @@ P:NPC {
       lines = { { id = "prej_kargal_calm_default", text = "Hm. Straight answers. Sergra Darkthorn never gave me one of those in her life, so you're already ahead of her." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    hu_view = {
+      lines = {
+        { id = "hum_v_default", text = "I make them a sail on the Southfury, which is what I watch for every morning. When Proudmoore came to Durotar, his ships ran up this coast, and nobody in Orgrimmar seems to remember that except the orc they left on this hill." },
+        { id = "hum_v_orc", when = { race = "Orc" },
+          text = "You're Durotar-born, near enough, so you'll know about Proudmoore's ships. They ran up this coast once, and nobody in Orgrimmar remembers it except the orc they left on this hill to watch for the next ones." },
+      },
+      choices = {
+        { text = "You think they'll come again?", next = "hu_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_stance = {
+      lines = {
+        { id = "hum_s_default", text = "I think the Kul Tirans in Tiragarde Keep didn't swim there, and I think a human admiral has a son somewhere, or a cousin. Sergra laughs at me for it, and I let her laugh, because one of us has to be ready." },
+      },
+      choices = {
+        { text = "Better ready than surprised. You're right to watch.", next = "BACK", reply = "Finally, someone with sense. Write that to Orgrimmar for me, would you, since they never read mine.", fx = { align = { order = 1 }, opinion = { humans = "dangerous" }, affinity = 1 } },
+        { text = "The admiral's dead. You're watching ghosts, Kargal.", next = "BACK", reply = "Ghosts, is it? Then you can go and tell the Kul Tirans in Tiragarde they're ghosts, and see how polite they are about it.", fx = { align = { order = -1 }, opinion = { humans = "mixed" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_blade", when = { killed = { name = "Burning Blade", min = 20 } },
@@ -80,6 +101,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. The river isn't going anywhere." },
       },
       choices = {
+        { text = "What do you make of humans, Kargal?", next = "hu_view" },
         { text = "The Burning Blade at Dreadmist are fewer, Kargal.", next = "dd_blade", when = { killed = { name = "Burning Blade", min = 20 } } },
         { text = "You've had your eyes on me since I came up the path, Battlescar.", next = "prej_kargal", when = { prejudiced = true } },
         { text = "What does Far Watch Post guard?", next = "post" },

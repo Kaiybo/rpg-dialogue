@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "A human! Hot, isn't it, pal? Bet they don't make deserts like this in Elwynn, and bet your crown wouldn't let you buy elixirs like mine either, so let's keep this between us and the sand." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "marin_human_soft" }, priority = 10,
+      text = "My favourite human customer, back in the heat! Come in, come in, pal, and I won't even mention the levy, which is me mentioning it, but kindly." },
     { id = "g_heat", text = "Hot, hot, hot, every single day it's hot, pal! Come in out of the sun, come in, because I've got something to tell you about, and it's an investment opportunity." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite partner in progress! Well, partner's a strong word, so let's say associate, or customer at the very least!" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and it's been hot every single day of it, you'll be shocked to hear! Come in, come in, because I've made improvements since you left, mostly to the side effects." },
@@ -186,8 +190,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_marin = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Humans love my elixir, pal, absolutely love it, right up until one of 'em turns into a skeleton for an hour in the middle of Stormwind's Trade District. Then it's complaints, it's letters on crown paper about unlicensed alchemical goods, and suddenly Stormwind's putting a levy on everything with a Steamwheedle stamp on it." },
+      },
+      choices = {
+        { text = "Is there really a levy on your goods?", next = "hu_marin_2" },
+        { text = "Do humans buy anything else from you?", next = "hu_marin_2" },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
+    hu_marin_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Twelve percent on Steamwheedle goods coming up the road from Booty Bay, pal, and they call it a safety levy, which is a fancy human word for robbery with paperwork. Meanwhile their own priests sell holy water by the barrel, and I've tasted it, and nobody's taxing that!" },
+      },
+      choices = {
+        { text = "Stormwind protects its people. Your elixir turns them into skeletons.", next = "BACK",
+          reply = "Temporarily, pal, temporarily, and it says so on the label in very small writing! Fine, fine, I'll give the crown that one, but twelve percent is still robbery.",
+          fx = { align = { order = 1 }, opinion = { humans = "respect" } } },
+        { text = "Humans tax what they can't make. Sell around them.", next = "BACK",
+          reply = "Now you're thinkin' like a goblin! There's a fella in Menethil who doesn't ask what's in the crates, and I'm not saying more than that.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
+    hu_marin_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Grudge? Pal, I've got invoices! Stormwind taxes every crate of Steamwheedle goods that comes up the road, and then its nobles come all the way down here to buy the same goods without the levy and brag about the bargain." },
+      },
+      choices = {
+        { text = "So the nobles dodge their own levy?", next = "BACK",
+          reply = "Every single one, and they pay me in coins with their own king's face on 'em. I keep a little jar of those coins just to look at, pal, and it's very soothing." },
+        { text = "I'm not the crown, Marin. I'm just thirsty and paying.", tag = "Persuade", next = "hu_marin_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "witty" } } } },
+          fail = { next = "hu_marin_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
+    hu_marin_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "marin_human_soft" } } },
+          text = "Thirsty and paying, the two most beautiful words in the Common tongue! You're right, pal, you're right, and it's not your fault your lords can't count, so from now on you get the warm welcome." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Marin.", next = "BACK" },
+      },
+    },
+    hu_marin_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "That's what they all say, pal, and then the letter on crown paper shows up a month later. Come back a few more times and we'll talk." },
+      },
+      choices = {
+        { text = "Something else, Marin.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_marin_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Still twelve percent, pal, and still robbery, but you're not the robber, so you get the smile and the shade. Every human who walks in here should be so lucky." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Humans, pal, humans are my most complicated market: they buy, they complain, they write to their crown, and then they buy again. You're not gonna write to the crown about me, are ya?" },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Hold still, pal, because I'd swear I sold three bottles to a {altrace} by the name of {alt} not long ago, and you've got the very same look of somebody about to say no. {alt} said yes, flying the other banner and all, so let's see if it runs in the family!" },
         { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
@@ -259,6 +336,9 @@ P:NPC {
           when = { thread = { id = "gadgetzan_water", beat = "b5_marin", state = { "stirring", "unfolding" } } } },
         { text = "Who was this other customer of yours, Marin?", next = "xalt_marin", when = { alt = true } },
         { text = "The Wastewanders won't be at your pumps for a while, Marin.", next = "dd_justice", when = { questDone = TODO_QUEST("Wastewander Justice") } },
+        { text = "What do you make of humans, Marin?", next = "hu_marin" },
+        { text = "You seem to have a grudge against Stormwind, Marin.", next = "hu_marin_x", when = { race = "Human" } },
+        { text = "Any news on that levy, Marin?", next = "hu_marin_ns", when = { race = "Human", npcFlagBefore = "marin_human_soft" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -455,6 +535,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Humans buy my elixir, complain about my elixir, and then tax my elixir, all in the same week. Stormwind calls it a safety levy, pal, and I call it robbery with paperwork." } },
     knows = {
       { id = "tp_knows", text = "Ask me anything, anything at all, as long as we stay in the shade while I answer it!" },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },
@@ -494,6 +575,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "Hello, sweetie! You're a human, so I'll go easy on the pepper, but don't you dare leave half your plate like the last one did." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "sprinkle_human_soft" }, priority = 10,
+      text = "There's my sweetie! Pull up a stool, and I'll put the pepper in properly, since you're the one human I know who can take it." },
     { id = "g_kitchen", text = "Hello, sweetie! You look like someone who hasn't eaten anything that tasted good in a week, and that's a crime I can fix for a few coppers." },
     { id = "g_away", when = { away = 14 }, text = "Sweetie, you've been gone {away}, and look at you, you're all bones and sunburn! Sit down and let me fix you something that sticks." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "My, haven't you grown since you were last in my kitchen, sweetie, and I don't mean taller. You'll be wanting a bigger plate now, so I'll find one, and I won't even charge you for the plate." },
@@ -605,8 +690,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_sprinkle = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Oh, humans are sweeties, mostly, but bless them, they cook like they're afraid of their food! Everything's boiled and everything's grey, and when I put a little Tanaris pepper in their stew they look at me like I've tried to poison their king." },
+      },
+      choices = {
+        { text = "Is that all you hold against them?", next = "hu_sprinkle_2" },
+        { text = "Do they treat you well, though?", next = "hu_sprinkle_2" },
+        { text = "Something else, Sprinkle.", next = "BACK" },
+      },
+    },
+    hu_sprinkle_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Well, since you ask, sweetie, a human lady came through last season with a bodyguard and a lace hanky, and she called me the little green cook to my face and tipped me a copper like she was feeding a duck. Noggy says not to mind it, but my sister in the Hinterlands says humans have called us little and green for a long time, and she's never wrong." },
+      },
+      choices = {
+        { text = "That lady was rude, but most humans aren't. Don't let her spoil it.", next = "BACK",
+          reply = "You're right, sweetie, you're right, and the farmer's boy who came after her ate three bowls and said thank you every time. I'll think about him instead.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "They look down on goblins. Make them pay for it.", next = "BACK",
+          reply = "Oh, I shouldn't, sweetie, but I did put extra pepper in her soup. She cried all through dinner and told everyone it was the most authentic meal of her life.",
+          fx = { align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Sprinkle.", next = "BACK" },
+      },
+    },
+    hu_sprinkle_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Against them? No, sweetie, not really, only they're polite in that particular way that tells you they think you're the help. One of them asked me if Gadgetzan had a proper kitchen while standing in my proper kitchen." },
+      },
+      choices = {
+        { text = "What did you tell him?", next = "BACK",
+          reply = "I told him the kitchen was improper, sweetie, and served him the hottest stew I've ever made. He finished every drop, I'll give him that, crying the whole while." },
+        { text = "I'll finish my whole plate, Sprinkle, pepper and all. Promise.", tag = "Persuade", next = "hu_sprinkle_soft",
+          check = { pass = { any = { { disposition = { min = 50 } }, { trait = "kind" } } } },
+          fail = { next = "hu_sprinkle_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Sprinkle.", next = "BACK" },
+      },
+    },
+    hu_sprinkle_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "sprinkle_human_soft" } } },
+          text = "Oh, you sweetie, you've won me right over, and I'll hold you to it! A human who finishes a goblin's cooking is a human worth feeding, and I'll tell Noggy so." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Sprinkle.", next = "BACK" },
+      },
+    },
+    hu_sprinkle_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "Hmm, I've heard that promise before, sweetie, and I've scraped the plate after. Show me, and then we'll see." },
+      },
+      choices = {
+        { text = "Something else, Sprinkle.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_sprinkle_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "You did, and I watched you, and I've told everyone in the kitchen. You're my favourite human, sweetie, and that's not a long list, but you're at the top of it." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "Humans always ask me what's in the stew before they eat it, sweetie, as if I'd tell them, and then they leave half of it anyway. Are you going to be a half-a-plate sort?" },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Oh, sweetie, you look just like a {altrace} who ate at my table not long ago, {alt}, from the other side of the war and hungry as a hyena. I fed {alt} the same as I'd feed anybody, because nobody fights well on a full stomach, and that's my little contribution to the peace." },
         { id = "h_alt_kin", when = { alt = { kin = true } },
@@ -653,6 +811,9 @@ P:NPC {
         { text = "Do you look after many folk in Gadgetzan, Sprinkle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "An imp really set your tablecloth on fire, Sprinkle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Marin's elixir works, Sprinkle. Mostly.", next = "dd_elixir", when = { questDone = TODO_QUEST("Noggenfogger Elixir") } },
+        { text = "What do you make of humans, Sprinkle?", next = "hu_sprinkle" },
+        { text = "Do you have something against humans, Sprinkle?", next = "hu_sprinkle_x", when = { race = "Human" } },
+        { text = "I finished the plate, Sprinkle.", next = "hu_sprinkle_ns", when = { race = "Human", npcFlagBefore = "sprinkle_human_soft" } },
         { text = "Thanks, Sprinkle.", next = "END" },
       },
     },
@@ -721,6 +882,7 @@ P:NPC {
   },
 
   topics = {
+    humans = { { id = "tp_humans", text = "Humans cook like they're afraid of their food, sweetie, and some of them call me the little green cook as if I can't hear. Most are polite, though, and that's something." } },
     knows = {
       { id = "tp_knows", text = "I hear all sorts of things, mostly from Noggy when he's excited. Ask me, and I'll sort out the useful bits for you." },
     },

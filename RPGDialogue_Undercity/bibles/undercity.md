@@ -36,3 +36,9 @@ One or two repeat-visit or night lines each for the thinnest NPCs here: small ha
 
 ## Night elves (authored, not canon)
 - Faranell: the Circle hoards its Felwood notes on corruption; elves take any Forsaken for a ghoul who forgot to lie down.
+
+## Humans (human patch)
+- Sylvanas: never human, but her people were; expects nothing of humanity (Crusade pyres, barred doors).
+- Faranell: cheerful contempt; humans as reagents; was a human chemist once (authored).
+- Bethor: grief; studied twenty years in Dalaran (authored), his letter to an old friend came back burned; the Kirin Tor lump him with Thule.
+- Norman: envy more than hate; kept an inn up top before the plague (authored).

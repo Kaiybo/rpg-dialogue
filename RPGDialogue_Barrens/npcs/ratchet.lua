@@ -15,6 +15,10 @@ P:NPC {
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "Hey, a human! Welcome to Ratchet, pal, the only town on this coast where you won't get a spear in the back, as long as you pay your docking fees and don't tell Northwatch what you saw." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "gazlowe_human_soft" }, priority = 10,
+      text = "Hey, it's my favourite human! Come on in, pal; you're the one who doesn't count my crates, and I appreciate that more than you know." },
     { id = "g_prej", when = { prejudiced = true }, text = "A night elf in Ratchet. Look, pal, before you start on the smoke, the docks, the trees and the sanctity of whatever, I already got the speech last week, and I'm still payin' off the headache." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Hey, it's my favourite night elf, and I don't say that 'cause there's a lot of competition! You pay your tab and you don't preach, pal, and that makes you a rare bird in my ledger." },
     { id = "g_hi", text = "Hey, hey, a new face in my town, and new faces are my favourite kind of customer! So what is it, pal, are you buying, selling, or just standing there admiring the real estate?" },
@@ -171,8 +175,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_gazlowe = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "I built half of Orgrimmar for Thrall, pal, so the humans figure I'm Horde, and the Horde figures I'm a goblin, which is the only thing everybody's right about. Theramore's ships still dock here now and then, and they're fine customers, but Northwatch Hold down the coast keeps sending soldiers up the beach to inspect my cargo, and inspecting is human for stealing with a clipboard." },
+      },
+      choices = {
+        { text = "Does Northwatch really take your cargo?", next = "hu_gazlowe_2" },
+        { text = "Do humans trust a goblin port at all?", next = "hu_gazlowe_2" },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    hu_gazlowe_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Every other week, pal, a Northwatch lieutenant marches up with six soldiers and a list, and every other week a crate of Horde-bound goods goes missing on the beach. Theramore sends a very polite letter apologizing for irregular conduct, which is nice stationery, but you can't sell stationery." },
+      },
+      choices = {
+        { text = "Theramore's sorry. Northwatch is just a few bad apples.", next = "BACK",
+          reply = "A few bad apples with crossbows, pal, but sure, I'll grant Lady Proudmoore writes a lovely apology. I keep 'em in a drawer for when I need to feel appreciated.",
+          fx = { align = { honor = 1 }, opinion = { humans = "mixed" } } },
+        { text = "Humans steal, then apologize. Make Northwatch pay at the dock.", next = "BACK",
+          reply = "Oh, they pay, pal, they pay, just not in a way that shows up on a Northwatch ledger. Let's say their crates sometimes go missing too.",
+          fx = { affinity = 1, align = { honor = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    hu_gazlowe_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Nothin' personal, pal, it's policy. Every human who's walked onto my docks this season has been a Northwatch soldier countin' my crates or a Theramore merchant tryin' to undercut my prices, and I've only got so many dockhands." },
+      },
+      choices = {
+        { text = "Do Horde customers get the same treatment?", next = "BACK",
+          reply = "Horde customers get a different policy, pal, mostly because they carry bigger axes. Neutral means I treat everybody fair, it don't mean I treat 'em all the same." },
+        { text = "I'm no soldier and no merchant. I'm just passing through, Gazlowe.", tag = "Persuade", next = "hu_gazlowe_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "discreet" } } } },
+          fail = { next = "hu_gazlowe_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    hu_gazlowe_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "gazlowe_human_soft" } } },
+          text = "Just passing through, huh? You know, pal, you're the first human who's said that without a clipboard behind their back, so all right, I'll tell the dockhands to ease up on you." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Gazlowe.", next = "BACK" },
+      },
+    },
+    hu_gazlowe_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "Funny, that's what the last Northwatch lieutenant said, right before he counted my crates. Come back when you've spent some coin in my town, pal." },
+      },
+      choices = {
+        { text = "Something else, Gazlowe.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_gazlowe_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Told 'em you're good people, pal, and in Ratchet my word's worth more than gold, which is sayin' something. Just don't make me look bad in front of the help." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "A human in Ratchet, and no clipboard in sight, that's a nice change. Keep your hands off the cargo, pal, and you and me'll get along great." },
         { id = "h_dd_port", tags = { "news" }, when = { questDone = TODO_QUEST("Trouble at the Docks") },
           text = "Bigglefuzz tells me you went into those stinkin' caverns and came back with his bottle of port, and I gotta say, pal, I like a customer who'll walk through monsters for a drink. That's the kind of commitment that makes money." },
         { id = "h_dd_ratchet_rep", when = { reputation = { faction = "Ratchet", min = "honored" } },
@@ -220,6 +297,9 @@ P:NPC {
         { text = "Does Ratchet welcome paladins, Gazlowe?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I cleared out VanCleef's crew in the Deadmines, Gazlowe.", next = "xcl_dm", when = { cleared = "The Deadmines" } },
         { text = "We're a crew now. What does Ratchet think of crews?", next = "xpt_gazlowe", when = { party = { size = { min = 2 } } } },
+        { text = "What do you make of humans, Gazlowe?", next = "hu_gazlowe" },
+        { text = "Your dockhands won't let me near the cargo, Gazlowe.", next = "hu_gazlowe_x", when = { race = "Human" } },
+        { text = "Your dockhands are friendlier lately, Gazlowe.", next = "hu_gazlowe_ns", when = { race = "Human", npcFlagBefore = "gazlowe_human_soft" } },
         { text = "I'll see you around, Gazlowe.", next = "END" },
       },
       again = {
@@ -492,6 +572,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Theramore's ships pay their fees, pal, but Northwatch keeps sending soldiers up the beach to inspect my cargo. Inspecting is human for stealing with a clipboard." } },
     _gated = {
       { id = "gt1", text = "That's inside information, pal, and inside information goes to people I know and like, which so far isn't you." },
       { id = "gt2", text = "Nope, not telling, friend, because that one's worth something and you haven't shown me you're good for it yet." },
@@ -860,6 +941,10 @@ P:NPC {
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
+    { id = "g_hu_human", when = { race = "Human" }, priority = 5,
+      text = "A human on my wharf! Lemme guess, pal: your ship's got a hole, your captain's got a grudge, and nobody's got the mooring fee." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "dizzywig_human_soft" }, priority = 10,
+      text = "Hey, my good human! Watch the edge, pal, because I'd actually be sorry to fish you out, which is more than I'd say for most." },
     { id = "g_hi", text = "Mind the crates, mind the ropes and mind the edge, pal, because I'm not fishing anybody out today, and the sharks in this harbour bill by the limb." },
   },
   notice = {
@@ -959,8 +1044,81 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_dizzywig = {
+      lines = {
+        { id = "hu_default", key = true,
+          text = "Human sailors, pal, are the best in the world and the worst for mooring fees. Every Kul Tiran ship that limps into Ratchet tells me how they used to own the whole sea, and then the captain argues about the price of a rope for an hour like the ocean still owes him something." },
+      },
+      choices = {
+        { text = "Kul Tiran ships come all the way here?", next = "hu_dizzywig_2" },
+        { text = "Why do they argue so much?", next = "hu_dizzywig_2" },
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+      },
+    },
+    hu_dizzywig_2 = {
+      big = true,
+      lines = {
+        { id = "hu2_default",
+          text = "Not navy ships, pal, never navy, because the navy'd sooner sink us. Merchant boats, cut loose since the admiral died, all proud captains with empty holds, and they'd rather tie up in a goblin harbour than sail home to Kul Tiras and admit there's no work. I feel for 'em, sort of, right up until they try to pay in promises." },
+      },
+      choices = {
+        { text = "Proud sailors down on their luck. Cut them some slack.", next = "BACK",
+          reply = "Slack's the one thing I've got plenty of, pal, it's all over the wharf. Fine, fine, the next sad captain gets an extra day before I send the sharks a menu.",
+          fx = { align = { light = 1 }, opinion = { humans = "respect" } } },
+        { text = "Pride's no currency. Charge them double for the attitude.", next = "BACK",
+          reply = "Ha! An attitude surcharge, I like it, pal, I like it a lot. I'll need a bigger ledger, mind, because the Kul Tiran column's already the long one.",
+          fx = { affinity = 1, align = { light = -1 }, opinion = { humans = "distrust" } } },
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+      },
+    },
+    hu_dizzywig_x = {
+      lines = {
+        { id = "hux_default", key = true,
+          text = "Because on my books, pal, that's exactly what they are. I've got a page for every race that ties up in this harbour, and the human page is the only one with a whole column marked Will Pay Next Voyage." },
+      },
+      choices = {
+        { text = "Do any of them actually pay next voyage?", next = "BACK",
+          reply = "Two, pal, in six years, and one of 'em paid in Kul Tiran coin I can't spend anywhere east of the Barrens. I framed it." },
+        { text = "Then I'll pay up front, Wharfmaster. Write me in the other column.", tag = "Persuade", next = "hu_dizzywig_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { trait = "generous" } } } },
+          fail = { next = "hu_dizzywig_fail", fx = { affinity = -1 } } },
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+      },
+    },
+    hu_dizzywig_soft = {
+      lines = {
+        { id = "hus_default", key = true, fx = { npcFlag = { set = { "dizzywig_human_soft" } } },
+          text = "Up front? Pal, you're makin' a goblin emotional on a public wharf. All right, you're in the other column, and there's a little star by your name now." },
+      },
+      choices = {
+        { text = "Then we understand each other.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+      },
+    },
+    hu_dizzywig_fail = {
+      lines = {
+        { id = "huf_default",
+          text = "Words are cheap on a wharf, pal, because the tide takes 'em out twice a day. Show me the coin a few times first." },
+      },
+      choices = {
+        { text = "Something else, Wharfmaster.", next = "BACK" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    hu_dizzywig_ns = {
+      lines = {
+        { id = "huns_default",
+          text = "Star and all, pal. I show your page to the Kul Tiran captains so they can see what an honest human looks like, and they hate it, which I love." },
+      },
+      choices = {
+        { text = "Glad to hear it. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu_human", when = { race = "Human" },
+          text = "I've had three Kul Tiran captains on this wharf this week, pal, and every one of 'em told me how his grandpa ruled the waves. You don't have a grandpa like that, do ya?" },
         { id = "h_dd_southsea", when = { killed = { name = "Southsea", min = 30 } },
           text = "You've been cuttin' up Southsea pirates up the coast, and I can see it right here in my ledger, because fewer crates have gone missin' this month than any month this year. You're good for business, pal, and I don't say that lightly." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
@@ -993,6 +1151,9 @@ P:NPC {
         { text = "Your dockhands look like they could use a priest.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "My demon could guard your docks, Dizzywig. It doesn't sleep.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Can the Light help find your crates, Dizzywig?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What do you make of humans, Wharfmaster?", next = "hu_dizzywig" },
+        { text = "You talk about humans like they're bad debts, Wharfmaster.", next = "hu_dizzywig_x", when = { race = "Human" } },
+        { text = "Am I still in the good column, Wharfmaster?", next = "hu_dizzywig_ns", when = { race = "Human", npcFlagBefore = "dizzywig_human_soft" } },
         { text = "I'll let you work.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, pal, because the tide doesn't wait and every hour the crews stand around costs me wages." } },
@@ -1027,6 +1188,7 @@ P:NPC {
     },
   },
   topics = {
+    humans = { { id = "tp_humans", text = "Human sailors are the best in the world and the worst for mooring fees. Every Kul Tiran captain on my wharf tells me his grandpa ruled the waves, pal, and then argues about the price of a rope." } },
     _none = { { id = "tp_none", text = "If it isn't in my ledger, pal, it doesn't exist and it doesn't pay tolls, so as far as I'm concerned it can stay that way." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's on the other end of the route, and every crate leaves my dock counted and arrives a little lighter. Somebody over there can't count, and I'm starting to think it's on purpose." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sink a ship a month, and I write down every crate of it, down to the last bottle. One day I'm going to send them the invoice, and I'm going to send it by cannon." } },
