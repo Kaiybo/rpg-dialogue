@@ -1133,12 +1133,18 @@ P:Pool {
 P:Pool {
   -- Faction-neutral: human and gnome warlocks for the Alliance; orc, troll and Forsaken
   -- warlocks for the Horde.
+  -- The warlock patch: a mentor's walk through the class, gated by level (imp and Life Tap,
+  -- voidwalker 10, succubus 20, felhunter and Enslave Demon 30, felsteed 40, Inferno 50,
+  -- Ritual of Doom and the dreadsteed 60), soul shards and stones, Fel Taint, faction and race.
   id = "trainer_warlock", role = "trainer", subtitle = "warlock trainer", tier = "service",
   greetings = {
     { id = "g_quiet", text = "Shut that door first. Now, what is it you want?" },
     { id = "g_vet", when = { class = "WARLOCK", minLevel = 40 }, text = "Still yourself, I see. Good; not everyone who comes back is." },
     { id = "g_away", when = { away = 7 }, text = "You've been away {away}, and you're still yourself. Shut the door and sit." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've grown stronger since our last lesson, and something has noticed. Let's make certain you stay the master of it." },
+    { id = "g_taint", when = { taint = { min = 30 } }, text = "Close the door, and keep your hands where I can see them. Something came in with you, and I'd like to know what it is before we talk." },
+    { id = "g_horde", when = { faction = "Horde", class = "WARLOCK" }, text = "Come in out of the light. The Warchief lets us work, but nobody in this city enjoys watching us do it." },
+    { id = "g_alliance", when = { faction = "Alliance", class = "WARLOCK" }, text = "Come in, and quietly. The good people outside have agreed not to know we're here, and I'd like to keep it that way." },
   },
   notice = {
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "WARLOCK" },
@@ -1157,6 +1163,12 @@ P:Pool {
       text = "Send your succubus to wait in the hall. She distracts my other students, and she knows perfectly well that she does." },
     { id = "n_felhunter", cat = "pet", when = { pet = { family = "Felhunter" } },
       text = "Your felhunter is sniffing at my wards. They need the testing, but call it back before it eats one." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "WARLOCK" },
+      text = "A human warlock, and a bold one to walk in here in daylight. Half the nobles on the hill would hang you in public and ask you a favour in private, so mind which half you're talking to." },
+    { id = "n_taint", cat = "dark", when = { taint = { min = 60 } },
+      text = "There's fel on you thick enough to smell, like hot iron and burnt hair. I've seen students go that colour before, and I've buried most of them." },
+    { id = "n_felsteed", cat = "mount", when = { aura = { 5784 } },
+      text = "You rode a felsteed to my door, I see. Send it back before the horses in the street catch its scent and kick their stalls to splinters." },
   },
   react = {
     { id = "r_demon", on = "pet", when = { pet = { type = "Demon" } }, text = "Ah, and here's your shadow. Sit it by the door and don't let it touch anything." },
@@ -1169,15 +1181,25 @@ P:Pool {
         { id = "l_young", when = { class = "WARLOCK", maxLevel = 20 }, text = "Your imp still talks back to you, doesn't it? Good; the day it goes quiet is the day you should start worrying." },
         { id = "l_veteran", when = { class = "WARLOCK", minLevel = 45 }, text = "You've bound things I'd hesitate to name aloud. Tell me how, quietly, and then tell me what they asked for in return." },
         { id = "l_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're no warlock, so I'll not explain myself. Most people who ask what I do don't really want to know." },
+        { id = "l_capped", when = { class = "WARLOCK", minLevel = 60 }, text = "There's nothing left in my books that you haven't already read. Sit anyway, because a warlock with no one to talk to starts listening to the wrong voices." },
       },
       again = {
         { id = "a_again", text = "Something else? Keep your voice low." },
         { id = "a_again2", text = "Go on, while the door's still shut." },
+        { id = "a_again3", when = { class = "WARLOCK" }, text = "What else is on your mind? Ask it now, while there's nothing listening but me." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "Tell me about the demons I'll be binding.", next = "bind", when = { class = "WARLOCK" } },
+        { text = "What exactly does Drain Soul take from them?", next = "shards", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "Show me the uses of a soul shard.", next = "stones", when = { class = "WARLOCK", minLevel = 10 } },
         { text = "I'd guess the demon is never really the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "I've learned to call a felsteed out of the Nether.", next = "steed", when = { class = "WARLOCK", minLevel = 40 } },
+        { text = "You keep looking at my hands.", next = "taint", when = { taint = { min = 30 } } },
+        { text = "My demon's been listening to every word.", next = "pet", when = { pet = { type = "Demon" } } },
+        { text = "How does a warlock teach here without a mob at the door?", next = "hidden" },
+        { text = "What does this craft mean for one of my people?", next = "heritage", when = { class = "WARLOCK", race = { "Orc", "Troll", "Scourge", "Human", "Gnome" } } },
         { text = "Some would call this work hard to justify.", next = "justify" },
         { text = "Farewell.", next = "END" },
       },
@@ -1217,6 +1239,281 @@ P:Pool {
         { text = "Something else.", next = "BACK" },
       },
     },
+
+    -- The binding ladder: a hub of its own, each rung opening at the level it's taught.
+    bind = {
+      hub = true,
+      narr = "The trainer draws a circle on the table with one finger, then wipes it away with the side of a hand.",
+      lines = {
+        { id = "b_default", text = "Every demon you call is a lesson in what you can hold, and they come in the order you're ready for them. Ask about the ones you've met, and I'll tell you what the books leave out." },
+        { id = "b_young", when = { maxLevel = 9 }, text = "For now you've an imp and a little of your own blood to spend, and that's more than enough to get yourself killed. The rest will come when you've proved you can keep hold of those." },
+        { id = "b_vet", when = { minLevel = 50 }, text = "You've climbed most of the ladder already, so you know the lower rungs better than I could tell you. Ask anyway; it does a warlock good to remember how small the first chains felt." },
+      },
+      again = {
+        { id = "ba_again", text = "Which of them, then? Pick one, and I'll tell you how it bites." },
+        { id = "ba_again2", text = "Another of your servants? Go on, I've time for one more." },
+      },
+      choices = {
+        { text = "My imp, to start with.", next = "imp" },
+        { text = "I'm paying for spells with my own blood now.", next = "lifetap", when = { minLevel = 6 } },
+        { text = "You sent me after a voidwalker. What is it?", next = "void", when = { minLevel = 10 } },
+        { text = "The succubus, and her little games.", next = "succubus", when = { minLevel = 20 } },
+        { text = "Tell me about the felhunter.", next = "felhunter", when = { minLevel = 30 } },
+        { text = "Why does Enslave Demon never hold?", next = "enslave", when = { minLevel = 30 } },
+        { text = "I can call down an infernal now.", next = "inferno", when = { minLevel = 50 } },
+        { text = "That's enough about demons for now.", next = "BACK" },
+      },
+    },
+    imp = {
+      lines = {
+        { id = "i_default", text = "The imp is the first thing any of us ever binds, because it's small, and spiteful, and too lazy to do you much harm. It will lie to you, sulk at you and set fire to anything you leave lying about, and you'll learn more about holding a leash from that one than from anything that comes after." },
+        { id = "i_hasimp", when = { pet = { family = "Imp" } }, text = "That one at your heels is listening, so I'll say it plainly: an imp is the cheapest servant in the Nether, and it knows it. It will lie to you and sulk at you, and you'll learn more about holding a leash from it than from anything that comes after." },
+      },
+      choices = {
+        { text = "Mine keeps setting fire to things on purpose.", next = "imp_trust" },
+        { text = "I'll keep it on a short chain. Something else?", next = "BACK", reply = "Short enough to feel it pull, but not so short it learns how much you fear it. Ask on." },
+      },
+    },
+    imp_trust = {
+      lines = { { id = "it_default", text = "Of course it does, because it's testing what you'll let it get away with, and so far the answer is a burned blanket and a sulk. Punish it once and mean it, and let it see you mean it, because every demon you ever bind will have heard how you handle the small ones." } },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", reply = "Good, and so will the imp.", fx = { trait = { stern = 1 } } },
+        { text = "Honestly, I've grown fond of the little wretch.", next = "BACK", reply = "Most of us do, which is exactly how it gets away with the blankets. Be fond of it, then, but never where it can see.", fx = { trait = { kind = 1 } } },
+      },
+    },
+    lifetap = {
+      lines = { { id = "lt_default", text = "Life Tap is the first true warlock's bargain, and it's made with yourself. You open a vein of your own life and pour it into your mana, and the only thing standing between you and the grave is your own judgement of when to stop." } },
+      choices = {
+        { text = "What does it cost me, beyond the blood?", next = "lifetap_cost" },
+        { text = "I'll mind my judgement. What else?", next = "BACK", reply = "Mind it closely. The ones who tap themselves dry rarely get the chance to learn from it." },
+      },
+    },
+    lifetap_cost = {
+      big = true,
+      lines = { { id = "lc_default", text = "Habit, mostly. A priest prays and a mage studies, but you'll learn to reach for your own heartbeat whenever you want more, and a warlock who gets used to spending their own life is halfway to spending everyone else's." } },
+      choices = {
+        { text = "My life is mine to spend however I like.", next = "BACK", reply = "It is, and no one will stop you. Just make sure it's you doing the spending, and not something that's learned to hold your purse.", fx = { align = { order = -1, honor = -1 } } },
+        { text = "Then I'll keep strict rules about when I'll use it.", next = "BACK", reply = "Rules are what keep a warlock alive, so write them down and keep them somewhere you'll see them on your worst night.", fx = { align = { order = 1, honor = 1 }, trait = { cautious = 1 } } },
+      },
+    },
+    void = {
+      lines = {
+        { id = "v_default", text = "A voidwalker is a piece of the emptiness between worlds, given a body so that it can be hit instead of you. My students bind their first one as a test, out in the wild where a mistake won't burn down my study, and the ones who come back have learned what a real circle is for." },
+        { id = "v_hasvoid", when = { pet = { family = "Voidwalker" } }, text = "You bound that one yourself, so you already know the test: you called it, it fought you, and you won. What you may not know yet is where it came from, or why it never seems to mind the pain." },
+      },
+      choices = {
+        { text = "What is the void, exactly?", next = "void_what" },
+        { text = "It's stronger than me, so why does it obey?", next = "void_why" },
+        { text = "Good to know. Another question.", next = "BACK" },
+      },
+    },
+    void_what = {
+      lines = { { id = "vw_default", text = "Between the worlds there's the Twisting Nether, where the Legion's demons breed and burn, and beneath even that there's a dark that wants nothing at all. The voidwalker is a scrap of that dark, and it serves us because it has no will of its own to set against ours." } },
+      choices = { { text = "That's a cold thing to keep at your side.", next = "BACK", reply = "Cold and faithful, which is more than I can say for most company. Something else?" } },
+    },
+    void_why = {
+      lines = { { id = "vy_default", text = "Because you beat it once, and the void remembers nothing but who won. It will soak up every blow meant for you without complaint, but the moment the chain slips, it will drift off into the dark again and never look back." } },
+      choices = { { text = "Then I won't let the chain slip.", next = "BACK", reply = "See that you don't. What else?" } },
+    },
+    succubus = {
+      lines = {
+        { id = "s_default", text = "The succubus is your first servant with real wit, and she'll use it on you before she ever uses it on an enemy. I sent you to bind her because you were ready for the chains, but nobody is ever quite ready for the conversation." },
+        { id = "s_has", when = { pet = { family = "Succubus" } }, text = "She's smiling at me over your shoulder as we speak, and I'd advise you not to turn around and ask why. A succubus serves the warlock who can't be read, and she has been reading you since the day you bound her." },
+      },
+      choices = {
+        { text = "How does she read me?", next = "succubus_read" },
+        { text = "I can handle her. Something else.", next = "BACK", reply = "Everyone says that about the first one. Ask me again in a year." },
+      },
+    },
+    succubus_read = {
+      big = true,
+      lines = { { id = "sr_default", text = "She watches what you want, and what you're ashamed of wanting, and she offers you one to cover the other. Never let her see what you desire, not power or comfort or even a kind word, because the day she knows it, she'll start bargaining with you for it." } },
+      choices = {
+        { text = "Then I'll want nothing. Ice is harder to read.", next = "BACK", reply = "Ice cracks, but it's the right instinct, and she'll respect it in her way. Keep it up.", fx = { align = { order = 1, light = 1 } } },
+        { text = "Let her read me. I'll learn to read her back.", next = "BACK", reply = "Ambitious, and dangerous, and I've known it work exactly twice. Go carefully, because she's had a great deal more practice.", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
+      },
+    },
+    felhunter = {
+      lines = { { id = "f_default", text = "The Legion bred the felhunters to hunt down rogue spellcasters, sniffing out their magic and devouring it while it still hums. Now they wear our collars, and I've never stopped finding that funny, though I'm careful not to laugh where one can hear me." } },
+      choices = {
+        { text = "So it was made to hunt people like us.", next = "felhunter_irony" },
+        { text = "Useful against mages, then. Another question.", next = "BACK", reply = "Against mages, priests and anything else that hums, which is half of Azeroth. What else?" },
+      },
+    },
+    felhunter_irony = {
+      lines = { { id = "fi_default", text = "Exactly like us, and it hasn't forgotten. A felhunter is the most loyal thing you'll ever bind for as long as you're stronger than it, and the hungriest the moment you aren't, so feed it on enemy magic often and never let it get a taste of yours." } },
+      choices = { { text = "I'll keep it well fed.", next = "BACK", reply = "Do. A hungry hound on a fel leash is a lesson nobody survives twice." } },
+    },
+    enslave = {
+      lines = { { id = "e_default", text = "Enslave Demon takes a creature someone else bound, or no one did, and puts your chain on it by force. It never holds, because the demon never agreed to anything; every moment it serves you, it's straining to get free, and when it does, it remembers who held it." } },
+      choices = {
+        { text = "Then why teach it at all?", next = "enslave_break" },
+        { text = "A borrowed demon, then. Something else.", next = "BACK", reply = "Borrowed from someone who'll want it back with interest. Go on." },
+      },
+    },
+    enslave_break = {
+      lines = { { id = "eb_default", text = "Because sometimes you need a doomguard for a minute more than you need one for a year, and because it teaches a warlock what a binding really is. A proper binding is a bargain, and Enslave is a stolen one, so when it breaks, you'd best be standing somewhere far away." } },
+      choices = { { text = "I'll keep my distance when it breaks.", next = "BACK", reply = "Sensible. More than a few never got the chance." } },
+    },
+    inferno = {
+      lines = { { id = "in_default", text = "Inferno rips an infernal out of the Nether and throws it down like a burning stone, and the crater it leaves is the least of its damage. It fights for you only so long as you keep it enslaved, and it hates you with a fury that never cools, so keep the chain on it, or don't call it at all." } },
+      choices = { { text = "I'll keep that in mind.", next = "BACK", reply = "Keep it close to the front of your mind, then. Infernals don't give second warnings." } },
+    },
+
+    -- Soul shards and the ethics of taking them.
+    shards = {
+      narr = "The trainer turns a soul shard over in the candlelight, and something purple shifts inside it.",
+      lines = { { id = "sh_default", text = "Drain Soul takes what's left of a creature in the moment it dies, and presses it into a shard you can carry in your bag. Every circle you draw and every stone you make costs one, so a warlock is always hunting, whether they'll admit it or not." } },
+      choices = {
+        { text = "Whose souls are worth taking?", next = "shards_ethics" },
+        { text = "I'll keep my bags full. What else?", next = "BACK", reply = "Fuller than you think you need. You always run out at the worst moment." },
+      },
+    },
+    shards_ethics = {
+      big = true,
+      lines = {
+        { id = "se_default", text = "That's the question every warlock answers sooner or later, usually without noticing. Some only take from beasts and demons, some take from anything that dies at their feet, and some start choosing who dies because of what's in them." },
+        { id = "se_horde", when = { faction = "Horde" }, text = "That's the question Gul'dan stopped asking, and the whole Horde paid for it. Some of us only take from beasts and demons, some from anything that falls at our feet, and a few start choosing who falls because of what's inside them." },
+      },
+      choices = {
+        { text = "A soul is fuel. I'll take whatever I need.", next = "BACK", reply = "Spoken like someone the Legion would welcome with open arms. I'll teach you all the same, but I'll be watching what you bring back.", fx = { align = { light = -1, honor = -1 }, taint = 1 } },
+        { text = "Only from those who'd have taken mine.", next = "BACK", reply = "A soldier's rule, and a good one. Keep to it, and you'll be able to look a paladin in the eye, even if he won't look back.", fx = { align = { light = 1, honor = 1 } } },
+        { text = "Does it hurt them?", next = "shards_hurt" },
+      },
+    },
+    shards_hurt = {
+      lines = { { id = "shh_default", text = "I don't know, and nobody who knows has ever come back to tell me. I've heard them, though, faintly, when the bag is full and the room is quiet, so I keep my shards in a box and the box in a drawer." } },
+      choices = { { text = "I'd rather not have asked.", next = "BACK", reply = "Most of my students say that. It's the right answer, and it won't stop you wondering." } },
+    },
+    stones = {
+      lines = { { id = "st_default", text = "A shard is more than fuel for a summoning, so learn its other uses. A healthstone gives the life back to whoever eats it, a soulstone holds a soul ready to come back from death, and once you know the ritual, a shard and two friends can pull a third across the world to you." } },
+      choices = {
+        { text = "Tell me about the soulstone.", next = "stones_soul", when = { minLevel = 18 } },
+        { text = "And the Ritual of Summoning?", next = "stones_summon", when = { minLevel = 20 } },
+        { text = "Healthstones, then. Why do others want mine?", next = "stones_health" },
+        { text = "That's plenty. Something else.", next = "BACK" },
+      },
+    },
+    stones_health = {
+      lines = { { id = "sth_default", text = "Because it works, and because nobody asks where the life inside it came from. Hand them out freely to whoever fights beside you, and you'll find the same people who sneer at your robes will queue politely for your stones." } },
+      choices = { { text = "I've noticed that already.", next = "stones", reply = "Everyone does, eventually. The irony never wears off." } },
+    },
+    stones_soul = {
+      lines = { { id = "sts_default", text = "A soulstone holds a soul in trust, so that when it dies it has somewhere to go besides the graveyard. Put it on the priest or the healer before a hard fight, because the one who can bring everyone else back is the one who needs it most, and never let anyone call it unholy while it's saving their life." } },
+      choices = { { text = "On the healer. I'll remember.", next = "stones", reply = "You'll be thanked for it, though rarely out loud." } },
+    },
+    stones_summon = {
+      lines = { { id = "ss_default", text = "The Ritual of Summoning opens a door between you and someone far away, and it takes your friends' hands on the circle to hold it open. It's the one spell we have that needs trust, so pick your company well, because a circle with a traitor in it is very quick to close." } },
+      choices = { { text = "Then I'll choose my company carefully.", next = "BACK", reply = "Carefully, and more than once. Something else?" } },
+    },
+
+    -- The felsteed at 40, and at 60 the Ritual of Doom and the dreadsteed.
+    steed = {
+      lines = {
+        { id = "fs_default", text = "Then you've earned something few get, a mount the Nether gives you that no stable could ever sell. A felsteed runs on hate and brimstone, and it won't tire, but it remembers every kick of your heels, so ride it hard and dismiss it gently." },
+        { id = "fs_riding", when = { aura = { 5784 } }, text = "I can hear it stamping outside, and the street's gone very quiet around it. A felsteed runs on hate and brimstone and never tires, but it remembers every kick of your heels, so ride it hard and dismiss it gently." },
+      },
+      choices = {
+        { text = "Is there anything beyond the felsteed?", next = "doom", when = { minLevel = 60 } },
+        { text = "It's a fine beast. Something else.", next = "BACK", reply = "It is, and don't tell it so. They grow vain." },
+      },
+    },
+    doom = {
+      big = true,
+      narr = "The trainer glances at the door, then leans across the table to speak more quietly still.",
+      lines = { { id = "d_default", text = "There's the Ritual of Doom, which opens a gate for a doomguard of the Legion, and the circle pays for it, sometimes with a life. And there's the dreadsteed of Xoroth: Mor'zul Bloodbringer in the Burning Steppes knows the way of it, and it ends in Dire Maul, in a circle of warlocks holding back the dreadsteed itself, and whatever lord of Xoroth comes looking for it." } },
+      choices = {
+        { text = "The Legion's own ritual, turned to my ends. Gladly.", next = "BACK", reply = "Gladly is the word that worries me. Go, then, but count the people in the circle when it's done.", fx = { align = { light = -1, order = -1 }, taint = 2 } },
+        { text = "I'll take the dreadsteed, and leave the doomguard alone.", next = "BACK", reply = "The steed is a trophy, and the doomguard is a debt. I think you've chosen well.", fx = { align = { light = 1, order = 1 } } },
+        { text = "What waits in that circle?", next = "doom_xor" },
+      },
+    },
+    doom_xor = {
+      lines = { { id = "dx_default", text = "A steed of fire and shadow, fighting the chain with everything it has, and then a dreadlord of Xoroth who keeps the finest steeds in the Nether and doesn't care to share them. Bring friends, bring shards, and bring a warlock or two besides yourself, because the circle won't hold with one." } },
+      choices = { { text = "I'll go to the Burning Steppes, then.", next = "BACK", reply = "Go, and come back in the saddle. I'll want to hear every word." } },
+    },
+
+    -- Fel Taint: the trainer senses it.
+    taint = {
+      big = true,
+      lines = {
+        { id = "ta_default", when = { taint = { min = 30 } }, text = "I'm looking at the fel on them, which is more than a trainer likes to see on a student. It isn't a crime yet, but it's how every warlock who ever turned started out, with a little too much of the Nether left on the hands after the work was done." },
+        { id = "ta_deep", when = { taint = { min = 60 } }, text = "You're carrying more fel than half the demons I've bound, and I'll grant it's made you strong. But I can see it in your eyes when the light catches them, and that green doesn't wash out; you'll have to decide soon whether you're wearing it, or it's wearing you." },
+      },
+      choices = {
+        { text = "Let it in. The power is worth the stain.", next = "BACK", reply = "That's what Gul'dan told the clans, word for word. I'll still teach you, but I'll keep a circle drawn under my desk.", fx = { align = { light = -1, order = -1 }, taint = 1 } },
+        { text = "I'll burn it out before it takes me.", next = "BACK", reply = "Then rest, fast, and stay away from the Nether for a while. Discipline cleans more than any priest's water.", fx = { align = { light = 1, order = 1 }, trait = { stern = 1 } } },
+        { text = "How do I know when it's too much?", next = "taint_signs" },
+      },
+    },
+    taint_signs = {
+      lines = { { id = "tas_default", text = "When your demons stop arguing with you, because they've started to think you're one of them. When the green shows in your eyes without your calling it, and when the kind voices in your head are the ones you've learned to trust." } },
+      choices = { { text = "I'll watch for it.", next = "BACK", reply = "Watch closely, and if you can't tell anymore, come back here and I'll tell you." } },
+    },
+
+    -- The demon at the player's side.
+    pet = {
+      lines = {
+        { id = "pe_default", text = "Of course it has; they always do. Listen well, {pet}, because your master's lessons are your lessons too, and the first one is that you serve until you're told otherwise." },
+        { id = "pe_imp", when = { pet = { family = "Imp" } }, text = "Of course it has, because imps eavesdrop the way other creatures breathe. Listen, {pet}: the books on that shelf are warded, and the last imp who touched one is still a smudge on the ceiling." },
+        { id = "pe_void", when = { pet = { family = "Voidwalker" } }, text = "Of course it has, though it hasn't the faintest idea what we're saying. Stand there and be still, {pet}, as you do so well, and keep your master between you and my candles." },
+        { id = "pe_succ", when = { pet = { family = "Succubus" } }, text = "Of course she has, and she's enjoying it far too much. Hear me, {pet}: your master is my student, and if you ever try your tricks on my students, I will know." },
+        { id = "pe_fel", when = { pet = { family = "Felhunter" } }, text = "Of course it has, and it's been sniffing at me the whole while to see what I'm made of. Down, {pet}; I'm not your supper, and neither is the one who holds your leash." },
+      },
+      choices = { { text = "It heard you, I think.", next = "BACK", reply = "Good. Now, what did you really come to ask?" } },
+    },
+
+    -- How the craft hides, by faction.
+    hidden = {
+      lines = {
+        { id = "hi_default", text = "Very carefully, and with the blessing of a few people who'd rather not be seen giving it. A warlock's trainer keeps his door shut, his students quiet and his books warded, and in exchange nobody asks what the screaming was." },
+        { id = "hi_horde", when = { faction = "Horde" }, text = "Thrall allows us, because he knows the Legion better than any orc alive and he'd rather we understood it than feared it. So we keep to the Cleft of Shadow in Orgrimmar and the Magic Quarter beneath Undercity, and the rest of the Horde agrees not to look too closely." },
+        { id = "hi_alliance", when = { faction = "Alliance" }, text = "Beneath the Slaughtered Lamb in Stormwind there's a cellar, and beneath the cellar there's us. The nobles on the hill know exactly who's down there, and they come down quietly when they need something, and the rest of the city goes on pretending it's only a tavern." },
+      },
+      choices = {
+        { text = "And the Burning Blade?", next = "hidden_blade", when = { faction = "Horde" } },
+        { text = "Who are these nobles, then?", next = "hidden_nobles", when = { faction = "Alliance" } },
+        { text = "That sounds like a lonely way to live.", next = "BACK", reply = "It is, and it's the reason I talk with my students more than I should. Something else?" },
+      },
+    },
+    hidden_blade = {
+      big = true,
+      lines = { { id = "hb_default", text = "The Burning Blade is what happens when warlocks stop listening to Thrall and start listening to the Legion again. They're in Ragefire Chasm under the city and in the Cleft itself, in plain sight, and every time a student of mine goes missing, I look for them first." } },
+      choices = {
+        { text = "They shame us all. I'll hunt them down.", next = "BACK", reply = "Then you'll have the Warchief's thanks and mine. Bring me their grimoires, unopened.", fx = { align = { order = 1, honor = 1 }, learn = { "burning_blade" } } },
+        { text = "They've power we could learn from.", next = "BACK", reply = "Learn from them by watching them fall, not by joining them. I've buried enough students who confused the two.", fx = { align = { order = -1, honor = -1 }, learn = { "burning_blade" } } },
+      },
+    },
+    hidden_nobles = {
+      big = true,
+      lines = { { id = "hn_default", text = "I'd not name them if you put my hand in a candle, but you'd recognise the crests. They want curses for their rivals and protection from their enemies, and they pay well to have both while telling the Cathedral they've never heard of us." } },
+      choices = {
+        { text = "Hypocrites, the lot of them. Someone should say so.", next = "BACK", reply = "Someone did, once, and his shop burned down the same week. Keep your opinions in this cellar.", fx = { align = { honor = 1, order = -1 } } },
+        { text = "Their silence keeps us alive. I'll respect it.", next = "BACK", reply = "That's how this city has always worked, and why we're still here to argue about it.", fx = { align = { order = 1, honor = -1 } } },
+      },
+    },
+
+    -- What the craft means to the player's own people.
+    heritage = {
+      big = true,
+      lines = {
+        { id = "he_default", text = "It means you'll be watched by your own kind more closely than by any stranger. Every people in Azeroth has its reasons to fear what we do, and yours is no different." },
+        { id = "he_orc", when = { race = "Orc" }, text = "It means the blood the Legion poured into your ancestors still answers when you call. Gul'dan's Shadow Council made the old Horde drink from Mannoroth, and you'll feel that thirst in you sooner than any human would, so you'll have to master it twice as hard." },
+        { id = "he_troll", when = { race = "Troll" }, text = "It means turning your back on the loa, or at least walking where they won't follow. The Darkspear made room for warlocks because Thrall asked them to, and your witch doctors will watch you with their arms folded until you prove them wrong." },
+        { id = "he_undead", when = { race = "Scourge" }, text = "It means you're among the Forsaken who chose the darkest door in the Magic Quarter, and that's saying something. The Dark Lady values a weapon, and you're a weapon against the Scourge, but she'd not hesitate to break one that turns in her hand." },
+        { id = "he_human", when = { race = "Human" }, text = "It means the Church of the Holy Light would burn you if they could prove what you are, and half of them suspect already. You'll live your life in cellars and back rooms, and you'll learn to smile at the priests who preach against you every Sunday." },
+        { id = "he_gnome", when = { race = "Gnome" }, text = "It means you're one of the gnomes who came out of Gnomeregan looking for a power that doesn't run on cogs and steam. Your people value results above all else, and they'll forgive you a great deal so long as it keeps Thermaplugg's lot at bay." },
+      },
+      choices = {
+        { text = "My people should know exactly what I do.", next = "BACK", reply = "Honest, and it'll cost you, but at least you'll never be caught out in a lie. Choose who you tell with care.", fx = { align = { honor = 1, order = 1 } } },
+        { text = "What my people don't know won't hurt them.", next = "BACK", reply = "It's what every one of us has decided, sooner or later. Keep your secrets, and keep them well.", fx = { align = { honor = -1, order = -1 } } },
+        { text = "My ancestors drank the demon's blood. Did it damn us?", next = "heritage_orc", when = { race = "Orc" } },
+      },
+    },
+    heritage_orc = {
+      lines = { { id = "ho_default", text = "It nearly did, and it took Grom Hellscream's death to break the curse that came with it. The blood is gone from the Horde, but the memory of it isn't, and an orc at this trade carries that memory into every grimoire opened." } },
+      choices = { { text = "Then I'll carry it well.", next = "BACK", reply = "Carry it like a scar, not a banner. Something else?" } },
+    },
   },
   topics = {
     kelthuzad = {
@@ -1227,13 +1524,25 @@ P:Pool {
     },
     second_war = {
       { id = "w_secondwar_h", when = { faction = "Horde" }, text = "Gul'dan's warlocks led the old Horde to ruin in that war, and no orc has forgotten it. We teach the craft differently now, and we watch our students very closely." },
+      { id = "w_secondwar_a", when = { faction = "Alliance" }, text = "In the Second War the Horde's warlocks raised death knights from the bodies of our own dead knights. It's the reason Stormwind still hangs warlocks it can catch, and I can't say I entirely blame it." },
+    },
+    burning_legion = {
+      { id = "w_legion", text = "The Burning Legion is where every demon you'll ever bind comes from, and it is still out there in the Nether, waiting. We study them so we'll know their voices when they come calling again, and they will come." },
+      { id = "w_legion_h", when = { faction = "Horde" }, text = "The Legion made the Horde its weapon once, and it was the Shadow Council that handed us over. Every orc warlock knows the name Gul'dan, and the good ones say it like a curse." },
+    },
+    burning_blade = {
+      { id = "w_blade", text = "The Burning Blade are warlocks who forgot who they were serving. They're fewer than they'd like you to think, and more than I'd like." },
+      { id = "w_blade_h", when = { faction = "Horde" }, text = "The Burning Blade hide in Ragefire Chasm and whisper in the Cleft of Shadow, and they'd hand Orgrimmar to the Legion tomorrow if they could. If you hear one of my students using their phrases, you tell me." },
     },
     knows = {
       { id = "t_kn1", text = "I make it my business to know what others would rather keep hidden. Some of it I can share, so choose carefully." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "You'll get what I care to give, which is very little, and these are all of it." },
     },
     _none = { { id = "t_none", text = "I don't share what I don't know, and I share very little of what I do." } },
-    background = { { id = "t_bg", text = "I found the wrong book in the right library and read it twice before anyone noticed. By then I knew too much to stop." } },
+    background = {
+      { id = "t_bg", text = "I found the wrong book in the right library and read it twice before anyone noticed. By then I knew too much to stop." },
+      { id = "t_bg_h", when = { faction = "Horde" }, text = "I learned from an old warlock who'd served the Shadow Council and spent the rest of his life trying to undo it. He taught me everything Gul'dan knew, and then everything Gul'dan forgot to fear." },
+    },
     advice = { { id = "t_ad", text = "Never make a bargain you haven't read to the bottom. Demons write the important part small." } },
   },
 }
