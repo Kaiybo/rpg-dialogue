@@ -43,7 +43,8 @@ Either:
 `.github/workflows/release.yml` runs the BigWigs packager, which builds the zip and uploads it to CurseForge with `CHANGELOG.md` as the changelog:
 
 - **Every push to `claude/import`** (merging a PR counts) uploads an **alpha**. Only players who opted into alphas get it. Pushes that only touch docs, tools, tests or this folder are skipped.
-- **A tag like `v0.67.0`** uploads a **release** (`v0.67.0-beta1` uploads a beta) and makes a GitHub release.
+- **A tag like `v0.67.0`** pushed by hand uploads a **release** (`v0.67.0-beta1` uploads a beta) and makes a GitHub release.
+- **A version bump merged to `claude/import`**: `github-release.yml` makes the tag and GitHub release, then uploads that tag to CurseForge as a **release** too (GitHub never starts `release.yml` for tags a workflow makes). To upload an existing tag by hand: Actions > GitHub release > Run workflow, `curse_tag` = `v0.90.0`.
 
 To switch it on:
 
