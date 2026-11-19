@@ -665,7 +665,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We've sailed with worse, friend, and some of them were captains. The sea doesn't care what you bargained with, but a crew does, and sailors will forgive a drunk or a thief long before they forgive anything with horns, so keep it out of sight and pull your weight on the ropes." } },
+      lines = {
+        { id = "xlock_default", text = "We've sailed with worse, friend, and some of them were captains. The sea doesn't care what you bargained with, but a crew does, and sailors will forgive a drunk or a thief long before they forgive anything with horns, so keep it out of sight and pull your weight on the ropes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We've sailed with worse, friend, and some of them were captains. But look at my deckhands now, every one of them watching that thing at your heel instead of the ropes, so send it off before we sail or you'll be hauling lines alone." },
+      },
       choices = {
         { text = "I'll keep my demon leashed and pull my weight.", next = "BACK", reply = "Good, friend, and you'll be welcome on my deck. Pull your weight and keep that thing below, and we'll get along.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If your crew fears my demon, they'll keep their distance.", next = "BACK", reply = "They'll keep their distance and their courage too, friend, and I need both. Leash it, or find another ship.", fx = { align = { order = -1 } } },
@@ -1329,7 +1332,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. I sell 'em cheap, real cheap, because I don't like the whispering either, so for a few silver they stop bein' my problem and start bein' yours." } },
+      lines = {
+        { id = "xlock_default", text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. I sell 'em cheap, real cheap, because I don't like the whispering either, so for a few silver they stop bein' my problem and start bein' yours." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bits and pieces from the troll ruins, mostly, and a few things the Bloodsail tossed overboard because they started whispering at night. Your {pet} keeps leaning toward that crate in the back like it hears a friend in there, and I'd sell you the whole lot cheap just to watch the two of them leave together." },
+      },
       choices = {
         { text = "I'll take them and bind whatever's whispering.", next = "BACK", reply = "You're braver than me, pal, and probably crazier. Take them, and don't tell me what they say.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Throw them back in the sea. Some things should stay drowned.", next = "BACK", reply = "Throw them back? Pal, they're inventory! But fine, fine, maybe the sea's the best place for some of 'em.", fx = { align = { order = 1 } } },
@@ -1632,7 +1638,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. I've heard sailors' stories of deals made in the dark of the sea, and none of them ended with a ship coming home." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. I've heard sailors' stories of deals made in the dark of the sea, and none of them ended with a ship coming home." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Bloodsail only want gold, and gold I can find, but a demon wants something you can't get back once it's spent. That one's been staring at me since you walked up, and I'd swear it's measuring what I've got left to give." },
+      },
       choices = {
         { text = "A deal made with care can be kept. It's all in the terms.", next = "BACK", reply = "That's the trick of it, aye, and few manage it. I'd want to read those terms with a lawyer and a priest beside me.", fx = { align = { order = 1 } } },
         { text = "Demons don't keep deals. That's why I master them instead.", next = "BACK", reply = "Master them, is it? I've heard that said by men whose debts I collected from their widows. Careful, friend.", fx = { affinity = 1, align = { order = -1 } } },
@@ -1864,7 +1873,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd hire anything that comes back alive, friend, and I'd guess demons are hard to kill. The trouble is that the Cartel's insurance doesn't cover anything summoned, and the Baron is very strict about his paperwork, so your imp would be strictly off the books." } },
+      lines = {
+        { id = "xlock_default", text = "I'd hire anything that comes back alive, friend, and I'd guess demons are hard to kill. The trouble is that the Cartel's insurance doesn't cover anything summoned, and the Baron is very strict about his paperwork, so your imp would be strictly off the books." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd hire anything that comes back alive, friend, and that one looks hard to kill. Trouble is, the Cartel's insurance doesn't cover anything summoned, and I can't even write its name on the form without the ink smoking, so it stays strictly off the books." },
+      },
       choices = {
         { text = "My demon works for me, not for the Cartel.", next = "BACK", reply = "Then it's a partnership, buddy, I can work with that. Your demon, your rules, my profits.", fx = { align = { order = -1 } } },
         { text = "Then I'll do the work myself, by the Baron's rules.", next = "BACK", reply = "By the Baron's rules? Buddy, you're a breath of fresh air in this town. I'll pay you the honest rate, which is lower.", fx = { affinity = 1, align = { order = 1 } } },
@@ -2337,7 +2349,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger, my cook, tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." } },
+      lines = {
+        { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger, my cook, tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd trade almost anything, and having your demon stand there grinning at me makes that thought a good deal worse. Sprogger would chase it off with a ladle if he were here, and for once I think I'd let him." },
+      },
       choices = {
         { text = "Sprogger is right. Some prices are too high.", next = "BACK", reply = "Maybe he is, and that's why I haven't asked you yet. Some prices are too high, even for revenge.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Vengeance is worth any price. I'll help.", next = "BACK", reply = "You'd do it? Friend, I'd almost be afraid of you. Almost.", fx = { align = { light = -1 } } },
@@ -2579,7 +2594,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I owe money to the kind of people who don't care how they get paid, and I've heard stories about debt collectors in Booty Bay that would turn your hair white. I'm sure you're not one of them, but I'll stand over here just in case." } },
+      lines = {
+        { id = "xlock_default", text = "Because I owe money to the kind of people who don't care how they get paid, and I've heard stories about debt collectors in Booty Bay that would turn your hair white. I'm sure you're not one of them, but I'll stand over here just in case." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I owe money to the kind of people who don't care how they get paid, and that thing of yours looks exactly like the collectors in the stories. It hasn't blinked since you walked over, so I'll just stand a bit further over here, if it's all the same to you." },
+      },
       choices = {
         { text = "Relax. I'm not here to collect anyone's debts.", next = "BACK", reply = "Oh, thank the Light, I mean, thank whatever you thank. You'll forgive me if I keep shaking anyway.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe I am. Best pay up, Shaky.", next = "BACK", reply = "Oh no, oh no, oh no, I knew it, I knew it the moment you walked in! Please, I'll pay, just not today, or this week.", fx = { align = { light = -1 } } },
@@ -2831,7 +2849,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. It's a long list, pal, and it's not getting shorter fast enough for my liking." } },
+      lines = {
+        { id = "xlock_default", text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. It's a long list, pal, and it's not getting shorter fast enough for my liking." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough that I keep a list of every Bloodsail dog who's ever boarded a ship of ours, and I cross off a name every time one hangs. Your demon's reading it over my shoulder like it wants to help, pal, and I'm almost tempted to let it." },
+      },
       choices = {
         { text = "Hate's a poor compass, Crazz. It'll sink you too.", next = "BACK", reply = "Maybe it will, friend, and maybe I'll drown with a smile. That list's all I've got for the sailors who never came home.", fx = { align = { light = 1 } } },
         { text = "Then let's shorten that list together.", next = "BACK", reply = "Now that's a partnership I can raise a glass to, friend. Let's start with the worst of them.", fx = { affinity = 1, align = { light = -1 } } },
@@ -3255,7 +3276,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Bring your imp a little closer and let's see if the tune changes, and if anything catches fire, that's on you." } },
+      lines = {
+        { id = "xlock_default", text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Bring your imp a little closer and let's see if the tune changes, and if anything catches fire, that's on you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I haven't the faintest idea, pal, and that's what makes them valuable, because anything nobody understands can be sold for twice what it's worth. Look at that, your demon's gone all quiet and the thing's humming louder, so if anything catches fire, that's still on you." },
+      },
       choices = {
         { text = "I'll test them, but carefully. Some things shouldn't be woken.", next = "BACK", reply = "Carefully, sure, buddy, and from a safe distance. Some of them hum louder at night.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let's find out. Curiosity is worth the risk.", next = "BACK", reply = "Curiosity! That's my favorite word after profit, buddy. Let's see what they do.", fx = { align = { order = -1 } } },
@@ -3711,7 +3735,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. The trouble is that demons tend to burn through leather faster than anything I can stitch, so I'd charge double just for the risk, and triple for the smell." } },
+      lines = {
+        { id = "xlock_default", text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. The trouble is that demons tend to burn through leather faster than anything I can stitch, so I'd charge double just for the risk, and triple for the smell." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd make armor for a raptor if it paid me, pal, and I've done worse, believe me. But your {pet} is already scorching the edge of my cutting table just by leaning on it, so I'd charge double for the risk, triple for the smell, and extra for the table." },
+      },
       choices = {
         { text = "My demon needs no armor. I'll keep it bare.", next = "BACK", reply = "Bare it is, pal, but don't come cryin' to me when it gets a sword in the ribs. Demons look good in leather.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Make it, then. Name your price for the risk.", next = "BACK", reply = "Risk pricing, now you're talkin' my language, pal! Double for the demon, triple if it bites.", fx = { align = { order = -1 } } },
@@ -3882,7 +3909,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. I've cooked for him a long time, and I've never seen him like this, so I'll ask you plainly to leave him be." } },
+      lines = {
+        { id = "xlock_default", text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. I've cooked for him a long time, and I've never seen him like this, so I'll ask you plainly to leave him be." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He talks about it at night, after the rum, and in the morning he pretends he never said it. Now you've brought that thing right up to my galley door, smelling of sulphur and watching me like I'm on the menu, so I'll ask you plainly to take it and leave him be." },
+      },
       choices = {
         { text = "I'll leave him be. He deserves peace.", next = "BACK", reply = "Thank you, he does, and so do I. I'll keep him from making a deal he'll regret.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If he wants a demon, that's his choice.", next = "BACK", reply = "His choice, maybe, but I'll not let him make it without telling him what I think. Somebody has to.", fx = { align = { light = -1 } } },
@@ -4356,7 +4386,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I count everything, because the Cartel taxes everything, and I'm not about to let a demon slip through just because it's ugly. I've got a column for livestock and a column for passengers, and so far your sort have gone under livestock, at the livestock rate." } },
+      lines = {
+        { id = "xlock_default", text = "I count everything, because the Cartel taxes everything, and I'm not about to let a demon slip through just because it's ugly. I've got a column for livestock and a column for passengers, and so far your sort have gone under livestock, at the livestock rate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I count everything, because the Cartel taxes everything, and that includes the brimstone-stinking thing standing at your heel. It's under livestock, at the livestock rate, and I'll thank you to stop it breathing on my ledger before I add a surcharge." },
+      },
       choices = {
         { text = "Count it how you like. Rules keep the port running.", next = "BACK", reply = "Thank you, friend, at last somebody understands. The port runs on counts.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon is no one's livestock. Leave it off your books.", next = "BACK", reply = "No one's livestock, eh? Then it's cargo, friend, and cargo's taxed too. Everything goes on the books.", fx = { align = { order = -1 } } },

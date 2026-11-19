@@ -218,7 +218,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." } },
+      lines = {
+        { id = "xwl_default", text = "Dalaran has a long memory where your arts are concerned, and its walls have wards against them for good reason. I'd be grateful for your help, and I'd also be grateful if you never mentioned it to anyone in the Violet Citadel." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Dalaran has a long memory where your arts are concerned, and I'd swear the ward-stone in my pocket went cold the moment your demon came near. I'd be grateful for your help, and more grateful still if you never mentioned it, or let that thing within sight of the Violet Citadel." },
+      },
       choices = {
         { text = "Dalaran's wards keep out the wrong things.", next = "BACK", reply = "Exactly so, and I'm glad you understand. Keep your arts quiet, and nobody will need to test them.", fx = { align = { order = -1 } } },
         { text = "Discretion it is. Dalaran's rules are Dalaran's rules.", next = "BACK", reply = "Thank you. You'd be surprised how many of your kind take offence at that.", fx = { affinity = 1, align = { order = 1 } } },
@@ -342,7 +345,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
+      lines = {
+        { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War, though I never thought I'd have one of their servants standing in my study. There are older pages about Alterac's court magi too, but those stay under the floorboards, and I'll thank your demon to stop staring at the boards." },
+      },
       choices = {
         { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", reply = "I will, every blackened hill and every name. If I don't, someone in Stormwind who's never seen the place will write it for me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some pages are better burned than kept, Kundric.", next = "BACK", reply = "Burned, maybe, but somebody would only write them again, and badly. I'll keep them, and keep them locked.", fx = { align = { honor = -1 } } },
@@ -578,7 +584,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He did, and the warlock let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." } },
+      lines = {
+        { id = "xlock_default", text = "He did, and the warlock let him, which I thought showed good sense. Bilger hasn't lifted a sword in years, but he still remembers the old oaths, and I'd not want to be the one who tests them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He did, and the warlock let him, though that one had the sense to leave his demon outside, which you haven't. Bilger hasn't lifted a sword in years, but he's looking at yours from across the room right now, and I'd not want to be the one who tests his old oaths." },
+      },
       choices = {
         { text = "The warlock was wise not to fight. Respect the old man.", next = "BACK", reply = "He was, and Bilger's never let anyone forget it. The warlock still buys his ale elsewhere, mind.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I wouldn't have run. A broom doesn't scare me.", next = "BACK", reply = "Then you'd have been on the floor with a sore head, because Bilger can still swing a broom.", fx = { align = { honor = -1 } } },
@@ -785,7 +794,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." } },
+      lines = {
+        { id = "xlock_default", text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and my friends and I seemed a better place to start." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because after Dalaran fell, they cared more about rebuilding their towers than about the people who'd lost everything in the war. I wanted to do something useful with what I'd learned, and I'd ask your demon to stop sizing me up while I explain it, because it's making me lose my place." },
+      },
       choices = {
         { text = "People matter more than towers. You chose rightly.", next = "BACK", reply = "Thank you. I've wondered more than once whether I was right.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Kirin Tor's power protects everyone. You abandoned them.", next = "BACK", reply = "Perhaps I did, and perhaps they'd say so too. I'd still rather be here than reading in a tower.", fx = { align = { light = -1 } } },
@@ -997,7 +1009,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." } },
+      lines = {
+        { id = "xlock_default", text = "'Cause my horses can smell it a mile off, an' they'd kick the stalls to splinters tryin' to get away. A horse knows what's natural an' what ain't, an' I'll trust a horse's nose over anybody's word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "'Cause my horses can smell it a mile off, an' yours is close enough now that the mare's already kickin' her stall. Take it back down the lane, friend, because a horse knows what's natural an' what ain't, an' that thing at your heel ain't." },
+      },
       choices = {
         { text = "Understood. My horse can sleep well clear of your stables.", next = "BACK", reply = "That's kind, an' my horses'll thank you, though they'll never say so.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your horses will learn to share. Times are changing.", next = "BACK", reply = "Maybe they are, but horses don't change for nobody. You'll keep yours clear, all the same.", fx = { align = { order = -1 } } },
@@ -1210,7 +1225,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." } },
+      lines = {
+        { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. Your demon can stand there breathing in my stew all it likes, but it isn't getting a bowl, because a good meal doesn't ask where you learned your trade, only that whoever eats it has a soul." },
+      },
       choices = {
         { text = "Good food for all who pay. That's a fair kitchen.", next = "BACK", reply = "That's the only kind of kitchen I know how to run. Sit down, and I'll find you something hot.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Forsaken at your table? They'd poison the soup.", next = "BACK", reply = "Not in my kitchen, they wouldn't. I'd taste it first.", fx = { align = { honor = -1 } } },
@@ -1396,7 +1414,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." } },
+      lines = {
+        { id = "xlock_default", text = "They offend every horse I've ever bred, which is worse. A good horse is trained, loved and trusted over years, and a summoned beast is just bound, and I'd rather ride the first to my grave than the second to glory." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They offend every horse I've ever bred, and so does the thing at your heel, because half my paddock just bolted for the far fence. A good horse is trained, loved and trusted over years, and a summoned creature is only bound, so keep it well back from my rails while we talk." },
+      },
       choices = {
         { text = "A beast that chooses you won't bolt. I agree.", next = "BACK", reply = "Then we agree, and I'm glad of it. A horse that chooses you is a horse that stays.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A steed is a steed. Mine never tires or dies.", next = "BACK", reply = "Never tires or dies, and never loves you either. I'll take my horses, thank you.", fx = { align = { light = -1 } } },
@@ -1620,7 +1641,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." } },
+      lines = {
+        { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and right now it's standing on my jetty frightening off the whole bay. The fish take their own time, and they'll take a good deal longer with {pet} glowering at the water, so sit easy and send it back a few paces." },
+      },
       choices = {
         { text = "Patience is a discipline. I'll learn it gladly, Donald.", next = "BACK", reply = "Then sit on the pier with me some evening, and we'll learn it together.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't wait on fish. I'll find another way.", next = "BACK", reply = "There's no other way with fish, friend, but you're welcome to try. I'll be watching.", fx = { align = { order = -1 } } },

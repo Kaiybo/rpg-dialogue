@@ -1078,6 +1078,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They do, quietly, and they tip well and break nothing, unlike the guests who've just got rich at the auction house and want the whole street to know it. I only ask that nothing comes out of a circle on my floorboards, love, because the last time I had the whole room re-scrubbed and it still smelled of sulphur." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, quietly, and they tip well and break nothing, though they usually leave their companions down at the Lamb rather than bringing them up to my bar. I'd ask that yours keeps its distance from the hearth, love, because the last time a room smelled of sulphur I had it scrubbed twice and it still lingered." },
       },
       choices = {
         { text = "No circles on your floorboards, Allison. You have my word.", next = "BACK", reply = "Then you're welcome here, love, and I'll thank you not to prove me wrong.", fx = { align = { order = 1 } } },

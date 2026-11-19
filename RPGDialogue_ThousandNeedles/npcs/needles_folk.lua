@@ -240,7 +240,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." } },
+      lines = { { id = "xlock_default", text = "That's a mercy for both of us, I think. The animals here are gentle, and they've done nothing to deserve the fear your servants bring, so keep them on your side of the mesa and we'll stay friends." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's a mercy for both of us, I think, though look, the mesa's gone quiet since your servant came up the path. The animals here are gentle and have done nothing to deserve that fear, so keep it on your side of the mesa and we'll stay friends." } },
       choices = {
         { text = "Your beasts are safe. I'll keep my distance.", next = "BACK", reply = "Then we are friends, and I will keep a pail of water for you whenever you come up the lift.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My servants go where I go. That's final.", next = "BACK", reply = "Then you will have to wait at the edge of the mesa, because my beasts were here first and they have done no wrong.", fx = { align = { light = -1 } } },
@@ -438,7 +438,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." } },
+      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Why not? Your {pet}'s right here and I'm already measuring it for the seat, so hold it still a second. Pozzik told me to get out of his garage last time I pitched it, but one look at that thing on the starting line and the tickets would sell themselves." } },
       choices = {
         { text = "Demons don't belong on a race track. Forget it.", next = "BACK", reply = "Oh, fine, fine, but I still think a voidwalker would make a marvellous pit crew, it never gets tired or complains.", fx = { align = { order = 1 } } },
         { text = "I'd lend you my demon for a cut of the purse.", next = "BACK", reply = "Ooh, now that's a business proposal, and I'll draw up a contract tonight, though Pozzik will still throw me out.", fx = { align = { order = -1 } } },

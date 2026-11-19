@@ -64,7 +64,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." } },
+      lines = {
+        { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. That creature of yours looks able to carry a bundle, and the lads are frightened of the woods anyway, so if it'll stack and keep the wood dry, I'll pretend I never saw what it is." },
+      },
       choices = {
         { text = "You should care who does your work, Raelen.", next = "BACK", reply = "I care that it's done, and done right, and that's all. Everything else is Stormwind's problem.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then we understand each other. Get the timber cut.", next = "BACK", reply = "Good, we'll get on fine, then. The bundles are by the river.", fx = { align = { order = -1 } } },

@@ -76,6 +76,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "That they promised us strength and gave us the blood curse, and that it took Thrall and Hellscream to free us from it. I won't turn you from my door, because my clan is gone and I can't be choosy, but I'll ask you not to call that thing near my hut." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That they promised us strength and gave us the blood curse, and it took Thrall and Hellscream to free us from it. And now one of them stands on my doorstep, staring into my hut, so please, call it away, because my clan is gone and I can't bear to look at it." },
       },
       choices = {
         { text = "Of course. I won't bring it near your home.", next = "BACK", reply = "Thank you, and that's more courtesy than I expected. Leave it at the edge of the hill, and you're welcome inside.", fx = { align = { order = 1 } } },
@@ -502,6 +503,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The orc shamans became warlocks once, on Draenor, when Ner'zhul and Gul'dan led them away from the spirits, and the whole Horde paid for it. I trust you as far as I can see you, mon, and I be watching you close." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The orc shamans became warlocks once, on Draenor, when Ner'zhul and Gul'dan led them away from the spirits, and the whole Horde paid for it. Your servant be watching me the way they all watch, mon, like it be measuring me for later, so I be watching you both close." },
       },
       choices = {
         { text = "Watch, then. I'll prove I'm not Gul'dan.", next = "BACK", reply = "Then prove it, mon, and the spirits will watch with me. I hope you be what you say.", fx = { align = { light = 1 } } },
@@ -678,6 +680,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "How to stand, because a warlock who falls the first time a boar reaches them never learned to brace their feet. Watch my recruits for a morning, and you'll know where a blow is going to land before it does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "How to stand, because a warlock who falls the first time a boar reaches them never learned to brace their feet. Your demon can take a blow for you, but it won't always be there, so stop leaning on it and watch my recruits for a morning instead." },
       },
       choices = {
         { text = "I'll watch and learn. No shame in learning from a warrior.", next = "BACK", reply = "No, there isn't, and I'm glad a warlock knows it. Watch my feet, not my axe, and you'll learn something.", fx = { align = { honor = 1 } } },

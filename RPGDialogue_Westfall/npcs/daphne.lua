@@ -42,6 +42,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Fear it? They'd throw rocks at it and then come up to see where it came from, because the Brotherhood are thieves first and fools second. I'd rather you kept your little friend where the trees can't catch fire, if it's all the same to you." },
         { id = "xlock_more1", text = "Still, Jordan always said a farm's best defended by whatever the other fellow didn't expect, and I doubt they expect you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fear it? They'd throw rocks at it and then come up to see where it came from, because the Brotherhood are thieves first and fools second. Your {pet} has been eyeing my orchard since you came through the gate, though, and I'd rather it stood back where the trees can't catch fire." },
       },
       choices = {
         { text = "I'll keep it leashed and your trees safe, Daphne.", next = "BACK", reply = "I'd be obliged, love, because those trees are older than our marriage. The Defias are welcome to whatever comes up the hill, though.", fx = { align = { order = 1 } } },

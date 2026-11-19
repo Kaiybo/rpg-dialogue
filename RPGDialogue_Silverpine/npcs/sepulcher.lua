@@ -228,6 +228,7 @@ P:NPC {
         { id = "xwarlock_default", text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them well. Send your demons at the Rot Hide gnolls, who are too stupid to be frightened of anything and will at least keep them busy." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You'd have heard of the Cult of the Damned in life, and perhaps more than heard, but the Dark Lady has given you a new master and a new purpose. Use your demons for her, and I'll not care where you learned to call them." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "The Warchief sends orcs to help, and here is one who brought fel fire with him, which I didn't expect. Point it at the Rot Hides and I'll see your name in my report." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "One front would be a mercy, since I have four and too few Deathguard to hold any of them, and yours at least looks eager to start. Send it at the Rot Hide gnolls, who are too stupid to be frightened of anything and will keep it busy." },
       },
       choices = {
         { text = "The Rot Hides will burn, on your order.", next = "BACK", reply = "Good. The Rot Hides have been rotting long enough, and fire is the only medicine they'll get from me.", fx = { affinity = 1, align = { order = 1 } } },
@@ -951,6 +952,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They make fine noise, which isn't the same thing, though I admit an imp in a chimney hears what a deathstalker at the window misses. Bring me what it overhears in Pyrewood, and I'll decide whether it was worth the scorch marks." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I watched the Cult's people in the old days, and they all thought their demons and their dead made them invisible. They were wrong, so you'll forgive me if I watch you just as closely." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They make fine noise, which isn't the same thing, though I admit your {pet} has been listening to every word I say since you came in. Send it to a chimney in Pyrewood instead and bring me what it overhears, and I'll decide whether it was worth the trouble." },
       },
       choices = {
         { text = "Then I'll bring you only what's useful.", next = "BACK", reply = "Good. Useful is all I need, and an imp in a chimney is very useful.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1093,6 +1095,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everyone's welcome who keeps the worgen out and pays for the slab. The Dark Lady's warlocks pass through on their way to deal with the Dalaran wizards at Ambermill, and they've always been perfectly polite guests, which I find a little unsettling." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone's welcome who keeps the worgen out and pays for the slab, and your demon may have the floor beside yours. The Dark Lady's warlocks pass through on their way to Ambermill and their servants always stand politely in the corner, which I find more unsettling than the way yours is watching me." },
       },
       choices = {
         { text = "I'll be a polite guest too, Bates.", next = "BACK", reply = "The spiders appreciate it, and so do I. The last guest wasn't, and he's still picking webs out of his hair.", fx = { align = { order = 1 } } },

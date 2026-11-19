@@ -32,7 +32,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater's full o' strange things, an' strange things make folk sick, so I'll sell clean food an' buy nothin', an' ye can call me a coward if ye like." } },
+      lines = {
+        { id = "xlock_default", text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater's full o' strange things, an' strange things make folk sick, so I'll sell clean food an' buy nothin', an' ye can call me a coward if ye like." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've seen too many expeditions go down there an' no' come back, an' the things they brought back weren't worth the graves. The crater makes folk sick, an' that creature o' yours makes my bread sick just lookin' at it, so I'll sell ye clean food, an' it'll stand back while I do." },
+      },
       choices = {
         { text = "That's not cowardice, Nergal. That's sense.", next = "BACK", reply = "Aye, that's what I tell myself on the long nights, an' it's grand tae hear it from someone else. Besides, a live coward sells more meal than a dead hero.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You're leaving good coin on the table, old man.", next = "BACK", reply = "Good coin, is it? Ye can't spend it in a devilsaur's belly, warlock. I'll keep my old bones up here, thank ye.", fx = { align = { order = -1 } } },
@@ -268,7 +271,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, chum, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, chum, and I'd like to keep it that way, so tell your {pet} to stop eyeing my flyer like it's dinner. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because I'm not flying anything over Fire Plume Ridge that might catch." },
+      },
       choices = {
         { text = "Fair terms. My imp will sit still.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pay in advance? You don't trust anybody, do you?", next = "BACK", reply = "Trust? Chum, trust is free and burned flyers are expensive. Pay first, fly second, and everybody lands happy.", fx = { align = { order = -1 } } },

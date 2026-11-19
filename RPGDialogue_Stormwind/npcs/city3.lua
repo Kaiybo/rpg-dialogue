@@ -43,6 +43,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "The House of Nobles has use for anyone who understands that power is a matter of who owes whom, and your sort understand that better than most. I would never say so in the chamber, of course, but a quiet word to a quiet man can open doors that a herald never could." },
         { id = "xlock_more1", text = "Lady Prestor says much the same, though she says it more prettily than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The House of Nobles has use for anyone who understands that power is a matter of who owes whom, and a man who commands a creature like that one understands it better than most. I would never say so in the chamber, of course, and I'd ask you to leave it outside when we speak again, because my servants gossip." },
       },
       choices = {
         { text = "I'll keep my power where the law can see it, my lord.", next = "BACK", reply = "How admirably proper of you. The law sees a great deal less than you'd think, but I respect the sentiment.", fx = { align = { order = 1 } } },
@@ -299,6 +300,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and your imp's got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd pick a fight with a door if it looked at me wrong, and your {pet}'s been looking at me wrong since you walked in. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, so tell it to keep its eyes to itself before I forget that." },
       },
       choices = {
         { text = "Leave the imp be, Dashel, and we'll get on fine.", next = "BACK", reply = "Done, so long as it stops makin' faces at me. Deal's a deal, friend.", fx = { align = { honor = 1 } } },
@@ -524,6 +526,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd make ye a good steel clasp for those robes, an' a bracer for the arm ye cast with, since I've seen what a backfire does to a wrist. Master Elmore says I'm too soft on customers, but a man who comes back to complain is a man who's still alive." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd make ye a good steel clasp for those robes, an' a bracer for yer castin' arm, since I've seen what a backfire does tae a wrist. Master Elmore says I'm too soft on customers, but he's no' standin' this close tae yer demon, an' the way it's starin' at my tongs, I'd rather be soft than singed." },
       },
       choices = {
         { text = "I'll pay for a bracer, Furen, and come back to complain.", next = "BACK", reply = "Ha! Fair enough. I'll make it strong enough that ye'll have nothin' tae complain about.", fx = { align = { honor = 1 } } },
@@ -756,7 +759,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
+      lines = {
+        { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We did, a thief from the Lamb's crowd, and his companion set the straw alight in three cells before we could get the chains on him. Seeing yours stand there looking at my keys, I've half a mind to double the guard on the deep cells tonight, and I still won't sleep." },
+      },
       choices = {
         { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", reply = "Better safe than burned, exactly. I've had enough fire for one career.", fx = { align = { order = 1 } } },
         { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen an imp loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },

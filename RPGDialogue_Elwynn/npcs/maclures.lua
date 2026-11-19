@@ -74,7 +74,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." } },
+      lines = {
+        { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear anything I don't understand, and I don't understand you, or that thing standing at your heel looking at my vines. The Stonefields would say I fear everything, but I'd ask you to walk it back to the road all the same." },
+      },
       choices = {
         { text = "Your caution is fair. I'll keep away from your vines.", next = "BACK", reply = "That's more courtesy than I expected, and I'll thank you for it. Keep that creature well clear of the trellis.", fx = { align = { light = 1 } } },
         { text = "Fear won't save your vines. Strength will.", next = "BACK", reply = "Strength didn't keep the Defias off my crates, stranger. I'll trust my pitchfork and my own eyes.", fx = { align = { light = -1 } } },
@@ -260,7 +263,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. I judge a customer by their coin and their manners, and you've both, so far." } },
+      lines = {
+        { id = "xlock_default", text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. I judge a customer by their coin and their manners, and you've both, so far." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My family distrusts the Stonefields, the Defias, the weather and the price of grain, and warlocks are well down the list. That creature of yours might climb it, mind, if it keeps hanging about the casks, but I judge a customer by coin and manners, and you've both, so far." },
+      },
       choices = {
         { text = "Then I'll keep my manners, Joshua.", next = "BACK", reply = "Good, and I'll keep pouring as long as you do. That's the only rule at this table.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Manners are cheap. Coin's what you really want.", next = "BACK", reply = "Coin's what keeps the vines watered, but manners are what keep Pa from coming out with the pitchfork. Mind both.", fx = { align = { honor = -1 } } },

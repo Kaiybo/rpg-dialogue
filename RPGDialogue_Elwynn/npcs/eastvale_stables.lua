@@ -86,7 +86,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your demon outside the gate." } },
+      lines = {
+        { id = "xlock_default", text = "They fear it more than they fear wolves, and a frightened horse is a horse that kicks its stall to splinters. You could try one of the riding horses in time, if you'd leave your demon outside the gate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fear it more than they fear wolves, and you can hear them now, kicking at the boards since your demon came through the gate. You could try one of the riding horses in time, but not today, and not with that thing stood in my yard." },
+      },
       choices = {
         { text = "Your mare comes first. I'll leave my demon at the gate.", next = "BACK", reply = "Thank you, that's more than most of your sort would do. In time, we'll see about a riding horse.", fx = { align = { light = 1 } } },
         { text = "A horse that can't stand a demon isn't worth riding.", next = "BACK", reply = "Then you'll not be riding mine, and that's an end of it. They're worth more than that.", fx = { align = { light = -1 } } },
@@ -263,7 +266,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd teach anyone who pays and listens, and I'd sooner you learned on my horses than learned on something you'd called up out of the dark. A horse forgives a bad rider, and I'm told your other mounts don't." } },
+      lines = {
+        { id = "xlock_default", text = "I'd teach anyone who pays and listens, and I'd sooner you learned on my horses than learned on something you'd called up out of the dark. A horse forgives a bad rider, and I'm told your other mounts don't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd teach anyone who pays and listens, though I'd sooner your servant waited by the fence, because every horse in the paddock has its ears pinned back. A horse forgives a bad rider, and I'm told your other mounts don't." },
+      },
       choices = {
         { text = "I'd rather ride an honest horse than a summoned beast.", next = "BACK", reply = "Good, and an honest horse will serve you better than anything that bites. Come for a lesson.", fx = { align = { light = 1 } } },
         { text = "A summoned steed never tires. Your horses can't say that.", next = "BACK", reply = "Maybe not, but they don't bite either, and they don't need feeding with souls. I'll keep my horses.", fx = { align = { light = -1 } } },

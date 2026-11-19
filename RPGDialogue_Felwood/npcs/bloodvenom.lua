@@ -394,7 +394,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." } },
+      lines = {
+        { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "So did the Shadow Council, once, and look at what they made of Jaedenar, with servants very like the one standing at your elbow. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open, and on both of you." },
+      },
       choices = {
         { text = "The Council were traitors. They earned their end.", next = "BACK", reply = "They did, and I'd be glad to see the rest of them follow. You talk like a warlock who's seen what I've seen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Council were fools. I know where the line is.", next = "BACK", reply = "Every one of them said the same, warlock. Keep your line well marked, because I'll be watching it.", fx = { align = { light = -1 } } },

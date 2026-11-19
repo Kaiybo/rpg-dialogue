@@ -118,7 +118,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. A demon prowling outside our walls would bring every troll on the ridges down on us, and I've no men to spare for that fight." } },
+      lines = {
+        { id = "xlock_default", text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. A demon prowling outside our walls would bring every troll on the ridges down on us, and I've no men to spare for that fight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Bloodscalp and the Skullsplitter have their own dark priests, and they fear any power they don't control. That thing at your heel is exactly what would bring every troll on the ridges down on us, so keep it inside these walls and out of their sight, because I've no men to spare for that fight." },
+      },
       choices = {
         { text = "I'll keep my demon inside the walls.", next = "BACK", reply = "Wise. Keep it close and quiet, and we will not give the trolls another reason to scream at our walls.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them fear us. Fear makes them cautious.", next = "BACK", reply = "Fear makes a troll cautious and a grunt nervous, and I want neither near my gate. Keep it inside the walls, warlock.", fx = { align = { order = -1 } } },
@@ -453,7 +456,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I use anything that bring him home alive, but a demon be no promise of that. The Bloodscalp would kill him before they let him be taken by force, so I want cunning, not fear, if you have some to spare." } },
+      lines = {
+        { id = "xlock_default", text = "I use anything that bring him home alive, but a demon be no promise of that. The Bloodscalp would kill him before they let him be taken by force, so I want cunning, not fear, if you have some to spare." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I use anything that bring him home alive, but a demon be no promise of that, mon. Look at it, grinning at the jungle like it smell the blood already, and the Bloodscalp would kill the boy before they let that thing near him, so I want cunning, not fear." },
+      },
       choices = {
         { text = "Then I'll use cunning, not fear.", next = "BACK", reply = "Smart, mon, dat be the way. Cunning bring him home, fear just bring him home dead.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear works faster than cunning. Let me try.", next = "BACK", reply = "Fear work faster, true, but it also make them kill the boy faster. Nimboya beg you, mon, try the quiet way first.", fx = { align = { light = -1 } } },

@@ -119,6 +119,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They will, because the Sentinels say you fight for the Alliance, and I trust their word over my own unease. Dismiss your demon before you mount, though, because a frightened hippogryph over Stonetalon is a long way to fall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because the Sentinels say you fight for the Alliance, though the whole roost is shifting and hissing at your {pet} as we speak. Dismiss it before you mount, because a frightened hippogryph over Stonetalon is a long way to fall." },
       },
       choices = {
         { text = "I'll dismiss it before I fly.", next = "BACK", reply = "Thank you. My birds will carry you gently, now that they can't smell it.", fx = { align = { light = 1 } } },

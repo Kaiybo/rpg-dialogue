@@ -92,6 +92,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd take news from a trogg if it had seen my Sully, an' I'm past carin' who brings it. The folk in the Ward look at ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd take news from a trogg if it had seen my Sully, an' I'll ask yer demon too, if it's seen him, for I'm past carin' who answers. The folk in the Ward are lookin' at the pair o' ye sideways, I know, but they look at me sideways too these days, for askin' every stranger the same question." },
       },
       choices = {
         { text = "If I hear anything, I'll bring it straight to you.", next = "BACK", reply = "Thank ye. Let them whisper; the folk who look at us sideways have never once brought me a letter.", fx = { align = { honor = 1 } } },
@@ -344,7 +345,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." } },
+      lines = { { id = "xlock_default", text = "Fear it? They'd charge it, which is worse, for they've been taught tae charge anythin' wi' horns. I'd rather they learned on dummies than on yer voidwalker." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Fear it? Look at them, three o' my recruits are already lowerin' their heads at yer demon, for they've been taught tae charge anythin' wi' horns an' they're no' sure it hasnae got any. Get it out o' the yard before they decide, for I'd rather they learned on dummies than on that." },
+      },
       choices = {
         { text = "I'll keep it out of the yard. Your recruits come first.", next = "BACK", reply = "Thank ye, for my recruits charge enough things already without me givin' them reasons tae charge somethin' that bites back.", fx = { align = { light = 1 } } },
         { text = "Let them charge it. They'd learn faster that way.", next = "BACK", reply = "Faster, aye, an' then I'd be explainin' tae their mothers why they're short a hand, so keep yer pet at home.", fx = { align = { light = -1 } } },
@@ -562,7 +565,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." } },
+      lines = { { id = "xlock_default", text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. It was a very instructive afternoon, though not for the reasons I'd hoped." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An imp set fire to a practice target last spring, and the target was made of compressed sawdust, so I'll leave you to calculate the result. I notice your demon is standing beside my newest target, which is also sawdust, so I'd be grateful if you moved it before we repeat the experiment." },
+      },
       choices = {
         { text = "I'll keep the imp well away from your machines.", next = "BACK", reply = "Thank you, very sensible, and I'll note that you've been warned, which helps with the paperwork if anything should catch light.", fx = { align = { light = 1 } } },
         { text = "Sawdust targets were a poor design choice, Bilban.", next = "BACK", reply = "I've since replaced them with fireproof straw, which I'm told is a contradiction in terms, but it's the best I've got so far.", fx = { align = { light = -1 } } },
@@ -802,6 +807,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Aye, as different as a friend is from a prisoner, for a hunter's beast stays because it wants tae. Yers stays because ye've a chain on it, an' the day that chain slips, ye'll learn what it thought o' ye all along." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Aye, as different as a friend is from a prisoner, an' I only have tae look at yer {pet} tae see it, for it watches ye the way a chained dog watches the man wi' the key. A hunter's beast stays because it wants tae, an' the day yer chain slips, ye'll learn what that thing thought o' ye all along." },
       },
       choices = {
         { text = "You're right. I'll never trust it.", next = "BACK", reply = "That's the wisest thing a warlock ever said in my yard. It'll keep ye alive longer than any chain.", fx = { align = { order = 1 } } },

@@ -29,7 +29,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The sabers have long memories, and their mothers remember Felwood and what crawled out of it. I won't turn you away, since the Wintersaber Trainers need every hand against the Winterfall, but I'll ask you to work on the far side of the rock, and I won't ask twice." } },
+      lines = {
+        { id = "xlock_default", text = "The sabers have long memories, and their mothers remember Felwood and what crawled out of it. I won't turn you away, since the Wintersaber Trainers need every hand against the Winterfall, but I'll ask you to work on the far side of the rock, and I won't ask twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The sabers have long memories, and their mothers remember Felwood, and you can see the cubs pressing to the back of the pen now that your servant has arrived. I won't turn you away, since we need every hand against the Winterfall, but take it to the far side of the rock, and I won't ask twice." },
+      },
       choices = {
         { text = "I'll keep my demon away. The cubs come first.", next = "BACK", reply = "That is kindly said, and the mothers will notice it before I do. Keep it far from the dens, and you'll find us grateful.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear is no reason to be shunned. My demon stays with me.", next = "BACK", reply = "I did not say shunned, I said wary, and the sabers decide their own wariness. Bring it close to the cubs and you'll learn the difference quickly.", fx = { affinity = -1, align = { light = -1 } } },
@@ -288,7 +291,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Something poisons them, the way the Deadwood were poisoned in Felwood, and Salfa does not know if it is the firewater or something worse. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds and not by your stink." } },
+      lines = {
+        { id = "xlock_default", text = "Something poisons them, the way the Deadwood were poisoned in Felwood, and Salfa does not know if it is the firewater or something worse. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds and not by your stink." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Something poisons them, like the Deadwood were poisoned, and Salfa smells a little of the same thing on the creature at your side. If you are a friend of the Timbermaw, prove it on the Winterfall, and Salfa will judge you by your deeds, though Salfa will keep one eye on that demon all the same." },
+      },
       choices = {
         { text = "Judge me by my deeds. I'll prove myself.", next = "BACK", reply = "Salfa will watch, and Salfa will remember what you do. The elders are slow to trust, but they do not forget a friend.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need furbolg approval.", next = "BACK", reply = "Then Salfa will not give it, and the tunnels will stay closed to you. You can walk around the mountains instead, which takes a long time.", fx = { affinity = -1, align = { honor = -1 } } },
@@ -466,7 +472,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, so long as your demon stays behind you and never in front. The altars were dark for a reason, and whatever put them out may come back when the torches are lit, so I'll need someone who knows what darkness looks like when it moves." } },
+      lines = {
+        { id = "xlock_default", text = "I would, so long as your demon stays behind you and never in front. The altars were dark for a reason, and whatever put them out may come back when the torches are lit, so I'll need someone who knows what darkness looks like when it moves." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, so long as your demon walks behind you and never in front, and I can see it already does not like standing in Elune's light. The altars were dark for a reason, so I'll need someone who knows what darkness looks like when it moves, and you have brought a fair example." },
+      },
       choices = {
         { text = "I'll keep my demon behind me. You have my word.", next = "BACK", reply = "Thank you, truly, and I'll trust you with it. I'll light each torch faster knowing you're behind me.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where it's needed, priestess, front or back.", next = "BACK", reply = "Then please, at least don't let it near the flame. The altars are older than either of us.", fx = { align = { order = -1 } } },
@@ -689,7 +698,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." } },
+      lines = {
+        { id = "xlock_default", text = "Every flight did, in the War of the Ancients, and some of them paid dearly for it. Your demons are scraps of that same Legion, bound by mortals who think they understand what they hold, and I find that more amusing than you would like." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every flight did, in the War of the Ancients, and I fought creatures very like the one at your heel when your ancestors were still learning fire. That it lowers its eyes from me now is the most honest thing about it, and I find your faith in its leash more amusing than you would like." },
+      },
       choices = {
         { text = "The Legion must never return. I'll see to that.", next = "BACK", reply = "Brave words, and I hope you hold to them, for the Legion counts on mortals who forget. My flight remembers, warlock, always.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Scraps or not, they serve me well enough.", next = "BACK", reply = "Well enough, until they don't, and then the world pays for your confidence. My flight has swept up the ashes of more warlocks than you have met.", fx = { affinity = -1, align = { light = -1 } } },
@@ -1061,7 +1073,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." } },
+      lines = {
+        { id = "xlock_default", text = "I wouldn't know, chum, and I'm not letting it near my pots to find out. Last time someone fed an imp my stew, it set fire to the bench, and I'm still finding scorch marks under the counter and still waiting on the fella to pay for 'em." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I wouldn't know, chum, and with that one sniffing round my pots I'm not about to find out. The last warlock let his pet into my stew and it set fire to the bench, so step back, keep yours back, and I'll serve you a bowl at the end of the counter." },
+      },
       choices = {
         { text = "I'll keep my demon out of your kitchen.", next = "BACK", reply = "Bless you, chum, and the bench thanks you too. I'll save a scrap of bread for the little fella, outside.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon eats what it likes.", next = "BACK", reply = "Not my stew, it doesn't, chum, not unless it pays like everybody else. And I charge double for fire damage.", fx = { affinity = -1, align = { order = -1 } } },

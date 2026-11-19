@@ -65,7 +65,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They would, and they'd be right to, for the Legion's creatures burned Ashenvale once and would do it again. I'm kept here among potions while they hold the line, so I fight the only way I can, by teaching you to heal rather than to burn." } },
+      lines = {
+        { id = "xlock_default", text = "They would, and they'd be right to, for the Legion's creatures burned Ashenvale once and would do it again. I'm kept here among potions while they hold the line, so I fight the only way I can, by teaching you to heal rather than to burn." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They would, and they'd be right to, for creatures like the one at your heel burned Ashenvale once and would do it again. I'm kept here among potions while my sisters hold the line, and I'll still teach you to heal rather than burn, though I'd rather your servant stood where my reagents can't feel it." },
+      },
       choices = {
         { text = "Then teach me to heal. I'll take the lesson.", next = "BACK", reply = "Gladly. Come back tomorrow, and I will show you how a healing draught is made.", fx = { align = { light = 1 } } },
         { text = "Burning has its uses too, Lilyssia.", next = "BACK", reply = "It has, and the Legion knew them well. I would rather you learned the other kind.", fx = { align = { light = -1 } } },
@@ -215,6 +218,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "My people remember the War of the Ancients, when those who drew on such powers nearly ended the world, and memories that long don't fade easily. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, though I'd ask you not to be the one who makes me regret it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My people remember the War of the Ancients, and one look at the thing you've brought into my shop makes that memory feel like yesterday. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, but please, send it away before it touches anything." },
       },
       choices = {
         { text = "I won't make you regret it, Eldraeith.", next = "BACK", reply = "Thank you. I will hold you to that, gently.", fx = { align = { light = 1 } } },
@@ -405,7 +409,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." } },
+      lines = {
+        { id = "xlock_default", text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and I've found that keeps everybody happy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Quite a few, because felcloth and runecloth both want a careful hand, and your people have the patience for fiddly work. I teach the stitch and not the purpose, and your servant's welcome to watch, so long as it keeps its heat off the bolts on the end table." },
+      },
       choices = {
         { text = "Then I'll sew for protection, not for anything darker.", next = "BACK", reply = "A noble purpose, darling. I'll teach you the stitch with pleasure.", fx = { align = { light = 1 } } },
         { text = "The purpose is mine, Georgio. The stitch is enough.", next = "BACK", reply = "Then I'll teach you the stitch and not ask, darling. That's the arrangement.", fx = { align = { light = -1 } } },
@@ -580,7 +587,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every month, in black and red, and it all goes down the stairs under that tavern in a covered basket. I've never asked what they make with it, and nobody's ever offered to tell me." } },
+      lines = {
+        { id = "xlock_default", text = "Every month, in black and red, and it all goes down the stairs under that tavern in a covered basket. I've never asked what they make with it, and nobody's ever offered to tell me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every month, in black and red, down the stairs under that tavern in a covered basket, and nobody's ever offered to tell me what they make with it. Your {pet} seems awfully interested in the red, though, so perhaps I've just had my answer without asking." },
+      },
       choices = {
         { text = "You'd do well to ask what it's used for.", next = "BACK", reply = "I would, and I'm frightened of the answer. I'll keep not asking.", fx = { align = { light = 1 } } },
         { text = "Not asking is wise. Their business is their own.", next = "BACK", reply = "That's my thinking too. It's quieter that way.", fx = { align = { light = -1 } } },
@@ -723,6 +733,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, you'd be the black thread in the weave, I think, the one that gives the pattern its shape, though too much of it and the cloth turns gloomy. Master Bolero says I make everything into a metaphor, but I've noticed the Lamb's folk buy more black thread than anyone, so perhaps I'm not wrong." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, you'd be the black thread in the weave, I think, and your servant would be the knot at the back that nobody's meant to see. Master Bolero says I make everything into a metaphor, but I'd rather do that than look at the thing straight on, if it's all the same to you." },
       },
       choices = {
         { text = "Then I'll be a thin thread, Lawrence, not the whole bolt.", next = "BACK", reply = "A thin thread, then, and I'll make it the one that holds the pattern together.", fx = { align = { light = 1 } } },
@@ -911,7 +922,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once. Dalaran's enchanters could have solved it, but they never cared to, since they never cared much for your sort." } },
+      lines = {
+        { id = "xlock_default", text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once. Dalaran's enchanters could have solved it, but they never cared to, since they never cared much for your sort." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because shadow pulls inward while most enchantments push outward, and the wood can't bear both at once, and I'd say your servant is pulling on every wand in my case right now. Dalaran's enchanters never cared to solve it, and standing this close to that thing, I'm starting to see their side of it." },
+      },
       choices = {
         { text = "Maybe some magic shouldn't be bottled in a wand.", next = "BACK", reply = "Perhaps not, and maybe Dalaran knew that. I'll leave it unsolved.", fx = { align = { light = 1 } } },
         { text = "Then Dalaran missed a chance. Shadow deserves good tools.", next = "BACK", reply = "Maybe it did, but I'll not be the one to try. My hands are too fond of their fingers.", fx = { align = { light = -1 } } },
@@ -1080,7 +1094,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a summoning circle breaks at the wrong moment. Anything stronger you'll have to find in the cellar under the Lamb, and I've never asked the price." } },
+      lines = {
+        { id = "xlock_default", text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a summoning circle breaks at the wrong moment. Anything stronger you'll have to find in the cellar under the Lamb, and I've never asked the price." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles that burn without smoke and chalk that doesn't smudge, which are dull things until a circle breaks and something like your demon gets loose. Anything stronger you'll find under the Lamb, and I'd ask you to shop there with it next time, because it keeps looking at my back room." },
+      },
       choices = {
         { text = "Dull and safe suits me. Keep it that way.", next = "BACK", reply = "It will stay that way. Dull is safe, and safe is good for business.", fx = { align = { light = 1 } } },
         { text = "I'll find something stronger. Dull doesn't get results.", next = "BACK", reply = "Then you'll find it somewhere else. Not in my shop.", fx = { align = { light = -1 } } },
@@ -1241,7 +1258,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd only ask that you don't try them on in the shop, because the last one made my apprentice faint with a single word." } },
+      lines = {
+        { id = "xlock_default", text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd only ask that you don't try them on in the shop, because the last one made my apprentice faint with a single word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone with coin, and their coin spends the same as a bishop's. I'd ask you not to try anything on in the shop, though, and to keep your servant away from the fitting curtain, because my apprentice has gone quite white just from it standing there." },
+      },
       choices = {
         { text = "I'll keep my words to myself, Wynne. Your apprentice is safe.", next = "BACK", reply = "Thank you. Thurman's been very jumpy since the last one.", fx = { align = { light = 1 } } },
         { text = "Your apprentice needs a stronger stomach, frankly.", next = "BACK", reply = "He does, but he's young. Please don't test him.", fx = { align = { light = -1 } } },

@@ -105,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry you, but they'll grumble the whole way, because a gryphon knows what's been near you and doesn't care for it. Dismiss your demon before you mount, keep a light hand on the reins, and the bird will take you north without any trouble at all." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry you, but they'll grumble the whole way, because a gryphon knows what's been near you and doesn't care for it. Dismiss your demon before you mount, keep a light hand on the reins, and the bird will take you north without any trouble at all." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but they'll grumble the whole way, and with that thing standing right there they're already shrieking in the roost. Dismiss your demon before you mount, give the birds a moment to settle, and they'll take you north without any trouble." },
+      },
       choices = {
         { text = "I'll dismiss it. Your birds deserve that courtesy.", next = "BACK", reply = "That's decent o' ye, and the birds'll notice. A gryphon remembers kindness as well as it remembers a grudge.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go, Gyll.", next = "BACK", reply = "Then it'll ride in yer lap and the bird'll fly crooked the whole way. Don't say I didn't warn ye when ye land in the bay.", fx = { align = { order = -1 } } },
@@ -278,7 +281,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. I don't blame them, pal, and I'll ask you to stand downwind while I saddle one up for you." } },
+      lines = {
+        { id = "xlock_default", text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. I don't blame them, pal, and I'll ask you to stand downwind while I saddle one up for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. Hear them hissing up in the roost now? That's your {pet} they're smelling, pal, so send it off and stand downwind while I saddle one up." },
+      },
       choices = {
         { text = "I'll stand downwind and keep my imp on a short leash.", next = "BACK", reply = "Downwind is good. Short leash is better. You'll fly, and the beast will only mutter.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The beasts will have to get used to it.", next = "BACK", reply = "They've had twenty years to get used to it, and they haven't yet. Ride with your imp and the beast will take the long way down.", fx = { align = { order = -1 } } },
@@ -459,7 +465,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. The wards keep the whispering in and the demons out, and I've never once had to explain a missing coin to anyone." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. The wards keep the whispering in and the demons out, and I've never once had to explain a missing coin to anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Cartel takes no chances, and some of our depositors keep things in their boxes that whisper at night. Your demon's pressing its face to the vault wards right now and getting nowhere, which is exactly what we pay the wizards for, so do call it back before it scuffs the paint." },
+      },
       choices = {
         { text = "Smart of the Cartel. I'll keep my demon away.", next = "BACK", reply = "You're a sensible warlock, friend, and rarer than gold. Keep it outside and we'll get along fine.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your wards won't stop a determined summoner.", next = "BACK", reply = "Maybe not, friend, but the Bruisers will, and the Baron's displeasure is worse than any demon. I'd not test it.", fx = { align = { order = -1 } } },
@@ -677,7 +686,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Blast if I know, friend; I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." } },
+      lines = {
+        { id = "xlock_default", text = "Blast if I know, friend; I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Blast if I know, friend; it came off a drowned Bloodsail and it's hummed ever since, mostly at night. The rats won't go near that crate, but your demon hasn't taken its eyes off it, which settles the question of whether it's a good sign or a bad one." },
+      },
       choices = {
         { text = "Something that hums like that is best destroyed, Jutak.", next = "BACK", reply = "Maybe it is, and I'd not argue too hard. I'll keep it in the back until somebody braver decides.", fx = { align = { light = 1 } } },
         { text = "Sell it to me. I'll learn what's inside it.", next = "BACK", reply = "Then you're braver than me, friend, and probably richer soon. Take it, and don't tell me what you learn.", fx = { affinity = 1, align = { light = -1 } } },
@@ -848,7 +860,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. I don't ask questions, and I don't put my name on the hilt." } },
+      lines = {
+        { id = "xlock_default", text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. I don't ask questions, and I don't put my name on the hilt." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make daggers, and what you use them for is your own business, but I've had a few warlocks through my shop who wanted something sharp for their rites. Your servant's breathing on my good steel and I'll be polishing that smell out for a week, so I don't ask questions and I don't put my name on the hilt." },
+      },
       choices = {
         { text = "I'll buy one. Your work speaks for itself.", next = "BACK", reply = "My work does speak, and it speaks steel. Take one and use it well, whatever well means to you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "No questions asked is a fine policy for a smith.", next = "BACK", reply = "It is, and it keeps me in business. I'll make the dagger and leave the rest to you.", fx = { align = { honor = -1 } } },

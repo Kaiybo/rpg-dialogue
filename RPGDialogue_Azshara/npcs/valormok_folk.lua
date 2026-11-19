@@ -36,7 +36,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the naga are in the water and the elves are on the cliffs, and a camp that drinks dies in its sleep. I lost friends to that mage's betrayal, and I'll not lose more because someone was too drunk to hold a sword, so you'll get milk, and you'll thank me for it." } },
+      lines = {
+        { id = "xlock_default", text = "Because the naga are in the water and the elves are on the cliffs, and a camp that drinks dies in its sleep. I lost friends to that mage's betrayal, and I'll not lose more because someone was too drunk to hold a sword, so you'll get milk, and you'll thank me for it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the naga are in the water and the elves are on the cliffs, and a camp that drinks dies in its sleep. I lost friends to that mage's betrayal, and I'll not lose more to a drunk, so you'll get milk, and your demon can drink nothing at all, because I don't know what it does." },
+      },
       choices = {
         { text = "A clear head is wise here. Milk it is.", next = "BACK", reply = "Good. Milk never stabbed anyone in the back, which is more than I can say for that mage.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll drink what I like, Kurll, grog or no grog.", next = "BACK", reply = "Not in my camp, you won't. Drink in Orgrimmar if you must, warlock.", fx = { align = { order = -1 } } },
@@ -269,7 +272,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not many, and they don't take care of what they buy. A demon's fire ruins an edge faster than anything, so if you want my blades to last, keep them away from your pet's flames." } },
+      lines = {
+        { id = "xlock_default", text = "Not many, and they don't take care of what they buy. A demon's fire ruins an edge faster than anything, so if you want my blades to last, keep them away from your pet's flames." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not many, and they don't take care of what they buy. A demon's fire ruins an edge faster than anything, so if you want my blades to last, keep that one away from them, and keep it away from my whetstone while you're choosing." },
+      },
       choices = {
         { text = "I'll take care of my weapons.", next = "BACK", reply = "Good, and they'll last you. I'll not sharpen anything your pet's breathed on.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A blade's a tool. It'll break eventually.", next = "BACK", reply = "Everything does, eventually, but not my blades, not if you care for them. Do better.", fx = { align = { order = -1 } } },

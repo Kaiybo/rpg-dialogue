@@ -438,7 +438,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." } },
+      lines = {
+        { id = "xlock_default", text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass that's grown in its shadow. If the fel can do that to a boar, imagine what it might do in a properly measured dose, which is exactly what I intend to find out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm nearly certain of it, because the beasts here drink water that's run past the Portal and eat grass grown in its shadow. Your servant is a purer sample than any boar, of course, and I don't suppose it would part with a little blood for a properly measured dose?" },
+      },
       choices = {
         { text = "Fel in a bottle? That's madness, Drazial.", next = "BACK", reply = "Madness, yes, but very carefully measured madness. I'll take the risk, and the notes.", fx = { align = { light = 1 } } },
         { text = "Measure carefully, and the fel will serve.", next = "BACK", reply = "Precisely! I've had three bottles crack this year, and every one of them was a measuring error, not a fel error.", fx = { align = { light = -1 } } },
@@ -737,7 +740,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." } },
+      lines = {
+        { id = "xlock_default", text = "That is the question, and the answer is in their gizzards, I'm almost certain. They've learned to digest corruption the way a goat digests thorns, and if I can learn the trick, perhaps I can teach it to people who must live beside it, like you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That is the question, and the answer is in their gizzards, I'm almost certain. Your demon seems to agree, since it's been staring at my sample jars since you arrived, so keep it away from them, and perhaps I'll learn a trick worth teaching to people like you." },
+      },
       choices = {
         { text = "A cure for corruption would save many lives.", next = "BACK", reply = "It would, and that's what I keep telling Drazial. A cure would be worth more than all his bottles.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Corruption is power. I don't want it cured.", next = "BACK", reply = "Then you're a strange sort of warlock, and a dangerous one. I'll keep my cure for those who want it.", fx = { align = { light = -1 } } },

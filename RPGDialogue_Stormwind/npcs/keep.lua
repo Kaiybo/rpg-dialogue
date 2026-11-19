@@ -60,7 +60,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." } },
+      lines = {
+        { id = "xlock_default", text = "I'd speak with anyone who walks into this room on their own feet, because that's what the Light asks of me. I'll pray that your shadows stay on their leash, though, and I'll pray it every evening whether you like it or not." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd speak with anyone who walks into this room on their own feet, and I suppose that includes whatever walks in beside them, though I'd rather it waited by the door. I'll pray that your shadows stay on their leash, and with that one smouldering at your heel, I'll pray it twice." },
+      },
       choices = {
         { text = "Pray if you like. I'll keep the leash tight.", next = "BACK", reply = "Then we'll both be doing our part. Keep it tight, and keep coming to the Cathedral when the dark gets loud.", fx = { align = { light = 1 } } },
         { text = "Save your prayers. I do fine in the dark.", next = "BACK", reply = "Many do, for a while. My prayers are free, child, and they'll be waiting when you change your mind.", fx = { align = { light = -1 } } },
@@ -298,6 +301,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, because the last piece that did was very bad for the servants. Bring me a relic from some cursed ruin and I'll pay handsomely, but I'll have a priest look it over before it goes anywhere near my display cases." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, and I must say your companion has the look of something that whispers. Bring me a relic from some cursed ruin and I'll pay handsomely, but do keep that creature away from my display cases, because the servants are frightened enough as it is." },
       },
       choices = {
         { text = "A priest should look it over, Count. Agreed.", next = "BACK", reply = "Agreed, wholeheartedly, and I'll even pay the priest. The servants have only just stopped crossing themselves in the east wing.", fx = { align = { order = 1 } } },
@@ -580,7 +584,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Shut your cellar, burn your books and send you out of the gates in the clothes you're wearing. The law protects you for now, I know, but laws can be rewritten when enough of us are frightened." } },
+      lines = {
+        { id = "xlock_default", text = "Shut your cellar, burn your books and send you out of the gates in the clothes you're wearing. The law protects you for now, I know, but laws can be rewritten when enough of us are frightened." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Shut your cellar, burn your books, and send you out of the gates with that abomination before it so much as touches the floor of this Keep. The law protects you for now, I know, but every noble who saw it follow you in will be frightened enough to rewrite it." },
+      },
       choices = {
         { text = "Burn the worst books, then. Some knowledge shouldn't survive.", next = "BACK", reply = "Some knowledge? All knowledge of that sort! But I'll accept a start, I suppose, if the fires are large enough.", fx = { align = { light = 1 } } },
         { text = "Fear makes bad law, my lord. Leave my books alone.", next = "BACK", reply = "Fear makes excellent law, you insolent creature, when the thing feared is you. Mind yourself in my city.", fx = { align = { light = -1 } } },

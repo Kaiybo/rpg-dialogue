@@ -344,7 +344,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I've seen what that path did to others who were sure they were its master. My people learned that lesson once, long ago, and I'd spare you the price of learning it again." } },
+      lines = {
+        { id = "xlock_default", text = "It saddens me more than it frightens me, because I've seen what that path did to others who were sure they were its master. My people learned that lesson once, long ago, and I'd spare you the price of learning it again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It saddens me more than it frightens me, though standing this close to your servant, I'll admit the line between the two is thinner than I'd like. My people learned this lesson once, long ago, and I can feel in the air around it the same hunger that taught us." },
+      },
       choices = {
         { text = "I'll walk carefully, then, and remember your warning.", next = "BACK", reply = "Good. That's more than most who walk your road ever say to me.", fx = { align = { light = 1 } } },
         { text = "Others failed because they were weak. I'm not.", next = "BACK", reply = "They all thought so, every one. I hope you're the first to be right.", fx = { align = { light = -1 } } },
@@ -592,7 +595,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They're entirely different, and the difference matters. A portal folds this world onto itself, while your circles open a door to somewhere else entirely and invite whatever waits on the other side to step through." } },
+      lines = {
+        { id = "xlock_default", text = "They're entirely different, and the difference matters. A portal folds this world onto itself, while your circles open a door to somewhere else entirely and invite whatever waits on the other side to step through." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They're entirely different, and your servant is the proof of it, because nothing has ever come through one of my portals and stood there watching me the way that one is. A portal folds this world onto itself, while your circles open a door to somewhere else and invite whatever waits there to come and stand in my tower." },
+      },
       choices = {
         { text = "You're right. I'll treat every door I open as a danger.", next = "BACK", reply = "That's the right instinct. Most of my students take years to learn it.", fx = { align = { light = 1 } } },
         { text = "Whatever comes through my door answers to me.", next = "BACK", reply = "Then you'd better be right, because it won't answer to anyone else.", fx = { align = { light = -1 } } },

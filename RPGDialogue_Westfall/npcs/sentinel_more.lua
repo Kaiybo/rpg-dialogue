@@ -224,6 +224,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Warlocks pay, mostly, because they've other things to worry about than a copper here and there, and I like that in a customer. What I don't like is a demon sniffing at my cloth, so keep it back from the stall and we'll do business at the full price." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Warlocks pay, mostly, and I like that in a customer, but your demon's standing close enough to my cloth that I can smell the sulphur in the weave already. Step it back two paces from the stall and we'll do business at the full price." },
       },
       choices = {
         { text = "Fair terms, Gina. I'll keep it back.", next = "BACK", reply = "Good, then we'll get along. Keep the beast where I can see it.", fx = { align = { order = 1 } } },

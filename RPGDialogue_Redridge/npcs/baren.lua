@@ -40,7 +40,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
+      lines = {
+        { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though that demon at your heel has half my dockhands mending nets at the far end. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." },
+      },
       choices = {
         { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", reply = "Do that and they'll judge you kindly, I promise you, because a full net forgives a great deal. Just keep whatever you summon off my boats.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need the docks to like me, only to keep quiet.", next = "BACK", reply = "Silence you'll have, then, since that's mostly what fishermen give anyway. Just don't be surprised if they cross themselves when you pass.", fx = { align = { honor = -1 } } },

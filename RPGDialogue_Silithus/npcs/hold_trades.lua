@@ -77,7 +77,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." } },
+      lines = {
+        { id = "xlock_default", text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, but I keep my best formulae for those who'll make cloaks against the silithid, not curses." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, and they always want the strongest dusts, the ones that hold a lasting enchantment. I sell them what they need and ask nothing, though I'd ask your demon not to breathe on my wares, and I keep my best formulae for cloaks against the silithid, not curses." },
+      },
       choices = {
         { text = "Fair. Your formulae should serve the Hold.", next = "BACK", reply = "I'm glad you think so, because the Hold has been good to me, and it's the least my craft can do in return.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Knowledge should go to whoever can pay.", next = "BACK", reply = "Some knowledge, perhaps, but the kind that turns a cloak into a shield is too precious to sell to whoever happens by.", fx = { align = { order = -1 } } },
@@ -245,7 +248,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." } },
+      lines = {
+        { id = "xlock_default", text = "I trust everyone the same, which is to say a little, and no more. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust everyone the same, which is to say a little, and I trust that creature of yours a good deal less than that. A tauren sells poison and a warlock buys reagents, and the Earth Mother judges us both by what we do with them, but what the demon does, she will judge you for as well." },
+      },
       choices = {
         { text = "Then I'll use them well, against the hives.", next = "BACK", reply = "Then you have my trust, and the Earth Mother will judge you kindly, as I will.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What I do with them is my affair.", next = "BACK", reply = "It is, until it becomes the Hold's affair, and then it will be mine too, so use them well.", fx = { affinity = -1, align = { light = -1 } } },
@@ -418,7 +424,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep each one safe." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I hope I never must, because a frightened beast in a stall can hurt itself badly. Every animal here is in my charge, and this is my first post, so I mean to keep each one safe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I hope I never must, though every horse in the stalls is pressed against the far wall now that your demon has come in. A frightened beast in a stall can hurt itself badly, and this is my first post, so I must ask you to take it outside before one of them breaks a leg." },
+      },
       choices = {
         { text = "I understand. I'll keep my demon away.", next = "BACK", reply = "Thank you, truly, because they'd panic the moment they smelled it, and I'd be up all night mending stalls.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon's just as worthy as any beast.", next = "BACK", reply = "Perhaps, but the beasts don't think so, and they'd tell you as much, very loudly, if you brought it inside.", fx = { affinity = -1, align = { order = -1 } } },

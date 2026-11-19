@@ -96,7 +96,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' I watched what their fire did to Stromgarde's walls, so ye'll forgive me if I keep one eye on that imp." } },
+      lines = { { id = "xlock_default", text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' I watched what their fire did to Stromgarde's walls, so ye'll forgive me if I keep one eye on that imp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' yer {pet} has been edgin' toward my forge fire since ye walked in, so ye'll forgive me if I keep the tongs handy." },
+      },
       choices = {
         { text = "That's fair, Jannos. I'll earn your trust.", next = "BACK", reply = "Ye will, if ye swing that fire the right way. I'll be watchin'.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Watch all you like. My fire's on your side now.", next = "BACK", reply = "Good. Then I'll forge ye somethin' wi' a heavy head, an' we'll see where ye point it.", fx = { align = { honor = -1 } } },

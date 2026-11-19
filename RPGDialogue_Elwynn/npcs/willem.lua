@@ -103,7 +103,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." } },
+      lines = {
+        { id = "xlock_default", text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey. The Marshal says they're useful, and I take him at his word, mostly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone who helps with the Defias, but I'll admit I sleep easier when Drusilla La Salle's students are on the far side of the Abbey, along with whatever they've got watching me the way that one is. The Marshal says they're useful, and I take him at his word, mostly." },
+      },
       choices = {
         { text = "I'll prove myself useful and keep my demon leashed, deputy.", next = "BACK", reply = "That's all I ask, and I'll sleep a little easier for it. The Marshal will hear about it.", fx = { align = { light = 1 } } },
         { text = "Your trust doesn't matter. The Marshal's word is enough.", next = "BACK", reply = "It is, I suppose, and I'll not argue with him. Just mind the Abbey on your way past.", fx = { align = { light = -1 } } },

@@ -39,6 +39,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't look, and I'd never tell, but I've noticed the warlock boxes tend to be the warmest in the vault, which is odd for a stone room underground. Nothing has ever been stolen from this bank, as I say, though I sometimes wonder whether that's the locks or the fact that nobody wants to open those boxes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't look, and I'd never tell, but the warlock boxes are always the warmest in the vault, and standing beside your servant I think I finally know why. Nothing has ever been stolen from this bank, and with that thing at the counter, I doubt anyone in the queue would dare try today." },
       },
       choices = {
         { text = "The locks, Olivia. I'll keep my box quiet.", next = "BACK", reply = "Thank you. The locks thank you too, I'm sure.", fx = { align = { order = 1 } } },
@@ -244,7 +245,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A gentleman from the Mage Quarter tried to deposit a small bound box that scratched at night, and we gave it back to him the very next morning. I've stopped asking what people keep, but I do still listen." } },
+      lines = {
+        { id = "xlock_default", text = "A gentleman from the Mage Quarter tried to deposit a small bound box that scratched at night, and we gave it back to him the very next morning. I've stopped asking what people keep, but I do still listen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A gentleman from the Mage Quarter tried to deposit a bound box that scratched at night, and we gave it back the next morning. I hope you're not thinking of anything like that, because your demon has been looking at the vault door since you arrived, and I'd rather not hear what scratches back." },
+      },
       choices = {
         { text = "You were right to refuse it. Some things don't belong here.", next = "BACK", reply = "We were, and I'm still glad of it. The night clerk didn't sleep for a week.", fx = { align = { light = 1 } } },
         { text = "A scratching box is harmless if it's bound properly.", next = "BACK", reply = "Perhaps, but I'd rather not find out. Our vault is for things that stay still.", fx = { align = { light = -1 } } },
@@ -425,7 +429,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the queue, because nobody wants to stand behind a thing with horns for ten minutes. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." } },
+      lines = {
+        { id = "xlock_default", text = "Only the queue, because nobody wants to stand behind a thing with horns for ten minutes. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the queue, and you can see it for yourself, because they've all shuffled a pace back from your demon and none of them will step forward. My cousins say I'm too friendly, but I'd rather be friendly to a warlock than give one a reason to be otherwise." },
+      },
       choices = {
         { text = "I'll send it away while I'm here. Your customers deserve that.", next = "BACK", reply = "Thank you! The queue will be very grateful.", fx = { align = { light = 1 } } },
         { text = "If they mind, they can let me go first.", next = "BACK", reply = "Ha! I'll ask them, but I doubt they'll be so generous.", fx = { align = { light = -1 } } },
@@ -603,7 +610,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a fortune in gold to a buyer I never saw, and I've tried very hard not to wonder where it went." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a book that turned its own pages at night, and the guards refused to sit with it. It sold for a fortune in gold to a buyer I never saw, and I've tried very hard not to wonder where it went." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a book that turned its own pages at night, and the guards refused to sit with it, much as my clerks are refusing to sit near your companion now. It sold for a fortune to a buyer I never saw, and I've tried very hard not to wonder whether he had a thing like that one at his heel." },
+      },
       choices = {
         { text = "You should have burned it, Chilton.", next = "BACK", reply = "Perhaps I should have, but it fetched a great deal of gold. I'll think on it.", fx = { align = { light = 1 } } },
         { text = "A book like that deserves a worthy owner.", next = "BACK", reply = "It found one, I suppose, though I never saw him. I'd rather not have.", fx = { align = { light = -1 } } },
@@ -776,7 +786,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger. But the law says I must take your goods, and I'm a man who follows the law to the letter." } },
+      lines = {
+        { id = "xlock_default", text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger. But the law says I must take your goods, and I'm a man who follows the law to the letter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the book keeps names forever, and I'd hate to be remembered as the clerk who sold a cursed thing to a stranger whose demon read the ledger over my shoulder. But the law says I must take your goods, so I'll write your name, and I'll trust the thing beside you doesn't need one." },
+      },
       choices = {
         { text = "The law protects everyone, warlocks too. You're right to follow it.", next = "BACK", reply = "Thank you. I follow it to the letter, however little I like it.", fx = { align = { order = 1 } } },
         { text = "The law's only ink, Fitch. Some days it bends.", next = "BACK", reply = "Not in my ledger, it doesn't. The ink stays where I put it.", fx = { align = { order = -1 } } },
@@ -1072,6 +1085,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "More than you'd guess, love, because your lot buy cloth by the stack and sell the bags you make, and you never haggle. Chilton gets nervous when one of you comes to his podium, but I've always found warlocks pay their deposits on time and never argue the fee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than you'd guess, love, because your lot buy cloth by the stack and never haggle, though yours is the first to bring a servant up to the podium. Chilton's already backed away to the far end, so it's me you're dealing with today, and I don't mind the smell of brimstone if the deposit's on time." },
       },
       choices = {
         { text = "Then I'll keep paying on time, Jaxon.", next = "BACK", reply = "Thank you, love. Chilton will be relieved.", fx = { align = { honor = 1 } } },
@@ -1273,7 +1287,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." } },
+      lines = {
+        { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Lord Wishock would try, and loudly, and if he saw what you've brought into my office, he'd have the Watch here before you finished signing. The law says a guild is a guild so long as it pays its fee and breaks no statute, though I don't recall a statute about demons in the waiting room, so let's not go looking for one." },
+      },
       choices = {
         { text = "The law protects every guild equally. Good.", next = "BACK", reply = "It does, and Lord Wishock will learn it. I'll draw your crest.", fx = { align = { order = 1 } } },
         { text = "Let Wishock rage. A crest is my own affair.", next = "BACK", reply = "Exactly, and I'll keep him at bay. I'm very good at it.", fx = { align = { order = -1 } } },
@@ -1442,7 +1459,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a master who cannot defend himself is only a prisoner who has not been caught yet, and your demon knows this better than you. Learn the staff, so that your servant has a reason to stay obedient." } },
+      lines = {
+        { id = "xlock_default", text = "Because a master who cannot defend himself is only a prisoner who has not been caught yet, and your demon knows this better than you. Learn the staff, so that your servant has a reason to stay obedient." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a master who cannot defend himself is only a prisoner who has not been caught, and your demon is watching us now to learn which you are. Learn the staff, so that your servant has a reason to stay obedient, and so that it stops looking at you like that." },
+      },
       choices = {
         { text = "I'll learn, then, and depend less on my demons.", next = "BACK", reply = "Good. Your demons will respect you more for it.", fx = { align = { light = 1 } } },
         { text = "My demons obey me. They'll never need a reason.", next = "BACK", reply = "They obey until they don't. Learn the staff.", fx = { align = { light = -1 } } },
@@ -1591,6 +1611,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because Gunther once threw a hammer at an imp that was sniffing round his forge, and missed, and hit a customer, and I spent a week writing apologies. He's a good smith and a poor judge of what to throw things at, so it's easier if your friend waits by the door." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Gunther once threw a hammer at an imp sniffing round his forge, missed, and hit a customer, and he's already reaching for another now that yours has come in. He's a good smith and a poor judge of what to throw things at, so please take your {pet} back to the door before I'm writing apologies again." },
       },
       choices = {
         { text = "It'll wait by the door, Marda.", next = "BACK", reply = "Thank you. Gunther's hammer is still a little bent.", fx = { align = { order = 1 } } },
@@ -1798,7 +1819,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and I didn't ask, but the glass frosted over from the inside and I had to throw the whole case in the canal. I've had my doubts about the fish ever since." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and I didn't ask, but the glass frosted over from the inside and I had to throw the whole case in the canal. I've had my doubts about the fish ever since." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and I didn't ask, but the glass frosted over from the inside, and the vials nearest your servant have just started ticking against each other the way that one did. I threw the whole case in the canal that night, and I'd like you to know I'm keeping that in mind." },
+      },
       choices = {
         { text = "I'm sorry for that. I'll fill mine far from here.", next = "BACK", reply = "Thank you. The canal's had enough of my glass.", fx = { align = { light = 1 } } },
         { text = "A screaming vial sounds rather useful to me.", next = "BACK", reply = "Useful, perhaps, but unsettling to sell. I'll pass.", fx = { align = { light = -1 } } },
@@ -1948,7 +1972,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." } },
+      lines = {
+        { id = "xlock_default", text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, and it keeps my door busy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a paladin once saw what one of yours had bought and followed him all the way to the Mage Quarter, and I lost both customers. Plain paper keeps the peace, but it won't hide that thing at your heel, so I'd ask you to send it off before you leave with your parcel." },
+      },
       choices = {
         { text = "The paladin was only doing his duty, Kyra.", next = "BACK", reply = "He was, and he cost me two customers doing it. Plain paper it is.", fx = { align = { light = 1 } } },
         { text = "Plain paper's wise. Paladins should mind their own business.", next = "BACK", reply = "Exactly. I keep my customers, and the paladins keep their peace.", fx = { align = { light = -1 } } },

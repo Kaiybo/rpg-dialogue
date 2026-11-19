@@ -149,7 +149,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and finally we buried it in the dunes and charged the owner for the trouble." } },
+      lines = {
+        { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and finally we buried it in the dunes and charged the owner for the trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Twice, and the second time the box started knocking from the inside at midnight. Your demon keeps sniffing at my lockers the way that box used to knock, so I'll thank you to keep it at your heel, because I've no more dune to bury things in." },
+      },
       choices = {
         { text = "Sensible. Some things shouldn't be kept at all.", next = "BACK", reply = "We agreed in the end, friend, though I still charged the burial to the depositor, because the Cartel doesn't do anything for free.", fx = { align = { order = 1 } } },
         { text = "You buried something valuable. That was a waste.", next = "BACK", reply = "A waste, friend, until it knocks at midnight, and then you'll pay anyone with a shovel to put it somewhere else.", fx = { align = { order = -1 } } },
@@ -410,7 +413,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry ye, so long as the demon stays dismissed until ye land. I had a bird refuse tae fly once wi' an imp on the saddle, an' it took me an hour tae talk her down from the roof." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry ye, so long as the demon stays dismissed until ye land. I had a bird refuse tae fly once wi' an imp on the saddle, an' it took me an hour tae talk her down from the roof." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry ye, so long as the demon's dismissed before ye go near the roost. Listen tae them now, screechin' at the smell of that thing, so send it off an' give the birds a moment, or I'll be up on the roof for another hour talkin' one down." },
+      },
       choices = {
         { text = "I'll dismiss him before I ride. Spare the roof.", next = "BACK", reply = "Bless ye, and my birds'll thank ye, though ye'll not hear it over their grumbling about the heat.", fx = { align = { order = 1 } } },
         { text = "My demon goes where I go, Bera.", next = "BACK", reply = "Then ye'll walk, friend, because my birds have more sense than tae carry a demon, and so have I.", fx = { align = { order = -1 } } },
@@ -621,7 +627,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." } },
+      lines = {
+        { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. You bring that thing to my roost and I smell the old chains on it, the ones my people wore when the warlocks led us, so I will carry you where you need to go, but the demon stays on the ground and I will not pretend to like it." },
+      },
       choices = {
         { text = "The old Horde's sins aren't mine.", next = "BACK", reply = "Then keep them that way, young one. The Horde has paid enough for the old ones' sins, and I carry the camp scars to prove it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is what made the Horde strong.", next = "BACK", reply = "That power made us slaves, warlock, and Thrall broke those chains with his own hands, so do not speak of it to me again.", fx = { align = { light = -1 } } },
@@ -800,7 +809,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it has better taste than my regulars, I'll give it that. But it can admire from over there, because I've seen what imps do with fire, and my kitchen isn't going to be the punchline." } },
+      lines = {
+        { id = "xlock_default", text = "Then it has better taste than my regulars, I'll give it that. But it can admire from over there, because I've seen what imps do with fire, and my kitchen isn't going to be the punchline." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then it has better taste than my regulars, I'll give it that. But it's leaning over my stew pot right now like it's thinking about seasoning it, so it can admire from over there, because my kitchen isn't going to be the punchline." },
+      },
       choices = {
         { text = "My servant goes where I please.", next = "BACK", reply = "And my kitchen goes where I please, pal, which is to say, away from your little friend, so mind the stove.", fx = { align = { order = -1 } } },
         { text = "I'll keep the imp out of your soup.", next = "BACK", reply = "Bless you, friend, and if you do, I'll toss the imp a scrap of something charred so it doesn't feel left out.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1048,7 +1060,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the dune out back, and only on purpose, mostly. I test every rifle before I sell it, and I've only lost my eyebrows twice, which for a gunsmith in Gadgetzan is a very good record." } },
+      lines = {
+        { id = "xlock_default", text = "Only the dune out back, and only on purpose, mostly. I test every rifle before I sell it, and I've only lost my eyebrows twice, which for a gunsmith in Gadgetzan is a very good record." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the dune out back, and only on purpose, mostly. Your demon's watching my powder flasks a little too closely for a fellow with my record, so walk it to the far side of the stall before I lose my eyebrows a third time." },
+      },
       choices = {
         { text = "I'll keep him well away. Your eyebrows have suffered enough.", next = "BACK", reply = "Much obliged, friend, because my eyebrows have only just grown back, and I'd hate for them to go again before the auction.", fx = { align = { order = 1 } } },
         { text = "He does what he likes. Move the kegs.", next = "BACK", reply = "Move the kegs? Pal, I'd sooner move the shop, and if your imp so much as sneezes near them, you're paying for the roof.", fx = { align = { order = -1 } } },
@@ -1240,7 +1255,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Steel is steel, and I've said so to every customer who's asked. But the Legion broke my people once, and I'll not pretend I've forgiven those who call its servants by name, so take your gear and be on your way when it's done." } },
+      lines = {
+        { id = "xlock_default", text = "Steel is steel, and I've said so to every customer who's asked. But the Legion broke my people once, and I'll not pretend I've forgiven those who call its servants by name, so take your gear and be on your way when it's done." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Steel is steel, and I've said so to every customer who's asked. But you've brought one of the Legion's own creatures into my smithy, and it's watching my fire like it remembers something, so take your gear and be on your way, and take that thing with you." },
+      },
       choices = {
         { text = "I bind demons. I don't serve them.", next = "BACK", reply = "So said many of the Highborne before they knelt, and I will believe you when I see the end of it, not before.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Legion's power is mine to use.", next = "BACK", reply = "Then take your gear and go, because I will not have that said in front of my forge twice.", fx = { align = { light = -1 } } },
@@ -1479,7 +1497,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. A warlock who deals in souls should know better than most what Hakkar would do with yours." } },
+      lines = {
+        { id = "xlock_default", text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. A warlock who deals in souls should know better than most what Hakkar would do with yours." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Soulflayer was cast down long ago, but his priests still sing to him in the Sunken Temple, and gods that are sung to have a way of listening. Your servant listens too, warlock, I can see it in its eyes, so ask yourself whose voice it would answer if Hakkar called." },
+      },
       choices = {
         { text = "Hakkar's priests should be destroyed.", next = "BACK", reply = "Ya, mon, every one of dem, and Yeh'kinya will dance on de ashes when it's done.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. Even a dead god's.", next = "BACK", reply = "Dat's what de Atal'ai said, mon, right before Hakkar drank dem dry, so you think about dat.", fx = { align = { light = -1 } } },

@@ -77,7 +77,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." } },
+      lines = { { id = "xlock_default", text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Sell me cloth an' ore an' honest goods, an' we'll get along fine." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a buyer in Stormwind complained that his purchase talked tae him at night, an' the King's clerks very nearly shut us down for it. Yer demon's been eyein' the lots on my table since ye came in, so tell it nothin' here is for sale tae its sort, an' bring me cloth an' ore an' honest goods instead." },
+      },
       choices = {
         { text = "Fair rules. I'll keep my darker goods out of your house.", next = "BACK", reply = "Thank ye, for the Stonemantles have only just stopped glarin' at me, an' I'd rather no' give them a reason tae start again.", fx = { align = { light = 1 } } },
         { text = "Then the best things will sell somewhere else, at a better price.", next = "BACK", reply = "They might, an' good luck tae them, but I'll no' have another buyer complainin' that his purchase whispers through the night.", fx = { align = { light = -1 } } },
@@ -298,7 +300,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." } },
+      lines = { { id = "xlock_default", text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and I hear people whisper about them in the Commons, which seems unkind to a refugee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It sheltered them, at least, and taught a good many before the troggs came up and the radiation came down. Now they're scattered, and people whisper about them in the Commons, though I'll admit your demon peering at my ledger isn't helping, so perhaps it could peer somewhere else?" },
+      },
       choices = {
         { text = "I'll earn their trust. Let the Commons see it.", next = "BACK", reply = "That's the spirit, and the Commons will come round eventually, though you might want to keep your imp out of the bread line.", fx = { align = { light = 1 } } },
         { text = "Let them whisper. I'd rather be feared than pitied.", next = "BACK", reply = "Feared is a very lonely kind of respect, but I'll note your preference, and I'll try not to whisper about you too loudly.", fx = { align = { light = -1 } } },
@@ -541,6 +545,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I couldnae say, but I've seen an imp make off wi' a whole loaf from my counter, so somethin' must happen tae it. Buy yerself some proper food an' keep it in yer own pack, for ye look like ye need it more than it does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I couldnae say, but yer demon's starin' at my bread right now, an' I've seen an imp make off wi' a whole loaf from this counter, so somethin' must happen tae it. Buy yerself some proper food an' keep it in yer own pack, for ye look like ye need it more than that thing does." },
       },
       choices = {
         { text = "Thank you. I'll look after myself better.", next = "BACK", reply = "Then I'll find ye a loaf too heavy for an imp tae carry. I've learned that lesson the hard way.", fx = { align = { light = 1 } } },
@@ -725,7 +730,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." } },
+      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They wanted a crest wi' a burnin' eye, an' the whole Commons asked if the Legion had come back, an' wi' yer demon starin' at my sketches I'm wonderin' the same myself. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is more than I can say for my nerves this minute." },
+      },
       choices = {
         { text = "A crest should reassure folk. I'll choose something modest.", next = "BACK", reply = "That's sense, an' the Commons will thank ye for it, for they've only just stopped lookin' over their shoulders after the last one.", fx = { align = { light = 1 } } },
         { text = "The burning eye was honest. Let them be frightened.", next = "BACK", reply = "Honest, aye, but I'll no' be writin' it in my book. Take yer burnin' eye elsewhere.", fx = { align = { light = -1 } } },
@@ -926,7 +933,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a demon's sigil onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." } },
+      lines = { { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a demon's sigil onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Skulls I'll do, an' flames, but I'll no' stitch a demon's sigil onto good Ironforge cloth, so I'll thank yer {pet} tae keep its eyes off my bolts, for it's lookin' at them like it's choosin' one. I had a lass ask me once, an' she couldnae tell me what the sigil meant, an' I'd wager that thing could, which is worse." },
+      },
       choices = {
         { text = "Then I'll ask for nothing you'd be ashamed of.", next = "BACK", reply = "Then I'll stitch ye somethin' fine. A warlock wi' good taste is rarer than ye'd think in this city.", fx = { align = { light = 1 } } },
         { text = "The sigil was only thread, Lyesa. You'd be well paid for it.", next = "BACK", reply = "Paid or no', it's my thread an' my name on the hem, an' I'll no' have it on anythin' that makes good folk cross the street.", fx = { align = { light = -1 } } },
@@ -1147,6 +1156,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anythin' that breathes, whispers or tries tae open its own box, an' I've had all three in my time. My family's kept the Vault for generations, an' this door's never once been opened from the inside, so I'd like tae keep it that way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anythin' that breathes, whispers or tries tae open its own box, an' I'm lookin' at somethin' right now that could likely manage all three. My family's kept the Vault for generations, an' this door's never once been opened from the inside, so yer demon waits on the public side o' the counter where my guards can see it." },
       },
       choices = {
         { text = "Fair rules. I'll keep my things quiet.", next = "BACK", reply = "Thank ye, for my family's kept the Vault quiet for generations, an' I'd like tae keep it that way for a few more.", fx = { align = { order = 1 } } },

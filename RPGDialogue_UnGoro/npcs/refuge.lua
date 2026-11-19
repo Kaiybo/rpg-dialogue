@@ -88,7 +88,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." } },
+      lines = {
+        { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We welcome anyone who'll help, and we've learned not to be picky, demons included, I suppose. I'll only ask you to keep yours away from the scholars, because J.D. Collie has already backed into a tent pole twice since you walked up, and he's twitchy enough already." },
+      },
       choices = {
         { text = "I'll keep my demon clear of the scholars.", next = "BACK", reply = "Thank you. Collie dropped a crystal on his foot last week when a firefly drifted by, so you're doing us all a kindness.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Collie will have to get used to it.", next = "BACK", reply = "He's had to get used to worse, I suppose. Just keep it away from his notes, please.", fx = { align = { order = -1 } } },
@@ -318,7 +321,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, only that I think I'm a warrior, because it feels right, and that I came from somewhere far away. Your demon is looking at me as though it knows something I don't, and I don't want it to tell me, if it's all the same to you, so would you ask it to look somewhere else?" },
+      },
       choices = {
         { text = "It'll come back in time, Linken. Give it a chance.", next = "BACK", reply = "I hope so, friend, though patience is a hard thing with a hole in your head. Thank you all the same.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe some memories are better left forgotten.", next = "BACK", reply = "Maybe so, and I've wondered that myself. But I'd still like to know what I've forgotten.", fx = { align = { light = -1 } } },
@@ -587,7 +593,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." } },
+      lines = {
+        { id = "xlock_default", text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later. The crystals take in whatever's near them, and I don't know what they'd take in from you, so I'd ask you not to stand quite so close to the green ones." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, and I'll admit it now so I don't have to explain a singed eyebrow later, and the green ones have started to hum since your demon came close. The crystals take in whatever's near them, so I'd ask you both not to stand quite so near, and especially not it." },
+      },
       choices = {
         { text = "That's fair. I'll keep my distance.", next = "BACK", reply = "Thank you, friend, the crystals and I both appreciate it. One singed eyebrow is enough.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't get your research far, Collie.", next = "BACK", reply = "Maybe not, but it's kept my other eyebrow. I'll take caution over glory.", fx = { align = { light = -1 } } },
@@ -712,7 +721,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is, and I'd pay 'em, too! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm runnin' out of ideas." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is, and I'd pay 'em, too! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm runnin' out of ideas." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know anything about demons, but yours has a good look about it, and I'd ask the devilsaurs themselves if I thought they'd tell me where he is! Ringo's my dearest friend and he gets lost in his own tent, so if that thing can sniff him out, I'm not too proud to ask." },
+      },
       choices = {
         { text = "I'll look for him myself. My demon stays leashed.", next = "BACK", reply = "Oh, thank you, thank you, I knew you'd help! Just please, please be careful, the devilsaurs are so very large.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon will find him, whatever it takes.", next = "BACK", reply = "Whatever it takes? Oh, I don't know, I don't like the sound of that, but if it brings Ringo home, I suppose I'll have to.", fx = { align = { order = -1 } } },

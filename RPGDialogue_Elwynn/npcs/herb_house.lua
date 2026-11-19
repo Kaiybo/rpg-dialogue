@@ -75,7 +75,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." } },
+      lines = {
+        { id = "xlock_default", text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. I'll sell you healing draughts all day, but the poisons stay up there." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a warlock's student from Goldshire once bought three ounces of it and told me it was for his garden, and I've never seen a garden that needed that much killing. Your servant has been reading my top shelf since you came in, which is exactly why the poisons stay up there." },
+      },
       choices = {
         { text = "That's a wise rule, Mallory. Keep the poisons high.", next = "BACK", reply = "I'm glad you see it, because not everyone with your sort of books does. Healing draughts are on the low shelf, and you're welcome to them.", fx = { align = { light = 1 } } },
         { text = "Nightshade has its uses. You're too careful by half.", next = "BACK", reply = "Uses, yes, and I've seen most of them, which is exactly why it's out of reach. You'll find me careful by a whole shelf, not by half.", fx = { align = { light = -1 } } },
@@ -226,7 +229,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." } },
+      lines = {
+        { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they're picky about it, which I like in a customer, though they usually leave their company outside. Your {pet} keeps leaning over my peacebloom, and two pots have wilted already, so I'd be grateful if it waited by the door." },
+      },
       choices = {
         { text = "You're right not to gather there, Pomeroy.", next = "BACK", reply = "I'm glad you agree, because I've no wish to be digging among the dead. The living grow plenty to keep me busy.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Grave herbs have their uses. You're missing out.", next = "BACK", reply = "Maybe I am, but I'll sleep better for it. Let the warlocks dig in Duskwood themselves if they need it that badly.", fx = { align = { light = -1 } } },

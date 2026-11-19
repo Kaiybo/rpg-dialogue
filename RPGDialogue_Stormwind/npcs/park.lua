@@ -96,7 +96,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fear what it hungers for, which is everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and every door you open invites them back a little further." } },
+      lines = {
+        { id = "xlock_default", text = "I fear what it hungers for, which is everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and every door you open invites them back a little further." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear what it hungers for, and standing here I can feel it hungering, for the trees and the water and everything this Park was planted to protect. The Legion's servants were driven from this world once at a terrible price, and you have brought one to stand on the grass among the saplings." },
+      },
       choices = {
         { text = "Then I'll open my doors rarely, and close them firmly.", next = "BACK", reply = "Then perhaps this Park will forgive your coming, in time. I will hold you to your word.", fx = { align = { light = 1 } } },
         { text = "The Legion's servants serve me now. That's the difference.", next = "BACK", reply = "So they always seem, until they don't. I will not stand between you and your choices, but I will watch them.", fx = { align = { light = -1 } } },
@@ -340,6 +343,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Perhaps, if you can tell me why the grave moss growing outside the Slaughtered Lamb is twice the size of any I have found in Elwynn's crypts. I suspect the answer, and I do not like it, but a herbalist should know what feeds the things she studies." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, if you can tell me why the grave moss outside the Slaughtered Lamb grows twice the size of any in Elwynn's crypts, though I see the moss at my feet is leaning toward your servant already. I suspect the answer, and I do not like it, but a herbalist should know what feeds the things she studies." },
       },
       choices = {
         { text = "I'll tell you what I know, and leave the moss alone.", next = "BACK", reply = "Then you are more sensible than I feared. Leave the moss to me, and I will let you know what feeds it.", fx = { align = { light = 1 } } },

@@ -126,6 +126,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's full of demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. Your demon is looking down the road toward it like a hound that smells home, and I've never asked what warlocks find in that canyon, because I'd rather not know." },
       },
       choices = {
         { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", reply = "Then thin them, and gladly, and come back to tell me. The canyon has too many already.", fx = { align = { light = 1 } } },
@@ -309,6 +310,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the wood takes on whatever's near it while it dries, and I won't have a bow that smells of the Burning Legion. Laugh if you like, but a good bow knows things, and I've broken the ones that learned the wrong things over my knee." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the wood takes on whatever's near it while it dries, and your servant is standing right beside my drying rack. If one stave of mine comes away smelling of the Burning Legion, I'll break it over my knee and send you the bill, so walk it downwind." },
       },
       choices = {
         { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", reply = "Thank you. You'll get a better bow for it, I promise you.", fx = { align = { honor = 1 } } },

@@ -121,6 +121,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Do ye now? Then ye know what they did wi' it in the last war, an' I've nae wish tae hear how ye learned it. Take yer knowledge north an' turn it on them, an' I'll judge ye by where the bodies fall." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Do ye now? Then ye know what they did wi' it in the last war, an' I'd say ye've learned it well, by the look o' what's standin' behind ye. Take it north an' turn it on the Dragonmaw, an' I'll judge ye by where the bodies fall, no' by the stink o' that thing." },
       },
       choices = {
         { text = "I'll turn it against them, nothing more.", next = "BACK", reply = "End theirs an' leave it at that, an' I'll ask no more questions. Go north, an' keep yer distance from my lads.", fx = { align = { light = 1 } } },
@@ -326,7 +327,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trust anybody who'd go, an' that's the truth of it. The raptors have the road tae Whelgar's dig, an' I've heard yer sort can set things on beasts that'd make even a raptor think twice, so if ye're goin' east, look for her, would ye?" } },
+      lines = { { id = "xlock_default", text = "I'd trust anybody who'd go, an' that's the truth of it. The raptors have the road tae Whelgar's dig, an' I've heard yer sort can set things on beasts that'd make even a raptor think twice, so if ye're goin' east, look for her, would ye?" },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd trust anybody who'd go, an' that's the truth of it, even that one at yer heel, if it'll walk the road tae Whelgar's dig. The raptors have that road now, but I'd wager they'd think twice about a demon, so if ye're goin' east, look for her, would ye?" },
+      },
       choices = {
         { text = "I'll find her, Tarrel. You have my word.", next = "BACK", reply = "Yer word? Then I'll hold ye tae it, an' I'll pray for ye every night till ye're back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'm going east for my own reasons. We'll see.", next = "BACK", reply = "Yer own reasons, eh? Then I'll hope they lead ye past the dig, an' that ye keep an eye out for her.", fx = { align = { honor = -1 } } },
@@ -543,7 +546,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, aye, for Lordaeron fell with a lot of whispering in cellars first, and I watched it happen from this side of the mountains. Still, you're paying for your stew, which is more than some of the soldiers manage." } },
+      lines = { { id = "xlock_default", text = "A little, aye, for Lordaeron fell with a lot of whispering in cellars first, and I watched it happen from this side of the mountains. Still, you're paying for your stew, which is more than some of the soldiers manage." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, aye, for Lordaeron fell with a lot of whispering in cellars first, and that thing beside you looks like it came up out of one of them. Still, you're paying for your stew, which is more than some of the soldiers manage, so it can stay, as long as it stays by the door." },
+      },
       choices = {
         { text = "I'll never be one of those cultists, Vincent.", next = "BACK", reply = "I'm glad to hear it, and I believe you, mostly. Just keep the whispering out of my common room.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. The cult just used it badly.", next = "BACK", reply = "Badly, yes, and Lordaeron paid for it. I'd not test whether you'd use it any better.", fx = { align = { light = -1 } } },
@@ -748,7 +753,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Welcome is a strong word, friend, but Theramore takes all sorts, and I'm told Lady Proudmoore cares more for what you do than where your power comes from. Mind, the night elves at Auberdine remember a war against demons, and they'll not have forgotten it by the time your ship docks." } },
+      lines = { { id = "xlock_default", text = "Welcome is a strong word, friend, but Theramore takes all sorts, and I'm told Lady Proudmoore cares more for what you do than where your power comes from. Mind, the night elves at Auberdine remember a war against demons, and they'll not have forgotten it by the time your ship docks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome is a strong word, friend, but Theramore takes all sorts, and I'm told Lady Proudmoore cares more for what you do than what walks beside you. Mind, the night elves at Auberdine remember a war against demons, and if your servant steps off my ship ahead of you, they'll remember it all at once." },
+      },
       choices = {
         { text = "Then I'll give the elves no reason to remember.", next = "BACK", reply = "Wise, very wise, and the elves will never know the difference. Auberdine's a lovely place if you keep your head down.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them remember. Fear keeps people polite.", next = "BACK", reply = "Polite and pointy, you mean, for the Sentinels are very good with spears. I'd keep that philosophy quiet in Darkshore.", fx = { align = { light = -1 } } },
@@ -960,7 +967,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Burn them, freeze them, set a demon on them; I'll no' ask how, so long as ye dinnae ask me what's in it." } },
+      lines = { { id = "xlock_default", text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Burn them, freeze them, set a demon on them; I'll no' ask how, so long as ye dinnae ask me what's in it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Great drippin' things that came up out o' the ground, an' I dinnae care what they are so long as one o' them gives back my bag. Set that demon on them by all means, for it looks hungry enough, an' I'll no' ask how, so long as it doesnae ask me what's in the bag either." },
+      },
       choices = {
         { text = "I won't pry, Sida. Your bag's your business.", next = "BACK", reply = "Thank ye, that's all I ask. There's nothin' in it but a few letters an' a comb, anyway.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll get your bag, but I'll look inside it.", next = "BACK", reply = "Look if ye like, an' ye'll find letters from my granny an' a comb. I hope ye enjoy the read.", fx = { align = { honor = -1 } } },
@@ -1156,7 +1165,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd teach a murloc to fish if it sat still long enough, friend, and you're better company than a murloc. Only don't go conjuring anything over the water, for the fish here are skittish enough with the wrecks about." } },
+      lines = { { id = "xlock_default", text = "I'd teach a murloc to fish if it sat still long enough, friend, and you're better company than a murloc. Only don't go conjuring anything over the water, for the fish here are skittish enough with the wrecks about." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd teach a murloc to fish if it sat still long enough, friend, and your demon keeps stiller than any murloc, I'll give it that. Only keep it back from the water, for the fish stopped biting the moment it came down the pier, and they're skittish enough with the wrecks about." },
+      },
       choices = {
         { text = "I'll learn it properly, with patience and a rod.", next = "BACK", reply = "Good, that's the only way it works. Sit down, hold the rod loose, and let the bay come to you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I won't wait for fish when I can make them come.", next = "BACK", reply = "Make them come, will you? Then you'll be fishing alone, because I'll not have that at my pier. You can take your sparks and your charms down to the crocolisks.", fx = { align = { order = -1 } } },
@@ -1345,7 +1356,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero." } },
+      lines = { { id = "xlock_default", text = "I would, but I'd have to make you the villain, I'm afraid, for nobody in a tavern ever sang along to a brave warlock. Unless you went and did something brave, of course, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, but I'd have to make you the villain, I'm afraid, and with {pet} glowering at your elbow the verse practically writes itself. Unless you went and did something brave, like taking the Dragonmaw warlord Nek'rosh's head, and then I'd have no choice but to make you the hero and your demon the comic relief." },
+      },
       choices = {
         { text = "Then I'll earn the hero's verse, Camerick.", next = "BACK", reply = "Then I'll wait for it, with my lute tuned and my quill sharp. Do something heroic, and I'll make the tavern weep.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Villains get the best lines anyway. Keep them.", next = "BACK", reply = "They do, don't they? Very well, you'll be the villain, and I'll give you a sneer they'll remember for years.", fx = { align = { honor = -1 } } },
@@ -1622,6 +1635,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I've heard what you lot ride, with the burning hooves and the eyes like coals, and I'll say only that no horse of mine would stand in a stable beside it. Keep it well away from my paddock if you ever get one." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I've heard what you lot ride, and now I've seen what you keep at your heel, and every horse in my paddock has turned its back since you came up the lane. No horse of mine would stand in a stable beside either one, so keep them both well away from my fences." },
       },
       choices = {
         { text = "Fair. I'd not frighten your herd.", next = "BACK", reply = "Thank you, that's all I ask. My herd's skittish enough without a demon horse snorting fire at them.", fx = { align = { light = 1 } } },

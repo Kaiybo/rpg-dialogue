@@ -163,7 +163,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." } },
+      lines = {
+        { id = "xlock_default", text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and those are the three tools my house relies upon. The Syndicate has dabbled in darker help, I'm told, and I would know if you were their messenger." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a demon is the one guest who cannot be bribed, flattered or frightened, and yours has been studying my doors since you walked in. The Syndicate has dabbled in darker help, I'm told, so tell your servant to keep its eyes on the carpet while you convince me you aren't their messenger." },
+      },
       choices = {
         { text = "I serve no Syndicate. My demons answer to me alone.", next = "BACK", reply = "Good. Then you're the one guest I needn't worry about, so long as your demons stay exactly as loyal as you claim.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Everyone's loyalty has a price, my lord, even mine.", next = "BACK", reply = "Honesty, at least, which is rarer than loyalty in Alterac. I'll remember your price, and I'll remember you told me it existed.", fx = { align = { honor = -1 } } },
@@ -429,7 +432,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." } },
+      lines = {
+        { id = "xlock_default", text = "He sat on our council, and he was brilliant, and he went looking for powers we had forbidden until he found the Lich King waiting for him. We cast him out too late, and Dalaran paid for it twice, once to the plague and once to Archimonde." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He sat on our council, and he was brilliant, and he bound things very like the one at your heel before he went looking for worse. We cast him out too late and Dalaran paid for it twice, so forgive me if I keep one eye on your {pet} while I tell you so." },
+      },
       choices = {
         { text = "His choices were his own. Knowledge didn't damn him.", next = "BACK", reply = "That is the comfortable answer, and I wish I believed it more firmly. Knowledge offered him the door, and he walked through it smiling.", fx = { align = { light = -1 } } },
         { text = "Then I'll learn from his fall and keep my craft in check.", next = "BACK", reply = "That's all any of us can do, and more than most bother to. Keep a close watch on yourself, and ask someone you trust to watch as well.", fx = { affinity = 1, align = { light = 1 } } },
@@ -769,7 +775,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, though the Society frowns on anything it can't fully control. I keep my fel reagents in a separate cupboard with a separate key, and I've never once forgotten which is which." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, though the Society frowns on anything it can't fully control, and it would frown hardest at your demon sniffing round my shelves. I keep my fel reagents in a separate cupboard with a separate key, so you can tell the thing that cupboard is locked and the key is in my pocket." },
+      },
       choices = {
         { text = "Control is everything. Keep your cupboards locked.", next = "BACK", reply = "That's my rule exactly, and it has kept all ten of my fingers on my hands. Well, most of them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Society is too cautious. Push the work further.", next = "BACK", reply = "Easy to say when you don't answer to the Society. I'll push it a little, in my own cupboard, and say nothing to anyone.", fx = { align = { order = -1 } } },

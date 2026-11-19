@@ -111,6 +111,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "To kill them wherever they walk in Ashenvale, and the satyrs of Satyrnaar have given us plenty of practice. You are an ally of my people, so the order does not reach you, but if your servant slips its leash it will, and I will not be sorry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "To kill them wherever they walk in Ashenvale, and the satyrs of Satyrnaar have given us plenty of practice. Your servant stands well within reach of my glaive, ally, so it had best remember whose leash it wears, because I will not be sorry if it forgets." },
       },
       choices = {
         { text = "Fair. If it ever slips, cut it down.", next = "BACK", reply = "Fair enough, warlock, and I'll hold you to it. The Sentinels will not hesitate.", fx = { align = { order = 1 } } },
@@ -351,6 +352,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not for being a warlock, but they'll throw anything that smells of the Legion, and your cloak reeks of it. Dismiss your servant on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not for being a warlock, but they'll throw anything that smells of the Legion, and they've caught your servant's scent already. Hear them stamping in the roost? Dismiss it here on the ground and sit still, and they'll fly you to Auberdine as kindly as anyone." },
       },
       choices = {
         { text = "I'll dismiss it on the ground. The birds deserve that.", next = "BACK", reply = "Thank you, and they'll fly you gently for it. That's all I ask.", fx = { align = { honor = 1 } } },

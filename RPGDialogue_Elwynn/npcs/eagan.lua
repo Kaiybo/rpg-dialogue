@@ -85,7 +85,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every animal smells it, and the wolves have been in a temper since you came up the road. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word." } },
+      lines = {
+        { id = "xlock_default", text = "Every animal smells it, and the wolves have been in a temper since you came up the road. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every animal smells it, and I can smell it myself now it's standing in my yard, all sulphur and something burnt. A wolf knows something wrong when it smells it, and I trust a wolf's nose over a man's word, so keep it downwind of my pelts." },
+      },
       choices = {
         { text = "The wolves are right to fear it. I'll keep it leashed.", next = "BACK", reply = "Thank you. A wolf's nose has never been wrong yet, and I'd like them settled before lambing.", fx = { align = { light = 1 } } },
         { text = "Let them howl. Fear keeps beasts in their place.", next = "BACK", reply = "Fear keeps them howling all night, friend, and none of us sleep. Keep it leashed.", fx = { align = { light = -1 } } },

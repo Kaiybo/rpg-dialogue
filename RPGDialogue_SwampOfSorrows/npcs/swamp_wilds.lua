@@ -325,7 +325,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothing troubles my rest, for I have none to trouble. But the demons south of here gather like flies on a carcass, and a warlock who walks among them had better know whose leash is whose." } },
+      lines = {
+        { id = "xlock_default", text = "Nothing troubles my rest, for I have none to trouble. But the demons south of here gather like flies on a carcass, and a warlock who walks among them had better know whose leash is whose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothing troubles my rest, for I have none to trouble, though your servant stares at me as if it hopes to change that. The demons south of here gather like flies on a carcass, and that one knows them by smell, so a warlock who walks among them had better know whose leash is whose." },
+      },
       choices = {
         { text = "I know whose leash it is. Mine.", next = "BACK", reply = "Yours, then, and I hope you keep it. Many before you thought the same.", fx = { align = { order = 1 } } },
         { text = "Leashes break. I'll take my chances, spirit.", next = "BACK", reply = "Your chances, then, and I will not stop you. But I have seen what happens when leashes break.", fx = { align = { order = -1 } } },

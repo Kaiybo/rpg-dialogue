@@ -65,7 +65,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They twist them, which is worse, because a twisted enchantment looks perfectly sound until the day it fails. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark on my bench as a warning." } },
+      lines = {
+        { id = "xlock_default", text = "They twist them, which is worse, because a twisted enchantment looks perfectly sound until the day it fails. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark on my bench as a warning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They twist them, which is worse, and I can feel the runes on my bench twisting already with your servant this close. I once had a warlock's cloak come back to me burning green at the hem, and I've kept the scorch mark as a warning, so I'd thank you to stand it by the door before I've a second one." },
+      },
       choices = {
         { text = "I'll keep my demon away from your bench, Lucan.", next = "BACK", reply = "Thank you. Jessara keeps a box of ruined rods at the back, and I'd rather not add to it.", fx = { align = { light = 1 } } },
         { text = "A little green flame never hurt anyone worth worrying about.", next = "BACK", reply = "It hurt my cloak, and my reputation, and very nearly my bench. I'll keep you at arm's length, if you don't mind.", fx = { align = { light = -1 } } },
@@ -216,6 +219,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It does, and I've the ruined rods in a box at the back to prove it, because a customer from the Lamb once leaned on the counter for half an hour. Lucan was so cross he didn't speak for a day, which for Lucan is the same as shouting, so you'll understand why I'm careful." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It does, and I've the ruined rods in a box at the back to prove it, all from one customer leaning on the counter for half an hour without a demon in sight. Yours has been in here a minute and the rods on the top shelf are already dimming, so if you'd take it outside, Lucan might speak to me tonight." },
       },
       choices = {
         { text = "I'll keep clear of the counter, Jessara.", next = "BACK", reply = "Thank you. I've had quite enough of that box.", fx = { align = { order = 1 } } },
@@ -386,6 +390,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Patient folk make good fishermen, and your sort seem patient enough, sitting up all night with your candles and your circles. Just don't go summoning anything into the canal to chase the fish, because Arnold tried a firework once and the guards still talk about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Patient folk make good fishermen, and your sort seem patient enough, though the fish will feel your {pet} glaring at the canal and go straight to the bottom. Just don't go summoning anything into the water to chase them, because Arnold tried a firework once and the guards still talk about it." },
       },
       choices = {
         { text = "Just a pole and patience, then, Catherine.", next = "BACK", reply = "You'll make a fisherman yet, and with fewer burnt candles than my last apprentice.", fx = { align = { order = 1 } } },
@@ -584,7 +589,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I say a little prayer after the cellar's lot leave. A seam doesn't care who wears it, and I try to be like a seam." } },
+      lines = {
+        { id = "xlock_default", text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I say a little prayer after the cellar's lot leave. A seam doesn't care who wears it, and I try to be like a seam." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I dress the Cathedral's novices and the Lamb's cellar alike, and I measure them all the same, though I've never had to measure with one of their servants breathing down my neck. A seam doesn't care who wears it, and I try to be like a seam, but I'll be saying a longer prayer than usual tonight." },
+      },
       choices = {
         { text = "Say the prayer, Lisbeth. I could probably use it.", next = "BACK", reply = "Then I'll say it twice, dear, and you can have the second one free.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I didn't come here for those.", next = "BACK", reply = "Fair enough, dear. You'll have one anyway, after you leave.", fx = { align = { light = -1 } } },

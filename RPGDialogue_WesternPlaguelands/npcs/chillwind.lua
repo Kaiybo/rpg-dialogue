@@ -192,7 +192,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." } },
+      lines = {
+        { id = "xlock_default", text = "They'll fight beside anyone who walks back out of Andorhal with them, and they'll talk about you behind your back the whole way. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll fight beside anyone who walks back out of Andorhal with them, though I can see a few of them making the sign of the Light at your demon already. MacDonnell will be harder, for she thinks every demon is one more thing the Light ought to burn, and she'd want to start with that one." },
+      },
       choices = {
         { text = "I'll earn their trust in battle.", next = "BACK", reply = "Good. Stand beside them once when the ghouls come over the rise, and the muttering stops.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need their trust, only their silence.", next = "BACK", reply = "Then you'll get their silence, and their muttering besides. I'll take your fire either way.", fx = { align = { honor = -1 } } },
@@ -875,7 +878,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's precisely what frightens me, for the Scourge's cauldrons are alchemy too, alchemy gone wrong in ambitious hands. I read the Scholomance's books for my work, and I stopped sleeping well somewhere around the second chapter." } },
+      lines = {
+        { id = "xlock_default", text = "That's precisely what frightens me, for the Scourge's cauldrons are alchemy too, alchemy gone wrong in ambitious hands. I read the Scholomance's books for my work, and I stopped sleeping well somewhere around the second chapter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's precisely what frightens me, and your demon staring into my alembics doesn't help. The Scourge's cauldrons are alchemy gone wrong in ambitious hands, so please call it back before it learns anything, because I stopped sleeping well somewhere around the second chapter." },
+      },
       choices = {
         { text = "Some books should stay closed, alchemist.", next = "BACK", reply = "Some should, and I've read most of them anyway. I'll close the next one, I promise.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Every book is worth reading once, even theirs.", next = "BACK", reply = "Once, and then you'll never sleep again. I'd not recommend it.", fx = { align = { light = -1 } } },
@@ -1167,7 +1173,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's not nearly as reassuring as you think it is. Still, if you've a demon to spare, I'd not object to one standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." } },
+      lines = {
+        { id = "xlock_default", text = "That's not nearly as reassuring as you think it is. Still, if you've a demon to spare, I'd not object to one standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's not nearly as reassuring as you think it is, and less so with your demon looking at me like that. Still, since it's standing about anyway, I'd not object to it standing guard outside my tent, for the Argent folk here don't take my fears at all seriously." },
+      },
       choices = {
         { text = "Your fear is sensible. Keep the sword close.", next = "BACK", reply = "Thank you! At last, someone who takes me seriously. The sword stays exactly where it is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A coward's fears are no business of mine.", next = "BACK", reply = "Coward? I'm alive, which is more than the brave Barovs can say. Do mind the tent on your way out.", fx = { align = { light = -1 } } },
@@ -1482,7 +1491,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It holds for anyone who keeps their power aimed at the dead. Officer Garush at the Bulwark watches warlocks closely, and he has his reasons, but give him time and you'll find he's fair." } },
+      lines = {
+        { id = "xlock_default", text = "It holds for anyone who keeps their power aimed at the dead. Officer Garush at the Bulwark watches warlocks closely, and he has his reasons, but give him time and you'll find he's fair." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It holds for anyone who keeps their power aimed at the dead, and I'll judge your {pet} by the same rule, though my hand did go to my sword when it came in. Officer Garush at the Bulwark watches warlocks closely and he'll watch that one closer, but give him time and you'll find he's fair." },
+      },
       choices = {
         { text = "I'll prove my power serves the living.", next = "BACK", reply = "Good. Garush will see it, given time, and so will I.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll aim it wherever I please, officer.", next = "BACK", reply = "Then aim it well away from the table, warlock. The Dawn has no room for surprises.", fx = { align = { light = -1 } } },
@@ -1656,7 +1668,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." } },
+      lines = {
+        { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd burn anything they think the shadow's touched, and if they saw your demon they'd burn the mill and sing hymns over the ashes. My father built it with his own hands, so whatever you do there, keep that creature well away from the timber, because I'd sooner see it standing with Crusaders in it than ashes with none." },
+      },
       choices = {
         { text = "Your father's mill will stand. You have my word.", next = "BACK", reply = "Thank you. I'll hold you to it, and so will he.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If burning it clears the Crusade out, so be it.", next = "BACK", reply = "It might, and I'd rather it didn't. Find another way, if you can.", fx = { align = { honor = -1 } } },
@@ -1886,7 +1901,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." } },
+      lines = {
+        { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Biscuits, mostly, and a bellows that blows the sulphur smell downwind, though with your demon standing right at the perch I'd need a bigger bellows and a great many more biscuits. Send it off before you mount, and you'll land in Aerie Peak at the speed you meant to." },
+      },
       choices = {
         { text = "Clever work, Bibilfaz. I'll be gentle with the birds.", next = "BACK", reply = "Thank you! The birds will be gentle with you in return, mostly.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Nine in ten? I'll risk it. Strap me in.", next = "BACK", reply = "Splendid, an adventurous sort! Strap in tight and hold on to your hat.", fx = { align = { order = -1 } } },

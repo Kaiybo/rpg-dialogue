@@ -108,6 +108,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Hardly any, and the Sentinels watch the ones who come the way a heron watches a shallow. Nessa over in Rut'theran would tell you I'll sell to anyone, and for once she's right, because coin doesn't smell of sulphur." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Hardly any, and the Sentinels watch the ones who come the way a heron watches a shallow. They're watching you right now, because that thing at your heel has every guard on the pier fingering a glaive, but coin doesn't smell of sulphur, even if your servant does." },
       },
       choices = {
         { text = "The Sentinels are right to watch us. I would.", next = "BACK", reply = "Honest of you, and I think they'd like you better for saying it. Most of your kind bristle at the watching.", fx = { align = { order = 1 } } },
@@ -295,6 +296,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I sell candles, plain ones, for reading and for finding your way in the dark. If you need black ones, I'd rather not know what for, and I'd ask you not to light them in Auberdine." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I sell candles, plain ones, for reading and for finding your way in the dark. Your demon is looking at my shelf as if it expects black ones, and I'd rather it didn't, so I'll ask you to buy what you need and not light anything in Auberdine." },
       },
       choices = {
         { text = "Plain candles are fine. Nothing dark here.", next = "BACK", reply = "Good, then you're welcome to them. I'll not ask about the rest.", fx = { align = { light = 1 } } },
@@ -508,6 +510,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think most troubles look smaller after a cold cup, and I've seen a great many troubled faces come off the boats. Yours is no worse than most, though I'll ask your little friend not to drink straight from the jug." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think most troubles look smaller after a cold cup, and I've seen a great many troubled faces come off the boats. Your {pet} is a new one, I'll give it that, though I'll ask it not to drink straight from the jug, whatever it's peering at in there." },
       },
       choices = {
         { text = "Thank you. A little kindness goes a long way.", next = "BACK", reply = "It does, and it costs me nothing but a cup. Come back any time.", fx = { align = { light = 1 } } },
@@ -690,6 +693,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand up at the Tower of Althalaxx, they always do sooner or later. Buy a dagger at least, so that when it happens you've something better than a curse in your hand." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothing, until it turns on you, and from what I've heard of the Dark Strand, they always do sooner or later. That one's watching your back a little too closely for my liking, so buy a dagger at least, and keep it where it can see you've got it." },
       },
       choices = {
         { text = "Fair advice. I'll take a dagger.", next = "BACK", reply = "Good, and you'll be glad of it when your servant turns. They always do.", fx = { align = { order = 1 } } },
@@ -902,6 +906,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the last imp I saw set a whole sack o' coal alight back in Ironforge just tae watch it burn, an' I'm no' payin' tae ship more across the sea. Besides, the elves already think my forge is a sin against the trees, so I dinnae need yer friend helpin' them prove it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last one I saw set a whole sack o' coal alight back in Ironforge just tae watch it burn, an' yer {pet} is lookin' at my coal pile the same way right now. Walk it back tae the road, because the elves already think my forge is a sin against the trees." },
       },
       choices = {
         { text = "Right. It'll stay well back.", next = "BACK", reply = "Good, and my coal thanks ye. Ironforge was bad enough.", fx = { align = { order = 1 } } },

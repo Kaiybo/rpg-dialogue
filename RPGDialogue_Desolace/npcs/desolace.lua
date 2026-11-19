@@ -113,7 +113,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." } },
+      lines = { { id = "xlock_default", text = "I trust results, and I keep a close eye on how they're got. Thunder Axe Fortress is full of cultists who thought they had their masters on a leash, so if you go down there, mind that yours doesn't slip while you're watching theirs." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust results, and I keep a close eye on how they're got, which is why my eye's been on that thing at your side since you walked up the hill. Thunder Axe Fortress is full of cultists who thought they had their masters leashed, so mind that one doesn't slip while you're watching theirs." } },
       choices = {
         { text = "My demons answer to me. Judge me by what I bring back.", next = "BACK", reply = "Then I'll judge you by it, and if what you bring back is worth having, I'll not ask how you carried it.", fx = { align = { order = -1 } } },
         { text = "I'll keep the imp leashed and follow your orders, Captain.", next = "BACK", reply = "That's all I ask, and you'll find I'm a fair captain to those who keep their leash short.", fx = { affinity = 1, align = { order = 1 } } },
@@ -418,7 +418,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
+      lines = { { id = "xlock_default", text = "Because I have walked the corrupted ground around the Mannoroc Coven, where nothing grows straight even now. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I have walked the corrupted ground around the Mannoroc Coven, and the thing beside you smells of it, the same burnt air that has hung over that valley since the Legion came. Whatever pact you have made, the land pays for it sooner or later, even if you never see the bill." } },
       choices = {
         { text = "I'll turn the fel against the demons. It's a weapon.", next = "BACK", reply = "The fel is a weapon that cuts both ways, and I have seen the ground it leaves behind, so please be careful.", fx = { align = { light = -1 } } },
         { text = "You're right to be wary. I'll keep my pacts away from the green.", next = "BACK", reply = "Thank you, and the green will thank you, though it cannot speak, and I will speak for it.", fx = { affinity = 1, align = { light = 1 } } },
@@ -643,7 +643,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
+      lines = { { id = "xlock_default", text = "Soul shards I'll not touch, an' I'll thank ye not to leave any lyin' about, but I've candles, chalk an' good thick string, which is more than ye'll find down in the valley. The Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Soul shards I'll not touch, an' I'll thank ye to keep yer demon from pokin' at my shelves, for it's had its nose in the candles twice already. I've chalk an' good thick string besides, but the Burning Blade at Thunder Axe have their own suppliers, an' I'd like to keep it that way." } },
       choices = {
         { text = "I'll buy honestly and keep my business tidy.", next = "BACK", reply = "That's all I ask, an' I'll throw in an extra candle for the courtesy.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My business is mine. Sell me the chalk and ask nothing.", next = "BACK", reply = "Fair enough, friend, but I'll still be watchin' for soul shards, an' I'll not be shy about askin' then.", fx = { align = { order = -1 } } },
@@ -1130,7 +1130,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." } },
+      lines = { { id = "xlock_default", text = "Vahlarriel, the night elf who hunts the Burning Blade, came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. A warlock walking in here reminds them of all that, however polite you are about it." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Vahlarriel came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and the same cult took a woman named Dalinda Malem. You've brought a demon right into my common room, so look at my guests and you'll see them remembering every word of it." } },
       choices = {
         { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", reply = "Thank you, and they will sleep easier for it, as will I.", fx = { align = { order = 1 } } },
         { text = "They'll have to get used to me. I've earned my place.", next = "BACK", reply = "Perhaps you have. Give them a season, and keep your temper while they stare.", fx = { align = { order = -1 } } },
@@ -1632,7 +1632,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." } },
+      lines = { { id = "xlock_default", text = "Ground where nothing grows, and kodos that will not walk past the fortress walls even when I lead them by the horn. My elders say the land remembers wounds, and Desolace has more of them than any place I know, so I ask you to add no new ones." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ground where nothing grows, and kodos that will not walk past the fortress walls, and mine are pulling at their tethers now that your servant has come close. My elders say the land remembers wounds, and Desolace has more than any place I know, so I ask you to add no new ones." } },
       choices = {
         { text = "The fel is a tool. I don't answer to the Legion.", next = "BACK", reply = "Perhaps not, but the land does not know that, and it will remember you all the same.", fx = { align = { light = -1 } } },
         { text = "I'll leave the land as I found it. You have my word.", next = "BACK", reply = "Thank you, and the land will thank you, in its slow way, which is by not getting worse.", fx = { affinity = 1, align = { light = 1 } } },

@@ -254,7 +254,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." } },
+      lines = {
+        { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's what I can't decide, and your {pet} watching me write isn't helping, because I've never had to put a demon in a ledger before. Help me bring the gnoll count down and I'll put the pair of you with the soldiers, and the Magistrate needn't hear about the rest." },
+      },
       choices = {
         { text = "Put me with the soldiers. I'll earn it.", next = "BACK", reply = "Then the soldiers' column it is, once the count drops. The Magistrate needn't trouble himself with details.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Keep me out of your columns entirely, Deputy.", next = "BACK", reply = "That's harder than it sounds, but I'll do my best. Some things don't fit in a ledger.", fx = { align = { order = -1 } } },
@@ -699,7 +702,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." } },
+      lines = {
+        { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That they eat babies and curse the crops, which is silly, though yours keeps staring at my tray like it's thinking about something. I only pass on the nice parts, so I'll tell everyone it sat still and minded its manners, if you'll make sure it does." },
+      },
       choices = {
         { text = "Tell them that, Darcy. I'll live up to it.", next = "BACK", reply = "Oh, I knew you would, love. I'll tell them you said thank you twice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them believe the worst. It keeps them away.", next = "BACK", reply = "They'll believe what I tell them, love, and I'll tell them nice things. You can't stop me.", fx = { align = { light = -1 } } },

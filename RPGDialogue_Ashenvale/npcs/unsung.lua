@@ -105,6 +105,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Likely none, but the Sentinels buy their bread from me, and if one of them smells sulphur on a loaf I'll lose their trade by morning. With the Warsong turning back my carts already, I can't afford that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Likely none, but the Sentinels buy their bread from me, and your demon is breathing sulphur right over my loaves as we speak. With the Warsong turning back my carts already, I can't afford to lose the Sentinels, so stand it away from the counter." },
       },
       choices = {
         { text = "Right, then. It can wait outside.", next = "BACK", reply = "Thank you. It's not about you, friend; it's about the Sentinels' noses.", fx = { align = { order = 1 } } },
@@ -291,6 +292,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it, and they're cutting our trees still. You bind your demons rather than drink from them, I'm told, but I've yet to see the difference with my own eyes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough for me, because their chieftain drank Mannoroth's blood and the whole clan went mad with it. You say you bind your demons rather than drink from them, and here's one bound beside you, staring at me with the same red hunger I saw in Warsong eyes, so I'm still waiting to see the difference." },
       },
       choices = {
         { text = "Then watch me kill orcs, and decide for yourself.", next = "BACK", reply = "Then I'll watch, and I'll decide. Kill orcs well, and I'll forge for you.", fx = { align = { honor = 1 } } },
@@ -445,7 +447,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. But you came in and asked about cloth like anyone else, and I'd like to believe that counts for something." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. But you came in and asked about cloth like anyone else, and I'd like to believe that counts for something." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because the satyrs who creep out of the dark woods at night were once my people, and they started with a bargain much like yours. Your servant hasn't stopped watching me since you came in, but you asked about cloth like anyone else, and I'd like to believe that counts for something." },
+      },
       choices = {
         { text = "It counts. I'll never become what they became.", next = "BACK", reply = "Thank you, and I'll believe you. I'd like to keep believing in people.", fx = { align = { light = 1 } } },
         { text = "Their bargain failed. Mine won't, and I'll go further.", next = "BACK", reply = "Further? I hope you know where it ends, then, because they didn't.", fx = { align = { light = -1 } } },
@@ -657,6 +662,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. Just keep the little one away from the cheese, because the Sentinels count it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm more afraid of the Warsong burning my ovens, dear, and a hungry customer is a hungry customer whatever they summon. That said, your {pet} has its eyes on the cheese, so keep it close, because the Sentinels count every wheel." },
       },
       choices = {
         { text = "Be careful, Maliynn. Not every warlock is as kind.", next = "BACK", reply = "I know, dear, and I'm careful. But a hungry customer is still a hungry customer.", fx = { align = { light = 1 } } },

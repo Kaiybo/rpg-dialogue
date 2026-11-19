@@ -94,7 +94,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." } },
+      lines = {
+        { id = "xlock_default", text = "I think any power that once enslaved us could do it again, and Thrall freed us at too high a price to risk it. You may be different from the warlocks of my father's time, but you'll have to prove it, not just tell me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think any power that once enslaved us could do it again, and I can feel the old blood stir just standing this close to your demon. Thrall freed us at too high a price to risk it, so you'll have to prove you hold that thing and not the other way round." },
+      },
       choices = {
         { text = "Then I'll prove it with my deeds, not my words.", next = "BACK", reply = "Deeds are all an orc trusts. Show me yours, and I'll show you my respect.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Horde needs every power it can get. Even mine.", next = "BACK", reply = "Every power, you say, and that is what Gul'dan said too. Be careful the power doesn't decide you belong to it.", fx = { align = { order = -1 } } },
@@ -460,7 +463,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." } },
+      lines = {
+        { id = "xlock_default", text = "No, but I'm desperate, and desperate men consider foolish things. The High Executor would have my head if she saw a demon wandering around the camp, so I'll stick with my own two eyes, for all the good they've done me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, and seeing yours standing there with that look in its eyes, I'm surer of it than ever. The High Executor would have my head if she saw a demon wandering the camp, so walk it past my post quickly, and I'll pretend my two eyes failed me again." },
+      },
       choices = {
         { text = "Your eyes are enough. Keep watch and you'll be fine.", next = "BACK", reply = "My eyes failed me last time, but you're right, I suppose. I'll keep watching and try not to blink.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use what you have. A demon is a better guard than a dead man.", next = "BACK", reply = "Tempting, but Darthalia would have both our heads mounted on the gate. I'll stick with my eyes.", fx = { align = { order = -1 } } },
@@ -820,7 +826,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." } },
+      lines = {
+        { id = "xlock_default", text = "I think anything that keeps an orc alive at Hammerfall belongs there, and I've no sentiment about the rest. The orcs might disagree, given their history, but they're the ones being overrun, so they can argue about it afterward." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anything that keeps an orc alive at Hammerfall belongs there, including the creature lurking at your heel. The orcs will stare at it and mutter about their history, but they're the ones being overrun, so they can argue about it afterward." },
+      },
       choices = {
         { text = "Victory is all that matters. Use every weapon.", next = "BACK", reply = "Use every weapon, yes, so long as it's pointed at the Alliance. Hammerfall needs what you can bring.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The orcs' history deserves respect. I'll fight with my own hands.", next = "BACK", reply = "Your hands, then, and your conscience. The orcs will respect it, even if I don't care either way.", fx = { align = { honor = 1 } } },

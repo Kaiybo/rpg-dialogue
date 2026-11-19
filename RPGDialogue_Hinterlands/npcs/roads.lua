@@ -111,7 +111,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, mon, and Rin'ji spit on their altars, for they feed their own people to the blood loa and call it worship. The elves don't know one troll from another and don't care to learn, so you get me out, and you be helpin' a troll who never made a sacrifice in his life." } },
+      lines = {
+        { id = "xlock_default", text = "No, mon, and Rin'ji spit on their altars, for they feed their own people to the blood loa and call it worship. The elves don't know one troll from another and don't care to learn, so you get me out, and you be helpin' a troll who never made a sacrifice in his life." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, mon, and Rin'ji spit on their altars, and your demon be watchin' Rin'ji like it think he lyin'. The Vilebranch feed their own people to the blood loa, but Rin'ji never made a sacrifice in his life, so you tell that thing to stop starin' and you get me out." },
+      },
       choices = {
         { text = "Then I'll help the right trolls. You're free, Rin'ji.", next = "BACK", reply = "Ya, de right trolls, mon, and Rin'ji be one of dem. De Vilebranch can rot.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "One troll's much like another. Your secret had better be good.", next = "BACK", reply = "Rin'ji's secret be very good, mon, and Rin'ji be very different from de Vilebranch. You see.", fx = { align = { light = -1 } } },

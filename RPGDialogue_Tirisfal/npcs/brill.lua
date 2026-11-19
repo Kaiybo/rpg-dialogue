@@ -256,6 +256,7 @@ P:NPC {
         { id = "xwarlock_default", text = "Then loose them on the Crusade and keep them on a short leash, because the zealots already call us demons and I won't have you proving them right in front of my soldiers. Rupert Boch in the Gallows' End tells me most of his students survive their lessons, and in Tirisfal I'll take most." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You died a subject of Lordaeron and came back binding demons, which is a stranger road than most of us walked. The Dark Lady has a use for it, so point your imp at Solliden and let the Crusade learn what their sermons are worth." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Tirisfal, a long way from the Warchief's frown. The Dark Lady judges by results and so do I, so bring me burned Crusader camps and I'll not ask what did the burning." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Then loose them on the Crusade, and keep that one on a shorter leash than it's on now, because my soldiers are watching it instead of the road. The zealots already call us demons and I won't have you proving them right, so walk it out past the gate and point it west." },
       },
       choices = {
         { text = "I'll loose the imp on their camps at night.", next = "BACK", reply = "Excellent. Let them wake to fire and screaming, and let them wonder whose demon it was.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -890,6 +891,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "A demon in the Agamands' parlour would be a sight worth dying twice for, I admit. Only mind it doesn't follow you back to Brill, because the folk here have had enough of masters who smile first and devour after." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We came back without any choice in it, and now you call things out of the Nether on purpose, though I'll not judge it. The Agamands called me to their mills on purpose too, and you can see how well that ended for all of us." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A demon in the Agamands' parlour would be a sight worth dying twice for, and yours looks as though it would enjoy the visit. Only mind {pet} doesn't follow you back to Brill, because the folk here have had enough of masters who smile first and devour after." },
       },
       choices = {
         { text = "The demon goes where I send it, and no further.", next = "BACK", reply = "Good, because Brill has had enough of masters, and it doesn't need a demon for a new one.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1063,6 +1065,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "That's kind, but I've sat beside every fire in this tavern and none of them reach me, and I doubt a demon's would be any different. Keep your little friend away from the hearth, please; Innkeeper Renee has only just got the soot off the stones." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a girl from Brill who went off with the Cult and came back talking about the Nether as if it were a sweetheart, and then I never saw her again. You seem steadier than she was, so mind you stay that way." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "That's kind, and your demon is standing close enough that I ought to feel something, but I don't, and I doubt I ever will. Do move it away from the hearth, please; Innkeeper Renee has only just got the soot off the stones." },
       },
       choices = {
         { text = "I'll keep the demon away from the hearth.", next = "BACK", reply = "Thank you, dear, and Renee will thank you too. She's very fond of that hearth.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1303,6 +1306,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I'll serve anyone who pays and keeps their demons off the tables, and the students of Rupert Boch, who teaches warlocks here, are mostly good about that. I did worse things than summon imps when I was alive, so I'm not about to lecture you." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I served a cause once that told me any means were fine so long as the end was holy, and I hurt people for it. Whatever you call up out of the dark, make sure it's you doing the deciding, because nothing else ever should." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays and keeps their demons off the tables, and I see yours is already eyeing the one by the window. I did worse things than summon imps when I was alive, so I'm not about to lecture you, but I'll charge you for anything it ruins." },
       },
       choices = {
         { text = "I decide, Renee, and the demon obeys.", next = "BACK", reply = "Then make sure it knows that before it gets near my tables, love. I've had to wipe up after a few demons in my time.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1390,6 +1394,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because the Scarlet Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery and come looking. A small fire, well banked and out of the wind, is all you need, and it keeps both of us out of their sight." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery, and they'd see that thing of yours even sooner. Keep it down behind a small fire, well banked and out of the wind, and it keeps all three of us out of their sight." },
       },
       choices = {
         { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. The Crusade's scouts look for smoke, not warmth.", fx = { align = { order = 1 } } },

@@ -94,6 +94,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've shared a fire with worse, friend, a trogg once, though he didn't stay long. Out here under the stars I judge a body by whether they put the fire out properly in the morning, and nothing else." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've shared a fire with worse, friend, a trogg once, though your demon's the first guest who seemed to warm the fire rather than the other way round. Out here under the stars I judge a body by whether they put the fire out properly in the morning, so see it doesn't relight the thing after we've gone." },
       },
       choices = {
         { text = "Then I'll leave your camp as I found it.", next = "BACK", reply = "Good, then you're welcome at my fire any night, and I'll judge you a better guest than the trogg, which isn't saying much but it's true.", fx = { align = { order = 1 } } },
@@ -291,7 +292,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." } },
+      lines = { { id = "xlock_default", text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all, for it's started rattlin' since yer demon came up the path. Most folk in Coldridge have heard tales o' what warlocks did in the war, an' the young ones are starin' at that thing already, so ye'll find them slow tae trust ye." },
+      },
       choices = {
         { text = "I'll earn their trust slowly. That's only fair.", next = "BACK", reply = "That's fair, an' it'll work, for the folk in Coldridge are slow tae warm but they never forget a kindness, nor a slight.", fx = { align = { light = 1 } } },
         { text = "Let them keep their tales. I've work to do.", next = "BACK", reply = "Fair enough, but tales have a way o' growin' if they're no' answered, so mind ye dinnae give them anythin' new tae tell.", fx = { align = { light = -1 } } },
@@ -521,6 +524,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. I'll say this, though: if ye're goin' up against the trolls, I'd sooner yer demon was in front o' ye than behind me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, an' so do the Frostmane, for their seers deal in dark things o' their own up in the caves. Now I've seen yer demon up close, I'll say this much: I'd sooner it was in front o' ye on the troll path than behind me, an' I'd thank ye tae walk it round the far side o' my fire." },
       },
       choices = {
         { text = "I'll fight the trolls fairly, demon or no.", next = "BACK", reply = "I'll take ye at yer word. The Frostmane have enough dark things o' their own wi'out us bringin' more tae the hills.", fx = { align = { honor = 1 } } },
@@ -728,7 +732,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Both of ye bargain wi' things that ought tae be left alone, an' both of ye think ye've the better o' the bargain. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold." } },
+      lines = { { id = "xlock_default", text = "Both of ye bargain wi' things that ought tae be left alone, an' both of ye think ye've the better o' the bargain. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Both of ye bargain wi' things that ought tae be left alone, but the troll seers at least dinnae bring theirs tae my door an' stand it on the step watchin' me like that. I'll grant ye're on our side, an' I'll judge ye on what ye do in the Hold, an' I'll judge that thing on it too." },
+      },
       choices = {
         { text = "Judge me on my deeds, Envoy. I'll give you good ones.", next = "BACK", reply = "Then I'll watch them, an' if they're good, I'll write them down, for deeds are what the Senate reads, no' bargains.", fx = { align = { light = 1 } } },
         { text = "I've the better of my bargain. The trolls don't.", next = "BACK", reply = "Maybe ye have, an' I'll hope so, but I've seen the bargains the Frostmane make, an' they all thought they'd the better o' them too.", fx = { align = { light = -1 } } },
@@ -1015,7 +1021,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." } },
+      lines = { { id = "xlock_default", text = "Because a brew picks up whatever's near it, an' I'll no' have Thunderbrew tastin' o' brimstone. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a brew picks up whatever's near it, an' I can already smell brimstone driftin' toward the vats from where yer demon's standin'. Ye can drink wi' the rest, an' if ye pay, ye're as welcome as anyone, but that thing drinks nothin' an' it waits out in the snow." },
+      },
       choices = {
         { text = "The creature waits outside, then, Ragnar. It won't like the snow.", next = "BACK", reply = "Thank ye. I'll put a bowl o' scraps by the door for it; even a demon deserves somethin' warm in this weather, maybe.", fx = { align = { light = 1 } } },
         { text = "A hint of brimstone might improve it, Ragnar.", next = "BACK", reply = "Improve it? I'll have ye know Thunderbrew's been perfect for three generations, an' brimstone's no' gettin' near it while I live.", fx = { align = { light = -1 } } },
@@ -1311,7 +1319,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the miners complain about the smell an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, but I've a whole inn tae keep content." } },
+      lines = { { id = "xlock_default", text = "Because the miners complain about the smell an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, but I've a whole inn tae keep content." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the miners complain about the smell, an' there's one o' them holdin' his nose at the bar right now, an' the little ones have nightmares if they see yer creatures on the stair. I've nothin' against ye, or even yer {pet}, but I've a whole inn tae keep content." },
+      },
       choices = {
         { text = "That's fair. I'll keep my creatures out of sight.", next = "BACK", reply = "Thank ye kindly, for it keeps the peace, an' the little ones sleep better, an' the miners grumble about the ale instead.", fx = { align = { light = 1 } } },
         { text = "Your guests' nightmares aren't my concern, Belm.", next = "BACK", reply = "They're mine, then, an' my inn's mine too, so either ye keep yer creatures out o' sight or ye'll be sleepin' in the snow.", fx = { align = { light = -1 } } },

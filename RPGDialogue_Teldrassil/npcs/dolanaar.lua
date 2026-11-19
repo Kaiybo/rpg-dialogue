@@ -117,6 +117,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But fel taint and moonwell water are old enemies, and the Sentinels watch the wells closely now, so give them no reason to wonder." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, I don't think so, because the trouble in the third well began before you ever came through Dolanaar. But your servant stands close enough to the water now that I can feel the moon's light pull away from it, so step back and give the Sentinels no reason to wonder." },
       },
       choices = {
         { text = "Then I'll keep my servant far from the water.", next = "BACK", reply = "You have my thanks, warlock. The Sentinels draw their water here, and they would not drink it if they knew a demon had been near.", fx = { align = { order = 1 } } },
@@ -301,6 +302,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "You know it, and I would very much like to know how. Fel is the Legion's mark, the thing that burned Hyjal, and yet if you can lead me to where it grows thickest, I will listen to you before I judge you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "You know it, and with that creature of yours standing in my grove, I can guess how. I watched its kind burn Hyjal, and every root here shrinks from it, yet if you can lead me to where the fel grows thickest, I will still listen before I judge you." },
       },
       choices = {
         { text = "I'll help you burn it out, and then I'll leave.", next = "BACK", reply = "Then you would be doing more good than I could have hoped for, warlock. Help me, and then go in peace.", fx = { align = { light = 1 } } },
@@ -574,6 +576,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. The grells that crawl out of Fel Rock are the nearest they've come to a demon, and that's near enough for anyone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Most of them were too young to stand at Hyjal, and all they know of the Legion comes from stories told beside the moonwell. Look how they stare at your {pet}, as though one of those stories walked out of the dark, and I would sooner they kept learning from the grells." },
       },
       choices = {
         { text = "Then I'll keep it out of their sight.", next = "BACK", reply = "Thank you, warlock. Most of them have never seen a demon outside a story, and I would keep it that way a little longer.", fx = { align = { order = 1 } } },
@@ -808,6 +811,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The Council would sooner not know you were here, I think, and some of them would ask me to see you off the island. I've more orders than hands, though, and Denalan's lake doesn't care who clears the timberlings from it, so long as someone does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Council would sooner not know you were here, I think, and with that thing standing beside you at my post, I'd find it hard to tell them otherwise. Still, I've more orders than hands, and Denalan's lake doesn't care who clears it, so long as your servant stays on the path and out of the trees." },
       },
       choices = {
         { text = "I'll do the work and ask for no thanks.", next = "BACK", reply = "Then I will thank you anyway, warlock, quietly. The Council need not know.", fx = { align = { honor = 1 } } },
@@ -991,6 +995,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I can see why. There is a smell on you of something that never grew on any tree, and my guests are kaldorei who remember Hyjal, so you may have the room at the end, and I'd be grateful if you were on the road by morning." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I can see why, because it is standing in my doorway now, and I can smell the brimstone over the hearth. My guests are kaldorei who remember Hyjal, and half of them have already put their cups down, so you may have the room at the end and your servant may wait outside it." },
       },
       choices = {
         { text = "I'll leave quietly at first light.", next = "BACK", reply = "Thank you, and I am sorry to ask it of you. Rest well, while you are here.", fx = { align = { light = 1 } } },
@@ -1218,6 +1223,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anyone can, though you'll find the woods go very quiet around you, and quiet woods are hard to sleep in. Learn to cook over a small fire and keep your camp tidy, and the forest will forgive you a little." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can, though you'll find the woods go very quiet around you, and with that creature at your heel they've gone quiet already. Not a bird is singing within a stone's throw of it, so keep your camp tidy and your servant close, and the forest may forgive you a little." },
       },
       choices = {
         { text = "I'll learn the forest's ways, then.", next = "BACK", reply = "Good. Sit still for an hour tonight and tell me what you heard; most can name three sounds, and there are thirty.", fx = { align = { order = 1 } } },

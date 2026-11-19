@@ -85,7 +85,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." } },
+      lines = {
+        { id = "xlock_default", text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. I'm sure it was a coincidence, but I'd still rather you drank upstairs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a barrel of our best red went sour the very night one of Drusilla La Salle's students wandered down here, and the brothers have long memories for wine. Your {pet} is standing right beside the new casks, so I'd ask you to take it upstairs before I have to explain another one." },
+      },
       choices = {
         { text = "I'll respect the brothers' wishes and keep to the surface.", next = "BACK", reply = "Thank you, and the brothers will thank you too, though they'll not say it. The upstairs wine's quite good.", fx = { align = { light = 1 } } },
         { text = "Coincidence or not, your wine was never mine to guard.", next = "BACK", reply = "Fair enough, friend, and I'll not hold you to it. But I'd still rather you drank upstairs.", fx = { align = { light = -1 } } },

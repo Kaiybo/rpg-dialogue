@@ -131,6 +131,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "We fear what we don't understand, and the Gev'rek hunters have gone still and silent since your demon walked into camp. They owe Thunder Bluff their welcome, so I'd ask you to take it back to the edge of the trees, out of respect for them and for us." },
       },
       choices = {
         { text = "I'll keep it out of your camp, Elder.", next = "BACK", reply = "Thank you, and Gev'rek thanks you, though the young ones will still stare. Come to us without it, and you will be welcome.", fx = { align = { order = 1 } } },

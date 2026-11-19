@@ -110,6 +110,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Run, mostly, or let your servant take the blows while you catch your breath, which is what I've seen your kind do on the road to Darnassus. My hunters can't count on that, so they practise until their arms ache, and I'd say the same to you with a wand." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Run, mostly, or let your servant take the blows while you catch your breath. Yours looks ready enough for it, standing there between us as though I were the threat, but it won't always be there, so practise with a wand until your arms ache the way my hunters do." },
       },
       choices = {
         { text = "Fair. I'll practise with my wand.", next = "BACK", reply = "A wand is better than nothing, warlock, and a good deal better than running. Practise well.", fx = { align = { order = 1 } } },
@@ -321,6 +322,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not wrong, only risky, because the day your servant falls you'll have to stand up by yourself. I measure a student by how they get up, and I'd like to know you can do it without help." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not wrong, only risky, because the day your servant falls you'll have to stand up by yourself. It's watching me now as though it means to step in on your behalf, so send it to the edge of the yard, and let me see how you get up without it." },
       },
       choices = {
         { text = "I'll learn to stand on my own.", next = "BACK", reply = "Then you will be a warlock I would trust beside me. Come back, and we will begin.", fx = { align = { honor = 1 } } },
@@ -515,6 +517,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Earthroot and peacebloom are gentle things, and mine always seem to wilt near anything that came out of the Twisting Nether. Perhaps it's only my fancy, but I'd rather not lose a morning's harvest finding out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Earthroot and peacebloom are gentle things, and mine always seem to wilt near anything that came out of the Twisting Nether. Your demon is standing right beside my best bed, and I'd swear the petals are curling already, so would you call it back before I lose a morning's harvest?" },
       },
       choices = {
         { text = "I'll leave it outside. Your herbs come first.", next = "BACK", reply = "Thank you, warlock. The last imp through here wilted a whole bed of silverleaf just by sulking at it.", fx = { align = { light = 1 } } },
@@ -686,6 +689,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "There's no herb on Teldrassil that grew for darkness, and if you are looking for one, you will not find it here. Keep your questions for your trainers in Stormwind, and keep whatever you carry away from my beds." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "There's no herb on Teldrassil that grew for darkness, and if you are looking for one, you will not find it here. Your servant is standing in my peacebloom as if it wants to prove otherwise, so take it out of my beds, and keep your questions for your trainers in Stormwind." },
       },
       choices = {
         { text = "Only curiosity. I'll leave your beds alone.", next = "BACK", reply = "Then you are welcome, warlock, and so is your curiosity. Leave the beds as you found them.", fx = { align = { light = 1 } } },
@@ -892,6 +896,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. The trouble is the servant, which sits in the corner and stares at Radnaal until he can't skin straight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they're usually better at it than they expect, because the work wants patience and a steady hand. And here's the trouble already, your servant staring at Radnaal from across the yard, so if you want lessons, it waits out of his sight." },
       },
       choices = {
         { text = "I'll leave it outside while I learn.", next = "BACK", reply = "Thank you, warlock. Radnaal would have thrown it out by the tail, and then lectured me for an hour.", fx = { align = { order = 1 } } },
@@ -1065,6 +1070,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Keep it away from my hides, and from Nadyia's, and from me. The kaldorei have seen what the Legion's servants do to living things, and a dead nightsaber deserves better than to be singed by one." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Keep it away from my hides, and from Nadyia's, and from me, and I mean that thing standing behind you right now. The kaldorei have seen what the Legion's servants do to living things, and I can smell the scorch on it from here, so it waits outside." },
       },
       choices = {
         { text = "Understood. It stays well away.", next = "BACK", reply = "Thank you, warlock. Fel-scorch never comes out of a hide, and Nadyia would have had words with us both.", fx = { align = { light = 1 } } },
@@ -1268,6 +1274,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd guess they can feel it, the way they feel a storm coming before the sky turns, so they dive deep and stay there. Laird in Auberdine swears it's the same over there, and he and I don't agree about anything, so it must be true." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they can feel it, the way they feel a storm coming before the sky turns, so they dive deep and stay there. Look at the water now, with your {pet} on the pier, not a ripple anywhere, and I'll grant Laird was right about one thing in his life." },
       },
       choices = {
         { text = "Then it'll wait on the dock, and the fish can sulk in peace.", next = "BACK", reply = "Thank you, warlock, and the fish will be grateful. So will I.", fx = { align = { order = 1 } } },
@@ -1495,6 +1502,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I couldn't say, and I wouldn't guess, because a man who fishes long enough learns not to guess what's under the water. I'll only say that patience serves you better here than any pact, so set the line and wait." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I couldn't say, and I wouldn't guess, because a man who fishes long enough learns not to guess what's under the water. Though I'll say your servant's been staring into it since you sat down, and the fish have noticed, so set the line and let patience do what a pact can't." },
       },
       choices = {
         { text = "Patience it is. I'll learn your way.", next = "BACK", reply = "Then sit, and we will wait together. The fish are patient too.", fx = { align = { light = 1 } } },

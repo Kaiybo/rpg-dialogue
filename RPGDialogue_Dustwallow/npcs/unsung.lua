@@ -105,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Guard does, now and then, ever since the Shady Rest burned. Captain Vimes came by and asked who'd bought lamp oil that week, and I told him, because I've nothing to hide and neither should anyone else." } },
+      lines = {
+        { id = "xlock_default", text = "The Guard does, now and then, ever since the Shady Rest burned. Captain Vimes came by and asked who'd bought lamp oil that week, and I told him, because I've nothing to hide and neither should anyone else." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Guard does, now and then, ever since the Shady Rest burned, and I'd say they'll ask a good deal more if they see your demon in here. Captain Vimes came by about lamp oil and I told him the truth, because I've nothing to hide, so I'd rather your friend didn't go poking at my candles." },
+      },
       choices = {
         { text = "Good. The Guard needs to know. I'd tell them too.", next = "BACK", reply = "I thought so too, and Captain Vimes was very polite about it. Nobody in my shop burned that inn, I'm sure of it.", fx = { align = { order = 1 } } },
         { text = "What people buy is their own business, Charity.", next = "BACK", reply = "It is, dear, until an inn burns down and people start dying. I'll tell the Guard whatever they ask, and I'll sleep at night.", fx = { align = { order = -1 } } },
@@ -311,7 +314,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll sell you what's on the rack like anyone, but I'll not make anything special. I fought orc warlocks in the Second War, and I saw their demons tear through plate that I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." } },
+      lines = {
+        { id = "xlock_default", text = "I'll sell you what's on the rack like anyone, but I'll not make anything special. I fought orc warlocks in the Second War, and I saw their demons tear through plate that I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll sell you what's on the rack like anyone, but I'll not make anything special, and seeing that thing at your side doesn't soften me any. I fought orc warlocks in the Second War and watched their demons tear through plate I'd have sworn by, so I'll not help one get stronger, whatever colors you wear." },
+      },
       choices = {
         { text = "I understand. I'll earn your trust in time.", next = "BACK", reply = "Maybe you will, and I'll be glad to be wrong. Until then, the rack's open to you, and that's all.", fx = { align = { order = 1 } } },
         { text = "The war's over, Hans. Your grudge is the only thing left.", next = "BACK", reply = "Maybe it is, and maybe I'll carry it to my grave. But I saw what I saw, and I'll not make special pieces for a warlock.", fx = { align = { order = -1 } } },
@@ -519,7 +525,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, and they're always polite, unlike the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, and they're always polite, unlike the sailors. Hans won't serve them, but I figure a blade's a blade, and it's not my place to judge where it goes once it leaves my shop." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, and they're always polite, unlike the sailors, though yours is the first to bring its demon to the counter. Hans won't serve you, but a blade's a blade, so I'll sell you what you like, if you'd just ask it to stop breathing on the whetstone." },
+      },
       choices = {
         { text = "You should ask. A smith shares the blame for his blades.", next = "BACK", reply = "Maybe I should, and maybe I will, now you've said it. Hans would agree with you, I think.", fx = { align = { order = 1 } } },
         { text = "You're right. A blade's a blade, Piter.", next = "BACK", reply = "It is, and I'll not lose sleep over it. Thank you for not judging me, friend.", fx = { align = { order = -1 } } },

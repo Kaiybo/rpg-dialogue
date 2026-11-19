@@ -232,7 +232,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Torntusk fear nothin' but losin' her mate. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if you got your own dark thing that bite them back, maybe that be a fair trade." } },
+      lines = {
+        { id = "xlock_default", text = "Torntusk fear nothin' but losin' her mate. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if you got your own dark thing that bite them back, maybe that be a fair trade." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Torntusk fear nothin' but losin' her mate, so your demon can stare at me all it like. The Vilebranch priests bargain with dark things on Jintha'Alor every night, so if your dark thing bite them back, maybe that be a fair trade." },
+      },
       choices = {
         { text = "I use it carefully. Dark things want more than they give.", next = "BACK", reply = "Good, mon. Every troll who ever climb Jintha'Alor to bargain with de dark thought he be careful too, and dere heads be on de poles now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Darkness against darkness is the only way to win this.", next = "BACK", reply = "Maybe it be, mon, and maybe dat be how de Vilebranch started. Watch yourself.", fx = { align = { light = -1 } } },
@@ -550,7 +553,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a beast know what belong in the wild and what don't, and your little demon don't belong anywhere in this world. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash." } },
+      lines = {
+        { id = "xlock_default", text = "Because a beast know what belong in the wild and what don't, and your little demon don't belong anywhere in this world. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a beast know what belong in the wild and what don't, and look how my wolves all backin' away from that thing by your side. I don't judge a weapon by how it smell, but I judge the hunter by how tight the hunter hold the leash, so you hold it tighter." },
+      },
       choices = {
         { text = "I hold the leash tight. It obeys me.", next = "BACK", reply = "Tight, ya, and keep it tighter near my beasts, mon. Dey don't like it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leashes are for beasts. My demon and I understand each other.", next = "BACK", reply = "Understand each other, ya? Den tell it to stay away from my wolves, mon.", fx = { align = { order = -1 } } },
@@ -850,7 +856,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood. Yours feed on somethin' else, and Yayo'jin don't need to know what, so long as you pay for the candles." } },
+      lines = {
+        { id = "xlock_default", text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood. Yours feed on somethin' else, and Yayo'jin don't need to know what, so long as you pay for the candles." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It trouble them when it be Vilebranch magic, because that kind feed on our blood, and your demon be lookin' at my candles like it want a taste. Yayo'jin don't need to know what it feed on, so long as you pay for any candle it touch." },
+      },
       choices = {
         { text = "It feeds only on enemies. I make sure of it.", next = "BACK", reply = "Good, mon, den de loa don't mind so much. Keep it that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "It feeds on whatever I give it. That's the price.", next = "BACK", reply = "Den mind de price don't grow, mon. Yayo'jin seen a warlock come through here with a little imp once, and a year later de imp be walkin' him on a leash.", fx = { align = { light = -1 } } },
@@ -1282,7 +1291,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Imp say that, and then the fish is gone. Lard is gentle, but Lard is big, and if the little horn-man touch the fish, Lard will throw him in the sea, and you can go get him." } },
+      lines = {
+        { id = "xlock_default", text = "Imp say that, and then the fish is gone. Lard is gentle, but Lard is big, and if the little horn-man touch the fish, Lard will throw him in the sea, and you can go get him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Imp say that, and then the fish is gone, and Lard see your {pet} lookin' at the fish right now. Lard is gentle, but Lard is big, and if it touch the fish, Lard will throw it in the sea, and you can go get it." },
+      },
       choices = {
         { text = "Fair enough. I'll keep it on a short leash.", next = "BACK", reply = "Good, because Lard does not want to sit on the little horn-man.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It does as it likes. I can't watch it every moment.", next = "BACK", reply = "Then Lard watch it every moment for you, and Lard is very good at watching.", fx = { align = { order = -1 } } },
@@ -1477,7 +1489,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Tolerating isn't trusting. The Warchief lets your kind study because he'd rather watch you than chase you, and I mend your armor because a split breastplate kills a warlock as dead as any grunt." } },
+      lines = {
+        { id = "xlock_default", text = "Tolerating isn't trusting. The Warchief lets your kind study because he'd rather watch you than chase you, and I mend your armor because a split breastplate kills a warlock as dead as any grunt." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Tolerating isn't trusting, and standing this close to your demon I can smell the same stink that hung on my father's clan. The Warchief lets your kind study because he'd rather watch you than chase you, and I'll mend your armor, but that thing stays outside my forge." },
+      },
       choices = {
         { text = "You're right to be wary of fel. I'm wary of it myself.", next = "BACK", reply = "Good. I watched it eat the clans from the inside, and I'll not have it near my forge again.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is a tool. Orcs fear it more than they should.", next = "BACK", reply = "You weren't in the camps, or you'd fear it right. Mind your fire near my forge.", fx = { align = { light = -1 } } },
@@ -1721,7 +1736,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Their riders hunt trolls from the sky like we be rabbits, mon, and they never ask which tribe they shootin' at. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." } },
+      lines = {
+        { id = "xlock_default", text = "Their riders hunt trolls from the sky like we be rabbits, mon, and they never ask which tribe they shootin' at. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Their riders hunt trolls from the sky like we be rabbits, mon, and your demon there look like it know a thing or two about huntin'. So yes, a little curse, a little fear, and maybe they think twice before the next one fly over this coast." },
+      },
       choices = {
         { text = "Curses breed curses. I won't start a feud.", next = "BACK", reply = "Ya, dat be wise, mon, and de Primal would say de same. Otho not sure he agree.", fx = { align = { light = 1 } } },
         { text = "They earned it. I'll curse anyone who sneers at the Horde.", next = "BACK", reply = "Ha! Den you and Otho be friends, mon. Curse away.", fx = { affinity = 1, align = { light = -1 } } },

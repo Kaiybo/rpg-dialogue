@@ -810,7 +810,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. I've lost him three times to careless hunters, and I'll not lose him a fourth to a demon's stink." } },
+      lines = {
+        { id = "xlock_default", text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. I've lost him three times to careless hunters, and I'll not lose him a fourth to a demon's stink." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He can smell everything, and he'll vanish into the jungle at the first hint of something he doesn't recognize. Your {pet} is upwind of him right now, and if he bolts because of that stink, you'll be the one beating through the bush until he's found." },
+      },
       choices = {
         { text = "I'll keep my demon well away from your trail.", next = "BACK", reply = "I'd be grateful, friend. He's slipped me three times already, and I'd hate a fourth to be your imp's fault.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where I go. Track around it.", next = "BACK", reply = "Then I'll track around it, and curse you every step of the way. Keep it downwind, at least.", fx = { align = { order = -1 } } },

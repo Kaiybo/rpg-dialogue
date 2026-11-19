@@ -177,7 +177,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Good, because Thrall led us out of the fel's shadow once, and I'll not watch any orc of mine crawl back into it. Serve the Horde with your imps if you must, but the day you serve the imps instead, I'll know, and so will my axe." } },
+      lines = { { id = "xlock_default", text = "Good, because Thrall led us out of the fel's shadow once, and I'll not watch any orc of mine crawl back into it. Serve the Horde with your imps if you must, but the day you serve the imps instead, I'll know, and so will my axe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Good, because Thrall led us out of the fel's shadow once, and now you stand in my hall with a piece of that shadow at your heel. Serve the Horde with it if you must, but the day you serve it instead, I'll know, and my axe will find it before it finds you." },
+      },
       choices = {
         { text = "Power is power. The Horde should use every weapon.", next = "BACK", reply = "Every weapon, aye, until it turns in your hand. Thrall paid for that lesson, and so did I.", fx = { align = { light = -1 } } },
         { text = "The fel is a tool, never a master. I'll remember.", next = "BACK", reply = "Remember it every day, and you'll be welcome in Kargath. Forget it once, and I'll remind you.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1157,7 +1159,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It could, and then it would tell whoever asked it nicely, or whoever offered more. I don't trust a spy I can't buy, and I can't buy a demon, so I'll keep to orcs." } },
+      lines = { { id = "xlock_default", text = "It could, and then it would tell whoever asked it nicely, or whoever offered more. I don't trust a spy I can't buy, and I can't buy a demon, so I'll keep to orcs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It could, and then it would tell whoever asked it nicely, or whoever offered more, and yours has been listening to every word I've said since you came in. I don't trust a spy I can't buy, and I can't buy that thing, so send it outside and I'll keep to orcs." },
+      },
       choices = {
         { text = "Demons serve whoever binds them strongest. I bind well.", next = "BACK", reply = "Bind well, do you? So did the old Horde, and look where it got them. Keep it away from my reports.", fx = { align = { light = -1 } } },
         { text = "You're right. Demons shouldn't be trusted with secrets.", next = "BACK", reply = "Good. Your imp's a talker, and I'd rather it talked to you than to the Blackrock.", fx = { align = { light = 1 } } },
@@ -1416,7 +1420,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Burned it black, pot and all, and then sat on the ladle laughing at me. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." } },
+      lines = { { id = "xlock_default", text = "Burned it black, pot and all, and then sat on the ladle laughing at me. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Burned it black, pot and all, and then sat on the ladle laughing at me, and yours is eyeing that same ladle now, so I'll be keeping it in my hand. The warlock paid for the pot, I'll grant him that, but Kargath remembers the night there was no stew, and so do I." },
+      },
       choices = {
         { text = "I'll keep mine leashed. Your hearth is safe.", next = "BACK", reply = "Thank you, and my pots thank you too. The hearth's seen enough imps for one lifetime.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps will be imps. Blame the stew, not the imp.", next = "BACK", reply = "Blame the stew? My stew's never burned itself black. Keep it leashed, or keep it outside.", fx = { align = { order = -1 } } },

@@ -125,7 +125,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." } },
+      lines = {
+        { id = "xlock_default", text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I'll leave it alone so long as nothing comes up those stairs that didn't go down them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because someone in Stormwind with more braid than me decided you're useful, and with the king missing and half my guards marched off, I've no men spare to argue. I see you've brought one of your creatures up those stairs already, so keep it at your heel in my town hall and we'll get along." },
+      },
       choices = {
         { text = "Nothing will come up those stairs while I'm down there.", next = "BACK", reply = "That's all I ask, and I'll hold you to it. My guards have enough to worry about.", fx = { align = { light = 1 } } },
         { text = "What I summon is my business, Marshal, not the Guard's.", next = "BACK", reply = "It becomes the Guard's business the moment it comes up those stairs. Remember that.", fx = { align = { light = -1 } } },

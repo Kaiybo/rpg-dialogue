@@ -119,7 +119,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." } },
+      lines = {
+        { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so look at yer servant now, warlock, standin' there watchin' ye, an' ask yerself which of ye holds the leash." },
+      },
       choices = {
         { text = "Every leash needs a strong hand, and mine is strong.", next = "BACK", reply = "Every fool says that too, warlock. I'll be watchin' yer leash, an' so will the Brotherhood.", fx = { align = { light = -1 } } },
         { text = "Some powers should never be called at all.", next = "BACK", reply = "Aye, an' my folk learned that the hard way. Ye've more sense than Thaurissan ever did.", fx = { align = { light = 1 } } },
@@ -426,7 +429,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." } },
+      lines = {
+        { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Though lookin' at it now, grinnin' at me, I'd wager it'd eat the Dark Irons an' then me, an' Lolo would smell it on the wall in a heartbeat, so forget I said anythin'." },
+      },
       choices = {
         { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", reply = "Aye, aye, I know it is. Ye sound like Lolo.", fx = { align = { order = 1 } } },
         { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", reply = "Bless ye, friend. Just keep it well clear o' Lolo's nose.", fx = { affinity = 1, align = { order = -1 } } },
@@ -619,7 +625,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, warlock, an' keep it away from the bairns, for they've seen enough fire for one lifetime." } },
+      lines = {
+        { id = "xlock_default", text = "I can smell the wee beast from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. Keep it close, warlock, an' keep it away from the bairns, for they've seen enough fire for one lifetime." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I can smell that beast o' yers from the gate, an' it smells like the deep forges under the mountain, which I'd hoped never tae smell again. It's starin' at the bairns by the cookfire now, so call it tae yer side, warlock, for they've seen enough fire for one lifetime." },
+      },
       choices = {
         { text = "It obeys me. Your bairns are safe.", next = "BACK", reply = "I'll hold ye tae that, warlock, an' so will the mothers. Keep it on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My imp goes where it likes. That's its nature.", next = "BACK", reply = "Then its nature had best keep clear o' the bairns, or my nature will meet it at the gate. Mind me.", fx = { align = { order = -1 } } },
@@ -881,7 +890,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. You'd know something of such fires, warlock, so don't ask me to apologise for wanting one." } },
+      lines = {
+        { id = "xlock_default", text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. You'd know something of such fires, warlock, so don't ask me to apologise for wanting one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A flame that doesn't falter, as I said, kindled from things that burn hotter than any forge in Thorium Point. Your {pet} is leaning toward my brazier as though it recognises the heat, so you'd know something of such fires, and don't ask me to apologise for wanting one." },
+      },
       choices = {
         { text = "No apology needed. Fire is fire.", next = "BACK", reply = "Precisely, and I'm glad someone understands it. Help me finish it.", fx = { align = { light = -1 } } },
         { text = "Fire that hot burns the hand that holds it.", next = "BACK", reply = "Then I'll be careful, warlock. But some hands are better suited to the heat than you'd think.", fx = { align = { light = 1 } } },

@@ -1188,7 +1188,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of the warlocks who buys Greshka's grimoires brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." } },
+      lines = {
+        { id = "xlock_default", text = "Nothing yet, and I'd like to keep it that way. One of the warlocks who buys Greshka's grimoires brought an imp through here last season, and it ate half a sack of onions out of spite, and I'm still getting looks from the scouts." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothing yet, and I'd like to keep it that way, though your {pet} has been eyeing my onion sacks since it came through the door. The last one a warlock brought through here ate half a sack out of spite, and I'm still getting looks from the scouts, so yours waits outside." },
+      },
       choices = {
         { text = "Mine behaves. I'll answer for it.", next = "BACK", reply = "Answer for it, aye, and I'll hold you to that. Count your own onions if it doesn't.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Imps are imps. Count your onions.", next = "BACK", reply = "Count them? I'll count them, and I'll bill you for every one it eats.", fx = { align = { honor = -1 } } },

@@ -110,7 +110,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Old troll cities, older than Zul'Farrak, and things the trolls themselves were afraid of, if the carvings are tae be believed. I dig for the League's knowledge, not for power, an' I'd ask ye tae respect the difference while ye're at my camp." } },
+      lines = {
+        { id = "xlock_default", text = "Old troll cities, older than Zul'Farrak, and things the trolls themselves were afraid of, if the carvings are tae be believed. I dig for the League's knowledge, not for power, an' I'd ask ye tae respect the difference while ye're at my camp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Old troll cities, older than Zul'Farrak, and things the trolls themselves were afraid of, if the carvings are tae be believed. Yer demon's been starin' at my rubbings since ye walked in like it can read the things, an' that's a fair bit more interest than I'd like, so keep it well back from my camp." },
+      },
       choices = {
         { text = "I'll respect it. Some things should stay buried.", next = "BACK", reply = "Good, then we'll get along fine, and I'll show ye the carvings if ye like, so long as ye only look.", fx = { align = { light = 1 } } },
         { text = "If there's power down there, it's wasted on dust.", next = "BACK", reply = "And that's exactly why I asked ye to mind the difference, so keep your hands off my finds or ye'll be off my dig by sundown.", fx = { align = { light = -1 } } },
@@ -271,7 +274,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because it looks at Tooga like the scorpids do. But you came to help Tooga, and Tooga thinks a person who helps a turtle cannot be all bad, even if their friend has horns." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because it looks at Tooga like the scorpids do. But you came to help Tooga, and Tooga thinks a person who helps a turtle cannot be all bad, even if their friend has horns." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Yes, because it is looking at Tooga right now, the way the scorpids do before they pinch. But you came to help Tooga, so Tooga will walk on the other side of you, and you will tell your {pet} that turtles are not for eating." },
+      },
       choices = {
         { text = "He won't harm you, Tooga. I'll make sure of it.", next = "BACK", reply = "Tooga believes you, and Tooga will try not to look at it, and maybe it will not look at Tooga either.", fx = { align = { light = 1 } } },
         { text = "He goes where I send him. Stay close and you'll be fine.", next = "BACK", reply = "Tooga will stay very close, then, and Tooga will hope the horned one stays very far away on the other side of you.", fx = { align = { light = -1 } } },
@@ -416,7 +422,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only to look, because a creature is a creature, and I study creatures! Though I'll admit the scorpids at least have the decency to be from this world, which your little friend clearly isn't, and that bothers the scholar in me terribly." } },
+      lines = {
+        { id = "xlock_default", text = "Only to look, because a creature is a creature, and I study creatures! Though I'll admit the scorpids at least have the decency to be from this world, which your little friend clearly isn't, and that bothers the scholar in me terribly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only to look, because a creature is a creature, and I study creatures! Though yours is staring back at me with the most unsettling eyes, and I can't even begin to classify a thing that clearly isn't from this world, which bothers the scholar in me terribly." },
+      },
       choices = {
         { text = "Study it all you like. Fear is for the ignorant.", next = "BACK", reply = "Oh, I intend to, though I'll study it from a slightly greater distance than usual, purely for methodological reasons, you understand.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "You're wise to keep your distance.", next = "BACK", reply = "I'd like to think it's wisdom, though between you and me it's mostly that the little fellow keeps looking at my notebook like it's lunch.", fx = { align = { light = 1 } } },
@@ -602,7 +611,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Jabbey thinks you're a customer like any other, so long as you buy what's on the shelf. What you do with your own shadows is your business, but Jabbey would rather not have them in his stall." } },
+      lines = {
+        { id = "xlock_default", text = "Jabbey thinks you're a customer like any other, so long as you buy what's on the shelf. What you do with your own shadows is your business, but Jabbey would rather not have them in his stall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Jabbey thinks you're a customer like any other, so long as you buy what's on the shelf. But your servant is sniffing all along Jabbey's shelf right now, so Jabbey would ask it to wait outside, where the sand doesn't mind the smell." },
+      },
       choices = {
         { text = "Every merchant has his price. Yours is just higher.", next = "BACK", reply = "Higher's a nice word for it, pal, and Jabbey'll take it as a compliment, but the shadows still stay outside the stall.", fx = { align = { honor = -1 } } },
         { text = "A man with a line is worth respecting.", next = "BACK", reply = "Jabbey thanks you, friend, and Jabbey's line comes with a price tag like everything else here, but it's one he won't sell.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -764,7 +776,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It wears beautifully, and sells beautifully, and that's the trouble, because it hums when I hold it. I sell to warlocks the same as anyone, but I keep their cloth at the back of the shelf where it can't touch my good silk." } },
+      lines = {
+        { id = "xlock_default", text = "It wears beautifully, and sells beautifully, and that's the trouble, because it hums when I hold it. I sell to warlocks the same as anyone, but I keep their cloth at the back of the shelf where it can't touch my good silk." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It wears beautifully, and sells beautifully, and that's the trouble, because it hums when I hold it. Now it's humming louder with your demon standing beside it, so I'll keep that cloth at the back of the shelf and you'll keep that thing at the front of the stall." },
+      },
       choices = {
         { text = "Then your prejudice costs you good customers.", next = "BACK", reply = "Good customers, dearie, are the ones whose cloth doesn't hum, and I'll lose a few sales before I lose a night's sleep.", fx = { align = { light = -1 } } },
         { text = "That's sensible. Fel taints whatever it touches.", next = "BACK", reply = "Thank you, sweetie, someone understands, and I'll be keeping a pair of tongs by that shelf from now on.", fx = { affinity = 1, align = { light = 1 } } },

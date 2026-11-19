@@ -78,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." } },
+      lines = {
+        { id = "xlock_default", text = "I cannae prove it yet, but the Deadwood in Felwood went the same way, an' Felwood stinks o' demons from end tae end. If somebody's brewin' that poison wi' fel in it, I'll find out who, an' I'll not be gentle about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I cannae prove it yet, but the Deadwood went the same way, an' Felwood stinks o' demons, an' so does that one o' yours, if ye don't mind my sayin'. If somebody's brewin' that poison wi' fel in it, I'll find out who, so keep it well back from my samples while I work." },
+      },
       choices = {
         { text = "Whoever's poisoning them deserves no mercy.", next = "BACK", reply = "I'll no' argue wi' that, for poisonin' a whole people is as low as it gets. Only make sure ye've got the right one before ye pass sentence.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel's just a tool. Blame the brewer, not the power.", next = "BACK", reply = "Ye would say that, warlock, wi' a demon at yer heel. Mebbe ye're right about the brewer, but I've seen what fel does tae a forest, an' I'll no' be callin' it a tool.", fx = { align = { light = -1 } } },
@@ -330,7 +333,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." } },
+      lines = {
+        { id = "xlock_default", text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon. You chain your demon and make it work, and one day it remember every lash, and dat be why Mau'ari only bargain with spirits who can say no." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mau'ari ask de spirits nice, and dey give a little and go home, mon, but look at dat one, standin' behind you and countin' every lash. You chain it and make it work, and Mau'ari can see in its eyes it be rememberin', which be why Mau'ari only bargain with spirits who can say no." },
+      },
       choices = {
         { text = "Maybe you're right. Chains breed resentment.", next = "BACK", reply = "Now you be talkin' like a troll, mon, and maybe you live longer for it. Ask nice and leave a gift, and de spirit come back next time smilin'.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A chained demon is a useful demon.", next = "BACK", reply = "Useful till de chain slip, mon, and chains always slip in de end. When yours do, don't come cryin' to Mau'ari for juju to fix it.", fx = { affinity = -1, align = { light = -1 } } },

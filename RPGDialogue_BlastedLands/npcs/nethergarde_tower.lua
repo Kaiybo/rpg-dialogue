@@ -105,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. The Watchers keep an eye on who comes up these stairs, so buy what you need and keep your demon downstairs, and nobody will make trouble for you." } },
+      lines = {
+        { id = "xlock_default", text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. The Watchers keep an eye on who comes up these stairs, so buy what you need and keep your demon downstairs, and nobody will make trouble for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. I did say keep your demon downstairs, though, and the Watchers on the landing are already reaching for their swords, so buy what you need and walk it back down." },
+      },
       choices = {
         { text = "I'll keep my demon downstairs, Nina. Rules are rules.", next = "BACK", reply = "Thank you, the Watchers will be grateful, and so will my stomach. The stairs are narrow enough without a demon on them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon stays with me, Watchers or no Watchers.", next = "BACK", reply = "Then you'll have to drink your potions on the stairs, I'm afraid. The Watchers have rules, and so do I.", fx = { align = { order = -1 } } },

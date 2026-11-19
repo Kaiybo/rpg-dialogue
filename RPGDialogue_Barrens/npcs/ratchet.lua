@@ -150,6 +150,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "The bruisers care about one thing, pal, which is whether you start trouble on my docks. Your demon's welcome to stand around looking scary for all I care, but if it sets fire to so much as one crate, you're paying for the crate, the fire, the bruiser who puts it out and the paperwork after." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The bruisers care about whether you start trouble on my docks, pal, and right now they care about that thing sniffing at my crates. It can stand around looking scary all it likes, but one scorch mark and you're paying for the crate, the fire, the bruiser and the paperwork after." },
       },
       choices = {
         { text = "Fair rules. My demon won't touch a crate.", next = "BACK", reply = "Then we get along fine, pal, and your demon can loiter wherever it likes. Scary's good for business, as long as it don't touch the merchandise.", fx = { align = { order = 1 } } },
@@ -761,6 +762,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, though they never tell me what for, and I never ask, because that's how a goblin stays in business. Bring me a few raptor horns and I'll mix you something to keep your hands steady while you're shouting at a demon." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, though they never tell me what for, and that demon of yours is reading my labels like it knows better. Bring me a few raptor horns and I'll mix you something to keep your hands steady, and tell it the bottles on the top shelf cost extra to sniff." },
       },
       choices = {
         { text = "A deal's a deal, Mebok. I'll bring the horns.", next = "BACK", reply = "That's what I like, a customer with honor and a hunting knife. Bring me those horns, and your hands will be steady as stone.", fx = { align = { honor = 1 } } },
@@ -937,6 +939,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "A demon that watches crates? It'd eat the crates, or the dockhands, and then I'd have to write it all down and file a claim. No, my shipments go missing on the coast south of town where the Southsea pirates camp, so if you want to help, pal, take your demon there and leave my docks alone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A demon that watches crates? Yours is already eyeing my dockhands, pal, and I don't have a claim form for whatever it does next. My shipments go missing on the coast south of town where the Southsea pirates camp, so take {pet} there and leave my docks alone." },
       },
       choices = {
         { text = "I'll get your shipments back, wharfmaster.", next = "BACK", reply = "You're a real help, pal, a real help, and I'll put it in the ledger. Mind the pirates, and mind the sharks even more.", fx = { align = { honor = 1 } } },

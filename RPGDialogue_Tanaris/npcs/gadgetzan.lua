@@ -161,7 +161,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I thought about it, believe me, but Sprinkle said if I fed a single drop to an imp she'd stop fixing my recipes, and I need her more than I need the data. Besides, who knows what an imp turns into, and I'd hate to find out at the bar." } },
+      lines = {
+        { id = "xlock_default", text = "I thought about it, believe me, but Sprinkle said if I fed a single drop to an imp she'd stop fixing my recipes, and I need her more than I need the data. Besides, who knows what an imp turns into, and I'd hate to find out at the bar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I thought about it, believe me, and looking at your {pet} now I'm thinking about it again. But Sprinkle said if I fed a single drop to a demon she'd stop fixing my recipes, and I'd hate to find out what that thing turns into right here at the bar." },
+      },
       choices = {
         { text = "Listen to Sprinkle. Some experiments shouldn't be run.", next = "BACK", reply = "Oh, I do listen to her, friend, I just do it very slowly, and sometimes I forget halfway through.", fx = { align = { order = 1 } } },
         { text = "Test it on mine. I'm curious too.", next = "BACK", reply = "Now that's the spirit of science, pal, but you'll do it outside town, and you'll tell Sprinkle it was entirely your idea.", fx = { align = { order = -1 } } },
@@ -586,7 +589,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It did, sweetie, and then it laughed about it, which was the part I minded most. Its master paid for the cloth and the biscuits, and I'll say he was very sorry, but I've kept a bucket by the door ever since." } },
+      lines = {
+        { id = "xlock_default", text = "It did, sweetie, and then it laughed about it, which was the part I minded most. Its master paid for the cloth and the biscuits, and I'll say he was very sorry, but I've kept a bucket by the door ever since." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It did, sweetie, and then it laughed about it, which was the part I minded most. Your demon's giving my biscuit tin the same look right now, so I'll just move the bucket a little closer to the door while you keep an eye on it." },
+      },
       choices = {
         { text = "I'll keep mine outside, then. Your biscuits are safe.", next = "BACK", reply = "You're a sweetie for it, and I'll save you a biscuit, though you'll eat it out of reach of those little claws.", fx = { align = { order = 1 } } },
         { text = "He'll behave. I won't leave him in the sun.", next = "BACK", reply = "Then I'll trust you, sweetie, but the bucket stays by the door, and if he so much as looks at my dough, it gets used.", fx = { align = { order = -1 } } },
@@ -848,7 +854,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Maybe, but every time someone burns down a bandit camp, the Wastewanders move to the next spring and foul it on the way out. What I need is the water back, clean, not a lot of smoking sand where our sources used to be." } },
+      lines = {
+        { id = "xlock_default", text = "Maybe, but every time someone burns down a bandit camp, the Wastewanders move to the next spring and foul it on the way out. What I need is the water back, clean, not a lot of smoking sand where our sources used to be." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Maybe, but every time someone burns down a bandit camp, the Wastewanders move to the next spring and foul it on the way out. Your demon's standing over my water barrels breathing that sulphur on them, too, so walk it somewhere else, because I need the water clean, not smoking." },
+      },
       choices = {
         { text = "Then I'll get your water back, and leave the springs clean.", next = "BACK", reply = "You do that, pal, and I'll put your name on a memo to the Cartel, which is the closest thing to a medal I can afford.", fx = { align = { order = 1 } } },
         { text = "Burn the camps. They'll learn not to come back.", next = "BACK", reply = "Burn them, and they'll foul three more springs on the way out, buddy, so maybe save the fire for something that won't cost me water.", fx = { align = { order = -1 } } },
@@ -1047,7 +1056,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They point at something under Sandsorrow Watch, and I'd hoped it was water. Pestlezugg thinks the strange insects there came up from below, and if they did, I don't like to think what else might follow them." } },
+      lines = {
+        { id = "xlock_default", text = "They point at something under Sandsorrow Watch, and I'd hoped it was water. Pestlezugg thinks the strange insects there came up from below, and if they did, I don't like to think what else might follow them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They point at something under Sandsorrow Watch, and I'd hoped it was water. Your demon went very still when I unrolled that map just now, and I'd rather it hadn't, because if something's following those insects up from below, I don't want to know it recognises the place." },
+      },
       choices = {
         { text = "Then we should find out what's down there, carefully.", next = "BACK", reply = "Carefully, yes, friend, and preferably with someone who isn't me, because I'm a surveyor, not a hero.", fx = { align = { order = 1 } } },
         { text = "If something's below, I'd like to meet it.", next = "BACK", reply = "Then you'll go down there without me, pal, and if you meet it, ask it whether it's sitting on my water.", fx = { align = { order = -1 } } },
@@ -1252,7 +1264,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It interests me, which is worse, because interesting things blow up, and the last interesting thing took my eyebrows and a whole shelf of stock. I'd be curious what fel residue does to a reagent, but I'd want it kept in a jar a long way from my rat." } },
+      lines = {
+        { id = "xlock_default", text = "It interests me, which is worse, because interesting things blow up, and the last interesting thing took my eyebrows and a whole shelf of stock. I'd be curious what fel residue does to a reagent, but I'd want it kept in a jar a long way from my rat." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It interests me, which is worse, because interesting things blow up, and the last interesting thing took my eyebrows and a whole shelf of stock. I'd love a scraping of whatever residue comes off your {pet}, but my rat has gone under the counter and won't come out, so it'll have to stand a long way off." },
+      },
       choices = {
         { text = "Fel is just another reagent. Study it.", next = "BACK", reply = "Another reagent with a very nasty temper, friend, but you're right, and if you bring me a pinch, Rose and I will stand well back.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Keep it far from your rat. It corrupts.", next = "BACK", reply = "Rose agrees with you, friend, and she's usually right, so I'll keep my curiosity on a shelf where it can't get her.", fx = { align = { light = 1 } } },
@@ -1520,7 +1535,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because everyone sells something, friend, and your sort always have the strangest things to offer. I keep away from soul business in general, because the Cartel doesn't like it and the margins are lousy, and I'm fond of the Cartel liking me." } },
+      lines = {
+        { id = "xlock_default", text = "Because everyone sells something, friend, and your sort always have the strangest things to offer. I keep away from soul business in general, because the Cartel doesn't like it and the margins are lousy, and I'm fond of the Cartel liking me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because everyone sells something, friend, and your sort always have the strangest things to offer. That one's been watching my scales the whole time like it's working out a better rate, and I keep away from soul business, because the margins are lousy and the Cartel likes me." },
+      },
       choices = {
         { text = "The Cartel's rules aren't my concern.", next = "BACK", reply = "Maybe not yours, friend, but Tran'rek still lives in dis town, so take your soul business somewhere far from my tent.", fx = { align = { order = -1 } } },
         { text = "Wise. Some trade isn't worth the coin.", next = "BACK", reply = "Dat's what Tran'rek thinks too, mon, and a troll who lives a long time picks his trades careful.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1868,7 +1886,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few every month, Horde and Alliance both, and they're quieter than the warriors, I'll give them that. The only trouble I've had was a felhunter that wouldn't stop sniffing the mage at the next table, and the Bruisers sorted that out quick." } },
+      lines = {
+        { id = "xlock_default", text = "A few every month, Horde and Alliance both, and they're quieter than the warriors, I'll give them that. The only trouble I've had was a felhunter that wouldn't stop sniffing the mage at the next table, and the Bruisers sorted that out quick." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few every month, Horde and Alliance both, and they're quieter than the warriors, I'll give them that. Yours is already eyeing the mage by the fire, though, so keep it close and keep it fed, because the Bruisers sort out trouble quick and they don't ask whose fault it was." },
+      },
       choices = {
         { text = "I'll keep mine on a short leash, then.", next = "BACK", reply = "Much obliged, friend, and the mage at table four will be too, he's still nervous about the last one.", fx = { align = { order = 1 } } },
         { text = "If the Bruisers try sorting me, they'll regret it.", next = "BACK", reply = "Then I'll warn them, pal, but I'd rather not have to, because broken Bruisers cost more than broken chairs.", fx = { align = { order = -1 } } },
@@ -2105,7 +2126,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once he sent a parrot that sat on my window and shouted my debts. A demon would be the next step, and frankly I'd take the parrot back any day." } },
+      lines = {
+        { id = "xlock_default", text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once he sent a parrot that sat on my window and shouted my debts. A demon would be the next step, and frankly I'd take the parrot back any day." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because he's tried everything else! He's sent letters, he's sent sailors, and once a parrot that shouted my debts from the window. And now you've walked up with that thing breathing brimstone on me, which I hope is a coincidence, because I'd take the parrot back any day." },
+      },
       choices = {
         { text = "Pay what you owe and you won't need to fear him.", next = "BACK", reply = "I know, friend, I know, and I mean to, I really do, as soon as the shipment comes in, which it won't.", fx = { align = { order = 1 } } },
         { text = "Nobody sent me. Your debts are your business.", next = "BACK", reply = "Oh, thank goodness, pal, because I was ready to jump in the harbour, and I can't swim.", fx = { align = { order = -1 } } },
@@ -2330,7 +2354,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A cultist, I think, though he said he was a collector. He paid well, and the mold came out perfect, and then I dreamt of fire every night until I melted the thing down myself, which cost me the profit and then some." } },
+      lines = {
+        { id = "xlock_default", text = "A cultist, I think, though he said he was a collector. He paid well, and the mold came out perfect, and then I dreamt of fire every night until I melted the thing down myself, which cost me the profit and then some." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A cultist, I think, though he said he was a collector, and he had a servant just like yours standing at his elbow. I dreamt of fire every night until I melted his mold down, so you'll understand why I'd like that thing to stay outside the forge." },
+      },
       choices = {
         { text = "You did right to melt it down.", next = "BACK", reply = "Thank you, friend, I've been telling myself the same, and it's nice to hear somebody else agree for once.", fx = { align = { order = 1 } } },
         { text = "You lost good gold over a bad dream, Krinkle.", next = "BACK", reply = "Maybe so, pal, but I slept like a baby afterwards, and you can't put a price on that, though I tried.", fx = { align = { order = -1 } } },

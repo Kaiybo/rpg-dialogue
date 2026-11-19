@@ -17,7 +17,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." } },
+      lines = {
+        { id = "xlock_default", text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it. The crater doesn't care how powerful you think you are, and I've buried people who were sure of themselves, so if your demon can keep the beasts busy while you get clear, use it, and don't be proud about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've watched one swallow a pterrordax whole, so I wouldn't bet against it, and I'd not let {pet} wander too far from you to find out. If your demon can keep the beasts busy while you get clear, use it, and don't be proud about it, because I've buried people who were sure of themselves." },
+      },
       choices = {
         { text = "Good advice. I'll keep my demon as a shield, not a show.", next = "BACK", reply = "That's the way of it. Let the beasts chew on your demon while you put a ridge between you and them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon can handle anything this crater throws at it.", next = "BACK", reply = "I said the same about my rifle once, so I did, and the crater taught me otherwise. Keep your demon close and your feet closer.", fx = { align = { order = -1 } } },
@@ -266,7 +269,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." } },
+      lines = {
+        { id = "xlock_default", text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. What you call upon was made somewhere else entirely, and the creatures of Un'Goro know it, even if your own people pretend not to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Earth Mother made the raptors and the ferns and the fire under this crater, and none of them were made to be bound. Your demon was made somewhere else entirely, and you can hear how the raptors have gone quiet since it came, so they know it, even if your own people pretend not to." },
+      },
       choices = {
         { text = "Power is power. I use what answers me.", next = "BACK", reply = "Power answers many, warlock, and not all who answer are friends. Use it carefully, under the Earth Mother's sky.", fx = { align = { light = -1 } } },
         { text = "I keep it leashed. I know the danger better than you.", next = "BACK", reply = "Then you are wiser than most who carry it. Keep it leashed, and the crater will tolerate you.", fx = { affinity = 1, align = { light = 1 } } },
@@ -443,7 +449,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." } },
+      lines = {
+        { id = "xlock_default", text = "They do, just a little, the way they lean from a cold draught! I don't know what that means, and I'm not sure I want to, but if you'd stand still by that pot for a moment, I'd be ever so grateful for the data." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, just a little, the way they lean from a cold draught, and look, they lean even more from that creature of yours! I don't know what that means, and I'm not sure I want to, but if you'd both stand still by that pot for a moment, I'd be ever so grateful for the data." },
+      },
       choices = {
         { text = "Study it. Every power should be understood.", next = "BACK", reply = "I will, and I'll write down every lean and every shudder. Larion will say I'm wasting ink.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Maybe the plants know better than we do.", next = "BACK", reply = "Maybe they do! They certainly knew to lean away from you before I knew why.", fx = { align = { light = 1 } } },
@@ -540,7 +549,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, buddy, I've just heard stories, and I'm too tired to be sensible about it. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of your demon, I promise, or at least I'll try." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, buddy, I've just heard stories, and your demon is staring at me like the stories were true. I've been lost for days and Spraggle must be frantic, so if you'll help me get home, I'll stop being frightened of it, I promise, or at least I'll try not to look at it." },
+      },
       choices = {
         { text = "Your soul is safe, Ringo. I'll help you home.", next = "BACK", reply = "You will? Oh, buddy, you're a lifesaver, a real lifesaver. I'll follow you anywhere, as long as it's away from here.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You should be frightened. It keeps you careful.", next = "BACK", reply = "Frightened? Buddy, I've been frightened for days, and I'm very careful now. Too careful to sleep.", fx = { align = { light = -1 } } },
@@ -690,7 +702,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." } },
+      lines = {
+        { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan, and you've just walked a demon right up to the steam! The crater's dangerous enough without scaring off the paying guests, so take it over by the tar pits, where nobody's paying attention." },
+      },
       choices = {
         { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", reply = "You're a gem, pal, a real gem. My retirement plan thanks you, and so do my knees.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A demon would draw a crowd, you know. Think about it.", next = "BACK", reply = "A crowd? Friend, a demon by the springs would scare off every customer I've got. Thanks for the thought, though.", fx = { align = { order = -1 } } },

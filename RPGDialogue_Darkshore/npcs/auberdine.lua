@@ -99,6 +99,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Bound, by you, so that you might loose them again elsewhere? I have seen what comes of mortals who think they can leash the Legion's servants, and so has every kaldorei who lived through the Sundering. Fight them or leave Darkshore, warlock, for there is no third road here." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Bound, by you, so that you might loose them again elsewhere? You stand in Auberdine with one of them at your side, and I have seen ten thousand of its kind pour into the world through the Well, so fight them or leave Darkshore, warlock, for there is no third road here." },
       },
       choices = {
         { text = "Then I'll fight them, and bind nothing.", next = "BACK", reply = "That is wiser than you know, and I am glad to hear it. I watched the Highborne try to bind such things, and I watched what came through after.", fx = { align = { light = 1 } } },
@@ -670,6 +671,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "There is grief on that shore, and nothing else that you should touch. Elune keeps the dead, warlock, and if I find you have meddled with them, I will not be as gentle as I am now." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "There is grief on that shore, and nothing else that you should touch. Your servant turned toward the water the moment you arrived, as if it hears the dead calling, and if I find it has gone near them, I will not be as gentle as I am now." },
       },
       choices = {
         { text = "I'll leave the dead in peace.", next = "BACK", reply = "The dead have suffered enough, warlock, and Elune will see that you left them be. So will I.", fx = { align = { light = 1 } } },
@@ -960,6 +962,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Something fouls this land, and your craft draws from the same well the Legion did, so I will keep my eyes on your hands." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Now I count one more thing, a servant of the Legion standing in the Sentinels' own post, so I'll keep my eyes on it as well as on your hands." },
       },
       choices = {
         { text = "Watch, then. I'll prove you wrong at the murloc camps.", next = "BACK", reply = "Then I will watch, and I would be glad to be wrong. It would make a change.", fx = { align = { honor = 1 } } },
@@ -1189,6 +1192,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. I've heard that warlocks bind spirits to their will, so I'll ask you plainly to leave hers alone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. Your servant looks at me the way those spirits do, as if it's waiting for something, so I'll ask you plainly to keep it, and yourself, away from her." },
       },
       choices = {
         { text = "I swear I'll not touch her spirit.", next = "BACK", reply = "I will hold you to that oath, warlock, for she has suffered enough. Go, then, and walk carefully among my people.", fx = { align = { honor = 1 } } },
@@ -1356,6 +1360,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "You'll have a room, because I don't turn travelers away, but you'll have the one nearest the dock. My other guests are kaldorei, and they can smell what you carry even if they're too polite to say so." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "You'll have a room, because I don't turn travelers away, but you'll have the one nearest the dock. My other guests have gone very quiet since your servant came through the door, so if it would please you to keep it in the room, I would count that a kindness." },
       },
       choices = {
         { text = "Fair. I'll keep to myself.", next = "BACK", reply = "My other guests will be grateful, and the room by the dock has a lovely view of the boats. You may find it suits you.", fx = { align = { light = 1 } } },

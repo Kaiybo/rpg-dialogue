@@ -47,6 +47,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, I'll admit, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, I'll admit, and that thing of yours sniffing round our wagon doesn't help. Still, Theodore says we can't be choosy about who helps us anymore, and I've seen worse than the pair of you come up this road in red masks." },
       },
       choices = {
         { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", reply = "That's all anyone could ask, dear, and more than most have offered. Blanchy might even let you near her, if you're very gentle.", fx = { align = { light = 1 } } },

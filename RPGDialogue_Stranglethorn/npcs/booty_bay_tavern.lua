@@ -440,7 +440,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Some secrets cost more than they're worth, and the ones that talk back cost the most." } },
+      lines = {
+        { id = "xlock_default", text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Some secrets cost more than they're worth, and the ones that talk back cost the most." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, with a warlock who wanted my poisons and offered me a demon's name in return, and I said no faster than I've ever said anything. Yours is watching me the same way his did, like it already knows what I'd trade, and the answer's still no." },
+      },
       choices = {
         { text = "You were wise. Some knowledge should stay buried.", next = "BACK", reply = "I was, and I'd say it again tomorrow. Some names should stay in the dark where they were found.", fx = { align = { light = 1 } } },
         { text = "Your loss. A demon's name is a sharp tool.", next = "BACK", reply = "Sharp, yes, and it cuts the hand that holds it. I'll keep my poisons and my soul, thank you.", fx = { align = { light = -1 } } },
@@ -875,7 +878,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. If that's your kind of magic, sit on the far side of the table from me." } },
+      lines = {
+        { id = "xlock_default", text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. If that's your kind of magic, sit on the far side of the table from me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Crawling with them, out at their fortress in the north, and they're the worst of what the Horde ever was, still drunk on the old demon blood. And you've brought one right up to my table, so sit on the far side and keep that thing on the far side of you." },
+      },
       choices = {
         { text = "The Burning Blade disgust me too.", next = "BACK", reply = "Good, then we agree on something. The Burning Blade are what the Horde was before Thrall, and I've no stomach for them.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
         { text = "My demons are leashed. Theirs leash them.", next = "BACK", reply = "Leashed, aye, until the day the leash slips. I hope you hold yours tighter than they hold theirs.", fx = { align = { light = -1 }, learn = { "burning_blade" } } },

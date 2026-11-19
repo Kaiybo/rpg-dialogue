@@ -152,6 +152,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They do, as it happens, and they come up black and smelling of brimstone, so I leave them for the bats. Do keep your little friend off my stall; one trod on a whole tray of caps the last time a warlock stopped by." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "They do, and they come up black and stinking of brimstone, and still they're better eating than the caps that grow on the dead. Keep your little friend off my stall, though, because one trod on a whole tray last week." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, as it happens, and they come up black and smelling of brimstone, and your demon is sniffing my caps now as though it recognises them. Do keep {pet} off my stall; one trod on a whole tray the last time a warlock stopped by." },
       },
       choices = {
         { text = "I'll keep it off your stall, Gwyn.", next = "BACK", reply = "Thank you, dear. The bats are very particular about their brimstone.", fx = { affinity = 1, align = { order = 1 } } },
@@ -319,6 +320,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Then wear black, since it hides scorch marks far better than grey, and stop letting the thing stand so close. Your demon has terrible manners, and I'd say so to its face if it had a proper one." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc in cloth robes, scorched by his own demon, is a sight I didn't expect in the Sepulcher. Wear black, which hides the marks, and keep the creature a few paces off." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Then wear black, since it hides scorch marks far better than grey, and tell your demon to stop standing so close to my linen. It has terrible manners, and I'd say so to its face, though from the way it's watching me I think it already knows." },
       },
       choices = {
         { text = "I'll teach the demon some manners, Andrea.", next = "BACK", reply = "Good, dear, and I'll sew you something black in the meantime. Manners and scorch marks, both handled.", fx = { affinity = 1, align = { order = 1 } } },
@@ -398,6 +400,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "For anyone, because the worgen in the south don't care what you carry, and they come in packs. A demon's a fine thing to put between you and a worgen, but buy food and water anyway, because the demon won't share." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "For anyone, because the worgen in the south don't care what you carry. Your demon's a fine thing to put between you and a pack of them, but it's already eyeing my bread, so buy food and water anyway, because it won't share." },
       },
       choices = {
         { text = "I'll pack well and watch for worgen.", next = "BACK", reply = "Good. Pack light, but pack enough. The worgen don't wait for you to eat.", fx = { align = { order = 1 } } },

@@ -107,6 +107,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I treat everything that serves the Legion as an enemy, and I haven't yet decided whether you do. The Shadow Council lurks in Felwood and the satyrs breed in Ashenvale, so give me one reason to believe you're different and I'll carry it to my sisters." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I treat everything that serves the Legion as an enemy, and the thing at your heel serves it whatever leash you've put on it, so my blade is watching it as we speak. Whether you serve it too, I haven't decided, so give me one reason to believe you're different and I'll carry it to my sisters." },
       },
       choices = {
         { text = "I'm no friend of the Legion. Judge me by my deeds.", next = "BACK", reply = "Then I will judge you so, warlock, and I will be watching closely. Deeds are the only proof I accept.", fx = { align = { order = 1 } } },
@@ -423,6 +424,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anyone can, though most warlocks I've met let something else do the standing while they hide behind it. Stand your own ground once, with no servant beside you, and I'll believe your resolve is your own." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can, though most warlocks I've met let something else do the standing while they hide behind it, and I see yours already standing a step ahead of you. Send it away, stand your own ground once, and I'll believe your resolve is your own." },
       },
       choices = {
         { text = "I'll stand alone and show you.", next = "BACK", reply = "Then I will watch, warlock, and I will be glad to be proven wrong. Most of your kind never even try.", fx = { align = { honor = 1 } } },
@@ -631,6 +633,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the last time anything with that stink came near a forge in this city, the coals went out and wouldn't light again for a week. That was just a rumour, perhaps, but I can't afford to lose a week of work on a rumour." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last time anything with that stink came near a forge in this city, the coals went out and wouldn't light again for a week, and mine have started to sputter with yours on the step. That was only a rumour before, perhaps, but I can't afford to lose a week of work proving it." },
       },
       choices = {
         { text = "It can wait outside. I won't cost you a week.", next = "BACK", reply = "Thank you, and the coals thank you too. A week without fire is a long time for a smith.", fx = { align = { order = 1 } } },
@@ -878,6 +881,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think you've borrowed courage from something that will want it back with interest. My students earn their strength with every blow, and you've signed a contract for yours, which is a very different thing." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think you've borrowed courage from something that will want it back with interest, and the lender is standing beside you, watching my students train as if it were taking notes. My students earn their strength with every blow, and you've signed a contract for yours, which is a very different thing." },
       },
       choices = {
         { text = "Then I'll earn mine too, one bruise at a time.", next = "BACK", reply = "Then you will be the first warlock I have ever trained, and I will train you gladly. Come back tomorrow.", fx = { align = { honor = 1 } } },
@@ -1090,6 +1094,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "None that I'm permitted to cry from the Terrace, though the Argent Dawn in the Plaguelands calls for anyone who'll fight the Scourge, and I've never heard them ask what a hero summons. I'd answer that call if I were you, and give the city something better to say about you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "None that I'm permitted to cry from the Terrace, though the Argent Dawn in the Plaguelands calls for anyone who'll fight the Scourge, and they'd set your {pet} on the dead without a second glance. I'd answer that call if I were you, and give the city something better to say about you than the stares you're drawing now." },
       },
       choices = {
         { text = "Then I'll answer the Argent Dawn's call.", next = "BACK", reply = "Then I will cry your name in the morning, warlock, and the Argent Dawn will be glad of you. The Scourge do not care where your power comes from.", fx = { align = { light = 1 } } },
@@ -1302,6 +1307,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Some would, and the ones who didn't would watch me for a month afterward. It's an honor to supply this Terrace, and I'd hate to lose that honor because someone saw a demon by my stall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some would, and two have already wandered off since your demon stopped beside my stall. It's an honor to supply this Terrace, and I'd hate to lose that honor because someone saw that thing lurking by my wares, so I'd ask you to send it a little way off." },
       },
       choices = {
         { text = "I'll keep my servant away from your stall.", next = "BACK", reply = "Thank you, and the Terrace will thank you too. I would hate to lose my regulars.", fx = { align = { order = 1 } } },
@@ -1498,6 +1504,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not help, but I'd refuse anything that bargains with demons, because my husband would never forgive me for buying his safety that way. If you go south to the Barrens, carry your own courage, and bring me word in an honest hand." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not help, and with your servant standing here I'm surer of it, because my husband would never forgive me for buying his safety from something with eyes like those. If you go south to the Barrens, carry your own courage, and bring me word in an honest hand." },
       },
       choices = {
         { text = "Honest word, then. I'll bring it if I can.", next = "BACK", reply = "Thank you, warlock, and I will be grateful for anything honest. He would want it that way.", fx = { align = { honor = 1 } } },
@@ -1718,6 +1725,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, though Faldron says I'm frightened of everything at first and I get over most of it. I don't think I'll get over this one, so would you mind keeping it on the other side of the workshop?" },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, and it's worse now it's in the workshop, because it keeps standing near Faldron's tools and staring at them. Faldron says I'm frightened of everything at first and get over most of it, but I don't think I'll get over this one, so would you mind keeping it by the door?" },
       },
       choices = {
         { text = "Of course. I'll keep it well away.", next = "BACK", reply = "Thank you, and I am sorry I am so silly about it. Faldron says I will get used to it, eventually.", fx = { align = { light = 1 } } },

@@ -173,6 +173,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "A fair few, because a mind that has heard the Lich King's voice isn't easily frightened by an imp's. Maximillion teaches it here, and I bury the ones who fail his lessons, so I'd ask you to study hard for both our sakes." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking me about warlocks, when your people knew the demons long before ours did. Maximillion teaches it here, and I expect he'd be glad of a student who can tell him what the old Horde paid for that knowledge." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A fair few, because a mind that has heard the Lich King's voice isn't easily frightened by a demon's, and yours hasn't frightened me yet. Maximillion teaches it here and I bury the ones who fail his lessons, so study hard, and tell your servant I've no interest in its opinion of my graves." },
       },
       choices = {
         { text = "I'll master it carefully, and keep to the rules.", next = "BACK", reply = "That's what they all say on their first day, but I'll believe you a little more than most. Study hard, and I'll keep my shovel dry.", fx = { affinity = 1, align = { order = 1 } } },
@@ -619,6 +620,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I take any help that kills Crusaders and doesn't eat my sentries. Keep your demon in front of you when you go to Solliden, and if it turns, you'll be the one to put it down." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The converts at Solliden are farm boys who still believe the Light will save them, and a demon at their door will teach them otherwise. It isn't pretty work, but it's work, and you seem made for it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I take any help that kills Crusaders and doesn't eat my sentries, and two of them have stopped watching Solliden to watch your demon instead. Keep it in front of you when you go, and if it turns, you'll be the one to put it down." },
       },
       choices = {
         { text = "If it turns, I'll put it down myself.", next = "BACK", reply = "See that you do, warlock, because my sentries won't be so polite about it.", fx = { affinity = 1, align = { order = 1 } } },
@@ -821,6 +823,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Perhaps, though I'd say the Light hurts me because it is good and I am not, while your demons don't hurt you because they are exactly what they seem. I know which of us is lying to himself less, and I'm not sure it's me." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "The Cult of the Damned trafficked with dark powers too, and I watched them call it freedom right up until they knelt to the Scourge. You're Forsaken now and not a cultist, so mind that you stay the master and not the meal." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, though I'd say the Light hurts me because it is good and I am not, while your demon stands there at ease because it is exactly what it seems. Look at it watching the two of us, and tell me which of us is lying to himself less, because I'm not sure it's me." },
       },
       choices = {
         { text = "Power is power. I'll use whatever answers me.", next = "BACK", reply = "Power is power, until it asks for something back. Mind what your demons are writing down while you're not watching.", fx = { align = { light = -1 } } },

@@ -76,6 +76,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The army has a place for anyone who'll stand on a wall and face the enemy, and I've seen warlocks hold a line at Lakeshire when the regulars broke. But I've also buried men who trusted a summoned thing to watch their backs, and I'll not have one near my gates." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The army has a place for anyone who'll stand on a wall, and I've seen warlocks hold a line at Lakeshire when the regulars broke. But I've buried men who trusted a summoned thing to watch their backs, so you'll understand why my sentries have had their eyes on yours since you passed the gate." },
       },
       choices = {
         { text = "Then I'll serve where you put me, General.", next = "BACK", reply = "Good. Discipline on the wall is all I ask, and the gates are where they stay.", fx = { align = { order = 1 } } },
@@ -435,6 +436,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Renzik keeps a file on everybody, pal, and yours is real thin, which is either good news or very good acting, and Renzik pays a clerk by the page to find out which. The Lamb's cellar is the best-watched cellar in Stormwind, and the folk down there pretend not to know it, which suits everybody nicely." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Renzik keeps a file on everybody, pal, and yours just got a page longer, because Renzik's clerk charges extra to describe whatever that thing is. The Lamb's cellar is the best-watched cellar in Stormwind, so tell your friend to quit sniffing Renzik's boots, because those cost more than you do." },
       },
       choices = {
         { text = "Then keep the file thin. I'll give you no reason.", next = "BACK", reply = "That's what they all say, pal, and the thin ones are always the most expensive. Renzik's watchin'.", fx = { align = { order = 1 } } },
@@ -631,6 +633,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Nobody is trusted in the Keep, and you least of all, because I've read the histories of what the Guardian Medivh's meddling brought down on this city. You'll stand where you're told and speak when you're spoken to, and you'll do it without anything at your heel." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nobody is trusted in the Keep, and you least of all, because you've walked a demon past three of my guards as if the histories of Medivh's meddling meant nothing. Send it away this instant, and then you'll stand where you're told and speak when you're spoken to." },
       },
       choices = {
         { text = "Understood, Major. I'll keep my hands in sight.", next = "BACK", reply = "Good. Keep them there, and we'll get along.", fx = { align = { order = 1 } } },
@@ -842,6 +845,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, and I never ask what kept them below so long. I sell to the Cathedral at noon and the Lamb at dusk, and I'm fairly sure I'm the only man in the city who does both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, though I've never had one bring the thing along to stare at my loaves. I sell to the Cathedral at noon and the Lamb at dusk, and if yours keeps breathing on the crust like that, I'll not be selling these to either." },
       },
       choices = {
         { text = "Then I'll pay for my roll and keep your secret.", next = "BACK", reply = "Thank you, friend. Some secrets taste better with butter.", fx = { align = { honor = 1 } } },

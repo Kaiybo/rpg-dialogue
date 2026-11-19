@@ -78,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." } },
+      lines = {
+        { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but there's one of them standing right behind you, so I suppose she didn't." },
+      },
       choices = {
         { text = "Gramma's stories are worth heeding. I'll be careful.", next = "BACK", reply = "Good, because I'd hate for Gramma to be right and you to be the proof. She'd never let me hear the end of it.", fx = { align = { light = 1 } } },
         { text = "Gramma's stories are for children. Bargains make power.", next = "BACK", reply = "Don't let Gramma hear you say that, or she'll have a new story by supper, and you'll be in it.", fx = { align = { light = -1 } } },

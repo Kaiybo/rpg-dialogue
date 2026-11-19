@@ -75,7 +75,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It sours it, the way salt sours a well, and the pools out here take years to clear. I've no quarrel with you personally, but the marsh is my home, and I'll be choosy about who casts what on my doorstep." } },
+      lines = {
+        { id = "xlock_default", text = "It sours it, the way salt sours a well, and the pools out here take years to clear. I've no quarrel with you personally, but the marsh is my home, and I'll be choosy about who casts what on my doorstep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It sours it, the way salt sours a well, and you can see the water going cloudy where your demon is standing. I've no quarrel with you personally, but the marsh is my home, so I'd be grateful if it stood on the dry ground, and I'll be choosy about who casts what on my doorstep." },
+      },
       choices = {
         { text = "Your home, your rules. I'll keep my craft elsewhere.", next = "BACK", reply = "Thank you, that's more courtesy than I expected. Come for tea, if you like, and leave the imp behind.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Mana is mana. It'll forgive a little fel.", next = "BACK", reply = "It won't, and I've seen the pools to prove it. Cast elsewhere, warlock, and we'll stay friends.", fx = { align = { order = -1 } } },
@@ -259,7 +262,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then, heading for the deep swamp with books under their arms and no sense in their heads. The black dragons over by Onyxia's lair don't care much for company, and I've seen more than one go in that never came back out." } },
+      lines = {
+        { id = "xlock_default", text = "Now and then, heading for the deep swamp with books under their arms and no sense in their heads. The black dragons over by Onyxia's lair don't care much for company, and I've seen more than one go in that never came back out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then, heading for the deep swamp with books under their arms and no sense in their heads, and most of them had a creature like yours trotting behind. The black dragons don't care much for company, demon or otherwise, and I've seen more than one go in that never came back out." },
+      },
       choices = {
         { text = "Then they went looking for power they couldn't handle.", next = "BACK", reply = "They did, and the dragons don't forgive greed. I've stopped warning them.", fx = { align = { order = 1 } } },
         { text = "They all knew the risk, and that was their right.", next = "BACK", reply = "It is, and they paid for it. I just wish they'd not walk past my porch on the way.", fx = { align = { order = -1 } } },
@@ -433,7 +439,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Long ago, an orc named Gul'dan gave ogres the fel magic and made them clever and cruel. Ogron's grandfather tell stories of it, and they are bad stories, so Ogron hope your stories end better." } },
+      lines = {
+        { id = "xlock_default", text = "Long ago, an orc named Gul'dan gave ogres the fel magic and made them clever and cruel. Ogron's grandfather tell stories of it, and they are bad stories, so Ogron hope your stories end better." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Long ago, an orc named Gul'dan gave ogres the fel magic and made them clever and cruel. Ogron's grandfather tell bad stories of it, and Ogron think your demon is in some of them, because it look at Ogron like it remember, so Ogron hope your stories end better." },
+      },
       choices = {
         { text = "My magic serves the Alliance. It won't hurt you, Ogron.", next = "BACK", reply = "Ogron glad, and Ogron believe you. Ogron hope your story is a good one.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power, Ogron. Gul'dan just used it well.", next = "BACK", reply = "Gul'dan use it, yes, and look what happen to ogres. Ogron not think that is well.", fx = { align = { light = -1 } } },
@@ -630,7 +639,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Raptors, mostly, and Horde scouts who say they're only passing through, and a deal fewer travellers than ought to come down this road. I keep my orders and I watch the north, and I don't ask what happens in Theramore after I've sent a report." } },
+      lines = {
+        { id = "xlock_default", text = "Raptors, mostly, and Horde scouts who say they're only passing through, and a deal fewer travellers than ought to come down this road. I keep my orders and I watch the north, and I don't ask what happens in Theramore after I've sent a report." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Raptors, mostly, and Horde scouts, and fewer travellers than ought to come down this road, and you've brought something I'll have to put in my report. I keep my orders and I watch the north, and I'll write down that demon of yours like everything else, though I'll leave out how it looked at me." },
+      },
       choices = {
         { text = "Good. Orders are what keep a post like this alive.", next = "BACK", reply = "They do, and I'll keep to them as long as I'm here. Somebody's got to watch the north.", fx = { align = { order = 1 } } },
         { text = "Maybe you should ask. Orders aren't everything.", next = "BACK", reply = "Maybe I should, and maybe I'd not like the answers. I'll keep my head down and my eyes on the road.", fx = { align = { order = -1 } } },
@@ -814,7 +826,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because demon do what boss says, and Stonemaul ogres argue all day about the food. A demon would carry the meat, smash the black dragon's children, and never once ask Mok'Morokk for more gold." } },
+      lines = {
+        { id = "xlock_default", text = "Because demon do what boss says, and Stonemaul ogres argue all day about the food. A demon would carry the meat, smash the black dragon's children, and never once ask Mok'Morokk for more gold." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because demon do what boss says, like that one at your feet, and Stonemaul ogres argue all day about the food. Mok'Morokk want one just like it, to carry meat and smash dragon children and never ask for more gold, so you tell Mok'Morokk how much it cost." },
+      },
       choices = {
         { text = "Demons serve no one for long, Overlord. Trust your ogres.", next = "BACK", reply = "Hmph. Ogres argue, but ogres not eat Mok'Morokk. Maybe you right.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A good demon is worth ten ogres. You're not wrong.", next = "BACK", reply = "Ha! See? Small one agree. Mok'Morokk ask orc boss for demon tomorrow.", fx = { align = { order = -1 } } },
@@ -1016,7 +1031,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Gul'dan bargained with the dark powers and poured them into ogres to make the first magi, so yes, our power has a fel root. Draz'Zilb has spent his life making it grow into something else, and he will thank you not to water the old root." } },
+      lines = {
+        { id = "xlock_default", text = "Gul'dan bargained with the dark powers and poured them into ogres to make the first magi, so yes, our power has a fel root. Draz'Zilb has spent his life making it grow into something else, and he will thank you not to water the old root." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Gul'dan poured the dark powers into ogres to make the first magi, so yes, our power has a fel root, and Draz'Zilb can feel it stir now that your demon is near. Draz'Zilb has spent his life making it grow into something else, and he will thank you to keep that creature from watering the old root." },
+      },
       choices = {
         { text = "The root is the strength. Embrace what Gul'dan gave you.", next = "BACK", reply = "I have heard that argument before, small one, and it ended in Gul'dan's ruin. I will tend my own root, thank you.", fx = { align = { light = -1 } } },
         { text = "You've grown past it. That takes more strength than power does.", next = "BACK", reply = "Thank you, small one, it does, and few ever notice. I will keep growing, and hope it never needs watering.", fx = { affinity = 1, align = { light = 1 } } },

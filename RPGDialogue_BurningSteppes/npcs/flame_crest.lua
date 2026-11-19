@@ -94,7 +94,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everythin' worries me, an' that's what the ale's for. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." } },
+      lines = {
+        { id = "xlock_default", text = "Everythin' worries me, an' that's what the ale's for. The Dark Irons up there got intae bed wi' fire an' sorcery once, an' look what crawled out, so ye'll forgive an old dwarf for keepin' his ale an' his beard well away from yer wee friend." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everythin' worries me, an' that's what the ale's for, an' I'll need a deal more of it wi' yer demon starin' at my mug. The Dark Irons got intae bed wi' fire an' sorcery once, an' look what crawled out, so keep that thing well away from my beard." },
+      },
       choices = {
         { text = "My imp keeps to heel. Your beard's safe.", next = "BACK", reply = "Good, because I've had my beard set alight enough this year. Keep it on its leash an' we'll be friends.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little fel never hurt anyone's ale, John.", next = "BACK", reply = "That's what the Dark Irons said, an' look at their mountain now. Keep it away from my jug, please.", fx = { align = { order = -1 } } },
@@ -733,7 +736,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster, and I'd pay it in coal. The whelps keep scorching my workbench, you see, and if I can build somethin' an imp can't burn through, I'll have something a whelp can't either, which is the theory." } },
+      lines = {
+        { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster, and I'd pay it in coal. The whelps keep scorching my workbench, you see, and if I can build somethin' an imp can't burn through, I'll have something a whelp can't either, which is the theory." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only a little, and only if it volunteers, and your {pet} is lookin' at my furnace like it's thinkin' it over already. I'd pay it in coal, since I'm a scientist and not a monster, because if I can build somethin' a demon can't wreck, I'll have somethin' a whelp can't either." },
+      },
       choices = {
         { text = "My imp isn't a test subject, Tinkee.", next = "BACK", reply = "Oh, of course not, pal, sorry, I just thought it might like a hobby. Never mind the coal.", fx = { align = { light = 1 } } },
         { text = "Go ahead. It could use the discipline.", next = "BACK", reply = "Splendid! I'll start with a small fire, very small, and work up from there. Thank you, pal.", fx = { affinity = 1, align = { light = -1 } } },
@@ -986,7 +992,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anybody anything, least of all somethin' that lives in a fire and charges in souls. Find him yourself if you like, pal, and leave the imp out of the family business." } },
+      lines = {
+        { id = "xlock_default", text = "Could it? Maybe, but then I'd owe a demon a favour, and the Screwspigots don't owe anybody anything, least of all somethin' that lives in a fire and charges in souls. Find him yourself if you like, pal, and leave the imp out of the family business." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Could it? Maybe, but then I'd owe a demon a favour, and from the way yours is lookin' at me it already thinks I do. The Screwspigots don't owe anybody anything, least of all somethin' that charges in souls, so find Ribbly yourself, pal, and keep that thing out of the family business." },
+      },
       choices = {
         { text = "Then I'll find him myself, no demons involved.", next = "BACK", reply = "Good, and I'll take your word on it. Leave the imp outside, pal.", fx = { align = { light = 1 } } },
         { text = "Use every tool you've got, Yuka. Demons included.", next = "BACK", reply = "Demons, pal? I've got enough debts without owin' something that lives in a fire. No, thanks.", fx = { align = { light = -1 } } },
@@ -1666,7 +1675,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, and they've no Thrall to tell them no, which is the difference that matters. Keep your demons on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's." } },
+      lines = {
+        { id = "xlock_default", text = "They do, and they've no Thrall to tell them no, which is the difference that matters. Keep your demons on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they've no Thrall to tell them no, and a demon at your side on this perch looks exactly like one of theirs from the air. Keep it on a short chain while you're at Flame Crest, so nobody mistakes you for one of Rend's and puts a spear through you both." },
+      },
       choices = {
         { text = "I'll never be like Rend's warlocks. Mark that.", next = "BACK", reply = "Good, and I'll take your word on it. The riders will too.", fx = { align = { light = 1 } } },
         { text = "Rend's warlocks have power worth learning from.", next = "BACK", reply = "They have power, and they've paid for it in their souls. Learn carefully, if you must.", fx = { align = { light = -1 } } },

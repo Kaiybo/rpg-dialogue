@@ -1142,6 +1142,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not much frightens me anymore, friend, after losing the farm and sleeping out here through a Stormwind winter. Your little friend looks like it's eaten better than I have this week, mind, and if it can spare a crust, I'll take it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much frightens me anymore, friend, after losing the farm and sleeping out here through a Stormwind winter. I'll say this for your {pet}, it gives off more warmth than my blanket, so if you're stopping a while, I'd not mind it standing a touch closer." },
       },
       choices = {
         { text = "Here's a coin for you, Topper, and nothing for the imp.", next = "xlock2", fx = { align = { light = 1 } } },

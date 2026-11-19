@@ -104,7 +104,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle, which still sold for nine silver. I've learned to look at everything twice, and when in doubt, I call the Bruisers and let them open it." } },
+      lines = {
+        { id = "xlock_default", text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle, which still sold for nine silver. I've learned to look at everything twice, and when in doubt, I call the Bruisers and let them open it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle. Yours is no beetle, though, and it's already reaching for the lot table, so keep it off the merchandise or I'll call the Bruisers to bid on it." },
+      },
       choices = {
         { text = "Sensible rules. I'll keep to them.", next = "BACK", reply = "A warlock who keeps the rules, pal, now that's a rare lot, and I'll be glad to have you bidding as long as your little friend stays outside.", fx = { align = { order = 1 } } },
         { text = "Rules like that cost you the best sales, Beardo.", next = "BACK", reply = "And they save me from the worst explosions, friend, so I'll lose the odd sale and keep my eyebrows, which I'm rather attached to.", fx = { align = { order = -1 } } },
@@ -276,7 +279,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then it did something to that shade that looked an awful lot like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." } },
+      lines = {
+        { id = "xlock_default", text = "Then it did something to that shade that looked an awful lot like eating, and I'm not paying the Water Company to cool beasts that don't need cooling. Keep your demon with you, pal, and keep it out of the sun for your own sake." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then it did something to that shade that looked an awful lot like eating, and your {pet} is giving my stable the same hungry look. I'm not paying the Water Company to cool beasts that don't need cooling, so keep it with you and out of my stalls." },
+      },
       choices = {
         { text = "My demons are my business, not yours.", next = "BACK", reply = "It's your business till it eats my shade, pal, and then it's my business and my invoice, so let's keep it out of my stable.", fx = { align = { order = -1 } } },
         { text = "Fair. I'll keep my servant with me.", next = "BACK", reply = "Much obliged, friend, and the stable's yours anytime you need it, so long as the little fellow sits with you and not with my cats.", fx = { affinity = 1, align = { order = 1 } } },
@@ -506,7 +512,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll admit I've wondered, because they don't mind heat, they work for nothing and they're small enough to fit into the boilers. But the one time I tried it, the imp set the bellows on fire and laughed, and I don't think it was on my side, or on my payroll." } },
+      lines = {
+        { id = "xlock_default", text = "I'll admit I've wondered, because they don't mind heat, they work for nothing and they're small enough to fit into the boilers. But the one time I tried it, the imp set the bellows on fire and laughed, and I don't think it was on my side, or on my payroll." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll admit I've wondered, because they don't mind heat and they work for nothing. But your demon's been staring at my boilers since you walked in, and the last one I let near them set the bellows on fire and laughed, so it stays well clear of the shop floor." },
+      },
       choices = {
         { text = "Demons don't belong in workshops. Leave it be.", next = "BACK", reply = "Couldn't agree more, friend, and the bellows agree too, wherever they landed after that imp got through with them.", fx = { align = { order = 1 } } },
         { text = "I could train mine to help, given time.", next = "BACK", reply = "You can try, pal, but you'll do it outside my workshop and well away from my bellows, because I can't afford another set.", fx = { align = { order = -1 } } },
@@ -701,7 +710,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every warlock who's tried tells me the same, so I'd guess so. Voidwalkers are strong enough, but they just stand there looking at the rock, and imps only want to set it on fire, which doesn't help anyone get the ore out." } },
+      lines = {
+        { id = "xlock_default", text = "Every warlock who's tried tells me the same, so I'd guess so. Voidwalkers are strong enough, but they just stand there looking at the rock, and imps only want to set it on fire, which doesn't help anyone get the ore out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every warlock who's tried tells me the same, so I'd guess so. Yours is standing over my ore cart like it's thinking about it, but I've yet to see a demon swing a pick, so go ahead and prove me wrong or let it keep staring at the rock." },
+      },
       choices = {
         { text = "A pick and honest sweat, then. I'll learn it properly.", next = "BACK", reply = "Now there's a smart one, friend, and I'll teach you the swing that saves your back, because the ore won't come out by itself.", fx = { align = { order = 1 } } },
         { text = "Mine could learn. It only needs the right orders.", next = "BACK", reply = "I'll believe it when I see an imp dig without setting the hill on fire, pal, and I'll sell tickets to the show.", fx = { align = { order = -1 } } },

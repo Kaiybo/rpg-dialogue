@@ -32,7 +32,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Of course it is, because a demon's real and Umi's yeti is just fur on a pile of gears! Not that I'd want it in my room, so if it starts sniffing about my door, I'll scream, and that'll only be because I'm being polite." } },
+      lines = {
+        { id = "xlock_default", text = "Of course it is, because a demon's real and Umi's yeti is just fur on a pile of gears! Not that I'd want it in my room, so if it starts sniffing about my door, I'll scream, and that'll only be because I'm being polite." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of course it is, because the yeti's just gears, and that thing of yours is looking at me like it knows what my insides taste like! I'm not screaming yet, but I'm thinking about it very hard, so maybe steer it away from my door." },
+      },
       choices = {
         { text = "A demon is nothing to laugh about, Legacki. Keep away from mine.", next = "BACK", reply = "Oh, don't be so serious, darling, it's terribly bad for the complexion. I'll keep my distance from your little pet if you keep it away from my good rug.", fx = { align = { light = 1 } } },
         { text = "Want me to set my demon on Umi's yeti? It'd be funny.", next = "BACK", reply = "Ooh, now that's a proposal I'd pay to see, darling, though I'll deny I ever said so. Just make sure Umi doesn't know where the sparks came from.", fx = { align = { light = -1 } } },
@@ -223,7 +226,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "An imp got into my packs in Booty Bay, years back, and set fire to a month of work just to see the colours. I don't blame the warlock entirely, since the little beast had a mind of its own, but I do keep a bucket of snow by the door now, and I'm not too proud to use it." } },
+      lines = {
+        { id = "xlock_default", text = "An imp got into my packs in Booty Bay, years back, and set fire to a month of work just to see the colours. I don't blame the warlock entirely, since the little beast had a mind of its own, but I do keep a bucket of snow by the door now, and I'm not too proud to use it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, in Booty Bay, and I've kept a bucket of snow by the door ever since, which you'll notice I've just moved a little closer. I don't blame you for what some other warlock's demon did, but yours is standing right beside my schematics, and I'd feel a great deal better if it weren't." },
+      },
       choices = {
         { text = "A demon's master answers for it. I'll keep mine in hand.", next = "BACK", reply = "Exactly right, and I wish more warlocks thought as you do. A leash costs nothing, and a month of notes is a month I'll never get back.", fx = { align = { honor = 1 } } },
         { text = "Imps will be imps. You should have warded your packs.", next = "BACK", reply = "Warded them? Against an imp? I'd have needed a forty-percent thicker canvas and a binding glyph I couldn't afford, so no, friend, I'd rather the warlock did his job.", fx = { align = { honor = -1 } } },
@@ -460,7 +466,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, I don't, though I've tried to. The men who brought the plague to Lordaeron dabbled in the same things you do, and it's hard to look at a demon and not think of what came over the hills toward Darrowshire. But if you've been into the Plaguelands and seen my family's village, I'd hear it from anyone, even you." } },
+      lines = {
+        { id = "xlock_default", text = "No, I don't, though I've tried to. The men who brought the plague to Lordaeron dabbled in the same things you do, and it's hard to look at a demon and not think of what came over the hills toward Darrowshire. But if you've been into the Plaguelands and seen my family's village, I'd hear it from anyone, even you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, I don't, though I've tried to, and it's harder with that thing standing there and that sulphur smell coming off it. The men who brought the plague to Lordaeron dabbled in the same things you do, but if you've seen Darrowshire, I'd hear it from anyone, even you and your servant." },
+      },
       choices = {
         { text = "Fear is fair. I'll prove I'm nothing like the Cult.", next = "BACK", reply = "Then I'll try to see it, I promise you. Only you'll understand if I watch your little friend more closely than I watch you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. The Cult just used it badly.", next = "BACK", reply = "That's exactly what they said, I think, before the plague. Please be careful with it, for all our sakes.", fx = { align = { light = -1 } } },
@@ -791,7 +800,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Thaurissan summoned him to win a war against Ironforge, and the Firelord has held the Dark Iron ever since. The Thorium Brotherhood are those of us who chose the forge over the chains, so you will forgive me, ant, if I think little of anyone who bargains with fire for a living." } },
+      lines = {
+        { id = "xlock_default", text = "Thaurissan summoned him to win a war against Ironforge, and the Firelord has held the Dark Iron ever since. The Thorium Brotherhood are those of us who chose the forge over the chains, so you will forgive me, ant, if I think little of anyone who bargains with fire for a living." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Thaurissan called him up to win a war against Ironforge, and the Firelord has held the Dark Iron ever since, so you'll forgive me if I mislike that heat at your heel, ant. It smells like the Molten Core to me, and the Thorium Brotherhood are those of us who walked out of that fire." },
+      },
       choices = {
         { text = "Your kin made a bad bargain. I'll make better ones.", next = "BACK", reply = "Every warlock says that, and every one of them is wrong, eventually. My people were proud too, before the fire swallowed them.", fx = { align = { light = -1 } } },
         { text = "You chose rightly. No power is worth those chains.", next = "BACK", reply = "We did, and it cost us everything but the hammer. I'd sooner freeze up here with an honest anvil than sweat down there with Ragnaros breathing on my neck.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1002,7 +1014,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I might, if the warlock did not send the demon in to do the killing. A beast of Winterspring deserves to die facing the one who hunts it, and there is no honour in a death dealt by something that never lived at all." } },
+      lines = {
+        { id = "xlock_default", text = "I might, if the warlock did not send the demon in to do the killing. A beast of Winterspring deserves to die facing the one who hunts it, and there is no honour in a death dealt by something that never lived at all." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I might, if the warlock did not send the demon in to do the killing, and I see you have brought yours to listen. A beast of Winterspring deserves to die facing its hunter, and that thing has never lived, so it can do nothing for a saber but end it without honour." },
+      },
       choices = {
         { text = "Then I'll face the beast myself, and leave my demon behind.", next = "BACK", reply = "Then you will learn the beast, and the beast will learn you, and that is the hunt. Go well, and may the Earth Mother guide your aim.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A kill's a kill. The beast won't care who struck it.", next = "BACK", reply = "The beast will not care, but you will, if you have any heart in you. A death given by another's hand teaches you nothing about yourself.", fx = { align = { honor = -1 } } },
@@ -1274,7 +1289,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They don't refuse, but they grumble and snap, and an angry wind rider over the mountains between here and Felwood is a hard flight. Keep your demon unsummoned until you land and we'll all get along fine." } },
+      lines = {
+        { id = "xlock_default", text = "They don't refuse, but they grumble and snap, and an angry wind rider over the mountains between here and Felwood is a hard flight. Keep your demon unsummoned until you land and we'll all get along fine." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They don't refuse, but listen to them now, all snapping and pulling at their tethers since your demon came up the path. An angry wind rider is a hard flight over the mountains, so send it back where it came from before you mount, and we'll all get along fine." },
+      },
       choices = {
         { text = "I'll keep my demon away. The beasts come first.", next = "BACK", reply = "Then you'll fly smoother, and so will the beast. They passed over Felwood on the way up here, and they still shy at anything that smells green.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon stays with me. They'll get used to it.", next = "BACK", reply = "They won't, but they'll fly you anyway, and you'll hear every growl of it. Hold tight, warlock.", fx = { affinity = -1, align = { order = -1 } } },
@@ -1406,7 +1424,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They would carry you, because they are well trained, but they would shiver all the way to Talonbranch Glade, and Felwood has taught them to fear the fel. I've watched good birds go sick from that forest, so you'll understand why I'm careful about what comes near them." } },
+      lines = {
+        { id = "xlock_default", text = "They would carry you, because they are well trained, but they would shiver all the way to Talonbranch Glade, and Felwood has taught them to fear the fel. I've watched good birds go sick from that forest, so you'll understand why I'm careful about what comes near them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They would carry you, but look how they draw back from the creature beside you, and that is before it has come near the roost. Felwood taught them to fear the fel, and I have watched good birds go sick from that forest, so I will ask you to dismiss it before you climb up." },
+      },
       choices = {
         { text = "I'll dismiss my demon. The birds have suffered enough.", next = "BACK", reply = "Thank you, and they'll fly you gently for it, I promise. The birds that came through Felwood still won't eat if they smell the fel on a traveller.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon is no threat to them. Your fear is misplaced.", next = "BACK", reply = "Perhaps it is not, to you, but they have seen what the fel did to their forest. A bird's fear is older than your demon.", fx = { align = { light = -1 } } },

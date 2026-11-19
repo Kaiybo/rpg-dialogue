@@ -121,7 +121,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid eventually, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." } },
+      lines = {
+        { id = "xlock_default", text = "Enough to stay out of it, dearie, for every warlock I've known paid eventually, and the price was never coin. Seemings are safer, since the worst a bad illusion ever does is show you your own face." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough to stay out of it, dearie, and enough to see the bill already written in the way your demon watches you. Every warlock I've known paid eventually, and the price was never coin, so a seeming's the safer trade, since the worst it does is show you your own face." },
+      },
       choices = {
         { text = "I'll stop before the price comes due.", next = "BACK", reply = "They all say that, dearie, and some of them even manage it. I'll light a candle for you, in case.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I know the price, and I'll pay it gladly.", next = "BACK", reply = "Then pay it, and may it be cheap. I'll not be at your side when the bill comes.", fx = { align = { light = -1 } } },
@@ -251,7 +254,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." } },
+      lines = {
+        { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, I read all sorts, and I've always been good at guessing how stories end, and your demon has the look of a character who's waiting for the last chapter. The ones about people who bargain with things from beyond tend to end badly, so keep a firm hand on it, because I'd very much like yours to be the exception." },
+      },
       choices = {
         { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", reply = "Good! I'd very much like your story to end well, and I'm usually right about these things.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My story's mine to write. I'll take the risk.", next = "BACK", reply = "It is, and I'll be interested to see how it goes. Do be careful with the ending.", fx = { align = { light = -1 } } },

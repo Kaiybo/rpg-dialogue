@@ -58,7 +58,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
+      lines = {
+        { id = "xlock_default", text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, up from the inn cellar where Maximillian Crowe keeps his students, and they always want a dagger with some strange mark cut into it. Yours is hanging about my quench barrel as if it's thirsty, so call it off before the water starts to boil." },
+      },
       choices = {
         { text = "Right. A smith should keep his forge clean.", next = "BACK", reply = "It should, and I'll keep mine that way. Find another smith for the marks.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", reply = "Superstitious, am I? Maybe so, but I sleep fine at night, and they can cut their own marks.", fx = { align = { light = -1 } } },

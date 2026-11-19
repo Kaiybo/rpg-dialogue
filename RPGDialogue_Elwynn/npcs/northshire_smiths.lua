@@ -77,7 +77,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." } },
+      lines = {
+        { id = "xlock_default", text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. The Brothers say every craft has its limits, and that's where mine is." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, but I've been asked, and I said no, because I'll not have my iron used to hold something that ought to be dead. Looking at that thing beside you now, I'm surer of it, because no cage of mine would hold those eyes, and I'd not want to be the smith who tried." },
+      },
       choices = {
         { text = "Your iron should stay clean, Godric. You're right to refuse.", next = "BACK", reply = "I'm glad somebody agrees, and gladder it's one of your sort. Bring me a lock to mend any day you like, but never a cage.", fx = { align = { light = 1 } } },
         { text = "A good cage keeps everyone safer. You should reconsider.", next = "BACK", reply = "Safer for whom, I'd ask, and I'll not lose sleep over the answer. Find yourself another smith, because my iron stays honest.", fx = { align = { light = -1 } } },
@@ -232,7 +235,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They come back with mud from the graves and soot from whatever they've been burning, and I spend more time mending their robes than the priests' and the mages' together. The Brothers say it's penance for selling to them, but I think it's just mud." } },
+      lines = {
+        { id = "xlock_default", text = "They come back with mud from the graves and soot from whatever they've been burning, and I spend more time mending their robes than the priests' and the mages' together. The Brothers say it's penance for selling to them, but I think it's just mud." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They come back with mud from the graves and soot from whatever they've been burning, and I'd wager the thing at your heel is where the soot comes from. Keep it away from my folded stock, because I spend more time mending your lot's robes than the priests' and the mages' together." },
+      },
       choices = {
         { text = "I'll take better care of your work, Dermot.", next = "BACK", reply = "That's very good of you, though I'll believe it when I see clean hems. A little less grave mud would do us both good.", fx = { align = { light = 1 } } },
         { text = "Robes are for wearing out. That's the trade.", next = "BACK", reply = "I suppose it is, though most trades don't wear out quite so fast as yours. I'll keep my needle busy either way.", fx = { align = { light = -1 } } },
@@ -346,7 +352,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. Drusilla La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." } },
+      lines = {
+        { id = "xlock_default", text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. Drusilla La Salle's students always want somethin' curved an' wicked-lookin', an' I tell them a straight blade cuts just as deep an' doesn't make the guards nervous." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A plain dagger, {g:lad|lass}, for the times when the spell fails an' the wolf doesn't. An' keep yer {pet} back from my anvil, because it's been glarin' at the steel like it's got opinions, an' a straight blade doesn't care what a demon thinks of it." },
+      },
       choices = {
         { text = "Plain it is. I've no need to frighten anyone.", next = "BACK", reply = "Sensible, an' the guards'll thank ye for it. A plain blade does its work an' nobody stares at ye on the road.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take the wicked-looking one. Fear has its uses.", next = "BACK", reply = "Fear's a fine tool till it makes the guards draw on ye. I'll sell it ye, but dinnae come cryin' when ye're stopped at every gate.", fx = { align = { light = -1 } } },
@@ -559,7 +568,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." } },
+      lines = {
+        { id = "xlock_default", text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I worry that your path takes you further from it every day. I'll still mend you if you come to me hurt, because that's what I'm here for." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't think the Light rejects anyone, but it doesn't always reach them, and I can feel it draw back from the creature standing at your side. I'll still mend you if you come to me hurt, though I'll ask you to send that thing away before I lay hands on you." },
+      },
       choices = {
         { text = "I'm grateful for your mercy, Brother. I'll remember it.", next = "BACK", reply = "I hope you will, and I hope you'll come to me before you need to. I walk past the graveyard gate every evening, whatever you've been doing.", fx = { align = { light = 1 } } },
         { text = "I don't need the Light. My power answers to me.", next = "BACK", reply = "Then I'll pray for you all the same, and you needn't thank me for it. Come back if your power ever fails you.", fx = { align = { light = -1 } } },

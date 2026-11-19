@@ -116,6 +116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, warlock, though I'd still thank you to keep your servant out of my ditch, because it scratches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, warlock, but your servant is standing in my ditch as we speak, so would you please call it out before it scratches the sides in?" },
       },
       choices = {
         { text = "The druids have reasons to watch me. Not you.", next = "BACK", reply = "That is a little hurtful, even if it is true. I suppose a ditch is not quite as alarming as whatever that is lurking behind you.", fx = { align = { order = 1 } } },
@@ -338,6 +339,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. I'll tell you plainly that if your demon so much as turns toward a student of mine, I'll have my blade in it before it finishes turning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Both, and with good reason, since the Highborne who called the Legion into this world began as curious as you. Your demon is watching my students right now, and I'll tell you plainly that if it so much as turns toward one of them, I'll have my blade in it before it finishes turning." },
       },
       choices = {
         { text = "Fair. I'll keep it leashed while I'm here.", next = "BACK", reply = "Good, because I would hate to have to explain a dead servant to the Sentinels. Keep it closer than your purse.", fx = { align = { light = 1 } } },
@@ -556,6 +558,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A hunter's companion is bound by trust and freely given, while your servant is bound by chains and hates you for them. The forest knows the difference, and you'll find every beast in Teldrassil does too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A hunter's companion is bound by trust and freely given, while your servant is bound by chains and hates you for them. Watch the way {pet} looks at you when you turn your back, and then tell me the forest is wrong to know the difference." },
       },
       choices = {
         { text = "Then I'll treat my servant with care, at least.", next = "BACK", reply = "That is a start, warlock, and more than most of your kind offer. Even a chained thing feels kindness.", fx = { align = { light = 1 } } },
@@ -860,6 +863,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "There is, slowly, and so Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, so you'll understand why I do not offer you tea." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There is, slowly, and so Felwood still has druids working at its edges instead of only graves. It takes a hundred of us a year to cleanse what one careless summoner can burn in an afternoon, and the grass under your servant is browning as we speak, so you'll understand why I do not offer you tea." },
       },
       choices = {
         { text = "Then I'll be the careful kind of summoner.", next = "BACK", reply = "There is such a thing, though there are far too few of you. I will hold you to it, warlock.", fx = { align = { light = 1 } } },

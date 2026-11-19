@@ -72,7 +72,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." } },
+      lines = {
+        { id = "xlock_default", text = "There is a place for every soul who turns back, and I have seen a few do it, though not many and never easily. Until you do, I'll speak to you civilly, and I'll keep my hammer within reach." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There is a place for every soul who turns back, and I have seen a few do it, though never one who brought a demon into this hall to ask. Until you send it away, I'll speak to you civilly, and I'll keep my hammer within reach of it rather than of you." },
+      },
       choices = {
         { text = "Perhaps one day, my lord, though it won't come easy.", next = "BACK", reply = "Nothing worth having comes easy, and the Light least of all. My door will be open on the day you knock.", fx = { align = { light = 1 } } },
         { text = "I've no intention of turning back, my lord.", next = "BACK", reply = "Then I'll pray for you all the same, and keep my hammer close. That's as civil as I can be.", fx = { align = { light = -1 } } },
@@ -432,7 +435,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." } },
+      lines = {
+        { id = "xlock_default", text = "Every night, in the same breath as the paladins, because I don't know which of us needs it more. The Light is wider than Lord Shadowbreaker's patience, and I've always found that a comfort." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every night, in the same breath as the paladins, and tonight I'll add a word for the thing beside you, though I couldn't tell you whether it hears prayers at all. The Light is wider than Lord Shadowbreaker's patience, which is fortunate, because he's been watching your demon since you came in." },
+      },
       choices = {
         { text = "Pray for me, then. I'd be glad of it.", next = "BACK", reply = "Then I'll pray tonight, and every night after. The Light has room for you, warlock, whether or not you ask it.", fx = { align = { light = 1 } } },
         { text = "Save your prayers, Arthur, because I've chosen my path.", next = "BACK", reply = "I'll pray anyway, I'm afraid, and you needn't thank me. Some habits are kinder than they look.", fx = { align = { light = -1 } } },
@@ -628,6 +634,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll forge ye a fine dagger wi' a good balance, an' ye can do whatever ye like wi' it after it leaves my bench. What I willnae do is hammer fel-touched iron, for I tried it once, when I was young an' stupid, an' the metal sang at me for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll forge ye a fine dagger wi' good balance, but tell yer {pet} tae stop sniffin' round my quench barrel, for the water's started steamin' an' I've no' heated it. I tried hammerin' fel-touched iron once, when I was young an' stupid, an' the metal sang at me for a week, so I'll have none o' that here." },
       },
       choices = {
         { text = "A plain dagger, then, Elmore. I'll keep the fel away.", next = "BACK", reply = "That's a bargain, then. A clean dagger fer a clean hand, an' I'll make it the best in the District.", fx = { align = { light = 1 } } },
@@ -859,6 +866,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away for safekeeping. I miss them, I'll confess, because a library that only keeps the books it approves of is half a library, but I'd not let you near them now even if I had them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It did, once, in a locked case at the back, until the Archbishop's clerks came one winter and took them away. I'll confess I'm glad they're gone now, because your servant is looking along my shelves as though it knows exactly which gap they left, and I'd not like to see what it did if it found one." },
       },
       choices = {
         { text = "The clerks were right to take them, Milton.", next = "BACK", reply = "I suppose they were, and I've told myself so every winter since. I still miss the bindings, mind you.", fx = { align = { order = 1 } } },
@@ -1067,6 +1075,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "All sorts buy my cheese, and I pay very close attention to what they say while they're buying it, because a cheesemaker hears all kinds of things. The folk from the Lamb buy the strongest cheddar I have, and they talk more than they think, so I'm very fond of them in my way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "All sorts buy my cheese, and the folk from the Lamb buy the strongest cheddar I have and talk more than they think. Your demon hasn't said a word since you came in, mind, but it's listened to every one of mine, and I'm not used to being the one who's overheard." },
       },
       choices = {
         { text = "Then you'll hear only good things from me, Elling.", next = "BACK", reply = "I'm sure I will, friend, though I'll be listening all the same. It's a cheesemaker's habit.", fx = { align = { order = 1 } } },

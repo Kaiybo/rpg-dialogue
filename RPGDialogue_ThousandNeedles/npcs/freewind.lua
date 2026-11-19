@@ -127,7 +127,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." } },
+      lines = { { id = "xlock_default", text = "I think power that answers to no spirit is a dangerous thing, wherever it comes from. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so I will not turn away any weapon that faces the canyon." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think power that answers to no spirit is a dangerous thing, and that one at your heel is watching the canyon from my lookout like it owns the place. Still, the Warchief accepts your kind, and the Galak raid whatever walks below us, so let it watch the canyon and not my braves." } },
       choices = {
         { text = "My power is a weapon. I aim it where it's needed.", next = "BACK", reply = "Aim it well, then, and aim it below, because the Galak have earned it and my people have not.", fx = { align = { light = -1 } } },
         { text = "I understand your caution. I'll earn your trust.", next = "BACK", reply = "Then earn it on the canyon floor. I can see most of it from this ledge, and I will be watching.", fx = { affinity = 1, align = { light = 1 } } },
@@ -501,7 +501,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." } },
+      lines = { { id = "xlock_default", text = "I think I don't know, and that bothers me more than any answer would. You'd know the feel of a summoned thing better than I would, so if you ever walk near their hold, I'd value your opinion, even from a warlock." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think I don't know, and that bothers me more than any answer would. Your servant knows the feel of a summoned thing better than either of us, and I notice it keeps turning toward the Grimtotem hold, so I'd value its opinion as well as yours." } },
       choices = {
         { text = "I'll look. Knowledge serves us all.", next = "BACK", reply = "Thank you, and I will write down whatever you tell me, with your name beside it, if you like.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some questions are better left unasked, Rau.", next = "BACK", reply = "Perhaps, but I have never been good at leaving questions alone. My mother says I asked the lift operator why the rope was brown before I could walk.", fx = { align = { light = 1 } } },
@@ -977,7 +977,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, and that's what frightens me, because I want Arnak dead more than I want anything good. Tell me I'm wrong to think of it, and I'll believe you, because I want to believe someone." } },
+      lines = { { id = "xlock_default", text = "No, and that's what frightens me, because I want Arnak dead more than I want anything good. Tell me I'm wrong to think of it, and I'll believe you, because I want to believe someone." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, and that's what frightens me, because when your demon looks at me, I think it can see how much I want Arnak dead. Tell me I'm wrong to think of it, and I'll believe you, because I want someone to tell me I'm still better than that." } },
       choices = {
         { text = "You're not wrong. Let your anger burn.", next = "BACK", reply = "I hear you, and I want to, but I am afraid of what I will become if I let it burn too long.", fx = { align = { light = -1 } } },
         { text = "Don't go down that road. Hold to the Earth Mother.", next = "BACK", reply = "Thank you, I needed someone to say that, and I will try to hold on, even when it is very hard.", fx = { affinity = 1, align = { light = 1 } } },

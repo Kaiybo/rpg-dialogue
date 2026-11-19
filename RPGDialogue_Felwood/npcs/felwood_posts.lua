@@ -79,7 +79,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, because I ask it of them, and because the Alliance asks it of me. But I will check their feathers twice tonight, and I hope you understand that it is the fire I mistrust and not, perhaps, you." } },
+      lines = {
+        { id = "xlock_default", text = "They will, because I ask it of them, and because the Alliance asks it of me. But I will check their feathers twice tonight, and I hope you understand that it is the fire I mistrust and not, perhaps, you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I ask it of them, but I will have to ask very firmly, because they have gone stiff as stone since your demon came onto the landing. I will check their feathers twice tonight, and I hope you understand that it is the fire I mistrust and not, perhaps, you." },
+      },
       choices = {
         { text = "I understand. The fel ruined this land, and I won't excuse it.", next = "BACK", reply = "Thank you for saying it so plainly. The birds will still shy from you, but I'll talk them round.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. It burns whoever doesn't master it.", next = "BACK", reply = "It burns everyone, eventually, and the Legion proved that. I'll check their feathers all the same.", fx = { affinity = -1, align = { light = -1 } } },
@@ -261,7 +264,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's what Gul'dan's people said, and the Horde paid for it with its whole spirit until Thrall pulled us out. I'll fly you where you need to go, but you'll not summon anything on my landing, and that's not a request." } },
+      lines = {
+        { id = "xlock_default", text = "That's what Gul'dan's people said, and the Horde paid for it with its whole spirit until Thrall pulled us out. I'll fly you where you need to go, but you'll not summon anything on my landing, and that's not a request." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's what Gul'dan's people said, and the Horde paid for it with its whole spirit until Thrall pulled us out, and the sight of {pet} on my landing brings it back. I'll fly you where you need to go, but that thing goes back where it came from before you mount, and that's not a request." },
+      },
       choices = {
         { text = "You're right. We must never wear those chains again.", next = "BACK", reply = "Aye, never again, and Thrall made sure of it. I'm glad to hear a warlock say it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thrall's way is slow. Power wins wars.", next = "BACK", reply = "Slow, and it's kept us free. I'll fly you, but I'll be watching your hands all the way.", fx = { affinity = -1, align = { light = -1 } } },
@@ -440,7 +446,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." } },
+      lines = {
+        { id = "xlock_default", text = "I sell bread and water to anyone of the Horde who is hungry, and a warlock gets as hungry as anyone. What I cannot do is tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell bread and water to anyone of the Horde who is hungry, though I cannot sell to the creature at your side, because I do not know what it eats and would rather not. And I cannot tell you the earth here forgives, because it does not, and I would not want you to find out by drinking from it." },
+      },
       choices = {
         { text = "I'll respect this land. It has suffered enough.", next = "BACK", reply = "Thank you, friend. The land cannot say so, but I can, and I am grateful.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The earth doesn't get a say in what I do.", next = "BACK", reply = "No, it does not, but it remembers, and so do I. Walk carefully on it all the same.", fx = { affinity = -1, align = { light = -1 } } },

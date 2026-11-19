@@ -214,7 +214,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." } },
+      lines = { { id = "xlock_default", text = "The winds fear what does not belong to this world, and your power is one of those things. I do not judge you for it, but I will not pretend the land welcomes you as gladly as I do." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The winds fear what does not belong to this world, and they have died away entirely since your servant came to stand beside you. I do not judge you for it, but I will not pretend the land welcomes it, or you, as gladly as I do." } },
       choices = {
         { text = "Then the land will have to learn to live with me.", next = "BACK", reply = "Perhaps it must, but it will remember what you do, and I hope it remembers something kind.", fx = { align = { light = -1 } } },
         { text = "I'll walk carefully. I mean no harm here.", next = "BACK", reply = "Then walk carefully, and the winds may grow used to you, as I have, little by little.", fx = { affinity = 1, align = { light = 1 } } },
@@ -358,7 +358,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No, but power without the Earth Mother's blessing is power that goes astray. Magatha's followers forgot that, and now they kill their own kin for land that was never theirs to take." } },
+      lines = { { id = "xlock_default", text = "No, but power without the Earth Mother's blessing is power that goes astray. Magatha's followers forgot that, and now they kill their own kin for land that was never theirs to take." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, but power without the Earth Mother's blessing goes astray, and I can feel it straining at your side even now. Magatha's followers forgot that blessing, and now they kill their own kin for land that was never theirs to take, so hold yours tighter than they hold theirs." } },
       choices = {
         { text = "Power is power. I'll use it wisely.", next = "BACK", reply = "Then use it wisely, and remember those who forgot, because their road ends at Darkcloud Pinnacle.", fx = { align = { light = -1 } } },
         { text = "You're right. I'll remember the Earth Mother.", next = "BACK", reply = "Good, and the Earth Mother will remember you too, which is more than she will do for Magatha's followers.", fx = { affinity = 1, align = { light = 1 } } },
@@ -855,7 +855,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, fire's fire, and I'd love to know if demon fire burns hotter than coal, just for science, of course." } },
+      lines = { { id = "xlock_default", text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, fire's fire, and I'd love to know if demon fire burns hotter than coal, just for science, of course." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's a shame, because I'd have hired one if you'd said otherwise. Still, would your {pet} hold still a moment while I put a thermometer near it, because I'd love to know if demon heat burns hotter than coal, just for science, of course." } },
       choices = {
         { text = "Science shouldn't play with fel fire.", next = "BACK", reply = "You're right, of course, and I'll stick to coal, though I'll admit the idea was very tempting.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel fire would make your car unbeatable.", next = "BACK", reply = "Unbeatable and probably explosive, which is the kind of combination Pozzik would love, so I'll stay away from it.", fx = { align = { light = -1 } } },

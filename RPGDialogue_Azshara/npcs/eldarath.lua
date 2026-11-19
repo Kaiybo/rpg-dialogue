@@ -89,7 +89,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
+      lines = {
+        { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken, and even your demon has broken something, Ogtinc thinks. If you really wish to help, gather what the Circle needs, and use your power and your servant only against those who would sicken the land further." },
+      },
       choices = {
         { text = "I'll use my power only to protect the land.", next = "BACK", reply = "Then Ogtinc is glad of you, and the land will be too. That is how mending begins.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use my power as I see fit.", next = "BACK", reply = "Ogtinc cannot stop you, but Ogtinc hopes you will think of Felwood when you do.", fx = { affinity = -1, align = { light = -1 } } },
@@ -416,7 +419,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." } },
+      lines = {
+        { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, and your demon is the first customer who looks nervous at a pile of scales. I don't ask what a customer does with my wares, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
+      },
       choices = {
         { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", reply = "Good idea, and I'd like to keep my list short. Dragons have long memories and short tempers.", fx = { align = { order = 1 } } },
         { text = "Let them come. My demon could use the practice.", next = "BACK", reply = "Then I'll start your line on the list now, friend, and save myself the ink later. Good luck.", fx = { align = { order = -1 } } },
@@ -624,7 +630,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." } },
+      lines = {
+        { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten, chase, chew on, I'm not picky, and looking at your {pet}, I think it's done all three before breakfast! They thought they could knife a loyal goblin partner and keep his gear, so name your price for the pair of you, and I'll pay half of it." },
+      },
       choices = {
         { text = "Half? I'll do it for the full price, goblin.", next = "BACK", reply = "Full price? Partner, you drive a hard bargain, and I respect that in a business associate. Fine, full price, but no chewing on the gear.", fx = { align = { honor = -1 } } },
         { text = "I'll help you, but no demon chews on anyone.", next = "BACK", reply = "No chewing? Fine, fine, you're a stickler, but I can work with a stickler. Just bring back my stuff.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -872,7 +881,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see a demon sitting by the fire." } },
+      lines = {
+        { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see a demon sitting by the fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. Every man on this beach has gone quiet since your demon walked up, and they've seen enough monsters for one lifetime, so I'd ask you to send it away before they reach for their swords." },
+      },
       choices = {
         { text = "I'll keep my demon away from your crew, Captain.", next = "BACK", reply = "Thank you, and they'll thank you too, though they won't say it. They've had enough of monsters.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your crew should get used to it. The naga are worse.", next = "BACK", reply = "They're getting used to the naga, warlock, which is plenty. Keep it close, please.", fx = { align = { light = -1 } } },
@@ -1070,7 +1082,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So keep it on a short leash, if ye please, while I'm flyin' these rubbings north." } },
+      lines = {
+        { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So keep it on a short leash, if ye please, while I'm flyin' these rubbings north." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, an' once was plenty, an' if that one so much as looks at my flyer, ye'll be walkin' home! The last one got into the engine an' laughed the whole way down, so keep it well back from the propeller, if ye please, while I'm flyin' these rubbings north." },
+      },
       choices = {
         { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", reply = "Bless ye, an' my flyer thanks ye too. She's still got scorch marks from the last one.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My imp goes where it pleases. You'll manage.", next = "BACK", reply = "I'll manage, an' so will she, but if she catches fire, ye're walkin' home. Fair warnin'.", fx = { align = { order = -1 } } },

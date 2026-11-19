@@ -102,7 +102,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me when the ale barrels go cold in midsummer, which they do more than they should, and I'd swear one of them whispered once. Farley says not to ask, so I don't, but I pour quicker on the nights it whispers." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me when the ale barrels go cold in midsummer, which they do more than they should, and I'd swear one of them whispered once. Farley says not to ask, so I don't, but I pour quicker on the nights it whispers." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me when the ale barrels go cold in midsummer, and I'll swear the one behind me went cold the moment your demon came through the door. Farley says not to ask, so I won't, but I'd thank you to keep it away from the taps while I pour." },
+      },
       choices = {
         { text = "I'll make sure nothing below disturbs your barrels again.", next = "BACK", reply = "Would you? I'd be grateful, though I'll not ask how you'll manage it. I just want my barrels warm and quiet.", fx = { align = { light = 1 } } },
         { text = "A little whispering never hurt anyone. Pour and don't ask.", next = "BACK", reply = "Easy to say when it's not your cellar, friend. I'll keep pouring, but I'll pour faster on whispering nights.", fx = { align = { light = -1 } } },
@@ -254,7 +257,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about. I don't care what folk do in the cellar, but I do care that they pay, and your lot always pay, while the adventurers upstairs run up a slate and vanish to Westfall." } },
+      lines = {
+        { id = "xlock_default", text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about. I don't care what folk do in the cellar, but I do care that they pay, and your lot always pay, while the adventurers upstairs run up a slate and vanish to Westfall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles by the box, chalk, and once a whole sack of salt, which I didn't ask about, and none of them ever brought their demon up to the counter like you have. I don't care what it is so long as it doesn't touch the stock, because your lot always pay, and I'd hate to start charging for scorch marks." },
+      },
       choices = {
         { text = "A fair trader. I'll keep paying, Brog.", next = "BACK", reply = "Glad to hear it, because that's all I ask of anyone. What you do with the chalk is between you and the cellar.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If you don't care, I'll stop paying full price.", next = "BACK", reply = "Not caring isn't the same as being soft, friend. Full price, or the candles stay on the shelf.", fx = { align = { honor = -1 } } },
@@ -473,7 +479,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Farley says the cellar's damp, but damp doesn't turn beef grey overnight." } },
+      lines = {
+        { id = "xlock_default", text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Farley says the cellar's damp, but damp doesn't turn beef grey overnight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only when the meat goes off a day early, which it does more often than it should down at this end of the street. Your servant's been eyeing my hooks since it came in, and I'd swear the beef nearest it has gone grey already, so I'll ask you to step back from the counter." },
+      },
       choices = {
         { text = "I'll see whatever's spoiling your meat is dealt with.", next = "BACK", reply = "I'd be grateful for that, whatever it is you'll be doing. Just don't tell me about it.", fx = { align = { light = 1 } } },
         { text = "A little spoiled beef is the price of power nearby.", next = "BACK", reply = "Not my power, though, and not my beef. I'll keep complaining to Farley until something changes.", fx = { align = { light = -1 } } },
@@ -674,7 +683,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because I've a reputation to keep in Goldshire, and everyone knows there's something under the Lion's Pride that nobody talks about. I'd rather not be the shop that sells it what it needs." } },
+      lines = {
+        { id = "xlock_default", text = "Because I've a reputation to keep in Goldshire, and everyone knows there's something under the Lion's Pride that nobody talks about. I'd rather not be the shop that sells it what it needs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've a reputation to keep in Goldshire, and now half the street's watched your demon walk through my door. Everyone knows there's something under the Lion's Pride that nobody talks about, and I'd rather not be the shop that sells it what it needs." },
+      },
       choices = {
         { text = "Your reputation matters. I understand, Bouden.", next = "BACK", reply = "Thank you, and I'm glad you understand it's not personal. I'll sell you anything that isn't for the cellar.", fx = { align = { light = 1 } } },
         { text = "Your caution is costing you good business.", next = "BACK", reply = "It might be, but I'll not lose my good name for a few coppers. Goldshire talks, friend.", fx = { align = { light = -1 } } },
@@ -800,7 +812,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. He thanked me, and then his little demon chewed the left one, so I've not been asked again and I haven't offered." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a pair of gloves for one of Maximillian Crowe's students who kept burning his hands, and I lined them twice. His demon chewed the left one, and yours is giving my shield rack much the same look, so I'll ask you to keep it where I can see it." },
+      },
       choices = {
         { text = "You did him a kindness. He should have minded his imp.", next = "BACK", reply = "He should have, and I told him so, though the imp just grinned at me. I'll stick to customers without teeth.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps chew. You should have lined them three times.", next = "BACK", reply = "Three times, and it'd have chewed through all three, I'd wager. I'll leave the demons to someone else's needle.", fx = { align = { order = -1 } } },
@@ -1027,7 +1042,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. But steel is steel, and I've no right to tell you how to use it." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. But steel is steel, and I've no right to tell you how to use it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me a little, because a blade I've forged ought to be used on wolves or Defias, not on whatever goes on in that cellar. Your servant hasn't taken its eyes off my rack since you came in, and I'd sooner it did, but steel is steel, and I've no right to tell you how to use it." },
+      },
       choices = {
         { text = "I'll only use your steel to fight the Defias.", next = "BACK", reply = "I'd sleep easier for that, and I'll take you at your word. The Defias have earned your steel more than most.", fx = { align = { light = 1 } } },
         { text = "What I do in the cellar is my own affair, Corina.", next = "BACK", reply = "It is, and I said as much, though it doesn't stop me wondering. Pay for the blade and we'll leave it there.", fx = { align = { light = -1 } } },
@@ -1181,7 +1199,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enough to keep out of it. Corina sells to the soldiers and I sell to anyone, and those cellar folk buy their coats dark and their boots soft, and they never haggle, so they've plainly got other things on their minds." } },
+      lines = {
+        { id = "xlock_default", text = "Enough to keep out of it. Corina sells to the soldiers and I sell to anyone, and those cellar folk buy their coats dark and their boots soft, and they never haggle, so they've plainly got other things on their minds." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enough to keep out of it, and having seen what's followed you up from it, I'll keep out further. Those cellar folk buy their coats dark and their boots soft, and I'll sell you the same, so long as your {pet} doesn't go leaving a sulphur stink on the stock." },
+      },
       choices = {
         { text = "Some things are best left in the cellar.", next = "BACK", reply = "That's my view exactly, and I'll keep my nose out and my thread in. Coats and boots and no questions.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You'd learn a lot down there, Kurran. Come and see.", next = "BACK", reply = "Thank you, but I'll keep to my stall, where things only bite if they're moths. I've no wish to learn what's down there.", fx = { align = { light = -1 } } },
@@ -1404,7 +1425,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd do more than shy, because they'd kick down their stalls, and I've only so many boards. A horse can smell the cellar under the Lion's Pride from here, and they don't like it any more than I do." } },
+      lines = {
+        { id = "xlock_default", text = "They'd do more than shy, because they'd kick down their stalls, and I've only so many boards. A horse can smell the cellar under the Lion's Pride from here, and they don't like it any more than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd do more than shy, because they'd kick down their stalls, and you can hear them starting now that your demon's in the yard. A horse can smell the cellar under the Lion's Pride from here, and that thing smells of it ten times worse, so I'll ask you to take it back to the road." },
+      },
       choices = {
         { text = "Then I'll keep my demon away from your horses, Erma.", next = "BACK", reply = "Thank you, and I'll not ask what you've got. Keep it well away and we'll get on fine.", fx = { align = { light = 1 } } },
         { text = "Your horses will have to get used to it.", next = "BACK", reply = "They'll not get used to it, friend, they'll only get hurt. Keep your business away from my stalls.", fx = { align = { light = -1 } } },
@@ -1578,7 +1602,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." } },
+      lines = {
+        { id = "xlock_default", text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I tell them all the same thing: a bandage can only do so much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because your craft costs blood, as far as I can tell, and you pay it more freely than you should. I've bandaged more than one of Maximillian Crowe's students who'd cut too deep for a spell, and I can't help wondering how much of yours went into calling up the creature standing at your side." },
+      },
       choices = {
         { text = "I'll be more careful with my blood, Michelle.", next = "BACK", reply = "Good, because I'd rather not be patching you up after every spell. Come to me before it gets bad.", fx = { align = { light = 1 } } },
         { text = "Blood is a fair price for power. I'll pay it.", next = "BACK", reply = "Then you'll be paying it to me too, in linen and lost afternoons. I hope it's worth it.", fx = { align = { light = -1 } } },
@@ -2076,7 +2103,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." } },
+      lines = {
+        { id = "xlock_default", text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. It's a good thing for a busy head, friend, and I'd guess yours is busier than most." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think fishing suits anybody who can sit still and keep quiet, and your kind seem to have the keeping-quiet part already. Your demon's another matter, mind, because every fish in this pond has gone to the bottom since it came near the water." },
+      },
       choices = {
         { text = "It might do me good. I'll try it.", next = "BACK", reply = "That's all it asks of anyone, and the lake won't care what's in your books. Come down at dawn and I'll lend you a pole.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My head's busy for good reason. I've no time for ponds.", next = "BACK", reply = "I'd guess it is, and I'll not pry into why. The pond will still be here when your head quiets down.", fx = { align = { light = -1 } } },
@@ -2303,7 +2333,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Eagan says I should have asked what it was for, but I'd rather not know." } },
+      lines = {
+        { id = "xlock_default", text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Eagan says I should have asked what it was for, but I'd rather not know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A student from the cellar under the inn once asked me for a wolf skin with the heart left in, and I told him to find his own wolf. Now his sort bring their demons right up to my drying racks, and yours is watching the hides in a way I don't care for at all." },
+      },
       choices = {
         { text = "You were right to refuse him. That's a foul business.", next = "BACK", reply = "Thank you, because I've wondered since if I was too sharp with him. I'll not lose any sleep over it now.", fx = { align = { light = 1 } } },
         { text = "Every part of a beast has its uses. He wasn't wrong.", next = "BACK", reply = "He might not have been, but I didn't like his face. Find your own wolf, then, and leave mine be.", fx = { align = { light = -1 } } },
@@ -2434,7 +2467,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't. But leather's leather and coin's coin, and I'd sooner your sort walked about in good boots than came upstairs barefoot and frightened the guests." } },
+      lines = {
+        { id = "xlock_default", text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't. But leather's leather and coin's coin, and I'd sooner your sort walked about in good boots than came upstairs barefoot and frightened the guests." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I mind a little, because I've heard what goes on down in that cellar and wish I hadn't, and now one of the things from it is standing in my shop. But leather's leather and coin's coin, so keep your {pet} by the door while I fetch your boots, and we'll say no more about it." },
+      },
       choices = {
         { text = "You're right to mind, Adele. It's honest of you.", next = "BACK", reply = "It's kind of you to say, and it makes the minding easier. I'll sell you good boots, and gladly.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Coin is coin. Don't trouble yourself over it.", next = "BACK", reply = "I try not to, but it nags at me some nights. Still, the boots are good, so buy them and go on.", fx = { align = { light = -1 } } },

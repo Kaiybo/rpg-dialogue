@@ -218,6 +218,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I'd not want to be in the woods when it found one, since I can't decide which of the two I'd rather run from. Try it if you like, but try it in daylight, and somewhere a long way from me." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "A demon and a worgen fighting over the same patch of Silverpine sounds like the sort of thing the Dark Lady would enjoy hearing about. Go and try it, and I'd be glad to tell her the story myself." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'd not want to be in the woods when it found one, and having seen yours up close, I still can't decide which of the two I'd rather run from. Try it if you like, but try it in daylight, and somewhere a long way from me." },
       },
       choices = {
         { text = "I'll set it loose at night, where it hunts best.", next = "BACK", reply = "At night, then, and I'll be indoors. Do let me know which of them won.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -391,6 +392,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "An imp in Pyrewood would be noticed, since the villagers there are human by day and something else entirely by night, and both kinds would chase it. I'll keep my own eyes on the road, thank you, though I appreciate the thought." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock in Silverpine is farther from home than any of us, and I'll not turn down an extra pair of eyes. Keep your imp off my windowsill, though; it leaves scorch marks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anything of yours in Pyrewood would be noticed, since the villagers there are human by day and something else entirely by night. I'll keep my own eyes on the road, thank you, though your demon seems keen to keep its eyes on me, which I appreciate rather less." },
       },
       choices = {
         { text = "Then I'll go myself and keep the imp close.", next = "BACK", reply = "Close, yes, and quiet, and you might come back with your skin. Mind the moonrise.", fx = { affinity = 1, align = { order = 1 } } },
@@ -605,6 +607,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They'd tolerate it for about as long as it takes to throw both of you off, and I'd not blame them. Dismiss the thing before you mount, and the bat will carry you as gently as any of the dead." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You smell of sulphur and grave dirt in equal measure, and the bats don't care for either, though they'll put up with the second. Send the demon home before you fly, and we'll get along." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They'd tolerate it about as long as it takes to throw you both off, and I'd not blame them, because I feel the old shame in my own blood just looking at that thing. Dismiss it before you mount, and the bat will carry you as gently as any of the dead." },
       },
       choices = {
         { text = "I'll dismiss it first. The bats deserve that.", next = "BACK", reply = "Thank you. Bats can't stand the smell of brimstone, and neither, frankly, can I.", fx = { affinity = 1, align = { order = 1 } } },

@@ -553,7 +553,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." } },
+      lines = {
+        { id = "xlock_default", text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demons are a weapon too, and I would only ask what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I do, for the plague cannot sicken what is already dead, and I walk where living knights would choke. Your demon stands there like a weapon waiting to be drawn, so I would ask of you what I ask of myself, that you remember who you are when the weapon starts to feel like you." },
+      },
       choices = {
         { text = "I know who I am. The darkness doesn't change that.", next = "BACK", reply = "Good. Hold on to that, and the darkness will stay a tool and never become a master.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Maybe the weapon is who I am now.", next = "BACK", reply = "Then I'll pray it's a weapon pointed the right way. Be careful.", fx = { align = { light = -1 } } },

@@ -84,7 +84,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. I don't blame you for your trade, but I'd thank you to keep it on your side of the wall." } },
+      lines = {
+        { id = "xlock_default", text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. I don't blame you for your trade, but I'd thank you to keep it on your side of the wall." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Chanting, mostly, and once a laugh that wasn't anybody's, which put me off my bread for a week. Now that I see your demon watching me through the larder door, I've a fair idea whose laugh it was, so I'd thank you to keep it on your side of the wall." },
+      },
       choices = {
         { text = "Whatever laughed, I'll see it never troubles your kitchen.", next = "BACK", reply = "I'd be grateful, though I'll not ask how. My bread's been suffering for it.", fx = { align = { light = 1 } } },
         { text = "A cook should learn not to listen through walls.", next = "BACK", reply = "Easy to say when it's not your bread going stale from fright. I'll keep my ears where they are, thanks.", fx = { align = { light = -1 } } },
@@ -296,7 +299,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." } },
+      lines = {
+        { id = "xlock_default", text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. I keep walking because the bread won't sell itself, but I walk faster near Goldshire after dark." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm more frightened than I let on, because there are Defias in the hills and wolves by the river, and now there's whatever lives under the Lion's Pride. By the smell of brimstone, I'd say one of them is standing beside you this minute, so forgive me if I keep my basket on the far side." },
+      },
       choices = {
         { text = "I'll walk you past the dark stretches, if you like.", next = "BACK", reply = "Would you? I'd be glad of it, though I'll not tell Farley why. Just to the edge of town.", fx = { align = { light = 1 } } },
         { text = "Fear's a good teacher. Keep walking fast.", next = "BACK", reply = "I'll keep walking fast, then, and you keep your demons home. That's fair, isn't it?", fx = { align = { light = -1 } } },
@@ -609,7 +615,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." } },
+      lines = {
+        { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not curse them, exactly, only make them a bit less stubborn. Couldn't your {pet} just stand at the edge of the pond and give them a look, because it's already given me one, and I'd have jumped into a net myself." },
+      },
       choices = {
         { text = "Keep your line in, Matt. You'll catch something.", next = "BACK", reply = "I will, and they'll bite, they have to. I'll catch the biggest one ever.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A little nudge wouldn't hurt anyone. I'll think on it.", next = "BACK", reply = "Really? Don't tell Lee Brown. He says cheating makes the fish angry.", fx = { align = { light = -1 } } },

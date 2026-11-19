@@ -87,7 +87,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Warlord Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." } },
+      lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Warlord Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'm thinking about it again with yours standing here, because it would keep a better watch than half my grunts. Then I think about explaining a burned storehouse to Warlord Goretooth, and I stop, because coyotes I can shoot, but a demon that gets bored in the night is a problem I don't know how to track." },
+      },
       choices = {
         { text = "Use what works. A few burned sacks are worth it.", next = "BACK", reply = "Worth it until it's my storehouse, maybe. I'll think about it again when Goretooth's in a better mood.", fx = { align = { order = -1 } } },
         { text = "You're right. A guard you can't trust is no guard.", next = "BACK", reply = "That's what I told myself, and it's good to hear someone agree. Coyotes I can shoot; demons I can't.", fx = { align = { order = 1 } } },
@@ -352,7 +354,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." } },
+      lines = { { id = "xlock_default", text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and Jarkal have to live with the loa long after you leave. A soul in a stone be a soul that never reach the spirits, and that be a sad thing, even for an enemy." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Uneasy? No, mon, but the loa have opinions about what you be keeping in that bag, and louder ones about what you be keeping at your heel. A soul in a stone be a soul that never reach the spirits, and that one be looking at Jarkal like it want more of them, which be a sad thing, even for an enemy." },
+      },
       choices = {
         { text = "My enemies' souls serve me better than the spirits.", next = "BACK", reply = "They serve you, mon, until the day they don't. Jarkal just hope he not be standing near you on that day.", fx = { align = { light = -1 } } },
         { text = "I take only what I must, Jarkal.", next = "BACK", reply = "Good, mon, then Jarkal sleep easier tonight. Bwonsamdi already got enough reasons to come knocking round here.", fx = { affinity = 1, align = { light = 1 } } },

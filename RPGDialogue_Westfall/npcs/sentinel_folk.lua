@@ -478,6 +478,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll carry you, so long as your little friend stays put away while you ride, because a gryphon with fire on its back is a gryphon that goes wherever it likes. I had a gnome try it once, and he saw a lot more of Elwynn than he paid for." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, though I'll have to lead the birds round the far side of the hill first, because they've all fluffed up and turned their backs on that demon of yours. Send it off before you ride, or you'll see a lot more of Elwynn than you paid for, same as the gnome who tried it." },
       },
       choices = {
         { text = "Then I'll ride by your rules, Thor.", next = "BACK", reply = "Good, and the birds will thank you for it. Up you go.", fx = { align = { order = 1 } } },
@@ -931,6 +932,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A bowstring, maybe, if your imp chews through your satchel straps like I've heard they do. Otherwise you're wasting each other's time, though I'll say a warlock on Sentinel Hill is one more thing the Defias have to think about, and I like that well enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A bowstring, maybe, if your {pet} keeps eyeing my rack the way it is, because I've heard what your sort's servants do to satchel straps. Still, a warlock on Sentinel Hill is one more thing the Defias have to think about, and I like that well enough." },
       },
       choices = {
         { text = "I'll pay for any string, at your price.", next = "BACK", reply = "That's the right answer, and I'll take it. Strings are extra, as ever.", fx = { align = { honor = 1 } } },

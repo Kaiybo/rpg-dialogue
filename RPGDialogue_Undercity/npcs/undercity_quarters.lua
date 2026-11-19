@@ -175,6 +175,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They flinch because they can smell what you keep company with, and bats are more sensible than most folk about that sort of thing. Send the demon away before you ride, and they'll settle soon enough." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "They flinch at orcs anyway, since you smell of wolf, and the demon makes it twice as bad. Send it away before you ride, and they'll settle soon enough." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They flinch because they can smell what you keep company with, and with your demon standing right on the platform, half of them are trying to climb the walls. Send it away before you ride, and they'll settle soon enough." },
       },
       choices = {
         { text = "I'll dismiss it before I ride.", next = "BACK", reply = "Thank you, and the bats will be grateful. They're more sensible than people.", fx = { affinity = 1, align = { order = 1 } } },
@@ -335,6 +336,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Because the arcane asks you to understand the world, and your craft asks you to make deals with things that would eat it. I share a quarter with the warlocks and I'm civil to them, but civil isn't the same as respect." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "Kel'Thuzad was a scholar of the Kirin Tor before he was anything else, and he went from study to necromancy one small bargain at a time. So I watch every warlock in this quarter with that in mind." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the arcane asks you to understand the world, and your craft asks you to make deals with things like the one beside you, which would eat it. I'm civil to the warlocks I share a quarter with and I'll be civil to your servant, but civil isn't the same as respect." },
       },
       choices = {
         { text = "Fair. I'll keep my bargains careful and few.", next = "BACK", reply = "Careful and few, that's all I ask. I'll be civil to you, and perhaps a little more.", fx = { affinity = 1, align = { order = 1 } } },
@@ -567,6 +569,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "We tried once, but the imp kept setting the notes on fire, and Master Faranell decided the results weren't reproducible. Prisoners are tidier, if you must know, and they don't argue with the method." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "We tried once, and the imp set the notes on fire, so we went back to prisoners. I'd keep your demon well clear of my bench, unless you'd like it to become a footnote." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "We tried once, but the imp kept setting the notes on fire, and Master Faranell decided the results weren't reproducible. Yours may watch me work so long as it watches from over there, because prisoners are tidier, and they don't argue with the method." },
       },
       choices = {
         { text = "Prisoners or not, it's needed work, Zinge.", next = "BACK", reply = "It is, and someone has to do it. I'm glad not everyone looks at me sideways for it.", fx = { affinity = 1, align = { honor = -1 } } },

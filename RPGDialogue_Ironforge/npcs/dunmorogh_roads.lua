@@ -87,6 +87,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Scare them? One whiff o' brimstone an' they'd be over the fence an' halfway tae Gol'Bolar, an' I'd be countin' them till midnight. If ye want tae help, go up the mountain an' thin the yeti instead." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Scare them? Look at them, they've bunched up in the far corner o' the pen already, an' yer demon's no' even past the gate. One step closer an' they'd be over the fence an' halfway tae Gol'Bolar, so if ye want tae help, take it up the mountain an' thin the yeti instead." },
       },
       choices = {
         { text = "I'll keep it away and deal with the yeti.", next = "BACK", reply = "The rams thank ye too. If the beast's dealt wi', I might even forgive the brimstone smell when ye come back.", fx = { align = { order = 1 } } },
@@ -251,7 +252,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trust a warlock as far as I'd trust a frozen pond, which is only as far as I've tested it. Ye'll have tae walk a bit further wi' me before I say more." } },
+      lines = { { id = "xlock_default", text = "I'd trust a warlock as far as I'd trust a frozen pond, which is only as far as I've tested it. Ye'll have tae walk a bit further wi' me before I say more." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd trust a warlock as far as I'd trust a frozen pond, an' I'd trust what's walkin' at yer heel a good deal less, for it's been watchin' my back since we set out. Ye'll have tae walk a bit further wi' me before I say more, an' it'll walk in front, where I can see it." },
+      },
       choices = {
         { text = "Then I'll walk with you, and you'll see I'm sound.", next = "BACK", reply = "We'll see, then, an' I'll keep my eye on ye the whole way, but if ye prove sound, I'll admit it, an' I'll buy ye a mug in Kharanos.", fx = { align = { light = 1 } } },
         { text = "Trust doesn't matter out here. Only survival does.", next = "BACK", reply = "Out here, maybe, but survival's a lonely business without trust, an' I've seen too many dwarves freeze tae death alone tae believe ye.", fx = { align = { light = -1 } } },
@@ -473,6 +476,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and I've done the sums on what happens when the two meet! Steelgrill's Depot has had one explosion this season already, and the next one is not going to be mine." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they're full of very flammable things, and your servant is a very flammable sort of thing, and right now it's standing far too close to the nearest fuel cask! Steelgrill's Depot has had one explosion this season already, so would you kindly walk it backwards until I can't smell the sulphur anymore?" },
       },
       choices = {
         { text = "Understood. It stays far from the fuel.", next = "BACK", reply = "Thank you, really, because I've done the sums, and the sums don't end well for anybody, least of all the flier.", fx = { align = { order = 1 } } },
@@ -619,7 +623,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die clean." } },
+      lines = { { id = "xlock_default", text = "Because most o' yer lot reckon a curse beats a bullet, an' I'd argue the bullet's quicker. If ye keep a gun as well as yer demons, at least the troggs will die clean." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because most o' yer lot reckon a curse beats a bullet, an' that creature o' yours is lookin' at my rifles like they're toys, which tells me what it thinks o' honest powder. If ye keep a gun as well as yer demons, at least the troggs will die clean." },
+      },
       choices = {
         { text = "A clean shot is honest work. I'll keep one handy.", next = "BACK", reply = "That's sense, an' it's more than most o' yer lot will admit, so I'll find ye a wee barrel that sits nicely under a cloak.", fx = { align = { light = 1 } } },
         { text = "The curse is slower, Hegnar, and that's the point.", next = "BACK", reply = "Slower, aye, an' crueller too, an' I'll no' sell ye anythin' tae make it worse, so take yer business elsewhere for the curses.", fx = { align = { light = -1 } } },

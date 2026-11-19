@@ -542,7 +542,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Good allies and poor friends, as anyone in this ruined kingdom could tell you. The Scourge was built on bargains with darker things than yours, so use your demons on the cauldron guards, {class}, and keep your own bargains small." } },
+      lines = {
+        { id = "xlock_default", text = "Good allies and poor friends, as anyone in this ruined kingdom could tell you. The Scourge was built on bargains with darker things than yours, so use your demons on the cauldron guards, {class}, and keep your own bargains small." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Good allies and poor friends, and yours is watching me as though it knows which of the two it means to be. The Scourge was built on bargains with darker things, so use {pet} on the cauldron guards, {class}, and keep your own bargains small." },
+      },
       choices = {
         { text = "Small bargains are wise. I won't be another Kel'Thuzad.", next = "BACK", reply = "Good. Kel'Thuzad started small too, but he never knew when to stop.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power comes from large bargains. I'll take what I need.", next = "BACK", reply = "Then I'll be watching what you take, warlock, because so did the Cult of the Damned.", fx = { align = { light = -1 } } },
@@ -839,7 +842,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everything's a sample if you look at it properly, but I take your point and I withdraw the scalpel. The key to the Scholomance wants bones, not imps, and I've enough to do without a fire-sprite loose in my cabinet." } },
+      lines = {
+        { id = "xlock_default", text = "Everything's a sample if you look at it properly, but I take your point and I withdraw the scalpel. The key to the Scholomance wants bones, not imps, and I've enough to do without a fire-sprite loose in my cabinet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything's a sample if you look at it properly, but your demon is looking at my scalpel rather pointedly, so I take your point and I put it down. The key to the Scholomance wants bones, not demons, and I've enough to do without your servant loose in my cabinet." },
+      },
       choices = {
         { text = "Studying demons could teach us how to fight them.", next = "BACK", reply = "It could, it could, and I'd love to, but not today. Today it's bones.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Some things shouldn't be cut open, apothecary.", next = "BACK", reply = "Quite right, and the imp agrees, I think. The scalpel stays sheathed.", fx = { align = { light = 1 } } },
@@ -1080,7 +1086,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Heavens, no, I'm suggesting you burn it down, though I'd want the deeds out first. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so you'll find them very easy to hate." } },
+      lines = {
+        { id = "xlock_default", text = "Heavens, no, I'm suggesting you burn it down, though I'd want the deeds out first. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so you'll find them very easy to hate." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Heavens, no, I'm suggesting you burn it down, and your demon looks as though it would enjoy the work. Gandling keeps the halls, and his students are the kind of ambitious I recognise from family dinners, so do take the creature along, though I'd want the deeds out first." },
+      },
       choices = {
         { text = "Burn it all, deeds included. That school deserves nothing.", next = "BACK", reply = "Burn the deeds? You're as bad as Weldon. Bring them out first, and burn whatever you like after.", fx = { align = { light = 1 } } },
         { text = "I'll bring your deeds out first. Business is business.", next = "BACK", reply = "Good. Business is business, and I knew we'd understand each other.", fx = { affinity = 1, align = { light = -1 } } },
@@ -1350,7 +1359,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Dawn looks at the enemy and not the weapon, and I'm trying to learn that lesson late in life. Turn your fel on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop you." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Dawn looks at the enemy and not the weapon, and I'm trying to learn that lesson late in life. Turn your fel on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Dawn looks at the enemy and not the weapon, though it's harder when the weapon stands at your heel and stinks of the blood my people drank. Turn that thing on the Scourge and I'll stand beside you, but if it turns on the living, I'll be the first to stop it." },
+      },
       choices = {
         { text = "Fair. If I ever fall to it, stop me.", next = "BACK", reply = "I will, and I'll do it cleanly. Fair is fair.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is only a weapon, officer. Your fear makes you weak.", next = "BACK", reply = "Perhaps, but I've seen what fel did to my people. I'll keep my fear and my axe both.", fx = { align = { light = -1 } } },

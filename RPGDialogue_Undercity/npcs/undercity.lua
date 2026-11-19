@@ -1679,6 +1679,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "There's a place for it, on the floor beside your chair, and if it scorches the upholstery we'll be having words. I've nothing against demons in principle, only against what they do to good leather." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "There's a place for it on the floor, and you'll find the floor is stone, which is the only thing down here your demon can't scorch. I've nothing against it in principle, only against what it does to leather." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "There's a place for it on the floor beside your chair, though I see it's already decided it would prefer the chair. I've nothing against demons in principle, only against what they do to good leather, so if {pet} marks the upholstery we'll be having words." },
       },
       choices = {
         { text = "It'll sit on the floor, as you say.", next = "BACK", reply = "Thank you, and my upholstery thanks you too. I'll find it a cushion, of sorts.", fx = { affinity = 1, align = { order = 1 } } },

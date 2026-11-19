@@ -465,7 +465,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aboard, aye, but not below decks, and ye'll keep yer little friend away from the powder. I've sailed with worse than warlocks, though few that smelled quite so much of brimstone." } },
+      lines = {
+        { id = "xlock_default", text = "Aboard, aye, but not below decks, and ye'll keep yer little friend away from the powder. I've sailed with worse than warlocks, though few that smelled quite so much of brimstone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aboard, aye, but not below decks, and that thing at yer heel stays well clear of the powder. It's sniffin' at my rigging like it means to taste it, so call it off before my crew starts reachin' for the belaying pins." },
+      },
       choices = {
         { text = "My demon obeys me. Your powder is safe.", next = "BACK", reply = "Good, because my powder's worth more than yer demon. Keep it fed and quiet, and we'll get on fine.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where it pleases, Captain.", next = "BACK", reply = "Then it can go overboard, and ye with it if ye argue. My ship, my rules, {class}, and powder's no place for pets.", fx = { affinity = -1, align = { order = -1 } } },

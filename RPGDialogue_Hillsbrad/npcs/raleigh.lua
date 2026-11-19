@@ -180,7 +180,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and that frightens me more than you do. The Light teaches mercy, and the Crusade taught me to forget that, and every day in this room I try to remember which one I believe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and the thing standing at your shoulder makes it harder to answer, because everything the Crusade taught me says to burn it where it stands. But the Light teaches mercy too, so I'll look at you and not at it, and pray I remember which teaching I believe." },
+      },
       choices = {
         { text = "Mercy is the Light's true teaching. Hold on to that.", next = "BACK", reply = "I'll try, and I'll thank you for saying it. It's easier to hold on when someone else believes it too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Crusade wasn't wrong about everything. Some things should burn.", next = "BACK", reply = "Some things, yes, and that's exactly the thought that lit every pyre I ever stood beside. Mind where it leads you.", fx = { align = { light = -1 } } },

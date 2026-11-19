@@ -65,7 +65,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only the ones who walk in smelling of brimstone, and they do it with a look rather than a word. Most of the Silver Hand's lads are good men, but they've heard what demons did in the Third War, and they don't forget it." } },
+      lines = {
+        { id = "xlock_default", text = "Only the ones who walk in smelling of brimstone, and they do it with a look rather than a word. Most of the Silver Hand's lads are good men, but they've heard what demons did in the Third War, and they don't forget it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only the ones who walk in smelling of brimstone, and with that thing at your heel, the smell had filled my shop before you reached the counter. Most of the Silver Hand's lads are good men, but if one of them comes in now, it won't be only a look he gives you." },
+      },
       choices = {
         { text = "They're right to remember. I'll keep my demons from their sight.", next = "BACK", reply = "Thank you. The old soldiers have long memories, and I'd rather they didn't find a reason to use them.", fx = { align = { light = 1 } } },
         { text = "Their memories are their problem, not mine.", next = "BACK", reply = "Their problem, maybe, but my shop, and I'd thank you to keep it civil in here.", fx = { align = { light = -1 } } },
@@ -238,7 +241,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." } },
+      lines = {
+        { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last warlock who bought one wore it to a sermon and nearly made a deacon faint, and he hadn't even brought anything like your demon along. I sell to anyone with honest coin, but I've learned to keep the colours apart, so I'd ask it to keep well away from the white vestments." },
+      },
       choices = {
         { text = "Wearing it to a sermon was cruel. I'd never do that.", next = "BACK", reply = "Thank you, dear. The deacon has never quite forgiven me, but I appreciate the thought.", fx = { align = { light = 1 } } },
         { text = "The deacon's fright was his own affair. It's only a robe.", next = "BACK", reply = "It is only a robe, dear, but it was my robe, and the deacon was my customer. Do be careful.", fx = { align = { light = -1 } } },
@@ -404,7 +410,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." } },
+      lines = {
+        { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fear 'em? Listen tae my stalls, for every beast in there has caught the stink o' yer {pet} an' wants a piece of it. I'll hold 'em back, so long as ye walk that thing round the far side o' the yard an' no' past their doors." },
+      },
       choices = {
         { text = "I'll keep it well away. Your beasts shouldn't suffer for it.", next = "BACK", reply = "Good. Keep it out o' sight an' smell, an' we'll get along.", fx = { align = { light = 1 } } },
         { text = "My demon could take your whole stable, Jenova.", next = "BACK", reply = "It could try, an' then ye'd have tae explain tae me where yer demon went. I'd keep it close.", fx = { align = { light = -1 } } },
@@ -543,6 +552,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd love to, and I'd take very careful notes, right up until the moment it set my notes on fire, which I'm reliably told is what imps do. Lilliam says I'm not allowed near anything that explodes on purpose, only things that explode by accident, and I've decided not to argue the point." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Is that it? Oh, I'd love to measure it, and I'd take very careful notes, right up until it set them on fire, which I'm reliably told is what demons do. Lilliam says I'm not allowed near anything that explodes on purpose, so I'll estimate its temperature from a safe distance instead, which I've calculated is roughly here." },
       },
       choices = {
         { text = "Lilliam's right. Keep to your accidental explosions.", next = "BACK", reply = "Lilliam's always right, which is very annoying. Accidental explosions it is.", fx = { align = { order = 1 } } },

@@ -203,7 +203,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire. Fight the Syndicate with whatever you must, but keep the fel out of my soldiers' sight." } },
+      lines = { { id = "xlock_default", text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire. Fight the Syndicate with whatever you must, but keep the fel out of my soldiers' sight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Stromgarde was built by the men who stood beside the elves against the Amani, and I'll not see its banner carried on demon fire, nor see that creature standing beside it. Fight the Syndicate with whatever you must, but take it out of my soldiers' sight, for half of them have stopped work to stare." },
+      },
       choices = {
         { text = "Then I'll keep it out of sight, as you ask.", next = "BACK", reply = "Thank you. My soldiers have enough to fear without wondering who stands beside them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Pride won't win back Stromgarde, Captain. Power will.", next = "BACK", reply = "Power is what Perenolde wanted, too, and you can see where that took Alterac. Keep it from my banner.", fx = { align = { order = -1 } } },
@@ -684,7 +686,9 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = { { id = "xwl_default", fx = { learn = { "burning_blade" } },
-        text = "It troubles me more than any ogre, and I'll tell you why: I've seen the Burning Blade, and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but I'll be watching where you point it." } },
+        text = "It troubles me more than any ogre, and I'll tell you why: I've seen the Burning Blade, and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but I'll be watching where you point it." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "It troubles me more than any ogre, and more still with one of those things standing at my fire, for I've seen the Burning Blade and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but your demon stays where my grunts can see it, and so do you." },
+      },
       choices = {
         { text = "Watch all you like. It points at the Horde's enemies.", next = "BACK", reply = "Good. As long as it keeps pointing that way, we have no quarrel.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power is power, and Hammerfall needs every bit of mine.", next = "BACK", reply = "Hammerfall needs every arm, and I'll take yours. But the orcs here remember Gul'dan, so don't forget it.", fx = { affinity = -1, align = { honor = -1 } } },
@@ -984,7 +988,9 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Zengu hear that about some Darkspear, mon, and Zengu don't like it. The Gurubashi listen to voices too, and look where it got them, all bowing to a blood god in the jungle." } },
+      lines = { { id = "xwl_default", text = "Zengu hear that about some Darkspear, mon, and Zengu don't like it. The Gurubashi listen to voices too, and look where it got them, all bowing to a blood god in the jungle." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Zengu hear that about some Darkspear, mon, and now Zengu see the thing that be whispering to them, standing right there at your heel. The Gurubashi listen to voices too, and look where it got them, so you keep that one quiet around Zengu." },
+      },
       choices = {
         { text = "I listen to them, but I don't bow to them.", next = "BACK", reply = "Good, mon. Listen, but don't bow, and you be fine.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "You're right. I'll be careful with them.", next = "BACK", reply = "Ya, be careful, mon. Zengu hear plenty sweet voices in Zul'Gurub, and every one of dem had teeth behind it.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1175,7 +1181,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Earth Mother turns no child away, but the things you bargain with have no mother, and they want to be fed. Take care what you feed them, {class}, for a hungry thing grows." } },
+      lines = { { id = "xlock_default", text = "The Earth Mother turns no child away, but the things you bargain with have no mother, and they want to be fed. Take care what you feed them, {class}, for a hungry thing grows." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Earth Mother turns no child away, but the thing at your side has no mother, and I can feel it watching my fire as if it is hungry. Take care what you feed it, {class}, for a hungry thing grows, and I would not like it to grow in my inn." },
+      },
       choices = {
         { text = "I feed it only what I choose. I'm careful.", next = "BACK", reply = "Then stay careful always, child. My uncle was careful with his kodo for twenty years, and it only took one bad morning.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let it grow. A strong demon serves me better.", next = "BACK", reply = "A strong demon is a hungry one, and you cannot feed it from my kitchen. I will pray to the Earth Mother for you.", fx = { align = { light = -1 } } },

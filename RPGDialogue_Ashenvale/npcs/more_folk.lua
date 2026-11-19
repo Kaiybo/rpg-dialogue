@@ -1359,6 +1359,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xlock_default", text = "I know they used to be elves and they made a bad deal, which, between you and me, is a cautionary tale I think about. Whatever's still in the horns, it's the buyer's liability once it leaves my wagon. That's in the small print." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I know they used to be elves and they made a bad deal, which is a cautionary tale I think about, especially with your demon sniffing my horn crate like that. Whatever it's smelling in there, it's the buyer's liability once it leaves my wagon, and so is anything it scorches." },
       },
       choices = {
         { text = "Read your own small print, Pixel. Something else.", next = "BACK", fx = { learn = { "satyrs" } } },

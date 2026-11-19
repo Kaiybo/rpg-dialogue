@@ -95,7 +95,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. If there's power in them, I'd sooner it went tae Ironforge than intae anythin' wi' horns, an' I'll no' apologize for sayin' so." } },
+      lines = {
+        { id = "xlock_default", text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. If there's power in them, I'd sooner it went tae Ironforge than intae anythin' wi' horns, an' I'll no' apologize for sayin' so." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. An' now there's a demon standin' at my dig site starin' at the cases like it knows, so if there's power in them, it's goin' tae Ironforge an' no' tae that." },
+      },
       choices = {
         { text = "Then the Stones go to Ironforge's scholars, and nowhere else.", next = "BACK", reply = "That's what I'd hoped tae hear. The League will thank ye for it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If they hold power, I'd study them myself, Dorius.", next = "BACK", reply = "Study them yerself, is it? I'll keep an eye on ye, then, an' on the Stones.", fx = { align = { order = -1 } } },

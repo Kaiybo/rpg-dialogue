@@ -46,7 +46,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." } },
+      lines = {
+        { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only as something for your demon to stand behind, I'd think, though looking at yours, it doesn't seem the sort to need one. I've no wish to meet the warlock who taught a thing like that to swing an axe, so keep it away from my racks, in case it learns by watching." },
+      },
       choices = {
         { text = "I'll keep my voidwalker away from your axes.", next = "BACK", reply = "Thank you kindly. I've seen what a voidwalker does to a display rack.", fx = { align = { light = 1 } } },
         { text = "A voidwalker with an axe would be something to see.", next = "BACK", reply = "It would, and I'd sell it the axe, and then I'd lock the door behind it.", fx = { align = { light = -1 } } },
@@ -323,6 +326,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both, I've noticed. Just keep that thing of yours away from my hides, because the last imp that came in here chewed through a whole stack of light leather before its master noticed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both. I asked the last warlock to keep his demon away from my hides and he didn't, so if your {pet} takes one step nearer that stack of leather, you're buying the whole stack." },
       },
       choices = {
         { text = "The imp stays out, then. Teach me properly.", next = "BACK", reply = "Good. Pick up a knife, and let's see what you've got.", fx = { align = { order = 1 } } },
@@ -511,7 +515,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, unlike Bartleby's crowd, who still owe me for the summer." } },
+      lines = {
+        { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, unlike Bartleby's crowd, who still owe me for the summer." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for, though I wonder if your demon knows, the way it's staring at the dye pots. They're polite enough, and they pay, unlike Bartleby's crowd, so I'll put up with being watched." },
+      },
       choices = {
         { text = "I'd use your dye for honest work, Jillian.", next = "BACK", reply = "Then you're welcome to it, and I'll not ask what you mean by honest.", fx = { align = { light = 1 } } },
         { text = "Better you don't know what the red's for.", next = "BACK", reply = "You're probably right. I'll keep selling it, and keep not knowing.", fx = { align = { light = -1 } } },
@@ -774,6 +781,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A sturdy one with a felt lining, so the shards don't clink and give you away, and a strap long enough that the bag sits at your hip and not your back. Your sort always come back for a second bag inside a month, because you underestimate how much you'll gather, and I don't mind because it's good business." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A sturdy one with a felt lining, so the shards don't clink and give you away, and a strap long enough that the bag sits at your hip. Your servant's been eyeing my bags as though it can smell shards in them already, and I don't keep any, so I'd rather it waited by the door." },
       },
       choices = {
         { text = "A lined bag, then, Alyssa. I'll take your advice.", next = "BACK", reply = "Good choice. Nobody likes a warlock who rattles.", fx = { align = { order = 1 } } },
@@ -971,7 +979,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." } },
+      lines = {
+        { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world, and here's one standing at my stall. Stephen says I'm mad, and he's probably right, but I'd give a good deal to know whether your servant would taste my stew or only stare at me like it's doing now." },
+      },
       choices = {
         { text = "Don't feed it, Kendor. It'll only want more than food.", next = "BACK", reply = "You're probably right, my friend. I'll stick to customers who pay in coin.", fx = { align = { light = 1 } } },
         { text = "I'll bring it by. Feed it whatever you like.", next = "BACK", reply = "Splendid! I'll make my best stew, my friend, and stand very far back.", fx = { align = { light = -1 } } },

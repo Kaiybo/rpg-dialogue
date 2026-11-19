@@ -87,7 +87,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Always, an' they don't like it, but they're soldiers at heart an' they'll carry ye anyway, so long as ye don't bring yer wee friend on the saddle. Treat a Wildhammer gryphon wi' respect an' it'll fly through a storm for ye, an' treat it ill an' ye'll find out how far it is tae the ground." } },
+      lines = {
+        { id = "xlock_default", text = "Always, an' they don't like it, but they're soldiers at heart an' they'll carry ye anyway, so long as ye don't bring yer wee friend on the saddle. Treat a Wildhammer gryphon wi' respect an' it'll fly through a storm for ye, an' treat it ill an' ye'll find out how far it is tae the ground." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Always, an' they don't like it, an' they like it even less wi' yer demon stood right here on the perch. They'll carry ye anyway, for they're soldiers at heart, but send the thing off before ye mount, or ye'll find out how far it is tae the ground." },
+      },
       choices = {
         { text = "I'll treat your gryphons with respect, Guthrum.", next = "BACK", reply = "Good. They'll carry ye smoother for it, an' I'll sleep easier.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A beast is a beast. It'll carry me regardless.", next = "BACK", reply = "It will, aye, an' it'll remember ye. I've seen a bird wait three years tae nip a rider who kicked it once, an' it got him good.", fx = { align = { honor = -1 } } },
@@ -358,7 +361,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' some o' them lost kin to it. If ye're buyin' from me, buy it quiet, an' don't summon anythin' in the shop." } },
+      lines = {
+        { id = "xlock_default", text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' some o' them lost kin to it. If ye're buyin' from me, buy it quiet, an' don't summon anythin' in the shop." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It bothers them plenty, for they remember the Horde's demon fire over these hills, an' I can see two o' them through my window starin' at yer demon now. If ye're buyin' from me, buy it quick, an' take that thing back out the door wi' ye." },
+      },
       choices = {
         { text = "Demon fire burned your hills. I won't forget that.", next = "BACK", reply = "Thank ye. Some o' the old riders will be glad tae hear it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. The Horde just used it better.", next = "BACK", reply = "Better? Ye'll no' say that in front o' the riders, if ye want tae keep yer teeth.", fx = { align = { light = -1 } } },

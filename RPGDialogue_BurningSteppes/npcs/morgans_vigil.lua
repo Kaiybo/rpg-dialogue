@@ -99,7 +99,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd put a kobold on my line if it could hold a sword, and you can do a good deal more than that. Just keep whatever you call up pointed at the mountain, deputy, because my soldiers have seen enough fire to last them." } },
+      lines = {
+        { id = "xlock_default", text = "I'd put a kobold on my line if it could hold a sword, and you can do a good deal more than that. Just keep whatever you call up pointed at the mountain, deputy, because my soldiers have seen enough fire to last them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd put a kobold on my line if it could hold a sword, and your demon's clearly ready to do more than that. Just keep it pointed at the mountain, deputy, because my soldiers are watching it instead of the ridge, and they've seen enough fire to last them." },
+      },
       choices = {
         { text = "Every weapon against the Blackrock is a good one.", next = "BACK", reply = "That's how I've had to see it. I've had warlocks on the north wall and paladins on the south, and the orcs died the same either way.", fx = { align = { light = -1 } } },
         { text = "I'll fight with care, Marshal. Your soldiers come first.", next = "BACK", reply = "Good, and they'll notice, even if they never say so. Welcome to the Vigil, deputy.", fx = { affinity = 1, align = { light = 1 } } },
@@ -606,7 +609,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It saddens me more than it frightens me, because I have read what the fel made of the satyrs and seen what it made of the orcs. Every warlock tells me they hold the leash, and I hope you're the first of them who is right." } },
+      lines = {
+        { id = "xlock_default", text = "It saddens me more than it frightens me, because I have read what the fel made of the satyrs and seen what it made of the orcs. Every warlock tells me they hold the leash, and I hope you're the first of them who is right." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It saddens me more than it frightens me, though with your demon this near I feel my people's long memory of the Legion stirring. I have read what the fel made of the satyrs and seen what it made of the orcs, and I hope you're the first warlock who truly holds the leash." },
+      },
       choices = {
         { text = "I hold the leash, Helendis. I'll prove it.", next = "BACK", reply = "Then I will watch, and hope, and be glad if you do. Prove it slowly; I have time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Leashes are for the timid. I'll do as I please.", next = "BACK", reply = "Then you are the same as all the others, and I will grieve for you when it turns on you. I have done it before, more often than I would like.", fx = { align = { order = -1 } } },
@@ -985,7 +991,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Enlist them, drill them and give them a uniform, soldier, though the imp will need a very small one. Every Firegut ogre on Dreadmaul Rock is an enemy of the Vigil, and I'm not fussy about who helps me with them." } },
+      lines = {
+        { id = "xlock_default", text = "Enlist them, drill them and give them a uniform, soldier, though the imp will need a very small one. Every Firegut ogre on Dreadmaul Rock is an enemy of the Vigil, and I'm not fussy about who helps me with them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Enlist them, drill them and give them a uniform, soldier, and that one looks ready to take the oath this minute. Every Firegut ogre on Dreadmaul Rock is an enemy of the Vigil, so put {pet} at the front of the line, because I'm not fussy about who helps me with them." },
+      },
       choices = {
         { text = "My demons serve the Vigil, sir!", next = "BACK", reply = "Splendid, soldier! I'll have a uniform made, very small, for the imp.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demons serve me, not the Vigil.", next = "BACK", reply = "Then they're mercenaries, soldier, and I don't pay mercenaries. Winky disapproves too.", fx = { align = { order = -1 } } },
@@ -1465,7 +1474,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a Dark Iron chalice that whispered at night, and he kept it in the guest wing until the guests stopped coming. It went back into a vault, and I'm under strict instructions to bring home nothing that talks." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a Dark Iron chalice that whispered at night, and he kept it in the guest wing until the guests stopped coming. It went back into a vault, and I'm under strict instructions to bring home nothing that talks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a Dark Iron chalice that whispered at night, and your demon watches me the way that chalice used to sound. It went back into a vault, and I'm under strict instructions to bring home nothing that talks, so please don't let yours follow me home." },
+      },
       choices = {
         { text = "Dark relics should be destroyed, not displayed.", next = "BACK", reply = "Destroyed? Darling, that's a dreadful waste. But I'll pass your opinion on to the vault.", fx = { align = { light = 1 } } },
         { text = "A whispering chalice? I'd have kept it.", next = "BACK", reply = "Then you'd have had very lonely dinners, darling. The Count learned his lesson.", fx = { align = { light = -1 } } },
@@ -1724,7 +1736,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, once the demon's gone an' the smell's faded a bit, which takes longer than ye'd think. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so I'll no' have them frightened on their own perch." } },
+      lines = {
+        { id = "xlock_default", text = "Aye, once the demon's gone an' the smell's faded a bit, which takes longer than ye'd think. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so I'll no' have them frightened on their own perch." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, once the demon's gone an' the smell's faded, an' I can tell ye the birds want yours gone a good deal faster. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so send it off, for I'll no' have them frightened on their own perch." },
+      },
       choices = {
         { text = "I'll put it away. The birds come first.", next = "BACK", reply = "Thank ye, an' they'll calm down soon enough. Good o' ye.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon's none of your birds' business, Borgus.", next = "BACK", reply = "It is when it's sittin' on their perch, an' I'll thank ye tae remember that. Away wi' it.", fx = { align = { order = -1 } } },

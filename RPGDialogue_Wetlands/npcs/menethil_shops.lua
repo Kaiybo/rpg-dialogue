@@ -38,7 +38,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
+      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers. Only keep your demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, for they'll carry anybody who pays the fare and doesn't pull feathers, but look at them backing up the roost now your demon's on the platform. Keep it well away from them, for a bird that takes fright over the mountains takes a week tae find again." },
+      },
       choices = {
         { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", reply = "Then they'll carry ye gladly, an' I'll sleep easier. A gryphon that trusts its rider will bring ye home through any storm off the bay.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your birds will have to get used to me.", next = "BACK", reply = "They'll get used tae ye about as fast as I would tae a fel imp in my bed, which is tae say never. Keep it well away, or walk tae Thelsamar.", fx = { align = { order = -1 } } },
@@ -222,7 +224,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." } },
+      lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers, an' I'll thank yer demon tae stand well back from the powder kegs while we talk. The damp gets intae a wand as quick as a rifle in this swamp, so keep yers wrapped in oilcloth, though I doubt anythin' stays damp near that thing." },
+      },
       choices = {
         { text = "Good advice. I'll keep my kit in order, Murndan.", next = "BACK", reply = "Good, for a fouled wand in a fight's no' a thing I'd wish on anyone. Keep it wrapped an' dry, an' it'll see ye home.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My fire dries anything I carry. Damp's no matter.", next = "BACK", reply = "Does it now? Then ye'll be the first in Menethil wi' dry socks, an' I'd like tae know yer secret. Keep that fire away from my powder, mind.", fx = { align = { order = -1 } } },
@@ -404,7 +408,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." } },
+      lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Heavy cloth and good thread, mostly, and candles, for your kind always wants a great many candles, and your demon is watching me count them out. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater, and he didn't bring his creature into my shop." },
+      },
       choices = {
         { text = "I'll keep my work outside the walls, Neal.", next = "BACK", reply = "Thank you, truly, for the last fellow set the curtains alight. My insurance man won't come back to Menethil at all now.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Where I work is my own business.", next = "BACK", reply = "It is, until it's my curtains on fire. Do as you like outside, but inside this shop I'll ask you to behave.", fx = { align = { order = -1 } } },
@@ -586,7 +592,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." } },
+      lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, and yours has come all the way up, so watch it closely, for the last one ate something from a crate and was ill for a week." },
+      },
       choices = {
         { text = "Then our business stays quiet, Samor.", next = "BACK", reply = "Quiet is my favourite kind of business, friend. Come up the stairs whenever you like, and leave the imp at the bottom.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "I don't share a trade with poisoners, Samor.", next = "BACK", reply = "Then you'll be lonely, for half the warlocks in Menethil buy my wares. Go on, then, and judge me from the bottom of the stairs.", fx = { align = { order = 1 } } },

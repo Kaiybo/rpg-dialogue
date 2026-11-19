@@ -28,7 +28,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." } },
+      lines = {
+        { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll fly anyone who pays, but not with that thing in the saddle, and the birds already know it, the way they're clawing at the posts. I fly the wounded out of here as well, so keep it away from the litters, because they've seen enough of gnolls and orcs without demons besides." },
+      },
       choices = {
         { text = "I'll keep my distance from the wounded.", next = "BACK", reply = "Thank you, and they'll thank you too, if they notice at all. Most of them are too far gone to notice anything.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The wounded have bigger worries than me.", next = "BACK", reply = "They do, and you'd not be one of them if you'd seen their faces. Keep it out of sight all the same.", fx = { align = { light = -1 } } },
@@ -193,7 +196,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, though you'd be welcome on the wall when the gnolls come up the hill, and that thing would send a few of them back down the path before a spell was even cast. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." },
+      },
       choices = {
         { text = "It should matter where a spell comes from.", next = "BACK", reply = "Maybe it should, and maybe after the war we'll ask. For now, I only care where the gnolls fall.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You're right. Only whether it lands matters.", next = "BACK", reply = "That's the way of it on the wall, and I'm glad you see it. Come up when the horn sounds.", fx = { align = { light = -1 } } },
@@ -358,7 +364,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I worry about every kind of fire, friend, and the green sort most of all, because I've no idea whether it lights powder or does something worse. I'd rather not find out in my own shop, so stand by the door, if you'd be so kind." } },
+      lines = {
+        { id = "xlock_default", text = "I worry about every kind of fire, friend, and the green sort most of all, because I've no idea whether it lights powder or does something worse. I'd rather not find out in my own shop, so stand by the door, if you'd be so kind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I worry about every kind of fire, friend, and your servant is giving off enough heat that I can feel it from behind the counter, with the powder kegs right there. Stand by the door, if you'd be so kind, and take it with you before I find out what green fire does to black powder." },
+      },
       choices = {
         { text = "I'll keep my fire far from your shop.", next = "BACK", reply = "That's kind of you, and my powder thanks you. The door's just there, as I said.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Fel fire does what I tell it. Don't fret.", next = "BACK", reply = "It's not what it does that worries me, friend, it's what it does near my kegs. Stand by the door anyway.", fx = { align = { order = -1 } } },

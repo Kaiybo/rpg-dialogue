@@ -38,7 +38,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Fear's the wrong word; they hate them, the way a hound hates a cat. I'd no' blame a bird that pecked at yer imp, an' I'd no' blame ye for flyin' wi' yer hands in yer lap the whole way tae Ironforge." } },
+      lines = { { id = "xlock_default", text = "Fear's the wrong word; they hate them, the way a hound hates a cat. I'd no' blame a bird that pecked at yer imp, an' I'd no' blame ye for flyin' wi' yer hands in yer lap the whole way tae Ironforge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fear's the wrong word; they hate them, the way a hound hates a cat, an' ye can hear them hissin' from the roost now that yer demon's on the landin'. I'd no' blame a bird that pecked at it, an' I'd no' blame ye for flyin' wi' yer hands in yer lap the whole way tae Ironforge." },
+      },
       choices = {
         { text = "I'll respect your birds. My imp stays behind.", next = "BACK", reply = "Thank ye, that's more thought than most warlocks give. The birds will fly the sweeter for it, an' I'll no' have tae calm them down after.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your birds will learn to tolerate it.", next = "BACK", reply = "They'll learn tae peck it, more like, an' I'll no' stop them. Leave it on the ground or walk tae Ironforge.", fx = { align = { order = -1 } } },
@@ -239,7 +241,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They trust my mail an' their rifles, an' they'll trust you once they've seen ye stand in a trogg fight. A dwarf trusts what he's seen, no' what he's told, so go an' let them see ye." } },
+      lines = { { id = "xlock_default", text = "They trust my mail an' their rifles, an' they'll trust you once they've seen ye stand in a trogg fight. A dwarf trusts what he's seen, no' what he's told, so go an' let them see ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They trust my mail an' their rifles, an' they'll trust you once they've seen ye stand in a trogg fight, though I'd no' count on them ever trustin' that thing at yer heel. A dwarf trusts what he's seen, no' what he's told, so go an' let them see it fightin' troggs instead o' starin' at them." },
+      },
       choices = {
         { text = "Then I'll let them see me fight.", next = "BACK", reply = "Good, that's the way tae do it. Stand in a trogg fight once, an' ye'll have friends for life.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need their trust, only their room.", next = "BACK", reply = "Room, aye, they'll give ye that, an' a wide berth besides. But ye'll be lonely in a fight.", fx = { align = { honor = -1 } } },
@@ -482,6 +486,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Yer... imp? Get that thing out from under my ovens before it singes my rye! I'll serve ye, for coin's coin, but the wee horror waits outside." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Is that yer demon in my bakery? Get it away from my ovens before it singes my rye, for the whole room's gone warm since it came in! I'll serve ye, for coin's coin, but the creature waits outside." },
       },
       choices = {
         { text = "Of course. It'll wait outside.", next = "BACK", reply = "Thank ye, an' I'll put a crust out for it, so long as it stays out there an' keeps its claws off my sill.", fx = { align = { light = 1 } } },
@@ -622,7 +627,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only if ye mean tae dig, an' I'd ask ye no' tae dig deep, for the old miners say ye never know what's under a hill until ye've woken it. The troggs came up from somewhere far below, an' I'd no' like tae see what comes up after them." } },
+      lines = { { id = "xlock_default", text = "Only if ye mean tae dig, an' I'd ask ye no' tae dig deep, for the old miners say ye never know what's under a hill until ye've woken it. The troggs came up from somewhere far below, an' I'd no' like tae see what comes up after them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only if ye mean tae dig, an' I'd ask ye no' tae dig deep, an' I'd ask it twice wi' yer demon standin' there lookin' at my picks. The old miners say ye never know what's under a hill until ye've woken it, an' I'd no' like tae learn that yer {pet} knows already." },
+      },
       choices = {
         { text = "Then I'll leave the deep places alone.", next = "BACK", reply = "Wise, very wise. The deep has a habit o' wakin' up cranky, an' the troggs crawled out o' it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What's under the hills might be worth waking.", next = "BACK", reply = "Worth wakin'? Ye sound like the Dark Irons in their old days. I'll no' sell ye a pick for that.", fx = { align = { light = -1 } } },

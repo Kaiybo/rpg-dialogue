@@ -86,7 +86,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." } },
+      lines = {
+        { id = "xlock_default", text = "I'd accept a gnoll's help if it brought my harvest back, though I'd count my fingers after. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd accept a gnoll's help if it brought my harvest back, and your servant there looks like it would frighten a whole camp of Defias off the field just by standing in it. The Brothers would tell me to be careful who I trust, and I'll be careful, after the grapes are home." },
+      },
       choices = {
         { text = "Trust carefully, Milly. I'll earn yours fairly.", next = "BACK", reply = "I'll hold you to that, and I'll count my fingers anyway. It's nothing personal.", fx = { align = { light = 1 } } },
         { text = "Desperate folk can't be choosy. Take whatever help comes.", next = "BACK", reply = "That's what I told myself, and here you are. Bring my grapes home and I'll not ask questions.", fx = { align = { light = -1 } } },

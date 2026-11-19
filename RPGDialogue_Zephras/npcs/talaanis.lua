@@ -45,7 +45,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me as any power taken from the Nether troubles me, and the thing at your side troubles me more, because I last saw eyes like those when we fled into hiding ten thousand years ago. I won't judge you by your craft alone, but many on this isle have longer memories than I do, and they will all be looking at it." },
+      },
       choices = {
         { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", reply = "Perhaps they shouldn't, but ten thousand years is a long habit to break, and you'll not break it in an afternoon. Patience, stranger.", fx = { align = { order = -1 } } },

@@ -111,6 +111,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They fear anything that smells of the Twisting Nether, and they're right to, because a frightened wind rider throws its rider over the Barrens. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They fear anything that smells of the Twisting Nether, and you've brought it right up to their perches, so look how they're pulling at their tethers. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
       },
       choices = {
         { text = "I'll dismiss it before I fly. They've earned that.", next = "BACK", reply = "Then you'll find them gentle as lambs, and they'll carry you anywhere you like. Thank you for that, warlock.", fx = { align = { light = 1 } } },
@@ -275,6 +276,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I don't know and I don't want to know, but I know you do, because demons don't carry packs. Buy your own water and bread, and keep that thing out of my sacks, because the last imp in here got into the flour and I'm still finding sooty handprints." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know and I don't want to know, but I see it's already got its nose in my sacks. Buy your own water and bread and call that thing off, because the last demon in here got into the flour and I'm still finding sooty handprints." },
       },
       choices = {
         { text = "I'll keep my imp out of your sacks.", next = "BACK", reply = "Thank you, because I'm still sweeping flour out of the corners. Keep it out, and you'll always be welcome here.", fx = { align = { order = 1 } } },
@@ -451,6 +453,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, mon, and I wouldn't if I could, because the loa don't like trade with things from outside the world. I'll sell you herbs and powder for the spells you cast, and the soul shards you carry be your own business, but don't you go asking me where to find more." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, mon, and that thing at your heel be making the loa nervous just by standing there with its eyes on my shelves. I'll sell you herbs and powder for your spells, and your shards be your own business, but keep your servant from touching the jars." },
       },
       choices = {
         { text = "Fair. The loa deserve respect, even from me.", next = "BACK", reply = "That be wise of you, mon, and the loa remember who respect them. Buy your herbs, and we stay friends.", fx = { align = { light = 1 } } },
@@ -633,6 +636,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Not many, because a wand does most of what you want and the demon does the rest. The ones who come back are the ones whose demon got sent home in the middle of a fight, and they always want something that shoots, fast." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Not many, because a wand does most of the work and the demon does the rest, and yours looks pretty pleased about that. The ones who come back are the ones whose demon got sent home in the middle of a fight, so ask {pet} how long it plans to stay and buy accordingly." },
       },
       choices = {
         { text = "I'll face my enemies myself, demon or no demon.", next = "BACK", reply = "Good, because the demon won't always be there. A blade in your hand never gets sent home.", fx = { align = { honor = 1 } } },
@@ -785,6 +789,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and so do I, though I'm better at hiding it. My riders have never smelled anything like it and they will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and you can see it, because every one of them has backed to the far end of the platform since your {pet} came up the path. My riders will not carry it, so it must stay behind while you fly, the same as for the Warchief's own warlocks." },
       },
       choices = {
         { text = "It can stay behind. Your riders deserve calm skies.", next = "BACK", reply = "They do, and they'll thank you in their own way. Fly calm, and the wind will be kind.", fx = { align = { light = 1 } } },
@@ -968,6 +973,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because they've got more sense than most orcs had back when the Horde drank what the Legion poured for it. Keep the thing dismissed while you fly, and I'll not ask what you do with it on the ground." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because they've got more sense than most orcs had when the Horde drank what the Legion poured for it, and that thing beside you is the reminder. I see the shame of it every time it looks at me, so dismiss it before you fly, and I'll not ask what you do with it on the ground." },
       },
       choices = {
         { text = "I'll dismiss it. The beasts deserve that much.", next = "BACK", reply = "Good, and they'll carry you for it. That's all I ask of any warlock.", fx = { align = { light = 1 } } },
@@ -1133,6 +1139,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive and still a customer, as far as I know." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because demons get sent home at the worst moment, friend, and yours looks like it'd enjoy watching you find out. This dagger came off a ship from Booty Bay, and every warlock who bought one is still alive and still a customer, with or without his demon." },
       },
       choices = {
         { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", reply = "A fair customer, pal, and I'll remember you for it. That dagger'll serve you well.", fx = { align = { honor = 1 } } },

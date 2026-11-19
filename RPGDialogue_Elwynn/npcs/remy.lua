@@ -117,7 +117,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell some of it, and the cellar's in the part I keep." } },
+      lines = {
+        { id = "xlock_default", text = "I am, because Farley doesn't like it spoken of, spoken of, and Farley pays me in ale when I keep quiet. I know everything that happens in Goldshire, but I only sell some of it, and the cellar's in the part I keep." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I am, because Farley doesn't like it spoken of, spoken of, and you've brought something up from it that's watching me while I talk. I know everything that happens in Goldshire, but I only sell some of it, and I'm keeping the cellar part twice as close with that thing listening." },
+      },
       choices = {
         { text = "Your secret's safe with me, Remy. I won't tell Farley.", next = "BACK", reply = "Safe, safe, that's what Remy likes to hear! Farley will keep the ale coming.", fx = { align = { honor = 1 } } },
         { text = "Your silence has a price, Remy. Mine does too.", next = "BACK", reply = "A price, a price? Now we're talking business, friend. Remy always pays, always.", fx = { align = { honor = -1 } } },

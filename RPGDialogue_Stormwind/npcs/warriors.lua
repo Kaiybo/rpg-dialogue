@@ -42,6 +42,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen warlocks fall because they forgot they had legs, and I'd teach you to use yours, if you can bear to hear the same lesson twenty times." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not, and yours won't always be at your heel the way it is now. I've seen warlocks fall because they leaned on their demons and forgot their legs, so send it to the corner and show me how you stand without it." },
       },
       choices = {
         { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", reply = "Twenty times, then forty, and you will curse me for every one. That is how I know it is working.", fx = { align = { order = 1 } } },
@@ -344,7 +345,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." } },
+      lines = {
+        { id = "xlock_default", text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. I'd say the same to you, except that your anger has a voice of its own, and it talks back." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "In everyone who comes through that door, and I teach them to aim it rather than drown in it. Yours stands next to you with eyes of its own, though, and I've a feeling it's been listening to every word I've said about anger and storing it away." },
+      },
       choices = {
         { text = "Then I'll aim it, and never let it rule me.", next = "BACK", reply = "Good, because if it does rule you, it won't be your anger anymore, it'll be the thing at your heel. Aim well.", fx = { align = { light = 1 } } },
         { text = "My anger and I get along well enough.", next = "BACK", reply = "That's what they all say, right up until it starts talking back. Keep an eye on each other, then.", fx = { align = { light = -1 } } },
@@ -553,6 +557,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I trust anyone who stays where they're put and doesn't run when it goes badly, and some warlocks do, and some don't. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone who stays where they're put, and some warlocks do and some don't, and that thing at your side hasn't stopped testing the edges of where you've put it. The provinces need every hand they can get, so I'll take yours, but if your demon breaks the line, I'll hold you to account for it." },
       },
       choices = {
         { text = "Hold me to account, then. I'll keep it in line.", next = "BACK", reply = "I will, and I'll be watching, but I'll take your word for now. Every hand matters out there.", fx = { align = { order = 1 } } },

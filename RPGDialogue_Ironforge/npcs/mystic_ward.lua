@@ -667,7 +667,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few warlocks ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." } },
+      lines = { { id = "xlock_default", text = "There's always a road back, but it's narrow an' steep, an' few warlocks ever look for it. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "There's always a road back, but it's narrow an' steep, an' I doubt yer demon would let ye take the first step wi'out draggin' at yer heel. If ye ever want tae try, come tae me, an' I'll walk it wi' ye as far as ye'll let me, though that thing'll have tae stay behind at the start." },
+      },
       choices = {
         { text = "Perhaps someday. I'll remember the offer, Theodrus.", next = "BACK", reply = "I'll hold ye tae it, an' I'll be waitin', for I've walked that road wi' a few before, an' some o' them made it home.", fx = { align = { light = 1 } } },
         { text = "I've no need of a road back. I like where I am.", next = "BACK", reply = "Then I'll no' push ye, but the offer stands, for I've seen warlocks change their minds at the very end o' things.", fx = { align = { light = -1 } } },
@@ -864,7 +866,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." } },
+      lines = { { id = "xlock_default", text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A quiet place, maybe, an' a kind word, which yer sort doesnae often get in Ironforge, though I'll confess the kind word comes harder wi' yer demon watchin' me. I've no' much else, but I'll give ye what I have, an' I'll pray for ye whether ye ask or no', once that thing's out o' the Hall." },
+      },
       choices = {
         { text = "Your prayers are welcome, Toldren. Thank you.", next = "BACK", reply = "Then ye'll have them every night. There's a quiet chair here whenever ye need one.", fx = { align = { light = 1 } } },
         { text = "Keep your prayers. I don't need them.", next = "BACK", reply = "Fair enough, but I'll say them anyway, quietly, for the Light doesnae need yer permission tae care what becomes o' ye.", fx = { align = { light = -1 } } },
@@ -1058,7 +1062,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." } },
+      lines = { { id = "xlock_default", text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost. If ye want peace in the Hall, leave yer creatures at the door when the kaldorei come callin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fought them long ago, by their own tellin', an' they've no' forgotten what it cost, so I'm glad there's no kaldorei in the Hall this minute tae see yer demon. If ye want peace here, leave the creature at the door when they come callin', for one look at it an' they'd remember everythin' at once." },
+      },
       choices = {
         { text = "I'll leave my creatures outside when they visit.", next = "BACK", reply = "Thank ye. The kaldorei visit rarely, an' I'd like them tae leave thinkin' well o' the Hall.", fx = { align = { light = 1 } } },
         { text = "Their old wounds aren't my responsibility, Braenna.", next = "BACK", reply = "No, they're no', but ye'll be standin' in their temple soon enough, an' a wee bit o' courtesy goes a long way.", fx = { align = { light = -1 } } },
@@ -1241,7 +1247,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." } },
+      lines = { { id = "xlock_default", text = "On sight, an' I'd no' stop them, for a demon is a demon whoever's holdin' its leash. Keep it close an' keep it quiet, an' we'll have no trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "On sight, an' I'd no' stop them, an' I'll tell ye plainly that two o' them have their hands on their hammers now wi' yer demon standin' there. Keep it close an' keep it quiet, an' we'll have no trouble, for a demon is a demon whoever's holdin' its leash." },
+      },
       choices = {
         { text = "I'll keep it close and quiet, Tiza. You have my word.", next = "BACK", reply = "I'll hold ye tae it. My paladins are young an' eager, an' I'd rather no' explain tae their mothers why one o' them got bitten.", fx = { align = { light = 1 } } },
         { text = "Your paladins would regret it. My demons bite back.", next = "BACK", reply = "Maybe they would, but I'd regret it more, an' I'll no' have that sort o' talk in the Hall, so keep yer threats tae yerself.", fx = { align = { light = -1 } } },
@@ -1532,6 +1540,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'd thank it after. Tiza would have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd fight the Dark Irons beside a trogg wi' a frying pan if it meant gettin' Narm back, an' I'll say the same o' that thing at yer heel, though it's a mercy Tiza's no' here tae see it by my bed. She'd have words wi' me for sayin' so, but she's no' the one lyin' here wi' stitches." },
       },
       choices = {
         { text = "Tiza's right. A paladin should choose his allies.", next = "BACK", reply = "She usually is. I'd still thank the trogg, frying pan an' all.", fx = { align = { order = 1 } } },
@@ -1982,7 +1991,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." } },
+      lines = { { id = "xlock_default", text = "Close enough to worry me, for both tear a hole in the world, and only one of them asks permission of what's on the other side. I've studied the geometry of it longer than you've been alive, so please don't argue it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Close enough to worry me, for both tear a hole in the world, and the proof is standing at your heel, which asked nobody's permission to come through. I've studied the geometry of it longer than you've been alive, so please don't argue it, and please tell your demon to stop examining my runes." },
+      },
       choices = {
         { text = "Then I'll respect the difference and keep my circles small.", next = "BACK", reply = "Thank you. I'll still check the geometry of any circle you draw near my tower, of course.", fx = { align = { light = 1 } } },
         { text = "Permission is for the weak. I take what I need.", next = "BACK", reply = "Then I'll take my leave of the conversation, because a mage who talks like that is usually halfway to a very bad end.", fx = { align = { light = -1 } } },

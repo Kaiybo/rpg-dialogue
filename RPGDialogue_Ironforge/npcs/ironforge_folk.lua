@@ -122,7 +122,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Light judges what ye do, no' what ye wield, an' I've seen warlocks hold a line when braver souls ran. Still, I've buried too many friends tae fel tae welcome it at my table." } },
+      lines = { { id = "xlock_default", text = "The Light judges what ye do, no' what ye wield, an' I've seen warlocks hold a line when braver souls ran. Still, I've buried too many friends tae fel tae welcome it at my table." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Light judges what ye do, no' what ye wield, an' I've seen warlocks hold a line when braver souls ran. But I'll be honest wi' ye, the Light in me goes cold wi' that demon standin' a pace from my table, for I've buried too many friends tae fel tae welcome it here." },
+      },
       choices = {
         { text = "Then judge me by what I do, Brandur. I'll prove it.", next = "BACK", reply = "I will, gladly, an' I hope ye prove it, because nothin' would please me more than tae be wrong about fel in front o' my students.", fx = { align = { light = 1 } } },
         { text = "The Light has its uses. So does the fel.", next = "BACK", reply = "That's the kind o' talk that's put a few o' my friends in the ground, so ye'll forgive me if I keep my hammer handy while we talk.", fx = { align = { light = -1 } } },
@@ -350,7 +352,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think coin is coin, and the children need it badly. What worries me is the children, who've seen enough of shadows already, so give if you like, but give quietly." } },
+      lines = { { id = "xlock_default", text = "I think coin is coin, and the children need it badly. What worries me is the children, who've seen enough of shadows already, so give if you like, but give quietly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think coin is coin, and the children need it badly, though I'd rather your demon didn't watch me drop it in the box, if it's all the same to you. What worries me is the children, who've seen enough of shadows already, so give if you like, but don't ever bring that thing near the orphanage." },
+      },
       choices = {
         { text = "I'll give quietly, John, and keep my shadows away.", next = "BACK", reply = "Thank you, and I'll see it goes to bread and blankets and nothing that frightens anybody, which is the best use I know for coin.", fx = { align = { light = 1 } } },
         { text = "Shadows will find them anyway. Better they learn to face them.", next = "BACK", reply = "Maybe they will, but not from me, and not while they're small enough to need a night's sleep without nightmares.", fx = { align = { light = -1 } } },
@@ -570,7 +574,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and that's why I'm asking you to step back. Every piece I forge for the paladins carries a prayer, and I'll not risk a prayer on a guess." } },
+      lines = { { id = "xlock_default", text = "I don't know, and that's why I'm asking you to step back. Every piece I forge for the paladins carries a prayer, and I'll not risk a prayer on a guess." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, and with your demon standing this close to the anvil I'd rather not learn today, so I'll ask you both to step back. Every piece I forge for the paladins carries a prayer, and I'll not risk a prayer on a guess, nor on the heat that's coming off that thing." },
+      },
       choices = {
         { text = "I'll step back, Jordan. Your prayers deserve respect.", next = "BACK", reply = "Thank you, truly, because most of your sort wouldn't have cared, and I'll forge a little easier knowing you're mindful of it.", fx = { align = { light = 1 } } },
         { text = "If a prayer can't withstand me, it's a weak prayer.", next = "BACK", reply = "Perhaps, but I'm not willing to test it on a paladin's hammer, so step back from the anvil, please, before we fall out.", fx = { align = { light = -1 } } },

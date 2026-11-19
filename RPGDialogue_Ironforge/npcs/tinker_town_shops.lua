@@ -79,7 +79,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." } },
+      lines = { { id = "xlock_default", text = "Once, and the smell lingered for a month. I've no objection to your craft, mind, but I'd like my parts used for engineering and not for whatever it is you do in the dark." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and the smell lingered for a month, and I'm sorry to say it's lingering again since your demon came through the door. I've no objection to your craft, mind, but I'd like my parts used for engineering, so please keep it away from the gear trays, because it's counting my sprockets and I don't like it." },
+      },
       choices = {
         { text = "I'll use your parts for engineering, Gearcutter, on my word.", next = "BACK", reply = "Thank you, truly, because I've only just got the last smell out of the curtains, and I'd like the next month to smell of oil and brass.", fx = { align = { light = 1 } } },
         { text = "What I do in the dark is my own business.", next = "BACK", reply = "Of course it is, and the smell is my business, so we'll both keep to our own affairs, and you'll kindly open the window before you leave.", fx = { align = { light = -1 } } },
@@ -271,7 +273,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." } },
+      lines = { { id = "xlock_default", text = "Mostly on its own, though there was an imp nearby at the time, and I have my suspicions. I'm a scientist, so I can't prove it, but I've also stopped inviting warlocks to my demonstrations." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mostly on its own, though there was an imp nearby at the time, and your demon is standing in exactly the spot it stood, which I find statistically alarming. I'm a scientist, so I can't prove anything, but I've stopped inviting warlocks to my demonstrations, and I'm reconsidering this conversation." },
+      },
       choices = {
         { text = "I'll keep my imp well clear of your demonstrations.", next = "BACK", reply = "Thank you, very thoughtful, and I'll mark your imp down as cleared of suspicion until the next unexplained explosion, at least.", fx = { align = { light = 1 } } },
         { text = "The imp probably improved it, Springspindle.", next = "BACK", reply = "Improved it? It turned it into a crater, which I suppose is an improvement in depth, but not in any of the directions I was hoping for.", fx = { align = { light = -1 } } },
@@ -509,6 +513,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because half my potions need sulfur, which is why the mixed drinks sit on a very separate shelf! Your servant can wait by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because half my potions need sulfur, and your servant smells like it's made of the stuff, which is why the mixed drinks sit on a very separate shelf! It's already sniffing at the green bottles, so please call it back to the door, because if it touches them, I won't be held responsible." },
       },
       choices = {
         { text = "I'll keep it by the door.", next = "BACK", reply = "Thank you, and I'll keep the cider well away from it, because the last imp that wandered in here drank half a shelf and started singing.", fx = { align = { order = 1 } } },

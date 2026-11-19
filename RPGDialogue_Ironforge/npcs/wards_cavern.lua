@@ -77,7 +77,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because it's no' from this world, an' every beast knows that the moment it catches the scent. I've seen a bear tear its stall apart tryin' tae get away from an imp, an' I'll no' see it again." } },
+      lines = { { id = "xlock_default", text = "Because it's no' from this world, an' every beast knows that the moment it catches the scent. I've seen a bear tear its stall apart tryin' tae get away from an imp, an' I'll no' see it again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because it's no' from this world, an' every beast knows it the moment it catches the scent, an' ye can hear them kickin' their stalls right now. I've seen a bear tear its stall apart tryin' tae get away from an imp, so take yer {pet} back out tae the Hall before I've another one tae mend." },
+      },
       choices = {
         { text = "I'll keep the creature far from your stables.", next = "BACK", reply = "Thank ye, truly, for I've only just mended the last stall, an' the bear's still givin' me a wounded look about it.", fx = { align = { light = 1 } } },
         { text = "They'll learn to live with it, Ulbrek.", next = "BACK", reply = "They'll no', an' I'll no' make them try, so keep it well away, or I'll be mendin' stalls an' soothin' bears till spring.", fx = { align = { light = -1 } } },
@@ -269,7 +271,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, and it never sulks or sets your robes alight like an imp." } },
+      lines = { { id = "xlock_default", text = "Every warlock should, for a demon can't follow you everywhere and some fights start before you can summon one. A dagger's always there, and it never sulks or sets your robes alight like an imp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every warlock should, for a demon can't follow you everywhere, though yours seems determined to try, since it's been at your heel the whole time you've been browsing. A dagger's always there, and it never sulks or sets your robes alight, and it doesn't stare at my stock like that, either." },
+      },
       choices = {
         { text = "I'll learn it and fight beside my demon, not behind it.", next = "BACK", reply = "Splendid, and your demon will thank you for it, assuming they thank anyone, which I doubt, but you'll be alive to wonder.", fx = { align = { honor = 1 } } },
         { text = "My demon does the fighting. That's what it's for.", next = "BACK", reply = "It is, until the day it isn't there, and then you'll wish you'd spent an afternoon on my range learning the pointy end.", fx = { align = { honor = -1 } } },
@@ -459,7 +463,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." } },
+      lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Peacefully enough, for both of us know the guards would happily throw us out together, though bringin' yer demon intae my corner stretches the peace a good deal. We keep tae our corners, an' we nod in passin', so take it back tae yours an' we'll go on noddin'." },
+      },
       choices = {
         { text = "Then I'll keep to my corner, and nod as I pass.", next = "BACK", reply = "We'll get along fine, then. A nod in passin' is the best friendship a rogue can offer down here.", fx = { align = { order = 1 } } },
         { text = "Corners are for the cautious. I go where I like.", next = "BACK", reply = "Then ye'll find out how quickly the guards come runnin', an' I'll be nowhere near ye when they do.", fx = { align = { order = -1 } } },
@@ -657,7 +663,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." } },
+      lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. Yer demon's peerin' intae the pool already, though, an' every fish in it has gone tae the bottom, so I'd ask ye tae keep it back from the edge, for they're shy enough as it is." },
+      },
       choices = {
         { text = "I'll keep my demon quiet and fish patiently.", next = "BACK", reply = "The fishin' will do yer patience good, which every warlock could use a wee bit more of.", fx = { align = { light = 1 } } },
         { text = "If my demon scares them up, that's quicker fishing.", next = "BACK", reply = "Quicker, aye, an' the fish will be too frightened tae taste right, so let the poor things come up in their own time.", fx = { align = { light = -1 } } },
@@ -848,7 +856,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." } },
+      lines = { { id = "xlock_default", text = "Because a green glow tends to attract things that aren't fish, and I've had enough surprises in this cavern. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a green glow tends to attract things that aren't fish, and I see one's already followed you here and is staring into my bait bucket. Grimnur says I'm too cautious, but Grimnur wasn't the one who had to fish an imp out of the pool, so please don't let it near the edge." },
+      },
       choices = {
         { text = "Ordinary lures for me, then. I'll leave the imp-fishing to you.", next = "BACK", reply = "Very wise, and much safer for everyone, and if you ever do go imp-fishing, please don't do it in my cavern.", fx = { align = { light = 1 } } },
         { text = "The things that aren't fish sound more interesting.", next = "BACK", reply = "That's exactly what I'm afraid of, and I'll keep my green lures in a locked drawer until somebody braver comes along.", fx = { align = { light = -1 } } },

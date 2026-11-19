@@ -105,7 +105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." } },
+      lines = {
+        { id = "xlock_default", text = "One, a few summers back, and he tried to use his imp as bait, and Donald still tells the story at the bar. The imp came back up angry and singed, and the fish were none the wiser, so I sold him a proper lure and some advice, and he did better after that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One, a few summers back, and he tried to use his imp as bait, and yours is eyeing the lake right now as if it heard the story. That one came back up angry and singed, so I'll sell you a proper lure and some advice, and you can tell {pet} it's staying on the dock." },
+      },
       choices = {
         { text = "A proper lure it is. I'll pay a fair price.", next = "BACK", reply = "Bless you for that. Donald can keep his one story, and I'll keep my customers dry.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The imp could use a swim, frankly.", next = "BACK", reply = "Ha, maybe it could, though I'd rather it did its swimming elsewhere. Donald's still not forgiven the last one.", fx = { align = { order = -1 } } },
@@ -295,7 +298,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." } },
+      lines = {
+        { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Candles and chalk and a few herbs for the less unpleasant rituals, and I'd sell them faster if your demon weren't lingering over my baskets. I've watched what the apothecaries up the hill brew, and I'll not have Southshore's name on anything that goes into a summoning, least of all with one standing in my shop." },
+      },
       choices = {
         { text = "Then I'll buy my reagents from someone less fussy.", next = "BACK", reply = "I'll not stop you, friend, though I'd ask you not to tell me where. Some things I'd rather not know about.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your fear is foolish. Reagents are just tools.", next = "BACK", reply = "Tools, perhaps, but I've seen what they're used for. I'll stay a foolish apothecary and keep my conscience clean.", fx = { align = { order = -1 } } },
@@ -511,7 +517,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." } },
+      lines = {
+        { id = "xlock_default", text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Nobody in Southshore asks what the robes are for, and I don't either, since a sale's a sale and the cart from Menethil doesn't run on curiosity." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Runecloth and silk, mostly, for robes, and dyes so dark I've had to send to Menethil for them twice. Your demon seems to approve of the black, judging by how it's watching the bolt, and I'll not ask why, since a sale's a sale and the Menethil cart doesn't run on curiosity." },
+      },
       choices = {
         { text = "Honest robes for honest coin. I've nothing to hide.", next = "BACK", reply = "Then you'll be my favourite sort of customer. Pay in silver and nobody here will ask a thing.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Best not to ask, Micha. Keep it that way.", next = "BACK", reply = "I'd planned to, friend. What folk wear in the privacy of their own homes is none of a trader's business.", fx = { align = { honor = -1 } } },
@@ -722,7 +731,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." } },
+      lines = {
+        { id = "xlock_default", text = "It climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked straight into Lordamere Lake smokin' like a chimney before I could stop it. I fished it out the next mornin', and it still clanks funny, so imps are banned from the stall, by sparks and sprockets they are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One climbed inside lookin' for somethin' shiny and set fire to the wiring, and the robot walked into Lordamere Lake smokin' like a chimney. So yer demon can stand right there where I can see it, pal, and if it so much as breathes on a sprocket, the repairs go on yer tab at full goblin rates." },
+      },
       choices = {
         { text = "I'll keep my imp away from your robots.", next = "BACK", reply = "Good, 'cause I'm still payin' off the last one, and the lake's charging me interest. Keep that little fella on a short leash.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps go where they want. Build better robots.", next = "BACK", reply = "Better robots cost money, buddy, and somebody's imp already sank the budget. You wanna fund the next prototype, you come see me.", fx = { align = { order = -1 } } },

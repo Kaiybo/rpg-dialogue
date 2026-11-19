@@ -166,7 +166,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fear anyone who mistakes power for wisdom, and the cult is full of them. Fight beside us and you will be treated as any ally, but if I hear of a demon loose among the tents, I will not ask whose it was." } },
+      lines = {
+        { id = "xlock_default", text = "I fear anyone who mistakes power for wisdom, and the cult is full of them. Fight beside us and you will be treated as any ally, but if I hear of a demon loose among the tents, I will not ask whose it was." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear anyone who mistakes power for wisdom, and the cult is full of them. You will be treated as any ally while you fight beside us, but I see your demon is loose among the tents this very moment, so keep it at your side, because I have not changed my mind about the rest." },
+      },
       choices = {
         { text = "That's fair. My demons answer to me, and to the Hold's peace.", next = "BACK", reply = "Then you will be treated as any other at the Hold, and I hope the day never comes when I must remind you of it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The cult were weak. I am not.", next = "BACK", reply = "Many said the same before they knelt to the Hammer, so forgive me if I watch you a little more closely than the others.", fx = { align = { light = -1 } } },
@@ -639,7 +642,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what. Whatever it is, it's no' demonic, mind, but it's no' friendly either, an' I'd keep yer demon well away from it." } },
+      lines = {
+        { id = "xlock_default", text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what. Whatever it is, it's no' demonic, mind, but it's no' friendly either, an' I'd keep yer demon well away from it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think they're connected tae somethin' big an' old an' angry, an' I'd sooner not find out what, though yer demon's starin' at that cluster like it does know. Whatever's in them is no' demonic, mind, but it's no' friendly either, so call it off before it gets curious." },
+      },
       choices = {
         { text = "I'll keep my demon away. Caution is wise.", next = "BACK", reply = "Good, an' I'll sleep easier for it, because I've a feeling that imp o' yours would only make it angrier.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd like to see what my demon makes of it.", next = "BACK", reply = "Then ye'll do it far from my camp, an' if your imp comes back with its eyes glowin', don't bring it near me.", fx = { align = { light = -1 } } },
@@ -1032,7 +1038,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would trust a warlock who has proven reliable, assuming the proof is in the counting. Every crate that reaches the Hold is a victory, and I do not much care whose demon defended it, provided it doesn't eat the grain." } },
+      lines = {
+        { id = "xlock_default", text = "I would trust a warlock who has proven reliable, assuming the proof is in the counting. Every crate that reaches the Hold is a victory, and I do not much care whose demon defended it, provided it doesn't eat the grain." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would trust a warlock who has proven reliable, assuming the proof is in the counting, and I see you have brought your guard along. Every crate that reaches the Hold is a victory, so let {pet} defend the wagons, if it must, but keep it out of the grain sacks, because I count those too." },
+      },
       choices = {
         { text = "I'll prove myself reliable, crate by crate.", next = "BACK", reply = "Then I will count your crates as carefully as any, and I suspect they will add up well in your favour.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll guard what I like, when I like.", next = "BACK", reply = "Then I will count you out of my plans, provided you do not mind, because I cannot plan around a guard who comes and goes.", fx = { affinity = -1, align = { order = -1 } } },
@@ -1259,7 +1268,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust the Commander, and I trust my guards to follow orders, and that is the list. Everyone else, including you, I watch, because the Twilight's Hammer has eyes in places you wouldn't think." } },
+      lines = {
+        { id = "xlock_default", text = "I trust the Commander, and I trust my guards to follow orders, and that is the list. Everyone else, including you, I watch, because the Twilight's Hammer has eyes in places you wouldn't think." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust the Commander, and I trust my guards, and that is the list. Everyone else I watch, and now I have two of you to watch, because the Twilight's Hammer has eyes in places you wouldn't think, and I don't know whose eyes that creature of yours is using." },
+      },
       choices = {
         { text = "Good. Watching everyone keeps the Hold safe.", next = "BACK", reply = "It does, and it keeps me alive, which is the second most important thing on my list.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your suspicion will drive away allies.", next = "BACK", reply = "Suspicion drives away cultists too, and I'd rather lose a few allies than lose the Hold to one of them.", fx = { align = { order = -1 } } },
@@ -1471,7 +1483,10 @@ P:NPC {
   nodes = {
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The last imp that came through ate a whole tray of honey cakes and then set fire to the tray. I don't hold it against its master, not too much, but the birds of Auberdine never did that to me, and I miss them dreadfully." } },
+      lines = {
+        { id = "xlock_default", text = "The last imp that came through ate a whole tray of honey cakes and then set fire to the tray. I don't hold it against its master, not too much, but the birds of Auberdine never did that to me, and I miss them dreadfully." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The last demon through here ate a whole tray of honey cakes and set fire to the tray, and yours is looking at the counter with the very same expression. I don't hold it against its master, not too much, but please keep it out of my kitchen, because the birds of Auberdine never did any of this." },
+      },
       choices = {
         { text = "I'll keep it outside. Your kitchen deserves some peace.", next = "BACK", reply = "Bless you, dear, and I'll save you a honey cake, which you can eat outside with your little friend if you like.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon has a mind of its own. I can't promise anything.", next = "BACK", reply = "Then I'll keep a bucket of water by the stove, dear, and a very close eye on the honey cakes.", fx = { align = { order = -1 } } },
@@ -1796,7 +1811,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, pal, so I'm askin', and I'm desperate enough to try anything that won't kill him faster. And if your trick costs extra, it's going on Noggle's tab." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, pal, so I'm askin', and I'm desperate enough to try anything that won't kill him faster. And if your trick costs extra, it's going on Noggle's tab." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, pal, so I'm askin', and I'm desperate enough to try anything that won't kill him faster, even with your demon breathin' on the back of my neck. And if your trick costs extra, it's going on Noggle's tab, and so does anything that thing knocks over." },
+      },
       choices = {
         { text = "I won't experiment on your cousin. It's too risky.", next = "BACK", reply = "That's sensible, pal, and probably right, though I was hoping someone would say yes so I didn't have to.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll try a curse, if you're paying.", next = "BACK", reply = "I'm paying, pal, sort of, through Noggle's tab, so go ahead and try, but stand back from the cot.", fx = { align = { light = -1 } } },

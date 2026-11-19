@@ -74,6 +74,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Older cellars than anyone admits to, cut before the city was rebuilt, and the Lamb's crypt is the deepest of them. I drew new streets over half of Stormwind after the Horde burned it, but the Quarter's masters wouldn't let my men dig below a certain line, and I've learned not to ask builders' questions of people who answer with fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Older cellars than anyone admits to, and the Lamb's crypt is the deepest of them, which your servant seems to know already from the way it keeps looking at the floor. The Quarter's masters wouldn't let my men dig below a certain line, and having seen that thing up close, I'm beginning to understand why." },
       },
       choices = {
         { text = "Then the plans stay closed, as they should.", next = "BACK", reply = "They do, and I'll sleep easier for it. There are doors down there that I'd rather nobody remembered, even me.", fx = { align = { order = 1 } } },

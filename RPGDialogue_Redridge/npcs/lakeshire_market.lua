@@ -35,7 +35,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." } },
+      lines = {
+        { id = "xlock_default", text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not even the strangest customer this week. Just keep your pet away from the barrels, because I've no idea what a demon would do to my fruit." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, but I've sold apples to soldiers, gnoll-hunters and a man who swore he was a king, so you're not the strangest customer this week. Your demon has been staring at that barrel of reds since you walked up, though, and I'd swear the ones nearest it have started to go soft." },
+      },
       choices = {
         { text = "I'll keep it well away from the apples.", next = "BACK", reply = "That's kind of you, and the barrels thank you. I'd hate to find out what a demon does to a russet.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My pet goes where it likes, Lamar.", next = "BACK", reply = "Then I'll keep my eye on it and my hand on the lid. The apples are for paying customers only.", fx = { align = { order = -1 } } },
@@ -208,7 +211,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." } },
+      lines = {
+        { id = "xlock_default", text = "Cages, chains, I couldn't say, and I don't care to know. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cages, chains, I couldn't say, and with that thing breathing heat on my anvil I care to know even less. Every bar I have is promised to Verner for the bridge or the watch's blades, so whatever you're building will have to wait until the gnolls are gone." },
+      },
       choices = {
         { text = "The bridge comes first. I'd never take from it.", next = "BACK", reply = "Good, and you'll find me a fair seller once the gnolls are gone. The bridge needs every bar.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Promises can be broken for the right coin.", next = "BACK", reply = "Not my promises, friend, and not for any coin. Go and find your iron elsewhere.", fx = { align = { honor = -1 } } },
@@ -386,7 +392,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." } },
+      lines = {
+        { id = "xlock_default", text = "I've seen one of your lot's big brutes take a gnoll's axe on its chest and not even notice, so maybe not. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Looking at yours up close, maybe not, because I can't even tell where on it a gnoll would think to aim. I'd still feel better if whatever stands between Lakeshire and the hills was wearing proper steel instead of brimstone." },
+      },
       choices = {
         { text = "Steel's a fine thing. I'd trust your shields.", next = "BACK", reply = "Then you'll get a good one, and I'll sleep easier. Steel's honest, at least.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon's worth ten of your shields, Kara.", next = "BACK", reply = "Ten? Then it'll be ten times as hard to replace. I'll keep my shields, thank you.", fx = { align = { light = -1 } } },
@@ -558,7 +567,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." } },
+      lines = {
+        { id = "xlock_default", text = "Once, to a fellow who wanted the line for something else and wouldn't say what. I sold it anyway, because a sale's a sale, but I've wondered about it since, and I don't fancy wondering about you as well." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, to a fellow who wanted the line for something else and wouldn't say what, and he had a thing like yours lurking at his heel too. I sold it anyway, because a sale's a sale, but I've wondered about it since, and your {pet} looking at my spools isn't helping me stop." },
+      },
       choices = {
         { text = "If I buy line, it's for fish. You've my word.", next = "BACK", reply = "Your word's good enough for me. Line's on the counter.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Wonder all you like. I don't explain myself.", next = "BACK", reply = "Then I'll wonder, and I'll sell you the line anyway. A sale's a sale.", fx = { align = { honor = -1 } } },
@@ -736,7 +748,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." } },
+      lines = {
+        { id = "xlock_default", text = "Bones, blood, the odd heart, and I said no every time. A butcher's trade is feeding people, friend, and I'll not have my block mixed up in anything else, however much coin's on the counter." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, blood, the odd heart, and I said no every time, though none of them brought the thing along to sniff at my hooks the way yours is doing now. A butcher's trade is feeding people, friend, so call it away from the block before I lose my appetite and my custom both." },
+      },
       choices = {
         { text = "You're right. Your trade should stay clean.", next = "BACK", reply = "It is, and it'll stay that way. Feeding people's enough for one man.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bones and blood are only leftovers to you.", next = "BACK", reply = "They're not leftovers, they're someone's dinner or broth. Not for sale, friend.", fx = { align = { light = -1 } } },

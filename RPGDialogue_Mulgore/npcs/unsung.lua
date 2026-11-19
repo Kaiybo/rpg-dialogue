@@ -95,6 +95,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because the orcs told them how demons once turned the Horde into something it never wanted to be, and the young believe every story they hear. Show them you're patient and in command of what you carry, and the fear will pass, as most fears do." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because the orcs told them how demons turned the Horde into something it never wanted to be, and now one is standing in front of them with eyes like coals. Show them it obeys you and stays still when you tell it to, and the fear will pass, as most fears do." },
       },
       choices = {
         { text = "I'll earn their trust, Harutt. They'll see.", next = "BACK", reply = "They will, given time. Show them one spell that helps instead of burns, and half of them will follow you about the camp.", fx = { align = { light = 1 } } },
@@ -280,6 +281,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't fear it, child, they despise it, and so do I. The orc shamans learned that lesson in their own blood when their warlocks turned the elements away from them, and I'll not see the young of Narache learn it from you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't fear it, child, they despise it, and so do I, which is why it should not be standing in my lodge. The orc shamans learned that lesson in their own blood when their warlocks turned the elements away, and I'll not see the young of Narache learn it from you." },
       },
       choices = {
         { text = "I won't bring it near your students.", next = "BACK", reply = "Thank you, child. The young ones have only just stopped having nightmares about the last one.", fx = { align = { light = 1 } } },
@@ -500,6 +502,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, because they know when something doesn't belong in the world, and your demon doesn't. I won't send you away, because the Horde accepts you, but please keep it far from the wild whenever you can." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and look at them now, because every bird on this hill went silent the moment your demon stepped off the road. I won't send you away, since the Horde accepts you, but please lead it back from the grass and keep it far from the wild whenever you can." },
       },
       choices = {
         { text = "I'll keep it from the wild, Gart.", next = "BACK", reply = "Thank you. The plainstriders scatter at the smell of it, and I spend all evening calling them back.", fx = { align = { light = 1 } } },
@@ -693,6 +696,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But I've heard what the Burning Blade did in Durotar, and I'll keep a spear near my hand whenever you're near the barracks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "So the Warchief says, and I'll follow his word, because the Horde gave us Mulgore. But your {pet} is standing in my barracks doorway with its eyes on my recruits, so you'll forgive me if my spear stays in my hand until it moves along." },
       },
       choices = {
         { text = "I'll follow the Warchief's rules, as you do.", next = "BACK", reply = "Good, that's all I ask of anyone, tauren or orc or otherwise. Cairne gave Thrall his word, and I keep it.", fx = { align = { order = 1 } } },
@@ -878,6 +882,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I sell to anyone with coin and the arms to lift what I make, though warlocks tend to want daggers and I don't make many. I'll say this, though: a demon is a poor shield, and a good staff has never once turned on its owner." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone with coin and the arms to lift what I make, though warlocks tend to want daggers and I don't make many. That one at your heel has been watching my anvil like it's never seen honest work, and I'll say it again: a good staff has never once turned on its owner." },
       },
       choices = {
         { text = "I'll carry my own staff and fight my own fights.", next = "BACK", reply = "Good. A staff never whispers at you in the night, warlock, and I'll find you a sturdy one.", fx = { align = { honor = 1 } } },
@@ -1041,6 +1046,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, the ones who come down the road from Orgrimmar, and they're always hungry, because I think the spells take more out of them than they let on. This loaf is from the fields east of the village, and it'll put back whatever your magic takes." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, the ones who come down from Orgrimmar, and they always look hungrier than their demons, though yours keeps sniffing at my basket as if it disagrees. This loaf is from the fields east of the village, and it's for you, so mind it doesn't get scorched on the way." },
       },
       choices = {
         { text = "Thank you, Jhawna. I'll pay you fairly for it.", next = "BACK", reply = "Thank you, dear, though I'd have given it to you anyway. Eat it slowly, it's better that way.", fx = { align = { honor = 1 } } },

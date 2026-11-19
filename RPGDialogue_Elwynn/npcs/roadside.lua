@@ -66,7 +66,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to a demon, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." } },
+      lines = {
+        { id = "xlock_default", text = "Afraid's a strong word, but I've never sold anything to a demon, and I've no wish to start, because I don't know what they pay in. I'll stick to customers with honest coins, if you don't mind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Afraid's a strong word, but I've never sold anything to a demon, and yours is poking about my pack as if it means to start. Call it off, friend, because I don't know what they pay in, and I'll stick to customers with honest coins, if you don't mind." },
+      },
       choices = {
         { text = "My demon will stay back. You'll deal only with me.", next = "BACK", reply = "That's very decent of you, and I'll be glad of it. I'm sure your little friend is a credit to his kind, but I'd still rather he stayed where I can see him.", fx = { align = { light = 1 } } },
         { text = "Demons pay in power, Antonio. You'd be surprised.", next = "BACK", reply = "Power doesn't buy bread in Goldshire, friend, and I've a feeling the change comes back in a currency I'd not want in my purse. Copper and silver will do me.", fx = { align = { light = -1 } } },

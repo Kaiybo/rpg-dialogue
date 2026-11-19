@@ -91,6 +91,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll treat you exactly as they treat everyone, which is to say they'll watch you, but they'll watch you more closely. I'll keep your valuables as faithfully as anyone's, because the ledger doesn't ask what you are." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll treat you exactly as they treat everyone, which is to say they'll watch you, but with your servant beside you, they'll watch it far more closely than you. I'll keep your valuables as faithfully as anyone's, though I'd ask it not to breathe on the ledger, because the ink's still wet." },
       },
       choices = {
         { text = "Then I'll give your Sentinels nothing to watch.", next = "BACK", reply = "That would be the best outcome for all of us. The Sentinels would be quite happy to find you dull.", fx = { align = { order = 1 } } },
@@ -291,6 +292,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'd try, and they'd likely lose, and then I'd have a broken student and a smug demon, which is no way to run a morning. Stand at the edge and watch if you like, because you might learn how a front line works before you send something to stand in one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd try, and they'd likely lose, and then I'd have a broken student and a smug demon, which is no way to run a morning. Yours already looks smug enough at the edge of the yard, so keep it there and watch how a front line works before you send it to stand in one." },
       },
       choices = {
         { text = "I'll watch and learn how a line holds.", next = "BACK", reply = "Then you will learn more than my students do, I suspect. Watch the feet, warlock.", fx = { align = { order = 1 } } },
@@ -469,6 +471,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Once, a human who wanted a dagger he could bind a spirit into, and I sent him packing back to the boats. I sell honest steel for honest work, and I'd like to keep my name as clean as my stock." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a human who wanted a dagger he could bind a spirit into, and I sent him packing back to the boats. Your servant is eyeing my best blade the way he did, so I'll tell you what I told him, which is that I sell honest steel for honest work and none of it goes home with that." },
       },
       choices = {
         { text = "I wouldn't ask you for anything but steel.", next = "BACK", reply = "Then you are welcome at my counter any time. Steel is honest, and so are you, it seems.", fx = { align = { light = 1 } } },
@@ -654,6 +657,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd let a saber choose, and I don't think any would choose you while that thing walks at your side. That isn't a judgment on you, only on the company you keep, and the sabers judge company very fairly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd let a saber choose, and you can see their answer, because every one of them has backed into the far corner of the pen since your servant came near. That isn't a judgment on you, only on the company you keep, and the sabers judge company very fairly." },
       },
       choices = {
         { text = "Then I'll keep my distance and let them settle.", next = "BACK", reply = "Thank you, warlock, and they will thank you too. They are gentle creatures, mostly.", fx = { align = { light = 1 } } },
@@ -861,6 +865,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll let you, though they'll sulk about it, and a sulking saber has a way of finding every low branch on the path. Lelanai won't sell you one unless the city vouches for you, but I'll teach you to stay on whatever you end up riding, fire or fur." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll let you, though they'll sulk about it, and the one in the yard has been sulking since your {pet} walked through the gate. Lelanai won't sell you one unless the city vouches for you, but I'll teach you to stay on whatever you end up riding, fire or fur." },
       },
       choices = {
         { text = "Teach me. I'll learn the saber's way.", next = "BACK", reply = "Then you will learn the saber's way, and she will forgive you the rest. Come back tomorrow.", fx = { align = { order = 1 } } },
@@ -1026,6 +1031,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "If its purpose were honest and its members answered for themselves, I would, though Tyrande might ask to read the charter. Tell me what you'd do with your band, and I'll judge it by its purpose, not by its strangest member." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "If its purpose were honest and its members answered for themselves, I would, though Tyrande might ask to read the charter. I'd judge it by its purpose and not its strangest member, though I'd rather the strangest member waited outside while we talk, since it's been reading my papers over your shoulder." },
       },
       choices = {
         { text = "Its purpose would be honest. I'd answer for it.", next = "BACK", reply = "Then I will register it, and I will be glad to. Tyrande may still want to read it.", fx = { align = { order = 1 } } },
@@ -1392,6 +1398,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't know and I've no wish to find out, though the hunters say the felhounds in Felwood eat everything they find. Buy what you like, but keep it from licking the counter, because I've got to sell to the Sentinels after you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know and I've no wish to find out, though by the way yours is staring at the venison, I'd guess they do. Buy what you like, but keep it back from the counter, because I've got to sell to the Sentinels after you." },
       },
       choices = {
         { text = "I'll keep it well away from your counter.", next = "BACK", reply = "Thank you, warlock, and my other customers thank you too. It smells of sulphur.", fx = { align = { light = 1 } } },
@@ -1571,6 +1578,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Of course, because a wound bleeds the same whatever made it, and a warlock who can bandage is one fewer warlock calling on darker means to heal. Sit down, and we'll start with linen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Of course, because a wound bleeds the same whatever made it, and a warlock who can bandage is one fewer warlock calling on darker means to heal. Your servant can wait by the wall, since I've never yet met one that wanted to learn, so sit down and we'll start with linen." },
       },
       choices = {
         { text = "Linen it is. I'll heal the slow, plain way.", next = "BACK", reply = "Then you are welcome at my table, warlock. Linen is the honest way.", fx = { align = { light = 1 } } },
@@ -1780,6 +1788,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because I've heard of warlocks who use rare herbs to feed their pacts, and I won't have my plants in any of those bargains. Learn honest alchemy here if you'd like, but the patience it takes is the cure for your craft, not a fuel for it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because I've heard of warlocks who use rare herbs to feed their pacts, and your servant is already watching my planters as if it knows which ones. Learn honest alchemy here if you'd like, but send it out of the garden first, because the patience it takes is the cure for your craft, not a fuel for it." },
       },
       choices = {
         { text = "Honest alchemy, then. I'll learn the patient way.", next = "BACK", reply = "Good, and the herbs will be glad of it. My first teacher made me grind silverleaf for a month before she let me near a flame.", fx = { align = { light = 1 } } },

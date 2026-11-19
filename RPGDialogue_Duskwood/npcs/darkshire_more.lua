@@ -964,6 +964,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've thought about it, because an imp is really just a very small furnace with opinions, and I'd love to put one in a boiler. But every gnome I've known who tried that sort of thing ended up with no eyebrows and a very angry boiler, so I've decided to stay a coward about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'll admit your {pet} has me thinking again, because it's practically radiating heat and it isn't even trying. But every gnome I've known who tried that sort of thing ended up with no eyebrows and a very angry boiler, so I'll admire it from over here, thank you." },
       },
       choices = {
         { text = "Wise of you, Herble. Some things shouldn't be bolted down.", next = "BACK", reply = "That's my thinking, exactly. Eyebrows are hard to grow back.", fx = { align = { order = 1 } } },
@@ -1200,6 +1201,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'm afraid of most things lately, so you're in good company, but I'll tell you plainly what frightens me most. Somebody is raising the dead out there, and you're the first person I've met who might understand how, which makes me wonder whether you'd stop it or take notes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'm afraid of most things lately, so you're in good company, though that creature at your side is doing nothing to help. Somebody is raising the dead out there, and you're the first person I've met who might understand how, which makes me wonder whether you'd stop it or take notes." },
       },
       choices = {
         { text = "I'd stop it, Farrin. Raising your father isn't my work.", next = "BACK", reply = "Then you're the first I've trusted with it. Thank you, truly.", fx = { align = { light = 1 } } },

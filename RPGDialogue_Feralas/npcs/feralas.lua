@@ -167,7 +167,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "You call upon the same powers that broke the world and turned our own kin into the satyrs that haunt Eldre'Thalas. I will judge you by your deeds while you are here, but I will not forget what you are, and neither will my Sentinels." } },
+      lines = {
+        { id = "xlock_default", text = "You call upon the same powers that broke the world and turned our own kin into the satyrs that haunt Eldre'Thalas. I will judge you by your deeds while you are here, but I will not forget what you are, and neither will my Sentinels." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "You call upon the same powers that broke the world and made our kin into the satyrs of Eldre'Thalas, and you bring a piece of them into my camp. I will judge you by your deeds while you are here, but my Sentinels have their hands on their bows, so keep it at heel, and I will not forget what it is." },
+      },
       choices = {
         { text = "I master the Legion's power. It doesn't master me.", next = "BACK", reply = "So said the Highborne before they knelt, and I watched them kneel, so forgive me if I wait to see.", fx = { align = { light = -1 } } },
         { text = "I understand your caution. I'll earn your trust.", next = "BACK", reply = "Then earn it slowly. I miss very little on this island, and I will notice.", fx = { affinity = 1, align = { light = 1 } } },
@@ -555,7 +558,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It worries me, which is different, and it troubles the Sentinels far more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." } },
+      lines = {
+        { id = "xlock_default", text = "It worries me, which is different, and it troubles the Sentinels far more. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, but I'll say a quiet word to the Light for you while I do it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It worries me, which is different, and it troubles the Sentinels far more, especially with your demon standing at my bench. I've seen what fel does to a soul over time, and I'll patch your leathers just the same, though I'll say a quiet word to the Light for you, and maybe one against it." },
+      },
       choices = {
         { text = "Pray all you like. I don't need it.", next = "BACK", reply = "Then I'll pray quietly, and you won't hear it, and we'll both be happier for the arrangement.", fx = { align = { light = -1 } } },
         { text = "I'll take any prayers you have to spare.", next = "BACK", reply = "Then you'll have them, friend, every morning, and I'll throw in a quick one for your leathers too.", fx = { affinity = 1, align = { light = 1 } } },
@@ -787,7 +793,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not one of them, and I don't blame them. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a demon in the common room asks more of them than you know." } },
+      lines = {
+        { id = "xlock_default", text = "Not one of them, and I don't blame them. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a demon in the common room asks more of them than you know." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not one of them, and I see three already reaching for their bows since your servant came in. Some of them are old enough to remember the satyrs being made, and they've spent ten thousand years killing what came of it, so a demon in the common room asks more of them than you know." },
+      },
       choices = {
         { text = "Then my demon stays on the dock. They deserve their rest.", next = "BACK", reply = "Thank you, and they will thank you too, in their own way, which is by not shooting you.", fx = { align = { order = 1 } } },
         { text = "Ten thousand years is long enough to learn some tolerance.", next = "BACK", reply = "Perhaps it is, but not for them, and I would not ask them to learn it in my common room.", fx = { align = { order = -1 } } },
@@ -1000,7 +1009,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it." } },
+      lines = {
+        { id = "xlock_default", text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The ogres have always had their warlocks and shamans, and their spells killed more of my warriors than their clubs did. If you and that creature mean to turn your power against them, I'll be glad of it, but I'll be watching where else you turn it, and where it turns its eyes." },
+      },
       choices = {
         { text = "I'll burn the Gordunni for the Horde.", next = "BACK", reply = "Good. The Horde will remember it, and so will I, and so will the Gordunni, the few who live.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll use my power as I see fit, orc.", next = "BACK", reply = "Then I'll be watching, warlock, and you'll find my eyes are sharper than an ogre's.", fx = { align = { honor = -1 } } },
@@ -1564,7 +1576,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Then you'll forgive me for keeping a bucket of water nearby while you're here, won't you? I'll feed anyone of the Horde who comes to Mojache, but I'd like my roof to stay where it is." } },
+      lines = {
+        { id = "xlock_default", text = "Then you'll forgive me for keeping a bucket of water nearby while you're here, won't you? I'll feed anyone of the Horde who comes to Mojache, but I'd like my roof to stay where it is." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Then you'll forgive me for fetching a bucket of water while your demon is standing this close to my thatch, won't you? I'll feed anyone of the Horde who comes to Mojache, and I'll even feed you, but I'd like my roof to stay where it is, so keep it outside." },
+      },
       choices = {
         { text = "I'll keep my imp in line. You have my word.", next = "BACK", reply = "Thank you, little one, and I will keep the bucket nearby anyway, out of habit.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A little chaos is in an imp's nature.", next = "BACK", reply = "Then I will keep two buckets, and I will hope its nature is satisfied by the fire in the pit.", fx = { align = { order = -1 } } },

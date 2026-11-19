@@ -140,6 +140,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I have watched what demons do to those who call them servants, so I will pray for you, and I will watch you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I knew the eyes of your servant's kind long before you were born, so I will pray for you, and I will watch it." },
       },
       choices = {
         { text = "Then watch. I'll give you no reason to raise a bow.", next = "BACK", reply = "Then I will hold my bow and watch, warlock, and pray you keep your word. Many before you meant it too.", fx = { align = { order = 1 } } },
@@ -1250,6 +1251,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I have walked through Felwood, which was Ashenvale's green heart before the Legion's taint soaked into it, and the trees there still weep. Druids are healing it one grove at a time, and I'd thank you not to make us start over in Teldrassil." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I have walked through Felwood, which was Ashenvale's green heart before the Legion's taint soaked into it, and the trees there still weep, and the moss where your servant stands is already turning grey. Druids are healing Felwood one grove at a time, and I'd thank you not to make us start over in Teldrassil." },
       },
       choices = {
         { text = "I'll keep my servants far from these groves.", next = "BACK", reply = "That is courteous, warlock, and the trees will notice it even if the Circle does not. Felwood still weeps.", fx = { align = { light = 1 } } },
@@ -1602,6 +1604,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a shadow at your heel. The Sisterhood remembers the Legion too well to welcome your servant inside, so leave it at the door and come in as yourself." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Elune turns no one away, little star, but her light shows what we carry, and tonight it shows your servant itself, standing on the temple steps for all the Sisterhood to see. Leave it out in the dark where it belongs, and come in as yourself." },
       },
       choices = {
         { text = "I'll leave it at the door, Priestess.", next = "BACK", reply = "Thank you, little star, and Elune will thank you too. Pick it up again when you go.", fx = { align = { light = 1 } } },
@@ -1814,6 +1817,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I could learn much, and I will admit the temptation, but the Highborne began by studying too. I will read about your servant in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I could learn much, and with your servant standing before me I admit the temptation is sharper. But the Highborne began by studying too, so I will read about its kind in old books written by those who fought them, and I'll leave it to you whether you end up in the next one." },
       },
       choices = {
         { text = "Then I'll make sure the books speak kindly of me.", next = "BACK", reply = "They will, if you give them good reason, though old books are slow to change their minds. I will be glad to read the new pages.", fx = { align = { light = 1 } } },
@@ -2137,6 +2141,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because my guests sleep badly enough with the inn rocking in the wind, and they won't sleep at all with a demon at the foot of the bed. The branch is broad and the drop is long, so it can think about that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because my guests sleep badly enough with the inn rocking in the wind, and two of them have already asked for other rooms since yours came up the ramp. The branch is broad and the drop is long, so it can stand out there and think about that." },
       },
       choices = {
         { text = "Fair. My servant can take the branch.", next = "BACK", reply = "Thank you, and I will not ask what it does out there. My guests will sleep soundly.", fx = { align = { order = 1 } } },

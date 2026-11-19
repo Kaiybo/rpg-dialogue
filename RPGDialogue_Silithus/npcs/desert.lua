@@ -319,6 +319,7 @@ P:NPC {
     x_warlock = {
       lines = {
         { id = "xwl_default", text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep. But you came to Valor's Rest and told me plainly, and I would rather speak with an honest warlock than a dishonest priest." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "It does, and I would be lying if I said otherwise, here among graves I have sworn to keep, and you have brought your servant to stand among them too. Still, you came to Valor's Rest and told me plainly, and I would rather speak with an honest warlock and an honest demon than a dishonest priest." },
       },
       choices = {
         { text = "The souls I take belong to my enemies.", next = "x_warlock_enemies" },
@@ -796,7 +797,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not often, but then we don't often dig in the hives. We've lost good people down there, an' I'll not pretend I'm fond o' demons, but a warlock knows what it looks like when somethin' crawls into a mind, an' after what happened tae Natalia, I'd value that." } },
+      lines = {
+        { id = "xlock_default", text = "Not often, but then we don't often dig in the hives. We've lost good people down there, an' I'll not pretend I'm fond o' demons, but a warlock knows what it looks like when somethin' crawls into a mind, an' after what happened tae Natalia, I'd value that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not often, but then we don't often dig in the hives, an' I'll say this for yer demon, it doesnae look the type tae panic in the dark. I'll not pretend I'm fond o' the creature, but a warlock knows what it looks like when somethin' crawls into a mind, an' after Natalia, I'd value that." },
+      },
       choices = {
         { text = "I'll watch for that kind of corruption. You have my word.", next = "BACK", reply = "Bless ye for that, an' if ye see it, shout, because I'd rather lose a dig than lose another digger tae those tunnels.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll take what the hives hold, whatever whispers in there.", next = "BACK", reply = "Whatever whispers in there, eh? Then ye'll go alone, an' I'll not be the one sendin' the letter home tae your kin.", fx = { align = { light = -1 } } },
@@ -1109,7 +1113,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because they've not come near Silithus in a thousand years, not since the wall went up, an' now they're circlin' like vultures. Somethin's drawin' them here, an' I'd like tae know what before it draws them down on our heads." } },
+      lines = {
+        { id = "xlock_default", text = "Because they've not come near Silithus in a thousand years, not since the wall went up, an' now they're circlin' like vultures. Somethin's drawin' them here, an' I'd like tae know what before it draws them down on our heads." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they've not come near Silithus in a thousand years, an' now they're circlin' like vultures, an' ye'll notice yer demon's been watchin' the sky as long as I have. Somethin's drawin' them here, an' if that thing o' yours can smell what it is, I'd like tae know before it draws them down on our heads." },
+      },
       choices = {
         { text = "The dragons should be watched. You're right to worry.", next = "BACK", reply = "Glad somebody agrees, because Rutgar only laughs an' tells me tae dig, an' I'm tired o' being laughed at.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Dragons are trouble. Let them be.", next = "BACK", reply = "Let them be, aye, if they'll let us be, but I've a feeling they've not come all this way just tae admire the view.", fx = { align = { order = -1 } } },

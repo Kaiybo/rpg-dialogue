@@ -85,7 +85,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, a fellow who brought his felhunter up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." } },
+      lines = {
+        { id = "xlock_default", text = "Once, a fellow who brought his felhunter up on the saddle, and the bird dumped them both in the Thondroril River. He walked back covered in mud and swearing, and I gave him a towel and a lecture, and he's flown with me twice since without a word of trouble." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, a fellow who brought his demon up on the saddle, and the bird dumped them both in the Thondroril River, and my bird's giving yours the very same look right now. Send it off before you mount, and I'll not need the towel or the lecture, and you'll fly as well as anyone." },
+      },
       choices = {
         { text = "Fair rules, Khaelyn. The bird's comfort comes first.", next = "BACK", reply = "Aye, the bird first, always. Ye've got sense, which is more than the last paladin who tried tae saddle one in full plate.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My felhunter rides with me. The bird can adjust.", next = "BACK", reply = "Then ye'll be walkin' back from the Thondroril like the last fellow. I'll have a towel ready.", fx = { align = { order = -1 } } },
@@ -345,7 +348,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They mind everything, but they mind demons least of all, for a demon smells less of death than the rest of us. Keep it quiet in the air and don't let it bite, and I've no objection." } },
+      lines = {
+        { id = "xlock_default", text = "They mind everything, but they mind demons least of all, for a demon smells less of death than the rest of us. Keep it quiet in the air and don't let it bite, and I've no objection." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They mind everything, but they mind demons least of all, and yours smells less of death than the rest of us, which is very nearly a compliment. Keep {pet} quiet in the air and don't let it bite, and I've no objection." },
+      },
       choices = {
         { text = "My demon behaves. I'll make sure of it.", next = "BACK", reply = "Thank you. The bats will settle easier for it, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It bites when it likes. That's its nature.", next = "BACK", reply = "Then it can bite on the ground, and my bats will stay in the air without it.", fx = { align = { order = -1 } } },
@@ -593,7 +599,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Everything makes them nervous, for they've seen what the dead can do, and the dead don't need demons to be frightening. Eat your soup and be civil, and they'll warm to you, slower than they'd like to admit." } },
+      lines = {
+        { id = "xlock_default", text = "Everything makes them nervous, for they've seen what the dead can do, and the dead don't need demons to be frightening. Eat your soup and be civil, and they'll warm to you, slower than they'd like to admit." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything makes them nervous, and a demon standing in the doorway of my common room has them reaching for their swords. Eat your soup and keep yours by your chair where they can see it, and they'll warm to you, slower than they'd like to admit." },
+      },
       choices = {
         { text = "I'll be civil. They've earned some peace.", next = "BACK", reply = "Thank you. They have, and I'll see you get a warm bowl for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They'll get used to me, or they won't.", next = "BACK", reply = "They will, love, given time and soup. Sit down, and let them watch you eat like a normal person.", fx = { align = { light = -1 } } },
@@ -699,7 +708,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell to anyone with coin and the Dawn's good word, because thread and dye don't care who buys them. What I won't do is ask questions about what it's for, since the last time I asked, I got an answer, and I didn't sleep well for a week." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell to anyone with coin and the Dawn's good word, because thread and dye don't care who buys them. What I won't do is ask questions about what it's for, since the last time I asked, I got an answer, and I didn't sleep well for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell to anyone with coin and the Dawn's good word, and I'll even sell to you with that thing peering over my counter. What I won't do is ask what it's for, since the last time I asked I got an answer, and I'd rather your demon didn't decide to give me another." },
+      },
       choices = {
         { text = "Sensible of you, Jase. I'll pay honestly.", next = "BACK", reply = "Thank you. Honest coin is all I need to know about anyone.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Best not to ask. Ignorance keeps you safe.", next = "BACK", reply = "It does, and I'm happy in my ignorance. Thread and dye, and nothing else, and I sleep fine.", fx = { align = { honor = -1 } } },

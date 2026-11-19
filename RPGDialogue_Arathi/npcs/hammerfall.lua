@@ -218,7 +218,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Use your shadows on the Witherbark if you must, but do not speak to me of it, for I have nightmares enough." } },
+      lines = { { id = "xlock_default", text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Use your shadows on the Witherbark if you must, but do not speak to me of it, for I have nightmares enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "He freed us from both, and you would know it if you had seen orcs in the camps, sick for the demon blood they had lost. Now you stand before me with a demon at your heel, and I can smell the old sickness on it, so take it away from me before the nightmares come again tonight." },
+      },
       choices = {
         { text = "I'll keep it from you. You've suffered enough.", next = "BACK", reply = "Thank you. I saw enough of it in the camps, in the guards' eyes and then in my own.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "That fire was strength, and the Horde threw it away.", next = "BACK", reply = "Strength, and slavery. You did not see the camps, or you would not say it.", fx = { align = { light = -1 } } },
@@ -432,7 +434,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Every time you call on fel they flinch, and one day you might want their help and find them lookin' the other way." } },
+      lines = { { id = "xlock_default", text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Every time you call on fel they flinch, and one day you might want their help and find them lookin' the other way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The spirits forgave the whole Horde for the demon blood, so they can forgive you, but forgivin' don't mean forgettin'. Right now they be pullin' back from that thing at your heel like a hand from a fire, and one day you might want their help and find them lookin' the other way." },
+      },
       choices = {
         { text = "Then I'll call on it as little as I can.", next = "BACK", reply = "Ya, as little as you can, mon. The spirits watch, and they remember.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've never needed the spirits, and I won't start now.", next = "BACK", reply = "Then the spirits be patient, mon. Tor'gan see plenty of proud ones come crawlin' to the fire after a bad fight, and they never turn one away.", fx = { align = { light = -1 } } },
@@ -623,7 +627,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That they keep their bargains to the letter and never to the spirit, and the orcs learned that at a terrible price. Read your own contracts carefully, {class}, for there is always a line written smaller than the rest." } },
+      lines = { { id = "xlock_default", text = "That they keep their bargains to the letter and never to the spirit, and the orcs learned that at a terrible price. Read your own contracts carefully, {class}, for there is always a line written smaller than the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "That they keep their bargains to the letter and never to the spirit, and yours stands there now with the patience of something waiting for a clause to come due. The orcs learned that at a terrible price, so read your own contracts carefully, {class}, for there is always a line written smaller than the rest." },
+      },
       choices = {
         { text = "I read every line. I won't be fooled.", next = "BACK", reply = "Good. Ogres cannot write, so whoever wrote it for them is the one you should be reading.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Bargains are made to be broken, by either side.", next = "BACK", reply = "Then you will learn what the orcs learned, and it will not be cheap.", fx = { align = { order = -1 } } },

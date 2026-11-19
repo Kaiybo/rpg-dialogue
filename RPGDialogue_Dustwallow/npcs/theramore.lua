@@ -388,6 +388,7 @@ P:NPC {
     x_warlock = {
       lines = {
         { id = "xwl_default", text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so I'm not comfortable with what you keep at your heel. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Dalaran had its reasons, and I studied with the people who wrote those rules, so you'll forgive me if I keep an eye on the demon in my audience chamber. But I've made peace with orcs whose fathers drank demon blood, and it would be a poor sort of peace if I couldn't spare a little of it for you." },
       },
       choices = {
         { text = "Then trust me as you trust the orcs.", next = "x_warlock_trust" },
@@ -881,7 +882,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We studied it the way a physician studies plague, carefully and with the windows open. Kel'Thuzad was a member of our council once, and his fascination with forbidden magic led straight to the Cult of the Damned, so you'll understand why I'm wary." } },
+      lines = {
+        { id = "xlock_default", text = "We studied it the way a physician studies plague, carefully and with the windows open. Kel'Thuzad was a member of our council once, and his fascination with forbidden magic led straight to the Cult of the Damned, so you'll understand why I'm wary." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We studied it the way a physician studies plague, carefully and with the windows open, and I'm tempted to open one now with your demon in the room. Kel'Thuzad was a member of our council once, and his fascination led straight to the Cult of the Damned, so you'll understand why I'm watching your servant and not you." },
+      },
       choices = {
         { text = "Knowledge isn't evil, Archmage. Kel'Thuzad chose his path himself.", next = "BACK", reply = "He did, and that's what frightens me most. Knowledge didn't make him evil, it only made him dangerous when he chose to be.", fx = { align = { light = -1 } } },
         { text = "Your caution is earned. I'll keep my craft honest.", next = "BACK", reply = "Thank you, that's all I'd ask of any warlock. Keep it honest, and we'll get along.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1177,7 +1181,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a warlock walking about, some of them will want to hang you too." } },
+      lines = {
+        { id = "xlock_default", text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a warlock walking about, some of them will want to hang you too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a demon walking the streets at your heel, they'll want a rope for you as well, so I'd keep it out of sight." },
+      },
       choices = {
         { text = "Then I'll keep my distance and help you find the truth.", next = "BACK", reply = "Thank you, that's the sensible thing, and I appreciate it. Stay out of sight, and help me find who did this.", fx = { align = { order = 1 } } },
         { text = "Let them try. I'm not hiding for anyone's comfort.", next = "BACK", reply = "Then they'll try, and I'll have to stop them, and that's one more fight I don't need. Keep your head down, at least.", fx = { align = { order = -1 } } },
@@ -1412,7 +1419,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The regulations say every soldier and every beast of burden must be counted, and your companion is close enough to either for my purposes. Captain Vimes once told me a good record has saved more lives than a good sword, and I've chosen to believe him." } },
+      lines = {
+        { id = "xlock_default", text = "The regulations say every soldier and every beast of burden must be counted, and your companion is close enough to either for my purposes. Captain Vimes once told me a good record has saved more lives than a good sword, and I've chosen to believe him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The regulations say every soldier and every beast of burden must be counted, and I've already written {pet} down under beasts, which I hope it doesn't take personally. Captain Vimes says a good record saves more lives than a good sword, so I'd be grateful if it held still while I note the colour of its eyes." },
+      },
       choices = {
         { text = "Record it, then. Rules are rules.", next = "BACK", reply = "Thank you, that makes my job easier. I'll put it down as a beast of burden, if that suits you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My servant is my own business, not Theramore's.", next = "BACK", reply = "It may be, but it's in Theramore now, so it's on my books. I'll write it down quietly, at least.", fx = { align = { order = -1 } } },
@@ -1672,7 +1682,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. A demon in the common room and I'd lose the lot of them to the docks." } },
+      lines = {
+        { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. A demon in the common room and I'd lose the lot of them to the docks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Worse, love, and with that one in my doorway I'm watching three of them reach for their hats already. They won't whistle aboard ship and won't sail without a coin under the mast, so a demon in the common room will empty it to the docks, which is why I'd like yours outside before they bolt." },
+      },
       choices = {
         { text = "Then he waits outside, and the gulls can stare at him.", next = "BACK", reply = "That'd suit me, and the sailors too. Thank you, love.", fx = { align = { order = 1 } } },
         { text = "Superstition's their problem. He stays where I stay.", next = "BACK", reply = "Then you'll both be sleeping at the docks, love. My inn, my rules.", fx = { align = { order = -1 } } },

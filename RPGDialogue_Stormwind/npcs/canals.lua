@@ -43,6 +43,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, they buy, and they buy the cheapest red we stock by the barrel, and they never once ask the vintage. Renato once gave them a crate of tickets for free tastings, and I spent a month mopping up after a pack of grim folk in black robes who never once said thank you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, they buy, the cheapest red we stock by the barrel, and they never once ask the vintage. They don't usually bring their companions into the shop, though, and I'd thank you to keep yours away from the casks, because Renato swears the smell of sulphur gets into the cork." },
       },
       choices = {
         { text = "Then I'll pay for my bottle and say thank you.", next = "BACK", reply = "Thank you. You're the first from that end of town who's said it.", fx = { align = { honor = 1 } } },
@@ -282,7 +283,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." } },
+      lines = {
+        { id = "xlock_default", text = "Frighten me? I came south with the plague at my back, dearie, so a few candles in a cellar don't keep me up at night. It's the folk who go down those stairs and come up looking hungry that I mind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten me? I came south with the plague at my back, dearie, and I've had worse than your {pet} staring at me over a bucket of water. It's the folk who come up those stairs looking hungry that I mind, and that thing of yours has the very same look about it." },
+      },
       choices = {
         { text = "I keep what I bind on a short leash, Emma.", next = "BACK", reply = "See that you do, dearie. I've seen what comes back up those stairs.", fx = { align = { light = 1 } } },
         { text = "Hungry is how you get anywhere in this world, Emma.", next = "BACK", reply = "Hungry gets you places, aye, and it gets you into the canal with a knife in your back, too. Mind yourself, dearie.", fx = { align = { light = -1 } } },
@@ -716,6 +720,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Fishing's use to everybody, because the fish don't care who you are or what you keep in your satchel. Sit on the bank for an hour with nothing to do but watch a float, and you'll learn what's been rattling around in your head, and maybe you'll want some of it out." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fishing's use to everybody, because the fish don't care who you are, though they might care about that thing glaring into the canal from the bank. Leave it at home next time, sit for an hour with nothing to do but watch a float, and you'll learn what's been rattling around in your head." },
       },
       choices = {
         { text = "I could use an hour of quiet. Teach me.", next = "BACK", reply = "Then sit down here and hold this line. The fish will do the teaching.", fx = { align = { light = 1 } } },
@@ -927,7 +932,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Blackmail? Me? Never, guv, I'm only a poor bloke who forgets things easier when his belly's full. Plenty o' folk go down those stairs, an' I've never told on one of 'em, so ye've nothing to fear from Morris." } },
+      lines = {
+        { id = "xlock_default", text = "Blackmail? Me? Never, guv, I'm only a poor bloke who forgets things easier when his belly's full. Plenty o' folk go down those stairs, an' I've never told on one of 'em, so ye've nothing to fear from Morris." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Blackmail? Me? Never, guv, an' certainly not with yer friend there breathin' brimstone down me collar. Plenty o' folk go down those stairs an' I've never told on one of 'em, so ye can tell it to stop lookin' at me like I'm supper." },
+      },
       choices = {
         { text = "Keep your silence for its own sake, Morris, not for coin.", next = "BACK", reply = "That's a noble thought, guv, and an empty belly. I'll try.", fx = { align = { honor = 1 } } },
         { text = "Here's a copper, and your memory had better stay short.", next = "BACK", reply = "Bless you, guv! My memory's shorter than my last meal.", fx = { align = { honor = -1 } } },
@@ -1095,6 +1103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Does it bite? Adam says imps bite and set your hair on fire, but Adam also says there's a fish in the canal as big as a boat, and that's me, I said that first. My mum says not to talk to people from the Lamb, though, so maybe I'll just wave at it from over here." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Is that it? It's looking at me, and Adam said they set your hair on fire, but Adam also says there's a fish in the canal as big as a boat. My mum says not to talk to people from the Lamb, so I'm only going to wave at it, and you can tell it I said hello." },
       },
       choices = {
         { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, imp! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
@@ -1273,6 +1282,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Crates come in marked for the Mage Quarter, and some of them are lighter than they should be and colder than they ought to be, and I sign for them all the same. I'm a manifest clerk, not a magistrate, and if the city guard wants to open a crate, they can do it on their own time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Crates come in marked for the Mage Quarter, lighter than they should be and colder than they ought to be, and I sign for them all the same. I'll admit your demon peering over my ledger makes me want to sign a good deal faster, which I suspect is the point of bringing it." },
       },
       choices = {
         { text = "Then the guard should hear about the cold crates.", next = "BACK", reply = "They've heard, and they've signed my report, and nothing's happened. I'll keep signing.", fx = { align = { order = 1 } } },

@@ -78,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One did, a Forsaken fellow who wanted something heavy to hold down the corners of his chalk diagram during a sea breeze. He paid in full, cash, and never came back, and I like to think the mace is still doing its job somewhere." } },
+      lines = {
+        { id = "xlock_default", text = "One did, a Forsaken fellow who wanted something heavy to hold down the corners of his chalk diagram during a sea breeze. He paid in full, cash, and never came back, and I like to think the mace is still doing its job somewhere." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One did, a Forsaken fellow who wanted something heavy to hold down the corners of his chalk diagram during a sea breeze. His demon sat on the counter and stared at me the whole time, just like yours is doing now, and I like to think the mace is still doing its job somewhere." },
+      },
       choices = {
         { text = "A good tool is a good tool, whatever the use.", next = "BACK", reply = "My thinking exactly, chum! A sale's a sale, and his chalk diagrams never once blew away after.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A mace is for fighting. Sell it for that.", next = "BACK", reply = "I do sell it for that, pal, I just don't ask follow-up questions. What happens after the receipt is between you and the mace.", fx = { align = { order = 1 } } },
@@ -480,7 +483,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Just an imp, and only for a moment, but it set fire to a shelf of oils and laughed the whole time it burned. The warlock paid for the damage, every copper, I'll give him that, but I'm still finding soot behind the jars." } },
+      lines = {
+        { id = "xlock_default", text = "Just an imp, and only for a moment, but it set fire to a shelf of oils and laughed the whole time it burned. The warlock paid for the damage, every copper, I'll give him that, but I'm still finding soot behind the jars." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Just an imp, and only for a moment, but it set fire to a shelf of oils and laughed the whole time it burned. Yours is standing far too close to my lamp oil for my liking, so call it to your side, and I'll be watching it the whole while." },
+      },
       choices = {
         { text = "That was careless. I'll keep my craft outside.", next = "BACK", reply = "Glad to hear it, friend, my shelves are still singed. Outside, and well away from the oils.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps will be imps. Some soot is the cost of business.", next = "BACK", reply = "Some soot, sure, but that imp cost me a whole shelf of oils and a very nice apron. You'll pay for the next one.", fx = { align = { order = -1 } } },
@@ -1099,7 +1105,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives, and looking the part costs extra. I've made more black silk robes for warlocks than I can count, and each one wanted a high collar, no matter the heat." } },
+      lines = {
+        { id = "xlock_default", text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives, and looking the part costs extra. I've made more black silk robes for warlocks than I can count, and each one wanted a high collar, no matter the heat." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than mages do, I've found, because a warlock wants to look the part when the demon arrives. Yours has arrived, and it's eyeing my silk bolts like it wants a high collar of its own, so I'll ask you to keep it away from the cloth." },
+      },
       choices = {
         { text = "Looks matter less than comfort. Make it light.", next = "BACK", reply = "Light it is, dear, and you'll thank me when the summoning gets warm. Comfort first, collars second.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A warlock must look the part. High collar, please.", next = "BACK", reply = "High collar, dear, and very dramatic, I promise. The demon will be impressed, and so will the tavern.", fx = { align = { order = -1 } } },
@@ -1283,7 +1292,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Mind? He'd be furious, and he'd let you know it for an hour. The cats are his whole life, and anything that chases them off before he gets a shot is an enemy of the camp." } },
+      lines = {
+        { id = "xlock_default", text = "Mind? He'd be furious, and he'd let you know it for an hour. The cats are his whole life, and anything that chases them off before he gets a shot is an enemy of the camp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Mind? He'd be furious, and he'd let you know it for an hour. Every cat within a mile has already caught the brimstone off that thing of yours, so if he comes back empty-handed tonight, I'm telling him whose fault it was." },
+      },
       choices = {
         { text = "I'll keep my demon well away from the game.", next = "BACK", reply = "Good, and Hemet will thank you, though he'll never say so. The cats are his whole life.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The cats will come back. They always do.", next = "BACK", reply = "They come back, sure, after a week of Hemet shouting at everyone. Do us all a favor and keep it away.", fx = { align = { order = -1 } } },

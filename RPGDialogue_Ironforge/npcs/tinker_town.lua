@@ -122,7 +122,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help. Keep your head down and do good work, and the whispers will fade in time." } },
+      lines = { { id = "xlock_default", text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help. Keep your head down and do good work, and the whispers will fade in time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the dwarves of Ironforge already think we brought our troubles on ourselves, and a gnome warlock in every alley doesn't help, especially one walking a demon through Tinker Town at noon. Keep your head down and your {pet} behind you, and do good work, and the whispers will fade in time." },
+      },
       choices = {
         { text = "I'll do good work and let the whispers fade.", next = "BACK", reply = "That's the spirit, and the whispers will fade, they always do, though it helps enormously if nothing catches fire in the meantime.", fx = { align = { light = 1 } } },
         { text = "Let the dwarves whisper. Their opinion changes nothing.", next = "BACK", reply = "It changes the rent, and the rent changes everything, so please be a little more careful for the sake of the rest of us in Tinker Town.", fx = { align = { light = -1 } } },
@@ -427,7 +429,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nobody knows, and I'd prefer the experiment stayed untested. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." } },
+      lines = { { id = "xlock_default", text = "Nobody knows, and I'd prefer the experiment stayed untested. Leave the demon at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nobody knows, and I'd prefer the experiment stayed untested, so I'll ask your demon to stop leaning over the punch cards, because it's making the clerks nervous. Leave it at the entrance if you can, and I'll gladly have you on the team, because the troggs down there are bigger than they used to be." },
+      },
       choices = {
         { text = "I'll leave the demon outside and follow your procedure.", next = "BACK", reply = "Thank you, that's very thoughtful, and the troggs down there will be quite enough excitement for everyone without adding an irradiated demon.", fx = { align = { light = 1 } } },
         { text = "An irradiated demon sounds useful, Castpipe. I'll find out.", next = "BACK", reply = "Useful? Oh, I'd really rather you didn't, because I'd have to write the incident report, and I don't even know what heading it would go under.", fx = { align = { light = -1 } } },
@@ -715,6 +719,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, not really, no, because my friend Mathiel, a smith in Darnassus, would never write to me again, and I'd likely melt my own eyebrows off. But I do wonder, which is the trouble with being an inventor, so if you ever learn the answer, write it down for me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Oh, not really, no, though your demon's been eyeing my forge as if it had an opinion on the matter. My friend Mathiel in Darnassus would never write to me again, and I'd likely melt my own eyebrows off, but I do wonder, so if it ever tells you the answer, write it down for me." },
       },
       choices = {
         { text = "Some things shouldn't be learned, Klockmort.", next = "BACK", reply = "Some things, yes, and that's very sensible, and I'll try to stop wondering, though my curiosity has never once listened to me.", fx = { align = { light = 1 } } },

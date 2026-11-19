@@ -57,7 +57,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do. The loggers think anyone in a robe is either a priest or trouble, so you'll want to look the respectable sort, at least." } },
+      lines = {
+        { id = "xlock_default", text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do. The loggers think anyone in a robe is either a priest or trouble, so you'll want to look the respectable sort, at least." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I make robes for anyone who pays, but yours I'd make with a double hem, because brimstone eats cloth faster than moths do, and I can smell your servant from here. Keep it off my bolts while I measure you, and we'll have you looking the respectable sort, at least." },
+      },
       choices = {
         { text = "Make it plain, then. I'll not frighten the loggers.", next = "BACK", reply = "Plain grey, then, and a nice collar, and the loggers will think you're a scribe. That's the sort of respectable I like.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Make it dark. Let them think I'm trouble.", next = "BACK", reply = "Dark, with a wide hood, and they'll whisper about you all winter. I'll not stop you, but don't tell them I sewed it.", fx = { align = { order = -1 } } },
@@ -285,7 +288,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." } },
+      lines = {
+        { id = "xlock_default", text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. If you could call up something that fetches water, I'd not ask what it was, only whether it spills." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bother me? It's trying to kill me, friend, row by row, and the well's at the far end of the field. That {pet} of yours is standing about doing nothing at all, so if it can carry a bucket, I'll not ask what it is, only whether it spills." },
+      },
       choices = {
         { text = "I'd sooner carry the water myself, Gerard.", next = "BACK", reply = "Suit yourself, friend, and I'll be glad of the company on the walk. The pails don't get any lighter.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My imp could fetch it, if you don't mind the smell.", next = "BACK", reply = "I've smelled worse in the bottom rows after a boar's been through. I'll think on it, and I'll not tell Pa.", fx = { align = { light = -1 } } },

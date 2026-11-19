@@ -50,6 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd forge it, aye, for the hammer doesnae care who pays, though my old masters in Ironforge would have chased ye out wi' tongs. The Dark Iron clans dabbled in fire that wasnae theirs, an' look where it got them, so ye'll not catch me heatin' my steel in anything ye've summoned." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd forge it, aye, for the hammer doesnae care who pays, but my forge cares who's standin' at it, an' the fire's spat an' sulked since yer demon came in. The Dark Iron clans dabbled in fire that wasnae theirs, an' look where it got them, so keep that thing well back from my coals." },
       },
       choices = {
         { text = "Plain fire for plain steel, then, Therum.", next = "BACK", reply = "Good. Plain fire's never once turned on the smith who lit it, an' that's more than the Dark Irons can say.", fx = { align = { light = 1 } } },
@@ -266,7 +267,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few o' the dwarves an' gnomes from that cellar buy coal an' flux, for reasons they never give, an' they pay in good silver. I take their coin, though I wash my hands after, an' I'm no' ashamed o' that." } },
+      lines = {
+        { id = "xlock_default", text = "A few o' the dwarves an' gnomes from that cellar buy coal an' flux, for reasons they never give, an' they pay in good silver. I take their coin, though I wash my hands after, an' I'm no' ashamed o' that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few o' the dwarves an' gnomes from that cellar buy coal an' flux an' pay in good silver, though none o' them ever brought a demon tae sniff at my sacks. I'll take yer coin the same an' wash my hands after, but tell yer servant my flux isnae for eatin'." },
+      },
       choices = {
         { text = "You're right to keep them at arm's length, Kaita.", next = "BACK", reply = "Aye, I'll take their silver, an' I'll count it twice, an' I'll wash my hands after.", fx = { align = { light = 1 } } },
         { text = "Fel or no, their coin's good, so take it gladly.", next = "BACK", reply = "Gladly I take it, but I'll no' pretend I like it. Coin's coin, I suppose.", fx = { align = { light = -1 } } },
@@ -428,6 +432,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "In theory, yes, because an imp is a heat source that walks, and a heat source that walks is a very useful thing in a workshop. In practice, every gnome I've known who tried it ended up with a scorched workshop and an imp that refused to leave, so I keep that calculation firmly on paper." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "In theory, yes, because your servant is a heat source that walks, and I can feel it raising the temperature of my workbench from here. In practice, every gnome I've known who tried it ended up with a scorched workshop and a demon that refused to leave, so I'm keeping that calculation, and yours, firmly on paper." },
       },
       choices = {
         { text = "Wise, Lilliam. Keep that one on paper.", next = "BACK", reply = "Wise, yes, and probably the reason I still have both eyebrows. It's on paper, firmly.", fx = { align = { order = 1 } } },
@@ -661,7 +666,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The miner I knew wanted more than the stone could give him, so he went lookin' in the Lamb's cellar instead, an' now he doesnae speak tae any o' us. He's alive, as far as I know, but I'd no' call it livin'." } },
+      lines = {
+        { id = "xlock_default", text = "The miner I knew wanted more than the stone could give him, so he went lookin' in the Lamb's cellar instead, an' now he doesnae speak tae any o' us. He's alive, as far as I know, but I'd no' call it livin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The miner I knew went lookin' in the Lamb's cellar for what the stone wouldnae give him, an' when he came back he had a thing at his heel that looked at me the way yers is lookin' now. He doesnae speak tae any o' us, an' I'd no' call what he's doin' livin'." },
+      },
       choices = {
         { text = "Power that costs you your friends isn't worth having.", next = "BACK", reply = "That's what I'd say too, an' I said it tae him. He didnae listen.", fx = { align = { light = 1 } } },
         { text = "Maybe he found what the stone could never give him.", next = "BACK", reply = "Maybe he did, an' maybe it'll kill him. I'll no' be the one tae find out.", fx = { align = { light = -1 } } },

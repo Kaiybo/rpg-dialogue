@@ -93,7 +93,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." } },
+      lines = {
+        { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But you've brought one of your demons to my fire already, and our people carried that taint long enough, so keep it back, or I'll put my axe through it before I ask whose it was." },
+      },
       choices = {
         { text = "Fair. My servant will keep well away from your braves.", next = "BACK", reply = "Then we'll get along, warlock, and the braves will sleep easier. Thin the Bloodfuries, and I'll remember it.", fx = { align = { order = 1 } } },
         { text = "My servant goes where I send it, Maggran.", next = "BACK", reply = "Then send it far from my fires, or you'll be sending it home in pieces. I meant what I said.", fx = { align = { order = -1 } } },
@@ -487,7 +490,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." } },
+      lines = {
+        { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and the air has gone heavy and hot since your servant came near. I've grown wary of anything that bargains with powers it can't see, and I'm not sure the things your magic kills feed anything." },
+      },
       choices = {
         { text = "Then I'll keep my craft well away from your garden.", next = "BACK", reply = "Thank you, and the shoots thank you too. I don't know what your power touches, but I'd rather not find out here.", fx = { align = { light = 1 } } },
         { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", reply = "Perhaps they will, but I've buried too many shoots to take that chance. Keep it away from my rows.", fx = { align = { light = -1 } } },
@@ -1513,7 +1519,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." } },
+      lines = {
+        { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The grove remembers the Burning Legion, little one, and the leaves nearest your servant have curled already, as they did when the demons walked through Ashenvale and Felwood. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." },
+      },
       choices = {
         { text = "Then it stays bound, and far from your trees.", next = "BACK", reply = "Thank you, little one. The dryads would flee the grove if they caught its scent.", fx = { align = { light = 1 } } },
         { text = "The trees will have to learn to bear it.", next = "BACK", reply = "Trees learn slowly, little one, and they forget even slower. Keep it away from them, I ask you.", fx = { align = { light = -1 } } },
@@ -1844,6 +1853,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and they'll say your demon smells of it. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and anyone downwind of you can smell the sulphur on your demon from here. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
       },
       choices = {
         { text = "I'll keep it out of the grove, Faralia.", next = "BACK", reply = "Thank you. The druids will be grateful, though they'll never tell you so, and the hippogryphs will stop screaming.", fx = { align = { order = 1 } } },

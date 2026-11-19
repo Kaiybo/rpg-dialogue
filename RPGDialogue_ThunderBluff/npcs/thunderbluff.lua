@@ -180,6 +180,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I did, with my eyes open, because Thrall told me himself what the demon blood did to his people and what it cost them to be free of it. If he keeps your kind under watch, I trust him, but you should know that every tauren on these bluffs is watching too." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I did, with my eyes open, because Thrall told me himself what the demon blood cost his people. I see your servant now, standing on the bluff where my people raise their children, and if Thrall keeps your kind under watch, I trust him, but every tauren here is watching it too." },
       },
       choices = {
         { text = "Then I'll give your people nothing to fear.", next = "BACK", reply = "Then you will find the tauren slow to fear and quick to welcome. Show them who you are, and in time they will stop watching.", fx = { align = { order = 1 } } },
@@ -855,6 +856,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, and I won't soften that for you, because the Circle exists to heal what demons and their servants broke. You may walk in Thunder Bluff under Cairne's peace, but in Moonglade the druids would see only what you carry." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, and I won't soften it now that the thing stands before me, because the Circle exists to heal what demons and their servants broke. You may walk Thunder Bluff under Cairne's peace, but in Moonglade the druids would see only what is standing at your side." },
       },
       choices = {
         { text = "Then I'll stay away from Moonglade. That's fair.", next = "BACK", reply = "It is fair, and kind, and I'm grateful you see it so. Thunder Bluff is wide enough for you, even if Moonglade is not.", fx = { align = { light = 1 } } },
@@ -1139,6 +1141,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Balance is practised daily, like any honest craft, and a warlock practises holding something that would gladly devour them. Perhaps you understand balance better than my students do, then, but if you ever let go, the balance will set itself right, and you won't like how." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Balance is practised daily, like any honest craft, and I watch you practise it now, holding that servant still at your side while it watches my students. Perhaps you understand balance better than they do, then, but if you ever let go, the balance will set itself right, and you won't like how." },
       },
       choices = {
         { text = "I'll hold it, Turak, every day.", next = "BACK", reply = "That's the hardest discipline I've ever heard of, and you carry it every day. I hope your hands never tire.", fx = { align = { order = 1 } } },
@@ -1469,6 +1472,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "The Grimtotem fear very little, and certainly not a little imp on a chain. But I've seen what demons made of the orcs, and I'll tell you what Cairne won't, which is that any power that makes you its servant is a poor bargain, however strong it feels." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The Grimtotem fear very little, and certainly not that thing glaring at me from your side, though I'll grant it has a hungry look. I've seen what demons made of the orcs, and I'll tell you what Cairne won't, which is that any power that makes you its servant is a poor bargain." },
       },
       choices = {
         { text = "You're right. I'll never let it master me.", next = "BACK", reply = "Good, see that you never do. The orcs said the same once, and look what it cost them.", fx = { align = { light = 1 } } },
@@ -1772,6 +1776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everyone's welcome, child, and everyone gets the same stew, but not everyone gets to bring a demon in among my guests. Leave it at the door, and if it gets cold out there, well, I'm told that's what demons are for." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone's welcome, child, and everyone gets the same stew, but I can see your demon's already halfway through my door and my guests have stopped eating. Take it back outside, and if it gets cold out there, well, I'm told that's what demons are for." },
       },
       choices = {
         { text = "I'll leave it outside, Pala.", next = "BACK", reply = "Good, child, and you'll get a full bowl for your manners. The demon can sulk outside, I'm sure it's used to it.", fx = { align = { order = 1 } } },

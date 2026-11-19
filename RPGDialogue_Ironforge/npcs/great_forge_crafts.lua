@@ -77,7 +77,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll no' find out, an' that's the point. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." } },
+      lines = { { id = "xlock_default", text = "I'll no' find out, an' that's the point. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll no' find out, an' that's the point, so keep yer demon back from the anvil, for it's starin' at my coals like it's thinkin' o' improvin' them. A warlock came by in the winter an' tried tae temper a blade in green flame, an' the steel came out black an' brittle, an' nobody would touch it after." },
+      },
       choices = {
         { text = "Then I'll keep fel fire far from honest metal.", next = "BACK", reply = "Thank ye. Honest metal has enough enemies wi'out fel fire addin' itself tae the list.", fx = { align = { light = 1 } } },
         { text = "Black steel has uses, Bengus. You just didn't find them.", next = "BACK", reply = "Uses, aye, maybe, but none I'd want in my forge or on my back, so take yer black steel somewhere else.", fx = { align = { light = -1 } } },
@@ -283,7 +285,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Too many, an' every one makes them twitch. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' a demon in the dark is apt tae swing a pick first an' ask after." } },
+      lines = { { id = "xlock_default", text = "Too many, an' every one makes them twitch. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' a demon in the dark is apt tae swing a pick first an' ask after." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Too many, an' every one makes them twitch, an' ye can see two o' my lads reachin' for their picks this very minute. The troggs came up from the deep places, an' nobody knows what they found down there, so a miner seein' yer demon in the dark is apt tae swing first an' ask after." },
+      },
       choices = {
         { text = "I'll keep the creature close and out of their way.", next = "BACK", reply = "Thank ye. My lads are twitchy enough these days wi'out a demon wanderin' about in the dark.", fx = { align = { light = 1 } } },
         { text = "If they swing at my demon, they'll regret it.", next = "BACK", reply = "Then ye'll find a pick in the face is the least o' yer worries, for my lads swing hard when they're frightened.", fx = { align = { light = -1 } } },
@@ -506,6 +510,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It's helped everyone else who's sat at this kettle, so I dinnae see why ye'd be any different. Just keep yer wee imp off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's helped everyone else who's sat at this kettle, an' I'll gladly ladle ye some, though yer demon's been leanin' over the steam an' I dinnae think it's admirin' the broth. Just keep it off the spice rack, for my brother Emrul charges me a fortune for every pinch, an' I'll no' pay twice." },
       },
       choices = {
         { text = "Thank you, Daryl. I'll gladly eat.", next = "BACK", reply = "Ye're welcome, an' eat as much as ye like, for my kettle doesnae care what ye carry, only whether ye're hungry.", fx = { align = { light = 1 } } },
@@ -697,7 +702,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some do, for they say a warlock's gold comes from places it shouldnae. I'll take yours, mind, for it spends the same, but I'll no' pretend there's nobody in the Commons who'll look at ye sideways." } },
+      lines = { { id = "xlock_default", text = "Some do, for they say a warlock's gold comes from places it shouldnae. I'll take yours, mind, for it spends the same, but I'll no' pretend there's nobody in the Commons who'll look at ye sideways." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, for they say a warlock's gold comes from places it shouldnae, an' havin' yer demon stand by while ye count it out doesnae help. I'll take yours, mind, for it spends the same, but the cook at the next stall has moved his whole pot tae the far side since ye arrived." },
+      },
       choices = {
         { text = "My coin's honestly earned, Emrul. You've nothing to fear.", next = "BACK", reply = "I'll take ye at yer word. I've no' the time tae ask where every copper's been anyway.", fx = { align = { light = 1 } } },
         { text = "Where my gold came from is none of your business.", next = "BACK", reply = "Fair enough, an' I'll no' ask, but I'll count it twice before I take it, for coin from strange places sometimes comes back for itself.", fx = { align = { light = -1 } } },
@@ -889,7 +896,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing." } },
+      lines = { { id = "xlock_default", text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some o' ye do, an' I've patched up a few dwarves who came out o' a fight paler than they went in, so ye'll understand why I've put my cot between yer demon an' my patients. A bandage costs ye nothin' but a strip o' cloth, an' it costs nobody else a thing, which is more than I can say for that one." },
+      },
       choices = {
         { text = "A bandage it is, Nissa. I'll leave your patients be.", next = "BACK", reply = "Thank ye, for my patients have enough troubles wi'out a warlock drawin' on them while they're lyin' still.", fx = { align = { light = 1 } } },
         { text = "Their life serves me better than it serves them.", next = "BACK", reply = "Then ye'll no' be welcome in my infirmary, an' I'll be tellin' the guards tae keep ye well away from my patients.", fx = { align = { light = -1 } } },

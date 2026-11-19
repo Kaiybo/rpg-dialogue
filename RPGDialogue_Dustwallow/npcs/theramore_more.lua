@@ -308,7 +308,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." } },
+      lines = {
+        { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. Your {pet} is looking at my cheese right now, so I'll tell you what I told him, which is that you'll pay for anything it touches and you'll wash every pot." },
+      },
       choices = {
         { text = "I'll keep my imp out of your kitchen, Morgan.", next = "BACK", reply = "Thank you, the cheese and I both appreciate it. The cat's still not forgiven anyone.", fx = { align = { order = 1 } } },
         { text = "If he's hungry, he eats. That's how it works.", next = "BACK", reply = "Then he can pay for the cheese and wash the pots, same as the last one. That's how it works in my kitchen.", fx = { align = { order = -1 } } },
@@ -521,7 +524,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." } },
+      lines = {
+        { id = "xlock_default", text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh around them keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and I still don't know which of the two did more good." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "During the Second War, yes, and they don't heal the way a sword cut does, because the flesh keeps rotting long after the burn has closed. I learned to cut wide and pray hard, and seeing your demon in my infirmary, I think I'd sooner not have the practice again, so keep it by the door." },
+      },
       choices = {
         { text = "My craft is for demons, not soldiers. You have my word.", next = "BACK", reply = "Good, that's all I'd ask. I've no wish to cut wide again in my lifetime.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "A weapon wounds. Blame whoever holds it.", next = "BACK", reply = "A fair point, and true enough in the abstract. But I'm the one who has to cut wide, and I'd rather not.", fx = { align = { order = -1 } } },

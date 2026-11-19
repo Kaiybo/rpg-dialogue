@@ -1038,7 +1038,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One o' the Uldaman tablets went cold as ice the last time a warlock walked past it, an' I'd like tae know why before it happens again. Until I do, I'll ask ye tae stand on the far side o' the rope." } },
+      lines = { { id = "xlock_default", text = "One o' the Uldaman tablets went cold as ice the last time a warlock walked past it, an' I'd like tae know why before it happens again. Until I do, I'll ask ye tae stand on the far side o' the rope." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One o' the Uldaman tablets went cold as ice the last time a warlock walked past it, an' I'd swear the case has frosted over since yer demon came through that door. Until I know why, I'll ask ye tae stand on the far side o' the rope, an' tae take that thing wi' ye." },
+      },
       choices = {
         { text = "I'll stand back, High Explorer. Your relics come first.", next = "BACK", reply = "That's very gracious of you. I'll let you know if I ever work out why it did that, assuming it doesn't do it again first.", fx = { align = { light = 1 } } },
         { text = "Perhaps the tablet recognised a stronger power than yours.", next = "BACK", reply = "Perhaps it did, and that's precisely what worries me, so I'll ask you to stand back a little further, if you'd be so kind.", fx = { align = { light = -1 } } },
@@ -1369,7 +1371,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots." } },
+      lines = { { id = "xlock_default", text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "Circles burned intae the floor, an' bones arranged in ways nobody honest would arrange them, an' by the way yer demon's lookin' at my notes, I'd wager it knows what they were for. I'll grant there's warlocks in the Alliance who fight on our side, but I've learned tae watch what's under my boots, an' what's at yer heel." },
+      },
       choices = {
         { text = "Those circles belong to the Horde's warlocks, not mine.", next = "BACK", reply = "I'll take ye at yer word. I'll still be checkin' the bones for any new arrangements after ye leave, mind.", fx = { align = { light = 1 } } },
         { text = "Old circles still have power. Someone ought to use it.", next = "BACK", reply = "Aye, an' that's exactly why I'm worried, for old circles in the wrong hands make new trouble in the right places.", fx = { align = { light = -1 } } },
@@ -1706,7 +1710,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Alliance needs every weapon it can get, an' because a warlock trained under our eye is safer than one trained in a cave. I vote tae keep ye, but I'll no' vote twice if ye give me cause." } },
+      lines = { { id = "xlock_default", text = "Because the Alliance needs every weapon it can get, an' because a warlock trained under our eye is safer than one trained in a cave. I vote tae keep ye, but I'll no' vote twice if ye give me cause." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Alliance needs every weapon it can get, an' because a warlock trained under our eye is safer than one trained in a cave. I'll admit, though, that bringin' yer {pet} tae a senator's elbow is no' the way tae keep my vote, so send it back a few paces before somebody writes it in the minutes." },
+      },
       choices = {
         { text = "I'll give the Senate no cause, Senator. My word on it.", next = "BACK", reply = "I'll hold ye tae it. My vote's on the line every time a warlock does somethin' daft in this city.", fx = { align = { light = 1 } } },
         { text = "Banning us would only send us underground. They know it.", next = "BACK", reply = "Aye, they know it, an' that's why they've no' done it, but dinnae give them a reason tae try it anyway.", fx = { align = { light = -1 } } },
@@ -2014,6 +2020,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Some do, an' they mutter into their mugs, but the Stonefire's had worse at the bar, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, an' a few at the bar have turned their stools tae watch yer demon instead o' their mugs, but the Stonefire's had worse, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round, though that thing might take a fourth." },
       },
       choices = {
         { text = "I'll tell the truth, even if it frightens them.", next = "BACK", reply = "The regulars might grumble, but they'll respect it. An honest, frightenin' story beats a dull, friendly one any night.", fx = { align = { honor = 1 } } },

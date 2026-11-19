@@ -77,6 +77,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch you the way I watch the coast. The Burning Blade are crawling through the hills, so if you're really Horde, prove it on them first, and quickly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch that thing at your heel the way I watch the coast. The Burning Blade are crawling through the hills, so if you're really Horde, set your {pet} on them first, and quickly." },
       },
       choices = {
         { text = "Point me at the Blade. I'll prove it there.", next = "BACK", reply = "Skull Rock, then, and don't come back until the Blade's thinner. Do that, and I'll stop watching you so closely.", fx = { align = { order = 1 } } },
@@ -638,6 +639,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar. Most are decent enough, though I count the blankets afterward, and I keep a bucket of water by the door for the imps." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A steady stream, since Razor Hill is the first roof between the Valley and Orgrimmar, and I'll tell you now, yours is the third demon this week to sniff at my blankets. Most warlocks are decent enough, but I count the blankets afterward, and the water bucket's by the door." },
       },
       choices = {
         { text = "Fair rules. My imp sleeps outside.", next = "BACK", reply = "Then you're welcome here, and so is your imp, as long as it's outside. Sleep well.", fx = { align = { order = 1 } } },
@@ -829,6 +831,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that a warlock serves the Horde or answers to it, and I write that in my journal beside every warlock I meet, just so I remember." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. I'm writing your demon into my journal as we speak, how it stands and how it watches, because the Warchief made it plain that a warlock serves the Horde or answers to it." },
       },
       choices = {
         { text = "Write that I serve the Horde, Brakk.", next = "BACK", reply = "I'll write it, and gladly. The Warchief would want to hear it from me too.", fx = { align = { order = 1 } } },

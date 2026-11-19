@@ -37,7 +37,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." } },
+      lines = {
+        { id = "xlock_default", text = "Not much, and they'd say so to your face if they weren't afraid of you. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not much, and they'd say so to your face if they weren't afraid of you, and that thing at your heel is making them more afraid by the minute. They've enough to worry about with the prowlers and bears in the woods, so if you're here to help with that, they'll mind their tongues soon enough." },
+      },
       choices = {
         { text = "I'll help with the beasts and earn their trust.", next = "BACK", reply = "Good, and they'll come round once the bears stop sitting on the bundles. Start up north.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let them be afraid. Fear keeps tongues still.", next = "BACK", reply = "It keeps them still, aye, and it keeps them from buying from you too. Think on that.", fx = { align = { honor = -1 } } },
@@ -267,7 +270,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. I'd rather not give them any more reason to believe it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell you rope and lamp oil like anyone else, but I won't stock anything for summoning, because the loggers already say the woods past the mill are haunted. Half of them watched your demon follow you up the road, so I'd rather not give them any more reason to believe it." },
+      },
       choices = {
         { text = "That's wise, Drake. Some things shouldn't be sold over a counter.", next = "BACK", reply = "Thank you, and the loggers will thank you too, if they ever hear of it. I'll keep it that way.", fx = { align = { light = 1 } } },
         { text = "Fear's bad for trade. You're losing coin to superstition.", next = "BACK", reply = "Maybe I am, but I'd rather lose the coin than lose the loggers. They're my neighbours.", fx = { align = { light = -1 } } },
@@ -453,7 +459,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." } },
+      lines = {
+        { id = "xlock_default", text = "Because Supervisor Raelen counts every beam, and if anything strange happens near the saw, it's my back she takes it out of. I've nothing against you personally, but my back has suffered enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Supervisor Raelen counts every beam, and that {pet} of yours is standing right beside the saw, looking at it. I've nothing against you personally, but if a blade goes wrong with your servant this close, it's my back she takes it out of." },
+      },
       choices = {
         { text = "Then I'll stand well clear of the saw, for your back's sake.", next = "BACK", reply = "Thank you, and my back thanks you too. Raelen's a hard one.", fx = { align = { light = 1 } } },
         { text = "Your back isn't my concern. I'll go where I please.", next = "BACK", reply = "It's mine, friend, and I'll thank you to remember it. Go round the long way.", fx = { align = { light = -1 } } },

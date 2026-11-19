@@ -76,7 +76,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." } },
+      lines = {
+        { id = "xlock_default", text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. If there's somethin' waitin' on the other side wi' horns like yer friend there, I'm glad I didnae stay long enough tae meet it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Nothin' but cold an' quiet, which I'll admit was peaceful after the Defias. Yer friend there's been starin' at me like it knows the way back, an' I'd thank ye tae tell it I'm no' goin' anywhere." },
+      },
       choices = {
         { text = "The dead deserve their peace. I'll not disturb it.", next = "BACK", reply = "Good, because I'd like tae keep mine, now I've seen how quiet it is. Keep yer friend away from it too.", fx = { align = { light = 1 } } },
         { text = "Death's just a door. Some of us go through on purpose.", next = "BACK", reply = "Aye, it is, but some doors ye go through only once, an' ye'd be wise tae remember it. Mind yerself.", fx = { align = { light = -1 } } },

@@ -100,6 +100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everything that walks here shifts the balance a little, so I count the cubs and the boars and the grellkin every morning. Your servant would tip the scale like a stone dropped in a moonwell, so keep it close, and I'll count you with the rest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything that walks here shifts the balance a little, so I count the cubs and the boars and the grellkin every morning. Now your servant stands in my glade, and I can feel every creature for a mile holding its breath, so keep it close and I'll count you with the rest." },
       },
       choices = {
         { text = "I'll keep it close. The glade deserves care.", next = "BACK", reply = "Elune keep you for that, warlock, for the glade is fragile still and its young ones frighten easily. Keep it close until you are past the moonwell.", fx = { align = { order = 1 } } },
@@ -325,6 +326,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I believe it can, the way it felt the fel moss creeping up from Fel Rock before any of us saw it, and it hasn't been easy since. Keep your servant back, and the tree and I will both thank you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I believe it can, the way it felt the fel moss creeping up from Fel Rock before any of us saw it. It feels your demon now, standing there among its roots, and the leaves have stopped moving, so send it back and the tree and I will both thank you." },
       },
       choices = {
         { text = "I'll keep it well back from the roots.", next = "BACK", reply = "It still remembers the fel moss creeping up from Fel Rock, and it will rest easier with that thing well back. So will I, to be honest.", fx = { align = { light = 1 } } },
@@ -525,6 +527,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Once, and longer and harder than your people can imagine, at the foot of Hyjal and in the ruins of our own cities. I can smell the same burning on you that I smelt on them, and you'll find no welcome here while it clings to you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Once, and longer and harder than your people can imagine, at the foot of Hyjal and in the ruins of our own cities. And you bring one of them here, to stand before me in Shadowglen and look at me with the same eyes I saw then, so there is no welcome for you while it lingers." },
       },
       choices = {
         { text = "Then I'll turn it against the Legion, never for it.", next = "BACK", reply = "Then the Legion will learn to fear you, and I will be glad of it. Never forget which side you stand on.", fx = { align = { light = 1 } } },
@@ -877,6 +880,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd rather you went yourself, if you don't mind my saying, because Iverron would faint clean away if a demon came to fetch him. Bring back what he needs for the antidote, and I'll not ask what helped you do it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd rather you went yourself, if you don't mind my saying, because Iverron would faint clean away if that thing came to fetch him. It's already been eyeing my herb basket, so take it with you and bring back what he needs for the antidote, and I'll not ask what helped you do it." },
       },
       choices = {
         { text = "I'll go myself. Iverron's had enough fright.", next = "BACK", reply = "Thank you, and he will be so glad of it. He has had a very bad week.", fx = { align = { honor = 1 } } },
@@ -1083,6 +1087,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Afraid is a strong word, though I'll admit it's the one I'd use. The spiders at least are honest about wanting to eat me, and I can't tell what that creature of yours wants, which is worse in a scholar's book." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Afraid is a strong word, though I'll admit it's the one I'd use with your {pet} standing so near my notes. The spiders at least are honest about wanting to eat me, and that creature has done nothing but watch me write, which is worse in a scholar's book." },
       },
       choices = {
         { text = "It wants what I tell it to. Nothing more.", next = "BACK", reply = "I hope so, warlock, for both our sakes. The spiders at least are honest about it.", fx = { align = { order = 1 } } },

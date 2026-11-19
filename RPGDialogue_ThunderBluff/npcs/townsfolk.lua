@@ -100,6 +100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I trust anyone the Horde trusts, and I count wealth in herds and friends besides, so a warlock with friends is a rich warlock. Make friends on the bluff, then, and the vault will be the least of what you keep here." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I trust anyone the Horde trusts, and I count wealth in herds and friends besides, though I doubt your {pet} counts as either. Make friends on the bluff, then, and while you do, the vault will be glad if you keep that thing from breathing on the strongboxes." },
       },
       choices = {
         { text = "I'll make friends here, Chesmu.", next = "BACK", reply = "Then you'll find the tauren generous with their friendship, if slow to give it. Come back and tell me who you've met, and I'll count you rich.", fx = { align = { light = 1 } } },
@@ -260,6 +261,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They'll carry you, but not what follows you, and they'll grumble about the smell of you the whole way to the Crossroads. Wind riders are honest beasts, and they don't care for anything that comes from the Twisting Nether." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not what follows you, and you can see them stamping and snorting now that it's come up onto the platform. Wind riders are honest beasts, and they don't care for anything that comes from the Twisting Nether, so send it off before you mount." },
       },
       choices = {
         { text = "I'll leave it behind. Calm skies for your beasts.", next = "BACK", reply = "Thank you, the beasts will fly gentler for it. Calm skies to you as well, warlock.", fx = { align = { light = 1 } } },
@@ -462,6 +464,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Every blade and staff is a promise to protect someone, and I'd teach you to keep that promise yourself instead of handing it to a demon. Learn the staff, and you'll find you lean on the demon less, which is good for everyone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Every blade and staff is a promise to protect someone, and your demon is standing there as if it means to make that promise for you. Learn the staff, and you'll find you lean on it less, which is good for everyone, though I doubt it will thank me for saying so." },
       },
       choices = {
         { text = "I'll learn the staff and keep my own promises.", next = "BACK", reply = "Then you'll be the kind of warlock the herd can trust. A promise kept by your own hand is worth more than any demon's.", fx = { align = { honor = 1 } } },
@@ -625,6 +628,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Probably not, though a wand is a poor thing next to a long bow of Mulgore wood. My grandfather used to say the bow never betrays its archer, and I wonder whether you can say the same of your demon." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Probably not, though a wand is a poor thing next to a long bow of Mulgore wood. My grandfather said the bow never betrays its archer, and with that servant of yours watching me string this one, I wonder whether you can say the same of it." },
       },
       choices = {
         { text = "My demon is bound to me. It won't betray me.", next = "BACK", reply = "I hope so, for your sake. Still, my grandfather's bows never once needed binding, and I'll keep to my wood.", fx = { align = { order = 1 } } },
@@ -804,6 +808,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, which it will. Send your demon off for an afternoon, and you might find a tug on the line beats anything it whispers." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, though no fish will come near the bank while that thing is glowering into the water. Send your demon off for an afternoon, and you might find a tug on the line beats anything it whispers." },
       },
       choices = {
         { text = "I'll send it off and enjoy the quiet.", next = "BACK", reply = "Good, the quiet's half the reason I fish. You'll be surprised what the water tells you when nothing's whispering.", fx = { align = { light = 1 } } },
@@ -1017,6 +1022,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "None of you do, because you're all too busy with books and soul shards to cook a decent meal. Learn to roast a kodo steak properly, and you'll find your spells come easier on a full stomach." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "None of you do, because you're all too busy with books and soul shards to cook, and I see your demon is no help, staring at my fire like it wants to climb in. Learn to roast a kodo steak properly, and you'll find your spells come easier on a full stomach." },
       },
       choices = {
         { text = "I'll cook for others too, once I've learned.", next = "BACK", reply = "That's the spirit, and you'll make friends faster than any spell could. Take the big ladle; the small one looks stingy.", fx = { align = { light = 1 } } },
@@ -1220,6 +1226,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "My advice is to buy them from someone else, because I'll not have my herbs feeding a demon's summoning. The Earth Mother grows things to heal and strengthen, and nothing I teach is meant to open a door to the Twisting Nether." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My advice is to buy them from someone else, because I'll not have my herbs feeding a demon's summoning, and certainly not with one sniffing at my drying racks. The Earth Mother grows things to heal and strengthen, so take your servant away from my bench, please." },
       },
       choices = {
         { text = "Fair. Your herbs should serve healing, not demons.", next = "BACK", reply = "Thank you, it's not often someone understands. Go to the orc alchemists in Orgrimmar, and leave my bench to the healers.", fx = { align = { light = 1 } } },
@@ -1416,6 +1423,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Plants don't fear anything, but they do wither near the wrong kind of power, and your demon is the wrong kind. Thank each herb you pick, as I do, and perhaps the earth will forgive what you carry." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Plants don't fear anything, but they do wither near the wrong kind of power, and you can see the leaves curling where your demon stands. Thank each herb you pick, as I do, and keep that thing off the soft ground, and perhaps the earth will forgive what you carry." },
       },
       choices = {
         { text = "I'll thank each one, Nida.", next = "BACK", reply = "Then perhaps the earth will forgive you, and so will I. Pick gently, and keep that demon away from my peacebloom.", fx = { align = { light = 1 } } },
@@ -1590,6 +1598,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "A few, the orc warlocks mostly, who learned to work hides in the camps and never forgot it. A hide is a gift from the beast, though, and I'd ask you to respect that, even if your demon wouldn't." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "A few, the orc warlocks mostly, who learned to work hides in the camps and never forgot it. A hide is a gift from the beast, though, and I'd ask you to keep your demon from pawing at my hides, because I can see it doesn't respect that gift at all." },
       },
       choices = {
         { text = "I'll respect the beast and its gift.", next = "BACK", reply = "Good, that's all I ask. The beast gave its life, and the least we can do is remember it.", fx = { align = { light = 1 } } },

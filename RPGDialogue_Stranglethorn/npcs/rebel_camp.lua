@@ -577,7 +577,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." } },
+      lines = {
+        { id = "xlock_default", text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. If your power could find the cause, I'd take your help gladly, whatever the Light might say about it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Men who were good soldiers once, turned into things that kill without thinking, and I could do nothing to save them. Your servant watches the sick tent the way a vulture watches a battlefield, and that frightens me, but if your power could find the cause, I'd still take your help, Light forgive me." },
+      },
       choices = {
         { text = "The Light and I can work together on this.", next = "BACK", reply = "Then let's try, and may the Light forgive us both if it goes wrong. I'll take any help that brings even one of them back.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Light failed them. My power won't.", next = "BACK", reply = "The Light didn't fail them, friend, Kurzen did, but I'll take your help all the same. Just don't let your power make you a new kind of madman.", fx = { align = { light = -1 } } },
@@ -826,7 +829,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." } },
+      lines = {
+        { id = "xlock_default", text = "Without a second thought, because they saw demons in every shadow, real or not. The madness made them suspicious of everything, and a real demon walking into their camp would have set them screaming." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Without a second thought, because they saw demons in every shadow, real or not. A real one like yours, standing there and staring at them with those eyes, would have set the whole camp screaming, and I'm not sure I'd have blamed them." },
+      },
       choices = {
         { text = "Their madness was their own. I'd have walked in anyway.", next = "BACK", reply = "Then you're braver than I was, or madder. Either way, I'd not want to see you walk in there.", fx = { align = { honor = -1 } } },
         { text = "I'd have left my demon behind, out of respect.", next = "BACK", reply = "That's more respect than they deserve, but it's kind of you. They'd have shot you all the same, mind.", fx = { affinity = 1, align = { honor = 1 } } },

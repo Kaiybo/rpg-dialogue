@@ -90,7 +90,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if your imp ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." } },
+      lines = { { id = "xlock_default", text = "No? Shame, buddy, because I've been lookin' for a new market ever since the smiths started haggling. Still, if your imp ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No? Shame, buddy, because your demon's been staring at my coal cart like it's a feast table, and I've been lookin' for a new market ever since the smiths started haggling. If it ever gets peckish, you know where to find me, and coal's cheaper than whatever it eats now, I'd bet." },
+      },
       choices = {
         { text = "You'd sell to a demon? That's a step too far.", next = "BACK", reply = "A step too far? Friend, I don't even know where the line is, and I've stepped over it twice this week. But sure, sure.", fx = { align = { light = 1 } } },
         { text = "Gold's gold. I admire a goblin with no limits.", next = "BACK", reply = "No limits, that's my motto, buddy! Well, that and time is money, but who's countin'.", fx = { align = { light = -1 } } },

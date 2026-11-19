@@ -37,7 +37,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." } },
+      lines = {
+        { id = "xlock_default", text = "I would, as long as you didn't summon anything into my stew. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, as long as your demon didn't sit too near my stew, because it's already made the fire burn funny just by standing there. A fellow at the Lion's Pride says warlocks are all wicked, but you've only been polite to me, and I judge a person by how they share a fire." },
+      },
       choices = {
         { text = "Then I'll share it gladly, and keep the imp out of the stew.", next = "BACK", reply = "That's all I ask of any guest, and you're welcome here. Sit, and tell me about your travels.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your friend has a point, Sam. Be more careful.", next = "BACK", reply = "Perhaps he does, but he's never shared his stew with me either. I'll take my chances with you.", fx = { align = { light = -1 } } },

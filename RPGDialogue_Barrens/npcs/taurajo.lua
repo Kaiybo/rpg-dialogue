@@ -115,6 +115,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Patience, if you'll take it, because a hunter waits for the beast to come to him, and I think your kind is too used to calling things that come at once. Watch the herds on the plain for an hour before you go after the centaur, and you'll see more than your demon ever told you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Patience, if you'll take it, and I see your demon has none, because it hasn't stopped watching the herd since you arrived. Sit with me and watch the plain for an hour, and you'll learn more of the centaur than that thing at your heel could ever tell you." },
       },
       choices = {
         { text = "I'll learn your stillness, Jorn. Power can wait.", next = "BACK", reply = "That's a rare thing to hear from one of your kind, and it gladdens me. Watch the herds tomorrow, and come tell me what they taught you.", fx = { align = { order = 1 } } },
@@ -353,6 +354,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "*snort* The fire-thing you carry stinks worse than a Bristleback, and Agamaggan's children kneel to nothing. Mangletooth knows what such things are, because they always want something, and they always come back for it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "*snort* The fire-thing stands right there and stinks worse than a Bristleback, and it stares at Mangletooth like it knows him. Agamaggan's children kneel to nothing, and Mangletooth knows such things always want something, so it can stare and get nothing." },
       },
       choices = {
         { text = "Everything kneels eventually, quilboar, even your god.", next = "BACK", reply = "*snort* The demon-talker sounds just like the voices Charlga hears. Agamaggan will not kneel, and neither will Mangletooth, so go and kneel to your fire-thing yourself.", fx = { align = { light = -1 } } },
@@ -535,6 +537,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everything belongs in it, because the Warchief wants to know what every people fights with, and I write it all down whether or not I like it. I'll note what your demon does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything belongs in it, and I'm writing down how your demon is standing at my forge right now, because the Warchief wants to know. I'll note what it does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
       },
       choices = {
         { text = "Write it plainly. I serve the Horde, as you do.", next = "BACK", reply = "Plainly, then, and I'll underline it so the Warchief sees it. Serve the Horde well, and nobody will remember what the Burning Blade did with the same art.", fx = { align = { order = 1 } } },
@@ -720,6 +723,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Your demon can wait outside where the hyenas can laugh at it. The tauren of Taurajo have heard what the Burning Blade did in Durotar, and I'll not have one of those things sitting by my hearth while the kodo herders eat, whatever the Warchief allows." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I said outside, and yet here it is, dripping sulphur on my floor where the kodo herders eat. The tauren of Taurajo have heard what the Burning Blade did in Durotar, so send your demon out to the hyenas, whatever the Warchief allows." },
       },
       choices = {
         { text = "I'll leave it outside. Your hearth deserves that respect.", next = "BACK", reply = "Thank you, warlock, because the herders would have left otherwise, and I'd have lost a night's trade. The hyenas will keep your demon company.", fx = { align = { light = 1 } } },

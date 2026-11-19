@@ -52,7 +52,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." } },
+      lines = {
+        { id = "xlock_default", text = "Pa says warlocks deal with things that ought to stay in the dark, and he says the same about the Stonefields, so I suppose I'm used to being told who I can't talk to. I've never been very good at rules, though, and you seem nice enough." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Pa says warlocks deal with things that ought to stay in the dark, and I suppose that's one standing behind you, isn't it? I've never been very good at rules, though, and it hasn't done anything but stare, so I'll keep talking as long as it doesn't follow me home." },
+      },
       choices = {
         { text = "You should choose your friends yourself, Maybell.", next = "BACK", reply = "I've always thought so, and Pa's never agreed. You'd better go before he sees us talking.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Your Pa only wants you safe. Listen to him.", next = "BACK", reply = "He does, I know, and I love him for it. But he's not always right about who's dangerous.", fx = { align = { order = 1 } } },

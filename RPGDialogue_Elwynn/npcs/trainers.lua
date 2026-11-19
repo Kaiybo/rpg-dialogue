@@ -93,7 +93,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." } },
+      lines = {
+        { id = "xlock_default", text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, because I've seen where it ends for some. The Abbey keeps its doors open to you, and I'd like you to remember that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't resent anyone who comes to me hurt, but I grieve a little for the road you've chosen, and seeing what walks beside you on it, I grieve more. The Abbey keeps its doors open to you, though I'll ask that you leave that creature on the step." },
+      },
       choices = {
         { text = "I'll remember the Abbey's open door, Priestess.", next = "BACK", reply = "Thank you, and I mean that. There'll be a cot in the infirmary for you, whatever road you walk.", fx = { align = { light = 1 } } },
         { text = "Keep your grief, Priestess. My road is my own.", next = "BACK", reply = "It is, and I'll not take it from you. But I'll keep grieving all the same, and the door stays open.", fx = { align = { light = -1 } } },
@@ -281,7 +284,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I teach fundamentals here, and I'll not have them twisted into something that bites." } },
+      lines = {
+        { id = "xlock_default", text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I teach fundamentals here, and I'll not have them twisted into something that bites." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the last of Drusilla La Salle's students who borrowed one returned it with pages missing, and the ones that went were the ones about binding. I'd guess I'm looking at the result of those pages now, so I'll not have my fundamentals twisted into anything else that follows you about." },
+      },
       choices = {
         { text = "Your caution is wise, Khelden. I'll not ask again.", next = "BACK", reply = "Thank you, and I'm glad someone understands. The fundamentals are yours, but the binding stays with La Salle.", fx = { align = { light = 1 } } },
         { text = "Knowledge belongs to whoever can use it best.", next = "BACK", reply = "That's exactly what the last student said, right before he tore the pages out. My books stay on my shelves.", fx = { align = { light = -1 } } },
@@ -521,7 +527,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and neither of us got a fair trade. The Brothers don't know about it, and they'd best not hear it from you." } },
+      lines = {
+        { id = "xlock_default", text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and neither of us got a fair trade. The Brothers don't know about it, and they'd best not hear it from you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and only once, because she wanted to learn about poisons and I wanted to learn what she keeps in that graveyard, and I suppose I'm looking at the answer now. Neither of us got a fair trade, and the Brothers don't know about it, so keep that thing quiet and they'll not hear it from you." },
+      },
       choices = {
         { text = "I won't speak of it to the Brothers, Jorik.", next = "BACK", reply = "Thank you, and I'll trust you to mean it. Some trades are best forgotten.", fx = { align = { honor = 1 } } },
         { text = "The Brothers might pay well for that tale, Jorik.", next = "BACK", reply = "They might, and then I'd have a few things to say about you too. Let's both keep quiet, shall we?", fx = { align = { honor = -1 } } },
@@ -1010,7 +1019,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'd fight beside it if I told them to, but they'd keep one eye on it the whole time, and a soldier with one eye on his ally has only one eye on his enemy. That's the trouble with your trade, and I've never found an answer to it." } },
+      lines = {
+        { id = "xlock_default", text = "They'd fight beside it if I told them to, but they'd keep one eye on it the whole time, and a soldier with one eye on his ally has only one eye on his enemy. That's the trouble with your trade, and I've never found an answer to it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'd fight beside it if I told them to, though look at them now, every one of them watching your demon instead of the dummy. A soldier with one eye on his ally has only one eye on his enemy, and that's the trouble with your trade, and I've never found an answer to it." },
+      },
       choices = {
         { text = "Then I'll keep my demon away from your soldiers' flanks.", next = "BACK", reply = "Then you'll have done more than most of your sort ever thought to. My soldiers will thank you.", fx = { align = { light = 1 } } },
         { text = "Your soldiers had better learn to trust it. War needs every weapon.", next = "BACK", reply = "Every weapon, perhaps, but not every ally. I'll not order my soldiers to trust what they can't.", fx = { align = { light = -1 } } },
@@ -1304,7 +1316,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and they're only a floor apart. I pray for the cellar every night, though I suspect the cellar doesn't pray for me." } },
+      lines = {
+        { id = "xlock_default", text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and they're only a floor apart. I pray for the cellar every night, though I suspect the cellar doesn't pray for me." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me more than I let on, because my students pray up here and something else answers down there, and now one of the things that answers is standing in my room. I pray for the cellar every night, though I'll admit your {pet} makes it harder to keep my voice steady." },
+      },
       choices = {
         { text = "Keep praying, Priestess. Someone below may hear you.", next = "BACK", reply = "I will, every night, and I'll not give up on them. The Light is patient, even if I'm not always.", fx = { align = { light = 1 } } },
         { text = "The cellar answers to power, not prayer.", next = "BACK", reply = "Perhaps, but I've seen prayer move harder things than a cellar door. I'll keep at it.", fx = { align = { light = -1 } } },
@@ -1496,7 +1511,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and I think Farley's foolish to let them stay. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs." } },
+      lines = {
+        { id = "xlock_default", text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and I think Farley's foolish to let them stay. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think they're dabbling in things the Kirin Tor locked away for very good reasons, and that creature at your heel is precisely the sort of reason I mean. But the Sanctum didn't send me here to judge, only to teach, so I keep my opinions to the stairs, and I'd ask you to keep your servant there too." },
+      },
       choices = {
         { text = "The Kirin Tor were wise to lock such things away.", next = "BACK", reply = "They were, and I'd not have said so before I met the cellar. Thank you for agreeing with me.", fx = { align = { light = 1 } } },
         { text = "The Kirin Tor locked it away out of fear, not wisdom.", next = "BACK", reply = "Fear and wisdom are often the same thing, my friend. Ask Dalaran what happens when you open the wrong door.", fx = { align = { light = -1 } } },
@@ -1724,7 +1742,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason." } },
+      lines = {
+        { id = "xlock_default", text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the stairs go down to the cellar, and Farley prefers that nobody uses them at all, least of all something that smells of brimstone. Your trade and mine both depend on Farley not asking questions, so let's not give him a reason by walking your demon past the bar." },
+      },
       choices = {
         { text = "Farley's rules are fair. I'll keep your students' secret.", next = "BACK", reply = "Good, and Farley will never know he had reason to thank you. Keep it that way.", fx = { align = { order = 1 } } },
         { text = "Farley's rules mean nothing to me. I'll do as I please.", next = "BACK", reply = "Then you'll do it without me, and you'll find Farley has longer arms than you'd think. Mind yourself.", fx = { align = { order = -1 } } },

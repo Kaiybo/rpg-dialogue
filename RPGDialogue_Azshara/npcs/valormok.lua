@@ -98,7 +98,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think the Horde paid for demon power once, and I never want us paying that price again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." } },
+      lines = {
+        { id = "xlock_default", text = "I think the Horde paid for demon power once, and I never want us paying that price again. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us and I'll judge you by what you do here." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think the Horde paid for demon power once, and I never want us paying that price again, and the sight of {pet} at your side reminds me what we paid with. But Thrall lets your kind serve, and I follow Thrall, so you'll fight beside us, and I'll judge you by what you and your creature do here." },
+      },
       choices = {
         { text = "Judge me by my deeds, then. I'll fight with honor.", next = "BACK", reply = "Then I'll judge you by them, and gladly, if they're honest. The Horde has room for that.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power is power. The Horde needs every weapon.", next = "BACK", reply = "That's what the Shadow Council said, warlock, and look where it got us. I'll watch you all the same.", fx = { align = { honor = -1 } } },
@@ -356,7 +359,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, and they make my skin crawl, but they sell for more than the plain ones. The Highborne dabbled in everything, and some of what they wrote down would make even a warlock think twice." } },
+      lines = {
+        { id = "xlock_default", text = "A few, and they make my skin crawl, but they sell for more than the plain ones. The Highborne dabbled in everything, and some of what they wrote down would make even a warlock think twice." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they make my skin crawl, which is what your demon is doing to me now, standing over my crates like it can read them. The Highborne dabbled in everything, and some of what they wrote would make even a warlock think twice, so keep it away from the tablets." },
+      },
       choices = {
         { text = "I'll pass. Some knowledge is too dangerous.", next = "BACK", reply = "Wise, and you'll sleep better for it. I'll sell them to someone less careful.", fx = { align = { light = 1 } } },
         { text = "I'll take the dark ones. Knowledge is power.", next = "BACK", reply = "Knowledge is power, and power is coin, and coin is what I'm here for. I'll set aside the dark ones.", fx = { affinity = 1, align = { light = -1 } } },
@@ -586,7 +592,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." } },
+      lines = {
+        { id = "xlock_default", text = "They hate them, and so do I. Keep it unsummoned near the roost and we'll have no trouble, but if one of my beasts gets spooked, you'll walk back to Orgrimmar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They hate them, and so do I, and you can hear them screaming at yours from here. Send it away before you come near the roost, because if one of my beasts gets spooked badly enough to break a wing, you'll walk back to Orgrimmar and carry its feed besides." },
+      },
       choices = {
         { text = "Fair. The beasts come first.", next = "BACK", reply = "Good. Glad we understand each other.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon stays with me.", next = "BACK", reply = "Then you'll walk back to Orgrimmar. Your choice.", fx = { affinity = -1, align = { order = -1 } } },

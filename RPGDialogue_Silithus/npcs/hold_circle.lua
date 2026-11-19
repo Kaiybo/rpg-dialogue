@@ -98,7 +98,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not demons, I think, but something worse, things from the earth and the sky that shouldn't be awake. My brother says the land weeps when they call them, and I believe him, because the sand shakes out there." } },
+      lines = {
+        { id = "xlock_default", text = "Not demons, I think, but something worse, things from the earth and the sky that shouldn't be awake. My brother says the land weeps when they call them, and I believe him, because the sand shakes out there." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not demons, I think, though your servant is staring at the sand as if it hears something beneath it. Things from the earth and the sky that should not be awake, my brother says, and the land weeps when they are called, so perhaps your creature knows more of it than we do." },
+      },
       choices = {
         { text = "Then we'll stop them before they wake anything else.", next = "BACK", reply = "That's what I like to hear, friend, so go on, and come back with their papers and your hide in one piece.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd like to see what they summon.", next = "BACK", reply = "You'd like it less than you think, friend, because the sand shakes for days afterward, and my brother doesn't sleep at all.", fx = { align = { light = -1 } } },
@@ -331,7 +334,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." } },
+      lines = {
+        { id = "xlock_default", text = "The spirits do not judge, they only remember, and they remember the Twilight's Hammer calling things up from the deep. Prove to them you are different, and they may speak again in your presence." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The spirits do not judge, they only remember, and they have drawn far back from us now that your demon stands here. They remember the Twilight's Hammer calling things up from the deep, so prove to them you are different, and they may come close enough to speak again." },
+      },
       choices = {
         { text = "I'll prove it. The spirits deserve peace.", next = "BACK", reply = "Speak gently, then, and act kindly. Sit at the Hold's edge some evening, and in time they may come close enough to show you what they have seen.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I don't need the spirits' approval.", next = "BACK", reply = "You may not need it, but you walk upon their land. I have seen a dune swallow a whole cult camp that thought the same.", fx = { affinity = -1, align = { light = -1 } } },
@@ -551,7 +557,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. If you see a sigil I've copied badly, say so, and I'll fix it before it gets someone killed." } },
+      lines = {
+        { id = "xlock_default", text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. If you see a sigil I've copied badly, say so, and I'll fix it before it gets someone killed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some of their rituals look much like yours, from what the druids tell me, and a forgery must match every detail. Your demon has been reading my sigils over my shoulder this whole time, which is unsettling, but if either of you sees one I've copied badly, say so before it gets someone killed." },
+      },
       choices = {
         { text = "I'll help. A good forgery saves lives.", next = "BACK", reply = "Then come and look at my sigils, and tell me where I've gone wrong, because a mistake here costs more than coin.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Forgery's dishonest work, even for a good cause.", next = "BACK", reply = "Dishonest, perhaps, but the Twilight's Hammer are far worse, and I've found I can sleep beside that particular sin.", fx = { align = { honor = 1 } } },
@@ -791,7 +800,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Something older than your demons, and hungrier, sealed away a thousand years ago by those who paid dearly for it. I made my promise then, and I keep it still, and I will not speak more of it to one who bargains with fire." } },
+      lines = {
+        { id = "xlock_default", text = "Something older than your demons, and hungrier, sealed away a thousand years ago by those who paid dearly for it. I made my promise then, and I keep it still, and I will not speak more of it to one who bargains with fire." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Something older than your demons, and hungrier, and I see that the one beside you has gone very still at the mention of it. I made my promise a thousand years ago, and I keep it still, and I will not speak more of it to one who bargains with fire, nor to the fire itself." },
+      },
       choices = {
         { text = "I respect your promise, Watcher. I won't pry.", next = "BACK", reply = "Then you have my thanks, and perhaps one day I will tell you what I cannot tell you now.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your secrets won't stay secret forever.", next = "BACK", reply = "They will not, mortal, because a promise held for a thousand years is not one I will let slip to you.", fx = { affinity = -1, align = { light = -1 } } },

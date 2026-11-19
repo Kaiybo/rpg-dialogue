@@ -104,6 +104,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' a demon standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by a curious imp." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An' now there's a demon standin' over the cases, which is the very thing I was afraid of, for there's titan-work in them an' I've no notion what it'll make o' yer {pet}. My brother Dorius risks his neck in the Searing Gorge for every stone he sends me, so keep it back from the glass, for it's starin' at them like it's hungry." },
       },
       choices = {
         { text = "Understood. My demon waits by the door.", next = "BACK", reply = "Thank ye kindly. I'd rather no' find out what titan-work thinks o' demons, an' Dorius would never forgive me if I did.", fx = { align = { order = 1 } } },
@@ -536,7 +537,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A historian has opinions about everyone, but I've read what the warlocks o' the Horde did tae this land. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." } },
+      lines = { { id = "xlock_default", text = "A historian has opinions about everyone, but I've read what the warlocks o' the Horde did tae this land. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A historian has opinions about everyone, an' I've read what the warlocks o' the Horde did tae this land, so ye'll forgive me for closin' this book while yer demon's eyes are on the page. I'll grant ye the power was there before them, an' it's what ye do wi' it that the books will remember." },
+      },
       choices = {
         { text = "I'll turn it on the Shadowforge and the Horde, nothing else.", next = "BACK", reply = "I'll take ye at yer word. The Shadowforge have earned it, an' the Horde's warlocks twice over.", fx = { align = { light = 1 } } },
         { text = "History is written by the strong. I intend to be strong.", next = "BACK", reply = "Aye, it is, an' I've read a great many o' the strong, an' most o' them ended badly, so mind which history ye're writin'.", fx = { align = { light = -1 } } },
@@ -800,7 +803,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It tolerates them because they're trained in this city an' watched in this city, an' I'd rather know where ye are. The King has no love for yer craft, but he has less for the Dark Irons, so ye'll find work if ye point it the right way." } },
+      lines = { { id = "xlock_default", text = "It tolerates them because they're trained in this city an' watched in this city, an' I'd rather know where ye are. The King has no love for yer craft, but he has less for the Dark Irons, so ye'll find work if ye point it the right way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It tolerates them because they're trained in this city an' watched in this city, an' I see ye've brought yer {pet} intae the King's own hall tae make the point. The King has no love for yer craft, but he has less for the Dark Irons, so point that thing the right way an' ye'll find work." },
+      },
       choices = {
         { text = "Point me at the Dark Irons, and I'll prove my worth.", next = "BACK", reply = "Then I'll point, an' gladly, for the Dark Irons have been walkin' our halls in plain coats, an' I'd like them found.", fx = { align = { light = 1 } } },
         { text = "The King will need my craft long before I need his love.", next = "BACK", reply = "Maybe so, but the King's love is what keeps ye in the city, so I'd no' be too quick tae test how much he can spare.", fx = { align = { light = -1 } } },
@@ -1060,6 +1065,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Granite's patient, but it remembers heat, an' I've seen a block crack clean in two from less than a demon's breath. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Granite's patient, but it remembers heat, an' I can feel the warmth comin' off yer demon from here, so walk it the long way round my block, if ye please. This one's for Sully Balloo, who fell at the Thandol Span, an' his widow will come tae see it, so I want it perfect." },
       },
       choices = {
         { text = "I'll keep it away. Sully deserves a perfect stone.", next = "BACK", reply = "Thank ye kindly. Sully's widow has waited long enough, an' I'll no' have his stone crack because o' a careless demon.", fx = { align = { honor = 1 } } },
@@ -1255,7 +1261,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I fly anyone the King lets through the gates, an' that includes you, so long as yer creature stays on the ground. The gryphon doesnae care what ye are, only what it can smell." } },
+      lines = { { id = "xlock_default", text = "I fly anyone the King lets through the gates, an' that includes you, so long as yer creature stays on the ground. The gryphon doesnae care what ye are, only what it can smell." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fly anyone the King lets through the gates, an' that includes you, but yer creature stays on the ground, an' ye can see why from how my birds are shiftin' on the perch. A gryphon doesnae care what ye are, only what it can smell, an' every one o' them can smell that." },
+      },
       choices = {
         { text = "It stays behind, Gryth. I won't frighten your birds.", next = "BACK", reply = "Thank ye. The birds have no love for anythin' that smells o' brimstone, an' neither have I.", fx = { align = { light = 1 } } },
         { text = "My servant goes where I go. The birds will learn.", next = "BACK", reply = "Then ye'll be walkin', for my birds will no' learn that lesson while I'm their master, an' I'll no' make them.", fx = { align = { light = -1 } } },
@@ -1462,7 +1470,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We share a dark corner an' a bad reputation, an' that's about all. Yer demons make my lads jumpy, but I'll grant ye a felhunter's nose would be handy on a job." } },
+      lines = { { id = "xlock_default", text = "We share a dark corner an' a bad reputation, an' that's about all. Yer demons make my lads jumpy, but I'll grant ye a felhunter's nose would be handy on a job." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "We share a dark corner an' a bad reputation, an' yer demons make my lads jumpy, an' that one's makin' them jumpier, standin' there in the dark like it belongs. I'll grant ye a felhunter's nose would be handy on a job, though, whatever ye've brought down here tonight." },
+      },
       choices = {
         { text = "My demons stay leashed. I'll not lend them out for thieving.", next = "BACK", reply = "Fair enough, matey, an' my lads will sleep easier for it, though I'll admit I'm a wee bit disappointed.", fx = { align = { honor = 1 } } },
         { text = "For the right share, Blackbeard, my felhunter could be very handy.", next = "BACK", reply = "Ha, a warlock who knows the value o' a share, an' I'll keep it in mind, matey, though my lads will want it muzzled.", fx = { align = { honor = -1 } } },

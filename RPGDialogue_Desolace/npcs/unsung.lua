@@ -96,7 +96,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." } },
+      lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not badly, just carefully, because the Burning Blade are a few days' walk south, and your demon standing in my doorway does remind them of it. Send it off while you shop, spend your coin and keep your temper, and they'll come round, the way they did with me." } },
       choices = {
         { text = "Coin spent, temper kept. I can manage that.", next = "BACK", reply = "Good, then you'll find the Point less frightened of you than you'd expect, given time.", fx = { align = { order = 1 } } },
         { text = "Their fear isn't my problem to fix.", next = "BACK", reply = "It isn't, but it'll be your problem when they won't sell you anything, so it's worth a little patience.", fx = { align = { order = -1 } } },
@@ -277,7 +277,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A few, and they're the quietest customers I have, which I suppose makes sense if your companions are always listening. One of them told me the imps eat anything, so I've started locking the bread away at night, just in case." } },
+      lines = { { id = "xlock_default", text = "A few, and they're the quietest customers I have, which I suppose makes sense if your companions are always listening. One of them told me the imps eat anything, so I've started locking the bread away at night, just in case." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A few, and they're the quietest customers I have, which makes sense if your companions are always listening, as yours seems to be right now. One of them told me demons eat anything, so I've started locking the bread away, and I'd thank yours to stop eyeing the shelf." } },
       choices = {
         { text = "I'll keep my imp in hand. Your bread is safe.", next = "BACK", reply = "Thank you, dear, and I'll unlock the bread for you, though I'll keep one eye on the little fellow.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Imps go where they please. Lock the bread away.", next = "BACK", reply = "Then I'll lock it away twice, dear, and you can have yours with a side of my suspicion.", fx = { align = { order = -1 } } },

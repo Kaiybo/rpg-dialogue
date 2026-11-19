@@ -94,7 +94,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark is just the sort I'm paid tae keep an eye on, so I'll be keepin' it on ye." } },
+      lines = { { id = "xlock_default", text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark is just the sort I'm paid tae keep an eye on, so I'll be keepin' it on ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark an' then walks them through Thelsamar in broad daylight is just the sort I'm paid tae watch, so I'll keep one eye on ye an' the other on yer {pet}." },
+      },
       choices = {
         { text = "Watch all you like. I've nothing to hide.", next = "BACK", reply = "Good, then ye'll no' mind me standin' about. I'll be quiet about it, mostly.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Watching me is a waste of your time, Kadrell.", next = "BACK", reply = "Maybe it is, an' I'll be glad tae say so when the spy's in irons. Till then, I watch everyone.", fx = { align = { order = -1 } } },
@@ -467,7 +469,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." } },
+      lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers, an' I'd wager yer demon would enjoy them. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' let that thing have a go at it first, for it belongs tae the League an' tae Ironforge." },
+      },
       choices = {
         { text = "Anything I find goes to the League.", next = "BACK", reply = "Good, that's the League's way, an' it's mine. Ye'll have yer name in the report for it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "What I find in the dark, I keep.", next = "BACK", reply = "Then ye'll no' be diggin' in my site, friend. Anythin' that whispers goes tae Ironforge, an' that's flat.", fx = { align = { order = -1 } } },
@@ -814,6 +818,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Private, is it? I've had mountaineers, miners an' the League's diggers up those stairs, an' none o' them ever needed quiet. Keep whatever ye do behind a shut door an' out o' Vidra's kitchen, an' we'll get along." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Private, is it? I've had mountaineers, miners an' the League's diggers up those stairs, an' none o' them ever brought a demon up wi' them, nor needed quiet. Keep whatever ye do behind a shut door an' keep that thing out o' Vidra's kitchen, for she's already seen it an' gone for her ladle." },
       },
       choices = {
         { text = "It's study, nothing more. No harm will come of it.", next = "BACK", reply = "Study, is it? Then study quiet, an' dinnae set the curtains alight. That's all I ask.", fx = { align = { light = 1 } } },
@@ -1040,7 +1045,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, though ye might be the only customer who'd no' be put off by the list. Bring me the makin's, an' the whole town eats well for a week." } },
+      lines = { { id = "xlock_default", text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, though ye might be the only customer who'd no' be put off by the list. Bring me the makin's, an' the whole town eats well for a week." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, an' I'll certainly no' tell it in front o' yer demon, which has had its eyes on my pot since ye sat down. Bring me the makin's, an' the whole town eats well for a week, an' that thing gets none o' it." },
+      },
       choices = {
         { text = "I'll fetch the makings for the town, Vidra.", next = "BACK", reply = "Bless ye, love, the whole town will thank ye. Bring it fresh, an' I'll make ye the first link.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Keep your sausages. I've lost my appetite.", next = "BACK", reply = "Lost it? Ye'll find it again the first time ye smell them fryin'. Everyone does.", fx = { align = { honor = -1 } } },
@@ -1337,6 +1344,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Demons, in the Valley o' Kings, under the faces o' the old kings themselves? I'll take every blade I can get, but if one o' yer imps goes near those statues, I'll put an axe in it before I ask whose it is." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Demons, in the Valley o' Kings, under the faces o' the old kings themselves, an' here's one standin' in front o' me as bold as ye like. I'll take every blade I can get, but if that thing goes near those statues, I'll put an axe in it before I ask whose it is." },
       },
       choices = {
         { text = "Understood. I'll keep it leashed and away from the kings.", next = "BACK", reply = "Thank you, that's all I ask. The kings deserve better than a demon picking at their beards.", fx = { align = { light = 1 } } },
@@ -1618,6 +1626,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I don't doubt it, and I won't ask what else answers to you. The Dark Irons called up something under Blackrock that's been burning ever since, so I keep a wary eye on anyone who calls things up." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I don't doubt it, and I can see well enough what else answers to you, since it's been watching my dam since you arrived. The Dark Irons called up something under Blackrock that's been burning ever since, so I keep a wary eye on anyone who calls things up, and a warier one on whatever comes." },
       },
       choices = {
         { text = "Fair. I'll stand guard here like anyone else.", next = "BACK", reply = "Good, that's all I ask. I'll sleep easier with you here and your friends somewhere else.", fx = { align = { light = 1 } } },

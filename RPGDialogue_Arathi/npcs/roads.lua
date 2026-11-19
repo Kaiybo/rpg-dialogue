@@ -135,7 +135,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met a demon that knew how to be boring." } },
+      lines = { { id = "xlock_default", text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met a demon that knew how to be boring." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and your demon has been staring down at that farm like it wants to be anything but, so keep it low behind the ridge." },
+      },
       choices = {
         { text = "Boring it is. I'll keep the demon back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and I've grown very fond of boring since I came up this ridge.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them notice. My demon could clear that farm alone.", next = "BACK", reply = "It could, and it might bring every Forsaken in Arathi down on our heads. Please, not yet.", fx = { align = { order = -1 } } },
@@ -373,7 +375,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Behind me is worse, actually, for I'd keep looking back at it instead of at the road. Perhaps out front, where the courier can be frightened instead of me, which seems fairer all round." } },
+      lines = { { id = "xlock_default", text = "Behind me is worse, actually, for I'd keep looking back at it instead of at the road. Perhaps out front, where the courier can be frightened instead of me, which seems fairer all round." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Behind me is worse, actually, for I've been looking back at it the whole time we've been talking, and I'd do the same on the road. Perhaps out front, where the courier can be frightened of it instead of me, which seems fairer all round." },
+      },
       choices = {
         { text = "Using fear on the enemy is fair play.", next = "BACK", reply = "Fair, perhaps, but terrifying, which I suppose is the point. Out front, then, where I can't see it.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'd rather beat him fairly, without tricks.", next = "BACK", reply = "Thank you. I'd rather beat him with my own feet and my own nerve.", fx = { align = { honor = 1 } } },
@@ -518,7 +522,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." } },
+      lines = { { id = "xlock_default", text = "Only in books, and the books were unkind to your profession, though I've always suspected the authors had never met one either. So far you've been helpful and haven't tried to eat me, and by my calculations that already puts you ahead of the kobolds." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only in books, and the books were unkind to your profession, though none of them mentioned how warm it gets standing beside one of your servants. So far you've been helpful and it hasn't tried to eat me, and by my calculations that already puts you both ahead of the kobolds." },
+      },
       choices = {
         { text = "That's a fair judgement, Professor. I'll keep the demon civil.", next = "BACK", reply = "Thank you. Civil demons make for much better footnotes than uncivil ones.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The books were right about some of us, Professor.", next = "BACK", reply = "How refreshingly honest! I'll add a footnote to the books, then, with your permission.", fx = { align = { light = -1 } } },

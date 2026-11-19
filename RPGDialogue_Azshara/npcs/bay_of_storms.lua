@@ -138,7 +138,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." } },
+      lines = {
+        { id = "xlock_default", text = "Because your demons burn as the Firelord's servants burn, and they foul any water they touch. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros and not your own appetite." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because your demons burn as the Firelord's servants burn, and that one fouls the very spray around it as it stands there. The Waterlords have no quarrel with you, warlock, so long as your fire serves my war against Ragnaros, so point it at the Firelord's minions and keep it out of my waters." },
+      },
       choices = {
         { text = "I'll turn my fire against the Firelord, then.", next = "BACK", reply = "Good. Then we have no quarrel, warlock, and the sea will tolerate you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My fire serves me first, Duke.", next = "BACK", reply = "First, last, it is the same to me, so long as it burns my enemies. Do not foul my waters.", fx = { affinity = -1, align = { order = -1 } } },
@@ -909,7 +912,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." } },
+      lines = {
+        { id = "xlock_default", text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. Bring no demon to this temple, small one, or the one's grief for his sons will find a new target." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They poisoned the land above, and the rivers carried their poison down into the one's waters, and the deep folk sickened for it. You were told to bring no demon to this temple, small one, and yet here it stands, so take it out before the one's grief for his sons finds a new target." },
+      },
       choices = {
         { text = "I'll bring no demon here. You've suffered enough.", next = "BACK", reply = "Then the one thanks you, small thing. The deep folk remember who spared them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demons go where I choose, god or no god.", next = "BACK", reply = "Then you will not come to this temple, small thing. The one does not argue twice.", fx = { affinity = -1, align = { light = -1 } } },

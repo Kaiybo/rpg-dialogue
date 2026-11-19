@@ -100,7 +100,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know, and I don't want to, but they come up out of the wheat at dusk and walk the fences, and one of them wears John's coat. Please keep your little shadow close, because I couldn't bear it if anything else came into this house." } },
+      lines = {
+        { id = "xlock_default", text = "I don't know, and I don't want to, but they come up out of the wheat at dusk and walk the fences, and one of them wears John's coat. Please keep your little shadow close, because I couldn't bear it if anything else came into this house." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know, but they come up out of the wheat at dusk and walk the fences, and one of them wears John's coat. Please keep that thing by the door, because the way it watches the fields frightens me nearly as much as what's out in them, and I couldn't bear anything else coming into this house." },
+      },
       choices = {
         { text = "It stays close, Janice. Nothing will harm you here.", next = "BACK", reply = "Thank you, and do keep it away from the window. John's coat is out there, and I can't bear to look.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon has seen worse than your ghouls, Janice.", next = "BACK", reply = "I'm sure it has, and I'm sure you mean to comfort me, but please, keep it close all the same.", fx = { align = { light = -1 } } },
@@ -330,7 +333,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They fear anything that isn't of this world, and what walks at your heel isn't. I don't judge you for it, for I'm dying of something far worse, but I'd ask you to end the sick wolves cleanly and not leave them to your demon's appetites." } },
+      lines = {
+        { id = "xlock_default", text = "They fear anything that isn't of this world, and what walks at your heel isn't. I don't judge you for it, for I'm dying of something far worse, but I'd ask you to end the sick wolves cleanly and not leave them to your demon's appetites." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They fear anything that isn't of this world, and every bird in these trees went quiet when your demon came up the path. I don't judge you for it, for I'm dying of something far worse, but end the sick wolves cleanly and don't leave them to its appetites." },
+      },
       choices = {
         { text = "Clean ends only, Mulgris. You have my word.", next = "BACK", reply = "Thank you. The wolves will rest easier, and so will I.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon has to eat. The wolves are dying anyway.", next = "BACK", reply = "It must eat, and they are dying, and I cannot argue with either. Only let it be quick.", fx = { align = { light = -1 } } },
@@ -542,7 +548,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The silence, mostly, and the things that move through it at night along the old road. But most of all I'm frightened that Pamela is out there alone and frightened too, and nobody's coming for her, because I couldn't." } },
+      lines = {
+        { id = "xlock_default", text = "The silence, mostly, and the things that move through it at night along the old road. But most of all I'm frightened that Pamela is out there alone and frightened too, and nobody's coming for her, because I couldn't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The silence, mostly, and the things that move through it at night, though your demon standing there so still frightens me nearly as much. But most of all I'm frightened that Pamela is out there alone, and if that thing can find a lost child, then I'd beg you to let it try." },
+      },
       choices = {
         { text = "Somebody is coming for her now, Marlene. I am.", next = "BACK", reply = "Oh, thank you, {class}. I'll keep the lamp lit until you bring her back.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fear won't help Pamela. Let her go.", next = "BACK", reply = "I can't. I've tried, and I can't, and I won't stop looking until somebody finds her.", fx = { align = { light = -1 } } },
@@ -758,7 +767,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But a demon sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." } },
+      lines = {
+        { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But a demon sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare, and they'd smell yours from the valley floor. My people remember the Legion's servants from long before the humans had kingdoms, so I'll not pretend I like it at your heel, but sent ahead to make noise at the gate it would buy a quiet scout all the time she needed." },
+      },
       choices = {
         { text = "The Crusade deserves no mercy. Use me.", next = "BACK", reply = "There's a warlock after my own heart. Make it a loud demon, if you can manage it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'd rather not provoke the Crusade without need.", next = "BACK", reply = "Fair enough, and a good deal wiser than me. I'll find another way in.", fx = { align = { light = 1 } } },

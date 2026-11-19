@@ -163,7 +163,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "If the ogres come down from Alterac or the Forsaken push past the farms, I'll take any blade that points the right way, and I won't ask what it was forged in. But the mothers in this town remember the orcs and their demons, so do your work outside the walls and don't make me answer for you." } },
+      lines = {
+        { id = "xlock_default", text = "If the ogres come down from Alterac or the Forsaken push past the farms, I'll take any blade that points the right way, and I won't ask what it was forged in. But the mothers in this town remember the orcs and their demons, so do your work outside the walls and don't make me answer for you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "If the ogres come down from Alterac I'll take any blade that points the right way, but I'd rather that blade didn't stand in my square reeking of brimstone. The mothers in this town remember the orcs and their demons, so walk yours back outside the walls before one of them sees it and I have to answer for you." },
+      },
       choices = {
         { text = "Fair terms, Marshal. I'll keep my craft beyond the walls.", next = "BACK", reply = "Good. The townsfolk sleep easier if they don't see what's helping them.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll use my craft where it's needed, walls or no walls.", next = "BACK", reply = "Then do it far from my horses and my children, and we'll stay friends.", fx = { align = { order = -1 } } },
@@ -846,7 +849,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "I'm sure you could, and I'm sure Southshore would never sleep again either. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." } },
+      lines = {
+        { id = "xwl_default", text = "I'm sure you could, and I'm sure Southshore would never sleep again either. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I'm sure you could, and from the way your demon perked up at the word nightmares, I'm sure it would enjoy the work. I'm a magistrate, not a general, but even I know you don't put out one fire by lighting a bigger one." },
+      },
       choices = {
         { text = "Sometimes a bigger fire is the only cure.", next = "BACK", reply = "And sometimes the bigger fire takes the town with it. I'd rather we didn't find out which.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Then I'll do it with a sword instead.", next = "BACK", reply = "Thank you. A sword I can write into a report without losing my post.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1011,7 +1017,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Don't tempt me, because I've sat in this chair long enough to consider worse ideas. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, and I mean to see Stormwind again." } },
+      lines = {
+        { id = "xlock_default", text = "Don't tempt me, because I've sat in this chair long enough to consider worse ideas. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, and I mean to see Stormwind again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Don't tempt me, especially with it standing right there looking so eager to go. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, so send {pet} away before he walks past this tent." },
+      },
       choices = {
         { text = "Do your own duty, Lieutenant. Demons are no shortcut.", next = "BACK", reply = "You sound like Samuelson, and I'm not sure I like it. Fine, my own duty, eventually.", fx = { align = { order = 1 } } },
         { text = "A shortcut's a shortcut. Samuelson needn't ever hear.", next = "BACK", reply = "You and I think alike, which worries me a little. Still, best keep the demon out of my office.", fx = { align = { order = -1 } } },
@@ -1293,7 +1302,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every day, an' every night, so I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." } },
+      lines = {
+        { id = "xlock_default", text = "Every day, an' every night, so I drink. Uther believed every soul could be saved, an' I believed it with him, but then Arthas showed us what a soul can turn into, an' I never found the faith again." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every day, an' every night, so I drink, an' havin' your demon starin' at me across the bar won't make me stop. Uther believed every soul could be saved, an' I believed it with him, but I never once believed it of a thing like that." },
+      },
       choices = {
         { text = "Uther was right. Even a warlock can serve the Light.", next = "BACK", reply = "Ye think so? Uther would've agreed with ye, an' I'd like to, if I'm honest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith is a crutch. Power is what saves people.", next = "BACK", reply = "Power didn't save Lordaeron, did it? I've seen what power does, an' I'll take me crutch, thank ye.", fx = { align = { light = -1 } } },
@@ -1556,7 +1568,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Old Alterac texts on summoning and binding, written in a hand that grew shakier the farther I read. I think the author learned more than he wanted, and I won't be the one to finish his research, no matter what you offer." } },
+      lines = {
+        { id = "xlock_default", text = "Old Alterac texts on summoning and binding, written in a hand that grew shakier the farther I read. I think the author learned more than he wanted, and I won't be the one to finish his research, no matter what you offer." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Old Alterac texts on summoning and binding, and one of the bindings would hold a thing very like your servant, which is why I'd rather it stopped reading over my shoulder. The author learned more than he wanted, and I won't be the one to finish his research, no matter what you or it might offer." },
+      },
       choices = {
         { text = "Forbidden knowledge is still knowledge. Don't let it rot.", next = "BACK", reply = "I'd agree, if I hadn't watched the author's hand shake on the page. They're locked in the back, and there they'll stay.", fx = { align = { light = -1 } } },
         { text = "Then keep them locked. Some books should never be opened.", next = "BACK", reply = "That's where they are, behind two locks and a very heavy dictionary. I'll sleep easier knowing you agree.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1826,7 +1841,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "One or two a season, coming down from Dalaran's way or up from Stormwind on some business they won't name. They pay on time and tip better than the soldiers, I'll give them that, but the room always smells of sulphur after, and the fishermen won't take it for days." } },
+      lines = {
+        { id = "xlock_default", text = "One or two a season, coming down from Dalaran's way or up from Stormwind on some business they won't name. They pay on time and tip better than the soldiers, I'll give them that, but the room always smells of sulphur after, and the fishermen won't take it for days." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One or two a season, and they mostly have the decency to leave their companions outside, unlike some I could name. They pay on time and tip better than the soldiers, but I can smell sulphur on the stair already, so if {pet} stays the night it stays on the floor." },
+      },
       choices = {
         { text = "I'll leave the room as I found it, Anderson.", next = "BACK", reply = "Thank you. The last one left a smell in the walls, and the fishermen still complain.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The fishermen can sleep somewhere else, then.", next = "BACK", reply = "Not in my inn, they can't. I'll find you a room at the far end, if you don't mind the draught.", fx = { align = { order = -1 } } },

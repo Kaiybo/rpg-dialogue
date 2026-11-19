@@ -581,6 +581,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "You could light a tunnel without a lamp, I suppose, and that would've saved a few men I knew. But I've seen what's down the old shafts near the Rolling Hills, and some of it doesn't like fire at all, and some of it likes it far too much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "You could light a tunnel without a lamp, I suppose, and that would've saved a few men I knew. But I've seen what's down the old shafts near the Rolling Hills, and some of it doesn't like fire at all, and I reckon it'd like the look of your servant even less than I do." },
       },
       choices = {
         { text = "Then I'll go down with a lamp, Matt, like your crew did.", next = "BACK", reply = "That's the right way, and you'll come back. Light the lamp twice.", fx = { align = { light = 1 } } },
@@ -777,6 +778,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I sell robes to anyone who pays, dear, though I'd ask you to keep your companion off my bolts, because velvet doesn't take kindly to claws. Madame Eva says the dark arts are a door you can't close again, and I say that's very dramatic of her and good for business either way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell robes to anyone who pays, dear, though your companion is already standing on my bolts, so I'll ask you to move it before the velvet gets ideas. Madame Eva says the dark arts are a door you can't close again, and I say that's very dramatic of her and good for business either way." },
       },
       choices = {
         { text = "I'll keep the door half shut, Danielle, and the claws off.", next = "BACK", reply = "Half shut is better than none, dear, and the velvet thanks you. Mind the claws.", fx = { align = { light = 1 } } },
@@ -958,6 +960,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everything frightens me, so please don't take it personally, but yes, a little, because it looks at the window the same way the thing outside does. Danielle says I fret too much, and maybe I do, but I keep the books and somebody has to count what could go wrong." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everything frightens me, so please don't take it personally, but yes, and more now it's in the shop, because it keeps looking at the window the same way the thing outside does. Danielle says I fret too much, and maybe I do, but I've counted three ways this could go wrong already." },
       },
       choices = {
         { text = "I'll keep it on the landing, Sheri, and away from you.", next = "BACK", reply = "Thank you, oh thank you, and keep it facing the wall if you can. I'd be grateful.", fx = { align = { light = 1 } } },
@@ -1342,6 +1345,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "For you, chum, I got shards, real ones, maybe, and a book with a lock on it I never opened 'cause the lock's warm. Business is business and Kzixx doesn't ask, but if that book starts whisperin' to you, you didn't buy it from me, and there's no returns on whisperin' goods." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "For you, chum, I got shards, real ones, maybe, and a book with a lock on it that's gone warmer since your {pet} walked in. Business is business and Kzixx doesn't ask, but if your friend there wants a sniff of the merchandise, that's a browsing fee, and it ain't cheap." },
       },
       choices = {
         { text = "I'll take your word on the shards, Kzixx, and pay fair.", next = "BACK", reply = "That's what I like, a customer with trust. On my mother's ledger, they're real, maybe.", fx = { align = { honor = 1 } } },

@@ -313,7 +313,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. The trouble with demons is they never seem to carry any money, so I'd need you to sign for it, and I'd charge you extra for the scorch marks." } },
+      lines = {
+        { id = "xlock_default", text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. The trouble with demons is they never seem to carry any money, so I'd need you to sign for it, and I'd charge you extra for the scorch marks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd sell a gun to a gorilla if it had the gold, and I've come close more than once. Your demon's been eyeing my powder kegs since you walked up, though, and since it clearly doesn't carry any money, you'll sign for it and pay extra for the scorch marks." },
+      },
       choices = {
         { text = "My demon doesn't need a gun. Keep your blunderbuss.", next = "BACK", reply = "Suit yourself, but I'll bet that imp would love a little popgun. It'd be the scariest four inches in Stranglethorn.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Arm the imp. Let's see what happens.", next = "BACK", reply = "Ha! Now there's an idea with a market in it, pal. Bring the little fella round and I'll see if I've got anything in his size.", fx = { align = { order = -1 } } },

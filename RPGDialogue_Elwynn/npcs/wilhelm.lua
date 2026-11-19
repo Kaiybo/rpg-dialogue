@@ -111,7 +111,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." } },
+      lines = {
+        { id = "xlock_default", text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think anyone can, because the Light doesn't keep a ledger of who's worth saving, though it does ask you to turn around, and that creature at your heel would have to stay behind when you did. I've seen it happen once, and the man wept for a week, and then he never stopped smiling." },
+      },
       choices = {
         { text = "Perhaps one day I'll turn, Brother. Keep the door open.", next = "BACK", reply = "It's always open, friend, and I'll be glad to see you at it. I'm behind the smithy most mornings.", fx = { align = { light = 1 } } },
         { text = "I've no need of redemption. My path is chosen.", next = "BACK", reply = "Then I'll pray for you anyway, quietly. The door won't close.", fx = { align = { light = -1 } } },

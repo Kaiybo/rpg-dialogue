@@ -30,6 +30,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because they'd throw it, and you with it, somewhere over Stranglethorn, and I'd have to explain that to the flight master in Booty Bay. They smell things the rest of us can't, and the smell on your sort sets them screaming in the roost all night." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because they'd throw it, and you with it, somewhere over Stranglethorn, and they're halfway to trying now just from seeing it on the roost steps. They smell things the rest of us can't, so take your demon down the hill before they start screaming, or nobody in Darkshire sleeps tonight." },
       },
       choices = {
         { text = "Then the demon walks. Your birds know best.", next = "BACK", reply = "Thank you, truly, and the birds will thank you by not screaming. There's a decent road east, if you keep to it.", fx = { align = { order = 1 } } },
@@ -201,6 +202,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'll sell to anyone fighting what's in that wood, and I'll not ask who taught you your tricks. But if I hear you've been up at Raven Hill doing what Morbent Fel did, I'll come looking for you myself, and I'll bring the axe." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll sell to anyone fighting what's in that wood, and I'll not ask who taught you your tricks or where you found the thing standing behind you. But if I hear you've been up at Raven Hill doing what Morbent Fel did, I'll come looking for you myself, and I'll bring the axe for the pair of you." },
       },
       choices = {
         { text = "Fair. If I ever go that far, come and find me.", next = "BACK", reply = "That's an honest answer, and I'll hold you to it. Buy what you need, and keep your hands clean.", fx = { align = { light = 1 } } },

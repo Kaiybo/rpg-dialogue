@@ -466,7 +466,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can your demon swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." } },
+      lines = {
+        { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can your demon swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, and more now it's looking straight at me, but Effsee's hiding behind my legs, so I've got to be brave for her. Can {pet} swim? Because Hilary's necklace is at the bottom of the lake, and the murlocs are too scary for us to go in after it." },
+      },
       choices = {
         { text = "I'll find the necklace for you myself.", next = "BACK", reply = "Would you? Then I'll tell Hilary you're the bravest person in Lakeshire, and Effsee too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Demons don't fetch necklaces, kid.", next = "BACK", reply = "Oh, that's all right, it was only an idea. Can it at least do tricks?", fx = { align = { light = -1 } } },
@@ -662,7 +665,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It does mine, and I've had a few troubles, though nothing like yours, I'd wager. Sit on the dock for an hour with a line in the water and see whether whatever whispers to you doesn't go quiet for a while." } },
+      lines = {
+        { id = "xlock_default", text = "It does mine, and I've had a few troubles, though nothing like yours, I'd wager. Sit on the dock for an hour with a line in the water and see whether whatever whispers to you doesn't go quiet for a while." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It does mine, and maybe it'd do yours, though I doubt the fish will bite with that thing of yours glaring at the water. Send it off for an hour, sit with a line, and see whether whatever whispers to you doesn't go quiet for a while." },
+      },
       choices = {
         { text = "I might try that, Matthew. Thank you.", next = "BACK", reply = "Do, and you'll find it does wonders. The lake's good at listening.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What whispers to me is worth hearing.", next = "BACK", reply = "Then it'll not be quiet, and you'll not catch anything, and I'll have the best seat on the dock to watch.", fx = { align = { light = -1 } } },
@@ -1236,7 +1242,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Hard but fair, and forever saying we're slow, though he'd say that to a gryphon. The Blackrock knocked the bridge down once and they'll try again, so if you're staying in Lakeshire, keep an eye on the hills while we work." } },
+      lines = {
+        { id = "xlock_default", text = "Hard but fair, and forever saying we're slow, though he'd say that to a gryphon. The Blackrock knocked the bridge down once and they'll try again, so if you're staying in Lakeshire, keep an eye on the hills while we work." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Hard but fair, and he'd call your demon slow too if it stood about the way it's doing now, so tell it to keep out from under the beams if it means to stay. The Blackrock knocked the bridge down once and they'll try again, so if you're staying in Lakeshire, keep an eye on the hills while we work." },
+      },
       choices = {
         { text = "I'll watch the hills while you build.", next = "BACK", reply = "That's good of you, and the crew will work faster for it. Mind the far bank.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'm not here to mind a bridge, Trent.", next = "BACK", reply = "Fair enough, nobody is but us. I'll keep one eye on the hills myself.", fx = { align = { order = -1 } } },

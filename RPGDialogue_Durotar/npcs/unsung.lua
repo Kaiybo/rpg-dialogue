@@ -74,6 +74,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I blame the power and anyone who trusts it, though I'll admit some of you are fighting the Blade too. Fight at my recruits' side, and keep your imp off their heels, and I'll judge you by that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I blame the power and anyone who trusts it, and I see you trust yours enough to bring it right up to my recruits. Fight at their side and keep that thing off their heels, and I'll judge you by that, because they're watching it far more than they're watching the Blade." },
       },
       choices = {
         { text = "Then I'll fight at their shoulder, where they can see me.", next = "BACK", reply = "Then they'll see you fight, and they'll judge you fairly. So will I, from right behind you.", fx = { align = { order = 1 } } },
@@ -250,6 +251,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But I watch what you bring with you, and if your demon touch a recruit, I won't be healing it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I heal anyone who bleed, because the loa don't ask what you be before they give. But that servant of yours be standing over my cots like a vulture, mon, and if it touch a recruit, I won't be healing it, so call it back." },
       },
       choices = {
         { text = "Fair. My demon keeps its distance from the recruits.", next = "BACK", reply = "Then we get along fine, mon. The loa be watching that demon, and so am I.", fx = { align = { light = 1 } } },
@@ -460,6 +462,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Bread, mostly, because you all think about soul shards and forget your stomachs. Buy food and water before you go down into the valley, and never feed any of it to the imp, because it'll only spit it back at you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bread, mostly, because you all think about soul shards and forget your stomachs, and I see your demon is already eyeing my water barrel. Buy food and water before you go down into the valley, and don't let it near the bread, because it'll only spit it back at you." },
       },
       choices = {
         { text = "I'll share mine with the recruits who forget theirs.", next = "BACK", reply = "That's kind of you, and the recruits will remember it. Buy a little extra, then, because they always forget.", fx = { align = { light = 1 } } },
@@ -605,6 +608,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. I sell honest steel to honest Horde, and I'd like to keep it that way." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "One tried, a Burning Blade sympathiser with a blade that glowed green, and Gar'Thok's grunts dragged him off before I'd finished saying no. You've got that same sulphur stink trailing behind you on that thing, so it stays off my counter, and I'll sell honest steel to you alone." },
       },
       choices = {
         { text = "Honest steel suits me. I'll keep my craft separate.", next = "BACK", reply = "Good, then we'll get along. I've no time for the ones who slip poison on my edges and blame the steel.", fx = { align = { light = 1 } } },
@@ -756,6 +760,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A beast follows a hunter because it chooses to, and your demon follows you because it can't do anything else. I won't call you a cultist, but I'll tell you plainly that the land doesn't like what you've chained to you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A beast follows a hunter because it chooses to, and yours follows you because it can't do anything else, which I can see in the way it watches your back instead of the road. I won't call you a cultist, but the land doesn't like what you've chained to you, and neither do I." },
       },
       choices = {
         { text = "Then I'll keep it far from your beasts.", next = "BACK", reply = "Thank you, and my wolf thanks you too. Keep it far, and we'll get along.", fx = { align = { light = 1 } } },
@@ -931,6 +936,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Sometimes, when someone needs a curse and a knife on the same target, though that green glow of yours lights up a dark alley like a bonfire. Work with my people if you like, but keep your demon out of sight, because it'll get us both killed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Sometimes, when someone needs a curse and a knife on the same target, though that thing beside you glows worse than you do. Work with my people if you like, but send your demon away before we move, because it'll light up the alley and get us both killed." },
       },
       choices = {
         { text = "I'll keep the imp out of sight. Agreed.", next = "BACK", reply = "Good, then we'll work together. Keep that imp out of the burrow and away from my students.", fx = { align = { order = 1 } } },
@@ -1115,6 +1121,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They don't like it, mon, because what you call comes from a dark place that never fed anybody. But back at Sen'jin we knew the voodoo had its dark corners too, so Tai'jin won't throw stones, as long as you keep your demon away from my wounded." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They don't like it, mon, and they like it less now it be standing in my tent, because what you call comes from a dark place that never fed anybody. Tai'jin won't throw stones, since the voodoo got its dark corners too, but take {pet} away from my wounded right now." },
       },
       choices = {
         { text = "I'll keep my demon well away from your wounded.", next = "BACK", reply = "The loa thank you, mon. My wounded need quiet, and a demon never once been quiet.", fx = { align = { light = 1 } } },
@@ -1271,6 +1278,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The arcane be a river, and the fel be the poison someone pour in it. The orcs who drank that poison nearly died of it, and Zalazane's dark voodoo be a poison of its own, so I teach my students to keep well clear of both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The arcane be a river, and the fel be the poison someone pour in it, and I can smell that poison coming off your servant from across the room. The orcs who drank it nearly died of it, so I teach my students to keep well clear, and I'll ask you to keep it out of their sight." },
       },
       choices = {
         { text = "Then I'll keep the poison far from your river.", next = "BACK", reply = "Then the river stay clean, mon, and the fish don't float.", fx = { align = { light = 1 } } },

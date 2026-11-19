@@ -39,7 +39,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy Maclure." } },
+      lines = {
+        { id = "xlock_default", text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But I'll ask you to leave your little friend outside, because the last thing that came into my kitchen uninvited ate half a pie, and that was only Billy Maclure." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not a bit, for a hungry stomach's a hungry stomach, whatever's following it about. But your friend's already got one foot through my kitchen door and its eye on the cooling pies, so out it goes, because the last thing that came in uninvited was Billy Maclure." },
+      },
       choices = {
         { text = "Of course, Auntie. I'll leave it outside.", next = "BACK", reply = "Thank you, dear, and mind it doesn't eat the chickens. Sit down and I'll cut you a slice.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "It goes where I go, Auntie. Sorry.", next = "BACK", reply = "Then it can sit by the door and behave itself, and you'll get no pie for it. Rules are rules.", fx = { align = { order = -1 } } },
@@ -364,7 +367,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." } },
+      lines = {
+        { id = "xlock_default", text = "Light, no, I'd rather have the pig than have that thing loose among my cabbages. Kill the sow with an honest blade, and leave your friend outside the fence." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Light, no, and your thing's already standing among my cabbages, which is exactly what I didn't want. Kill the sow with an honest blade, and take that creature back outside the fence before the hens stop laying." },
+      },
       choices = {
         { text = "I'll use my own hands, Ma. The demon stays out.", next = "BACK", reply = "Good. An honest blade's the way I'd want it done, and I'll not look while you do it.", fx = { align = { light = 1 } } },
         { text = "My demon would make short work of her. Your loss.", next = "BACK", reply = "My loss I'll live with, so long as I don't have to watch. Keep it outside.", fx = { align = { light = -1 } } },
@@ -575,7 +581,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because everybody accuses me of something, and you look like you'd do something worse than shout about it. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." } },
+      lines = {
+        { id = "xlock_default", text = "Because everybody accuses me of something, and you look like you'd do something worse than shout about it. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because everybody accuses me of something, and that thing behind you has been looking at me since you came up as if it already knows what I've done. I only know where things are, that's all, and if you ever lose something, I'll tell you where it went for a slice of pie." },
+      },
       choices = {
         { text = "I believe you, Billy. Knowing things isn't stealing.", next = "BACK", reply = "Thank you! Nobody ever believes me, but you do. I'll tell you anything you want for a pie.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Knowing where things go sounds suspicious, Billy.", next = "BACK", reply = "Everybody says that, but I'm only clever. Ask anyone. Well, don't ask anyone.", fx = { align = { order = 1 } } },

@@ -107,7 +107,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." } },
+      lines = {
+        { id = "xlock_default", text = "I'd test anyone who asked, though I doubt you'd enjoy it, because my tests are about what you give away and yours is a path of taking. Still, I've seen stranger roads lead back to the Light, and I won't say yours can't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd test anyone who asked, though you'd fail the first test before it began, because a path of giving doesn't start with a demon standing at your shoulder. Still, I've seen stranger roads lead back to the Light, and if you ever send that thing away for good, come and ask me again." },
+      },
       choices = {
         { text = "Maybe one day I'll take your test, Rall.", next = "BACK", reply = "My door is open, and the tome is on the shelf. I won't hold my breath, but I won't bar it either.", fx = { align = { light = 1 } } },
         { text = "I'll keep my road, and you can keep your tests.", next = "BACK", reply = "Fair. I'll pray for you all the same, and you needn't thank me for it.", fx = { align = { light = -1 } } },

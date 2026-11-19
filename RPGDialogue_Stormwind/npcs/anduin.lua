@@ -126,7 +126,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." } },
+      lines = {
+        { id = "xlock_default", text = "The Archbishop says warlocks call on demons, the same kind the orcs used in the war, and that it's terribly dangerous. You don't look like a bad person, though, so I suppose it depends on why you do it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Archbishop says warlocks call on demons like the ones the orcs used in the war, and I never thought I'd see one standing in my father's hall. You don't look like a bad person, though, so I suppose it depends on why you do it, but I do wish it would stop looking at me like that." },
+      },
       choices = {
         { text = "It does. I bind them so they can't harm anyone else.", next = "BACK", reply = "That's a relief, honestly. I'll tell the Archbishop you said so, though I don't think he'll believe me, because he never does about warlocks.", fx = { align = { light = 1 } } },
         { text = "It's power, Your Majesty, and I take it where I find it.", next = "BACK", reply = "Oh. That sounds like something the Archbishop would warn me about, so I think I'll stand a little closer to the guards now, if that's all right.", fx = { align = { light = -1 } } },

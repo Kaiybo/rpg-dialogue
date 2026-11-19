@@ -34,7 +34,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what a gnome warlock can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." } },
+      lines = { { id = "xlock_default", text = "Welcome's a strong word for a dwarf tae use, friend, but I've seen what a gnome warlock can do tae a trogg, an' I'll no' pretend it didnae impress me. Clear the vermin out o' the Silver Stream Mine an' I'll call ye welcome, an' mean it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome's a strong word for a dwarf tae use, friend, an' it's harder tae say wi' yer demon standin' there smellin' o' brimstone on my road. I've seen what a gnome warlock can do tae a trogg, though, so clear the vermin out o' the Silver Stream Mine an' I'll call the pair o' ye welcome, an' mean it." },
+      },
       choices = {
         { text = "I'll earn it in the mine, Mountaineer.", next = "BACK", reply = "Earn it, aye, an' the lads will remember ye for it. Mind the candles, for the vermin wear them on their heads an' they'll set yer beard alight.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I don't need your welcome. I'll clear it anyway.", next = "BACK", reply = "Clear it anyway, will ye? Then I'll no' waste my welcome, but I'll still be glad o' the work.", fx = { align = { honor = -1 } } },
@@ -289,6 +291,7 @@ P:NPC {
       lines = {
         { id = "xwl_default", text = "I've heard what you lot bargain with, and I'll not have it near my tower, troggs or no troggs. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind yer imp." },
         { id = "xwl_gnome", when = { race = "Gnome" }, text = "A gnome with a demon at heel, and after what yer people lost under Gnomeregan, I suppose I can see how a body ends up there. Keep the creature away from my tower and do yer killin' out in the hills." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I've heard what you lot bargain with, and now I've seen it, standing on my road and staring up at my tower like it wants in. Still, the Stonesplinters have cost me good mountaineers this season, so I'll mind my tongue if ye mind that thing." },
       },
       choices = {
         { text = "Then I'll do it without the imp, and leave your tower clean.", next = "BACK", reply = "Clean, aye, that's all I ask. Do it yer way wi'out the beastie, an' ye'll be welcome on my tower.", fx = { align = { light = 1 } } },
@@ -421,7 +424,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, an' that's on a good day. If ye meet any o' the orcs' old dark sort up there, ye'll know better than me what tae do about them, an' I'll leave it tae ye." } },
+      lines = { { id = "xlock_default", text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, an' that's on a good day. If ye meet any o' the orcs' old dark sort up there, ye'll know better than me what tae do about them, an' I'll leave it tae ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Trolls in the hills, Dragonmaw in the marsh an' mud up tae yer knees, though I doubt yer demon minds the mud. If ye meet any o' the orcs' old dark sort up there, it'll likely smell them before ye do, so I'll leave them tae the both o' ye." },
+      },
       choices = {
         { text = "I'll fight them, not learn from them, Rockgar.", next = "BACK", reply = "Fight them, aye, an' learn nothin', for there's nothin' worth learnin'. Ye've a good head on ye.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd learn what I could from them first.", next = "BACK", reply = "Learn first, is it? That's how the orcs came tae their dark sort in the first place. Watch yerself up there, an' come back the same as ye went.", fx = { align = { light = -1 } } },
@@ -653,6 +658,7 @@ P:NPC {
       lines = {
         { id = "xwl_default", text = "An imp? Er, that's very kind, but the last thing a fellow with flammable reagents wants is a fire demon going through his bags. Perhaps you could fetch them yourself and leave it outside?" },
         { id = "xwl_gnome", when = { race = "Gnome" }, text = "An imp, from a fellow gnome! I suppose after Gnomeregan we all took whatever help we could find, but please keep it well away from my blasting powder." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Is that yours? Er, that's very kind, but the last thing a fellow with flammable reagents wants is a demon going through his bags, and it's already looking at them. Perhaps you could fetch them yourself and leave it over there, ideally upwind?" },
       },
       choices = {
         { text = "Then I'll fetch them myself.", next = "BACK", reply = "Oh, thank goodness, and thank you. My eyebrows have only just grown back from the last fire.", fx = { align = { light = 1 } } },

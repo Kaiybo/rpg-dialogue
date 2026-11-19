@@ -93,6 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. My cubs have backed into their pens at the sight of your servant, so leave it here when you go, because I need a sick bear brought to me alive, not torn apart by a demon." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", reply = "Spoken like one who knows what fel does to a living thing. I will not ask how you came to know it.", fx = { align = { light = 1 } } },
@@ -339,6 +340,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "I am sure you do, and that is exactly why Delgren would want you in irons rather than in his camp. If you want to be useful, tell me where they meet, and then go somewhere the Sentinels are not." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "I am sure you do, and you bring the proof of it with you, standing there at your shoulder for every Sentinel to see. Delgren would want you in irons for less, so tell me where they meet, and then take that creature somewhere the Sentinels are not." },
       },
       choices = {
         { text = "I'll tell you everything, and fight them too.", next = "BACK", reply = "Then Delgren may yet be glad of you, warlock. Tell me everything, and fight well.", fx = { align = { light = 1 } } },
@@ -600,6 +602,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll carry you, but not your servant, and I'd ask you to dismiss it before you even reach the roost. A hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not your servant, and I can already hear them stamping in the roost with it standing here. Dismiss it now, please, because a hippogryph that panics over open water is worse than any storm, and I've the sea wind to worry about already." },
       },
       choices = {
         { text = "I'll dismiss it. The birds come first.", next = "BACK", reply = "Thank you, warlock. I've seen a panicked hippogryph break a rider's arm in two places.", fx = { align = { honor = 1 } } },

@@ -50,7 +50,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but I'll not have demons sitting on my benches." } },
+      lines = {
+        { id = "xlock_default", text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but I'll not have demons sitting on my benches." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do and some don't, and the ones who don't come up at midnight wanting bread and cheese. I feed them all the same, because a guest is a guest, but that demon of yours is eyeing the bench by the fire, and it can stand." },
+      },
       choices = {
         { text = "A guest is a guest. That's fair of you, Melika.", next = "BACK", reply = "Thank you, it's how I've always run things. Bread and cheese for anybody, and no demons on the benches.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon's better company than half your guests.", next = "BACK", reply = "Maybe so, but it's not paying for supper, so it can wait outside. Your table's by the window.", fx = { align = { light = -1 } } },

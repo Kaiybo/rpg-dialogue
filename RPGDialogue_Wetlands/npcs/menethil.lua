@@ -101,7 +101,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I would, an' I'd no' sleep easy for it. The Horde had warlocks o' their own in the old war, an' I've seen what fel fire does tae a stone wall, so if ye mean tae fight the Dragonmaw wi' the same, ye'll fight from the far end where I can see ye." } },
+      lines = { { id = "xlock_default", text = "I would, an' I'd no' sleep easy for it. The Horde had warlocks o' their own in the old war, an' I've seen what fel fire does tae a stone wall, so if ye mean tae fight the Dragonmaw wi' the same, ye'll fight from the far end where I can see ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I would, an' I'd no' sleep easy for it, an' I'll sleep worse now I've seen what ye keep at yer heel. The Horde had warlocks o' their own in the old war, an' I've seen what fel fire does tae a stone wall, so ye an' that thing will fight the Dragonmaw from the far end where I can see ye both." },
+      },
       choices = {
         { text = "I'll fight cleanly, Captain, and stay where you can see me.", next = "BACK", reply = "That's all I ask, an' more than most warlocks offer. Stay in my sight, an' ye'll find me fair enough.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire answers fire. The orcs taught us that.", next = "BACK", reply = "They taught us plenty, an' none o' it worth keepin'. I'll take yer fire against the Dragonmaw, but I'll no' have it inside my walls.", fx = { align = { light = -1 } } },
@@ -554,7 +556,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only in my dreams, and only when I've run short of mead, so I make very sure I never run short. My old shipmates walk the wrecks out there, cursed and bound, and if you've a trick that can talk to the dead, I'd beg you not to use it on them." } },
+      lines = { { id = "xlock_default", text = "Only in my dreams, and only when I've run short of mead, so I make very sure I never run short. My old shipmates walk the wrecks out there, cursed and bound, and if you've a trick that can talk to the dead, I'd beg you not to use it on them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only in my dreams, and only when I've run short of mead, though your demon looks like something out of the worse sort of dream, and it's making me thirsty. My old shipmates walk the wrecks out there, cursed and bound, so I'd beg you not to send that thing anywhere near them." },
+      },
       choices = {
         { text = "I'd never trouble your shipmates. Let them rest.", next = "BACK", reply = "That's kind, friend, kinder than most would be, and I'll drink to it. Let them rest, if the bay ever lets them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead know things. I'd ask them, if I could.", next = "BACK", reply = "Know things? They know the bottom of the bay and nothing else, and I'd thank you to leave them be. I sailed with those men, and I don't want to hear what they'd say now.", fx = { align = { light = -1 } } },
@@ -1091,7 +1095,9 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Because ye have, an' I can smell it from here, like brimstone in a wet cellar. I'll not turn ye out o' the chapel, since the Light turns nobody out, but I'd like ye to leave whatever's followin' ye on the step." } },
+      lines = { { id = "xwl_default", text = "Because ye have, an' I can smell it from here, like brimstone in a wet cellar. I'll not turn ye out o' the chapel, since the Light turns nobody out, but I'd like ye to leave whatever's followin' ye on the step." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Because ye have, an' it's standin' right behind ye on my chapel floor, an' the whole room smells like brimstone in a wet cellar. I'll not turn ye out, since the Light turns nobody out, but I'd like ye tae walk that thing back tae the step an' leave it there." },
+      },
       choices = {
         { text = "It stays outside, Brother. You have my word.", next = "BACK", reply = "Thank ye, an' I'll hold ye tae it. The Light turns nobody out, but it's easier on my nose.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It goes where I go. Your chapel will cope.", next = "BACK", reply = "It'll cope, an' so will I, but I'll be prayin' louder while it's here. Keep the beast off my altar cloth, at least.", fx = { affinity = -2, align = { honor = -1 } } },
@@ -1099,7 +1105,9 @@ P:NPC {
       },
     },
     xwarlock_light = {
-      lines = { { id = "xwlt_default", text = "Nobody who comes askin', an' that's the worst o' the job, worse than the smell. Come askin' some day, without the smell, an' we'll talk about it properly." } },
+      lines = { { id = "xwlt_default", text = "Nobody who comes askin', an' that's the worst o' the job, worse than the smell. Come askin' some day, without the smell, an' we'll talk about it properly." },
+        { id = "xwlt_demon", when = { pet = { type = "Demon" } }, text = "Nobody who comes askin', an' that's the worst o' the job, worse than the smell, an' the smell's very bad today. Come askin' some day wi'out yer {pet} lookin' over yer shoulder, an' we'll talk about it properly." },
+      },
       choices = {
         { text = "Maybe someday.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1161,7 +1169,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They burned the gatehouse from the inside, for a start, an' the lads on the walls came down screamin'. Whatever ye call on, I hope ye call it on them, for I'd no' weep tae see a Dark Iron burn by his own trade." } },
+      lines = { { id = "xlock_default", text = "They burned the gatehouse from the inside, for a start, an' the lads on the walls came down screamin'. Whatever ye call on, I hope ye call it on them, for I'd no' weep tae see a Dark Iron burn by his own trade." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They burned the gatehouse from the inside, for a start, an' the lads on the walls came down screamin'. Whatever that thing at yer heel is, I hope ye set it on them, for I'd no' weep tae see a Dark Iron run screamin' from the likes o' it." },
+      },
       choices = {
         { text = "I'll beat them, Harlo, but not by their methods.", next = "BACK", reply = "Good, for their methods are what burned my lads. Beat them clean, an' ye'll be a better dwarf than any o' them.", fx = { align = { light = 1 } } },
         { text = "Then I'll turn their own fire back on them.", next = "BACK", reply = "Turn it back, aye, an' let them taste what they gave us. I'll no' ask how ye do it.", fx = { affinity = 1, align = { light = -1 } } },
@@ -1414,7 +1424,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long in the trade, but I do write down who collects them." } },
+      lines = { { id = "xlock_default", text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long in the trade, but I do write down who collects them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye, and your demon has gone straight to the one in the corner, which I'd rather it didn't. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long, but I do write down who collects them, and what they bring along." },
+      },
       choices = {
         { text = "Good. Someone should keep a record of who buys what.", next = "BACK", reply = "Somebody should, and it's me, though I'd never admit it to the men who send those crates. I could tell you who bought rope in this harbour three winters back, and what for.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Burn that ledger, Karl. Some trade's best forgotten.", next = "BACK", reply = "Burn it? That ledger's the only thing keeping me out of trouble when the Stormwind men come asking. It stays, thank you.", fx = { align = { order = -1 } } },
@@ -1717,6 +1729,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Sturdy lock, is it? I had one o' your sort in the end room last winter, an' I spent a week scrubbin' the smell o' sulphur out o' the boards. Ye can have the room, but if I find scorch marks, I'll want them gone before ye leave." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Sturdy lock, is it? I had one o' your sort in the end room last winter, an' that's the same sulphur comin' off yer demon now that I spent a week scrubbin' out o' the boards. Ye can have the room, but that thing stays off the bed, an' if I find scorch marks, I'll want them gone before ye leave." },
       },
       choices = {
         { text = "You'll find nothing, Helbrek. I keep a clean room.", next = "BACK", reply = "I'll hold ye tae that, an' I'll be checkin'. A clean room's all I ask, an' no' too much sulphur.", fx = { align = { light = 1 } } },
@@ -1913,7 +1926,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aye, more than the League lets on, for old tombs hold more than old dwarves. We crate up anythin' that hums an' send it tae Ironforge, where the scholars argue about it for a year an' then lock it in a cellar." } },
+      lines = { { id = "xlock_default", text = "Aye, more than the League lets on, for old tombs hold more than old dwarves. We crate up anythin' that hums an' send it tae Ironforge, where the scholars argue about it for a year an' then lock it in a cellar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aye, more than the League lets on, an' I'll tell ye, two o' the crates at my back started hummin' when yer demon walked up. We send anythin' that hums tae Ironforge, where the scholars argue about it for a year an' then lock it in a cellar, an' I'm thinkin' o' sendin' those two today." },
+      },
       choices = {
         { text = "Lock it away. Some things shouldn't be studied.", next = "BACK", reply = "Some things, aye, but which ones? That's the question the League's been arguin' for fifty years. I'll leave it tae the scholars.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A locked cellar wastes it. I'd study the humming ones.", next = "BACK", reply = "The humming ones? Ye'd have the scholars in fits. Study what ye like, but no' in my cellar, an' no' on my watch.", fx = { align = { light = -1 } } },
@@ -2165,7 +2180,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I did this and that in Stormwind, and some of it meant knowing which cellars to keep an eye on. I'll say only that the ones who thought nobody was watching were usually wrong, so you might bear that in mind." } },
+      lines = { { id = "xlock_default", text = "I did this and that in Stormwind, and some of it meant knowing which cellars to keep an eye on. I'll say only that the ones who thought nobody was watching were usually wrong, so you might bear that in mind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I did this and that in Stormwind, and some of it meant knowing which cellars to keep an eye on, and what sort of thing came up out of them, which is why I've had one eye on your demon since you sat down. The ones who thought nobody was watching were usually wrong, so you might bear that in mind." },
+      },
       choices = {
         { text = "I've nothing to hide. Watch all you like.", next = "BACK", reply = "Good, then we'll get along fine. I've had enough secrets for one lifetime, and I'd rather not go looking for more.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Then I'll make sure nobody's watching next time.", next = "BACK", reply = "You'll find I'm usually watching, friend, even when I'm pouring. Do what you like, but not under my roof.", fx = { align = { honor = -1 } } },

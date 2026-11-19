@@ -78,7 +78,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Marshal Dughan will have my badge." } },
+      lines = {
+        { id = "xlock_default", text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. Just don't let anything you call up eat any of my lads, or Marshal Dughan will have my badge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Welcome isn't the word I'd use, but I'd take it, because Westbrook can't spare men and the gnolls can smell weakness. They'll smell that thing at your heel too, I expect, so keep it pointed at them and not at my lads, or Marshal Dughan will have my badge." },
+      },
       choices = {
         { text = "I'll keep my demon from your lads. They'll be safe.", next = "BACK", reply = "Good, and I'll hold you to it. Dughan's fond of my badge, and so am I.", fx = { align = { light = 1 } } },
         { text = "Your lads should learn to fear me as much as Hogger.", next = "BACK", reply = "My lads already fear plenty, friend, and they don't need more. Keep it on the gnolls.", fx = { align = { light = -1 } } },

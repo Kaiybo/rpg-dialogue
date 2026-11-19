@@ -76,7 +76,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." } },
+      lines = {
+        { id = "xlock_default", text = "It's happened twice, and once it was an imp that set the straw alight while the recruit beside it was still swinging. I'd sooner my warriors learn to fight on dummies than on whatever Drusilla La Salle lets out of the graveyard." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's happened twice, and once the straw went up while the recruit beside it was still swinging. I'll ask you to keep that creature away from my dummies, because my recruits have stopped swinging altogether to watch it, and I'd sooner they learned to fight than to stare." },
+      },
       choices = {
         { text = "I'll keep my imp leashed and away from your recruits.", next = "BACK", reply = "Good, and the straw will thank you. Find a dummy on the far end.", fx = { align = { light = 1 } } },
         { text = "Your recruits could do with a real fight now and then.", next = "BACK", reply = "Real fights come soon enough, and I'd rather they lived to see them. Leave my recruits alone.", fx = { align = { light = -1 } } },

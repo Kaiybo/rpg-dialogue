@@ -124,7 +124,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips." } },
+      lines = {
+        { id = "xlock_default", text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort, and I am looking now at your servant. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips, and that thing is waiting for yours to." },
+      },
       choices = {
         { text = "Then I'll hold it carefully, and never here.", next = "BACK", reply = "Thank you, and I'll believe you, because I'm the hopeful sort. Just never here, please, not even a little.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A slip is the price of real power.", next = "BACK", reply = "And the forest pays it, every time. I'd ask you to be the one who doesn't slip.", fx = { affinity = -1, align = { light = -1 } } },
@@ -583,7 +586,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "If you carry salve and gather blood amber like everyone else, yes, and gladly. The forest doesn't care whose hands mend it, only that they don't add more poison while they work, and I'll trust you to know the difference." } },
+      lines = {
+        { id = "xlock_default", text = "If you carry salve and gather blood amber like everyone else, yes, and gladly. The forest doesn't care whose hands mend it, only that they don't add more poison while they work, and I'll trust you to know the difference." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "If you carry salve and gather blood amber like everyone else, yes, and gladly, though I'd ask your demon to wait outside the cleansed ground. The forest doesn't care whose hands mend it, only that they don't add more poison while they work, and I'll trust you to keep it off the new growth." },
+      },
       choices = {
         { text = "I'll mend, then. The forest has suffered enough.", next = "BACK", reply = "Thank you, truly. Take a beacon from the pile by the tent, and I'll show you the first patch.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Healing's not my work. Burning the satyrs is.", next = "BACK", reply = "Burning the satyrs helps too, I suppose, and I'll not pretend otherwise. Just mind the saplings.", fx = { align = { light = -1 } } },
@@ -856,7 +862,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council turn Jaedenar into a nest of demons, and I cannot forget it on your account." } },
+      lines = {
+        { id = "xlock_default", text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council turn Jaedenar into a nest of demons, and I cannot forget it on your account." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Circle is not Stormwind, and this forest is the reason why. I will work beside you, and I will thank you for the work, but I watched the Shadow Council fill Jaedenar with things like the one at your side, and I cannot forget it while it stands there." },
+      },
       choices = {
         { text = "I don't blame you. I'll keep my demon away.", next = "BACK", reply = "Thank you, and I'm grateful you understand. My salve-bearers won't even sleep near the place a demon stood.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Circle has no right to judge me.", next = "BACK", reply = "It doesn't judge, warlock, it remembers. That's a different thing entirely.", fx = { affinity = -1, align = { order = -1 } } },

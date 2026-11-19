@@ -75,7 +75,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Morganth was a sorcerer of your sort once, and he's camped across the river in Redridge wanting this tower for his own. My master looks at every warlock and sees Morganth, which isn't fair to you, though I can't say it's unwise of him." } },
+      lines = {
+        { id = "xlock_default", text = "Because Morganth was a sorcerer of your sort once, and he's camped across the river in Redridge wanting this tower for his own. My master looks at every warlock and sees Morganth, which isn't fair to you, though I can't say it's unwise of him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Morganth was a sorcerer of your sort once, and he's camped across the river in Redridge wanting this tower for his own. If my master came down and saw that thing watching me from your heel, he'd not stop to ask whether you were any different, so perhaps keep it away from the windows." },
+      },
       choices = {
         { text = "He's right to be careful. I'd never bargain the way Morganth did.", next = "BACK", reply = "I'm glad to hear it, and I'll tell him you said so. He'll not believe me, but I'll tell him.", fx = { align = { light = 1 } } },
         { text = "Morganth's only crime was losing. Power goes to those who take it.", next = "BACK", reply = "That's exactly what Morganth would say, I'm afraid. I think you'd best go before my master comes down.", fx = { align = { light = -1 } } },
@@ -265,7 +268,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It doesn't ruin the craft, but it changes it, and what it changes it into isn't anything the Kirin Tor would put their name to. I've seen a sword enchanted with something from your side of the line, and it hummed at night like it was hungry." } },
+      lines = {
+        { id = "xlock_default", text = "It doesn't ruin the craft, but it changes it, and what it changes it into isn't anything the Kirin Tor would put their name to. I've seen a sword enchanted with something from your side of the line, and it hummed at night like it was hungry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It doesn't ruin the craft, but it changes it, and what it changes it into isn't anything the Kirin Tor would put their name to. Your {pet} has been staring at my rods since you walked in, and I'd swear the runes on them have gone a shade dimmer." },
+      },
       choices = {
         { text = "Then I'll keep the fel well away from your bench.", next = "BACK", reply = "Thank you, I'd be grateful, and so would the dust. It sulks for days after.", fx = { align = { light = 1 } } },
         { text = "A hungry blade sounds like a better blade to me.", next = "BACK", reply = "It's better at eating its owner, I'd wager. I'll not be enchanting it for you.", fx = { align = { light = -1 } } },

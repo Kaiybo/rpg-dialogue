@@ -70,6 +70,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and I've learned to label them all very carefully, because a clerk who can't account for a box that hums is not much of a clerk. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and I've learned to label them all very carefully, and I'll ask your demon to stop looming over the counter where the clerks can see it. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
       },
       choices = {
         { text = "I'll keep my vault in order, Montague.", next = "BACK", reply = "Splendid. An orderly vault is the foundation of an orderly life, or unlife.", fx = { align = { order = 1 } } },
@@ -340,6 +341,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Not for a moment, and I don't blame them, because a beast knows a thing that doesn't belong in the world when it smells one. Leave it at the top of the stair, and I'll not have to calm every animal in the stable afterward." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You ought to know better, since your people's wolves never cared for the warlocks' pets, or so a grunt told me once. Leave the demon at the top of the stair, please." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Not for a moment, and you can hear them now, every one of them kicking at its stall since your demon came down the stair. Take it back to the top and wait there, and I'll not have to calm every animal in the stable afterward." },
       },
       choices = {
         { text = "I'll leave it at the stair. Your beasts come first.", next = "BACK", reply = "Thank you. The beasts will settle quicker for it, and so will I.", fx = { affinity = 1, align = { order = 1 } } },
@@ -427,6 +429,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because one day your demon will fall, and you'll be left with nothing but your own hands. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because one day your demon will fall, and I doubt that one will see you through every fight, whatever it thinks of itself. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
       },
       choices = {
         { text = "Yes, sir. I'll drill every day.", next = "BACK", reply = "Good. Your arms will thank you when your demon's gone.", fx = { align = { order = 1 } } },
@@ -702,6 +705,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They ask me to work fel-touched ore now and then, and I tell them no, because metal that whispers isn't metal I'll put my name to. Bring me honest iron and I'll make you honest work." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I knew a smith in the capital who went over to the Cult before the end and forged for them, and he never made anything clean again. Keep your demons away from my forge, and we'll get on fine." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They ask me to work fel-touched ore, and I tell them no, and I'll tell your demon the same if it keeps nosing about my anvil. Metal that whispers isn't metal I'll put my name to, so bring me honest iron and I'll make you honest work." },
       },
       choices = {
         { text = "Honest iron, then. I'll respect your forge.", next = "BACK", reply = "Thank you. Honest iron makes honest work, and that's my name on it.", fx = { affinity = 1, align = { order = 1 } } },
@@ -786,6 +790,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I asked a warlock that once, and he looked at me as if I'd buried him a second time. A pity, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I asked a warlock that once and he looked at me as if I'd buried him a second time, though yours is looking down the shaft as if it might actually consider it. A pity it's not the demon who decides, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
       },
       choices = {
         { text = "I'll dig with my own hands, Killian.", next = "BACK", reply = "Good, and the ore will be all the better for it. Pick's by the door.", fx = { align = { order = 1 } } },
@@ -1041,6 +1046,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "It binds power into objects, and a demon is not an object, however much your trainers would like you to think so. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and once was enough." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "We dead mages kept to the arcane and you dead warlocks went down another road entirely, and the Magic Quarter is big enough for us both, mostly. Do keep your imp out of my dust; it eats it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "It binds power into objects, and a demon is not an object, though yours is standing so still I could almost be fooled. Keep the two crafts apart, because I've seen a warlock's enchanted ring go very wrong, and I'd rather {pet} didn't take an interest in my rods." },
       },
       choices = {
         { text = "I'll keep the crafts apart, as you say.", next = "BACK", reply = "Good, and you'll keep your fingers too. That ring took three of its owner's.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1221,6 +1227,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Rarely, because a demon is the least subtle thing in the Undercity, and that includes the abominations. Still, a warlock who can curse a man from across a room has a certain charm, if he learns to stand somewhere dark and keep his imp quiet." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock, in my quarter, and you've the sense to ask instead of barging in. A curse from across a room has a certain quiet charm, if you learn to keep that demon of yours out of the light." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Rarely, because a demon is the least subtle thing in the Undercity, and yours has just made three of my students forget their lessons. Still, a warlock who can curse a man from across a room has a certain charm, if he learns to stand somewhere dark and leave that thing at home." },
       },
       choices = {
         { text = "I'll learn to work quietly, then.", next = "BACK", reply = "Good. A quiet warlock is a dangerous warlock, and I'd like more of those.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1381,6 +1388,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Some of them do, and the ones that don't are very interesting to watch fail. The Magic Quarter's warlocks buy from me now and then, for when a pet turns on its master, and they never tell me whether it worked." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking after poisons for demons, now that's a customer with history. Some of my stock works on them and some only annoys them, and I'm afraid you'll have to find out which by experiment, preferably nowhere near my shelves." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Some of them do, and the ones that don't are very interesting to watch fail, so forgive me for looking at your {pet} with professional curiosity. The Magic Quarter's warlocks buy from me for when a pet turns on its master, and you might keep that in mind the next time it looks at you like that." },
       },
       choices = {
         { text = "A wise warlock keeps a vial for his own demon.", next = "BACK", reply = "A wise warlock indeed. I'll sell you the strongest I've got.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1564,6 +1572,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Bandages won't put back what you've traded away, but they'll help with what your demon does to you afterward. I've told the Magic Quarter's warlocks the same for years, and they never listen until they faint on my floor." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You're spending blood you can't make again as quickly as the living can, which is a poor bargain for one of us. Bind what you can, rest when you can, and don't faint on my floor." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Bandages won't put back what you've traded away, and your demon standing over you while I wrap them won't help either. I've told the Magic Quarter's warlocks the same for years, so send it to the corner and sit down before you faint on my floor." },
       },
       choices = {
         { text = "I'll listen, Edras, before I faint.", next = "BACK", reply = "Good. Before you faint is much better than after.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1647,6 +1656,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Anyone can, if they've the patience, and the dead have plenty of that. The canals here are green with the apothecaries' leavings, so practise here and fish somewhere cleaner, and send the demon away first, because the fish can tell." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone can, if they've the patience, and the dead have plenty of that. But fish can tell when a demon's standing on the bank, and they've all gone to the bottom since yours arrived, so send it away and practise somewhere cleaner than these canals." },
       },
       choices = {
         { text = "I'll send it away and sit patiently.", next = "BACK", reply = "Thank you. The fish are nervous enough with the green.", fx = { align = { light = 1 } } },

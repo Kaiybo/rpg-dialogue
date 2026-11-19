@@ -60,6 +60,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Any means? I've lain awake thinking about that, I'll not lie to you, and some nights I'd have shaken hands with anything that offered. But Verna would know, and she'd never look at me the same, so the farm stays lost until somebody honest fetches it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Any means? I've lain awake thinking about that, I'll not lie to you, and with that thing of yours watching me now I can almost feel what it would offer. But Verna would know, and she'd never look at me the same, so the farm stays lost until somebody honest fetches it." },
       },
       choices = {
         { text = "Then I'll leave it to honest hands, Theodore.", next = "BACK", reply = "That's the right of it, and Verna would thank you for saying so. Somebody honest will come along, I keep telling myself.", fx = { align = { light = 1 } } },

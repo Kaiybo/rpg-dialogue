@@ -56,7 +56,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." } },
+      lines = {
+        { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Trust is a strong word, friend, and I asked Marshal Dughan for soldiers, not whatever that is lurking at your heel. Still, Rolf and Malakai went north along the river and didn't come back, so if your servant can sniff out what happened to them, I'll not ask how." },
+      },
       choices = {
         { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", reply = "The truth's all I'm asking, however hard it is. Go north along the water, and come back and tell me what you find.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll look, but I'll do it my own way.", next = "BACK", reply = "Your way's your business, so long as you look. I've no time to be particular about who does the searching.", fx = { align = { honor = -1 } } },

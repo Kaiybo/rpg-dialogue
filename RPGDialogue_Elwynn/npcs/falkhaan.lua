@@ -83,7 +83,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." } },
+      lines = {
+        { id = "xlock_default", text = "A little, because I send tired farmhands and young soldiers through that same door. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because I send tired farmhands and young soldiers through that same door, and none of them ever came back up with something like that at their heel. Maximillian Crowe keeps his students quiet and Farley keeps his mouth shut, and as long as nobody upstairs comes to harm, I suppose it's not my place to say." },
+      },
       choices = {
         { text = "Nobody upstairs will come to harm from me, Falkhaan.", next = "BACK", reply = "I'll hold you to that, and so will Farley. Go on down.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What happens in the cellar isn't their business.", next = "BACK", reply = "Maybe not, but they sleep above it, friend. Keep it quiet.", fx = { align = { light = -1 } } },

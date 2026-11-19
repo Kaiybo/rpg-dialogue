@@ -133,6 +133,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "Only if your demon forgets whose road this is. The Warchief allows your kind under watch, and I'll keep that watch myself, so keep the thing leashed and away from the tauren caravans, who've heard enough about the Burning Blade to reach for their spears." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you know what that power cost our people the first time. The Warchief allows it under watch, and I'll be the watch here, so keep your demon leashed and away from the tauren caravans." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Only if your demon forgets whose road this is, and it's already eyeing the tauren caravans like it's counting them. The Warchief allows your kind under watch, so call it back to your heel, because I'm watching it and so are the spears behind me." },
       },
       choices = {
         { text = "My demon answers to me, and I answer to the Warchief.", next = "BACK", reply = "Then we'll get along, as long as the Warchief keeps answering for you. Keep the thing on a short leash near the caravans.", fx = { align = { order = 1 } } },
@@ -416,6 +417,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "You'll find plenty, though the tauren caravans will keep their distance and I won't blame them. The Burning Blade have a nest up on Dreadmist Peak to the north, so go and show those cultists what a warlock who serves the Horde looks like, and keep your demon on a short chain while you do it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "You'll find plenty, though the tauren caravans have already shifted their kodos away from that thing at your heel. The Burning Blade nest up on Dreadmist Peak to the north, so take your {pet} there and let the cultists see what a demon looks like when it serves the Horde." },
       },
       choices = {
         { text = "I'll keep it leashed. The Crossroads has troubles enough.", next = "BACK", reply = "Good, because they do. Keep it leashed, and show the cultists on Dreadmist what a warlock of the Horde looks like.", fx = { align = { order = 1 } } },
@@ -622,6 +624,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I hate the stink of the things, and I hate that the Horde still has to look at them. But if your demon puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, and that's the most you'll get from me." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "Our people sold themselves to those things once, and look what it bought us. But if your demon tears into the quilboar who swarmed us, I'll keep my mouth shut about it, and that's more than I'd give most warlocks." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I hate the stink of the things, and yours is standing close enough that I can taste the sulphur. But if it puts its claws in the quilboar who swarmed us, I won't spit when it walks past me, so get it out of my sight and go do that." },
       },
       choices = {
         { text = "A demon's claws are still claws, and revenge is revenge.", next = "BACK", reply = "Then let it, and I'll look away when it's done. Just make sure the quilboar know why they're dying.", fx = { align = { light = -1 } } },
@@ -861,6 +864,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Leashed is a word I've heard before, usually just before something got loose. The tauren know what the Burning Blade's fire does to living things, and your company does not sit easily with me, but if you know corruption, perhaps you'll know it when you smell it at the oases." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Leashed is a word I've heard before, and your servant is watching me as though it heard it too. The tauren know what the Burning Blade's fire does to living things, and I can feel the heat of that one from here, but if you know corruption, perhaps you'll know it when you smell it at the oases." },
       },
       choices = {
         { text = "Then I'll use what I know to help cleanse them.", next = "BACK", reply = "That would be a strange and welcome kindness. Use it carefully, and I'll learn to sit easier near you.", fx = { align = { light = 1 } } },
@@ -1143,6 +1147,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "The Forsaken trust nobody, which makes us admirably fair about it. The Dark Lady keeps a dreadlord of her own on a short chain in Undercity, so a warlock is welcome among us for exactly as long as he remembers who is holding the chain." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "The Forsaken trust nobody, and I've just watched your demon sniff at my reagents, so I trust it rather less than nobody. The Dark Lady keeps a dreadlord of her own on a short chain, and you're welcome here for as long as you keep this one on yours." },
       },
       choices = {
         { text = "Every power needs a master, and I hold my chain tightly.", next = "BACK", reply = "Good, then you'll get on admirably with the Society. Remember who holds the chain, and who holds yours.", fx = { align = { order = 1 } } },
@@ -1406,6 +1411,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Jealous of a little thing that sets my cloak on fire whenever it gets bored? Not really, friend, because a good blade never asks to be fed and never talks back, and I'll take that over a demon on my shoulder any day." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Jealous of that? It's been glaring at my cloak since you walked up, friend, and I've a feeling it's deciding whether to set it alight. A good blade never asks to be fed and never looks at me like that, so no, I'll keep my dagger and you can keep your demon." },
       },
       choices = {
         { text = "A demon is just a sharper knife.", next = "BACK", reply = "Sharper, maybe, but it cuts both ways, and I'd rather mine stayed sheathed when I sleep. Good luck with it, warlock.", fx = { align = { light = -1 } } },
@@ -1564,6 +1570,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what demons eat when nobody's feeding them, and I don't want to find out, so I'll sell you meat for your own belly and that's where it stays." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. Yours is giving me that same look right now over the cookfire, so I'll sell you meat for your own belly, and you'll keep that thing back from my spit." },
       },
       choices = {
         { text = "Fair. My demon goes hungry, and I keep it lean.", next = "BACK", reply = "Lean and quiet, that's how I like a demon, if I have to like one at all. Thanks for keeping it out of my stall.", fx = { align = { light = 1 } } },
@@ -1785,6 +1792,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everyone's welcome who pays and keeps the peace, and the stars come in through my roof whether you're a shaman or something darker. Some of my tauren guests have seen the Burning Blade's work up on Dreadmist Peak, though, so give them a wide berth and they'll give you one." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone's welcome who pays and keeps the peace, though my tauren guests have all put their bowls down to watch the creature in my doorway. Some of them have seen the Burning Blade's work up on Dreadmist Peak, so keep your {pet} by the wall, and they'll give you a wide berth in return." },
       },
       choices = {
         { text = "I'll keep my distance and my demon quiet.", next = "BACK", reply = "Thank you, friend, that's more than I'd hoped. The tauren will sleep better, and so will I.", fx = { align = { order = 1 } } },

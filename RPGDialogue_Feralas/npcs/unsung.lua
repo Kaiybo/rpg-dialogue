@@ -68,7 +68,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and neither will I. Keep your demon on the ground and your hands still on the saddle, and we'll both get through the flight with our dignity." } },
+      lines = {
+        { id = "xlock_default", text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and neither will I. Keep your demon on the ground and your hands still on the saddle, and we'll both get through the flight with our dignity." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, because the Alliance asks it of them, but they'll not like it, and I can hear them stamping already at the smell of your servant. Send it back to wherever you keep it before you mount, and keep your hands still on the saddle, and we'll both get through the flight with our dignity." },
+      },
       choices = {
         { text = "Then I'll ask the birds' pardon and ride carefully.", next = "BACK", reply = "That is all I ask. They will feel it in your hands.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A beast should carry whoever it's told to carry.", next = "BACK", reply = "They carry whom they choose, and they choose to carry you because I ask it, so do not test their patience.", fx = { align = { light = -1 } } },
@@ -302,7 +305,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I do not believe any bargain with a demon ends better than theirs did." } },
+      lines = {
+        { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I do not believe any bargain with a demon ends better than theirs did." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and when I look at the thing beside you, I see the bargain that made them, so forgive me if I don't believe yours will end better." },
+      },
       choices = {
         { text = "I understand. I'll prove my bargain is different.", next = "BACK", reply = "Then prove it, and I will be glad to be wrong, because I would like to believe a bargain can end well.", fx = { align = { order = 1 } } },
         { text = "My bargains are my own affair, Vivianna.", next = "BACK", reply = "They are, until they come back to haunt the rest of us, and then they become everyone's affair.", fx = { align = { order = -1 } } },
@@ -476,7 +482,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The fel is a sickness, and the land knows it the way a body knows a fever. You are of the Horde, and so you are welcome at Mojache, but I would ask that you walk gently in my gardens, and let the roots keep their health." } },
+      lines = {
+        { id = "xlock_default", text = "The fel is a sickness, and the land knows it the way a body knows a fever. You are of the Horde, and so you are welcome at Mojache, but I would ask that you walk gently in my gardens, and let the roots keep their health." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The fel is a sickness, and the land knows it the way a body knows a fever, and the leaves near your demon are curling already. You are of the Horde, and so you are welcome at Mojache, but I would ask that it wait outside my gardens, and let the roots keep their health." },
+      },
       choices = {
         { text = "I'll walk gently. The land deserves that much.", next = "BACK", reply = "Thank you. Stay to the deer paths; they know where the roots run shallow.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The plants will just have to endure it.", next = "BACK", reply = "They will, because they must, but you will find my gardens less generous to you than to others.", fx = { align = { light = -1 } } },
@@ -657,7 +666,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." } },
+      lines = {
+        { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A hide is a tool too, but I take it after the beast is gone, and I take it to keep a hunter warm. What you take, you feed to that thing at your side, so that nothing of the beast goes back to the Earth Mother, and I find it hard to look at while it stands here." },
+      },
       choices = {
         { text = "I do what I must to survive.", next = "BACK", reply = "We all do, but there is surviving and there is taking, and the Earth Mother knows the difference.", fx = { align = { light = -1 } } },
         { text = "Perhaps you're right. I'll think on it.", next = "BACK", reply = "That is all I ask, and more than most give me. Come back when you have thought, and bring a hide, and we will see if your hands agree with your head.", fx = { affinity = 1, align = { light = 1 } } },

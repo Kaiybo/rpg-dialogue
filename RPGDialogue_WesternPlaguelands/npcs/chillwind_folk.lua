@@ -97,7 +97,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. If you bring in Scourgestones and fight where the Dawn fights, your tally goes up like anyone's, and no knight at Light's Hope can argue with a ledger, though some have certainly tried." } },
+      lines = {
+        { id = "xlock_default", text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. If you bring in Scourgestones and fight where the Dawn fights, your tally goes up like anyone's, and no knight at Light's Hope can argue with a ledger, though some have certainly tried." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Dawn trusts what you do, and it writes that down, and I'm the one holding the pen. I'll even note that {pet} stood politely by the counter, though I'd rather it stopped reading the ledger upside down, since no knight at Light's Hope can argue with a ledger and I'd hate for a demon to start." },
+      },
       choices = {
         { text = "Then let my deeds speak, and your ledger record them.", next = "BACK", reply = "They will, and I'll write every word of it down. That's what the pen is for.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I don't need the Dawn's trust, only its goods.", next = "BACK", reply = "The goods come with the trust, warlock, and the trust comes with the tally. Bring me Scourgestones and we'll talk.", fx = { align = { light = -1 } } },
@@ -363,7 +366,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." } },
+      lines = {
+        { id = "xlock_default", text = "Because someone always does, usually a soldier who's been out too long. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, and I'll thank your demon to remember it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because someone always does, and with that thing standing at your heel I half expect it to ask on your behalf. I'll tan anything that walked on this earth, but not a thing that came through a crack in the sky, so tell your demon to stop eyeing my hides." },
+      },
       choices = {
         { text = "Fair rule. Demons don't belong on your racks.", next = "BACK", reply = "Thank you. My racks have enough trouble without a demon on them.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Demon leather would be the toughest there is.", next = "BACK", reply = "It might, and it might bite you in the night as well. I'll stick to wolves.", fx = { align = { light = -1 } } },

@@ -30,6 +30,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Some do, the gentler ones, and I have watched peacebloom close its petals as a warlock passed by on the path to the Mage Quarter. My people learned long ago what the Burning Legion's touch does to growing things, and I will teach you herbs, but not where my plants can see." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, the gentler ones, and the peacebloom in my basket has closed every petal since your servant came near it. My people learned long ago what the Legion's touch does to growing things, and I will teach you herbs, but I'll ask you to send that thing well beyond the path first." },
       },
       choices = {
         { text = "Then I'll keep to the path, Tannysa, and your plants be.", next = "BACK", reply = "Thank you. They will open again once you have passed, and I will not have to coax them.", fx = { align = { light = 1 } } },
@@ -224,7 +225,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I like being the one in between, where a burn is only a burn." } },
+      lines = {
+        { id = "xlock_default", text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I like being the one in between, where a burn is only a burn." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A steady few, because the priests ask too many questions and the Lamb's own people ask none at all. I'll dress a burn for anyone, but I'll ask your demon to wait out of arm's reach while I work, because it's watching my bandages the way a dog watches a butcher." },
+      },
       choices = {
         { text = "A burn from the fel is never only a burn, Shaina.", next = "BACK", reply = "No, it isn't, and I've learned that the hard way. I'll take more care with them, thank you.", fx = { align = { light = 1 } } },
         { text = "A burn's a burn, and I'm glad you see it so.", next = "BACK", reply = "Most of the time, yes, and I'm glad of it. Mind you stay out of my book, though.", fx = { align = { light = -1 } } },
@@ -363,6 +367,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Arrows, if you've a mind to learn the bow, and advice about yew, which I give to everyone whether they want it or not. A warlock I knew once said a well-made stave reminded him of something growing, and he bought a bow just to keep in his room." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Arrows, if you've a mind to learn the bow, and advice about yew, which I give to everyone whether they want it or not. A warlock I knew once said a good stave reminded him of something growing, but yours is staring at my staves as if they're kindling, so perhaps take it outside while we talk." },
       },
       choices = {
         { text = "Then I'll buy a bow and learn to use it properly.", next = "BACK", reply = "Splendid, friend! I'll pick you a good yew stave, and we'll see whether you take to it.", fx = { align = { honor = 1 } } },
@@ -556,7 +561,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only near a few, dear, and mostly folk who've come up from the Lamb, though I'm sure it's coincidence. I keep a pot of marigolds by the door for them, because marigolds are tougher than lilies and don't mind much." } },
+      lines = {
+        { id = "xlock_default", text = "Only near a few, dear, and mostly folk who've come up from the Lamb, though I'm sure it's coincidence. I keep a pot of marigolds by the door for them, because marigolds are tougher than lilies and don't mind much." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only near a few, dear, and I'm sure it's coincidence, though my lilies have been drooping since your {pet} stopped beside them. I keep a pot of marigolds by the door for your sort, because marigolds are tougher than lilies, so perhaps it could wait over there with them." },
+      },
       choices = {
         { text = "I'm sorry for your lilies, so I'll keep my distance.", next = "BACK", reply = "Thank you, dear, that's very considerate. The lilies thank you too.", fx = { align = { light = 1 } } },
         { text = "Flowers die anyway, Felicia, and I only hurry them along.", next = "BACK", reply = "Oh, how unkind, dear, and in front of my marigolds! Mind you don't walk too close to the roses.", fx = { align = { light = -1 } } },

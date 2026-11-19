@@ -106,7 +106,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, so I judge the person before the craft." } },
+      lines = {
+        { id = "xlock_default", text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like the fel, but I've seen warlocks sit by the lake as quietly as any druid, so I judge the person before the craft." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anyone who comes in peace, and the Keeper knows the difference better than any of us. I don't pretend to like your servant, which is watching the lake very strangely, but I've seen warlocks sit by the water as quietly as any druid, so I judge the person before the craft." },
+      },
       choices = {
         { text = "Then judge me by my peace. I'll keep it here.", next = "BACK", reply = "I will, and gladly. Just leave your companion outside, if you would, because it still frightens the moths.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Judge me how you like. The fel serves me well.", next = "BACK", reply = "Then I hope it serves you outside the grove, and never inside it. The Keeper watches very closely.", fx = { align = { light = -1 } } },
@@ -295,7 +298,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They do, as surely as a hand pulls back from a flame. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." } },
+      lines = {
+        { id = "xlock_default", text = "They do, as surely as a hand pulls back from a flame. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They do, as surely as a hand pulls back from a flame, and you can watch them curl away from your demon this very moment. The plants of Felwood didn't have the choice, and look at them now, all twisted and glowing, which I think is why these ones remember to flinch." },
+      },
       choices = {
         { text = "Then I'll stand back and let them grow.", next = "BACK", reply = "Thank you. I'll tell them it was your idea, and they'll grow a little straighter for it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Plants that flinch from power won't survive the world.", next = "BACK", reply = "They've survived ten thousand years, so I think they'll manage. Felwood didn't survive power, after all.", fx = { align = { light = -1 } } },
@@ -478,7 +484,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They dislike anything that comes into the world from somewhere it shouldn't, and a demon fits that rather well. I'm a practical woman, so I'll say it plainly: keep your pets on the far side of the hills, and nobody here will trouble you." } },
+      lines = {
+        { id = "xlock_default", text = "They dislike anything that comes into the world from somewhere it shouldn't, and a demon fits that rather well. I'm a practical woman, so I'll say it plainly: keep your pets on the far side of the hills, and nobody here will trouble you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They dislike anything that comes into the world from somewhere it shouldn't, and the one beside you came from very much somewhere it shouldn't. I'm a practical woman, so I'll say it plainly: send it back over the hills, and nobody here will trouble you." },
+      },
       choices = {
         { text = "Then my imp waits beyond the hills, sulking.", next = "BACK", reply = "Good. A sulking imp on the far side of the hills is the best kind there is.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demons go where I go. Practical, as you say.", next = "BACK", reply = "Practical, yes, but the druids may not see it that way. Keep it close and quiet, at least.", fx = { align = { light = -1 } } },

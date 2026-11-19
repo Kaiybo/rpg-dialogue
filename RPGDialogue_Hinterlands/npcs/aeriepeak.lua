@@ -244,7 +244,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll suffer anyone who fights the Vilebranch, for they cut hearts out on their altars an' I've no room tae be choosy. But the Horde's warlocks burned these hills in the Second War, an' I flew against 'em, so keep yer wee beasties close an' off my landin'." } },
+      lines = {
+        { id = "xlock_default", text = "I'll suffer anyone who fights the Vilebranch, for they cut hearts out on their altars an' I've no room tae be choosy. But the Horde's warlocks burned these hills in the Second War, an' I flew against 'em, so keep yer wee beasties close an' off my landin'." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll suffer anyone who fights the Vilebranch, for I've no room tae be choosy, but I'll no' pretend I like seein' that thing stood on my peak. I flew against the Horde's warlocks in the Second War, so keep yer demon close, an' keep it well away from the gryphons' landin'." },
+      },
       choices = {
         { text = "I'll keep my demons leashed. Watch me if you like.", next = "BACK", reply = "Good. Watch ye I will, an' if they stay leashed, ye'll find me a fair host.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fire is fire. I'll burn the trolls however I please.", next = "BACK", reply = "Burn 'em, aye, but if one spark lands on my aerie, ye'll answer tae me an' a very angry gryphon.", fx = { align = { light = -1 } } },
@@ -527,7 +530,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
+      lines = {
+        { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She'd attack anythin' that smells wrong near her nest, an' that beastie at yer heel smells wronger than you, {g:lad|lass}. She's watchin' it from the roost already, so walk it back down the ramp, for I'll no' be arguin' wi' a mother gryphon on yer behalf." },
+      },
       choices = {
         { text = "I'll give her nest a wide berth, then.", next = "BACK", reply = "Good. She'll thank ye by no' eatin' ye, which is the best thanks she gives anybody, me included.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Then keep her leashed. I go where I need to.", next = "BACK", reply = "She'll no' be leashed, {g:lad|lass}, she's a gryphon. Go round, or go home.", fx = { align = { order = -1 } } },
@@ -905,7 +911,10 @@ P:NPC {
     },
     xwarlock = {
       big = true,
-      lines = { { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." } },
+      lines = {
+        { id = "xwl_default", text = "Aye, they do, an' so would I if my eyes were better. Whatever ye carry, it's no' from this world, an' the land here's sick enough already wi' troll blood on the altars." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Aye, they do, an' they're near hidin' now wi' that thing stood right beside ye. Whatever ye carry, it's no' from this world, an' I can feel the land shrink from yer demon, sick enough as it is wi' troll blood on the altars." },
+      },
       choices = {
         { text = "I'll keep it bound while I'm here.", next = "BACK", reply = "Thank ye. The land breathes easier already.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The land will just have to bear it.", next = "BACK", reply = "It will, aye, but it'll remember ye for it. Walk carefully.", fx = { affinity = -2, align = { light = -1 } } },
@@ -1104,7 +1113,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll serve anyone who pays an' doesnae set the place alight. But the riders flew against the Horde's warlocks in the Second War, an' some still drink tae friends that fire took, so I'd keep yer craft quiet at the bar." } },
+      lines = {
+        { id = "xlock_default", text = "I'll serve anyone who pays an' doesnae set the place alight. But the riders flew against the Horde's warlocks in the Second War, an' some still drink tae friends that fire took, so I'd keep yer craft quiet at the bar." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays an' doesnae set the place alight, but there's riders at that bar who flew against the Horde's warlocks, an' every one o' them has turned tae look at yer demon. Send it outside, {g:lad|lass}, an' keep yer craft quiet, an' ye'll drink in peace." },
+      },
       choices = {
         { text = "I'll keep quiet. Their grief deserves respect.", next = "BACK", reply = "Thank ye. They'll no' say it, but they'll notice.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old grief shouldn't stop me using what works.", next = "BACK", reply = "Maybe no', but ye'll keep it out o' my inn all the same.", fx = { align = { light = -1 } } },

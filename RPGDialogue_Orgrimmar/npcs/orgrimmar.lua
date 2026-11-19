@@ -1705,6 +1705,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I mind, and so does every grunt in this room who remembers what the demon blood did to us. Leave the little horror outside the door, and if it scorches one of my tables, you'll be scrubbing it yourself." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "You're an orc, so you should know better than to ask. Plenty of grunts in this room still dream about the demon blood, so leave the little horror outside, and if it scorches one of my tables you'll be scrubbing it yourself." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I mind, and so does every grunt in this room, and you can see them all watching it over their mugs. Take that horror back out the door you brought it through, and if it scorches one of my tables on the way, you'll be scrubbing it yourself." },
       },
       choices = {
         { text = "Fair. It waits outside, out of respect.", next = "BACK", reply = "Thank you. The grunts won't say it, but they'll drink easier for it.", fx = { align = { light = 1 } } },
@@ -1911,6 +1912,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Everything frightens me now, friend, so your demon's just one more thing on a long list. The orcs tell me what the warlocks did to them in the old wars, though, and being knocked down by grunts every night is a kinder fate than that." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Everything frightens me now, friend, and I'll admit your demon frightens me more than most, standing there grinning at me while I sweep. Still, the orcs tell me what the warlocks did to them in the old wars, and being knocked down by grunts every night is a kinder fate than that." },
       },
       choices = {
         { text = "You're right to be wary. I'll stay careful.", next = "BACK", reply = "Stay careful, friend. I'd hate to see you end up on this floor next to me.", fx = { align = { light = 1 } } },

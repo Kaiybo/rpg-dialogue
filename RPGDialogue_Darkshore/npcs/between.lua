@@ -61,6 +61,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "Deal with them by the blade, or deal with them by bargain? I have watched the satyrs whisper to every traveler who comes too close, and I would not trust one of your trade not to listen." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Deal with them by the blade, or deal with them by bargain? Your servant tilts its head toward the forest as if it hears the satyrs already, and I have watched them whisper to every traveler who comes too close, so I would not trust either of you not to listen." },
       },
       choices = {
         { text = "I'll kill them, and listen to nothing.", next = "BACK", reply = "Good, for their whispers have undone better minds than yours. I know, because I once lent them my ear.", fx = { align = { light = 1 } } },
@@ -303,6 +304,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Worried? I've had murlocs, cave-ins and worse on this dig already, so a demon on a leash is near enough a relief. Just keep it off the bones, friend, because the League will have my beard if anything else goes missing." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Worried? I've had murlocs, cave-ins and worse on this dig already, so a demon on a leash is near enough a relief. Though yours is poking at my bone crates as we speak, friend, so pull it back, because the League will have my beard if anything else goes missing." },
       },
       choices = {
         { text = "Your finds are safe. I respect the League's work.", next = "BACK", reply = "Thank ye, {g:lad|lass}, and the League thanks ye too. Just keep it away from my fossils.", fx = { align = { order = 1 } } },
@@ -461,6 +463,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xwl_default", text = "You could, and I think whatever stirs there would welcome you, and that is exactly why I do not want you near it. The Twilight cultists gather at the Glaive, and they would find one of your kind very useful." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "You could, and I think whatever stirs there would welcome you. Your servant has been looking toward the Glaive since you came up the road, as if it already knows the way, and that is exactly why I do not want either of you near the cultists who gather there." },
       },
       choices = {
         { text = "Then I'll go and burn them out.", next = "BACK", reply = "Then my roots will be glad of it. Burn them out, and do not linger to hear what they offer you.", fx = { align = { light = 1 } } },
@@ -670,6 +673,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I trust you more than I trust the Blackwood, which isn't saying much just now. Something drove them mad, and I've wondered whether it wasn't the same dark you deal in, so prove to me it isn't before we reach the road." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust you more than I trust the Blackwood, which isn't saying much just now. Something drove them mad, and that creature of yours has the same sour smell I caught in their camps, so prove to me it isn't the same dark before we reach the road." },
       },
       choices = {
         { text = "I'll prove it. Stay close and I'll get you out.", next = "BACK", reply = "Then I will stay close and trust you further than I trust the Blackwood. That is the best I can offer today.", fx = { align = { honor = 1 } } },
@@ -852,6 +856,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, because things from the Twisting Nether seem to leave a sort of shadow in the Dream, and I keep walking into it. If you're to see me home to Liladris, could you keep it on the far side of the road?" },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, because things from the Twisting Nether leave a sort of shadow in the Dream, and yours is standing in it right now, which makes my head swim. If you're to see me home to Liladris, could you keep it on the far side of the road, where I can't feel it?" },
       },
       choices = {
         { text = "Of course. Your rest matters more than its comfort.", next = "BACK", reply = "That is very kind of you, warlock, and kinder than I expected. The Dream will be gentler without that shadow in it.", fx = { align = { light = 1 } } },

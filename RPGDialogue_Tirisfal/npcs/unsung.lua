@@ -64,6 +64,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Because your demon will die sooner or later, and you'll be left holding whatever's in your hand. I was a soldier once and saw what happened to the ones who trusted their magic alone, so humour me and hold the blade properly." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Because your demon will die sooner or later, however sturdy it looks standing there, and you'll be left holding whatever's in your hand. I was a soldier once and saw what happened to the ones who trusted their magic alone, so send it back a few paces and hold the blade properly." },
       },
       choices = {
         { text = "I'll learn it properly, Dannal.", next = "BACK", reply = "Good. Learn the blade and the shield, and your demon can do the rest.", fx = { align = { order = 1 } } },
@@ -310,6 +311,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "I see the difference between one who commands and one who is commanded, and that is the only difference that matters. A warlock who masters a demon practises the same faith I teach, and a warlock mastered by one is just another fool on his knees." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You knelt to the Lich King once, as we all did, so you know exactly what it costs to serve something greater than yourself. Never kneel to a demon, and the Forgotten Shadow will have no quarrel with you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I see the difference between one who commands and one who is commanded, and I am watching your demon now to learn which of you is which. A warlock who masters a demon practises the same faith I teach, and one mastered by it is just another fool on his knees." },
       },
       choices = {
         { text = "I command. I'll never kneel again.", next = "BACK", reply = "Good. Kneeling is how all of us ended up in the Lich King's ranks, so stay on your feet.", fx = { affinity = 1, align = { light = -1 } } },
@@ -393,6 +395,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "For the imps, I'm told, though I've never seen one eat, and I've never had the courage to ask. Polite customers, though, always polite, which is more than I could say for the Scourge that used to wander through here." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "For the imps, I'm told, though yours hasn't touched a crumb and only stares at the loaves, which I find worse. Polite customers, though, always polite, so I'll wrap your bread and not ask {pet} what it wants with it." },
       },
       choices = {
         { text = "I'll buy what I need and keep the imp outside.", next = "BACK", reply = "That's thoughtful of you, and I'll be sure to keep a crust for it on the step.", fx = { align = { order = 1 } } },
@@ -716,6 +719,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They do, and they don't ask what's in them, which is how I like it. A minor healing potion is a minor healing potion, whether it's for a warlock, a warrior or a dead man who can't feel his own arm, and the apothecaries make far too much fuss about it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do, and they don't ask what's in them, though your demon is sniffing at the stoppers as if it means to find out. A minor healing potion is a minor healing potion whoever it's for, so keep it off my shelf, and I'll make far less fuss than the apothecaries would." },
       },
       choices = {
         { text = "Then I'll buy healing draughts for the recruits too.", next = "BACK", reply = "That's generous of you, and the recruits will need them more than you think. Bless your coin purse.", fx = { align = { light = 1 } } },
@@ -967,6 +971,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "They do that, I'm told, and after the warriors it's the warlocks I see most often. Hold still and let me look, because a bite from something out of the Nether doesn't close the way a dog's does." },
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "I spent my life closing wounds, and you've made a habit of opening doors that ought to stay shut. I'll patch you, of course, but I'd like it known that I disapprove." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They do that, I'm told, and yours is still watching you as though it's thinking about a second helping. Hold still and let me look, and send it to the far side of the room, because a bite from something out of the Nether doesn't close the way a dog's does." },
       },
       choices = {
         { text = "Patch me up, and I'll try to stay in one piece.", next = "BACK", reply = "Hold still, then, dear, and tell your demon to stop staring at me. You'll be right as rain.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1130,6 +1135,7 @@ P:NPC {
       lines = {
         { id = "xwarlock_default", text = "So I've heard, and very fine they are, all fire and fel, but they vanish when you're done and mine are still here in the morning. When your summoning fails you on the road to the Bulwark, you'll think of me kindly." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc who'd rather summon a horse than ride a wolf is a thing I never expected to see in Brill. Mine don't bite, either, which is more than your people's wolves can promise." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "So I've heard, and your demon is giving my horses a look they don't care for at all. Your steeds vanish when you're done with them, but mine are still here in the morning, so when your summoning fails you on the road to the Bulwark, you'll think of me kindly." },
       },
       choices = {
         { text = "A beast in the stable is wise, I'll admit.", next = "BACK", reply = "It is, and you'll thank me on the road to the Bulwark. I'll keep one saddled.", fx = { affinity = 1, align = { order = 1 } } },

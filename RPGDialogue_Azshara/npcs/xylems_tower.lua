@@ -558,7 +558,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." } },
+      lines = {
+        { id = "xlock_default", text = "My master studies everything, and nothing he finds is quite as interesting as himself. The Highborne dabbled in the demonic, of course, so there are tablets he keeps locked away, and he never lets me read them." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My master studies everything, and nothing he finds is quite as interesting as himself, though your demon might come close, the way he would stare at it. The Highborne dabbled in the demonic, so there are tablets he keeps locked away, and I'd rather you not bring that thing near his door." },
+      },
       choices = {
         { text = "Some knowledge should stay locked away.", next = "BACK", reply = "Wise, and my master would agree, though he'd never say so. He's not always as reckless as he looks.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd like to read those tablets myself.", next = "BACK", reply = "Then you'll have to get past my master, and then past me, and I'm much less pleasant. I'd not try it.", fx = { align = { light = -1 } } },

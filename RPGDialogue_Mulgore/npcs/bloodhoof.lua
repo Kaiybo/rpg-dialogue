@@ -160,6 +160,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They will bear it because my father asks them to, but don't mistake that for welcome. Our hunters have heard what the Burning Blade did in Durotar, and a tauren who sees your imp will reach for a spear before he remembers we are allies, so keep it close and keep it quiet." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They will bear it because my father asks them to, and I can already see two braves by the lodges with their hands on their spears. Our hunters know what the Burning Blade did in Durotar, so keep your servant close beside you and quiet while you walk among them." },
       },
       choices = {
         { text = "I'll keep it leashed. Your people's peace matters.", next = "BACK", reply = "Thank you, that will make it easier on everyone. My father's word holds, but my people's nerves are another matter.", fx = { align = { light = 1 } } },
@@ -533,6 +534,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They sensed it before you crested the hill, and all of them have gone quiet and watchful. Fel magic is a wound, not a power, and I fear the spirits will never forgive what walks beside you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They sensed it before you crested the hill, and now that it stands before me I can feel them pulling away like water from hot stone. Fel magic is a wound, not a power, and I fear the spirits will never forgive the thing that walks beside you." },
       },
       choices = {
         { text = "Then I'll keep it far from the village, elder.", next = "BACK", reply = "Thank you, child, and the spirits will be quieter for it. They have long memories, and short tempers for fel.", fx = { align = { light = 1 } } },
@@ -738,6 +740,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "My knees ache whenever a storm is coming, and they've ached since you walked up, so you can draw your own conclusions. The orcs have told us what the Burning Legion made of them once, and nobody in Bloodhoof wants its servants anywhere near our sky." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "My knees ache whenever a storm is coming, and with that creature standing beside you they ache worse than they have in years. The orcs have told us what the Burning Legion made of them, and I'd ask you to keep your servant well back from my village." },
       },
       choices = {
         { text = "I'll keep it leashed, elder. Mulgore deserves that.", next = "BACK", reply = "Thank you, and my old knees thank you too. Mulgore's sky has had enough trouble this year without that.", fx = { align = { order = 1 } } },
@@ -901,6 +904,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, because the beasts smell it and run, and Mazzranache is cunning enough to hide without any help from you. If you want to be useful, hunt the swoops and prairie wolves along the trail while I watch for its tracks, and keep your demon close beside you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, because the beasts smell it and run, and every swoop on this ridge has fled from your {pet} already. Hunt the prairie wolves along the trail while I watch for Mazzranache's tracks, and keep that thing close enough that it can't scare off the rest." },
       },
       choices = {
         { text = "I'll send it away while you hunt, Maur.", next = "BACK", reply = "Thank you, the trail will be quieter for it. Hunt the swoops, and I'll watch for tracks.", fx = { align = { honor = 1 } } },
@@ -1077,6 +1081,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, the goblins did it with their machines and their oil, I'm sure of that much. But I've learned to fear any power that takes more than it gives, and I'd ask you to think of the wells when you call on yours." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, the goblins did it with their machines and their oil, I'm sure of that much. But your demon is standing close enough to my well that I can smell sulphur over the water, and I'd ask you to move it back before it spoils the one clean thing we have." },
       },
       choices = {
         { text = "I'll take only what I need, Mull.", next = "BACK", reply = "Then I'll trust you, and the wells will too. That's all I'd ask of anyone.", fx = { align = { light = 1 } } },
@@ -1237,6 +1242,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Oh, no, please don't send it after him, because Kyle frightens easily and he'd never come home again. He'll come for tender wolf meat if anyone feeds him, so if you see him, give him a bite and he'll trot home on his own." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, no, please, and please don't let it look at the trail like that, because Kyle frightens easily and he'd never come home again. He'll come for tender wolf meat if anyone feeds him, so give him a bite if you see him, and keep your demon well away." },
       },
       choices = {
         { text = "I'll find him gently. No demons, I promise.", next = "BACK", reply = "Thank you, ever so much. He's a gentle soul, and he'd never forgive me if a demon found him.", fx = { align = { light = 1 } } },
@@ -1439,6 +1445,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Your imp gets a bowl when the Earth Mother herself comes to supper and asks for one. I don't feed things from the Twisting Nether, friend, so it can wait outside the door and you can eat for the both of you." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No bowl, friend, and I'll thank you to stop it sniffing at my stewpot, because I don't feed things from the Twisting Nether. It can wait outside the door until the Earth Mother herself comes to supper, and you can eat for the both of you." },
       },
       choices = {
         { text = "Fair. It waits outside, and I'll eat its share.", next = "BACK", reply = "Ha, that's the spirit, and I'll pile it high. The imp can sulk in the cold.", fx = { align = { light = 1 } } },
@@ -1638,6 +1645,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I share it with anyone who sits quietly and tells a good story, and I've met a warlock or two on the wandering roads. The Chief would frown at me, but I've found the folk who carry dark things often want a warm fire more than anyone." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I share it with anyone who sits quietly and tells a good story, and your {pet} may sit too, if it keeps its eyes off my pack. The Chief would frown at me, but I've found that even the dark things folk carry like a warm fire more than they'll admit." },
       },
       choices = {
         { text = "Then I'll tell you a story and keep the demon quiet.", next = "BACK", reply = "Then you're welcome here, and so's your story. The demon can listen from the dark.", fx = { align = { light = 1 } } },

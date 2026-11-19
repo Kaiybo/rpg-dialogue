@@ -121,6 +121,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I'll trust what you do, not what you carry, though I'll admit what you carry is staring at me, and I don't like it. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and keep that thing from wandering among my people." },
       },
       choices = {
         { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", reply = "Then show it, and I'll be the first to say so at the fire. The Bristleback camps to the south are a fair place to begin.", fx = { align = { order = 1 } } },
@@ -369,6 +370,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "He doesn't trust anything that might bite the hand that feeds it, and the orcs say demons always do. I'm curious, though, so if you and your demon hunt the Bristleback with my braves, I'll judge you by what you bring home." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "He doesn't trust anything that might bite the hand that feeds it, and your demon is watching my braves like it wonders how they'd taste. I'm curious, though, so if you and {pet} hunt the Bristleback with us, I'll judge you both by what you bring home." },
       },
       choices = {
         { text = "Then I'll hunt beside your braves and honor your father's camp.", next = "BACK", reply = "Then you'll eat with us, and my father will see what kind of hunter you are. I'm curious, as I said, and I'm patient.", fx = { align = { order = 1 } } },

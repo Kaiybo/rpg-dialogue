@@ -528,7 +528,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
+      lines = {
+        { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Ye'd raise him, would ye, wi' that thing watchin' me from yer heel as ye ask? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' one look at yer demon tells me exactly whose shadow it'd be." },
+      },
       choices = {
         { text = "You're right. Some help costs more than it gives.", next = "BACK", reply = "Aye, it does, an' I'm glad ye see it. Henze would agree wi' me.", fx = { align = { light = 1 } } },
         { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer fel away from him.", fx = { align = { light = -1 } } },
@@ -699,6 +702,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Frighten? They're already pressed up against the window staring at that thing, and they'll be asking its name next and having nightmares for a week. These children have seen enough already, so I'd thank you to take your {pet} round the side of the building before they come out." },
       },
       choices = {
         { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", reply = "Thank you, love. They've seen far too much already.", fx = { align = { light = 1 } } },
@@ -920,6 +924,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I don't think so, she's hiding in my coat now, and she only does that when the guards' dogs go past. Dad says demons are bad and people who keep them are worse, but you don't look worse, you look tired, and maybe that's different." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't think so, she's gone all the way down inside my coat, and she's never done that even for the guards' dogs. Dad says demons are bad and people who keep them are worse, but yours is just staring, and you look tired, and maybe that's different." },
       },
       choices = {
         { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when demons go by.", fx = { align = { light = 1 } } },
@@ -1414,7 +1419,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." } },
+      lines = {
+        { id = "xlock_default", text = "It hears everyone, and I've never once seen it turn its face away, though I've seen plenty of people turn theirs. What you bind doesn't decide that, friend, but what you do with it does." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It hears everyone, and I've never once seen it turn its face away, though I'll confess I'm finding it hard not to turn mine from the thing beside you. What you bind doesn't decide that, friend, but what you do with it does, and I pray you'll send it away before you kneel." },
+      },
       choices = {
         { text = "Then I'll bind them only to keep worse things away.", next = "BACK", reply = "That's a good reason, if it stays the reason. I'll pray it does.", fx = { align = { light = 1 } } },
         { text = "I'll do what I must with them, and the Light can watch.", next = "BACK", reply = "Then it will watch, and so will I, with hope.", fx = { align = { light = -1 } } },
@@ -1713,6 +1721,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Does it hurt, for a start, and does the demon talk back, and since yours is right here watching me, does it ever say anything true? Brother Joshua says curiosity is how Morbent Fel and his like began, but a priest who won't ask questions can't answer them either, so I'll keep my eyes on it and keep asking." },
       },
       choices = {
         { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
@@ -1888,6 +1897,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The Crusade burns your kind on the same pyre as the dead, and Grand Inquisitor Isillien would say I'm being generous telling you so. Lordaeron fell because men bargained with powers they couldn't hold, and you carry that same bargain in your satchel." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The Crusade burns your kind on the same pyre as the dead, and it would burn that creature first, while you watched. Lordaeron fell because men bargained with powers they couldn't hold, and you have the gall to walk such a bargain into the house of the Light at your heel." },
       },
       choices = {
         { text = "Then the Crusade and I will keep our distance.", next = "BACK", reply = "That would be best for both of us. Stay away from the north.", fx = { align = { light = 1 } } },

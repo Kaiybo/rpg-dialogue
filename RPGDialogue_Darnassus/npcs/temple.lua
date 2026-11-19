@@ -753,6 +753,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think you've chosen a hurt and called it a tool, and that's the hardest sort to heal because you won't let anyone near it. If you ever want to set it down, come back here, and I'll help however I can." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think you've chosen a hurt and called it a tool, and the tool is standing beside you, watching me as if I meant to take it away. If you ever want to set it down, come back here without it, and I'll help however I can." },
       },
       choices = {
         { text = "Maybe one day. Thank you for the offer.", next = "BACK", reply = "You are welcome, warlock, and I mean it. The door will be open.", fx = { align = { light = 1 } } },
@@ -962,6 +963,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A shadow sitting a little apart from you, like a guest who hasn't been invited to the table. The pool doesn't judge, it only shows, and I'd ask you to look into it yourself some night and see what you make of it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Tonight it shows more than a shadow, because your servant is standing at the edge of the pool and the water has gone dark all around its reflection. The pool doesn't judge, it only shows, so look into it yourself some night when you've come alone and see what you make of it." },
       },
       choices = {
         { text = "I'll look, and I'll face what I see.", next = "BACK", reply = "Then you are braver than most, warlock, and I will pray you like what you find. The pool is always honest.", fx = { align = { light = 1 } } },
@@ -1127,6 +1129,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A little, yes, though the priestesses say fear is a poor teacher and pity a better one. I'll pray for you tonight, if you'll let me, and I'll keep the flowers between us until I've finished." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A little, yes, and more of your servant than of you, because it hasn't stopped watching me since you came up the steps. The priestesses say fear is a poor teacher and pity a better one, so I'll pray for you tonight, and I'll keep the flowers between us until I've finished." },
       },
       choices = {
         { text = "Pray if you like. I won't refuse it.", next = "BACK", reply = "Thank you, and I will say a good one, I promise. The flowers will stay right where they are, though.", fx = { align = { light = 1 } } },
@@ -1378,6 +1381,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Keep your stranger possessions on your own person, please, and our accounts will stay friendly." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Call the Sentinels, and then a priestess, and then very probably the Archdruid himself, and none of them would thank me for it. Your servant is looking at my strongboxes as if it can hear something in them already, so please keep it and your stranger possessions well away from the counter." },
       },
       choices = {
         { text = "Agreed. Nothing that whispers goes in your vault.", next = "BACK", reply = "Thank you, because the last one was a very long night. Our accounts will stay friendly.", fx = { align = { order = 1 } } },

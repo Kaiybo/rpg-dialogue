@@ -125,7 +125,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and a felhound loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." } },
+      lines = {
+        { id = "xlock_default", text = "Because Theramore already believes we burned that inn, and a felhound loping past their sentries would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever if we hand them a reason." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because Theramore already believes we burned that inn, and your demon standing here in plain sight of the road would be all the proof they need. Lady Proudmoore holds her people back, but even she cannot hold them forever, so send it away before a scout sees it from the trees." },
+      },
       choices = {
         { text = "You're right. I'll keep my servants close until this is settled.", next = "BACK", reply = "Good, that's the sense I need from every warlock in this camp. When this is over, you can let them stretch their legs.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the humans see what the Horde can summon. Fear keeps peace.", next = "BACK", reply = "Fear keeps nothing but grudges, and grudges keep nothing but war. Keep your servants close, warlock, or I'll keep you close instead.", fx = { align = { order = -1 } } },
@@ -506,7 +509,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." } },
+      lines = {
+        { id = "xlock_default", text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it. The peace hangs on a thread, and one demon caught in the Lady's halls would cut it for good, so for now I keep my spies on two legs." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd send it if I trusted it to come back with the truth and not with a fire behind it, and the one at your side does not look like it tells the truth. One demon caught in the Lady's halls would cut the peace for good, so for now I keep my spies on two legs, and yours stays here with me." },
+      },
       choices = {
         { text = "Peace on paper is still peace. Don't risk it.", next = "BACK", reply = "It is, and I'll not risk it lightly. My spies stay on two legs until the Warchief says otherwise.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Use every tool. The Alliance surely does.", next = "BACK", reply = "The Alliance surely does, and I don't doubt it. But the first demon caught in their halls ends the peace, and I'll not be the one who sent it.", fx = { align = { order = -1 } } },

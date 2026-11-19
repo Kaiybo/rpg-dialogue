@@ -93,6 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I've wondered, I confess, because the seeds I've taken from them are wrong in ways the soil alone can't explain. If you sense anything of your own craft in them, I'd want to know it, even if I wouldn't enjoy hearing it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've wondered, I confess, because the seeds I've taken from them are wrong in ways the soil alone can't explain. Your servant went to them the moment you arrived and hasn't looked away since, which tells me more than I'd hoped to learn, though I'd still want to hear what you sense." },
       },
       choices = {
         { text = "I'll tell you whatever I sense, good or ill.", next = "BACK", reply = "Thank you, warlock, and I will listen, whatever it is. I would rather know than wonder.", fx = { align = { honor = 1 } } },
@@ -269,6 +270,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Terribly, and I'd be braver if the venom weren't making the trees spin. Dirania will have the antidote ready if someone brings her what she needs, and I'd be so grateful if it were you, so long as your friend waits at the cave mouth." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Terribly, and I'd be braver if the venom weren't making the trees spin, and if your friend weren't staring at me like that. Dirania will have the antidote ready if someone brings her what she needs, so please go, and please take it with you." },
       },
       choices = {
         { text = "It'll wait. Rest, and I'll fetch what Dirania needs.", next = "BACK", reply = "Thank you, and I would be grateful if it waited a long way off. The trees spin enough already.", fx = { align = { light = 1 } } },
@@ -491,6 +493,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not often, but a guest is a guest, and the old kaldorei kept their tables open to anyone who came in from the dark. Some of the elders in Dolanaar would grumble at that, but they grumble at my seasoning too." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not often, but a guest is a guest, and the old kaldorei kept their tables open to anyone who came in from the dark. Your servant may sit by the fire if it likes, though it seems to be sniffing my stew pot, and the elders in Dolanaar would grumble at that even more than at my seasoning." },
       },
       choices = {
         { text = "Your elders are right to grumble about my kind.", next = "BACK", reply = "Perhaps they are, but my table is open, and my mother would have said the same. Sit and eat.", fx = { align = { order = 1 } } },

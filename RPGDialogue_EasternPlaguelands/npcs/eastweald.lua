@@ -193,7 +193,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes nerve, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." } },
+      lines = {
+        { id = "xlock_default", text = "Someone who chose a dangerous road and is still walking it, which takes nerve, I'll grant. Turn that power on the Scourge and the Crusade will call you damned, but I'll be fishing here, and I'll think better of you than they do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Someone who chose a dangerous road and is still walking it, with the proof of it standing right beside you. I won't pretend I'm easy with your demon so near my line, and the Crusade would call you damned for it, but I'll be fishing here, and I'll think better of you than they do." },
+      },
       choices = {
         { text = "I'll use it only against the dead. You have my word.", next = "BACK", reply = "Thank you. That's all I'd ask of any soul who walks this road.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My power isn't for your approval, old man.", next = "BACK", reply = "It isn't, and I'd not want it to be. I only hope you aim it well.", fx = { align = { light = -1 } } },
@@ -565,7 +568,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." } },
+      lines = {
+        { id = "xlock_default", text = "She fears nothing, but she remembers, for she was a servant to a master once and it cost her everything. Learn from that, {class}, and keep your demons on a short chain, or one morning you'll wake to find yourself their pet." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She fears nothing, but she remembers, for she was a servant to a master once, much as that thing beside you is servant to you now. Watch how it watches you, {class}, and keep it on a short chain, or one morning you'll wake to find yourself its pet." },
+      },
       choices = {
         { text = "My demons serve me. That will never change.", next = "BACK", reply = "Good, if it's true. I'll be watching for the morning it isn't, and I'll have an arrow ready.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Chains break. I'll be ready when they do.", next = "BACK", reply = "A wise answer, and a rarer one than you'd think. Keep a blade near, and sleep facing the door.", fx = { align = { order = -1 } } },

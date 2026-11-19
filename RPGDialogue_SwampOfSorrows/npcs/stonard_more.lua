@@ -89,7 +89,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." } },
+      lines = {
+        { id = "xlock_default", text = "Only stories, and I don't believe half of them, but the old-timers say the warlocks came and went before Thrall's day, and nobody misses them. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only stories, but the old-timers say the warlocks before Thrall's day all walked with something like that at their heel, and the sight of yours makes them spit. Greshka sells her grimoires here now and the Warchief allows it, so I suppose times have changed, though the shame hasn't." },
+      },
       choices = {
         { text = "Times have changed. The fel serves the Horde now.", next = "BACK", reply = "Changed, aye, and I hope they stay changed. Greshka says the same, but I watch her anyway.", fx = { align = { light = -1 } } },
         { text = "Some things shouldn't be forgotten. I won't forget.", next = "BACK", reply = "Good. Someone should remember, and I'm glad it's you.", fx = { align = { light = 1 } } },

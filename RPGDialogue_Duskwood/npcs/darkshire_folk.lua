@@ -1065,6 +1065,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. Your imp, now, your imp eats in the yard, since the last time somebody's pet came into my kitchen I lost a whole pan of fritters and a good deal of my eyebrows." },
         { id = "xlock_more1", text = "And don't tell the Night Watch what you are while you're eating, because they argue with their mouths full and it puts the other customers off." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. That one of yours, though, is standing in my kitchen doorway sniffing at the fritter pan, and the last time a pet got that close I lost a good deal of my eyebrows, so out to the yard with it." },
       },
       choices = {
         { text = "The imp eats in the yard, then. Your kitchen, your rules.", next = "BACK", reply = "Thank you, my favourite, and my eyebrows thank you too. It's nice in the yard, mostly.", fx = { align = { order = 1 } } },
@@ -1757,6 +1758,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. I've had Morbent Fel's sort described to me by men who barely got away, so I'd ask you, quite plainly, not to go turning into that." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. The men who told me about Morbent Fel said he had things like yours trailing after him, so I'd ask you, quite plainly, not to go turning into that." },
       },
       choices = {
         { text = "I won't. My arts have limits, and I keep them.", next = "BACK", reply = "Good, and I'll hold you to it, because Darkshire has had its fill of men who thought they knew their limits.", fx = { align = { light = 1 } } },

@@ -42,6 +42,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not on our side, they didn't, not in the Second War, because the Horde had the warlocks and we had the burns to show for it. I've had to get used to your sort walking about the city since, and I'll say this much: the ones I've met fight dirtier than an orc and complain less." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not on our side, they didn't, because the Horde had the warlocks and we had the burns to show for it, and the smell off that thing of yours takes me straight back to the Second War. I've had to get used to your sort walking about the city since, but I'll thank you to keep it on the far side of my table while I drink." },
       },
       choices = {
         { text = "I fight for Stormwind, Harry, not like the Horde.", next = "BACK", reply = "Aye, you do, and I'll give you that. Just keep the green fire away from my curtains.", fx = { align = { honor = 1 } } },
@@ -293,7 +294,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Bother me? It drank half my pint the last time one of you lot sat down, and then it laughed about it, and I've never been so insulted by something knee-high. Burlguard says I should be grateful it wasn't the big blue one." } },
+      lines = {
+        { id = "xlock_default", text = "Bother me? It drank half my pint the last time one of you lot sat down, and then it laughed about it, and I've never been so insulted by something knee-high. Burlguard says I should be grateful it wasn't the big blue one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bother me? It's looking at my pint the way the last one did, right before it drank half and laughed about it, and I've never been so insulted in my life. Burlguard says I should be grateful, but Burlguard isn't the one whose drink it's eyeing." },
+      },
       choices = {
         { text = "I'll keep it on a short leash. Sorry about the pint.", next = "BACK", reply = "Apology accepted, and you can buy me the pint back. Fair's fair.", fx = { align = { light = 1 } } },
         { text = "My imp drinks what it likes. You'll get over it.", next = "BACK", reply = "I'll never get over it, never! Keep that thing away from my end of the bar.", fx = { align = { light = -1 } } },
@@ -517,7 +521,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." } },
+      lines = {
+        { id = "xlock_default", text = "I'll serve anyone who pays and doesn't set the curtains on fire, love. Mind you, the last one of yours who came in ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'll serve anyone who pays and doesn't set the curtains on fire, love, but I'll not pour for your {pet}, however hard it stares at the taps. The last one of yours ordered a drink for his imp, and Reese still hasn't forgiven me for pouring it." },
+      },
       choices = {
         { text = "I'll leave the imp outside. It's only polite.", next = "BACK", reply = "That's very kind, love. Rena will be glad not to serve an imp again.", fx = { align = { light = 1 } } },
         { text = "My companions drink where I drink, and that's that.", next = "BACK", reply = "Then your companion pays its own way, love, and it sits at the back.", fx = { align = { light = -1 } } },
@@ -699,6 +706,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Anybody can learn to cook, if they've the patience and the hands for it, and I've noticed your sort have both. Mind, you can't rush a rib with a fel flame, because it chars on the outside and stays raw in the middle, and I've seen a man try it and seen what it did to his stomach." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Anybody can learn to cook, and your sort have the patience for it, but I'll ask your servant to stop lurking by my spit. You can't rush a rib with fel heat, and that thing's standing close enough that I can see the fat on the near side spitting already." },
       },
       choices = {
         { text = "Then I'll learn it properly, the slow way.", next = "BACK", reply = "Good. The slow way's the only way that tastes like anything.", fx = { align = { honor = 1 } } },
@@ -911,7 +919,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." } },
+      lines = {
+        { id = "xlock_default", text = "More than you'd guess, because a felhunter's claws go through cloth like paper, and I've stitched more than one apprentice's robe back together with the apprentice still in it. I sell them leather and I don't ask what they keep at home, and that suits all of us." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than you'd guess, because your sort's servants go through cloth like paper, and I've stitched more than one apprentice's robe back together. I'll sell you leather and not ask what you keep at home, but since you've brought it here instead, keep it off my hides while we talk." },
+      },
       choices = {
         { text = "I'd rather my demons never touched anyone. I'll take care.", next = "BACK", reply = "Good. I'd rather stitch leather than apprentices.", fx = { align = { light = 1 } } },
         { text = "Let the felhunter tear what it likes. Leather's cheap.", next = "BACK", reply = "Cheap, maybe, but my time isn't. I'd keep it on a lead.", fx = { align = { light = -1 } } },
@@ -1076,7 +1087,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." } },
+      lines = {
+        { id = "xlock_default", text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths. Shaw doesn't love the arrangement and neither do I, but a cellar we can watch is better than ten we can't." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's simple enough: you keep your demons downstairs, and we keep our knives in their sheaths, and you've just brought yours up into Old Town in daylight. Shaw doesn't love the arrangement, and he'll love it less when I write down that I watched it follow you to my door." },
+      },
       choices = {
         { text = "The arrangement keeps the city safe. I'll honour it.", next = "BACK", reply = "Good. That's all anyone asks, on either side of the street.", fx = { align = { order = 1 } } },
         { text = "Arrangements are for people who fear each other. I don't.", next = "BACK", reply = "You should, a little. The ones who don't fear are the first to be found in the canal.", fx = { align = { order = -1 } } },
@@ -1359,7 +1373,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." } },
+      lines = {
+        { id = "xlock_default", text = "They buy candles, chalk and quiet, and they pay in coin that's always a little warm, which I've decided not to wonder about. I keep their business and SI:7's business on separate shelves, and so far nobody has asked me to choose." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They buy candles, chalk and quiet, and pay in coin that's always a little warm, and now I think I know where the warmth comes from, judging by the heat off your companion. I keep their business and SI:7's on separate shelves, so if it could stop looking at the second shelf, I'd be obliged." },
+      },
       choices = {
         { text = "Keep it that way. The city needs its balance.", next = "BACK", reply = "Oh, I'll keep it. Balance is good for business, and business is good for me.", fx = { align = { order = 1 } } },
         { text = "When they ask you to choose, choose the Lamb.", next = "BACK", reply = "Then I'll never be asked, if I'm lucky. Choosing's bad for trade.", fx = { align = { order = -1 } } },

@@ -1610,6 +1610,7 @@ P:NPC {
     xlock = {
       lines = {
         { id = "xlock_default", text = "I should sell to you with a civil word, as I do to anyone. What you do is between you and those who answer for this city. I shall say only that dark cloth shows the dust of the road, and that people look harder at a figure who seems to be hiding. A little grey would serve you better." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I should sell to you with a civil word, as I do to anyone, and I shall, though your servant is standing very near my good silks. What you do is between you and those who answer for this city, but people look harder at a figure with that at its heel, and no grey cloth of mine will hide it." },
       },
       choices = {
         { text = "Grey, to be overlooked. That's shrewd.", next = "BACK", fx = { trait = { cunning = 1 } } },

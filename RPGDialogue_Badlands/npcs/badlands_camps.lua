@@ -278,7 +278,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already, and it'd save me a fortune in fuel! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." } },
+      lines = { { id = "xlock_default", text = "Aw, come on, it's practically made of charcoal already, and it'd save me a fortune in fuel! Half the Badlands is on fire anyway, so one more little flame for a good cause can't hurt, and the buzzards sure won't complain." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Aw, come on, look at it, standing right next to my grill and giving off more heat than my coals do! It'd save me a fortune in fuel, and half the Badlands is on fire anyway, so one more flame for a good cause can't hurt, and the buzzards sure won't complain." },
+      },
       choices = {
         { text = "Fel fire for buzzard wings sounds like a fair trade to me.", next = "BACK", reply = "A fair trade, he says! You're my kind of customer, buddy, but keep the imp away from the grease.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Demons aren't toys. I keep mine on a short leash.", next = "BACK", reply = "Short leash, good, good, because the last thing I need is a demon eatin' the profits. Thanks, pal.", fx = { align = { order = 1 } } },

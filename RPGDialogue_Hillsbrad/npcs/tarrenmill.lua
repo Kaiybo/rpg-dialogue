@@ -187,7 +187,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must. His kind once ruled us through the Lich King, and I watch every dreadlord who walks the Undercity with the same care I'd watch a coiled snake." } },
+      lines = {
+        { id = "xlock_default", text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must. His kind once ruled us through the Lich King, and I watch every dreadlord who walks the Undercity with the same care I'd watch a coiled snake." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I trust the Dark Lady, and the Dark Lady trusts him as far as she must, which is further than I would trust that thing beside you. His kind once ruled us through the Lich King, so I watch every dreadlord like a coiled snake, and I'll watch your demon the same way while it stands in my camp." },
+      },
       choices = {
         { text = "The dreadlord serves us now. Use him.", next = "BACK", reply = "Use him, by all means, but never turn your back on him. The Dark Lady keeps her dreadlord close for a reason, and it is not affection.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Never trust a dreadlord. Watch him as he watches us.", next = "BACK", reply = "You have the instincts of a survivor. Keep them, because the Undercity has a great many shadows and he lives in most of them.", fx = { align = { order = -1 } } },
@@ -627,7 +630,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." } },
+      lines = {
+        { id = "xlock_default", text = "Umpi is my frog, and she has survived more of my tests than any frog should, so I'd hate for her to end up as an imp's supper. Keep your demon away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Umpi is my frog, and she has gone very still under the table since your demon arrived, which is the most sense she has ever shown. Keep it away from my table and we'll both stay happy, or what passes for happy in Tarren Mill." },
+      },
       choices = {
         { text = "I'll keep my minion far from Umpi. You have my word.", next = "BACK", reply = "Thank you, truly. Umpi can't say it, but she'd thank you too, if frogs did that sort of thing.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My demon goes where it pleases, Lydon.", next = "BACK", reply = "Then it pleases to go elsewhere, or I'll test the black bottles on it. I'm very attached to that frog.", fx = { align = { order = -1 } } },

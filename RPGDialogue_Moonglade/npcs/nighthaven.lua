@@ -730,7 +730,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. I don't send collectors, mind; I simply wait, and sooner or later warlocks come here to pay it, whether they meant to or not." } },
+      lines = {
+        { id = "xlock_default", text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. I don't send collectors, mind; I simply wait, and sooner or later warlocks come here to pay it, whether they meant to or not." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Every sapling the fel has killed in Felwood is a debt someone owes, and your kind have run up a long account. You have even brought a piece of the debt with you to Nighthaven, standing at your heel, so I will simply wait, and sooner or later warlocks come here to pay, whether they meant to or not." },
+      },
       choices = {
         { text = "Then I'll pay some of it back in Felwood.", next = "BACK", reply = "Then you'll find the ledger a little lighter, and the Circle a little warmer. Felwood will notice too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I owe the Circle nothing. The fel was there before me.", next = "BACK", reply = "It was, and someone summoned it. I'll leave the debt where it lies, but the druids won't forget.", fx = { align = { light = -1 } } },
@@ -1030,7 +1033,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, but one leaves the world as it found it, and the other leaves Felwood." } },
+      lines = {
+        { id = "xlock_default", text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders. Both are power, but one leaves the world as it found it, and the other leaves Felwood." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A druid asks the bear for its strength and gives thanks, and a warlock binds a demon and gives orders, and I can see the one at your side waiting for its next. Both are power, but one leaves the world as it found it, and the other leaves Felwood behind it." },
+      },
       choices = {
         { text = "Fair. I'll keep my demons well away from the grove.", next = "BACK", reply = "That's all we ask. The grove has a very long memory and very little patience for brimstone.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Thanks or orders, the power's the same. Mine just obeys.", next = "BACK", reply = "Perhaps it does obey, for now. The bear has seen many obedient things turn on their masters.", fx = { align = { light = -1 } } },
@@ -1322,7 +1328,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Perhaps, if the warlock is honest about the weight on the scale. Most aren't, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." } },
+      lines = {
+        { id = "xlock_default", text = "Perhaps, if the warlock is honest about the weight on the scale. Most aren't, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Perhaps, if the warlock is honest about the weight on the scale, and the creature at your side is a heavy weight indeed. Most aren't honest about it, and that's how a little fel in a satchel becomes a forest like Felwood, one excuse at a time." },
+      },
       choices = {
         { text = "Then I'll be honest about my demons.", next = "BACK", reply = "Then you'll be rarer than most, and welcome on my bench. I'll ask after your demons now and then, and I'll expect a true answer.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Balance is for druids. I carry what I must.", next = "BACK", reply = "Everyone carries something, warlock, and I'll not argue that. Only be careful how much.", fx = { align = { light = -1 } } },
@@ -1496,7 +1505,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things. The fel you carry will ask and ask of you, little one, and the strength the bear teaches is the strength to answer no." } },
+      lines = {
+        { id = "xlock_default", text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things. The fel you carry will ask and ask of you, little one, and the strength the bear teaches is the strength to answer no." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a demon is all hunger and no patience, and the bear has outwaited many hungry things, like the one that sits beside you now. It asks and asks of you, little one, and I can see it asking even as we speak, and the strength the bear teaches is the strength to answer no." },
+      },
       choices = {
         { text = "Then I'll learn to tell my demon no.", next = "BACK", reply = "Then you will be stronger than your demon. The bear says no to hunger every winter, little one, and wakes thinner, and wiser.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My demon asks, and I answer as I please.", next = "BACK", reply = "For now, little one, and the bear hopes it stays so. Hungry things are patient in their own way.", fx = { align = { light = -1 } } },
@@ -1717,7 +1729,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "As plain as smoke, and they hate it, because they've flown over Felwood and seen what it does. I don't think it makes you a bad person, but I'd rather the old one didn't bite you, because then I'd have to apologise to you both." } },
+      lines = {
+        { id = "xlock_default", text = "As plain as smoke, and they hate it, because they've flown over Felwood and seen what it does. I don't think it makes you a bad person, but I'd rather the old one didn't bite you, because then I'd have to apologise to you both." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "As plain as smoke, and with that one standing beside you, plainer still, so you can see them all turning their heads away. They've flown over Felwood and seen what it does, and I don't think it makes you a bad person, but I'd rather the old one didn't bite it, because then I'd have to apologise to everyone." },
+      },
       choices = {
         { text = "Then I'll keep my distance. Their fear is earned.", next = "BACK", reply = "Thank you, and they'll thank you too, in their way. Felwood taught them all to be wary.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel is power. Your birds will have to cope.", next = "BACK", reply = "They'll cope, but they won't forget, and neither will I. Please be careful near them.", fx = { align = { light = -1 } } },
@@ -1900,7 +1915,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but I'll ask you to leave your imp at the bottom of the hill, because my riders eat imps." } },
+      lines = {
+        { id = "xlock_default", text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but I'll ask you to leave your imp at the bottom of the hill, because my riders eat imps." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "She turns from no one, but some turn from her, and the fel has a way of crowding out everything gentle. I won't refuse you a seat on the perch, friend, but that one must wait at the bottom of the hill, because my riders are already looking at it with very hungry eyes." },
+      },
       choices = {
         { text = "I'll leave it below. The Earth Mother's welcome matters.", next = "BACK", reply = "Thank you, friend, and the Earth Mother will notice. The riders will too.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My imp goes where I go, Bunthen.", next = "BACK", reply = "Then keep it close and quiet, friend, and we'll manage. The riders will forgive you sooner than they forgive it.", fx = { align = { light = -1 } } },

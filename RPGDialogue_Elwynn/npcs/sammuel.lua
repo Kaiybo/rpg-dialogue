@@ -81,7 +81,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." } },
+      lines = {
+        { id = "xlock_default", text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Light never stops reaching for anyone, and I'd be a poor priest if I stopped reaching with it, even with that creature staring at me while I pray. Drusilla La Salle calls me a fool for it, but I've seen her students come back to the Light more than once." },
+      },
       choices = {
         { text = "Keep praying, Brother. I may need it one day.", next = "BACK", reply = "I'll be here when that day comes, and I'll not ask what brought you. The chapel door is never barred, not even at night.", fx = { align = { light = 1 } } },
         { text = "Save your prayers for those who want them.", next = "BACK", reply = "I would, if they asked, but most never do until it's late. I'll keep you in mine quietly.", fx = { align = { light = -1 } } },

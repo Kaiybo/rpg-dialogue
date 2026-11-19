@@ -133,7 +133,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel. Whatever ye carry, keep it pointed at them an' no at Kryten, for Malin would have my beard if anythin' happened tae him." } },
+      lines = { { id = "xlock_default", text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel. Whatever ye carry, keep it pointed at them an' no at Kryten, for Malin would have my beard if anythin' happened tae him." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They've shadow hunters an' witch doctors, an' that's dark enough for anyone, though I'd no call it fel, an' I'd no call that thing at yer heel anythin' else. Keep it pointed at them an' no at Kryten, for the lad's already starin' at it, an' Malin would have my beard if anythin' happened tae him." },
+      },
       choices = {
         { text = "I'll keep him safe. You have my word.", next = "BACK", reply = "Thank ye. The lad's got enough tae fear wi'out yer friend lookin' at him funny.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The lad will have to see real power sometime.", next = "BACK", reply = "Aye, but no' today, an' no' from you. Keep it leashed an' we'll get on fine.", fx = { align = { light = -1 } } },
@@ -312,7 +314,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." } },
+      lines = { { id = "xlock_default", text = "I think he's right about most things, but he's never met a warlock who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think he's right about most things, but he's never met a warlock who could explain their craft, and he's certainly never met {pet}, who's looking at my notebook in a way I find flattering and slightly alarming. If you told me how a soul shard holds its charge, I'd listen very politely, and I'd only ask to sketch your demon once." },
+      },
       choices = {
         { text = "Knowledge should be free, even mine.", next = "BACK", reply = "That's a generous thought. I'll write down anything you're willing to tell me, and keep it from Malin.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Some things should stay with those trained for them.", next = "BACK", reply = "Malin would agree with you completely. I'll keep my curiosity to myself, then.", fx = { align = { order = 1 } } },
@@ -453,7 +457,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." } },
+      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but you can see the feathers going flat all along the roost now your demon's in sight. Treat the bird well and send that thing out of the yard before we saddle up, or it'll try to shake you off over the Thandol Span the way the last one did." },
+      },
       choices = {
         { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", reply = "Thank you. They'll notice, believe me; that big grey one bites anyone who doesn't.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The bird will carry me whether it likes it or not.", next = "BACK", reply = "It will, aye, and it may sulk the whole way. Don't say I didn't warn you.", fx = { align = { order = -1 } } },
@@ -697,7 +703,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." } },
+      lines = { { id = "xlock_default", text = "That's decent of you, though I'd still rather it stayed outside, for the soldiers jump at every shadow since Stromgarde fell. A little imp sitting on a crate is enough to start a panic in a camp this tired." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "That's decent of you, and the sooner the better, for the soldiers by the fire have gone quiet watching your demon, and they've jumped at every shadow since Stromgarde fell. A thing like that standing by my crates is enough to start a panic in a camp this tired." },
+      },
       choices = {
         { text = "Then it stays outside. They've been through enough.", next = "BACK", reply = "Thank you. They have, more than most, and they'll be grateful even if they don't say so.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The soldiers will have to toughen up.", next = "BACK", reply = "They're tough enough, I promise you, but they've buried too many friends. Keep it outside.", fx = { align = { light = -1 } } },

@@ -59,7 +59,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." } },
+      lines = {
+        { id = "xlock_default", text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "In the old war, when the orcs brought their warlocks over the Black Morass and burned the kingdom, and their servants had the same eyes as the one at your heel. I don't hold the trade against a human who learned it after, but I'll ask you to remember that the last ones to use it came here to kill us." },
+      },
       choices = {
         { text = "I'll remember it, Marshal, and use it against our enemies.", next = "BACK", reply = "Good, that's what I'd hoped you'd say. Turn it on the orcs if they ever come back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power isn't to blame for who used it.", next = "BACK", reply = "Maybe not, but I watched what it did in careless hands the year Goldshire burned, so be careful with yours.", fx = { align = { honor = -1 } } },

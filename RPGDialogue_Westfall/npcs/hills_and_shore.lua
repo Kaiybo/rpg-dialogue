@@ -39,6 +39,7 @@ P:NPC {
       lines = {
         { id = "xlock_default", text = "Yer fel fire, ye say, for the heat of my brew? I'll thank ye for asking, but I'll not let ye do, for a lager that's boiled over brimstone and doom would taste of a crypt and would smell of a tomb!" },
         { id = "xlock_more1", text = "Plain coal from the hills is the fire I trust, and a Thunderbrew's lager is honest or bust." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Yer fel fire, ye say, with yer servant there sniffin' me mash? I'll thank ye, but nay, for a lager that's boiled over brimstone tastes of naught but sulphur and ash!" },
       },
       choices = {
         { text = "Then I'll keep my fel off your fire, Grimbooze.", next = "BACK", reply = "A guest with some manners, now that's a fine sight, and my still and my fire both thank ye tonight!", fx = { align = { honor = 1 } } },

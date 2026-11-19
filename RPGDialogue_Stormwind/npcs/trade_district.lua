@@ -51,6 +51,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "The very best, friend, because they sit up all night in cold cellars reading cursed books, and a man in a cold cellar learns to appreciate a full-bodied red. My sister says I'm not to give free bottles to anyone from the Slaughtered Lamb, but my sister is not here, and you have such a discerning face." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "The very best, friend, because a man in a cold cellar learns to appreciate a full-bodied red, and your companion looks as though it has known colder cellars than any of us. My sister says I'm not to let your sort near the good racks, and seeing yours breathe on the corks, for once I think she's right." },
       },
       choices = {
         { text = "I'll pay for the bottle, Renato. Your sister's right.", next = "BACK", reply = "Ah, you're a good soul, and Suzetta will love you. I'll still give you a taste for free.", fx = { align = { honor = 1 } } },
@@ -317,7 +318,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I mind anyone who frightens the other customers, and your imps frighten them. But Elling says the Lamb's people pay on time and tell no tales, which is more than he can say for some of the nobles." } },
+      lines = {
+        { id = "xlock_default", text = "I mind anyone who frightens the other customers, and your imps frighten them. But Elling says the Lamb's people pay on time and tell no tales, which is more than he can say for some of the nobles." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I mind anyone who frightens the other customers, and three of them walked straight back out when your demon came in behind you. Elling says the Lamb's people pay on time and tell no tales, so I'll serve you, but I'll ask it to wait in the street while I do." },
+      },
       choices = {
         { text = "Then I'll come alone next time and keep the peace.", next = "BACK", reply = "That's very considerate. The other customers will thank you.", fx = { align = { light = 1 } } },
         { text = "If they frighten easily, that's their own concern.", next = "BACK", reply = "It's my concern when they stop buying cheese. Keep the imp outside.", fx = { align = { light = -1 } } },
@@ -530,6 +534,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Food, nearly always, because your sort get so caught up in your circles and your candles that you forget the body needs feeding as well as the demon. Then it's rope, because things that are summoned sometimes need tying, and then it's a spare cloak, because the first one always gets scorched." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Food, nearly always, because your sort forget the body needs feeding as well as the demon, and judging by the way yours is eyeing my shelves, it hasn't been fed either. Then it's rope, and then a spare cloak, because the first one always gets scorched, and I can smell yours from here." },
       },
       choices = {
         { text = "Bread, rope and a cloak, then. Good advice, Thurman.", next = "BACK", reply = "You're welcome, friend. You'll thank me in the Badlands.", fx = { align = { order = 1 } } },
@@ -710,6 +715,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A dagger for the close work and a staff for the walking, and nothing heavier, because I've watched warlocks swing a sword and it's an embarrassment for everyone. Marda says I'm too blunt with your sort, but a blunt word is cheaper than a funeral." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A dagger for the close work and a staff for the walking, and nothing heavier, because I've watched warlocks swing a sword and it's an embarrassment. Your servant can do the heavy work, I'd guess, and it's welcome to stop staring at my anvil while you choose, because Marda says I'm not to throw anything at it." },
       },
       choices = {
         { text = "A dagger and a staff, then. Your word's worth having.", next = "BACK", reply = "My word's free. The dagger, I'm afraid, is not.", fx = { align = { honor = 1 } } },
@@ -895,6 +901,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Only when the Cathedral tells me to, and then it's always a warning, which is my least favourite kind of news to cry, since nobody ever tips a man for a plague warning. I'd much rather shout about heroes coming back from Blackrock, though between you and me, half of those heroes are your sort and nobody ever mentions it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only when the Cathedral tells me to, and it's always a warning, though I've never had the subject of one stand at my elbow while I practised. Half the heroes back from Blackrock are your sort, between you and me, but I'd still rather you led your {pet} on before the crowd thinks I've summoned it for the show." },
       },
       choices = {
         { text = "Then cry the warnings, Goodman. The city needs them.", next = "BACK", reply = "I will, friend, every one. Nobody tips for them, but somebody has to cry them.", fx = { align = { order = 1 } } },
@@ -1148,6 +1155,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They'll carry you, so long as you've sent your friend back where it came from before you mount, because a gryphon smells a demon from across the square and won't stop screaming. I had a warlock try to sneak an imp aboard in a satchel once, and he spent the whole flight to Lakeshire upside down." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not while that thing's standing in my roost, because every gryphon here caught the smell of it the moment you came up, and you can hear the screaming yourself. Send it back where it came from before you mount, or you'll spend the flight upside down, same as the last fellow." },
       },
       choices = {
         { text = "The demon stays behind, then. Your birds, your rules.", next = "BACK", reply = "Good. The birds'll thank ye, an' so will my ears.", fx = { align = { order = 1 } } },
@@ -1382,7 +1390,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd say no, politely, and then I'd tell the Watch, less politely. William thinks I'm too strict, but William doesn't live a short walk from the Slaughtered Lamb, and I do." } },
+      lines = {
+        { id = "xlock_default", text = "I'd say no, politely, and then I'd tell the Watch, less politely. William thinks I'm too strict, but William doesn't live a short walk from the Slaughtered Lamb, and I do." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd say no, politely, and then I'd tell the Watch, less politely, and I'd mention the demon standing in my shop while it was asked. William thinks I'm too strict, but William doesn't live a short walk from the Slaughtered Lamb, and William doesn't have that thing watching him across his own counter." },
+      },
       choices = {
         { text = "You're right to refuse. Some things shouldn't be sold.", next = "BACK", reply = "Thank you. William doesn't live near the Lamb; I do.", fx = { align = { light = 1 } } },
         { text = "The Watch can't stop what it doesn't understand, Morgan.", next = "BACK", reply = "It can stop me selling, which is all I'm asking. That's enough.", fx = { align = { light = -1 } } },
@@ -1566,6 +1577,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "More than ever, which is part of what worries me, because when even the folk from the Lamb start buying padded vests, something's coming. Business is booming, and I can't tell if I should be pleased or packing." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "More than ever, which worries me, and now they're bringing their servants in to stand about while I measure them, which worries me more. Business is booming, and I can't tell if I should be pleased or packing, though your demon looking over my vests is helping me make up my mind." },
       },
       choices = {
         { text = "Then sell to the guard first, Harlan, not to the Lamb.", next = "BACK", reply = "I do, when they ask. The Lamb gets what's left.", fx = { align = { order = 1 } } },

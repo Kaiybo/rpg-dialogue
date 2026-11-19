@@ -109,6 +109,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I think the camps taught us what happens when orcs hand their will to something else, and I won't forget it. But the Warchief lets you serve, so I'll keep your vault as well as anyone's, as long as nothing in it scratches at the door." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I think the camps taught us what happens when orcs hand their will to something else, and I see one of those somethings leaning on my counter. The Warchief lets you serve, so I'll keep your vault as well as anyone's, but your servant stays out on the street while I do it." },
       },
       choices = {
         { text = "My power serves the Horde, Karus, and nothing else.", next = "BACK", reply = "Then your vault is as welcome here as anyone's. I was in the camps too, {class}, and I won't forget what that power did to us.", fx = { align = { order = 1 } } },
@@ -299,6 +300,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Cloth, mostly, because your kind wears through robes faster than a grunt wears through boots, and runecloth goes to the highest bidder. I don't care what the buyer does with it, and neither does the house, as long as the deposit's paid." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Cloth, mostly, because your kind wears through robes faster than a grunt wears through boots. I don't care what the buyer does with it, and the house doesn't care that your demon is breathing on the ledger, as long as it doesn't scorch the bids and the deposit's paid." },
       },
       choices = {
         { text = "I'll pay the deposit and bid fair.", next = "BACK", reply = "Then you're welcome here any time the house is open. I wish I could say that of everyone.", fx = { align = { honor = 1 } } },
@@ -475,6 +477,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, and thank the ancestors for that, because my wind riders would buck the whole sky to get it off. Send the thing away before you climb up, and call it back when you land." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, and thank the ancestors for that, because my wind riders are already pulling at their chains just from smelling it. Send your demon away before you climb up, and call it back when you land, somewhere far from my tower." },
       },
       choices = {
         { text = "As you say. The beasts come first.", next = "BACK", reply = "Thank you, {class}. The beasts can tell who respects them, and they'll carry you gently for it.", fx = { align = { order = 1 } } },
@@ -659,6 +662,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "There were warlocks in every clan, once, and the Shadow Council behind them all, whispering in the chieftains' ears. I record the new guilds so the Horde never again has a clan whose real masters hide in the dark, and I'll be watching yours." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "There were warlocks in every clan, once, and the Shadow Council behind them, whispering in the chieftains' ears. I'm writing down that your guild walks in here with a demon at its heel, because I record the new guilds so the Horde never again has a clan whose masters hide in the dark." },
       },
       choices = {
         { text = "Good. Openness keeps the Horde strong.", next = "BACK", reply = "That's why I record them all. We had a hidden master once, in the Shadow Council, and look where it led.", fx = { align = { order = 1 } } },
@@ -1142,6 +1146,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They don't fear them, they hate them, and they're right to. A wolf knows a thing that doesn't belong in the world before you do, so keep your demon away from my kennels, or I can't answer for what's left of it." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They don't fear them, they hate them, and listen to them now, because every wolf in my kennels is snarling at the thing you brought. A wolf knows what doesn't belong in the world before you do, so take your {pet} out of here, or I can't answer for what's left of it." },
       },
       choices = {
         { text = "I'll keep it away. Your wolves are wise.", next = "BACK", reply = "Thank you, and they'll thank you too. Keep it far.", fx = { align = { light = 1 } } },
@@ -1348,6 +1353,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I found mine on a river after the camps, and I had more to forget than most. Sit by the water in the Valley of Spirits, send your demon away for an hour, and see whether the fish teach you something it can't." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I found mine on a river after the camps, and I had more to forget than most. Your demon is staring at my lines like it means to burn them, so send it away for an hour, sit by the water in the Valley of Spirits, and see whether the fish teach you something it can't." },
       },
       choices = {
         { text = "I'll try it, Lumak. Some quiet would do me good.", next = "BACK", reply = "I think you'll be surprised. Send it away for an hour and see what you hear.", fx = { align = { light = 1 } } },
@@ -1527,6 +1533,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "They fear cave-ins, and anything that makes a loud noise in a narrow tunnel, and a demon does both. Dig with your own hands, and let the rock teach you the patience your power doesn't, because it will, whether you want it to or not." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "They fear cave-ins, and anything that makes a loud noise in a narrow tunnel, and your demon has been scraping at my ore cart since you walked in. Dig with your own hands, and let the rock teach you the patience your power doesn't, because it will, whether you want it to or not." },
       },
       choices = {
         { text = "I'll dig with my own hands, then.", next = "BACK", reply = "The rock will teach you patience, whether you want it or not. Mine took twenty years.", fx = { align = { order = 1 } } },
@@ -1704,6 +1711,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "I forge for the Horde, and some of the Horde are warlocks, so yes, though I don't like it. I remember what the old Horde's smiths were asked to make for the warlocks' rites, and I'll never put my hammer to that kind of work again." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "I forge for the Horde, and some of the Horde are warlocks, so yes, though I don't like it, and I like your servant warming itself at my forge even less. I remember what the old Horde's smiths made for the warlocks' rites, and I'll never put my hammer to that work again." },
       },
       choices = {
         { text = "Good. Honest steel, for honest work.", next = "BACK", reply = "Then we'll get along fine. Honest steel for honest work is the only kind I've ever forged.", fx = { align = { light = 1 } } },
@@ -1886,6 +1894,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Once, for a warlock who swore it was for his own safety, and the imp melted the lock in an afternoon. I don't build for demons anymore, pal, and not because of any scruples, but because they never pay for the damage." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Once, for a warlock who swore it was for his own safety, and his demon melted the lock in an afternoon. Yours is eyeing my workbench right now, pal, so keep it back, because I don't build for demons anymore, and they never pay for the damage." },
       },
       choices = {
         { text = "Demons are tools. They just need better cages.", next = "BACK", reply = "Better cages cost money, pal, and demons never pay. I'm out of that business.", fx = { align = { light = -1 } } },
@@ -2063,6 +2072,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "No, mon, I won't, and don't you ask me twice. A demon in my stables would set every beast screaming, and the loa would laugh at me for being so foolish." },
+        { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "No, mon, I won't, and don't you ask me twice while that thing be standing at my gate. Every beast in my stables be screaming already, and the loa would laugh at me for being so foolish as to let it in." },
       },
       choices = {
         { text = "Not a word from me, then.", next = "BACK", reply = "Then we stay friends, mon. Keep it far from my pens, and the beasts never need to know.", fx = { align = { light = 1 } } },

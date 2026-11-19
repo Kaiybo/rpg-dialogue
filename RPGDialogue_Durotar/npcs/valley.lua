@@ -120,6 +120,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough. The Warchief says a warlock who serves the Horde is better than one who serves the Burning Blade at Skull Rock, so go and prove him right." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough, which is why I don't like that thing looking at me. The Warchief says a warlock who serves the Horde is better than one who serves the Burning Blade, so go and prove him right." },
       },
       choices = {
         { text = "I'll serve the Horde and prove the Warchief right.", next = "BACK", reply = "Good, then you'll have friends here soon enough. Go to Skull Rock when you're ready and show them what a warlock of the Horde can do.", fx = { align = { order = 1 } } },
@@ -735,6 +736,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Far more, because every peon grew up hearing about the fel and the old curse. If you want them to work, keep your demon out of sight, and let them think about lumber instead of nightmares." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Far more, and you can see why, because every peon in the yard dropped his axe when your demon walked in. If you want them to work, get it out of sight and let them think about lumber instead of nightmares, or I'll be the one carrying the timber." },
       },
       choices = {
         { text = "Out of sight, then. I'll let them work.", next = "BACK", reply = "Good, mon, and they'll work better for it. Your demon can sit by the fire and sulk.", fx = { align = { light = 1 } } },
@@ -937,6 +939,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I feed everyone who walks into this Den, because hunger doesn't care what you are. Just keep your imp out of the kitchen, and I'll fill your bowl like anyone's." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I feed everyone who walks into this Den, because hunger doesn't care what you are, but your demon is already nosing toward my kitchen. Keep it back there by the door, and I'll fill your bowl like anyone's." },
       },
       choices = {
         { text = "Agreed. The imp stays away from your pot.", next = "BACK", reply = "You'll eat well, then. The imp can lick the pot outside when the grunts are done.", fx = { align = { order = 1 } } },
@@ -1154,6 +1157,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. Just keep your demon's claws off my stock, because I've enough trouble with recruits dropping things." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I sell to anyone the Den trusts, and Gornek's let you in, so you'll get the same price as anybody. But your demon's had its face in my shelves since you walked up, and I've enough trouble with recruits dropping things without that thing knocking them over." },
       },
       choices = {
         { text = "Fair. I'll keep the imp's claws to itself.", next = "BACK", reply = "Then you'll get the same price as anybody. Keep its claws off my anvil.", fx = { align = { order = 1 } } },

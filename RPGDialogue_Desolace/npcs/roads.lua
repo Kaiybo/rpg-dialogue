@@ -207,7 +207,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." } },
+      lines = { { id = "xlock_default", text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos stampeded halfway to the Kodo Graveyard, and it took us two days to round them up again." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Only since we hauled past Thunder Axe Fortress and a pair of the Burning Blade's felhounds came down the slope at us. The kodos are lowing at your demon now the same way they did then, so take it to the back of the caravan, or I'll be rounding them up for another two days." } },
       choices = {
         { text = "My minion follows my word. Your kodos are safe.", next = "BACK", reply = "Thank you, and I'll mark it in the ledger, because a promise like that is worth writing down.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your kodos will learn. Demons aren't going anywhere.", next = "BACK", reply = "They won't, I promise you, and if they stampede again, I'll be adding the cost to your account.", fx = { align = { order = -1 } } },
@@ -397,7 +397,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd. The trouble is every kodo in the Graveyard bolts at the first whiff of brimstone, so your demon would cost me more in runaways than it saves." } },
+      lines = { { id = "xlock_default", text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd. The trouble is every kodo in the Graveyard bolts at the first whiff of brimstone, so your demon would cost me more in runaways than it saves." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I want kodos rounded up, pal, and I'm not fussy about the shepherd, but I can smell the brimstone on your demon from here. Every kodo in the Graveyard would bolt at the first whiff of it, so that thing costs me more in runaways than it saves." } },
       choices = {
         { text = "My demons aren't hired hands. Find another shepherd.", next = "BACK", reply = "Fair enough, pal, and I'll find someone without the brimstone smell, though it'll cost me more.", fx = { align = { order = 1 } } },
         { text = "A demon will work if the price is right. Make an offer.", next = "BACK", reply = "Ha, now you're talkin', but you'll keep the little horror well downwind of the herd, or it's on your bill.", fx = { affinity = 1, align = { order = -1 } } },
@@ -590,7 +590,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I don't know enough to say, and I hope I never will. All I know is that they kneel to their demons and pray to them, and I've never once heard any of them give an order to one." } },
+      lines = { { id = "xlock_default", text = "I don't know enough to say, and I hope I never will. All I know is that they kneel to their demons and pray to them, and I've never once heard any of them give an order to one." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't know enough to say, and I hope I never will, though please, could it stop looking at me like that? All I know is that they kneel to their demons and pray to them, and yours is looking at me the very same way theirs did." } },
       choices = {
         { text = "I command my demon. I'll never kneel to one.", next = "BACK", reply = "Good, because I've seen what happens to those who kneel, and it isn't power that they get.", fx = { align = { order = 1 } } },
         { text = "Perhaps they know something I don't. Power is power.", next = "BACK", reply = "Please don't say that, not here, because those are the exact words they used when they took me.", fx = { align = { order = -1 } } },
@@ -938,7 +938,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." } },
+      lines = { { id = "xlock_default", text = "I hold it against anyone who thinks the demons can be mastered, because the Horde believed that too and paid for it with its soul. Thrall broke that chain, and I'll not watch someone forge a new link in it." }, { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I hold it against anyone who thinks the demons can be mastered, and that one at your heel is waiting for the day you slip, as they all do. Thrall broke the chain that bound the Horde, and I'll not watch you forge a new link in it." } },
       choices = {
         { text = "I master my demons. The old Horde was weak, not cursed.", next = "BACK", reply = "The old Horde thought itself strong too, and it drank the blood, so do not tell me it was weak.", fx = { align = { order = -1 } } },
         { text = "I know the price. I won't let the Horde pay it again.", next = "BACK", reply = "Remember it every day, because the Horde has forgotten once already, and I was there when it did.", fx = { affinity = 1, align = { order = 1 } } },

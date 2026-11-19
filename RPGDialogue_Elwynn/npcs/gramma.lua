@@ -111,7 +111,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." } },
+      lines = {
+        { id = "xlock_default", text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Whatever you've got whispering at your shoulder, it can't be worse than this family at harvest." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've sat with Stonefields who'd sooner burn down a vineyard than shake a Maclure's hand, so a little chill doesn't frighten me. Your creature can have the stool by the hearth if it likes, because it can't be worse company than this family at harvest, and it's a good deal quieter." },
+      },
       choices = {
         { text = "Your kitchen's the warmest place in Elwynn, Gramma.", next = "BACK", reply = "You're a sweet one, aren't you, whatever's whispering behind you. Sit down and warm yourself.", fx = { align = { light = 1 } } },
         { text = "My whispers are worse than any feud. Don't mistake me.", next = "BACK", reply = "Worse, is it? You've never seen a Stonefield at harvest, dear. Sit, and I'll cut you some pie.", fx = { align = { light = -1 } } },
