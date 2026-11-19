@@ -1062,6 +1062,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_far = {
+      lines = {
+        { id = "dw_far_default", text = "Bronzebeard's Encampment isn't named for nothing, friend. The Explorers' League follows titan ruins wherever they lead, and they lead here, to walls older than Uldaman with the same makers' marks on them. Magni wanted dwarves at the gates of Ahn'Qiraj before anyone else got there." },
+        { id = "dw_far_dwarf", when = { race = "Dwarf" }, text = "Ha! You're asking that, kin, so far from home yourself? The League follows titan ruins wherever they lead, and they lead here, to walls older than Uldaman with the same makers' marks on them." },
+      },
+      choices = {
+        { text = "The League should go home. These ruins are cursed.", next = "BACK", reply = "After what happened to Natalia, I'd not argue too hard. But the League never went home from anywhere in its life.", fx = { align = { order = 1 } } },
+        { text = "If the titans built it, dwarves have a right to know.", next = "BACK", reply = "Aye, that's how we see it. Whatever's under those walls, I'd sooner a dwarf found it than a silithid.", fx = { align = { order = -1 } } },
+        { text = "Something else, Frankal.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Aye, an' ye can laugh, like Rutgar does, but I've seen 'em wheelin' high over the Scarab Wall, bronze as a new kettle. Somethin's watchin' this place, paladin, an' I'd sooner know what before it decides to come down an' have a look at us." } },
@@ -1181,6 +1192,7 @@ P:NPC {
         { text = "A warrior would stand little chance against a dragon.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Your monkey doesn't seem to like me, Frankal.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Have you really seen dragons over Silithus, Frankal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "A dwarf of Ironforge, all the way out in Silithus?", next = "dw_far" },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },

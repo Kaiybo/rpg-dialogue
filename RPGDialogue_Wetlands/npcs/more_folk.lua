@@ -343,7 +343,7 @@ P:NPC {
     third = "{name} met Gruham Rumdnul, who sells general supplies in Menethil Harbor.",
   },
   greetings = {
-    { id = "g_dwarf", when = { race = "Dwarf" }, text = "General supplies. A dwarf, eh? Then ye'll hate it here as much as I do, an' we'll get on." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "General supplies, an' a dwarf tae sell them tae, is it? Then ye'll hate this damp as much as I do, an' we'll get on fine." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're no' thinkin' o' goin' out there in the dark? Buy a lantern, at least, an' let me talk ye out o' the rest." },
     { id = "g_hi", text = "General supplies. Are ye headed intae the marsh? Then let me see yer boots before ye tell me what ye think ye need." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye're wet tae the knee. I did say." },
@@ -535,7 +535,7 @@ P:NPC {
   greetings = {
     { id = "g_night", when = { timeOfDay = "night" }, text = "The night watch has just been in for their edges. Ye're next, if ye've somethin' needs seein' tae." },
     { id = "g_hi", text = "Weapons, an' good ones. Let me see what ye're carryin' first, for I'll no' sell ye a second till I ken how ye treat the first." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Have ye oiled it since? Hm. Ye have, a wee bit. That's somethin'." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, an' let's see if ye've oiled it since. Hm, ye have, a wee bit, an' that's somethin' in this weather." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },

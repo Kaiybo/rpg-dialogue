@@ -1523,10 +1523,11 @@ P:NPC {
           text = "So ye saw Khaz'mul's chamber. Baelog was right an' I had my doubts, but don't repeat that tae him." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye've a look about ye I've seen before, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? State yer business, then, for I've a page tae finish an' it's no' gettin' shorter." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, fine, but mind yer beast doesnae chew the maps, for they took me a winter tae draw." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The League's got opinions about ye, an' so have I, an' I'll keep mine tae myself today." },
+        { id = "h_dw_kin", when = { origin = "dwarf_stormpike" }, text = "Well, look at that: Alterac snow still on yer boots an' a Stormpike jaw under yer beard. Sit, then, kinsman, an' I'll even put the book down." },
       },
       again = {
         { id = "h_again", text = "What is it now, then?" },
@@ -1539,6 +1540,8 @@ P:NPC {
         { text = "What happened at Uldaman?", next = "uldaman" },
         { text = "I met a Mountaineer Stormpike at Algaz.", next = "clan", when = { questDone = TODO_QUEST("Mountaineer Stormpike's Task") } },
         { text = "Mages read ciphers too, Prospector.", next = "mage", when = { class = "MAGE" } },
+        { text = "Are you kin to the Stormpikes in Alterac?", next = "dw_alterac", when = { race = "Dwarf" } },
+        { text = "What were those runes on the door you're copying?", next = "dw_runes" },
         { text = "What have you seen my kind leave in the ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Have you seen much fighting on your digs, Prospector?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter be of use on a League dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1621,8 +1624,9 @@ P:NPC {
         { id = "cl_default", text = "There's Stormpikes all over Khaz Modan, a proud clan an' a rich one, an' we never let anybody forget either. Did he send ye south for a Longbeard shield?" },
       },
       choices = {
-        { text = "He did.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Proud and rich, aye. I'd noticed.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "He did, and I fetched it.", next = "BACK", reply = "Good, then ye've done more for my clan's pride than most o' my cousins manage in a year.", fx = { affinity = 1 } },
+        { text = "Proud and rich, aye. I'd noticed.", next = "BACK", reply = "Hmph, an' ye've a mouth on ye, but I'll no' argue wi' the truth.", fx = { trait = { witty = 1 } } },
+        { text = "Are there Stormpikes in Alterac, too?", next = "dw_alterac" },
       },
     },
     mage = {
@@ -1632,6 +1636,54 @@ P:NPC {
       choices = {
         { text = "Then let's compare readings sometime.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "I'll trust your reading, then. Something else.", next = "BACK" },
+      },
+    },
+    dw_alterac = {
+      lines = {
+        { id = "dwa_default", text = "Kin, aye, an' close enough that Vanndar writes tae me when he wants somethin' read. He took a company o' our clan up intae the Alterac valleys tae dig for ore an' old relics, an' found the Frostwolf orcs sittin' on the other side o' the ridge like they owned it." },
+        { id = "dwa_kin", when = { origin = "dwarf_stormpike" }, text = "Ye'll know better than me, for ye've lived it: Vanndar's got our clan dug intae the Alterac valleys after ore an' relics, an' the Frostwolf orcs are sittin' on the far side o' the ridge. Is he still writin' tae Ironforge for rifles every second week?" },
+      },
+      choices = {
+        { text = "The Frostwolves were there first. Leave them be.", next = "dw_alterac_frost", fx = { align = { honor = 1 } } },
+        { text = "The valley's ours by right of the dig.", next = "dw_alterac_dig", fx = { align = { honor = -1 } } },
+        { text = "What's buried up there that's worth the fight?", next = "dw_alterac_why" },
+      },
+    },
+    dw_alterac_frost = {
+      lines = {
+        { id = "dwaf_default", text = "There was first, an' there was holdin' it, an' those orcs hid in that valley for years while the rest o' their kind were in the camps. I'll grant ye they've a claim, an' Vanndar won't, so it's as well I'm here readin' an' no' up there decidin'." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    dw_alterac_dig = {
+      lines = {
+        { id = "dwad_default", text = "That's Vanndar's view, word for word, an' it's the clan's view, an' most days it's mine. A Stormpike who finds a seam doesnae walk away from it because an orc growls, an' that's both the best an' the worst thing about us." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    dw_alterac_why = {
+      lines = {
+        { id = "dwaw_default", text = "Iron an' silver in the hills, an' under that, if the old surveys are right, chambers no Stormpike's ever cut. I've copies o' the surveys on this desk, an' I'll tell ye plainly, the runes on them are older than anythin' in Alterac's histories." },
+      },
+      choices = {
+        { text = "Older runes. Like the ones you're copying now?", next = "dw_runes" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    dw_runes = {
+      big = true,
+      lines = {
+        { id = "dwr_default", text = "Titan script, or near enough, copied off a door in Uldaman by a Prospector wi' shaky hands an' worse eyes. Half the marks are worn tae nothin', an' the other half say things about stone an' makers an' keepers that the old dwarven histories never mention once." },
+        { id = "dwr_dwarf", when = { race = "Dwarf" }, text = "Titan script, an' if ye're a dwarf, ye'll no' like what it says any more than I did. Half the marks are worn tae nothin', but the other half talk about makers an' keepers an' folk shaped out o' stone, an' I've a fair idea who they mean." },
+      },
+      choices = {
+        { text = "Whatever it says, write it down true.", next = "BACK", reply = "I always write it true, friend, for a copyist who tidies the truth is no better than a forger, an' I've thrown out apprentices for less.", fx = { align = { order = -1 } } },
+        { text = "Some old words are better left unread.", next = "BACK", reply = "Aye, an' then somebody else reads them first, usually a Dark Iron wi' a torch an' bad intentions, so I'll take my chances wi' the readin'.", fx = { align = { order = 1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
       },
     },
   },
@@ -1890,6 +1942,8 @@ P:NPC {
         { text = "Which wins, Senator: the Senate's caution or the League's curiosity?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Why doesn't the Senate send help to the quarry?", next = "xpt_stonehallow", when = { party = true } },
         { text = "I was foreman at Gol'Bolar, Senator, when the troggs broke through.", next = "xorig_foreman", when = { origin = "dwarf_quarry_foreman" } },
+        { text = "My family's never had a voice in the Senate, Senator.", next = "dw_voice", when = { race = "Dwarf" } },
+        { text = "Stormwind has a House of Nobles. Is your Senate any better?", next = "hu_nobles", when = { race = "Human" } },
         { text = "Good luck, Senator.", next = "END" },
       },
     },
@@ -1943,7 +1997,10 @@ P:NPC {
       lines = {
         { id = "sd_default", text = "I've seen soot on a few beards that came from no forge o' ours, an' I say so. They tell me I've been in the quarry too long, an' maybe I have." },
       },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
+      choices = {
+        { text = "Dark Iron spies, in Ironforge itself?", next = "senate_spies", fx = { learn = { "dark_iron" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
+      },
     },
     quarry = {
       lines = {
@@ -1984,6 +2041,53 @@ P:NPC {
       choices = {
         { text = "The Senate should have helped us sooner.", next = "BACK", reply = "It should have. We were slow, an' I'll carry that shame intae every debate until we make it right.", fx = { align = { order = -1 }, affinity = -1 } },
         { text = "Ironforge took us in. We can't ask for more.", next = "BACK", reply = "That's a generous thing tae say, an' a rare one, but ye can ask for more, for allies should give each other everythin' they can.", fx = { align = { order = 1 }, affinity = 2 } },
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    senate_spies = {
+      lines = {
+        { id = "ssp_default", text = "Why not? They're dwarves, same as us, an' a Dark Iron who shaves the soot off his face an' keeps his voice down could stand at the Great Forge all day an' nobody would look twice. Thaurissan's folk have wanted this mountain back since the War o' the Three Hammers, an' a clan that patient doesnae only use axes." },
+      },
+      choices = {
+        { text = "Then the Senate should search every forge.", next = "BACK", reply = "An' frighten half the honest smiths in the city intae thinkin' their neighbours are traitors? I've thought it, an' I've decided against it, though some nights I'm no' sure I was right.", fx = { align = { order = 1 } } },
+        { text = "Suspicion would do the Dark Irons' work for them.", next = "BACK", reply = "Aye, that's the trap, an' that's why I only say it in the Senate an' no' in the taverns. A city that turns on itself has saved the enemy the walk.", fx = { align = { order = -1 } } },
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    dw_voice = {
+      lines = {
+        { id = "dwv_default", text = "Ye dinnae need a seat o' yer own, for that's what the rest of us are for, or so the theory goes. Every great house sends a senator, an' the senators are meant tae speak for the miners an' the brewers an' the mountaineers as well, though half o' them havenae been down a shaft since they were beardless." },
+        { id = "dwv_miner", when = { origin = "dwarf_ironforge_miner" }, text = "A miner's family, aye, I can see it in yer hands, an' ye're right that no miner's ever sat in that chamber. I've been down a shaft or two, which is more than most o' my colleagues can say, an' I try tae remember the deeps when I vote." },
+      },
+      choices = {
+        { text = "Then the King should have the last word, not the Senate.", next = "dw_voice_king", fx = { align = { order = 1 } } },
+        { text = "Then the Senate should listen to more than the great houses.", next = "dw_voice_folk", fx = { align = { order = -1 } } },
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    dw_voice_king = {
+      lines = {
+        { id = "dwvk_default", text = "Magni does have it, mostly, an' he's a better king than we deserve. But a king's only one dwarf, an' one dwarf grievin' for a brother an' a daughter can make a hasty choice, so the Senate's there tae slow him down when he needs it." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    dw_voice_folk = {
+      lines = {
+        { id = "dwvf_default", text = "Ye'd get my vote for that, an' maybe two others, an' the rest would bury it in a committee till the troggs had grown beards. Still, say it louder an' say it often, for that's how anythin' changes in this city, slowly an' by bein' a nuisance." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    hu_nobles = {
+      lines = {
+        { id = "hun_default", text = "Better than a House that wouldnae pay its own masons, I'd hope. I'm a quarry dwarf, an' I know what it costs tae cut the stone that rebuilt yer city, so I wasnae surprised when the men who laid it walked off tae Westfall angry an' came back wearin' red." },
+      },
+      choices = {
+        { text = "The masons were cheated. I don't blame them.", next = "BACK", reply = "Neither do I, entirely, though I'll no' cheer for highwaymen. Pay a mason what ye owe him an' he'll build ye a city; cheat him an' he'll learn tae knock one down.", fx = { align = { order = -1 } } },
+        { text = "Cheated or not, they're bandits now. The law comes first.", next = "BACK", reply = "Aye, the law comes first, an' they broke it, an' they'll hang for it if they're caught. I only wish the nobles who drove them tae it had a rope o' their own waitin'.", fx = { align = { order = 1 } } },
         { text = "Something else, Senator.", next = "BACK" },
       },
     },

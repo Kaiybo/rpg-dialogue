@@ -1035,13 +1035,13 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up, always, even when you're greeting me." },
-    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "This is for fighters, so try something safer. Knitting, maybe." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up, always, even when you're greeting me, because the day you forget is the day a gnoll remembers." },
+    { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "This yard's for fighters, friend, so you'd best stand by the smithy wall where the swings won't reach you." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", place = "before", when = { class = "WARRIOR", durability = { max = 0.3 } },
-      text = "You let them hit you, and a lot. Stormwind's warriors take a beating; they don't invite one." },
+      text = "You've been letting them hit you, and a good deal by the look of that mail. Stormwind's warriors take a beating when they must, but they don't go inviting one." },
     { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
       text = "Your hands are smoking with shadow, and every recruit on the yard has stopped swinging to stare at them. Let it burn out before you come any closer, because I've a lesson to finish." },
   },
@@ -1131,10 +1131,12 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the practice yard. Stand by the wall, if you would, because somebody always needs you by noon." },
         { id = "h_default", text = "I'm Lyria Du Lac, and I make Stormwind's soldiers out of Elwynn's farm hands. The kingdom's strength isn't its walls; it's whoever's standing on them." },
         { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("A Warrior's Training") },
-          text = "Your training's not finished. There's someone you need to see, and you'll have to go and find them, because that's part of it." },
+          text = "Your training's not finished yet, recruit, because there's someone in Stormwind you need to see. You'll have to find him yourself, and that's part of the lesson." },
+        { id = "h_mug", tags = { "news" }, when = { class = "WARRIOR", questRecent = { TODO_QUEST("Bartleby's Mug"), days = 3 } },
+          text = "Harry sent word that you beat Bartleby and gave him back his mug after, which is the part most of them forget. Come and show me the new stance, then, because I want to see it." },
         { id = "h_wilhelm", when = { class = "PALADIN" },
           text = "Brother Wilhelm's round the side. Tell him I'll have the practice yard back by noon, and he'll know what that means." },
-        { id = "h_dawn", when = { metBefore = true }, text = "You're up early, good. The recruits weren't, but they are now." },
+        { id = "h_dawn", when = { metBefore = true }, text = "You're up early, which is good, because the recruits weren't until I kicked their cots over." },
         { id = "h_llane", when = { class = "WARRIOR", maxLevel = 12 },
           text = "Llane Beshere's work, from the Abbey; I can tell by the feet, because he teaches stance like it's scripture. Good, now we'll see what you do with it." },
         { id = "h_veteran", when = { class = "WARRIOR", minLevel = 25 },
@@ -1153,13 +1155,16 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep your shield up while you ask." },
-        { id = "h_again2", text = "Go on, the yard's waiting." },
+        { id = "h_again2", text = "Go on, then, but be quick about it, because the yard's waiting and so are the dummies." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Why is Stormwind's strength in its people?", next = "pillar" },
         { text = "Who is it I need to see for my training?", next = "harry", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "I have Defensive Stance now. It feels wrong.", next = "ly_stance", when = { class = "WARRIOR", minLevel = 10, any = { { questDone = TODO_QUEST("Beat Bartleby") }, { questDone = TODO_QUEST("Bartleby's Mug") } } } },
+        { text = "Marshal Haggard gave me one of his old blades.", next = "ly_haggard", when = { class = "WARRIOR", questDone = TODO_QUEST("Dead-tooth Jack") } },
+        { text = "Wu Shen's sending me across the sea to Fray Island.", next = "ly_fray", when = { class = "WARRIOR", minLevel = 30 } },
         { text = "I worked Westfall's fields before this.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
         { text = "Dwarves fight differently from your farm hands.", next = "dwarf", when = { race = "Dwarf", class = "WARRIOR" } },
@@ -1178,7 +1183,7 @@ P:NPC {
       },
     },
     good = {
-      lines = { { id = "g2_default", text = "Getting up again. Everyone gets knocked down, and warriors are the ones who are annoyed about it." } },
+      lines = { { id = "g2_default", text = "Getting up again, that's what. Everyone gets knocked down, and warriors are only the ones who are annoyed enough about it to stand." } },
       choices = {
         { text = "And a great one?", next = "good_great" },
         { text = "I'll remember.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
@@ -1223,6 +1228,37 @@ P:NPC {
     harry_more = {
       lines = { { id = "hm_default", text = "Dirty fighting, mostly, the tavern kind, and you'll see what I mean. Bring coin for the drinks; he'll expect you to keep up." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    ly_stance = {
+      big = true,
+      lines = {
+        { id = "lys_default", text = "It's meant to feel wrong, because you've spent a season learning to hit and now I'm asking you to be hit instead. In Defensive Stance your job is to be the one thing the gnolls want, so that the farm girl with the pitchfork behind you never has to use it." },
+        { id = "lys_human", when = { race = "Human", origin = "human_westfall_farmhand" }, text = "It's meant to feel wrong, and you'll get used to it, because you've stood between a gnoll and a field before. In Defensive Stance your job is to be the thing they want, so that whoever's behind you never has to fight at all." },
+      },
+      choices = {
+        { text = "Then I'll be what they want. Let them come.", next = "ly_stance_taunt", fx = { align = { order = 1 } } },
+        { text = "I'll keep to Battle Stance. Hitting first is safer.", next = "BACK", reply = "Safer for you, maybe, and that's the trouble with it. Keep the other stance in your pocket anyway, for the day someone behind you matters more.", fx = { align = { order = -1 } } },
+        { text = "How do I make them want me?", next = "ly_stance_taunt" },
+      },
+    },
+    ly_stance_taunt = {
+      lines = { { id = "lyst_default", text = "Taunt, and Sunder Armor, and a shield you bang on loud enough to wake Farley's cellar. They'll learn your face, and they'll hate it, and that's the finest compliment a defender gets." } },
+      choices = { { text = "Loud and hateful, then. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    ly_haggard = {
+      lines = { { id = "lyh_default", text = "Did he now? Then you did him a real service out by Eastvale, because Haggard doesn't part with those for a pat on the back. He was a marshal before I ever lifted a shield, so carry it as if he'll be watching." } },
+      choices = {
+        { text = "I'll carry it with honour.", next = "BACK", reply = "Good. And mend it when it chips, because he'll ask.", fx = { affinity = 1 } },
+        { text = "It's a decent blade. I'll trade up soon.", next = "BACK", reply = "Then sell it somewhere he'll never hear of it. Honestly, recruits.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    ly_fray = {
+      lines = { { id = "lyf_default", text = "Fray Island! I've never been further than Lakeshire, and I trained you, and now you're off to the Barrens to fight in some islander's ring. Come back and tell me about it, because I'll want to know whether my old drills held." },
+        { id = "lyf_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You've been and come back, I can see it, because you're standing like Corbin stands, all lean and hungry. Come and tell me whether my old drills held up in that ring." } },
+      choices = {
+        { text = "Your drills held, Lyria. Every one.", next = "BACK", reply = "Then I'll go to bed proud tonight, and I'll not tell a soul why.", fx = { affinity = 2 } },
+        { text = "I had to unlearn half of them.", next = "BACK", reply = "Half's not bad. Wu Shen would say I taught you the right half.", fx = { trait = { witty = 1 } } },
+      },
     },
     farmhand = {
       lines = { { id = "f_default", text = "Then you've lifted more than half my recruits ever will. Lift a shield like a sack of grain, close to the body, and you'll be fine." } },
@@ -1285,8 +1321,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a warrior of Stormwind who trains others behind a smithy. The smithy was here first, and I've made my peace with it." } },
     advice = { { id = "tp_ad", text = "Keep your shield up and your boots laced. More recruits die of a loose boot than a gnoll." } },
-    hogger = { { id = "tp_hogger", text = "Every warrior I train goes after Hogger too early, every last one. Go after him late." } },
-    _none = { { id = "tp_none", text = "Not my business. My business is the practice yard." } },
+    hogger = { { id = "tp_hogger", text = "Every warrior I train goes after Hogger too early, every last one of them, so go after him late, and bring a friend who can heal." } },
+    _none = { { id = "tp_none", text = "That's not my business, recruit, because my business is the practice yard and whoever's standing in it." } },
     second_war = { { id = "tp_second_war", text = "My mother carried a pike in the Second War, all the way to Blackrock Spire, and she taught me to hold a shield before I could read. That was all the schooling I needed." } },
     gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Every warrior I train hears about the arena in Stranglethorn and wants to fight there, and I tell them it's for fools with gold to lose. They go anyway, and a few come back richer." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's strongman challenged me to arm wrestle last year and lost twice, and he still won't look at me. I'm rather proud of that." } },

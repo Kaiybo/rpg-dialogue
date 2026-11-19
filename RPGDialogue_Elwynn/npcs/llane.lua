@@ -165,13 +165,14 @@ P:NPC {
         { id = "ch_default", text = "Because walking up careful gives the kobold time to think, and the one thing a kobold does well is think about running. Charge closes the distance before it's decided, and it fills you with the first bit of rage you'll need to do anything else." },
       },
       choices = {
-        { text = "Then I'll charge every time and never wait.", next = "charge_wait", fx = { align = { order = -1 } } },
-        { text = "I'll pick my moment, then charge.", next = "charge_wait", fx = { align = { order = 1 } } },
+        { text = "Then I'll charge every time and never wait.", next = "BACK", reply = "Bold, and the kobolds will learn to fear you, or you'll learn to count them first.", fx = { align = { order = -1 } } },
+        { text = "I'll pick my moment, then charge.", next = "BACK", reply = "Good, because a moment picked well is worth three charged in blind.", fx = { align = { order = 1 } } },
+        { text = "What if there's more than one?", next = "charge_wait" },
         { text = "Where does the rage come from?", next = "charge_rage" },
       },
     },
     charge_wait = {
-      lines = { { id = "cw_default", text = "Whichever you choose, mind you never charge into three when you meant to charge into one, because the Hall of Arms has buried recruits who learned that the hard way at Echo Ridge." } },
+      lines = { { id = "cw_default", text = "Then you mind you never charge into three when you meant to charge into one, because the Hall of Arms has buried recruits who learned that the hard way at Echo Ridge." } },
       choices = { { text = "One at a time. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     charge_rage = {

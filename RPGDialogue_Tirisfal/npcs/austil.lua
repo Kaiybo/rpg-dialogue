@@ -32,7 +32,13 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Austil de Mon. I drilled Lordaeron's footmen when they still bled, and now I train the warriors of Brill, if you've the stomach for it and the coin." },
+        { id = "h_default", key = true, text = "I'm Austil de Mon. I drilled Lordaeron's footmen when they still bled, and now I train the warriors of Brill, if you've the stomach for it and the coin." },
+        { id = "h_orcwar", when = { class = "WARRIOR", race = "Orc" },
+          text = "An orc, come all the way to Brill to learn from a dead footman. I spent the Second War trying to kill your people, so you'll forgive me if I enjoy teaching you how we nearly did it." },
+        { id = "h_taurwar", when = { class = "WARRIOR", race = "Tauren" },
+          text = "A tauren warrior in Gallows' End! Mind the rafters, and mind the furniture, because the last time one of you sparred indoors I lost a table and a regular." },
+        { id = "h_w10", tags = { "news" }, when = { class = "WARRIOR", minLevel = 10, questBefore = TODO_QUEST("Path of Defense") }, text = "You've outgrown a tavern drillyard. Take the zeppelin from the tower outside town to Durotar and find an orc called Uzzek near Far Watch in the Barrens, because he teaches the shield better than I ever did, and it galls me to say so." },
+        { id = "h_w20", when = { class = "WARRIOR", minLevel = 20 }, text = "You've grown past Brill, and the trainers in the Undercity's War Quarter can give you more than I can. Still, it does an old drillmaster good to see one of his corpses come back walking." },
         { id = "h_warrior", when = { class = "WARRIOR", race = "Scourge" },
           text = "Another one of ours with a blade. Plenty of you woke with your old drills still in your arms, and my job is to remind your arms what they knew." },
         { id = "h_ready", when = { class = "WARRIOR", questBefore = TODO_QUEST("Speak with Dillinger") },
@@ -44,12 +50,15 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick; I've a corpse out back who thinks a shield is a hat, and he's lost two fingers proving it." },
+        { id = "h_again2", text = "Go on, then. Ask, and keep your guard up while you do." },
       },
       choices = {
         { text = "What makes a good warrior, in your eyes?", next = "good" },
         { text = "Your recruits look freshly risen.", next = "recruits" },
         { text = "What's this task Dillinger has for me?", next = "dillinger", when = { class = "WARRIOR", heardLine = "austil.h_ready" } },
         { text = "I'm here to train.", next = "BUSINESS" },
+        { text = "How do I fight a Scarlet footman?", next = "w_footman", when = { class = "WARRIOR" } },
+        { text = "What comes after Brill for a warrior?", next = "w_after", when = { class = "WARRIOR", minLevel = 8 } },
         { text = "I'll get out of your way.", next = "END" },
       },
     },
@@ -86,6 +95,38 @@ P:NPC {
       },
     },
 
+    w_footman = {
+      lines = {
+        { id = "wf_default", text = "The way I taught them to fight, so I know where they're weak: they're drilled to hold the shield high against a sword, so a footman never sees a blow to the knee coming. Hamstring him, and he'll stand there bleeding and wondering why his drills failed him." },
+        { id = "wf_low", when = { maxLevel = 9 }, text = "Carefully, because they're living, rested and trained, and you've been out of the grave a week. Charge one when he's alone, rend him, and back off if a second one comes, because two Scarlets will finish you." },
+      },
+      choices = {
+        { text = "Do you hate them for what they've become?", next = "w_footman2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_footman2 = {
+      big = true,
+      lines = { { id = "wf2_default", text = "Some of them I trained myself, when they were boys with pikes too long for them. They'd burn me now without a second look, so no, I don't hate them, but I won't lose a moment's sleep over killing them either." } },
+      choices = {
+        { text = "They're the Dark Lady's enemies. That's all that matters.", next = "BACK", reply = "That's a soldier's answer, and I've no better one. Go and give them a lesson.", fx = { align = { order = 1 } } },
+        { text = "They're fools, but they're not monsters. I'll pity them.", next = "BACK", reply = "Pity them after, then, and not before. They won't return the favour.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_after = {
+      lines = {
+        { id = "wa_default", text = "The War Quarter of the Undercity, where Angela Curthas, Christoph Walker and that loudmouth Baltus Fowler train the Dark Lady's soldiers. Before long they'll put you on a zeppelin to the Barrens to learn the shield from an orc, and you'll find out what the rest of the Horde makes of us." },
+      },
+      choices = {
+        { text = "What will the orcs make of us?", next = "w_after2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_after2 = {
+      lines = { { id = "wa2_default", text = "They'll stare, and some of them will remember killing men who looked a lot like you, and some of them will remember being killed by them. Fight well beside them, and they'll stop staring; fight badly, and they'll only stare harder." } },
+      choices = { { text = "I'll fight well. Something else.", next = "BACK" } },
+    },
     dillinger = {
       lines = { { id = "di_default", text = "That's for Dillinger to tell you, and he'll tell it better than I would. Report to his post by the graveyard, and don't make me regret sending you." } },
       choices = {

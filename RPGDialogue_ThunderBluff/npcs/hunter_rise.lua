@@ -283,10 +283,19 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Torm Ragetotem. Sark teaches you to hit hard and Ker teaches you to keep going, and I teach you where to put your feet, which is the part everybody skips." },
         { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You aren't a warrior, but you're welcome to watch. Most of what I teach is how to stand, and everybody needs that sooner or later." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" }, text = "A brave of the herd, with an axe instead of a spear. Stand on the ledge with me a moment, and I'll see by your hooves how much the plains have taught you already." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" }, text = "A Forsaken warrior, so far from your city. Your balance is a dead man's balance, stiff in the knees, and I think I can help with that if you'll be patient with me." },
+        { id = "h_ruga", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 20, questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "You're ready to see my cousin Ruga, I think. He keeps watch over Camp Taurajo in the southern Barrens, and he tests warriors who think they're done learning to stand." },
+        { id = "h_islander", tags = { "news" }, when = { class = "WARRIOR", faction = "Horde", minLevel = 30, questBefore = TODO_QUEST("The Affray") }, text = "You're thirty now, and steadier than most. There's a human named Klannoc Macleod on Fray Island, off the coast south of Ratchet, who tests warriors for the berserker's stance, and I think you're ready to be tested." },
       },
-      again = { { id = "h_again", text = "Something else? Take your time, as the grass does." } },
+      again = {
+        { id = "h_again", text = "Something else? Take your time, as the grass does." },
+        { id = "h_again2", text = "Ask, if you like. The wind is quiet up here, so I'll hear you." },
+      },
       choices = {
-        { text = "Teach me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Teach me, Torm. I'll listen closely.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How should I stand behind a shield?", next = "w_shield", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "Tell me about this human on Fray Island.", next = "w_islander", when = { class = "WARRIOR", minLevel = 28 } },
         { text = "Why does footwork matter so much?", next = "feet" },
         { text = "You're quieter than your cousin.", next = "sark" },
         { text = "How do you train footwork?", next = "drill" },
@@ -310,6 +319,39 @@ P:NPC {
         { text = "Discipline first, and the strength will follow.", next = "BACK", reply = "You listen better than most, {class}. Plant your feet, find your center, and the strength will come when you need it, not before.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather hit first and hard.", next = "BACK", reply = "So did the bulls face down in the Barrens, and they hit very hard indeed. Come back when you've been knocked flat once, and we'll talk again.", fx = { align = { order = -1 } } },
       },
+    },
+    w_shield = {
+      lines = {
+        { id = "ws_default", text = "Back hoof planted, front hoof light, so you can turn the shield toward a blow without moving your weight. Uzzek near Far Watch taught you the stance, I hope, but stance is only the shape, and footwork is what keeps the shape when something heavy hits it." },
+        { id = "ws_tauren", when = { race = "Tauren" }, text = "You're heavy, and that helps, but a heavy thing pushed from the side still tips. Turn the shield, not your body, and let the blow slide off as rain slides off a hide tent." },
+      },
+      choices = {
+        { text = "So the shield turns blows instead of stopping them.", next = "w_shield2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_shield2 = {
+      big = true,
+      lines = { { id = "ws2_default", text = "Exactly, and few warriors ever hear it, because they think a shield is a wall. A wall breaks eventually, and a shield that turns blows lasts until the fight is over, so which would you rather be for the ones behind you?" } },
+      choices = {
+        { text = "Something that bends and lasts, like the grass.", next = "BACK", reply = "Then you understand the plains better than most braves born on them.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A wall. Nothing gets past me.", next = "BACK", reply = "Walls fall all at once, and those behind them with it. Think on it, at least.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_islander = {
+      lines = {
+        { id = "wi_default", text = "Klannoc Macleod keeps a fighting grate on Fray Island, and he cares nothing for banners, only for how a warrior fights. Win his affray and you'll know the berserker's stance, and that is the one stance where my footwork matters least and your temper matters most." },
+        { id = "wi_done", when = { questDone = TODO_QUEST("The Affray") }, text = "You've been, so you know what he is. If he sent you north to the troll at Chillwind Point, go, because the whirlwind weapons are worth the cold, but keep your feet when you face the wind lord." },
+      },
+      choices = {
+        { text = "Why do you dislike the berserker's stance?", next = "w_islander2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_islander2 = {
+      lines = { { id = "wi2_default", text = "I don't dislike it, but I've seen good warriors forget their feet in it, and a warrior who forgets his feet forgets everything else soon after. Use it to finish a fight, and step out of it before the fight finishes you." } },
+      choices = { { text = "I'll mind my feet. Something else.", next = "BACK" } },
     },
     sark = {
       lines = { { id = "s_default", text = "Somebody in the family has to be. Sark thinks shouting makes a lesson stick, and I think listening does, and the warriors we train seem to need a little of both." } },
@@ -353,7 +395,7 @@ P:NPC {
   topics = {
     centaur = { { id = "tp_ce", text = "They aim for the legs. Remember that and you'll keep yours." } },
     earth_mother = { { id = "tp_em", text = "She gave us our weight. Learning to carry it well is how we honour her." } },
-    background = { { id = "tp_bg", text = "A Ragetotem who trains warriors. I prefer to let my students speak for me." } },
+    background = { { id = "tp_bg", text = "I'm a Ragetotem who trains warriors, and I'd rather my students spoke for me than speak for myself." } },
     advice = { { id = "tp_ad", text = "Plant your back hoof before you swing. Everything else is decoration." } },
     _none = { { id = "tp_none", text = "I don't know. I'd rather say so than guess, and the Earth Mother respects an honest blank." } },
   },

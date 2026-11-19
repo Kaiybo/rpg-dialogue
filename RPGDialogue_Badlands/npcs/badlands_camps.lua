@@ -20,6 +20,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      narr = "He keeps hammering for a long moment before he answers.",
+      lines = {
+        { id = "dw_kin_default", text = "A fellow dwarf is just who I'd not talk to about Ironforge. Ye'll go home an' tell it in the Stonefire Tavern, and by supper half the Mystic Ward will know Martek's still alive and still wrong." },
+      },
+      choices = {
+        { text = "I'll keep your secrets. Kin owes kin that much.", next = "dw_kin2", fx = { affinity = 1 } },
+        { text = "Then I'll leave it. Something else.", next = "BACK" },
+      },
+    },
+    dw_kin2 = {
+      lines = {
+        { id = "dw_kin2_default", text = "Kin, is it? Then here's a crumb. I said the King's digging under Uldaman would wake things better left asleep, and I said it loud in front of the wrong thane, and now the troggs pour out of the earth and nobody's sorry they sent me away." },
+      },
+      choices = {
+        { text = "You were right. Ironforge should have listened.", next = "BACK", reply = "Aye, and being right is cold comfort out here. Still, it's good to hear it from a beard that isn't my own.", fx = { align = { order = -1 } } },
+        { text = "A dwarf doesn't shame his king in public, right or not.", next = "BACK", reply = "Spoken like a thane's nephew. Maybe ye're right, and maybe that's why I'm out here and ye're not.", fx = { align = { order = 1 } } },
+        { text = "Something else, Martek.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The hammer's fine work, better than the arm that carries it, if ye'll forgive me. The Light an' I have an understandin', I work an' it watches, but I never thought it'd go watchin' from inside one o' the dead, an' I'll admit it makes me curious." } },
@@ -158,6 +178,7 @@ P:NPC {
         { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'd wager you've already judged my hammer, Martek.", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Does a Forsaken paladin's hammer pass your inspection, Martek?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You'll talk to a fellow dwarf about Ironforge, surely.", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Farewell, Martek.", next = "END" },
       },
     },

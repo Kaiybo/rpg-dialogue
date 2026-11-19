@@ -265,17 +265,13 @@ P:NPC {
       lines = { { id = "bgs_default", text = "It does, and it's meant to, because the stance is there to make you slow and hard to shift. You hit softer and you get hit less, and the rage comes off every blow they land on you, so the mud's what's keeping you upright, not dragging you down." } },
       choices = {
         { text = "Then I'll stand in the mud and let them come.", next = "bg_stance_taunt", fx = { align = { order = 1 } } },
-        { text = "I'll keep to battle stance and finish things quick.", next = "bg_stance_quick", fx = { align = { order = -1 } } },
+        { text = "I'll keep to battle stance and finish things quick.", next = "BACK", reply = "Quick's grand when it works, and when it doesn't, you'll wish you'd learned to stand. Ask Haggard about his patrol sometime.", fx = { align = { order = -1 } } },
         { text = "When do I change between them?", next = "bg_stance_taunt" },
       },
     },
     bg_stance_taunt = {
       lines = { { id = "bgst_default", text = "When a friend's in trouble and the beast is looking the wrong way, that's when. Switch, Taunt, and take it on your shield, and you'll learn to do it in the time it takes Bartleby to finish a swallow, which isn't long." } },
       choices = { { text = "Switch, Taunt, shield. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
-    },
-    bg_stance_quick = {
-      lines = { { id = "bgsq_default", text = "Quick's grand when it works, and when it doesn't, you'll wish you'd learned to stand. Ask Haggard about the day his whole patrol tried to finish things quick, if he's sober enough to tell it." } },
-      choices = { { text = "Something else.", next = "BACK" } },
     },
     bg_return = {
       lines = {

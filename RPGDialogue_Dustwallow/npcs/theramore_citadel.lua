@@ -479,7 +479,7 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "Guns, powder, an' how tae keep 'em dry in a swamp." } },
-    advice = { { id = "tp_ad", text = "Oilcloth, lad. Oilcloth for everythin'." } },
+    advice = { { id = "tp_ad", text = "Oilcloth, lad, oilcloth for everythin', or the swamp'll have rust on yer blade by mornin'." } },
     caz = { { id = "tp_caz", text = "Builds kindlin' an' calls it engines. Good company on a Friday, though." } },
     warsong = { { id = "tp_warsong", text = "I still hear them drums some nights. I'll say no more about it." } },
     _none = { { id = "tp_none", text = "Never heard o' it, an' I'd sooner say so than make somethin' up." } },

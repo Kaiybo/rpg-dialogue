@@ -575,7 +575,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Dragonmaw scouts, mostly, testin' us to see if we've gone soft, and now and then a Mosshide gnoll that's wandered too far from the marsh. The pass is narrow, so one good warrior in the right spot can hold it, and I'd sooner it were you than me some nights." } },
       choices = {
         { text = "Then put me in the narrows. I'll hold it.", next = "BACK", reply = "The narrows it is, an' I'll be glad o' ye. Hold it like ye mean it, an' we'll have no trouble.", fx = { align = { order = 1 } } },
-        { text = "I'd sooner go north and hit the Dragonmaw first.", next = "BACK", reply = "North? On yer own? Ye'd have the whole Dragonmaw clan on ye in a day. The pass first, the orcs after.", fx = { align = { order = -1 } } },
+        { text = "I'd sooner go north and hit the Dragonmaw first.", next = "BACK", reply = "North, on yer own? Ye'd have the whole Dragonmaw clan on ye in a day, so clear the pass first an' worry about the orcs after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -33,6 +33,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      lines = {
+        { id = "dw_kin_default", text = "Ye're a dwarf after my own heart, then! What I need is that Dark Iron spy in irons, an' what Thelsamar needs is fewer troggs, an' what I want is a pint o' Hearthstove's stout. Two out o' three would do me fine." },
+        { id = "dw_kin_stormpike", when = { origin = "dwarf_stormpike" }, text = "A Stormpike, an' offerin' help! The Mountaineer up the road will be glad o' the name. What I need is that Dark Iron spy in irons, an' what Thelsamar needs is fewer troggs, so pick whichever ye like." },
+      },
+      choices = {
+        { text = "I'll find your spy and bring him in alive.", next = "BACK", reply = "Alive, aye, so the King's questioners can have him. Good dwarf.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Spies don't deserve a trial. I'll deal with him.", next = "BACK", reply = "Careful, kin. A dead spy tells us nothin', an' Ironforge wants tae know who sent him.", fx = { align = { order = -1 } } },
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
     opn_orcs = {
       lines = {
         { id = "opn_orcs_q", text = "After the war? They went intae the camps, an' then a good many o' them walked out again under this Thrall. My da says they should've been put tae the axe, an' my mam says they were sick wi' some warlock's poison an' couldnae help it. Where d'ye stand, then?" },
@@ -243,6 +254,7 @@ P:NPC {
         { text = "Could the earth tell me where your Dark Iron spy is hiding?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I went down into Uldaman, Kadrell.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Those carts are behind me, Mountaineer. Mostly.", next = "xorig_smug", when = { origin = "dwarf_loch_smuggler" } },
+        { text = "Kin should look after kin, Kadrell. What do you need?", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -397,6 +409,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_kin = {
+      narr = "He wipes his spectacles on his beard and puts them back on crooked.",
+      lines = {
+        { id = "dw_kin_default", text = "Everythin', kin, or near enough. The King himself funds the League because he wants tae know where dwarves came from, an' every tablet we pull out o' Khaz Modan says the titans had a hand in it. If we're right, we're no' just a people wi' a mountain, we're the heirs o' the makers o' the world." },
+      },
+      choices = {
+        { text = "Then it's worth every risk. Dig on.", next = "BACK", reply = "Ha! That's the League spirit, an' Magni would knight ye for it. Mind ye, the troggs are a risk I'd happily do without.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Heirs or not, we're still dwarves. A tablet changes nothing.", next = "BACK", reply = "Hm, a practical sort, like my mother. Maybe so, but I'd still like tae know, an' so would ye, if ye're honest.", fx = { align = { order = 1 } } },
+        { text = "What about Muradin? Does the League look for him too?", next = "dw_muradin" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    dw_muradin = {
+      lines = {
+        { id = "dw_muradin_default", text = "The King's brother went north tae Northrend wi' the human prince an' never came home, an' the word that came back says he died in the ice. Brann's off on his own wanderin's, an' Magni's been a sadder king since. We dig for the past partly so the King has some good news now an' then." },
+      },
+      choices = {
+        { text = "Something else, Ironband.", next = "BACK" },
+      },
+    },
     prej = {
       big = true,
       lines = { { id = "prej_default", text = "My cousin Durn had a dig on the Darkshore coast with a permit from Magni himself, and a druid sat in his trench for a week humming at him until the crew walked off. Your people don't own the past, friend, they only act as though they do." } },
@@ -615,6 +647,7 @@ P:NPC {
         { text = "Has your dig woken anything that ought to have stayed buried?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I went to the bottom of Uldaman, Ironband.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "I grew up in the Ironforge deeps. Your trench feels like home.", next = "xorig_deeps", when = { origin = "dwarf_ironforge_miner" } },
+        { text = "I'm a dwarf, Ironband. What does this dig mean for our people?", next = "dw_kin", when = { race = "Dwarf" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },

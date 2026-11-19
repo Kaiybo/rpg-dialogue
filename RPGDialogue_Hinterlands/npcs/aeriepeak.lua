@@ -309,7 +309,7 @@ P:NPC {
       },
     },
     skyborne = {
-      lines = { { id = "s_default", text = "Glide! Downhill, aye? A gryphon goes up, {g:lad|lass}. Up! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
+      lines = { { id = "s_default", text = "Glide, is it, an' only downhill? A gryphon goes up, {g:lad|lass}, up into the teeth o' the wind! Come back when yer wind can carry ye over a mountain, an' we'll talk about who flies better." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     friend = {

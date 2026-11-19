@@ -228,6 +228,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_titan = {
+      lines = {
+        { id = "dw_titan_default", text = "That's what the League would dearly love to know! The elves built most of what ye see here, Highborne towers and the like, but the League's after older marks. We found titan carvings in Uldaman and in the Badlands, and if they're here too, it means the makers walked all over this world before anyone else did." },
+      },
+      choices = {
+        { text = "Then keep digging. Whatever you find matters.", next = "BACK", reply = "Aye, it matters to me, and to the King. It'll matter to the wildkin too, sadly, for they hate a pick.", fx = { align = { order = -1 } } },
+        { text = "The elves won't thank you for digging up their land.", next = "BACK", reply = "No, they won't, and the ones at Everlook have told me so twice. But it's our history too, if the titans made us both.", fx = { align = { order = 1 } } },
+        { text = "Something else, Jaron.", next = "BACK" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -301,6 +311,7 @@ P:NPC {
         { text = "What brings the Explorers' League this far north?", next = "league" },
         { text = "Who should I ask about those fragments?", next = "aurora", when = { questActive = TODO_QUEST("Troubled Spirits of Kel'Theril") } },
         { text = "Let me look at that pick, Jaron.", next = "xpick", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Is there titan work this far north, Jaron?", next = "dw_titan" },
         { text = "Good luck, Jaron.", next = "END" },
       },
     },

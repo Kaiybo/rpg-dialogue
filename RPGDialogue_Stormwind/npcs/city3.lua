@@ -519,6 +519,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_back = {
+      lines = {
+        { id = "dw_back_default", text = "That's what my uncle said, kin, wi' a good deal more cursin'. But Elmore learned his trade from dwarves who came south after the Second War tae rebuild this city, so I'm only takin' back what we lent him, wi' interest." },
+      },
+      choices = {
+        { text = "A good smith learns from anyone. Your uncle's wrong.", next = "BACK", reply = "Aye, I think so too, though I'll no' tell him at Winter Veil. He still thinks Stormwind steel bends in the rain.", fx = { align = { order = -1 } } },
+        { text = "Dwarven craft should stay with dwarven masters.", next = "BACK", reply = "Plenty in the Great Forge would agree wi' ye. But they've never seen what Elmore does wi' a shield rim.", fx = { align = { order = 1 } } },
+        { text = "Something else, Furen.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Elmore says I'm no' good enough tae hear it yet. Maybe yer spirits could tell me when I've finally got it right." } },
@@ -639,6 +649,7 @@ P:NPC {
         { text = "Could you fit armour that changes shape along with me, Furen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there anything you'd make for someone in black robes, Furen?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the forge fire speak to you, Furen?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "A dwarf smith learning from a human master? Isn't that backwards?", next = "dw_back", when = { race = "Dwarf" } },
         { text = "Later.", next = "END" },
       },
     },

@@ -32,6 +32,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_why = {
+      lines = {
+        { id = "dw_why_default", text = "Earnin' coin an' payin' a debt, kin. Stromgarde's soldiers bled beside ours in the Second War, an' when Stromgarde fell, somebody had tae come an' pick through the wreckage for them. Better a dwarf than a looter." },
+      },
+      choices = {
+        { text = "Ironforge owes Stromgarde. Paying it back is honourable.", next = "BACK", reply = "Aye, an' I'll tell Malin ye said so, though he'll take the credit. Wizards always do.", fx = { align = { honor = 1 } } },
+        { text = "Stromgarde's gone. Take the coin and stop counting debts.", next = "BACK", reply = "Spoken like a sellsword, an' I'd no' blame ye. But I'm a dwarf, an' dwarves keep their ledgers.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Skuerto.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Bother's no' the word, but it's strange, I'll grant ye, for I grew up on stone the priests said the Titans shaped, an' nobody ever told me it talked. Still, if the earth here'll tell ye where the Witherbark set their ambushes, I'll stop sayin' it's strange an' start sayin' it's useful." } },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "How do you want Trelane's wand taken back from the ogres?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a warrior be any use to a scout, Skuerto?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "A dwarf shaman seems to bother you, Skuerto.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What's a dwarf doing scouting for a Dalaran wizard?", next = "dw_why", when = { race = "Dwarf" } },
         { text = "Off I go.", next = "END" },
       },
     },

@@ -606,6 +606,16 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dw_finds = {
+      lines = {
+        { id = "dw_finds_default", text = "Now an' then, an' it always makes me homesick. A Dark Iron blade in a centaur camp, an Ironforge rifle on a dead Burning Blade cultist. Dwarves get everywhere, an' so does what we make, which is why I never run out o' stock." },
+      },
+      choices = {
+        { text = "Those things should go back to their clans.", next = "BACK", reply = "Back tae their clans? For a fee, maybe, an' only if the clan asks. Reclaimers aren't a charity.", fx = { align = { honor = 1 } } },
+        { text = "Finders keepers. That's fair trade.", next = "BACK", reply = "Now ye're talkin' like a Reclaimer! I'll make a businessman o' ye yet.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kreldig.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Help? It could make us rich! But I've a feelin' the spirits would take it badly if we went diggin' up whatever they told us about, so I'll keep tae honest salvage." } },
@@ -740,6 +750,7 @@ P:NPC {
         { text = "What do the scorpids drag back to their holes, Kreldig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Surely something you dig up here troubles you, Kreldig.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Could the earth help Reclaimers Inc., Kreldig?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do the Reclaimers ever find dwarven things out here?", next = "dw_finds" },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -644,7 +644,7 @@ P:NPC {
     third = "{name} met Irene Sureshot, the gunsmith at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
-    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, good. Ye'll want a rifle, an' ye'll want it tae outlast ye. Step up." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, good, then ye'll want a rifle that outlasts ye, same as yer grandsire's did. Step up an' let me see what ye're carryin' now." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "I dinnae test barrels after dark, so it's quiet for once. What are ye after?" },
     { id = "g_hi", text = "Rifles, shot an' powder. If ye've come tae tell me yer last one pulled left, I'll ask tae see ye shoot it first." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did it shoot true, or did ye?" },
@@ -1087,7 +1087,7 @@ P:NPC {
       choices = { { text = "Bailor has opinions, I gather.", next = "BACK", reply = "He has, an' the worst o' it is he's usually right.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     fit = {
-      lines = { { id = "fi_default", text = "Lift yer arms. Higher. There, ye see how the shoulder rides up an' leaves yer ribs open? It was fitted for somebody broader, or ye've lost weight on the road. A leather lace through the back would take it in for now." } },
+      lines = { { id = "fi_default", text = "Lift yer arms for me, higher than that, an' there, ye see how the shoulder rides up an' leaves yer ribs open? It was fitted for somebody broader, or ye've lost weight on the road. A leather lace through the back would take it in for now." } },
       choices = { { text = "I'll lace it. Thank you, Gothor.", next = "BACK", fx = { affinity = 1 } }, { text = "Show me something that fits.", next = "BUSINESS" } },
     },
     mail = {
