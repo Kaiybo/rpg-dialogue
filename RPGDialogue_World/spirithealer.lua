@@ -147,6 +147,15 @@ P:Pool {
         { id = "k_druid", when = { class = "DRUID" }, text = "You wear so many shapes, and only one of them ever comes here. I find that curious, and a little funny." },
         { id = "k_rogue", when = { class = "ROGUE" }, text = "You died in the dark. Your kind is always surprised the dark was not on your side." },
         { id = "k_warrior", when = { class = "WARRIOR" }, text = "You died with your arm still raised. You can put it down now, because nothing on this hill needs hitting." },
+        { id = "k2_warrior", when = { class = "WARRIOR", chance = 0.4 }, text = "Still angry, I see. Your kind keeps the rage all the way up the hill, and I have learned to stand a little to one side until it cools." },
+        { id = "k2_rogue", when = { class = "ROGUE", chance = 0.4 }, text = "You came up the hill so quietly that I nearly missed you, and I do not miss anyone. Do not take it as a compliment; take it as a warning." },
+        { id = "k2_mage", when = { class = "MAGE", chance = 0.4 }, text = "Your mana did not come with you, and you keep reaching for it like a missing tooth. It will be there when you wake, I promise." },
+        { id = "k2_hunter", when = { class = "HUNTER", chance = 0.4 }, text = "Your eyes are still on the treeline, even here. There is nothing to track on this hill except yourself, and you have already been found." },
+        { id = "k2_druid", when = { class = "DRUID", chance = 0.4 }, text = "You smell of leaves and wet fur, even now. The bear in you is sulking somewhere down the hill, and I would not keep it waiting." },
+        { id = "k2_warlock", when = { class = "WARLOCK", chance = 0.4 }, text = "Your little servant went home when you fell, I expect, and did not wait for you. Demons are faithful only as far as the leash reaches." },
+        { id = "k2_priest", when = { class = "PRIEST", chance = 0.4 }, text = "You are used to standing over the fallen, and now you are the fallen. It is good for a priest, once in a while, though I would not recommend it often." },
+        { id = "k2_paladin", when = { class = "PALADIN", chance = 0.4 }, text = "Your Light came up the hill with you and is sitting very upright beside you, as if it expects an apology from someone. Not from me, I hope." },
+        { id = "k2_shaman", when = { class = "SHAMAN", chance = 0.4 }, text = "Your totems went out the moment you fell, every one of them, like a camp putting out its fires for a chieftain. The elements are loyal like that, even to the dead." },
         { id = "r_forsaken", when = { race = "Scourge" }, text = "You have died before, in a larger way. You know this road better than I do." },
         { id = "r_nightelf", when = { race = "NightElf" }, text = "You come to me as a wisp, like all your people: a little light, insisting." },
         { id = "r_human", when = { race = "Human" }, text = "Your people came here by the thousand the year Lordaeron fell, and I remember every one of them, though I try not to." },
@@ -1180,6 +1189,12 @@ P:Pool {
         { text = "The hill seems emptier than usual.", next = "quiet" },
         { text = "I raise the dead too. Do you mind?", next = "colleague", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "My ankh brings me back without you.", next = "ankh", when = { class = "SHAMAN", minLevel = 30 } },
+        { text = "Does it bother you, how often I come back swinging?", next = "cl_warrior", when = { class = "WARRIOR" } },
+        { text = "You never see me coming up the hill, do you?", next = "cl_rogue", when = { class = "ROGUE" } },
+        { text = "Could magic undo death without you?", next = "cl_mage", when = { class = "MAGE" } },
+        { text = "Where does my pet go when it dies?", next = "cl_hunter", when = { class = "HUNTER" } },
+        { text = "Which of my shapes do you see when I die?", next = "cl_druid", when = { class = "DRUID" } },
+        { text = "My soulstone cheats you, doesn't it?", next = "cl_warlock", when = { class = "WARLOCK" } },
         { text = "My people's souls return to Elune.", next = "elune", when = { race = "NightElf" } },
         { text = "Did Gnomeregan's dead come through here?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Do my ancestors ever stop to talk?", next = "ancestors", when = { race = "Tauren" } },
@@ -1281,6 +1296,126 @@ P:Pool {
       lines = {
         { id = "an2_default",
           text = "Very well. The elements you bargain with were here long before me and will be here long after, and they do not love you the way your ancestors do, so do not mistake their kindness for affection. There; that one has been waiting years." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_warrior = {
+      lines = {
+        { id = "cw_default",
+          text = "No. Your kind dies forward, always, with your face toward whatever killed you, and I have come to find that oddly polite. The ones who die running arrive with their backs to me, and I have to walk round them to say hello." },
+      },
+      choices = {
+        { text = "I'd rather die fighting than any other way.", next = "cl_warrior2", fx = { trait = { brave = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_warrior2 = {
+      lines = {
+        { id = "cw2_default",
+          text = "Most warriors tell me that, and most of them mean it. I will only say that the ones who died standing in front of someone arrive quieter than the ones who died chasing glory, and lighter, and I know which kind I am gladder to see." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_rogue = {
+      lines = {
+        { id = "cr_default",
+          text = "I do not, and it unsettles me more than I like to admit. Everyone else I watch the whole way up the hill, but you simply arrive, already standing at my elbow, as if you had been there for some time." },
+      },
+      choices = {
+        { text = "Do the ones I kill ask who did it?", next = "cl_rogue2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_rogue2 = {
+      lines = {
+        { id = "cr2_default",
+          text = "Often. Your sort rarely lets them see your face, so they come up the hill asking me who it was, and I never tell them. That is not loyalty to you, only manners; a name given up here is very hard to take back." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_mage = {
+      lines = {
+        { id = "cm_default",
+          text = "People have tried. Dalaran's cleverest wanted the answer badly enough that one of them went and asked the dead directly, and now he serves something that keeps its dead for itself. The ones who come closest are always the ones I never see again." },
+      },
+      choices = {
+        { text = "Could I at least study this place?", next = "cl_mage2", fx = { trait = { curious = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_mage2 = {
+      lines = {
+        { id = "cm2_default",
+          text = "You already are; I can hear you doing it. Take all the notes you like, but they never survive the trip down, and every mage forgets them at the bottom of the hill. I think that is the hill being kind." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_hunter = {
+      lines = {
+        { id = "ch_default",
+          text = "Up a hill of its own, smaller than this one, with grass on it. Someone there is kind to them; I have never seen who, but I can hear the tails. And when you call your companion back, it comes running every time without asking anyone's leave, which I find enviable." },
+      },
+      choices = {
+        { text = "Do the beasts I hunt forgive me?", next = "cl_hunter2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_hunter2 = {
+      lines = {
+        { id = "ch2_default",
+          text = "The ones you hunt to eat, mostly, because that is an old bargain and they know its terms. The ones killed for a hide or a bounty come up the hill looking for their pack, and I have never had an answer for them." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_druid = {
+      lines = {
+        { id = "cd_default",
+          text = "Only the one you were born in. The bear and the cat and the rest stay down there like coats on a peg, and I confess I have always wanted to meet the bear." },
+      },
+      choices = {
+        { text = "Does the Emerald Dream come near this place?", next = "cl_druid2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_druid2 = {
+      lines = {
+        { id = "cd2_default",
+          text = "It brushes the edge of my mist the way two clouds touch, and lately something in it sleeps badly. Your great teacher lies dreaming there, I am told, and has not woken in a long while; I hope he is careful, because I would not know how to send him back." },
+      },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    cl_warlock = {
+      lines = {
+        { id = "ck_default",
+          text = "Cheats me? No, it skips me, which is different, and worse for you. When you go into that stone, there is no one at the top of the hill to ask whether you want to come back; the stone simply decides, and stones are poor judges." },
+      },
+      choices = {
+        { text = "Do my demons ever come up here?", next = "cl_warlock2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    cl_warlock2 = {
+      lines = {
+        { id = "ck2_default",
+          text = "Never. Nothing of theirs dies the way you do; they only go home and wait to be called again. But the souls you burn to feed them, the small purple ones, are a different matter, and I would like those back, and I will keep asking." },
       },
       choices = {
         { text = "Let's talk about something else.", next = "talk" },
@@ -2025,6 +2160,14 @@ P:Pool {
         { id = "pa_default3", text = "Down you go. Eat something when you wake, even if you are not hungry, because the body likes to be welcomed back." },
         { id = "pa_young", when = { maxLevel = 9 }, text = "Go on, little one. You will be stronger the next time I see you, and I would like that next time to be a long way off." },
         { id = "pa_night", when = { timeOfDay = "night" }, text = "It is dark where you are going, so keep to the road and the lamps, and do not be ashamed to be afraid of things; fear has kept more people off this hill than courage ever has." },
+        { id = "pa_warrior", when = { class = "WARRIOR", chance = 0.4 }, text = "Go on, and pick your weapon up when you wake. You dropped it, and you will feel foolish if someone else finds it first." },
+        { id = "pa_rogue", when = { class = "ROGUE", chance = 0.4 }, text = "Go quietly, then, as you always do. I will not watch you leave, since you would only take it as a challenge." },
+        { id = "pa_mage", when = { class = "MAGE", chance = 0.4 }, text = "Down you go. Eat and drink before you cast anything; your mana will come back slower than your temper." },
+        { id = "pa_priest", when = { class = { "PRIEST", "PALADIN" }, chance = 0.4 }, text = "Go, and when you raise someone else today, think of me a little. We are doing the same work, you and I, from different ends." },
+        { id = "pa_druid", when = { class = "DRUID", chance = 0.4 }, text = "Go, and give the bear my regards. Tell it I am sorry it could not come up." },
+        { id = "pa_hunter", when = { class = "HUNTER", chance = 0.4 }, text = "Go on, and call your companion the moment you are standing. It will have been worried in its own way, and it deserves to see you up." },
+        { id = "pa_warlock", when = { class = "WARLOCK", chance = 0.4 }, text = "Go, then, and make your next stone for yourself, if you must make one at all. I would rather see you here than not see you anywhere." },
+        { id = "pa_shaman", when = { class = "SHAMAN", chance = 0.4 }, text = "Go, and greet the elements for me. They never stop to talk when they pass, but I think they would answer you." },
         { id = "pa_bg", priority = 10, when = { zone = { "Warsong Gulch", "Arathi Basin", "Alterac Valley" } }, text = "Go, then, back to your battle. I will hold your place in line, which is a joke, but only a small one." },
       },
       choices = { { text = "Return me to life.", next = "BUSINESS" } },
