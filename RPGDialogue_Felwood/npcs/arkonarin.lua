@@ -55,7 +55,7 @@ P:NPC {
         { text = "There must be some way to get you out.", next = "out" },
         { text = "Jessir Moonbow is waiting for you.", next = "jessir", when = { questActive = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "I'm a paladin. Who was your friend?", next = "xpala", when = { class = "PALADIN" } },
-        { text = "I'm no Council warlock. I'm here to help.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I'm no friend of the Council. I'm here to open that cage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Hold on. I'll be back.", next = "END" },
       },
     },

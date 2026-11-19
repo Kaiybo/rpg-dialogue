@@ -29,7 +29,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Some do, the gentler ones, and I have watched peacebloom close its petals as a warlock passed by on the path to the Mage Quarter. My people learned long ago what the Burning Legion's touch does to growing things, and I will teach you herbs, but not where my plants can see." },
+        { id = "xlock_default", text = "Some do, the gentler ones, and I have watched peacebloom close its petals as one of the Lamb's people passed by on the path to the Mage Quarter. My people learned long ago what the Burning Legion's touch does to growing things, and I will teach you herbs, but not where my plants can see." },
       },
       choices = {
         { text = "Then I'll keep to the path, Tannysa, and your plants be.", next = "BACK", reply = "Thank you. They will open again once you have passed, and I will not have to coax them.", fx = { align = { light = 1 } } },
@@ -279,7 +279,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You'll need this lesson, I'd guess, because knife wounds bleed like a stuck pig and they're always in awkward places." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Warlocks always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
+          text = "The Lamb's people always come to me with burns they won't explain, and I always bandage them without asking, so let me see your hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be patching up your beast as often as yourself, I'd wager, so you'll be wanting to learn properly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You can close a wound with a word, I hear, so I'll not be teaching you much, though you might teach me a thing or two." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll want to learn to bandage properly, because frost nips and fire scorches, and neither one heals on its own." },
@@ -448,7 +448,7 @@ P:NPC {
           text = "A mage! You won't want a bow, I suppose, though I sold arrows to a mage once, and he set every one alight before he loosed it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a bow stall! Plenty of soldiers carry a bow for when the enemy won't come close enough, so don't be shy." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be judging my yew, I expect, because your Sentinels carry bows that make mine look like kindling." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, looking at bows? Well, all comers are welcome, though I've never sold a bow to one of your sort." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ash on your cuffs and an eye on my bows? Well, all comers are welcome, though I've never sold a bow to one of your sort." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, buying bows? Your people usually want guns. Does the yew speak to your spirits?" },
       },
       again = {

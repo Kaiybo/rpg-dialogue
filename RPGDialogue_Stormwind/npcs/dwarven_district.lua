@@ -49,7 +49,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'd forge it, aye, for the hammer doesnae care who pays, though my old masters in Ironforge would have chased ye out wi' tongs. The Dark Iron clans dabbled in fire that wasnae theirs, an' look where it got them, so ye'll not catch me heatin' my steel in anything ye've summoned." },
+        { id = "xlock_default", text = "I'd forge it, aye, for the hammer doesnae care who pays, though my old masters in Ironforge would have chased ye out wi' tongs. The Dark Iron clans dabbled in fire that wasnae theirs, an' look where it got them, so ye'll not catch me heatin' my steel in anything ye've called up." },
       },
       choices = {
         { text = "Plain fire for plain steel, then, Therum.", next = "BACK", reply = "Good. Plain fire's never once turned on the smith who lit it, an' that's more than the Dark Irons can say.", fx = { align = { light = 1 } } },
@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let's have a look at that breastplate, then, for I can tell from here it's been dented an' hammered back by someone who's never held a hammer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a smithy! Ye'll be wantin' a hatchet or a skinnin' knife, I'd guess, for there's no bow in this forge." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Yer hands are rough in all the wrong places for a smith, but they've done real work, I'll grant ye that." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my forge? Keep yer wee demon back from the anvil, for it'll want tae play wi' the coals." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a sulphur reek on ye at my forge. Keep yer wee friend back from the anvil, for it'll want tae play wi' the coals." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Let me see your hands. A shaman's hands, eh? You've the grip of a smith but the eyes of someone listening to something I can't hear." },
       },
       again = {
@@ -519,7 +519,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Do you know what a warrior is, from an engineer's point of view? A lever with opinions, and a very effective one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, the dwarves will tell you that the rifle is the finest invention ever made, and the dwarves are mostly right, though their scopes are a little crude." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've always wanted to measure one, so tell me how much you weigh as a bear and whether it all comes back when you change again." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Is your imp made of fire, or merely on fire? I've a calculation that would benefit greatly from the answer." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that little fellow at your heel made of fire, or merely on fire? I've a calculation that would benefit greatly from the answer." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Fascinating. Hold still, I'm calculating something. Do your elements obey any measurable rules?" },
       },
       again = {

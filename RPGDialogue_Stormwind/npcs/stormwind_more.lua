@@ -695,7 +695,7 @@ P:NPC {
     },
     xlock = {
       lines = {
-        { id = "xl_default", text = "They'd suit you very well, and they'd suit Gakin's opinion of you better still; he judges students by their sleeves. Bring me a tailor who'll sew for you, or learn it yourself, and keep the robe out of your felhunter's reach." },
+        { id = "xl_default", text = "They'd suit you very well, and they'd suit Gakin's opinion of you better still; he judges students by their sleeves. Bring me a tailor who'll sew for you, or learn it yourself, and keep the robe out of reach of whatever you keep at heel." },
       },
       choices = {
         { text = "I'll learn to sew it myself.", next = "BACK", fx = { affinity = 1 } },

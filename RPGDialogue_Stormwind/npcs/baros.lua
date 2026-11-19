@@ -183,7 +183,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Do the statues look right from the road, or did I set them too far back?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, and I can't help wondering what someone who shapes living things makes of them." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've chalk dust on your cuffs and a cellar's chill about you. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to stone, they tell me. I've spent my life telling stone where to go, and it has never once answered back." },
       },
       again = {

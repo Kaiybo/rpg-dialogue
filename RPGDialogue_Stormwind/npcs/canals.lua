@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind your elbows near the shelves, please; the last soldier who leaned on them cost us two casks and a very long argument with Roberto." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you smell of the woods, which is nicer than most of what walks in off the canals. Roberto will want to know if you've seen any wild boar near the vineyards." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you can talk sense into the boars at our vineyard you'd be the first, and Roberto would stop complaining for a whole week." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll take your wine like anyone else, I hope, and not ask me to pour a glass for the little one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of the Lamb's end of town about you. You'll take your wine like anyone else, I hope, and not ask me to pour a glass for whatever follows you." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, is it? If your spirits can tell me where my brother sends all his free bottles, I'll pour you one myself." },
       },
       again = {
@@ -802,7 +802,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior with a fishing question? Don't look so surprised; plenty of soldiers fish, because it's the only time anybody lets them sit down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll fish well, I'd bet, because you already know how to wait for something to come to you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the water's edge. You've the stillness of someone who listens to rivers, and I'd say you were halfway to being a fisherman already." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, fishing? Well, the fish won't mind, and I'll not mind either, so long as your friend keeps out of the water." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold about you, friend, like a cellar in winter. Well, the fish won't mind, and I'll not mind either, so long as your friend keeps out of the water." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman by the water, now. Sit a while. I hear your sort and the fish might have a word or two in common." },
       },
       again = {
@@ -1097,7 +1097,7 @@ P:NPC {
         { id = "xlock_default", text = "Does it bite? Adam says imps bite and set your hair on fire, but Adam also says there's a fish in the canal as big as a boat, and that's me, I said that first. My mum says not to talk to people from the Lamb, though, so maybe I'll just wave at it from over here." },
       },
       choices = {
-        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, imp! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
+        { text = "Your mum's right, Billy. Wave from there.", next = "BACK", reply = "All right, hello, little thing! It's waving back, I think, or else it's being rude.", fx = { align = { order = 1 } } },
         { text = "Come closer, Billy. It won't bite much.", next = "BACK", reply = "Really? Mum would kill me, but she'd have to catch me first!", fx = { align = { order = -1 } } },
         { text = "Something else, Billy.", next = "BACK" },
       },
@@ -1363,7 +1363,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and with arms on you, too. If you're looking for work, the dockhands have all gone off to Westfall and I've crates stacked to the rafters." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, are you? Then you'll be wanting to know whether the furs from Darkshore came in, and the answer is yes, but I can't find them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my docks. A good share of the cargo on these piers comes up from Menethil, and some of it came from your Auberdine before that, so I'd guess you took the same long road." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The work's open to anyone, and so is the risk, but don't bring that thing near my ledgers." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's something in your satchel that moves when you don't. The work's open to anyone, and so is the risk, but don't bring that thing near my ledgers." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Shaman, eh? If you can talk the sea into carrying our cargo gently, the harbour has work for you. Your safety's your own affair." },
       },
       again = {

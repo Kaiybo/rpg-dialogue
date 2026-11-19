@@ -93,9 +93,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see one of your demons near the braves' fires, I'll put my axe through it before I ask whose it was." } },
+      lines = { { id = "xlock_default", text = "I'll take any blade or spell that thins the Bloodfuries, and the Warchief says your kind serve the Horde now. But if I see anything of yours that crawled out of the Nether near the braves' fires, I'll put my axe through it before I ask whose it was." } },
       choices = {
-        { text = "Fair. My servant will keep well away from your braves.", next = "BACK", reply = "Then we'll get along, warlock, and the braves will sleep easier. Thin the Bloodfuries, and I'll remember it.", fx = { align = { order = 1 } } },
+        { text = "Fair. My servant will keep well away from your braves.", next = "BACK", reply = "Then we'll get along, and the braves will sleep easier. Thin the Bloodfuries, and I'll remember it.", fx = { align = { order = 1 } } },
         { text = "My servant goes where I send it, Maggran.", next = "BACK", reply = "Then send it far from my fires, or you'll be sending it home in pieces. I meant what I said.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -176,7 +176,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "So you're a mage, and the Venture Company's fires are still smoking in the vale below us. I hope you keep a tighter hold on yours than the goblins did on theirs." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "So you're a warlock, and Cairne has told me what demon blood did to the orcs before Thrall freed them. I'll not see that sickness carried onto Sun Rock in anyone's bag." },
+          text = "There's a smell on you I've been told about. Cairne has told me what demon blood did to the orcs before Thrall freed them, and I'll not see that sickness carried onto Sun Rock in anyone's bag." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Sun Rock's beasts have grown restless since the vale burned, and a hunter who knows how to turn them back is worth more to me than a spear." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Good, because I have wounded braves who need healing and a forest down the slope that needs it even more." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Sun Rock has wounded enough to keep you busy, so don't wait for me to ask." },
@@ -201,7 +201,7 @@ P:NPC {
         { text = "How would you use a rogue on Sun Rock, Maggran?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you blame all fire for the Charred Vale?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What beasts threaten Sun Rock, Maggran?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Will you take a warlock's help against the harpies?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Will you take my help against the harpies, whatever you've heard of me?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Sun Rock must stand against the Venture Company too, Maggran.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Sun Rock must need a healer, Maggran.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you hold the Light against me, Maggran?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -489,7 +489,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "I can't say for certain, but the Charred Vale burned when someone angered the fire spirits, and I've grown wary of anything that bargains with powers it can't see. A dead tree feeds the soil it falls on, and I'm not sure the things your magic kills feed anything." } },
       choices = {
-        { text = "Then I'll keep my craft well away from your garden.", next = "BACK", reply = "Thank you, and the shoots thank you too. I don't know what your power touches, but I'd rather not find out here.", fx = { align = { light = 1 } } },
+        { text = "Then I'll keep my work well away from your garden.", next = "BACK", reply = "Thank you, and the shoots thank you too. I don't know what your power touches, but I'd rather not find out here.", fx = { align = { light = 1 } } },
         { text = "Power is power, Tammra. Your shoots will survive it.", next = "BACK", reply = "Perhaps they will, but I've buried too many shoots to take that chance. Keep it away from my rows.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -541,7 +541,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You came up so quietly I nearly mistook you for the wind, and I'd thank you to walk that softly through my rows of seedlings." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "There's a warlock's chill about you, and I don't think the little shoots will like it. Stand a pace back from the rows, if you would, and I'll gladly talk with you all the same." },
+          text = "There's a chill about you, and I don't think the little shoots will like it. Stand a pace back from the rows, if you would, and I'll gladly talk with you all the same." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Mind your boots, please, because I've seedlings in rows you can barely see, and they've survived worse than you, but not by much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can see you've a feel for the land, so you'll know the beasts have been driven half mad by the burning." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I mend the ground and you mend people, and Sun Rock needs both." },
@@ -563,7 +563,7 @@ P:NPC {
         { text = "Could quiet feet be any use to your garden?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Nothing could grow back in the Charred Vale, surely, Tammra.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are the beasts returning to the burned land, Tammra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Does my magic really harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does what I carry really harm your plants?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can a priest help you mend the land, Tammra?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you fear a mage's fire, Tammra?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can the Light heal burned ground, Tammra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -887,7 +887,7 @@ P:NPC {
     },
     council = {
       lines = {
-        { id = "co_default", text = "You've a good memory and a loose tongue, warlock, and only one of those will serve you well. Keep the name of that place out of Maggran's hearing, and we'll get along." },
+        { id = "co_default", text = "You've a good memory and a loose tongue, and only one of those will serve you well. Keep the name of that place out of Maggran's hearing, and we'll get along." },
       },
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", reply = "Good, and I'll remember it. Maggran asks a great many questions for a tauren.", fx = { affinity = 2, align = { light = -1 } } },
@@ -1057,7 +1057,7 @@ P:NPC {
           text = "Dat other voice been with you since you were small, eh? Some witch doctors say send it back, some say make it work for you, and Jin'Zil say find out what it want before it find out what you want." },
       },
       choices = {
-        { text = "The loa had their chance. I'll use what answers.", next = "BACK", reply = "Dat be your choice, mon, and Jin'Zil won't stop you. But the loa remember, and dey wait a long time.", fx = { align = { light = -1 } } },
+        { text = "The loa had their chance. I'll use whatever answers.", next = "BACK", reply = "Dat be your choice, mon, and Jin'Zil won't stop you. But the loa remember, and dey wait a long time.", fx = { align = { light = -1 } } },
         { text = "I'll keep the voice on a short leash.", next = "BACK", reply = "Good, mon. Keep dat leash short, and keep a little salt in your pocket, just in case it start talkin' back.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1107,7 +1107,7 @@ P:NPC {
         { text = "What do the spirits tell you?", next = "spirits" },
         { text = "Something must have become of the elves in the cages.", next = "after", when = { questDone = TODO_QUEST("Jin'Zil's Forest Magic") } },
         { text = "The Echo Isles send their greetings, uncle.", next = "troll", when = { race = "Troll" } },
-        { text = "I hear another voice when I cast, uncle. Not the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
+        { text = "I hear another voice when I cast, uncle. It isn't the loa.", next = "warlock_j", when = { race = "Troll", class = "WARLOCK" } },
         { text = "Want an extra pair of hands at the pot, uncle?", next = "xpot", when = { origin = "troll_witch_doctor_apprentice" } },
         { text = "Who caught the elves for your cages, Jin'Zil?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is your magic so different from mine, Jin'Zil?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -1315,7 +1315,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll know the wind howling round this inn isn't angry, only talkative, and you can tell the other guests so." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit down, take your boots off, and tell me who you've been patching up, because the braves who come in here never tell me the whole story." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and you'll want a warm corner, I expect, though you could probably warm it yourself. Tell me who you've been fighting, and I'll find you a bed." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. Leave whatever you keep in that bag outside the door, please, because the rugs in here are old and they catch fire very easily." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Leave whatever you keep in that bag outside the door, please. It's twitching, and the rugs in here are old and catch fire very easily." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came in so quietly I nearly poured you a drink before I saw you. Weapons down, boots off, and keep your hands where my other guests can see them, if you please." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tired one, I'd wager. Put that axe down, take your boots off, and tell me who you've been fighting." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can tell me what's out in the hills, because I hear plenty but I never see it." },
@@ -1513,7 +1513,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound demon from a free one, so to the grove yours is only one more fire waiting to happen." } },
+      lines = { { id = "xlock_default", text = "The grove remembers the Burning Legion, little one, and the demons who walked through Ashenvale and Felwood and left them sick. A tree can't tell a bound thing from a free one, so to the grove yours is only one more fire waiting to happen." } },
       choices = {
         { text = "Then it stays bound, and far from your trees.", next = "BACK", reply = "Thank you, little one. The dryads would flee the grove if they caught its scent.", fx = { align = { light = 1 } } },
         { text = "The trees will have to learn to bear it.", next = "BACK", reply = "Trees learn slowly, little one, and they forget even slower. Keep it away from them, I ask you.", fx = { align = { light = -1 } } },
@@ -1610,7 +1610,7 @@ P:NPC {
         { text = "Do the trees really hold the arcane against me?", next = "xmage", when = { class = "MAGE" } },
         { text = "The grove might welcome a warrior, Keeper.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can I hunt in your forest, Keeper?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "What does the grove fear from my demon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What does the grove fear from what walks behind me?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What would you ask of a Forsaken paladin, Keeper?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do the fires in the vale trouble the spirits, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The vale's already burned, and I've no time for trees.", next = "END", reply = "Then go, little one, and may the road be kind to you. The grove will grow back without you, as it always has.", fx = { align = { light = -1 } } },
@@ -1843,7 +1843,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and they'll say your demon smells of it. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
+        { id = "xlock_default", text = "They'll mind, because the Talon Den guards a grove whose keepers remember the Burning Legion, and they'll say what follows you smells of it. Keep it out of the grove and away from the hippogryphs, and nobody will say a word, though they'll think it loudly." },
       },
       choices = {
         { text = "I'll keep it out of the grove, Faralia.", next = "BACK", reply = "Thank you. The druids will be grateful, though they'll never tell you so, and the hippogryphs will stop screaming.", fx = { align = { order = 1 } } },
@@ -1866,7 +1866,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The climb must have been easy for you, then, with a beast to scout the path ahead of you." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, up here on the peak! The climb must have been hard in that armour, so sit and rest before you go anywhere." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, come up to the Talon Den! The grove will be glad of you, and so will I, because the druids here are the only guests who ever stay for a second cup." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, up on the peak? The druids won't like it, but the kettle doesn't mind, so come in out of the cold." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Up on the peak, in this cold? The druids won't like whatever's lurking at your heel, but the kettle doesn't mind, so come in out of the wind." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up on the peak. The wind here is strong enough to carry a voice to the stars, so if the spirits ever answer you, tell them I've been counting." },
       },
       again = {
@@ -1884,7 +1884,7 @@ P:NPC {
         { text = "What beasts live up on the peak, Faralia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the path down the peak dangerous after dark?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The goblins below must trouble the Talon Den druids.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Will the druids mind a warlock on the peak?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will the druids mind someone like me on the peak?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the spirits up here answer you, Faralia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },

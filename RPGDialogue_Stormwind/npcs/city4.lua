@@ -79,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll serve where you put me, General.", next = "BACK", reply = "Good. Discipline on the wall is all I ask, and the gates are where they stay.", fx = { align = { order = 1 } } },
-        { text = "Your walls need what I bring, General, gates or not.", next = "BACK", reply = "It may, and I'll use it if the walls are breached. Until then, keep it outside my gates, warlock.", fx = { align = { order = -1 } } },
+        { text = "Your walls need what I bring, General, gates or not.", next = "BACK", reply = "It may, and I'll use it if the walls are breached. Until then, keep it outside my gates.", fx = { align = { order = -1 } } },
         { text = "Something else, General.", next = "BACK" },
       },
     },
@@ -152,7 +152,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of the Lamb's cellar about you. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
       },
       again = {
         { id = "h_again", text = "Something else, citizen? Ask away; it's a quiet watch." },
@@ -517,7 +517,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, pal, but at least you don't pretend otherwise, and Renzik respects honest merchandise." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, huh? Renzik knows your type, kid: you sit in a bush six hours waitin' for one shot, and Renzik respects a guy who knows what his time's worth." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in SI:7! Renzik's heard your people turn into cats and sneak about, which is a real valuable skill, so Renzik wants to know who's payin' you and how much." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees a warlock, pal, and Renzik wonders if the warlock knows SI:7 keeps a file on every one of 'em who comes up from the Lamb, paid for by the crown." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Renzik sees ash on your cuffs, pal, and Renzik wonders if you know SI:7 keeps a file on every one who comes up from the Lamb, paid for by the crown." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Renzik sees a dwarf with totems, and Renzik thinks a shaman might be worth somethin' to SI:7, if the shaman can keep quiet. Quiet's the expensive part, chum." },
       },
       again = {
@@ -715,7 +715,7 @@ P:NPC {
           text = "No spells in the throne room. The last mage who thought to show off for the young king spent a night in the guardroom." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the throne room. You'll keep whatever shape you walked in with, because a bear before the king is not something my guards are paid to handle." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll leave your companion at the doors of the Keep, and you'll keep your hands where my guards can see them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the cellar's smell on you. You'll leave whatever follows you at the doors of the Keep, and you'll keep your hands where my guards can see them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman in the throne room. Behave as though you know where you are standing, and keep your spirits outside the hall." },
       },
       again = {
@@ -932,7 +932,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting a loaf that doesn't crumble in a pack, and I've got just the one, baked hard enough to use as a shield." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be living on what you catch, I suppose, but take a loaf anyway; venison's lonely without bread." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be wanting something wholesome, I expect, because your people look at my sweet rolls as if they'd done something wrong." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Would your little friend like a roll? No? Well, you'll have one, then, because you look half-starved." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the look of someone who's been below the Lamb all night! Would your little friend like a roll? No? Well, you'll have one, then, because you look half-starved." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Here, have a roll. A shaman needs bread like anyone else. My left foot says rain's coming; maybe your spirits would agree." },
       },
       again = {

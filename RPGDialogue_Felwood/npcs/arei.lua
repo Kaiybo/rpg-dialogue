@@ -50,7 +50,7 @@ P:NPC {
         { text = "Where do you want to go?", next = "home" },
         { text = "What did the flute do to you?", next = "flute" },
         { text = "Can Felwood be healed?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "I carry fel, but I'll still lead you home.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I carry what burned this place, and I'll still lead you home.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Rest a while, Arei.", next = "END" },
       },
     },

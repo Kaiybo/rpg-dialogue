@@ -528,10 +528,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' that fel stuff? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
+      lines = { { id = "xlock_default", text = "Ye'd raise him, would ye, wi' whatever ye keep in that satchel? No, friend, I'll no' have Henze come back wearin' somethin' else's shadow, an' I'd rather he stayed dead than that." } },
       choices = {
         { text = "You're right. Some help costs more than it gives.", next = "BACK", reply = "Aye, it does, an' I'm glad ye see it. Henze would agree wi' me.", fx = { align = { light = 1 } } },
-        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer fel away from him.", fx = { align = { light = -1 } } },
+        { text = "Dead is dead, dwarf, and I'd bring him back any way I could.", next = "BACK", reply = "No' Henze, ye won't, no' while I'm breathin'. Keep yer cellar magic away from him.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -698,7 +698,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
+        { id = "xlock_default", text = "Frighten? They'd climb all over that little creature of yours and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
       },
       choices = {
         { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", reply = "Thank you, love. They've seen far too much already.", fx = { align = { light = 1 } } },
@@ -778,7 +778,7 @@ P:NPC {
           text = "A mage! Oh, the children would go wild for a few sparks, if you've a minute, so long as nothing sets the curtains alight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The boys will want to see your sword, and I'll thank you not to let them hold it, however nicely they ask." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't change into anything in front of the children, love, because I'll never get them to sleep again after a bear." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, near the orphanage. Keep that creature close, please, the little ones will want to pet it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a smell of struck matches about you, love, and something small keeping close. Keep that creature near you, please, the little ones will want to pet it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Well, whatever you do, eat something first. Thirty children, and not one of them knows what a spirit is." },
       },
       again = {
@@ -922,7 +922,7 @@ P:NPC {
         { id = "xlock_default", text = "I don't think so, she's hiding in my coat now, and she only does that when the guards' dogs go past. Dad says demons are bad and people who keep them are worse, but you don't look worse, you look tired, and maybe that's different." },
       },
       choices = {
-        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when demons go by.", fx = { align = { light = 1 } } },
+        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", reply = "All right. I'll keep her in my coat when things like that go by.", fx = { align = { light = 1 } } },
         { text = "Your dad doesn't know everything, Timmy. Grown-ups rarely do.", next = "BACK", reply = "He doesn't! He doesn't know about cats at all. You're right.", fx = { align = { light = -1 } } },
         { text = "Something else, Timmy.", next = "BACK" },
       },
@@ -1290,7 +1290,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, warlock, which is either a good sign or a very bad one." } },
+      lines = { { id = "warlock_l", text = "Sometimes, if the person wants it mended, and usually they come to my door at night when they've finally decided they do. You're asking in daylight, child, which is either a good sign or a very bad one." } },
       choices = {
         { text = "I'm asking for someone else.", next = "warlock2" },
         { text = "I don't want mending. I want to know my options.", next = "BACK", reply = "Then you'll have them, and the Light will be one of them. Come back when you want it.", fx = { align = { light = -1 } } },
@@ -1712,7 +1712,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
+        { id = "xlock_default", text = "Does it hurt, for a start, and does the thing you bind talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
       },
       choices = {
         { text = "It hurts, Brother, and what whispers back rarely tells the truth.", next = "BACK", reply = "Then I'll pray for you twice, and I'll stop asking. That's terrible.", fx = { align = { light = 1 } } },
@@ -1788,7 +1788,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Walk with me; I think better on my feet, and I suspect you do too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, walking my hall. Keep up, then, because I don't stand still, and I'm told you lot are used to following things that move." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've a thousand questions, and I promise to ask only nine hundred of them, so tell me first whether the changing hurts." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the eastern hall! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've ink on your fingers that isn't ink, and the candles lean away from you! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, I have questions. Do the spirits answer in words, or is it more of a feeling? Do they ever argue?" },
       },
       again = { { id = "h_again", text = "Keep walking while you ask. What else?" } },

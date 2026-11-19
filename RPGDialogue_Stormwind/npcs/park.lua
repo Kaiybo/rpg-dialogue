@@ -413,7 +413,7 @@ P:NPC {
           text = "A rogue, so I'll assume you know your way into places that aren't yours. I may have work for you one day, though I'd rather not admit it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You walk past the herbs as if they were nothing, as warriors always do, and yet you'll be grateful for them when you bleed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then you've walked through more of the world than most who come to this Park, and you'll know how to look at what grows underfoot." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something cold walks with you into my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, which is an interruption, but perhaps a useful one. Do your spirits know where plants grow best, or only where the stone is loudest?" },
       },
       again = {

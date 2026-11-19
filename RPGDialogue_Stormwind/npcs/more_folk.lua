@@ -547,8 +547,8 @@ P:NPC {
       big = true,
       lines = { { id = "wl_default", text = "We both draw power from somewhere other than ourselves, true, but I know where mine goes when I am done with it. Yours has a will of its own and a long memory." } },
       choices = {
-        { text = "What serves me stays on a short leash, Sorcerer.", next = "BACK", reply = "Every warlock says so, until the leash snaps. I hope yours is stronger than most.", fx = { align = { order = 1 } } },
-        { text = "Power is power. Your wards are just politer chains.", next = "BACK", reply = "Then be glad of my chains, warlock, because they're what keeps your kind welcome in this city.", fx = { align = { order = -1 } } },
+        { text = "What serves me stays on a short leash, Sorcerer.", next = "BACK", reply = "Every one of your kind says so, until the leash snaps. I hope yours is stronger than most.", fx = { align = { order = 1 } } },
+        { text = "Power is power. Your wards are just politer chains.", next = "BACK", reply = "Then be glad of my chains, because they're what keeps your kind welcome in this city.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

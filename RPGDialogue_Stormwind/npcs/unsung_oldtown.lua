@@ -46,9 +46,9 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Only as something for your demon to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet the warlock who taught one to swing an axe." } },
+      lines = { { id = "xlock_default", text = "Only as something for that big friend of yours to hide behind, I'd think. I've heard the voidwalkers carry their own fists, and I've no wish to meet whoever taught one to swing an axe." } },
       choices = {
-        { text = "I'll keep my large, quiet friend away from your axes.", next = "BACK", reply = "Thank you kindly. I've seen what a voidwalker does to a display rack.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my large, quiet friend away from your axes.", next = "BACK", reply = "Thank you kindly. I've seen what one of those does to a display rack.", fx = { align = { light = 1 } } },
         { text = "My friend with an axe would be something to see, Gerik.", next = "BACK", reply = "It would, and I'd sell it the axe, and then I'd lock the door behind it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -322,7 +322,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both, I've noticed. Just keep that thing of yours away from my hides, because the last imp that came in here chewed through a whole stack of light leather before its master noticed." },
+        { id = "xlock_default", text = "As much use as to anyone with a knife and a strong stomach, and your sort tend to have both, I've noticed. Just keep that thing of yours away from my hides, because the last little horned beast that came in here chewed through a whole stack of light leather before its master noticed." },
       },
       choices = {
         { text = "My companion stays outside, then. Teach me properly.", next = "BACK", reply = "Good. Pick up a knife, and let's see what you've got.", fx = { align = { order = 1 } } },
@@ -408,7 +408,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be skinning nothing, I'd wager, and you'll leave your kills to rot on the road, which is a waste I can't abide." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Finally, someone who might actually be serious about skinning. Don't waste my time and I won't waste yours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the skinning table. I'll not ask you to watch if you'd rather not, but I won't stop working for you either." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If you're here to skin something you summoned, the answer is no, because it doesn't leave a hide, it leaves a smell." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Smells like the Lamb's cellar in here, suddenly. If you're here to skin something you called up, the answer is no, because it doesn't leave a hide, it leaves a smell." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? I've no time for tourists, so if you're here to learn, then learn; if not, go and talk to your spirits elsewhere." },
       },
       again = {
@@ -567,7 +567,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll want soft leather and dark dye, and plenty of both. I sell them at the same price to everyone, thieves included." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. I've dye for every colour except the one your demons leave on a rug, so mind where it stands." },
+          text = "There's a sulphur smell on you. I've dye for every colour except the one your friends leave on a rug, so mind where yours stands." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need leather for your grips and straps, and I'll sell you the dye, the salt and the thread at a fair price." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing hides to Simon, I hope, and you'll want salt to keep them on the road; I've got plenty." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at the Protective Hide. Thread and dye I have, and salt, and the price is the price." },
@@ -776,7 +776,7 @@ P:NPC {
         { id = "xlock_default", text = "A sturdy one with a felt lining, so the shards don't clink and give you away, and a strap long enough that the bag sits at your hip and not your back. Your sort always come back for a second bag inside a month, because you underestimate how much you'll gather, and I don't mind because it's good business." },
       },
       choices = {
-        { text = "A lined bag, then, Alyssa. I'll take your advice.", next = "BACK", reply = "Good choice. Nobody likes a warlock who rattles.", fx = { align = { order = 1 } } },
+        { text = "A lined bag, then, Alyssa. I'll take your advice.", next = "BACK", reply = "Good choice. Nobody likes a customer who rattles.", fx = { align = { order = 1 } } },
         { text = "I'll carry what I like, however it rattles.", next = "BACK", reply = "Then you'll be heard a mile off. Your choice, love.", fx = { align = { order = -1 } } },
         { text = "Something else, Alyssa.", next = "BACK" },
       },
@@ -859,7 +859,7 @@ P:NPC {
           text = "A mage, and you'll need room for reagents, scrolls and three days of conjured bread, I expect. Mages always pack like they're leaving forever." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a bag big enough for bandages, rations and whatever you take off the gnolls, and I've got just the one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and carrying nothing, as usual for your people. I'll not let that stand, because even a bear needs a bag for the walk home." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want a soul bag, I expect, and do line it, love, or the shards will rattle all the way to Duskwood." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Shards in your pocket, love? You'll want a proper bag, I expect, and do line it, or they'll rattle all the way to Duskwood." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Totems are heavy, so you'll need a big bag, trust me." },
       },
       again = {
@@ -1026,7 +1026,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I've a recipe that wants a very steady flame, and I can't get it right on a stove to save my life, so you might be the one to try it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock! Does your imp eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
+          text = "Is that a little creature at your heel? Does it eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want recipes for the camp, I'd think, because the Barracks cooks don't teach anyone anything except how to suffer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've recipes for every kind of game in the kingdom, from Elwynn boar to Westfall chicken to Redridge goretusk." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've been dying to ask one of your people about moonberry juice, because nobody in Stormwind can make it properly." },
@@ -1044,7 +1044,7 @@ P:NPC {
         { text = "Some recipe must need a mage's flame.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "A warrior on the march needs simple food, Kendor.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Which game makes the best dish, Kendor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Why would you want to cook for a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would you want to cook for my little companion, Kendor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there really a secret Cathedral bread recipe, Kendor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What did the Silver Hand eat in the old days, Kendor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why can't anyone in Stormwind make moonberry juice, Kendor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },

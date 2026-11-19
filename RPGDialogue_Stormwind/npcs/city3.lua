@@ -141,7 +141,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the garden. Do try not to trample the hedges; the House of Nobles takes its gardens more seriously than its soldiers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Royal Library. How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Someone from beneath the Lamb, in the Royal Library? How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How novel. Ironforge sends us all sorts these days, and I suppose some of them must be useful." },
       },
       again = {
@@ -298,7 +298,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and your imp's got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
+        { id = "xlock_default", text = "I'd pick a fight with a door if it looked at me wrong, and that wee thing o' yours has got a very rude face. Mind, I'd not swing at you, because I've seen what one of your lot did to a lad in the Pig and Whistle, and he was green for a week." },
       },
       choices = {
         { text = "Leave my little friend be, Dashel, and we'll get on fine.", next = "BACK", reply = "Done, so long as it stops makin' faces at me. Deal's a deal, friend.", fx = { align = { honor = 1 } } },
@@ -609,7 +609,7 @@ P:NPC {
           text = "A mage! Ye'll no' want my armour, then, an' I'll no' be offended, much." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, wantin' armour? Mail rattles in the bushes, ye ken, so I'll fit ye somethin' that sits quiet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've never armoured one o' yer kind, since ye keep changin' shape on me, but I'd like tae try." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Robes an' a demon, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Black robes an' somethin' small hidin' behind 'em, an' no use for my shields, though I'll mend a buckle if ye ask nicely." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My grandfather told stories o' an old Wildhammer who spoke tae the winds, but I never thought I'd see one o' ours from Ironforge doin' it." },
       },
       again = {
@@ -756,10 +756,10 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, his imp set the straw alight in three cells at once. We hold warlocks in the deepest cells now, chained and gagged, and I still don't sleep." } },
+      lines = { { id = "xlock_default", text = "We did: a thief from the Lamb's crowd, and when we took him, the thing he kept set the straw alight in three cells at once. We hold his kind in the deepest cells now, chained and gagged, and I still don't sleep." } },
       choices = {
         { text = "Chains and gags are wise, Warden. Better safe than burned.", next = "BACK", reply = "Better safe than burned, exactly. I've had enough fire for one career.", fx = { align = { order = 1 } } },
-        { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen an imp loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },
+        { text = "Treat them like any other prisoner, Warden. Chains breed fury.", next = "BACK", reply = "Then you've never seen something like that loose in a cell block, and I hope you never do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -819,7 +819,7 @@ P:NPC {
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Please don't summon anything in here. I've had a warlock in the cells before, and the thing he called up didn't care which side of the bars it was on." },
+          text = "Please don't call up anything in here. I've had one of the Lamb's crowd in the cells before, and the thing he brought didn't care which side of the bars it was on." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to sign on with the Stockade guard, I've a place for anyone who can stand a long shift and a bad smell." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't bring the beast near the Stockade gate; the prisoners bang on the bars at anything with four legs." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Stockade. The prisoners will want to see you turn into something, so please don't; they've had trouble enough this season." },

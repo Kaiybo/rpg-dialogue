@@ -5477,7 +5477,7 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Well, a visitor. Keep your voice down and your hands where the imp can see them, he startles." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Either you like the company or you need a grimoire, and nobody likes the company." },
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, good. Which of your servants is giving you trouble? It's always one of them." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, good. Which of your servants is testing its chains? It's always one of them." },
   },
   notice = {
     { id = "n_human", cat = "race", when = { race = "Human" },

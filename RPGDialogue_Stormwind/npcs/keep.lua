@@ -393,7 +393,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, how splendid. I've a carved kaldorei bowl in my collection that nobody can date, and I'd simply love your opinion on it." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My, you carry a chill into the room. How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! How exotic. Do your spirits know where treasure lies? My collection lacks something earthy and old." },
       },
       again = {

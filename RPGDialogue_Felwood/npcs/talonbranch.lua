@@ -131,7 +131,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, at the last clean moonwell. Let your beast drink, if it will." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock, at the last clean moonwell in Felwood. Keep your fire to yourself, please." },
+          text = "The last clean moonwell in Felwood rippled when you came near it. Keep your fire to yourself, please." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You're welcome to the shade, but don't draw on the moonwell for your spells; it has little enough to spare." },
         { id = "h_default", text = "I am Golhine, and I teach the druids who come this far north, though few do, and fewer stay once they've smelled the river. I remember Felwood when it was still Ashenvale, and I stay for that." },

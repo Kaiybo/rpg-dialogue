@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, so you'll not want my plate, because it clanks louder than a cathedral bell. Theresa might have something quieter for you." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock in the Cathedral district. You're within the law, and I'll serve you within the law, but the paladins next door will look at you sideways." },
+          text = "You've the Lamb's smoke about you, in the Cathedral district. You're within the law, and I'll serve you within the law, but the paladins next door will look at you sideways." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at the plate counter! You'll be wanting mail when you're seasoned, I suppose, and I'll have something waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Righteous Plates. You'll not be needing my plate, I imagine, because a bear in a breastplate would look very silly indeed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at Righteous Plates? Theresa's robes are at the other counter, though I'll grant some of you prefer a little mail under the silk." },
@@ -238,7 +238,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Because the last warlock who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." } },
+      lines = { { id = "xlock_default", text = "Because the last customer from the Lamb who bought one from me wore it to a sermon in the Cathedral, and one of the Archbishop's deacons nearly fainted. I sell to anyone with honest coin, but I've learned to keep the shelves tidy and the colours apart." } },
       choices = {
         { text = "Wearing it to a sermon was cruel. I'd never do that.", next = "BACK", reply = "Thank you, dear. The deacon has never quite forgiven me, but I appreciate the thought.", fx = { align = { light = 1 } } },
         { text = "The deacon's fright was his own affair. It's only a robe.", next = "BACK", reply = "It is only a robe, dear, but it was my robe, and the deacon was my customer. Do be careful.", fx = { align = { light = -1 } } },
@@ -283,7 +283,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! I sell more robes to the Sanctum than to the Cathedral these days, because priests mend theirs and mages simply burn through them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "A warlock. You'll want something dark, I suppose, and I've a few in black, though I keep them at the back so the clergy don't fret." },
+          text = "From the Lamb's end of town, are you? You'll want something dark, I suppose, and I've a few in black, though I keep them at the back so the clergy don't fret." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the robe rack! Are you buying for a priest, perhaps? Agustus has the plate on the other side, love." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid robes aren't much use in a bramble patch, but I've a cloak or two that might suit." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've a priestess's patience in your face, I think, and though your goddess isn't mine, I hope you'll take a blessing kindly all the same." },
@@ -407,7 +407,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Fear 'em? They'd tear 'em apart if I let 'em, for an animal knows an unnatural thing when it smells one. I'll not let 'em, so long as ye keep yer friend at a polite distance from my stalls." } },
       choices = {
         { text = "I'll keep it well away. Your beasts shouldn't suffer for it.", next = "BACK", reply = "Good. Keep it out o' sight an' smell, an' we'll get along.", fx = { align = { light = 1 } } },
-        { text = "What follows me could take your whole stable, Jenova.", next = "BACK", reply = "It could try, an' then ye'd have tae explain tae me where yer demon went. I'd keep it close.", fx = { align = { light = -1 } } },
+        { text = "What follows me could take your whole stable, Jenova.", next = "BACK", reply = "It could try, an' then ye'd have tae explain tae me where yer wee beastie went. I'd keep it close.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -629,7 +629,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I have just the thing for you: a gnomish shield attachment that goes boom when you get hit. Oh, it's not finished, but it does go boom!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have you ever thought about a gnomish trap? They go snap and then boom, which is twice as effective as just snap!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't look at my blasting powder like that, because I only ever use it on rocks, and the rocks never complain." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you know, an imp is technically a combustion engine with legs? I've always wanted to measure one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a little creature hiding in your shadow? Do you know, the small horned sort are technically combustion engines with legs? I've always wanted to measure one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Can your elements make things explode? Because I have parts that explode beautifully." },
       },
       again = {

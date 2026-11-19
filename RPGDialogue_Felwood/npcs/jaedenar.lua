@@ -45,7 +45,7 @@ P:NPC {
         { text = "Why make your home in Felwood?", next = "jaedenar" },
         { text = "You saw through the disguise. Why not kill me?", next = "disguise" },
         { text = "You held a Sentinel prisoner here.", next = "arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") } },
-        { text = "I want a dreadsteed. What does it cost?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "I want a dreadsteed. Tell me what it costs, all of it.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "This was a Kaldorei place once.", next = "xnelf", when = { race = "NightElf" } },
         { text = "The Light will burn this hold out one day.", next = "xlight", when = { class = "PALADIN" } },
         { text = "Show me the stardust.", next = "BUSINESS" },

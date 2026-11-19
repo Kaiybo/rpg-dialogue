@@ -1180,7 +1180,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down, love; you've the look of someone who's walked from Goldshire in full mail." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wipe your boots, love, and if that's a fresh pelt you're carrying, leave it with the stable boy and not on my bar." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Gilded Rose, love! I've had your people stay before, and they always ask for the window open and the fire out, which puts the other guests in a fright." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, love? You'll want a room on the back side, then, away from the guests who've just come from the Cathedral." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "From the Lamb, are you, love? You'll want a room on the back side, then, away from the guests who've just come from the Cathedral." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love. A shaman! Do your spirits drink? Because the Gilded Rose has a fine ale and no rule against anything that pays." },
       },
       again = {

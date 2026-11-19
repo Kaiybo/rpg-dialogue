@@ -224,7 +224,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Each of those warlocks was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the thought didn't frighten me. Each of those dark men was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
       choices = {
         { text = "I'll never become that, Bishop. I'm far more careful than he was.", next = "warlock2", fx = { align = { light = 1 } } },
         { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
@@ -367,7 +367,7 @@ P:NPC {
           text = "A mage! You'll know about stresses and strains, surely, since the book says iron and the arcane both crack along the same lines, or at least my book does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Tell me, do you fletch your own arrows? I've been reading about the tempering of arrowheads for my sermon, and I've lost track of the metaphor entirely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'd make a fine chapter, because a tree endures the winter without a word of complaint, and that's fortitude if anything is. May I borrow you for my sermon?" },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Splendid, I've been looking for an example of fortitude gone astray, if you'd stand still a moment." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's cellar about you, friend, and a will like iron. Splendid, I've been looking for an example of fortitude gone astray, if you'd stand still a moment." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf! And a shaman! You may be just the illustration my sermon on the fortitude of the spirit has been lacking." },
       },
       again = {
@@ -814,7 +814,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You walk like the Barracks men, all stompy, and the priests always tell them to walk softer in here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? You've got a bow, so you must be, unless you stole it, but you don't look like a thief." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a druid, aren't you? I can tell by the leaves on your boots, and the Bishop says nobody else in Stormwind ever brings leaves in." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! Are you a warlock? I've never met one, not properly, only seen them going down to the Lamb at night." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! You smell like the stairs down to the Lamb. I've never met anyone from there, not properly, only seen them going down at night." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You're a shaman? I won't tell anyone. I'm very good at secrets. Mostly very good. Are you on a secret errand too?" },
       },
       again = {
@@ -915,7 +915,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows a warlock home." },
+    { id = "g_prej", when = { prejudiced = true }, text = "You again, and I'll thank you to stay on the step. I've forty children in this house, and not one of them needs to see what follows you home." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Come in, then, and mind the boots by the door. I was wrong about you, I think, though I'll still count the children after you've gone." },
     { id = "g_door", text = "Mind the step; small feet have worn it crooked." },
     { id = "g_week", when = { questActive = TODO_QUEST("Children's Week") }, text = "Take good care of your little one, {class}. They'll remember this week for years." },
@@ -1051,7 +1051,7 @@ P:NPC {
           text = "A mage! The older children have been begging for someone to tell them what the Mage Quarter does all day, and I've run out of ways to say I don't know." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Many of the children here are the sons and daughters of soldiers, {class}, and they will watch you very closely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The children will want to see your companion, {class}, and I'll ask you to keep it calm; some of them have had frights enough." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at the orphanage door. I'll ask you plainly to keep whatever you carry well away from my children." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've the Lamb's smoke on your coat, at the orphanage door. I'll ask you plainly to keep whatever you carry well away from my children." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've children here whose fathers died at orc hands, and some of them will hear spirit-talk and think of axes. Speak gently, please." },
       },
       again = {

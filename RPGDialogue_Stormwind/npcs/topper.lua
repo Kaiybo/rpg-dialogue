@@ -77,7 +77,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, walking by. I've watched a thousand soldiers go past this spot, and you lot always walk a little straighter going out than coming home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You've the farm look about you, a bit, and I like that. Most of the city lot couldn't find a rabbit in a hutch." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a kind face too. I had a field once, friend, and I'd have given anything for someone who could make the wheat come up in a dry year." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, a warlock, with a generous face like all the rest. Spare a copper for a farmer, and I'll not ask what's following you about." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ah, someone from the Lamb, with a generous face like all the rest. Spare a copper for a farmer, and I'll not ask what's following you about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A generous face, and a shaman too! Spare a coin for an old farmer? The spirits must favour a giving heart." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf, and you've come all the way down the tram to see me! I'm touched, friend, I'm truly touched, and I'll be more touched if you've a copper about you." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Well, hello down there! Mind the canal, little friend, because it's deeper than it looks and the guards fish things out of it slowly." },

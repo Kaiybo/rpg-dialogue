@@ -374,8 +374,8 @@ P:NPC {
         { id = "xl_default", text = "I don't trust what you bargain with, which isn't quite the same thing. You may be a perfectly decent sort, {class}, but every warlock I've known believed that right up to the end." },
       },
       choices = {
-        { text = "I hold the leash, Archmage. What's on the other end obeys.", next = "BACK", reply = "Every warlock says so, and every one of them was right until the day he wasn't. I'll take you at your word, for now.", fx = { align = { light = -1 } } },
-        { text = "You're right to be wary. I watch myself.", next = "BACK", reply = "That's the first sensible thing a warlock has said to me in this Sanctum. Keep watching, {class}, and I'll keep watching you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I hold the leash, Archmage. What's on the other end obeys.", next = "BACK", reply = "Every one who walks your road says so, and every one of them was right until the day he wasn't. I'll take you at your word, for now.", fx = { align = { light = -1 } } },
+        { text = "You're right to be wary. I watch myself.", next = "BACK", reply = "That's the first sensible thing anyone from the Lamb has said to me in this Sanctum. Keep watching, {class}, and I'll keep watching you.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
   },
