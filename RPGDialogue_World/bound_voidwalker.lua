@@ -13,29 +13,29 @@ P:Pool {
   id = "my_voidwalker", role = "my_voidwalker",
   greetings = {
     { id = "g_default", text = "Master, I am here, as I am always here." },
-    { id = "g_default2", text = "You turned toward me, master, so I turned toward you. What do you need of me?" },
-    { id = "g_first", when = { metBefore = false }, text = "You are speaking to me, master, and not only giving orders. I did not know that was something we did." },
-    { id = "g_often", when = { timesTalked = { min = 10 } }, text = "You speak to me often now, master. I have begun to keep your words, the way you keep your shards." },
+    { id = "g_default2", text = "You turned toward me, so I turned toward you. What do you need, master?" },
+    { id = "g_first", when = { metBefore = false }, text = "You are speaking to me, and not only giving orders. I did not know that was something we did." },
+    { id = "g_often", when = { timesTalked = { min = 10 } }, text = "You speak to me often now. I have begun to keep your words, the way you keep your shards." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It is night, master, and the dark is thicker now. I am a little larger in it, if you had not noticed." },
-    { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "The sun is coming up, master. I will stand between you and it if you wish, though I do not think it means you any harm." },
+    { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "The sun is coming up. I will stand between you and it if you wish, though I do not think it means you any harm." },
     { id = "g_dusk", when = { timeOfDay = "dusk" }, text = "The light is going out of the sky, master, the way it always does. I like this part of the day best, if I like anything." },
-    { id = "g_deaths", when = { deaths = { min = 10 } }, text = "You have died many times, master, and each time I was waiting at the edge of it before you arrived. I am beginning to know the way there." },
+    { id = "g_deaths", when = { deaths = { min = 10 } }, text = "You have died many times, and each time I was waiting at the edge of it before you arrived. I am beginning to know the way there." },
     { id = "g_party", when = { party = true }, text = "There are others with you, master. I have counted them, and I have placed myself where the blows will come from." },
     { id = "g_drunk", when = { drunk = { min = 2 } }, text = "You are swaying, master, so I will lean the other way. Between the two of us we will stay upright." },
-    { id = "g_low", when = { maxLevel = 15 }, text = "Master, you are still small, and so I am still enough. Speak, and I will listen." },
-    { id = "g_high", when = { minLevel = 50 }, text = "Master, you have grown heavy with power, and the dark has begun to notice you. I noticed you first." },
+    { id = "g_low", when = { maxLevel = 15 }, text = "You are still small, master, and so I am still enough. Speak, and I will listen." },
+    { id = "g_high", when = { minLevel = 50 }, text = "You have grown heavy with power, master, and the things in the Nether have begun to notice you. I noticed you first." },
     { id = "g_cold", when = { race = "Scourge" }, text = "Master, you are cold, and I am cold, so we do not trouble each other. That is a kind of comfort, I think." },
-    { id = "g_poor", when = { money = { max = 100 } }, text = "Your purse makes no sound when you walk, master. I do not know what gold is for, only that you count it, and today there is nothing to count." },
+    { id = "g_poor", when = { money = { max = 100 } }, text = "Your purse makes no sound when you walk. I do not know what gold is for, only that you count it, and today there is nothing to count." },
   },
   notice = {
     { id = "n_party_holy", cat = "party", when = { party = { class = { "PRIEST", "PALADIN" } } },
       text = "Your {companion} keeps a hand near the Light whenever I move, master. I do not blame them, and I stand on the side of you that is furthest from them." },
     { id = "n_party_lock", cat = "party", when = { party = { class = "WARLOCK" } },
-      text = "There is another binder among your companions, master, and another chain in the air. Theirs is held more loosely than yours, I think." },
+      text = "There is another binder among your companions, and another chain in the air. Theirs is held more loosely than yours, I think." },
     { id = "n_drunk", cat = "drunk", when = { drunk = { min = 3 } },
       text = "You have drunk enough that the dark is very close to you now, master. If you fall, I will be under you." },
     { id = "n_death", cat = "death", when = { daysSinceDeath = { max = 1 } },
-      text = "You were dead a little while ago, master, and now you are not. I waited, which is what I do." },
+      text = "You were dead a little while ago, and now you are not. I waited, which is what I do." },
   },
   tier = "quest",
   start = "hello",
@@ -44,17 +44,17 @@ P:Pool {
       narr = "The voidwalker drifts a little nearer, and the air around you cools, as if a door has opened somewhere you cannot see.",
       lines = {
         { id = "h_default", text = "I am listening, master. I am always listening, but now you know it, and so it is a different kind of listening." },
-        { id = "h_default2", text = "Speak, master, or say nothing, and I will wait. Waiting is not a hardship for me, and I have done a great deal of it." },
-        { id = "h_quiet", when = { chance = 0.3 }, narr = "For a long moment it says nothing at all, and the shackles on its arms hang perfectly still.", text = "Forgive me, master, I was counting the shadows on this road. There are more of them than there were this morning." },
-        { id = "h_low", when = { maxLevel = 19 }, text = "You bound me not long ago, master, and you still watch me the way one watches a fire that might spread. You do not need to, but I understand it." },
-        { id = "h_high", when = { minLevel = 50 }, text = "We have walked a long way together, master, and you have killed a great many things on it. I have been struck by most of them, and I remember each one." },
+        { id = "h_default2", text = "Speak or say nothing, and I will wait. Waiting is not a hardship for me, and I have done a great deal of it." },
+        { id = "h_quiet", when = { chance = 0.3 }, narr = "For a long moment it says nothing at all, and the shackles on its arms hang perfectly still.", text = "Forgive me, master. I was counting the shadows on this road, and there are more of them than there were this morning." },
+        { id = "h_low", when = { maxLevel = 19 }, text = "You bound me not long ago, and you still watch me the way one watches a fire that might spread. You do not need to, but I understand it." },
+        { id = "h_high", when = { minLevel = 50 }, text = "We have walked a long way together, and you have killed a great many things along it. I have been struck by most of them, and I remember each one." },
         { id = "h_orc", when = { race = "Orc" }, text = "Master, your people have bound my kind for longer than any of the others. You carry it in the way you hold the chain, as if it were heavy and familiar both." },
         { id = "h_scourge", when = { race = "Scourge" }, text = "Master, you have been dead, and I have never been alive, and so of all the warlocks I could serve, I think you understand me best." },
-        { id = "h_human", when = { race = "Human" }, text = "Master, your people's kingdom would hang you for keeping me, and still you keep me. I have thought about that a great deal." },
+        { id = "h_human", when = { race = "Human" }, text = "Master, your people's kingdom would hang you for keeping me, and still you keep me. I have thought about that for a long time." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "Master, you are very small to hold so large a chain, and yet you hold it more steadily than most. I have stopped being surprised by it." },
       },
       again = {
-        { id = "a_1", text = "I am still here, master. What else?" },
+        { id = "a_1", text = "I am still here, master. What else do you need?" },
         { id = "a_2", narr = "It settles back to its post at your shoulder, and the cold settles with it.", text = "There is more you wish to say, master. I can feel it in the way you are standing." },
         { id = "a_3", text = "Ask, master. There is nothing I would keep from you." },
       },
@@ -92,9 +92,9 @@ P:Pool {
     ---------------------------------------------------------------------------
     orders = {
       lines = {
-        { id = "o_default", text = "I am ready, master. Tell me where to stand and who to stand against, and it will be done before you have finished thinking it." },
+        { id = "o_default", text = "I am ready, master. Tell me where to stand and who to stand against, and I will be there." },
         { id = "o_low", when = { maxLevel = 15 }, text = "Give your orders, master. You still say them aloud, as if I might not hear you think them, but I hear you either way." },
-        { id = "o_high", when = { minLevel = 50 }, text = "Give your orders, master, though after all these roads you hardly need to. I know where you want me before you know it yourself." },
+        { id = "o_high", when = { minLevel = 50 }, text = "Give your orders, though after all these roads you hardly need to. I am usually where you want me before you have decided it." },
       },
       choices = {
         { text = "Nothing touches me. Everything that comes, you take.", next = "orders_hold" },
@@ -106,19 +106,19 @@ P:Pool {
     orders_hold = {
       narr = "It lowers its great shoulders and spreads its shackled arms, and the space in front of you seems to fill up with nothing.",
       lines = {
-        { id = "oh_default", text = "Then nothing will touch you, master, for as long as there is anything left of me. When there is nothing left of me, you will have a moment, and you should use it well." },
+        { id = "oh_default", text = "Then nothing will touch you while there is anything left of me. When there is nothing left of me, you will have a moment, and you should use it well." },
         { id = "oh_party", when = { party = true }, text = "Then nothing will touch you, master, though your companions may have to look after themselves. I was bound to one body, and it is yours." },
       },
       choices = {
         { text = "Good. A shield doesn't need to think.", next = "BACK", reply = "No, master, it does not, and I am glad of it. Thinking would only slow me down, and the blow arrives either way.", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
         { text = "Guard my companions too. They're under my protection.", next = "BACK", when = { party = true }, reply = "If they are yours, master, then they are mine to stand in front of. I will make myself wider.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If you're about to fall, fall back. I'd rather keep you.", next = "BACK", reply = "You would rather keep me, master. I will think about that while the next thing hits me.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If you're about to fall, fall back. I'd rather keep you.", next = "BACK", reply = "You would rather keep me. I will think about that while the next thing hits me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     orders_drain = {
       lines = {
-        { id = "od_default", text = "I will torment them, master, and they will forget you are there. It is not difficult; to most creatures I am the loudest thing in the world, even when I say nothing." },
+        { id = "od_default", text = "I will torment them, and they will forget you are there. It is not difficult, because to most creatures I am the loudest thing in the world, even when I say nothing." },
         { id = "od_high", when = { minLevel = 40 }, text = "I will hold them, master, and you will drink them dry, as we have done a thousand times. I have never asked what it tastes like, and I am not asking now." },
       },
       choices = {
@@ -129,7 +129,7 @@ P:Pool {
     orders_torment = {
       narr = "Something moves deep in its body, like a stone sinking through dark water.",
       lines = {
-        { id = "ot_default", text = "I open a little of what I am toward them, master, and they look into it, and they cannot look away. They do not see the void, only that something is missing, and they come to find out what." },
+        { id = "ot_default", text = "I open a little of the emptiness in me toward them, and they look into it, and they cannot look away. They do not see what it is, only that something is missing, and they come closer to find it." },
       },
       choices = {
         { text = "That's a cruel thing to do to a living mind.", next = "BACK", reply = "Perhaps it is, master. I do not know what cruelty is shaped like, but you do, and I will remember that you said it.", fx = { align = { light = 1 } } },
@@ -155,7 +155,7 @@ P:Pool {
     praise = {
       narr = "It goes very still, the way it does when it is struck, though nothing has struck it.",
       lines = {
-        { id = "pr_default", text = "Did I, master? I stood where you told me and I did not fall over. I do not know how to do it badly, so I am not sure how to do it well." },
+        { id = "pr_default", text = "Did I? I stood where you told me and I did not fall. I do not know how to do it badly, so I am not sure how to do it well." },
         { id = "pr_often", when = { timesTalked = { min = 5 } }, text = "You have said that before, master, and each time I have kept it somewhere inside me. I do not know where, because inside me there is nothing, but I have found room." },
       },
       choices = {
@@ -170,15 +170,15 @@ P:Pool {
       },
       choices = {
         { text = "Nothing. Kindness doesn't need paying back.", next = "BACK", reply = "Then it is a strange coin, master, and I will hold it carefully until I understand what it buys.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Loyalty. That's what praise buys from a servant.", next = "BACK", reply = "Then you have overpaid, master, because you had my loyalty already. I will not tell the imp, in case he asks for change.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Loyalty. That's what praise buys from a servant.", next = "BACK", reply = "Then you have paid twice, master, because you had my loyalty already. I will keep the second payment with the first.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     scold = {
       narr = "The voidwalker bows its great head, slowly, until its shackles touch the ground.",
       lines = {
-        { id = "sc_default", text = "I was slow, master, and something reached you that should have reached me. I am sorry for it, though I do not think sorry changes anything that has already happened." },
-        { id = "sc_deaths", when = { deaths = { min = 5 } }, text = "You have died more than once while I stood nearby, master, and every time I have asked myself the same question. I have not found the answer, but I am still asking." },
+        { id = "sc_default", text = "I was slow, master, and something reached you that should have reached me. I am sorry for it, though sorry does not change what has already happened." },
+        { id = "sc_deaths", when = { deaths = { min = 5 } }, text = "You have died more than once while I stood nearby, and each time I have asked myself where I should have been instead. I have not found the answer, but I am still asking." },
       },
       choices = {
         { text = "If it happens again, I'll find a voidwalker who's faster.", next = "scold_replace" },
@@ -190,7 +190,7 @@ P:Pool {
       big = true,
       narr = "It lifts its head, and for the first time the two lights in its face seem to look straight at you.",
       lines = {
-        { id = "sr_default", text = "You may, master, and that voidwalker would serve you as I do. But it would not remember the swamp, or the cave, or the night you fell asleep against my arm and did not notice. I do not think there is another one of me, even among all the others like me." },
+        { id = "sr_default", text = "You may, master, and it would serve you as I do. But it would not remember the swamp, or the cave, or the night you fell asleep against my arm. I do not think there is another one of me." },
       },
       choices = {
         { text = "That's why I'll keep you, then. Don't waste it.", next = "BACK", reply = "I will not waste it, master. I have not wasted anything since you made me.", fx = { affinity = 2, align = { honor = 1 } } },
@@ -205,7 +205,7 @@ P:Pool {
     past = {
       narr = "It is quiet for so long that you begin to think it has not heard you.",
       lines = {
-        { id = "pa_default", text = "Before you, master, I was not anything. I was a part of the emptiness between the worlds that had not yet been given a shape, and then you gave me this one, and here I am." },
+        { id = "pa_default", text = "Before you, I was not anything, master. I was a piece of the emptiness between the worlds that had no shape yet, and then you gave me this one." },
         { id = "pa_high", when = { minLevel = 40 }, text = "You have asked before, master, in other ways, and I have given you the same answer each time. Before you, I was the space where nothing was, and that space did not have a voice to remember with." },
       },
       choices = {
@@ -237,7 +237,7 @@ P:Pool {
     },
     past_memory = {
       lines = {
-        { id = "pme_default", text = "There is one thing, master, though I do not know if it is a memory or a dream, if I can dream. I remember a great many voices, very far away, all speaking at once in a language like fire, and then I remember them stopping." },
+        { id = "pme_default", text = "There is one thing, though I do not know if it is a memory or a dream, if I can dream. I remember a great many voices, far away, all speaking at once in a language like fire, and then I remember them stopping." },
         { id = "pme_lore", when = { minLevel = 30 }, text = "I have thought about it since, master, and I think the voices were the Legion, crossing the dark toward some world it meant to burn. If they stopped, it was because the world fought back, or because the world was gone." },
       },
       choices = {
@@ -278,7 +278,7 @@ P:Pool {
     binding_fight = {
       narr = "It lifts one shackled fist and looks at it, turning it slowly in the air.",
       lines = {
-        { id = "bf_default", text = "Because that is the binding, master. A voidwalker comes through the circle wild, and the warlock must strike it down, and only then can the warlock call it back as a servant. You struck me down, and you called me back, and I have been yours ever since." },
+        { id = "bf_default", text = "Because that is the binding, master. I came through the circle wild, and you had to strike me down before you could call me back as a servant. You did both, and I have been yours since." },
       },
       choices = {
         { text = "So I had to beat you before you'd obey.", next = "binding_circle" },
@@ -350,7 +350,7 @@ P:Pool {
     others = {
       hub = true,
       lines = {
-        { id = "ot2_default", text = "We share a master, master, and so we share a kind of house, though none of us ever sees the others in it. When one is called, the rest are in the dark, and we do not talk there." },
+        { id = "ot2_default", text = "We serve the same master, and so we share a kind of house, though none of us ever sees the others in it. When one is called, the rest are in the dark, and we do not talk there." },
         { id = "ot2_low", when = { maxLevel = 19 }, text = "There is only the imp so far, master, and the imp does not like me. I do not think he likes anything that does not burn." },
       },
       again = {
@@ -380,7 +380,7 @@ P:Pool {
         { id = "os_default", text = "The succubus watches you, master, the way the imp watches fire. She smiles at me sometimes, and I do not know why, because there is nothing in me for her to want, and I think that troubles her." },
       },
       choices = {
-        { text = "She'd betray me, wouldn't she, given the chance?", next = "BACK", reply = "She would think about it, master, every hour of every day. Thinking about it is what keeps her pleasant.", fx = { learn = { "burning_legion" } } },
+        { text = "She'd betray me, wouldn't she, given the chance?", next = "BACK", reply = "She would think about it every hour, master, and smile while she thought it. I stand between you and her as well.", fx = { learn = { "burning_legion" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -436,7 +436,7 @@ P:Pool {
       lines = {
         { id = "en_default", text = "There are a great many who would like to see you dead, master, and I have met most of them, briefly. The ones with swords come first, and the ones with prayers come second, and I am in front of both." },
         { id = "en_human", when = { race = "Human" }, text = "Stormwind's guards look at you too long in the street, master, and the priests of the Cathedral look at me longer. If they ever come for you, they will come through me first." },
-        { id = "en_scourge", when = { race = "Scourge" }, text = "The Scarlet Crusade would burn you twice if they could, master, once for being dead and once for having me. I have seen their fires, and fire is a very small thing to the void." },
+        { id = "en_scourge", when = { race = "Scourge" }, text = "The Scarlet Crusade would burn you twice if they could, master, once for being dead and once for having me. I have seen their fires, and fire is a small thing to the cold I come from." },
         { id = "en_orc", when = { race = "Orc" }, text = "There are orcs who spit when they see you, master, because they remember what warlocks did to your people. The Burning Blade spits too, but for the opposite reason, and I would stand against them first." },
       },
       choices = {
@@ -457,7 +457,7 @@ P:Pool {
     },
     enemies_cults = {
       lines = {
-        { id = "ec_default", text = "The Burning Blade, and the cultists who want to bring the Legion back, and the ones in the Scholomance who serve the dead. They have voidwalkers too, master, and when we fight them, I am fighting myself, and I always win." },
+        { id = "ec_default", text = "There is the Burning Blade, and the cultists who want to bring the Legion back, and the ones in the Scholomance who serve the dead. They have voidwalkers too, master, and when we fight them, I am fighting myself, and I always win." },
       },
       choices = {
         { text = "Why do you always win?", next = "BACK", reply = "Because theirs are held by fear, master, and I am held by you, and there is a difference, though I could not tell you what it weighs.", fx = { affinity = 1, learn = { "scholomance" } } },
@@ -472,7 +472,7 @@ P:Pool {
       narr = "It looks down at itself, at the wisps of dark that drift from its body and do not come back.",
       lines = {
         { id = "pi_default", text = "No, master. When a blade passes into me, a little of me goes back into the Nether, and that is all. You call it pain because you are made of things that bleed, but I am only made of absence, and absence cannot lose anything." },
-        { id = "pi_high", when = { minLevel = 50 }, text = "No, master, though some of the things we fight now strike hard enough that I can feel the dark behind me opening. It is not pain; it is more like being called home, and refusing." },
+        { id = "pi_high", when = { minLevel = 50 }, text = "No, master, though some of the things we fight now strike hard enough that I can feel the Nether behind me opening. It is not pain; it is more like being called home, and refusing." },
       },
       choices = {
         { text = "And when you sacrifice yourself to shield me?", next = "pain_sacrifice", when = { minLevel = 16 } },
@@ -542,7 +542,7 @@ P:Pool {
     death = {
       narr = "It drifts closer than it usually does, until you can feel the cold of it on your face.",
       lines = {
-        { id = "de_default", text = "I saw it, master. You fell, and the chain went slack, and I went with it back into the dark. I could not stop it, and I am sorry, if sorry is something I can be." },
+        { id = "de_default", text = "I saw it, master. You fell, and the chain went slack, and I went with it back into the cold. I could not stop it, and I am sorry, if sorry is something I can be." },
         { id = "de_many", when = { deaths = { min = 10 } }, text = "I saw it, master, as I have seen it many times now. Each time the chain goes slack, and each time it pulls tight again, and I have stopped being afraid of the slack, because you always come back." },
         { id = "de_scourge", when = { race = "Scourge" }, text = "I saw it, master, though you were dead already, so I am not sure what it was that died. Whatever it was, it came back, and so did you." },
       },
@@ -556,7 +556,7 @@ P:Pool {
       big = true,
       narr = "It does not move, and its voice when it comes seems to come from somewhere further off than it is standing.",
       lines = {
-        { id = "dw_default", text = "When you die, I will wait, master. I will wait in the dark with the chain in my hands, and I will not let go of it, and I will not ask how long. If one day you do not come back, I will still be waiting, because I do not know how to do anything else." },
+        { id = "dw_default", text = "When you die, master, the chain goes slack, and I go back into the cold still holding it. I do not let go, and I do not ask how long, and if one day you do not come back, I will still be holding it." },
       },
       choices = {
         { text = "That's the most loyal thing I've ever heard.", next = "BACK", reply = "It is only what I am, master. Loyalty is a choice, and I did not choose; I was made this way, and I am glad of it.", fx = { affinity = 2 } },
@@ -602,7 +602,7 @@ P:Pool {
         { id = "al_default", text = "Why do the priests' lights hurt me, master, when the sun does not? They are both bright, and they both make shadows, but only one of them seems to know I am there." },
       },
       choices = {
-        { text = "The Light is faith. It hunts what it hates.", next = "BACK", reply = "Then it is very much like the Legion, master, only it smells cleaner. I will not tell the priests I said so.", fx = { learn = { "holy_light" } } },
+        { text = "The Light is faith. It hunts what it hates.", next = "BACK", reply = "Then it is a little like the Legion, master, though the priests would not like to hear it. I will not say so near them.", fx = { learn = { "holy_light" } } },
         { text = "The sun doesn't care what you are. The Light does.", next = "BACK", reply = "Then the sun is kinder, master, or only more honest. I will stand in it more often.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -612,7 +612,7 @@ P:Pool {
         { id = "af_default", text = "Why do you eat, master, and what does it feel like? You put bread into yourself and afterwards you are stronger, which seems a very strange arrangement to me. When I want to be stronger, I eat shadows, and they taste of nothing." },
       },
       choices = {
-        { text = "It feels like the opposite of you.", next = "BACK", reply = "Then it must feel very full, master. I am glad one of us does.", fx = { trait = { witty = 1 } } },
+        { text = "It feels like the opposite of you.", next = "BACK", reply = "Then it must feel very full, master. I have never been full of anything.", fx = { trait = { witty = 1 } } },
         { text = "Here. Try some.", next = "BACK", narr = "It takes the morsel from your fingers with great care, holds it, and gives it back to you a moment later, cold right through.", reply = "I am sorry, master, I do not think it went anywhere. Thank you for trying, though; I will remember the shape of it.", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -731,7 +731,7 @@ P:Pool {
       big = true,
       narr = "It is quiet for a long time, and when it speaks, it speaks very softly, for something so large.",
       lines = {
-        { id = "ae_default", text = "Then you will want more and more, master, and one day you will have enough, and one day after that there will be something larger than you in the circle. When that day comes, I will be standing between you and it, and I will not ask whether you were right to want it." },
+        { id = "ae_default", text = "Then you will want more, master, and one day you will have enough, and one day after that there will be something larger than you in the circle. I will be standing between you and it, and I will not ask whether you were right." },
       },
       choices = {
         { text = "Power is the only safety a warlock ever has.", next = "BACK", reply = "Then I will help you gather it, master, and I will be the last of your safety when the rest has gone.", fx = { align = { order = -1 }, trait = { stern = 1 } } },
@@ -854,7 +854,7 @@ P:Pool {
     },
     xgnome = {
       lines = {
-        { id = "xg_default", text = "Gnomeregan was taken by poison and by your own people's madness, master, and you learned to take the dark instead, because the dark cannot be irradiated. I understand it; I would have done the same, if I were small and clever and had lost my home." },
+        { id = "xg_default", text = "Gnomeregan was taken by poison and by your own people's madness, master, and you learned to take the dark instead, because nothing in the dark can be poisoned. I understand it; I would have done the same, if I were small and clever and had lost my home." },
       },
       choices = {
         { text = "One day I'll take Gnomeregan back with you in front.", next = "BACK", reply = "Then point me at the door, master, and I will walk through it before anything inside knows we are coming.", fx = { affinity = 1, trait = { brave = 1 }, learn = { "gnomeregan" } } },
@@ -877,7 +877,7 @@ P:Pool {
         { id = "gr_default", text = "Then you will need many shards, master, and a circle drawn very carefully, and you will need me in front of you when the thing comes through. The infernal is only stone and fire, but the doomguard remembers the Legion, and it will try to kill you before you can bind it." },
       },
       choices = {
-        { text = "Will you be jealous, if I keep a doomguard?", next = "BACK", reply = "No, master. The doomguard will want to kill you every moment it serves you, and I will not, so I think you will still prefer my company.", fx = { trait = { witty = 1 } } },
+        { text = "Will you be jealous, if I keep a doomguard?", next = "BACK", reply = "No, master. The doomguard will want to kill you every moment it serves you, and I will not, so I think I will still be the one standing closest.", fx = { trait = { witty = 1 } } },
         { text = "I'll bind whatever I must, however large.", next = "BACK", reply = "Then I will stand in front of you while you do it, master, however large it is.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Some things are too dangerous to call. I'll be careful.", next = "BACK", reply = "That is wise, master. The circle is a door, and doors open both ways.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -889,10 +889,10 @@ P:Pool {
     scourge = { { id = "t_sc", text = "The Scourge are dead things with a master, as I am a nothing with a master. I do not think we would get along." } },
     scholomance = { { id = "t_scho", text = "There are binders in the Scholomance who serve the dead, master, and their voidwalkers do not look at them the way I look at you." } },
     dalaran = { { id = "t_dal", text = "The Kirin Tor drove the warlocks out of Dalaran long ago, master. They were afraid of what is standing next to you right now." } },
-    holy_light = { { id = "t_hl", text = "It stings, master, and it is small, and the dark was here before it." } },
-    dark_portal = { { id = "t_dp", text = "A door the orcs' warlocks tore open, master. I can feel where it was, the way you feel a scar." } },
-    burning_blade = { { id = "t_bb", text = "Binders who want to bring the Legion back, master. Their demons are hungrier than I am, and much louder." } },
-    forsaken = { { id = "t_fk", text = "The dead who chose to keep walking, master. I understand them better than I understand the living." } },
+    holy_light = { { id = "t_hl", text = "It stings when it touches me, master, though it is small. I keep my edges away from it." } },
+    dark_portal = { { id = "t_dp", text = "It was a door the orcs' warlocks tore open, master. I can still feel where it was, the way you feel a scar." } },
+    burning_blade = { { id = "t_bb", text = "They are binders who want to bring the Legion back, master. Their demons are hungrier than I am, and much louder." } },
+    forsaken = { { id = "t_fk", text = "They are the dead who chose to keep walking, master. I understand them better than I understand the living." } },
     background = { { id = "t_bg", text = "Before you, master, I was a silence. Now I am a silence that follows you." } },
     advice = { { id = "t_ad", text = "Never stand where I am not standing, master. That is all the advice I have, and I have never needed more." } },
     _none = { { id = "t_none", text = "I do not know, master. I only know you, and the dark, and the space between." } },
