@@ -141,6 +141,11 @@ def main():
             failed += 1
             continue
         made += 1
+        if version == current and os.environ.get("GITHUB_OUTPUT"):
+            # The tag above was made with GITHUB_TOKEN, which doesn't start release.yml,
+            # so the workflow uploads this one to CurseForge itself.
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                f.write(f"curse_tag={tag}\n")
     if not dry and current and (made or f"v{current}" in existing):
         try:
             gh("release", "edit", f"v{current}", "--latest")
