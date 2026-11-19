@@ -65,3 +65,6 @@ Repeat-visit and night lines in the voices above.
 ## Night elves (prejudice pass)
 - Fitzsimmons, night elves: two Auberdine-pier tales, one admiring (a Sentinel's shot), one sore (they call a sixty-year-old captain a child).
 - Night elves (0.94.0 work): Helbrek: kaldorei off the Bravery order water, sit by the window and never laugh at the songs. A night elf who orders an ale becomes his favourite regular (npcFlag `helbrek_ale`); he secretly likes the moonberry wine.
+
+## Humans (human patch)
+- Karl, humans: the harbour's name and Terenas's murder by his son; the refugees going south through the docks; whether to keep the name on the gate.

@@ -33,3 +33,6 @@ He watches the north road from the window; he keeps Anton's letters and doesn't 
 ## 0.34.0
 Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Raleigh (Persuade, stayed): he knew the Crusade was wrong the first time they asked a man if he was plagued and didn't wait for the answer, and he stayed a long while after; that is what he can't forgive himself. (No new detail of what he saw.)
+
+## Humans (human patch)
+- Human players: the Crusade's 'guarding mankind' isn't a lie, which is the danger; it came to torture humans as plagued; Uther's Hand served anyone. Non-humans: the Light keeps no list of races.

@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "A son of Stormwind at Light's Hope. The Dawn is glad of you, as it would be of anyone, and that last part matters to me more than you may know." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Dawn turns no one away who fights the Scourge, and I keep to that. But I know what you deal with, and I'll not pretend it sits easily with me in this chapel." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You are standing on consecrated ground with the Nether in your hands. Say what brings you, and say it quickly." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have done more for this chapel than many who pray in it, and I find I can't argue with that. I'll not bless what you carry, but I'll take your hand." },
@@ -132,8 +134,48 @@ P:NPC {
         { text = "Something else, my lord.", next = "BACK" },
       },
     },
+    hu_tyr = {
+      lines = {
+        { id = "hutyr_default", key = true,
+          text = "I didn't leave it, in truth; what remained of it left the Light and called itself a Crusade. The Silver Hand made Arthas a paladin, and when he turned, the brothers who survived decided that the fault lay with everyone but themselves." },
+      },
+      choices = {
+        { text = "Was the Hand to blame for Arthas, then?", next = "hu_tyr_2" },
+        { text = "The Crusade still fights the Scourge, my lord.", next = "hu_tyr_2" },
+      },
+    },
+    hu_tyr_2 = {
+      big = true,
+      narr = "He is quiet long enough that you think he may not answer.",
+      lines = {
+        { id = "hutyr2_default",
+          text = "We gave him the hammer and the oaths, and we taught him that the Light was on his side, so we bear some part of it. That is the lesson the Crusade refused to learn: that a human heart can rot as surely as a granary, and no tabard keeps it clean." },
+      },
+      choices = {
+        { text = "The Dawn must take every people. Humans can't hold alone.", next = "BACK",
+          reply = "That is what I argued when I left, and Lord Raymond George agreed before he fell. The Scourge doesn't ask anyone's race, so neither shall we.",
+          fx = { align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "Humanity should purge its own traitors before trusting outsiders.", next = "BACK",
+          reply = "You've just described the Scarlet Crusade, friend, and I'd ask you to walk the road to Tyr's Hand before you decide you agree with them.",
+          fx = { align = { light = -1 }, opinion = { scarlet_crusade = "understand" } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    hu_tyr_x = {
+      lines = {
+        { id = "hutyrx_default", key = true,
+          text = "Because the plague made no distinction, and the Dawn shouldn't either. Humans lost a kingdom here, but we didn't lose it alone, and we won't win it back alone; I would rather have one honest dwarf beside me than a hundred men who think the Light belongs to them." },
+      },
+      choices = {
+        { text = "Not every human here agrees with you, my lord.", next = "BACK",
+          reply = "No, and some of them wear red. The rest I hope to persuade one at a time, which is slow, but the Dawn has learned patience." },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Most who serve the Dawn here are human, because this was a human kingdom, but I'll not let it become a human order. We tried that once, and it became the Crusade." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Cult of the Damned learned its first summonings from people who carried what you carry. I lead the Dawn, so I'll hear you out, but my knights will be watching." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've served the Dawn honestly, whatever you keep at your heel. Sit, if you like; my knights have stopped reaching for their swords when you come in." },
         { id = "h_dd_darrow", tags = { "news" }, when = { questDone = TODO_QUEST("The Battle of Darrowshire") },
@@ -184,6 +226,8 @@ P:NPC {
         { text = "Does the Dawn really take shamans, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will the Argent Dawn welcome a Forsaken paladin, Lord Tyrosus?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "We came north to fight the Scourge, my lord.", next = "xpt_company", when = { party = { size = 4 } } },
+        { text = "You left the Silver Hand, my lord. Why?", next = "hu_tyr", when = { race = "Human" } },
+        { text = "Why do humans welcome other races into the Dawn?", next = "hu_tyr_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },

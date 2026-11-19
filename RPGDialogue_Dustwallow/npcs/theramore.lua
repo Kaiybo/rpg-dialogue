@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Welcome to Theramore. Most of the humans who come here now arrive on the Menethil boat, and most of them look at the orcs on the road as though they've walked into the wrong war." },
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, good. I have few enough people I can rely on outside these walls." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I wondered more than once whether the marsh had swallowed you. Welcome back to Theramore, and tell me what you've seen of the world outside it." },
@@ -164,8 +166,60 @@ P:NPC {
         { text = "Stormwind's court is slow at the best of times, my lady.", next = "BACK" },
       },
     },
+    hu_jai = {
+      lines = {
+        { id = "huja_default", key = true,
+          text = "Because the ones who stayed were dying, and because I asked them to, and I think some of them simply had nowhere else to go. They weren't soldiers, most of them; they were farmers and clerks and apprentices from Dalaran who got onto ships because a young mage told them the east was lost." },
+        { id = "huja_dal", when = { origin = "human_dalaran_stray" },
+          text = "Some of them were apprentices from Dalaran, like you, who got onto ships because a young mage told them the east was lost. The rest were farmers and clerks, and I think a few simply had nowhere else to go." },
+      },
+      choices = {
+        { text = "And they fought beside orcs once they got here?", next = "hu_jai_2" },
+        { text = "Some say you abandoned Lordaeron, my lady.", next = "hu_jai_2" },
+      },
+    },
+    hu_jai_2 = {
+      big = true,
+      narr = "She turns a ring on her finger, slowly, while she chooses her words.",
+      lines = {
+        { id = "huja2_default",
+          text = "We fought beside orcs and night elves on Hyjal because there was nothing else to do, and afterward some of my people couldn't forgive me for it. Humans remember the orc wars with their whole bodies; I can't ask them to forget, only to see that the orcs on the road today aren't the ones who burned Stormwind." },
+      },
+      choices = {
+        { text = "Theramore should welcome everyone who came west.", next = "BACK",
+          reply = "That's what I'm trying to build here, a place where nobody has to stand behind a wall of their own kind to feel safe. Some days it even works.",
+          fx = { align = { light = 1 }, opinion = { peace = "for" } } },
+        { text = "Humans built Theramore. It should stay a human city first.", next = "BACK",
+          reply = "Humans built a good deal of it, and dwarves and quel'dorei built the rest. I'd rather not decide whose city it is by counting stones.",
+          fx = { align = { light = -1 }, opinion = { peace = "against" } } },
+        { text = "Do you ever regret leaving the east?", next = "hu_jai_3" },
+      },
+    },
+    hu_jai_3 = {
+      lines = {
+        { id = "huja3_default",
+          text = "Every day, and never. I left people behind who might have listened if I'd tried harder, and I'll carry that, but the people I brought are alive, and they have children now who've never seen a plague cart." },
+      },
+      choices = {
+        { text = "That's worth carrying, my lady.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    hu_jai_x = {
+      lines = {
+        { id = "hujax_default", key = true,
+          text = "Safety, mostly, and a chance to start over without anyone's old war hanging over the door. Humans are good at starting over; we've had a great deal of practice, and I think it's the one thing we do better than anyone." },
+      },
+      choices = {
+        { text = "Your people seem to have more wars than most.", next = "BACK",
+          reply = "We do, and we start most of them ourselves, which is why I'm so stubborn about this peace. Somebody has to break the habit." },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Every human in Theramore came from somewhere that isn't there any more, or somewhere that told them to stay home. You're welcome here either way." },
         { id = "h_pt_jaina", tags = { "news" }, when = { race = "Human", party = { race = { "Dwarf", "Gnome", "NightElf" } }, faction = "Alliance" },
           text = "You've brought {companion} with you, I see, and I'm glad of it. Theramore was built by people who buried enough friends to know no race survives this world alone." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance" }, text = "Archmage Tervosh tells me the black dragon of the Wyrmbog is dead, and that you were there when she fell. Theramore has lived under Onyxia's shadow since the day we landed, so I'll thank you myself." },
@@ -215,6 +269,8 @@ P:NPC {
         { text = "My masters in the Mage Quarter studied in Dalaran.", next = "jd_mq", when = { origin = "human_mage_quarter" } },
         { text = "My classroom in Gnomeregan is under the sludge now, my lady.", next = "jd_gnome", when = { origin = "gnome_last_student" } },
         { text = "Forgive me, my lady, but you look tired.", next = "jd_tired", when = { disposition = { min = 60 } } },
+        { text = "Why did Lordaeron's people follow you west, my lady?", next = "hu_jai", when = { race = "Human" } },
+        { text = "What do humans want here, so far from their kingdoms?", next = "hu_jai_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -1074,6 +1130,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Off the Menethil boat, are you? Then you'll forgive me if I look twice. The last few humans who came over from the east were Kul Tiran, and some of them still think the Admiral was right." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "vimes_hu_soft" }, priority = 10,
+      text = "You again. I've stopped looking twice at you, which for me is practically a medal." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "You're a long way from Darnassus, kaldorei, and you'll have come by Menethil or the Barrens road, neither of which I'd wish on anyone. Captain Vimes, Theramore Guard; sit, if you've come about the inn." },
     { id = "g_citadel", text = "Captain Vimes, Theramore Guard. If you've come about the inn, sit down; if not, be quick." },
@@ -1264,8 +1324,56 @@ P:NPC {
           reply = "That's exactly what I mean, and it doesn't help. Ask me something with an answer in it." },
       },
     },
+    hu_vim = {
+      lines = {
+        { id = "huvi_default", key = true,
+          text = "That's exactly why. An orc in Theramore stands out; a human in a Kul Tiran coat who still calls Lady Proudmoore a traitor to her father doesn't. Daelin's men looked just like you, and some of them are still out in the marsh." },
+      },
+      choices = {
+        { text = "So every human from the east is a suspect?", next = "hu_vim_2" },
+        { text = "I've no love for the Admiral's war.", next = "hu_vim_2" },
+      },
+    },
+    hu_vim_2 = {
+      big = true,
+      lines = {
+        { id = "huvi2_default",
+          text = "Every stranger's a suspect; that's the job. But I'll grant you humans get a harder look from me than most, because I've learned that the worst grudges our people carry are the ones we hand down, and the Admiral handed his down to half a fleet." },
+      },
+      choices = {
+        { text = "Then judge me by what I do here, not where I sailed from.", next = "BACK",
+          reply = "That's fair, and it's what I'd want myself. Keep your nose clean in Theramore and you'll find me easy to get along with.",
+          fx = { align = { order = -1 } } },
+        { text = "Good. Theramore's peace needs a suspicious man on the gate.", next = "BACK",
+          reply = "It does, and I'm glad someone off the boat understands that. Most of them take it personally.",
+          fx = { align = { order = 1 } } },
+        { text = "I've done the Guard's work in the marsh. That should count.", tag = "Persuade", next = "hu_vim_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { townStanding = { town = "theramore", min = 30 } }, { questDone = TODO_QUEST("The Black Shield") } } } },
+          fail = { next = "hu_vim_fail", fx = { affinity = -1 } } },
+      },
+    },
+    hu_vim_soft = {
+      lines = {
+        { id = "huvis_default", key = true, fx = { npcFlag = { set = { "vimes_hu_soft" } } },
+          text = "It counts, and I'd be a poor investigator if I ignored the evidence in front of me. You're crossed off the list, and that's not a list many people get off." },
+      },
+      choices = {
+        { text = "Glad to hear it, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_vim_fail = {
+      lines = {
+        { id = "huvif_default", text = "It might, when I've seen it with my own eyes. Until then you're a human off the boat, and I've learned to be careful with those." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Theramore's full of humans, and most of them are good folk who want a quiet life on a wet island. It's the handful who want the Admiral's war back that keep me up nights." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Theramore and Darnassus have been neighbours since Hyjal, the way two houses at either end of a long street are neighbours. We nod, we keep our dogs in, and we don't borrow sugar." },
         { id = "h_pt_vimes", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
@@ -1311,6 +1419,7 @@ P:NPC {
         { text = "How does Theramore get on with the night elves?", next = "vi_nelf" },
         { text = "You don't trust my people, Captain.", next = "vi_xnelf", when = { race = "NightElf" } },
         { text = "How does a Theramore guard turn traitor, Captain?", next = "dd_hendel", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
+        { text = "Why look twice at a human, Captain? We're your own.", next = "hu_vim", when = { race = "Human", ["not"] = { npcFlag = "vimes_hu_soft" } } },
         { text = "It was the Horde, and everyone knows it.", next = "END", reply = "Then you're no use to me, and you can go. I don't need someone who already knows the answer.", fx = { affinity = -1, align = { order = -1 } } },
       },
     },

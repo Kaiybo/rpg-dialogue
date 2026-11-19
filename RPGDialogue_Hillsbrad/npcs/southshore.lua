@@ -17,6 +17,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Stormwind-born, by the look of you. Your grandparents may well have stepped off a boat onto this very shore, so mind the planks; they've not been mended since." },
+    { id = "g_hu_north", when = { race = "Human", origin = "human_lordaeron_refugee" }, priority = 6,
+      text = "Another one down from the north, and on your feet, which is more than most managed. Sit a moment before you go on; Southshore's seen enough of Lordaeron's people walk through it without stopping." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "A night elf in Southshore. The last elves this town saw in numbers were Quel'Thalas rangers marching north in the Second War, and they at least stopped to fight." },
     { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "redpath_nelf_soft" }, priority = 10,
@@ -256,8 +260,49 @@ P:NPC {
         { text = "Good day, Marshal.", next = "END" },
       },
     },
+    hu_rp = {
+      narr = "He looks past you to the harbour, where the fishing boats are pulled up on the shingle.",
+      lines = {
+        { id = "hurp_default", key = true,
+          text = "I was a young man then, and I stood on that beach when Lothar's boats came in, full of Stormwind folk with nothing but the clothes they'd fled in. Lordaeron fed them, housed them and gave them a war to fight, and nobody asked whether it could afford to." },
+      },
+      choices = {
+        { text = "And when the plague came, who fed Lordaeron's people?", next = "hu_rp_2" },
+        { text = "Stormwind never forgot that, Marshal.", next = "hu_rp_2" },
+      },
+    },
+    hu_rp_2 = {
+      big = true,
+      lines = {
+        { id = "hurp2_default",
+          text = "Nobody, near enough, and I'll say it plainly because I'm too old to say it any other way. When the plague came, the refugees walked south through this town by the hundred, and Stormwind sent three men and a cook, and then a letter asking us to be patient." },
+        { id = "hurp2_north", when = { origin = "human_lordaeron_refugee" },
+          text = "Nobody, near enough, and you'll know that better than I do. You walked south through this town with the rest, and Stormwind sent three men and a cook, and then a letter asking us to be patient." },
+      },
+      choices = {
+        { text = "Stormwind owes Lordaeron a debt, and it hasn't paid it.", next = "BACK",
+          reply = "Aye, it does, and I'd say so to the Highlord's face. Mind you, I'd say it politely, and then I'd go home and say it again less politely.",
+          fx = { align = { order = -1 }, opinion = { stormwind = "abandoned" } } },
+        { text = "Stormwind has its own wounds. It's doing what it can.", next = "BACK",
+          reply = "Maybe it is, and maybe I'm a bitter old man. I'll grant you Stormwind's had its troubles, but it's had years enough to send more than a cook.",
+          fx = { align = { order = 1 }, opinion = { stormwind = "patience" } } },
+        { text = "What became of the refugees who stayed?", next = "hu_rp_3" },
+      },
+    },
+    hu_rp_3 = {
+      lines = {
+        { id = "hurp3_default",
+          text = "Some fish, some farm the hills, and some joined the militia because a spear's the only thing they'd ever been handed that didn't need paying back. They're Southshore folk now, and I'll not have anyone in Stormwind calling them refugees in my hearing." },
+      },
+      choices = {
+        { text = "Southshore did right by them, Marshal.", next = "BACK", fx = { affinity = 2, standing = { southshore = 1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Southshore took in Stormwind's people when their city burned, and then it took in Lordaeron's when the plague came, and I'd like to think the next lot of refugees will be someone else's turn." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "We had elves beside us once, kaldorei, the rangers of Quel'Thalas, and they bled for Lordaeron in the Second War. Your people I only heard of after Lordaeron was already ash." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
@@ -323,6 +368,7 @@ P:NPC {
         { text = "Southshore remembers the high elves fondly, then.", next = "rp_nelf" },
         { text = "We didn't know Lordaeron existed, Marshal. How could we help?", next = "rp_xnelf", when = { race = "NightElf" } },
         { text = "Seen any kaldorei on the north road lately, Marshal?", next = "rp_nsoft", when = { race = "NightElf", npcFlagBefore = "redpath_nelf_soft" } },
+        { text = "You were here when Stormwind's refugees landed, Marshal?", next = "hu_rp", when = { race = "Human" } },
         { text = "Good day, Marshal.", next = "END" },
         { text = "Why couldn't your men get close to the Syndicate, Marshal?", next = "dd_assassins", when = { questDone = TODO_QUEST("Syndicate Assassins") } },
       },
@@ -634,6 +680,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Ah, a Stormwind subject, and I can tell because you've the look of someone waiting for a form. Sit; I've plenty." },
     { id = "g_office", text = "Sit, sit, and don't mind the papers. The Syndicate keep me in reading." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, if my ledger's right, and it usually is. Sit down, for the Syndicate certainly didn't take any time off." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "A complaint crossed my desk suggesting someone in town was talked into something they now regret. I won't ask if it was you, but I'll be reading the fine print while you're here." },
@@ -783,8 +831,57 @@ P:NPC {
         { text = "Something else, Magistrate.", next = "BACK" },
       },
     },
+    hu_mal = {
+      lines = {
+        { id = "humal_default", key = true,
+          text = "They were, and some of them still sign their letters that way. They're Alterac's nobility, or what's left of it: the same houses that stood behind Lord Perenolde when he sold the Alliance's passes to the Horde in the second war, and lost their kingdom for it." },
+      },
+      choices = {
+        { text = "Then they've been traitors twice over.", next = "hu_mal_2" },
+        { text = "What happened to Alterac after the war?", next = "hu_mal_2" },
+      },
+    },
+    hu_mal_2 = {
+      big = true,
+      lines = {
+        { id = "humal2_default",
+          text = "The other kings carved it up between them and argued over the carving, and Alterac's lords were left with nothing but their grudge. Now they hire cutthroats, burn our farms and call it reclaiming their birthright, and I write it all down in very small letters." },
+      },
+      choices = {
+        { text = "Perenolde betrayed us, not every soul in Alterac.", next = "BACK",
+          reply = "That's the law's view too, though the law is quieter about it than it ought to be. Plenty of Alterac's farmers fight the Syndicate harder than we do.",
+          fx = { align = { light = 1 }, opinion = { alterac = "pity" } } },
+        { text = "Hang every Alterac lord. Treachery runs in that blood.", next = "BACK",
+          reply = "I can't sign that, and I won't, though some mornings I'd like to. Blood is a poor witness, and I've seen honest men hanged on worse.",
+          fx = { align = { light = -1 }, opinion = { alterac = "traitors" } } },
+        { text = "Did any kingdom of men stand by Lordaeron, then?", next = "hu_mal_3" },
+      },
+    },
+    hu_mal_3 = {
+      lines = {
+        { id = "humal3_default",
+          text = "Not many. Gilneas built a great wall across its border and shut the gate, Stromgarde marched home after the second war, and Alterac, well, you've heard. We are very good at making alliances, we humans, and remarkably poor at keeping them." },
+      },
+      choices = {
+        { text = "That's a hard thing to admit, Magistrate.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    hu_mal_x = {
+      lines = {
+        { id = "humalx_default", key = true,
+          text = "That's a question I'd love to answer in writing and never have. We've seven kingdoms' worth of old grudges, short lives to nurse them in and long memories for the inheritance, and I think a man who might die at fifty is in a hurry to be proven right." },
+      },
+      choices = {
+        { text = "That explains a great deal about Stormwind.", next = "BACK",
+          reply = "It explains a great deal about this office too, if you look at the stack on the left. Please don't look at the stack on the left." },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Most of my troubles wear human faces, you know. The Syndicate aren't orcs or trolls; they're men who once had titles, and that's the part of the reports I find hardest to read." },
         { id = "h_pt_rogue", tags = { "news" }, when = { party = { class = "ROGUE" }, faction = "Alliance" },
           text = "You travel with {companion}, I see, and I'd know that soft step anywhere. I've nothing against rogues as such, but I keep the town's ledgers locked whenever one comes into my hall, and I'd thank you not to take it personally." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf at that! I'm afraid I've no form for this, {class}, and I've a form for nearly everything, so you'll forgive me if I stare a little." },
@@ -839,6 +936,8 @@ P:NPC {
         { text = "Do the Southshore farms trouble the land here, Magistrate?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I doubt your forms have a place for someone like me, Magistrate.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My friend's a rogue, but an honest one, Magistrate.", next = "xpt_rogue", when = { party = { class = "ROGUE" }, faction = "Alliance" } },
+        { text = "The Syndicate were lords once, weren't they?", next = "hu_mal", when = { race = "Human" } },
+        { text = "Why do humans fight each other so much, Magistrate?", next = "hu_mal_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },

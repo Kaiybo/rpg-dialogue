@@ -46,3 +46,6 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 ## Race voice (0.80.0)
 - Khaelyn: dwarf; light burr ("aye", "ye", "cannae", {g:lad|lass}), forge oaths. Georgia: Forsaken; dry and cold.
+
+## Humans (human patch)
+- Tyrosus, humans: the Hand made Arthas a paladin and bears part of the blame; a human heart can rot like a granary; the Dawn won't be a human order. Non-humans: the plague made no distinction.

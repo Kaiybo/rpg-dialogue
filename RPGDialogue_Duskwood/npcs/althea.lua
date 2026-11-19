@@ -18,6 +18,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Stormwind colours on the Darkshire road. If the Keep finally sent you with soldiers, you're two years late, and if it didn't, you're welcome to a shift." },
+    { id = "g_hu_watch", when = { race = "Human", origin = "human_darkshire_watch" }, priority = 6,
+      text = "Look what came back from the city. Your old post at the gate is still there, and so is the mud, and so am I." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "A kaldorei in Darkshire. Good, because I'm told your people see in the dark better than any watchman I've got, and the dark is most of what we have here." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried watchmen killed by men who called on the same darkness you do. Stay in the lamplight, where my people can see you." },
@@ -203,8 +207,60 @@ P:NPC {
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },
+    hu_alt = {
+      lines = {
+        { id = "hua_default", key = true,
+          text = "Aye, and that's the thing nobody in Stormwind wants to say aloud. Raven Hill's graves open on bad nights, and every watcher I have has put down somebody's grandmother; up north, the plague raised whole towns, and their own sons had to burn them." },
+      },
+      choices = {
+        { text = "How do your watchers bear it?", next = "hu_alt_2" },
+        { text = "Stormwind should have learned from the north.", next = "hu_alt_2" },
+      },
+    },
+    hu_alt_2 = {
+      big = true,
+      narr = "She glances toward the graveyard road and back again, out of a habit she doesn't notice any more.",
+      lines = {
+        { id = "hua2_default",
+          text = "They bear it by not looking at the faces, mostly, and by not talking about it in the Scarlet Raven afterward. The ones who came down from Lordaeron bear it worst, because they've done it before, and they swore they'd never have to do it again." },
+      },
+      choices = {
+        { text = "Burn the dead and be done. Sentiment gets watchers killed.", next = "BACK",
+          reply = "It does, and I've buried watchers who hesitated. Even so, I'll not have it said Darkshire burns its own like the north had to.",
+          fx = { align = { light = -1 }, opinion = { undeath = "burn" } } },
+        { text = "Bury them again, with their names. They were ours.", next = "BACK",
+          reply = "That's what I tell the watch, and some nights I even believe it's worth the shovel. Thank you for saying it.",
+          fx = { align = { light = 1 }, opinion = { undeath = "mourn" }, affinity = 1 } },
+        { text = "There are Lordaeron folk in the Watch?", next = "hu_alt_3" },
+      },
+    },
+    hu_alt_3 = {
+      lines = {
+        { id = "hua3_default",
+          text = "A handful, who came south with nothing and found that Darkshire would hand a spear to anyone who'd stand a shift. They're my steadiest watchers, because nothing in these woods frightens a man who's seen Andorhal, and my worst sleepers, for the same reason." },
+        { id = "hua3_watch", when = { origin = "human_darkshire_watch" },
+          text = "You stood the gate with some of them, so you know. They came south with nothing, they're my steadiest watchers because nothing here frightens a man who's seen Andorhal, and they still don't sleep." },
+      },
+      choices = {
+        { text = "They found a good commander, then.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    hu_alt_x = {
+      lines = {
+        { id = "huax_default", key = true,
+          text = "Being forgotten, I'd say, and the dark close behind it. We don't live long enough to wait anything out, so we build walls and light lamps and write to kings, and when nobody answers, we stand the watch ourselves and call it pride." },
+      },
+      choices = {
+        { text = "That's a brave sort of pride, Commander.", next = "BACK", fx = { affinity = 1, opinion = { humans = "admire" } },
+          reply = "Brave or stubborn, it comes to the same thing on the walls at midnight. I'll take it." },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "You'll know the stories from home, I expect: Duskwood's haunted, Darkshire's mad, and Stormwind's very sorry it can't spare anyone. Two of those are true, and you can guess which." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "I've read every report out of Ashenvale I could lay hands on, kaldorei. Your Sentinels hold a whole forest against the Horde with women in command, and nobody in Stormwind thinks that remarkable but me." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },
@@ -268,6 +324,8 @@ P:NPC {
         { text = "I stood your wall before the Cathedral took me, Commander.", next = "xorig_nightwatch", when = { origin = "human_darkshire_watch" } },
         { text = "Darkshire seems to have opinions about night elves.", next = "al_nelf" },
         { text = "You talk about the Sentinels as if you knew them, Commander.", next = "al_xnelf", when = { race = "NightElf" } },
+        { text = "Duskwood's dead rise, Commander. So did Lordaeron's.", next = "hu_alt", when = { race = "Human" } },
+        { text = "What do your people fear most, Commander?", next = "hu_alt_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },

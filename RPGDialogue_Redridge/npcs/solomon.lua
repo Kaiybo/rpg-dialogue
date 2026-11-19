@@ -25,6 +25,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "Another of Stormwind's own come up the Redridge road. The court will hear you, and it will try not to hold the kingdom's silence against you personally." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "The court recognises a kaldorei visitor, which is rare enough in Lakeshire that the clerk will want to note it. I trust you've not come to ask Redridge for archers." },
     { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "solomon_nelf_soft" }, priority = 10,
@@ -208,8 +210,66 @@ P:NPC {
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },
+    hu_sol = {
+      lines = {
+        { id = "hus_default", key = true,
+          text = "Because it is ours, and because that is what our people do, for better and for worse. Blackhand's raiders burned this town in the first war, Turalyon brought the families home after the second, and they laid the same stones by the same lake, which a wiser people might not have done." },
+        { id = "hus_redridge", when = { origin = "human_redridge_born" },
+          text = "You of all people know the answer, since your own family walked back to this lake after the second war and laid its stones again. That is what our people do, for better and for worse, and a wiser people might not have done it." },
+      },
+      choices = {
+        { text = "A wiser people? You sound ashamed of us, Magistrate.", next = "hu_sol_2" },
+        { text = "Stubbornness kept Lakeshire alive, I'd say.", next = "hu_sol_2" },
+      },
+    },
+    hu_sol_2 = {
+      big = true,
+      narr = "He squares a stack of letters against the desk, though it was square already.",
+      lines = {
+        { id = "hus2_default",
+          text = "Not ashamed, but honest, which the court considers a duty. Lordaeron housed our refugees after Stormwind fell, and when the war was won the kingdoms of men quarrelled over the cost of the orc camps; Gilneas walled itself in, Stromgarde marched home, and nobody was left standing beside Lordaeron when the plague came." },
+      },
+      choices = {
+        { text = "We rebuild when others would quit. That's the best of us.", next = "BACK",
+          reply = "The court agrees with half of that and enters the other half as a dissent. Stubbornness held the bridge last week; it also writes forty letters to a throne that will not read them.",
+          fx = { align = { order = 1 }, opinion = { humans = "pride" } } },
+        { text = "Men squabble over coin while kingdoms burn. We earned our ruin.", next = "BACK",
+          reply = "Earned is a word for priests, not magistrates. But the court has read the ledgers of the last war, and it cannot quite call you wrong.",
+          fx = { align = { order = -1 }, opinion = { humans = "shame" } } },
+        { text = "And what became of Lordaeron's debt?", next = "hu_sol_3" },
+      },
+    },
+    hu_sol_3 = {
+      lines = {
+        { id = "hus3_default",
+          text = "It is owed still, and it will never be paid, because there is nobody left in Lordaeron's capital to pay it to. So Lakeshire pays it the only way it can: every refugee from the north who finds this road gets a bed and a meal, and the court does not ask whether the town can afford it." },
+        { id = "hus3_refugee", when = { origin = "human_lordaeron_refugee" },
+          text = "You are standing in front of the only payment the court can make. Every refugee from the north who finds this road gets a bed and a meal, and if Lakeshire cannot afford it, the court has decided not to notice." },
+      },
+      choices = {
+        { text = "That's a decent way to pay it, Magistrate.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    hu_sol_x = {
+      lines = {
+        { id = "husx_default", key = true,
+          text = "We do, and the court won't pretend otherwise; we are a people of petitions and long memories for small slights, which you'll forgive in a race that lives sixty years and spends forty of them arguing. Being human, as far as this court can tell, means building a town in an orc's shadow, expecting the crown to send help, and building it again when the crown doesn't." },
+      },
+      choices = {
+        { text = "That stubbornness built Stormwind twice. It's worth admiring.", next = "BACK",
+          reply = "Kind of you to say, and the court will record it, since it so rarely hears anything kind about itself from outside the kingdom.",
+          fx = { align = { order = 1 }, opinion = { humans = "admire" } } },
+        { text = "It sounds like a people who never learn.", next = "BACK",
+          reply = "The court has had that thought itself, usually around the fortieth letter. It would still rather not hear it from a guest.",
+          fx = { align = { order = -1 }, opinion = { humans = "mixed" }, affinity = -1 } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "You have a Stormwind face, if the court may say so, and Stormwind faces have grown scarce in Lakeshire since my letters stopped being answered." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Your people's envoys are heard in Stormwind's court within the week, I'm told, which is more than can be said for mine. You will forgive the magistrate a certain coolness." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
@@ -283,6 +343,8 @@ P:NPC {
         { text = "Your court seems cool toward the night elves.", next = "sol_nelf" },
         { text = "You resent my people, Magistrate. Why?", next = "sol_xnelf", when = { race = "NightElf" } },
         { text = "Any letters to Ashenvale lately, Magistrate?", next = "sol_nsoft", when = { race = "NightElf", npcFlagBefore = "solomon_nelf_soft" } },
+        { text = "Lakeshire burned once. Why do our people keep rebuilding here?", next = "hu_sol", when = { race = "Human" } },
+        { text = "You humans write a great many letters, Magistrate.", next = "hu_sol_x", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },

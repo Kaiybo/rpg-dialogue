@@ -53,3 +53,6 @@ Sources read for this pass (warcraft.wiki.gg): Magistrate_Solomon, Messenger_to_
 
 ## Night elves (prejudice pass)
 - Envies Darnassus's quick answers from Stormwind; believes a clerk's rumour that the crown keeps soldiers in Ashenvale (claim `solomon_ashenvale_soldiers`, false; exposed by Vimes or a kaldorei player's `[Persuade]`, npcFlag `solomon_nelf_soft`).
+
+## Humans (human patch)
+- Human players: why our people rebuild in the same place (Blackhand, Turalyon); honest about the kingdoms of men abandoning Lordaeron over the camp costs; Lakeshire 'pays' Lordaeron's debt by feeding northern refugees (authored). Non-humans (Dwarf/Gnome/NightElf) get his view of what being human means.

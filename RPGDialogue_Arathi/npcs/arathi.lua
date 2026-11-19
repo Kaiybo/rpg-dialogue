@@ -16,6 +16,12 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_hu", when = { race = "Human" }, priority = 5,
+      text = "A southerner, with a southerner's good boots. Stormwind's sons come through here now and then to look at the ruins of the first kingdom of men, and then they go home." },
+    { id = "g_hu_strom", when = { race = "Human", origin = "human_stromgarde_sellsword" }, priority = 7,
+      text = "Stromgarde blood, and back under its own banner, even if that banner's a tent. Good. Find a fire and then find me; I've work for anyone who remembers the keep." },
+    { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "nials_hu_soft" }, priority = 10,
+      text = "There's the southerner who didn't go home. Come in out of the wind; you've earned a place at Stromgarde's fire, such as it is." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "A kaldorei at Refuge Pointe. Arathor kept faith with elves for two thousand years, so you'll understand if I'm slow to warm to the ones who joined us last year." },
     { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "nials_nelf_soft" }, priority = 10,
@@ -223,8 +229,93 @@ P:NPC {
         { text = "Glad to, Captain. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    hu_ni = {
+      narr = "She looks north toward the broken towers of the keep, as if checking they're still there.",
+      lines = {
+        { id = "huni_default", key = true,
+          text = "Strom was the first city of men, and Arathor the first human kingdom, when your ancestors and mine were the same tribe hiding from the trolls. Stromgarde is what's left of that, and it held the highlands and the Thandol Span for every human kingdom that came after." },
+      },
+      choices = {
+        { text = "Then how did it come to tents and ruins?", next = "hu_ni_2" },
+        { text = "Stromgarde left the Alliance after the second war.", next = "hu_ni_2" },
+      },
+    },
+    hu_ni_2 = {
+      big = true,
+      lines = {
+        { id = "huni2_default",
+          text = "It did, and I'll not pretend otherwise; Lord Trollbane had his reasons, and the southern kings had theirs for not caring. When the plague war came, nobody marched for Stromgarde, and now the Syndicate hold the keep, the ogres hold the hills and the Witherbark hold everything else." },
+      },
+      choices = {
+        { text = "Arathor's children owe Stromgarde. I'd fight to retake it.", next = "BACK",
+          reply = "Then you're worth more than the last forty southerners put together, and I'll hold you to it when the order comes.",
+          fx = { align = { honor = 1 }, opinion = { stromgarde = "retake" }, affinity = 1 } },
+        { text = "Stromgarde walked out on the Alliance. It reaped what it sowed.", next = "BACK",
+          reply = "Say that once more in this camp and you'll be saying it to my sergeant, who lost two brothers on those walls. Then go home, southerner.",
+          fx = { align = { honor = -1 }, opinion = { stromgarde = "lost" }, affinity = -2 } },
+        { text = "Who holds Stromgarde's crown now?", next = "hu_ni_3" },
+      },
+    },
+    hu_ni_3 = {
+      lines = {
+        { id = "huni3_default",
+          text = "The Trollbane line, for what that's worth with the keep in Syndicate hands and the throne room full of rats. I serve the crown, but I serve it out here, where Stromgarde still has soldiers and a flag that hasn't been taken down." },
+      },
+      choices = {
+        { text = "Then the flag still means something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    hu_ni_x = {
+      lines = {
+        { id = "hunix_default", key = true,
+          text = "I think Stromgarde bled on the Thandol Span so that Stormwind's boats could reach Lordaeron, and that Stormwind's lords sent sympathy when our keep fell. I think southerners are very fond of the Alliance, so long as it's someone else holding it together." },
+      },
+      choices = {
+        { text = "That's unfair. Stormwind's lost its king and half its army.", next = "BACK",
+          reply = "Maybe it has, and maybe I'm unfair. But I've buried enough of my own to be allowed a little unfairness toward the folk who stayed warm.",
+          fx = { align = { order = 1 } } },
+        { text = "You're right. The south forgot Stromgarde.", next = "BACK",
+          reply = "Then at least one of you remembers, which is one more than I expected this morning.",
+          fx = { align = { order = -1 } } },
+        { text = "I'm a southerner standing in your camp. I didn't go home.", tag = "Persuade", next = "hu_ni_soft",
+          check = { pass = { any = { { disposition = { min = 55 } }, { townStanding = { town = "refuge_pointe", min = 30 } }, { questDone = TODO_QUEST("Stromgarde Badges") } } } },
+          fail = { next = "hu_ni_fail", fx = { affinity = -1 } } },
+      },
+    },
+    hu_ni_soft = {
+      lines = {
+        { id = "hunis_default", key = true, fx = { npcFlag = { set = { "nials_hu_soft" } } },
+          text = "No, you didn't, and I've been talking about southerners in front of one who's been bleeding for my keep. That's poor manners for a captain of Stromgarde, so I'll stop, and I'll start counting you as one of mine." },
+      },
+      choices = {
+        { text = "That's all I wanted, Captain.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hu_ni_fail = {
+      lines = {
+        { id = "hunif_default", text = "You're standing in it today, and so did the last southerner, until the rain got to him. Do something for the Pointe, and then tell me you're staying." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+        { text = "I'll be in the hills.", next = "END" },
+      },
+    },
+    hu_ni_s = {
+      lines = {
+        { id = "hunis2_default",
+          text = "One of them's in my camp, eating my stew, and I've stopped minding. I even wrote to Stormwind last week without using the word 'forgotten', which my clerk says is a first." },
+      },
+      choices = {
+        { text = "Progress, Captain. Something else.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be in the hills.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hu", when = { race = "Human" },
+          text = "Every human kingdom from Stormwind to Gilneas grew from Arathor, and every one of them has forgotten it. Stromgarde hasn't, which is why we're sleeping in tents in the rain." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "The elves Stromgarde remembers are the quel'dorei, whose magisters taught Arathor's first mages and whose kingdom we saved from the Amani. Your people we know only from envoys' letters, and they never once mention the Highlands." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
@@ -270,6 +361,9 @@ P:NPC {
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
         { text = "Your sentries follow me everywhere, Captain. Why?", next = "prej", when = { prejudiced = true } },
         { text = "I fought for Stromgarde once, Captain, until the pay stopped.", next = "xorig_sellsword", when = { origin = "human_stromgarde_sellsword" } },
+        { text = "Stromgarde was the first kingdom of men, wasn't it?", next = "hu_ni", when = { race = "Human" } },
+        { text = "You don't think much of southern humans, Captain.", next = "hu_ni_x", when = { race = "Human", ["not"] = { origin = "human_stromgarde_sellsword" } } },
+        { text = "What's become of Stormwind's sons, then? We're here.", next = "hu_ni_s", when = { race = "Human", npcFlagBefore = "nials_hu_soft" } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", reply = "Honest, at least. Stromgarde's coin is thin, but it's yours if you earn it.", fx = { align = { honor = -1 } } },
       },
     },
