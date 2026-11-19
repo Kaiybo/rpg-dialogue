@@ -99,7 +99,7 @@ P:Pool {
       text = "Explorers' League, are you? My boy's read every one of Brann's stories twice over, and he'd give his front teeth to carry one of your packs." },
   },
   lines = {
-    { id = "l_ask", text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
+    { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
     { id = "l2", text = "My uncle says the Alliance isn't what it was, with Gilneas walled off and Lordaeron gone to the dead. I tell him we've still got the dwarves, and he can't argue with that." },
     { id = "l3", text = "Night elves, now, on our side! A few years ago nobody'd heard of them, and now they're selling arrows in the market." },
@@ -217,7 +217,7 @@ P:Pool {
       text = "Frostwolf! My grandfather spoke of your clan the way other orcs speak of the days before the blood, so throm-ka, friend, and honor to the Frostwolves." },
   },
   lines = {
-    { id = "l_ask", text = "Some grunts say the Warchief's too patient with the humans, and others say his patience is all that keeps us standing. Where do you stand?" },
+    { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Some grunts say the Warchief's too patient with the humans, and others say his patience is all that keeps us standing. Where do you stand?" },
     { id = "l1", text = "My father spent ten years in a human camp, and now I sleep under my own roof in a land the Warchief found for us. Some days I can hardly believe it." },
     { id = "l2", text = "The tauren taught us the land, the trolls taught us the coast, and the Forsaken are still teaching us patience. It's a strange family, but it's ours." },
     { id = "l3", text = "Everything here was built in a few short years, out of red rock and stubbornness. It isn't pretty, but it stands, and nobody gave it to us." },

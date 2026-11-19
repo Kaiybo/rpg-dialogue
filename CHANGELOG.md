@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.91.0 (2026-11-19)
+- **The spirit healer has much more to say**: walking back to your body, the price of returning, the great dead (Terenas, Uther, Grom, Lothar, Durotan), why the hill is empty, talks for priests, paladins, shamans, night elves, gnomes and tauren, and greetings that fit the zone or battleground you died in.
+- **Westfall: Alba Fairmoon** has her own conversation.
+- **Citizens' "What do you think of...?" ask** goes away once they've answered, for both factions.
+- Not seen in game yet.
+
 ## 0.90.0 (2026-11-19)
 The warlock patch, seven pieces of work in one release. **New files in the World pack: restart the game fully (a /reload won't load them).**
 - **Talk to your own demon.** Right-click your imp, voidwalker, succubus or felhunter (or target it and talk) for a full conversation: what it thinks of you, the binding, your soul shards, your deaths, your other demons, your people and the Legion. The imp whines and boasts, the voidwalker is eerie and devoted, the succubus silken and dangerous, and the felhunter answers in actions only. Enslaved demons, infernals and doomguards strain at the chain in their own voices.

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.43.0 (2026-11-19)
+- Spirit healer: walk back, the price of returning, the great dead, the empty hill, class and race talks, zone and battleground greetings, more variants.
+- Citizen opinion ask hides once answered (Alliance and Horde).
+
 ## 1.42.0 (2026-11-19)
 - The warlock patch: your own demon talks (`bound_imp.lua`, `bound_voidwalker.lua`, `bound_succubus.lua`, `bound_felhunter.lua`, `bound_demon.lua`), people notice a warlock (`warlock_notice.lua`), and the warlock trainer follows your journey. New files: restart the game fully.
 - Three warlock Stories in the journal; disliked-NPC topics (grievance, amends, spite) with grudge-aware answers; innkeepers, guards, children, trainers and the spirit healer notice warlock kit; demons each have their own voice and react to yours; warlock persuasion lines are veiled.

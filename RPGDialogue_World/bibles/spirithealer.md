@@ -64,3 +64,11 @@ Choices set flags in the healer's memory (`npcFlag`). The next visit opens with 
 - Scarlet Crusade: so many arrive, so certain.
 - Argent Dawn: they argue about the dead carefully.
 - _none: the living ask about the living.
+
+## Added after 0.90.0
+- **Walking back** (`walk`, from hello): the healer respects the corpse run; "the long way is the honest way".
+- **The price** (`price`, from ask): resurrection sickness and worn armor as "the short road's toll"; the healer still holds on a moment to keep the worst of it, and it never works.
+- **The great dead** (`famous` hub, from ask): how they arrived, never where they went. Terenas (crown still on, forgave his son: the stance node), Uther (asked if the boy lived), Grom (arrived clean, laughing), Lothar (half a sword, the promise about the boy, Varian missing for Alliance), Durotan and Draka (Horde; the baby in the snow).
+- **The empty hill** (`quiet`): reading the closed files' names aloud (the Stromgarde baker, the Goldshire boy).
+- **Who you are**: priests/paladins (`colleague`, opposite ends of the rope), shamans 30+ (`ankh`), night elves (`elune`, wisps), gnomes (`gnomeregan`, the ones who never climbed), tauren (`ancestors`, the old bull).
+- Hello: many more zones and the three battlegrounds; more death-cause, greeting, parting and talk variants. Topics: scourge, forsaken, lordaeron, gnomeregan, light, elune.

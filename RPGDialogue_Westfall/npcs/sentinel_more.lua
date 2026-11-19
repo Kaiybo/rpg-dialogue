@@ -1334,3 +1334,127 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know, and I don't guess. Ask inside." } },
   },
 }
+
+-- Alba Fairmoon (Forever): an elf studying the poison in Westfall's soil, wells and shore.
+-- Chain: Testing the Wells, Murloc Gills, The State of the Mines, Moonbrook Espionage,
+-- Explosive Consultation (to Sprite Jumpsprocket in Ironforge), Destruction in Deadmines.
+-- Race left unstated (Jasper Fel calls her "your elf friend"); she is patient, exact and
+-- quietly angry at whoever is poisoning the farms. SI:7 watches her work; she doesn't know it.
+local ALBA_WELLS   = TODO_QUEST("Testing the Wells")
+local ALBA_GILLS   = TODO_QUEST("Murloc Gills")
+local ALBA_MINES   = TODO_QUEST("The State of the Mines")
+local ALBA_MOON    = TODO_QUEST("Moonbrook Espionage")
+local ALBA_CONSULT = TODO_QUEST("Explosive Consultation")
+local ALBA_FORGE   = TODO_QUEST("Destruction in Deadmines")
+
+P:NPC {
+  key = "alba_fairmoon", id = 253092, name = "Alba Fairmoon",
+  role = "questgiver", tier = "quest",
+  communities = { "sentinel_hill" }, temper = { "steady" }, values = { "nature", "practical" },
+  impression = {
+    first = "She thinks the dust on these farms is poison, not drought, and she means to prove it.",
+    third = "{name} met Alba Fairmoon, an elf on Sentinel Hill who is testing Westfall's wells and soil for poison.",
+  },
+
+  greetings = {
+    { id = "g1", text = "Mind the vials on the table, please. Each one is a different farm, and I'd rather not have to walk to them all again." },
+    { id = "g2", when = { timeOfDay = "night" }, text = "Still awake? So am I. The samples don't care what hour it is, and neither, it seems, do I." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back. Good; I've more questions than hands, and you've been useful to both." },
+    { id = "g_wells", when = { questActive = ALBA_WELLS }, text = "Have you been to the Jansen and Molsen wells yet? Keep the kit upright, or the samples will be worthless." },
+    { id = "g_moon", when = { questActive = ALBA_MOON }, text = "Moonbrook, then. Look for anything a mine would need and a farm would not, and come back before they see you." },
+    { id = "g_forge", when = { questDone = ALBA_FORGE }, text = "The forge is gone, and the next rain will carry less poison than the last. It's a small thing to say, but I've waited a long time to say it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Alba Fairmoon. I came to Westfall because the crops are failing in a way that drought doesn't explain. Something is in the ground here, and I mean to find out what." },
+        { id = "h_wells", tags = { "news" }, when = { questActive = ALBA_WELLS },
+          text = "Groundwater first. If the poison is in the wells, it's in the soil, and if it's in the soil, every farmer on this hill is drinking it." },
+        { id = "h_gills", tags = { "news" }, when = { questActive = ALBA_GILLS },
+          text = "Murloc gills are crude instruments, but honest ones. If the sea is tainted, they'll show it before any fisherman's nets do." },
+        { id = "h_mines", tags = { "news" }, when = { questDone = ALBA_WELLS },
+          text = "The wells were full of metal, the sort that comes from ore broken in great quantities. Someone is mining this country hard, and the runoff is killing it." },
+        { id = "h_moon", tags = { "news" }, when = { questDone = ALBA_MINES },
+          text = "The Jangolode and the quarry weren't enough to explain it. The Deadmines under Moonbrook are deeper than either, and I don't believe they are as empty as Stormwind says." },
+        { id = "h_consult", tags = { "news" }, when = { questActive = ALBA_CONSULT },
+          text = "Sprite Jumpsprocket knows explosives better than anyone I could find who would answer a letter. Ask her for something strong enough to bring down a forge, and don't let her talk you into anything bigger." },
+        { id = "h_forge", tags = { "news" }, when = { questActive = ALBA_FORGE },
+          text = "Plant the charges by the forge, then come out to me in the hills behind Moonbrook. I'll not set them off until I know you're clear." },
+        { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin. Your Light can mend a farmer's sickness, I'm sure, but not the field that gave it to him. That part is my work." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "You'll feel it too, I think: the land here isn't tired, it's sick. There's a difference, and the farmers can't tell it." },
+        { id = "h_inn", when = { atInn = true, timeOfDay = "night" }, text = "The innkeeper lets me keep my samples on this table if I buy supper. It's the best arrangement I've made since I came to Westfall." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you like to know? I'll answer while I label these." },
+        { id = "h_again2", text = "Go on. I can talk and write at the same time, though my handwriting suffers for it." },
+      },
+      choices = {
+        { text = "What makes you think it's poison and not drought?", next = "poison" },
+        { text = "Who would poison farmland on purpose?", next = "who" },
+        { text = "Why does an elf care about Westfall's farms?", next = "why" },
+        { text = "What happens if you're right?", next = "stakes" },
+        { text = "Can I help?", next = "BUSINESS" },
+        { text = "I'll leave you to your vials.", next = "END" },
+      },
+    },
+    poison = {
+      lines = {
+        { id = "po_default", text = "Drought makes a crop thin and pale, but it doesn't blacken the roots or leave a sheen on the well water. I've seen both on every farm between here and the Dagger Hills." },
+      },
+      choices = {
+        { text = "What did the samples show?", next = "samples", when = { questDone = ALBA_WELLS } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    samples = {
+      lines = {
+        { id = "sa_default", text = "Heavy metals, the kind you find in smelter slag. It doesn't fall from the sky, so somebody is dumping it, or letting it run into the streams that feed the wells." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    who = {
+      big = true,
+      lines = {
+        { id = "wh_default", text = "I doubt anyone means to poison it. A man who wants iron badly enough stops caring where his slag goes, and the land pays for his hurry. That's no kinder in the end, only more ordinary." },
+        { id = "wh_moon", when = { questDone = ALBA_MOON },
+          text = "The Defias, it seems, with a forge under Moonbrook big enough to arm a war. They were stonemasons once, and I'm told they built half of Stormwind. You'd think they'd care more for the ground they stand on." },
+      },
+      choices = {
+        { text = "Whoever did it should hang. Poisoning farms is murder.", next = "BACK",
+          reply = "Perhaps it is, slowly. I'll leave the hanging to the militia, though; I only want the forge cold.", fx = { align = { order = 1 } } },
+        { text = "Stormwind cheated the masons. This is what desperation looks like.", next = "BACK",
+          reply = "I've heard that story, and I believe some of it. But the farmers didn't cheat anyone, and they're the ones drinking the wells.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      big = true,
+      lines = {
+        { id = "wy_default", text = "Because sick land doesn't stay where it's put. What runs into these wells runs into the sea, and what's in the sea ends up on every table in Stormwind. I'd rather catch it here than read about the famine later." },
+      },
+      choices = {
+        { text = "The land comes first. Folk can always farm elsewhere.", next = "BACK",
+          reply = "They could, if there were anywhere left to go. But you're right that the land will outlast them, if we let it heal.", fx = { align = { light = -1 } } },
+        { text = "The people come first. They're starving now.", next = "BACK",
+          reply = "They are, and that's the reason to hurry. Mend the ground and you feed them for a generation, not a season.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stakes = {
+      lines = {
+        { id = "st_default", text = "Then the soil can recover, slowly, once the poison stops. If I'm wrong and we wait, it will be decades before anything worth eating grows here again." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    westfall = { { id = "tp_westfall", text = "It was the breadbasket of the kingdom once, and the soil remembers it. Stop poisoning it and the wheat will come back, though not this year." } },
+    defias = { { id = "tp_defias", text = "I know them by what they leave in the water. That's enough to dislike them, whatever their grievance with the nobles." } },
+    deadmines = { { id = "tp_deadmines", text = "Stormwind says they've been empty since the First War. The well water says otherwise, and I trust the water more." } },
+    murlocs = { { id = "tp_murlocs", text = "Hardy creatures, but their gills take in everything the sea carries. If the shore is sick, they'll be the first to show it." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. If it isn't in the soil or the water, I'm afraid I've not been paying attention." } },
+  },
+}
