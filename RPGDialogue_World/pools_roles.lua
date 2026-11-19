@@ -41,6 +41,16 @@ P:Pool {
       text = "Kaldorei animals never touch what I put out for them. Tell me what yours eats, and I'll stop wasting good oats." },
     { id = "n_skyborne", cat = "pet", when = { race = "Skyborne" },
       text = "Your people ride something called a galestrider, I'm told. I've no stall for anything that half flies, so I hope you keep it somewhere else." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "You checked the water trough before you checked me, which is how a farm-raised rider looks over a stable. Somebody taught you horses young, and taught you properly." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "If you've brought one of those clockwork striders, leave it outside the gate, please. It doesn't eat, it ticks all night, and my goats can't abide the sound of it." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Your people's wolves never settle in a stall; they lie across the doorway and watch the yard as if they're standing a watch. Is yours the same, or have I only met the surly ones?" },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "The Darkspear ride raptors, and every raptor I've stabled has tried to eat whatever was in the next stall. I hope you've taught yours better manners, because I've only the one goat left." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "Your people ride horses as dead as you are, I'm told, and I've never worked out what one eats. If it's oats I'll be very surprised, and if it's anything else I'd rather not stock it." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784 } },
       text = "Don't bring that through the gate! I've a stable full of horses that'll kick down their stalls if they catch the smell of burning hooves, and they've caught it already." },
     { id = "n_lock_dreadsteed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 23161 } },
@@ -76,8 +86,83 @@ P:Pool {
         { text = "The road must be hard on animals.", next = "road" },
         { text = "What do you make of {pet}?", next = "mypet", when = { pet = { type = "Beast" } } },
         { text = "Do you ever mind keeping wild things penned?", next = "cages" },
+        { text = "Got room for a wolf that won't lie down?", next = "race_wolf", when = { race = "Orc" } },
+        { text = "Ever had a raptor in here?", next = "race_raptor", when = { race = "Troll" } },
+        { text = "What do you feed a horse that died years ago?", next = "race_deadhorse", when = { race = "Scourge" } },
+        { text = "My mechanostrider needs a dry corner, not a stall.", next = "race_strider", when = { race = "Gnome" } },
+        { text = "We kept plough horses on the farm back home.", next = "race_plough", when = { race = "Human" } },
+        { text = "Would a galestrider fit in one of your stalls?", next = "race_gale", when = { race = "Skyborne" } },
         { text = "Good day to you.", next = "END" },
       },
+    },
+    race_wolf = {
+      lines = { { id = "race_wolf_l", text = "Then it's a good wolf, and it's guarding you even when you're not here. I never shut a wolf in; I leave the half-door open and it lies across the sill, and nobody steals so much as a bucket while it's there." } },
+      choices = {
+        { text = "Wolves have carried my people into battle for generations.", next = "race_wolf2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_wolf2 = {
+      lines = { { id = "race_wolf2_l", text = "So I've heard, and it shows. Your wolves look at an orc the way my hound looks at me, as if the pair of you share a secret about everyone else, so bring yours by whenever you like, so long as it leaves the goats alone." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_raptor = {
+      lines = { { id = "race_raptor_l", text = "Once, and once was enough. It ate a bridle, bit my apprentice and spent the whole night staring at the goats with one eye and at me with the other, and I've slept badly near a raptor ever since." } },
+      choices = {
+        { text = "They only bite people they don't respect.", next = "race_raptor2", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_raptor2 = {
+      lines = { { id = "race_raptor2_l", text = "Then it never respected me, and I can't say I blame it. I'm told your people raise them from the egg at Sen'jin, which must be the only way anyone ever earns a raptor's good opinion." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_deadhorse = {
+      lines = { { id = "race_deadhorse_l", text = "Honestly, I don't know, and I've wondered more than once. One of your kind tied a skeletal horse at my rail last spring, and it stood there all night eating nothing and drinking nothing, while every animal in the yard pressed itself against the far wall." } },
+      choices = {
+        { text = "It doesn't need feeding. It needs a little respect.", next = "race_deadhorse2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_deadhorse2 = {
+      lines = { { id = "race_deadhorse2_l", text = "It has my respect, from a distance. I'll not pretend I'm easy with it, but it stood quieter than half the living horses I've kept, and I'll give it that much." } },
+      choices = {
+        { text = "That's more than most of the living give us.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll be off, then.", next = "END" },
+      },
+    },
+    race_strider = {
+      lines = { { id = "race_strider_l", text = "A dry corner I can do, and I'll keep the goats off it, because they chewed through the last one's wiring. Only don't ask me to oil it, since I'd not know which end of the thing is the front." } },
+      choices = {
+        { text = "We built them by the hundred, before Gnomeregan fell.", next = "race_strider2" },
+        { text = "The front is whichever end is moving.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    race_strider2 = {
+      lines = { { id = "race_strider2_l", text = "So I've heard, and now you build them in Tinker Town with whatever you carried out on your backs. I'll keep a corner swept for yours; it's the least anybody can do for folk who lost a whole city." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_plough = {
+      lines = { { id = "race_plough_l", text = "Then you'll know the difference between a horse that's tired and one that's sulking, which is more than most riders do. Plough horses are the best-tempered beasts alive, and it's a shame how many fields stand empty that used to keep them." } },
+      choices = {
+        { text = "Westfall was full of them, once.", next = "race_plough2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_plough2 = {
+      lines = { { id = "race_plough2_l", text = "It was, and the farmers who fled the Defias sold their teams for whatever they'd fetch on the road. I bought two of them myself, and the old mare still turns her head west every morning when I open the gate." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    race_gale = {
+      lines = { { id = "race_gale_l", text = "No, and I'd not try to put one in, from what I've heard of them. A beast that can half fly won't stand for a roof over its head, so I'd sooner you left yours wherever your people leave them." } },
+      choices = {
+        { text = "It goes where I go. Stalls never suited it.", next = "race_gale2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_gale2 = {
+      lines = { { id = "race_gale2_l", text = "Then it's like the wild things I keep, the ones that pace and stare at the hills. If you ever do need it minded, bring it by at night when the yard's quiet, and I'll leave the high gate open and hope for the best." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     how = {
       lines = {
@@ -245,11 +330,84 @@ P:Pool {
     { id = "g_away", when = { away = 7 }, text = "Back after {away}. Your vault's exactly as you left it, which is the whole point of us." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "There's talk you've been telling clever stories in town. The bank believes in ledgers rather than stories, so let's keep to those." },
   },
-  lines = {
-    { id = "l_default", text = "What you leave here stays here. That's the whole of the job, and I'm very good at it." },
-    { id = "l_poor", when = { money = { max = 100 } }, text = "We keep anything, friend, even very little." },
+  -- Race-variant lines and race-gated replies only; a broad role never notices.
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "What you leave here stays here. That's the whole of the job, and I'm very good at it." },
+        { id = "l_poor", when = { money = { max = 100 } }, text = "We keep anything, friend, even very little." },
+        { id = "l_dwarf", when = { race = "Dwarf" }, text = "Your people built the great Vault of Ironforge, so I expect you'll judge ours harshly. It locks and it keeps, and I'd ask you to judge it on that." },
+        { id = "l_gnome", when = { race = "Gnome" }, text = "I've never once had a gnome dispute a ledger, because they've always counted it twice before they reach the counter. That makes you my favourite sort of customer." },
+        { id = "l_scourge", when = { race = "Scourge" }, text = "Your account's under the name you carry now, I hope, and not the one you had before. A few of your people have come asking after the old Lordaeron vaults, and I'm afraid those went with the city." },
+        { id = "l_tauren", when = { race = "Tauren" }, text = "Your people never set much store by coin, I'm told, and I can see why, since you can't eat it and it doesn't graze. It keeps better in here than in a saddlebag, though." },
+        { id = "l_orc", when = { race = "Orc" }, text = "The old bankers used to say an orc keeps only what an orc can carry. I'm glad to see you've decided to trust a door and a lock instead." },
+        { id = "l_troll", when = { race = "Troll" }, text = "The Darkspear trade in shells and teeth as often as coin, I'm told, so I'll say plainly that we keep anything. I've a drawer of the strangest deposits you ever saw to prove it." },
+        { id = "l_nightelf", when = { race = "NightElf" }, text = "You'll find our ways hasty, I expect, after the patience of your people. The coin will still be here when you come back, however long you take about it." },
+        { id = "l_skyborne", when = { race = "Skyborne" }, text = "Your people traded in windstones before you came here, I've heard, and I've no scale that weighs one. It'll have to be gold and silver for now, the same as everyone." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else? The vault's patient, but the queue behind you isn't." },
+        { id = "a_again2", text = "Go on; I've a moment before the next deposit." },
+      },
+      choices = {
+        { text = "My vault, please.", next = "BUSINESS" },
+        { text = "Ironforge's vault would swallow this whole building.", next = "race_vault", when = { race = "Dwarf" } },
+        { text = "I had money in a Lordaeron vault, before.", next = "race_lordaeron", when = { race = "Scourge" } },
+        { text = "Your ledgers want a proper counting engine.", next = "race_engine", when = { race = "Gnome" } },
+        { text = "On the plains, nobody needed coin.", next = "race_plains", when = { race = "Tauren" } },
+        { text = "I carry what I own. Coin's no use otherwise.", next = "race_carry", when = { race = "Orc" } },
+        { text = "Back home we traded in windstones.", next = "race_windstone", when = { race = "Skyborne" } },
+        { text = "Stormwind's taxes leave little enough to deposit.", next = "race_taxes", when = { race = "Human" } },
+        { text = "Good day.", next = "END" },
+      },
+    },
+    race_vault = {
+      lines = { { id = "race_vault_l", text = "It would, and it's deeper, and guarded by dwarves who'd sooner bite you than open up after hours. I once wrote to them asking how they keep the damp out, and they wrote back a single word, which was 'stone'." } },
+      choices = {
+        { text = "That sounds like Ironforge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "My vault, please.", next = "BUSINESS" },
+      },
+    },
+    race_lordaeron = {
+      lines = { { id = "race_lordaeron_l", text = "Then I'm sorry, truly, because whatever was in it went the way of Lordaeron, and nobody's been back to open those doors. If anyone sits on that coin now, it's the Scourge, and they've no use for it." } },
+      choices = {
+        { text = "Are the debts still owed, do you think?", next = "race_lordaeron2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_lordaeron2 = {
+      lines = { { id = "race_lordaeron2_l", text = "Some of the living argue those debts died with you, and some of your people argue back, very coldly, across this counter. I keep out of it, and I'd advise you to start a fresh ledger." } },
+      choices = { { text = "A fresh ledger, then.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    race_engine = {
+      lines = { { id = "race_engine_l", text = "A gnome built me one, once, and it added up every coin in the vault in an afternoon and then caught fire. I've gone back to ink and a good clerk, and I sleep a great deal better for it." } },
+      choices = {
+        { text = "The fire was probably a calibration problem.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_plains = {
+      lines = { { id = "race_plains_l", text = "No, and I envy you a little. Here every scrap of a life ends up in a ledger, and I expect on the plains a good kodo and a sound tent were all the wealth anybody needed to count." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_carry = {
+      lines = { { id = "race_carry_l", text = "Then you carry too much, if you'll forgive me, and you'll lose it the first time something bigger than you knocks you down. A vault doesn't care how strong you are, which is rather the point of it." } },
+      choices = {
+        { text = "Nothing's knocked me down yet.", next = "BACK", fx = { trait = { proud = 1 } } },
+        { text = "My vault, then.", next = "BUSINESS" },
+      },
+    },
+    race_windstone = {
+      lines = { { id = "race_windstone_l", text = "So I've heard, and I'd dearly like to see one, though I'm told they're as much a power as a coin. Nobody here would know how to change one, so I'm afraid it's silver for you, the same as everyone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    race_taxes = {
+      lines = { { id = "race_taxes_l", text = "You're not the first to say so at this counter, and with the city still paying for its walls and its watch, you'll not be the last. Whatever's left over, though, is safer here than under a floorboard." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  choices = { { text = "My vault, please.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "Unless it's kept in a vault, I wouldn't know." } } },
 }
 
@@ -259,10 +417,83 @@ P:Pool {
     { id = "g_bid", text = "Bidding, buying out, or selling?" },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? Most of the listings have changed hands since, so have a look." },
   },
-  lines = {
-    { id = "l_default", text = "The house takes its cut, the seller takes the rest, and everybody blames me for the prices." },
+  -- Race-variant lines and race-gated replies only; a broad role never notices.
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "The house takes its cut, the seller takes the rest, and everybody blames me for the prices." },
+        { id = "l_dwarf", when = { race = "Dwarf" }, text = "Every dwarf who comes to this counter wants to know what thorium's fetching, and every one of them swears at the answer. Go on, then, ask." },
+        { id = "l_gnome", when = { race = "Gnome" }, text = "Gnomes sell the strangest lots through this house, springs and cogs and half a mechanical chicken once, and every one comes with three pages of notes." },
+        { id = "l_nightelf", when = { race = "NightElf" }, text = "The kaldorei are the only sellers who list something, wander off for a week and come back surprised that it sold. Your people are patient, I'll give you that." },
+        { id = "l_orc", when = { race = "Orc" }, text = "Orcs never haggle with me; they only look at the house's cut for a long, quiet moment, until I start to wonder whether it's too high." },
+        { id = "l_troll", when = { race = "Troll" }, text = "The Darkspear list the oddest lots I've ever handled: carved bones, little bags that rattle, and things with eyes. I don't ask, and the buyers don't seem to either." },
+        { id = "l_tauren", when = { race = "Tauren" }, text = "Your people bring me hides cleaner than anything a tanner's apprentice ever managed, and you never seem to mind what they fetch. I wish I could say that of my other sellers." },
+        { id = "l_scourge", when = { race = "Scourge" }, text = "Your people send me the oddest things out of the Plaguelands, and I've learned to wash my hands after handling the lots. No offence meant; the buyers ask." },
+        { id = "l_skyborne", when = { race = "Skyborne" }, text = "A few lots of your people's cloth have come through this house, woven so fine the tailors bid against each other like fishwives. If you've any more of it, list it high." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else? Bids close while we talk, mind." },
+        { id = "a_again2", text = "Ask away; the listings will keep a minute." },
+      },
+      choices = {
+        { text = "Show me the listings.", next = "BUSINESS" },
+        { text = "What's thorium fetching these days?", next = "race_ore", when = { race = "Dwarf" } },
+        { text = "I've a few inventions I'd like to list.", next = "race_invent", when = { race = "Gnome" } },
+        { text = "Do the voodoo goods sell well?", next = "race_voodoo", when = { race = "Troll" } },
+        { text = "The Plaguelands are full of things the dead left behind.", next = "race_plague", when = { race = "Scourge" } },
+        { text = "Your prices make no sense to me.", next = "race_price", when = { race = "Tauren" } },
+        { text = "An honest fight would settle prices faster.", next = "race_fight", when = { race = "Orc" } },
+        { text = "My people's clothcraft would fetch a good price here.", next = "race_cloth", when = { race = "Skyborne" } },
+        { text = "Good day.", next = "END" },
+      },
+    },
+    race_ore = {
+      lines = { { id = "race_ore_l", text = "More than you'd like if you're buying and less than you'd like if you're selling, which is how I know the price is fair. The miners working the Searing Gorge set it, and with Dark Irons about, they charge for the danger." } },
+      choices = {
+        { text = "Dark Irons. That's worth the price, I'll grant.", next = "BACK" },
+        { text = "Show me the listings.", next = "BUSINESS" },
+      },
+    },
+    race_invent = {
+      lines = { { id = "race_invent_l", text = "List them, by all means, only write down what they do in words the buyers can read. Last month somebody listed a thing called a discombobulator, and three people bought it and two of them came back to complain." } },
+      choices = {
+        { text = "It does exactly what the name says.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_voodoo = {
+      lines = { { id = "race_voodoo_l", text = "Well enough, though I'll admit the shrunken heads make the clerks nervous. If you're selling one, pack it in a box, please, so it isn't looking at anybody while it waits." } },
+      choices = { { text = "It only looks at people it doesn't like.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_plague = {
+      lines = { { id = "race_plague_l", text = "They are, and some of it sells very well indeed, which says something about the living I'd rather not think on. Wash whatever you bring, though, because I'll not list anything that's still crawling." } },
+      choices = {
+        { text = "The Apothecaries would pay more than your buyers.", next = "race_plague2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_plague2 = {
+      lines = { { id = "race_plague2_l", text = "Then sell it to them, and I'll not be offended. The Royal Apothecary Society pays for things my buyers wouldn't touch with a stick, and I'd as soon not ask what for." } },
+      choices = { { text = "Wise of you.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    race_price = {
+      lines = { { id = "race_price_l", text = "They don't make much sense to me either, and I've been here for years. A thing is worth whatever somebody will pay on the day, and I'd guess on the plains a thing was worth what it was good for, which is the better rule." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_fight = {
+      lines = { { id = "race_fight_l", text = "It would, and the house would lose its cut, which is why we don't allow it. Bid high, and if you lose, take it out on a centaur rather than my clerks." } },
+      choices = {
+        { text = "Centaur it is.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Show me the listings.", next = "BUSINESS" },
+      },
+    },
+    race_cloth = {
+      lines = { { id = "race_cloth_l", text = "It would, if what I've seen is anything to go by, so list it in small lots and keep the buyers hungry. The tailors here can't match the weave, and believe me, they've tried." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  choices = { { text = "Show me the listings.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "If nobody's selling it, I've no opinion." } } },
 }
 
@@ -301,6 +532,18 @@ P:Pool {
       text = "Don't touch the bellows. The last gnome in here improved them, and I still can't make them stop." },
     { id = "n_tauren", cat = "gear", when = { race = "Tauren" },
       text = "I'll need the big anvil for your gear. Tauren buckles take twice the iron of anyone else's." },
+    { id = "n_human", cat = "gear", when = { race = "Human" },
+      text = "Stormwind plate, by the rivets, and somebody's patched it in a hurry with the wrong nails. I know a field repair when I see one; I made enough of them myself in the war." },
+    { id = "n_nightelf", cat = "gear", when = { race = "NightElf" },
+      text = "Your people's armour is shaped like leaves and finished like jewellery, and I've never once seen a kaldorei smith at work. I'll mend it as best I can, but forgive me if I go slowly." },
+    { id = "n_orc", cat = "gear", when = { race = "Orc" },
+      text = "Orcish steel is heavy and plain, made to be swung by somebody who doesn't mind the weight. I respect that, and I'll not try to make it pretty." },
+    { id = "n_troll", cat = "gear", when = { race = "Troll" },
+      text = "That's troll work on your belt, bone and feather and iron all lashed together. I'll mend the iron, but I'll not touch the feathers, in case they're doing something besides looking handsome." },
+    { id = "n_scourge", cat = "gear", when = { race = "Scourge" },
+      text = "That's old Lordaeron make, with the crown's mark rubbed off the pauldron. I'll mend it gladly, and I'll not ask whose it was first." },
+    { id = "n_skyborne", cat = "gear", when = { race = "Skyborne" },
+      text = "I've not seen your people's metalwork before, and I'd like a closer look at those fittings when you've a moment. It's lighter than I'd ever dare make anything meant to stop a blade." },
     { id = "n_paladin", cat = "gear", when = { class = "PALADIN", durability = { max = 0.5 } },
       text = "The Light doesn't hammer out dents, however hard you pray at them. Get it on the bench." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
@@ -314,24 +557,116 @@ P:Pool {
     { id = "n_lock_trance", cat = "lock_armor", when = { class = "WARLOCK", aura = { 17941 } },
       text = "Your hands are smoking, and not with heat; that's dark stuff curling off your fingers. Don't touch my tools until it stops." },
   },
-  lines = {
-    { id = "l_default", text = "Good steel's patient; it waits for you to need it. Bad steel waits for the worst moment." },
-    { id = "l_low", when = { durability = { max = 0.5 } }, text = "Half of that's held together by habit. Let me look before it lets you down." },
-    { id = "l_warrior", when = { class = "WARRIOR" }, text = "A warrior's gear tells me everything: where you were hit, how often, and how often you didn't move out of the way." },
-    { id = "l_warlock", when = { class = "WARLOCK" }, text = "Brimstone and soot smell much the same, but I know the difference. Keep your conjuring out of my coals." },
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "l_default", text = "Good steel's patient; it waits for you to need it. Bad steel waits for the worst moment." },
+        { id = "l_low", when = { durability = { max = 0.5 } }, text = "Half of that's held together by habit. Let me look before it lets you down." },
+        { id = "l_warrior", when = { class = "WARRIOR" }, text = "A warrior's gear tells me everything: where you were hit, how often, and how often you didn't move out of the way." },
+        { id = "l_warlock", when = { class = "WARLOCK" }, text = "Brimstone and soot smell much the same, but I know the difference. Keep your conjuring out of my coals." },
+      },
+      again = {
+        { id = "a_again", text = "Anything else? The iron's cooling while we talk." },
+        { id = "a_again2", text = "Go on, I can listen and hammer at the same time." },
+      },
+      choices = {
+        { text = "Repairs, please.", next = "BUSINESS" },
+        { text = "Just browsing.", next = "BUSINESS" },
+        { text = "Dwarven steel's folded more times than yours.", next = "race_fold", when = { race = "Dwarf" } },
+        { text = "I could improve those bellows, you know.", next = "race_bellows", when = { race = "Gnome" } },
+        { text = "My people work little iron; we prefer wood and hide.", next = "race_hide", when = { race = "Tauren" } },
+        { text = "Orcish steel needs no polish.", next = "race_polish", when = { race = "Orc" } },
+        { text = "Can you work a bit of bone into this hilt?", next = "race_bone", when = { race = "Troll" } },
+        { text = "This armour was mine when I was alive.", next = "race_oldplate", when = { race = "Scourge" } },
+        { text = "Your forge smoke carries a long way into the trees.", next = "race_smoke", when = { race = "NightElf" } },
+        { text = "Stormwind's smiths say nobody else can rivet plate properly.", next = "race_rivets", when = { race = "Human" } },
+        { text = "You keep staring at my fittings.", next = "race_fittings", when = { race = "Skyborne" } },
+      },
+    },
+    race_fold = {
+      lines = { { id = "race_fold_l", text = "I don't doubt it, and I'd love to learn how, but your smiths guard the method like it's the last cask in the mountain. One day I'll get one of them drunk enough at the Great Forge to tell me." } },
+      choices = { { text = "You'll need a lot of ale for that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    race_bellows = {
+      lines = { { id = "race_bellows_l", text = "No, thank you. The last gnome who said that left me with bellows that breathe on their own, day and night, and I've had to chain them to the wall, so admire them from over there if you must." } },
+      choices = {
+        { text = "That's a twelve percent improvement, at least.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Repairs, then.", next = "BUSINESS" },
+      },
+    },
+    race_hide = {
+      lines = { { id = "race_hide_l", text = "And yet you've worn that iron well, and never once complained of the weight, which is more than I can say of most customers. Hide and wood are honest things, but iron turns a spear, so I'm glad you've some on you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_polish = {
+      lines = { { id = "race_polish_l", text = "Some orc smith told you that, and he wasn't wrong, but rust doesn't care for pride. Oil it once a week and it'll take ten more years of swinging, and that's a smith's honour, not vanity." } },
+      choices = {
+        { text = "Once a week, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Repairs, then.", next = "BUSINESS" },
+      },
+    },
+    race_bone = {
+      lines = { { id = "race_bone_l", text = "I can, though I'd rather know whose bone it is first. Your people lash charms to everything, and I've learned to ask before my hammer finds out the hard way." } },
+      choices = { { text = "Just a raptor's. Nothing that'll mind.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_oldplate = {
+      lines = { { id = "race_oldplate_l", text = "Then it's served you longer than most armour serves anyone, and it isn't finished yet. The plate's sound under the rust, but I'll redo the straps, because the old leather's rotted clean through." } },
+      choices = {
+        { text = "Leave the crest alone. I want to remember.", next = "race_oldplate2" },
+        { text = "Repairs, then.", next = "BUSINESS" },
+      },
+    },
+    race_oldplate2 = {
+      lines = { { id = "race_oldplate2_l", text = "I'll leave it, and I'll not polish it either, so it stays the way you knew it. There are some things a smith shouldn't put a hammer to, and an old soldier's memory is one of them." } },
+      choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_smoke = {
+      lines = { { id = "race_smoke_l", text = "It does, and one of your people once stood at my door and stared at the chimney until I banked the fire. I'll not say it didn't trouble me, but I'll not shoe horses on a cold forge either." } },
+      choices = {
+        { text = "The trees remember every fire.", next = "BACK" },
+        { text = "Repairs, then.", next = "BUSINESS" },
+      },
+    },
+    race_rivets = {
+      lines = { { id = "race_rivets_l", text = "Stormwind's smiths say a lot of things, mostly in the Dwarven District and mostly after a few drinks. I learned my rivets from a dwarf there, as it happens, so tell them that the next time they boast." } },
+      choices = { { text = "I'll be sure to.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_fittings = {
+      lines = { { id = "race_fittings_l", text = "I do, and I'm sorry, but I've never seen work like it, and a smith can't help looking. If you ever meet whoever made those, tell them there's a smith here who'd trade a month's wages for an afternoon at their bench." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
-  choices = { { text = "Repairs, please.", next = "BUSINESS" }, { text = "Just browsing.", next = "BUSINESS" } },
   topics = { _none = { { id = "t_none", text = "Bring it to the anvil and I'll tell you what it is." } } },
 }
 
 ---------------------------------------------------------------------------
--- A few common kinds of vendor, by their titles. No noticing moments.
+-- A few common kinds of vendor, by their titles. Narrowed by subtitle, so they may
+-- notice what their trade would; the broad vendor role never does.
 ---------------------------------------------------------------------------
 P:Pool {
   id = "vendor_food", role = "vendor", subtitle = { "food", "bread", "baker", "butcher", "meat", "fruit", "cook" },
   greetings = {
     { id = "g_fresh", text = "Fresh today, or mostly today." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll be hungry, then, because road food never fills anyone." },
+  },
+  -- Narrowed by title, so it may notice what a cook would.
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf at a baker's stall! You'll be after something that goes with ale, I expect, and I've a rye loaf that's been waiting for you all morning." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Take the small rolls, they're easier to carry, and no, I don't know what each one weighs to the quarter-ounce. The last gnome asked me that, and I've not been the same since." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "The fruit's at this end, picked this morning, and the honey cakes beside it. The last kaldorei who came by walked straight past the sausages as if they'd insulted the forest." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "You've the look of somebody who's been living on dried boar for a week. Eat something that was cooked today before you buy anything for the road." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "You'll be wanting something with a bit of fire in it, I expect, and I'm sorry to tell you the hottest thing on this stall is the mustard. Every troll who's tried it has laughed at me." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "You've the look of somebody raised on farm bread and missing it, so take the brown loaf. It's the nearest thing to a mother's oven I sell." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "You looked at that loaf as though you'd never seen wheat grown in proper soil. I hope it's to your taste, whatever your people ate up there." },
   },
   -- 0.71.0: a small tree of its own (where the food comes from, road rations, the hungry).
   tier = "service",
@@ -353,7 +688,73 @@ P:Pool {
         { text = "I've a long road ahead and little to pack.", next = "road" },
         { text = "There must be folk round here who can't pay.", next = "needy" },
         { text = "I don't eat much these days.", next = "undead", when = { race = "Scourge" } },
+        { text = "Have you anything that goes with a dark ale?", next = "race_ale", when = { race = "Dwarf" } },
+        { text = "Was this grain grown in good soil?", next = "race_soil", when = { race = "Tauren" } },
+        { text = "Meat. Nothing else.", next = "race_meat", when = { race = "Orc" } },
+        { text = "Got anything with real spice in it?", next = "race_spice", when = { race = "Troll" } },
+        { text = "How long does this bread keep, precisely?", next = "race_keep", when = { race = "Gnome" } },
+        { text = "This tastes like the bread back home.", next = "race_home", when = { race = "Human" } },
+        { text = "Do you sell anything that wasn't hunted?", next = "race_hunted", when = { race = "NightElf" } },
+        { text = "Food grown in the ground still tastes strange to me.", next = "race_ground", when = { race = "Skyborne" } },
         { text = "Good day.", next = "END" },
+      },
+    },
+    race_ale = {
+      lines = { { id = "race_ale_l", text = "Rye bread, a hard cheese and a sausage with enough pepper in it to make you want a second pint, which is the whole idea. The innkeeper and I have an understanding about that sausage." } },
+      choices = {
+        { text = "A wise arrangement.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll take some.", next = "BUSINESS" },
+      },
+    },
+    race_soil = {
+      lines = { { id = "race_soil_l", text = "The best I can buy, though I doubt the farmers thank the Earth Mother for it the way your people would. It tastes honest, and that's the most I'll promise anybody." } },
+      choices = {
+        { text = "Then I'll thank her for both of us.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_meat = {
+      lines = { { id = "race_meat_l", text = "A plain order, and I like it. The ribs were roasted this morning, and if they're not to your liking you can tell me so to my face, which I hear is how your people prefer it anyway." } },
+      choices = {
+        { text = "To your face, then. They're good.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll take some.", next = "BUSINESS" },
+      },
+    },
+    race_spice = {
+      lines = { { id = "race_spice_l", text = "Not the way your people mean it, no. I tasted what the Darkspear cook at Sen'jin once, and my mouth didn't recover until the next morning, so the mustard's the best I can do and I'm sorry for it." } },
+      choices = {
+        { text = "Next time I'll bring you some peppers.", next = "race_spice2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_spice2 = {
+      lines = { { id = "race_spice2_l", text = "Bring them, and I'll put them in a pie and sell it to the guards, who boast that nothing ever frightens them. I'd pay good money to watch their faces." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_keep = {
+      lines = { { id = "race_keep_l", text = "Four days in a dry pack, three in a damp one, and about an hour once somebody starts taking it apart to see how it works. Eat it, please, don't study it." } },
+      choices = { { text = "Four days. I'll make a note.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    race_home = {
+      lines = { { id = "race_home_l", text = "Then somebody back home knew what they were about, and so do I. Brown flour, a little honey, a hot oven and patience, and the patience is the part nobody ever writes down." } },
+      choices = {
+        { text = "I miss it more than I'd say aloud.", next = "race_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_home2 = {
+      lines = { { id = "race_home2_l", text = "Most folk on the road do, and they say it to the baker before they'd say it to anyone else. Buy a loaf for the first night out, and eat it slowly, and you'll be home for a few minutes at least." } },
+      choices = { { text = "I'll do that.", next = "BUSINESS", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    race_hunted = {
+      lines = { { id = "race_hunted_l", text = "Plenty: the fruit, the nuts and the bread, all of it grown and none of it chased. I'd guess your people would sooner thank the forest than the butcher, and I'll not argue with ten thousand years of good manners." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    race_ground = {
+      lines = { { id = "race_ground_l", text = "Does it? I suppose it would, to somebody who's not eaten much of it. I hope that's a good kind of strange, because there's more earth in my bread than in anything else I sell." } },
+      choices = {
+        { text = "It's a good kind of strange.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     source = {
@@ -403,6 +804,25 @@ P:Pool {
     { id = "g_pour", text = "Something to wash the road down?" },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, so I'd say you're owed a drink. You'll be paying for it, mind." },
   },
+  -- Narrowed by title, so it may notice what someone behind a bar would.
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf at my counter, and I can already see you judging the taps. Go on, then, tell me which of them you'd pour down the drain." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Orcs drink as if it's a contest and set the cup down as if it's lost, and I've learned not to take either personally. What'll it be?" },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Every troll I've served says my strongest is too weak, and then has three of them anyway. I'm told the Darkspear brew their own on the Echo Isles, and I'm told not to try it." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "The big tankard, I think, and I'll fill it twice. I've never yet seen a tauren tipsy, and believe me, I've watched for it." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Gnomes take a single cup of anything and then talk for an hour about how it was distilled. I'll pour you one if you promise not to take my still apart afterwards." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "Kaldorei always ask for wine and then look at it, disappointed, as though they remember a better vintage from a few thousand years back. I suppose you might, at that." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "You've the look of someone who knows the Lion's Pride by its taps. Don't tell me mine's better, because I know it isn't." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "I've no idea what your people drink, or whether you drink at all. Try the plain ale, and if you make a face I'll know for next time." },
+  },
   -- 0.71.0: a small tree of its own (what's worth drinking, bar talk, when to stop pouring).
   tier = "service",
   start = "hello",
@@ -422,7 +842,66 @@ P:Pool {
         { text = "You must hear a lot over the bar.", next = "gossip" },
         { text = "Do you ever stop pouring for someone?", next = "cutoff" },
         { text = "Got any proper dwarven stout?", next = "stout", when = { race = "Dwarf" } },
+        { text = "Can I still get drunk, do you think?", next = "race_numb", when = { race = "Scourge" } },
+        { text = "Give me something that bites back.", next = "race_bite", when = { race = "Orc" } },
+        { text = "Your ale's weak. Ever had a proper troll brew?", next = "race_brew", when = { race = "Troll" } },
+        { text = "Is there anything here my ancestors would recognise?", next = "race_ancestors", when = { race = "Tauren" } },
+        { text = "Your still could run thirty percent more efficiently.", next = "race_still", when = { race = "Gnome" } },
+        { text = "You wouldn't have anything from Darnassus?", next = "race_darnassus", when = { race = "NightElf" } },
+        { text = "Is that cask really Stormwind ale?", next = "race_cask", when = { race = "Human" } },
+        { text = "What would you pour for someone who's never tasted ale?", next = "race_firstcup", when = { race = "Skyborne" } },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    race_numb = {
+      lines = { { id = "race_numb_l", text = "I've watched your kind try, and I'd say no, though one swore the strong stuff made his fingers go numb, which I'd thought they already were. Try it and tell me; I've wondered for months." } },
+      choices = {
+        { text = "I'll let you know.", next = "race_numb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_numb2 = {
+      lines = { { id = "race_numb2_l", text = "Do, and quietly, because the living customers get nervous when one of your people laughs too loud at nothing. They needn't, I suppose, but I'd rather not find out what a frightened crowd does to my furniture." } },
+      choices = { { text = "Quietly, then.", next = "BUSINESS", fx = { trait = { discreet = 1 } } } },
+    },
+    race_bite = {
+      lines = { { id = "race_bite_l", text = "Then you want the dark rum the sailors bring in, which has bitten everyone who's tried it and a few who only smelled it. Drink it slowly, or don't drink it in here." } },
+      choices = {
+        { text = "Pour it.", next = "BUSINESS", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_brew = {
+      lines = { { id = "race_brew_l", text = "Once, on a dare, and I don't remember the end of that night or most of the next day. Whatever your people put in it, I'd never sell it here, because I'd never get my customers home again." } },
+      choices = { { text = "That's the point of it.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_ancestors = {
+      lines = { { id = "race_ancestors_l", text = "Water, I suppose, and maybe milk, though I keep little of either. I'd guess your people drank from the rivers of Mulgore long before anyone thought to brew, and you've lost nothing by it." } },
+      choices = {
+        { text = "Water, then. And maybe one ale.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_still = {
+      lines = { { id = "race_still_l", text = "It probably could, and the last gnome who said so left a drawing on the back of my price list that I still can't read. I'll keep my thirty percent less, thank you, because at least I know it won't explode." } },
+      choices = { { text = "Twenty-eight percent, then. I was rounding.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_darnassus = {
+      lines = { { id = "race_darnassus_l", text = "Not a drop. Your wines never seem to leave the island, and the one bottle I ever saw was sold three times over before anybody dared to open it." } },
+      choices = { { text = "Some things are worth the wait.", next = "BACK" } },
+    },
+    race_cask = {
+      lines = { { id = "race_cask_l", text = "It says so on the cask, and I paid as though it were. I'll be honest, I trust the cooper's mark more than the brewer's, but nobody's complained yet." } },
+      choices = {
+        { text = "Pour one, and I'll be the judge.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_firstcup = {
+      lines = { { id = "race_firstcup_l", text = "Something gentle, so you don't decide on the first sip that the whole of Azeroth is trying to poison you. The honey mead, I think, and slowly, because it's sweeter than it is strong and it'll fool you by the second cup." } },
+      choices = {
+        { text = "The honey mead, then.", next = "BUSINESS", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     best = {
@@ -488,6 +967,25 @@ P:Pool {
     { id = "g_weigh", text = "Weighed fair, every pinch of it." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll have run through your pouches by now, I expect." },
   },
+  -- Narrowed by title, so it may notice what someone weighing out herbs would.
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome in my shop, and already counting the jars. Every one of them is labelled, so you needn't open any to check." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Your people have ways with roots and powders older than my whole trade. Look round if you like, but I suspect you'll find my shelves rather tame." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "I've sold to the Apothecarium's people before, and they always ask for things I'd not sell to anyone else. Whatever you're after, keep it stoppered while you're in here, please." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Your people know every herb on the plains by name, I'm told, so you've likely spotted the ones I've mislabelled already. Do tell me quietly." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "Kaldorei always look at my dried herbs the way a man looks at a caged bird. They were picked kindly, I promise you, or kindly enough." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "If you're after blasting powder, I don't keep it, and I'd thank you not to bring any in. Everything on these shelves is the gentle sort of powder, the kind that doesn't take a wall down with it." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Orcs usually grind their own powders and pick their own herbs, and I've never had one ask me for help. Are you the first, or has some shaman sent you shopping?" },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "I've heard your people trade in a kind of stone that's power and coin both, and I'd give a good deal to see one. I've nothing like it on these shelves, I'm sorry to say." },
+  },
   -- 0.71.0: a small tree of its own (what it's all for, where it comes from, whether to ask).
   tier = "service",
   start = "hello",
@@ -508,7 +1006,58 @@ P:Pool {
         { text = "You've a lot of stock in here.", next = "source" },
         { text = "Do you ask what your customers do with it?", next = "asking" },
         { text = "Do you sell anything for the work I do after dark?", next = "shards", when = { class = "WARLOCK" } },
+        { text = "My people make better powders than these.", next = "race_powders", when = { race = "Troll" } },
+        { text = "Do you sell to the Apothecaries?", next = "race_apoth", when = { race = "Scourge" } },
+        { text = "Three of your labels are wrong.", next = "race_labels", when = { race = "Gnome" } },
+        { text = "This herb was picked before it was ready.", next = "race_unripe", when = { race = "Tauren" } },
+        { text = "These were torn up by the roots.", next = "race_roots", when = { race = "NightElf" } },
+        { text = "Any blasting powder behind the counter?", next = "race_blasting", when = { race = "Dwarf" } },
+        { text = "Do any of these jars hold something of the elements?", next = "race_elements", when = { race = "Skyborne" } },
         { text = "Good day.", next = "END" },
+      },
+    },
+    race_powders = {
+      lines = { { id = "race_powders_l", text = "I don't doubt it, and I'd never dare argue with somebody whose grandmother could curse me. If you ever have a recipe you'd part with, though, I'd like to hear it, and I'd ask no questions about the bones." } },
+      choices = { { text = "Some recipes don't leave the Echo Isles.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    race_apoth = {
+      lines = { { id = "race_apoth_l", text = "When they come, and they come with lists longer than my arm and seals I'm not meant to read. I sell them the plain things, roots and salts, and I try not to wonder what they mix them into." } },
+      choices = {
+        { text = "Better that you don't wonder.", next = "race_apoth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_apoth2 = {
+      lines = { { id = "race_apoth2_l", text = "That's what I tell myself, and it sounds more convincing from one of your people. Keep your secrets and I'll keep my shelves, and we'll both sleep, or whatever it is you do instead." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    race_labels = {
+      lines = { { id = "race_labels_l", text = "Only three? Then I'm doing better than last month, when a gnome found seven and wrote corrections on every jar in very small, very neat handwriting." } },
+      choices = { { text = "Make that four. I missed one.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
+    },
+    race_unripe = {
+      lines = { { id = "race_unripe_l", text = "Was it? I'll take your word over the herbalist's, since your people were gathering on the plains long before anyone sold herbs in jars. Tell me what to look for, and I'll send the next batch back." } },
+      choices = {
+        { text = "Look at the root, not the leaf.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_roots = {
+      lines = { { id = "race_roots_l", text = "They were, and I know your people would rather they weren't, because a kaldorei druid told me so for the better part of an hour. I've started asking the herbalists to leave a little behind, though I can't swear they listen." } },
+      choices = {
+        { text = "Then the hills will thank you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_blasting = {
+      lines = { { id = "race_blasting_l", text = "None, and if I did, I'd sell it to you through the window with the door shut. Your miners can blow up their own mountains, but I'd like to keep my shop standing." } },
+      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_elements = {
+      lines = { { id = "race_elements_l", text = "Not that I know of, though a shaman once swore my sulphur was full of fire and wouldn't stop staring at it. If you can feel something in these jars that I can't, I'd honestly rather you didn't tell me." } },
+      choices = {
+        { text = "The sulphur is a little restless.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     uses = {
@@ -579,6 +1128,18 @@ P:Pool {
       text = "Every human paladin I've taught had that same look, hoping the Light was listening and afraid that it was. Keep both; they'll serve you." },
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
       text = "You've a dwarf's patience with the hammer and a dwarf's impatience with everything else. The Light seems to like the combination, so I'll not argue with it." },
+    { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PALADIN" },
+      text = "A gnome in plate! I'd have sworn the armour weighed more than you, and yet here you stand in it. The Light never cared how tall a shield-bearer was, only that they stayed in front." },
+    { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "PALADIN" },
+      text = "A kaldorei who answers to the Light, and not only to Elune, or perhaps to both; I've never had to ask that of a student before. Tell me which you pray to, once we're done, because I'd like to know." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "PALADIN" },
+      text = "An orc who calls on the Light. The Alliance I served kept your people in the camps, and I'd not blame you if that sat badly between us, but the Light seems to have settled the matter without asking either of us." },
+    { id = "n_troll", cat = "class", when = { race = "Troll", class = "PALADIN" },
+      text = "A troll paladin. Your loa want offerings, I'm told, and the Light asks only that you stand in front of somebody weaker, so I'm curious which of them is louder in your head." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "PALADIN" },
+      text = "A tauren who answers to the Light! I'd have guessed your people too settled in the Earth Mother's ways for it, and I'm glad to be wrong. You'll have to tell me someday whether she minds." },
+    { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "PALADIN" },
+      text = "Your people were gone ten thousand years, and now one of you kneels to the Light. I'll not pretend to know what you were taught before, but you're welcome to whatever I can teach you now." },
     { id = "n_deaths", cat = "class", when = { class = "PALADIN", deaths = { min = 20 } },
       text = "You've been carried back from the dead more often than I'd like to count, by the look of you. A shield is meant to be held up, {class}, not admired from the ground." },
     { id = "n_scarlet", cat = "class", when = { class = "PALADIN", killed = { name = "Scarlet", min = 25 } },
@@ -622,8 +1183,76 @@ P:Pool {
         { text = "I ran a quarry crew at Gol'Bolar before this.", next = "xorig_quarry", when = { origin = "dwarf_quarry_foreman" } },
         { text = "I was a knight of the Silver Hand before I died.", next = "xorig_risen", when = { origin = "forsaken_risen_knight" } },
         { text = "I was a squire, and the plague came before my oath.", next = "xorig_unsworn", when = { origin = "forsaken_unsworn_squire" } },
+        { text = "Does Stormwind still remember the Silver Hand?", next = "race_stormwind", when = { race = "Human" } },
+        { text = "Ironforge came late to the Light.", next = "race_ironforge", when = { race = "Dwarf" } },
+        { text = "The Light burns me every time I call on it.", next = "race_burn", when = { race = "Scourge", class = "PALADIN" } },
+        { text = "The order's plate wasn't made for someone my size.", next = "race_size", when = { race = "Gnome", class = "PALADIN" } },
+        { text = "Elune and the Light seem very alike to me.", next = "race_elune", when = { race = "NightElf" } },
+        { text = "The Alliance put my people in camps, and you served it.", next = "race_camps", when = { race = "Orc" } },
+        { text = "The loa and the Light ask very different things.", next = "race_loa", when = { race = "Troll" } },
+        { text = "The Earth Mother and the Light don't feel so different.", next = "race_earth", when = { race = "Tauren" } },
+        { text = "I'd never heard of the Light before my people came back.", next = "race_newlight", when = { race = "Skyborne" } },
         { text = "Farewell.", next = "END" },
       },
+    },
+
+    -- Race-gated replies.
+    race_stormwind = {
+      lines = { { id = "race_stormwind_l", text = "It remembers in the Cathedral, where the old banners hang and the squires still learn the founders' names by heart. The rest of the city forgets, I think, because it's busy with troubles of its own." } },
+      choices = {
+        { text = "Then I'll remember for them.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_ironforge = {
+      lines = { { id = "race_ironforge_l", text = "Late, but whole-hearted, which I'll take over early and lukewarm any day. Your people in the Mystic Ward pray the way they forge, loud and long and all at once, and the Light seems to enjoy it." } },
+      choices = { { text = "We do everything that way.", next = "BACK", fx = { trait = { proud = 1 } } } },
+    },
+    race_burn = {
+      lines = { { id = "race_burn_l", text = "Then you're paying a price none of my other students pay, and you're still here paying it. I can't tell you why it hurts, but a thing that costs that much is a thing you truly mean." } },
+      choices = {
+        { text = "Some days I wonder if it's a punishment.", next = "race_burn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_burn2 = {
+      lines = { { id = "race_burn2_l", text = "If it were, I think it would have stopped answering you, and it hasn't. The Light doesn't bargain and it doesn't torment, so call it the cost of carrying something heavy, and carry it anyway." } },
+      choices = { { text = "I'll carry it.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } } },
+    },
+    race_size = {
+      lines = { { id = "race_size_l", text = "No, and the armourers grumble every time, but they manage it. A shield that comes up to your nose still stops a blade, and the Light fills in whatever the smith couldn't." } },
+      choices = { { text = "And the hammer?", next = "race_size2" } },
+    },
+    race_size2 = {
+      lines = { { id = "race_size2_l", text = "Swing it from the hip and let the weight do the work, the way a smith does. I've watched gnome paladins knock down ogres, and the ogres never once saw it coming, because they were looking for somebody taller." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    race_elune = {
+      lines = { { id = "race_elune_l", text = "Perhaps they are, and perhaps they're one thing seen through different eyes; I've heard the Cathedral's scholars argue it both ways until supper went cold. Pray to whichever answers you, and I'll not quarrel with the moon." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    race_camps = {
+      lines = { { id = "race_camps_l", text = "It did, and I'll not dress that up as anything it wasn't. Many of the knights called it a mercy at the time, and a few of us knew better and said nothing, which is its own kind of sin." } },
+      choices = {
+        { text = "And now you teach an orc.", next = "race_camps2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_camps2 = {
+      lines = { { id = "race_camps2_l", text = "Now I teach an orc, and the Light answers you as readily as it answers me, which I take as the Light's own opinion of those camps. Make better use of it than we did." } },
+      choices = { { text = "I intend to.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_loa = {
+      lines = { { id = "race_loa_l", text = "They do, from the little I know of the loa, and I'll not ask you to choose between them today. Only be sure you know which one you're calling on in a fight, because a paladin who hesitates there is a paladin who falls." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    race_earth = {
+      lines = { { id = "race_earth_l", text = "Perhaps not, and I've no wish to quarrel with her. The Light asks you to shelter the weak, and from what I hear the Earth Mother asks the same, so I doubt she'll be jealous of a little extra help." } },
+      choices = { { text = "She isn't the jealous sort.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_newlight = {
+      lines = { { id = "race_newlight_l", text = "Then you've a great deal to catch up on, and very little of it is as tidy as the sermons make it sound. Start with the people around you, because the Light shows itself in what you do for them long before it shows itself in any book." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 
     -- The craft: a sub-hub of things to practise.
@@ -971,6 +1600,20 @@ P:Pool {
       text = "A gnome in the vestments! I've heard of it and never seen it. Your people do like to take things apart, but faith isn't one of those things." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PRIEST" },
       text = "The Light still answers you. It burns a little, I'd guess, and that's good; burning means it's listening." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "PRIEST" },
+      text = "You fold your hands the Cathedral's way, right up to the knuckles. Somebody in Stormwind taught you well, and I'll try not to undo it." },
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "PRIEST" },
+      text = "A dwarf priest, and you smell faintly of the forge, as every one of them does. Your people pray like they're hammering something into shape, and I've come to like it." },
+    { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "PRIEST" },
+      text = "A priest of Elune, standing among the Light's candles. Some say the moon and the Light are cousins, so I'll teach you what I can and you may pray how you like." },
+    { id = "n_troll", cat = "class", when = { race = "Troll", class = "PRIEST" },
+      text = "A Darkspear priest! Your people have their loa and their witch doctors, and still you came to learn what I teach, so tell me what the loa make of that when you've the time." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "PRIEST" },
+      text = "A tauren who heals with the Light and not only the Earth Mother's spirits. I've never taught one of your people before, and I expect you'll teach me a good deal about patience." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "PRIEST" },
+      text = "An orc priest. Your old warlocks sold your people to demons, and I'd guess that leaves you wary of any power you can't see, but the Light asks nothing back, and I hope you'll let it prove that." },
+    { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "PRIEST" },
+      text = "I've not taught one of your people before, and I'm told you hold the elements dearer than any god. Whatever brought you to the Light, I'm glad of it." },
     { id = "n_hurt", cat = "class", when = { class = "PRIEST", durability = { max = 0.25 } },
       text = "A priest, with armour like that? You've been standing in front of the fighters again, and you belong behind them, always behind." },
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
@@ -1004,8 +1647,74 @@ P:Pool {
         { text = "I'm torn between studying the Light and the shadow.", next = "shadow", when = { class = "PRIEST", minLevel = 10 } },
         { text = "Does the shadow frighten you?", next = "shadow_fear", when = { form = "shadow" } },
         { text = "Healing all day must wear you down.", next = "tired" },
+        { text = "Why does the Light still answer me?", next = "race_answer", when = { race = "Scourge" } },
+        { text = "I pray to Elune. Will the Light mind?", next = "race_elune", when = { race = "NightElf" } },
+        { text = "The loa are watching what I learn here.", next = "race_loa", when = { race = "Troll" } },
+        { text = "Our priests pray in the Mystic Ward, with the forge below.", next = "race_ward", when = { race = "Dwarf" } },
+        { text = "Faith seems awfully imprecise.", next = "race_precise", when = { race = "Gnome" } },
+        { text = "My people learned to distrust any power that makes promises.", next = "race_promise", when = { race = "Orc" } },
+        { text = "The Earth Mother heals too.", next = "race_earth", when = { race = "Tauren" } },
+        { text = "The Cathedral teaches the Light as a duty.", next = "race_duty", when = { race = "Human" } },
+        { text = "My people honoured the elements, not any god.", next = "race_elements", when = { race = "Skyborne" } },
         { text = "Farewell.", next = "END" },
       },
+    },
+    race_answer = {
+      lines = { { id = "race_answer_l", text = "I don't know, and nor does anyone at the Cathedral, though they'd never admit it. I think the Light looks at what you do now and not at what was done to you, and I find that easier to believe than the alternative." } },
+      choices = {
+        { text = "Most of my people turned to the shadow instead.", next = "race_answer2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_answer2 = {
+      lines = { { id = "race_answer2_l", text = "Many did, and I can't blame them, because the shadow doesn't burn. You chose the harder road, and I'd ask you to keep choosing it, one cold morning at a time." } },
+      choices = { { text = "I'll keep choosing it.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } } },
+    },
+    race_elune = {
+      lines = { { id = "race_elune_l", text = "The Light has never once told me it minds anything, and I've given it plenty of cause. Elune's priestesses have healed under the moon for ten thousand years, so pray to her, and I'll teach you what the Light can add." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { pious = 1 } } } },
+    },
+    race_loa = {
+      lines = { { id = "race_loa_l", text = "Then let them watch, and let them see you heal somebody. I don't know the loa, but I'd guess even the ones who keep the dead can't begrudge a soul kept a little longer from them." } },
+      choices = {
+        { text = "You'd be surprised what the loa begrudge.", next = "race_loa2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_loa2 = {
+      lines = { { id = "race_loa2_l", text = "I'm sure I would, and I'll not pretend to know your spirits better than you do. Give them their due, and give the wounded theirs, and if the two ever pull against each other, come and talk to me before you choose." } },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_ward = {
+      lines = { { id = "race_ward_l", text = "I've heard the floor shakes while they pray, and I'd dearly like to hear one of their hymns sung over that noise. Your people found the Light late, but they found it shouting, and that counts for something." } },
+      choices = { { text = "Shouting's the only way to be heard over a forge.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_precise = {
+      lines = { { id = "race_precise_l", text = "It is, and that's the hardest thing I'll ever teach a gnome. You can't measure the Light, only notice where it's been, so keep a journal of every heal if you must, and see what your numbers tell you." } },
+      choices = {
+        { text = "I've already started one.", next = "race_precise2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_precise2 = {
+      lines = { { id = "race_precise2_l", text = "Of course you have. Show it to me in a month, and I'd wager the pages that matter most are the ones where you forgot to write anything down, because you were too busy keeping somebody alive." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    race_promise = {
+      lines = { { id = "race_promise_l", text = "And you were right to, after what the warlocks made of you. The Light makes no promises, though, and asks for nothing back, and you'll have to watch it a long while before you believe that, so I'll not hurry you." } },
+      choices = { { text = "I'm watching it.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    race_earth = {
+      lines = { { id = "race_earth_l", text = "She does, through your druids and your shamans, and I'd never say otherwise. The Light is only another hand on the same wound, and I'd guess the wounded don't much care whose it is." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    race_duty = {
+      lines = { { id = "race_duty_l", text = "It does, and duty's a fine place to begin, though a poor place to stop. Archbishop Benedictus would tell you the same, if you could ever get past his clerks to ask him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    race_elements = {
+      lines = { { id = "race_elements_l", text = "Then the Light will feel strange to you at first, because it isn't a spirit you can bargain with or a wind you can name. Give it time; most priests come to it strangely, whatever they believed before." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     practise = {
       lines = {
@@ -1086,6 +1795,14 @@ P:Pool {
       text = "Some of your people studied in Dalaran while they still breathed. They make the most patient students I have, since time no longer frightens them." },
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "MAGE" },
       text = "A troll with a spellbook. The witch doctors would call this foreign magic, and they wouldn't be wrong, but the arcane doesn't care whose hands it's in." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "MAGE" },
+      text = "Another human with Dalaran in their eyes! Every one of you who walks in here dreams of the Violet Citadel, and I've never had the heart to tell you how few the Kirin Tor let through the gate." },
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "MAGE" },
+      text = "A dwarf of the arcane! Your people trust stone and steel and very little else, so you must have wanted this badly. Keep that stubbornness; it's half of what a mage needs." },
+    { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "MAGE" },
+      text = "A kaldorei mage. Your people forbade this magic after the Highborne nearly ended the world, and I'd not blame you for glancing over your shoulder while you study it, only study it properly." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "MAGE" },
+      text = "A tauren mage, with a spellbook that looks very small in those hands. The arcane is a long way from the Earth Mother's ways, but I'll teach you as gently as I can." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
       text = "There's a stink of brimstone and a cold draught coming off you, and my wards just flickered. Dalaran expelled students for less, you know, and most of them deserved it." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
@@ -1113,8 +1830,81 @@ P:Pool {
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
         { text = "All this knowledge must come at a cost.", next = "price", when = { class = "MAGE", minLevel = 10 } },
         { text = "You must think about Dalaran often.", next = "dalaran" },
+        { text = "My people's warlocks ruined us. Is this any different?", next = "race_warlocks", when = { race = "Orc" } },
+        { text = "The witch doctors say this magic isn't ours.", next = "race_foreign", when = { race = "Troll" } },
+        { text = "Our engineers think the arcane is too imprecise.", next = "race_engineers", when = { race = "Gnome" } },
+        { text = "I studied in Dalaran, when I was alive.", next = "race_studied", when = { race = "Scourge" } },
+        { text = "My people work beside the Kirin Tor now.", next = "race_highorder", when = { race = "Skyborne", faction = "Alliance" } },
+        { text = "I'd like to study in Dalaran one day.", next = "race_dream", when = { race = "Human" } },
+        { text = "My people trust a hammer more than a spell.", next = "race_hammer", when = { race = "Dwarf" } },
+        { text = "My people swore off this magic after the Sundering.", next = "race_sworn", when = { race = "NightElf" } },
+        { text = "The arcane feels nothing like the land.", next = "race_land", when = { race = "Tauren" } },
         { text = "Farewell.", next = "END" },
       },
+    },
+    race_warlocks = {
+      lines = { { id = "race_warlocks_l", text = "It is, though I'll not pretend the line between us is as wide as I'd like. A warlock bargains with demons for power, and a mage studies the world's own currents, and Dalaran expelled students for confusing the two." } },
+      choices = {
+        { text = "Then I'll study, and bargain with nobody.", next = "race_warlocks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_warlocks2 = {
+      lines = { { id = "race_warlocks2_l", text = "Good. Your people paid for the warlocks' bargains with the blood in their eyes and the colour of their skin, and you'll pay for this only in hours and headaches, which is a far better price." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } } },
+    },
+    race_foreign = {
+      lines = { { id = "race_foreign_l", text = "They're right, and I'd never tell a witch doctor otherwise to his face. The arcane came into this world through the night elves' Well and Dalaran's towers, and it's no more yours than mine until you put the work in." } },
+      choices = { { text = "Then I'll put the work in.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    race_engineers = {
+      lines = { { id = "race_engineers_l", text = "Your engineers have plainly never watched a polymorph go wrong, because it's precise in all the worst ways. Bring me your numbers, though; a mage who measures twice blows up half as often." } },
+      choices = { { text = "Half as often is still too often.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_studied = {
+      lines = { { id = "race_studied_l", text = "Then you've walked through libraries I've only read about, and I envy you that more than I'd like to admit. Do you remember much of it, or did the plague take the books along with everything else?" } },
+      choices = {
+        { text = "I remember the libraries better than my own family.", next = "race_studied2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_studied2 = {
+      lines = { { id = "race_studied2_l", text = "That's a cold thing to say, and I suspect you meant it to be. Hold on to the libraries, then, because the Kirin Tor may never let any of us back inside them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    race_highorder = {
+      lines = { { id = "race_highorder_l", text = "So I've heard, and I'll admit I'm jealous; they've opened doors to your High Order that I've knocked on for twenty years. If you learn anything there that you're allowed to share, I'd be very glad to hear it." } },
+      choices = {
+        { text = "My ancestors were magisters. We're only taking back what we lost.", next = "race_highorder2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_highorder2 = {
+      lines = { { id = "race_highorder2_l", text = "Then you'll have more to remember than most of us have to learn, and I hope you're careful about which parts you take back. The Highborne knew a great deal, and not all of it ended well for them." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    race_dream = {
+      lines = { { id = "race_dream_l", text = "So would every human student I've ever had, and I'll tell you what I told them. Work until the Kirin Tor hear your name from somebody else, because they never take an application, only a reputation." } },
+      choices = { { text = "Then I'll earn the reputation.", next = "BACK", fx = { trait = { proud = 1 } } } },
+    },
+    race_hammer = {
+      lines = { { id = "race_hammer_l", text = "So do most sensible people, and yet here you are. A spell won't dull and it can't be dropped, and if you study hard enough, you'll be the first in your clan to set an ogre alight from across a valley." } },
+      choices = { { text = "That would be worth a song in Ironforge.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    race_sworn = {
+      lines = { { id = "race_sworn_l", text = "They did, and the Highborne who wouldn't swear off it were driven across the sea, so I'd say your people had cause. What made you take it up again, after ten thousand years of leaving it alone?" } },
+      choices = {
+        { text = "Someone ought to learn it who remembers the cost.", next = "race_sworn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race_sworn2 = {
+      lines = { { id = "race_sworn2_l", text = "Then you'll be a better mage than most of mine, who only learn the cost after they've paid it. Study, and keep that memory close, because the arcane will try very hard to make you forget." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    race_land = {
+      lines = { { id = "race_land_l", text = "It doesn't, and I'd worry if it did. The land is patient and the arcane is not, so bring your people's patience to it, and you'll have an advantage most of my students would envy." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     practise = {
       lines = {
@@ -1215,6 +2005,14 @@ P:Pool {
       text = "There's fel on you thick enough to smell, like hot iron and burnt hair. I've seen students go that colour before, and I've buried most of them." },
     { id = "n_felsteed", cat = "mount", when = { aura = { 5784 } },
       text = "You rode a felsteed to my door, I see. Send it back before the horses in the street catch its scent and kick their stalls to splinters." },
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "WARLOCK" },
+      text = "A dwarf with a grimoire under that beard. Your people saw what the Dark Irons got for calling up a power they couldn't hold, so I'd expect you to be the most careful student in this room." },
+    { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "WARLOCK" },
+      text = "A kaldorei at this trade. Your people still remember the night the Legion came through the Highborne's Well, so I'd guess nobody in Darnassus knows what you study here, and I'd keep it that way." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "WARLOCK" },
+      text = "I've never had a tauren in this room before, and I'll confess I'm curious. Your elders will tell you the Earth Mother turns her face from this work, so I'd like to hear what made you come anyway." },
+    { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "WARLOCK" },
+      text = "One of the Skyborne, at my door with a grimoire. I'd heard your forebears fled a prince who drew his power out of the Nether, so it's a strange road that brings one of you back to it." },
   },
   react = {
     { id = "r_demon", on = "pet", when = { pet = { type = "Demon" } }, text = "Ah, and here's your shadow. Sit it by the door and don't let it touch anything." },
@@ -1248,7 +2046,7 @@ P:Pool {
         { text = "You keep looking at my hands.", next = "taint", when = { taint = { min = 30 } } },
         { text = "My demon's been listening to every word.", next = "pet", when = { pet = { type = "Demon" } } },
         { text = "How does a warlock teach here without a mob at the door?", next = "hidden" },
-        { text = "What does this craft mean for one of my people?", next = "heritage", when = { class = "WARLOCK", race = { "Orc", "Troll", "Scourge", "Human", "Gnome" } } },
+        { text = "What does this craft mean for one of my people?", next = "heritage", when = { class = "WARLOCK", race = { "Orc", "Troll", "Scourge", "Human", "Gnome", "Dwarf", "NightElf", "Tauren", "Skyborne" } } },
         { text = "What comes next for me?", next = "path", when = { class = "WARLOCK" } },
         { text = "Some nights I hear it whispering.", next = "whisper", when = { class = "WARLOCK", minLevel = 20 } },
         { text = "Some would call this work hard to justify.", next = "justify" },
@@ -1645,11 +2443,31 @@ P:Pool {
         { id = "he_undead", when = { race = "Scourge" }, text = "It means you're among the Forsaken who chose the darkest door in the Magic Quarter, and that's saying something. The Dark Lady values a weapon, and you're a weapon against the Scourge, but she'd not hesitate to break one that turns in her hand." },
         { id = "he_human", when = { race = "Human" }, text = "It means the Church of the Holy Light would burn you if they could prove what you are, and half of them suspect already. You'll live your life in cellars and back rooms, and you'll learn to smile at the priests who preach against you every Sunday." },
         { id = "he_gnome", when = { race = "Gnome" }, text = "It means you're one of the gnomes who came out of Gnomeregan looking for a power that doesn't run on cogs and steam. Your people value results above all else, and they'll forgive you a great deal so long as it keeps Thermaplugg's lot at bay." },
+        { id = "he_dwarf", when = { race = "Dwarf" }, text = "It means Ironforge must never find out, if you've any sense. Your people trust stone, steel and the Light, and the last dwarves who reached for a fire they couldn't hold were the Dark Irons, who called up Ragnaros and have been his slaves ever since." },
+        { id = "he_nightelf", when = { race = "NightElf" }, text = "It means you've taken up something very close to what your people exiled the Highborne for. The Sentinels would call it a betrayal of Elune, and you'd have a hard time telling them they're wrong, so keep your books far from Darnassus." },
+        { id = "he_tauren", when = { race = "Tauren" }, text = "It means walking where no tauren has walked, as far as I know, and the elders in Thunder Bluff will say you've turned from the Earth Mother. Prove them wrong by what you bind, and by what you never let it touch." },
+        { id = "he_skyborne", when = { race = "Skyborne" }, text = "It means I'm guessing, because I know very little of your people. I've heard your ancestors were magisters once, and that they fled a prince who fed on the Nether, so you'll know better than most what reaching too far can cost." },
       },
       choices = {
         { text = "My people should know exactly what I do.", next = "BACK", reply = "Honest, and it'll cost you, but at least you'll never be caught out in a lie. Choose who you tell with care.", fx = { align = { honor = 1, order = 1 } } },
         { text = "What my people don't know won't hurt them.", next = "BACK", reply = "It's what every one of us has decided, sooner or later. Keep your secrets, and keep them well.", fx = { align = { honor = -1, order = -1 } } },
         { text = "My ancestors drank the demon's blood. Did it damn us?", next = "heritage_orc", when = { race = "Orc" } },
+        { text = "Did the Highborne do what we do?", next = "heritage_nightelf", when = { race = "NightElf" } },
+        { text = "Ironforge would see me jailed for this.", next = "heritage_dwarf", when = { race = "Dwarf" } },
+      },
+    },
+    heritage_nightelf = {
+      lines = { { id = "hne_default", text = "Not quite. Queen Azshara's Highborne drew on the Well of Eternity until the Legion heard them, and what they wielded was arcane, not fel, but it ended with demons walking the world all the same. A kaldorei who binds them ought to know that story better than anyone." } },
+      choices = {
+        { text = "Then I'll learn from their ruin.", next = "BACK", reply = "Learn from it every night, because the Highborne thought they'd learned too. Something else?", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heritage_dwarf = {
+      lines = { { id = "hdw_default", text = "Jailed if you're lucky, and handed to the priests if you're not. Ironforge has never forgotten the Dark Irons, and a dwarf at this trade will look like the start of that story all over again to anyone who finds out." } },
+      choices = {
+        { text = "Then they won't find out.", next = "BACK", reply = "Good. Burn your notes, keep your voidwalker out of the taverns, and never practise where the stone can carry the sound.", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     heritage_orc = {
@@ -1717,6 +2535,10 @@ P:Pool {
       text = "A Skyborne hunter! I'd heard your people kept rangers of their own, and I'd like to know what you hunted up there, where the ground isn't always under you." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "HUNTER" },
       text = "Animals don't care for the dead, and yet one follows you. Whatever you did to win it over, keep doing it." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "HUNTER" },
+      text = "An orc hunter, and I'd wager someone in your clan rode a wolf to war. Your people were raising beasts for battle long before they came to this world, so show me you can raise one for the hunt as well." },
+    { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "HUNTER" },
+      text = "A gnome hunter! I half expected you to come in with a clockwork squirrel on a lead, so I'm glad to see you'd rather have something with a heartbeat. Keep the gadgets out of my pens, though." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
       text = "My cat's got her back up and won't stop growling at you. Animals smell brimstone a mile off, warlock, and they never forget whose hand it was on." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
@@ -1745,6 +2567,14 @@ P:Pool {
         { text = "What should I be practising?", next = "practise", when = { class = "HUNTER" } },
         { text = "I'd guess you hunt for sport as much as need.", next = "sport", when = { class = "HUNTER", minLevel = 10 } },
         { text = "You must have lost a companion or two.", next = "lose" },
+        { text = "My people favour a rifle. Is that a lesser craft?", next = "gun", when = { class = "HUNTER", race = { "Dwarf", "Gnome" } } },
+        { text = "Few humans walk this road. Will the beasts take to me?", next = "human_road", when = { class = "HUNTER", race = "Human" } },
+        { text = "My people ride nightsabers. Can any beast be tamed like that?", next = "sabers", when = { class = "HUNTER", race = "NightElf" } },
+        { text = "My people thank the beasts we kill. Is that your way?", next = "thanks", when = { class = "HUNTER", race = "Tauren" } },
+        { text = "I learned to hunt in jungle, not on open plains.", next = "jungle", when = { class = "HUNTER", race = "Troll" } },
+        { text = "My people rode wolves to war. Is a hunter's beast different?", next = "wolves", when = { class = "HUNTER", race = "Orc" } },
+        { text = "Beasts shy from the dead. How do I win one over?", next = "dead_beast", when = { class = "HUNTER", race = "Scourge" } },
+        { text = "Hunting here isn't like hunting at home.", next = "sky_hunt", when = { class = "HUNTER", race = "Skyborne" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1780,6 +2610,93 @@ P:Pool {
         { text = "I'd look too.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    gun = {
+      lines = {
+        { id = "gu_default", text = "Not lesser, only louder. I've watched Ironforge mountaineers drop a ram at four hundred paces, which is further than any bow of mine will reach, but every beast in the valley hears the shot, so you'd best make the first one count." },
+        { id = "gu_gnome", when = { race = "Gnome" }, text = "Not lesser, only louder, and I suspect you'd like to take the thing apart and make it louder still. A good rifle reaches further than my bow, but every beast in the valley hears it, so make the first shot count." },
+      },
+      choices = {
+        { text = "And what does my companion make of the noise?", next = "gun_pet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gun_pet = {
+      lines = { { id = "gp_default", text = "It flinches the first dozen times, and then it learns that the bang means supper. Feed it right after every shot you fire for a week, and you'll not be able to keep it away from the smell of powder." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+    },
+    human_road = {
+      lines = { { id = "hr_default", text = "They'll take to you as fast as you take to them, which is to say slowly. Your people have kept hounds and hawks for the lords' hunts as long as there have been lords, but a hound that fetches its master's supper isn't the same as a wolf that hunts beside you as an equal." } },
+      choices = {
+        { text = "How do I learn the difference?", next = "human_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    human_road2 = {
+      lines = { { id = "hr2_default", text = "Stop calling it. A hound comes when it's called, but a companion comes when it decides you're worth the trouble, and you earn that by feeding it first and sleeping where it can smell you." } },
+      choices = { { text = "Feed it first. I'll remember.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    sabers = {
+      lines = { { id = "sa_default", text = "Not any, though more than you'd think. The Sentinels raise their sabers from cubs, and that's a different bond from the one you'll make, because you'll be walking up to something grown and wild and asking it to choose you over everything it knows." } },
+      choices = {
+        { text = "What's the hardest beast you ever tamed?", next = "sabers_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sabers_hard = {
+      lines = { { id = "sh_default", text = "A boar with one eye and a temper to match, and it took me three days and most of my patience. It never once let me scratch its ears, but it never left my side either, and I'd call that a bond." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    thanks = {
+      lines = { { id = "th_default", text = "It's become my way, though I learned it late, and from a tauren, as it happens. I used to think it was only ceremony, and now I think it's the one thing that keeps a hunter from turning into a butcher." } },
+      choices = {
+        { text = "The Earth Mother provides. We only take what she gives.", next = "BACK", reply = "Then she'll keep providing for you, I'd guess. Walk gently, and something else?", fx = { trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jungle = {
+      lines = { { id = "ju_default", text = "Then you've learned to hunt close, where the vines hide everything ten paces off, and that's the harder kind. Out on open ground the trouble runs the other way, because the prey sees you coming a mile off, so learn to use the long grass and the wind the way you used the vines." } },
+      choices = {
+        { text = "And the beasts out here? Are they any smarter?", next = "jungle_beasts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jungle_beasts = {
+      lines = { { id = "jb_default", text = "Not smarter, only warier, because they've nowhere to hide and they know it. A plains cat will watch you for an hour before it decides you're not worth running from, so let it watch, and don't move until it looks away." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    wolves = {
+      lines = { { id = "wo_default", text = "Very different, and an orc ought to know it better than anyone. A war wolf is broken to the saddle and taught to bite on command, but a hunter's companion isn't broken at all, so if you go at it the way the old wolf-riders did, it'll be gone the first night you leave it unchained." } },
+      choices = {
+        { text = "The Frostwolves never broke their wolves.", next = "wolves_frost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wolves_frost = {
+      lines = { { id = "wf_default", text = "So I've heard, and if it's true, the Frostwolves were hunters before they were soldiers, and you'd do well to learn their way. The Warchief lived among them in Alterac, so there's no shame in taking their lead." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    dead_beast = {
+      lines = { { id = "db_default", text = "Slowly, and from downwind. They smell the grave on you before they see you, and nothing you do will change that, so you'll have to give them reasons to stay that outweigh it." } },
+      choices = {
+        { text = "What reasons would a beast accept?", next = "dead_beast2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead_beast2 = {
+      lines = { { id = "db2_default", text = "Food, first and always, and then quiet, because the living fidget and you don't. Start with the bats and spiders that already live among graves, and work your way up to the wolves once you've the knack of it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    sky_hunt = {
+      lines = { { id = "sk_default", text = "I'd believe it, though I can't picture what home looked like for you, and I won't pretend to. Every beast I've ever trained turns its nose into the wind before it does anything else, though, so learn our winds and you'll learn our beasts." } },
+      choices = {
+        { text = "The winds here feel heavier.", next = "sky_hunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sky_hunt2 = {
+      lines = { { id = "sk2_default", text = "Heavier, you say? Then they'll carry scent further and slower than you're used to, which helps you and the prey alike. I'd like to hear how your aim changes with it, so come back and tell me." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -1823,6 +2740,14 @@ P:Pool {
       text = "The Darkspear knew the spirits long before the orcs found their way back to them. Teach me a little of the island ways while I teach you the totems." },
     { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "SHAMAN" },
       text = "The Earth Mother's children make patient shamans. The elements are slow to trust, and you're slower still, which suits them." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "SHAMAN" },
+      text = "A human who speaks to the elements! I'd never have believed it, and I'm not sure the spirits quite believe it yet, so be patient with them while they learn your voice." },
+    { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "SHAMAN" },
+      text = "A gnome shaman, and I can see you itching to measure the totems. The elements won't fit in a schematic, so put the calipers away and simply listen, which I suspect will be harder for you than the casting." },
+    { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "SHAMAN" },
+      text = "A kaldorei who calls on the elements instead of the moon. Your druids will think you've wandered off the path, but the spirits are older than any grove, and they don't seem to mind." },
+    { id = "n_undead", cat = "class", when = { race = "Scourge", class = "SHAMAN" },
+      text = "The spirits are uneasy around the dead, and I'll not lie to you about it. That they answer you at all is something I've never seen, so tell me sometime what you said to them, because I'd like to know." },
     { id = "n_ghostwolf", cat = "form", when = { form = "ghostwolf" }, place = "replace",
       text = "Let the wolf go and sit with me. The spirits lend you that shape; they don't give it." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
@@ -1856,6 +2781,13 @@ P:Pool {
         { text = "What should I be practising?", next = "practise", when = { class = "SHAMAN" } },
         { text = "Should a shaman ask the elements, or command them?", next = "command", when = { class = "SHAMAN", minLevel = 10 } },
         { text = "Do you ever hear the elements angry?", next = "angry" },
+        { text = "My people lost the spirits once. Could it happen again?", next = "lost", when = { class = "SHAMAN", race = "Orc" } },
+        { text = "Ironforge thinks I'm mad for talking to stone.", next = "stone", when = { class = "SHAMAN", race = "Dwarf" } },
+        { text = "Our elders say the elements are the Earth Mother's children.", next = "mother", when = { class = "SHAMAN", race = "Tauren" } },
+        { text = "Do the loa and the elements ever quarrel?", next = "loa", when = { class = "SHAMAN", race = "Troll" } },
+        { text = "The wind spirits are dear to my people.", next = "sky_wind", when = { class = "SHAMAN", race = "Skyborne" } },
+        { text = "Will the elements truly answer one of the dead?", next = "dead_elem", when = { class = "SHAMAN", race = "Scourge" } },
+        { text = "Few of my people walk this path. Will the spirits accept me?", next = "newpath", when = { class = "SHAMAN", race = { "Human", "Gnome", "NightElf" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1891,6 +2823,70 @@ P:Pool {
       lines = { { id = "an_default", text = "Often. The earth grumbles where miners have dug too greedily, and fire is never calm, which is its nature. Anger isn't the danger, though; silence is, because an element that won't answer has stopped listening." } },
       choices = {
         { text = "I'll listen for the silence, then.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lost = {
+      lines = { { id = "lt_default", text = "It could, and that's the truth every orc shaman carries. The spirits came back to Thrall because he asked with humility once the demon blood was gone, and they'll leave again the moment the Horde forgets why they left the first time." } },
+      choices = {
+        { text = "Then I'll make sure we don't forget.", next = "BACK", reply = "Remember it for those who'd rather not. That's half of what a shaman is for.", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stone = {
+      lines = { { id = "so_default", text = "Ironforge has been talking to stone for a thousand years with pick and hammer, so you're only asking politely where your kin shout. They'll come round the day the earth warns you of a cave-in and doesn't warn them." } },
+      choices = {
+        { text = "Do the spirits mind the mines?", next = "stone_mines" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stone_mines = {
+      lines = { { id = "sm_default", text = "Some of them do. The earth grumbles where miners dig too greedily, and you'll hear it in the deep places under Dun Morogh if you listen, so teach your kin to ask before they dig, if any of them will hear it from you." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    mother = {
+      lines = { { id = "mo_default", text = "Your elders taught the Warchief that very thing, and he's never been shy of saying so. I think they're right, and I think it's why tauren make the most patient shamans I've ever trained, because nobody hurries a mother's children." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    loa = {
+      lines = { { id = "lo_default", text = "Not that I've heard, though your witch doctors would know better than I would. The loa are spirits with names and wants, and the elements are older and simpler, so I suspect they've little to quarrel over, but tell me if you ever hear otherwise." } },
+      choices = {
+        { text = "The loa always want something.", next = "loa_want" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    loa_want = {
+      lines = { { id = "lw_default", text = "And the elements want only to be asked, which makes them the cheaper bargain, I'd say. Keep your offerings for the loa and your respect for the elements, and you'll not offend either one." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    sky_wind = {
+      lines = { { id = "sw_default", text = "So the Earthen Ring told us when your Windshapers came to the Horde, and I've seen it in every one of you since. Air is the hardest element to keep, because it never stays where you ask, so tell me: how do your people hold it?" } },
+      choices = {
+        { text = "We don't hold it. We follow it.", next = "BACK", reply = "Then you understand air better than I do, and I've been at this a long while. Winds be with you, as your people say.", fx = { trait = { patient = 1 } } },
+        { text = "With gratitude, and with a debt we still owe.", next = "BACK", reply = "A debt to the spirits is the one kind worth carrying. Pay it well.", fx = { trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead_elem = {
+      lines = { { id = "de_default", text = "They answer you, so the answer is yes, though I couldn't tell you why. The spirits fled the Plaguelands when the Scourge came, and they've no love for what walks there, so I think they can tell the Scourge from those who threw it off." } },
+      choices = {
+        { text = "Do they forgive what I was?", next = "dead_elem2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead_elem2 = {
+      lines = { { id = "de2_default", text = "Forgiveness isn't something the elements think about. They judge what you do now, which is a kinder thing than most of the living will offer you, so make the most of it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    newpath = {
+      lines = {
+        { id = "np_default", text = "They'll accept anyone who asks with respect, and they've no idea what your people are supposed to do. That's a freedom, if you use it well." },
+        { id = "np_human", when = { race = "Human" }, text = "They'll accept anyone who asks with respect, but your people have spent a long time praying to the Light instead. The trick for you is learning that the elements want to be thanked, not prayed to." },
+        { id = "np_gnome", when = { race = "Gnome" }, text = "They'll accept anyone who asks with respect, though I'll warn you they don't care to be taken apart to see how they work. Ask, listen, and keep your notebook in your pocket until the totem's planted." },
+        { id = "np_nightelf", when = { race = "NightElf" }, text = "They'll accept anyone who asks with respect, and your people have been listening to the wild for ten thousand years, so you're further along than you know. The difference is that the moon answers slowly, and fire answers at once." },
+      },
+      choices = {
+        { text = "Then I'll ask, and keep asking.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1936,6 +2932,18 @@ P:Pool {
       text = "Your people's druids slept in the Dream for centuries while the Sentinels kept the world. Now you're awake, and the world is far harder to balance than the stories promised." },
     { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "DRUID" },
       text = "Hamuul brought the night elves' teaching to your people, and you're the proof that it took. The Earth Mother and the Circle aren't so far apart as some would like." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "DRUID" },
+      text = "A human druid, and I'll admit I never expected to say those words. Your people cleared whole forests to build their kingdoms, so I'm curious to see what the wild will teach someone whose grandfathers felled it." },
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "DRUID" },
+      text = "A dwarf in my grove, and a druid besides. Your people know the stone better than anyone living, so let's see whether you can learn the soil above it, and everything that grows there." },
+    { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "DRUID" },
+      text = "A gnome druid, which is something I've never seen in all my years. I'd ask you very kindly not to take my saplings apart to find out how they grow, because they don't go back together." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "DRUID" },
+      text = "An orc druid. Your people found their way back to the spirits through the shamans, so I wonder what made you choose the wild's shapes instead, and the Circle will certainly ask you." },
+    { id = "n_troll", cat = "class", when = { race = "Troll", class = "DRUID" },
+      text = "A Darkspear in the grove. Your people have kept company with beast-spirits for longer than mine have kept records, so I suspect the shapes come easier to you than you let on." },
+    { id = "n_undead", cat = "class", when = { race = "Scourge", class = "DRUID" },
+      text = "One of the Forsaken, and a druid? Nothing grows where the Plague passed, and I'd thought nothing that walked out of it could ever answer the wild, so if it answers you, I'd very much like to know why." },
     { id = "n_travel", cat = "form", when = { form = "travel" }, place = "replace",
       text = "Off the four legs, please, before you trample my seedlings. You can be a bear again once you're past the gate." },
     { id = "n_moonkin", cat = "form", when = { form = "moonkin" }, place = "replace",
@@ -1971,6 +2979,11 @@ P:Pool {
         { text = "Should the wild be kept from people, or shared with them?", next = "wild", when = { class = "DRUID", minLevel = 10 } },
         { text = "Elune or the Earth Mother: whom do druids serve?", next = "elune", when = { class = "DRUID" } },
         { text = "Do you ever want to stay in a shape?", next = "stay" },
+        { text = "My people gave up immortality at Hyjal. Was it worth it?", next = "hyjal", when = { class = "DRUID", race = "NightElf" } },
+        { text = "Why did the Circle take tauren into its ranks?", next = "tauren_circle", when = { class = "DRUID", race = "Tauren" } },
+        { text = "Can a druid honor the wind spirits and Elune both?", next = "sky_both", when = { class = "DRUID", race = "Skyborne" } },
+        { text = "Can one of the dead truly walk in the wild?", next = "dead_wild", when = { class = "DRUID", race = "Scourge" } },
+        { text = "My people have no druids. Will the Circle have me?", next = "newdruid", when = { class = "DRUID", race = { "Human", "Dwarf", "Gnome", "Orc", "Troll" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2016,6 +3029,63 @@ P:Pool {
       lines = { { id = "st_default", text = "Every winter I want to be the bear and sleep, and every spring I'm glad I wasn't. Some who stayed too long in a shape forgot how to come back, and the Circle doesn't speak of them." } },
       choices = {
         { text = "I'll keep the way back in mind.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hyjal = {
+      lines = { { id = "hy_default", text = "Ask a Sentinel and she'll say yes without blinking, and ask an old druid and you'll get a long silence first. Nordrassil's blessing was spent to stop Archimonde, and without it the world would belong to the Legion, but your people are only now learning what it means to grow old." } },
+      choices = {
+        { text = "What does it mean, for a druid?", next = "hyjal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hyjal2 = {
+      lines = { { id = "hy2_default", text = "It means the Dream can't be a place to wait out the centuries any more. Whatever you mean to mend in the wild, you'll have to mend in one lifetime, as the tauren and the rest of us always have." } },
+      choices = {
+        { text = "Then I'd best not waste it.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren_circle = {
+      lines = { { id = "tc_default", text = "Because the tauren were already listening, long before anyone came to teach them. Hamuul Runetotem learned from Malfurion himself and carried that teaching home to Thunder Bluff, where it took root in ground that was ready for it." } },
+      choices = {
+        { text = "Do the kaldorei still see us as students?", next = "tauren_circle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren_circle2 = {
+      lines = { { id = "tc2_default", text = "Some of the older ones do, and they'll tell you so in Moonglade with a smile that isn't quite kind. The rest have watched tauren druids heal the Barrens' scars, and they've stopped saying it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    sky_both = {
+      lines = { { id = "sb_default", text = "I don't see why not, though you'd know your own people's view better than I do. The Circle teaches balance, and I've never heard that balance means choosing one voice and stopping your ears to the rest." } },
+      choices = {
+        { text = "My people put the elements first.", next = "BACK", reply = "Then put them first, and let the moon have what's left. The wild won't complain.", fx = { trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead_wild = {
+      lines = { { id = "dw_default", text = "You're standing in my grove and the grass hasn't withered under you, so perhaps. I've seen the Plaguelands, where every root has gone grey, and I'd thought the dead were the wild's enemy without exception." } },
+      choices = {
+        { text = "What would you have me do?", next = "dead_wild2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead_wild2 = {
+      lines = { { id = "dw2_default", text = "Plant something, and see whether it grows for you. If it does, you'll have answered a question the Circle never thought to ask, and if it doesn't, you'll only have lost a seed." } },
+      choices = { { text = "I'll plant one.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    newdruid = {
+      lines = {
+        { id = "nd_default", text = "The Circle has never asked where a druid comes from, only whether they listen. Some of the elders will frown, but a frown isn't a closed door." },
+        { id = "nd_human", when = { race = "Human" }, text = "The Circle has never asked where a druid comes from, only whether they listen. The kaldorei elders may be slower to warm to you than to their own, but slow isn't no." },
+        { id = "nd_dwarf", when = { race = "Dwarf" }, text = "It will, and I suspect the earth will take to you faster than the moon does. Learn the bear first, because you've the shoulders for it already." },
+        { id = "nd_gnome", when = { race = "Gnome" }, text = "It will, though I'll admit nobody's quite sure what shape a gnome bear turns out to be, and I'd very much like to find out." },
+        { id = "nd_orc", when = { race = "Orc" }, text = "It will, but some will remember that Grom Hellscream's axe killed Cenarius in Ashenvale, so you'll have more to prove than most. Prove it by what you heal, not by what you say." },
+        { id = "nd_troll", when = { race = "Troll" }, text = "It will, and you'll not be the strangest thing that's ever walked into Moonglade. Speak to the trees as you'd speak to a loa, with respect and something in your hand, and you'll do well." },
+      },
+      choices = {
+        { text = "Then I'll prove I listen.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2070,6 +3140,12 @@ P:Pool {
       text = "The hidden people, your lot call yourselves, or so I'm told. Let's find out whether the name was earned." },
     { id = "n_nightelf", cat = "class", when = { race = "NightElf", class = "ROGUE" },
       text = "Your people can melt into a shadow just by standing still. Most of my students would sell their own mothers for that." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "ROGUE" },
+      text = "A human, and I'd bet my last copper somebody's told you this trade belongs to the Defias. It doesn't; they only borrowed it, and badly." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "ROGUE" },
+      text = "An orc who wants to work from the shadows. Your people like their fights loud and in the open, so I'll warn you that the hardest lesson here is keeping your mouth shut when your blood's up." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren", class = "ROGUE" },
+      text = "A tauren rogue, and I heard you coming from the street. Don't take it hard, because I've watched stranger things learn to vanish, but we'll start with your hooves and work up." },
     { id = "n_lock_eyes", cat = "lock_eyes", when = { aura = { 132, 2970, 11743 } },
       text = "Your eyes followed me across the room before I'd even moved. Detect Invisibility, is it? I'll thank you not to wear that in here, because it's very bad for the lessons." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
@@ -2100,6 +3176,15 @@ P:Pool {
         { text = "What should I be practising?", next = "practise", when = { class = "ROGUE" } },
         { text = "A rogue works for whoever pays, I've heard.", next = "loyalty", when = { class = "ROGUE", minLevel = 10 } },
         { text = "You don't seem the trusting sort.", next = "trust" },
+        { text = "Stormwind thinks my trade belongs to the Defias.", next = "defias", when = { class = "ROGUE", race = "Human" } },
+        { text = "Orcs prize open battle. Is there honor in this?", next = "orc_honor", when = { class = "ROGUE", race = "Orc" } },
+        { text = "Can someone my size really learn to vanish?", next = "big", when = { class = "ROGUE", race = "Tauren" } },
+        { text = "Do gadgets have a place in this trade?", next = "gadgets", when = { class = "ROGUE", race = "Gnome" } },
+        { text = "They say dwarves aren't made for sneaking.", next = "dwarf_sneak", when = { class = "ROGUE", race = "Dwarf" } },
+        { text = "My people can fade into shadow. Is that cheating?", next = "meld", when = { class = "ROGUE", race = "NightElf" } },
+        { text = "I learned to stalk prey in the jungles of home.", next = "stalk", when = { class = "ROGUE", race = "Troll" } },
+        { text = "The Dark Lady's deathstalkers do this work too.", next = "deathstalkers", when = { class = "ROGUE", race = "Scourge" } },
+        { text = "My people stayed hidden for ten thousand years.", next = "hidden_people", when = { class = "ROGUE", race = "Skyborne" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2136,6 +3221,79 @@ P:Pool {
       choices = {
         { text = "That sounds lonely.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Sounds sensible.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    defias = {
+      lines = { { id = "df_default", text = "Stormwind thinks a lot of things, and some of them are even true. SI:7 does this same work for the crown, and does it better than VanCleef's lot ever will, so if anyone sneers at you, ask who they think keeps the Defias out of the Keep." } },
+      choices = {
+        { text = "Could SI:7 use someone like me?", next = "defias_si7" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    defias_si7 = {
+      lines = { { id = "ds_default", text = "They don't take applications, and anyone who tells you otherwise is selling something. Do quiet, useful work in Westfall and Redridge, and if you're good enough, someone in SI:7 will know your name before you ever think to ask." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    orc_honor = {
+      lines = { { id = "oh_default", text = "There's honor in winning, and in bringing your friends home alive, and a blade in the dark does both. The Burning Blade hide in Orgrimmar's own shadows, and it's quiet work, not warbands, that roots them out, though nobody sings songs about it." } },
+      choices = {
+        { text = "Then I'll fight unseen, and be proud of it.", next = "BACK", reply = "Be proud in private, then. Pride's the loudest thing a rogue can carry.", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big = {
+      lines = { { id = "bg_default", text = "Size is the least of it. Shadows don't care how tall you are, only how still, and your people know how to stand in long grass until the prey walks right up to them, so you're further along than your footsteps suggest." } },
+      choices = {
+        { text = "And my footsteps?", next = "big_steps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big_steps = {
+      lines = { { id = "bs_default", text = "Wrap your hooves in felt and walk on the outside edge, and practise on gravel until you can cross it without a sound. It'll take you a season, and it'll be the best season you ever spent." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    gadgets = {
+      lines = { { id = "gd_default", text = "A good lockpick is a gadget, if you like, and so is a smoke bomb, so yes, within reason. What doesn't belong is anything that whirs, ticks or might go off in your pocket while you're standing behind a guard." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+    },
+    dwarf_sneak = {
+      lines = { { id = "dk_default", text = "They say a great deal in Ironforge, mostly over ale. A dwarf is low to the ground, steady on its feet and patient as stone, which is three of the four things I look for, so the only thing left to teach you is to stop humming." } },
+      choices = {
+        { text = "I don't hum.", next = "BACK", reply = "You hummed all the way across the room. Something else?", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    meld = {
+      lines = { { id = "me_default", text = "Of course it is, and I'd cheat too if I could. The trick is that it only holds while you're still, so learn to move the way you stand, and you'll be the best student I've had in years." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    stalk = {
+      lines = { { id = "sk_default", text = "Then you already know the most important thing, which is that prey always feels watched before it sees you. A city's the same jungle with stone instead of vines, and the guards are the beasts that bite back." } },
+      choices = {
+        { text = "And how do I stop it feeling watched?", next = "stalk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stalk2 = {
+      lines = { { id = "sk2_default", text = "Don't look at the mark; look at what the mark's looking at. People feel eyes on them, but nobody ever felt someone staring at the same shop window." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    deathstalkers = {
+      lines = { { id = "dt_default", text = "They do, and they do it well, though I'd never say so to their faces. They learn the same tricks I teach and then add a few the living can't manage, like lying a week in a ditch without needing to eat, so if they'll have you, go." } },
+      choices = {
+        { text = "They haven't asked.", next = "deathstalkers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deathstalkers2 = {
+      lines = { { id = "dt2_default", text = "Then do something in the Plaguelands worth noticing, and quietly. The Dark Lady's people watch the ones who kill the Scourge and say nothing about it afterwards." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+    },
+    hidden_people = {
+      lines = { { id = "hp_default", text = "Ten thousand years without being found is a craft I'd pay good gold to learn. Whatever your people knew about keeping out of sight, I hope some of it came down to you, because I'd like to see it." } },
+      choices = {
+        { text = "Some of it did.", next = "BACK", reply = "Then show me, and don't tell me. That's how it's done here.", fx = { trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
@@ -2185,6 +3343,12 @@ P:Pool {
       text = "Most of your people leave the blade to the Sentinels, and yet here you are. Good; patience is half of this, and you've centuries of it." },
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "WARRIOR" },
       text = "Long arms and a temper; that's a fine start. Now learn to keep the temper for when it's useful." },
+    { id = "n_human", cat = "class", when = { race = "Human", class = "WARRIOR" },
+      text = "That's a barracks stance if ever I saw one: shield square, weight back, waiting for a sergeant to shout. It's a good stance in a wall of soldiers, so let's see how you fare when there's nobody standing beside you." },
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "WARRIOR" },
+      text = "A dwarf, and built like a gatehouse. Your people were holding lines in the Second War before most of my students were born, so I'll not teach you to stand; I'll teach you when to move." },
+    { id = "n_orc", cat = "class", when = { race = "Orc", class = "WARRIOR" },
+      text = "An orc warrior. Your people learned to fight in harder schools than mine, so I'll not teach you to be fierce, only how to stay alive while you're being it." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
       text = "That isn't armour, that's a demon's hide stretched over cloth. Real armour you earn with sweat and a smith, and a steel plate doesn't care what you've summoned." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
@@ -2212,6 +3376,15 @@ P:Pool {
         { text = "What should I be practising?", next = "practise", when = { class = "WARRIOR" } },
         { text = "When should a warrior refuse a fight?", next = "refuse", when = { class = "WARRIOR", minLevel = 10 } },
         { text = "Do you ever miss the battlefield?", next = "miss" },
+        { text = "Everyone tells me I'm too small for this.", next = "small", when = { class = "WARRIOR", race = "Gnome" } },
+        { text = "My people have fought the centaur for generations.", next = "centaur", when = { class = "WARRIOR", race = "Tauren" } },
+        { text = "My people leave the blade to the Sentinels.", next = "sentinels", when = { class = "WARRIOR", race = "NightElf" } },
+        { text = "I don't feel pain. Why should I fear a blow?", next = "nopain", when = { class = "WARRIOR", race = "Scourge" } },
+        { text = "Orcs are born warriors. What can you teach me?", next = "born", when = { class = "WARRIOR", race = "Orc" } },
+        { text = "A dwarf's shield wall never breaks.", next = "wall", when = { class = "WARRIOR", race = "Dwarf" } },
+        { text = "The Darkspear fight with a berserker's fury.", next = "fury", when = { class = "WARRIOR", race = "Troll" } },
+        { text = "I was trained to fight in a line, with a sergeant shouting.", next = "line", when = { class = "WARRIOR", race = "Human" } },
+        { text = "Will you train someone from a people you barely know?", next = "sky_train", when = { class = "WARRIOR", race = "Skyborne" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2247,6 +3420,77 @@ P:Pool {
       lines = { { id = "mi_default", text = "Every time a student gets it right, and every time one gets it wrong. Teaching's the same fight, only slower, and I'm on both sides of it." } },
       choices = {
         { text = "That's a good way to see it.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    small = {
+      lines = { { id = "sm_default", text = "Everyone's wrong, though not entirely. You'll never out-push an ogre, so don't try; get under its guard and behind its knees before it's worked out where you went, and an ogre with no knees is just a very large rug." } },
+      choices = {
+        { text = "And if it steps on me?", next = "small2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    small2 = {
+      lines = { { id = "sm2_default", text = "Then you were standing where it was looking, and that's the one mistake a small warrior can't afford. Stay at its flank and keep moving, and let the bigger fools in your party take the front." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    centaur = {
+      lines = { { id = "ce_default", text = "Then you know how to fight something faster than you, which is most things, I'm sorry to say. The centaur ride rings around a slow warrior, so plant your hooves, let them come to you, and make the one blow you get count." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    sentinels = {
+      lines = { { id = "se_default", text = "Mostly, and the Sentinels have kept your forests safe for a very long time with glaive and bow. A kaldorei who comes to a plain soldier to learn the sword instead is a rarer thing, so tell me what brought you here, because I'm curious." } },
+      choices = {
+        { text = "I wanted a fight on my own terms.", next = "BACK", reply = "That's the best reason there is, and the one that keeps a warrior going when the glory runs out. Shield up, then.", fx = { trait = { proud = 1 } } },
+        { text = "The Sentinels didn't need another glaive.", next = "BACK", reply = "And the world needs more people who'll stand at the front. Their loss, then.", fx = { trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nopain = {
+      lines = { { id = "np_default", text = "Because pain was never the danger; it was the warning. A blow that doesn't hurt still breaks bone and cuts sinew, and you'll find that out when your arm stops answering in the middle of a fight." } },
+      choices = {
+        { text = "Then how will I know when I'm hurt?", next = "nopain2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nopain2 = {
+      lines = { { id = "np2_default", text = "Watch yourself the way you'd watch a recruit. Count the hits you take, check your joints between fights, and when your shield arm drops an inch, believe it before you believe your pride." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    born = {
+      lines = { { id = "bo_default", text = "How to stop, mostly. Grom Hellscream's warriors were the fiercest the world had seen, and their fierceness was how the demons chained them in the end, so I'll teach you the one thing they never learned, which is when to hold." } },
+      choices = {
+        { text = "Grom broke those chains himself.", next = "born2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    born2 = {
+      lines = { { id = "bo2_default", text = "He did, and he died doing it, and I'd rather you lived. Honour him by being the warrior he became at the end, not the one he was at the start." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    wall = {
+      lines = { { id = "wa_default", text = "Every wall breaks, given enough weight and time, and the good ones break slowly. Learn to give a step without giving the line, and you'll hold long after the wall beside you has gone." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    fury = {
+      lines = { { id = "fu_default", text = "So I've seen, and it's a fine thing to watch from a safe distance. Fury wins the first minute of a fight, though, and you'll need something else for the second, so let's teach you to breathe between swings." } },
+      choices = {
+        { text = "What comes after the fury?", next = "fury2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fury2 = {
+      lines = { { id = "fu2_default", text = "Tired arms and a foe who waited for them. Save the fury for when the fight turns against you, and spend it all at once, and you'll be the one still standing." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    line = {
+      lines = { { id = "li_default", text = "And a fine line it is, but out here you'll mostly fight alone or beside three strangers. Learn to put your back to a wall the way you'd put it to the soldier beside you, and you'll last." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { practical = 1 } } } },
+    },
+    sky_train = {
+      lines = { { id = "sk_default", text = "I'd train anyone who'll hold a shield, and I'll admit I'm curious about your people, since I know next to nothing of where you've been all this time. Show me how you stand, and I'll tell you what to fix." } },
+      choices = {
+        { text = "Our guard taught me what I know.", next = "BACK", reply = "Then they taught you to keep your feet, which is the hard part. Let's see the rest.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2294,6 +3538,8 @@ P:Pool {
       text = "Wind riders don't like the smell of the dead, so sit still and don't take it to heart." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear always want to fly low over the sea to look at it. The rider decides the height, not you." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Orcs always sit a wind rider as if it were a wolf, knees in and heels down. It isn't a wolf, so don't kick it to make it go faster, or it'll show you how far down the ground is." },
     { id = "n_demon", cat = "pet", when = { pet = { type = "Demon" } },
       text = "Your demon walks. Wind riders won't fly with fel stink in the saddle, so send it off." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
@@ -2315,6 +3561,84 @@ P:Pool {
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "You grip the harness like it's an axe haft. Loosen up, or the rider will shake you loose for the fun of it." },
   },
   choices = { { text = "Just the flight.", next = "BUSINESS" } },
+  -- Racial pass: a small tree so each Horde race has something of its own to ask.
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "The riders are fed and the harness is mended, so you can be in the air before the dust settles. Where are you bound, or is there something you want to ask first?" },
+        { id = "h_orc", when = { race = "Orc" }, text = "Another orc who'd sooner trust a wolf than a pair of wings; I can see it in your face. Ask what you want, and then get in the saddle." },
+      },
+      again = {
+        { id = "a_more", text = "Anything else, or shall I saddle one for you?" },
+        { id = "a_wind", text = "Ask, then, but the wind won't wait all day, and neither will the riders." },
+      },
+      choices = {
+        { text = "Are the wind riders dangerous?", next = "bite" },
+        { text = "My clan never trusted anything that flew.", next = "orc", when = { race = "Orc" } },
+        { text = "Do the riders ever fly out over the Echo Isles?", next = "troll", when = { race = "Troll" } },
+        { text = "Can a wind rider truly carry someone my size?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Your beasts shy away whenever I come near.", next = "undead", when = { race = "Scourge" } },
+        { text = "My people lived among the wind spirits for a very long time.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Just the flight.", next = "BUSINESS" },
+      },
+    },
+    bite = {
+      lines = {
+        { id = "bi_default", text = "They bite, they sulk, and they'll go for anything that smells of an Alliance gryphon. Treat one like a proud warrior and not like a pack kodo, and it'll carry you anywhere the Horde keeps a roost." },
+      },
+      choices = {
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc = {
+      lines = {
+        { id = "or_default", text = "The old ones say the Horde rode red dragons over Lordaeron in the Second War, so your clan has flown before, whether it liked it or not. The difference is that a dragon was chained and a wind rider chooses to carry you, so be grateful and keep your feet out of its ribs." },
+      },
+      choices = {
+        { text = "A beast that chooses. I can respect that.", next = "BACK", reply = "Good, because it'll know whether you mean it before you're over the first ridge." },
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+      },
+    },
+    troll = {
+      lines = {
+        { id = "tr_default", text = "They fly the coast past Sen'jin when the route takes them, and every Darkspear I've ever flown leans out to look for home. I hear Zalazane's madmen still hold the islands, though, so it's as well the riders don't land there." },
+      },
+      choices = {
+        { text = "One day Vol'jin will take them back.", next = "BACK", reply = "When he does, I'll send a rider over to see it, and I'll tell it to fly low for you." },
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "ta_default", text = "Heavier than most, I'll grant you, but a wind rider is stronger than it looks, and it has never dropped one of your people yet. It will complain the whole way, so let it; complaining is how it tells you it's working." },
+      },
+      choices = {
+        { text = "I'll thank it when we land.", next = "BACK", reply = "Do that. Nobody ever thanks them, and they're vain enough to remember you for it." },
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+      },
+    },
+    undead = {
+      lines = {
+        { id = "un_default", text = "They do, and it isn't anything you've done. A wind rider eats carrion when it's hungry, and I think you confuse it, because you smell like supper and you talk back. Sit still, keep your hands on the harness, and it'll stop flinching before you're over the first ridge." },
+      },
+      choices = {
+        { text = "I've been called worse than supper.", next = "BACK", reply = "I don't doubt it. Down in the Undercity, I hear, that's practically a compliment." },
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+      },
+    },
+    skyborne = {
+      lines = {
+        { id = "sk_default", text = "So I've heard, though nobody's told me more than that, and I've stopped asking. These are Kalimdor's winds, though, rough and dusty and full of grit, so you'll ride like everyone else, strapped in and holding on." },
+      },
+      choices = {
+        { text = "Fair enough. I'll hold on.", next = "BACK" },
+        { text = "Then saddle one for me.", next = "BUSINESS" },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Every wind rider brings news back from the far roosts along with the dust. Here's what's come in on the wind." },
@@ -2356,6 +3680,15 @@ P:Pool {
       text = "You went past me like a cat with somewhere to be. Slow down at the bridges; the carts can't stop quick." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "You'll be one of the elves out of the sky. The sergeant read us a notice about your people; it was short, and it said to be polite." },
+    -- Racial pass: the road watch outside the capitals (capital guards have their own).
+    { id = "n_human", cat = "race", when = { race = "Human", ["not"] = { capital = true } },
+      text = "One of the King's own subjects, by the look of you. You'll know the drill, then: keep to the road, report the bandits, and don't believe a word a Defias tells you about the price of bread." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf", ["not"] = { capital = true } },
+      text = "A dwarf on foot and in no hurry, that's a new one. Your kin who come through usually have a rifle over one shoulder and an Explorers' League map under the other arm, and they ask the way to the nearest dig before they say good morning." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome", ["not"] = { capital = true } },
+      text = "Another of the Gnomeregan folk, and still on the road. I'm sorry about your city, truly; the watch was told what happened down there, and nobody laughed, whatever you might have heard." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf", ["not"] = { any = { { capital = true }, { zone = { "Teldrassil", "Darkshore", "Ashenvale", "Feralas", "Azshara", "Stonetalon Mountains", "Desolace", "Moonglade" } } } } },
+      text = "You're a long way from your forests, elf. Folk out here have only lately got used to your people, so don't mind the farmers staring; it's the ears, mostly, and the way your eyes catch the lantern light." },
     { id = "n_dwarf_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
       text = "Totems on a dwarf's belt. The captain says you're on our side, and the captain's never wrong, so on you go." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
@@ -2434,6 +3767,21 @@ P:Pool {
         { text = "You might want to tie that purse a little tighter.", next = "purse", when = { class = "ROGUE" } },
         { text = "I've died more often than I'd like to admit.", next = "dd_deaths", when = { deaths = { min = 15 } } },
         { text = "I've been fighting the Horde on the front.", next = "dd_front", when = { honorKills = { min = 100 } } },
+        -- Racial pass: the road watch.
+        { text = "I grew up on a farm much like the ones you guard.", next = "ga_human", when = { race = "Human", ["not"] = { capital = true } } },
+        { text = "Ironforge sends its regards, and its rifles.", next = "ga_dwarf", when = { race = "Dwarf", ["not"] = { capital = true } } },
+        { text = "Does the watch ever talk about retaking Gnomeregan?", next = "ga_gnome", when = { race = "Gnome", ["not"] = { capital = true } } },
+        { text = "Your roads are so loud. How do you hear anything coming?", next = "ga_elf", when = { race = "NightElf", ["not"] = { capital = true } } },
+        { text = "What did that notice about my people say?", next = "ga_sky", when = { race = "Skyborne" } },
+        -- Racial pass: the capitals (their own pools carry no tree, so their questions live here).
+        { text = "I'm Stormwind born. Has the city changed since the king vanished?", next = "sw_human", when = { race = "Human", zone = "Stormwind City" } },
+        { text = "Fine stonework, for human hands.", next = "sw_dwarf", when = { race = "Dwarf", zone = "Stormwind City" } },
+        { text = "Do Stormwind folk actually ride the tram we built?", next = "sw_gnome", when = { race = "Gnome", zone = "Stormwind City" } },
+        { text = "Your Park is a poor sort of forest.", next = "sw_elf", when = { race = "NightElf", zone = "Stormwind City" } },
+        { text = "Any word of the Dark Irons near the gates?", next = "if_dwarf", when = { race = "Dwarf", zone = "Ironforge" } },
+        { text = "Has King Magni any news of Gnomeregan?", next = "if_gnome", when = { race = "Gnome", zone = "Ironforge" } },
+        { text = "How do you stand the dark down here?", next = "if_human", when = { race = "Human", zone = "Ironforge" } },
+        { text = "Your forge smoke stings my eyes.", next = "if_elf", when = { race = "NightElf", zone = "Ironforge" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },
@@ -2595,6 +3943,136 @@ P:Pool {
       choices = {
         { text = "Maybe one day.", next = "BACK" },
         { text = "You're probably right.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    -- Racial pass: the road watch.
+    ga_human = {
+      lines = {
+        { id = "gah_default", text = "Then you'll know what it is to lie awake listening for wolves, or for worse. Half the farms I knew as a youngster stand empty now, and it does me good to meet someone who remembers them full." },
+      },
+      choices = {
+        { text = "Which farms are empty now?", next = "ga_human2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_human2 = {
+      lines = {
+        { id = "gah2_default", text = "The Westfall ones went first, when the Defias came and the crown sent nobody, and then the gnolls took the Redridge homesteads and the Duskwood folk barred their doors against whatever walks those woods. Stormwind sends its sympathy and very little else, so the watch does what it can, which isn't much." },
+      },
+      choices = {
+        { text = "The crown should have sent soldiers years ago.", next = "BACK", reply = "Say it in the barracks and you'll get a cheer. Say it at the Keep and you'll get a long ride somewhere cold.", fx = { align = { order = -1 } } },
+        { text = "The crown has a whole kingdom to hold together.", next = "BACK", reply = "That's what the captain says, and he's not wrong. It's only that the kingdom looks smaller from a burned farm.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_dwarf = {
+      lines = {
+        { id = "gad_default", text = "And glad we are of both, though I'd take the rifles first. The patrols that come down from Loch Modan all say the same thing: put a dwarf on a wall, and the wall stops worrying. Is the tram under the sea as frightening as the lads say?" },
+      },
+      choices = {
+        { text = "Perfectly safe. Mostly.", next = "BACK", reply = "Mostly. That's the word that keeps me walking, friend." },
+        { text = "Only if you think about the water overhead.", next = "BACK", reply = "Well, I am now, thank you very much." },
+      },
+    },
+    ga_gnome = {
+      lines = {
+        { id = "gag_default", text = "The younger lads talk about it the way they talk about marrying a princess, which is to say often and with no plan at all. The sergeants who saw your people come out of Dun Morogh don't talk about it; they say whatever drove you out is still down there, and the troggs with it. Does your High Tinker mean to go back?" },
+      },
+      choices = {
+        { text = "One day. We've planned every gear of it.", next = "BACK", reply = "Then I hope I'm there to see it, and I hope I'm standing well back when it starts." },
+        { text = "I don't know if there's anything left to save.", next = "BACK", reply = "There's you, and there's Tinker Town, and that's not nothing. I'm sorry, all the same." },
+      },
+    },
+    ga_elf = {
+      lines = {
+        { id = "gae_default", text = "We don't, half the time, and that's the honest answer. One of your Sentinels could stand in that hedge all night and I'd never know it, which is why the lads are glad you're on our side and not out there in the dark." },
+      },
+      choices = {
+        { text = "I could teach you to listen.", next = "BACK", reply = "I'd like that, though I suspect the first lesson is to stop talking, and I've never been good at it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_sky = {
+      lines = {
+        { id = "gas_default", text = "Not much, which is why I remember it. It said your people came down out of the sky, that the Kirin Tor speaks for you, and that the watch is to be polite, and the sergeant read it twice, because nobody believed the first part." },
+      },
+      choices = {
+        { text = "And have you been polite?", next = "BACK", reply = "I've been trying. It's harder than it sounds when you keep wanting to ask how." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Racial pass: Stormwind.
+    sw_human = {
+      lines = {
+        { id = "swh_default", text = "It's quieter at the Keep and louder everywhere else. The nobles hold more dinners, the Cathedral feeds more mouths, and the Stockade's fuller than I've ever seen it, so make of that what you will. You'll have noticed the same, being one of ours." },
+      },
+      choices = {
+        { text = "What does the watch make of the regency, then?", next = "w_king" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sw_dwarf = {
+      lines = {
+        { id = "swd_default", text = "High praise from a dwarf, and I'd pass it on to the masons if the nobles hadn't cheated them of their pay. Most of them went off to Westfall afterwards, and now they wear red bandanas and rob the roads, so the city's stone is the last honest work they did." },
+      },
+      choices = {
+        { text = "That's a poor way to repay builders.", next = "BACK", reply = "It is, and half the watch thinks so, though we're the ones sent to hang them for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sw_gnome = {
+      lines = {
+        { id = "swg_default", text = "A few do, and they come off at the other end looking pale and swearing they heard the sea over their heads. Most of the city would sooner walk to Ironforge than sit in a box under the water, but the tram's never failed us yet, and the watch is grateful for it." },
+      },
+      choices = {
+        { text = "It's perfectly safe. I've run the figures.", next = "BACK", reply = "I believe you. I'll still be walking, mind, but I believe you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sw_elf = {
+      lines = {
+        { id = "swe_default", text = "It's the best we've got, and the city's proud of it, though I'll grant you it's more lawn than forest. Your priestesses come and stand under those trees some evenings, very still, and the children dare each other to go and ask them what they're listening for." },
+      },
+      choices = {
+        { text = "They're listening to the trees. Yours are very young.", next = "BACK", reply = "Young? Some of those oaks were planted before my grandfather was born. I suppose that's young, to you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Racial pass: Ironforge.
+    if_dwarf = {
+      lines = {
+        { id = "ifd_default", text = "Not at the gates, praise the forge, but word comes up from the Searing Gorge o' Dark Iron diggers closer than they ought tae be. Ye know the old grudge as well as I do, so if ye're headin' south, give 'em one from me." },
+      },
+      choices = {
+        { text = "I'll give them more than one.", next = "BACK", reply = "That's the spirit! Bring me back a Dark Iron beard an' I'll stand ye a pint at the Stonefire." },
+        { text = "The old grudge has cost us enough already.", next = "BACK", reply = "Aye, maybe it has. But Thaurissan's lot started it, an' they'll no' let us finish it, so here we are." },
+      },
+    },
+    if_gnome = {
+      lines = {
+        { id = "ifg_default", text = "The king's sent mountaineers up the west road tae Gnomeregan more times than I can count, an' every time they come back sayin' the same: troggs at the door an' worse inside. Yer High Tinker's down in Tinker Town makin' plans, an' I'll say this for gnomes, ye never stop makin' plans." },
+      },
+      choices = {
+        { text = "Plans are how we'll get it back.", next = "BACK", reply = "Then make 'em good ones, an' send for the rifles when ye're ready. We'll come." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    if_human = {
+      lines = {
+        { id = "ifh_default", text = "Dark? Ye've the Great Forge burnin' day an' night in the middle o' the city, an' it's the warmest light in the world! It's ye surface folk who stand about in the cold an' the rain an' call it fresh air, an' I'll never understand it." },
+      },
+      choices = {
+        { text = "I'll grant you it's warmer than Elwynn.", next = "BACK", reply = "Warmer, drier, an' the ale's better. Ye'll be movin' in by winter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    if_elf = {
+      lines = {
+        { id = "ife_default", text = "Aye, it'll do that, an' it'll keep doin' it till ye leave, for the Great Forge never goes out. Yer folk an' mine don't see eye tae eye on much, what wi' the League diggin' in yer old ruins, but I'll grant ye this: nobody shoots straighter than a Sentinel, bar a mountaineer." },
+      },
+      choices = {
+        { text = "Bar a mountaineer? We'll see about that.", next = "BACK", reply = "Ha! Come tae the Hall of Arms some day an' we'll set up the targets." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     oldguard = {
@@ -2902,6 +4380,13 @@ P:Pool {
       text = "Sky-elf. The tauren vouch for you, and I trust the tauren, so I'll trust you a little." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "Forsaken. You're Horde by the Warchief's word and I'll stand beside you, but don't ask me to like the smell." },
+    -- Racial pass: the posts outside the capitals (capital guards have their own).
+    { id = "n_orc", cat = "race", when = { race = "Orc", ["not"] = { capital = true } },
+      text = "An orc on the road between posts. The grunts at every fire from here to the Crossroads will want news of Orgrimmar, so have some ready, or make it up well." },
+    { id = "n_troll", cat = "race", when = { race = "Troll", ["not"] = { capital = true } },
+      text = "Darkspear. Your people walk the roads with a spear in one hand and a charm in the other, and I've stopped asking which one does the work." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren", ["not"] = { capital = true } },
+      text = "A tauren, a long way from Mulgore. The grunts sleep better with one of your people on the next watch, because you don't startle, and nothing on four legs gets past you." },
     { id = "n_troll_lock", cat = "class", when = { race = "Troll", class = "WARLOCK" },
       text = "A Darkspear with demon-stink on them. I thought Vol'jin's people knew better than that." },
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
@@ -2974,6 +4459,27 @@ P:Pool {
         { text = "You'd never see me coming, you know.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I've died more times than I can count.", next = "dd_deaths", when = { deaths = { min = 15 } } },
         { text = "I've been fighting the Alliance on the front.", next = "dd_front", when = { honorKills = { min = 100 } } },
+        -- Racial pass: the posts outside the capitals.
+        { text = "This road was harder when the Horde had nowhere to go.", next = "gh_orc", when = { race = "Orc", ["not"] = { capital = true } } },
+        { text = "Do the Darkspear stand watch with you out here?", next = "gh_troll", when = { race = "Troll", ["not"] = { capital = true } } },
+        { text = "The land here feels restless to me.", next = "gh_tauren", when = { race = "Tauren", ["not"] = { capital = true } } },
+        { text = "Do the grunts truly trust my people?", next = "gh_sky", when = { race = "Skyborne", ["not"] = { capital = true } } },
+        -- Racial pass: the capitals (their own pools carry no tree, so their questions live here).
+        { text = "Is Orgrimmar what the Warchief promised us?", next = "og_orc", when = { race = "Orc", zone = "Orgrimmar" } },
+        { text = "Will the Darkspear ever take back the Echo Isles?", next = "og_troll", when = { race = "Troll", zone = "Orgrimmar" } },
+        { text = "Orgrimmar is very loud after the plains.", next = "og_tauren", when = { race = "Tauren", zone = "Orgrimmar" } },
+        { text = "Your grunts don't hide their stares well.", next = "og_undead", when = { race = "Scourge", zone = "Orgrimmar" } },
+        { text = "Does Orgrimmar trust the Earthen Ring's word about my people?", next = "og_sky", when = { race = "Skyborne", zone = "Orgrimmar" } },
+        { text = "Are the Grimtotem truly a danger to us?", next = "tb_tauren", when = { race = "Tauren", zone = "Thunder Bluff" } },
+        { text = "My people fought the centaur beside yours once.", next = "tb_orc", when = { race = "Orc", zone = "Thunder Bluff" } },
+        { text = "Do the tauren hunt the way the Darkspear hunt?", next = "tb_troll", when = { race = "Troll", zone = "Thunder Bluff" } },
+        { text = "Your Bluffwatchers watch me closer than the others.", next = "tb_undead", when = { race = "Scourge", zone = "Thunder Bluff" } },
+        { text = "My people honour the winds, as yours do.", next = "tb_sky", when = { race = "Skyborne", zone = "Thunder Bluff" } },
+        { text = "Do you remember who you were before?", next = "uc_undead", when = { race = "Scourge", zone = "Undercity" } },
+        { text = "This city smells worse than the Drag.", next = "uc_orc", when = { race = "Orc", zone = "Undercity" } },
+        { text = "Your apothecaries brew things the Earth Mother would not bless.", next = "uc_tauren", when = { race = "Tauren", zone = "Undercity" } },
+        { text = "Your Dark Lady keeps a strange court.", next = "uc_troll", when = { race = "Troll", zone = "Undercity" } },
+        { text = "Are the dead here truly free?", next = "uc_sky", when = { race = "Skyborne", zone = "Undercity" } },
         { text = "Strength and honor.", next = "END" },
       },
     },
@@ -3134,6 +4640,182 @@ P:Pool {
       choices = {
         { text = "Maybe when I'm older and slower.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "You're probably right.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    -- Racial pass: the posts outside the capitals.
+    gh_orc = {
+      lines = {
+        { id = "gho_default", text = "It was, and some of the old ones on this watch still walk it as if a human patrol might come over the next rise. Now we have Durotar, and posts from the Crossroads to the mountains, and every one of them is a promise the Warchief kept." },
+      },
+      choices = {
+        { text = "Then I'll help keep them.", next = "BACK", reply = "Good. Promises are only as strong as the arms holding them, so keep yours strong." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_troll = {
+      lines = {
+        { id = "ght_default", text = "They do, and they're the best night watch I've ever had: they see in the dark and they laugh at things that would make a grunt reach for an axe. One of them told me the spirits warn him before a raid comes, and twice now he's been right." },
+      },
+      choices = {
+        { text = "The loa watch over the Horde too.", next = "BACK", reply = "Then tell them I said thanks, and ask them to warn me a little earlier next time." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_tauren = {
+      lines = {
+        { id = "gta_default", text = "The shamans say the same, and so did the last tauren who stood this post, but the land tells me nothing except where to dig the latrine. If the Earth Mother is warning you of something, tell me what it is, and I'll double the watch." },
+      },
+      choices = {
+        { text = "Only a feeling. I'll keep listening.", next = "BACK", reply = "Do that, and come and find me the moment the feeling grows a face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_sky = {
+      lines = {
+        { id = "ghs_default", text = "Some do, because Thunder Bluff speaks for you, and the tauren don't speak lightly. The rest will trust you once they've seen you fight, which is the only way a grunt has ever trusted anyone." },
+      },
+      choices = {
+        { text = "Then they'll see me fight.", next = "BACK", reply = "Good answer. Make it a good fight, and they'll be telling it around the fire by nightfall." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Racial pass: Orgrimmar.
+    og_orc = {
+      lines = {
+        { id = "ogo_default", text = "It's more than any of us hoped for behind the camp fences: a city of our own, raised by our own hands, on land nobody gave us out of pity. It's hot and it's dusty and the Burning Blade crawl in the Cleft, but it's ours, and I'd die on this wall before I let anyone take it." },
+      },
+      choices = {
+        { text = "Then why does the Warchief keep peace with humans?", next = "h_war" },
+        { text = "It's worth dying for.", next = "BACK", reply = "Lok'tar. Just make sure you die for it slowly, and take plenty of them with you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    og_troll = {
+      lines = {
+        { id = "ogt_default", text = "Ask Vol'jin, not me, though his people talk of little else when they come up from Sen'jin. Zalazane holds the isles with his witch doctors and his hexed slaves, and if Vol'jin ever calls for axes, he'll find mine among the first." },
+      },
+      choices = {
+        { text = "I'll remember that, grunt.", next = "BACK", reply = "Do. Vol'jin's people sailed to Kalimdor with the Warchief, and orcs remember who sailed with them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    og_tauren = {
+      lines = {
+        { id = "ogta_default", text = "Loud and hot and full of orcs, and we like it that way. Your people welcomed us when we were strangers on this continent, and Cairne fought beside the Warchief before this city had a single wall, so you're never a guest here, whatever the noise. Mind your horns on the lanterns in the Drag, though." },
+      },
+      choices = {
+        { text = "The Earth Mother keeps us all.", next = "BACK", reply = "Maybe she does. Out here the Warchief does most of the keeping, but I'll not argue with your mother." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    og_undead = {
+      lines = {
+        { id = "ogu_default", text = "No, and they won't learn to. The old ones saw Gul'dan's dead knights in the Second War, and those dead men were no friends of any orc. The Warchief says your Dark Lady broke from the Lich King, and I believe him, but believing a thing and getting used to it are different battles." },
+      },
+      choices = {
+        { text = "Then I'll give them time.", next = "BACK", reply = "That's fair, and more patience than most of them would show you." },
+        { text = "They'd stare less if I fought beside them.", next = "BACK", reply = "Aye, that's how it works with grunts. Bleed beside one and the staring stops." },
+      },
+    },
+    og_sky = {
+      lines = {
+        { id = "ogs_default", text = "The Ring vouched for you, and the shamans in the Valley of Wisdom say the Ring doesn't vouch lightly, so the gate's open. The grunts will stare, because they've never met an elf they didn't have to fight, but they'll learn." },
+      },
+      choices = {
+        { text = "I'll give them a reason to learn quickly.", next = "BACK", reply = "Good. In Orgrimmar a reason usually means a deed, so go and find one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Racial pass: Thunder Bluff.
+    tb_tauren = {
+      lines = {
+        { id = "tbt_default", text = "Magatha Grimtotem sits among the elders on Elder Rise and speaks softly, and her braves smile at Cairne's own. But the Grimtotem out in Stonetalon and the Thousand Needles do not smile at all, and the Bluffwatchers have learned to count their hands when they cross the bridges." },
+      },
+      choices = {
+        { text = "Then I'll keep my eyes open on Elder Rise.", next = "BACK", reply = "Do, but keep your voice low there. Magatha hears more than an old woman should." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_orc = {
+      lines = {
+        { id = "tbo_default", text = "You did, and Cairne speaks of it still: the young Warchief and his orcs marching beside our caravans until the centaur broke and ran. That is a debt the tauren carry gladly, and these bluffs are yours to walk because of it." },
+      },
+      choices = {
+        { text = "The Horde remembers its friends.", next = "BACK", reply = "So do the tauren. Walk with the Earth Mother, friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_troll = {
+      lines = {
+        { id = "tbtr_default", text = "We hunt to feed the tribe and to honour the beast, and we thank the Earth Mother for every kill. Your people hunt with spears and poison and laughter, the braves tell me, and I think the Earth Mother would not mind the laughter." },
+      },
+      choices = {
+        { text = "The poison she might mind.", next = "BACK", reply = "Perhaps. Bring your catch to Hunter Rise and let the elders decide." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_undead = {
+      lines = {
+        { id = "tbu_default", text = "They do, and I will not pretend otherwise. Our elders argued long before they spoke for your people at the Warchief's fire, and some of them argue still, but the Earth Mother turns no one from her bluffs who comes in peace. Show us peace, and the watching will ease." },
+      },
+      choices = {
+        { text = "I come in peace. You'll see.", next = "BACK", reply = "Then I will be glad to see it. May the eternal sun shine on you, even below ground." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_sky = {
+      lines = {
+        { id = "tbs_default", text = "So I have heard, and it is part of why Thunder Bluff speaks for your people. The winds on these mesas are old and strong; I hope they greet you kindly, and that your camp at Gev'rek has found good grazing." },
+      },
+      choices = {
+        { text = "Winds be with you, Bluffwatcher.", next = "BACK", reply = "And with you. Mind the edges, all the same; the wind does not ask permission." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    -- Racial pass: Undercity.
+    uc_undead = {
+      lines = {
+        { id = "ucu_default", text = "Every face, every name, and every morning I woke up warm. Some of the Deathguard try to forget and some of us hold on to it like a coin, and the Dark Lady doesn't care which, so long as we remember who freed us." },
+      },
+      choices = {
+        { text = "I'd sooner forget.", next = "BACK", reply = "Then forget, and good luck to you. It never worked for me." },
+        { text = "I hold on to mine.", next = "BACK", reply = "So do I. It's cold comfort, but cold is all the comfort we get down here." },
+      },
+    },
+    uc_orc = {
+      lines = {
+        { id = "uco_default", text = "Higher praise than you know. The Drag smells of the living, and that's a stink the Apothecarium has never managed to bottle, though not for want of trying. Keep to the walkways above the canals, orc; what's in that green would eat through your boots." },
+      },
+      choices = {
+        { text = "I'll mind my boots.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uc_tauren = {
+      lines = {
+        { id = "uct_default", text = "I expect she wouldn't, and the Royal Apothecary Society would be delighted to hear it. They say they're brewing a cure for what the Scourge did to us, and they say it to every tauren who asks, so I'll say it to you too, and you can decide how much of it to believe." },
+      },
+      choices = {
+        { text = "I'd like to believe it.", next = "BACK", reply = "So would I, some days. Most days I just keep the door." },
+        { text = "I don't believe a word of it.", next = "BACK", reply = "Then keep that to yourself near the Apothecarium. They're touchy about their reputation." },
+      },
+    },
+    uc_troll = {
+      lines = {
+        { id = "uctr_default", text = "Strange, to a Darkspear? Coming from a people who talk to the spirits of their dead as easily as I'm talking to you, I'll take that as a compliment. The Dark Lady keeps the court she needs, banshees and apothecaries and the Deathguard, and nobody in it is waiting for her to die." },
+      },
+      choices = {
+        { text = "Fair. Our spirits are better company, though.", next = "BACK", reply = "I'm sure they are. Ours mostly complain about the damp." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uc_sky = {
+      lines = {
+        { id = "ucs_default", text = "Free of the Lich King, which is the only freedom that matters down here. You came from somewhere far away, I'm told, so you won't know what it was to hear his voice in your head and obey it. Pray you never learn." },
+      },
+      choices = {
+        { text = "I'm sorry for what was done to you.", next = "BACK", reply = "Don't be sorry. Be useful, and point your weapon at the Scourge." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     razor = {
@@ -3441,6 +5123,10 @@ P:Pool {
       text = "Gnomeregan folk are welcome by the King's own order. Just keep the explosions down to a reasonable number." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "You'll be one of the Skyborne. The court says your people are friends of Stormwind now, so you'll get no trouble from the Watch, only stares." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Born under these walls or come down from Lordaeron, I can never tell any more, since half the Trade District talks with a northern accent these days. Either way, welcome home, and mind the canals." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "You've still got the tram look about you, checking the ceiling for cracks, but there's no ceiling up here, only sky. The masons who rebuilt these walls were the finest in the kingdom, whatever became of them afterwards." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
       text = "I can hear those shards clinking from here. Nothing in the city statutes forbids them, but the Watch has a long memory and a short temper, so give me a reason and see how quickly I find a statute." },
     { id = "n_lock_armor", cat = "lock_armor", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } },
@@ -3496,6 +5182,14 @@ P:Pool {
       text = "A dwarf shaman! My granddad would've had words, but I've no words; just mind the Great Forge doesn't talk back to ye." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Tinker Town's down the way, and every gnome in it is still looking for a way home. I hope ye find it, I do, an' I hope they air the place out first." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Back under the mountain, are ye? Ye'll want a pint at the Stonefire afore ye do anythin' else, an' I'll no' tell the sergeant I said so." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Ye've come in on the tram, by the green look o' ye. Stand a while by the Great Forge, an' the warmth'll put the colour back in yer cheeks." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "Ye're squintin', elf, an' I don't blame ye, for there's no moon under the mountain an' no trees but the ones we burn. The Mystic Ward's quieter, if the forge noise is too much for ye." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "One o' the sky-elves, under a mountain! I'd wager it's a long while since ye stood this far from an open wind, so breathe slow, an' don't stand too near the bellows." },
     { id = "n_dwarf_paladin", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
       text = "Silver Hand, is it? The Mystic Ward's where ye'll find yer teachers, past the priests and their candles." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
@@ -3572,6 +5266,11 @@ local function sentinelTree()
         { text = "Could you teach me to track the way you do?", next = "hunt", when = { class = "HUNTER" } },
         { text = "I scouted for the Sentinels before I took this road.", next = "scout", when = { origin = "nightelf_sentinel_scout" } },
         { text = "I was at Hyjal when the World Tree burned.", next = "hyjal", when = { origin = "nightelf_hyjal_survivor" } },
+        -- Racial pass: Darnassus (guard_darnassus's own questions; the other towns share this tree).
+        { text = "Why build a city in a tree at all?", next = "dn_human", when = { race = "Human", zone = "Darnassus" } },
+        { text = "Where does a dwarf get a decent drink in this city?", next = "dn_dwarf", when = { race = "Dwarf", zone = "Darnassus" } },
+        { text = "Could the moonwells use a little engineering?", next = "dn_gnome", when = { race = "Gnome", zone = "Darnassus" } },
+        { text = "Do the Sentinels know who my people were?", next = "dn_sky", when = { race = "Skyborne", zone = "Darnassus" } },
         { text = "Elune keep you, Sentinel.", next = "END" },
       },
     },
@@ -3727,6 +5426,43 @@ local function sentinelTree()
         { text = "Something else.", next = "BACK" },
       },
     },
+    -- Racial pass: Darnassus.
+    dn_human = {
+      lines = {
+        { id = "dnh_default", text = "Because the last time we built in stone and gave ourselves to magic, the sea took all of it. Archdruid Fandral grew Teldrassil after Hyjal, and we live in its branches because a tree remembers what stone forgets. Your people think in walls, I know; ours think in roots." },
+      },
+      choices = {
+        { text = "Walls kept my people alive.", next = "BACK", reply = "And roots kept mine alive for ten thousand years. Perhaps we are both right, for now." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dn_dwarf = {
+      lines = {
+        { id = "dnd_default", text = "Moonberry juice, on the Craftsmen's Terrace, and I see from your face that this is not the answer you wanted. The last of your people to ask brought his own cask over on the boat from Auberdine, and the Sentinels let him keep it, because we are gracious hosts and because it was very heavy." },
+      },
+      choices = {
+        { text = "Next time I'll bring two casks.", next = "BACK", reply = "Then bring a third for the Sentinels at the gate. We are not as solemn as we look." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dn_gnome = {
+      lines = {
+        { id = "dng_default", text = "No. The moonwells are Elune's, and the priestesses have tended them without a single gear or valve since long before your people learned to tinker. They would like you to keep your tools in your pack, and so, I am afraid, would I." },
+      },
+      choices = {
+        { text = "Just a small valve. Nobody would notice.", next = "BACK", reply = "Elune would notice. So would I, and I am the one holding the glaive." },
+        { text = "Understood. Hands in my pockets.", next = "BACK", reply = "Thank you. The priestesses will be relieved, though they will never say so." },
+      },
+    },
+    dn_sky = {
+      lines = {
+        { id = "dns_default", text = "We remember Eldre'Thalas, and we remember what the Highborne's magic cost the world, so you will forgive me for watching your hands. As for you, I know only what the priestesses have said, which is very little, and I would rather learn the rest from you than guess at it." },
+      },
+      choices = {
+        { text = "Watch my hands, then. They're honest.", next = "BACK", reply = "Then they have nothing to fear from my watching. Ishnu-alah, sky-born." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     kin = {
       lines = {
         { id = "kn_default", text = "Then you know what this place was before, and what it cost us to come here. Some nights I wake and reach for the smell of Nordrassil's bark, and it is not there. Do you feel it too, the difference in this tree?" },
@@ -3815,6 +5551,14 @@ P:Pool {
   notice = {
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Elves from the sky, and forgive me for staring; a Sentinel is allowed to be curious once a century." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "Welcome home. Teldrassil has grown a little while you were away, and the Sentinels are still arguing over where the new paths should run." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "A human beneath Teldrassil. You came by the boat from Auberdine and up through Rut'theran, I expect, and now you are looking up as all your people do, as if the tree might fall. It will not." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Your boots are loud on the bark, dwarf. The tree does not mind, I think, but the owls do, so step a little softer near the Temple." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "The last of your people to visit Darnassus asked a priestess how the moonwells were plumbed. She has not yet decided whether to be offended, so I would not ask her again." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
       text = "Walk in your own shape among the trees, druid. The young ones find it unsettling." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
@@ -3913,6 +5657,14 @@ P:Pool {
       text = "A tauren druid, a long way from the bluffs. Your claws are welcome here, but keep them off the wolves." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "Sky-elf. You came to the Horde through the Earthen Ring, and Thrall trusts the Ring, so the gate's open to you." },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
+      text = "The old grunts still spit when one of your kind walks through the Valley of Strength, Warchief's word or not. Don't take it to heart; they spit at the trolls too, and the trolls spit back." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Lok'tar, {g:brother|sister}. You're walking through the gate of a city our people raised with their own hands, so walk it like you remember the camps." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Darkspear. The Valley of Spirits is yours, and your shadow hunters keep it smelling of smoke and strange herbs, which I'm told is good luck. It makes my eyes water, so take your luck down there with you." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Mind the beams in the Drag, tauren. It was dug for orcs, and your horns keep finding the lanterns." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } },
       text = "You've souls rattling in your pack. Gul'dan kept souls too, and the Horde paid for every one, so keep yours down in the Cleft where we don't have to hear them." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
@@ -3965,6 +5717,10 @@ P:Pool {
       text = "Forsaken, on the bluffs. Your apothecaries keep to the Pools of Vision beneath Spirit Rise, if you are looking for your own." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear, be welcome. Watch yourself on the lifts; your people always lean out to look." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc on the bluffs. Your Warchief marched beside our caravans when the centaur hounded us across the Barrens, and the elders have not forgotten it, so walk here as a friend." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Welcome home, child of the plains. The Earth Mother kept your place by the fire, and the lifts have creaked no louder than usual while you were gone." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "A bear on the bridges! The kodo will not like it, and neither will the bridges." },
     { id = "n_demon", cat = "pet", when = { pet = { type = "Demon" } },
@@ -4020,6 +5776,14 @@ P:Pool {
       text = "The Rogues' Quarter is yours. Don't think we haven't noticed you counting the guards." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Tauren. You'll be stooping in the tunnels, so mind the drips; they aren't water." },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
+      text = "Welcome home, if that's the word for it. The Trade Quarter's busy, the Apothecarium's quiet, and the Dark Lady is as unforgiving as ever of anyone who forgets who freed them." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc, down the lifts. Your Warchief took us in when the rest of the world wanted us burned, and the Deathguard remembers it, though we'd thank you not to breathe quite so loudly." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Darkspear. Your witch doctors look at us as if we were a hex that worked too well. Look all you like, but don't touch." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "One of the sky-elves, in a city of the dead. You look at us the way every living thing does, and I'll not hold it against you; most of us looked the same, once." },
     { id = "n_warrior", cat = "class", when = { race = "Scourge", class = "WARRIOR" },
       text = "War Quarter for you, soldier. Some of the Deathguard in there wore Lordaeron's colours too, once." },
     { id = "n_beast", cat = "pet", when = { pet = { type = "Beast" } },
@@ -4064,8 +5828,92 @@ P:Pool {
   id = "peon", role = "peon",
   barks = { { id = "b_work", text = "Work, work." } },
   greetings = { { id = "g_busy", text = "Peon busy, very busy, look how busy!" } },
-  lines = { { id = "l_default", text = "Peon chop wood and peon carry wood, but peon not talk about wood." } },
+  lines = {
+    { id = "l_default", text = "Peon chop wood and peon carry wood, but peon not talk about wood." },
+    -- Racial pass: peons react to who is asking.
+    { id = "l_orc", when = { race = "Orc" }, text = "You orc too, so you know how it go: peon work hard, and grunts take the credit. Zug zug." },
+    { id = "l_troll", when = { race = "Troll" }, text = "Troll make peon nervous, because troll always laughing, and peon never know what is funny." },
+    { id = "l_tauren", when = { race = "Tauren" }, text = "Big one! You could carry whole tree on one shoulder, and peon only ask because peon have whole tree right here." },
+    { id = "l_undead", when = { race = "Scourge" }, text = "You smell like old meat. Peon not say it to be rude, peon just say it because it true." },
+    { id = "l_skyborne", when = { race = "Skyborne" }, text = "Pointy ears, but not night elf? Peon very confused, so peon will go back to chopping, which peon understand." },
+  },
   choices = { { text = "Back to work.", next = "END" } },
+  -- Racial pass: a small tree so a peon has something to say to each race.
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Peon working! Peon always working, see, look at all this wood. What you want?" },
+      },
+      again = {
+        { id = "a_more", text = "More talking? Peon like talking, because talking is not chopping." },
+      },
+      choices = {
+        { text = "Does the work ever end?", next = "work" },
+        { text = "Who's your overseer, peon?", next = "orc", when = { race = "Orc" } },
+        { text = "Want a troll charm to make the work lighter?", next = "troll", when = { race = "Troll" } },
+        { text = "I could carry that load for you.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Do I frighten you, peon?", next = "undead", when = { race = "Scourge" } },
+        { text = "My people have never seen a peon before.", next = "skyborne", when = { race = "Skyborne" } },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    work = {
+      lines = {
+        { id = "wk_default", text = "Work end when sun go down, and then work start again when sun come up. Peon once ask if sun could stay down a little longer, and overseer laugh for very long time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    orc = {
+      lines = {
+        { id = "or_default", text = "Overseer is big orc with whip and loud voice, and he say peon lazy. Peon not lazy, peon tired, which is very different thing, and peon only tell you because you orc too and maybe you understand." },
+      },
+      choices = {
+        { text = "Zug zug, friend.", next = "BACK", reply = "Zug zug! You good orc. Peon remember your face." },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    troll = {
+      lines = {
+        { id = "tr_default", text = "Charm? Peon had charm once, from troll at Sen'jin, and it make wood lighter for one day and then it make peon sneeze for one week. Peon not want charm. Peon want nap." },
+      },
+      choices = {
+        { text = "No charm for naps, sorry.", next = "BACK", reply = "Then troll charms not very good, peon think." },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "ta_default", text = "You carry?! Nobody ever carry for peon. Peon not know what to do with hands now, so peon will just stand here and watch you carry, and it is best day peon ever have." },
+      },
+      choices = {
+        { text = "Glad to help, little one.", next = "BACK", reply = "Peon tell everybody about kind tauren. Nobody believe peon, but peon tell them." },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    undead = {
+      lines = {
+        { id = "un_default", text = "Little bit. Peon think dead things should stay dead, but Warchief say dead ones are Horde now, so peon say hello nicely and then peon go chop wood very far away." },
+      },
+      choices = {
+        { text = "I don't bite, peon.", next = "BACK", reply = "Peon believe you. Peon still going to chop over there, though." },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+    skyborne = {
+      lines = {
+        { id = "sk_default", text = "Never see peon? Where you live, nobody chop wood? Peon think that sound like very good place, but peon not know the way, and overseer not give day off anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "Back to work.", next = "END" },
+      },
+    },
+  },
   topics = { _none = { { id = "t_none", text = "Peon not know, and peon not want to know." } } },
 }
 
@@ -4097,6 +5945,25 @@ P:Pool {
       text = "Horde, sure, half our customers walk down from the Crossroads. In town, though, buddy, you're a customer first and a grunt second, and customers keep their axes on their backs." },
     { id = "n_alliance", cat = "status", when = { faction = "Alliance" },
       text = "Alliance, this deep in the Barrens? Brave or lost, pal, and either way you're safe inside the town, so do us both a favour and spend somethin'." },
+    -- Racial pass: a neutral port sizes up every kind of customer.
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Off the boat from Booty Bay, I bet, with that Stranglethorn sunburn. Welcome to Ratchet, pal, where the sun's just as bad and the pirates are worse." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! Your Ironforge boys pay in good coin and drink like the barrels owe 'em money, pal, so you're welcome on my docks any day of the week." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "No offense, pal, but the last gnome who came through tried to sell Gazlowe a better crane. Gazlowe's still sore about it, 'cause it was a better crane." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "Night elf, this far south? Your Sentinels don't buy from us much, pal, on account of the lumber, and it's a shame, 'cause I'd sell 'em the axes to chase the loggers off with." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Orc, huh? Gazlowe built your Warchief's city, pal, so you could say you're standin' on the Cartel's references." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Darkspear, huh? Your folks down at Sen'jin trade us fish and charms, pal, and the charms sell better, 'cause a sailor will buy anything that promises he won't drown." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Easy on the dock planks, big customer, would ya? Every board a tauren cracks goes on the Cartel's books, and guess who has to write it up." },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
+      text = "Forsaken, huh? The boat crews get twitchy around your folk, pal, so if you're sailin', try smilin' less; it doesn't help as much as you'd think." },
+    { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
+      text = "One of them sky-elves, huh? Never seen one up close, pal, and I keep wonderin' what your people use for money, and whether the Cartel takes it." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
       text = "That's a lotta soul shards, pal. I know a guy in Booty Bay who'd want a look at 'em, but in Ratchet they're just luggage, so keep the bag shut on the docks." },
     { id = "n_lock_steed", cat = "lock_steed", when = { class = "WARLOCK", aura = { 5784, 23161 } },
@@ -4131,6 +5998,14 @@ P:Pool {
         { text = "Do the Alliance give you trouble here?", next = "sides", when = { faction = "Horde" } },
         { text = "Do the Horde give you trouble here?", next = "sides", when = { faction = "Alliance" } },
         { text = "Who'd notice a purse or two going missing?", next = "rogue", when = { class = "ROGUE" } },
+        -- Racial pass.
+        { text = "Goblins and gnomes. Always rivals, aren't we?", next = "rt_gnome", when = { race = "Gnome" } },
+        { text = "Your Venture Company kin are stripping Stonetalon bare.", next = "rt_elf", when = { race = "NightElf" } },
+        { text = "You'd fight for the Horde when it counts, right?", next = "rt_orc", when = { race = "Orc" } },
+        { text = "Our caravans pay far too much at your docks.", next = "rt_tauren", when = { race = "Tauren" } },
+        { text = "Does the Cartel sell to the dead?", next = "rt_undead", when = { race = "Scourge" } },
+        { text = "Your sailors buy Sen'jin charms by the crate.", next = "rt_troll", when = { race = "Troll" } },
+        { text = "Booty Bay's goblins nearly robbed me blind.", next = "rt_human", when = { race = { "Human", "Dwarf" } } },
         { text = "I'll behave.", next = "END", fx = { standing = { ratchet = 1 } } },
       },
     },
@@ -4234,6 +6109,70 @@ P:Pool {
       },
       choices = {
         { text = "Good to know.", next = "BACK" },
+      },
+    },
+    -- Racial pass.
+    rt_gnome = {
+      lines = {
+        { id = "rtg_default", text = "Rivals? Pal, we're the competition, and competition's healthy, mostly for us. Your people build it right and slow, my people build it fast and cheap and sell it before it blows up, and the customers keep comin' back to us, so you tell me who's winnin'." },
+      },
+      choices = {
+        { text = "Ours don't blow up.", next = "BACK", reply = "Sure they don't, pal. Say hi to Gnomeregan for me. Whoa, whoa, too soon, I know, I take it back." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_elf = {
+      lines = {
+        { id = "rte_default", text = "Whoa, whoa, the Venture Company ain't kin of mine, pal, they're the competition, and they don't pay their dock fees neither. Steamwheedle sells, it doesn't saw, and if you want to go smash their shredders in Stonetalon, I'll sell you the hammer at a fair price." },
+      },
+      choices = {
+        { text = "A goblin is a goblin to the trees.", next = "BACK", reply = "Then the trees got lousy eyesight, pal, and you can tell 'em I said so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_orc = {
+      lines = {
+        { id = "rto_default", text = "Pal, I fight for whoever's payin' me this week, and this week it's Gazlowe, and Gazlowe's neutral, so no. Between you and me, though, the Horde tips better, and I've got a long memory for tips." },
+      },
+      choices = {
+        { text = "Honest, at least.", next = "BACK", reply = "Honesty's free, pal. It's about the only thing in Ratchet that is." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_tauren = {
+      lines = {
+        { id = "rtt_default", text = "Too much? Pal, the fees are the fees, same for every caravan from Thunder Bluff to the Crossroads, and your people are the only ones who pay without arguin', which I appreciate. Tell your elders the Cartel says thanks, and also that the fees are goin' up." },
+      },
+      choices = {
+        { text = "The Earth Mother sees your ledger, goblin.", next = "BACK", reply = "Then she knows I'm givin' you a good rate, pal. Tell her to come by the docks sometime." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_undead = {
+      lines = {
+        { id = "rtu_default", text = "Pal, the Cartel sells to anybody whose coin is real, and yours spends just like everybody else's. Only thing we won't sell you is a seat at the front of the boat, 'cause the crew's superstitious and there's more of them than there is of me." },
+      },
+      choices = {
+        { text = "The back of the boat suits me.", next = "BACK", reply = "Good, 'cause that's where the cargo goes, and you're quieter than most of the cargo." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_troll = {
+      lines = {
+        { id = "rtr_default", text = "By the crate, pal, and every one comes with a promise the sailor won't drown, which is a great business model, 'cause the ones who drown never come back to complain. You tell your witch doctors that if they ever want a proper distributor, I know a guy." },
+      },
+      choices = {
+        { text = "The charms work, you know.", next = "BACK", reply = "Sure they do, pal, and so does the markup. Everybody wins." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rt_human = {
+      lines = {
+        { id = "rth_default", text = "Nearly? Then you got off light, pal, 'cause Booty Bay's the big leagues and Ratchet's just the friendly little branch office. Same Cartel, same rules, same fees, only here I'll at least tell you the price before you pay it." },
+      },
+      choices = {
+        { text = "That's oddly reassuring.", next = "BACK", reply = "That's the Steamwheedle promise, pal: we rob you honest." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     rogue = {
