@@ -330,7 +330,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, eh? Ye're green, but ye've the look o' somebody who'll stand when the troggs come, an' most o' the recruits I get would run tae Kharanos first." },
         { id = "h_default", key = true,
-          text = "Sten Stoutarm. I run the post fer Anvilmar, such as it is, an' letters come through the pass along wi' the troggs. I prefer the letters." },
+          text = "I'm Sten Stoutarm, an' I run the post fer Anvilmar, such as it is, an' letters come through the pass along wi' the troggs. I prefer the letters." },
         { id = "h_outfit", tags = { "news" }, when = { questActive = TODO_QUEST("Dwarven Outfitters") },
           text = "Wolf meat, from the valley's wolves. Bring me a stack an' I'll see ye properly outfitted, an' that's a fair trade." },
         { id = "h_mail", when = { questActive = TODO_QUEST("Coldridge Valley Mail Delivery") },
@@ -368,6 +368,8 @@ P:NPC {
         { text = "What's the post's worst trouble, Sten?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the troggs here trouble the wild beasts as well?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What use is a rogue to Anvilmar, Sten?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Anvilmar. Named for the old king?", next = "anv" },
+        { text = "Coldridge feels like my first day of being a dwarf.", next = "dw_first", when = { race = "Dwarf", maxLevel = 12 } },
         { text = "I'll get to it.", next = "END" },
       },
     },
@@ -424,6 +426,35 @@ P:NPC {
       choices = {
         { text = "I'll get used to the cold.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "I'll complain, thank you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    anv = {
+      lines = {
+        { id = "anv_default", text = "Aye, Modimus Anvilmar, the last high king o' all the clans, back when Bronzebeard an' Wildhammer an' Dark Iron drank from the same cask. When he died the clans went tae war over his throne, an' somebody thought it'd be a fine thing tae put his name on the place where young dwarves learn tae fight, so they'd remember what happens when we fight each other." },
+        { id = "anv_dwarf", when = { race = "Dwarf" }, text = "Modimus Anvilmar, the last high king o' all three clans, an' ye'll have heard the tale at yer granddad's knee. He held us together, an' when he died we went tae war over his chair, so they put his name on the place where young dwarves learn tae fight, tae remind them who the fightin's for." },
+      },
+      choices = {
+        { text = "A good lesson for a training camp.", next = "anv_lesson" },
+        { text = "Something else, Sten.", next = "BACK" },
+      },
+    },
+    anv_lesson = {
+      lines = {
+        { id = "anvl_default", text = "It would be, if anybody here listened tae lessons that werenae shouted at them by Thran Khorman. Most o' the recruits just think it's the name o' the barracks, an' I've stopped correctin' them, for the troggs teach them the rest soon enough." },
+      },
+      choices = {
+        { text = "Then I'll remember it for them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Sten.", next = "BACK" },
+      },
+    },
+    dw_first = {
+      lines = {
+        { id = "dwf_default", text = "It is, for most of us. Every dwarf o' fightin' age in Khaz Modan comes through this valley sooner or later, freezin' an' green, an' goes out the other side wi' a scar or two an' a story about a trogg. Ye'll have yers by the end o' the week, I'd wager." },
+      },
+      choices = {
+        { text = "I'll come back with a better story than most.", next = "BACK", reply = "That's the spirit, an' I'll hold ye tae it, for I've heard every trogg story there is an' I'd like a new one.", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather come back with all my fingers.", next = "BACK", reply = "Now that's the wisest thing a recruit's said tae me this month. Keep yer fingers an' yer head, an' the story will take care o' itself.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Sten.", next = "BACK" },
       },
     },
   },
@@ -584,6 +615,7 @@ P:NPC {
         { text = "Do the Frostmane have shamans who speak to the beasts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Something about me makes your beard itch, Grelin. I can tell.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the Frostmane witch doctors really speak to spirits, Envoy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why do dwarves and trolls hate each other so?", next = "dw_trolls" },
         { text = "I'll deal with the trolls.", next = "END", fx = { affinity = 2, standing = { coldridge = 1 } } },
       },
     },
@@ -647,6 +679,42 @@ P:NPC {
       choices = {
         { text = "I'll count them for you, envoy.", next = "BACK", fx = { affinity = 2, standing = { coldridge = 1 } } },
         { text = "Why does the Senate need numbers?", next = "sent" },
+      },
+    },
+    dw_trolls = {
+      big = true,
+      lines = {
+        { id = "dwt_default", text = "Because they were here first, or think they were, an' we were here longest, or think we were. The Frostmane are ice trolls who've hunted these snows for longer than anybody's written down, an' every time we dug a new hold or cleared a new valley, it was their huntin' ground we were clearin'." },
+        { id = "dwt_dwarf", when = { race = "Dwarf" }, text = "Ye'll have heard yer elders curse them, so I'll tell ye what they leave out. The Frostmane are ice trolls who hunted these snows long before Ironforge was a hall, an' every new valley we cleared was a huntin' ground o' theirs, so they've their own list o' grievances, longer than Senator Redstone's." },
+      },
+      choices = {
+        { text = "Then perhaps the trolls have a fair grievance.", next = "dw_trolls_fair", fx = { align = { light = 1 } } },
+        { text = "They raid our roads. Grievance or not, they answer for it.", next = "dw_trolls_hard", fx = { align = { light = -1 } } },
+        { text = "And the trolls who fought in the Second War?", next = "dw_trolls_war" },
+      },
+    },
+    dw_trolls_fair = {
+      lines = {
+        { id = "dwtf_default", text = "Fair or no', they've a grievance, an' I'll put that in my report, though the Senate will skip that page. It doesnae make them less dangerous tae the recruits, mind, so dinnae go tellin' a Frostmane ye understand him; he'll take it for weakness an' put a spear in ye." },
+      },
+      choices = {
+        { text = "Something else, Envoy.", next = "BACK" },
+      },
+    },
+    dw_trolls_hard = {
+      lines = {
+        { id = "dwth_default", text = "Aye, they answer for it, an' that's why I'm sittin' out here in the cold countin' them. But mark this, {g:lad|lass}: a troll wi' a grievance fights harder than one without, so the more ye understand them, the fewer recruits I bury." },
+      },
+      choices = {
+        { text = "Something else, Envoy.", next = "BACK" },
+      },
+    },
+    dw_trolls_war = {
+      lines = {
+        { id = "dwtw_default", text = "That was the Amani, the forest trolls o' the Hinterlands, an' they marched wi' the Horde an' burned the elves' forests for it. The Wildhammer fought them through every glen up there an' still do, an' I've heard it said they'd sooner fight a troll than share a drink wi' a Bronzebeard, which tells ye how much they hate trolls." },
+      },
+      choices = {
+        { text = "Something else, Envoy.", next = "BACK", fx = { learn = { "frostmane" } } },
       },
     },
   },
@@ -1127,6 +1195,8 @@ P:NPC {
         { text = "Couldn't magic improve your brewing, Ragnar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could the elements help with brewing, Ragnar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "My family brews, but I'd rather see where the barrels go.", next = "xorig_brew", when = { origin = "dwarf_brewer" } },
+        { text = "What makes a proper dwarven ale, Ragnar?", next = "dw_ale" },
+        { text = "Pour me something from home, Ragnar. I've been gone too long.", next = "dw_home", when = { race = "Dwarf" } },
         { text = "A pint, then.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -1224,6 +1294,38 @@ P:NPC {
       choices = {
         { text = "The King's call comes before ribs, Ragnar.", next = "BACK", reply = "It does. But the King doesnae have tae listen tae my patrons complainin' about the lack o' ribs.", fx = { align = { order = 1 } } },
         { text = "He should've stayed and kept the town fed.", next = "BACK", reply = "Aye, maybe, but somebody has tae fight the King's wars, an' I'd rather it was a boar hunter than a brewer, if I'm honest.", fx = { align = { order = -1 } } },
+      },
+    },
+    dw_ale = {
+      big = true,
+      lines = {
+        { id = "dwal_default", text = "Mountain water, highland barley, a yeast that's been in the family longer than the family's been in Kharanos, an' patience. Ye cannae hurry a Thunderbrew, any more than ye can hurry a glacier, an' every brewer who's tried has ended up sellin' swill tae goblins." },
+        { id = "dwal_brewer", when = { origin = "dwarf_brewer" }, text = "Ye'll know the answer as well as I do, if yer family's worth its mash tun: mountain water, highland barley, a yeast older than the family, an' patience. I'll only add what yer father likely didnae tell ye, which is that the barrels matter more than the brewer." },
+      },
+      choices = {
+        { text = "And the Barleybrews? They say theirs is better.", next = "dw_ale_rival" },
+        { text = "A brew's only as good as the company drinking it.", next = "BACK", reply = "Spoken like a dwarf wi' a heart, an' I'll drink tae it, though I'll add that bad company drinks good ale too, an' I'm glad o' their coin.", fx = { affinity = 1 } },
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    dw_ale_rival = {
+      lines = {
+        { id = "dwalr_default", text = "They say a lot o' things, the Barleybrews, mostly while drinkin' my ale an' lookin' at it sideways. Rejold's no' a bad brewer, I'll grant him that in private, but his Scalder tastes like somebody boiled a boot, an' he knows it, an' that's why he sends spies intae my cellar." },
+      },
+      choices = {
+        { text = "Thunder Ale it is. The Barleybrews can boil their boots.", next = "BACK", reply = "Ha! Now that's a customer worth keepin'. Ye'll drink in my hall any time, an' ye'll say that louder next time Rejold's in.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A friendly rivalry makes both brews better.", next = "BACK", reply = "Friendly, he says! Well, maybe it is, under all the shoutin', an' I'll admit my stout's never been better than the year Rejold almost beat it.", fx = { align = { honor = 1 } } },
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    dw_home = {
+      narr = "He reaches under the bar for a squat dark bottle with no label, and pours a short measure as if it were gold.",
+      lines = {
+        { id = "dwh_default", text = "Then ye'll have this, an' ye'll no' tell anybody I poured it, for it's the old winter stout, the one my grandmother made the year the Horde came over the mountains. Every dwarf who's been away too long gets one swallow, an' then they remember what home tastes like." },
+      },
+      choices = {
+        { text = "That tastes like snow and smoke and my grandsire's hall.", next = "BACK", reply = "Aye, it does, an' that's exactly what she meant it tae taste like. Welcome home, {g:lad|lass}, an' dinnae stay away so long next time.", fx = { affinity = 2 } },
+        { text = "Strong. I'll stick to Thunder Ale.", next = "BACK", reply = "Ha! Most do, after the first swallow, an' there's no shame in it. That stout was brewed for a war, an' ye're only home from the road.", fx = { affinity = 1 } },
       },
     },
   },
@@ -1431,6 +1533,8 @@ P:NPC {
         { text = "Don't you want to know what I've been up to, Belm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do folk in Kharanos mind a shaman under your roof?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "You keep wiping that same spot on the bar, Belm.", next = "fl_bar", when = { flirt = true } },
+        { text = "Were you here when the gnomes came up from Gnomeregan?", next = "gn_flee" },
+        { text = "It's good to sleep under a dwarven roof again, Belm.", next = "dw_roof", when = { race = "Dwarf" } },
         { text = "Just a room, thanks.", next = "END" },
       },
     },
@@ -1491,6 +1595,34 @@ P:NPC {
         { id = "tr_default", text = "Priests upstairs wi' Maxan, paladins an' mages on the landing, an' a rogue in my kitchen I pretend not to see. The hunters train out on the hill." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gn_flee = {
+      lines = {
+        { id = "gnf_default", text = "I was, an' I'll never forget it. They came up the road out o' the west in the snow wi' nothin' but what they could carry, half o' them coughin' an' the other half too quiet, an' I put them in every bed an' every corner o' this inn till the King made room for them under the mountain." },
+        { id = "gnf_gnome", when = { race = "Gnome" }, text = "I was, an' maybe ye were one o' them, for there were so many I stopped seein' faces. Yer folk came up the road out o' the west wi' nothin' but what they could carry, an' I put them in every bed an' corner o' this inn till the King made room under the mountain. I hope ye found a warmer place since." },
+      },
+      choices = {
+        { text = "That was a kindness. They won't have forgotten it.", next = "BACK", reply = "It wasnae kindness, it was just what ye do, but I'll take the thanks on their behalf. A few o' them still send a letter at Winter Veil, an' I keep every one.", fx = { align = { light = 1 } } },
+        { text = "Their own engineers poisoned that city. Dwarves paid the price.", next = "BACK", reply = "Maybe so, an' I've heard that said at this bar by louder dwarves than you, but ye didnae see their faces. When a body's cold, ye give them a bed first an' argue about blame after.", fx = { align = { light = -1 } } },
+        { text = "Something else, Belm.", next = "BACK" },
+      },
+    },
+    dw_roof = {
+      lines = {
+        { id = "dwr_default", text = "Aye, there's nothin' like it, is there? Stone walls a yard thick, a fire that never goes out an' the smell o' Thunderbrew comin' up through the floor. Ye'll sleep like a stone tonight, an' if ye snore, ye'll be in good company, for half the trainers in this place could wake a dragon." },
+      },
+      choices = {
+        { text = "Where are the best stories told, in here?", next = "dw_roof_stories" },
+        { text = "Something else, Belm.", next = "BACK" },
+      },
+    },
+    dw_roof_stories = {
+      lines = {
+        { id = "dwrs_default", text = "Corner table by the hearth, after the third round, when the old mountaineers start on the Second War an' the young ones start on the troggs. Mind ye only believe half o' each, an' never believe a word about Muradin from anybody who didnae sail wi' him." },
+      },
+      choices = {
+        { text = "Something else, Belm.", next = "BACK" },
+      },
     },
   },
 

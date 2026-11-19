@@ -307,109 +307,126 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Thun'grim Firegaze: an orc shaman on a hilltop camp near Far Watch, who tests young
--- shamans on the path of fire.
+-- Thun'grim Firegaze: an old, near-blind orc blacksmith and hermit on a mountain south of
+-- Thorn Hill, who forges for the Horde's young warriors (Path of Defense's end, the brutal armor).
 ---------------------------------------------------------------------------
 P:NPC {
   key = "thungrim", id = TODO_NPC("Thun'grim Firegaze"), name = "Thun'grim Firegaze",
   bible = "bibles/thungrim.md", role = "questgiver", tier = "quest",
-  temper = { "stern", "patient" }, values = { "wise", "dutiful" },
-  notices = { "class", "race" },
+  temper = { "stern", "patient" }, values = { "craft", "dutiful" },
+  notices = { "class", "race", "kit" },
   impression = {
-    first = "He talks to his fire more than to his visitors.",
-    third = "{name} met Thun'grim Firegaze, the shaman who tests the Horde's young on the path of fire.",
+    first = "He can barely see, but he knew my armor by its sound.",
+    third = "{name} met Thun'grim Firegaze, the half-blind smith on the mountain south of Thorn Hill who forges for the Horde's young warriors.",
   },
 
   greetings = {
-    { id = "g_default", text = "Sit by the fire, {class}, and catch your breath. The climb is part of the lesson, though most don't notice." },
-    { id = "g_shaman_back", when = { class = "SHAMAN", metBefore = true }, text = "The fire remembers you. Whether it likes you is still being decided." },
+    { id = "g_default", text = "Footsteps on my mountain. Come closer, {class}, because my eyes gave up long ago and my ears do all the work now." },
+    { id = "g_back", when = { metBefore = true }, text = "I know that tread, and that rattle of loose buckles. Sit, and let me hear what you've been hitting." },
+    { id = "g_war", when = { class = "WARRIOR", metBefore = true }, text = "That's a warrior's walk, heavy on the heel. Uzzek's lot always walk like that, as if the ground owed them something." },
   },
 
   notice = {
-    { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "A mage. You burn things by command, and I burn them by asking, and I promise you the fire can tell the difference." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your armor's singing like a cracked bell, and I can hear every split rivet from here. Take it to a smith before you take it into a fight, because I'm too old to mend it for you." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "A tauren this far east. The Earthmother's children usually come to the earth first, but the fire is glad of you all the same." },
+      text = "A tauren, by the weight on the stones. Orm Stonehoof up on the bluffs is a friend of mine, and he says your people are slow to buy and quick to break things, and he means it kindly." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior, and young by the sound of it. Come here and let me put a hand on your shield, because I can tell more by touch than most smiths can by looking." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Thun'grim Firegaze, and I keep this fire for those who would learn its ways. Fire is the hungriest of the elements, and the most honest, because it never pretends to be anything but what it is." },
-        { id = "h_shaman", when = { class = "SHAMAN" }, text = "A young shaman, come up the hill at last. Telf Joolam sent you up from Durotar, I expect, and he'll have told you the fire spirits test hard, which is the only thing about them he got right." },
-        { id = "h_fire_done", tags = { "news" }, when = { questDone = TODO_QUEST("Call of Fire") }, text = "You carry the fire's mark now, and I can see it in how you stand closer to the coals than you used to. Use it well, and never use it in anger." },
+        { id = "h_default", key = true, text = "I am Thun'grim Firegaze, and I keep a forge on this mountain where nobody bothers me but the wind. My eyes dried out long ago from staring into the flame, so I work by the sound of the hammer now, and the steel has never once complained." },
+        { id = "h_uzzek", tags = { "news" }, when = { questDone = TODO_QUEST("Path of Defense") }, text = "Uzzek sent you up, did he? Then you can stand behind a shield, and you've earned some iron worth standing behind, so let me hear how you hold it." },
+        { id = "h_ruga", tags = { "news" }, when = { questDone = TODO_QUEST("Trial at the Field of Giants") }, text = "Ruga says you went into the Field of Giants and came back quieter than you went, and that's the best word he gives anyone. Sit down, and we'll talk about armor." },
+        { id = "h_brutal", when = { questDone = TODO_QUEST("Brutal Armor") }, text = "The brutal hauberk sits well on you, I can hear it. Ula'elek, Orm and Velora will finish the set if you bring them what they ask, and then nobody will mistake you for a recruit." },
+        { id = "h_orcwar", when = { class = "WARRIOR", race = "Orc" }, text = "A young orc warrior, climbing to an old orc's forge. In my day we forged weapons for demons' wars and never asked why, so I'm glad to be forging for yours." },
+        { id = "h_trollwar", when = { class = "WARRIOR", race = "Troll" }, text = "A Darkspear warrior, by the light step and the laughing. Ula'elek at Sen'jin is a friend of mine and a better jeweller than a smith, but don't tell him I said so." },
+        { id = "h_notwar", when = { ["not"] = { class = "WARRIOR" } }, text = "You're no warrior, by your step, and I've little for anyone else. But sit by the forge if you like, because the wind on this mountain bites." },
       },
       again = {
-        { id = "h_again", text = "The fire is patient. What else?" },
-        { id = "h_again2", text = "Ask, and let the fire listen." },
+        { id = "h_again", text = "What else? The coals are patient, and so am I." },
+        { id = "h_again2", text = "Ask on. I'll hammer while you talk, and listen with the other ear." },
       },
       choices = {
-        { text = "Why keep your fire up here, alone?", next = "alone" },
-        { text = "What is the path of fire?", next = "path" },
+        { text = "How do you forge without your eyes?", next = "blind" },
+        { text = "Why keep your forge up here, alone?", next = "alone" },
+        { text = "What do you make for young warriors?", next = "make", when = { class = "WARRIOR" } },
+        { text = "Tell me about the brutal armor.", next = "brutal", when = { class = "WARRIOR", minLevel = 20 } },
         { text = "What do you think of the Burning Blade?", next = "blade" },
-        { text = "I'm ready for the trial of fire.", next = "trial", when = { class = "SHAMAN" } },
         { text = "I have business with you.", next = "BUSINESS" },
-        { text = "Keep your fire well.", next = "END" },
+        { text = "Keep your forge hot, Thun'grim.", next = "END" },
+      },
+    },
+    blind = {
+      lines = { { id = "b_default", text = "By the ring of the hammer, mostly, because good steel sings and bad steel thuds, and an old smith can hear the difference in his sleep. The heat tells me the rest, on my face and in my hands, and I've been burned so many times that the burns can't surprise me any more." } },
+      choices = {
+        { text = "Does the blindness ever trouble you?", next = "blind2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blind2 = {
+      big = true,
+      lines = { { id = "b2_default", text = "Only when I remember what I used to forge. I made blades for the Horde when the warlocks ruled it, and I watched the fire in those blades turn green, and I didn't stop until I'd stared so long I couldn't see it any more. Some days I think the blindness was a mercy." } },
+      choices = {
+        { text = "You've paid for it. Forge for the new Horde now.", next = "BACK", reply = "That's what I tell myself every morning when I light the coals. Some mornings it's even true.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A smith forges what he's paid for. No shame in that.", next = "BACK", reply = "That's what I told myself then, and it's why I'm up here now. Be careful who pays you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     alone = {
-      lines = { { id = "a_default", text = "Because the wind up here feeds it and the land below it is dry enough to burn for a week if I'm careless. A fire kept where it could do harm teaches you respect faster than one kept in a hearth." } },
+      lines = { { id = "a_default", text = "Because the wind up here feeds the coals better than any bellows, and because the Crossroads is too loud for an old orc who works by ear. The warriors who need me find the path, and the ones who can't climb it aren't ready for what I make." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    make = {
+      lines = {
+        { id = "mk_default", text = "Shields first, for the ones Uzzek sends me, because a warrior who's learned to stand needs something to stand behind. Later, if they live, armor, and the brutal set is the best I know how to make." },
+        { id = "mk_low", when = { questBefore = TODO_QUEST("Path of Defense") }, text = "Nothing for you yet, young one, because you haven't been to Uzzek. Go down to his hill near Far Watch, learn to stand still, and then climb back up and we'll talk." },
+      },
       choices = {
-        { text = "That sounds dangerous.", next = "danger" },
+        { text = "Why does the shield come before the blade?", next = "make2" },
         { text = "Something else.", next = "BACK" },
       },
     },
-    danger = {
-      lines = { { id = "d_default", text = "It is, and so is every element worth knowing. The warlocks of the old Horde thought they could command the fire without asking, and the Barrens is still paying for their arrogance, so I ask every morning." } },
+    make2 = {
+      lines = { { id = "mk2_default", text = "Because I forged blades first for my whole life and watched them carry our people into ruin. A shield never started a war, so I'd rather the young ones learn to love theirs before they learn to love the axe." } },
       choices = {
-        { text = "Then the elements deserve to be asked.", next = "BACK", reply = "You understand already, and that's half the lesson. Come back with that same humility when the fire answers you, because it will test it.", fx = { align = { order = 1 }, learn = { "elements" } } },
-        { text = "Asking is for the weak. The strong command.", next = "BACK", reply = "Then you'll learn what the old Horde learned, and I hope you learn it more cheaply. The fire bows to no one, young one, and it never forgets an insult.", fx = { align = { order = -1 }, learn = { "elements" } } },
-        { text = "Something else.", next = "BACK", fx = { learn = { "elements" } } },
-      },
-    },
-    path = {
-      lines = { { id = "p_default", text = "Earth first, because it holds you up, then fire, because it shows you what you are when everything else is burned away. Water and air come after, and a shaman who skips one ends up lopsided, like a kodo with a bad leg." } },
-      choices = {
-        { text = "What does fire show you?", next = "shows" },
+        { text = "A shield is worth more than any blade.", next = "BACK", reply = "Spoken like Uzzek's student. He'll be glad of you.", fx = { align = { honor = 1 } } },
+        { text = "A shield never won a war either.", next = "BACK", reply = "No, but it brought a great many warriors home from them. Think on which matters more.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
-    shows = {
-      lines = { { id = "s_default", text = "Your anger, mostly, at first. Every young orc who sits at this fire finds out how much rage they carry from the camps and the old wars, and the fire will burn it out of them or burn them with it." } },
+    brutal = {
+      lines = {
+        { id = "br_default", text = "Heavy plates and heavy bracing, made to look as if nothing could cut through it, because half of armor is what the enemy believes. I make the hauberk myself, and send warriors to Ula'elek at Sen'jin for the gauntlets, to Orm Stonehoof on the bluffs for the helm, and to Velora Nitely in the Undercity for the legguards." },
+        { id = "br_ruga", when = { questBefore = TODO_QUEST("Trial at the Field of Giants") }, text = "Not yet, young one. Go to Ruga Ragetotem at Camp Taurajo first and pass his trial at the Field of Giants, and when he sends you back to me, I'll start on the hauberk." },
+      },
       choices = {
-        { text = "I'd guess it burned yours out, in time.", next = "mine" },
+        { text = "Why send me to four smiths instead of one?", next = "brutal2" },
         { text = "Something else.", next = "BACK" },
       },
     },
-    mine = {
-      lines = { { id = "m_default", text = "Most of it, in the end, though it took me longer than I'll admit to a student. What's left I keep for the Burning Blade, because the spirits allow a little anger if it's aimed at the right people." } },
-      choices = {
-        { text = "Then aim it well.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Something else.", next = "BACK" },
-      },
+    brutal2 = {
+      lines = { { id = "br2_default", text = "Because each of them knows something I don't, and because a warrior who's walked to Sen'jin, Thunder Bluff and the Undercity has seen what the Horde is made of. You come back knowing whose armor you wear, and that's worth more than the steel." } },
+      choices = { { text = "I'll make the walk. Something else.", next = "BACK" } },
     },
     blade = {
-      lines = { { id = "b_default", text = "They make me ashamed to be an orc who works with fire. They light their braziers on Dreadmist Peak with fel flame, and the spirits of fire in these hills scream every time, and I hear it from here." } },
+      lines = { { id = "bl_default", text = "They make me ashamed of the green fire I once worked by. They light fel braziers on Dreadmist Peak, not far from here, and I can smell it on the wind, sour like hot copper, every time the wind turns north." } },
       choices = {
-        { text = "Then they should be stopped.", next = "BACK", reply = "They will be, if I have any say in it, and I'll need strong hands to do it. Go to Dreadmist, and let the fire spirits there know someone heard them.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
-        { text = "Fire is fire. The spirits will get over it.", next = "BACK", reply = "They won't, and neither will I. You speak like the warlocks who burned our home, and I'd advise you not to say it again near my fire.", fx = { align = { light = -1 }, affinity = -1, learn = { "burning_blade" } } },
+        { text = "Then they should be stopped.", next = "BACK", reply = "They should, and if I were thirty years younger and could see past my own hand, I'd climb Dreadmist myself. Go in my place, if you're willing.", fx = { align = { light = 1 }, learn = { "burning_blade" } } },
+        { text = "Fire is fire, whatever colour it burns.", next = "BACK", reply = "Spoken like the young smith I was, and I'd not wish his eyes on you. Fel fire eats more than it burns.", fx = { align = { light = -1 }, learn = { "burning_blade" } } },
         { text = "Something else.", next = "BACK" },
-      },
-    },
-    trial = {
-      lines = { { id = "t_default", text = "Then gather what I ask for and bring it back without complaint, because the fire hates a whiner. When you're done, you'll stand before a brazier and ask the spirit of fire for its blessing, and it will answer, or it won't." } },
-      choices = {
-        { text = "It will answer.", next = "BUSINESS", fx = { affinity = 1 } },
-        { text = "Something else first.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    elements = { { id = "tp_el", text = "There are four, earth, fire, water and air, and a true shaman asks them rather than commands them. The asking is the whole of it." } },
-    burning_blade = { { id = "tp_bb", text = "The Burning Blade light fel fires on Dreadmist Peak, and I'd put them out myself if I were thirty years younger." } },
-    _none = { { id = "tp_none", text = "The fire doesn't speak of that, and so neither do I." } },
+    burning_blade = { { id = "tp_bb", text = "The Burning Blade light fel fires on Dreadmist Peak, and I'd put them out myself if I could see the path." } },
+    background = { { id = "tp_bg", text = "I forged for the old Horde until my eyes gave out, and now I forge for the new one by ear, which suits us both." } },
+    _none = { { id = "tp_none", text = "I'm a smith, and a blind one, so if it can't be heated and hammered, I'd not know it." } },
   },
 }
 
@@ -429,6 +446,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Stand up straight when you come to me, {class}. Slouching gets you killed." },
     { id = "g_path", when = { questActive = TODO_QUEST("Path of Defense") }, text = "Well? Have you got what I sent you for, or have you come to tell me why not?" },
+    { id = "g_ready", when = { questReady = TODO_QUEST("Path of Defense") }, text = "You've the horns, I can smell the lizard on you. Bring them here and let's have a look at your shield arm." },
     { id = "g_garvak_master", when = { class = "WARRIOR", thread = { id = "war_garvak", state = "resolved" } }, text = "Garvak stood his ground for a whole morning yesterday, and he hated every moment of it. Stand up straight, {class}, because I'm in a good mood." },
     { id = "g_garvak_run", when = { class = "WARRIOR", thread = { id = "war_garvak", state = "soured" } }, text = "Garvak's back on the Kolkar line, charging like the old days. Say what you came for, and stand straight while you say it." },
   },
@@ -447,6 +465,11 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Uzzek. The warrior trainers in Orgrimmar and Thunder Bluff send me their promising ones, and I find out whether they can stand their ground or just swing hard." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "So they sent you out to me. Good, because any fool can hit something, and I'm here to see if you can stop being hit." },
         { id = "h_tauren", when = { class = "WARRIOR", race = "Tauren" }, text = "A tauren warrior. You've got the size, which helps, but size gets lazy, so let's see if you've got the patience." },
+        { id = "h_orcwar", when = { class = "WARRIOR", race = "Orc" }, text = "An orc, sent to learn the shield. Your elders charged when they should have stood, and I buried enough of them to know it, so you'll learn to stand if I have to nail your feet to this hill." },
+        { id = "h_trollwar", when = { class = "WARRIOR", race = "Troll" }, text = "A Darkspear, quick and twitchy like all your people. A shield's no use to a warrior who won't stay behind it, so the first thing I'll teach you is to keep still." },
+        { id = "h_deadwar", when = { class = "WARRIOR", race = "Scourge" }, text = "A Forsaken warrior, come all the way from Lordaeron to learn from an orc who nearly took it. I held a wall against your knights once, so I know you can be taught to hold one too." },
+        { id = "h_active", when = { questActive = TODO_QUEST("Path of Defense") }, text = "The thunder lizards graze the plains around Far Watch, and they'll come at you hard. Take their horns, keep your shield up when they spit, and don't come back with a hole in you." },
+        { id = "h_after", when = { questDone = TODO_QUEST("Path of Defense"), minLevel = 14 }, text = "You've learned the stance and you've had time to forget it. Show me your feet, and I'll tell you whether you've been practising or bragging." },
         { id = "h_path_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Path of Defense"), days = 3 } }, text = "You did it, and you came back standing. That's the lesson, if you were wondering: the one who stands longest wins." },
       },
       again = {
@@ -458,6 +481,8 @@ P:NPC {
         { text = "Where did you learn to fight?", next = "learn" },
         { text = "What's the most dangerous thing out here?", next = "danger" },
         { text = "Teach me to hold the line.", next = "line", when = { class = "WARRIOR" } },
+        { text = "Why does the defensive stance matter so much?", next = "w_stance", when = { class = "WARRIOR" } },
+        { text = "Where do I go once I've passed your test?", next = "w_next", when = { class = "WARRIOR" } },
         { text = "I'm ready for my test.", next = "BUSINESS" },
         { text = "I've heard what the others say about Garvak.", next = "garvak_end",
           when = { class = "WARRIOR", thread = { id = "war_garvak", beat = "b2_uzzek", state = "unfolding" },
@@ -538,6 +563,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_stance = {
+      lines = {
+        { id = "ws_default", text = "Because every blow lands softer in it, and every hit you take makes you angrier instead of weaker. In the battle stance you're a weapon, and in the defensive stance you're a wall, and the Horde has more weapons than it has walls." },
+        { id = "ws_done", when = { questDone = TODO_QUEST("Path of Defense") }, text = "You know it now, so learn what goes with it: a taunt to pull the enemy off whoever's weaker, and a sunder to crack its armor while it's busy hating you. A wall that nobody attacks is only a pile of stones." },
+      },
+      choices = {
+        { text = "Walls don't win wars. Weapons do.", next = "BACK", reply = "Weapons win battles, and walls win wars, because the walls are still there after. I learned that on mine.", fx = { align = { order = -1 } } },
+        { text = "Then I'll be a wall, for whoever's behind me.", next = "BACK", reply = "Good. Say that again when your arm's numb and you've no healer, and then I'll believe you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_next = {
+      lines = {
+        { id = "wn_default", text = "Up the mountain south of Thorn Hill, to Thun'grim Firegaze, the old smith. He's half blind from staring into his forge, but he'll know a warrior by the sound of his footsteps, and I send him the ones who pass." },
+        { id = "wn_later", when = { minLevel = 20 }, text = "Southwest to Camp Taurajo, to Ruga Ragetotem, who has a trial for warriors your size. After that, back to Thun'grim for armor, and at thirty, to Fray Island, if you've any sense." },
+      },
+      choices = {
+        { text = "Why send me to a smith?", next = "w_next2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_next2 = {
+      lines = { { id = "wn2_default", text = "Because a stance is nothing without the iron to stand behind, and Thun'grim's made shields for half the warriors in the Horde. He'll talk your ear off about steel, and you'll listen, because he's earned it." } },
+      choices = { { text = "I'll listen. Something else.", next = "BACK" } },
+    },
     line = {
       lines = { { id = "ln_default", text = "Shield up, feet wide, weight low, and don't let your eyes leave the enemy's shoulders, because that's where the swing starts. Do that a thousand times and you'll start to understand." } },
       choices = {
@@ -549,6 +599,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I fought in the Second War, rotted in the camps, and followed Thrall out of them. Now I teach, which is easier on the knees." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask some grunt who isn't busy." } },
+    _none = { { id = "tp_none", text = "I don't know, and I don't care to. Ask some grunt who isn't busy." } },
   },
 }

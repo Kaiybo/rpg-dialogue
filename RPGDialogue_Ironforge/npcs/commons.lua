@@ -928,6 +928,8 @@ P:NPC {
         { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the King's word reach as far as Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does the Senate really make of dwarven shamans, Advisor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What threatens the mountain most, Advisor?", next = "threats" },
+        { text = "I want to serve the throne, Advisor. Where am I needed?", next = "dw_serve", when = { race = "Dwarf" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -1009,6 +1011,35 @@ P:NPC {
         { text = "Stormwind will honor its debts, Advisor.", next = "BACK", reply = "I hope so, an' I'll take yer word for it, for the Senate's patience is no' what it was, an' neither is the King's.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Stormwind's court honors nothing it can avoid.", next = "BACK", reply = "That's a hard thing tae hear from one o' its own, an' I'll keep it tae myself, for the Senate would only use it as a club.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    threats = {
+      big = true,
+      lines = {
+        { id = "thr_default", text = "Ask the Senate an' ye'll get six answers, so I'll give ye the King's. The Dark Iron in the south, for they've Ragnaros behind them now; the troggs that came up out o' Uldaman an' Gnomeregan both, for there's no end tae them; an' the Frostmane trolls in the western snows, who were killin' dwarves long before any o' the others." },
+      },
+      choices = {
+        { text = "Then strike the Dark Iron first, and hard.", next = "BACK", reply = "That's the King's heart talkin', an' half the Military Ward's. The other half reminds him that every army we send south leaves Dun Morogh thinner, an' the troggs can count.", fx = { align = { order = -1 } } },
+        { text = "Then hold the walls and the roads before anything else.", next = "BACK", reply = "That's the Senate's view, an' it's kept us alive through two wars an' a flood o' refugees. It's no' glorious, but a dwarf behind a good wall is a dwarf that sees his grandchildren.", fx = { align = { order = 1 } } },
+        { text = "Where did the troggs come from?", next = "threats_troggs" },
+      },
+    },
+    threats_troggs = {
+      lines = {
+        { id = "tht_default", text = "From under the earth, deeper than any dwarf has dug, an' that's near all anybody knows. They came boilin' up out o' Gnomeregan an' out o' Uldaman at near the same time, an' the League thinks they're tied tae the old titan vaults somehow, though nobody can say how wi'out a trogg willin' tae explain." },
+      },
+      choices = {
+        { text = "Something else, Advisor.", next = "BACK", fx = { learn = { "troggs" } } },
+      },
+    },
+    dw_serve = {
+      lines = {
+        { id = "dws_default", text = "Everywhere, {g:lad|lass}, an' that's the honest truth. The mountaineers want rifles on the Loch Modan roads, the League wants strong backs in the Badlands, an' the King wants dwarves who'll go where they're sent an' come home tae tell him what they saw. Which o' those suits ye?" },
+      },
+      choices = {
+        { text = "The roads. Someone has to keep them open.", next = "BACK", reply = "Then see Mountaineer Barleybrew at the South Gate, or go on tae Thelsamar an' the Loch. They'll work ye hard, an' ye'll be thanked by every caravan that gets through.", fx = { trait = { practical = 1 } } },
+        { text = "The League. I want to see Uldaman.", next = "BACK", reply = "Then the Hall o' Explorers is up the way, an' Magellas will talk yer ear off. Tell him I sent ye, an' he'll pretend tae be annoyed.", fx = { trait = { curious = 1 } } },
+        { text = "Wherever the King sends me, I'll go.", next = "BACK", reply = "That's an old-fashioned answer, an' the best one. Keep earnin' the mountain's trust, an' one day the King will send for ye by name.", fx = { affinity = 1 } },
       },
     },
   },

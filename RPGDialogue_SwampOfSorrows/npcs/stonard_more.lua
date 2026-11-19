@@ -721,6 +721,16 @@ P:NPC {
           text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet, not even the blood-soaked fields of the old wars." },
         { id = "h_war", when = { class = "WARRIOR" },
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
+        { id = "h_orcwar", when = { race = "Orc", class = "WARRIOR" },
+          text = "An orc warrior, a long way from Durotar and close to where it all began. The Dark Portal stands in the Blasted Lands just south of here, and every orc in Stonard walked out of it once, so stand straighter here than anywhere." },
+        { id = "h_trollwar", when = { race = "Troll", class = "WARRIOR" },
+          text = "A Darkspear warrior in Stonard. The Atal'ai in the temple are trolls too, and they'll mock you for fighting beside orcs, so show them what a Darkspear axe does to a mocking mouth." },
+        { id = "h_taurwar", when = { race = "Tauren", class = "WARRIOR" },
+          text = "A tauren, sinking to the knees in my yard. Don't fight it; you're heavy enough that the mud will hold you like roots, and then nothing moves you." },
+        { id = "h_deadwar", when = { race = "Scourge", class = "WARRIOR" },
+          text = "A dead warrior in the swamp. The mud doesn't bother you much, I'd wager, but watch your joints, because I've seen a Forsaken leave a leg behind in a sucking pool." },
+        { id = "h_w40", when = { class = "WARRIOR", minLevel = 40 },
+          text = "You're wearing plate in a swamp, which means you're strong or stubborn, and I'd take either. Keep it oiled, because rust here is faster than any ogre." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in my yard! Change into a bear and wrestle one of my recruits, if you're willing; they need to learn what a real beast feels like." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
@@ -735,7 +745,9 @@ P:NPC {
         { text = "Do your warriors trust spellcasters at their backs, Malosh?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why train in the mud?", next = "mud" },
         { text = "What makes a good warrior?", next = "good" },
-        { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Train me, Malosh.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "How do I fight the ogres from the Blasted Lands?", next = "w_ogres", when = { class = "WARRIOR" } },
+        { text = "Plate in a swamp. Is it worth the weight?", next = "w_plate", when = { class = "WARRIOR", minLevel = 36 } },
         { text = "A rogue could teach your warriors a thing or two.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "A warrior can learn something from a mage, I'd say.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your warriors ever train against beasts, Malosh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -743,6 +755,31 @@ P:NPC {
         { text = "Would you train a Forsaken paladin, Malosh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Another time.", next = "END" },
       },
+    },
+    w_ogres = {
+      lines = {
+        { id = "wo_default", text = "An ogre swings once, wide and slow, and that swing can break your shield arm, so you don't block it, you step inside it. Sunder its hide, hamstring it so it can't follow you, and stay close enough that it can't wind up again." },
+        { id = "wo_berserk", when = { minLevel = 30 }, text = "Step inside the swing, hamstring it, and when it's bleeding and slow, go into the berserker's stance and finish it fast. An ogre who gets a second wind will remind you why the Horde once hired them." },
+      },
+      choices = {
+        { text = "The Horde fought beside ogres once.", next = "w_ogres2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_ogres2 = {
+      big = true,
+      lines = { { id = "wo2_default", text = "In the Second War, aye, and some of them still think they're owed for it. The ones down south in the Blasted Lands belong to nobody now, and they'd crack an orc's skull as soon as a human's, so don't let old loyalty slow your arm." } },
+      choices = {
+        { text = "Old allies deserve one chance to walk away.", next = "BACK", reply = "One, maybe, if they're not already swinging. They usually are.", fx = { align = { honor = 1 } } },
+        { text = "If they raise a club against us, they're enemies.", next = "BACK", reply = "That's how Stonard has lived this long. Good.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_plate = {
+      lines = {
+        { id = "wp_default", text = "Worth it, if you can still pull your feet out of the mud, because a crocolisk's jaw closes on plate and lets go, and it closes on mail and doesn't. Get used to it on dry ground first, then come and fall over in my yard a few times." },
+      },
+      choices = { { text = "I'll fall over in your yard. Something else.", next = "BACK" } },
     },
     mud = {
       lines = {
@@ -773,7 +810,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
+    background = { { id = "tp_ba", text = "I fought and I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
     advice = { { id = "tp_ad", text = "Lean forward in the swamp. Always lean forward." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's a warrior first, and I'd follow him into any swamp. I'm already in this one, so I suppose I have." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I learned more there than any trainer could teach. I teach what I learned now, with fewer fingers." } },

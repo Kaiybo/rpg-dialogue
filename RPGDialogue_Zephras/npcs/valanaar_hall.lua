@@ -223,10 +223,22 @@ P:NPC {
         { text = "Who else trains in this hall?", next = "hall" },
         { text = "Who are your recruits?", next = "recruits" },
         { text = "Train me, Seena.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Where does a warrior go once Zephras is behind her?", next = "w_beyond", when = { class = "WARRIOR", race = "Skyborne", minLevel = 8 } },
         { text = "I guarded the pylons on Anvilas while they failed.", next = "xpylon", when = { origin = "skyborne_anvilas_pylon_guard" } },
         { text = "I trained for the Empyrean Blades.", next = "xblade", when = { origin = "skyborne_empyrean_recruit" } },
         { text = "How do your warriors fight compared to mine?", next = "xoutsider", when = { class = "WARRIOR", ["not"] = { race = "Skyborne" } } },
         { text = "Farewell, Seena.", next = "END" },
+      },
+    },
+    w_beyond = {
+      lines = {
+        { id = "wb_default", text = "Wherever your banner sends you, and you'll find warrior trainers there who've never seen one of us, so stand in front and let them work it out. Whatever they call the stances, it's the same lesson I've given you: plant your feet and don't let the message reach them." },
+        { id = "wb_horde", when = { faction = "Horde" }, text = "To Mulgore first, if the Earthen Ring has its way, and the tauren on Hunter Rise teach warriors who stand like hills. They'll send you to an orc in the Barrens for the shield, and he'll be the first orc you've ever argued with, so argue well." },
+      },
+      choices = {
+        { text = "I'll make them remember the Skyborne.", next = "BACK", reply = "Make them remember a good warrior first. The rest will follow.", fx = { align = { honor = -1 } } },
+        { text = "I'll stand in front and let my shield speak.", next = "BACK", reply = "That's the Skybreaker way. I'll hear about it, one way or another.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     bulwark = {

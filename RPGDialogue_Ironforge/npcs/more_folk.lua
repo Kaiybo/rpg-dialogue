@@ -355,12 +355,14 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Stand straight when ye come into the Hall o' Arms. What's yer business wi' Muren Stormpike?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good; the ones who don't come back are the ones I worry about." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good, for it's the ones who don't come back that I worry about." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior, an' a young one. Granis Swiftaxe sent ye, I'll wager, an' he always sends me the stubborn ones." },
   },
   notice = {
     { id = "n_war", cat = "class", when = { class = "WARRIOR", race = "Dwarf" },
-      text = "A dwarf warrior, an' ye've the shoulders for it. Let's see if ye've the head as well." },
+      text = "A dwarf warrior, an' ye've the shoulders for it, so now let's see if ye've the head tae go wi' them." },
+    { id = "n_stormpike", cat = "race", when = { origin = "dwarf_stormpike" },
+      text = "Ye've a Stormpike look about ye, or I'm a trogg. Whose son or daughter are ye, then, for I'll be holdin' ye tae the clan's measure an' no' a hair less." },
     { id = "n_pal", cat = "class", when = { class = "PALADIN" },
       text = "A paladin. I'll no' test ye, for that's Highforge's business, but I'll say ye'd make a fair warrior if the Light ever gives up on ye." },
   },
@@ -371,16 +373,22 @@ P:NPC {
         { id = "h_default", text = "I'm Muren Stormpike, an' I test the warriors who come up from Dun Morogh. A dwarf isnae a warrior because he holds an axe; he's a warrior when he's proven he can use it." },
         { id = "h_vejrek", when = { questActive = TODO_QUEST("Vejrek") }, text = "Vejrek's still breathin', then? He's a frost troll in the high snows near Frostmane Hold, an' he's killed better fighters than ye, so don't be hasty." },
         { id = "h_vejrek_done", when = { questDone = TODO_QUEST("Vejrek") }, text = "Ye brought me Vejrek's head, an' I'll no' forget it. Tormus Deepforge at the Great Forge is the one tae see next." },
+        { id = "h_vejrek_news", tags = { "news" }, when = { class = "WARRIOR", questRecent = { TODO_QUEST("Vejrek"), days = 2 } }, text = "There's the warrior who walked intae Frostmane Hold an' came out wi' a troll's head! Ye've earned yer Defensive Stance, so sit a moment, for I've a few words on how tae use it." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 30 }, text = "I tested ye once, an' ye passed, an' now look at the iron on ye. I'll admit I didnae think ye'd get this far, an' I've never been happier tae be wrong." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick an' make it plain." },
-        { id = "h_again2", text = "Go on, I'm listenin'. Stand up straight while ye talk." },
+        { id = "h_again", text = "What else? Make it quick an' make it plain, for that's how a warrior speaks." },
+        { id = "h_again2", text = "Go on, I'm listenin', but stand up straight while ye talk." },
       },
       choices = {
         { text = "Granis Swiftaxe sent me to you.", next = "test", when = { class = "WARRIOR" } },
         { text = "What do you test them on?", next = "test" },
         { text = "The Stormpikes are a proud clan, I hear.", next = "clan" },
         { text = "Your hall is full of young fighters.", next = "hall" },
+        { text = "Vejrek fought harder than I expected.", next = "vejrek_fought", when = { class = "WARRIOR", questDone = TODO_QUEST("Vejrek") } },
+        { text = "What is Defensive Stance really for, Muren?", next = "defstance", when = { class = "WARRIOR", minLevel = 10 } },
+        { text = "A gnome's head is level with a troll's knee.", next = "gnome", when = { race = "Gnome", class = "WARRIOR", maxLevel = 19 } },
+        { text = "My kin fight for the clan in Alterac.", next = "kin", when = { origin = "dwarf_stormpike" } },
         { text = "I'll be off, Muren.", next = "END" },
       },
     },
@@ -426,15 +434,48 @@ P:NPC {
         { text = "Old deeds don't make a fight right.", next = "BACK", reply = "Maybe no', but iron does. Mind yer tongue near my kin.", fx = { align = { order = -1 } } },
       },
     },
+    vejrek_fought = {
+      big = true,
+      lines = {
+        { id = "vf_default", text = "He would have, for he knew he was fightin' for his life, an' a troll fightin' for his life is a different beast from one fightin' for a meal. Tell me true, now: did ye feel sorry for him at the end?" },
+      },
+      choices = {
+        { text = "A little. He died defending his people.", next = "BACK", reply = "Aye, an' that's what makes ye a warrior an' no' a butcher. Keep that.", fx = { align = { light = 1 } } },
+        { text = "No. He killed three mountaineers.", next = "BACK", reply = "He did, an' they'd thank ye for it. That's a hard answer, an' a fair one.", fx = { align = { light = -1 } } },
+        { text = "I'd rather not say, Muren.", next = "BACK" },
+      },
+    },
+    defstance = {
+      lines = {
+        { id = "ds_default", text = "It's for the day ye stop fightin' for yerself an' start fightin' for the dwarf behind ye, an' that's the day ye truly become a warrior. Ye'll hit softer an' bleed less, an' with Taunt an' Sunder Armor the beast'll forget the priest is even there." },
+        { id = "ds_low", when = { maxLevel = 9 }, text = "It's a thing ye'll earn from me, an' no' before ye're ready, so dinnae ask me tae describe a meal ye've no' yet sat down tae. Come back when ye've ten summers o' fightin' an' a strong stomach for the snow." },
+      },
+      choices = {
+        { text = "Then I'll fight for the one behind me.", next = "BACK", reply = "Aye, that's a Stormpike's answer, whatever yer name is.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I fight for myself first, Muren.", next = "BACK", reply = "Then ye'll use the stance tae save yer own skin, an' it'll do that too. It's a start.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Aye, an' a troll's knee is a fine thing tae hit, for he cannae fight standin' on one leg. I've sent gnomes after Vejrek before an' they came back wi' his head, so dinnae let the dwarves at the bar tell ye different." } },
+      choices = { { text = "Knees first, then. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    kin = {
+      lines = { { id = "ki_default", text = "Then they fight for all of us, an' I'll raise a glass tae them in the Stonefire tonight. Vanndar holds Dun Baldar wi' too few, so if ye've a mind tae join them, Lieutenant Rotimer in the Commons can tell ye where tae go." } },
+      choices = {
+        { text = "I'll go when I'm ready. The clan comes first.", next = "BACK", reply = "Spoken like a Stormpike. I'll tell yer kin ye said so.", fx = { affinity = 2 } },
+        { text = "I'll make my own name before the clan's.", next = "BACK", reply = "Hmph. Every Stormpike says that once, an' then comes home tae Alterac.", fx = { trait = { stern = 1 } } },
+      },
+    },
     hall = {
       lines = { { id = "ha_default", text = "Aye, an' most o' them will be dead or famous in ten years, an' I cannae tell which by lookin'. That's why I test them; it saves the Dark Irons the trouble." } },
-      choices = { { text = "A grim way to think.", next = "BACK" } },
+      choices = { { text = "That's a grim way to think, Muren.", next = "BACK" } },
     },
   },
   topics = {
-    alterac_valley = { { id = "tp_av", text = "Stormpike land, an' the orcs can argue the point wi' our rifles." } },
+    alterac_valley = { { id = "tp_av", text = "It's Stormpike land, an' the Frostwolf orcs can argue the point wi' our rifles if they like." } },
     background = { { id = "tp_bg", text = "I'm a Stormpike an' a warrior, an' I've tested more young fighters than I can count." } },
-    _none = { { id = "tp_none", text = "That's no' my concern, lad. Ask somebody who cares." } },
+    _none = { { id = "tp_none", text = "That's no' my concern, {g:lad|lass}, so go an' ask somebody who cares about it." } },
   },
 }
 
@@ -452,14 +493,14 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Mind the sparks, an' state yer business. I've three blades on the fire an' no patience for idle talk." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. If ye've come tae watch me work, stand back an' don't touch anythin'." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, is it? If ye've come tae watch me work, stand back an' don't touch anythin'." },
     { id = "g_muren", when = { questActive = TODO_QUEST("Tormus Deepforge") }, text = "Muren sent ye, did he? Then ye've killed Vejrek, an' I'll believe it when I've seen yer hands." },
   },
   notice = {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith, eh? Ye hold yer hammer too high, I'd guess, but most young smiths do." },
     { id = "n_war", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior. Let me see yer weapon. Hmph, it's held together by hope, an' I've seen better on a trogg." },
+      text = "A warrior, so let me see yer weapon. Hmph, it's held together by hope, an' I've seen better on a trogg." },
   },
   start = "hello",
   nodes = {
@@ -468,15 +509,18 @@ P:NPC {
         { id = "h_default", text = "Tormus Deepforge, smith o' the Great Forge, an' my family's worked iron in this hall since before the kings had beards. I make the grey iron weapons for warriors who've proved their worth, an' nobody else gets one." },
         { id = "h_comp", when = { questActive = TODO_QUEST("Ironband's Compound") }, text = "Ye've no' finished at Ironband's Compound yet. I'll no' put grey iron in yer hands until ye have, so get tae it." },
         { id = "h_done", when = { questDone = TODO_QUEST("Grey Iron Weapons") }, text = "That's my grey iron on yer belt, an' ye're still wearin' it proudly. Keep it oiled, an' it'll outlive ye." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 30 }, text = "Ye've put my grey iron aside for somethin' heavier, I see, an' I'll no' take offence, for a blade's meant tae be outgrown. Show me what ye carry now, an' I'll tell ye who made it badly." },
       },
       again = {
-        { id = "h_again", text = "Anythin' else? These blades won't quench themselves." },
-        { id = "h_again2", text = "Go on, then, while the iron's heatin'." },
+        { id = "h_again", text = "Anythin' else? These blades won't quench themselves, an' I'll no' let them sit." },
+        { id = "h_again2", text = "Go on, then, while the iron's heatin', but keep it short." },
       },
       choices = {
         { text = "What makes grey iron special?", next = "iron" },
         { text = "What's at Ironband's Compound?", next = "compound" },
         { text = "This forge must never cool.", next = "forge" },
+        { text = "Which grey iron weapon should a warrior choose?", next = "choose", when = { class = "WARRIOR", any = { { questActive = TODO_QUEST("Ironband's Compound") }, { questDone = TODO_QUEST("Ironband's Compound") } } } },
+        { text = "I've outgrown your grey iron, Tormus.", next = "outgrown", when = { class = "WARRIOR", minLevel = 25, questDone = TODO_QUEST("Grey Iron Weapons") } },
         { text = "Can you teach me a thing or two?", next = "smithtalk", when = { profession = "Blacksmithing" } },
         { text = "I'll leave you to it.", next = "END" },
       },
@@ -504,8 +548,31 @@ P:NPC {
       },
     },
     compound = {
-      lines = { { id = "co_default", text = "Ironband's Compound lies south o' Kharanos, an' there's trouble there that needs a warrior tae settle it. Finish that, an' I'll know ye're worth my iron." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "co_default", text = "Ironband's Compound lies south o' Helm's Bed Lake, east o' Kharanos, an' the Dark Irons have taken it an' dug in. There's a load o' Umbral Ore in a strongbox there that I want for the weapons, so fetch it out from under their noses, an' I'll know ye're worth my iron." } },
+      choices = {
+        { text = "Dark Irons so close to Kharanos?", next = "compound_dark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compound_dark = {
+      lines = { { id = "cd_default", text = "Aye, an' that's what keeps me up at night, for if they can dig in by the lake, they can dig anywhere. Mind the basement when ye go, for whoever leads them down there will no' be a raw recruit like the ones at the gate." } },
+      choices = { { text = "I'll mind the basement. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    choose = {
+      big = true,
+      lines = { { id = "ch_default", text = "Axe, mace, sword or dagger, all o' them forged wi' that Umbral ore, an' I'll tell ye now that the choosin' says more about ye than the weapon does. The mace is for the patient, the axe for the stubborn, the sword for the quick, an' the dagger for the ones who should've been rogues." } },
+      choices = {
+        { text = "The axe. Stubborn suits me.", next = "BACK", reply = "Ha! A dwarf's answer, whatever ye are.", fx = { affinity = 1 } },
+        { text = "The mace. I'll wait for the right blow.", next = "BACK", reply = "Good, patience is the rarest metal in this hall.", fx = { trait = { cautious = 1 } } },
+        { text = "The sword. Quick hands win fights.", next = "BACK", reply = "They do, until they meet a dwarf wi' a mace. Choose it anyway.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    outgrown = {
+      lines = { { id = "og_default", text = "Course ye have, for grey iron's for the first year an' no' the tenth. Hang it on a wall somewhere, an' when a young one asks ye what it was for, tell them about Vejrek an' the Compound, for that's what it's really made of." } },
+      choices = {
+        { text = "I've hung it above my bed already.", next = "BACK", reply = "Good. That's the best place for it, an' the worst place for a thief.", fx = { affinity = 2 } },
+        { text = "I sold it to a merchant, honestly.", next = "BACK", reply = "Hmph. Then some trogg will be carryin' it next spring, an' I'll have tae make another.", fx = { trait = { witty = 1 } } },
+      },
     },
     forge = {
       lines = { { id = "fo_default", text = "It hasnae cooled in my lifetime, nor my grandfather's, an' the day it does, Ironforge will be finished. Every smith in this hall feeds it, an' we're proud o' it." } },
@@ -517,8 +584,8 @@ P:NPC {
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "Deepforges have worked iron in this hall for generations, an' I'm no different." } },
-    _none = { { id = "tp_none", text = "Unless it's iron or fire, I couldnae care less about it." } },
+    background = { { id = "tp_bg", text = "Deepforges have worked iron in this hall for generations, an' I'm no different, save that I'm better at it than most." } },
+    _none = { { id = "tp_none", text = "Unless it's iron or fire, I couldnae care less about it, so ask me about one o' those." } },
   },
 }
 

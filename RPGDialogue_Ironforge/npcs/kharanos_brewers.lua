@@ -334,6 +334,7 @@ P:NPC {
         { text = "Stealing from the Frostmane? Isn't that dangerous?", next = "steal" },
         { text = "How do you get on with Marleth?", next = "marleth" },
         { text = "I know herbs. Let me smell the kettle.", next = "kettle", when = { profession = { "Herbalism", "Alchemy", "Cooking" } } },
+        { text = "Why does a Barleybrew care so much about beating Thunderbrew?", next = "dw_rival" },
         { text = "Good luck with the stout.", next = "END" },
       },
     },
@@ -383,6 +384,17 @@ P:NPC {
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    dw_rival = {
+      lines = {
+        { id = "dwrv_default", text = "Because they've the big hall an' the King's custom an' the name every dwarf knows, an' we've a cellar, a kettle an' better taste. My father swore a Barleybrew would pour the best stout in Khaz Modan before his beard went white, an' his beard went white, so it's my oath now." },
+        { id = "dwrv_brewer", when = { origin = "dwarf_brewer" }, text = "Ye're a brewer's child yerself, so ye'll understand: they've the big hall an' the King's custom, an' we've a cellar, a kettle an' better taste. My father swore we'd pour the best stout in Khaz Modan before his beard went white, an' it went white, so the oath's mine now." },
+      },
+      choices = {
+        { text = "An oath's an oath. Brew until you win.", next = "BACK", reply = "That's what I tell myself every mornin', an' then I taste yesterday's batch an' tell myself again. Thank ye, friend, I needed hearin' it from somebody else.", fx = { align = { honor = 1 } } },
+        { text = "Your father's oath shouldn't cost you your life's joy.", next = "BACK", reply = "Joy? Brewin' is the joy, friend, it's the losin' I could do without. Still, there's sense in that, an' my wife would kiss ye for sayin' it.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Rejold.", next = "BACK" },
       },
     },
   },

@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Talin Keeneye. I've been huntin' boar by this lake since before ye were born, likely, an' I've never seen so many o' the brutes. It almost takes the fun out of it." },
+        { id = "h_default", key = true, text = "I'm Talin Keeneye, an' I've been huntin' boar by this lake since before ye were born, likely, an' I've never seen so many o' the brutes. It almost takes the fun out of it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Boar Hunter") },
           text = "No need tae get the boars charging, for they're all angry already. If ye've a mind tae thin a few, I'd be grateful, an' I could get back tae huntin' at a gentler pace." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Boar Hunter") },

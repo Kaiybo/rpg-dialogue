@@ -138,6 +138,7 @@ P:NPC {
         { text = "What kind of tracks has the beast left near your rams?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would my little companion really scare your rams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What's been taking your rams, Rudra? The earth might know.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My family kept rams too, back in the hills.", next = "dw_rams", when = { race = "Dwarf" } },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -178,6 +179,25 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Aye, ye've the look of one who reads tracks. His prints go south into the hills, wide as a shield, and ye'll no' miss them." } },
       choices = { { text = "Leave it with me.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    dw_rams = {
+      lines = {
+        { id = "dwr_default", text = "Did they, now? Then ye'll know a ram's no' a horse wi' horns, whatever the humans think; he's a creature wi' opinions, an' he'll carry ye up a cliff face only if he's decided he likes ye. What did yer folk breed them for, the mountaineers or the plough?" },
+      },
+      choices = {
+        { text = "For the mountaineers. Rams that could charge a trogg line.", next = "dw_rams_war" },
+        { text = "For milk and wool, mostly. Nothing grand.", next = "BACK", reply = "Nothing grand, says you! A good milk ewe's kept more dwarves alive through a Dun Morogh winter than every rifle in the Military Ward. Yer folk were doin' honest work.", fx = { affinity = 1 } },
+        { text = "Something else, Rudra.", next = "BACK" },
+      },
+    },
+    dw_rams_war = {
+      lines = {
+        { id = "dwrw_default", text = "Then ye'll know the old war rams, broad in the chest an' mean as a senator, an' I've a few o' that line in my herd yet. My grandfather sent twenty o' them tae the Second War wi' the mountaineers, an' four came home, an' those four sired half the rams ye see grazin' here." },
+      },
+      choices = {
+        { text = "Then every ram here is a veteran's grandson.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Rudra.", next = "BACK" },
+      },
     },
   },
 
@@ -339,6 +359,7 @@ P:NPC {
         { text = "What did you leave out that a bear would want?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would a rogue steal from a camp like yours?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the earth tell me where the bear's den is, Tundra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You must have watched the Horde come through these hills.", next = "sw_hills" },
         { text = "Farewell, Tundra.", next = "END" },
       },
     },
@@ -379,6 +400,24 @@ P:NPC {
     gnome = {
       lines = { { id = "gn_default", text = "Ha! Then ye've more sense than most of my kin, who complain about it with every step. Ye'll be from Gnomeregan, then, and I'm sorry about what happened there." } },
       choices = { { text = "Thank you. We'll take it back one day.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    sw_hills = {
+      lines = {
+        { id = "swh_default", text = "I did, from a ledge above the road wi' snow up tae my beard, an' I'll never forget the sound o' their drums comin' through the pass. Thousands o' them, marchin' on Ironforge, an' I lay up there two days without a fire, for one puff o' smoke an' they'd have had my hide for a cloak." },
+      },
+      choices = {
+        { text = "Did they ever find your camp?", next = "sw_hills_camp" },
+        { text = "Something else, Tundra.", next = "BACK" },
+      },
+    },
+    sw_hills_camp = {
+      lines = {
+        { id = "swhc_default", text = "Never, though a pair o' their wolf riders came within a stone's throw. The mountain kept me hidden, an' I've always reckoned I owe it, which is why I'll no' move tae the city whatever my cousins say. A dwarf doesnae walk out on a debt like that." },
+      },
+      choices = {
+        { text = "Then the mountain has a good tenant.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tundra.", next = "BACK" },
+      },
     },
   },
 
@@ -728,6 +767,8 @@ P:NPC {
         { text = "Do your guns ever frighten the wildlife away for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would a mage care about guns, Hegnar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does a shaman have any use for a good rifle, Hegnar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "How did dwarves and guns ever come together?", next = "gun_hist" },
+        { text = "My first rifle was my grandsire's, Hegnar.", next = "dw_rifle", when = { race = "Dwarf" } },
         { text = "Just looking, thanks.", next = "END" },
       },
     },
@@ -746,6 +787,34 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Somethin' sturdy that won't jam in the cold, and plenty of shot to go with it. A hunter who runs out of ammunition is just a dwarf with a heavy stick." } },
       choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gun_hist = {
+      lines = {
+        { id = "gh_default", text = "Blackpowder, friend, an' a people who'd been blastin' tunnels for centuries before anybody thought tae point a tube at a troll. Somebody packed a charge in an iron pipe tae clear a seam, it threw a rock clean through a mine cart, an' the mountaineers have been carryin' rifles ever since." },
+        { id = "gh_gnome", when = { race = "Gnome" }, text = "Blackpowder came first, an' that's ours, for we were blastin' tunnels long before yer folk built their first gear. But I'll grant ye the gnomes made the scopes an' the tighter barrels, an' a Gnomeregan sight on a Dun Morogh rifle is the finest thing a hunter can carry." },
+      },
+      choices = {
+        { text = "A gun's only as good as the eye behind it.", next = "BACK", reply = "Aye, an' every one o' my customers believes their eye's the best in Khaz Modan, so I sell them a better gun anyway, just in case.", fx = { affinity = 1 } },
+        { text = "Something else, Hegnar.", next = "BACK" },
+      },
+    },
+    dw_rifle = {
+      lines = {
+        { id = "dwrf_default", text = "Was it, now? Then tell me it's still in the family, for a dwarf who sells his grandsire's rifle had best never show his face in Kharanos again. Did it have a maker's mark on the stock?" },
+      },
+      choices = {
+        { text = "A little anvil and a lightning bolt.", next = "dw_rifle_mark" },
+        { text = "It's on my wall at home. I carry yours now.", next = "BACK", reply = "Good, then it's safe, an' ye've chosen well for the road. Take care o' mine the way ye'd take care o' his, an' it'll outlast the both of us.", fx = { affinity = 1 } },
+      },
+    },
+    dw_rifle_mark = {
+      lines = {
+        { id = "dwrm_default", text = "That'll be a Thunderstock, from the old shops by the Great Forge before the Second War, an' they built rifles tae be handed down, no' thrown away. If it ever needs reborin', take it tae a gunsmith who knows the old shops, an' no' some tinker wi' a file, for I'd hate tae see a Thunderstock ruined." },
+      },
+      choices = {
+        { text = "I'll treat it as an heirloom, Hegnar.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Hegnar.", next = "BACK" },
+      },
     },
   },
 

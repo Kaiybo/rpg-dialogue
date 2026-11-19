@@ -89,6 +89,14 @@ P:NPC {
           text = "How be de weapon? Every swing carries a piece of Cyclonian's storm, so swing it well, for he did not give it freely." },
         { id = "h_voodoo", tags = { "news" }, when = { questDone = TODO_QUEST("Da Voodoo") },
           text = "It be about time dis troll got a full night's rest! De spirit totem watches over me now, and de angry ones keep der distance." },
+        { id = "h_orcwar", when = { class = "WARRIOR", race = "Orc" },
+          text = "An orc warrior, climbin' all de way up to Bath'rah. Your people once took power from anywhere dey could find it, mon, so I watch you close when I offer you a storm in a blade." },
+        { id = "h_taurwar", when = { class = "WARRIOR", race = "Tauren" },
+          text = "A tauren warrior in de Alterac snow! De wind lord be big, mon, but you be big too, and I think he will not enjoy meetin' you." },
+        { id = "h_deadwar", when = { class = "WARRIOR", race = "Scourge" },
+          text = "A dead warrior come to old Bath'rah. De spirits here already hate me, and now dey hate me more for lettin' you near de river, but de wind don't care who carries it, so come." },
+        { id = "h_young", when = { class = "WARRIOR", maxLevel = 29 },
+          text = "A young warrior, and brave to climb so far. But de wind lord would scatter you like leaves, mon, so go and win on Fray Island first, and den come back to me." },
         { id = "h_troll", when = { race = "Troll" },
           text = "A Darkspear! It be a long way from de islands to dese cold mountains, and I be glad of de company." },
         { id = "h_alliance", when = { faction = "Alliance" },
@@ -106,6 +114,8 @@ P:NPC {
         { text = "Why are the spirits angry with you?", next = "spirits" },
         { text = "How do you forge a weapon from a storm?", next = "forge" },
         { text = "Teach me about the wind, Windwatcher.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Klannoc sent me. I want a whirlwind weapon.", next = "w_weapon", when = { class = "WARRIOR", minLevel = 30 } },
+        { text = "Axe, sword or hammer. Which should the storm become?", next = "w_choose", when = { class = "WARRIOR", minLevel = 30 } },
         { text = "Farewell, Bath'rah.", next = "END" },
       },
     },
@@ -171,6 +181,36 @@ P:NPC {
       },
     },
 
+    w_weapon = {
+      lines = {
+        { id = "ww_default", text = "Den you must earn it de long way, mon. First you bring me what I need to call him, den you face Cyclonian when he comes, and only den do I put his whirlwind heart into de steel for you." },
+        { id = "ww_active", when = { questActive = TODO_QUEST("Cyclonian") }, text = "You be gatherin' already, so keep gatherin'. When de offerings be ready, I call him, and you better be standin' on your feet when de wind comes down." },
+        { id = "ww_heart", when = { questDone = TODO_QUEST("The Summoning") }, text = "You beat him! De heart be ready, and so be de forge, so bring me what de steel needs and I make you somethin' de wind will remember." },
+      },
+      choices = {
+        { text = "What is Cyclonian like to fight?", next = "w_weapon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_weapon2 = {
+      lines = { { id = "ww2_default", text = "Like standin' in a storm dat hates you, mon. He throws you about like a leaf, so plant your feet, keep your rage up, and don't fight alone, because even de great warriors bring friends to dis one." } },
+      choices = {
+        { text = "I'll bring friends. A wise warrior does.", next = "BACK", reply = "Dat be wise, and de wind lord be no less dead for it.", fx = { align = { honor = -1 } } },
+        { text = "I'll face him alone, or not at all.", next = "BACK", reply = "Ahh, brave and foolish, like all de best ones. I keep a good fire for when you come back limpin'.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_choose = {
+      big = true,
+      lines = {
+        { id = "wc_default", text = "De storm don't care, mon, it only want to be swung. An axe for de one who cleaves, a sword for de one who strikes quick, and a hammer for de one who wants de enemy to stay down, so tell me what kind of warrior you be." },
+      },
+      choices = {
+        { text = "An axe. Cleave through them all.", next = "BACK", reply = "De orc's choice, and de troll's too. Cyclonian will howl in it every time you swing.", fx = { align = { order = -1 } } },
+        { text = "A hammer. When they fall, they stay fallen.", next = "BACK", reply = "Patient and heavy, like de mountain. De wind will be angry to be stuck in somethin' so slow.", fx = { align = { order = 1 } } },
+        { text = "A sword, quick and clean.", next = "BACK", reply = "Quick like de wind itself, mon. Dat be a good home for him." },
+      },
+    },
     forge = {
       lines = {
         { id = "fo_default", text = "Slowly, with fire and with prayer, and with de heart of de wind lord holdin' still long enough to be poured into de steel. It be a secret of my people, and I keep it close." },

@@ -61,6 +61,7 @@ P:NPC {
         { text = "This incendicite doesn't look entirely safe.", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
         { text = "I know my way around a mine.", next = "miner", when = { profession = "Mining" } },
         { text = "Got any work for me?", next = "BUSINESS" },
+        { text = "Did the Siege Brigade fight in the Second War?", next = "sw_brigade" },
         { text = "Mind the treads, Stone.", next = "END" },
       },
     },
@@ -133,6 +134,25 @@ P:NPC {
       lines = { { id = "mi_default", text = "Do ye, now? Then ye'll know what I mean when I say there's ore in the Wetlands I'd give my left boot fer. Ask me about it when ye're ready fer a trip." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    sw_brigade = {
+      lines = {
+        { id = "swb_default", text = "Fight in it? We were half the reason the Horde never broke the gates o' Ironforge! The old brigade had cannon on the walls an' demolition squads in the passes, an' when the Alliance came up the road, our lads blew the orcs' bridges out from under them faster than they could build new ones." },
+        { id = "swb_gnome", when = { race = "Gnome" }, text = "Aye, an' yer folk with us, for the gnomes built the flyin' machines an' we built everythin' that rolled or blew up. The Horde never broke the gates o' Ironforge, an' I'd say a fair share o' the credit goes tae dwarven blackpowder an' gnomish cleverness, in that order." },
+      },
+      choices = {
+        { text = "And now the Brigade guards Dun Morogh against troggs.", next = "sw_brigade_now" },
+        { text = "Something else, Stone.", next = "BACK", fx = { learn = { "second_war" } } },
+      },
+    },
+    sw_brigade_now = {
+      lines = {
+        { id = "swbn_default", text = "Troggs an' Frostmane, aye, an' it's a comedown, I'll no' pretend otherwise. But a siege engine at Steelgrill's Depot means no troll war band comes down the valley road while Kharanos sleeps, an' there's honour in that, even if there's no' much glory." },
+      },
+      choices = {
+        { text = "Quiet work keeps people alive.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Stone.", next = "BACK" },
+      },
     },
   },
 

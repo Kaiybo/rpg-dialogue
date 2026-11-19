@@ -324,8 +324,8 @@ P:NPC {
     third = "{name} met Granis Swiftaxe, the warrior trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
-    { id = "g_back", when = { metBefore = true }, text = "Back again! Have ye come for a lesson or a mug? Ye can have both, in that order." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "The drill's done for the day an' the taps are open. Sit, an' talk if ye've a mind." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Have ye come for a lesson or for the ale? The lesson comes first, whichever it is ye came for." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The drill's done for the day an' the taps are open, so sit yerself down an' talk, if ye've a mind tae." },
     { id = "g_hi", text = "Ho, there! Mind the barrels; I've knocked over more than one wi' a backswing." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Come in, come in, an' let's see what ye've learned since Anvilmar." },
   },
@@ -335,19 +335,21 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Good tae see a dwarf wi' some road on {g:his|her} boots. The valley needs more o' ye out there an' fewer at the bar." },
     { id = "n_war", cat = "class", when = { class = "WARRIOR" },
-      text = "Ye stand well, but ye lean on yer back foot. Fix that, or a troll will fix it for ye." },
+      text = "Ye stand well enough, but ye lean on yer back foot, an' ye'd best fix that before a Frostmane troll fixes it for ye." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
         { id = "h_default", text = "Granis Swiftaxe, warrior trainer, an' I've taught half the fighters in Kharanos how tae hold an axe proper. The other half learned from Thran Khorman up at Anvilmar, an' I fix their habits when they get here." },
-        { id = "h_muren", when = { class = "WARRIOR", minLevel = 10 }, text = "Ye've grown since Anvilmar, I can see it. It's time ye went up tae Ironforge an' saw Muren Stormpike in the Hall o' Arms; he'll have a proper test for ye." },
+        { id = "h_muren", when = { class = "WARRIOR", minLevel = 10, maxLevel = 19 }, text = "Ye've grown since Anvilmar, I can see it in the shoulders, so it's time ye went up tae Ironforge an' saw Muren Stormpike in the Hall o' Arms. He'll have a proper test for ye, an' a second stance at the end o' it." },
+        { id = "h_vejrek", tags = { "news" }, when = { questActive = TODO_QUEST("Vejrek") }, text = "Muren's sent ye after Vejrek, has he? Then sit a moment before ye go up tae Frostmane Hold, for I've a word or two on trolls that'll serve ye better than courage." },
+        { id = "h_old", when = { class = "WARRIOR", minLevel = 30 }, text = "Look at ye, all scars an' good iron! Ye learned tae swing in my back room, an' now ye swing like ye were born tae it, so come an' tell the young ones where ye've been." },
       },
       again = {
         { id = "h_again3", text = "Ask on, but stand clear o' the swing, for I'm no' stoppin' the lesson for talk." },
-        { id = "h_again", text = "What else? Speak quick, the distillery's busy." },
-        { id = "h_again2", text = "Go on, I'm all ears." },
+        { id = "h_again", text = "What else? Speak quick, for the distillery's busy an' the Thunderbrews want their back room." },
+        { id = "h_again2", text = "Go on, then, I'm all ears, an' most o' my beard besides." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -355,6 +357,10 @@ P:NPC {
         { text = "Training in a distillery?", next = "brewery" },
         { text = "What's troubling Kharanos these days?", next = "trouble" },
         { text = "I've passed Muren's test.", next = "passed", when = { questDone = TODO_QUEST("Vejrek") } },
+        { text = "Any advice before I face Vejrek?", next = "vejrek", when = { class = "WARRIOR", questActive = TODO_QUEST("Vejrek") } },
+        { text = "Thunder Clap or Hamstring, Granis? Which is better?", next = "kit", when = { class = "WARRIOR", minLevel = 6, maxLevel = 19 } },
+        { text = "The dwarves laugh at a gnome with an axe.", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
+        { text = "I've come back to Kharanos with a few scars.", next = "scars", when = { class = "WARRIOR", minLevel = 25 } },
         { text = "Farewell, Granis.", next = "END" },
       },
     },
@@ -374,7 +380,7 @@ P:NPC {
       },
     },
     brewery = {
-      lines = { { id = "br_default", text = "Aye, an' why not? The Thunderbrews let me use the back room, an' the warriors get a mug after trainin'. Best arrangement in Khaz Modan." } },
+      lines = { { id = "br_default", text = "Aye, an' why not? The Thunderbrews let me use the back room an' the warriors get a mug after trainin', which is the best arrangement in all o' Khaz Modan." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     trouble = {
@@ -396,16 +402,71 @@ P:NPC {
       choices = { { text = "I'll remember it. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     passed = {
-      lines = { { id = "pa_default", text = "Did ye, by my beard! Then ye've done what a good many o' my students never managed, an' Muren doesnae hand that out for kindness. Have a mug on yer way out an' tell the Thunderbrews I said ye'd earned the seat." } },
-      choices = { { text = "You taught me the footwork, Granis.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "pa_default", text = "Did ye, by my beard! Then ye've done what a good many o' my students never managed, for Muren doesnae hand out Defensive Stance for kindness. Tell the Thunderbrews I said ye'd earned a seat at the bar." } },
+      choices = {
+        { text = "Muren sent me on to Tormus Deepforge next.", next = "passed_tormus" },
+        { text = "You taught me the footwork, Granis.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    passed_tormus = {
+      lines = { { id = "pt_default", text = "Tormus at the Great Forge, aye, an' he'll want somethin' fetched from Ironband's Compound, where the Dark Irons have dug in by Helm's Bed Lake. Do it, for Tormus makes the grey iron weapons he gives the young ones, an' a Deepforge blade will see ye a long way." } },
+      choices = {
+        { text = "Dark Irons, this close to Kharanos?", next = "passed_darkiron" },
+        { text = "A good blade, then. Something else.", next = "BACK" },
+      },
+    },
+    passed_darkiron = {
+      big = true,
+      lines = { { id = "pd_default", text = "Closer than any o' us like, an' diggin' where they've nae right tae dig. Some in Kharanos say we should march on the Compound an' be done wi' it, an' others say leave it tae the Mountaineers. What would ye do?" } },
+      choices = {
+        { text = "March on them now, before they dig deeper.", next = "BACK", reply = "That's the warrior in ye talkin', an' I'd march beside ye. Mind the basement.", fx = { align = { order = -1 } } },
+        { text = "Leave it to the Mountaineers. It's their charge.", next = "BACK", reply = "Sensible, an' the Mountaineers would thank ye for it. They're stretched thin, though.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vejrek = {
+      lines = { { id = "vj_default", text = "He's a big ice troll who keeps tae Frostmane Hold, an' the Frostmane around him will come at ye from behind a drift if ye let them. Go in slow an' clear the edges first, an' when ye face him, keep yer shield tae his left, for that's his axe hand." } },
+      choices = {
+        { text = "Slow and from the edges. Thank you, Granis.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "I'll charge straight for him and be done.", next = "BACK", reply = "Then I'll tell Muren tae have a cot ready in the infirmary. Good luck tae ye.", fx = { trait = { brave = 1 } } },
+      },
+    },
+    kit = {
+      big = true,
+      lines = {
+        { id = "kt_default", text = "Thunder Clap for a mob o' troggs an' Hamstring for the troll that runs tae fetch his kin, an' a warrior who has only one o' them is half a warrior. If ye make me choose, I'll say Hamstring, for nothin' gets ye killed like the one that got away." },
+      },
+      choices = {
+        { text = "None get away from me. Hamstring every time.", next = "BACK", reply = "Hard, but ye'll live long in these hills.", fx = { align = { honor = -1 } } },
+        { text = "If one runs, I let it run. It's beaten.", next = "BACK", reply = "Kindly said, an' the troll will thank ye by bringin' six cousins. Mind that.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "They laugh once, an' then they fight ye an' find their shins black an' blue for a week. I've trained a dozen gnomes since Gnomeregan fell, an' every one o' them swung like they had a grudge, which I suppose they do." } },
+      choices = {
+        { text = "We have a grudge, and an axe to settle it.", next = "BACK", reply = "Ha! Then ye'll fit in fine wi' the dwarves, grudges an' all.", fx = { affinity = 1 } },
+        { text = "I'd rather they stopped laughing altogether.", next = "BACK", reply = "Then keep beatin' them, an' they will. That's how it works in Kharanos.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    scars = {
+      lines = {
+        { id = "sc_default", text = "A few, says the warrior wi' a fresh one across the brow! Sit an' tell me about them, for I'm a teacher an' a teacher lives on his students' stories, an' the Thunderbrew's no' as lively as it used tae be." },
+        { id = "sc_islander", when = { questDone = TODO_QUEST("The Affray") }, text = "A few, says the warrior who's stood in Klannoc's ring on Fray Island! Kelv told me, for he tells me when one o' mine comes through, an' I've been braggin' about ye ever since." },
+      },
+      choices = {
+        { text = "The Wetlands nearly had me, Granis.", next = "BACK", reply = "They nearly have everyone, wi' the raptors an' the mud. Ye came back, an' that's what counts.", fx = { affinity = 1 } },
+        { text = "Your footwork saved my life more than once.", next = "BACK", reply = "Now ye've gone an' made an old dwarf misty, an' I'll blame the barley.", fx = { affinity = 2 } },
+      },
     },
   },
   topics = {
     anvilmar = { { id = "tp_anvil", text = "Where the young ones start, up in Coldridge. Thran sends them down tae me wi' the basics an' a few bad habits." } },
     thunderbrew = { { id = "tp_thunder", text = "Best distillery in Dun Morogh, whatever the Barleybrews tell ye. Ragnar runs it, an' he lets me drill in the back." } },
     frostmane = { { id = "tp_frost", text = "Ice trolls, an' older in these hills than we are. They'll no' leave, so we keep them back." } },
-    background = { { id = "tp_bg", text = "I'm a warrior an' a trainer, an' I like my ale." } },
-    _none = { { id = "tp_none", text = "No idea, friend, but I'll fight it if ye like." } },
+    background = { { id = "tp_bg", text = "I'm a warrior an' a trainer, an' I like my ale, which makes the Thunderbrew Distillery the finest posting in Khaz Modan." } },
+    _none = { { id = "tp_none", text = "I've no idea about that, friend, but point me at it an' I'll fight it if ye like." } },
   },
 }
 
@@ -424,8 +485,8 @@ P:NPC {
   greetings = {
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' on yer own two feet. That's the first test passed." },
     { id = "g_hi", text = "Another recruit, eh? Stand up straight an' let me have a look at ye." },
-    { id = "g_war", when = { class = "WARRIOR" }, text = "Back for more, are ye? Good. A warrior who stops learnin' stops livin'." },
-    { id = "g_rune", when = { questActive = TODO_QUEST("Simple Rune") }, text = "Sten sent ye wi' a rune, did he? Hand it over an' let's get started." },
+    { id = "g_war", when = { class = "WARRIOR" }, text = "Back for more, are ye? Good, for a warrior who stops learnin' is a warrior who stops livin', an' I'd sooner ye did neither." },
+    { id = "g_rune", when = { questActive = TODO_QUEST("Simple Rune") }, text = "Sten sent ye wi' a rune, did he? Hand it over, then, an' let's get started before the snow comes in again." },
   },
   notice = {
     { id = "n_green", cat = "class", when = { maxLevel = 5 },
@@ -433,18 +494,20 @@ P:NPC {
     { id = "n_old", cat = "class", when = { minLevel = 20 },
       text = "Ye've been a long way since Coldridge, by the look o' that gear. It's good o' ye tae come back an' see where it began." },
     { id = "n_war", cat = "class", when = { class = "WARRIOR" },
-      text = "Yer grip's too tight. Loosen it, or ye'll tire before the troll does." },
+      text = "Yer grip's too tight, recruit, so loosen it a touch, or ye'll tire before the troll does." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Thran Khorman, an' I train warriors here at Anvilmar. Most o' ye come here green as moss, an' I send ye out tae fight the Frostmane an' the troggs wi' a bit more sense." },
+        { id = "h_default", key = true, text = "Thran Khorman, an' I train warriors here at Anvilmar. Most o' ye come here green as moss, an' I send ye out tae fight the Frostmane an' the troggs wi' a bit more sense than ye arrived wi'." },
+        { id = "h_charge", when = { class = "WARRIOR", maxLevel = 5 }, text = "Ye've got yer Charge an' yer first bit o' rage, an' ye're wonderin' what tae do wi' them. Good, that's the right question, so ask it." },
+        { id = "h_leave", when = { class = "WARRIOR", minLevel = 6, maxLevel = 12 }, text = "Ye're near ready tae go through the tunnel tae Kharanos, I think, for ye've stopped flinchin' at the wolves. Ask me what's beyond, if ye like." },
       },
       again = {
         { id = "h_again3", text = "Ye've more questions than most recruits. That's no' a bad thing, so ask." },
         { id = "h_again", text = "What else? Make it quick, I've recruits tae drill." },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", text = "Go on, then, an' I'll answer while the recruits catch their breath." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -452,11 +515,15 @@ P:NPC {
         { text = "What's out in Coldridge Valley?", next = "valley" },
         { text = "Anvilmar looks like more than a barracks.", next = "anvilmar" },
         { text = "I started here, a long while back.", next = "back", when = { minLevel = 20, race = { "Dwarf", "Gnome" } } },
+        { text = "I've learned Charge. Is Rend worth the bother?", next = "rend", when = { class = "WARRIOR", maxLevel = 9 } },
+        { text = "Where does a warrior go after Coldridge?", next = "beyond", when = { class = "WARRIOR", maxLevel = 15 } },
+        { text = "Every dwarf in my clan fights. Why train at all?", next = "clan", when = { race = "Dwarf", class = "WARRIOR" } },
+        { text = "Gnomes weren't made for axes, they keep telling me.", next = "gnome", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "Farewell, Thran.", next = "END" },
       },
     },
     lesson = {
-      lines = { { id = "le_default", text = "Never turn yer back on a troll, an' never trust a trogg tae stay dead. The rest ye'll learn by doin'." } },
+      lines = { { id = "le_default", text = "Never turn yer back on a troll, an' never trust a trogg tae stay dead, an' the rest ye'll learn by doin', which is the only way anybody learns it." } },
       choices = {
         { text = "That's it? No sword drills?", next = "lesson_drills" },
         { text = "Something else.", next = "BACK" },
@@ -464,14 +531,14 @@ P:NPC {
     },
     lesson_drills = {
       big = true,
-      lines = { { id = "ld_default", text = "Drills come later. First ye need tae want tae stay alive more than ye want tae look brave. Which matters more tae ye, livin' or lookin' good?" } },
+      lines = { { id = "ld_default", text = "Drills come later, for first ye need tae want tae stay alive more than ye want tae look brave. So tell me, which matters more tae ye, livin' or lookin' good?" } },
       choices = {
         { text = "Living. Glory is for the dead.", next = "BACK", reply = "That's a good answer, an' it means ye might survive the year.", fx = { align = { honor = -1 } } },
         { text = "Fighting well, even if it costs me.", next = "BACK", reply = "Brave an' foolish, an' I like ye for it, but be careful out there.", fx = { align = { honor = 1 } } },
       },
     },
     valley = {
-      lines = { { id = "va_default", text = "Frostmane trolls tae the west, troggs in the caves, an' wolves wherever ye least want them. Grelin Whitebeard's camped out watchin' the trolls, if ye want a real fight." } },
+      lines = { { id = "va_default", text = "There's Frostmane trolls tae the west an' troggs in the caves, an' wolves wherever ye least want them. Grelin Whitebeard's camped out watchin' the trolls, if ye want a real fight." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     anvilmar = {
@@ -492,8 +559,57 @@ P:NPC {
       lines = { { id = "aa_default", text = "Well enough, for there's nowhere else tae go when the snow's up. We argue over whose recruits did best against the troggs, an' Solm usually wins, because nobody can prove what his lot did." } },
       choices = { { text = "That sounds about right. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
+    rend = {
+      lines = {
+        { id = "rd_default", text = "It is, for Rend keeps cuttin' while ye do somethin' else, an' a troll that's bleedin' is a troll that's thinkin' about the bleedin' an' no' about ye. Charge in, Rend him, then hit him while he's worried, an' that's the first real fight ye'll ever win proper." },
+      },
+      choices = {
+        { text = "Making it bleed feels a bit low.", next = "rend_low" },
+        { text = "Charge, Rend, then hit. I'll drill it.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rend_low = {
+      big = true,
+      lines = { { id = "rl_default", text = "Low? The Frostmane would take yer scalp for a fetish, recruit, an' they'd no' fret about doin' it cleanly. But I've known warriors who felt the same as ye an' fought the better for it, so tell me plainly where ye stand." },
+      },
+      choices = {
+        { text = "A fight's a fight. I'll use every edge.", next = "BACK", reply = "Then ye'll live, an' that's my job done.", fx = { align = { honor = -1 } } },
+        { text = "I'll fight clean where I can.", next = "BACK", reply = "Good, an' keep that, for it's rarer than courage. Rend them anyway.", fx = { align = { honor = 1 } } },
+        { text = "I'll think on it. Something else.", next = "BACK" },
+      },
+    },
+    beyond = {
+      lines = {
+        { id = "by_default", text = "Through the tunnel tae Kharanos, where Granis Swiftaxe drills in the back o' the Thunderbrew Distillery. Then, when ye've ten summers o' fightin' in ye, up tae Ironforge an' Muren Stormpike, who'll test ye an' teach ye tae stand behind a shield." },
+        { id = "by_human", when = { race = "Human" }, text = "Through the tunnel tae Kharanos an' Granis Swiftaxe, an' then on tae Ironforge, where Muren Stormpike tests our own an' has been known tae test a human or two. Ye could go home tae Stormwind for yer second stance, but I'd sooner ye earned it here." },
+      },
+      choices = {
+        { text = "What sort of test does Muren set?", next = "beyond_muren" },
+        { text = "Kharanos, then. Something else.", next = "BACK" },
+      },
+    },
+    beyond_muren = {
+      lines = { { id = "bm_default", text = "That's for Muren tae tell ye, but I'll say this much: it's in the snow, it's got tusks, an' it's no' a boar. Keep yer feet under ye an' yer temper in yer belly, an' ye'll come home wi' a second stance." } },
+      choices = { { text = "Tusks, and not a boar. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    clan = {
+      lines = { { id = "cl_default", text = "Every dwarf fights, aye, an' most fight like a rockslide, all weight an' nae thought. I'm here tae teach ye tae fight like a mountain, which stays where it's put an' outlasts whatever's beatin' on it." } },
+      choices = {
+        { text = "Then I'll be a mountain. Nothing moves me.", next = "BACK", reply = "That's the spirit o' Khaz Modan. Now prove it on the troggs.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A rockslide wins faster, Thran.", next = "BACK", reply = "Faster, aye, an' then it's lyin' at the bottom o' the hill. Think on it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Who tells ye that, the dwarves at the bar? I've trained gnomes since yer people came down out o' Gnomeregan wi' nothin' but their clothes, an' they fight low an' clever an' angry, which is three things a troll hates." } },
+      choices = {
+        { text = "Then I'll fight low, clever and angry.", next = "BACK", reply = "Good, an' bite the ankles if ye must. I'll no' tell anyone.", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "I'd rather they stopped saying it.", next = "BACK", reply = "Then beat one o' them in the yard. That always works.", fx = { trait = { stern = 1 } } },
+      },
+    },
     back = {
-      lines = { { id = "bk_default", text = "I thought I knew the face. I've sent hundreds out that door an' I cannae promise I remember every one, but I remember the ones who come back. What did the road teach ye that I didnae?" } },
+      lines = { { id = "bk_default", text = "I thought I knew the face, for I've sent hundreds out that door an' I cannae promise I remember every one, but I remember the ones who come back. What did the road teach ye that I didnae?" } },
       choices = {
         { text = "That you were right about trolls.", next = "BACK", reply = "Ha! I'm always right about trolls. It's good tae see ye whole.", fx = { affinity = 1 } },
         { text = "That there's always something bigger than you.", next = "BACK", reply = "Aye, there's the lesson I cannae teach in a valley this small. Ye learned it an' lived, an' that's the hard part.", fx = { affinity = 1 } },
@@ -503,10 +619,10 @@ P:NPC {
   topics = {
     frostmane = { { id = "tp_frost", text = "Ice trolls, wi' a camp in the valley's west end. They were here before Anvilmar was, an' they've no' forgotten it." } },
     kharanos = { { id = "tp_khar", text = "Through the pass, when the pass is open. Granis Swiftaxe takes my recruits on from there, an' he's a sound teacher for all his ale." } },
-    troggs = { { id = "tp_troggs", text = "Stupid, strong, an' never alone. Count them before ye swing, for there's always one more than ye thought." } },
+    troggs = { { id = "tp_troggs", text = "They're stupid an' strong an' never alone, so count them before ye swing, for there's always one more than ye thought." } },
     grelin = { { id = "tp_grelin", text = "Grelin Whitebeard watches the Frostmane from his camp tae the south-west. If he asks ye for somethin', he needs it." } },
-    background = { { id = "tp_bg", text = "I'm a warrior trainer. I've been one for longer than ye've been alive." } },
-    _none = { { id = "tp_none", text = "No idea, an' I don't care much either." } },
+    background = { { id = "tp_bg", text = "I'm a warrior trainer, an' I've been one for longer than ye've been alive, so mind yer manners." } },
+    _none = { { id = "tp_none", text = "I've nae idea about that, recruit, an' I cannae say I care much either, so ask me about trolls." } },
   },
 }
 
@@ -1162,6 +1278,7 @@ P:NPC {
         { text = "Who is the stout for?", next = "kadrell" },
         { text = "What do you watch for at this gate?", next = "gate" },
         { text = "A Barleybrew in the Mountaineers, not the brewery.", next = "family", when = { race = "Dwarf" } },
+        { text = "Do the Dark Irons come this far north?", next = "dark_roads" },
         { text = "Keep a good watch, Mountaineer.", next = "END" },
       },
     },
@@ -1206,6 +1323,17 @@ P:NPC {
     family = {
       lines = { { id = "fa_default", text = "Aye, an' my mother's still no' forgiven me. Rejold got the nose for brewin' an' Marleth got the cheek for sellin' it, an' I got a good eye an' a likin' for cold air, so somebody had tae guard what the others make." } },
       choices = { { text = "Every family needs one sober head.", next = "BACK", reply = "Sober! Dinnae spread that about, {g:lad|lass}, I've a reputation.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    dark_roads = {
+      lines = {
+        { id = "drd_default", text = "No' tae this gate, no' yet, but they're in Loch Modan past the dam an' all along the Wetlands road, burnin' carts an' takin' miners off tae the Searing Gorge in chains. Every caravan I wave through here, I'm countin' the drivers so I'll know who's missin' when it comes back." },
+        { id = "drd_dwarf", when = { race = "Dwarf" }, text = "No' tae this gate yet, but ye'll have heard what they're doin' on the Wetlands road: burnin' carts an' takin' our miners south tae the Searing Gorge in chains, dwarves enslavin' dwarves. I count every driver I wave through, so I'll know whose mother tae write tae." },
+      },
+      choices = {
+        { text = "Then someone should go and free those miners.", next = "BACK", reply = "Aye, an' braver dwarves than me have gone tae try it. If ye ever do, come back by this gate, for I'd like tae buy that dwarf a stout.", fx = { align = { honor = 1 } } },
+        { text = "Better to hold the roads than lose more chasing them.", next = "BACK", reply = "That's what the captain says, an' it's sense, I'll grant. But it's cold sense, an' it doesnae sit well wi' me when the carts come back empty.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Mountaineer.", next = "BACK" },
+      },
     },
   },
   topics = {
