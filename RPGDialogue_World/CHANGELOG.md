@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.42.0 (2026-11-19)
+- The warlock patch: your own demon talks (`my_demons_imp_void.lua`, `my_demons_succ_hunter.lua`), people notice a warlock (`warlock_notice.lua`), and the warlock trainer follows your journey. New files: restart the game fully.
+
 ## 1.41.0 (2026-11-18)
 - How people answer the new Joke action: everyone, each side, each home city and the common trades.
 
