@@ -56,12 +56,13 @@ def version_commits():
 
 
 def changelog():
-    """[(version, date, notes)] oldest first."""
+    """[(version, date, name, notes)] oldest first. Heading: `## x.y.z (date): Patch Name`."""
     text = open(os.path.join(ROOT, "CHANGELOG.md"), encoding="utf-8").read()
-    parts = re.split(r"^## (\d+\.\d+\.\d+)(?:\s*\(([^)]*)\))?.*$", text, flags=re.M)
+    parts = re.split(r"^## (\d+\.\d+\.\d+)(?:\s*\(([^)]*)\))?(?:[ \t]*:[ \t]*(.*?))?[ \t]*$",
+                     text, flags=re.M)
     out = []
-    for i in range(1, len(parts), 3):
-        out.append((parts[i], parts[i + 1] or "", parts[i + 2].strip()))
+    for i in range(1, len(parts), 4):
+        out.append((parts[i], parts[i + 1] or "", (parts[i + 2] or "").strip(), parts[i + 3].strip()))
     return list(reversed(out))
 
 
@@ -115,7 +116,7 @@ def main():
     commits = version_commits()
     current = toc_version("HEAD")
     made = failed = 0
-    for version, date, notes in changelog():
+    for version, date, name, notes in changelog():
         tag = f"v{version}"
         if tag in existing:
             continue
@@ -135,7 +136,7 @@ def main():
         target = tag_target(version, commit)
         try:
             gh("release", "create", tag, path, "--target", target, "--title",
-               f"RPG Dialogue {version}", "--notes-file", notes_path, "--latest=false")
+               f"RPG Dialogue {version}" + (f": {name}" if name else ""), "--notes-file", notes_path, "--latest=false")
         except subprocess.CalledProcessError as e:
             print(f"{tag}: release failed at {target[:8]}: {e.stderr.strip()}")
             failed += 1
