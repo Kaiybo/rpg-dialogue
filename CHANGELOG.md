@@ -2,7 +2,7 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## 0.93.0 (2026-11-19)
+## 0.93.0 (2026-11-19): Stone and Steel
 The dwarf and warrior patch. **New file in the World pack (`warrior_notice.lua`): restart the game fully (a /reload won't load it).**
 - **People notice a warrior**: guards, townsfolk, innkeepers, blacksmiths, flight and stable masters, children, other class trainers and the spirit healer react to your Battle Shout, Shield Wall, Recklessness, dented armor, your first plate, a whirlwind weapon or an Arcanite Reaper, your PvP rank, and a dwarf, orc, tauren, troll or Forsaken warrior.
 - **Warrior trainers and quest-givers rewritten and deepened** in both factions, following your road: Charge and Rend, Defensive Stance at 10, Taunt and Sunder, The Islander and Klannoc's Affray for Berserker Stance at 30, Bath'rah and the Cyclonian for your whirlwind weapon, plate at 40, talents, and 60. Thun'grim Firegaze is now the half-blind orc smith he should be.
