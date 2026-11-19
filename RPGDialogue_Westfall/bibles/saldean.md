@@ -50,3 +50,6 @@ Authored, not canon: he knows Salma feeds Defias and says nothing; seed put by f
 
 ## Prejudice (0.80.0, authored, not canon)
 - Farmer Saldean (prejudice, origin human_minor_noble): blames the House of Nobles for the masons' walkout and Westfall's ruin; his neighbours went to the Deadmines.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("when the Keep remembers it owns a breadbasket"). Branch `hu_bread`: Westfall fed and rebuilt Stormwind; now the Keep sends nothing but tax men. Stance order +/-1 with westfall/stormwind opinions.

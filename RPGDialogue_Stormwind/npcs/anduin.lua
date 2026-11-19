@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Oh, you're from Stormwind! Lord Bolvar says I should know my subjects, so I'm trying to learn everyone's face, but there are rather a lot of you." },
     { id = "g_op_bolvar", when = { gossip = { topic = "bolvar", stance = "trusted" } }, text = "Somebody told me you said you'd follow Bolvar anywhere. So would I, only he never lets me go anywhere at all." },
     { id = "g_op_orcs", when = { opinion = { topic = "orcs", stance = "wary" } }, text = "You're the one who said to judge every orc by what he does! I said it at council, and one of the dukes dropped his spoon." },
     { id = "g_formal", text = "Welcome to Stormwind Keep! Um, I mean, be welcome; I think that's how you're supposed to say it." },
@@ -149,8 +151,56 @@ P:NPC {
         { text = "Something else, Your Majesty.", next = "BACK" },
       },
     },
+    hu_lordaeron = {
+      lines = {
+        { id = "hum_lord", key = true,
+          text = "Did they? Lord Bolvar told me that when Stormwind fell in the first war, King Terenas took my father in, and all our people with him, and that's why we owe Lordaeron forever. I'm sorry it's gone, truly, and I'm sorry if anyone here has been unkind to your family." },
+      },
+      choices = {
+        { text = "Some people have been, Your Majesty.", next = "hu_lordaeron2" },
+        { text = "Everyone's been kind enough. Something else.", next = "BACK" },
+      },
+    },
+    hu_lordaeron2 = {
+      big = true,
+      lines = {
+        { id = "hum_lord2",
+          text = "Then I'll tell Lord Bolvar, and he'll tell the guards, and maybe that will help a little. I don't understand why people are unkind to refugees, when my own father was one once and nobody was unkind to him." },
+      },
+      choices = {
+        { text = "People are frightened, Your Majesty. Fear makes them cruel.", next = "BACK",
+          reply = "That's what the Archbishop says, and he says the Light is for frightened people most of all. I'll try to remember it when I'm frightened.",
+          fx = { align = { light = 1 } } },
+        { text = "Some refugees bring trouble. People remember that.", next = "BACK",
+          reply = "Oh. Lady Prestor says something like that, and I never know what to say back. I suppose I'll have to think of something before I'm grown.",
+          fx = { align = { light = -1 } } },
+        { text = "I should let you rule, Your Majesty.", next = "END" },
+      },
+    },
+    hu_people = {
+      lines = {
+        { id = "hum_people", key = true,
+          text = "I want them to be brave like the soldiers and kind like the Archbishop, and I'd like them not to be hungry, because I've read the letters from Westfall. Lord Bolvar says that's a good start for a king, and that the hard part is the middle." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+        { text = "I should let you rule, Your Majesty.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "It's mostly sitting very still while grown-ups talk, if I'm honest. But Lord Bolvar says a human king must remember his people don't live very long, so every year he wastes is a year they never get back, and that frightens me a little." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+        { text = "I should let you rule, Your Majesty.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Are you from the city, or from Elwynn, or somewhere further? Lady Prestor says a king shouldn't ask so many questions, but I think a king who never asks won't learn anything about his own people." },
         { id = "dd_exalted_anduin", when = { reputation = { faction = "Stormwind", min = "exalted" } },
           text = "Lord Bolvar says your name in council, and he doesn't say many names there unless he's cross with them, and he isn't cross with you. I've been hoping you'd come so I could thank you myself, because the city's been safer for what you've done." },
 
@@ -203,6 +253,9 @@ P:NPC {
         { text = "Did your books say anything good about shamans, Your Majesty?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do you have friends of your own, Your Majesty?", next = "xpt_anduin", when = { party = true } },
         { text = "Who was this other visitor, Your Majesty?", next = "xalt_anduin", when = { alt = true } },
+        { text = "My family came south from Lordaeron, Your Majesty.", next = "hu_lordaeron", when = { race = "Human" } },
+        { text = "What do you want your people to be, Your Majesty?", next = "hu_people", when = { race = "Human" } },
+        { text = "What's it like being a human king, Your Majesty?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Long live the king.", next = "END", fx = { affinity = 1 } },
       },
     },

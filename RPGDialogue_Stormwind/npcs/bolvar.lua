@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "A citizen of Stormwind. You're welcome in the Keep, and I'll ask you to remember that the King's absence is no one's gossip, only the kingdom's grief." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought Gul'dan's warlocks in the Second War, and I've not forgotten what they made of the dead. You stand in this hall because the law allows it, not because I do." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "The Light has given me no reason to trust what you carry, and the war gave me every reason not to. Be brief." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've served Stormwind well, and I'll not deny it before the court. Still, I'd sleep easier if you laid that craft down." },
@@ -193,12 +195,75 @@ P:NPC {
         { text = "Something else, Highlord.", next = "BACK" },
       },
     },
+    hu_varian = {
+      lines = {
+        { id = "hum_varian", key = true,
+          text = "I pray for it every morning in the Cathedral, and I have men searching who don't stop to sleep. Until he comes, I hold his kingdom and his son, and I mean to hand back both in better order than I found them, if the Light allows it." },
+      },
+      choices = {
+        { text = "And if he never comes home?", next = "hu_varian2" },
+        { text = "Something else, Highlord.", next = "BACK" },
+      },
+    },
+    hu_varian2 = {
+      big = true,
+      lines = {
+        { id = "hum_varian2",
+          text = "Then Anduin will be king in more than name, and I'll serve him as I served his father, and the people will have to learn to trust a boy. I'd ask you not to put that question aloud in the city, friend, because the fear does more harm than any answer could." },
+      },
+      choices = {
+        { text = "He'll come home. Stormwind's kings don't abandon her.", next = "BACK",
+          reply = "I'll take your faith over my fears, and gladly. Keep it for me, on the mornings I can't.",
+          fx = { align = { honor = 1 } } },
+        { text = "Better to ready the boy than wait on the father.", next = "BACK",
+          reply = "Lady Prestor says much the same, in nearly the same words, and I can't fault the sense of it. Still, I'll keep hoping, because the boy does.",
+          fx = { align = { honor = -1 } } },
+        { text = "I'll take my leave, Highlord.", next = "END" },
+      },
+    },
+    hu_strain = {
+      lines = {
+        { id = "hum_strain", key = true,
+          text = "They are, and I'll not insult them by denying it. Gilneas has shut its wall, Stromgarde keeps to its highlands, and Stormwind still pays the Alliance's debts while Westfall goes hungry, and I sign the orders that make it so." },
+      },
+      choices = {
+        { text = "Then the Alliance carries its share, or we let it go.", next = "BACK",
+          reply = "Gilneas and Stromgarde said the same, and look where it left them, alone behind their walls. I'll not have Stormwind join them, but I hear the anger, and it's honest.",
+          fx = { align = { order = -1 } } },
+        { text = "We hold the Alliance together because nobody else will.", next = "BACK",
+          reply = "That's the hard truth of it, and I'm glad to hear a citizen say it without being ordered to. Some nights it's the only reason I sleep.",
+          fx = { align = { order = 1 } } },
+        { text = "Why do you sign them, Highlord?", next = "hu_strain2" },
+      },
+    },
+    hu_strain2 = {
+      lines = {
+        { id = "hum_strain2",
+          text = "Because I'm told the kingdom can't afford to do otherwise, and the people telling me are better at sums than I am. A soldier learns to trust his quartermaster, friend, though I sometimes wonder whether that's a habit a regent ought to keep." },
+      },
+      choices = {
+        { text = "Something else, Highlord.", next = "BACK" },
+        { text = "I'll take my leave, Highlord.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Stubborn, short-lived and quarrelsome, and I love them for every bit of it. We've lost two kingdoms in my lifetime and raised one of them again, and I think what makes a human is that we never quite believe a thing is finished." },
+      },
+      choices = {
+        { text = "Something else, Highlord.", next = "BACK" },
+        { text = "I'll take my leave, Highlord.", next = "END" },
+      },
+    },
     hello = {
       narr = {
         { text = "He comes down a step from the throne to meet you, his gauntleted hand rising to his chest in the Silver Hand's salute.", when = { class = "PALADIN" } },
         { text = "He stands at the foot of the throne with one hand resting on the arm of the boy king's chair, and turns from Lady Prestor to face you." },
       },
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Our people have been asked to bear a great deal, friend: the Second War, the camps' cost, Lordaeron's refugees and now a missing king. I won't pretend it isn't heavy, but I've never known Stormwind to set a burden down halfway." },
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Forgive me for staring. A {altrace} named {alt} stood in this hall not long ago, and you carry yourself so much like that one that I took you for kin before you'd said a word." },
         { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = false },
@@ -273,6 +338,9 @@ P:NPC {
         { text = "Nefarian is dead. What becomes of Blackrock Mountain now?", next = "xcl_bwl", when = { cleared = "Blackwing Lair", faction = "Alliance" } },
         { text = "Do small companies like ours still matter to Stormwind, Highlord?", next = "xpt_bolvar", when = { party = true } },
         { text = "You mentioned someone else like me, Highlord?", next = "xalt_bolvar", when = { alt = true } },
+        { text = "Will King Varian come home, Highlord?", next = "hu_varian", when = { race = "Human" } },
+        { text = "Our people are tired, Highlord. The Alliance asks too much.", next = "hu_strain", when = { race = "Human" } },
+        { text = "What are humans, at heart, Highlord?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

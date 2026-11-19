@@ -280,6 +280,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "A fellow citizen of Stormwind! Splendid, because a foreigner sees only treasure in our collection, but a Stormwind eye sees heritage." },
     { id = "g_cuffs", text = "Do mind my cuffs, there's a dear; this outfit is newly tailored." },
     { id = "g_tiara", when = { questActive = TODO_QUEST("The Perenolde Tiara") }, text = "The tiara! Have you got it? Tell me you've got it." },
     { id = "g_clasp", when = { questDone = TODO_QUEST("Delivery to Ridgewell") }, text = "My favourite treasure-hunter! The clasp has its own case now, you know." },
@@ -385,6 +387,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_house = {
+      lines = {
+        { id = "hum_house", key = true,
+          text = "Refuse? My dear friend, nobody refused anything, it was simply never quite settled. There were committees, and there were the Alliance's debts, and by the time the House had chosen a binding for the ledger, the masons had gone off in a temper." },
+      },
+      choices = {
+        { text = "A temper? They've burned half of Westfall, Count.", next = "hu_house2" },
+        { text = "Something else, Count.", next = "BACK" },
+      },
+    },
+    hu_house2 = {
+      big = true,
+      lines = {
+        { id = "hum_house2",
+          text = "Well, yes, that's regrettable, terribly regrettable, and the Ridgewells sent a very handsome donation to the Cathedral about it. Some of the newer houses behaved shamefully, I'm told, though I'd never name them, because one does have to dine with them." },
+      },
+      choices = {
+        { text = "The House owes Westfall more than donations, Count.", next = "BACK",
+          reply = "Do we? Goodness. I suppose I could raise it at the next sitting, between the toasts, if anybody's still listening by then.",
+          fx = { align = { order = -1 } } },
+        { text = "The House can't be blamed for every thief, Count.", next = "BACK",
+          reply = "Exactly what I said at supper! You've a fine head for politics, and you simply must see the Alterac silver before you go.",
+          fx = { align = { order = 1 } } },
+        { text = "Good day, Count.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Breeding, of course, and taste, and a family that's kept its silver through two wars! Though I'll grant the farmers manage to be human too, in their own way, and I'm told they're terribly brave about it." },
+      },
+      choices = {
+        { text = "Something else, Count.", next = "BACK" },
+        { text = "Good day, Count.", next = "END" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do you know, my family owns a reliquary that once belonged to a bishop of Lordaeron? Silver, with garnets, and quite exquisite." },
@@ -429,6 +467,8 @@ P:NPC {
         { text = "How did a kaldorei bowl end up in your collection, Count?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would your collection buy relics from places the priests avoid, Count?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you pay for something truly old, Count?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Did the House of Nobles really refuse to pay the Stonemasons?", next = "hu_house", when = { race = "Human" } },
+        { text = "What makes someone human, to a noble house, Count?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Good day, Count.", next = "END" },
       },
     },

@@ -38,3 +38,7 @@ defias, westfall
 
 ## 0.34.0
 - Prestor (Persuade, `advise_true`): she calls the court a kennel where every lord has a bone he fears to lose, and says she has never had to lie to Bolvar, only choose which truths to tell first. Her nature stays hidden.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("the crown is a well"). Branches: `hu_starve` (Westfall is one of many petitioners; she decides who waits; stance light +/-1) and `hu_contempt` (she thinks of Stormwind's people "the way one thinks of the weather"; stance honor +/-1).
+- Non-humans: `hu_what`. She always says "we" of humans; the contempt shows, her nature never does.

@@ -56,3 +56,7 @@ Authored, not canon: no chaplain on Sentinel Hill and Gryan saying words over th
 
 ## 0.34.0
 - Gryan (Persuade, `militia_truth`): he thinks the militia can hold one more winter; he tells the farmers 'as long as it takes'.
+
+## Humans (human patch)
+- Human players get `hum_g1` ("Stormwind's children, come to see what the kingdom left behind") and a hello line about city talk. Branches: `hu_famine` (how the crown failed Westfall; Prestor tells the Regent Westfall can wait, written straight; stance order +/-1 with stormwind opinions) and `hu_north` (Lordaeron before the fall, Terenas feeding Stormwind's refugees; still silent on Stratholme).
+- Non-humans: `hu_what`, "you don't get long, so spend it on someone else".

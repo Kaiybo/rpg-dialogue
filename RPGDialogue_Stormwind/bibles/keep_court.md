@@ -104,3 +104,6 @@ Honest about the warlocks, dishonest about his bar tab.
 
 ## Prejudice (0.80.0, authored, not canon)
 - Lord Baurles K. Wishock (prejudice, origin human_stonemason_child): blames the Stonemasons' Guild for the Defias and eyes masons' children for Deadmines uncles.
+
+## Humans (human patch)
+- Ridgewell (human patch): `hum_g1` greeting ("a Stormwind eye sees heritage"). Branch `hu_house`: the House of Nobles and the Stonemasons, told obliviously (committees, a donation to the Cathedral, "one does have to dine with them"); stance order +/-1. Non-humans: `hu_what`, breeding, taste and silver, and the farmers "manage to be human too".

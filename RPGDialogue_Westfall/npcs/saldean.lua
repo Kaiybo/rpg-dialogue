@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Stormwind, is it? Well, you've come further west than most of the city ever bothers, so I'll not hold your boots against you." },
     { id = "g_prej", when = { prejudiced = true }, text = "Soft hands and a straight back, and I'd wager a name with 'of' in it. Westfall's been bled white by people like your family, so say what you want and mind the chickens." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again. I took you for another lord's child come to gawp at the poor, and you rolled your sleeves up and proved me wrong, which my Salma won't let me forget." },
     { id = "g_op_leave_stay", when = { gossip = { topic = "westfall_leave", stance = "stay" } }, text = "Salma tells me you think we ought to stay and see it through. Took a stranger to say it, but you're right, and you can tell Theodore I said so." },
@@ -163,8 +165,36 @@ P:NPC {
         { text = "Something else, Saldean.", next = "BACK" },
       },
     },
+    hu_bread = {
+      lines = {
+        { id = "hum_bread", key = true,
+          text = "Fed it, clothed it and sent it soldiers, every year since before your grandfather was born. When Stormwind was raised again after the war, Westfall grain and Westfall sons did a good share of the raising, and I'd like to see that remembered somewhere in the Keep." },
+      },
+      choices = {
+        { text = "And now the Keep sends nothing back.", next = "hu_bread2" },
+        { text = "Something else, Saldean.", next = "BACK" },
+      },
+    },
+    hu_bread2 = {
+      big = true,
+      lines = {
+        { id = "hum_bread2",
+          text = "Not a sack nor a soldier, friend, though the tax men kept coming until the Defias made the roads too dangerous for them. That's the only kindness the Brotherhood ever did me, and I hate that I'm grateful for it." },
+      },
+      choices = {
+        { text = "The crown failed you. I'm ashamed of it.", next = "BACK",
+          reply = "Don't be ashamed, be useful, because shame never weeded a field. But I thank you for saying it, which is more than the last city man did.",
+          fx = { align = { order = -1 }, opinion = { westfall = "abandoned" } } },
+        { text = "The crown has a war's debts to pay. It isn't simple.", next = "BACK",
+          reply = "Nothing's simple to a man with a full belly. Come back and tell me that in a dry month, and we'll see how simple you find it.",
+          fx = { align = { order = 1 }, opinion = { stormwind = "patience" } } },
+        { text = "Good luck with the harvest, Saldean.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "You city folk always ask why we stay, as though a man could pick up his fields and carry them to Elwynn. I'm still here, and I'll still be here when the Keep remembers it owns a breadbasket." },
         { id = "dd_stew_sald", when = { questDone = TODO_QUEST("Westfall Stew") },
           text = "Salma tells me you went out after the meat for her stew, and she's not one to praise strangers lightly. You've eaten at our table in all but name, friend, and that counts for a lot in this house." },
 
@@ -211,6 +241,7 @@ P:NPC {
         { text = "Who protects the farms that still stand, Saldean?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a spell or two fix your field, Saldean?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why did you stay when everyone else fled, Saldean?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Westfall fed Stormwind once, didn't it, Saldean?", next = "hu_bread", when = { race = "Human" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

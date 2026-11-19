@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Welcome home, child. However far you've walked, this Cathedral was raised by your people's hands, and its doors are yours." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light's mercy is wide, child, but there is a darkness on you I will not bless. Say what you came to say." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I have sat with the families of those the Horde's warlocks killed, and I cannot pretend I don't remember them. Speak, and I will listen." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I have prayed over you more than once, and still you come back. Perhaps the Light isn't finished with you after all." },
@@ -109,8 +111,61 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_light = {
+      lines = {
+        { id = "hum_light", key = true,
+          text = "I believe it does, child, though I'll confess there have been mornings since Lordaeron fell when I knelt and heard nothing at all. Faith isn't the absence of those mornings; it's getting up from them and opening the doors anyway." },
+      },
+      choices = {
+        { text = "What do you do on those mornings?", next = "hu_light2" },
+        { text = "Something else, Your Grace.", next = "BACK" },
+      },
+    },
+    hu_light2 = {
+      big = true,
+      lines = {
+        { id = "hum_light2",
+          text = "I remember Alonsus Faol, who taught me, and who never once told me the Light would make things easy. Then I go down and listen to whoever is waiting in the nave, because the Light seems to speak loudest through the people who need it." },
+      },
+      choices = {
+        { text = "Then I'll trust the Light, even on the silent mornings.", next = "BACK",
+          reply = "Bless you, child. That's all any of us can do, and more than most of us manage.",
+          fx = { align = { light = 1 } } },
+        { text = "Silence is an answer too, Your Grace. Perhaps a hard one.", next = "BACK",
+          reply = "Perhaps it is, and I won't pretend that thought hasn't kept me awake. But I'd sooner keep the doors open and be wrong than close them and be right.",
+          fx = { align = { light = -1 } } },
+        { text = "Light keep you, Your Grace.", next = "END" },
+      },
+    },
+    hu_masons = {
+      lines = {
+        { id = "hum_masons", key = true,
+          text = "No, it didn't, and that is a sorrow I carry. The Church blessed the walls as they rose and said nothing when the men who raised them went unpaid, and some of those men had sat in these very pews." },
+      },
+      choices = {
+        { text = "The Church should have stood against the House.", next = "BACK",
+          reply = "It should have, and if the day comes again, I hope I'll find the courage I lacked. Pray for me in that, child, because I'll need it.",
+          fx = { align = { order = -1 } } },
+        { text = "The Church can't take sides in the city's quarrels.", next = "BACK",
+          reply = "That's what we told ourselves, and it's partly true, because a Church that takes sides soon has half a congregation. But it's a comfortable truth, and I've learned to distrust those.",
+          fx = { align = { order = 1 } } },
+        { text = "Something else, Your Grace.", next = "BACK" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Hope, child, mostly, and the strength to bear what can't be mended. Our lives are short and our griefs are long, and the Light is how a human learns to carry the one through the other." },
+      },
+      choices = {
+        { text = "Something else, Your Grace.", next = "BACK" },
+        { text = "Thank you, Your Grace.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Our people have needed the Light more in these last years than in all the years before, child: the war, the plague in the north, the riots and the missing King. There's no shame in coming here tired, because that's what the Cathedral is for." },
         { id = "h_alt_any", when = { alt = true, metBefore = false },
           text = "Welcome, child. A {altclass} named {alt} knelt in this nave not long ago, and something in your face reminds me of that one, as though the Light had sketched you both with the same hand." },
         { id = "h_alt_back", when = { alt = true, metBefore = true }, cooldown = "5d",
@@ -172,6 +227,9 @@ P:NPC {
         { text = "Is Elune so very different from your Light, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Baron Rivendare is dead, Archbishop. Stratholme's dead can rest a little easier.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'm my company's only healer. How do I bear it?", next = "xpt_benedictus", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
+        { text = "Does the Light still watch over Stormwind, Your Grace?", next = "hu_light", when = { race = "Human" } },
+        { text = "The Church never spoke up for the Stonemasons, Your Grace.", next = "hu_masons", when = { race = "Human" } },
+        { text = "What do humans find in the Light, Your Grace?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },

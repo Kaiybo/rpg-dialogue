@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Stormwind born, by the look of you, so I'll spare you the speech I give the foreigners. You know what this county's been through, and I'll expect you to carry yourself like it." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "A kaldorei, in Goldshire. Your people were a long while finding their way to the Alliance, so you'll forgive an old soldier if he's slow finding his way to a welcome." },
     { id = "g_nelf_soft", when = { race = "NightElf", npcFlagBefore = "dughan_nelf_soft" }, priority = 10,
@@ -265,8 +267,102 @@ P:NPC {
         { text = "Good day, Marshal.", next = "END" },
       },
     },
+    hu_war = {
+      lines = {
+        { id = "hum_war", key = true,
+          text = "Then they'll have told you Elwynn burned once, every field of it from the Abbey to the river, and that Stormwind itself fell to the Horde. I was a young footman when we sailed north to Lordaeron with what was left of us, and I came home to rebuild a county I hardly knew." },
+      },
+      choices = {
+        { text = "Lordaeron took us in then. Now Lordaeron's gone.", next = "hu_war2" },
+        { text = "What was it like, coming home?", next = "hu_war_home" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    hu_war_home = {
+      lines = {
+        { id = "hum_warhome",
+          text = "Like walking into your own house after the bailiffs have been, with every stone where it was and nothing where it ought to be. We built it back with Lordaeron's gold and our own backs, and some of the men who did the building are in Westfall now with masks on." },
+      },
+      choices = {
+        { text = "Lordaeron paid for it, and now Lordaeron's gone.", next = "hu_war2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    hu_war2 = {
+      big = true,
+      lines = {
+        { id = "hum_war2",
+          text = "Lordaeron took us in when we'd nothing but what we fled in, and now its people come south with even less, and there are folk in the city who spit at them for it. That shames me more than any Defias, friend, because we were the refugees once, and we've forgotten it in a single generation." },
+      },
+      choices = {
+        { text = "We owe them what Lordaeron gave us. It's that simple.", next = "BACK",
+          reply = "Aye, it is, and I'd thank you to say it at the Lion's Pride, where it might do some good. The ones who need to hear it drink there.",
+          fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Our own come first. The city can't feed the whole north.", next = "BACK",
+          reply = "I've heard that said in finer coats than yours, and maybe the sums agree with you. I'll only say the sums didn't feed me in Lordaeron, and somebody's kindness did.",
+          fx = { align = { light = -1 } } },
+        { text = "Does anyone in Goldshire still remember it?", next = "hu_war3" },
+      },
+    },
+    hu_war3 = {
+      lines = {
+        { id = "hum_war3",
+          text = "The older farmers do, the ones who've raised their barns twice, and Remy does, though he tells it three different ways before supper. The young ones only know the war as a story, and I suppose that was the point of winning it." },
+      },
+      choices = {
+        { text = "Then someone has to keep telling it. Something else.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    hu_selfcrit = {
+      lines = {
+        { id = "hum_self", key = true,
+          text = "The worst? No, but we've a gift for forgetting, and that's nearly as bad. The city that left the Stonemasons unpaid is the same city that cheers when I send a Defias to the Stockade, and it's our city, friend, yours and mine." },
+      },
+      choices = {
+        { text = "Then we mend it from the inside. That's our duty.", next = "BACK",
+          reply = "Duty's a good word, and I've built my life on it, but mind it doesn't turn into a speech. Mend it one farm at a time, the way Stoutmantle does in Westfall.",
+          fx = { align = { order = 1 } } },
+        { text = "Duty to that city? It never kept its duty to us.", next = "BACK",
+          reply = "Careful, now, because that's how every Defias I've ever caught began his story. I'll grant you half of it, and I'll keep the other half for the magistrate.",
+          fx = { align = { order = -1 } } },
+        { text = "Do you ever think the Defias have a point?", next = "hu_selfcrit2" },
+      },
+    },
+    hu_selfcrit2 = {
+      lines = {
+        { id = "hum_self2",
+          text = "On a bad night, when the reports come in from Westfall, I think a mason who builds a city ought to be paid for it, and I'll not apologise for thinking so. Then I read what they did to the farms out there, and the thought goes out like a candle." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Stubbornness, mostly. We've short lives and long memories, and we'll rebuild a burned town on the same spot three times because our grandfathers are buried under it, and I don't say that's wise, but I've never met anything that could stop it." },
+      },
+      choices = {
+        { text = "And what are your people bad at, Marshal?", next = "hu_what2" },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    hu_what2 = {
+      lines = {
+        { id = "hum_what2",
+          text = "Keeping the promises we make in good years, I'd say. Ask a Westfall farmer what a royal promise is worth these days, and you'll learn more about us than I'd like you to." },
+      },
+      choices = {
+        { text = "That's an honest answer. Something else.", next = "BACK" },
+        { text = "Good day, Marshal.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Our own folk don't need Goldshire explained to them, and that's a mercy, because I've no time to explain it. Tell me what you need, and tell me straight, the way we do in Elwynn." },
         { id = "h_nelf", when = { race = "NightElf" },
           text = "Kaldorei don't often come down the Goldshire road, and the ones who do look at our fields as if we'd skinned something. Say your business, and I'll try to be fair about it." },
         { id = "dd_kobolds_mcbride", when = { questDone = TODO_QUEST("Kobold Camp Cleanup") },
@@ -418,6 +514,9 @@ P:NPC {
         { text = "What do you make of the night elves, Marshal?", next = "dg_nelf" },
         { text = "You don't care much for my people, Marshal.", next = "dg_xnelf", when = { race = "NightElf" } },
         { text = "Still telling my story at the inn, Marshal?", next = "dg_nsoft", when = { race = "NightElf", npcFlagBefore = "dughan_nelf_soft" } },
+        { text = "My family fought in the Second War too, Marshal.", next = "hu_war", when = { race = "Human" } },
+        { text = "Folk say Stormwind's own are the worst of the lot, Marshal.", next = "hu_selfcrit", when = { race = "Human" } },
+        { text = "What makes a human, to your mind, Marshal?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = { normal = "Good day, Marshal.",
                  polite = "Good day to you, Marshal, and thank you.",
                  blunt = "Good day." }, next = "END" },

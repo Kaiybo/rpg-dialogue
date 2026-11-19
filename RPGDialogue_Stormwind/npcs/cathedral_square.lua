@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Come in, {g:brother|sister}, and sit a moment. Stormwind's people carry more than they let on, and you've the look of someone who's carried something a long way." },
     { id = "g_rest", text = "Rest a moment, {g:brother|sister}. The pews were built for tired people." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, one of our own, and not sleeping enough, by the look of you." },
     { id = "g_fleet", when = { questActive = TODO_QUEST("The Doomed Fleet") }, text = "Menethil is a long, wet walk, I know, but Glorin will be glad of the company." },
@@ -99,6 +101,43 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hu_duskwood = {
+      lines = {
+        { id = "hum_dusk", key = true,
+          text = "I don't think it has, {g:brother|sister}; I know it has, and it shames me. Darkshire raised the Night Watch because the army never came, and Commander Ebonlocke holds the town with farmers and lanterns while the city argues over the price of grain." },
+      },
+      choices = {
+        { text = "Why does the city do nothing, Bishop?", next = "hu_duskwood2" },
+        { text = "Something else, Bishop.", next = "BACK" },
+      },
+    },
+    hu_duskwood2 = {
+      big = true,
+      lines = {
+        { id = "hum_dusk2",
+          text = "Because Darkshire is far, and the dead don't sit in the House of Nobles, and because we humans are very good at not looking at what frightens us. I pray for them and send what priests will go, which is never enough." },
+      },
+      choices = {
+        { text = "Then I'll go to Darkshire myself, Bishop.", next = "BACK",
+          reply = "Bless you, {g:brother|sister}. Take lantern oil and patience, and tell Commander Ebonlocke the Cathedral hasn't forgotten, even if the Keep has.",
+          fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Darkshire chose to stay. That's their burden.", next = "BACK",
+          reply = "It is, in a way, and I'd not tell them otherwise. But a burden shared is the whole of the Light's teaching, and I'd hate to see Stormwind forget its own lesson.",
+          fx = { align = { light = -1 } } },
+        { text = "Nothing more today, Bishop.", next = "END" },
+      },
+    },
+    hu_expect = {
+      lines = {
+        { id = "hum_expect", key = true,
+          text = "More than we ask of our guests, I'm afraid. A dwarf or an elf who walks past a beggar on these steps has passed a stranger, but a child of Stormwind has passed a neighbour, and the Light knows the difference." },
+      },
+      choices = {
+        { text = "That's a heavy thing to lay on us, Bishop.", next = "BACK",
+          reply = "It is, {g:brother|sister}, and I lay it on myself first, every morning, on those same steps." },
+        { text = "Something else, Bishop.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Darkshire could use you more than this altar can, {class}, but I'll ask what's weighing on you first, as I ask everyone." },
@@ -139,6 +178,8 @@ P:NPC {
         { text = "What happened to Duskwood's forest, Bishop?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you trust someone in my line of work, Bishop?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you hear in the people who come to you, Bishop?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Has Stormwind forgotten Duskwood, Bishop?", next = "hu_duskwood", when = { race = "Human" } },
+        { text = "What does the Church expect of Stormwind's own, Bishop?", next = "hu_expect", when = { race = "Human" } },
         { text = "Nothing weighs on me today, Bishop.", next = "END" },
       },
     },

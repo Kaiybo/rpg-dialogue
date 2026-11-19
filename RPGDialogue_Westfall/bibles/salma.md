@@ -52,3 +52,7 @@ Authored, not canon: she adds salt to Verna's recipe; she fed a hungry Defias bo
 
 ## Night elves (prejudice pass)
 - Knows nothing true about night elves (Saldean says they live on dew and moonlight); holds no special grudge, since nobody sent Westfall grain.
+
+## Humans (human patch)
+- Human players get `hum_g1` and a hello line ("stew reminds everybody where they came from"). Branches: `hu_stay` (why she stays; "we curse the land and can't stop missing it"; stance light +/-1) and `hu_rumor` (the city's "Westfall is all thieves" talk; the Defias are "our own lads gone wrong"; stance light +/-1).
+- Non-humans: `hu_what`, humans hold on to one home and bury their people in it.

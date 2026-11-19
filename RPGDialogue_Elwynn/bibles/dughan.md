@@ -53,3 +53,7 @@ Sources read: the wiki pages Marshal Dughan, Report to Goldshire, The Fargodeep 
 
 ## Night elves (prejudice pass)
 - Second War grudge: never saw a night elf on the line; resents the city fawning over Darnassus while he has six guards. Cold to kaldorei players; `[Persuade]` softens him (npcFlag `dughan_nelf_soft`).
+
+## Humans (human patch)
+- Human players get their own greeting (`hum_g1`) and hello line, and two branches: `hu_war` (Second War, the flight to Lordaeron, the refugees now spat at in the city; stance light +/-1) and `hu_selfcrit` (human self-criticism: the city that left the masons unpaid is "ours"; stance order +/-1).
+- Non-humans can ask what makes a human (`hu_what`): stubbornness, short lives, long memories, broken royal promises.

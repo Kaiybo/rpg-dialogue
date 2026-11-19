@@ -39,3 +39,7 @@ defias, westfall, tome_of_divinity
 
 ## 0.34.0
 - Bolvar (Persuade, `bear_true`): he sleeps badly, sits up with the boy and then the reports, and has begun to wonder whether the council's 'patience' is only patience (dramatic irony; nothing revealed).
+
+## Humans (human patch)
+- Human players get `hum_g1` (the King's absence is "the kingdom's grief") and a hello line on what the people have borne. Branches: `hu_varian` (if Varian never comes home; stance honor +/-1) and `hu_strain` (the Alliance's strain, Gilneas and Stromgarde gone, Stormwind paying; stance order +/-1; `hu_strain2` has him trusting those "better at sums", dramatic irony only, nothing revealed about Prestor).
+- Non-humans: `hu_what`, "we never quite believe a thing is finished".

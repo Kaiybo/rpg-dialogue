@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "hum_g1", when = { race = "Human" }, priority = 5,
+      text = "Another face from Elwynn! You'll know the valley, then, or you will by sundown, and I'm glad of someone who doesn't need the Abbey pointed out." },
     { id = "g_morning", when = { timeOfDay = { "dawn", "day" } }, text = "Morning! Keep to the road and you'll keep your purse." },
     { id = "g_tally", when = { questObjective = { TODO_QUEST("Brotherhood of Thieves"), left = { min = 1 } } }, text = "More bandanas for the tally? You're short a few yet." },
     { id = "g_piece", text = "Still in one piece? Good, see that you keep it that way." },
@@ -133,8 +135,60 @@ P:NPC {
         { text = "Something else, Willem.", next = "BACK" },
       },
     },
+    hu_home = {
+      lines = {
+        { id = "hum_home", key = true,
+          text = "Near enough, and I've hardly left it since, which the Marshal calls loyalty and Milly calls a lack of imagination. I've seen the city, mind, and it's very grand, but the city doesn't have the Abbey bells in the morning or Milly's vineyard in the evening." },
+      },
+      choices = {
+        { text = "The city could use some of the valley's sense.", next = "hu_home2" },
+        { text = "Something else, Willem.", next = "BACK" },
+      },
+    },
+    hu_home2 = {
+      lines = {
+        { id = "hum_home2",
+          text = "It could, and I'd say so to the House of Nobles if they ever asked a deputy anything. The valley looks after its own, but when the city forgets to, folk out here go hungry, and hungry folk start putting on masks." },
+      },
+      choices = {
+        { text = "Then the city has to be reminded, and loudly.", next = "BACK",
+          reply = "Loudly's good! I'll let you do the shouting, though, because the Marshal says I've a voice like a startled goose.",
+          fx = { align = { order = -1 } } },
+        { text = "The city's doing what it can, Willem. Be patient.", next = "BACK",
+          reply = "I'm trying, honestly I am, and the Marshal says the same. It's only hard to be patient with Garrick Padfoot's lot camped by the vineyard.",
+          fx = { align = { order = 1 } } },
+        { text = "Just passing through, Willem.", next = "END" },
+      },
+    },
+    hu_masks = {
+      lines = {
+        { id = "hum_masks", key = true,
+          text = "That's the worst of it, isn't it? Half the thieves by the vineyard were honest folk from Westfall or the city a year ago, and I've caught myself thinking I knew one of them from market day." },
+      },
+      choices = {
+        { text = "A thief's a thief, whatever he was last year.", next = "BACK",
+          reply = "That's what the Marshal says, and he's right. I only wish they'd stop looking so much like my cousins.",
+          fx = { align = { order = 1 } } },
+        { text = "Talk to them first. Some of them might come home.", next = "BACK",
+          reply = "Talk to a Defias? Well, there's no law against it, though Padfoot's not much of a talker. I'll think on it, truly I will.",
+          fx = { align = { order = -1 } } },
+        { text = "Something else, Willem.", next = "BACK" },
+      },
+    },
+    hu_what = {
+      lines = {
+        { id = "hum_what", key = true,
+          text = "Oh, that's a good one! I'd say it's knowing everyone in your valley by name and still wanting to see what's over the next hill, and then coming home to complain about it, which I suppose makes us the ones stuck halfway." },
+      },
+      choices = {
+        { text = "Something else, Willem.", next = "BACK" },
+        { text = "Just passing through.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "hum_h1", when = { race = "Human" },
+          text = "Northshire's where half of Stormwind's soldiers took their first step, you know, and I like to think we send them off proper. You've the look of someone who'll make the valley proud." },
         { id = "dd_hogger_willem", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") },
           text = "A runner from Goldshire says Hogger's claw is pinned to Marshal Dughan's board and that one of our own Northshire recruits put it there. I told the brothers I'd always known you had it in you, which was very nearly true." },
         { id = "dd_rep_willem", when = { reputation = { faction = "Stormwind", min = "honored" } },
@@ -201,6 +255,9 @@ P:NPC {
         { text = "What does the Marshal need most, Willem?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What are the kobolds after, Willem?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there trouble in the valley today, Willem?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Have you always lived in the valley, Willem?", next = "hu_home", when = { race = "Human" } },
+        { text = "The Defias here look like any Elwynn farmhand, Willem.", next = "hu_masks", when = { race = "Human" } },
+        { text = "What does being human mean to you, Willem?", next = "hu_what", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Just passing through.", next = "END" },
       },
     },
