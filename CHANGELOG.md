@@ -3,11 +3,14 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## 0.90.0 (2026-11-19)
-The warlock patch. **New files in the World pack: restart the game fully (a /reload won't load them).**
-- **Talk to your own demon.** Right-click your imp, voidwalker, succubus or felhunter (or target it and talk) for a full conversation: what it thinks of you, the binding, being dismissed and sacrificed, your soul shards, your deaths, your other demons, your people and the Legion. Some bargains raise your Fel Taint. Each demon remembers you by its name. The felhunter answers in actions only. Enslaved demons, infernals and doomguards have their own.
-- **Demons answer in their own voice** even with a random name: someone else's imp called "Jubkin" talks like an imp, and their felhunter doesn't talk.
-- **People notice a warlock**: guards, townsfolk, innkeepers, vendors, flight and stable masters, children, and priest and paladin trainers react to your demon, your Felsteed or Dreadsteed, a soulstone on you, a heavy bag of soul shards, healthstones and Fel Taint, differently in each capital.
-- **Warlock trainers follow your journey**: the imp and Life Tap, the voidwalker, succubus and felhunter, Enslave Demon, Drain Soul and what a shard holds, healthstones and soulstones, the Felsteed, Inferno, the Ritual of Doom and the Dreadsteed, how each faction hides its warlocks, and a warning when your Fel Taint shows.
+The warlock patch, seven pieces of work in one release. **New files in the World pack: restart the game fully (a /reload won't load them).**
+- **Talk to your own demon.** Right-click your imp, voidwalker, succubus or felhunter (or target it and talk) for a full conversation: what it thinks of you, the binding, your soul shards, your deaths, your other demons, your people and the Legion. The imp whines and boasts, the voidwalker is eerie and devoted, the succubus silken and dangerous, and the felhunter answers in actions only. Enslaved demons, infernals and doomguards strain at the chain in their own voices.
+- **Demons answer in their own voice** even with a random name: someone else's imp called "Jubkin" talks like an imp, and their felhunter doesn't talk. Demons also react to the demon at your side.
+- **People notice a warlock**: guards, townsfolk, innkeepers, vendors, flight and stable masters, children, every class trainer and the spirit healer react to your demon, Demon Armor, your Felsteed or Dreadsteed, a soulstone, a heavy bag of soul shards, healthstones and Fel Taint. Every warlock conversation in the zone packs has a line for when your demon is standing there.
+- **Where warlockry is banned** (Stormwind, Ironforge, the night elf lands, Thunder Bluff, Theramore and more), you speak in hints and people sense something rather than name it. Undercity, the goblin towns and the wilds speak plainly. About 100 NPCs (clergy, Sentinels, the Argent Dawn, orcs who remember Gul'dan) openly dislike warlocks.
+- **Warlock trainers and quest-givers rewritten and deepened**, following your journey from imp to Dreadsteed: Life Tap, Drain Soul and what a shard holds, healthstones and soulstones, Enslave Demon, Inferno, the Ritual of Doom. Six doubled warlock NPCs are now one each.
+- **Three warlock Stories** in the journal: Gakin's student (Alliance), Zelk's road (Horde) and The few at the top (level 30+).
+- **Being disliked opens new options**: "What's your problem with me?", "How do I make this right?" and, at Hostile, "Say what you really think of me." Answers depend on why they dislike you. A successful Intimidate on someone Cold or worse makes them answer anything, and angry people let rumors slip.
 - Not seen in game yet.
 
 ## 0.89.0 (2026-11-18)

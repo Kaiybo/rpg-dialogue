@@ -893,7 +893,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 - **Condition** `tone` (15, hinge): lines and replies can react ("No need for the 'my lord,' friend."). Spoof `tone=polite`.
 
 ### 3.18 Your own demon (0.90.0)
-A warlock can talk to their own summoned demon (right-click it, or target it and talk). `Conv.DetectRole` checks `ctx.npcMine` (the unit is `pet`) and creature type Demon, and gives the role by family (`Conv.MyDemonRole`): `my_imp`, `my_voidwalker`, `my_succubus`, `my_felhunter`, else `my_demon` (enslaved demons, infernals, doomguards). Pools: World `my_demons_imp_void.lua`, `my_demons_succ_hunter.lua`. Memory is keyed by the pet's name, so each demon remembers you. Stranger demons now also pick their voice by family (a warlock's imp named "Jubkin" speaks as an imp; a felhunter is mute). Townsfolk notice a warlock's demon, felsteed, soulstone, shards and taint: World `warlock_notice.lua`.
+A warlock can talk to their own summoned demon (right-click it, or target it and talk). `Conv.DetectRole` checks `ctx.npcMine` (the unit is `pet`) and creature type Demon, and gives the role by family (`Conv.BoundRole`): `my_imp`, `my_voidwalker`, `my_succubus`, `my_felhunter`, else `my_demon` (enslaved demons, infernals, doomguards). Pools: World `bound_imp.lua`, `bound_voidwalker.lua`, `bound_succubus.lua`, `bound_felhunter.lua`, `bound_demon.lua`. Memory is keyed by the pet's name, so each demon remembers you. Stranger demons now also pick their voice by family (a warlock's imp named "Jubkin" speaks as an imp; a felhunter is mute). Townsfolk notice a warlock's demon, felsteed, soulstone, shards and taint: World `warlock_notice.lua`.
 
 ### 3.10 Window style (look)
 
