@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/gryan.md", role = "questgiver", tier = "major",
   communities = { "sentinel_hill" }, temper = { "steady" }, values = { "brave", "lawful", "kind" },
   spiritSensitive = true,
-  prejudice = { { class = "WARLOCK", amount = 12, why = "Fought the Horde in the Second War and saw what its warlocks did to men and land." }, { class = "WARLOCK", amount = 12, why = "Fought the Horde in the Second War and saw what its warlocks did to men and land." } },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Fought the Horde in the Second War and saw what its warlocks did to men and land." },
   notices = { "reputation", "paladin" },
   impression = {
     first = "He hasn't owned a dry pair of socks since spring.",
@@ -16,9 +16,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what demon magic did to the Horde's own lands, and I fought the men it made in the Second War. Westfall has troubles enough without a demon-caller at my map table." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll not pretend I can't tell what you are. Say what you need from the Militia, and keep that creature of yours outside the tower." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Westfall more than once, and I've told the farmers so. I still don't care for what you carry, but I'll shake your hand." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what demon magic did to the Horde's own lands, and I fought the men it made in the Second War. Westfall has troubles enough without a demon-caller at my map table." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll not pretend I can't tell what you are. Say what you need from the Militia, and keep that creature of yours outside the tower." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've done right by Westfall more than once, and I've told the farmers so. I still don't care for what you carry, but I'll shake your hand." },
@@ -129,8 +126,6 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },
         { id = "h_druidx", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the kaldorei, out on my hill. I hope the land tells you something kinder than it tells me." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I came home from the Second War having seen what the orcs' warlocks did to men and land alike. I'll hear your business, but I won't pretend I'm glad of you." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for these fields, and I don't forget that, whatever company you keep. Speak your mind; I'm listening." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I came home from the Second War having seen what the orcs' warlocks did to men and land alike. I'll hear your business, but I won't pretend I'm glad of you." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've bled for these fields, and I don't forget that, whatever company you keep. Speak your mind; I'm listening." },
         { id = "h_default", text = "I'm Gryan Stoutmantle, born and raised in Westfall. I came home from the war to find it in the hands of thieves, so I'm taking it back, one farm at a time." },

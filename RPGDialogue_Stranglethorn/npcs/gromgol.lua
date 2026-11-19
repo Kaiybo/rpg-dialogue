@@ -986,7 +986,7 @@ P:NPC {
   key = "mokthardin", id = TODO_NPC("Far Seer Mok'thardin"), name = "Far Seer Mok'thardin",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "gromgol" }, temper = { "calm" }, values = { "wise", "patient" },
-  prejudice = { { class = "WARLOCK", amount = 14, why = "Old enough to remember Gul'dan's warlocks turning the orc shamans from the spirits." }, { class = "WARLOCK", amount = 14, why = "Old enough to remember Gul'dan's warlocks turning the orc shamans from the spirits." } },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Old enough to remember Gul'dan's warlocks turning the orc shamans from the spirits." },
   notices = { "class" },
 
   impression = {
@@ -995,9 +995,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "I was young when Gul'dan's warlocks turned our shamans from the spirits, and the spirits did not answer us for a generation. Do not come near my fire." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "The ancestors go quiet when you walk into this camp. Speak from where you stand." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have not fled from you as I thought they would. Sit, then, at the edge of the fire." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I was young when Gul'dan's warlocks turned our shamans from the spirits, and the spirits did not answer us for a generation. Do not come near my fire." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "The ancestors go quiet when you walk into this camp. Speak from where you stand." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The spirits have not fled from you as I thought they would. Sit, then, at the edge of the fire." },
@@ -1143,8 +1140,6 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The beasts of this jungle carry old power, and you'll feel it if you sit by my fire, though it isn't the kind your prayers were made for." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I remember the day the spirits stopped answering us, and I remember who was to blame. Say what you want from an old far seer, and then leave my fire." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The spirits do not flee from you anymore, and I have stopped expecting them to. Sit, if you like." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I remember the day the spirits stopped answering us, and I remember who was to blame. Say what you want from an old far seer, and then leave my fire." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "The spirits do not flee from you anymore, and I have stopped expecting them to. Sit, if you like." },
         { id = "h_default", key = true,

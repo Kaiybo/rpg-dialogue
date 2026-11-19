@@ -232,9 +232,9 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and I've no blessed idea where to put you on the duty roster. The Guard's stretched across the whole of Elwynn and I'll take any help that can throw fire." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone. Keep your voice down in my square." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "A warlock in my square, out in the daylight. Say your business plainly, and then go back down to that cellar where I don't have to look at you." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I've stopped reaching for my sword when you walk in, which is more than I can say for the rest of that cellar's lot." },
-          text = "You'll be from the cellar under the Lion's Pride, I expect, which I've been told isn't there and which I'm told to leave alone. Keep your voice down in my square." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Light's sake, the last shamans I saw were burning farms for the Horde, but I need hands, and yours look steady." },
       },
       again = {

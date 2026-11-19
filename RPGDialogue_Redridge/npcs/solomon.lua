@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/solomon.md", role = "noble", tier = "major",
   communities = { "lakeshire" }, temper = { "sharp" }, values = { "lawful", "stern" },
   likesTone = "polite",
-  prejudice = { { class = "WARLOCK", amount = 10, why = "A magistrate: Stormwind's law names demon-summoning a crime, and Lakeshire buried its dead after the Horde's warlocks came through." }, { class = "WARLOCK", amount = 10, why = "A magistrate: Stormwind's law names demon-summoning a crime, and Lakeshire buried its dead after the Horde's warlocks came through." } },
+  prejudice = { class = "WARLOCK", amount = 10, why = "A magistrate: Stormwind's law names demon-summoning a crime, and Lakeshire buried its dead after the Horde's warlocks came through." },
   notices = { "reputation", "deputy" },
 
   impression = {
@@ -17,9 +17,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "The law of Stormwind names the summoning of demons a crime, and this court has not forgotten it. You may state your matter, but do not mistake my patience for approval." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "Lakeshire buried its dead after the Horde's warlocks passed through in the last war. Be brief, and be careful." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The court has watched you serve Lakeshire well, and it is honest enough to say so. It has not, however, changed its opinion of your art." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The law of Stormwind names the summoning of demons a crime, and this court has not forgotten it. You may state your matter, but do not mistake my patience for approval." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Lakeshire buried its dead after the Horde's warlocks passed through in the last war. Be brief, and be careful." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The court has watched you serve Lakeshire well, and it is honest enough to say so. It has not, however, changed its opinion of your art." },
@@ -138,8 +135,6 @@ P:NPC {
           text = "The court is informed that General Drakkisath is dead in Blackrock Spire, and that you were present. The court would like it entered in the record that Lakeshire said so first, and was told it lacked proof." },
         { id = "h_druidx", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the kaldorei in Lakeshire. I confess I have little notion what your people make of ours." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "This court knows what you are, and the law of Stormwind is quite plain on the matter. I will hear you, because Lakeshire needs help, but I will not pretend to welcome it." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have served Lakeshire faithfully, and the court records it. Say what you came to say." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "This court knows what you are, and the law of Stormwind is quite plain on the matter. I will hear you, because Lakeshire needs help, but I will not pretend to welcome it." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have served Lakeshire faithfully, and the court records it. Say what you came to say." },
         { id = "h_default", key = true,

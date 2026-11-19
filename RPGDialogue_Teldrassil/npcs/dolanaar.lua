@@ -17,8 +17,8 @@ P:NPC {
   greetings = {
     { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "You'll stay well clear of the moonwells, demon-caller. One of them is fouled already, and I'll not have you near the others." },
     { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've walked past my wells many times now and the water stayed clean. I'll stop counting your steps, though I'll keep counting the wells." },
-    { id = "g_prej", when = { prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
-    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
+    { id = "g_prej", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = true }, text = "You've come a long way from your own lands to walk under Teldrassil. I'll ask you to keep to the paths, outsider, and to remember that this tree was planted for the Kaldorei." },
+    { id = "g_prej_over", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = "overcome" }, text = "Welcome back to Dolanaar. I said once that the tree was not for outsiders, and you've made a liar of me in the kindest way." },
     { id = "g_well", text = "The moonwells of Teldrassil each have a voice. Listen, and you'll hear that they don't all sing the same note." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and in that time the third well has not grown any sweeter. Listen to it with me, and tell me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since you last carried water for me. Strong enough, I hope, to face whatever is fouling the wells." },
@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "Was Lord Melenas the one fouling the third well?", next = "dd_melenas", when = { questDone = TODO_QUEST("Twisted Hatred") } },
-        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { prejudiced = true } },
+        { text = "You'd rather outsiders stayed off Teldrassil, wouldn't you?", next = "prej", when = { race = { "Human", "Dwarf", "Gnome" }, prejudiced = true } },
         { text = "What's wrong with the wells?", next = "wells" },
         { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "You must have more than one well to watch over.", next = "which" },

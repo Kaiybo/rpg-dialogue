@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/stranglethorn.md", role = "soldier", tier = "major",
   communities = { "rebel_camp" }, temper = { "wary" }, values = { "dutiful", "loyal" },
   likesTone = "blunt",
-  prejudice = { { class = "WARLOCK", amount = 12, why = "Watched a hunger for power rot Colonel Kurzen's mind; trusts nothing that bargains with darkness." }, { class = "WARLOCK", amount = 12, why = "Watched a hunger for power rot Colonel Kurzen's mind; trusts nothing that bargains with darkness." } },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Watched a hunger for power rot Colonel Kurzen's mind; trusts nothing that bargains with darkness." },
   notices = { "kit", "soldier" },
 
   impression = {
@@ -16,9 +16,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched something dark take hold of the Colonel's mind, and it started with power he couldn't resist. Keep your hands still and your demon farther off." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "You'll not take one step past that post with that thing at your heel. Say what you want from there." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for this camp and stayed yourself while you did it, which is more than the Colonel managed. I'll still keep an eye on you." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I watched something dark take hold of the Colonel's mind, and it started with power he couldn't resist. Keep your hands still and your demon farther off." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You'll not take one step past that post with that thing at your heel. Say what you want from there." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've fought for this camp and stayed yourself while you did it, which is more than the Colonel managed. I'll still keep an eye on you." },
@@ -117,8 +114,6 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Colonel Kurzen wanted power he had no business holding, and look what it made of him. I'll talk to you, but I've a man with a bow watching you the whole time." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your head where Kurzen lost his. Say your business; the bowman can rest." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Colonel Kurzen wanted power he had no business holding, and look what it made of him. I'll talk to you, but I've a man with a bow watching you the whole time." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your head where Kurzen lost his. Say your business; the bowman can rest." },
         { id = "h_default", key = true,
@@ -469,7 +464,7 @@ P:NPC {
   key = "nimetz", id = TODO_NPC("Brother Nimetz"), name = "Brother Nimetz",
   bible = "bibles/stranglethorn.md", role = "priest", tier = "quest",
   communities = { "rebel_camp" }, temper = { "earnest" }, values = { "devout", "curious" },
-  prejudice = { { class = "WARLOCK", amount = 10, why = "A priest of the Light nursing men whose minds were eaten by something dark." }, { class = "WARLOCK", amount = 10, why = "A priest of the Light nursing men whose minds were eaten by something dark." } },
+  prejudice = { class = "WARLOCK", amount = 10, why = "A priest of the Light nursing men whose minds were eaten by something dark." },
   notices = { "class", "craft", "form" },
 
   impression = {
@@ -478,9 +473,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light teaches mercy, but it does not teach me to bless what you carry. Stay clear of the sick tents, please." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've sat with men whose minds were eaten by something dark, and I'll not have another darkness near them. Say what you need, and I'll answer." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've prayed for you more nights than I'll admit, and you've done this camp only good. Perhaps the Light is working on you after all." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light teaches mercy, but it does not teach me to bless what you carry. Stay clear of the sick tents, please." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I've sat with men whose minds were eaten by something dark, and I'll not have another darkness near them. Say what you need, and I'll answer." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've prayed for you more nights than I'll admit, and you've done this camp only good. Perhaps the Light is working on you after all." },
@@ -617,8 +609,6 @@ P:NPC {
           text = "You travel with a priest, I see. I'd like a word with {companion} before you go, because the madness that took Kurzen's men wasn't a fever, and I'm beginning to think medicine alone won't cure it." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "You've been to the heart of Zul'Gurub and come back whole, which I hadn't thought possible, and the Light be thanked for it. I'd like to hear what you saw there, if you have the stomach to tell me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There is a darkness on you that the Light will not let me ignore. I'll help you if I can, but I'll not have you near my patients." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've done this camp nothing but good, and I've stopped expecting otherwise. Come and sit; mind the glassware." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "There is a darkness on you that the Light will not let me ignore. I'll help you if I can, but I'll not have you near my patients." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've done this camp nothing but good, and I've stopped expecting otherwise. Come and sit; mind the glassware." },
         { id = "h_default", key = true,

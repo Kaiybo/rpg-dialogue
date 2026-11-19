@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "althea", id = TODO_NPC("Commander Althea Ebonlocke"), name = "Commander Althea Ebonlocke",
-  prejudice = { { { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." }, { class = "WARLOCK", amount = 12, why = "Has buried watchmen killed by the dark casters of Raven Hill and the Dark Riders." } }, { class = "WARLOCK", amount = 12, why = "Has buried watchmen killed by the dark casters of Raven Hill and the Dark Riders." } },
+  prejudice = { { class = "ROGUE", amount = 8, why = "A smooth-tongued rogue sold the Watch's payroll and a patrol route to bandits; three watchmen died." }, { class = "WARLOCK", amount = 12, why = "Has buried watchmen killed by the dark casters of Raven Hill and the Dark Riders." } },
   rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
@@ -18,9 +18,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried watchmen killed by men who called on the same darkness you do. Stay in the lamplight, where my people can see you." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "Darkshire has enough shadows without someone bringing more in from the road. Say your business, and keep that creature of yours outside the gate." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood the watch with us and nothing followed you home, so I'll say it plainly: you've earned your place. I'll still be watching it." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried watchmen killed by men who called on the same darkness you do. Stay in the lamplight, where my people can see you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Darkshire has enough shadows without someone bringing more in from the road. Say your business, and keep that creature of yours outside the gate." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood the watch with us and nothing followed you home, so I'll say it plainly: you've earned your place. I'll still be watching it." },
@@ -164,8 +161,6 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Stormwind hasn't sent me one of you in years, so I'll not ask who did; I'll just put you to work." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Good. This forest was green once, and I'd like to hear from someone who can tell me if it can be again." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and I've buried too many watchmen to pretend otherwise. You can help Darkshire, but you'll do it on my terms." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your darkness pointed at the woods and away from my town. That's enough for me to listen to you." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I know what you are, and I've buried too many watchmen to pretend otherwise. You can help Darkshire, but you'll do it on my terms." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your darkness pointed at the woods and away from my town. That's enough for me to listen to you." },
         { id = "h_default", text = "I'm Commander Ebonlocke of the Night Watch. We're sworn to keep Darkshire's people alive, and some nights that's the whole of the oath, and plenty." },

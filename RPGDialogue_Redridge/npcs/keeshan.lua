@@ -7,7 +7,7 @@ P:NPC {
   key = "keeshan", id = TODO_NPC("Corporal Keeshan"), name = "Corporal Keeshan",
   bible = "bibles/keeshan.md", role = "soldier", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "stern" },
-  prejudice = { { class = "WARLOCK", amount = 14, why = "Held in a Blackrock cell where their warlocks worked on the other prisoners." }, { class = "WARLOCK", amount = 14, why = "Held in a Blackrock cell where their warlocks worked on the other prisoners." } },
+  prejudice = { class = "WARLOCK", amount = 14, why = "Held in a Blackrock cell where their warlocks worked on the other prisoners." },
   notices = { "soldier", "kit" },
 
   impression = {
@@ -16,9 +16,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "I spent weeks in a Blackrock cell listening to their warlocks work on the other prisoners. Don't come any closer than you are." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "That smell was in the camp every night before someone started screaming. I'll talk to you, but from here." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never once given me cause, and I've been waiting for it. Maybe I can stop waiting soon, but not today." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I spent weeks in a Blackrock cell listening to their warlocks work on the other prisoners. Don't come any closer than you are." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "That smell was in the camp every night before someone started screaming. I'll talk to you, but from here." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never once given me cause, and I've been waiting for it. Maybe I can stop waiting soon, but not today." },
@@ -152,8 +149,6 @@ P:NPC {
           text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I spent a long while in those hills with nothing but the wolves for company, so I've a soft spot for anyone who speaks their tongue." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Blackrock had warlocks of their own, and I heard what they did to the men in the next cell. I'll speak with you, but I'll keep my back to the wall." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I still flinch when you come near, and I'm a little sorry for it. You've been straight with me, so go on." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "The Blackrock had warlocks of their own, and I heard what they did to the men in the next cell. I'll speak with you, but I'll keep my back to the wall." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "I still flinch when you come near, and I'm a little sorry for it. You've been straight with me, so go on." },
         { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and the orcs kept me alive, because they like a prisoner who can talk." },

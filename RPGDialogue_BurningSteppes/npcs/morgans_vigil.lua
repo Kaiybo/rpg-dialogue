@@ -509,7 +509,7 @@ P:NPC {
   bible = "bibles/burningsteppes.md", role = "scholar", tier = "major",
   communities = { "morgans_vigil" }, temper = { "steady", "sharp" }, values = { "wise", "curious" },
   likesTone = "polite",
-  prejudice = { { class = "WARLOCK", amount = 13, why = "Kaldorei who lost his brother at Mount Hyjal fighting the Legion." }, { class = "WARLOCK", amount = 13, why = "Kaldorei who lost his brother at Mount Hyjal fighting the Legion." } },
+  prejudice = { class = "WARLOCK", amount = 13, why = "Kaldorei who lost his brother at Mount Hyjal fighting the Legion." },
   notices = { "race", "class", "form", "pet" },
 
   impression = {
@@ -518,9 +518,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "My people bled at Mount Hyjal to drive your masters from this world. Do not ask me to smile at what walks behind you." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel the fel on you from across the ridge. Say what you came to say, and keep your distance." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have earned some measure of my respect on this ridge, and I did not expect to give it. That does not mean I have forgotten Hyjal." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My people bled at Mount Hyjal to drive your masters from this world. Do not ask me to smile at what walks behind you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel the fel on you from across the ridge. Say what you came to say, and keep your distance." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have earned some measure of my respect on this ridge, and I did not expect to give it. That does not mean I have forgotten Hyjal." },
@@ -646,8 +643,6 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Something walks with you that does not belong among the Alliance. That doesn't sit easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so I'll be watching your hands while we talk." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My brother fell at Hyjal fighting the creatures you bargain with. I will speak with you, because the Marshal needs every hand, but that is all." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have done good work here, and I have watched every bit of it. Go on; I am listening." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "My brother fell at Hyjal fighting the creatures you bargain with. I will speak with you, because the Marshal needs every hand, but that is all." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You have done good work here, and I have watched every bit of it. Go on; I am listening." },
         { id = "h_default", key = true,

@@ -7,7 +7,7 @@ P:NPC {
   key = "marris", id = TODO_NPC("Marshal Marris"), name = "Marshal Marris",
   bible = "bibles/marris.md", role = "questgiver", tier = "quest",
   communities = { "lakeshire" }, temper = { "steady" }, values = { "brave", "lawful" },
-  prejudice = { { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." }, { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." } },
+  prejudice = { class = "WARLOCK", amount = 12, why = "Blackrock shadowcasters in the hills have killed his guards with the same dark magic." },
   notices = { "soldier", "trophy" },
 
   impression = {
@@ -16,9 +16,6 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
-    { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
-    { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
@@ -152,8 +149,6 @@ P:NPC {
           text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what Blackrock shadow magic does to a man, and I don't care who's casting it. Tell me what you want, and be quick." },
-        { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a hearing in Lakeshire, more than once. Speak, and I'll listen, though I won't stand too close." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I've seen what Blackrock shadow magic does to a man, and I don't care who's casting it. Tell me what you want, and be quick." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've earned a hearing in Lakeshire, more than once. Speak, and I'll listen, though I won't stand too close." },
         { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake, orcs who never sleep and a boar called Bellygrub in the gardens. What do you need?" },
