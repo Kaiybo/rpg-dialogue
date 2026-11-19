@@ -342,9 +342,9 @@ P:Views { topic = "furbolgs", views = {
 } }
 
 P:Views { topic = "dark_strand", views = {
-  { id = "warlock", when = { class = "WARLOCK" }, text = "Fools. They bargain with demons without knowing how to hold the leash.", fx = { opinion = { dark_strand = "scorn" }, trait = { proud = 1 }, align = { light = -1 } }, replies = {
-    { id = "a", text = "And you know how to hold it, I suppose. Pray you're right, {class}, because the Tower of Althalaxx is full of people who thought the same." },
-    { id = "b", text = "That's a warlock's answer, and not a comforting one. I'll take your word that there's a difference." },
+  { id = "warlock", when = { class = "WARLOCK" }, text = "Fools. They reach into the dark without knowing how to hold the leash.", fx = { opinion = { dark_strand = "scorn" }, trait = { proud = 1 }, align = { light = -1 } }, replies = {
+    { id = "a", text = "And you know how to hold it, I suppose. Pray you're right, friend, because the Tower of Althalaxx is full of people who thought the same." },
+    { id = "b", text = "That's the answer of someone who's held a leash before, and it's not a comforting one. I'll take your word that there's a difference." },
   } },
   { id = "hate", text = "Anyone who calls on demons should be put down. No exceptions.", fx = { opinion = { dark_strand = "hate" }, trait = { stern = 1 }, align = { light = 1, order = 1 } }, replies = {
     { id = "a", text = "Delgren the Purifier at Maestra's Post would agree with every word. The Legion burned the world once already, and these fools want to let it back in.", fx = { affinity = 1 } },
@@ -552,7 +552,7 @@ P:Views { topic = "burning_legion", views = {
   } },
   { id = "power", text = "Their power's real. A clever mind could learn from it.", fx = { opinion = { burning_legion = "covet" }, trait = { curious = 1 }, align = { light = -2 } }, replies = {
     { id = "a", text = "Every fool who ever opened a door to them said the same. Keep talking like that and someone with a sharper blade will hear of it.", fx = { affinity = -1 } },
-    { id = "b", when = { class = "WARLOCK" }, text = "A warlock's way of looking at it, {class}. Just remember who's learning from whom." },
+    { id = "b", when = { class = "WARLOCK" }, text = "That sounds like experience talking, friend. Just remember who's learning from whom." },
   } },
 } }
 

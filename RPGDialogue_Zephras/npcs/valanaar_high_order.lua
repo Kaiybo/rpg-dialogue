@@ -38,7 +38,7 @@ P:NPC {
     { id = "n_enclave", cat = "origin", when = { origin = "skyborne_sky_enclave_student" },
       text = "You've been to the Sky Enclave already, I can see the Violet Citadel's dust on your hem. I expect every one of you to bring something useful home, and I haven't forgotten that I said so." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Fel. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so my eyes stay on your hands." },
+      text = "I know that cold. Prince Tortheldrin reached for the same power, and our people have been paying for it for ten thousand years, so my eyes stay on your hands." },
   },
 
   start = "hello",
@@ -510,7 +510,7 @@ P:NPC {
     { id = "n_herb", cat = "craft", when = { profession = { "Herbalism" } },
       text = "You smell of crushed leaves. An herbalist? Then you and I may be very useful to each other." },
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
-      text = "Don't touch anything on the bench. I don't know what fel does to a tincture, and I don't want to find out in my own workroom." },
+      text = "Don't touch anything on the bench. I don't know what that cold you carry does to a tincture, and I don't want to find out in my own workroom." },
   },
 
   start = "hello",

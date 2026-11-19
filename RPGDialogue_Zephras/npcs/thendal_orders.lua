@@ -299,7 +299,7 @@ P:NPC {
         { text = "Tell me about the ley lines.", next = "leylines" },
         { text = "Why warn me away from your order?", next = "xwarn", when = { race = "Skyborne", faction = "Horde" } },
         { text = "How did your order find the Kirin Tor?", next = "keyhole", when = { faction = "Alliance" } },
-        { text = "My fel magic seems to interest you.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What I carry seems to interest you, mage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "My family's books have gaps. I'm going below to fill them.", next = "xbooks", when = { origin = "skyborne_high_order" } },
         { text = "My spells come harder each year, Falorne. I want to know why.", next = "xorig_lumin", when = { origin = "skyborne_luminarian_scholar" } },
         { text = "Farewell, Falorne.", next = "END" },
@@ -429,7 +429,7 @@ P:NPC {
         { id = "xl_default", text = "Interest me? It terrifies me, and those are not always different things. Our ancestors bled to stop Tortheldrin drinking from the Nether, so tell me plainly, what makes you so sure you won't end the way he meant to?" },
       },
       choices = {
-        { text = "Discipline. The demons serve me, never the reverse.", next = "BACK", reply = "Discipline, is it? Tortheldrin said the same, I'm told, right up until he didn't. I'll watch you closely.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Discipline. What I bind serves me, never the reverse.", next = "BACK", reply = "Discipline, is it? Tortheldrin said the same, I'm told, right up until he didn't. I'll watch you closely.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'm not sure. That's what makes it worth doing.", next = "BACK", reply = "That's an honest answer, and a frightening one. Keep your distance from my students.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

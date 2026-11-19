@@ -35,7 +35,7 @@ P:NPC {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "You'll feel the ley lines tugging at you on the upper stairs. That's what's left of the disruption, and it fades a little every day." },
     { id = "n_warlock", cat = "arcane", when = { class = "WARLOCK" },
-      text = "This city once let Kel'Thuzad study in its own towers, warlock, so I'll be watching your hands while we talk." },
+      text = "This city once let Kel'Thuzad study in its own towers, and you carry the same cold he did, so I'll be watching your hands while we talk." },
     { id = "n_forsaken", cat = "faction", when = { race = "Scourge" },
       text = "Some of the dead who walk with your queen wore the violet once. I try not to look for their faces, and I don't always manage it." },
   },
@@ -128,7 +128,7 @@ P:NPC {
         { text = "Emissary Jacques found me in Southshore.", next = "jacques", when = { questDone = TODO_QUEST("An Alarming Request") } },
         { text = "Do your apprentices need healing, Archmage?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'd serve the Kirin Tor, if it would have me.", next = "xmage", when = { class = "MAGE" } },
-        { text = "My pact with the Nether must trouble you.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Something about me troubles you, Archmage. Say it plainly.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Will the Kirin Tor keep helping my people?", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Why let the Horde through your sewers?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Isn't so much magic in one place dangerous?", next = "xnightelf", when = { race = "NightElf" } },
@@ -331,10 +331,10 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xl_default", text = "Trouble is the wrong word. This city let Kel'Thuzad work in its towers and paid for it, so I watch anyone who keeps company with the Nether, and I'll ask you not to summon anything inside the Citadel." },
+        { id = "xl_default", text = "Trouble is the wrong word. This city let Kel'Thuzad work in its towers and paid for it, so I watch anyone who keeps company with the Nether, and I'll ask you to keep whatever answers to you outside the Citadel." },
       },
       choices = {
-        { text = "My servants stay on a short leash. You have my word.", next = "BACK", reply = "I'll hold you to it, and so will every ward in this tower, which are rather less forgiving than I am when it comes to things from the Nether.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What I keep stays on a short leash. You have my word.", next = "BACK", reply = "I'll hold you to it, and so will every ward in this tower, which are rather less forgiving than I am when it comes to things from the Nether.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your caution didn't save you last time, Archmage.", next = "BACK", reply = "No, it didn't, and I've had to live with that, but I'd rather be wrong for being too careful than right for being too trusting a second time.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

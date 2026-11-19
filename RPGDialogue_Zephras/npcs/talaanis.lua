@@ -47,7 +47,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." } },
       choices = {
-        { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I understand. What I carry stays hidden while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", reply = "Perhaps they shouldn't, but ten thousand years is a long habit to break, and you'll not break it in an afternoon. Patience, stranger.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,7 +113,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "A warlock, on Zephras Isle. I'll speak with you, guest, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether." },
+          text = "You carry the Nether about you, guest, here on Zephras Isle. I'll speak with you, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest of the Horde, on Zephras Isle. The Windshapers have gone to your people at Camp Gev'rek, guest, so I suppose we're allies of a sort, and you're welcome here." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },

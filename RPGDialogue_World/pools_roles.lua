@@ -80,7 +80,7 @@ P:Pool {
         { text = "How do I keep my beast loyal?", next = "care_loyal", when = { class = "HUNTER" } },
         { text = "Mine turns its nose up at what I feed it.", next = "care_food", when = { class = "HUNTER" } },
         { text = "Any advice on taming something new?", next = "care_tame", when = { class = "HUNTER" } },
-        { text = "My servants need no stall, thank you.", next = "BACK", when = { class = "WARLOCK" }, fx = { trait = { stern = 1 } } },
+        { text = "What serves me sleeps somewhere colder than a stall.", next = "BACK", when = { class = "WARLOCK" }, fx = { trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -489,7 +489,7 @@ P:Pool {
         { text = "Half of this I couldn't put a name to.", next = "uses" },
         { text = "You've a lot of stock in here.", next = "source" },
         { text = "Do you ask what your customers do with it?", next = "asking" },
-        { text = "Do you sell soul shards?", next = "shards", when = { class = "WARLOCK" } },
+        { text = "Do you sell anything for the work I do after dark?", next = "shards", when = { class = "WARLOCK" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -524,7 +524,7 @@ P:Pool {
     },
     shards = {
       lines = {
-        { id = "sh_default", text = "No, and I'll thank you not to ask that so loudly. You gather those yourself, I'm told, and I'd rather not know how, so we'll keep to candles and powders between us." },
+        { id = "sh_default", text = "No, and I'll thank you not to ask that so loudly. I can guess the sort of work you mean, and I'd rather not know more, so we'll keep to candles and powders between us." },
       },
       choices = { { text = "Candles and powders it is.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
@@ -1175,9 +1175,9 @@ P:Pool {
         { id = "a_again2", text = "Go on, while the door's still shut." },
       },
       choices = {
-        { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
-        { text = "I'd guess the demon is never really the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
+        { text = "Teach me. I'm ready for the next price.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "What should I be practising, while no one is watching?", next = "practise", when = { class = "WARLOCK" } },
+        { text = "I'd guess the demon is never truly the servant.", next = "master", when = { class = "WARLOCK", minLevel = 10 } },
         { text = "Some would call this work hard to justify.", next = "justify" },
         { text = "Farewell.", next = "END" },
       },
@@ -1195,20 +1195,20 @@ P:Pool {
     },
     practise_turn = {
       lines = { { id = "pt_default", text = "Then you were weak, or careless, or it was cleverer than you, and you'll find out which while it's eating you. Bind it again, tighter, and never let it see you flinch." } },
-      choices = { { text = "I won't flinch.", next = "BACK", fx = { trait = { brave = 1 } } } },
+      choices = { { text = "I won't flinch. I'll make it bleed.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     master = {
       big = true,
       lines = { { id = "m_default", text = "The warlock is, always, right up until the moment the warlock isn't. Every one of us believes we hold the leash, and every one who fell believed it until they were on the other end of it." } },
       choices = {
-        { text = "I hold the leash. That's what mastery means.", next = "BACK", reply = "Then hold it tightly, and never let the thing on the other end hear you say that, because they all keep a careful count of every boast.", fx = { align = { order = 1, light = -1 }, trait = { stern = 1 } } },
-        { text = "Maybe I'm being used. I'll use it right back.", next = "BACK", reply = "That's the honest answer, and the one that keeps most of us alive, so long as you remember the demon is thinking exactly the same thing.", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
+        { text = "I hold the leash. That is what mastery means.", next = "BACK", reply = "Then hold it tightly, and never let the thing on the other end hear you say that, because they all keep a careful count of every boast.", fx = { align = { order = 1, light = -1 }, trait = { stern = 1 } } },
+        { text = "Perhaps I'm being used. I'll use it right back.", next = "BACK", reply = "That's the honest answer, and the one that keeps most of us alive, so long as you remember the demon is thinking exactly the same thing.", fx = { align = { order = -1, honor = -1 }, trait = { witty = 1 } } },
         { text = "Have you ever lost control?", next = "master_lost" },
       },
     },
     master_lost = {
       lines = { { id = "ml_default", text = "Once, and the room still has scorch marks under the new paint. I bound it again before it reached the door, and you're the first student I've told how close it came." } },
-      choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Your secret's safe. I keep many.", next = "BACK", fx = { affinity = 1 } } },
     },
     justify = {
       lines = { { id = "j_default", text = "The demons are coming whether we study them or not. I'd rather the one who understands them stood on our side than theirs, and if it costs me a little of my soul, that's mine to spend." } },

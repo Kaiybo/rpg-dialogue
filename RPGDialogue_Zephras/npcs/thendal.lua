@@ -72,7 +72,7 @@ P:NPC {
         { text = "Myriaal says jumping off the watchtower is good practice.", next = "gifts", when = { any = { { heardLine = "zep_myriaal.ga_default" }, { questActive = TODO_QUEST("Falling With Style") }, { questDone = TODO_QUEST("Falling With Style") } } } },
         { text = "Who should I train with?", next = "trainers", when = { race = "Skyborne" } },
         { text = "What is this village, and who are your people?", next = "village", when = { ["not"] = { race = "Skyborne" } } },
-        { text = "Something about my craft troubles you, I can tell.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Something about me troubles you, I can tell. Speak.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why do the Al'Aketh make you wary of priests?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "Skyborne" } } },
         { text = "The Light holds me up. Shall I tell you of it?", next = "xpala", when = { class = "PALADIN" } },
         { text = "Winds be with you, Rorian.", next = "END" },
@@ -265,7 +265,7 @@ P:NPC {
       lines = { { id = "xl_default", text = "Prince Tortheldrin wished to drink from a demon world, and our ancestors died in the streets of Eldre'Thalas to stop him. I won't turn you out of the grove for your craft, guest, but I'd thank you not to practise it near the children." },
       },
       choices = {
-        { text = "That's fair. I'll keep my craft out of sight.", next = "BACK", reply = "Thank you, guest. The children will be none the wiser.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That's fair. What I practise stays out of sight.", next = "BACK", reply = "Thank you, guest. The children will be none the wiser.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your ancestors feared what they didn't understand.", next = "BACK", reply = "They understood it perfectly well, guest, and they paid for that understanding in blood. Mind your words in this grove.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
