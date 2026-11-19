@@ -470,11 +470,15 @@ end
 --   * A named NPC's story is their own or a polite deflection, never a role's stock one.
 --   * Latest rumors: the NPC's own, then whatever is going round this zone (any role can
 --     pass on hearsay, not only innkeepers), then their role's or anyone's.
--- A line's `minDisposition` (0.85.0) holds that answer back until they think well enough of you.
+-- A line's `minDisposition` (0.85.0) holds that answer back until they think well enough of you;
+-- its `maxDisposition` (0.90.0) holds it back unless they think that little of you (what comes
+-- out only in anger).
 local function dispFilter(disp)
   return function(line)
     local need = line.minDisposition
     if type(need) == "number" and disp < need then return false, ("disposition %d < %d"):format(disp, need) end
+    local cap = line.maxDisposition
+    if type(cap) == "number" and disp > cap then return false, ("disposition %d > %d"):format(disp, cap) end
     return true
   end
 end
