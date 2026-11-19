@@ -20,7 +20,7 @@ P:Pool {
     { id = "g_plain", text = "Your body is waiting for you, and so am I." },
     { id = "g_hush", text = "Speak quietly, if you would; the others are listening today." },
     { id = "g_thinking", when = { timesTalked = { min = 3 } }, text = "There you are. I was just thinking about something you said last time." },
-    { id = "g_stay", when = { npcFlagBefore = "asked_stay" }, priority = 10, text = "Staying this time? No, I can see you aren't." },
+    { id = "g_stay", when = { npcFlagBefore = "asked_stay" }, priority = 10, text = "Staying this time? No, I can see you are not." },
     { id = "g_lantern", priority = 10, when = { npcFlagBefore = "lantern2", ["not"] = { npcFlag = "lantern6" } },
       text = "The one with the lantern was asking after you while you were away." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Night again, down there. The night ones always arrive cold, so come and stand on the warm side of me." },
@@ -80,7 +80,7 @@ P:Pool {
         { id = "z_duskwood", priority = 20, when = { zone = "Duskwood" },
           text = "The dead of these woods do not rest, and they do not come to me either. Some nights I hear them knocking at the wrong door." },
         { id = "z_felwood", priority = 20, when = { zone = "Felwood" },
-          text = "The forest you fell in is sick. Some of the sickness tried to follow you up the hill. I sent it back down." },
+          text = "The forest you fell in is sick, and some of the sickness tried to follow you up the hill, so I sent it back down." },
         { id = "z_tirisfal", priority = 20, when = { zone = "Tirisfal Glades" },
           text = "This is Lordaeron's own soil. I knew these fields when they were farms, and I knew the farmers too, later on." },
         { id = "z_desolace", priority = 20, when = { zone = "Desolace" },
@@ -108,7 +108,7 @@ P:Pool {
         { id = "z_burning", priority = 20, when = { zone = { "Burning Steppes", "Searing Gorge" } },
           text = "You come up smelling of smoke and black iron. Something old and angry lives under that mountain, and every soul from there arrives a little hotter than it should." },
         { id = "z_ungoro", priority = 20, when = { zone = "Un'Goro Crater" },
-          text = "The crater, then, where everything is enormous and none of it has ever heard of you. You were eaten by something older than your whole people, and I mean that kindly." },
+          text = "The crater, then, where everything is enormous and none of it has ever heard of you. You were eaten by something older than your whole people, and there is a kind of honor in that, if you squint." },
         { id = "z_swamp", priority = 20, when = { zone = { "Swamp of Sorrows", "Dustwallow Marsh" } },
           text = "The swamp souls arrive damp and smelling of rot, and they always look back over their shoulders, as though the water might reach up the hill after them." },
         { id = "z_deadwind", priority = 20, when = { zone = "Deadwind Pass" },
@@ -142,8 +142,8 @@ P:Pool {
         { id = "k_shaman", when = { class = "SHAMAN", minLevel = 30 }, text = "You carry your own way back with you, so why no ankh today?" },
         { id = "k_warlock", when = { class = "WARLOCK" }, text = "No soulstone this time? Your kind usually bargains its way past me." },
         { id = "k_healer", when = { class = { "PRIEST", "PALADIN" } }, text = "You raise others from where I stand. Strange, to see you on this side of the work." },
-        { id = "k_hunter", when = { class = "HUNTER" }, text = "Your companion could not follow you here, because animals are not permitted, and I have never agreed with that rule." },
-        { id = "k_mage", when = { class = "MAGE" }, text = "You are trying to work out how this place is built. I can hear you doing it. Please stop; it itches." },
+        { id = "k_hunter", when = { class = "HUNTER" }, text = "Your companion could not follow you, because the living are not permitted up here, and where beasts are concerned I have never agreed with that rule." },
+        { id = "k_mage", when = { class = "MAGE" }, text = "You are trying to work out how this place is built, and I can hear you doing it, so please stop, because it itches." },
         { id = "k_druid", when = { class = "DRUID" }, text = "You wear so many shapes, and only one of them ever comes here. I find that curious, and a little funny." },
         { id = "k_rogue", when = { class = "ROGUE" }, text = "You died in the dark. Your kind is always surprised the dark was not on your side." },
         { id = "k_warrior", when = { class = "WARRIOR" }, text = "You died with your arm still raised. You can put it down now, because nothing on this hill needs hitting." },
@@ -162,7 +162,7 @@ P:Pool {
         { id = "cb_cage", once = true, priority = 30, when = { npcFlagBefore = "asked_cage", timesTalked = { min = 1 } },
           text = "Last time you called this a cage, and I have thought of little else since. Cages have doors, you know, and that is the unsettling part." },
         { id = "cb_stay", once = true, priority = 30, when = { npcFlagBefore = "heard_thin", timesTalked = { min = 1 } },
-          text = "You asked what happens to the ones who stay. One of them asked about you, after you left. I did not give your name." },
+          text = "You asked what happens to the ones who stay. One of them asked about you after you left, and I did not give your name." },
         { id = "cb_hand", once = true, priority = 30, when = { npcFlagBefore = "read_hand", timesTalked = { min = 1 } },
           text = "The other hand in your file has written nothing since you asked. I find that more worrying, not less." },
         { id = "cb_mortal", once = true, priority = 30, when = { npcFlagBefore = "heard_mortal", timesTalked = { min = 1 } },
@@ -205,7 +205,7 @@ P:Pool {
         { id = "qcb_watching_noone", once = true, priority = 30, sys = "healer", when = { npcFlagBefore = "ans_watching", opinion = { topic = "healer_watching", stance = "noone" } },
           text = "You told me no one is watching, but after you left I felt the hill lean, very slightly. I am only reporting it." },
         { id = "qcb_afraid_forever", once = true, priority = 30, sys = "healer", when = { npcFlagBefore = "ans_afraid", opinion = { topic = "healer_afraid", stance = "forever" } },
-          text = "You said forever frightens you more than the dark. I have been thinking about that. I think you are the first person who has ever understood my job." },
+          text = "You said forever frightens you more than the dark, and I have been thinking about that. I think you are the first person who has ever understood my job." },
         { id = "qcb_count_never", once = true, priority = 30, sys = "healer", when = { npcFlagBefore = "ans_count", opinion = { topic = "healer_count", stance = "never" } },
           text = "You told me nothing you did ever counted, and then you went down the hill and did more of it. You are a poor liar, even to yourself." },
         { id = "wcb_endless", once = true, priority = 30, when = { npcFlagBefore = "won_endless", timesTalked = { min = 1 } },
@@ -213,7 +213,7 @@ P:Pool {
         { id = "wcb_written", once = true, priority = 30, when = { npcFlagBefore = "won_written", timesTalked = { min = 1 } },
           text = "The blank page at the back of your file is still blank; I check it every day. Whatever you did, keep doing it." },
         { id = "wcb_pain", once = true, priority = 30, when = { npcFlagBefore = "won_pain", timesTalked = { min = 1 } },
-          text = "Since you won our argument, I have held the hands of the ones who arrive hurting. It does not stop the hurt, and it does not need to. You were right." },
+          text = "Since you won our argument, I have held the hands of the ones who arrive hurting. It does not stop the hurt, and it does not need to; you were right." },
         { id = "wcb_debt", once = true, priority = 30, when = { npcFlagBefore = "won_debt", timesTalked = { min = 1 } },
           text = "I keep turning over what you said about the dead. I have not found the flaw yet, though I am looking, and I am also, a little, hoping I never do." },
       },
@@ -238,7 +238,7 @@ P:Pool {
     walk = {
       narr = "The healer lowers a hand that was already half raised, and lets it fall.",
       lines = {
-        { id = "wk_default", text = "Then walk, and I will not take it as an insult. The road down is longer than it looks, but you keep everything you carry, and this time I keep nothing of you." },
+        { id = "wk_default", text = "Then walk, and I will not take it as an insult. The road down is longer than it looks, but you keep everything you carry, and your body will owe me nothing." },
         { id = "wk_default2", text = "Good. The long way is the honest way, and your body will be gladder to see you if you come to it on your own feet." },
         { id = "wk_many", priority = 5, when = { deaths = { min = 25 } },
           text = "You know the way down better than I do by now. Mind the edges of the gray as you go, because they lean toward the ones who walk alone." },
@@ -254,7 +254,7 @@ P:Pool {
     },
     tired = {
       lines = {
-        { id = "ti_default", text = "Do I? I did not know my face could show it. A great many came up the hill this morning, and every one of them wanted to be the last thing I remembered." },
+        { id = "ti_default", text = "Do I? I did not know my face could show it. A great many came up the hill this morning, and every one of them asked me to remember them, which I will, and which is heavy." },
         { id = "ti_night", when = { timeOfDay = "night" },
           text = "Night is the busy time. The living think the dark protects them, and the dark has never once agreed, so yes, I am tired, and thank you for noticing." },
         { id = "ti_plague", priority = 10, when = { zone = { "Eastern Plaguelands", "Western Plaguelands" } },
@@ -273,7 +273,7 @@ P:Pool {
         { id = "ti2_default", text = "I am not sure I am allowed, and I am not sure I would know how. Once I closed my eyes between one soul and the next, and when I opened them there were three waiting and a fourth halfway up the hill, so I have not tried it since." },
       },
       choices = {
-        { text = "Someone should stand in for you.", next = "successor" },
+        { text = "Could I stand in for you, someday?", next = "successor" },
         { text = "That sounds lonely.", next = "quiet_lonely", fx = { trait = { kind = 1 } } },
         { text = "Back to the matter at hand.", next = "hello" },
       },
@@ -308,7 +308,7 @@ P:Pool {
     },
     burn2 = {
       lines = {
-        { id = "b2_default", text = "Someone who wanted to be forgotten more than they wanted to live. I understood them. I still could not let them go." },
+        { id = "b2_default", text = "Someone who wanted to be forgotten more than they wanted to live. I understood them, and still I could not let them go." },
         { id = "b2_mage", when = { class = "MAGE" },
           text = "It was one of yours, and they set the whole hill alight. The file was fine; they were not, and then they were, and then they apologized." },
       },
@@ -438,7 +438,7 @@ P:Pool {
     price_who = {
       lines = {
         { id = "pw_default",
-          text = "The same ones who permitted me, I think, though the instructions do not say so. I only know that I have never once been allowed to send anyone back whole, and I asked, at the start, every single time." },
+          text = "The same ones who permitted me, I think, though the instructions do not say so. I only know that I have never once been allowed to send anyone back whole, and at the start I asked the silence why, every single time." },
       },
       choices = {
         { text = "Do you still ask?", next = "price_ask" },
@@ -985,9 +985,9 @@ P:Pool {
       lines = {
         { id = "lt_default", text = "The Light reaches here, thinly, like dawn through a shutter. Whether it waits beyond, or only passes through on its way elsewhere, I cannot say." },
         { id = "lt_holy", when = { class = { "PRIEST", "PALADIN" } },
-          text = "You want me to say yes. Your Light comes through here every day. It has never once stopped to tell me where it is going." },
+          text = "You want me to say yes. Your Light comes through here every day, and it has never once stopped to tell me where it is going." },
         { id = "lt_forsaken", when = { race = "Scourge" },
-          text = "You wonder whether it would burn you, over there. I do not know. I know it does not burn you here. Make of that what you can." },
+          text = "You wonder whether it would burn you, over there. I do not know, but I know it does not burn you here, so make of that what you can." },
       },
       choices = {
         { text = "And the Shadow?", next = "shadow" },
@@ -1217,7 +1217,7 @@ P:Pool {
         { id = "qu3_default",
           text = "Here is one: a baker of Stromgarde who died old in her bed with flour still on her hands, and asked me only whether she had left the oven lit. She had not, and when I told her so she went into the mist laughing; I read her name first every day, because it is the easiest." },
         { id = "qu3_alt", when = { chance = 0.5 },
-          text = "Here is one: a boy from Goldshire who drowned in Crystal Lake on a dare, and arrived furious that he had lost the bet. He asked me to tell his friends he would have made it, and I could not, so I tell the hill instead, every morning." },
+          text = "Here is one: a boy from Goldshire who drowned in Crystal Lake on a dare, and arrived furious, insisting he would have made it if his boot had not come off. He asked me to tell his friends so, and I could not, so I tell the hill instead, every morning." },
       },
       choices = {
         { text = "Say mine, too, someday.", next = "name_promise" },
@@ -1237,9 +1237,9 @@ P:Pool {
     colleague = {
       lines = {
         { id = "co_default",
-          text = "Mind? No, though it is humbling. You call them back with a word and the Light behind it, and they come at once; I must wait until they climb all the way up here and ask. Your way is faster, and on busy days I envy it." },
+          text = "Mind? No, though it is humbling. You call them back with a word and the Light behind it, and they come at once; I must wait until they climb all the way up here, and then I must ask them. Your way is faster, and on busy days I envy it." },
         { id = "co_paladin", priority = 5, when = { class = "PALADIN" },
-          text = "Mind? No, though your order does it with such certainty. You raise a fallen friend as if the Light had signed for them, and I have to wait for them to climb up here and ask, so on busy days I envy you a little." },
+          text = "Mind? No, though your order does it with such certainty. You raise a fallen friend as if the Light had signed for them, and I have to wait for them to climb up here and then ask them, so on busy days I envy you a little." },
       },
       choices = {
         { text = "Do the ones I raise pass by here first?", next = "colleague2", fx = { trait = { curious = 1 } } },
@@ -1310,7 +1310,7 @@ P:Pool {
     gnomeregan = {
       lines = {
         { id = "gn_default",
-          text = "All at once, on one terrible afternoon, more than this hill had ever held. They came up still arguing about valves and pressures, and some of them were trying to repair the mist before anyone had told them they were dead." },
+          text = "All at once, on one terrible afternoon, more in a single hour than this hill had ever held. They came up still arguing about valves and pressures, and some of them were trying to repair the mist before anyone had told them they were dead." },
       },
       choices = {
         { text = "Did they all make it up here?", next = "gnomeregan2" },
@@ -1452,7 +1452,7 @@ P:Pool {
         { id = "qr_afraid_neither", priority = 10, when = { npcFlag = "r_afraid_neither" },
           text = "Then either you are very brave, or you have not been here enough. I will ask you again after a hundred." },
         { id = "qr_count_yes", priority = 10, when = { npcFlag = "r_count_yes" },
-          text = "Then you understand this place better than most priests. A thing done stays done, and forgetting does not undo it; the only thing anyone can undo is a death, and only I do that." },
+          text = "Then you understand this place better than most priests. A thing done stays done, and forgetting does not undo it; a death is the only thing that can be undone, and even that has to be asked for." },
         { id = "qr_count_no", priority = 10, when = { npcFlag = "r_count_no" },
           text = "Then I will remember for you, and it will count. You are welcome, and do not argue." },
         { id = "qr_count_never", priority = 10, when = { npcFlag = "r_count_never" },
@@ -1527,7 +1527,7 @@ P:Pool {
       rotating = true,
       lines = {
         { id = "ta_default",
-          text = "I have met everyone who ever died in this world, more or less. Which kind of story do you want?" },
+          text = "I have met nearly everyone who ever died in this world, all but the ones who were kept from me. Which kind of story do you want?" },
         { id = "ta_default2",
           text = "Stories, yes. The dead are mostly stories by the time they reach me, so choose one." },
         { id = "ta_many", when = { deaths = { min = 25 } },
@@ -1756,7 +1756,7 @@ P:Pool {
     dv_endless_lose = {
       lines = {
         { id = "dl_default",
-          text = "Do not agree with me so quickly. I am not always right; I am only always here. Go down and prove me wrong. Then come back and tell me." },
+          text = "Do not agree with me so quickly. I am not always right; I am only always here. Go down and prove me wrong, and then come back and tell me." },
       },
       choices = {
         { text = "Return me to life.", next = "parting" },
@@ -2048,7 +2048,7 @@ P:Pool {
       { id = "t_scourge", text = "They are the ones who never arrive. Every soul the Scourge stands back up is a name missing from my hill, and I keep a list of the missing that is longer than I will say aloud." },
     },
     forsaken = {
-      { id = "t_forsaken", text = "Raised without being asked, and then they took themselves back; I respect that more than they would believe. They do not come to me easily, and when they do, they are the only ones who are not surprised." },
+      { id = "t_forsaken", text = "Raised once without being asked, and then they took themselves back, and I respect that more than they would believe. When they climb my hill they are the only ones who are never surprised, and the only ones who thank me as if they know what it costs." },
     },
     lordaeron = {
       { id = "t_lordaeron", text = "The year it fell, I had a line down the hill longer than any I have known before or since. I remember every face in it, and I wish I did not remember quite so many of them so young." },
