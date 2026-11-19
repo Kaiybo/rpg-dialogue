@@ -138,7 +138,7 @@ P:NPC {
         { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do the fishermen fear warlocks more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the fishermen fear the likes of me more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The murlocs seem to have got worse on the lake, Dockmaster.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },

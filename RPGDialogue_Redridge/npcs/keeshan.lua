@@ -176,7 +176,7 @@ P:NPC {
         { text = "I'll scout ahead. Stay in my shadow.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'd have burned your cell door off, Corporal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What did you learn of the Blackrock's wolves, Corporal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Their shadowcasters and I use the same arts, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Their shadowcasters and I drink from the same dark well, Corporal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did the Blackrock shamans hurt you, Keeshan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rend Blackhand's Spire is broken, Corporal. They won't boast about it now.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "Let's get moving.", next = "END" },

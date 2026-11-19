@@ -92,7 +92,7 @@ P:NPC {
         { id = "xlo_gnome", when = { race = "Gnome" }, text = "Small as you are, you've a big shadow following you about, and I'll say plainly that I don't like it. But I've farmers dying in the furrows, so if your demon bleeds for Westfall instead of them, I'll keep my opinions in my pocket." },
       },
       choices = {
-        { text = "My demon serves me. That's all you need to know.", next = "BACK", reply = "That's not all I need, but it's all I'll get, I suppose. Keep it pointed at the Defias and we'll get along.", fx = { align = { light = -1 } } },
+        { text = "It serves me, Captain. That's all you need to know.", next = "BACK", reply = "That's not all I need, but it's all I'll get, I suppose. Keep it pointed at the Defias and we'll get along.", fx = { align = { light = -1 } } },
         { text = "I'll keep it on a short leash around your people.", next = "BACK", reply = "I'd thank you for that, and so would my farmers. Most of them have never seen a demon, and I'd like it to stay that way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What do the gnolls want here?", next = "gnolls" },
       },
@@ -160,7 +160,7 @@ P:NPC {
         { text = "A hunter could teach your recruits to track.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Your farmers fight in the open, Captain. I'd teach them to fight dirty.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A few fire spells would thin the gnolls quickly, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I bargain with darker things than gnolls, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What walks beside me is worse than any gnoll, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your farmer soldiers have anyone to pray with before a patrol?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your militia must take Defias prisoners now and then, Captain.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your militia fight beside a shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

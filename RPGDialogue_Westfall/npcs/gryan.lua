@@ -176,7 +176,7 @@ P:NPC {
         { text = "My father was a Stonemason. The nobles never paid him.", next = "mason_child", when = { origin = "human_stonemason_child" } },
         { text = "The Sentinels would never abandon a province like this.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I studied in Stormwind's Mage Quarter, Gryan.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "I command a demon, Stoutmantle. It fights for Westfall now.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What follows me fights for Westfall now, Stoutmantle. Don't ask what it is.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help, but I answer to no militia.", next = "END", reply = "That's your right, and I'll not hold it against you. Help however you will, and the farmers will remember it.", fx = { align = { order = -1 } } },
       },
     },

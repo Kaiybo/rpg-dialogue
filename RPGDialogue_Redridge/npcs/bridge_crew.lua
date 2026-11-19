@@ -296,7 +296,7 @@ P:NPC {
         { text = "Have you ever seen the Blackrock?", next = "orcs" },
         { text = "Foreman Oslow seems to shout at everyone.", next = "oslow" },
         { text = "Do you want to be an adventurer?", next = "adventure" },
-        { text = "Want to see my imp, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you want to see what I keep at my heel, Jess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you want to be a warrior someday, Jess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen the beasts in the hills, Jess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "This work must frighten you some days, Jess.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

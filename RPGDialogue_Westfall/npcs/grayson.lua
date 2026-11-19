@@ -151,7 +151,7 @@ P:NPC {
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },
         { text = "My people scatter the dead to the wind, Captain.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "A spell could keep your lamp lit without you, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "A spirit like yours could be bound to better purpose, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can my beast actually see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'd think the Light would trouble one like you, Captain.", next = "xapala", when = { class = "PALADIN" } },

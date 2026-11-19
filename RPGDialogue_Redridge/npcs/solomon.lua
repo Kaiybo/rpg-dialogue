@@ -182,7 +182,7 @@ P:NPC {
         { text = "Highlord Bolvar's deputy, reporting.", next = "deputy", when = { questDone = TODO_QUEST("The True Masters") } },
         { text = "Put me on the walls, Magistrate. I can hold a line.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I've been tracking gnolls through your hills.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "I sense fel magic in your hills. Who practises it?", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Something foul stirs in your hills. I can smell it. Who's behind it?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
         { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "There's a wizard's tower in the hills. Who holds it now?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

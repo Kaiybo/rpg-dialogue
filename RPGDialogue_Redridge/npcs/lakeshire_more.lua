@@ -469,7 +469,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "A little, but Effsee's more frightened, so I've got to be brave for her. Can your demon swim? Because Hilary's necklace is somewhere at the bottom of the lake, and the murlocs are too scary for us to go in after it." } },
       choices = {
         { text = "I'll find the necklace for you myself.", next = "BACK", reply = "Would you? Then I'll tell Hilary you're the bravest person in Lakeshire, and Effsee too.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Demons don't fetch necklaces, kid.", next = "BACK", reply = "Oh, that's all right, it was only an idea. Can it at least do tricks?", fx = { align = { light = -1 } } },
+        { text = "It doesn't fetch necklaces, kid. It fetches worse things.", next = "BACK", reply = "Oh, that's all right, it was only an idea. Can it at least do tricks?", fx = { align = { light = -1 } } },
         { text = "Something else, Shawn.", next = "BACK" },
       },
     },
@@ -549,7 +549,7 @@ P:NPC {
         { text = "Do you want to be a warrior someday, Shawn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you say your prayers at night, Shawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever worry about the murlocs in the lake, Shawn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Aren't you frightened of my demon, Shawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Aren't you frightened of what walks with me, Shawn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did Hilary lose her necklace in the lake, Shawn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep an eye out for it.", next = "END", fx = { affinity = 1 } },
       },
