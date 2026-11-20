@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.97.1 (2026-11-20): Many Paths to Mending
+Hotfix. No new files; a /reload is enough.
+- Healers no longer all claim the Light: the healer's question to Byancie (Dolanaar) and to the Theramore first aid trainer now reads "I can heal with magic," so druids and shamans don't say they heal by the Light.
+
 ## 0.97.0 (2026-11-20): The Waking Grove
 The druid patch. **New file in the World pack (`druid_notice.lua`): restart the game fully (a /reload won't load it).**
 - **People notice a druid**: guards, townsfolk, innkeepers, bankers (who won't open a vault for a bear), vendors, smiths, flight and stable masters, children, other class trainers and the spirit healer react to your bear, cat, travel, aquatic and moonkin forms, to Mark and Gift of the Wild and Thorns on the people you bless, to Barkskin, Innervate and your heals, to berries, thornroot and Rebirth seeds, and to night elf, tauren, Skyborne and less likely druids.

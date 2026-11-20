@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.1 (2026-11-20)
+- Byancie: the healer's question no longer has druids claim to heal by the Light.
+
 ## 1.26.0 (2026-11-20)
 - Mardant Strongoak and Kal teach young druids their first spells and the road after the bear.
 

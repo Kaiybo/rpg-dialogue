@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.1 (2026-11-20)
+- Theramore first aid: the healer's question and reply no longer assume the Light, so they fit druids and shamans.
+
 ## 1.35.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 
