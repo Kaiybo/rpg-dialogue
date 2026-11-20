@@ -1531,7 +1531,7 @@ P:NPC {
         { text = "What injuries do you see most?", next = "wounds" },
         { text = "You work out of Keldamyr's inn.", next = "inn" },
         { text = "Isn't healing the Temple's business?", next = "temple" },
-        { text = "I heal by the Light. What can linen do that I can't?", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
+        { text = "I can heal with magic. What can linen do that I can't?", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "I've bandaged in the field. Tell me what I do wrong.", next = "xaid", when = { profession = "First Aid" } },
         { text = "What belongs in a camp's healing kit?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: First Aid") } },
         { text = "Steady hands, Byancie.", next = "END" },
