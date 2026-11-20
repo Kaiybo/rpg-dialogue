@@ -209,3 +209,62 @@ P:NPC {
     _none = { { id = "tp_none", text = "That is beyond my patrol. Take it to Athridas Bearmantle in the village." } },
   },
 }
+
+-- Sentinel Lynessa Duskblossom: a Forever escort Sentinel at Ban'ethil Hollow, pinned in by the
+-- Gnarlpine and waiting for someone to see her out. Escort quest name unconfirmed.
+P:NPC {
+  key = "lynessa_duskblossom", id = TODO_NPC("Sentinel Lynessa Duskblossom"), name = "Sentinel Lynessa Duskblossom", gender = "female",
+  bible = "bibles/missed.md", role = "questgiver", tier = "quest",
+  communities = { "dolanaar" }, temper = { "brisk", "wry" }, values = { "dutiful", "loyal" },
+  notices = { "race", "weary" },
+  impression = {
+    first = "She was wounded, outnumbered and still making jokes about it.",
+    third = "{name} met Sentinel Lynessa Duskblossom, cut off by the Gnarlpine in Ban'ethil Hollow.",
+  },
+
+  greetings = {
+    { id = "g1", text = "Keep your voice down. The furbolgs in this hollow have good ears and worse tempers." },
+    { id = "g_again", when = { timesTalked = { min = 1 } }, text = "You came back, and on purpose. Most people only find this hollow by mistake." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Elune's light reaches even down here, which is the only kind thing I can say about this place." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Lynessa escort") }, text = "There's the one who walked me out of the hollow. Dolanaar still owes you a drink on my account." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Three of us came down to see why the Gnarlpine were gathering here, and I'm the only one still standing. I can walk, but I can't walk out through all of them alone." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Lynessa escort") },
+          text = "Stay close and watch the tunnels on the left. They like to come at you from the dark while you're looking at the one in front." },
+        { id = "h_druid", when = { class = "DRUID" },
+          text = "A druid, thank Elune. The Gnarlpine were your friends once, so perhaps you can tell me what's been done to them." },
+      },
+      again = { { id = "h_again", text = "Ask what you like, but quickly. They'll come round on their patrol again soon." } },
+      choices = {
+        { text = "What happened to the other two?", next = "lost" },
+        { text = "Why are the Gnarlpine gathering here?", next = "why" },
+        { text = "I'll get you out of here.", next = "BUSINESS" },
+        { text = "Hold on a little longer.", next = "END" },
+      },
+    },
+    lost = {
+      lines = { { id = "lo_default", text = "Ilthara fell at the mouth of the hollow, and Faeryn went down the far tunnel to draw them off me. I heard her horn once, and then I heard nothing at all." } },
+      choices = {
+        { text = "Then we make them pay for it on the way out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Getting you home alive is what they'd want.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "They've been carrying green moss in from the Fel Rock and chewing it like it's bread. Whatever's in it, it's made them strong and stupid and very, very angry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    sentinels = { { id = "ly_sen", text = "We watch the roads so the village can sleep. Tonight the village will have to watch for itself, because I'm a little busy." } },
+    gnarlpine = { { id = "ly_gn", text = "They traded honey and furs with us when I was young. I'd rather not have to kill the ones who remember that, but they don't seem to remember it themselves." } },
+    _none = { { id = "ly_none", text = "Ask me again when we're out of this hollow, and I'll answer anything you like." } },
+  },
+}
