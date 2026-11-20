@@ -147,6 +147,11 @@ P:NPC {
         { text = "My people were exiled for what yours did.", next = "xnelf", when = { race = "NightElf" } },
         { text = "My ancestors fled Eldre'Thalas. We are the Skyborne.", next = "xsky", when = { race = "Skyborne" } },
         { text = "Teach me something of the old magic.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is the arcane in me different from the Well's?", next = "m_well", when = { class = "MAGE", minLevel = 40 } },
+        { text = "Dalaran's mages shut me out when I died.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
+        { text = "Your exiles fought my people in Quel'Thalas.", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
+        { text = "A tauren who studies your art. Do you approve?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
+        { text = "An orc mage, archmage. Does that frighten you?", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
         { text = "I serve the Light. What did your people serve?", next = "xpriest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Elune watched over this temple once. Does she still?", next = "xepriest", when = { class = "PRIEST", race = "NightElf" } },
         { text = "Keep watching my hands, archmage. What did the Nether take from your people?", next = "xlock", when = { class = "WARLOCK" } },
@@ -597,6 +602,47 @@ P:NPC {
         { text = "Power belongs to those with the will to use it.", next = "BACK", reply = "That is what my Queen believed, and look where her will has left the world, so be careful whose footsteps you follow, {class}.", fx = { align = { light = -1 } } },
         { text = "Then I'll understand it before I use it.", next = "BACK", reply = "Then you have learned in an afternoon what my people could not learn in a thousand years, and I would gladly teach you more.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "What did Dalaran's magi learn that you didn't?", next = "xmage_dal" },
+      },
+    },
+    m_well = {
+      big = true,
+      lines = { { id = "mw_default", text = "Different in strength, not in kind. You draw from the world's own weave in sips, where my people drank from the Well in great gulps until it drank them back, so be grateful for your sips, mage, because they are why there is still a world to draw from." } },
+      choices = {
+        { text = "I'll keep to sips, then, and be grateful.", next = "BACK", reply = "Then you are wiser than my Queen and all her court, and I would sooner teach you than any of them.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd drink deeper, given the chance.", next = "BACK", reply = "So said every Highborne I ever buried. I hope you are never given the chance.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "Then you were taught, after a fashion, by the grandchildren of our exiles, and betrayed by them, which I am sorry to say is an old tradition among those who hold the arcane. My people shut Eldre'Thalas against the kaldorei and the kaldorei shut their forests against us, and every door slammed in this world was slammed by someone who was afraid." } },
+      choices = {
+        { text = "Then I won't slam doors of my own.", next = "BACK", reply = "Then you will be the first mage in ten thousand years to manage it, and I shall watch with great interest.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll slam them back, and harder.", next = "BACK", reply = "My people said the same of the kaldorei, and we have been slamming them ever since. It has not made the halls any warmer.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_troll = {
+      big = true,
+      lines = { { id = "mt_default", text = "They did, and the Amani fought them for every tree, and I will not pretend the elves of Quel'Thalas were gentle neighbours. Yet here you stand, a troll with the arcane in your hands, and I find I am glad of it, because it means the art was never ours to hoard." } },
+      choices = {
+        { text = "It was never yours. We take what we learn.", next = "BACK", reply = "Taken or given, it is yours now. Hold it better than we did.", fx = { align = { order = -1 } } },
+        { text = "Then let it be shared, troll and elf alike.", next = "BACK", reply = "A generous thought from one whose people had little reason to be generous to mine. Thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_tauren = {
+      lines = { { id = "mta_default", text = "Approve? I am astonished, which is better. Your people watched the old cities burn from far off, I'm told, and wisely kept their distance from our art ever after, so if you have chosen to take it up, I trust you chose slowly." } },
+      choices = {
+        { text = "Slowly, and with my elders' blessing.", next = "BACK", reply = "Then you have done what no Highborne ever did, and asked permission first. Your elders raised you well.", fx = { affinity = 1 } },
+        { text = "Quickly, and against their wishes.", next = "BACK", reply = "Ah. Then you are more like us than you know, and I hope you fare better." },
+      },
+    },
+    m_orc = {
+      lines = { { id = "mo_default", text = "Frighten me? No. I have lived beside a demon in chains for most of an age, and I know the smell of what your warlocks drank, and you do not carry it. That you chose the cleaner art when the other was pressed on your people is a thing your elders should be proud of." } },
+      choices = {
+        { text = "Thank you, archmage. I'll keep it clean.", next = "BACK", reply = "Do. It is a harder thing than it sounds, and you will be tempted, as we all were.", fx = { affinity = 1 } },
+        { text = "My elders don't see it that way.", next = "BACK", reply = "Elders rarely do, in my experience. Give them a century or two." },
       },
     },
     xmage_dal = {

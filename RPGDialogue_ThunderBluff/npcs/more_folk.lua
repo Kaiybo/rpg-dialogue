@@ -5495,7 +5495,31 @@ P:NPC {
         { text = "What do the tauren make of arcane magic?", next = "tauren" },
         { text = "What is the hardest part of teleporting?", next = "hard", when = { class = "MAGE" } },
         { text = "Do you miss Lordaeron?", next = "home", when = { race = "Scourge" } },
+        { text = "Teleport or portal. What's the real difference?", next = "m_diff", when = { class = "MAGE", minLevel = 20 } },
+        { text = "The portal to this bluff comes late. Why?", next = "m_late", when = { class = "MAGE", minLevel = 40 } },
+        { text = "I'm a tauren mage. Teach me my own city's door.", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "I'll leave you to the damp.", next = "END" },
+      },
+    },
+    m_diff = {
+      lines = { { id = "md_default", text = "Whether you mean to inconvenience only yourself, or your friends as well. A teleport carries you and asks only your own forgiveness if it goes awry, while a portal carries whoever trusts you, and they will not be nearly so understanding." } },
+      choices = {
+        { text = "I'll carry whoever asks, and bear the blame.", next = "BACK", reply = "Admirable, and very expensive in runes. I shall watch your career with interest.", fx = { align = { honor = 1 } } },
+        { text = "Their trust is their own affair.", next = "BACK", reply = "It is, until they arrive in the pond on the high rise. Then it becomes mine, and I resent it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_late = {
+      lines = { { id = "ml_default", text = "Because this bluff stands high in a restless wind, and the anchor moves a hair's breadth with every gust. Orgrimmar and the Undercity sit still and can be taught at forty; this rock waits for a steadier hand, and I make no apology for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Then you are the first of your people to learn it from me, and I confess I am curious. You know this bluff from the inside, its lodges and the smell of its cookfires, and I know it only from below, so describe the high rise to me as you would to a child." } },
+      choices = {
+        { text = "Wind, drums, woodsmoke, and the Earth Mother's sky.", next = "BACK", reply = "There. Hold that in your mind exactly as you said it, and you will never miss the anchor.", fx = { affinity = 1 } },
+        { text = "I'd rather learn it your way, by measure.", next = "BACK", reply = "Measure, then: thirty strides from the lodge door, and the wind at your left shoulder. It is less poetic, and it works.", fx = { align = { order = 1 } } },
+        { text = "I'll find it by feel, as my people do.", next = "BACK", reply = "Feel is unreliable, but your people have been finding their way across the plains by it for longer than mine kept records. Very well.", fx = { align = { order = -1 } } },
       },
     },
     portal = {
@@ -5542,7 +5566,7 @@ P:NPC {
       },
     },
     hard = {
-      lines = { { id = "hard_d", text = "Trusting it. The spell asks you to believe entirely that you are already somewhere else, and the living mind clings to where it stands. I find it easier now than I once did, being less attached to places in general." } },
+      lines = { { id = "hard_d", text = "Trusting it, chiefly, because the spell asks you to believe entirely that you are already somewhere else, and the living mind clings to where it stands. I find it easier now than I once did, being less attached to places in general." } },
       choices = {
         { text = "A grim advantage.", next = "BACK", reply = "I have learned to collect those. One has so few of the other kind.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

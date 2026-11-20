@@ -59,7 +59,47 @@ P:NPC {
         { text = "Who is Emissary Jacques?", next = "jacques", when = { any = { { questActive = TODO_QUEST("An Alarming Request") }, { questDone = TODO_QUEST("An Alarming Request") } } } },
         { text = "How do I get into the city?", next = "sewers", when = { questActive = TODO_QUEST("Heart of Disruption") } },
         { text = "What will the council say now?", next = "after", when = { questDone = TODO_QUEST("Heart of Disruption") } },
+        { text = "I'm a mage. Let me help hold the wards.", next = "m_wards", when = { class = "MAGE" } },
+        { text = "I studied in Dalaran. Your council shut me out to die.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A Horde mage at your gate. Does that trouble you?", next = "m_hordemage", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
         { text = "Farewell, Archmage.", next = "END" },
+      },
+    },
+    m_wards = {
+      lines = { { id = "mw_default", text = "Kind, and impossible: the wards are keyed to the Six and their circles, and a stranger's mana would only snag on them like a second thread. What I need from a mage is your eyes, so tell me what you feel from the ley lines here, because those of us inside are too close to judge." } },
+      choices = {
+        { text = "It pulls upward, toward the top of the Citadel.", next = "m_wards2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_wards2 = {
+      big = true,
+      lines = { { id = "mw2_default", text = "Upward. Yes, that matches what the others felt, though none of them would say so aloud. Whatever fell in the parlours is drawing the city's power to itself, and if you go in, mage, keep your own mana close, or it will try to take that too." } },
+      choices = {
+        { text = "Then I'll go in and face it.", next = "BACK", reply = "Good. Go armored, keep a gem in your pocket, and don't let anything in the streets talk you into a duel.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your city's power isn't mine to risk.", next = "BACK", reply = "Fair. It isn't, and I've no right to ask. I'm asking anyway, because nobody else will.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "Yes. We shut the gates while the plague came down the roads, and I stood on the wall while we did it, and I'd stand there again, because the Kirin Tor could not save Lordaeron and could only fail to save itself as well. I won't ask your forgiveness, mage; I'll ask your help, which is harder for us both." } },
+      choices = {
+        { text = "I'll help, for the students inside, not for you.", next = "BACK", reply = "That's more than fair, and more than we gave you. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Let your city burn as mine did.", next = "BACK", reply = "Then go, and I won't blame you for it. But you came to this lake for some reason, and I don't think it was to watch.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_hordemage = {
+      big = true,
+      lines = {
+        { id = "mh_default", text = "It troubles my council a great deal and me only a little. Dalaran never taught any of your people, and you learned anyway, which says something unflattering about our gatekeeping. Help me now, and perhaps one day the gates will remember you." },
+        { id = "mh_orc", when = { race = "Orc" }, text = "It troubles my council a great deal. The last orcs who studied magic seriously opened the Dark Portal, and we've not forgotten, but you're standing at my lake with arcane on your hands and not fel, and that interests me more than it frightens me." },
+      },
+      choices = {
+        { text = "I'll help because it's right, whatever banner I fly.", next = "BACK", reply = "Then you're better than half the Six. Don't tell them I said so.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll help because the Horde profits by it.", next = "BACK", reply = "Honest, at least. The Kirin Tor have done worse things for less honest reasons.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     outbreak = {

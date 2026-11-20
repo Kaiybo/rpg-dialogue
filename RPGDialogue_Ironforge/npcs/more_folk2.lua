@@ -5230,25 +5230,52 @@ P:NPC {
     third = "{name} met Nittlebur Sparkfizzle, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
   },
   greetings = {
-    { id = "g_hi", text = "Yes, yes, come in, and don't stand on the circle. It's chalk, and it took me all morning." },
+    { id = "g_hi", text = "Yes, yes, come in, and don't stand on the circle, because it's chalk, and it took me all morning." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. I was in the middle of a thought about you, or possibly about soup." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A student of the arcane! Good. Tell me the third principle of conjuration, and don't look at your sleeve." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "Your left cuff is singed and your right is frosted, so you've been practising both schools in one day. Admirable, and unwise." },
+      text = "Your left cuff is singed and your right is frosted, so you've been practising both schools in one day, which is admirable and also unwise." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf with an interest in magic! We get one a year, and I always hope it's the start of a trend." },
   },
   start = "hello",
   nodes = {
+    ni_conj = {
+      big = true,
+      lines = { { id = "nic_default", text = "That nothing conjured is truly made, only borrowed and given a shape, and that the shape always remembers it was borrowed. That's why conjured bread tastes of so little, and why a mage who forgets the principle starts believing she can make something out of nothing, which is where a great deal of Dalaran's trouble began." } },
+      choices = {
+        { text = "Then I'll treat every conjuring as a loan.", next = "BACK", reply = "Quite right, and repay it promptly, because the world keeps very good accounts.", fx = { align = { order = 1 } } },
+        { text = "If I can shape it, it's mine. That's enough.", next = "BACK", reply = "That is precisely the sentence I once wrote in the margin of a student's examination, beside the word no.", fx = { align = { order = -1 } } },
+        { text = "And what are the first two principles?", next = "ni_conj2" },
+      },
+    },
+    ni_conj2 = {
+      lines = { { id = "nic2_default", text = "The first is that you must know what the thing is before you conjure it, and the second is that you must want it for a reason. Most students only remember the third, because it's the one with the warning in it." } },
+      choices = { { text = "Something else, Instructor.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    ni_ai = {
+      lines = { { id = "nia_default", text = "Because it makes them cleverer for an hour and they can't manage it themselves, and nothing makes a person kinder to a mage than borrowed cleverness. Cast it on your friends before a fight and on strangers when you can spare it, and you'll find doors opening for you all over Ironforge." } },
+      choices = {
+        { text = "I'll share it freely, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Instructor.", next = "BACK" },
+      },
+    },
+    ni_dwarf = {
+      lines = { { id = "nid_default", text = "Two in a year makes a trend, by my reckoning, so yes, and I'll be writing it up. Dwarves cast the way they build, slowly and with enormous confidence in the foundations, and I've never once had to reassemble a dwarf student's lectern." } },
+      choices = {
+        { text = "We build to last, Instructor.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Instructor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Nittlebur Sparkfizzle, senior instructor. Juli Stormkettle takes the frost students, Bink and Dink take the theory, Milstaff Stormeye does portals, and I oversee the lot and correct the diagrams." },
       },
       again = {
         { id = "h_again", text = "What else? Briefly, I've a class in, oh, some number of minutes." },
-        { id = "h_again2", text = "Yes? Have you seen my spectacles? Never mind, ask." },
+        { id = "h_again2", text = "Yes? Have you seen my spectacles anywhere? Never mind, ask your question." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS" },
@@ -5256,6 +5283,9 @@ P:NPC {
         { text = "What do new mages get wrong?", next = "wrong" },
         { text = "Your spectacles are on your forehead.", next = "specs" },
         { text = "Which school of magic is the hardest?", next = "school" },
+        { text = "What is the third principle of conjuration, then?", next = "ni_conj", when = { class = "MAGE" } },
+        { text = "Everyone asks me for Arcane Intellect. Why?", next = "ni_ai", when = { class = "MAGE" } },
+        { text = "Another dwarf mage, Instructor. Are we a trend yet?", next = "ni_dwarf", when = { race = "Dwarf", class = "MAGE" } },
         { text = "Good day, Instructor.", next = "END" },
       },
     },
@@ -5271,7 +5301,7 @@ P:NPC {
       choices = { { text = "An accident that improved the furniture.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     wrong = {
-      lines = { { id = "wr_default", text = "They reach for power before precision. A fireball the size of a cart is very easy and very stupid. I make them light one candle, at twenty paces, without warming the wick beside it, and most of them hate me for a month." } },
+      lines = { { id = "wr_default", text = "They reach for power before precision, and a fireball the size of a cart is very easy and very stupid. I make them light one candle, at twenty paces, without warming the wick beside it, and most of them hate me for a month." } },
       choices = {
         { text = "Is power ever the right answer?", next = "wrong_power" },
         { text = "Something else.", next = "BACK" },
@@ -5279,26 +5309,26 @@ P:NPC {
     },
     wrong_power = {
       big = true,
-      lines = { { id = "wp_default", text = "That is the question that sank Dalaran, some would say. The Kirin Tor believed any knowledge was worth having. I teach restraint, and the young ones tell me restraint did not save Gnomeregan either." } },
+      lines = { { id = "wp_default", text = "That is the question that sank Dalaran, some would say, because the Kirin Tor believed any knowledge was worth having. I teach restraint, and the young ones tell me restraint did not save Gnomeregan either." } },
       choices = {
         { text = "Teach restraint. Power without it is a disaster.", next = "BACK", reply = "Quite so. I shall quote you in the next lecture, without attribution.", fx = { align = { order = 1 } } },
-        { text = "They've a point. We'll need every spell we can get.", next = "BACK", reply = "Hm. Yes. I lie awake over that, on occasion.", fx = { align = { order = -1 } } },
+        { text = "They've a point. We'll need every spell we can get.", next = "BACK", reply = "Hm, yes, and I lie awake over that on occasion, I'll admit.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     specs = {
-      lines = { { id = "sp_default", text = "Are they? So they are. Thank you. I enchanted them once to chime when lost, and they chimed continuously for a week, so I took it off again." } },
+      lines = { { id = "sp_default", text = "Are they? So they are, and thank you. I enchanted them once to chime when lost, and they chimed continuously for a week, so I took the enchantment off again." } },
       choices = { { text = "A sensible retreat.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     school = {
-      lines = { { id = "x1_default", text = "Arcane, without question. Fire and frost are only borrowed from the world, and the world lends freely. The arcane is the thing itself, and it resents being handled. I have taught it sixty years and I still wear gloves." } },
+      lines = { { id = "x1_default", text = "Arcane, without question, because fire and frost are only borrowed from the world, and the world lends freely. The arcane is the thing itself and it resents being handled, and I have taught it sixty years and still wear gloves." } },
       choices = {
         { text = "Gloves help?", next = "school_gloves" },
         { text = "Something else.", next = "BACK" },
       },
     },
     school_gloves = {
-      lines = { { id = "x2_default", text = "Not in the least. But they remind me to be careful, and a reminder is worth more than a ward. I recommend them to every student, and Bink is the only one who listens." } },
+      lines = { { id = "x2_default", text = "Not in the least, but they remind me to be careful, and a reminder is worth more than a ward. I recommend them to every student, and Bink is the only one who listens." } },
       choices = { { text = "A reminder you can wear.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
@@ -5324,25 +5354,60 @@ P:NPC {
     third = "{name} met Juli Stormkettle, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
   },
   greetings = {
-    { id = "g_hi", text = "Hello. If you've come to hear a lecture, Nittlebur is over there. If you've come to learn something you'll use, stay." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back and unburnt. So you listened, or you were lucky, and I don't mind which." },
+    { id = "g_hi", text = "Hello. If you've come to hear a lecture, Nittlebur is over there, and if you've come to learn something you'll actually use, stay." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back and unburnt, so either you listened or you were lucky, and I don't much mind which." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage. Right, show me a frost nova, and then tell me which way you'd run after it." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Your robe's in ribbons. Things have been getting close enough to hit you, and that's the problem we'll fix." },
+      text = "Your robe's in ribbons, which means things have been getting close enough to hit you, and that's the problem we'll fix first." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
-      text = "You stand too still when you cast. A mage is a target with a book, so keep your feet moving." },
+      text = "You stand too still when you cast, and a mage standing still is only a target with a book, so keep your feet moving." },
   },
   start = "hello",
   nodes = {
+    ju_blink = {
+      big = true,
+      lines = { { id = "jub_default", text = "Nova, then Blink, then turn round and see what you've bought yourself, and that's the whole of a mage's survival in one breath. Most students Blink first because they're frightened, and then they're frightened somewhere else with a trogg still running at them." } },
+      choices = {
+        { text = "Freeze first, then move. I'll drill it.", next = "BACK", reply = "Good, drill it until your feet do it without asking you. I'll know when they do.", fx = { align = { order = 1 } } },
+        { text = "Sometimes running first is the smarter choice.", next = "BACK", reply = "Sometimes it is, and you'll know those times when you see them, but most of the times you think it is, it isn't.", fx = { align = { order = -1 } } },
+        { text = "Something else, Juli.", next = "BACK" },
+      },
+    },
+    ju_armor = {
+      lines = {
+        { id = "jua_default", text = "Good, then you'll stop flinching when something does reach you, because it'll be sorry it tried. Don't let it make you careless, though, because ice armour cracks, and a mage who trusts it too far learns that on the worst possible day." },
+        { id = "jua_worn", when = { aura = { 7302, 7320, 10219, 10220 } }, text = "So I see, and it's well cast, with no gaps at the shoulders, which is where everyone leaves them. Don't let it make you careless, though, because ice armour cracks, and a mage who trusts it too far learns that on the worst possible day." },
+      },
+      choices = {
+        { text = "I'll keep my feet moving anyway.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Juli.", next = "BACK" },
+      },
+    },
+    ju_stair = {
+      big = true,
+      lines = { { id = "jus_default", text = "I can't, because a stairwell isn't a lesson, it's an accident you happen to survive. What I can teach you is to know the moment you've bought everyone else enough time, and to leave then and not one second later, because a dead mage holds nothing." } },
+      choices = {
+        { text = "I'd stay, if staying saved more of them.", next = "BACK", reply = "So would I, once, and I'm telling you it's the wrong lesson. I hope you never have to find out which of us was right.", fx = { align = { honor = 1 } } },
+        { text = "Then I'll leave when it's done, and live.", next = "BACK", reply = "Good, and don't let anyone call you a coward for it. Live mages hold the next stairwell.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Juli.", next = "BACK" },
+      },
+    },
+    ju_human = {
+      lines = { { id = "juh_default", text = "That's because Stormwind's never had troggs come up through the floor. I'm told the Sanctum teaches you to stand and cast like a statue in a nice robe, so forget that part of it and run a mile for me." } },
+      choices = {
+        { text = "Up the ramp and back, then?", next = "BACK", reply = "Up the ramp and back, and don't stop at the gates to admire the view." },
+        { text = "Something else, Juli.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Juli Stormkettle. I teach mages how to stay alive, which the Academy never bothered with, because nothing was supposed to get into the Academy. I was there when the troggs came up through the floor, and I've taught differently ever since." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it useful." },
-        { id = "h_again2", text = "Yes? Go on." },
+        { id = "h_again", text = "What else? Make it something useful, if you can." },
+        { id = "h_again2", text = "Yes? Go on, I'm listening." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS" },
@@ -5350,15 +5415,19 @@ P:NPC {
         { text = "You were there when Gnomeregan fell.", next = "fell" },
         { text = "What do you make of Nittlebur's lectures?", next = "nittlebur" },
         { text = "What should a mage carry besides spells?", next = "carry" },
+        { text = "Frost Nova, then Blink. Is that the right order?", next = "ju_blink", when = { class = "MAGE", minLevel = 20 } },
+        { text = "I've learned to wear Ice Armor.", next = "ju_armor", when = { class = "MAGE", minLevel = 30 } },
+        { text = "Teach me to hold a line the way you held that stairwell.", next = "ju_stair", when = { class = "MAGE", minLevel = 30 } },
+        { text = "Stormwind's mages never taught me to run.", next = "ju_human", when = { race = "Human", class = "MAGE" } },
         { text = "Goodbye, Juli.", next = "END" },
       },
     },
     frost = {
-      lines = { { id = "fr_default", text = "Because fire kills things and frost stops them, and a beginner needs the second far more. Freeze a trogg's feet to the floor and you've bought five seconds to remember what you were taught. Nobody remembers anything with teeth in their leg." } },
+      lines = { { id = "fr_default", text = "Because fire kills things and frost stops them, and a beginner needs the second far more. Freeze a trogg's feet to the floor and you've bought five seconds to remember what you were taught, because nobody remembers anything with teeth in their leg." } },
       choices = { { text = "Five seconds can be a lifetime.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     fell = {
-      lines = { { id = "fe_default", text = "I held a stairwell on the fifth level with two students and a wall of ice, while the lifts ran. We got four hundred up before the radiation came. I've done the sums on how many more a better mage would have managed, and I've stopped doing them." } },
+      lines = { { id = "fe_default", text = "I held a stairwell on the fifth level with two students and a wall of ice while the lifts ran, and we got four hundred up before the radiation came. I've done the sums on how many more a better mage would have managed, and I've stopped doing them." } },
       choices = {
         { text = "Four hundred is no small number.", next = "fell_number" },
         { text = "Something else.", next = "BACK" },
@@ -5381,27 +5450,27 @@ P:NPC {
       },
     },
     nittlebur_respect = {
-      lines = { { id = "nr_default", text = "Enormously. He rewrote four textbooks from memory in a refugee tent. I also hide his spectacles when he's being unbearable, so it evens out." } },
+      lines = { { id = "nr_default", text = "Enormously, because he rewrote four textbooks from memory in a refugee tent. I also hide his spectacles when he's being unbearable, so it evens out." } },
       choices = { { text = "That explains the spectacles.", next = "BACK", reply = "Some of the time. He manages the rest on his own.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     carry = {
-      lines = { { id = "x1_default", text = "Water, a knife and good boots. Mana runs out, and when it does you're a small person in a dress, a long way from help. I make my students run a mile in their robes before I'll pass them." } },
+      lines = { { id = "x1_default", text = "Water, a knife and good boots, because mana runs out, and when it does you're a small person in a dress a long way from help. I make my students run a mile in their robes before I'll pass them." } },
       choices = {
         { text = "A mile, in robes?", next = "carry_mile" },
         { text = "Something else.", next = "BACK" },
       },
     },
     carry_mile = {
-      lines = { { id = "x2_default", text = "Up the ramp to the gates and back. Nittlebur called it undignified until one of his own students outran a bear in the Wetlands. He hasn't mentioned it since." } },
+      lines = { { id = "x2_default", text = "Up the ramp to the gates and back again. Nittlebur called it undignified until one of his own students outran a bear in the Wetlands, and he hasn't mentioned it since." } },
       choices = { { text = "The bear settled the argument.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    hall_of_mysteries = { { id = "tp_hall", text = "Stone walls, one door and priests on hand. It's the most defensible classroom I've ever had, and I checked." } },
+    hall_of_mysteries = { { id = "tp_hall", text = "Stone walls, one door and priests on hand make it the most defensible classroom I've ever had, and I checked." } },
     gnomeregan = { { id = "tp_gnomer", text = "We'll go back. When we do, I want every mage I've trained walking in front, and walking out again after." } },
-    dink = { { id = "tp_dink", text = "Dink builds things that make magic behave. If he ever opens a shop, I'll be first in the queue." } },
-    background = { { id = "tp_bg", text = "I was a junior instructor at the Academy. I'm a senior one now, by subtraction." } },
-    _none = { { id = "tp_none", text = "I don't know. I only teach what I've tested." } },
+    dink = { { id = "tp_dink", text = "Dink builds things that make magic behave, and if he ever opens a shop, I'll be first in the queue." } },
+    background = { { id = "tp_bg", text = "I was a junior instructor at the Academy, and I'm a senior one now, by subtraction." } },
+    _none = { { id = "tp_none", text = "I don't know, and I only teach what I've tested." } },
   },
 }
 
@@ -5418,9 +5487,9 @@ P:NPC {
     third = "{name} met Dink, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
   },
   greetings = {
-    { id = "g_hi", text = "Hello! Don't touch the brass one, it's holding a charge. Actually, don't touch any of them." },
-    { id = "g_back", when = { metBefore = true }, text = "You again! Good, hold this for a moment. No, the other end. Thank you." },
-    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Excellent. Cast something small at this dial, would you? I want to see how far the needle goes." },
+    { id = "g_hi", text = "Hello! Don't touch the brass one, because it's holding a charge, and actually, please don't touch any of them." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good, hold this for a moment, no, the other end, and thank you." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage, excellent! Cast something small at this dial, would you, because I want to see how far the needle goes." },
   },
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
@@ -5430,12 +5499,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    dk_theory = {
+      lines = { { id = "dkt_default", text = "In plain terms, there's power lying about everywhere, and a spell is a set of instructions for where it should go and what shape it should take. The words and gestures are the instructions, and your will is the hand that pushes." } },
+      choices = {
+        { text = "And when the instructions are wrong?", next = "dk_wrong" },
+        { text = "Something else, Dink.", next = "BACK" },
+      },
+    },
+    dk_wrong = {
+      lines = { { id = "dkw_default", text = "Then the power still goes somewhere, which is the part students forget. Usually it's a fizzle and a smell of singed hair, but I once saw a misplaced syllable turn a perfectly good lectern into a sheep for an hour." } },
+      choices = {
+        { text = "What became of the lectern?", next = "dk_lectern" },
+        { text = "Something else, Dink.", next = "BACK" },
+      },
+    },
+    dk_lectern = {
+      lines = { { id = "dkl_default", text = "It turned back with every book still on it, though one of the priests had fed it an apple in the meantime. It's that very one by the pillar, and I maintain it's been slightly warmer to the touch ever since." } },
+      choices = { { text = "I'll not lean on it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    dk_missiles = {
+      big = true,
+      lines = { { id = "dkm_default", text = "Stand on the chalk mark and fire at the dial, would you? Splendid, five bolts, and the fourth wandered left, which it always does, because you were thinking about the fifth before the fourth had gone, and Bink says that's a flaw of character while I say it's a flaw of timing." } },
+      choices = {
+        { text = "Timing, then. I'll fix it with practice.", next = "BACK", reply = "Excellent! Come back in a week and we'll see whether the needle agrees with you.", fx = { align = { order = 1 } } },
+        { text = "Character, then. I'll trust my instincts.", next = "BACK", reply = "Then Bink wins this round, and I'll never hear the end of it. Off you go.", fx = { align = { order = -1 } } },
+        { text = "Something else, Dink.", next = "BACK" },
+      },
+    },
+    dk_poly = {
+      lines = { { id = "dkp_default", text = "Oh, beautifully! The needle swings right round and sits there humming, and then it drops back the very moment the sheep remembers what it was, so I've a theory that a polymorphed creature is the most magical object in Ironforge for as long as it lasts, and nobody will let me prove it on a priest." } },
+      choices = {
+        { text = "Please don't polymorph a priest, Dink.", next = "BACK", reply = "I wouldn't dream of it, though I'd very much like a volunteer." },
+        { text = "Something else, Dink.", next = "BACK" },
+      },
+    },
+    dk_next = {
+      lines = { { id = "dkn_default", text = "To Stormwind, once you've a few spells firmly in hand. Jennea Cannon keeps the Wizard's Sanctum there, and she sets young mages tasks that teach more than I ever could from a lectern, though don't tell Bink I said so." } },
+      choices = { { text = "I'll seek her out. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dink, and that's my sister Bink, and yes, we've heard every joke, including the one you're thinking of. She teaches why a spell works, and I teach how to make it work the same way twice." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm only calibrating." },
+        { id = "h_again", text = "What else? Go ahead, I'm only calibrating." },
         { id = "h_again2", text = "Yes? Mind the wire by your foot." },
       },
       choices = {
@@ -5444,6 +5551,10 @@ P:NPC {
         { text = "What's it like, teaching beside your sister?", next = "bink" },
         { text = "The priests seem to tolerate you well.", next = "priests" },
         { text = "What's the best thing you've built here?", next = "built" },
+        { text = "How does a spell work, in plain terms?", next = "dk_theory" },
+        { text = "Measure my Arcane Missiles, would you?", next = "dk_missiles", when = { class = "MAGE", minLevel = 8 } },
+        { text = "Can your devices see a Polymorph?", next = "dk_poly", when = { class = "MAGE", minLevel = 8 } },
+        { text = "Where should a young mage go next, Dink?", next = "dk_next", when = { class = "MAGE", maxLevel = 25 } },
         { text = "Goodbye, Dink.", next = "END" },
       },
     },
@@ -5464,37 +5575,37 @@ P:NPC {
       },
     },
     bink = {
-      lines = { { id = "bi_default", text = "Wonderful and maddening. She finishes my sentences, usually with a correction. We haven't been more than a room apart since we shared a cradle, and we got out of Gnomeregan holding hands, I'm not ashamed to say." } },
+      lines = { { id = "bi_default", text = "Wonderful and maddening, because she finishes my sentences, usually with a correction. We haven't been more than a room apart since we shared a cradle, and we got out of Gnomeregan holding hands, I'm not ashamed to say." } },
       choices = { { text = "She's lucky to have you, and you her.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     priests = {
-      lines = { { id = "pr_default", text = "We've an arrangement. They heal our burns and we keep their lamps lit with a cantrip. I also built them a pew with a hinged seat, after an incident, and it's become rather popular." } },
+      lines = { { id = "pr_default", text = "We've an arrangement, where they heal our burns and we keep their lamps lit with a cantrip. I also built them a pew with a hinged seat, after an incident, and it's become rather popular." } },
       choices = {
         { text = "What sort of incident?", next = "priests_incident" },
         { text = "Something else.", next = "BACK" },
       },
     },
     priests_incident = {
-      lines = { { id = "pi_default", text = "A student, a sneeze and a fire spell. Nobody was sitting on it at the time. Theodrus Frostbeard put it out with a bucket of holy water, which I measured afterwards, and it's exactly as wet as the ordinary sort." } },
-      choices = { { text = "You measured the holy water.", next = "BACK", reply = "Of course! He was quite cross. I've been asked not to publish.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+      lines = { { id = "pi_default", text = "A student, a sneeze and a fire spell, though nobody was sitting on it at the time. Theodrus Frostbeard put it out with a bucket of holy water, which I measured afterwards, and it's exactly as wet as the ordinary sort." } },
+      choices = { { text = "You measured the holy water.", next = "BACK", reply = "Of course I did, and he was quite cross about it, so I've been asked not to publish.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     built = {
-      lines = { { id = "x1_default", text = "A lamp for the Hall that brightens when someone starts casting carelessly. The priests thought it was a miracle for a week. It's a coil, a crystal and a very small bell." } },
+      lines = { { id = "x1_default", text = "A lamp for the Hall that brightens when someone starts casting carelessly, and the priests thought it was a miracle for a week. It's really a coil, a crystal and a very small bell." } },
       choices = {
         { text = "Does it work on the teachers?", next = "built_teachers" },
         { text = "Something else.", next = "BACK" },
       },
     },
     built_teachers = {
-      lines = { { id = "x2_default", text = "It goes off for Nittlebur about twice a day, and he's asked me to move it. I've told him the mounting is permanent. It isn't." } },
+      lines = { { id = "x2_default", text = "It goes off for Nittlebur about twice a day, and he's asked me to move it, so I've told him the mounting is permanent, which it isn't." } },
       choices = { { text = "I won't tell him.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
     bink = { { id = "tp_bink", text = "My sister, and the cleverer of us on paper. I'm the cleverer with a screwdriver, and we've agreed that's a draw." } },
-    hall_of_mysteries = { { id = "tp_hall", text = "Good solid stone, which is ideal. It hardly scorches at all." } },
+    hall_of_mysteries = { { id = "tp_hall", text = "Good solid stone, which is ideal, because it hardly scorches at all." } },
     gnomeregan = { { id = "tp_gnomer", text = "My workshop was on the fourth level. I've a list of what I'd save first, and I revise it most evenings." } },
-    background = { { id = "tp_bg", text = "I built demonstration pieces for the Academy. Now I build them for whoever will stand still." } },
+    background = { { id = "tp_bg", text = "I built demonstration pieces for the Academy, and now I build them for whoever will stand still." } },
     _none = { { id = "tp_none", text = "No idea! I haven't a gauge for that one." } },
   },
 }

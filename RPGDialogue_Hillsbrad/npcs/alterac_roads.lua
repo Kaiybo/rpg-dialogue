@@ -315,7 +315,7 @@ P:NPC {
     },
     opn_kirintor_r = {
       lines = {
-        { id = "opn_kirintor_r_default", text = "It will, eventually, at length, and in committee." },
+        { id = "opn_kirintor_r_default", text = "It will, eventually, at great length and in committee." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },
@@ -467,6 +467,10 @@ P:NPC {
         { text = "Why was the city sealed so long?", next = "dome" },
         { text = "Someone must want Dalaran to stay broken.", next = "enemies" },
         { text = "I studied magic once. Does the Kirin Tor still teach?", next = "teach", when = { class = "MAGE" } },
+        { text = "I'm a Forsaken mage. You know what Dalaran did to us.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A Horde mage at your gate. Will you hear me?", next = "m_horde", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
+        { text = "What should a mage learn that trainers don't teach?", next = "m_lesson", when = { class = "MAGE", minLevel = 30 } },
+        { text = "Could I open a portal to Dalaran one day?", next = "m_portal", when = { class = "MAGE", minLevel = 40 } },
         { text = "Has anyone tried to sneak into the vaults, Archmage?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "They say Kel'Thuzad was one of the Kirin Tor, Archmage.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Were the Kirin Tor's dead given proper rites, Archmage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -479,6 +483,43 @@ P:NPC {
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the wards have none." } },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "I do, and I sealed the eastern gate with my own hands, so you needn't tell me. We could not save Lordaeron and we dared not let the plague inside, and every mage who died outside these walls is a name I can recite, though I doubt you'll find much comfort in that." } },
+      choices = {
+        { text = "I don't forgive it, but I understand it.", next = "BACK", reply = "That's more than I'd have offered in your place. Thank you, and keep your distance all the same.", fx = { align = { light = 1 } } },
+        { text = "Then recite mine, when we meet in battle.", next = "BACK", reply = "If it comes to that, I will, and I'll say it properly. I hope it doesn't.", fx = { align = { light = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    m_horde = {
+      big = true,
+      lines = {
+        { id = "mh_default", text = "I'll hear you from that side of the barrier, and I'll confess to some curiosity. The Kirin Tor never taught a troll or a tauren a single spell, and yet here you stand with the arcane on you, which means somebody did, or you taught yourselves." },
+        { id = "mh_orc", when = { race = "Orc" }, text = "I'll hear you, though I need a moment. The last orcs I saw casting were Gul'dan's warlocks burning the Hillsbrad fields, and you're standing at my gate with clean arcane on your hands, which rearranges a great many of my expectations." },
+      },
+      choices = {
+        { text = "We taught ourselves, and we're as good as yours.", next = "BACK", reply = "Some of you may be, and that frightens the council more than any army would.", fx = { align = { order = -1 } } },
+        { text = "Teach us properly, and the Horde would honor it.", next = "BACK", reply = "Not this century, I'm afraid. But I'll write it down, because someone ought to.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    m_lesson = {
+      big = true,
+      lines = { { id = "ml_default", text = "That every spell is a debt to the world, and the world keeps very good accounts. Kel'Thuzad believed he could borrow forever and Arugal believed he could pay later, and both of them are proof that the interest always comes due." } },
+      choices = {
+        { text = "Then I'll borrow little and pay promptly.", next = "BACK", reply = "You'd have made a fine student here. That's the whole of the first year, in one sentence.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power taken is power owned. I'll risk the debt.", next = "BACK", reply = "Kel'Thuzad said something very like that at a council dinner, and we all laughed. We don't laugh now.", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    m_portal = {
+      lines = {
+        { id = "mp_default", text = "One day, perhaps, when the city stands whole and the council trusts its neighbours, which is two conditions too many for this decade. For now Dalaran's arrival mark is warded against every door but our own, and I'd advise you not to test it unless you'd enjoy arriving in Lordamere Lake." },
+        { id = "mp_horde", when = { faction = "Horde" }, text = "Not while I keep this gate. Dalaran's arrival mark is warded against every door but our own, and against Horde doors most of all, so if you try it you'll arrive in Lordamere Lake, and I'll not send a boat." },
+      },
+      choices = { { text = "Something else, Archmage.", next = "BACK" } },
     },
     dome = {
       lines = {

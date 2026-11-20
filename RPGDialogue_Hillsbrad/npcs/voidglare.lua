@@ -61,7 +61,39 @@ P:NPC {
         { text = "Your notes look like serious research, Magus.", next = "research" },
         { text = "What will you do with the arcane mote?", next = "mote", when = { questDone = TODO_QUEST("Heart of Disruption") } },
         { text = "I studied in Dalaran, once.", next = "apprentice", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "Tell me how the Kirin Tor bind their elementals.", next = "m_binding", when = { class = "MAGE", faction = "Horde" } },
+        { text = "I'm a Forsaken mage too. Dalaran owes us both.", next = "m_kin", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A living Horde mage. Do I meet your standards?", next = "m_living", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
         { text = "Good day, Magus.", next = "END" },
+      },
+    },
+    m_binding = {
+      big = true,
+      lines = { { id = "mb_default", text = "Not how, for I'm still learning that myself, and I don't hand out half a theory. But here is what I've found: they don't command the elemental at all, they persuade it that the bracer is its own body, and it obeys the bracer as you obey your own hand. Elegant and monstrous, and I'd give a great deal to have thought of it first." } },
+      choices = {
+        { text = "Monstrous. Some secrets should stay with them.", next = "BACK", reply = "Spoken like a priest. I'll take your squeamishness under advisement and ignore it entirely.", fx = { align = { light = 1 } } },
+        { text = "Elegant. I want to learn it too.", next = "BACK", reply = "Then fetch me more bracers, and we'll learn it together, though I'll be taking the credit.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    m_kin = {
+      big = true,
+      lines = { { id = "mk_default", text = "Owes us? Dalaran owes us everything and will pay nothing unless we take it. You'll find the Undercity's mages split three ways on the matter: those who want revenge, those who want the library, and a few soft ones in Thunder Bluff who want to be forgiven, so which are you?" } },
+      choices = {
+        { text = "Revenge. They shut the gates on us.", next = "BACK", reply = "Satisfying and short-lived. You'll want the library afterwards, believe me.", fx = { align = { light = -1 } } },
+        { text = "Forgiveness. Hate wastes a second life.", next = "BACK", reply = "How very Thunder Bluff of you. I'll pretend I didn't hear it.", fx = { align = { light = 1 } } },
+        { text = "The library, of course.", next = "BACK", reply = "Correct. The only sensible answer, and the rarest one.", fx = { affinity = 1 } },
+      },
+    },
+    m_living = {
+      lines = {
+        { id = "ml_default", text = "You meet my standards by being here instead of somewhere more comfortable, which is all I ask. The Kirin Tor would never have let you past their front steps, and I find that a very good reason to teach you anything they wouldn't." },
+        { id = "ml_orc", when = { race = "Orc" }, text = "An orc studying the arcane properly, with no demon whispering the answers. The Kirin Tor swore it couldn't be done, which makes you my favourite argument." },
+      },
+      choices = {
+        { text = "I'll prove them wrong, then.", next = "BACK", reply = "Do. Loudly, and preferably where they can hear it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need your standards, Magus.", next = "BACK", reply = "No one needs them. That's why they're standards and not rules.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -157,14 +189,14 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know a library's worth about magic and somewhat less about people, which suits me. Ask." } },
-    background = { { id = "tp_bg", text = "A magus of the Undercity, sent to Tarren Mill to study. I study, among other things." } },
+    knows = { { id = "tp_knows", text = "I know a library's worth about magic and somewhat less about people, which suits me, so ask." } },
+    background = { { id = "tp_bg", text = "I'm a magus of the Undercity, sent to Tarren Mill to study, and I study, among other things." } },
     advice = { { id = "tp_ad", text = "Never trust a wizard's door that's left unlocked. It's either a trap or a joke, and both are at your expense." } },
-    alterac = { { id = "tp_alterac", text = "Ogres in the ruins, Syndicate in the hills and wizards in the crater. Alterac has always been a crowded place to die." } },
+    alterac = { { id = "tp_alterac", text = "There are ogres in the ruins, Syndicate in the hills and wizards in the crater, and Alterac has always been a crowded place to die." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran shut its gates on me, and I'll find a way in, and when I do, I'll show them what a real mage can do. I'm brilliant, and they know it, and that's why they fear me." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are better than me, I'll admit that, but only because they've had longer to practice. Give me a century and I'll outshine them all." } },
     forsaken = { { id = "tp_forsaken", text = "The Dark Lady lets her Forsaken study in peace, which is more than the Kirin Tor ever allowed me while I breathed. I'm grateful, in my way, and my way is a brilliant one." } },
-    _none = { { id = "tp_none", text = "Beneath my notice, I'm afraid. Bel'varil may know, for he notices everything I don't." } },
+    _none = { { id = "tp_none", text = "That's beneath my notice, I'm afraid, but Bel'varil may know, for he notices everything I don't." } },
   },
 }
 

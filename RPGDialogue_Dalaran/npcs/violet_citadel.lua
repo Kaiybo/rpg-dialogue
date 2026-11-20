@@ -134,7 +134,26 @@ P:NPC {
         { text = "Isn't so much magic in one place dangerous?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Are there other gnomes in the Kirin Tor?", next = "xgnome", when = { race = "Gnome" } },
         { text = "My masters in Stormwind studied here. They never let me forget it.", next = "xorig_mq", when = { origin = "human_mage_quarter" } },
+        { text = "I studied here once, before the plague took me.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
+        { text = "A Horde mage in the Citadel. What do your apprentices think?", next = "m_hordemage", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll leave you to your wards.", next = "END" },
+      },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "Then you know these halls better than half my apprentices, and you'll know which of them weren't rebuilt. I won't apologize for the gates, but I've walked past your old desk, or one very like it, every day since, and thought of whoever sat there." } },
+      choices = {
+        { text = "Then remember us. That's all I'd ask.", next = "BACK", reply = "I do, and I will. The council would rather I didn't say so aloud, so I'm saying it to you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your remembering is worth nothing to the dead.", next = "BACK", reply = "Perhaps not. It's all I have to give, and I'll go on giving it whether you take it or not.", fx = { align = { light = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    m_hordemage = {
+      lines = { { id = "mh_default", text = "They stare, mostly, because none of them has ever seen an orc or a troll or a tauren hold a spell properly, and two of them asked me whether it was a trick. I told them it wasn't, and that they'd better study harder, because your people taught themselves what we charged a fortune to teach." } },
+      choices = {
+        { text = "Let them stare. I'll give them something to see.", next = "BACK", reply = "Within the paths I've opened, please. The wards don't share my sense of humour.", fx = { align = { order = -1 } } },
+        { text = "Tell them the Horde would trade knowledge fairly.", next = "BACK", reply = "I'll tell them, and the council will hear of it by supper, and I'll enjoy that more than I should.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
       },
     },
     xorig_mq = {
@@ -570,7 +589,25 @@ P:NPC {
         { text = "Can you teach me anything, Archmage?", next = "xmage", when = { class = "MAGE" } },
         { text = "The Horde means you no harm, Archmage.", next = "xhorde", when = { faction = "Horde" } },
         { text = "When will the High Order see your libraries?", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "Let me hold the circle while you rest.", next = "m_circle", when = { class = "MAGE", minLevel = 50 } },
+        { text = "I'm Forsaken. I once drew circles in this Citadel.", next = "m_forsaken", when = { class = "MAGE", race = "Scourge" } },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    m_circle = {
+      lines = { { id = "mc_default", text = "Kind, and no. A circle knows the hand that drew it, and if I gave it to you it would think I'd died and come apart in grief, which is a very poetic way of saying it would explode. Stand there and tell me if the light on the eastern rune flickers; that much, you can do." } },
+      choices = {
+        { text = "It flickers. Just once.", next = "BACK", reply = "Once is fine. Twice, and we leave the room together, quickly.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_forsaken = {
+      big = true,
+      lines = { { id = "mf_default", text = "Then you'll know we draw them clockwise, and you'll know why. I'm sorry, if that's worth anything from someone who never left; I was inside these walls when the gates shut, and I've never had to learn what it was like on the other side." } },
+      choices = {
+        { text = "You couldn't have known. I don't blame you.", next = "BACK", reply = "That's more generous than I'd manage. Thank you, and mind the eastern rune.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You never asked. That's the crime.", next = "BACK", reply = "No, we didn't. I'll carry that, and keep drawing my circles.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -780,8 +817,16 @@ P:NPC {
         { text = "Who decides where your stores go?", next = "ledger" },
         { text = "Have you any robes fit for a magus?", next = "xmage", when = { class = "MAGE" } },
         { text = "You'll trade with the Horde, then?", next = "xhorde", when = { faction = "Horde" } },
+        { text = "Do you stock runes for a mage of the Horde?", next = "m_runes", when = { class = "MAGE", faction = "Horde" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Good day, Archmage.", next = "END" },
+      },
+    },
+    m_runes = {
+      lines = { { id = "mr_default", text = "I stock them, and I'm instructed to sell only to friends of the Kirin Tor, and I'm also instructed not to ask too many questions of anyone Archmage Modera let in through the sewers. Between those two orders I find I can sell you a rune, though I'll write 'visitor' in the ledger." } },
+      choices = {
+        { text = "'Visitor' will do nicely.", next = "BACK", reply = "Good. The ledger is full of visitors this season, and none of them wear the same colours.", fx = { affinity = 1 } },
+        { text = "Write my name. I'm not ashamed of it.", next = "BACK", reply = "Then I'll write it, and the council will read it, and you may have made my week rather interesting." },
       },
     },
     thin = {

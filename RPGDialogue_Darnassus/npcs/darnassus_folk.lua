@@ -410,8 +410,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hello", text = "Oh, hello. Speak quietly, the priestesses frown at anything louder than a prayer." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Still in one piece, I see, which is a good start for anyone studying portals." },
+    { id = "g_hello", text = "Oh, hello, and do speak quietly, because the priestesses frown at anything louder than a prayer." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see, which is a good start for anyone studying portals." },
   },
 
   notice = {
@@ -423,6 +423,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ed_anchor = {
+      big = true,
+      lines = { { id = "eda_default", text = "Under the tree, near the Temple, in a circle the priestesses agreed to only after I promised it would never be used during prayer, which in this city is most of the time. I'd ask you to keep that promise too, because it was very hard to win and would be very easy to lose." } },
+      choices = {
+        { text = "I'll keep it, Elissa. Their trust matters.", next = "BACK", reply = "Thank you. I'll tell the sisters a mage gave me her word, or his, and they'll pretend not to be pleased.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Their rules seem foolish for a doorway.", next = "BACK", reply = "They do, until you remember that a doorway is how the Legion came in last time.", fx = { align = { honor = -1 } } },
+        { text = "How did you win their agreement?", next = "ed_anchor2" },
+      },
+    },
+    ed_anchor2 = {
+      lines = { { id = "eda2_default", text = "Three winters of tea with the priestesses, and one very long evening explaining that a portal folds this world onto itself and calls nothing in from outside it. I think it was the tea that did it in the end." } },
+      choices = { { text = "Something else, Elissa.", next = "BACK" } },
+    },
+    ed_nelf = {
+      big = true,
+      lines = { { id = "edn_default", text = "They watch you more, I'm afraid, because a human mage is a guest who doesn't know any better, and a kaldorei mage is a child of the city who should. I've seen how the sisters look at the few of you who come to me, and I'd ask you to be braver than I've ever had to be." } },
+      choices = {
+        { text = "I'll show them the arcane can be kept gently.", next = "BACK", reply = "Then you'll do more for mages in this city than I have in all my years here.", fx = { align = { order = 1 } } },
+        { text = "Let them watch. I won't hide what I am.", next = "BACK", reply = "Good, though hide it a little during prayers, for my sake if not for theirs.", fx = { align = { order = -1 } } },
+        { text = "Something else, Elissa.", next = "BACK" },
+      },
+    },
+    ed_gnome = {
+      lines = { { id = "edg_default", text = "Mind them? They're fascinated, in a frightened sort of way, because a gnome mage looks to them like a child holding a lit lamp in a hayloft. Keep your sleeves tidy and your voice low, and you'll find them kinder than they look." } },
+      choices = { { text = "Something else, Elissa.", next = "BACK" } },
+    },
+    ed_dumas = {
+      lines = { { id = "edd_default", text = "Everyone asks, and the honest answer is that Dumas is a common enough name in Stormwind. He did once write to me, though, to say I should be wary of magic, which I've decided to take as family feeling." } },
+      choices = { { text = "Something else, Elissa.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    ed_nonmage = {
+      lines = { { id = "ednm_default", text = "I could, and I'm afraid I'm not allowed to, because every portal I open here is counted by the Temple. If you've silver for the fare, though, the boat from Auberdine sails to Menethil, and the sea air is very good for you, or so everyone tells me who's never been seasick." } },
+      choices = { { text = "Something else, Elissa.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -434,8 +468,8 @@ P:NPC {
           text = "A mage, and seasoned enough. Portals are a matter of precision, so if your mind wanders while you cast, you'll end up somewhere you'd rather not." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "Ask, quietly." },
+        { id = "h_again", text = "Is there anything else? Ask it quietly, if you would." },
+        { id = "h_again2", text = "Ask, but softly, because the sisters have very good ears." },
         { id = "h_again3", text = "Go on; I don't get many visitors who want to talk about anything but the moon." },
       },
       choices = {
@@ -446,6 +480,11 @@ P:NPC {
         { text = "The priestesses keep a close eye on you.", next = "watched" },
         { text = "Where does a mage train in this city?", next = "train", when = { class = "MAGE" } },
         { text = "I'm Stormwind born as well.", next = "stormwind", when = { race = "Human" } },
+        { text = "Where does the Darnassus anchor lie, Elissa?", next = "ed_anchor", when = { class = "MAGE", minLevel = 30 } },
+        { text = "I'm kaldorei and a mage. Do they watch me too?", next = "ed_nelf", when = { race = "NightElf", class = "MAGE" } },
+        { text = "Do the elves mind gnome mages as well?", next = "ed_gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "Are you any relation to Maginor Dumas?", next = "ed_dumas" },
+        { text = "Could you send me home through a portal?", next = "ed_nonmage", when = { ["not"] = { class = "MAGE" } } },
         { text = "Thank you.", next = "END" },
       },
     },

@@ -2080,7 +2080,141 @@ P:NPC {
         { text = "Where do Horde mages learn what you can't teach?", next = "beyond" },
         { text = "Thuul opens portals here. That seems reckless.", next = "portals" },
         { text = "The Forsaken brought Dalaran's learning with them.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Tell me where a mage's road runs from here.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm an orc and a mage. The elders scowl at me.", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "A tauren with a spellbook. Is that so strange?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
+        { text = "What do you mages make of the rest of us?", next = "m_others", when = { ["not"] = { class = "MAGE" } } },
         { text = "Farewell, Pephredo.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "Every mage of de Horde walks de same road, mon, and it bends in de same places: de sheep, de water, de doors home, de marsh and de portals. I will tell you where it bends, but de walkin' be yours." },
+        { id = "mr_low", when = { maxLevel = 7 }, text = "You be too young for most of de road yet, so learn your fire and your frost and come back at eight. I have somethin' woolly to teach you den." },
+        { id = "mr_mid", when = { minLevel = 20, maxLevel = 39 }, text = "You can blink now, and step home in a breath, so you think de road be short. It be not, mon, and de marsh be waitin' for you further on." },
+        { id = "mr_high", when = { minLevel = 40 }, text = "You open doors for other people now, so you be past de part of de road where I scold you. I still scold, mind, out of habit." },
+      },
+      again = {
+        { id = "mr_again", text = "What else on de road? I have walked most of it, and burned my fingers on de rest." },
+        { id = "mr_again2", text = "Go on, ask, before Enyo tells you somethin' reckless about it." },
+      },
+      choices = {
+        { text = "Polymorph. Is turning a foe into a sheep cruel?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Everyone I meet asks me for water and bread.", next = "m_conjure" },
+        { text = "Arcane, fire or frost. Which should I study?", next = "m_schools", when = { minLevel = 10 } },
+        { text = "I can step home now, and Evocation feels strange.", next = "m_twenty", when = { minLevel = 20 } },
+        { text = "I'm told to seek a human called Tabetha.", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "Portals now, and every grunt wants one.", next = "m_portals", when = { minLevel = 40 } },
+        { text = "There's nothing left for you to teach me.", next = "m_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road, Pephredo.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      big = true,
+      lines = {
+        { id = "mp_default", text = "Cruel? It be de kindest thing a mage can do in a fight, mon, because de sheep does not die and does not remember. De orcs call it cheatin', and I call it one less body to bury." },
+        { id = "mp_troll", when = { race = "Troll" }, text = "You be Darkspear, so you have seen a witch doctor hex a man into a frog, and dis be de same idea with tidier words. De difference be dat my sheep turns back, and his frog sometimes does not." },
+      },
+      choices = {
+        { text = "Mercy is mercy. I'd rather make sheep than corpses.", next = "m_road", reply = "Den you will sleep better dan most mages I know. Keep dat, because de road tries to take it from you.", fx = { align = { light = 1 } } },
+        { text = "A sheep is just a foe I kill later.", next = "m_road", reply = "Often it be, and I will not pretend otherwise. But later be a long time in a fight, and later he might run.", fx = { align = { light = -1 } } },
+        { text = "Does any blow break it?", next = "m_poly2" },
+      },
+    },
+    m_poly2 = {
+      lines = { { id = "mp2_default", text = "Any blow, mon, and den you have an angry man who was a sheep a moment ago, which be worse dan an angry man. Tell your friends to leave de sheep alone, and tell dem twice, because warriors never hear it de first time." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_conjure = {
+      lines = { { id = "mc_default", text = "Because water and bread be de first spells dat feed somebody, and dey teach you dat a mage serves before a mage commands. De grunts laugh at it until dey be three days into de Barrens with empty skins, and den dey come to you very politely." } },
+      choices = {
+        { text = "Feeding them is service. I'll conjure without complaint.", next = "m_road", reply = "Good. A mage who will not conjure water be a mage nobody wants to walk beside.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm a mage, not a water-carrier. Let them buy it.", next = "m_road", reply = "Den buy your own friends too, mon, because you will be needin' some.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_schools = {
+      big = true,
+      lines = { { id = "ms_default", text = "Fire be honest, frost be patient, and de arcane be de one dat looks back at you. Most Darkspear go to frost, because de islands never had any and so it be easy to think clear inside it. Which be you, mon?" } },
+      choices = {
+        { text = "Fire. Burn it and be done.", next = "m_road", reply = "Honest, like I said. Just remember dat fire be honest about you too, and it shows every mistake.", fx = { align = { order = -1 } } },
+        { text = "Frost. Patience and control win fights.", next = "m_road", reply = "Spoken like Deino, and she will be pleased if I tell her. I may not tell her.", fx = { align = { order = 1 } } },
+        { text = "The arcane. I want to understand all of it.", next = "m_arcane" },
+      },
+    },
+    m_arcane = {
+      lines = { { id = "ma_default", text = "Den read everythin' and trust half, mon, because de arcane be what drew de demons to dis world before any orc was born. De high elves and de humans of Dalaran pulled on it hardest of anybody, and look where dey be now." } },
+      choices = { { text = "Back to the road.", next = "m_road", fx = { learn = { "burning_legion" } } } },
+    },
+    m_twenty = {
+      lines = { { id = "mt_default", text = "Now you can step home from anywhere with a rune and a breath, and Evocation pulls de mana back into you while you sit still and look foolish. Both keep you alive, mon, and both cost somethin': de rune costs coin, and Evocation costs you de time when nobody be guardin' you." } },
+      choices = {
+        { text = "I'll only step home when the work is finished.", next = "m_road", reply = "Good, because a mage who vanishes from a fight leaves friends behind, and dey remember it.", fx = { align = { honor = 1 } } },
+        { text = "If a fight turns, I vanish. Living mages fight again.", next = "m_road", reply = "True, and cold, and I have done it myself. Just tell your friends first, so dey can run too.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "Tabetha be a human mage who lives in Dustwallow Marsh, south of de Horde camp at Brackenwall, and de trainers of both banners send students to her about now. She tests you, mon, she pays in a wand if you pass, and she does not care what colour your tabard be." } },
+      choices = {
+        { text = "Sending Horde mages to a human seems strange.", next = "m_tabetha2" },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha2 = {
+      big = true,
+      lines = { { id = "mtb2_default", text = "It be strange, and some of de grunts would spit if dey heard it. But de Horde has not enough old mages to teach what she teaches, and she has never once sold a student to Theramore. I would sooner you learn from an honest human dan from a dishonest book." } },
+      choices = {
+        { text = "Knowledge is knowledge. I'll learn from her gladly.", next = "m_road", reply = "So I told her last student, and he came back with a wand and better manners.", fx = { align = { order = -1 } } },
+        { text = "I'll go, but I'll trust her no further than her wand.", next = "m_road", reply = "Fair, mon. She will trust you exactly as far, so you will understand each other.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_portals = {
+      lines = { { id = "mpo_default", text = "Now every grunt with a long errand will find you and ask for a door to de Undercity for a few coins and a smile. Thuul will tell you to look before you open, and I will tell you to charge for de rune, mon, because it be not free and neither be you." } },
+      choices = {
+        { text = "I'll open a door for anyone who truly needs one.", next = "m_road", reply = "Den you will be loved in every inn in de Horde, and poor. Dere be worse ways to live.", fx = { align = { light = 1 } } },
+        { text = "They'll pay for every portal, and pay well.", next = "m_road", reply = "Ha! Somebody has been talkin' to de goblins. Fair enough, mon, but be kind to de wounded ones.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_sixty = {
+      lines = { { id = "m60_default", text = "Den you go where no trainer can follow, mon: into de Scholomance, where de dead teach necromancy in a stolen school, and into Dire Maul, where de old elves left deir magic runnin' in de walls. Come back and tell us what you saw, and bring books, wet or dry." } },
+      choices = {
+        { text = "I'll bring back what I find for the circle.", next = "m_road", reply = "Den Deino will cry and Enyo will steal it and I will read it first. Dat be how dis lodge works.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What I find, I keep. I earned it.", next = "m_road", reply = "You did, mon. But a book nobody else reads be only paper, and you know it.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "An orc in a robe, and de elders turn deir faces from you in de Drag, I know it. Dey see Gul'dan's warlocks and de fel dat turned deir skin green, and dey cannot see dat what you hold be a different river." } },
+      choices = {
+        { text = "Then I'll show them, one clean spell at a time.", next = "BACK", reply = "Dat be de only way it ever works. Cast in de open, and let dem see dere be no demon standin' behind you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The elders' fear isn't my burden.", next = "BACK", reply = "It be your burden whether you pick it up or not, mon. Carry it well and it gets lighter.", fx = { align = { light = -1 } } },
+        { text = "Is the arcane truly so different from the fel?", next = "m_orc2" },
+      },
+    },
+    m_orc2 = {
+      lines = { { id = "mo2_default", text = "It be, though it be close enough to frighten anybody sensible. De arcane be de world's own weave and de fel be de Legion's fire, and your warlocks reached past one for de other because it came faster. Dat be de whole danger, mon: never reach for faster." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Strange to de tauren, maybe, because your people never needed books when dey had de Earth Mother. But I met a tauren mage at de Spirit Rise who called de arcane de wind's grammar, and I have stolen dat for my lessons ever since." } },
+      choices = {
+        { text = "The arcane is part of the world. I honor both paths.", next = "BACK", reply = "Den you will be a better mage dan most of us, mon, because you will never forget whose world it be.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The arcane serves me. The old ways are for elders.", next = "BACK", reply = "Careful, mon. De elves said much de same thing once, and dey lost a continent for it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_others = {
+      lines = { { id = "mot_default", text = "Most of you think we be soft until de first time you stand near us when de frost goes off, and den you think we be terrifyin', which be nearer de truth. Stand by de mage, mon, never in front of her, and never strike a sheep." } },
+      choices = {
+        { text = "I'll guard your mages and leave the sheep alone.", next = "BACK", reply = "Den you be welcome in dis valley any time, and I will tell de others you have sense.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Soft robes, soft folk. I haven't changed my mind.", next = "BACK", reply = "Keep your mind, den, and I will keep my frost. We will see which one of us needs de other first.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     three = {
@@ -2489,7 +2623,119 @@ P:NPC {
         { text = "Who else works out of this lodge?", next = "lodge" },
         { text = "This valley feels different from the rest of the city.", next = "valley" },
         { text = "In Lordaeron we learned from books, not chalk.", next = "books", when = { race = "Scourge" } },
+        { text = "Tell me what waits on a mage's road, Deino.", next = "m_road", when = { class = "MAGE" } },
+        { text = "The witch doctors call my magic foreign.", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
+        { text = "I studied in Dalaran, before I died.", next = "m_dalaran", when = { class = "MAGE", race = "Scourge" } },
+        { text = "Why should a fighter care what a mage draws?", next = "m_others", when = { ["not"] = { class = "MAGE" } } },
         { text = "Walk carefully, Deino.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "I have watched a hundred students walk de mage's road, mon, so I know where dey fall. Ask about any bend in it and I will tell you how to come round it with your eyebrows." },
+        { id = "mr_low", when = { maxLevel = 9 }, text = "Most of de road be ahead of you yet. Draw your circles, learn your frost, and come back at every new mark so I can count your fingers." },
+        { id = "mr_high", when = { minLevel = 40 }, text = "You have come most of de way, and you still come back to de slow teacher. Dat tells me more about you dan any spell could." },
+      },
+      again = {
+        { id = "mr_again", text = "Another bend in de road? Ask it carefully." },
+        { id = "mr_again2", text = "Go on, mon. I keep a list of where students fall, and it be a long list." },
+      },
+      choices = {
+        { text = "Polymorph frightens me a little.", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Frost Nova. You call it a circle I carry.", next = "m_nova", when = { minLevel = 10 } },
+        { text = "Blink feels like falling sideways.", next = "m_blink", when = { minLevel = 20 } },
+        { text = "Evocation leaves me helpless. How do I bear it?", next = "m_evoc", when = { minLevel = 20 } },
+        { text = "Is hiding in a block of ice cowardice?", next = "m_iceblock", when = { minLevel = 30 } },
+        { text = "Portals now. Thuul says to knock first.", next = "m_portals", when = { minLevel = 40 } },
+        { text = "Enough of the road, Deino.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      lines = { { id = "mp_default", text = "Good, it should. You be unmakin' a man's shape and trustin' your hold to keep him from comin' back wrong. I have never seen it fail dat way, mon, but I draw a ring round every sheep I make, all de same." } },
+      choices = {
+        { text = "Fear keeps me careful. I'll keep a little of it.", next = "m_road", reply = "Keep exactly dat much, mon, and not a pinch more, or you will freeze when it matters.", fx = { align = { order = 1 } } },
+        { text = "A spell that never fails needs no fear.", next = "m_road", reply = "Every spell never fails until de once it does. I hope you be far from me dat day.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_nova = {
+      lines = { { id = "mn_default", text = "Frost Nova be de circle you carry with you, ice round every foot near you so you can step away and think. Most students cast it and run, mon, and de good ones cast it and decide." } },
+      choices = {
+        { text = "I'll stand a breath and choose, not just run.", next = "m_road", reply = "Den you will be one of de good ones. A breath be all you need, and all you get.", fx = { align = { honor = 1 } } },
+        { text = "Running is a choice. I'll always run.", next = "m_road", reply = "It be a choice, and a fine one, until you run into de next thing. Look first.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_blink = {
+      lines = { { id = "mb_default", text = "It should, because you be throwin' yourself through de weave a few strides ahead with no circle at all. Look where you mean to land before you go, mon, because I once watched a student blink off de edge of dis lodge's roof." } },
+      choices = {
+        { text = "Did she live?", next = "m_blink2" },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_blink2 = {
+      lines = { { id = "mb2_default", text = "She lived, and she learned slow fall from Enyo de next week, and she has never let me forget dat it was Enyo's spell dat would have saved her and not mine. I tell de story every season so it be worth somethin'." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_evoc = {
+      big = true,
+      lines = { { id = "me_default", text = "You bear it by trustin' whoever stands in front of you, mon, and dat be de hardest lesson in de whole art. Evocation fills you back up from de weave, but for those long breaths you be no more dan a troll sittin' in a field." } },
+      choices = {
+        { text = "Then I'll trust whoever stands with me.", next = "m_road", reply = "Trust be a gift, and de ones who get it from a mage usually rise to it. Usually.", fx = { align = { light = 1 } } },
+        { text = "I trust nobody. I'll evoke only when I'm alone.", next = "m_road", reply = "Den you will be alone a great deal, mon, and safe, and I do not know which be sadder.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_iceblock = {
+      lines = { { id = "mi_default", text = "Only if you come out of it and run, mon. You hide for a breath so de healer can catch up and de warrior can turn round, and den you come out cold and angry and finish what you started." } },
+      choices = {
+        { text = "I'll come out and finish the fight.", next = "m_road", reply = "Den de ice be a shield and not a hidin' place. Good.", fx = { align = { honor = 1 } } },
+        { text = "I'll come out when they've gone, and slip away.", next = "m_road", reply = "Clever, and lonely. I teach it, mon, but I do not have to like it.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_portals = {
+      lines = { { id = "mpo_default", text = "Knock, look and listen be Thuul's whole sermon, and he be right. A portal carries other people, so for de first time your mistake can kill somebody who trusted you without understandin' what you did." } },
+      choices = {
+        { text = "Then I'll open none I haven't checked twice.", next = "m_road", reply = "Twice be good. Thuul checks three times, and he be still alive and so be everybody he sent.", fx = { align = { order = 1 } } },
+        { text = "People step through at their own risk.", next = "m_road", reply = "Dey do not know de risk, mon. Dat be de whole point of havin' a mage.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_troll = {
+      big = true,
+      lines = { { id = "mtr_default", text = "Dey called it dat to my face too, mon, and dey still do at Sen'jin. But de loa never asked me where a fire came from, only what it was for, and I have never cast a flame dat shamed de tribe." } },
+      choices = {
+        { text = "The Darkspear should take every power we can use.", next = "BACK", reply = "Dat be how we survived de islands, by takin' what worked. Just learn it properly, cousin, and do not take it carelessly.", fx = { align = { order = -1 } } },
+        { text = "Some old ways should stay unmixed. I'll respect theirs.", next = "BACK", reply = "Respect dem and dey will respect you, mostly. Bring de witch doctors water when dey be thirsty, it helps.", fx = { align = { order = 1 } } },
+        { text = "Do the loa mind what I cast?", next = "m_troll2" },
+      },
+    },
+    m_troll2 = {
+      lines = { { id = "mtr2_default", text = "Bwonsamdi takes de mage and de witch doctor alike, mon, so I think de loa care more about how you live dan what you cast. Vol'jin himself asked me once how a ward be drawn, and he did not frown at de answer." } },
+      choices = { { text = "That's a comfort. Something else.", next = "BACK" } },
+    },
+    m_dalaran = {
+      big = true,
+      lines = { { id = "md_default", text = "Den you know what I only read about, and you know how it ended. De Kirin Tor shut deir doors when Lordaeron died, and now deir mages hunt your kind in Silverpine. I be sorry, mon, truly, and I be also very curious what you remember of deir wards." } },
+      choices = {
+        { text = "Dalaran left us to rot. I owe it nothing.", next = "BACK", reply = "Dat be fair, and I would feel de same. Just do not let de anger make your spells careless.", fx = { align = { light = -1 } } },
+        { text = "I learned there. That debt doesn't die with me.", next = "BACK", reply = "A strange kind of loyalty, mon, and a good one. I hope dey never learn how little dey deserved it.", fx = { align = { light = 1 } } },
+        { text = "Their wards were elegant. I'll draw one for you.", next = "m_dalaran2" },
+      },
+    },
+    m_dalaran2 = {
+      narr = "She hands you the chalk and watches every stroke without blinking.",
+      lines = { { id = "md2_default", text = "Ah, so dat be how dey closed de corner. I have been doin' it de long way for fifteen years, mon, and nobody ever told me. Come back and draw me another when you have time." } },
+      choices = { { text = "I will. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    m_others = {
+      lines = { { id = "mot_default", text = "Because one day you will stand inside one, mon, while somethin' terrible hammers on de outside, and you will want to know whether de mage who drew it was careful. Be kind to de careful ones." } },
+      choices = {
+        { text = "I'll thank the careful ones, then.", next = "BACK", reply = "Most never do. Dey just walk out alive and forget de chalk was dere.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I trust steel more than chalk.", next = "BACK", reply = "So did a grunt I knew, mon, until de steel was in de other side's hand.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     circles = {
@@ -2616,7 +2862,106 @@ P:NPC {
         { text = "What do the orcs make of mages?", next = "orcs" },
         { text = "What do you send your students out to do?", next = "errands" },
         { text = "I'm no mage. What good is all this to me?", next = "nomage", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Show me the road ahead, Enyo.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm an orc mage. The old ones call me warlock.", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "I'm tauren. My people trust spirits, not spells.", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "Keep your eyebrows, Enyo.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "De road be short if you run it, mon, and I always ran. Ask me about any stretch of it and I will tell you de quick way, and Deino can tell you de slow way afterwards." },
+        { id = "mr_mid", when = { minLevel = 20, maxLevel = 39 }, text = "Look at you, blinkin' about and steppin' home whenever you like! Now de road gets interestin', mon, so ask me de good questions." },
+        { id = "mr_high", when = { minLevel = 40 }, text = "You be near de end of what I can show you, and I can feel it comin' off you like heat off a stone. Ask quick, before you outgrow me." },
+      },
+      again = {
+        { id = "mr_again", text = "What else? De quick answer be usually de right one, whatever Deino says." },
+        { id = "mr_again2", text = "Go on, mon, I be enjoyin' dis." },
+      },
+      choices = {
+        { text = "Polymorph seems a waste of a good fire spell.", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Fire, frost or arcane. You'd pick fire.", next = "m_schools", when = { minLevel = 10 } },
+        { text = "Pyroblast. Is it worth the long cast?", next = "m_pyro", when = { minLevel = 20 } },
+        { text = "Tabetha in the marsh. What's she like?", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "What happens when I've mastered a school?", next = "m_mastery", when = { minLevel = 40 } },
+        { text = "Where does a mage go when the trainers run out?", next = "m_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road, Enyo.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      lines = { { id = "mp_default", text = "A waste? Ha! A sheep be a fight you do not have to have yet, mon, and dat lets you have de other fight properly. I sheep de big one and burn de small ones, and de big one wakes up to find his friends gone." } },
+      choices = {
+        { text = "Sheep the strongest, burn the rest. That's clever.", next = "m_road", reply = "Clever be de whole art, mon. De strong ones never forgive it, which be why dey stay sheep a while.", fx = { align = { honor = -1 } } },
+        { text = "I'd rather face the strongest head on.", next = "m_road", reply = "Brave, mon, and short-lived. Face him second, after de little ones be ash.", fx = { align = { honor = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_schools = {
+      big = true,
+      lines = { { id = "ms_default", text = "I would, and I did, and I have de arm to show for it. But fire be not for everybody: frost be for de ones who like to choose where a fight happens, and arcane be for de ones who like to know why. Pick de one dat makes you grin, mon." } },
+      choices = {
+        { text = "Fire. I want to grin.", next = "m_road", reply = "Ha! Den come stand where de floor be scorched, cousin, you belong dere.", fx = { align = { order = -1 } } },
+        { text = "Frost. I'd rather choose the ground.", next = "m_road", reply = "Deino will be smug for a week. Fine, mon, frost be a good school, if a cold one.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_pyro = {
+      lines = { { id = "mpy_default", text = "Worth it de first time, when de ball be bigger dan your head and de boar be gone before he knew you were dere. Not worth it when three boars be bitin' you while you wind it up, so pick your moment, mon." } },
+      choices = {
+        { text = "I'll open every fight with it.", next = "m_road", reply = "So did I, until a raptor taught me otherwise. Open with it, den, but watch de bushes.", fx = { align = { order = -1 } } },
+        { text = "I'll save it for the right moment.", next = "m_road", reply = "Sensible, and boring, and probably right. Don't tell Deino I said so.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "She be fierce and dry and lives with two apprentices in a swamp full of bog beasts, and I like her very much. She sent my last student back with a wand and a list of things I taught him wrong, and half of de list was fair." } },
+      choices = {
+        { text = "A human teaching Horde mages. You don't mind?", next = "m_tabetha2" },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha2 = {
+      big = true,
+      lines = { { id = "mtb2_default", text = "Why would I mind, mon? She lives between Theramore and Brackenwall and answers to neither, and she knows more dan I do. Pride be a poor reason to keep a student ignorant." } },
+      choices = {
+        { text = "Learn from anyone who knows more. Agreed.", next = "m_road", reply = "Good. And when you know more dan her, come back and teach me.", fx = { align = { order = -1 } } },
+        { text = "The Horde should train its own mages.", next = "m_road", reply = "One day it will, mon, and you might be de one doin' it. Until den, go to de marsh.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_mastery = {
+      lines = { { id = "mm_default", text = "When you give a school everythin' you have, it gives you one great gift back: de arcane's raw surge, de fire dat feeds on itself, or a barrier of ice dat laughs at blades. Dat be de day you stop bein' a student, mon, and I will be sad and proud at once." } },
+      choices = {
+        { text = "I'll still come back to learn from you.", next = "m_road", reply = "Den come back with somethin' to teach me too. Dat be de fair trade.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll need no teacher after that.", next = "m_road", reply = "Everybody needs one, mon. De good ones just stop admittin' it out loud.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_sixty = {
+      lines = { { id = "m60_default", text = "Go where de magic be old and angry, mon: de Scholomance, where de dead teach, and Dire Maul, where de elves left deir power runnin' in de walls for de ogres to drink. Burn somethin' worthy and come tell me de story." } },
+      choices = {
+        { text = "I'll seek the oldest magic I can find.", next = "m_road", reply = "Dat be my student. Bring me back a scar of your own, a small one.", fx = { align = { order = -1 } } },
+        { text = "Some old magic should stay buried.", next = "m_road", reply = "Maybe, mon, but somebody else will dig it up if you don't, and dey will be worse at it.", fx = { align = { order = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "Dey call you dat because dey cannot tell de difference, mon, and dey have reason to fear it. But you have a chance dey never had: to show de Horde what an orc does with power when no demon be pourin' it into his cup." } },
+      choices = {
+        { text = "I'll be the orc mage they never had to fear.", next = "BACK", reply = "Den cast in daylight, and cast for de Horde, and let de old ones watch you do it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let them fear. It keeps them out of my way.", next = "BACK", reply = "It will, mon, and it will keep dem out of your corner when you need dem too.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_tauren = {
+      big = true,
+      lines = { { id = "mta_default", text = "Den you be de first in your village to cast fire without askin' de fire first, and some will not like it. Do it with your people's patience, mon, and you will be de best of us, because a tauren never hurries a spell." } },
+      choices = {
+        { text = "I'll keep the Earth Mother's patience in every spell.", next = "BACK", reply = "Den you will outlast every hothead in dis lodge, includin' me.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My people will have to accept what I am.", next = "BACK", reply = "Dey will, in time. Tauren be slow to change and slower to unchange, so make it worth it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     bold = {
@@ -2736,7 +3081,40 @@ P:NPC {
         { text = "What is on the other side that worries you?", next = "other" },
         { text = "You keep your work well away from the others.", next = "back" },
         { text = "The Undercity has its own portal mages. Do you know them?", next = "undercity", when = { race = "Scourge" } },
+        { text = "I can only take myself home. When can I take others?", next = "m_tele", when = { class = "MAGE", maxLevel = 39 } },
+        { text = "I've opened my first portal. My hands still shake.", next = "m_first", when = { class = "MAGE", minLevel = 40 } },
+        { text = "The door to Thunder Bluff is harder than the others.", next = "m_bluff", when = { class = "MAGE", minLevel = 40 } },
+        { text = "You make mages sound like ferrymen.", next = "m_ferry", when = { ["not"] = { class = "MAGE" } } },
         { text = "Keep the doors shut, Thuul.", next = "END" },
+      },
+    },
+    m_tele = {
+      lines = { { id = "mt_default", text = "At forty, mon, if you live dat long and listen dat well. A teleport be a door you walk through alone and close behind you, and a portal be a door you hold open for strangers, so I want you to have used de first a few hundred times before I trust you with de second." } },
+      choices = {
+        { text = "I'll practise until it's dull.", next = "BACK", reply = "Dull be exactly right. A door should be de most borin' thing a mage does.", fx = { align = { order = 1 } } },
+        { text = "The levels are only numbers. I'm ready now.", next = "BACK", reply = "De numbers be how long you lived, mon, and livin' be what I be measurin'.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_first = {
+      big = true,
+      lines = { { id = "mf_default", text = "Good. De day dey stop shakin' be de day I want you back here for another lesson. Tell me, mon, who did you send through first?" } },
+      choices = {
+        { text = "A friend who trusted me.", next = "BACK", reply = "Den you carried somethin' heavier dan a body. Keep earnin' dat trust, and keep lookin' first.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A stranger who paid me well.", next = "BACK", reply = "Honest work, and a stranger be less to lose. I do not like how dat sounds when I say it out loud.", fx = { align = { light = -1 } } },
+        { text = "Myself, to be sure it was safe.", next = "BACK", reply = "Ha! Dat be what I did too. Nobody tells you a portal works de same for de one who opened it.", fx = { trait = { cautious = 1 } } },
+      },
+    },
+    m_bluff = {
+      lines = { { id = "mbl_default", text = "It be, because de anchor sits on a high mesa and de winds up dere never stop pushin' at it. De mages at de Spirit Rise keep it steady, and dey made me wait till I was older dan you before dey let me reach for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    m_ferry = {
+      lines = { { id = "mfe_default", text = "We be ferrymen, mon, and proud of it. A mage from dis lodge can put a warband in de Undercity before supper, and dere be no wind rider in de Horde dat can say de same." } },
+      choices = {
+        { text = "Then I'll trust a mage's door when I need one.", next = "BACK", reply = "Trust de mage, and look at de door yourself anyway. Dat be all I ask of anyone.", fx = { align = { light = 1 } } },
+        { text = "I'll trust my own feet over any door.", next = "BACK", reply = "Your feet be honest, mon, and slow. When de message cannot wait, you will come knockin'.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     refused = {

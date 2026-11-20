@@ -1985,7 +1985,82 @@ P:NPC {
         { text = "Fire first, you said. Why fire?", next = "fire" },
         { text = "Un'Thuwa teaches magic at Sen'jin as well.", next = "unthuwa" },
         { text = "The Forsaken have fine mages. Have you met any?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "What should a new mage learn first, Mai'ah?", next = "m_first", when = { class = "MAGE" } },
+        { text = "You'll teach me Polymorph soon, won't you?", next = "m_poly", when = { class = "MAGE", minLevel = 6 } },
+        { text = "I'm an orc. Will the shaman forgive me this?", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "I'm Darkspear. Is this magic even ours?", next = "m_troll", when = { class = "MAGE", race = "Troll" } },
+        { text = "What do you make of fighters like me?", next = "m_others", when = { ["not"] = { class = "MAGE" } } },
         { text = "Farewell, Mai'ah.", next = "END" },
+      },
+    },
+    m_first = {
+      hub = true,
+      lines = { { id = "mf_default", text = "Three things, young one: frost on your skin, water in your hands and fire on your fingertips. Ask me about any one of dem and I tell you why it comes before de others." } },
+      again = {
+        { id = "mf_again", text = "Another lesson? Good, I like a greedy student." },
+        { id = "mf_again2", text = "Go on, mon. De scorpids can wait a little longer." },
+      },
+      choices = {
+        { text = "Why the frost armor before anything else?", next = "m_armor" },
+        { text = "Why must I conjure water?", next = "m_water" },
+        { text = "And the fire on my fingertips?", next = "fire" },
+        { text = "Where does the road go after this valley?", next = "m_after" },
+        { text = "Enough lessons for now.", next = "BACK" },
+      },
+    },
+    m_armor = {
+      lines = { { id = "ma_default", text = "Because de scorpids in dis valley don't wait for you to finish a spell, mon. A skin of frost slows whatever hits you, and a slow scorpid be a dead scorpid." } },
+      choices = {
+        { text = "Protect first, strike second. That's sensible.", next = "m_first", reply = "It be, and you will live long enough to be bored by how sensible it be.", fx = { align = { order = 1 } } },
+        { text = "I'd rather kill it before it reaches me.", next = "m_first", reply = "So would every young mage, and de scorpids have eaten a few of dem. Wear de frost anyway.", fx = { align = { order = -1 } } },
+        { text = "Back to the lessons.", next = "m_first" },
+      },
+    },
+    m_water = {
+      lines = { { id = "mw_default", text = "Because a mage who cannot feed herself be a burden, and a mage who can feed de whole camp be a friend to everybody. De peons drink mine at midday, and dey stopped scowlin' at me about a week after I started." } },
+      choices = {
+        { text = "Then I'll share my water with the peons.", next = "m_first", reply = "Den you will have friends in every camp in Durotar before you have a single good spell.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My water is for me. They have a well.", next = "m_first", reply = "Dey do, mon, and it be a long walk away. Remember dat when you be thirsty in de Barrens.", fx = { align = { light = -1 } } },
+        { text = "Back to the lessons.", next = "m_first" },
+      },
+    },
+    m_after = {
+      lines = { { id = "mft_default", text = "Razor Hill and Sen'jin, den de Barrens, and Un'Thuwa or de lodge in Orgrimmar when you need new spells. At eight you learn to turn a man into a sheep and at twenty you learn to step home from anywhere, so don't be in a hurry to outgrow de city's trainers." } },
+      choices = { { text = "Back to the lessons.", next = "m_first" } },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_default", text = "Soon, at eight, and I can tell you be eager, which worries me a little. A sheep be a mercy, mon, not a joke, though de first one you make will be funny and you will laugh, and dat be fine once." } },
+      choices = {
+        { text = "A mercy, then. I'll use it to spare lives.", next = "BACK", reply = "Den you understood it before I taught it. Come back at eight and I will show you.", fx = { align = { light = 1 } } },
+        { text = "I'll use it however it wins the fight.", next = "BACK", reply = "It will win you fights, sure. Just remember de sheep has a mother somewhere.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "Dey will frown, young one, and de old ones who remember de warlocks will frown harder. Show dem water before fire, because an orc who brings water to a thirsty camp be very hard to call a demon's servant." } },
+      choices = {
+        { text = "I'll earn their trust with service.", next = "BACK", reply = "Den you will be forgiven sooner dan you think. Orcs remember a full waterskin.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Their frowns won't stop me.", next = "BACK", reply = "No, but dey can make you lonely, mon, and a lonely mage makes bad choices. Be careful.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_troll = {
+      big = true,
+      lines = { { id = "mt_default", text = "Ours as much as anybody's, mon. De old troll empires had casters in deir temples before de humans had a city, and de witch doctors only call it foreign because de books came to us from somebody else. Take it back, and wear it proud." } },
+      choices = {
+        { text = "Then I'll carry it as a Darkspear art.", next = "BACK", reply = "Good. Every spell you cast in dis valley tells de orcs what a troll be worth.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't care whose it was. It's mine now.", next = "BACK", reply = "Ha! Dat be a troll answer too, mon, and maybe de truest one.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_others = {
+      lines = { { id = "mot_default", text = "I think you be braver dan me, mon, because you walk right up to de scorpid while I stand back and set it on fire. Every fighter in dis valley be welcome at my side, and I keep de water cold for you." } },
+      choices = {
+        { text = "I'm glad to have a mage behind me.", next = "BACK", reply = "And I be glad of somebody in front. We get along fine, you and me.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fire from a distance is a coward's weapon.", next = "BACK", reply = "Den I be a live coward, mon, and you can call me what you like from de spirit healer's side.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     learn = {

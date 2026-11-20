@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.48.0 (2026-11-19)
+- Mage patch: new file `mage_notice.lua` (restart the game fully): people notice mages. The mage trainer's road from 1 to 60; three mage Stories (Bread for the cellars, The orc who chose frost, Behind the violet dome); the `mages` topic, views and town chatter about mages.
+
 ## 1.47.0 (2026-11-19)
 - Human patch: the `humans` topic now links wherever humans come up; town crowds in Ironforge, Darnassus, Orgrimmar, Thunder Bluff, Undercity, Razor Hill, Kharanos and the goblin ports grumble about humans, and human towns talk among themselves; new views on humans; banker, auctioneer and reagent vendor lines for human players.
 

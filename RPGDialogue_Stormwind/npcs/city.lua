@@ -490,8 +490,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_mage", when = { class = "MAGE" }, text = "The Sanctum. Wipe your boots; the floor wards are sensitive." },
-    { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch the circles; they're not decorative." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "Welcome to the Sanctum, and do wipe your boots, because the floor wards are sensitive and they remember mud." },
+    { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch the circles, because they're not decorative, whatever they look like." },
   },
 
   notice = {
@@ -501,6 +501,67 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    je_counter = {
+      big = true,
+      lines = { { id = "jec_default", text = "It feels like nothing because it is nothing, done perfectly, and that is the hardest thing in the world to be proud of. The Kirin Tor learned in the Second War that one silenced warlock saved more lives than ten dead orcs, and not one of the mages who did the silencing ever got a statue." } },
+      choices = {
+        { text = "Then I'll practise it until it's instinct.", next = "BACK", reply = "Good, and then practise it some more, because instinct fades if you don't feed it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather have the statue, Magus.", next = "BACK", reply = "Then you'll have to die heroically for it, and I'd much rather you didn't, so practise the counterspell anyway.", fx = { align = { order = -1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_evoc = {
+      big = true,
+      lines = { { id = "jee_default", text = "It should, because you've just drawn a room's worth of mana into yourself in the space of a few breaths, and the room hasn't forgiven you yet. Sit afterwards if you can, and eat something; Maginor will give you a lecture on the flows, but I'm giving you supper." } },
+      choices = {
+        { text = "I'll respect the hollow. It's a warning.", next = "BACK", reply = "It is, and the mages who stop feeling it are the ones I worry about. Keep feeling it.", fx = { align = { order = 1 } } },
+        { text = "Hollow or not, I'll use it whenever I'm dry.", next = "BACK", reply = "Then use it, and eat twice as much, and don't come crying to me when your hands shake at forty.", fx = { align = { order = -1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_school = {
+      lines = { { id = "jes_default", text = "Study all three until one of them answers you more readily than the others, and then go deep, but never so deep that you can't climb out again. A frost mage who can't throw fire at a frozen thing has only half finished the job." } },
+      choices = {
+        { text = "Fire, frost and the arcane, then. I'll learn them all.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_tabetha = {
+      lines = { { id = "jet_default", text = "She studied in Dalaran, quarrelled with half the faculty and left before they could quarrel back, and she makes the finest wands I've ever held. She'll set you to gather the makings yourself, jade and a bramble charged by lightning among other things, and she'll be right to." } },
+      choices = {
+        { text = "Lightning? How does anyone charge a bramble?", next = "je_bramble" },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_bramble = {
+      lines = { { id = "jeb_default", text = "You'll have to ask her, because she's never told me, and I suspect it involves standing somewhere foolish in a storm. Take a healing potion with you, and a friend who doesn't mind the smell of singed hair." } },
+      choices = { { text = "Something else, Magus.", next = "BACK" } },
+    },
+    je_wand = {
+      big = true,
+      lines = { { id = "jew_default", text = "Then let me see it. A true core and a clean binding, and she's put a little of her temper into it, which I'd expect. Use it when you're empty and only then, because a mage who reaches for the wand first has forgotten what the rest of the art is for." } },
+      choices = {
+        { text = "The wand's for the empty moments. I understand.", next = "BACK", reply = "Good, and I'll write to Tabetha that you listened, which will annoy her enormously.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll use whatever works first, Magus.", next = "BACK", reply = "Then you'll be a very good wand and a rather poor mage. I'd hoped for the other way round.", fx = { align = { order = -1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_human = {
+      big = true,
+      lines = { { id = "jeh_default", text = "So did mine, and I disappointed them very thoroughly, and they still keep a portrait of me on the stairs. Stormwind needs mages more than it admits, because the last time it was short of them a Horde walked through the gates, so you may tell your family that, from me." } },
+      choices = {
+        { text = "Then I'll serve Stormwind with spells instead of a sword.", next = "BACK", reply = "And serve it better, I'd wager, though don't tell the Champions' Hall I said so.", fx = { align = { order = 1 } } },
+        { text = "I didn't become a mage for Stormwind's sake.", next = "BACK", reply = "No, nor did I, at first. The city has a way of claiming you anyway, so be ready for it.", fx = { align = { order = -1 } } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
+    je_dwarf = {
+      lines = { { id = "jed_default", text = "They think very highly of stone, so you'll do better than most. Your people came late to the arcane, and I've noticed that dwarf mages make up for it with the most careful notes in the Alliance." } },
+      choices = {
+        { text = "We measure twice, Magus.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Magus.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Utterly. We bind the arcane with study and rule, and you ask the world for favours. I'd call it reckless, though I've seen it work." } },
@@ -569,19 +630,23 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_je_tele", when = { class = "MAGE", minLevel = 20, maxLevel = 29 },
+          text = "You've your teleports now, so there's no more excuse for arriving late to my lessons from Ironforge, and yes, I've heard that one before." },
+        { id = "h_je_wand", when = { questDone = TODO_QUEST("Mage's Wand") },
+          text = "You've a wand of Tabetha's making on your belt, I see, and she doesn't make them for just anyone. Don't let it make you lazy with the rest of your craft." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in the Sanctum. The wards here are indifferent to faith, so I'll ask you to keep your hands to yourself the same as anyone else." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The wards in this hall don't care for plate, so please don't lean on the walls." },
         { id = "h_default", text = "Jennea Cannon, of the Wizard's Sanctum. I teach mages who've outgrown the provinces; some have, though most only think they have." },
         { id = "h_speak", tags = { "news" }, when = { questActive = TODO_QUEST("Speak with Jennea") },
-          text = "Wefhellt sent you. He'll have said something flattering about me. Ignore it and listen to what I actually say." },
+          text = "Wefhellt sent you, and he'll have said something flattering about me, so ignore it and listen to what I actually say." },
         { id = "h_mirror", when = { questActive = TODO_QUEST("Mirror Lake") },
-          text = "Mirror Lake is just outside the city. Bring me what I asked for, and mind your reflection; it's only a reflection, mostly." },
+          text = "Mirror Lake lies just outside the city gates, so bring me what I asked for, and mind your reflection, because it's only a reflection, mostly." },
         { id = "h_recluse", when = { questActive = TODO_QUEST("Investigate the Blue Recluse") },
-          text = "The Blue Recluse is a tavern, not a laboratory, whatever its regulars think. Find out what they're doing in there." },
-        { id = "h_wards", when = { metBefore = true, class = "MAGE" }, text = "Your wards are tidier, though not good yet, only tidier. Good comes later." },
+          text = "The Blue Recluse is a tavern, not a laboratory, whatever its regulars think, so go and find out what they're doing in there." },
+        { id = "h_wards", when = { metBefore = true, class = "MAGE" }, text = "Your wards are tidier than they were, though they're not good yet, and good will come later if you keep at it." },
         { id = "h_sleeve", when = { metBefore = true, ["not"] = { class = "MAGE" } }, text = "A student set his sleeve alight last week, then froze it, then cried. Mages learn in that order." },
         { id = "h_marsh", when = { class = "MAGE", minLevel = 38 },
-          text = "You've outgrown this room. There's a hermit in Dustwallow Marsh called Tabetha, brilliant, rude and worth the boat fare, so go when you're ready to earn a wand." },
+          text = "You've outgrown this room, I think. There's a hermit in Dustwallow Marsh called Tabetha, brilliant and rude and well worth the boat fare, so go to her when you're ready to earn a wand." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "You call on something that answers, priest. We call on something that only obeys. I've never decided which habit is more dangerous." },
         { id = "h_quarter", when = { origin = "human_mage_quarter" },
@@ -595,7 +660,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there more? Stay outside the circles while you ask." },
-        { id = "h_again2", text = "Ask. Precisely, if you can manage it." },
+        { id = "h_again2", text = "Ask, and ask precisely, if you can manage it." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -614,6 +679,13 @@ P:NPC {
         { text = "Should mages answer to anyone, Magus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would the Sanctum's wards care what a druid is, Magus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is shamanism so different from your magic, Jennea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Counterspell feels like doing nothing at all.", next = "je_counter", when = { class = "MAGE", minLevel = 24 } },
+        { text = "Evocation leaves me feeling hollow afterwards.", next = "je_evoc", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Should I specialise, Magus, or study all three schools?", next = "je_school", when = { class = "MAGE", minLevel = 15 } },
+        { text = "Tell me about Tabetha before I make the trip.", next = "je_tabetha", when = { class = "MAGE", minLevel = 30 } },
+        { text = "Tabetha has made my wand.", next = "je_wand", when = { questDone = TODO_QUEST("Mage's Wand") } },
+        { text = "My family wanted a soldier, not a mage.", next = "je_human", when = { race = "Human", class = "MAGE" } },
+        { text = "Do your floor wards mind a dwarf's boots, Magus?", next = "je_dwarf", when = { race = "Dwarf", class = "MAGE" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -647,7 +719,7 @@ P:NPC {
       },
     },
     danger_light = {
-      lines = { { id = "dl_default", text = "Does it? Then we've more in common than your Archbishop would like to admit. Come back and argue about it. I enjoy a good argument." } },
+      lines = { { id = "dl_default", text = "Does it? Then we've more in common than your Archbishop would like to admit, so come back one evening and argue about it, because I enjoy a good argument." } },
       choices = { { text = "I might. Something else.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } } },
     },
     practise = {
@@ -701,7 +773,7 @@ P:NPC {
       },
     },
     highorder_watch = {
-      lines = { { id = "highorder_watch_l", text = "Hm. Old forms, very precise, a little stiff in the wrist. Elsharin would recognise some of that; go and show her, and tell me what she says." } },
+      lines = { { id = "highorder_watch_l", text = "Old forms, very precise and a little stiff in the wrist, and Elsharin would recognise some of that, I think. Go and show her, and come back to tell me what she says." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     warlocks = {
@@ -732,7 +804,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "My history is dull, and I won't waste your lesson on it when the magic is the interesting part, so ask about that." } },
     advice = { { id = "tp_ad", text = "Never cast a spell you couldn't explain to a child. If you can't explain it, you don't understand it, and it will notice." } },
     morganth = { { id = "tp_morganth", text = "Morganth's name is not spoken lightly in this building, because he stole from us, and he will be stopped." } },
-    _none = { { id = "tp_none", text = "Not a question for the Sanctum, I'm afraid. Try the library." } },
+    _none = { { id = "tp_none", text = "That's not a question for the Sanctum, I'm afraid, so try the Royal Library and tell Milton I sent you." } },
   },
 }
 

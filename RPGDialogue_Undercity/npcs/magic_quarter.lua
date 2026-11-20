@@ -650,8 +650,100 @@ P:NPC {
         { text = "Fire or frost, which do you prefer?", next = "schools" },
         { text = "What became of Dalaran, then?", next = "dome" },
         { text = "Darkspear magic comes from the loa, not from books.", next = "troll", when = { race = "Troll" } },
+        { text = "Tell me what lies ahead on a mage's road.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm living. Will you still teach me?", next = "m_living", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
+        { text = "What use are the rest of us to a mage?", next = "m_others", when = { ["not"] = { class = "MAGE" } } },
         { text = "I'll go.", next = "END" },
         { text = "Dalaran's mages are dying out there, Kaelystia. Pleased?", next = "dd_dalaran", when = { killed = { name = "Dalaran", min = 30 } } },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "The road is the same for the living and the dead; only the company changes. Ask about any stretch of it, and I'll tell you what Dalaran would have charged you to learn it." },
+        { id = "mr_high", when = { minLevel = 40 }, text = "You've come most of the way already, and you still come back to my candle. Either you're loyal or you've run out of better teachers, and I'll accept either." },
+      },
+      again = {
+        { id = "mr_again", text = "Another stretch of road? Quickly, then." },
+        { id = "mr_again2", text = "Go on. The candle's lasting better than I expected." },
+      },
+      choices = {
+        { text = "Polymorph. Is it beneath a Forsaken mage?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Why should the dead conjure bread and water?", next = "m_conjure" },
+        { text = "I can step home to the Undercity now.", next = "m_twenty", when = { minLevel = 20 } },
+        { text = "I'm sent to a living human, Tabetha, in the marsh.", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "Portals. I'll be ferrying the living about.", next = "m_portals", when = { minLevel = 40 } },
+        { text = "I've learned all you teach. What remains?", next = "m_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_default", text = "Beneath us? It's the most Forsaken spell in the book, if you ask me: you take a creature's shape away and give it back when it suits you. The Kirin Tor teach it as a mercy, and I teach it as a demonstration." } },
+      choices = {
+        { text = "A mercy still. I'll spare whoever I can.", next = "m_road", reply = "How very Dalaran of you. I'll forgive it this once, since you'll grow out of it.", fx = { align = { light = 1 } } },
+        { text = "A demonstration. Let them feel helpless.", next = "m_road", reply = "Now you're learning what the spell is actually for. Helplessness teaches better than pain.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_conjure = {
+      lines = { { id = "mc_default", text = "Because our allies are inconveniently alive, and they get thirsty. A Forsaken mage who keeps the orcs fed is one the orcs don't mutter about, and in this alliance that's worth more than any fireball." } },
+      choices = {
+        { text = "The alliance matters. I'll keep them fed.", next = "m_road", reply = "Sensible. Resent it privately, the way I do, and keep conjuring.", fx = { align = { order = 1 } } },
+        { text = "Let the living fend for themselves.", next = "m_road", reply = "They will, and they'll remember who didn't help. Choose your contempt more carefully than that.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_twenty = {
+      lines = { { id = "mt_default", text = "Now you can stand anywhere in the world and come home to the Magic Quarter in a breath, and blink out of a Scarlet's reach besides. Learn Evocation and use it, because the dead don't tire but our mana does, and nothing is more humiliating than an empty mage in a Crusade chapel." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_tabetha = {
+      big = true,
+      lines = { { id = "mtb_default", text = "Tabetha: a living human mage who left the Kirin Tor's orbit to sit in a swamp, and the trainers of both banners send her students, which tells you how few of us are left who can teach. Take her test and her wand, and notice that she never once asks what you were." } },
+      choices = {
+        { text = "I'll treat her fairly. She's earned that much.", next = "m_road", reply = "Fairly. Yes, be fair to the one human who was fair to us. I can just about bear it.", fx = { align = { light = 1 } } },
+        { text = "She's still one of them. I'll take what I need.", next = "m_road", reply = "That's the spirit, though do take the wand politely. I hear she has a temper.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_portals = {
+      lines = { { id = "mpo_default", text = "Now the orcs will queue at your elbow for a door to Orgrimmar, and you'll learn what the Kirin Tor learned long ago, that a portal mage is a servant with a good title. Lexington Mortaim will teach you our door, and he'll be insufferable about it." } },
+      choices = {
+        { text = "Serving the Horde is no shame.", next = "m_road", reply = "No. It's merely tedious. Serve it well, and let them see a Forsaken mage is worth the trouble.", fx = { align = { honor = 1 } } },
+        { text = "I'll charge them for every step.", next = "m_road", reply = "Good. Dalaran charged us for everything and gave us nothing, so at least you'll give them a door.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_sixty = {
+      big = true,
+      lines = { { id = "m60_default", text = "Then go to Caer Darrow, where the Cult of the Damned teaches necromancy in the Barovs' old keep, and remember that Kel'Thuzad, who brewed the plague, was a magus of the Kirin Tor first. Dalaran made the man who killed us, and I'd like that never forgotten." } },
+      choices = {
+        { text = "Then I'll make Dalaran answer for him.", next = "m_road", reply = "Now you sound like one of mine. Bring me back their excuses; I collect them.", fx = { align = { light = -1 } } },
+        { text = "One traitor doesn't damn a whole city.", next = "m_road", reply = "Bethor would agree with you, and I'd tell you both you're wrong. Go anyway.", fx = { align = { light = 1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_living = {
+      big = true,
+      lines = {
+        { id = "ml_default", text = "I teach whoever the Dark Lady's alliance sends me, and I don't have to like you to teach you well. That's more than Dalaran ever offered either of us." },
+        { id = "ml_orc", when = { race = "Orc" }, text = "An orc in a mage's robe, while your elders still spit at the word warlock. We have that in common: both our peoples were ruined by magic someone else chose, and both of us chose it again anyway." },
+        { id = "ml_troll", when = { race = "Troll" }, text = "A troll who studies books instead of bones. Your witch doctors must despair of you, which I find almost endearing." },
+        { id = "ml_tauren", when = { race = "Tauren" }, text = "A tauren. Your people lay their dead under an open sky, and mine were refused even a gate to die behind, so forgive me if your gentleness is hard to look at." },
+      },
+      choices = {
+        { text = "Then teach me well, and I'll prove worth it.", next = "BACK", reply = "Prove it, then. I'll be watching, and I don't blink any more.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need your liking, only your spells.", next = "BACK", reply = "Good. We understand each other perfectly, which is rare in this city.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_others = {
+      lines = { { id = "mot_default", text = "A great deal, if you stand in front. A warrior who holds the door lets me finish a spell, and I've told you what I think of mages who don't finish their spells." } },
+      choices = {
+        { text = "I'll hold the door, then.", next = "BACK", reply = "Then you'll be the only thing between me and the Scarlets that I don't despise.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hold your own doors, mage.", next = "BACK", reply = "I will, and I'll freeze whoever comes through it, you included if you're slow.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hate = {
@@ -777,7 +869,100 @@ P:NPC {
         { text = "Kaelystia doesn't seem as forgiving as you.", next = "kaelystia" },
         { text = "How do I fix my off-hand fire?", next = "offhand", when = { class = "MAGE" } },
         { text = "Troll magic comes from the loa, Pierce.", next = "troll", when = { race = "Troll" } },
+        { text = "Will you walk me through the road ahead?", next = "m_road", when = { class = "MAGE" } },
+        { text = "I studied at Dalaran too. They shut us out.", next = "m_dalaran", when = { class = "MAGE", race = "Scourge" } },
+        { text = "I'm an orc mage. Do you mind teaching me?", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "I'm a tauren mage. Is that very odd?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "Goodbye, Pierce.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = { { id = "mr_default", text = "Oh, the road! I used to draw it on the slate for my pupils, a long line with little marks along it, and they always wanted to skip to the end. Pick a mark, and I'll tell you what I used to tell them." } },
+      again = {
+        { id = "mr_again", text = "Another mark on the slate? Splendid, I'd nearly forgotten where we were." },
+        { id = "mr_again2", text = "Go on, go on. I'm enjoying this more than the ley lines." },
+      },
+      choices = {
+        { text = "Conjured water. Does it taste of anything?", next = "m_water" },
+        { text = "Polymorph. Why a sheep, of all things?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Arcane, fire or frost. Which should I study?", next = "m_schools", when = { minLevel = 10 } },
+        { text = "Evocation. Why does it take so long?", next = "m_evoc", when = { minLevel = 20 } },
+        { text = "Tabetha in the marsh. Did you know her?", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "Portals. Must I really carry others about?", next = "m_portal", when = { minLevel = 40 } },
+        { text = "Enough of the slate, Pierce.", next = "BACK" },
+      },
+    },
+    m_water = {
+      lines = { { id = "mw_default", text = "I couldn't tell you, I'm afraid, because the plague took my taste along with everything else and never gave it back. My pupils used to say it tasted of nothing at all, which I always thought was rather the point: it's water that doesn't come from anywhere." } },
+      choices = {
+        { text = "Do you miss tasting things?", next = "m_water2" },
+        { text = "Back to the slate.", next = "m_road" },
+      },
+    },
+    m_water2 = {
+      big = true,
+      lines = { { id = "mw2_default", text = "Bread, mostly, warm from the oven in the village by the school, and strawberries in summer. I conjure them sometimes for the living ones who pass through the Quarter and watch them eat, and that's very nearly as good." } },
+      choices = {
+        { text = "Then I'll conjure for the living too, and watch.", next = "m_road", reply = "Oh, do. It's the kindest spell we have, and nobody ever writes treatises about it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The living can feed themselves. We've other work.", next = "m_road", reply = "They can, of course. I only think we lose something when we stop wanting to watch.", fx = { align = { light = -1 } } },
+        { text = "Back to the slate.", next = "m_road" },
+      },
+    },
+    m_poly = {
+      lines = { { id = "mp_default", text = "Nobody knows, and I've read every theory, and my favourite is that the first mage to write it down grew up on a farm. Sheep are gentle, harmless and very hard to be frightened of, which is the whole point of the spell." } },
+      choices = { { text = "Back to the slate.", next = "m_road" } },
+    },
+    m_schools = {
+      big = true,
+      lines = { { id = "ms_default", text = "I taught all three, but I loved the arcane best, because it's the only school that explains itself if you're patient. Fire is a good servant, frost is a good guard, and the arcane is a good conversation. Which do you think you'll be?" } },
+      choices = {
+        { text = "Frost. I'll take the guard.", next = "m_road", reply = "A sensible choice, and Kaelystia will approve, which is rare enough to celebrate.", fx = { align = { order = 1 } } },
+        { text = "Fire. I want a servant that bites.", next = "m_road", reply = "Mind it doesn't bite the hand, then. Fire has no loyalty at all, only appetite.", fx = { align = { order = -1 } } },
+        { text = "The arcane, I think, like you.", next = "m_road", reply = "Oh, wonderful! Come and argue with me about ley lines whenever you like.", fx = { affinity = 1 } },
+      },
+    },
+    m_evoc = {
+      lines = { { id = "me_default", text = "Because you're drawing the mana back out of the world, and the world doesn't like to be hurried. I used to tell pupils to think of sitting very still at a well; you can't pull the water up faster than the rope allows." } },
+      choices = { { text = "Back to the slate.", next = "m_road" } },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "Only by her letters, years ago. She wrote to the school asking for a book on marsh mana, and her handwriting was dreadful and her questions were wonderful, and I'm told she teaches Horde mages now. I can't think of anyone I'd rather send you to." } },
+      choices = {
+        { text = "Shall I give her your regards?", next = "m_road", reply = "Oh, would you? Tell her Pierce from the lake school, and tell her I never did find that book.", fx = { affinity = 1 } },
+        { text = "Back to the slate.", next = "m_road" },
+      },
+    },
+    m_portal = {
+      lines = { { id = "mpo_default", text = "You must, because someone has to, and otherwise the orcs walk from Orgrimmar to the Undercity, which takes weeks and ruins their tempers. Lexington teaches the doors, and he'll be strict with you, which is quite right." } },
+      choices = {
+        { text = "Carrying others is an honor, Pierce.", next = "m_road", reply = "It is, and I'm so glad you see it that way. Most of my pupils only saw the coin in it.", fx = { align = { light = 1 } } },
+        { text = "I'll carry those who can pay me.", next = "m_road", reply = "Well, a mage must eat, or must buy runes, at least. Do carry the poor ones now and then.", fx = { align = { light = -1 } } },
+        { text = "Back to the slate.", next = "m_road" },
+      },
+    },
+    m_dalaran = {
+      big = true,
+      lines = { { id = "md_default", text = "Did they? Then we were refused at the same gate, you and I, though I was only ever refused by a librarian. I don't hate them for it, which Kaelystia calls a character flaw, but I miss the library terribly, and I think that's a kind of grief." } },
+      choices = {
+        { text = "I can't hate them either. I miss it too.", next = "BACK", reply = "Then we'll miss it together, and quietly, so as not to upset Kaelystia.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I hate them, Pierce, and they'll answer for it.", next = "BACK", reply = "Then go gently in your hating, and spare the students. They didn't shut the gate.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_orc = {
+      lines = { { id = "mo_default", text = "Mind? Goodness, no, I'm delighted. An orc who reads is an orc the warlocks couldn't ruin, and I've always thought teaching was a quiet sort of mending." } },
+      choices = {
+        { text = "Then I'll be a mended orc, gladly.", next = "BACK", reply = "And I'll be a mended schoolmaster, for having a pupil again. Shall we begin?", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'm not broken, schoolmaster. Just teach.", next = "BACK", reply = "Of course, forgive me; that was the schoolmaster talking. Let's begin.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_tauren = {
+      lines = { { id = "mta_default", text = "Odd? Wonderful! Your people listen to the wind and the earth, and the arcane is a sort of wind if you hold it right, so you may understand it better than any of us. Do tell me what your elders said." } },
+      choices = {
+        { text = "They said the Earth Mother would understand.", next = "BACK", reply = "Then your Earth Mother is a better teacher than half the Kirin Tor. I'd like to have met her.", fx = { affinity = 1 } },
+        { text = "They said nothing. They just looked sad.", next = "BACK", reply = "Ah. My father looked like that when I went to Dalaran. Write to them, if you can; it helps." },
       },
     },
     xorig_archive = {

@@ -654,3 +654,47 @@ P:Views { topic = "humans", views = {
     { id = "b", text = "You have, and I'll not pretend otherwise. Stubbornness is the one thing nobody ever accused your people of lacking.", fx = { affinity = 1 } },
   } },
 } }
+
+-- Mage patch: what the player says back about mages and the arcane. The mage Stories in
+-- threads.lua end on these stances: serve, craft or free on one side, leash or danger on the other.
+P:Views { topic = "mages", views = {
+  { id = "sundering", when = { race = "NightElf" }, text = "The arcane drowned Zin-Azshari. My people want no part of it.", fx = { opinion = { mages = "danger" }, trait = { cautious = 1 } }, replies = {
+    { id = "a", text = "Ten thousand years and you still remember the water coming in. I'd want no part of it either, if I'd seen that.", fx = { affinity = 1 } },
+    { id = "b", text = "Your people say that, and then a Highborne's grandchild sells you a frost ward in Darnassus. Memory is a convenient thing." },
+    { id = "c", when = { class = "MAGE" }, text = "Strange words from someone wearing a mage's robes. Does the High Priestess know what you study?", fx = { affinity = -1 } },
+  } },
+  { id = "warlocks", when = { race = "Orc" }, text = "The warlocks taught my people where that road ends.", fx = { opinion = { mages = "danger" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "In chains and fel-green skin, aye. I'd not blame any orc for looking twice at a spellbook after that.", fx = { affinity = 1 } },
+    { id = "b", text = "A mage isn't a warlock, though I'll grant you that both of them start by reaching for something they weren't born with." },
+  } },
+  { id = "kelthuzad", when = { race = "Scourge" }, text = "Dalaran's finest mind made the plague that killed me.", fx = { opinion = { mages = "danger" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "Kel'Thuzad sat on their Council of Six, and they let him walk out the gate with his notes. You've every right to the grudge.", fx = { affinity = 1 } },
+    { id = "b", text = "And a mage taught you to read, I'd wager, back when you breathed. Most of them were only clerks with candles." },
+  } },
+  { id = "birthright", when = { race = "Skyborne" }, text = "The arcane is my people's birthright, and we've paid for it already.", fx = { opinion = { mages = "craft" }, trait = { proud = 1 } }, replies = {
+    { id = "a", text = "Paid for it with exile, from what the heralds said. Then you'll know better than any of us what it costs.", fx = { affinity = 1 } },
+    { id = "b", text = "Birthright, is it? That's how the night elves say the Highborne talked, just before the sea came in.", fx = { affinity = -1 } },
+  } },
+  { id = "craft", when = { class = "MAGE" }, text = "It's a craft like any other. What matters is what you do with it.", fx = { opinion = { mages = "craft" }, trait = { honest = 1 } }, replies = {
+    { id = "a", text = "Spoken like someone who's done some good with it, and I'll take you at your word. A smith's hammer kills too, if you swing it wrong.", fx = { affinity = 1 } },
+    { id = "b", text = "A craft that turns a man into a sheep isn't like any craft I know, {class}. The cobbler down my street has never once done that." },
+    { id = "c", when = { disposition = { max = 34 } }, text = "That's what every mage says, right up until the curtains catch." },
+  } },
+  { id = "serve", text = "Magic should feed the hungry and mend things, not gather dust in towers.", fx = { opinion = { mages = "serve" }, trait = { kind = 1 } }, replies = {
+    { id = "a", text = "If more of them thought like you, I'd think better of them. A conjured loaf never hurt anybody who was starving.", fx = { affinity = 1 } },
+    { id = "b", text = "Tell that to the bakers, whose ovens go cold every time a mage starts handing out bread for free." },
+  } },
+  { id = "leash", text = "Every mage needs watching. Somebody ought to hold the leash.", fx = { opinion = { mages = "leash" }, trait = { stern = 1 }, align = { order = 1 } }, replies = {
+    { id = "a", text = "The Kirin Tor held it for a long while, and it slipped twice that I know of, with Kel'Thuzad and with Arugal. Still, a slipped leash beats none at all.", fx = { affinity = 1 } },
+    { id = "b", text = "And who watches the ones holding it? That's the question nobody in Dalaran ever wanted to answer." },
+    { id = "c", when = { class = "MAGE" }, text = "That's a hard thing to hear from a mage. You must have met some of the others.", fx = { affinity = 1 } },
+  } },
+  { id = "free", text = "Nobody should need a council's leave to learn a spell.", fx = { opinion = { mages = "free" }, trait = { brave = 1 }, align = { order = -1 } }, replies = {
+    { id = "a", text = "Fine words, and I'd like to believe them. Then again, Kel'Thuzad didn't ask anyone's leave either.", fx = { affinity = -1 } },
+    { id = "b", text = "There's something in that. The Kirin Tor decided who may learn for so long that they forgot to ask why." },
+  } },
+  { id = "danger", text = "Every disaster I've ever heard of started with a mage.", fx = { opinion = { mages = "danger" }, trait = { skeptical = 1 } }, replies = {
+    { id = "a", text = "The Sundering, the Dark Portal, the plague and the worgen, and that's only the ones they tell you about. I'd not argue with you.", fx = { affinity = 1 } },
+    { id = "b", text = "And a fair few were stopped by one too, so it cuts both ways. Ask anyone who stood at Hyjal with Lady Jaina." },
+  } },
+} }

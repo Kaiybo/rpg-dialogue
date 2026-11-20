@@ -239,7 +239,82 @@ P:NPC {
         { text = "Your pupils have left marks on Renee's ceiling.", next = "pupils" },
         { text = "You share the inn with a good many other trainers.", next = "rivals" },
         { text = "What school should a mage of Brill learn first?", next = "school", when = { class = "MAGE" } },
+        { text = "Tell me about the road ahead, Cain.", next = "m_road", when = { class = "MAGE" } },
+        { text = "I'm an orc, learning fire in a Forsaken tavern.", next = "m_orc", when = { class = "MAGE", race = "Orc" } },
+        { text = "A tauren mage among the dead. Strange, isn't it?", next = "m_tauren", when = { class = "MAGE", race = "Tauren" } },
         { text = "Farewell, Cain.", next = "END" },
+      },
+    },
+    m_road = {
+      hub = true,
+      lines = {
+        { id = "mr_default", text = "The road, yes! It runs from this tablecloth to the Magic Quarter and then out into the wide unkind world, and I've walked the first stretch of it so often I could teach it asleep, if I slept." },
+        { id = "mr_high", when = { minLevel = 30 }, text = "You've come back to Brill, at your level! Either you're sentimental or you've left something upstairs, and I hope it's the first." },
+      },
+      again = {
+        { id = "mr_again", text = "What else about the road? I've a lesson in an hour, and I'd much rather talk." },
+        { id = "mr_again2", text = "Go on, go on. Renee's not listening, for once." },
+      },
+      choices = {
+        { text = "Polymorph on a Scarlet. Is that cruel?", next = "m_poly", when = { minLevel = 8 } },
+        { text = "Frost Nova saved me in the Scarlet fields.", next = "m_nova", when = { minLevel = 10 } },
+        { text = "Slow Fall seems a frivolous spell.", next = "m_slowfall", when = { minLevel = 12 } },
+        { text = "I can step home now. Why visit Brill at all?", next = "m_twenty", when = { minLevel = 20 } },
+        { text = "The trainers speak of Tabetha in the marsh.", next = "m_tabetha", when = { minLevel = 26 } },
+        { text = "Enough of the road, Cain.", next = "BACK" },
+      },
+    },
+    m_poly = {
+      big = true,
+      lines = { { id = "mp_default", text = "Cruel to whom? The Crusader spends a minute as a sheep, which is the only peaceful minute he's had since he took the oath. I've sometimes wondered whether they'd be happier left that way." } },
+      choices = {
+        { text = "Perhaps a sheep is kinder than a zealot.", next = "m_road", reply = "Exactly what I said to Rupert, and he didn't laugh either.", fx = { align = { light = 1 } } },
+        { text = "I turn him back so I can burn him.", next = "m_road", reply = "Practical, grim and very Forsaken of you. I can't fault the logic, only the mood.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_nova = {
+      lines = { { id = "mn_default", text = "Of course it did; it's the best spell in the book for a mage caught too close, which in the Scarlet fields is every mage. Freeze them, step back three paces, and decide what they deserve while they're still deciding whether to pray." } },
+      choices = {
+        { text = "I'll freeze them and let them flee, if they will.", next = "m_road", reply = "Generous. They won't flee, mostly, but it's nice to offer.", fx = { align = { light = 1 } } },
+        { text = "Frozen men don't flee. I finish them.", next = "m_road", reply = "Efficient. Rupert would approve, and I'm not sure that's a compliment.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_slowfall = {
+      lines = { { id = "msf_default", text = "Frivolous until something large throws you off a cliff in Silverpine, and then it's the only spell in the world you want. Buy light feathers from Hannah Akeley in the Undercity and keep a few in every pocket, because you'll never know you need one until you're already falling." } },
+      choices = { { text = "Back to the road.", next = "m_road" } },
+    },
+    m_twenty = {
+      lines = { { id = "mt_default", text = "Because Renee's fire is warm, and because the Magic Quarter is full of people who won't let me finish a sentence. Come back now and then and tell me where you've been, because I live on other people's travels these days." } },
+      choices = {
+        { text = "I'll come back and tell you everything.", next = "m_road", reply = "Promise? Then I'll keep the good chair for you, and I'll tell Renee it's for a hero.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll be too busy for taverns.", next = "m_road", reply = "Of course you will; they all are. The ceiling will remember you, at least.", fx = { align = { light = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_tabetha = {
+      lines = { { id = "mtb_default", text = "Tabetha! A living woman who lives in a swamp and teaches anyone with the nerve to find her, and I'm told she's never once asked a Forsaken pupil to explain himself. That's more courtesy than the Kirin Tor ever gave me when I had a pulse." } },
+      choices = {
+        { text = "Then she'll have my courtesy in return.", next = "m_road", reply = "Good. Give her my compliments, and don't mention that I set fire to things for a living.", fx = { align = { honor = 1 } } },
+        { text = "Courtesy won't stop me taking what I can learn.", next = "m_road", reply = "Nor should it, I suppose. Only take it politely; she lives alone with a great deal of fire.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "m_road" },
+      },
+    },
+    m_orc = {
+      big = true,
+      lines = { { id = "mo_default", text = "An orc, in my tavern, learning my fire! Rupert will be beside himself, because he thinks every orc with a spell is secretly one of his. Are you?" } },
+      choices = {
+        { text = "No. I've seen what that path did to my people.", next = "BACK", reply = "Then you're wiser than half the Horde's elders gave you credit for. Sit down, and mind the tablecloth.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Who's to say what I'll become, in time?", next = "BACK", reply = "That's exactly what Rupert's students say. I'd rather you didn't, but I'll teach you anyway.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    m_tauren = {
+      lines = { { id = "mta_default", text = "A tauren mage out here in the Glades, among the dead! Your people must think you've lost your senses, and I'd like to think you've found them. What brought you to fire?" } },
+      choices = {
+        { text = "A grassfire on the plains, and how it answered me.", next = "BACK", reply = "It answered you! That's how it was for me too, waking in the dark. Fire's a friend who comes when called.", fx = { affinity = 1 } },
+        { text = "Curiosity. The Earth Mother made fire too.", next = "BACK", reply = "Then she and I would get along, and I'd ask her what she thinks of Renee's ceiling." },
       },
     },
     name = {

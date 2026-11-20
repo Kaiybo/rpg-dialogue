@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.96.0 (2026-11-19): The Violet Gate
+The mage patch. **New file in the World pack (`mage_notice.lua`): restart the game fully (a /reload won't load it).**
+- **People notice a mage**: guards, townsfolk, innkeepers, bakers and food vendors (who don't love your conjured bread), reagent sellers, smiths, flight masters, children, other class trainers and the spirit healer react to Arcane Intellect, your armors, Mana Shield, Ice Barrier, Ice Block, Evocation, Arcane Power and Combustion, conjured food and water, mana gems, runes, wands, the Magister, Arcanist and Netherwind robes, and to mages of every race.
+- **Mage trainers rewritten and deepened** in both factions, following your road: Polymorph at 8, conjuring, Blink, Evocation and your first teleport at 20, Counterspell, Tabetha's wand in Dustwallow Marsh, mana gems, Ice Block, portals at 40, the three schools and their talents, Arcane Brilliance and 60. Portal trainers teach you what a portal costs. Tabetha now walks you through her whole wand chain.
+- **Wizards of the world**: Archmage Malin, Theocritus, Archmage Tervosh, Elissa Dumas, Ansirem Runeweaver, Wordeen Voidglare, Dalar Dawnweaver, the Image of Modera, Sorcerer Ashcrombe, Archmage Xylem, Vivian Lagrave, Magus Tirth, Mordent Evenshade and the Kirin Tor archmages have more to say, especially to a mage, and to a Forsaken mage whom Dalaran shut out.
+- **Three new Stories**: Bread for the cellars (Alliance mages), The orc who chose frost (Horde mages) and Behind the violet dome (mages 30+, a confession about Kel'Thuzad and Arugal).
+- **Everyone has a view of mages**: a new Mages topic, new views (night elves remember the Sundering, orcs the warlocks, the Forsaken Dalaran), and about twenty town crowds gossip about sheep, conjured bread, Kel'Thuzad and the dome over Dalaran.
+- Doubled NPCs removed: Archmage Gaiman, Nittlebur Sparkfizzle, Dink, Birgitte Cranston.
+- Not seen in game yet.
+
 ## 0.95.0 (2026-11-19): Sons of Lothar
 The human patch. No new files: a /reload is enough.
 - **Humans talk to humans.** About thirty human NPCs have branches only a human player hears: Dughan, Gryan Stoutmantle, Salma, Bolvar, Katrana Prestor, Anduin, Archbishop Benedictus, Baros, Solomon, Althea, Magistrate Maleb, Jaina, Nials, Valorfist, Tyrosus and more. They talk about the Second War, Lordaeron's fall and its refugees, the missing king, the Defias and the Stonemasons, Westfall's hunger, Stromgarde's decline, Alterac's treachery and Gilneas behind its wall, and what humans owe each other. Many also tell a dwarf, gnome or night elf what they think being human means.

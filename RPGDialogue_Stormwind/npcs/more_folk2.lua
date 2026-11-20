@@ -1383,7 +1383,7 @@ P:NPC {
     third = "{name} met Archmage Gaiman, a battle-mage of the Alliance, in Stormwind's Champions' Hall.",
   },
   greetings = {
-    { id = "g_default", text = "Good day. If you've come for the quartermasters, they're by the racks. If you've come to ask a mage about war, I'd sit down first." },
+    { id = "g_default", text = "Good day to you. If you've come for the quartermasters, they're by the racks, and if you've come to ask a mage about war, I'd sit down first." },
     { id = "g_2", when = { metBefore = true }, text = "You again, and good. You're one of the few who doesn't ask me to set something on fire." },
     { id = "g_3", when = { class = "MAGE" }, text = "A colleague, in this hall of swordsmen. Pull up a chair, and tell me they're still teaching the fundamentals at the Sanctum." },
   },
@@ -1397,6 +1397,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ga_counter = {
+      big = true,
+      lines = { { id = "gac_default", text = "More than every fireball I've ever thrown put together. One word cut short at the right moment, and a whole line of footmen never learn what the shaman meant to do to them, and nobody thanks you, because nothing happened." } },
+      choices = {
+        { text = "Nothing happening is the best outcome. I'll master it.", next = "BACK", reply = "Then you'll be the most valuable mage in any company and the least celebrated. I'd call that a good career.", fx = { align = { order = 1 } } },
+        { text = "I'd rather end the shaman than his spell.", next = "BACK", reply = "So would every young mage, and the shaman's friends would rather you tried. Silence him first and burn him after.", fx = { align = { order = -1 } } },
+        { text = "How do you know when to cut a spell short?", next = "ga_counter2" },
+      },
+    },
+    ga_counter2 = {
+      lines = { { id = "gac2_default", text = "You watch the hands and never the face, because a caster's face lies and the hands never do. When the fingers close, you're already too late, so you speak as they begin to open." } },
+      choices = { { text = "The hands, not the face. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    ga_target = {
+      big = true,
+      lines = { { id = "gat_default", text = "Whoever told you that has fought beside priests and shamans, and they're right, though it's an ugly truth. Kill the one who makes the others stand up again, and the battle shortens itself." } },
+      choices = {
+        { text = "It feels a low thing, striking the healers first.", next = "BACK", reply = "It is, and I've done it, and the soldiers who came home because of it don't think it low. Carry it anyway.", fx = { align = { honor = 1 } } },
+        { text = "It's efficient. I'll aim for them first.", next = "BACK", reply = "Efficient is the word, and I'm sorry it's the right one. Don't let it become the only word you know.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    ga_blackrock = {
+      lines = { { id = "gab_default", text = "They march with warlocks again, shadowcasters the garrison at Lakeshire calls them, and they read the old fel rites the way their grandfathers did before the Dark Portal. It was that kind of magic that tore this world open in my youth, and I do not intend to sit quietly while it's practised a few days' ride from our walls.", fx = { learn = { "blackrock" } } } },
+      choices = {
+        { text = "Nor should you. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", text = "Archmage Gaiman. The Kirin Tor trained me and the Alliance borrowed me, and I've been on loan ever since. I advise the officers here on what magic can and can't do in a battle, and they mostly want to hear about the first part." },
@@ -1405,7 +1433,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Something more? The book will wait; it always does." },
         { id = "hello_again2", text = "Go on. I've nowhere pressing to be." },
-        { id = "hello_again3", text = "Ask, by all means." },
+        { id = "hello_again3", text = "Ask, by all means, while the officers are busy at their maps." },
       },
       choices = {
         { text = "What does a mage do in a battle?", next = "battle" },
@@ -1414,6 +1442,9 @@ P:NPC {
         { text = "What should a mage know before the battlegrounds?", next = "know", when = { class = "MAGE" } },
         { text = "What should a soldier know about fighting beside mages?", next = "beside", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "HUNTER" } } },
         { text = "Why keep a mage in a soldiers' hall?", next = "hall" },
+        { text = "What is Counterspell worth in a real battle?", next = "ga_counter", when = { class = "MAGE", minLevel = 24 } },
+        { text = "I've been told to aim for the healers first.", next = "ga_target", when = { class = "MAGE", minLevel = 20 } },
+        { text = "Do the Blackrock orcs in Redridge use magic?", next = "ga_blackrock" },
         { text = "Good day, Archmage.", next = "END" },
       },
     },

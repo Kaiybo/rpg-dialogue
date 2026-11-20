@@ -226,7 +226,7 @@ P:NPC {
 
   greetings = {
     { id = "g_mage", when = { class = "MAGE" }, text = "Ready to face your destiny? Good, then close the door; the draught scatters my notes." },
-    { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Don't touch anything glowing, or humming, or warm." },
+    { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch anything that's glowing, humming or warm, because in this room it's usually all three at once." },
   },
 
   notice = {
@@ -238,6 +238,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    kh_water = {
+      big = true,
+      lines = { { id = "khw_default", text = "Because a flask runs dry on the second day and conjured water doesn't, and because the first spell that makes something instead of breaking something is the one that teaches you what magic is for. Every student I've sent on to Goldshire learned the water before the fireball, and I mean to keep it that way." } },
+      choices = {
+        { text = "Making before breaking. I like that.", next = "BACK", reply = "Good, then you've understood the lesson before I finished it, which almost never happens. Conjure me a cup, and we'll see how it tastes.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I came here for the fireball, Khelden.", next = "BACK", reply = "Everyone does, and everyone learns the water first anyway, because I don't teach fireballs to the thirsty.", fx = { align = { light = -1 } } },
+        { text = "What did you learn first?", next = "kh_first" },
+      },
+    },
+    kh_first = {
+      lines = { { id = "khf_default", text = "Water, like you, from a master in Stormwind who made me conjure a full bucket every morning for a month before he'd teach me anything that burned. I hated him for it, and I've never once gone thirsty on the road." } },
+      choices = { { text = "Something else, Khelden.", next = "BACK" } },
+    },
+    kh_poly = {
+      big = true,
+      lines = { { id = "khp_default", text = "Hold the creature in your mind as it is, and then as you want it to be, and let the spell close the gap without shoving. Shove, and you'll get a sheep with the wrong number of legs for a moment, which is very upsetting for everyone and especially for the sheep." } },
+      choices = {
+        { text = "A gentle hand, then. I won't shove.", next = "BACK", reply = "Good, and you'll find it holds longer that way, too. The spell likes being asked.", fx = { align = { order = 1 } } },
+        { text = "Upsetting or not, it still works.", next = "BACK", reply = "It does, and so does a hammer on a pocket watch. I'd rather you learned it properly.", fx = { align = { order = -1 } } },
+        { text = "Could I polymorph someone in town?", next = "kh_poly2" },
+      },
+    },
+    kh_poly2 = {
+      lines = { { id = "khp2_default", text = "You could, and the guards in Goldshire would take a very dim view of it, and so would I. Polymorph is for things that want to kill you, not for the miller who shorted you a sack of flour." } },
+      choices = { { text = "Something else, Khelden.", next = "BACK" } },
+    },
+    kh_school = {
+      lines = { { id = "khs_default", text = "None of them yet, because you haven't the fundamentals to choose with. Learn your Frostbolt, your Fireball and your Arcane Missiles until you can cast each one tired and frightened, and then the school will choose you, which is how it ought to go." } },
+      choices = {
+        { text = "All three, then, until one chooses me.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Khelden.", next = "BACK" },
+      },
+    },
+    kh_human = {
+      big = true,
+      lines = { { id = "khh_default", text = "Half the mages in Stormwind are farmers' children, and the other half pretend they aren't. Magic doesn't care whose hands it's in, only whether those hands are steady, and a child who's milked cows at dawn has steadier hands than any lord's son I've taught." } },
+      choices = {
+        { text = "Then I'll work at it like a harvest.", next = "BACK", reply = "That's exactly the way, a row at a time and no skipping. You'll do well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll never go back to the farm, whatever happens.", next = "BACK", reply = "Mind you don't burn that bridge before you've crossed it, because the farms feed the Sanctum too.", fx = { align = { order = -1 } } },
+        { text = "Something else, Khelden.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They skip every one of them, every time. I'd guess a shaman has fundamentals too, or the elements would never answer." } },
@@ -300,16 +342,18 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kh_poly", when = { class = "MAGE", minLevel = 8, maxLevel = 12 },
+          text = "You'll be ready for Polymorph about now, and I'll warn you that every student turns a chicken into a sheep the first time and then can't think why the chicken's so cross about it afterwards." },
         { id = "h_default", text = "Khelden Bremen. I teach the fundamentals, though everyone wants the dramatic parts, and the fundamentals are what keep the dramatic parts from killing you." },
         { id = "h_letter", tags = { "news" }, when = { questRecent = { TODO_QUEST("Glyphic Letter"), days = 1 } },
-          text = "Marshal McBride's letter, so you've a spark. Knowledge and power are out there for the taking, whatever gods or men think of it. Let's see how much you can carry." },
+          text = "Marshal McBride's letter, so you've a spark in you after all. Knowledge and power are out there for the taking, whatever gods or men think of it, so let's see how much you can carry." },
         { id = "h_other", when = { ["not"] = { class = "MAGE" } },
-          text = "Magic is dangerous to the untrained. You're untrained. I'm only pointing out the arithmetic." },
+          text = "Magic is dangerous to the untrained, and you're untrained, so I'm only pointing out the arithmetic when I ask you to stand by the door." },
         { id = "h_level", when = { class = "MAGE", minLevel = 10 },
-          text = "You've outgrown my little room, so go to Zaldimar Wefhellt, upstairs at the Lion's Pride in Goldshire. Try not to set the inn alight." },
+          text = "You've outgrown my little room, so go to Zaldimar Wefhellt, upstairs at the Lion's Pride in Goldshire, and try not to set the inn alight on your way up." },
         { id = "h_basics", when = { metBefore = true }, text = "Back for more fundamentals? Good, because everyone else wants fireballs, and you'd be amazed how many of them set the library curtains alight." },
         { id = "h_veteran", when = { class = "MAGE", minLevel = 25 },
-          text = "One of mine, come back up the stairs. You still hold your hands like I taught you. Most forget by the time they reach the Wizard's Sanctum in Stormwind." },
+          text = "One of mine, come back up the stairs, and you still hold your hands the way I taught you, which most forget by the time they reach the Wizard's Sanctum in Stormwind." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "One of Jorik Kerridan's, here in my library. You'll touch nothing on the shelves, because I know exactly where every book is, and I'll know if one moves." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -317,7 +361,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my classroom. You'll be looking for the barracks, I imagine, which are next door and noisier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to keep that animal clear of the reagents, because a curious nose and a sulphur pouch make a very short lesson." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be wanting to tell me nature's magic needs no fundamentals. Please don't, because my students are listening." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Close the door, please; my notes scatter. Do your spirits respect the fundamentals?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, is it? Close the door, please, because my notes scatter, and then tell me whether your spirits respect the fundamentals." },
       },
       again = {
         { id = "h_again", text = "Another question? Go on, but mind the inkwell." },
@@ -339,6 +383,10 @@ P:NPC {
         { text = "Have any of your students ever fought a hunter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You probably think druidic magic less disciplined than yours.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Students always seem to skip the fundamentals, Khelden.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why conjure water, Khelden? I could carry a flask.", next = "kh_water", when = { class = "MAGE", maxLevel = 15 } },
+        { text = "Teach me to cast Polymorph properly.", next = "kh_poly", when = { class = "MAGE", minLevel = 8 } },
+        { text = "Which school of magic should I start in?", next = "kh_school", when = { class = "MAGE", maxLevel = 12 } },
+        { text = "I'm only a farmer's child from Elwynn. Can I really do this?", next = "kh_human", when = { race = "Human", class = "MAGE", maxLevel = 12 } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -361,7 +409,7 @@ P:NPC {
     },
     power_worst = {
       lines = {
-        { id = "pw_default", text = "The third. The others warn you, but that one flatters you; you'll never once feel addicted, only talented." },
+        { id = "pw_default", text = "The third, because the others warn you and that one flatters you, so you'll never once feel addicted, only talented." },
       },
       choices = {
         { text = "I'll watch for it.", next = "BACK", reply = "Watch for it every day, then, because it's patient. The flattering ones always are.", fx = { align = { order = 1 }, trait = { cautious = 1 }, affinity = 1 } },
@@ -392,7 +440,7 @@ P:NPC {
     },
     light = {
       lines = {
-        { id = "li_default", text = "Say that in the corridor and three brothers will correct you at once. I'll only say this: it obeys rules too. They just don't write theirs down." },
+        { id = "li_default", text = "Say that in the corridor and three brothers will correct you at once, so I'll only say this: the Light obeys rules too, and the brothers simply don't write theirs down." },
       },
       choices = {
         { text = "The Light isn't a set of rules.", next = "BACK", reply = "No, it's a faith, and I'll not argue with you there. But faith keeps rules of its own, whether it admits it or not.", fx = { align = { light = 1 }, trait = { pious = 1 } } },

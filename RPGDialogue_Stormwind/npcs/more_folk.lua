@@ -452,7 +452,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "You have climbed a long stair, and I hope it was for a reason. Speak, and keep your voice low; the wards in this room are older than you are." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back. I trust the world has not undone you yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back to the Sanctum, and I trust the world has not undone you yet." },
     { id = "g_treatise", when = { questActive = TODO_QUEST("Ur's Treatise on Shadow Magic") }, text = "Morganth's tower stands in Redridge still, and so does the book he stole. Do not open it, whatever it whispers to you." },
     { id = "g_power", when = { questActive = TODO_QUEST("Power Overwhelming") }, text = "Dalaran's wild energies will not disperse themselves. The Kirin Tor will not ask for help twice, so do not make them." },
   },
@@ -464,14 +464,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    an_expect = {
+      big = true,
+      lines = { { id = "ane_default", text = "That you'll come when the city calls, and that you'll tell us when you find something that ought to be locked away. We keep no oaths in this Sanctum, because Dalaran's oaths did not stop Kel'Thuzad, but we keep a list of names, and yours is on it now." } },
+      choices = {
+        { text = "I'll answer when Stormwind calls.", next = "BACK", reply = "Then you'll find this stair shorter every time you climb it. That is the only reward I can promise.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My power is my own, Sorcerer. I'll choose my causes.", next = "BACK", reply = "So did Morganth, and he chose very badly. Choose well, and you'll hear nothing more from me about it.", fx = { align = { order = -1 } } },
+        { text = "What sort of names are on your list?", next = "an_list" },
+      },
+    },
+    an_list = {
+      lines = { { id = "anl_default", text = "Students who did well, students who did badly, and a short column at the end for those we would like to find again. Morganth heads the last one, and I'd be very glad to strike him off it." } },
+      choices = { { text = "Something else, Sorcerer.", next = "BACK", fx = { learn = { "morganth" } } } },
+    },
+    an_sky = {
+      big = true,
+      lines = { { id = "ans_default", text = "The High Order answers to whom it pleases, I've noticed, and the Kirin Tor answer to no one at all, so we're all very free. While you stand in my Sanctum, though, you'll keep my wards as my own students keep them." } },
+      choices = {
+        { text = "Your wards, your rules. I'll keep them.", next = "BACK", reply = "Thank you. Courtesy between orders is rarer than it should be, and I'll remember yours.", fx = { align = { order = 1 } } },
+        { text = "My people kept older wards than these.", next = "BACK", reply = "I don't doubt it, and older wards have failed before. These ones are mine, and they haven't.", fx = { align = { order = -1 } } },
+        { text = "Something else, Sorcerer.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_an_mage", when = { class = "MAGE", minLevel = 20 },
+          text = "You've the stance of a mage who has been tested in the field and come home, and the Sanctum keeps a list of such people. I'd like to be sure your name belongs on the right part of it." },
         { id = "h_default", text = "I am Andromath, High Sorcerer of this Sanctum, and the wizards of Stormwind answer to me in most matters. We guard the city against the kind of danger that does not come through the gate." },
         { id = "h_treatise_done", when = { questDone = TODO_QUEST("Ur's Treatise on Shadow Magic") }, text = "Ur's Treatise is back behind our wards with its seals unbroken, and Morganth's theft is undone. You did well, and I don't say that lightly." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? Choose carefully." },
-        { id = "h_again2", text = "Speak. The wards are listening, but so am I." },
+        { id = "h_again", text = "What else would you know? Choose your question carefully, because the wards are listening too." },
+        { id = "h_again2", text = "Speak, then, and keep your voice low; the wards are listening, but so am I." },
       },
       choices = {
         { text = "Who was Morganth?", next = "morganth" },
@@ -479,6 +503,8 @@ P:NPC {
         { text = "What dangers don't come through the gate?", next = "dangers" },
         { text = "You've work for a mage, you said.", next = "mage", when = { class = "MAGE" } },
         { text = "Mages only borrow their power, Sorcerer. Some of us take ours.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "What does the Sanctum expect of a mage it trained?", next = "an_expect", when = { class = "MAGE" } },
+        { text = "The High Order answers to the Kirin Tor, not to you.", next = "an_sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "I'll leave you to your wards.", next = "END" },
       },
     },
