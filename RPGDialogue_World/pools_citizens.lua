@@ -178,7 +178,7 @@ P:Pool {
       } },
     { text = "What do people here make of my people?", next = "BACK", when = { race = "Skyborne", ["not"] = { npcFlag = "rq_a_skyborne" } }, fx = { npcFlag = { set = "rq_a_skyborne" } },
       reply = "Not much yet, if I'm honest. Some say you came down on the wind and some say you're long-lost cousins of the night elves, and I'd sooner hear the truth from you than from my brother-in-law." },
-    { text = "Light keep you too.", next = "END" },
+    { text = "I'll let you get on with your day.", next = "END" },
   },
   topics = {
     druids = { { id = "w_druids", text = "The night elves' holy men, as near as I can tell, though they'd sooner sleep in a tree than a chapel. They heal well enough, and they turn into bears, and nobody in this town has quite got used to the second part." } },
