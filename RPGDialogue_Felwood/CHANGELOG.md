@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-20)
+- Golhine the Hooded and Kelek Skykeeper talk about the Emerald Circle and Felwood's sick bears.
+
 ## 1.26.0 (2026-11-19)
 - New: Hastat the Ancient and Stoma the Ancient. Vartrus has the Rhok'delar road and a Story ending; doubled NPCs removed.
 

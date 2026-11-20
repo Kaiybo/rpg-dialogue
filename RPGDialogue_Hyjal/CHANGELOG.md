@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-20)
+- Thisalee Crow talks with druids about Aviana's gift, Nighthaven and Nordrassil.
+
 ## 1.10.0 (2026-11-19)
 - Thisalee Crow has a night elf branch on Archimonde's fall.
 

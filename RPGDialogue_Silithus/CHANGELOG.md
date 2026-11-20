@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-20)
+- Mar'alith and Proudhorn at Cenarion Hold talk with druids about the old war and the Circle sharing the Hold.
+
 ## 1.24.0 (2026-11-19)
 - Frankal Stonebridge on the Explorers' League.
 

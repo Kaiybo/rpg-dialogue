@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.97.0 (2026-11-20): The Waking Grove
+The druid patch. **New file in the World pack (`druid_notice.lua`): restart the game fully (a /reload won't load it).**
+- **People notice a druid**: guards, townsfolk, innkeepers, bankers (who won't open a vault for a bear), vendors, smiths, flight and stable masters, children, other class trainers and the spirit healer react to your bear, cat, travel, aquatic and moonkin forms, to Mark and Gift of the Wild and Thorns on the people you bless, to Barkskin, Innervate and your heals, to berries, thornroot and Rebirth seeds, and to night elf, tauren, Skyborne and less likely druids.
+- **Druid trainers follow your road**: "What comes next for me?" walks you from the bear and Teleport: Moonglade at 10 through Cure Poison, the sea lion, the cat and Rebirth, travel form, dire bear, Innervate and moonkin at 40, to 60. Ask whether you should be a bear, a cat or a healer.
+- **Druids of both factions deepened**: Mathrengyl Bearwalker, Fandral Staghelm, Denatharion, Fylerian Nightwing, Mardant Strongoak, Kal, Sheldras Moontree, Maldryn and Theridran for the Alliance; Turak and Hamuul Runetotem, Sheal Runetotem, Kym and Nara Wildmane, Gart Mistrunner, Gennia and Tonga Runetotem, Jannos Lighthoof for the Horde; Tharnariun, Alanndarian and Kerlonian in Darkshore, Ruul Snowhoof, Tammra Windfield, Rau Cliffrunner and Cenarion Emissary Blackhoof.
+- **Moonglade is home**: Loganaar, Dendrite Starblaze, Keeper Remulos, Rabine Saturna, Silva Fil'naveth, Bunthen Plainswind and Tajarri have much more to say to druids, and the Great Bear Spirit truly tests you now. **New:** the Great Cat Spirit in southern Moonglade. The wider Circle too: Golhine and Kelek Skykeeper in Felwood, Cenarion Hold in Silithus, Thisalee Crow, Alfina Nightgaze, Cavindra, and Urs'endris for Skyborne druids.
+- **Three new Stories**: The one who stayed a bear (Alliance druids), The druid and the Fang (Horde druids) and Two at the same fire (druids 30+, the Cenarion Circle).
+- **Everyone has a view of druids**: a new Druids topic with views, and town crowds from Darnassus and Thunder Bluff to Undercity gossip about shapeshifters.
+- Doubled NPCs removed: Maldryn and Theridran (Stormwind).
+- Not seen in game yet.
+
 ## 0.96.0 (2026-11-19): The Violet Gate
 The mage patch. **New file in the World pack (`mage_notice.lua`): restart the game fully (a /reload won't load it).**
 - **People notice a mage**: guards, townsfolk, innkeepers, bakers and food vendors (who don't love your conjured bread), reagent sellers, smiths, flight masters, children, other class trainers and the spirit healer react to Arcane Intellect, your armors, Mana Shield, Ice Barrier, Ice Block, Evocation, Arcane Power and Combustion, conjured food and water, mana gems, runes, wands, the Magister, Arcanist and Netherwind robes, and to mages of every race.

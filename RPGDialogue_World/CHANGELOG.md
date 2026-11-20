@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.49.0 (2026-11-20)
+- New file `druid_notice.lua` (full restart): people notice druids' forms, blessings and reagents. Druid trainers have a level road (`d_path`) and a bear/cat/healer talk. Topic Druids with views and town chatter. Three Stories: dru_alliance, dru_horde, dru_circle.
+
 ## 1.48.0 (2026-11-19)
 - Mage patch: new file `mage_notice.lua` (restart the game fully): people notice mages. The mage trainer's road from 1 to 60; three mage Stories (Bread for the cellars, The orc who chose frost, Behind the violet dome); the `mages` topic, views and town chatter about mages.
 

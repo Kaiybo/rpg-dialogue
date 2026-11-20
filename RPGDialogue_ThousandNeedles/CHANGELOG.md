@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-20)
+- Rau Cliffrunner talks with druids.
+
 ## 1.35.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 

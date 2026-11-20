@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-20)
+- Tonga Runetotem walks Horde druids through the Cure Poison chain; Jorn Skyseer points the way to the Moonkin Stone.
+
 ## 1.31.0 (2026-11-19)
 - Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
 

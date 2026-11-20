@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.39.0 (2026-11-20)
+- Sheldras Moontree, Maldryn and Theridran deepened for druids; the doubled Maldryn and Theridran merged into one each.
+
 ## 1.38.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 

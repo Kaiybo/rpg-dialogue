@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-20)
+- Ruul Snowhoof talks with tauren and Skyborne druids about Turak's teaching and the Circle.
+
 ## 1.30.0 (2026-11-19)
 - Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
 
