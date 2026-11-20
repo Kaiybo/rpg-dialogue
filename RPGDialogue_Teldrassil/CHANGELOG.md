@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-20)
+- New: Sentinel Lynessa Duskblossom, the Ban'ethil Hollow escort (`missed2.lua`).
+
 ## 1.26.1 (2026-11-20)
 - Byancie: the healer's question no longer has druids claim to heal by the Light.
 
