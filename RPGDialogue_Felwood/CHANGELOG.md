@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.1 (2026-11-20)
+- Vartrus, Hastat and Stoma speak more like ancient trees.
+
 ## 1.27.0 (2026-11-20)
 - Golhine the Hooded and Kelek Skykeeper talk about the Emerald Circle and Felwood's sick bears.
 
