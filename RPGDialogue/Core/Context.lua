@@ -36,6 +36,21 @@ B.hardcore = function() return C.IsHardcore() end
 B.pvpRank = function() return (C.PvPRank()) end
 B.pvpRankName = function() local _, n = C.PvPRank(); return n end
 B.pvpFlagged = function() return C.PvPFlagged() end
+-- Talents (0.97.0): spec = { tree = 1..3, name = English tree name, points = n }
+-- for your deepest tree (nil with no points), talentPoints = { n1, n2, n3 }.
+-- Spoof: /rpgd spoof spec=Fire:31 (or spec=2:31).
+B.talentPoints = function()
+  local t, out = ns.Compat.Talents and ns.Compat.Talents() or {}, {}
+  for i = 1, 3 do out[i] = t[i] and t[i].points or 0 end
+  return out
+end
+B.spec = function(ctx)
+  local pts, best = ctx.talentPoints, nil
+  for i = 1, 3 do if pts[i] > 0 and (not best or pts[i] > pts[best]) then best = i end end
+  if not best then return nil end
+  local names = ns.Conditions.SPEC_TREES[ctx.class or ""] or {}
+  return { tree = best, name = names[best], points = pts[best] }
+end
 B.honorKills = function() local hk = C.PvPLifetime(); return hk end
 B.dishonorKills = function() local _, dk = C.PvPLifetime(); return dk end
 
@@ -226,7 +241,7 @@ local mt = {
 Ctx.DUMP_ORDER = {
   "name", "race", "class", "gender", "level", "band", "faction", "guild", "guildRank", "title",
   "money", "durability", "nearlyNaked", "tabard", "hardcore",
-  "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
+  "spec", "talentPoints", "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
   "npcName", "npcID", "npcFamily", "npcMine", "npcLevel", "npcGender", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
   "zone", "subzone", "mapID", "capital", "resting", "atInn", "inInstance", "hour", "tod", "holiday",
   "party", "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",

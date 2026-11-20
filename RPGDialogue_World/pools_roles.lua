@@ -1140,6 +1140,12 @@ P:Pool {
     { id = "g_ghost", when = { resSick = true }, text = "You've the grey look of someone the spirit healer has just sent back. Sit a moment before you swing anything." },
   },
   notice = {
+    { id = "n_sp_pal1", cat = "spec", when = { class = "PALADIN", spec = { tree = "Holy", min = 31 } },
+      text = "The Light sits on you like warm sun through a chapel window. You've given yourself to healing, I think, more than to the hammer." },
+    { id = "n_sp_pal2", cat = "spec", when = { class = "PALADIN", spec = { tree = "Protection", min = 31 } },
+      text = "You've the look of a bulwark, all shield and patience. The Light in you has learned to stand still and let the darkness break against it." },
+    { id = "n_sp_pal3", cat = "spec", when = { class = "PALADIN", spec = { tree = "Retribution", min = 31 } },
+      text = "There's a hard edge to the Light on you, more fire than lantern. You've chosen to bring judgment, not just carry it." },
     { id = "n_dirty", cat = "gear", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces, and the Light shields but does not mend, so visit a smith after this." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PALADIN" },
@@ -1175,6 +1181,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_pal1 = {
+      lines = { { id = "sp_pal1_l", text = "The Light favours that choice more often than the hammer-bearers like to admit. Uther himself said a paladin's first duty is to the wounded." } },
+      choices = {
+        { text = "Every life is worth the mending.", next = "BACK", reply = "Every one, yes, though some will test you. Hold to it anyway.", fx = { align = { light = 1 } } },
+        { text = "I heal the worthy, and let the rest fend.", next = "BACK", reply = "The Light may judge worth; I'd be slow to do it in its place.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_pal2 = {
+      lines = { { id = "sp_pal2_l", text = "Aye, and the Order forgets that whenever there's glory to chase. A paladin who holds the gate saves more than one who charges through it." } },
+      choices = {
+        { text = "Holding the line is the truest service.", next = "BACK", reply = "Then you'll be the last one standing when the charge comes back broken. Bless you for it.", fx = { align = { order = 1 } } },
+        { text = "Sometimes the gate needs kicking open.", next = "BACK", reply = "Sometimes, and I'll pray you know which times. The Light rarely says.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_pal3 = {
+      lines = { { id = "sp_pal3_l", text = "They should, and the Scourge has given us more than enough wicked to judge. Only remember that righteous anger is still anger." } },
+      choices = {
+        { text = "I strike only those who earn it.", next = "BACK", reply = "Then your hammer is in good hands. Keep weighing every blow.", fx = { align = { light = 1 } } },
+        { text = "I'd rather strike first and pray later.", next = "BACK", reply = "The Light has forgiven worse, but it remembers. So should you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Come in, and keep your voice low; there's a squire at prayer in the corner. Now, what have you come to learn?" },
@@ -1212,6 +1242,9 @@ P:Pool {
         { text = "The loa and the Light ask very different things.", next = "race_loa", when = { race = "Troll" } },
         { text = "The Earth Mother and the Light don't feel so different.", next = "race_earth", when = { race = "Tauren" } },
         { text = "I'd never heard of the Light before my people came back.", next = "race_newlight", when = { race = "Skyborne" } },
+        { text = "I'd rather mend a soldier than strike down a foe.", next = "sp_pal1", when = { class = "PALADIN", spec = { tree = "Holy", min = 31 }, chance = 0.5 } },
+        { text = "The Light is a shield before it is a sword.", next = "sp_pal2", when = { class = "PALADIN", spec = { tree = "Protection", min = 31 }, chance = 0.5 } },
+        { text = "The wicked should fear the Light.", next = "sp_pal3", when = { class = "PALADIN", spec = { tree = "Retribution", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1616,6 +1649,12 @@ P:Pool {
     { id = "g_since", when = { levelsSince = 6 }, text = "You've grown since our last lesson, and the Light has grown in you with it. Sit, and we'll go on." },
   },
   notice = {
+    { id = "n_sp_pri1", cat = "spec", when = { class = "PRIEST", spec = { tree = "Discipline", min = 31 } },
+      text = "You've the calm of someone who's spent a great many hours in prayer and very few in doubt. Discipline suits you." },
+    { id = "n_sp_pri2", cat = "spec", when = { class = "PRIEST", spec = { tree = "Holy", min = 31 } },
+      text = "The Light shines through you so plainly that I almost want to shade my eyes. You've given yourself to healing, child." },
+    { id = "n_sp_pri3", cat = "spec", when = { class = "PRIEST", spec = { tree = "Shadow", min = 31 } },
+      text = "There's a chill around you, and the candles lean away when you pass. You've walked further into the shadow than most of us dare." },
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "PRIEST" },
       text = "A gnome in the vestments! I've heard of it and never seen it. Your people do like to take things apart, but faith isn't one of those things." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PRIEST" },
@@ -1653,6 +1692,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_pri1 = {
+      lines = { { id = "sp_pri1_l", text = "The Light rewards those who work for it. Many think devotion is a feeling, but you've learned it's a practice, and that will carry you far." } },
+      choices = {
+        { text = "The Light asks for steady hands and humble hearts.", next = "BACK", reply = "Then you've heard it rightly. Keep both.", fx = { align = { order = 1 } } },
+        { text = "Rules are a crutch for weaker faith.", next = "BACK", reply = "Perhaps, but crutches have kept many a priest upright through dark years.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_pri2 = {
+      lines = { { id = "sp_pri2_l", text = "A beautiful wish, and an exhausting one. You'll find wounds you can't close, and the Light will ask you to keep going anyway." } },
+      choices = {
+        { text = "Then I'll keep going, whatever it costs.", next = "BACK", reply = "Bless you. Only remember to let someone tend to you, too.", fx = { align = { light = 1 } } },
+        { text = "Some wounds aren't worth the effort.", next = "BACK", reply = "That may be wisdom or weariness. Pray on which.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_pri3 = {
+      lines = { { id = "sp_pri3_l", text = "So said every priest who never came back from it. I don't forbid the path, but I'll watch you closely, and you should watch yourself closer." } },
+      choices = {
+        { text = "I walk the shadow for the Light's sake.", next = "BACK", reply = "I believe you mean that. Keep meaning it.", fx = { align = { light = 1 } } },
+        { text = "The shadow gives me what the Light never did.", next = "BACK", reply = "Then I'll pray for you, whether you want it or not.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Healing is the easy part. Knowing when to let someone fall and learn is harder." },
@@ -1676,6 +1739,9 @@ P:Pool {
         { text = "The Earth Mother heals too.", next = "race_earth", when = { race = "Tauren" } },
         { text = "The Cathedral teaches the Light as a duty.", next = "race_duty", when = { race = "Human" } },
         { text = "My people honoured the elements, not any god.", next = "race_elements", when = { race = "Skyborne" } },
+        { text = "Faith without discipline is just wishful thinking.", next = "sp_pri1", when = { class = "PRIEST", spec = { tree = "Discipline", min = 31 }, chance = 0.5 } },
+        { text = "I want to heal every wound I find.", next = "sp_pri2", when = { class = "PRIEST", spec = { tree = "Holy", min = 31 }, chance = 0.5 } },
+        { text = "To fight the darkness, I had to understand it.", next = "sp_pri3", when = { class = "PRIEST", spec = { tree = "Shadow", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1806,6 +1872,12 @@ P:Pool {
     { id = "g_tabetha", when = { class = "MAGE", minLevel = 26, maxLevel = 32 }, text = "Have you been out to see Tabetha in the marsh yet? Come in either way, and tell me if you have." },
   },
   notice = {
+    { id = "n_sp_mag1", cat = "spec", when = { class = "MAGE", spec = { tree = "Arcane", min = 31 } },
+      text = "The air hums around you in a pitch that makes my teeth ache. You've gone deep into the arcane itself, haven't you?" },
+    { id = "n_sp_mag2", cat = "spec", when = { class = "MAGE", spec = { tree = "Fire", min = 31 } },
+      text = "You smell of smoke and scorched paper, and my candles flare when you breathe. A pyromancer, then, through and through." },
+    { id = "n_sp_mag3", cat = "spec", when = { class = "MAGE", spec = { tree = "Frost", min = 31 } },
+      text = "There's frost on your sleeves, and the ink in my well has thickened. You've chosen the cold path, and it's chosen you back." },
     { id = "n_orc", cat = "class", when = { race = "Orc", class = "MAGE" },
       text = "An orc who reads! Don't take offense; I'm delighted. Most of my students can't sit still for a page." },
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "MAGE" },
@@ -1841,6 +1913,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_mag1 = {
+      lines = { { id = "sp_mag1_l", text = "Pure and hungry. Dalaran's best walked that road, and so did those who lost their minds to it. The difference was usually discipline." } },
+      choices = {
+        { text = "Discipline is the price of the arcane.", next = "BACK", reply = "Pay it gladly, and you'll keep your sanity. Most do not.", fx = { align = { order = 1 } } },
+        { text = "Rules only slow down true study.", next = "BACK", reply = "That's what the Highborne thought, and look what became of them.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_mag2 = {
+      lines = { { id = "sp_mag2_l", text = "It does, and it makes three more on the way out. Still, nothing ends a fight like a well-placed Pyroblast, and you've clearly learned that." } },
+      choices = {
+        { text = "I aim it carefully, and only at foes.", next = "BACK", reply = "Then you're rarer than you know. Most pyromancers have burned a friend at least once.", fx = { align = { light = 1 } } },
+        { text = "If something burns that shouldn't, so be it.", next = "BACK", reply = "That's how villages burn, and mages hang. Think on it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_mag3 = {
+      lines = { { id = "sp_mag3_l", text = "Wise words. Fire rushes, the arcane consumes, but frost waits. The frost mages I've known were the calmest people in any room." } },
+      choices = {
+        { text = "Calm control is the heart of magic.", next = "BACK", reply = "You'll make a fine teacher one day, if you keep that.", fx = { align = { order = 1 } } },
+        { text = "The cold doesn't care, and neither do I.", next = "BACK", reply = "Careful. A heart of ice is a poor thing to carry home.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Magic is a debt: you borrow power and you pay it back in focus. Don't fall behind on payments." },
@@ -1867,6 +1963,9 @@ P:Pool {
         { text = "My people trust a hammer more than a spell.", next = "race_hammer", when = { race = "Dwarf" } },
         { text = "My people swore off this magic after the Sundering.", next = "race_sworn", when = { race = "NightElf" } },
         { text = "The arcane feels nothing like the land.", next = "race_land", when = { race = "Tauren" } },
+        { text = "The arcane is the purest magic there is.", next = "sp_mag1", when = { class = "MAGE", spec = { tree = "Arcane", min = 31 }, chance = 0.5 } },
+        { text = "Fire solves most problems quickly.", next = "sp_mag2", when = { class = "MAGE", spec = { tree = "Fire", min = 31 }, chance = 0.5 } },
+        { text = "Cold is patient, and patience wins fights.", next = "sp_mag3", when = { class = "MAGE", spec = { tree = "Frost", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2162,6 +2261,12 @@ P:Pool {
     { id = "g_outsider", when = { ["not"] = { class = "WARLOCK" } }, text = "You're not one of mine, so say what you came to say, and keep your hands off the books while you say it." },
   },
   notice = {
+    { id = "n_sp_war1", cat = "spec", when = { class = "WARLOCK", spec = { tree = "Affliction", min = 31 } },
+      text = "There's a rot about you, a slow, patient one, as if you've been teaching curses to take their time." },
+    { id = "n_sp_war2", cat = "spec", when = { class = "WARLOCK", spec = { tree = "Demonology", min = 31 } },
+      text = "Your minion stands closer than most, and it watches you more than me. You've bound yourself deep with the demons." },
+    { id = "n_sp_war3", cat = "spec", when = { class = "WARLOCK", spec = { tree = "Destruction", min = 31 } },
+      text = "The shadows around you smoulder, and I can smell brimstone on your breath. You've given yourself to ruin." },
     { id = "n_troll", cat = "class", when = { race = "Troll", class = "WARLOCK" },
       text = "A Darkspear with a grimoire instead of a fetish. The loa won't thank you for it, and the demons won't know the difference." },
     { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
@@ -2202,6 +2307,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_war1 = {
+      lines = { { id = "sp_war1_l", text = "It does, and it teaches whoever casts it as well. Affliction warlocks become very patient people, and very cold ones." } },
+      choices = {
+        { text = "I curse only those who deserve suffering.", next = "BACK", reply = "That's a judgment you'll have to make often. Make it carefully.", fx = { align = { light = 1 } } },
+        { text = "Suffering is the point.", next = "BACK", reply = "Then you're further gone than most. Keep your circle closed.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_war2 = {
+      lines = { { id = "sp_war2_l", text = "For now. Demonologists hold the leash tightest, and so they feel it slip first. Don't ever let it slip." } },
+      choices = {
+        { text = "Control is everything; I never loosen the grip.", next = "BACK", reply = "Good. The day you do, you'll learn what Gul'dan learned.", fx = { align = { order = 1 } } },
+        { text = "Let the demon run; it fights better that way.", next = "BACK", reply = "It also eats better that way. Usually you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_war3 = {
+      lines = { { id = "sp_war3_l", text = "Because the burning doesn't always stop where you want it to. But I'll not lie, there's no more terrible power in our art." } },
+      choices = {
+        { text = "I aim my ruin only at the Legion's servants.", next = "BACK", reply = "A fitting target. Use their own fire against them.", fx = { align = { light = 1 } } },
+        { text = "Whatever's in the way, burns.", next = "BACK", reply = "Then someday you'll be in the way of someone like you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Power is power, and the ones who sneer at where it comes from never seem to have enough of it." },
@@ -2233,6 +2362,9 @@ P:Pool {
         { text = "Some would call this work hard to justify.", next = "justify" },
         { text = "The Light would see your whole craft burned.", next = "holy", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "What does it take to become a warlock?", next = "recruit", when = { ["not"] = { class = "WARLOCK" } } },
+        { text = "A curse that lingers teaches better than a blast.", next = "sp_war1", when = { class = "WARLOCK", spec = { tree = "Affliction", min = 31 }, chance = 0.5 } },
+        { text = "My demons serve me, and only me.", next = "sp_war2", when = { class = "WARLOCK", spec = { tree = "Demonology", min = 31 }, chance = 0.5 } },
+        { text = "Why bargain slowly when I can burn it all now?", next = "sp_war3", when = { class = "WARLOCK", spec = { tree = "Destruction", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2707,6 +2839,12 @@ P:Pool {
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid, in a hunter's yard. Don't turn into anything in front of the pens, please; it confuses the beasts terribly." },
   },
   notice = {
+    { id = "n_sp_hun1", cat = "spec", when = { class = "HUNTER", spec = { tree = "Beast Mastery", min = 31 } },
+      text = "Your companion watches me like it understands every word I say, and I'd wager it does. You've bound yourself to the beast more than to the bow." },
+    { id = "n_sp_hun2", cat = "spec", when = { class = "HUNTER", spec = { tree = "Marksmanship", min = 31 } },
+      text = "You've got a marksman's squint, the kind that's measured a thousand distances. I'd not want to be anything you've decided to hit." },
+    { id = "n_sp_hun3", cat = "spec", when = { class = "HUNTER", spec = { tree = "Survival", min = 31 } },
+      text = "You smell of smoke and pine sap, and there's a trap-maker's callus on your thumb. You could live out there a month with nothing but a knife." },
     { id = "n_human", cat = "class", when = { race = "Human", class = "HUNTER" },
       text = "A human with a bow and a beast at heel. Not many of you take to it, but the ones who do take to it hard." },
     { id = "n_nopet", cat = "pet", when = { class = "HUNTER", minLevel = 12, pet = false },
@@ -2753,6 +2891,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_hun1 = {
+      lines = { { id = "sp_hun1_l", text = "That's the oldest bond there is, older than bows or traps. Few hunters go that deep, and fewer still come back out of it the same." } },
+      choices = {
+        { text = "A beast is family, not a weapon.", next = "BACK", reply = "Treat it so, and it'll die for you without being asked. Don't let it.", fx = { align = { light = 1 } } },
+        { text = "A beast is a tool, however loyal.", next = "BACK", reply = "A tool that can bleed for you. Remember that the day it does.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_hun2 = {
+      lines = { { id = "sp_hun2_l", text = "Then you've learned the hardest lesson there is: that patience kills cleaner than any arrowhead. Keep your breath slow and your quiver full." } },
+      choices = {
+        { text = "A clean shot is the kindest death.", next = "BACK", reply = "It is, and the beasts know it. Hunt that way and the wilds won't curse you.", fx = { align = { light = 1 } } },
+        { text = "I shoot whatever pays the bounty.", next = "BACK", reply = "Coin's coin, I suppose. Just don't be surprised when the wilds stop being generous.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_hun3 = {
+      lines = { { id = "sp_hun3_l", text = "They will, and they'll bury anyone who doesn't. The survivalist's art is mostly knowing which rules can't be broken." } },
+      choices = {
+        { text = "I keep the old rules of the hunt.", next = "BACK", reply = "Good. They're older than any king's law, and they're fairer too.", fx = { align = { order = 1 } } },
+        { text = "Out there, the only rule is staying alive.", next = "BACK", reply = "True enough in the moment. But hunters who think that way strip a forest bare in a season.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Patience first, aim second, and the rest is weather and luck." },
@@ -2781,6 +2943,9 @@ P:Pool {
         { text = "Feign Death saved my neck out there today.", next = "feign_tale", when = { class = "HUNTER", minLevel = 30 } },
         { text = "Why tame a beast I could simply become?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "I'm no hunter. Is there anything you'd teach me?", next = "other_eye", when = { ["not"] = { class = { "HUNTER", "DRUID" } } } },
+        { text = "My companion and I are one hunter in two bodies.", next = "sp_hun1", when = { class = "HUNTER", spec = { tree = "Beast Mastery", min = 31 }, chance = 0.5 } },
+        { text = "I've never needed a second shot.", next = "sp_hun2", when = { class = "HUNTER", spec = { tree = "Marksmanship", min = 31 }, chance = 0.5 } },
+        { text = "The wilds will keep anyone who learns their rules.", next = "sp_hun3", when = { class = "HUNTER", spec = { tree = "Survival", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3290,6 +3455,12 @@ P:Pool {
     { id = "g_since", when = { levelsSince = 6 }, text = "You have come a long way since I last taught you. The elements answer you more readily now, and I can hear it." },
   },
   notice = {
+    { id = "n_sp_sha1", cat = "spec", when = { class = "SHAMAN", spec = { tree = "Elemental", min = 31 } },
+      text = "The air crackles around you, and the fire in my brazier bends your way. The elements answer you quickly, maybe too quickly." },
+    { id = "n_sp_sha2", cat = "spec", when = { class = "SHAMAN", spec = { tree = "Enhancement", min = 31 } },
+      text = "The spirits ride in your arms and your weapons, not just your words. You fight with the elements inside you." },
+    { id = "n_sp_sha3", cat = "spec", when = { class = "SHAMAN", spec = { tree = "Restoration", min = 31 } },
+      text = "You carry water's calm with you, and the earth's patience. You've chosen to mend rather than break." },
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
       text = "Stone has always listened to your people. I only wondered when you'd start talking back." },
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "SHAMAN" },
@@ -3325,6 +3496,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_sha1 = {
+      lines = { { id = "sp_sha1_l", text = "It listens, but it doesn't obey. An elemental shaman asks, and asks again, and never forgets that the spirits could say no." } },
+      choices = {
+        { text = "I ask with respect, every time.", next = "BACK", reply = "Then they'll keep answering. That's the whole of it.", fx = { align = { order = 1 } } },
+        { text = "If they won't answer, I'll make them.", next = "BACK", reply = "Spirits forced are spirits angered. Gul'dan's warlocks learned that, and so did all of Draenor.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_sha2 = {
+      lines = { { id = "sp_sha2_l", text = "That's an old way, older than the Horde's totems. The warrior-shamans of Draenor wore the storm like armour, and so do you." } },
+      choices = {
+        { text = "I honour the spirits that lend me strength.", next = "BACK", reply = "Good. Strength borrowed should be thanked.", fx = { align = { light = 1 } } },
+        { text = "Their strength is mine now.", next = "BACK", reply = "The spirits might see it differently. Be careful they don't take it back mid-swing.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_sha3 = {
+      lines = { { id = "sp_sha3_l", text = "Many young shamans forget that, chasing lightning and fire. The spirits give life before they give storms, and you've remembered the order." } },
+      choices = {
+        { text = "Life always comes before war.", next = "BACK", reply = "The Earth Mother would agree, and so do I.", fx = { align = { light = 1 } } },
+        { text = "I heal so the warriors can keep killing.", next = "BACK", reply = "Honest, at least. The spirits will judge whether it's enough.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "You don't command the elements; you ask, and you listen when they answer. Most forget the second part." },
@@ -3348,6 +3543,9 @@ P:Pool {
         { text = "The wind spirits are dear to my people.", next = "sky_wind", when = { class = "SHAMAN", race = "Skyborne" } },
         { text = "Will the elements truly answer one of the dead?", next = "dead_elem", when = { class = "SHAMAN", race = "Scourge" } },
         { text = "Few of my people walk this path. Will the spirits accept me?", next = "newpath", when = { class = "SHAMAN", race = { "Human", "Gnome", "NightElf" } } },
+        { text = "The storm listens when I call.", next = "sp_sha1", when = { class = "SHAMAN", spec = { tree = "Elemental", min = 31 }, chance = 0.5 } },
+        { text = "The spirits fight beside me, blade to blade.", next = "sp_sha2", when = { class = "SHAMAN", spec = { tree = "Enhancement", min = 31 }, chance = 0.5 } },
+        { text = "Healing is the shaman's first duty.", next = "sp_sha3", when = { class = "SHAMAN", spec = { tree = "Restoration", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3488,6 +3686,12 @@ P:Pool {
     { id = "g_d_sixty", when = { class = "DRUID", minLevel = 60 }, text = "The Circle speaks your name in Moonglade now, I hear. Sit a while; there is not much left that I can teach you, but there is still a good deal I would like to hear." },
   },
   notice = {
+    { id = "n_sp_dru1", cat = "spec", when = { class = "DRUID", spec = { tree = "Balance", min = 31 } },
+      text = "The moon and sun both seem to linger around you. You've chosen the old balance, the stars and the storms." },
+    { id = "n_sp_dru2", cat = "spec", when = { class = "DRUID", spec = { tree = "Feral", min = 31 } },
+      text = "You smell of fur and the deep woods, and your eyes catch the light like a cat's. You've run with the beasts more than you've walked with us." },
+    { id = "n_sp_dru3", cat = "spec", when = { class = "DRUID", spec = { tree = "Restoration", min = 31 } },
+      text = "Everything green in this place seems to lean toward you. You've become a healer of the wild, child." },
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "DRUID" },
       text = "Your people's druids are few, I hear, and look to the elements before the moon. Tell me of that sometime, and I'll teach you this in trade." },
     { id = "n_cat", cat = "form", when = { form = "cat" }, place = "replace",
@@ -3528,6 +3732,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_dru1 = {
+      lines = { { id = "sp_dru1_l", text = "Then you've learned what Cenarius taught Malfurion: that nature isn't gentle, only balanced. Few young druids grasp that so early." } },
+      choices = {
+        { text = "Balance must be kept, whatever it costs.", next = "BACK", reply = "The Cenarion Circle would welcome you, then. It's the hardest oath there is.", fx = { align = { order = 1 } } },
+        { text = "Nature takes what it wants; so do I.", next = "BACK", reply = "That's not balance; that's hunger. The Emerald Dream will remember.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_dru2 = {
+      lines = { { id = "sp_dru2_l", text = "That's the danger and the gift of it. Druids of the claw have forgotten their own names before now, so remember yours." } },
+      choices = {
+        { text = "I take the beast's form, not its mind.", next = "BACK", reply = "Good. Keep that line clear and you'll run the wilds for centuries.", fx = { align = { order = 1 } } },
+        { text = "The beast's mind is the freer one.", next = "BACK", reply = "Freer, yes, and some of the Circle never found their way back from it. The wolves remember them better than we do.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_dru3 = {
+      lines = { { id = "sp_dru3_l", text = "That's Cenarius's own teaching. You'll heal a great many things, and the forest will remember each one." } },
+      choices = {
+        { text = "Every life is sacred, even the smallest.", next = "BACK", reply = "Then the Dream walks with you, I think.", fx = { align = { light = 1 } } },
+        { text = "Some things should be left to rot.", next = "BACK", reply = "Rot feeds the forest too. Just be sure you know which is which.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Balance isn't standing still. It's leaning one way and then the other and never quite falling." },
@@ -3551,6 +3779,9 @@ P:Pool {
         { text = "Can a druid honor the wind spirits and Elune both?", next = "sky_both", when = { class = "DRUID", race = "Skyborne" } },
         { text = "Can one of the dead truly walk in the wild?", next = "dead_wild", when = { class = "DRUID", race = "Scourge" } },
         { text = "My people have no druids. Will the Circle have me?", next = "newdruid", when = { class = "DRUID", race = { "Human", "Dwarf", "Gnome", "Orc", "Troll" } } },
+        { text = "Elune and the sun both guide my hand.", next = "sp_dru1", when = { class = "DRUID", spec = { tree = "Balance", min = 31 }, chance = 0.5 } },
+        { text = "In claw and fang, I'm most myself.", next = "sp_dru2", when = { class = "DRUID", spec = { tree = "Feral", min = 31 }, chance = 0.5 } },
+        { text = "Life always deserves another chance.", next = "sp_dru3", when = { class = "DRUID", spec = { tree = "Restoration", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3861,6 +4092,12 @@ P:Pool {
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear you sold someone in town a story and they bought it whole. Nicely done, but don't try it on me." },
   },
   notice = {
+    { id = "n_sp_rog1", cat = "spec", when = { class = "ROGUE", spec = { tree = "Assassination", min = 31 } },
+      text = "Your hands keep drifting to your belt, where I'd guess the vials sit. You've taken up the poisoner's art, and you're good at it." },
+    { id = "n_sp_rog2", cat = "spec", when = { class = "ROGUE", spec = { tree = "Combat", min = 31 } },
+      text = "You walk like a duellist, weight on your toes, ready to move. You'd rather win a knife fight than avoid one, wouldn't you?" },
+    { id = "n_sp_rog3", cat = "spec", when = { class = "ROGUE", spec = { tree = "Subtlety", min = 31 } },
+      text = "I didn't hear you come in, and I always hear people come in. You've gone deep into the shadows, haven't you?" },
     { id = "n_stealth", cat = "class", when = { stealthed = true }, place = "replace",
       text = "I saw you come in, and if I can see you, so can everyone else. Again." },
     { id = "n_plate", cat = "gear", when = { class = { "WARRIOR", "PALADIN" } },
@@ -3897,6 +4134,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_rog1 = {
+      lines = { { id = "sp_rog1_l", text = "It ends a war, and starts three feuds. Still, there's no surer tool in our line, and the ones who master it rarely want for work." } },
+      choices = {
+        { text = "I only poison those who have it coming.", next = "BACK", reply = "A poisoner with a conscience. Rare, and useful, so long as it doesn't slow your hand.", fx = { align = { light = 1 } } },
+        { text = "Whoever's named on the contract, I don't ask.", next = "BACK", reply = "That's the trade, and it pays. Just never drink anything you didn't pour yourself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_rog2 = {
+      lines = { { id = "sp_rog2_l", text = "Most of our kind would call that foolish, and they'd be wrong only half the time. A rogue who can fight face to face is a rogue who survives a bad night." } },
+      choices = {
+        { text = "A fair fight is still worth something.", next = "BACK", reply = "To you, maybe. Just don't expect the other fellow to agree.", fx = { align = { order = 1 } } },
+        { text = "There's no such thing as a fair fight.", next = "BACK", reply = "Now that's the first thing I teach anyone. Glad you learned it already.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_rog3 = {
+      lines = { { id = "sp_rog3_l", text = "Spoken like one of us. The shadows keep their own, but they also keep secrets from you, so don't get too comfortable in there." } },
+      choices = {
+        { text = "I keep to a code, even in the dark.", next = "BACK", reply = "Codes get people killed, but they also keep us from becoming what the guards say we are.", fx = { align = { order = 1 } } },
+        { text = "In the dark, there are no rules at all.", next = "BACK", reply = "That's what makes it useful, and dangerous. Mind you don't lose yourself.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Nobody remembers a quiet blade. That's the point of it." },
@@ -3922,6 +4183,9 @@ P:Pool {
         { text = "I learned to stalk prey in the jungles of home.", next = "stalk", when = { class = "ROGUE", race = "Troll" } },
         { text = "The Dark Lady's deathstalkers do this work too.", next = "deathstalkers", when = { class = "ROGUE", race = "Scourge" } },
         { text = "My people stayed hidden for ten thousand years.", next = "hidden_people", when = { class = "ROGUE", race = "Skyborne" } },
+        { text = "One drop in the right cup ends a war.", next = "sp_rog1", when = { class = "ROGUE", spec = { tree = "Assassination", min = 31 }, chance = 0.5 } },
+        { text = "I'd rather look a man in the eye.", next = "sp_rog2", when = { class = "ROGUE", spec = { tree = "Combat", min = 31 }, chance = 0.5 } },
+        { text = "The best work is the kind no one ever knew happened.", next = "sp_rog3", when = { class = "ROGUE", spec = { tree = "Subtlety", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -4066,6 +4330,12 @@ P:Pool {
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word is you leaned on someone hard in town. Fear's a weapon, but use it on the enemy and not on the baker." },
   },
   notice = {
+    { id = "n_sp_war1", cat = "spec", when = { class = "WARRIOR", spec = { tree = "Arms", min = 31 } },
+      text = "You carry yourself like someone who's learned exactly where a blade should land, and how deep. That's the arms of the trade, and few have the patience for it." },
+    { id = "n_sp_war2", cat = "spec", when = { class = "WARRIOR", spec = { tree = "Fury", min = 31 } },
+      text = "There's a heat coming off you that has nothing to do with the forge. You've let the rage in, and it's made itself at home." },
+    { id = "n_sp_war3", cat = "spec", when = { class = "WARRIOR", spec = { tree = "Protection", min = 31 } },
+      text = "You stand like a wall, feet set and shield forward, even here in my yard. Someone taught you to stand between the weak and the rest of the world." },
     { id = "n_dented", cat = "gear", when = { class = "WARRIOR", durability = { max = 0.3 } },
       text = "Good, you've been hit. Now tell me why you got hit." },
     { id = "n_gnome", cat = "class", when = { race = "Gnome", class = "WARRIOR" },
@@ -4113,6 +4383,30 @@ P:Pool {
   },
   start = "hello",
   nodes = {
+    sp_war1 = {
+      lines = { { id = "sp_war1_l", text = "Then you know a sword isn't a club with an edge. The masters of arms win with one stroke where a brawler needs ten, and they sleep better for it." } },
+      choices = {
+        { text = "A clean kill is a mercy to both sides.", next = "BACK", reply = "Spoken like a soldier who's seen the other kind. Keep that edge sharp and the mercy sharper.", fx = { align = { light = 1 } } },
+        { text = "Mercy's for the ones who lose.", next = "BACK", reply = "Hard words, and some days true ones. Just don't let the edge turn on the wrong folk.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_war2 = {
+      lines = { { id = "sp_war2_l", text = "It will, right up until the day it doesn't. A berserker who can't find the bottom of his anger finds the bottom of a grave instead." } },
+      choices = {
+        { text = "I'll master the rage, not the other way round.", next = "BACK", reply = "Good. Every old berserker I've known said the same, and the ones who meant it are still alive.", fx = { align = { order = 1 } } },
+        { text = "Let it burn; I'll worry about the bottom later.", next = "BACK", reply = "Then I'll not waste breath on you. Come back when you've buried a friend you swung at by mistake.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_war3 = {
+      lines = { { id = "sp_war3_l", text = "That's the whole of the shield-wall in one sentence. It's a thankless trade, and the bards never sing about the one who held the line." } },
+      choices = {
+        { text = "The ones behind me are thanks enough.", next = "BACK", reply = "Then you're a better soldier than most I've trained. Keep that shield up.", fx = { align = { light = 1 } } },
+        { text = "They'd better pay me well for it.", next = "BACK", reply = "Fair enough; a wall eats like anyone else. Just don't step aside when the coin runs thin.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "l_default", text = "Anyone can swing a sword. A warrior knows when not to." },
@@ -4146,6 +4440,9 @@ P:Pool {
         { text = "I'm ready for plate.", next = "w_plate", when = { class = "WARRIOR", minLevel = 40 } },
         { text = "There's nothing left you can teach me.", next = "w_capped", when = { class = "WARRIOR", minLevel = 60 } },
         { text = "I stood my watches in the Military Ward.", next = "w_ward", when = { class = "WARRIOR", origin = "dwarf_military_ward" } },
+        { text = "I've given my life to the weapon itself.", next = "sp_war1", when = { class = "WARRIOR", spec = { tree = "Arms", min = 31 }, chance = 0.5 } },
+        { text = "The fury keeps me standing when nothing else does.", next = "sp_war2", when = { class = "WARRIOR", spec = { tree = "Fury", min = 31 }, chance = 0.5 } },
+        { text = "I'd rather take the blow than watch someone else take it.", next = "sp_war3", when = { class = "WARRIOR", spec = { tree = "Protection", min = 31 }, chance = 0.5 } },
         { text = "Farewell.", next = "END" },
       },
     },

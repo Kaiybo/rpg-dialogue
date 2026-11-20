@@ -331,6 +331,51 @@ def("class", 25, "hinge", nil, function(ctx, v)
   return matches(ctx.class, v), "class: " .. tostring(ctx.class) .. ", wanted " .. show(v)
 end)
 
+-- Talent spec (0.97.0). spec = "Fire" (31+ points in that tree), spec = { tree = "Fire",
+-- min = 21 }, tree = 2 (tab index), a list { "Fire", "Frost" }, or { tree = , max = } for
+-- "barely any". Tree names are English (SPEC_TREES), so they work on any locale.
+-- Default minimum is 31: the deep talent, a real commitment.
+Cond.SPEC_TREES = {
+  WARRIOR = { "Arms", "Fury", "Protection" }, PALADIN = { "Holy", "Protection", "Retribution" },
+  HUNTER = { "Beast Mastery", "Marksmanship", "Survival" }, ROGUE = { "Assassination", "Combat", "Subtlety" },
+  PRIEST = { "Discipline", "Holy", "Shadow" }, SHAMAN = { "Elemental", "Enhancement", "Restoration" },
+  MAGE = { "Arcane", "Fire", "Frost" }, WARLOCK = { "Affliction", "Demonology", "Destruction" },
+  DRUID = { "Balance", "Feral", "Restoration" },
+}
+local function specPoints(ctx)
+  local s = ctx.spoofed and ctx.spoofed.spec == true and rawget(ctx, "spec")
+  if type(s) == "string" then
+    local tree, n = s:match("^([^:]+):?(%d*)$")
+    local pts = { 0, 0, 0 }
+    local idx = tonumber(tree)
+    if not idx then
+      for i, nm in ipairs(Cond.SPEC_TREES[ctx.class or ""] or {}) do if nm:lower() == tree:lower() then idx = i end end
+    end
+    if idx then pts[idx] = tonumber(n) or 31 end
+    return pts
+  end
+  return ctx.talentPoints or { 0, 0, 0 }
+end
+local function treeIndex(ctx, t)
+  if type(t) == "number" then return t end
+  for i, nm in ipairs(Cond.SPEC_TREES[ctx.class or ""] or {}) do
+    if nm:lower() == tostring(t):lower() then return i end
+  end
+end
+def("spec", 30, "hinge", nil, function(ctx, v)
+  if type(v) ~= "table" or v[1] ~= nil then v = { tree = v } end
+  local pts = specPoints(ctx)
+  local trees = type(v.tree) == "table" and v.tree or { v.tree }
+  for _, t in ipairs(trees) do
+    local i = treeIndex(ctx, t)
+    local p = i and pts[i] or 0
+    if i and p >= (v.min or (v.max and 0) or 31) and (not v.max or p <= v.max) then
+      return true, "spec " .. tostring(t) .. " " .. p
+    end
+  end
+  return false, "spec: " .. table.concat(pts, "/") .. ", wanted " .. show(v)
+end)
+
 -- { axis = "light", min = , max = }
 def("alignment", 30, "hinge", "alignment", function(ctx, v)
   local axis = v.axis or "light"

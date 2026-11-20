@@ -11,6 +11,7 @@ The druid patch. **New file in the World pack (`druid_notice.lua`): restart the 
 - **Three new Stories**: The one who stayed a bear (Alliance druids), The druid and the Fang (Horde druids) and Two at the same fire (druids 30+, the Cenarion Circle).
 - **Everyone has a view of druids**: a new Druids topic with views, and town crowds from Darnassus and Thunder Bluff to Undercity gossip about shapeshifters.
 - Doubled NPCs removed: Maldryn and Theridran (Stormwind).
+- **Trainers notice your talents**: once you have 31 or more points in one tree, your class trainer sometimes remarks on it and offers a short talk about that path, with a stance to take.
 - Not seen in game yet.
 
 ## 0.96.0 (2026-11-19): The Violet Gate
