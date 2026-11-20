@@ -5,6 +5,7 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 ## 0.98.1 (2026-11-20): Bark and Root
 Hotfix. No new files; a /reload is enough.
 - The Darnassian Protectors of the Cenarion Enclave are treants, and now they talk like it: slow, patient, and loyal to the druids, with nothing more to say about the Sentinels than that they aren't one.
+- The Ancients of the Irontree Woods in Felwood (Vartrus, Hastat and Stoma) sound more like old trees now: slow rumbles, roots and rings, and each with his own way of clearing his throat.
 
 ## 0.98.0 (2026-11-20): Watchers of the Hollow
 No new files; a /reload is enough.
