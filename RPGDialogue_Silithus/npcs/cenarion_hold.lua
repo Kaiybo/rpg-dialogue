@@ -47,6 +47,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_old = {
+      big = true,
+      lines = { { id = "dr_ma_default", text = "Every night, around the fires, because the old war is the reason we are here at all. A thousand years ago our people held this desert's edge against the qiraji until the dragons sealed them behind the Scarab Wall, and the Arch Druid's own son died before that wall, which is part of why Darnassus sends us so little, and remembers us so badly." } },
+      choices = {
+        { text = "Darnassus should send more, whatever the Arch Druid's grief.", next = "BACK", reply = "I have written as much, more politely, three times this year. The answers come back courteous and empty, and I go on asking.", fx = { align = { order = -1 } } },
+        { text = "The Arch Druid has earned his distance from this place.", next = "BACK", reply = "Perhaps he has, and I would not wish his memories on anyone. But the silithid do not care what any of us have earned.", fx = { align = { order = 1 } } },
+        { text = "What do the old druids say of his son?", next = "d_old2" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    d_old2 = {
+      lines = { { id = "dr_ma2_default", text = "That Valstann was young and eager, and begged his father to let him hold Southwind, and that the qiraji took him there. The oldest of the Hold's druids were at the Wall that day, and they speak of it the way one touches an old scar, briefly and then not again." } },
+      choices = { { text = "Something else, Commander.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
     op_fandral = {
       lines = {
         { id = "opf_q", text = "I don't ask, but travellers tell me anyway, and it helps me know which way the wind blows at home. You've likely heard Fandral Staghelm speak, so what do you make of the Arch Druid?" },
@@ -242,6 +256,7 @@ P:NPC {
         { text = "What answers do you seek from the Light, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ossirian is dead, Commander. The Ruins are quiet for now.", next = "xcl_aq20", when = { cleared = "Ruins of Ahn'Qiraj" } },
         { text = "Put us to work, Commander. We'll hold the line.", next = "xpt_maralith", when = { party = { size = 4 } } },
+        { text = "Do the Hold's druids still speak of the old war here?", next = "d_old", when = { class = "DRUID" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -954,6 +969,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_together = {
+      big = true,
+      lines = { { id = "dr_pht_default", text = "Better than in Moonglade, if you'll believe it, because the silithid don't care whose druid they're biting. We eat from the same pot and stand the same watches, and I have seen a kaldorei elder carry a wounded young tauren druid back through the gate on her own back, which does more for the Circle than any council has." } },
+      choices = {
+        { text = "Then the Hold is what the whole Circle ought to be.", next = "BACK", reply = "Provided we live long enough to teach it to the others, yes. I'd like Darnassus and the Bluff to see that gate one day.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "War makes allies. Peace will see them apart again.", next = "BACK", reply = "Perhaps, and I won't pretend I haven't wondered it myself. But the ones who were at that gate won't forget it, assuming they live to be old.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "Something else, Windcaller.", next = "BACK" },
+      },
+    },
     op_circle = {
       lines = {
         { id = "opc_q", text = "Alliance and Horde both supply this fort, and both grumble that the Circle asks too much of them. You've carried our crates, so tell me: what do you think of the Cenarion Circle?" },
@@ -1084,6 +1108,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_ph_seasoned", when = { class = "DRUID", minLevel = 55 },
+          text = "Another druid for the Hold, and a seasoned one, Earth Mother be thanked. The Circle sends its young to Moonglade and its strong to me, and I can always use the strong, provided they eat what the carts bring and don't complain about the sand in it." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Hive'Ashi", "Hive'Zora", "Hive'Regal" }, min = 50 } },
           text = "My scouts report the hives are quieter on the near side, and the worm counts have dropped for the first time this season. That is your doing, I think, and it means the grain carts get through." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -1128,6 +1154,7 @@ P:NPC {
         { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What use does the Hold have for a quiet one, Windcaller?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What have the cult's summonings done to the winds?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Tauren and kaldorei druids share these walls. How does that go?", next = "d_together", when = { class = "DRUID" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },

@@ -46,6 +46,115 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_rmr_default", text = "Ask, little one. The Circle is wider than Moonglade, and I would have you know its whole shape, the gentle parts and the quarrelsome ones alike." },
+        { id = "dr_rmr_tauren", when = { race = "Tauren" }, text = "Ask, child of the Earth Mother. You came into the Circle late and you have walked its roads faithfully, and you have earned the whole of its shape, the quarrelsome parts included." },
+      },
+      again = {
+        { id = "dr_rmr_again", text = "What else would you know of the Circle, little one? The trees are patient, and so am I." },
+        { id = "dr_rmr_again2", text = "Ask on. I would rather you heard these things from me than from the quarrel itself." },
+      },
+      choices = {
+        { text = "Darnassus and Thunder Bluff hardly speak. Is the Circle breaking?", next = "d_split" },
+        { text = "What is the Emerald Circle doing in Felwood?", next = "d_emerald", when = { minLevel = 40 } },
+        { text = "Why does the Circle hold Cenarion Hold, so far south?", next = "d_hold", when = { minLevel = 50 } },
+        { text = "Something is wrong in the Dream, isn't it, Keeper?", next = "d_dream", when = { minLevel = 50 } },
+        { text = "Where does Malfurion sleep, Keeper?", next = "d_storm", when = { minLevel = 60 } },
+        { text = "Some kaldorei still resent that you taught my people.", next = "d_tauren", when = { race = "Tauren" } },
+        { text = "Do the shen'dorei truly belong in your Circle?", next = "d_sky", when = { race = "Skyborne" } },
+        { text = "Enough of the Circle for now, Keeper.", next = "BACK" },
+      },
+    },
+    d_split = {
+      big = true,
+      lines = { { id = "dr_rms_default", text = "It is not breaking, little one, but it is stretched, the way a bough stretches in the wind. Darnassus looks to its Arch Druid and Thunder Bluff to Hamuul Runetotem, and both look to Moonglade when they remember to, and my task is to keep the glade a place they cannot help but remember." } },
+      choices = {
+        { text = "Then I'll be a druid of the glade first, not of a city.", next = "d_road", reply = "Then the glade is glad of you, and you will be caught between the cities often. Bear it gently, little one.", fx = { affinity = 2, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Each people should lead its own druids, Keeper. That's natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest does not know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "What does Hamuul Runetotem make of it?", next = "d_split2" },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_split2 = {
+      lines = { { id = "dr_rms2_default", text = "Hamuul thinks as a tauren thinks, slowly and kindly, and with little patience for the Arch Druid's pride. He has never asked anything of the Circle but teaching, and I have never refused him, and that has made some in Darnassus very cross with us both." } },
+      choices = { { text = "Something else, Keeper.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_emerald = {
+      big = true,
+      lines = { { id = "dr_rme_default", text = "The Emerald Circle are druids who chose to stay in Felwood when every sensible creature fled it, and they cleanse what they can, a pool, a songflower, a single grove at a time. They are few and tired, and the corruption is patient, and still they write to me as though they expect to win." } },
+      choices = {
+        { text = "They will win. A grove at a time is still winning.", next = "d_road", reply = "So I tell myself on the long nights. Go and help them, little one, and let me be right.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Felwood is lost. Spend the Circle's strength on living forests.", next = "d_road", reply = "Many say so, even in my glade. But a druid who abandons a dying forest has decided which life is worth saving, and that was never ours to decide.", fx = { align = { light = -1 } } },
+        { text = "Who leads them, out there?", next = "d_emerald2" },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_emerald2 = {
+      lines = { { id = "dr_rme2_default", text = "No one, as the cities would understand leading. Eridan Bluewind plants her seedlings every morning, and Kelek reads the furbolgs' sorrows, and the others cleanse what they can reach, and between them they do more than any council I have sat with." } },
+      choices = { { text = "Something else, Keeper.", next = "d_road" } },
+    },
+    d_hold = {
+      big = true,
+      lines = { { id = "dr_rmh_default", text = "Because the desert was green once, little one, before an old war burned it, and because something sleeps beneath those sands that the Circle swore long ago to watch. Cenarion Hold is that oath kept, by tauren and kaldorei shoulder to shoulder, and it is the one place where the Circle's quarrels are forgotten, because there is no time for them." } },
+      choices = {
+        { text = "The Hold should mend the desert, not only fight it.", next = "d_road", reply = "It should, and its druids would like nothing better. But you cannot plant a grove while the ground is still moving under you, little one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then send claws, Keeper, not healers. It's a war.", next = "d_road", reply = "Commander Mar'alith would agree with you, and he has buried more of his druids than I like to count. Go to him, if that is your heart.", fx = { align = { light = -1 } } },
+        { text = "What sleeps beneath the sands?", next = "d_hold2" },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_hold2 = {
+      lines = { { id = "dr_rmh2_default", text = "Something the old war sealed and did not kill, little one, behind a wall the dragons raised. I will say no more than that in the open air, for the Hold's druids write that the sands have begun to listen." } },
+      choices = { { text = "Something else, Keeper.", next = "d_road", fx = { trait = { cautious = 1 } } } },
+    },
+    d_dream = {
+      big = true,
+      lines = { { id = "dr_rmd_default", text = "Yes, little one, though I would rather say it quietly. The green dragons who guard the Dream's gates beside the great trees have been seen restless, and some of the druids who sleep in the barrow dens wake slow and troubled, speaking of shadow where there should be green, and I do not yet know what sours it." } },
+      choices = {
+        { text = "Then the Circle must go in and find out.", next = "d_road", reply = "Brave, and perhaps foolish, and I have thought the same at dawn. Not yet, little one, but when I know where to send you, I will.", fx = { align = { order = -1 }, learn = { "emerald_dream" } } },
+        { text = "Then wake the sleepers, and keep the gates shut.", next = "d_road", reply = "That is the cautious road, and the Circle may take it yet. But the Dream is where Malfurion walks, and I cannot shut a door on my father's pupil.", fx = { align = { order = 1 }, learn = { "emerald_dream" } } },
+        { text = "Which great trees, Keeper?", next = "d_dream2" },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_dream2 = {
+      lines = { { id = "dr_rmd2_default", text = "There are four, in Ashenvale and Feralas, in Duskwood and the Hinterlands, each beside a gate into the Dream and each watched over by the Circle as well as it can be. If you pass one and the air there tastes of rot, come and tell me, little one, whatever hour it is." } },
+      choices = { { text = "Something else, Keeper.", next = "d_road" } },
+    },
+    d_storm = {
+      big = true,
+      lines = { { id = "dr_rmst_default", text = "Beneath the hills by the lake, in the Stormrage Barrow Dens, where the deepest sleepers lie. His body rests there and his spirit walks the Dream, and he has walked it so long that some of the young ones speak of him as a story rather than a druid who will one day wake." } },
+      choices = {
+        { text = "He'll wake when we need him most. I believe that.", next = "d_road", reply = "So I believe, little one, on most days. On the others I sit by his den and tell him what the world is doing, in case he can hear.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We can't wait on Malfurion. The Circle must lead itself.", next = "d_road", reply = "You are right, and I think he would say so himself. He did not teach us so that we would sit and wait for him.", fx = { align = { order = -1 } } },
+        { text = "May I see the barrow dens?", next = "d_storm2" },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_storm2 = {
+      lines = { { id = "dr_rmst2_default", text = "The wardens let druids walk the outer halls if they walk softly and wake no one, and you are welcome to. The deepest den is mine to keep, and I go there alone, and I would ask you not to follow." } },
+      choices = { { text = "Something else, Keeper.", next = "d_road" } },
+    },
+    d_tauren = {
+      big = true,
+      lines = { { id = "dr_rmt_default", text = "Some do, and they will for a while yet, for kaldorei grudges are counted in centuries. But I watch tauren druids come up the road with their trainers' blessings and their grandmothers' songs, and I have stopped wondering whether I chose rightly." } },
+      choices = {
+        { text = "Then I'll keep coming until they stop resenting us.", next = "d_road", reply = "That is the tauren way, the slow rain that wears the stone, and it will work, little one. It is already working.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Their resentment is their burden, Keeper, not mine.", next = "d_road", reply = "That is true, and you need not carry it. Only do not set it down where they can trip on it, for the Circle's sake.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
+    d_sky = {
+      big = true,
+      lines = { { id = "dr_rmsk_default", text = "You belong if you listen, little one, and you do, though you listen upward more than most. The shen'dorei are the newest of the Circle's children and the strangest, and I have found that the strange ones often see what the rest of us walked past." } },
+      choices = {
+        { text = "Then I'll bring the winds' wisdom into the Circle.", next = "d_road", reply = "Do, and the Circle will be the richer for it. The elders may grumble, but they grumbled at the tauren too.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "My people's druids should keep their own ways apart.", next = "d_road", reply = "That is your people's choice to make, and I will not make it for them. The glade will be here either way.", fx = { align = { order = 1 } } },
+        { text = "Something else, Keeper.", next = "d_road" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -226,6 +335,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_rm_first", when = { class = "DRUID", maxLevel = 12 },
+          text = "You are newly come by the Circle's road, little one, and Dendrite will set your first trial soon. Before he does, know that every druid who ever lived has stood where you stand now, and my father knew each of them by name." },
+        { id = "dr_rm_mid", when = { class = "DRUID", minLevel = 40, maxLevel = 59 },
+          text = "You have walked far on the Circle's road, little one, and I hear of you from Felwood and from the desert both. Sit, and tell me which of them is hurting most." },
+        { id = "dr_rm_sixty", when = { class = "DRUID", minLevel = 60 },
+          text = "You have learned every shape the Circle has to teach, little one, and still you come home to the glade. That is the last lesson, and fewer learn it than you would think." },
         { id = "h_dd_felwood", tags = { "news" }, when = { any = { { questDone = TODO_QUEST("Purified!") }, { questDone = TODO_QUEST("Cleansed Water Returns to Felwood") } } }, text = "The Emerald Circle sends word from Felwood that you have helped them heal a little of that poisoned ground, little one. It is slow work, slower even than the growing of a tree, and I am glad you lent your hands to it." },
         { id = "h_alt_other", when = { alt = { faction = "other" } },
           text = "You remind me of {alt}, little one, a {altrace} who came to my glade under the other banner and sat a long while by the moonwell. The glade does not keep your wars, and I confess I like to see the same quiet look on faces from both sides of them." },
@@ -309,6 +424,7 @@ P:NPC {
         { text = "You fought in the War of the Ancients.", next = "kal_war", when = { race = "NightElf" } },
         { text = "Tauren druids sleep in the same glade as ours. Is that wise?", next = "kal_truce", when = { race = "NightElf" } },
         { text = "Horde and Alliance hunters share your glade. How?", next = "hnt_truce", when = { class = "HUNTER" } },
+        { text = "Keeper, tell me what the Circle is now, beyond this glade.", next = "d_road", when = { class = "DRUID", minLevel = 20 } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -595,6 +711,7 @@ P:NPC {
   },
 
   topics = {
+    druids = { { id = "tp_dr_druids", text = "My father's students, and their students after them, of every people that has learned to listen. I would have them be one Circle, little one, and most days they very nearly are." } },
     _gated = {
       { id = "gt1", text = "That I will keep a while longer, little one. Walk gently in the glade and let me come to know you, and then ask me again." },
       { id = "gt2", text = "I do not speak of such things to those I have only lately met. The glade is patient, and I ask you to be patient also." },
@@ -659,6 +776,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_ledger = {
+      big = true,
+      lines = { { id = "dr_rbl_default", text = "Because druids go into the Dream and don't always say when they'll be back, and someone must know who's missing. I don't believe in chance, and I believe even less in a druid who 'meant to write', so the ledger is how the Circle keeps count of its own." } },
+      choices = {
+        { text = "Write mine plainly, Rabine. I'll always come back.", next = "BACK", reply = "I'll hold you to it, and I'll underline it, which I almost never do. Mind you don't make a liar of my ink.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather not be counted. Druids should come and go freely.", next = "BACK", reply = "Freely, yes, and you will. But the day you don't come back, you'll be glad somebody noticed.", fx = { align = { order = -1 } } },
+        { text = "Do Horde and Alliance druids share the same pages?", next = "d_ledger2" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d_ledger2 = {
+      lines = { { id = "dr_rbl2_default", text = "Side by side, in the order they arrived, which annoys certain readers in Darnassus a great deal. The Keeper asked for it that way, and I've never once been tempted to change it." } },
+      choices = { { text = "Let's talk of something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_dens = {
+      lines = { { id = "dr_rbd_default", text = "Druids of long years who've chosen to walk the Dream, and the Keeper's wardens, who watch over their bodies while they do. I'll tell you plainly that there are more names in the 'not yet woken' column lately than I'd like, and I don't believe that's chance either." } },
+      choices = {
+        { text = "What do the ones who wake say?", next = "d_dens2" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d_dens2 = {
+      big = true,
+      lines = { { id = "dr_rbd2_default", text = "Very little, and that's what troubles me. They come up the steps grey and slow and say the Dream is not as it was, and then they ask for tea, and I've stopped pressing them, because they look at me as though I'd asked about a death." } },
+      choices = {
+        { text = "Then someone should go down and see what they saw.", next = "BACK", reply = "Someone will, I expect, and I'd rather it were someone who'd come back and tell me. Speak to the Keeper before you volunteer.", fx = { align = { honor = 1 }, learn = { "emerald_dream" } } },
+        { text = "Let the sleepers rest. Some wounds need time, not questions.", next = "BACK", reply = "That's kind, and probably wise, and very hard on an elf who keeps a ledger. I'll try to take your advice.", fx = { align = { honor = -1 }, learn = { "emerald_dream" } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -799,6 +946,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_rb_new", when = { class = "DRUID", maxLevel = 12 },
+          text = "A new druid, and a new line in the ledger. I write every druid's name the first time they come home to Moonglade, and I'll confess I like the first visits best, because you all look so surprised to be here." },
+        { id = "dr_rb_south", when = { class = "DRUID", minLevel = 55 },
+          text = "You've the dust of the south on your boots, so I'll assume the Hold has had the use of you. Mar'alith's reports come across my desk before they reach the Keeper, and I'd be surprised if your name weren't in one." },
         { id = "h_dd_cleansing", when = { questDone = TODO_QUEST("Cleansing Felwood") }, text = "The Emerald Circle tells me you helped them cleanse some of Felwood's corruption. Good, because what grows there drifts north on the wind, and I would rather Moonglade's groves never learn the taste of it." },
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
           text = "Your name isn't in my ledger yet, but I've a {altrace} written down called {alt}, from the other side of the war, and the likeness nearly had me writing you beside it. I don't believe in chance, so I'll assume the resemblance means something." },
@@ -859,6 +1010,8 @@ P:NPC {
         { text = "Is Moonglade truly safe for Horde and Alliance alike?", next = "xpt_rabine", when = { party = { size = 4 } } },
         { text = "How does the truce hold, with Horde druids sleeping here?", next = "truce" },
         { text = "You are kaldorei. Do you resent the Horde druids?", next = "kal_resent", when = { race = "NightElf" } },
+        { text = "Why write down every druid's name, Rabine?", next = "d_ledger", when = { class = "DRUID" } },
+        { text = "Who sleeps in the barrow dens, Rabine?", next = "d_dens", when = { class = "DRUID", minLevel = 40 } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },
@@ -1018,6 +1171,62 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_first = {
+      big = true,
+      lines = { { id = "dr_dnf_default", text = "Now you walk west along the mountains to the Great Bear Spirit and listen to it, then you go home and prove what you heard, and then you come back here, again and again, for the rest of your life. Most young druids find that last part the most surprising, and I promise you it's also the best part." } },
+      choices = {
+        { text = "Then I'll listen well, and come back often.", next = "BACK", reply = "Good, and I'll hold you to it, because I keep a list. Rabine keeps a better one, but mine has more remarks in the margins.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I came to learn shapes, not to sit in a glade.", next = "BACK", reply = "Everyone does, and I tell them all the same thing: the bear doesn't care what you came for. Go and meet it, and we'll talk again afterwards.", fx = { align = { order = -1 } } },
+        { text = "Why the bear first, and not the cat or the sea lion?", next = "d_first2" },
+        { text = "Something else, Dendrite.", next = "BACK" },
+      },
+    },
+    d_first2 = {
+      lines = { { id = "dr_dnf2_default", text = "Because the bear protects, and a druid who learns to protect before learning to hunt or to swim tends to go on protecting. The Circle has tried other orders over the centuries, and I'll only say that the results were memorable." } },
+      choices = { { text = "Something else, Dendrite.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    d_bh = {
+      big = true,
+      lines = { { id = "dr_dnb_default", text = "Nearly everyone does, and the Bear doesn't mind, because fumbling is how you find out which half you didn't understand. Body is power and swiftness held ready, and heart is the reason you act at all, so tell me which one you'd answer for first, and I'll tell you what that says about you." } },
+      choices = {
+        { text = "The heart. Strength without a reason is only noise.", next = "BACK", reply = "That's very nearly the Bear's own words, so either you listened or you've been reading over my shoulder. Either way, you'll do.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The body. Reasons can come once I'm strong enough.", next = "BACK", reply = "That's honest, and most young druids think it without saying it. The Bear will ask you again someday, and I suspect you'll answer differently.", fx = { align = { honor = -1 } } },
+        { text = "Why does the Bear care so much about reasons?", next = "d_bh2" },
+        { text = "Something else, Dendrite.", next = "BACK" },
+      },
+    },
+    d_bh2 = {
+      lines = { { id = "dr_dnb2_default", text = "Because a bear that fights without one is only a beast that hasn't been fed, and the forests are full of those already. The Circle has plenty of strength; what it's always short of is druids who know why they're standing where they stand." } },
+      choices = { { text = "Something else, Dendrite.", next = "BACK" } },
+    },
+    d_cat = {
+      big = true,
+      lines = { { id = "dr_dnc_default", text = "It isn't a trick, though it will feel like one. The Great Cat Spirit teaches through play because the cat's whole art is knowing when the game ends and the hunt begins, and you can't learn that from someone who explains it to you, which is why I'm going to stop explaining now." } },
+      choices = {
+        { text = "Then I'll play in earnest, and learn when it ends.", next = "BACK", reply = "Good, and don't be embarrassed when you lose, because everyone does the first time. It's how the Cat knows you were trying.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'd rather it simply taught me, plainly.", next = "BACK", reply = "So would most of my students, and the Cat has never once obliged any of them. Humour it; you'll be glad you did.", fx = { align = { order = 1 } } },
+        { text = "Is the Cat older than the Bear?", next = "d_cat2" },
+        { text = "Something else, Dendrite.", next = "BACK" },
+      },
+    },
+    d_cat2 = {
+      lines = { { id = "dr_dnc2_default", text = "I've asked them both, and neither answered, which I took to mean they don't think it matters. The Bear says it's as old as the world and the Cat only yawns, and I've decided that's the same answer in two different accents." } },
+      choices = { { text = "Something else, Dendrite.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    d_after = {
+      big = true,
+      lines = { { id = "dr_dna_default", text = "After the lake, the Circle stops setting your trials and the world starts, which is less fair and a good deal more thorough. The Emerald Circle wants hands in Felwood and Cenarion Hold wants claws in Silithus, and both of them will teach you things I never could." } },
+      choices = {
+        { text = "Then I'll go wherever the Circle needs me most.", next = "BACK", reply = "Spoken like a druid of the Circle, and Rabine will be delighted, because he has a list of exactly where that is.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll find my own trials, not the Circle's.", next = "BACK", reply = "Many of us did, and some came back wiser than the ones who followed orders. Only write now and then, so I know you're alive.", fx = { align = { order = -1 } } },
+        { text = "Which is worse for a druid, Felwood or Silithus?", next = "d_after2" },
+        { text = "Something else, Dendrite.", next = "BACK" },
+      },
+    },
+    d_after2 = {
+      lines = { { id = "dr_dna2_default", text = "Felwood, I think, because you can hear it screaming, and Silithus has long since gone quiet. A forest that screams can still be saved; a land that has stopped crying out is harder, and the druids at Cenarion Hold know it better than anyone." } },
+      choices = { { text = "Something else, Dendrite.", next = "BACK" } },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Closer than either side likes to admit, I think, though I'd not say it too loudly at a Circle gathering. You ask the spirits for their help, and we ask to borrow their shapes, and both of us end up with very muddy boots, which is how you can always tell a real practitioner." } },
@@ -1109,6 +1318,14 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_dn_arrive", when = { class = "DRUID", maxLevel = 11, metBefore = false },
+          text = "Welcome to Moonglade, which you reached by a spell rather than a road, so you'll feel a little sick for a moment. That passes, and the bear comes next, and after the bear, I'm afraid, comes everything else." },
+        { id = "dr_dn_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
+          text = "South along the cliffs, where the grass grows long, the Great Cat Spirit is waiting for you, and it'll want to play before it teaches. Play properly, because it can always tell when you're only humouring it." },
+        { id = "dr_dn_catdone", when = { questDone = TODO_QUEST("The Great Cat Spirit"), maxLevel = 26 },
+          text = "The Cat has seen you, then; you're walking lighter on the front of your feet. I'd say you'll be terrible company in a quiet room for a week or two, which is quite normal." },
+        { id = "dr_dn_back", when = { class = "DRUID", minLevel = 30 },
+          text = "One of mine, come back from the wide world. The trials end at the lake, I'm afraid, but I gather Felwood and Silithus have been setting you harder ones, and marking them less kindly than I did." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! You aren't here for the trials either, I suspect, but you'll understand them better than most, since your spirits and our forms are not such distant cousins." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1158,6 +1375,10 @@ P:NPC {
         { text = "Which trials would a hunter do well at?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What are these trials you mentioned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How alike are shamans and druids, really?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "I've only just arrived. What happens now?", next = "d_first", when = { class = "DRUID", maxLevel = 12 } },
+        { text = "The Great Bear asked about body and heart. I fumbled it.", next = "d_bh", when = { class = "DRUID", minLevel = 10, maxLevel = 16 } },
+        { text = "The Great Cat Spirit wants to play. Is that a trick?", next = "d_cat", when = { class = "DRUID", minLevel = 18 } },
+        { text = "I've finished your trials, Dendrite. What comes after?", next = "d_after", when = { class = "DRUID", minLevel = 20 } },
         { text = "Thank you, Dendrite.", next = "END" },
       },
     },
@@ -1283,6 +1504,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_dr_first", when = { class = "DRUID", maxLevel = 11 }, text = "You've come by the Circle's own road for the first time, I think, because you're still looking for the door you walked through. There isn't one, {g:brother|sister}, only the glade, so sit and let your feet catch up with you." },
     { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "There's no balance in the fel, only hunger, and you've chosen to feed it. I'll teach whoever comes, but I won't pretend I'm glad to see you." },
     { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your hungry thing quiet in Nighthaven every time. I'm still watching the scale, but it hasn't tipped yet." },
     { id = "g_pj_dead", when = { race = "Scourge", prejudiced = true }, text = "One of the Forsaken, in Nighthaven. Honesty sits easier here than politeness, so I'll say it: everything that lives goes back to the soil, and you didn't, and I can't look at you without feeling the cycle has a crack in it." },
@@ -1303,6 +1525,194 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_lgr_default", text = "The road's long, and every druid walks it differently, but it always comes back here, to this lake. Ask me about whatever stretch of it you're on, and I'll tell you what I packed for it." },
+        { id = "dr_lgr_tauren", when = { race = "Tauren" }, text = "Hamuul sent you up the long road, I expect, and you'll have found the stretch from Thunder Bluff runs much like the one from Darnassus, only windier. Ask what you like, and I'll answer as I would any of my own." },
+        { id = "dr_lgr_sky", when = { race = "Skyborne" }, text = "The shen'dorei have very few druids, so you'll have walked a lonelier road than most to reach my bench. Ask what you like, and I'll answer as I would anyone." },
+      },
+      again = {
+        { id = "dr_lgr_again", text = "What else is on your road? There's no hurry; the lake isn't going anywhere, and neither am I." },
+        { id = "dr_lgr_again2", text = "Go on. I like the road questions best, because they change every time a druid comes back." },
+      },
+      choices = {
+        { text = "Why must every druid keep coming back to Moonglade?", next = "d_tele", when = { maxLevel = 19 } },
+        { text = "The bear's shape feels heavy and slow on me.", next = "d_bear", when = { maxLevel = 19 } },
+        { text = "Why would a druid of balance want claws?", next = "d_cat", when = { minLevel = 20 } },
+        { text = "Rebirth frightens me a little, Loganaar.", next = "d_rebirth", when = { minLevel = 20 } },
+        { text = "With the travel shape, I hardly need the roads any more.", next = "d_travel", when = { minLevel = 30 } },
+        { text = "The dire bear and Innervate. What do they teach?", next = "d_forty", when = { minLevel = 40 } },
+        { text = "Some druids take the moonkin's shape. What do you think?", next = "d_moonkin", when = { minLevel = 40 } },
+        { text = "The Circle seems split between Darnassus and Thunder Bluff.", next = "d_split", when = { minLevel = 20 } },
+        { text = "You said the Dream would call me one day. Is it time?", next = "d_sleep", when = { minLevel = 60 } },
+        { text = "My elders say the Circle has gone soft, Loganaar.", next = "d_ne", when = { race = "NightElf" } },
+        { text = "Some kaldorei still look at me like a guest.", next = "d_tau", when = { race = "Tauren" } },
+        { text = "I pray to the winds. Am I truly a druid here?", next = "d_sky", when = { race = "Skyborne" } },
+        { text = "Enough of the road for now, Loganaar.", next = "BACK" },
+      },
+    },
+    d_tele = {
+      big = true,
+      lines = { { id = "dr_lgt_default", text = "Because Moonglade is where Malfurion first learned the craft from Cenarius, and every druid since has had to stand here at least once to be sure it was real. The Circle taught you Teleport: Moonglade so you'd never have an excuse to stay away, and I've noticed it doesn't stop many from trying." } },
+      choices = {
+        { text = "Then I'll come home often, whatever the world asks.", next = "d_road", reply = "Good, and the lake will be glad of you every time. So will I, though I'll pretend I'm only glad of the company.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The world needs druids out there, not sitting by a lake.", next = "d_road", reply = "It does, and you'll be out there most of your days. But a druid who never comes home forgets what the fighting is for, and I've watched it happen to better druids than either of us.", fx = { align = { order = -1 } } },
+        { text = "Cenarius taught Malfurion himself, here?", next = "d_tele2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_tele2 = {
+      lines = { { id = "dr_lgt2_default", text = "Here, in this very glade, before the Sundering, when the kaldorei had never heard the word druid and the Highborne thought the forest was furniture. Remulos was here too, though you'll have to ask him how much of it he remembers, because he only smiles whenever I do." } },
+      choices = { { text = "Back to the road.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_bear = {
+      big = true,
+      lines = { { id = "dr_lgb_default", text = "It's meant to, at first, because the bear isn't a shape you wear so much as a weight you agree to carry for someone else. The Great Bear Spirit will have told you about the body and the heart, and the heaviness is the heart, so don't be in a hurry to be rid of it." } },
+      choices = {
+        { text = "Then I'll carry it, and stand where others can't.", next = "d_road", reply = "That's the bear's whole lesson, and you've said it better than most. Stand, then, and let the others get behind you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather be quick than heavy. The bear can wait.", next = "d_road", reply = "Many young druids say so, and most come back to the bear the first time a friend falls beside them. It'll still be there when you want it.", fx = { align = { honor = -1 } } },
+        { text = "Did the bear feel heavy on you, at first?", next = "d_bear2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_bear2 = {
+      lines = { { id = "dr_lgb2_default", text = "Like wearing a wet cloak the size of a hillside, if I'm honest, and I fell over twice in front of Dendrite, who has never once let me forget it. It was a season before I stopped thinking about my feet and started thinking about who was behind me." } },
+      choices = { { text = "Back to the road.", next = "d_road", fx = { trait = { witty = 1 } } } },
+    },
+    d_cat = {
+      big = true,
+      lines = { { id = "dr_lgc_default", text = "Because the cat isn't about killing, though it does that very well. It's patience of another kind, the stillness before the leap, the hunt that takes the weakest of the herd and leaves the rest stronger, and a druid who learns the claws without the waiting has only learned half a cat." } },
+      choices = {
+        { text = "Then I'll learn the waiting before the claws.", next = "d_road", reply = "Then you'll be a cat the wild can trust, and there aren't so many of those. Mind the waiting more than the claws, and the claws will take care of themselves.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Claws are claws. The wild won't care how patient I was.", next = "d_road", reply = "The wild cares a great deal, I promise you; it simply doesn't say so until it's too late. Watch a nightsaber hunt in Winterspring before you decide.", fx = { align = { order = -1 } } },
+        { text = "Is there a spirit of the cat, as there is of the bear?", next = "d_cat2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_cat2 = {
+      lines = { { id = "dr_lgc2_default", text = "There is, in the south of the glade, where the long grass runs up to the cliffs, and Dendrite sends druids to it when their claws come in. The Great Cat Spirit is playful in a way the Bear never is, and it'll test you with a game, so don't be fooled into thinking the game doesn't matter." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_rebirth = {
+      big = true,
+      lines = { { id = "dr_lgr2_default", text = "It should, a little, because it's the one gift Cenarius gave us that reaches past the edge of the cycle and pulls someone back across it. I use it when a life was taken before its season, never when its season was simply over, and I've had to learn the difference at a graveside more than once." } },
+      choices = {
+        { text = "Only when a life was stolen, then. I'll keep to that.", next = "d_road", reply = "Then you'll carry it well, and the cycle will forgive you the times you choose wrong, because at least you'll be choosing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nobody I love dies while I can bring them back.", next = "d_road", reply = "Then you'll be a good friend and a poor druid, some days, and I can't tell you which matters more. Only listen to the ones who ask you not to.", fx = { align = { order = -1 } } },
+        { text = "Have you ever refused to bring someone back?", next = "d_rebirth2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_rebirth2 = {
+      lines = { { id = "dr_lgr3_default", text = "Once, an old Sentinel in Ashenvale who asked me with her last breath to let her go to Elune. I did as she asked, and her daughter hasn't spoken to me since, and I still believe it was right, which is the hardest kind of right there is." } },
+      choices = { { text = "Back to the road.", next = "d_road", fx = { trait = { kind = 1 } } } },
+    },
+    d_travel = {
+      big = true,
+      lines = { { id = "dr_lgtr_default", text = "You don't, and that's the danger of it, because a druid who never walks stops seeing what's passing by. The swift shape is a gift for the urgent days, when someone's waiting at the far end, and I'd ask you to walk the other days, so the land learns your feet." } },
+      choices = {
+        { text = "You're right. I'll walk when nothing's burning.", next = "d_road", reply = "Then the land will know you, and you'll know it, and that's worth more than any hour saved on the road.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Out there, something is always burning, Loganaar.", next = "d_road", reply = "Perhaps it is, for you, and I've been sitting by this lake a long while. Only promise me you'll stop and look about you sometimes.", fx = { align = { order = -1 } } },
+        { text = "Where did the Circle learn such a swift shape?", next = "d_travel2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_travel2 = {
+      lines = { { id = "dr_lgtr2_default", text = "From watching, as every shape is learned. The plains cats of the Barrens run as though the ground were hurrying to meet them, and the druids who first wore their shape said it felt like being chased by joy, which is as good a description as I've heard." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_forty = {
+      big = true,
+      lines = { { id = "dr_lgf_default", text = "The dire bear teaches that strength grows when it's needed and not before, and Innervate teaches the opposite lesson, that a druid can give away clarity of their own so someone else can keep going. Between them they're the two halves of being relied upon, and that's what you'll be from here on, whether you like it or not." } },
+      choices = {
+        { text = "Then let them rely on me. Someone has to stand there.", next = "d_road", reply = "Someone does, and it's harder than it sounds, because the ones who lean on you never see how tired you are. Come and sit here when you are.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll give to those who've earned it, not to anyone who asks.", next = "d_road", reply = "That's fair, and it'll keep you alive longer, I'll grant. But the ones who most need Innervate are rarely the ones who've earned it yet.", fx = { align = { honor = -1 } } },
+        { text = "Where does the road lead after this?", next = "d_forty2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_forty2 = {
+      lines = { { id = "dr_lgf2_default", text = "Mostly to harder country: Felwood, where Golhine teaches beside the last clean moonwell at Talonbranch, and Silithus, where the Circle holds the desert's edge against the swarm. You'll train with whoever's nearest and come home here to rest, and that's how the Circle has always done it." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_moonkin = {
+      big = true,
+      lines = { { id = "dr_lgm_default", text = "I think it's a strange shape and a beautiful one, half owl and half something older, and the druids who take it see further into the moon's light than I ever will. I also think some take it because it's easier to stand back and call down the stars than to stand in front with claws, and only you know which kind you are." } },
+      choices = {
+        { text = "I'd take it for the moon's sake, not to stand back.", next = "d_road", reply = "Then the moon will know it, and so will the moonkin of Darkshore, who are very particular about who borrows their shape.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Standing back is wise. Druids who stand in front die.", next = "d_road", reply = "They do, sometimes, and I've buried a few. I'll not argue with you, only ask you to remember who stood in front so you could stand back.", fx = { align = { light = -1 } } },
+        { text = "Do the tauren take that shape too?", next = "d_moonkin2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_moonkin2 = {
+      lines = { { id = "dr_lgm2_default", text = "Some do, though they speak of Mu'sha, the Earth Mother's moon-eye, where we speak of Elune, and I've stopped thinking it matters. The moonkin don't ask whose goddess you pray to before they let you share their shape." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_split = {
+      big = true,
+      lines = {
+        { id = "dr_lgs_default", text = "It is split, and I won't pretend otherwise to a druid who's seen both ends of it. Darnassus sends its druids to the Arch Druid's Enclave and Thunder Bluff sends its own to Hamuul Runetotem on the Elder Rise, and here in the glade they sit on the same benches because the Keeper insists, and some days that's all that holds it together." },
+        { id = "dr_lgs_tauren", when = { race = "Tauren" }, text = "It is split, and you'll have felt it more than I have, I expect. Your people learn from Hamuul on the Elder Rise and mine from the Arch Druid in Darnassus, and the two of them don't write to each other unless the Keeper makes them, so this glade is the only place where the Circle is still one thing." },
+      },
+      choices = {
+        { text = "One Circle, whatever the banners say. The Keeper's right.", next = "d_road", reply = "Then you'll be welcome on my bench, and on Hamuul's too, I suspect. It's the young who'll mend it, if anyone does.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Each people should lead its own druids. That's only natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest doesn't know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "What do the tauren druids want from the Circle?", next = "d_split2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_split2 = {
+      lines = { { id = "dr_lgs2_default", text = "To learn, mostly, and to be left alone to do it, which is what most druids want. Cairne sent Hamuul to us asking for teaching and not for a seat at anyone's table, and Hamuul has never once asked for more than that, which is more than I can say for some of my own people." } },
+      choices = { { text = "Back to the road.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_sleep = {
+      big = true,
+      lines = { { id = "dr_lgsl_default", text = "Not yet, I think, and perhaps not for a long while. The druids who sleep in the barrow dens beneath the hills walk the Dream for years at a time, as Malfurion does, and lately some of them have stayed under longer than they meant to and come back quieter than they went." } },
+      choices = {
+        { text = "When it calls, I'll go, whatever's troubling it.", next = "d_road", reply = "That's brave, and I won't stop you, but tell Rabine before you lie down, so someone knows where to look for you.", fx = { affinity = 1, align = { order = 1 }, learn = { "emerald_dream" } } },
+        { text = "I'll stay awake. Someone must watch the waking world.", next = "d_road", reply = "Someone should, and I've chosen the same, most years. The Dream doesn't need every druid; the world needs some of us with our eyes open.", fx = { align = { order = -1 }, learn = { "emerald_dream" } } },
+        { text = "Is Malfurion truly asleep in the barrow dens?", next = "d_sleep2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_sleep2 = {
+      lines = { { id = "dr_lgsl2_default", text = "His body rests there, in the deepest of the dens, and the Keeper's wardens guard it more closely than anything in Moonglade. Where the rest of him walks only the Dream knows, and the Dream has been keeping its own counsel lately." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_ne = {
+      big = true,
+      lines = { { id = "dr_lgn_default", text = "They say it to me as well, every time I visit Darnassus, which is why I visit so rarely. They mean that the Circle teaches tauren and doesn't follow the Arch Druid's every word, and I've never thought either of those was softness." } },
+      choices = {
+        { text = "Our secrets should have stayed with our own people.", next = "d_road", reply = "Perhaps, if secrets kept the forest safe, but they never have. Ashenvale is felled every season whether the tauren know the bear's shape or not.", fx = { align = { order = 1 }, opinion = { druids = "kaldorei_first" } } },
+        { text = "Teaching the tauren was the wisest thing the Circle did.", next = "d_road", reply = "I think so too, and the Keeper thinks so, and that's company enough for me. Say it in Darnassus, though, and mind the looks you get.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_tau = {
+      big = true,
+      lines = { { id = "dr_lgta_default", text = "Some will, for a few centuries yet, because ten thousand years of being the only druids in the world makes a people slow to share a bench. You came asking to learn, and you've listened better than half my own students, and the Keeper sees it even when the elders don't." } },
+      choices = {
+        { text = "Then I'll earn my place, however long they take.", next = "d_road", reply = "You've earned it already, but I know that's not what you meant. Earn it twice, then, and make them ashamed of the first time.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Earth Mother taught us before any elf did.", next = "d_road", reply = "She did, in her way, and Hamuul says so loudly whenever he visits. Only don't let it harden you, because hardness is the very thing they're waiting to see.", fx = { align = { honor = -1 } } },
+        { text = "Did the kaldorei truly not want to teach us?", next = "d_tau2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_tau2 = {
+      lines = { { id = "dr_lgta2_default", text = "Some didn't, and the Arch Druid spoke against it, but the Keeper taught your people anyway, because he said they'd been listening to the land for ages without anyone teaching them. That's the story as I heard it in this glade, and I've never had reason to doubt it." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_sky = {
+      big = true,
+      lines = { { id = "dr_lgsk_default", text = "You are, and nobody here will tell you otherwise. The Circle has druids who pray to Elune and druids who pray to the Earth Mother, and the winds are as good a place as any to hang your faith, so long as you listen to the ground as well as the sky." } },
+      choices = {
+        { text = "Then I'll learn to listen to both, ground and sky.", next = "d_road", reply = "Then you'll make a better druid than most of us, who only ever learned to listen down. Come and tell me what the sky says.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The winds are enough for me, Loganaar.", next = "d_road", reply = "They may be, for now. But bears don't fly, and sooner or later you'll want to know what the ground is saying under your paws.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
     pj_logan = {
       lines = { { id = "pj_logan_default", text = "Do I? Then I'm worse at hiding it than I'd hoped. Balance means a thing is born, lives and goes back to the earth, and a druid feels it go back, but with you I feel nothing go anywhere, and that frightens me more than any beast." } },
       choices = {
@@ -1417,6 +1827,16 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_lg_bear", when = { class = "DRUID", minLevel = 10, maxLevel = 13 },
+          text = "Dendrite will have sent you west to the Great Bear Spirit by now, or he's about to. Listen more than you speak up there, because the Bear says very little and means all of it." },
+        { id = "dr_lg_cat", when = { class = "DRUID", minLevel = 20, maxLevel = 25 },
+          text = "You've the look of someone ready for the cat's shape, and for Rebirth too, which is the heavier of the two lessons, though nobody believes me until they've used it." },
+        { id = "dr_lg_travel", when = { class = "DRUID", minLevel = 30, maxLevel = 34 },
+          text = "You'll be wanting the travel shape now, the swift one, and I'll teach it gladly, though I warn every druid that the road is the part of the journey that does the teaching." },
+        { id = "dr_lg_forty", when = { class = "DRUID", minLevel = 40, maxLevel = 45 },
+          text = "You'll be ready for the dire bear and for Innervate, I think, and some druids your age take the moonkin's shape as well. I'll tell you what I think of that, if you ask me, and probably even if you don't." },
+        { id = "dr_lg_sixty", when = { class = "DRUID", minLevel = 60 },
+          text = "You've learned everything I have to teach, and more than I ever learned myself. Sit anyway, because a druid at the end of the trainer's road is exactly the druid who most needs to remember how to sit." },
         { id = "h_dd_aquatic", tags = { "news" }, when = { questDone = TODO_QUEST("Aquatic Form") }, text = "Dendrite tells me you passed the trials of the lake and the sea lion, and that you take the seal's shape now. I remember the first time I swam as one, and I came up laughing like a cub." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman. You know balance better than most, I think, because the elements are never still, and a shaman who tries to make them so soon learns how foolish that is." },
@@ -1458,6 +1878,7 @@ P:NPC {
         { text = "Why would I want to set my certainty down?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does balance mean to a druid?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You flinch when you look at me, druid.", next = "pj_logan", when = { race = "Scourge", prejudiced = true } },
+        { text = "Tell me about the druid's road, Loganaar.", next = "d_road", when = { class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1529,6 +1950,7 @@ P:NPC {
   },
 
   topics = {
+    druids = { { id = "tp_dr_druids", text = "Druids are people who agreed to carry a little of the wild about with them, and to set it down gently when they're done. Most of us are better at the first half than the second." } },
     knows = {
       { id = "tp_knows", text = "Balance comes from knowing a little of everything. Ask, and I'll share what I've learned." },
     },
@@ -1566,6 +1988,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_test = {
+      lines = { { id = "dr_gbt_default", text = "The bear is quiet a long while, and then the voice comes up through the ground. A wolf comes for the cubs, little one, and the mother bear stands. Tell me, does she stand because she is strong, or is she strong because she stands?" } },
+      choices = {
+        { text = "She is strong because she stands. The heart moves first.", next = "d_test2" },
+        { text = "She stands because she is strong. A weak bear would flee.", next = "d_test_body" },
+        { text = "(Say nothing, and think on it.)", next = "d_test_quiet" },
+      },
+    },
+    d_test_body = {
+      lines = { { id = "dr_gbtb_default", text = "The bear rumbles, not unkindly. Then why do strong bears flee, little one, and why have I seen a thin old sow stand before a pack that could have eaten her twice over? Think again, and answer again." } },
+      choices = {
+        { text = "Then she is strong because she stands.", next = "d_test2" },
+        { text = "(Bow your head and listen.)", next = "d_test2", fx = { trait = { patient = 1 } } },
+      },
+    },
+    d_test_quiet = {
+      lines = { { id = "dr_gbtq_default", text = "The bear waits with you, and the grass grows a little, and the moon moves along the ridge. Silence is a fair beginning, little one, but the Bear has asked, and so you must answer." } },
+      choices = {
+        { text = "She is strong because she stands.", next = "d_test2" },
+        { text = "She stands because she is strong.", next = "d_test_body" },
+      },
+    },
+    d_test2 = {
+      lines = { { id = "dr_gbt2_default", text = "The bear's breath stirs the grass, and you think it is pleased. Yes, little one, and now the harder half: the wolf is gone, and the cubs are hungry, and the river is far. The heart alone will not carry them there, so what will?" } },
+      choices = {
+        { text = "The body: power and swiftness, kept ready for the need.", next = "d_pass" },
+        { text = "Other bears. A mother alone can't carry everything.", next = "d_pass_kin" },
+      },
+    },
+    d_pass = {
+      big = true,
+      lines = { { id = "dr_gbp_default", text = "Then you have both halves, little one, and that is all the Bear ever teaches: a heart that knows why, and a body ready when it is called. Go home, and when your strength is tested, as it will be, remember which half moved first." } },
+      choices = {
+        { text = "I'll stand first, and find the strength after.", next = "BACK", reply = "Good. That is the mother bear's way, and the Circle has need of it, little one.", fx = { affinity = 2, align = { honor = 1 }, standing = { nighthaven = 1 } } },
+        { text = "I'll make myself strong first, so I never need wonder.", next = "BACK", reply = "That is the elder bear's way, slow and sure, and it is not wrong, only lonelier. The Bear has walked both, little one.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "(Bow, and let the lesson settle.)", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    d_pass_kin = {
+      lines = { { id = "dr_gbpk_default", text = "The bear's eyes half close, and something like a laugh moves in its great chest. That is not the answer the Bear asked for, little one, and it is a better one, for the Circle is many bears, and the strongest of them knows when to call the others." } },
+      choices = {
+        { text = "Then what of the body, great one?", next = "d_pass" },
+        { text = "(Bow, and rise.)", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } },
+      },
+    },
+    d_dire = {
+      big = true,
+      lines = { { id = "dr_gbd_default", text = "The bear looks at you a long time. The shape grows because the need grew, little one, not because you did, so wear it as long as the need lasts and no longer, and it will always be mine and yours both." } },
+      choices = {
+        { text = "Then I'll set it down whenever the need has passed.", next = "BACK", reply = "The bear settles, content. Few remember to set it down, little one, so remember it for the others.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some needs never pass, spirit. I'll keep it on.", next = "BACK", reply = "Then you will grow tired, as old bears do, and the Bear will be here on the mountain when you need to sleep.", fx = { align = { order = -1 } } },
+        { text = "(Sit with the spirit a while.)", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "That you hear the earth and the wind and do not always answer them. That is good, little one, because the one who answers every whisper is pulled in every direction, and the bear has seen many shamans grow thin from trying to please all of them at once." } },
@@ -1647,6 +2123,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_gb_heart", tags = { "news" }, when = { questActive = TODO_QUEST("Body and Heart") },
+          text = "You went home and came back with the question still in you, little one. Good, for the Bear's question is meant to be carried, not answered once and set down." },
+        { id = "dr_gb_dire", when = { class = "DRUID", minLevel = 40 },
+          text = "You are larger in my shape now, little one, and heavier, and you carry it as though you have stood in front of something terrible. The bear knows; the bear always knows." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "One who speaks with the spirits sits before the bear. The spirits know me, little one, and they whisper that you listen well, which is rarer than you think." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1682,6 +2162,8 @@ P:NPC {
         { text = "Does my beast know you?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the Great Bear mean by strength inside?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the spirits say of me?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Test me, Great Bear. Do I understand body and heart?", next = "d_test", when = { class = "DRUID" } },
+        { text = "I wear your shape larger now. Is it still yours?", next = "d_dire", when = { class = "DRUID", minLevel = 40 } },
         { text = "(Rise and leave the spirit in peace.)", next = "END" },
       },
     },
@@ -1773,6 +2255,121 @@ P:NPC {
   },
 }
 
+-- Great Cat Spirit: Forever gives druids its own cat quest (The Great Cat Spirit, from Dendrite; Skyborne
+-- druids go to the Great Windborne Cat instead). A nightsaber spirit in the south of the glade. Authored voice:
+-- playful where the Bear is patient; narration carries its silences.
+P:NPC {
+  key = "great_cat", id = TODO_NPC("Great Cat Spirit"), name = "Great Cat Spirit",
+  bible = "bibles/nighthaven.md", role = "questgiver", tier = "quest",
+  communities = { "nighthaven" }, temper = { "playful", "watchful" }, values = { "patience", "cunning" },
+  spiritSensitive = true,
+  notices = { "form", "class" },
+  impression = {
+    first = "It watches you the way a cat watches a moth, fond and entirely serious.",
+    third = "{name} met the Great Cat Spirit in the south of Moonglade, a nightsaber spirit that teaches young druids the hunt through play.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "A great nightsaber lies in the long grass, and only its tail moves. When it speaks, the voice is close behind your ear, though the cat has not stirred." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "The great cat's ears turn toward you. Little claw, it purrs, you came at last, and I have been waiting so very patiently." },
+    { id = "g_back", when = { metBefore = true }, text = "The cat is in a different place than you left it, and you did not see it move. It looks pleased about that." },
+  },
+
+  notice = {
+    { id = "n_cat", cat = "form", place = "replace", when = { form = "cat" },
+      text = "The spirit rolls onto its back in the grass and regards you upside down. My shape, it says, worn a little stiffly, little claw, but you will grow into the shoulders." },
+    { id = "n_bear", cat = "form", when = { form = "bear" },
+      text = "The spirit's whiskers twitch. You smell of the old bear on the mountain, little claw, all patience and no mischief, so put that coat away and come and play." },
+    { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
+      text = "The cat watches you without blinking, and you have the uneasy sense of being weighed as something that might be good to chase." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "The bear on the mountain teaches you to stand, little one, and I teach you when to leap, which is a great deal more fun and a great deal harder. Most of the hunt is waiting, and the rest is knowing the moment the waiting ends." },
+        { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
+          text = "Dendrite sent you, the dear dry thing, with his lists and his bears. Good, little claw, because I have a game for you, and I have been saving it." },
+        { id = "h_done", when = { questDone = TODO_QUEST("The Great Cat Spirit") },
+          text = "You played the game, and you lost the first time, as everyone does, and then you watched, which almost nobody does. The claws are yours, little one, and the waiting too." },
+        { id = "h_sky", when = { race = "Skyborne", class = "DRUID" },
+          text = "Your people's cat lives in your own sky, little claw, and she is very proud and very fast, and she would not thank me for teaching you. Sit anyway, and we will not tell her." },
+        { id = "h_not", when = { ["not"] = { class = "DRUID" } },
+          text = "You are not of my shape, little one, and you never will be, but you came all the way south through the grass to see a cat. That is curiosity, and I approve of curiosity, within reason." },
+      },
+      again = {
+        { id = "h_again", text = "The cat's tail flicks once, which you have learned to take as an invitation to go on." },
+        { id = "h_again2", text = "The spirit stretches, every claw showing, and settles again. Ask, little claw." },
+      },
+      choices = {
+        { text = "What is the game, great cat?", next = "game", when = { class = "DRUID" } },
+        { text = "Why teach through play?", next = "play" },
+        { text = "How is your lesson different from the Bear's?", next = "bear" },
+        { text = "The cat is a hunter. Isn't that cruel, for a druid?", next = "cruel", when = { class = "DRUID" } },
+        { text = "(Lie in the grass and watch the spirit.)", next = "watch" },
+        { text = "(Leave the great cat to its waiting.)", next = "END" },
+      },
+    },
+    game = {
+      lines = { { id = "ga_default", text = "The spirit's eyes narrow to slits of gold. Somewhere in the grass between here and the lake is a thing I have hidden, and you will look for it, and I will watch you look, and at some moment you will stop looking and start listening. When that happens, you will have won, and you will know it before I tell you." } },
+      choices = {
+        { text = "And if I never stop looking?", next = "game2" },
+        { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    game2 = {
+      lines = { { id = "ga2_default", text = "Then you will be very tired by moonset, little claw, and I will have had a lovely evening. Nobody fails my game, they only take longer, and the ones who take longest often hunt best of all." } },
+      choices = { { text = "Something else, great cat.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    play = {
+      big = true,
+      lines = { { id = "pl_default", text = "Because a kitten that plays at the hunt learns it without fear, and fear spoils every leap. The old druids want their lessons to be solemn, little one, and the bear obliges them, but the cat knows that a lesson learned laughing is remembered longest." } },
+      choices = {
+        { text = "Then I'll learn it laughing, great cat.", next = "BACK", reply = "The cat makes a sound low in its chest that might be a purr. Good, little claw, and when you are old and solemn, remember that you laughed once.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The hunt is serious. I'd rather learn it that way.", next = "BACK", reply = "It is serious, for the prey, and very serious for a hunter who misses. Learn it as you like, little one, only do not forget to enjoy the leap.", fx = { align = { order = 1 } } },
+        { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    bear = {
+      lines = { { id = "be_default", text = "The bear stands and lets the storm wear itself out on him, and I go round the storm and come at it from behind, and we both think the other is a little foolish. A druid needs both of us, little one, and the wise ones learn which of us to listen to before the trouble starts." } },
+      choices = {
+        { text = "Does the Bear know you speak of him so?", next = "bear2" },
+        { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    bear2 = {
+      lines = { { id = "be2_default", text = "He knows, and he is far too patient to mind, which is the most annoying thing about him. Every few hundred years I steal a fish from his river to see whether he will chase me, and he never has, not once." } },
+      choices = { { text = "Something else, great cat.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    cruel = {
+      big = true,
+      lines = { { id = "cr_default", text = "The spirit looks at you for a long, unblinking moment. The cat takes the slow one and the sick one, little claw, and the herd runs faster for it the next spring. Cruelty is taking more than you need, or taking for the joy of the fear, and a druid who wears my shape must never learn to like that." } },
+      choices = {
+        { text = "Then I'll take only what the balance asks.", next = "BACK", reply = "Good, and the herds will never know to thank you, which is how it should be.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hunt is a hunt. I won't apologise for the kill.", next = "BACK", reply = "No cat ever apologised for a kill, little one. Only be sure you never come to want it more than you need it.", fx = { align = { light = -1 } } },
+        { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = { { id = "wa_default", text = "You lie in the grass, and the cat does nothing at all for a long time, and then you realise it has moved closer without your seeing. It looks very pleased with itself, and you think that might have been the whole lesson." } },
+      choices = {
+        { text = "(Laugh, and sit up.)", next = "BACK", fx = { affinity = 2 } },
+        { text = "(Rise and go.)", next = "END" },
+      },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "The cat knows where every mouse in Moonglade sleeps, little one, and a few things besides. Ask, and it may answer, if the question is interesting." } },
+    background = { { id = "tp_bg", text = "The spirit yawns, showing every tooth. It has hunted these hills since before there were names for them, and it does not seem to think that is worth discussing." } },
+    advice = { { id = "tp_ad", text = "Wait one breath longer than you want to, little claw, and then leap. Almost everyone leaps one breath too soon." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The cat's fur lifts along its spine. The Dream is where I nap, little one, and lately there is something in the long grass there that I do not like the smell of." } },
+    druids = { { id = "tp_druids", text = "Druids are kittens who never stopped asking questions, which is the nicest thing the cat can think of to say about anyone." } },
+    _none = { { id = "tp_none", text = "The cat looks at something behind you that is not there, and you understand that the question has bored it." } },
+  },
+}
+
 P:NPC {
   key = "silva", id = TODO_NPC("Silva Fil'naveth"), name = "Silva Fil'naveth",
   bible = "bibles/nighthaven.md", role = "flightmaster", tier = "service",
@@ -1791,6 +2388,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_tele = {
+      lines = { { id = "dr_svt_default", text = "It does that, everyone says so, though I've never felt it, because I've no talent for anything but birds. The good news is that the flight home is gentler, and the old one has never dropped anybody, at least not over land." } },
+      choices = {
+        { text = "At least not over land?", next = "d_tele2" },
+        { text = "Something else, Silva.", next = "BACK" },
+      },
+    },
+    d_tele2 = {
+      lines = { { id = "dr_svt2_default", text = "There was a druid who stood up in the saddle halfway over the sea to get a better look at Teldrassil, and the old one took it as a personal insult. He swam the rest of the way to Rut'theran as a sea lion and has never quite forgiven either of us." } },
+      choices = { { text = "Something else, Silva.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    d_horde = {
+      big = true,
+      lines = { { id = "dr_svh_default", text = "Never, by the old one's choice and the Circle's both, because Bunthen's riders carry the Horde's druids home and mine carry ours. We share the perch and the gossip and nothing else, and I think the arrangement suits the birds better than it suits us." } },
+      choices = {
+        { text = "Good. Some lines are worth keeping, even here.", next = "BACK", reply = "Perhaps, though I'd say the line is the sea and not the perch. Bunthen and I would both fly anyone, if our beasts would let us.", fx = { align = { order = 1 } } },
+        { text = "One Circle ought to mean one perch, Silva.", next = "BACK", reply = "You'd have the Keeper's blessing for that, I think, and the old one's teeth against it. Tell her yourself; I'll watch.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Something else, Silva.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I think they do, though they've never told me so in words. They grow restless before storms and calm when the lake is still, and you've the same feeling about you as a clear morning, so they're curious, and they're not often curious about anyone." } },
@@ -1871,6 +2488,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_sv_first", when = { class = "DRUID", faction = "Alliance", maxLevel = 12 },
+          text = "Your first time in Moonglade, I'd guess, by the way you keep looking up at the sky for the way you came in. The spell brings you here and the birds carry you home, and between the two of them you'll never have an excuse not to visit." },
+        { id = "dr_sv_swift", when = { class = "DRUID", minLevel = 30 },
+          text = "You've the swift shape now, I hear, and you'll tell me you don't need my birds any more. You'll still use them, though, because nothing with four legs crosses the sea to Rut'theran." },
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman! My birds only fly for druids, I'm afraid, but they can feel the spirits on you, I think, because the old one hasn't stopped staring since you came near." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1905,6 +2526,8 @@ P:NPC {
         { text = "Are your hippogryphs curious about my beast?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why will your birds only fly for druids?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your birds sense the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Teleporting here turned my stomach, Silva.", next = "d_tele", when = { class = "DRUID", maxLevel = 20 } },
+        { text = "Do your birds ever carry Horde druids?", next = "d_horde", when = { class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1968,6 +2591,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_welcome = {
+      big = true,
+      lines = { { id = "dr_bpw_default", text = "Welcome, yes, and watched, also yes. The Keeper made us welcome and most of the elves have followed him, but there are kaldorei who still count the tauren benches in the glade and frown, and I have found a friendly word and a long patience answer them better than pride." } },
+      choices = {
+        { text = "Patience, then. The herd outlasts the storm.", next = "BACK", reply = "It does, little one, and so does the grass the storm flattens. Walk with the Earth Mother, and let them frown.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We shouldn't have to earn what the Keeper gave freely.", next = "BACK", reply = "No, we shouldn't, and I won't tell you you're wrong. Only remember that a proud bull and a patient one reach the same water, and the patient one arrives less tired.", fx = { align = { order = -1 } } },
+        { text = "Something else, Bunthen.", next = "BACK" },
+      },
+    },
+    d_wind = {
+      lines = { { id = "dr_bpwi_default", text = "Softer here, because Moonglade is a quiet place, but she is here, little one. Mu'sha watches the lake at night and An'she warms the meadows by day, and I have never felt far from home on this perch, though the riders would argue with me." } },
+      choices = { { text = "Something else, Bunthen.", next = "BACK", fx = { affinity = 1 } } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Quieter than any I've known, and older, like grandfathers by a fire. I wonder whether the stone spirits of your mountains are as patient, or whether they grumble like your people." } },
@@ -2057,6 +2693,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_bp_first", when = { class = "DRUID", faction = "Horde", maxLevel = 12 },
+          text = "Your first time up the Circle's road, little one? Hamuul's students always look as though the spell left a piece of them behind on the Bluff. It catches up, and my riders will carry the rest of you home." },
+        { id = "dr_bp_swift", when = { class = "DRUID", faction = "Horde", minLevel = 30 },
+          text = "You run the plains like a cheetah now, I'm told, and still you come to my perch. A tauren learns that the fastest feet in Mulgore still can't cross the sky." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman, so far from the Bluff! My riders fly for druids alone, friend, but the spirits on you smell of home, and I'm very glad to see you." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -2093,6 +2733,8 @@ P:NPC {
         { text = "Do you miss Thunder Bluff?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the spirits of Moonglade feel like?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "What do the spirits of Moonglade feel like?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Are tauren druids truly welcome in Moonglade, Bunthen?", next = "d_welcome", when = { class = "DRUID", race = "Tauren" } },
+        { text = "Does the Earth Mother's wind reach this far north?", next = "d_wind", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

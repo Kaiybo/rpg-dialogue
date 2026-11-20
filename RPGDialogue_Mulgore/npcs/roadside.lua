@@ -331,6 +331,12 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Runetotems learned the old ways from strangers, so I will not turn a stranger away." },
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Welcome, little druid. Show me what the wild has taught you so far." },
+        { id = "h_dr_roots", when = { class = "DRUID", minLevel = 6, maxLevel = 9 },
+          text = "You've come down from the mesa, and Gart has taught you well, I can see. Here in Bloodhoof I'll teach you to ask the roots for help, and to wear thorns without minding them." },
+        { id = "h_dr_call", when = { class = "DRUID", minLevel = 10, maxLevel = 13 },
+          text = "There's a call waiting for you, little druid, and it comes from Turak Runetotem on Elder Rise. Your tenth season has come, and the bear is ready to meet you, if you're ready to meet it." },
+        { id = "h_dr_back", when = { class = "DRUID", minLevel = 14 },
+          text = "You've walked a long way from my fire, and you carry the bear lightly now. Sit a moment and let an old teacher look at you, because it's the best part of teaching." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You carry the strength of a bear without its patience, and the druids could teach you the second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The druids and the hunters both walk with the beasts, though we walk inside them and you walk beside." },
@@ -340,6 +346,9 @@ P:NPC {
       choices = {
         { text = "So the tauren learned from the night elves.", next = "elves" },
         { text = "What does a druid do?", next = "druid" },
+        { text = "Do the roots mind when I make them grab someone?", next = "d_roots", when = { class = "DRUID", minLevel = 8, maxLevel = 20 } },
+        { text = "What is this call from Turak, Gennia?", next = "d_call", when = { class = "DRUID", minLevel = 10, maxLevel = 14 } },
+        { text = "Are all the Runetotem druids, Gennia?", next = "d_runetotem", when = { race = "Tauren" } },
         { text = "How does a druid's path differ from a shaman's, Gennia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The night elves taught you druidism. What do they say of mages?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can a druid teach a warrior anything, Gennia?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -351,6 +360,57 @@ P:NPC {
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? Ask, and I will answer as the land allows, slowly, as the roots grow." } },
+    },
+    d_roots = {
+      big = true,
+      lines = { { id = "dr_gn_default", text = "They don't mind holding, little one, because holding is what roots do best; it's the letting go they find hard. Ask them kindly, and release them when you're done, and they'll answer you the next time and the time after that." } },
+      choices = {
+        { text = "I'll ask kindly, and let go when it's done.", next = "BACK",
+          reply = "Then the roots of Mulgore will be your friends for life. They have long memories, and they remember who said thank you.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're roots, Gennia. They'll do as I tell them.", next = "BACK",
+          reply = "They will, for a while, and then one day they'll be a heartbeat slow, and you'll never know why. The land keeps its own accounts, child.",
+          fx = { align = { light = -1 } } },
+        { text = "And the thorns? They feel like a trick.", next = "d_thorns" },
+      },
+    },
+    d_thorns = {
+      lines = { { id = "dr_gt_default", text = "They are a trick, the same one the briar plays on the boar that tries to eat it. A druid wears the thorns so the beast that bites learns its lesson without anyone having to teach it twice, and there's no shame in that; the Earth Mother is full of such tricks." } },
+      choices = { { text = "Something else, Gennia.", next = "BACK" } },
+    },
+    d_call = {
+      lines = {
+        { id = "dr_gc_default", text = "Turak teaches the druids of the Claw on Elder Rise, and when a young druid reaches their tenth season, he sends for them. He'll send you on to Moonglade to sit with the Great Bear Spirit, and then he'll test you, and then he'll give you the bear's shape, which is the moment every druid remembers for the rest of their life." },
+        { id = "dr_gc_done", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You've answered it already, I see, and you've the bear in you now. Tell me what the Great Bear Spirit felt like, because I still dream of mine some nights." },
+      },
+      choices = {
+        { text = "What did the Great Bear Spirit say to you?", next = "d_call2" },
+        { text = "Something else, Gennia.", next = "BACK" },
+      },
+    },
+    d_call2 = {
+      lines = { { id = "dr_gc2_default", text = "Nothing at all, and everything. It looked at me for a long time, as my grandmother used to when I'd been foolish, and when I walked away I knew I'd never again strike anything only because I was strong enough to." } },
+      choices = { { text = "Something else, Gennia.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    d_runetotem = {
+      lines = { { id = "dr_gr_default", text = "Not all, but more than any other tribe, because Hamuul is one of us, and he taught his own people first. Turak and Sheal on Elder Rise, Tonga at the Crossroads, and me here at Bloodhoof; you can't throw a stone in Mulgore without hitting a Runetotem with moss on her hooves." } },
+      choices = {
+        { text = "Do the other tribes resent that?", next = "d_runetotem2" },
+        { text = "Something else, Gennia.", next = "BACK" },
+      },
+    },
+    d_runetotem2 = {
+      big = true,
+      lines = { { id = "dr_gr2_default", text = "A little, the way any herd grumbles when one calf gets the best grass. The Wildmane have their own druids now, like Kym and young Nara, and the Grimtotem say the whole path is an elven fancy, but most tribes are glad of anyone who can heal a kodo." } },
+      choices = {
+        { text = "The path should belong to every tribe equally.", next = "BACK",
+          reply = "It should, and Hamuul says so too, and he's taught anyone who comes to him with a true heart. The Runetotem only got there first.",
+          fx = { align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "The Runetotem earned it. Hamuul did the work.", next = "BACK",
+          reply = "That's kind of you, and he did, but he'd scold us both for saying it. Pride is a weed, child, even when it grows in good soil.",
+          fx = { align = { order = 1 } } },
+        { text = "Something else, Gennia.", next = "BACK" },
+      },
     },
     elves = {
       lines = { { id = "e_default", text = "Hamuul Runetotem studied with the great Malfurion Stormrage himself, and he brought the teachings home to our people. Some elves still grumble about it, but the Cenarion Circle welcomes us." } },

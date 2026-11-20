@@ -448,6 +448,7 @@ P:NPC {
 
   greetings = {
     { id = "g_seeds", text = "Careful where you step. Those little green shoots are the first things to grow in that soil in years." },
+    { id = "g_dr_druid", when = { class = "DRUID" }, text = "A druid on Sun Rock, and just when the seedlings need a friend! Come and kneel by the rows, because I've been talking to them all morning and I'm not sure they understand my accent." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and while you were gone I counted eleven new shoots and only three lost. That's a good stretch, so mind your step." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody on Sun Rock was talking about how kind you'd been to them. Kindness grows like these little shoots do, a bit at a time." },
   },
@@ -576,6 +577,7 @@ P:NPC {
         { text = "You seem to be planting something.", next = "seeds" },
         { text = "How is your niece?", next = "kaya", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "I'm a druid. Could I help the shoots along?", next = "druid", when = { class = "DRUID" } },
+        { text = "I can call the fallen back now. Does that break your cycle?", next = "d_cycle", when = { class = "DRUID", minLevel = 20 } },
         { text = "Did the seeds take, in the Charred Vale?", next = "future", when = { questDone = TODO_QUEST("New Life") } },
         { text = "The earth spirits here are angry. I can feel it.", next = "shaman_ta", when = { class = "SHAMAN" } },
         { text = "Could quiet feet be any use to your garden?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -588,6 +590,23 @@ P:NPC {
         { text = "Do the druids on Stonetalon Peak ever help you?", next = "ne_tammra" },
         { text = "Good luck with your garden.", next = "END", fx = { affinity = 1 } },
       },
+    },
+    d_cycle = {
+      big = true,
+      lines = { { id = "dr_tw_default", text = "Rebirth, you mean? Sheal's taught it to you, then. I'm no druid, only a gardener with stubborn hands, but I'd say a druid who calls back a friend who fell too soon is mending a tear in the cycle, not breaking it, so long as you never start thinking you own the needle." } },
+      choices = {
+        { text = "Death feeds life. I'll call back only those who fell too soon.", next = "BACK",
+          reply = "That's how I'd want it done, if it were mine to do. The Charred Vale burned before its time, and I'm calling it back too, one shoot at a time.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "balance" } } },
+        { text = "If I can bring someone back, the cycle can wait.", next = "BACK",
+          reply = "Spoken like someone who's lost people, and I won't argue with that grief. Just remember the ashes in the Vale fed these shoots, and something has to feed the next ones.",
+          fx = { align = { order = -1 } } },
+        { text = "Is that why you planted here, in the burned ground?", next = "d_cycle2" },
+      },
+    },
+    d_cycle2 = {
+      lines = { { id = "dr_tw2_default", text = "It is. Fire's part of the cycle too, but what burned the Charred Vale wasn't the land's own fire, and the ash has been sour ever since. I can't call anything back with a word the way you can, so I do it with seeds and patience and an awful lot of water." } },
+      choices = { { text = "Something else, Tammra.", next = "BACK" } },
     },
     ne_tammra = {
       lines = {

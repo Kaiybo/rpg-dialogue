@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_father = {
+      big = true,
+      lines = { { id = "dr_cv_default", text = "Then you've seen him patient, which is how he wears his grief. I write to him of everything but Celebras, and his letters come back with Moonglade's soil pressed between the pages, which is the only way he has ever known to say he misses us." } },
+      choices = {
+        { text = "Tell him, Cavindra. He'd rather grieve than not know.", next = "BACK", reply = "You may be right, and I've written the letter a dozen times and burned it every time. Perhaps the thirteenth will reach him.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wait until Celebras is free. Then send him good news.", next = "BACK", reply = "That's what I've told myself, and it's a comfort to hear someone else say it. Help me make it true, then.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Cavindra.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -61,6 +70,7 @@ P:NPC {
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "The Dream itself must grieve for this place.", next = "dream", when = { class = "DRUID" } },
         { text = "Your father Remulos must be told of this.", next = "remulos", when = { race = "NightElf" } },
+        { text = "I've sat with your father in Moonglade, Cavindra.", next = "d_father", when = { class = "DRUID", minLevel = 40 } },
         { text = "Stay safe, Cavindra.", next = "END" },
       },
     },

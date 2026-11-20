@@ -282,6 +282,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Sheal Runetotem, and I teach those who would walk the druid's path, as Hamuul taught me. Come when you are ready, as the grass comes when the rain does, and not before." },
         { id = "h_notdruid", when = { ["not"] = { class = "DRUID" } }, text = "You're no druid, friend, but the Hall of Elders welcomes listeners. Sit if you wish, and don't step on the moss." },
+        { id = "h_dr_rebirth", when = { class = "DRUID", minLevel = 20, maxLevel = 29 },
+          text = "You've come far enough now that I can teach you to call a fallen friend back to their feet. Sit first, because that is a gift I won't hand to anyone who hasn't thought about it." },
+        { id = "h_dr_tranq", when = { class = "DRUID", minLevel = 30, maxLevel = 39 },
+          text = "There's a stillness in you now that wasn't there when you first came up the lift. Good, because the next thing I teach needs all of it, and a druid who can't be still can't give Tranquility to anyone." },
+        { id = "h_dr_bark", when = { class = "DRUID", minLevel = 44 },
+          text = "You've grown bark of your own, I think, the kind that blows don't get through. The Earth Mother lends it to us when we're ready to stand like an old tree, and you're ready." },
       },
       again = { { id = "h_again", text = "Something else? Take your time; the land has never once hurried." } },
       choices = {
@@ -291,6 +297,10 @@ P:NPC {
         { text = "Where do druids go to learn beyond this hall?", next = "moonglade" },
         { text = "What do you think of the night elves?", next = "kaldorei" },
         { text = "I find the bear slow and heavy.", next = "bear_slow", when = { class = "DRUID" } },
+        { text = "Rebirth. Should a druid really call back the dead?", next = "d_rebirth", when = { class = "DRUID", minLevel = 20 } },
+        { text = "Tranquility. What does it cost the one who gives it?", next = "d_tranq", when = { class = "DRUID", minLevel = 30 } },
+        { text = "Barkskin. Is it a shield, or something more?", next = "d_bark", when = { class = "DRUID", minLevel = 44 } },
+        { text = "Is the druid's path closed to my people, Sheal?", next = "d_closed", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "Shaman speak with spirits too. How is it different?", next = "shaman_diff", when = { class = "SHAMAN" } },
         { text = "Farewell, Sheal.", next = "END" },
       },
@@ -349,6 +359,58 @@ P:NPC {
       lines = { { id = "bs_default", text = "It is, and that is what it's for. The bear stands where it chooses and lets the fight come to it, which is a lesson the young never want and always need." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    d_rebirth = {
+      big = true,
+      lines = {
+        { id = "dr_rb_default", text = "Only the ones who've just fallen, while the spirit is still near enough to hear you and the body still wants to live. The Earth Mother lets a druid ask her for that once in a long while, and she always answers, which is exactly why I make my students sit with it before I teach it." },
+        { id = "dr_rb_tammra", when = { heardLine = "tammra.h_default" }, text = "Only the ones who've just fallen, while the spirit is still close. You've met Tammra Windfield at Sun Rock, I think, so you've heard her say death feeds life, and she's right; Rebirth is the rare moment when a druid asks the Earth Mother to let the cycle wait." },
+      },
+      choices = {
+        { text = "Then I'll use it sparingly, and only for those who'd want it.", next = "BACK",
+          reply = "That's the answer I wait for, and it's rarer than you'd think. Some young druids hear 'once in a long while' and start counting how soon that is.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If I can bring a friend back, I always will.", next = "BACK",
+          reply = "A kind heart says that, and I'll not fault it, but the land doesn't keep a ledger of friends. Mind that you don't start thinking the cycle bends for you.",
+          fx = { align = { light = -1 } } },
+        { text = "Has anyone ever refused to come back?", next = "d_rebirth2" },
+      },
+    },
+    d_rebirth2 = {
+      lines = { { id = "dr_rb2_default", text = "Once, that I know of, an old brave who'd fallen in the Barrens with a smile on his face. Hamuul knelt over him and called, and the spirit simply didn't come, and Hamuul said afterwards that some people have finished their walk and know it." } },
+      choices = { { text = "Something else, Sheal.", next = "BACK" } },
+    },
+    d_tranq = {
+      lines = { { id = "dr_tq_default", text = "Everything you have, for as long as you can hold it, and you can't move while you give it. You stand still in the middle of the fight and pour the Earth Mother's peace over everyone around you, and you'll feel every blow that lands on you while you do, so learn to stand still before you learn the spell." } },
+      choices = {
+        { text = "So that's why you taught me to be still first.", next = "d_tranq2" },
+        { text = "Something else, Sheal.", next = "BACK" },
+      },
+    },
+    d_tranq2 = {
+      lines = { { id = "dr_tq2_default", text = "It is, and you're one of the few who's worked it out without being told. Everyone thinks I teach stillness because I'm slow, and I let them, because the ones who understand are the ones I'd trust with Tranquility." } },
+      choices = { { text = "Something else, Sheal.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    d_bark = {
+      lines = { { id = "dr_bk_default", text = "A shield, yes, and more than that if you let it. The bark doesn't stop the axe from coming; it only lets you take the blow and keep your mind clear, which is how an old tree stands through a storm that topples the young ones." } },
+      choices = { { text = "Something else, Sheal.", next = "BACK" } },
+    },
+    d_closed = {
+      big = true,
+      lines = {
+        { id = "dr_cl_default", text = "Closed is a strong word, friend, but I won't pretend the door stands open. The night elves taught Hamuul, and Hamuul taught us, and none of us has yet been asked by an orc, so nobody has had to decide." },
+        { id = "dr_cl_troll", when = { race = "Troll" }, text = "Closed is a strong word, friend, but I won't pretend it's open either. The night elves taught Hamuul, and they remember your people's old empires with no fondness at all, so they've never been asked to teach a troll and would likely refuse if they were." },
+        { id = "dr_cl_scourge", when = { race = "Scourge" }, text = "I'm sorry, friend, but I think it may be, at least for now. The forms are lent by living spirits, the bear and the cat and the sea lion, and I don't know how a spirit that has died and risen would even begin to speak with them." },
+      },
+      choices = {
+        { text = "Then the Circle should ask, and decide.", next = "BACK",
+          reply = "You may be right, and I'll say so to Hamuul over tea, though he'll only smile. Doors open slowly on Elder Rise, but they do open.",
+          fx = { align = { order = -1 }, opinion = { druids = "closed" } } },
+        { text = "My people have their own ways. That's enough.", next = "BACK",
+          reply = "They do, and good ones, from what I've seen of your shamans. The Earth Mother made more than one road to her door.",
+          fx = { align = { order = 1 }, opinion = { druids = "respect" } } },
+        { text = "Something else, Sheal.", next = "BACK" },
+      },
+    },
     shaman_diff = {
       lines = { { id = "sd_default", text = "A shaman asks the elements for help, and a druid asks the land to let her become part of it for a while. Tigor Skychaser and I have argued over which is harder for many seasons, and neither of us has won." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -393,6 +455,12 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Kym Wildmane, and I teach druids here alongside Turak and Sheal, though I'm the one who'll take you out onto the plains to practice. You learn the cat on grass, not on stone floors." },
         { id = "h_notdruid", when = { ["not"] = { class = "DRUID" } }, text = "You're not one of ours, are you? That's all right. Ask what you like, but I warn you I talk fast." },
+        { id = "h_dr_cat", when = { class = "DRUID", minLevel = 20, maxLevel = 29 },
+          text = "You've got the cat! I can tell from the way you came up the lift, all shoulders and no noise. Come on, ask me about it, because I've been waiting all season for someone to talk cats with." },
+        { id = "h_dr_travel", when = { class = "DRUID", minLevel = 30, maxLevel = 39 },
+          text = "There it is, the cheetah's shape, finally! Now you'll understand why I never sit down, because once the plains are that fast under you, walking feels like standing still." },
+        { id = "h_dr_dire", when = { class = "DRUID", minLevel = 40 },
+          text = "You've grown into a dire bear, haven't you? I can smell the den on you from here, and I mean that kindly, because that shape keeps whole war bands alive." },
       },
       again = { { id = "h_again", text = "What else? Quick, the wind's changing, and the plains won't wait for us." } },
       choices = {
@@ -401,7 +469,10 @@ P:NPC {
         { text = "Do you have kin among the druids here?", next = "nara" },
         { text = "What's the cat form like?", next = "cat" },
         { text = "Sheal says you're always in a hurry.", next = "sheal" },
-        { text = "When will I learn the travel form?", next = "travel", when = { class = "DRUID" } },
+        { text = "When will I learn the travel form?", next = "travel", when = { class = "DRUID", maxLevel = 29 } },
+        { text = "Teach me to hunt properly as the cat, Kym.", next = "d_cat", when = { class = "DRUID", minLevel = 20 } },
+        { text = "I have the cheetah's shape now. Race me?", next = "d_travel", when = { class = "DRUID", minLevel = 30 } },
+        { text = "The dire bear. Is it just a bigger bear?", next = "d_dire", when = { class = "DRUID", minLevel = 40 } },
         { text = "Could you outrun a hunter's arrow?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Farewell, Kym.", next = "END" },
       },
@@ -458,6 +529,54 @@ P:NPC {
         { text = "The thrill is part of it. Let them run.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    d_cat = {
+      big = true,
+      lines = {
+        { id = "dr_kc_default", text = "Properly means low, slow and downwind, and then very fast for about four heartbeats. Prowl until you're close enough to hear it breathing, open it up with your claws, and finish it before it knows which way to run, because a cat in a long fight is a cat in trouble." },
+        { id = "dr_kc_form", when = { form = "cat" }, text = "You're wearing it right now, so you can feel what I mean: everything wants you to go low and slow and downwind, and then very fast for four heartbeats. Listen to that, and finish the hunt before your prey knows which way to run." },
+      },
+      choices = {
+        { text = "Quick and clean. The prey shouldn't suffer.", next = "BACK",
+          reply = "That's how the lions do it, and that's how I teach it. A clean hunt honors the beast, and it's less work for you besides.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll play with it a little. The cat does.", next = "BACK",
+          reply = "A housecat does, maybe, in some human's barn. A plains lion doesn't waste the breath, and neither should you.",
+          fx = { align = { light = -1 } } },
+        { text = "Did you learn it from the lions themselves?", next = "d_cat2" },
+      },
+    },
+    d_cat2 = {
+      lines = { { id = "dr_kc2_default", text = "Every bit of it, lying in the grass near the Golden Plains for a whole summer and watching them hunt. One old lioness let me follow her for three days before she turned round and growled, and I took that as my graduation." } },
+      choices = { { text = "Something else, Kym.", next = "BACK" } },
+    },
+    d_travel = {
+      big = true,
+      lines = { { id = "dr_kt_default", text = "Race you? Ha! I'll take that, and you'll lose, but I like you better for asking. The cheetah's shape isn't for fighting, mind; it's for getting where you're needed before the trouble's finished, which on these plains is half of what a druid is for." } },
+      choices = {
+        { text = "Then I'll use it to get where I'm needed.", next = "BACK",
+          reply = "Good answer, and you can still race me on the way. Mulgore's big, and the Barrens are bigger, and someone's always waiting for a healer.",
+          fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll use it to go wherever the wind takes me.", next = "BACK",
+          reply = "Now that's a druid after my own heart! Just don't let Sheal hear you say it, because she'll have you sitting on a cushion for a month.",
+          fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Who taught you to run like that?", next = "d_travel2" },
+      },
+    },
+    d_travel2 = {
+      lines = { { id = "dr_kt2_default", text = "The plainstriders, mostly, and a lot of falling over. Turak gave me the shape, but nobody can teach you to love it; you either feel the wind and laugh, or you're a sensible druid like Sheal, and I've never managed sensible." } },
+      choices = { { text = "Something else, Kym.", next = "BACK" } },
+    },
+    d_dire = {
+      lines = { { id = "dr_kd_default", text = "Bigger, heavier and much harder to knock over, which is the whole point. The young bear guards one friend, and the dire bear stands in front of the whole war band and lets the ogres break their clubs on it, and I'll tell you a secret: I'm hopeless at it, because I keep wanting to run." } },
+      choices = {
+        { text = "Then who taught you the dire bear?", next = "d_dire2" },
+        { text = "Something else, Kym.", next = "BACK" },
+      },
+    },
+    d_dire2 = {
+      lines = { { id = "dr_kd2_default", text = "Turak, with enormous patience, and Sheal, with none at all. Between them they made me stand in one place for a whole afternoon while the braves on Hunter Rise threw things at me, and I've never been so bored or so bruised in my life." } },
+      choices = { { text = "Something else, Kym.", next = "BACK" } },
     },
     sheal = {
       lines = { { id = "sh_default", text = "Sheal says that about everyone except Hamuul and the moss. We're good friends, really, and she's the only one who can make me sit still, which I resent with my whole heart." } },

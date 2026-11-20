@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-20)
+- Mardant Strongoak and Kal teach young druids their first spells and the road after the bear.
+
 ## 1.25.0 (2026-11-19)
 - Human patch: human players get their own branches with human NPCs, and other races here say what they think of humans (some can be talked round with Persuade).
 

@@ -599,6 +599,8 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You came back to this cage. I hoped you would, though I tried not to count on it." },
     { id = "g_active", when = { questActive = TODO_QUEST("Freedom to Ruul") }, text = "When you are ready, open the door and walk beside me. I am slow now, and the Thistlefur will not let me go quietly." },
     { id = "g_done", when = { questDone = TODO_QUEST("Freedom to Ruul") }, text = "You walked me out of the dark once already. My sister will have fed you twice over by now, if I know her." },
+    { id = "dr_g_tauren", when = { race = "Tauren", class = "DRUID" }, text = "A druid of the herd! Then you will forgive me for being caught in my own bear's skin, which is the most embarrassing thing to happen to a Snowhoof in three generations." },
+    { id = "dr_g_sky", when = { race = "Skyborne", class = "DRUID" }, text = "Winds be with you, I think your people say. I have heard the Circle has a few of you now, and I did not expect to meet one through the bars of a furbolg's cage." },
   },
 
   start = "hello",
@@ -693,6 +695,35 @@ P:NPC {
         { text = "Will the Thistlefur fight us when we leave?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "The Thistlefur must have hunted well, before this.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What made the Thistlefur turn, Ruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Any counsel for a young druid, Ruul?", next = "d_young", when = { class = "DRUID", maxLevel = 29 } },
+        { text = "Do the elves' druids and ours truly share one Circle?", next = "d_circle", when = { class = "DRUID", faction = "Horde" } },
+        { text = "My people's druids honour the winds first.", next = "d_sky", when = { class = "DRUID", race = "Skyborne" } },
+      },
+    },
+    d_young = {
+      lines = {
+        { id = "dr_young", text = "Learn when to take off a shape, which I clearly did not, or I would not be sitting in this cage. Turak Runetotem taught me to listen to the land before I change, and I forgot it on the one night it mattered." },
+        { id = "dr_young_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You have met the Great Bear Spirit, so you know what it gives. Learn also when to take its shape off, which I clearly did not, or I would not be sitting in this cage." },
+      },
+      choices = {
+        { text = "I'll remember your cage, Ruul.", next = "BACK", reply = "Good. Let it be the cheapest lesson you ever learn, since I have already paid for it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_circle = {
+      big = true,
+      lines = { { id = "dr_circle", text = "In Moonglade they do, and I have sat at Keeper Remulos's fire beside kaldorei who would not look at me in Ashenvale. Hamuul Runetotem says the Circle is older than our quarrels, and I believe him, though this cage tests that belief a little." } },
+      choices = {
+        { text = "The Circle comes before the Horde or the Alliance.", next = "BACK", reply = "That is what Hamuul teaches, and I am glad to hear it from a young druid. Say it gently in Splintertree, though.", fx = { align = { order = -1 }, opinion = { druids = "one_circle" } } },
+        { text = "The Horde comes first. The elves chose this war.", next = "BACK", reply = "Some of them did, and some of ours chose it back. I will not argue with you here, but I will ask you to remember Moonglade.", fx = { align = { order = 1 }, opinion = { druids = "horde_first" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_sky = {
+      lines = { { id = "dr_sky", text = "Then you and I listen to different voices on the same plain, and I think the Earth Mother is wise enough not to mind. Tell me, do the winds say anything about this forest? I have not felt a clean breeze since they caged me." } },
+      choices = {
+        { text = "The winds here taste of ash and old fire.", next = "BACK", reply = "Felwood's breath, then, carried south. I feared as much, and I thank you for telling me plainly." },
+        { text = "They're quiet, Ruul. Too quiet.", next = "BACK", reply = "Then the forest is holding its breath, as I am. Perhaps we will both breathe easier when I am out of here." },
       },
     },
     madness = {

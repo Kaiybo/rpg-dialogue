@@ -525,8 +525,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_roots = {
+      big = true,
+      lines = { { id = "dr_alr_default", text = "By keeping something growing within reach, which is why my seedlings are everywhere and the Kirin Tor's apprentices keep tripping over them. A druid who goes a week without soil under their hands starts thinking like a mage, all patterns and no seasons, and I've caught myself at it more than once." } },
+      choices = {
+        { text = "Then I'll keep soil under my hands, whatever the city says.", next = "BACK", reply = "Good, and take a cutting with you when you go. A druid with a pot of earth in their pack is never quite lost.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The arcane has seasons of its own. I've felt them.", next = "BACK", reply = "Perhaps it does, and perhaps that's exactly what my people told themselves before the Well tore the world in two. Feel them carefully.", fx = { align = { light = -1 } } },
+        { text = "Something else, Alfina.", next = "BACK" },
+      },
+    },
+    d_moon = {
+      big = true,
+      lines = { { id = "dr_alm_default", text = "It should, because Moonglade is home to every druid and Dalaran is home to nobody but mages, and only half of them. I go back when I can and sit by the lake and let Loganaar tell me I've city dust in my hair, and he's always right." } },
+      choices = {
+        { text = "Then teach from Moonglade, Alfina, not from here.", next = "BACK", reply = "And leave the Skyborne's druids to learn from books in a tower? Someone has to carry the glade to them, and it seems it's me.", fx = { align = { order = 1 } } },
+        { text = "Someone must bring the glade to the cities. I'm glad it's you.", next = "BACK", reply = "Thank you, though the glade grumbles about the journey. So do my knees, on all those stairs.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Something else, Alfina.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "dr_al_young", when = { class = "DRUID", maxLevel = 14 },
+          text = "You'll be off to Moonglade soon, if you haven't gone already, and you'll find it very quiet after this city. Let the quiet frighten you a little; it's good for you after all this humming." },
+        { id = "dr_al_far", when = { class = "DRUID", minLevel = 40 },
+          text = "One of mine, grown tall on the long roads! You smell of Felwood ash and lake water, and I'll take that over the smell of this city any day." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Queen Azshara opened the door your masters walked through, and my people paid for it with the sea. Every growing thing in this room is leaning away from you, warlock, and so am I." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. The seedlings still lean away from you, but I've stopped doing the same. Sit, if you must." },
         { id = "h_default", key = true,
@@ -551,6 +573,8 @@ P:NPC {
         { text = "Does Darnassus know you're here?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do my spells trouble you?", next = "xmage", when = { class = "MAGE" } },
         { text = "The Circle taught me, Alfina, though I listen for the wind, not Elune.", next = "xorig_circle", when = { origin = "skyborne_circle_student" } },
+        { text = "How does a druid stay rooted in a city of mages?", next = "d_roots", when = { class = "DRUID" } },
+        { text = "Moonglade felt like home. Dalaran doesn't.", next = "d_moon", when = { class = "DRUID", minLevel = 10 } },
         { text = "Elune keep you.", next = "END" },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-20)
+- Turak Runetotem walks Horde druids down the road (the bear, Moonglade, Lunaclaw, the sea lion, the cat); Hamuul Runetotem, Sheal Runetotem, Kym Wildmane and Nara Wildmane deepened for druids.
+
 ## 1.34.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 

@@ -102,6 +102,10 @@ P:Pool {
       text = "Explorers' League, are you? My boy's read every one of Brann's stories twice over, and he'd give his front teeth to carry one of your packs." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_bear", text = "A great brown bear walked into the Lion's Pride last spring and sat down by the fire, and nobody moved until it turned into a night elf and asked for tea. The innkeeper says it tipped better than most of the regulars." },
+    { id = "l_dr_elves", text = "The night elves have druids the way we have priests, I'm told, only theirs sleep in the woods and turn into owls. I'd think it was a tall tale, except I've seen the owl." },
+    { id = "l_dr_ask", when = { class = "DRUID" }, text = "Is it true you can turn into a cat, a proper big one? Only my youngest has asked me every night for a week, and I promised I'd find out." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_sheep", text = "My cousin called a mage a charlatan in a tavern in Lakeshire, and he spent the rest of the evening as a sheep. He says the worst of it wasn't the wool, it was how much he enjoyed the grass." },
     { id = "l_mg_dome", text = "Dalaran shut its gates and hid under a violet dome while the rest of Lordaeron burned. I don't hold it against the mages exactly, but I notice they were the ones with the dome." },
@@ -177,6 +181,7 @@ P:Pool {
     { text = "Light keep you too.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The night elves' holy men, as near as I can tell, though they'd sooner sleep in a tree than a chapel. They heal well enough, and they turn into bears, and nobody in this town has quite got used to the second part." } },
     mages = { { id = "w_mages", text = "Useful folk in a fight and dreadful neighbours, as far as I can tell. They'll conjure you water in the desert and then set your thatch alight practising, and they always seem surprised when you mind." } },
     knows = {
       { id = "t_kn1", text = "Word travels with the caravans, and the caravans stop here. Here's what I've heard from them." },
@@ -253,6 +258,9 @@ P:Pool {
       text = "Frostwolf! My grandfather spoke of your clan the way other orcs speak of the days before the blood, so throm-ka, friend, and honor to the Frostwolves." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_fang", text = "The tauren druids are good folk, I'll not say otherwise, but I was at the Crossroads when the Druids of the Fang came out of their caves. Druids can go wrong, that's all I'm saying." },
+    { id = "l_dr_heal", text = "A tauren druid mended my leg in the Barrens with nothing but a few leaves and a song. The shaman who looked at it after said he couldn't have done better, and he's never said that about anybody." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_warlocks", text = "The old grunts spit when a mage walks past. They remember what Gul'dan's warlocks did with power that didn't come from the spirits, and they've no patience for anyone explaining the difference." },
     { id = "l_mg_who", text = "Most of the Horde's mages are dead men from the Undercity or trolls from the Echo Isles, and the orcs keep their distance from both. The Warchief says we need them, so we nod and walk wide." },
@@ -330,6 +338,7 @@ P:Pool {
     { text = "Strength and honor.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The tauren have them, and the night elves have more of them, and they all sit together in some glade up north as if the war weren't on. They're useful in a fight, mind, if you can tell which bear is yours." } },
     mages = { { id = "w_mages", text = "The Horde has its shamans for the spirits and its warriors for everything else, and the mages are new among us. They're useful, I suppose, though I've yet to meet one who didn't think himself the cleverest at the fire." } },
     knows = {
       { id = "t_kn1", text = "Talk comes in with the wolf-riders and the kodo trains, and I listen. Here is what I've heard." },
@@ -465,6 +474,9 @@ P:Pool {
     { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "Did you just bind a soul into a stone, right here in the street? Light preserve us, my grandmother lived through the First War, and she'd have fainted dead away." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_park", text = "There's a night elf druid who sits by the fountain in the Park every evening, and the children follow him round hoping he'll turn into a bear. He did once, and the guards came running, and now he only does it on holidays." },
+    { id = "l_dr_trees", text = "The elves' druids look at our city as though they're counting the trees we cut down to build it. I suppose they are, and I suppose the number's a large one." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_bakers", text = "The bakers' guild has grumbled at the Mage Quarter for years, because every time some apprentice decides to conjure bread for the poor, three ovens go cold in Old Town. My uncle's a baker, and he swears the conjured stuff tastes of nothing anyway." },
     { id = "l_mg_sheep", text = "There's a sheep that wanders the Mage Quarter that nobody owns, and every apprentice swears it was a person once. The Watch stopped asking whose it is a long while ago." },
@@ -535,6 +547,7 @@ P:Pool {
     { text = "Light keep you.", next = "END", when = { class = "PRIEST" } },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Stormwind has priests, mages and paladins in plenty, but druids are an elf thing, and an odd one. They visit from Darnassus now and then, look at our gardens with pity, and leave again." } },
     mages = { { id = "w_mages", text = "The magi have a whole quarter of the city to themselves, with towers that glow all night and a fountain nobody dares drink from. Most are polite enough in the street, but you can never tell whether they're thinking about supper or about turning you into a newt." } },
     kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor are the masters of Dalaran, and the magi in the Sanctum still lower their voices when they say the name. Most folk here know them as the people who let Kel'Thuzad slip through their fingers." } },
     bolvar = { { id = "w_bolvar", text = "The Highlord sits at the boy king's side every day in the Keep, and he's held this city together with his own two hands since His Majesty vanished. My husband served under him at the Dark Portal, and he says there's no better man in the kingdom." } },
@@ -647,6 +660,8 @@ P:Pool {
       text = "Ye've the road on ye, {g:lad|lass}, all dust an' sunburn, so ye'll have been up top a good long while. Get a pint o' Thunderbrew in ye before ye forget what home tastes like." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_bear", text = "An elf druid came through the Commons as a bear last week, an' old Grimbeard near swallowed his pipe. Said he hadnae seen a bear indoors since he was a wee lad in Dun Morogh, an' he'd hoped never tae again." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_ward", text = "The Mystic Ward's the only place in the mountain where ye'll hear a gnome an' a dwarf agree on anythin', an' what they agree on is that the magi are wastin' good stone. Mind ye, the stone's always cold an' glowin' afterwards, so somethin's happenin'." },
     { id = "l_mg_sheep", text = "My brother called a gnome mage a wee clockwork in the Stonefire Tavern, an' he spent an hour baain' at the bar for it. He's still no' sure whether the ale tasted better as a sheep, an' I fear he means tae find out." },
@@ -699,6 +714,7 @@ P:Pool {
     { text = "Good day tae ye.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Tree-talkers, the night elves call 'em, or somethin' like it. They don't care much for mines or forges, an' they look at a pit like it was a wound, but they're handy healers, an' I'll gie them that." } },
     mages = { { id = "w_mages", text = "Magic's a fine thing tae have on yer side in a fight, an' a terrible thing tae have in the next room when ye're tryin' tae sleep. The Mystic Ward's full o' magi these days, an' half o' them are gnomes still sore about Gnomeregan." } },
     magni = { { id = "w_magni", text = "King Magni's the finest king this mountain's ever had, an' he'd fight beside any one of us if it came tae it. Raise yer mug when ye say his name in here, or someone'll raise theirs for ye." } },
     wildhammer = { { id = "w_wildhammer", text = "Our cousins up at Aerie Peak, an' we don't always see eye tae eye since the War o' the Three Hammers. Still, there's no finer gryphon rider in the world than a Wildhammer, an' I'll say that tae their faces if I have tae." } },
@@ -790,6 +806,10 @@ P:Pool {
       text = "A gnome, on Teldrassil! Please keep your devices in your pack while you cross the terraces, because the last one that whistled frightened a hippogryph halfway to Rut'theran." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_sons", text = "Every family on the terraces has a son who went to the Enclave to learn the claw, or else wishes he had. My nephew comes home as a bear on feast days, and my sister has stopped saying anything about the rugs." },
+    { id = "l_dr_shapes", text = "The druids walking through the Temple Gardens as cats unsettle the outlanders terribly. I have stopped noticing, but I remember the first time I saw an elder turn into a stag, and I remember that I wept." },
+    { id = "l_dr_tauren", text = "The Circle welcomes tauren druids in Moonglade, and some on the terraces call it wisdom while others call it a mistake. I have never met a tauren, so I keep my opinion to myself until I do." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_taboo", text = "The arcane drowned the Well of Eternity and half the world with it, and the priestesses have forbidden it among us ever since. When I see a human mage conjure fire on the Craftsmen's Terrace, I feel the water coming in all over again." },
     { id = "l_mg_hidden", text = "The old ones say that some of our own still study the arcane in secret, the way the Highborne did before the Sundering. If you hear someone humming in a closed room in Darnassus, it is wiser not to knock." },
@@ -850,6 +870,7 @@ P:Pool {
     { text = "Elune keep you.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Our druids slept in the Emerald Dream for centuries and woke to save the world at Hyjal, and now they shape Teldrassil and teach the claw at the Enclave. They are our fathers and brothers, and we trust them, mostly." } },
     mages = { { id = "w_mages", text = "Ten thousand years ago the Highborne loved the arcane more than their own people, and the Well swallowed Zin-Azshari for it. We exiled those who would not give it up, and now the humans come to our shores with spellbooks and call it scholarship." } },
     tyrande = { { id = "w_tyrande", text = "The High Priestess has led the Sisterhood of Elune for ten thousand years, and the moon has never once turned its face from her. She leads us still while Malfurion sleeps, and she leads us well." } },
     elune = { { id = "w_elune", text = "Elune is the light that shines in the darkness, and her gaze never leaves her children. Walk under the moon tonight and listen; she speaks most clearly to those who are quiet." } },
@@ -952,6 +973,9 @@ P:Pool {
       text = "Darkspear, and still carrying the salt of the coast on you. The Valley of Spirits is that way, where your people keep their fires, though I'd guess you know the road better than I do." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_cenarius", text = "The tauren druids are welcome in the Drag, and I'd break the nose of any grunt who said otherwise. Still, it was Grom's axe that killed the elves' forest god, and I wonder sometimes what the druids say about that when we're not listening." },
+    { id = "l_dr_wolf", text = "A tauren druid healed my wolf after a centaur arrow went through its flank. It's never let another tauren within a stone's throw since, except that one, and it follows him around the Valley of Wisdom like a pup." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_lodge", text = "The trolls in the Darkbriar Lodge set something alight every week, and the grunts in the Valley of Spirits have stopped running to put it out. Let them burn their own curtains, I say, so long as it never spreads past the lodge." },
     { id = "l_mg_camps", text = "My father says that in the camps the humans' mages would turn a whole barracks of orcs into sheep and back again, for sport. He laughs about it now, but he's never once stood near a mage if he could help it." },
@@ -1000,6 +1024,7 @@ P:Pool {
     { text = "Lok'tar ogar.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The tauren call them the Earth Mother's hands, and they mend wounds the shamans can't. The elves' druids are another matter, and the grunts back from Ashenvale say the trees there fight on their side." } },
     mages = { { id = "w_mages", text = "The spirits answer a shaman because he asks, and the arcane answers a mage because he takes. That's what my grandmother taught me, and I've seen nothing to make me doubt her, though the trolls in the lodge are decent enough company." } },
     thrall = { { id = "w_thrall", text = "He freed us from the camps, led us across the sea, and built this city with his own hands. There isn't an orc in Durotar who wouldn't die for him, and there are a few humans who'd agree." } },
     voljin = { { id = "w_voljin", text = "The Darkspear chieftain is a sly one, and a loyal one, and he's sworn to the Warchief for life. His trolls hold the Echo Isles and the coast, and they watch the sea for us." } },
@@ -1086,6 +1111,10 @@ P:Pool {
       text = "You've come home with the dust of the Barrens in your fur. The lifts are slow and the wind is cold up here, but the bluffs always remember their children, however far they wander." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_hamuul", text = "Hamuul Runetotem went north to the night elves and came home a druid, the first our people had seen in longer than anyone could say. Now the young ones on the Elder Rise turn into bears at sunrise, and the elders pretend not to smile." },
+    { id = "l_dr_stag", text = "My granddaughter learned the stag's shape this spring, and she runs to the Red Rocks and back before breakfast. I tell her the plains will still be there tomorrow, and she tells me she wants to see them today." },
+    { id = "l_dr_moonglade", text = "Some of the elders worry that our druids pray to the night elves' moon now instead of the Earth Mother. Hamuul says the moon is only Mu'sha by another name, and I think that settled it for most of us." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_rise", text = "Ursyn Ghull teaches the arcane on Spirit Rise, and the elders allow it because the Horde has asked them to. The Earth Mother gives freely to those who ask, and I have never understood why anyone would rather take." },
     { id = "l_mg_wind", text = "The winds go strange around the mages on the Rise, like a herd that smells a storm coming. My grandfather says the arcane is a fire with no wood beneath it, and that such a fire must be fed with something." },
@@ -1128,6 +1157,7 @@ P:Pool {
     { text = "Earth Mother keep you.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Our druids learned their way from the night elves, but the land taught us to listen long before that. Hamuul brought the old ways home, and now every tribe has a son or daughter who wears the bear, and the Earth Mother is glad." } },
     mages = { { id = "w_mages", text = "The arcane is a strange gift, and it is not one the Earth Mother gave. Still, the young ones who study it on Spirit Rise are gentle enough, and the land has not complained of them yet, so the elders watch and keep their counsel." } },
     cairne = { { id = "w_cairne", text = "The High Chieftain led us out of the Barrens when the centaur drove us from our lands, and he brought us to these bluffs where we're safe at last. He is old, and wise, and we pray the Earth Mother keeps him a long while yet." } },
     earth_mother = { { id = "w_earth_mother", text = "An'she and Mu'sha are the Earth Mother's eyes, one by day and one by night, and the land is her body. Everything that grows, she gave us, so we take only what we need." } },
@@ -1220,6 +1250,8 @@ P:Pool {
       text = "You're one of the sky-elves the Horde took in. You keep glancing upward as if you've lost something, and I'm afraid you have, because there's no wind down here at all, only the draught off the canals." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_tauren", text = "A tauren druid came through the Apothecarium last month and looked at our gardens of rot with such pity that one of the Apothecaries asked him to leave. He left a seed on the counter, and nobody has dared throw it out." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_dead", text = "Half the mages of the Magic Quarter studied in Dalaran when they still had pulses. The Kirin Tor shut their gates on the plague and on them, and the Dark Lady opened hers, so you can guess where their loyalties lie now." },
     { id = "l_mg_kel", text = "Kel'Thuzad was a mage of Dalaran and sat on their Council of Six, before he took his talents north and taught a plague to walk. The living like to forget that, and the dead of this city have nothing but time to remember it." },
@@ -1265,6 +1297,7 @@ P:Pool {
     { text = "Farewell.", next = "END" },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Tree-worshippers who turn into beasts and call it balance. The tauren ones are polite enough, but they look at us the way a gardener looks at blight, and I find I rather enjoy it." } },
     mages = { { id = "w_mages", text = "The mages of Dalaran raised a plague in Kel'Thuzad and a pack of wolves in Arugal, and then hid under a dome while Lordaeron died. The ones down here are different, naturally, because they're dead, and death is very good for humility." } },
     kirin_tor = { { id = "w_kirin_tor", text = "The Kirin Tor are the clever living mages of Dalaran, who keep their secrets the way a miser keeps his gold. Plenty of us swore their oaths once, and they answered by killing us a second time at Ambermill." } },
     dalaran = { { id = "w_dalaran", text = "Dalaran sits behind a violet dome in the Alterac hills, and the living mages inside are rebuilding as though nothing happened. Some of us were born within sight of those towers, and we'd quite like a word with whoever's in charge." } },
@@ -1898,6 +1931,8 @@ P:Pool {
       text = "Back from across the sea, kaldorei? You have the salt of the human lands on you. Darkshore is not as quiet as you left it; something sickens the furbolgs and the beasts along the coast, and the Sentinels are stretched thin." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_bears", text = "The bears of Darkshore have gone sick and savage, and the druids are nursing them in pens by the shore. One of the druids says there's a bear that comes down at night to sit with the sick ones, and that it isn't really a bear at all." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_quel", text = "The quel'dorei mages who come over on the Menethil boat look at our moonwells as if they're thirsty. We remember what that thirst did to their ancestors, and to ours." },
     { id = "l_moonkin", text = "The moonkin on the eastern ridge were gentle creatures once, and now they attack anyone who comes near. Something is poisoning this coast, and nobody can tell me what." },
@@ -1910,6 +1945,7 @@ P:Pool {
     { id = "l_nx_harbor_glad", text = "The humans bring wool and iron and news from the wide world, and I am glad of all three. My grandmother calls them locusts, but she has not tried their cheese." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "We need them here more than ever, with the moss gone wrong and the furbolgs mad. The druids at the edge of town work from moonrise to dawn, and they look more tired every season." } },
     elune = { { id = "w_elune", text = "Elune watches over Darkshore as she watches over all of us, though the shore has grown strange and sad of late. The priestesses pray under the moon on the pier, and it helps." } },
     tyrande = { { id = "w_tyrande", text = "The High Priestess rules in Darnassus, and her Sentinels keep the shore as best they can. She has not visited us in years, though we would welcome her." } },
     blackfathom = { { id = "w_blackfathom", text = "Blackfathom Deeps was a temple to Elune once, on the coast south of here, and now it's drowned and full of the Twilight's Hammer. It grieves the priestesses to hear what goes on there." } },
@@ -1960,6 +1996,8 @@ P:Pool {
       text = "You have kaldorei bones and a stranger's bearing. The Sentinels will watch you closely while you are in Ashenvale, though not unkindly; they watch everyone closely now." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_grove", text = "There's a bear guarding the groves east of here that won't let any orc near the trees. The Sentinels say it's a druid who forgot how to be anything else, and they say it as though they envy him." },
     { id = "l_warsong", text = "The Warsong orcs are cutting down the forest to the east, tree by tree. Every one they fell is older than their whole race's history on this world." },
     { id = "l_sentinels", text = "The Sentinels hold the roads, but there are too few of them and too many enemies. My daughter serves with them, and I count every day she comes home." },
     { id = "l_satyrs", text = "The satyrs were elves once, did you know that? Highborne, corrupted by demons, and now they creep through our forests and mock us with our own faces." },
@@ -1970,6 +2008,7 @@ P:Pool {
     { id = "l_nx_restraint", text = "Some of the Sentinels would kill every orc in Splintertree if they could, and I understand why. But the keepers here pray at the moonwell even for the enemy, because hatred is a fire too, and fire is what we fear most." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The druids mend what the orcs cut, and the orcs cut it again, and so it goes. Without them Ashenvale would be stumps by now, and with them it is only half stumps." } },
     thrall = { { id = "w_thrall", text = "The orcs' warchief sends his loggers into Ashenvale to cut down our forest, and the Warsong clan cuts the deepest. I have heard he is a just ruler, and I have not seen it." } },
     blackfathom = { { id = "w_blackfathom", text = "The old temple on the coast is a ruin now, and the Twilight's Hammer have made it their nest. The Sentinels go in now and then, and come out fewer." } },
     elune = { { id = "w_elune", text = "We pray to Elune for the forest, and for the Sentinels who guard it. She hears us, though she does not always answer in the way we'd hope." } },
@@ -2018,6 +2057,8 @@ P:Pool {
       text = "A gnome on Teldrassil! The young ones here have never seen one of your people, and they will follow you about asking what everything you carry is for. Answer them kindly, if you can." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_aelthas", text = "When the Gnarlpine came down on us, a young druid held them back all night as a bear. There are still claw marks on the moonwell's rim, and nobody here will let anyone scrub them off." },
     { id = "l_gnarlpine", text = "The Gnarlpine furbolgs were our friends, and now they rage through the forest like beasts. The druids say something in the tree is corrupting them, and they don't say what." },
     { id = "l_tree", text = "Teldrassil is still young, and some of its creatures are wilder than they should be. The druids watch it carefully, and so do the rest of us." },
     { id = "l_moonwell", text = "The moonwell here is small, but it's pure. Drink from it if you're tired; Elune doesn't ask for anything in return." },
@@ -2026,6 +2067,7 @@ P:Pool {
     { id = "l_nx_doubt", text = "The young ones in Shadowglen are taught that the tree is a blessing, and I let them believe it. I only wish the Gnarlpine had been told the same." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Our druids teach the claw at the Enclave and keep the tree healthy, and in Dolanaar they guard us from the furbolgs as well. I would not want to live in a village without one." } },
     elune = { { id = "w_elune", text = "Elune blesses the moonwell in Dolanaar, and every night she shines over the tree. If you're tired, rest beside the well, and you'll understand how kind she is." } },
     tyrande = { { id = "w_tyrande", text = "The High Priestess walks among us sometimes, under the moon, and she has smiled at me twice. She is the oldest of us and still the most beautiful." } },
     nordrassil = { { id = "w_nordrassil", text = "Our old home grew on Hyjal, and Teldrassil is our new one, grown without the blessing of the dragons. I'm sure it will be fine, but the druids still argue about it." } },
@@ -2791,6 +2833,9 @@ P:Pool {
       text = "A Darkspear in Moonglade! The druids say your people's spirits and their wild gods aren't so far apart as either would like to think, and they'd dearly like to hear what your shamans make of that." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_young", text = "The young druids arrive here in twos and threes after their first lessons, all elbows and questions, to meet the Great Bear Spirit. They leave quieter, and a little larger in the shoulders, and they always come back." },
+    { id = "l_dr_sleepers", text = "Some druids lie in the barrow dens and walk the Dream for years, and their bodies are tended by the rest. Lately one or two have taken longer to wake than they should, and the Keeper watches them himself." },
     { id = "l_circle", text = "The Cenarion Circle keeps Moonglade for every druid, whatever their people or their banner. Elf and tauren, Alliance and Horde, all sit at the same fire here." },
     { id = "l_remulos", text = "Keeper Remulos watches over the glade, and he's a son of Cenarius himself. He's older than the trees around us, and he sees more than he lets on." },
     { id = "l_malfurion", text = "They say Malfurion Stormrage sleeps in the barrow dens below us, walking in the Dream. The druids speak of his waking the way farmers speak of rain." },
@@ -2798,6 +2843,7 @@ P:Pool {
     { id = "l_nx_circle_grudge", text = "The Circle says the glade belongs to every druid, and so the Horde's druids walk here freely while their warriors burn Ashenvale. I hold my tongue here, but I do not hold my opinion." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "This glade is theirs more than anyone's. Every druid of every people is called here once, kaldorei and tauren alike, and the Keeper meets them all under the same moon." } },
     emerald_dream = { { id = "w_emerald_dream", text = "The druids of the Circle walk the Emerald Dream in their sleep, and Archdruid Malfurion sleeps there still. It is a beautiful place, they say, though some say it's grown troubled of late." } },
     nordrassil = { { id = "w_nordrassil", text = "The World Tree stands on Hyjal, wounded by the Legion but still alive. The druids say it is healing, slowly, and that one day it will be whole again." } },
     green_dragons = { { id = "w_green_dragons", text = "Ysera's flight guards the Dream, and they're rarely seen in this world. There are four of their portals, and the druids watch them all." } },
@@ -2850,6 +2896,8 @@ P:Pool {
       text = "You're one of the sky-elves from Mulgore, aren't you? The caravan drivers argue every night about whether your people are kin to the night elves, and I keep telling them to ask you, so here I am, asking." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_tauren", text = "There was a young tauren druid sat by the oases for a month, tasting the water and writing things down. The grunts watched her like she might grow fangs, but she never did, and the water by her camp was sweeter when she left." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_raptor", text = "A Forsaken mage turned a raptor into a sheep right outside the inn last week, and Thork's caravan drivers have argued ever since about whether that counts as cheating. The sheep didn't seem to mind." },
     { id = "l_centaur", text = "The centaur raid the caravans from the west, and the quilboar from the south. Every kodo that gets through here alive is a small victory for the Warchief." },
@@ -2858,6 +2906,7 @@ P:Pool {
     { id = "l_ratchet", text = "Everything from across the sea comes up from Ratchet on the backs of the kodo. When the goblins raise their prices, the whole Barrens feels it by the next morning." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "Tauren druids are welcome here, mostly, because they heal. But we all saw what came out of the caves when Naralex's druids went wrong, so the welcome comes with one eye open." } },
     centaur = { { id = "w_centaur", text = "The Kolkar raid our caravans and ride off before we can answer them, and the Crossroads is the first place they hit. We keep the walls manned day and night." } },
     quilboar = { { id = "w_quilboar", text = "The Razormane are south of us, behind their thorns, and they've been bold this season. If you're heading that way, take a sharp axe and a friend." } },
     thrall = { { id = "w_thrall", text = "The Warchief built this outpost to hold the Barrens, and we hold it in his name. He passes through now and then, and the grunts stand taller for a week." } },
@@ -3108,11 +3157,14 @@ P:Pool {
       text = "One of the Forsaken, here on the plains! The elders say even the dead deserve the Earth Mother's mercy, so you are welcome at our fires, though the kodo may need time to agree." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_mahka", text = "A young druid from Narache, Mahka Dawnhoof, went to Moonglade and came back with a question nobody here could answer. She is in the far lands now, planting trees where the goblins cut them down, and her mother is very proud and very worried." },
     { id = "l_venture", text = "The goblins of the Venture Company are cutting our trees and fouling our wells. Our braves drive them off, and like flies they're back the next morning." },
     { id = "l_gnolls", text = "The Palemane gnolls have been stealing from the fields to the west, like coyotes circling a herd. They are thieves and cowards, but there are a great many of them." },
     { id = "l_kodo", text = "The kodo are the heart of our people. They carry our homes and our children and our goods, and they ask for nothing but grass and a kind word." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The druids are the Earth Mother's gift returned to us, after a long time without. Every young one who learns the bear's shape walks a little taller, and so does the village." } },
     cairne = { { id = "w_cairne", text = "Cairne Bloodhoof is our chieftain and our father, and this village bears his name. He led us out of the Barrens when the centaur drove us from our lands, and he'll lead us wherever the Earth Mother wills." } },
     earth_mother = { { id = "w_earth_mother", text = "The Earth Mother gives us the grass, the kodo and the rain, and we give her our thanks. Walk softly on her, and she'll walk softly on you." } },
     quilboar = { { id = "w_quilboar", text = "The quilboar of the Bristleback tribe have been raiding the edges of Mulgore lately, and they're growing bolder. Our braves keep them away from the herds, but it's hard work." } },
@@ -3366,11 +3418,14 @@ P:Pool {
       text = "One of the Forsaken in Ashenvale! The grunts joke that the elves' arrows won't kill what's already dead, so don't be surprised if they put you on the night watch." },
   },
   lines = {
+    -- Druid patch: what people make of druids and shapeshifters.
+    { id = "l_dr_bear", text = "There's a bear in the eastern groves that the night elves don't even need to send. Three peons have come back without their axes, and one came back without his trousers, and he won't say how." },
     { id = "l_warsong", text = "The Warsong cut timber here for Orgrimmar's walls and fires. The elves call it murder, and we call it building a home, and neither side will ever see it the other way." },
     { id = "l_sentinels", text = "The Sentinels pick us off one by one from the trees. You never see them, only the arrow and then the silence." },
     { id = "l_demon", text = "There's a canyon to the east where Grom Hellscream killed the demon lord Mannoroth and freed us all from the blood curse. The ground still smokes there, people say." },
   },
   topics = {
+    druids = { { id = "w_druids", text = "The elves' druids make the trees fight us, and their bears break our camps. The tauren ones are welcome to come and heal our wounded, but I'd keep them away from the logging line." } },
     thrall = { { id = "w_thrall", text = "The Warchief needs lumber for Orgrimmar, and Ashenvale's got more trees than anyone could ever need. The night elves don't see it that way, and they let us know with arrows." } },
     tyrande = { { id = "w_tyrande", text = "The night elf priestess leads the Sentinels against us, and they fight hard for their forest. I'd respect her more if she'd stop sending them to kill our peons." } },
     elune = { { id = "w_elune", text = "The night elves pray to their moon goddess, and their Sentinels fight like she's watching. Maybe she is, for all I know." } },

@@ -444,6 +444,10 @@ P:NPC {
       lines = {
         { id = "h_druid", when = { class = "DRUID" }, text = "I am Blackhoof, emissary of the Cenarion Circle. You and I answer to the same teachers, young one, so I will speak plainly: the Circle is stretched thin in Silithus, and it has sent me to ask the Horde for aid." },
         { id = "h_default", text = "I am Blackhoof, and I speak in Orgrimmar for the Cenarion Circle. We are druids, tauren and night elf together, and we tend the land's hurts wherever they open, which of late means the desert of Silithus." },
+        { id = "h_dr_young", when = { class = "DRUID", maxLevel = 20 },
+          text = "A young druid, so far from Elder Rise! The Circle will ask more of you than you can give for many seasons yet, so go home to Turak, and grow, and come back to me when the desert won't eat you whole." },
+        { id = "h_dr_sixty", when = { class = "DRUID", minLevel = 55 },
+          text = "You carry the whole of the path now, the bear and the cat and the moon, and I can feel it from here. The Circle at Cenarion Hold could use a druid like you more than it can say, and I'll say it for them." },
       },
       again = {
         { id = "h_again", text = "What more would you know?" },
@@ -454,7 +458,50 @@ P:NPC {
         { text = "Tauren and night elves, working together?", next = "together" },
         { text = "How can I help the Circle?", next = "BUSINESS" },
         { text = "Why ask the orcs for help?", next = "orcs" },
+        { text = "What would the Circle ask of a druid like me?", next = "d_hold", when = { class = "DRUID", minLevel = 50 } },
+        { text = "Does Malfurion know what stirs in Silithus?", next = "d_stormrage", when = { class = "DRUID", minLevel = 50 } },
+        { text = "Would the Circle ever take an orc or troll as a druid?", next = "d_horde", when = { race = { "Orc", "Troll" } } },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    d_hold = {
+      big = true,
+      lines = { { id = "dr_bh_default", text = "Everything, I'm afraid, and gently. The druids at Cenarion Hold are stretched across a desert that wants them dead, and they need bears to stand before the hives and healers to keep the bears standing. They'll also ask you to set down the Horde's quarrels at the gate, which for some is the hardest part." } },
+      choices = {
+        { text = "Then I'll set them down. The land comes first.", next = "BACK",
+          reply = "Spoken like one of the Circle, and I'll write to the Hold that you're coming. Bring water; the desert takes it from you faster than you'd think.",
+          fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "balance" } } },
+        { text = "I'll serve the Circle, but I won't forget the Horde.", next = "BACK",
+          reply = "Nor should you, and I haven't either, whatever the elves think. Only keep your quarrels outside the Hold's walls, and we'll get along well enough.",
+          fx = { align = { honor = -1 }, opinion = { druids = "duty" } } },
+        { text = "Who leads the Circle in the desert?", next = "d_hold2" },
+      },
+    },
+    d_hold2 = {
+      lines = { { id = "dr_bh2_default", text = "Keepers and arch druids who answer to Moonglade, and Moonglade answers to Keeper Remulos while Malfurion sleeps. I won't pretend every one of them is glad to see a tauren in their councils, but they've all learned that a tauren bear holds a line as well as any elf." } },
+      choices = { { text = "Something else, Emissary.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_stormrage = {
+      lines = { { id = "dr_bs_default", text = "If he does, he hasn't said so; he sleeps in the Dream, and the Dream is troubled enough on its own account. The elders of the Circle say the night elves sealed something behind that great wall long ago, and I think if Malfurion were awake, he'd be standing in the desert beside us." } },
+      choices = {
+        { text = "Then we'll have to stand there in his place.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
+    d_horde = {
+      big = true,
+      lines = {
+        { id = "dr_bo_default", text = "No orc has ever asked, which surprised me when I came here, because your shamans listen to the land as closely as any druid. The Circle is slow to open a door, friend, and it took Malfurion's own word to open one for my people, but I'd carry the request to Moonglade myself if an orc ever brought it to me." },
+        { id = "dr_bo_troll", when = { race = "Troll" }, text = "None has asked, and I'll be honest, the kaldorei of the Circle remember the old troll empires as the hand that burned their first forests. I'd carry the request to Moonglade if a Darkspear brought it to me, but I'd not promise you a kind answer." },
+      },
+      choices = {
+        { text = "Then the Circle isn't as neutral as it claims.", next = "BACK",
+          reply = "It isn't, and I've said as much in Moonglade, and been glared at for it. Neutral is a thing we try to be, friend, not a thing we are.",
+          fx = { align = { order = -1 }, opinion = { druids = "closed" } } },
+        { text = "My people have the spirits. We don't need the Circle.", next = "BACK",
+          reply = "Perhaps not, and your shamans have done well by the land without us. The Circle would still be glad of your help in Silithus, if not of your vows.",
+          fx = { align = { order = 1 }, opinion = { druids = "respect" } } },
+        { text = "Something else, Emissary.", next = "BACK" },
       },
     },
     silithus = {

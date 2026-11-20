@@ -866,6 +866,8 @@ P:NPC {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you have been bending the ears of my people with clever words. The kaldorei are not so easily led as you may think, so do not mistake politeness for agreement." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word reaches the Enclave that you have given offence in this city. Darnassus tolerates its guests, but it does not suffer them gladly, so be brief." },
     { id = "g_ne_kin", when = { race = "NightElf", metBefore = true }, text = "Ishnu-alah, child of the kaldorei. Come in out of the Temple's shadow and stand under the boughs, where our people's future is actually being decided." },
+    { id = "dr_g_full", when = { class = "DRUID", minLevel = 60 }, text = "You have come into your full strength, I see. Good, because the Circle has need of druids who do not squander it on wandering." },
+    { id = "dr_g_young", when = { class = "DRUID", maxLevel = 19 }, text = "One of Mathrengyl's sprouts, climbing all the way up to me. Speak quickly, and then go back down and learn something." },
   },
 
   notice = {
@@ -877,6 +879,8 @@ P:NPC {
       text = "A druid of the sky-folk, who honour the winds above the moon, I hear. The Circle's doors have been flung very wide, it seems." },
     { id = "n_not", cat = "class", when = { ["not"] = { class = "DRUID" } },
       text = "You are no druid, and whatever you want from the Enclave, I doubt you will understand it." },
+    { id = "n_dr_moonkin", cat = "class", when = { form = "moonkin" },
+      text = "The moonkin's shape, worn before the Arch Druid himself. You earned it, I grant you, though I find it an odd choice of coat for an audience." },
   },
 
   start = "hello",
@@ -1141,6 +1145,9 @@ P:NPC {
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "Teach me, Archdruid.", next = "kin", when = { class = "DRUID", race = "NightElf" } },
         { text = "My people's druids honour the winds.", next = "sky", when = { class = "DRUID", race = "Skyborne" } },
+        { text = "What do you ask of a druid of my strength, Arch Druid?", next = "d_ask", when = { class = "DRUID", minLevel = 20 } },
+        { text = "I've earned the moonkin's shape, Arch Druid.", next = "d_moonkin", when = { class = "DRUID", form = "moonkin" } },
+        { text = "Malfurion sleeps in Moonglade. Should he be woken?", next = "d_malf", when = { class = "DRUID", race = "NightElf", minLevel = 30 } },
         { text = "My nightsaber and I keep the balance too, Archdruid.", next = "hunter_f", when = { class = "HUNTER" } },
         { text = "The arcane could heal this tree faster.", next = "mage_f", when = { class = "MAGE" } },
         { text = "I've walked Felwood, Archdruid. I know exactly how a forest rots.", next = "warlock_f", when = { class = "WARLOCK" } },
@@ -1242,6 +1249,43 @@ P:NPC {
         { text = "Both, with luck.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    d_ask = {
+      big = true,
+      lines = {
+        { id = "dr_ask", text = "That you serve the Circle before your own curiosity, which is more than most of your generation can manage. Teldrassil must grow strong and Ashenvale must be held, and a druid who wanders off to admire the sea while the Warsong cut our trees is of no use to me." },
+        { id = "dr_ask_sky", when = { race = "Skyborne" }, text = "That you serve the Circle before your winds, sky-folk, and before your own curiosity. Teldrassil must grow strong and Ashenvale must be held, and I have no use for a druid who stops to admire the weather." },
+      },
+      choices = {
+        { text = "The Circle first, Arch Druid. I'll serve where I'm sent.", next = "BACK", reply = "Then you will rise in it, and quickly. Mathrengyl will tell you where you are needed most.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "duty" } } },
+        { text = "I serve the balance, not any one Arch Druid.", next = "BACK", reply = "The balance and the Arch Druid want the same thing, and you would do well to remember that before you say it again in my hearing.", fx = { affinity = -1, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "Where am I needed most, then?", next = "d_ask2" },
+      },
+    },
+    d_ask2 = {
+      lines = { { id = "dr_ask2", text = "Ashenvale, where the Warsong bleed the forest a tree at a time, and the shore of Darkshore, where something fouls the water and the thistle bears go mad. Go to either and do as the Sentinels and the druids there ask, and I will hear of it." } },
+      choices = { { text = "Then I'll go. Something else, Arch Druid.", next = "BACK" } },
+    },
+    d_moonkin = {
+      lines = { { id = "dr_moonkin", text = "It is Elune's gift as much as Cenarius's, which is why the Temple is so fond of reminding me of it. Wear it well, and do not let the priestesses tell you whose druid you are." } },
+      choices = {
+        { text = "I'm the Circle's druid, Arch Druid.", next = "BACK", reply = "Good. Remember it when the Temple invites you to tea.", fx = { affinity = 1 } },
+        { text = "I'm Elune's as much as the Circle's.", next = "BACK", reply = "So the Temple has reached you already. A pity, though not a surprise.", fx = { affinity = -1 } },
+      },
+    },
+    d_malf = {
+      big = true,
+      lines = { { id = "dr_malf", text = "Shan'do Stormrage sleeps in the barrow dens of Moonglade and walks the Dream on business older than this tree, so do not imagine it is my place to wake him. While he sleeps, someone must decide for our people, and the Circle chose me, whatever the Temple whispers." } },
+      choices = {
+        { text = "The Circle chose well. Someone must lead while he dreams.", next = "BACK", reply = "At last, someone on these terraces who says it plainly. Say it in the Temple, too, if you have the nerve.", fx = { affinity = 2, align = { order = 1 }, opinion = { druids = "lead" } } },
+        { text = "He should be woken. The Circle needs its true teacher.", next = "BACK", reply = "Spoken like the High Priestess, and as foolishly. Do you think Malfurion sleeps for his own comfort?", fx = { affinity = -2, align = { order = -1 }, opinion = { druids = "wake_malfurion" } } },
+        { text = "Do you miss him, Arch Druid?", next = "d_malf2" },
+      },
+    },
+    d_malf2 = {
+      narr = "The Arch Druid looks away toward the high branches before he answers.",
+      lines = { { id = "dr_malf2", text = "I was his ablest student, and he told me so once, and then he went back to sleep for ten thousand years. You may decide for yourself whether I miss him." } },
+      choices = { { text = "Something else, Arch Druid.", next = "BACK" } },
     },
     kin = {
       lines = { { id = "k_default", text = "Then learn from Mathrengyl, and learn quickly, for the Circle needs kaldorei druids and too many of the new ones are not." } },
@@ -1475,6 +1519,9 @@ P:NPC {
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent ten thousand years mending what the fel does to living things, and you carry it by choice. Keep your distance from my students." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come to the Enclave often enough without harm, and I'll admit as much. I still smell the fel on you, though, and I've not stopped minding it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Elune-adore, young one. The Enclave's doors are open to you, and so is my time." },
+    { id = "dr_g_sprout", when = { class = "DRUID", maxLevel = 9 }, text = "Elune-adore, little sprout. You still smell of Shadowglen's moss, and I am glad to see you have climbed this far already." },
+    { id = "dr_g_claw", when = { class = "DRUID", minLevel = 40, maxLevel = 59 }, text = "Ah, the great bear walks in with you now, and the boards remember its weight. Sit, if the bench will hold you." },
+    { id = "dr_g_full", when = { class = "DRUID", minLevel = 60 }, text = "There is very little left that I can teach you, and I find that I am proud of it rather than sorry. Sit with me anyway, because old teachers like company." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "What brings you to the Cenarion Circle, friend? Ask, and I'll answer if I can." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, friend, and the Enclave's doors stayed open the whole while. Ask what you came to ask." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since we last spoke, and I'm glad to see it. The wild teaches faster than any trainer, though it charges more for the lesson." },
@@ -1486,6 +1533,10 @@ P:NPC {
       text = "Ah, the bear sits well on you. The Great Bear Spirit chose rightly." },
     { id = "n_cat", cat = "form", when = { form = "cat" },
       text = "You wear the cat indoors, I see. The Great Cat Spirit is as playful as it is deadly, so please be the first of those in here." },
+    { id = "n_dr_moonkin", cat = "form", when = { form = "moonkin" },
+      text = "The moonkin's shape, here in the Enclave! Few of our druids have the patience to earn it, and fewer still wear it without looking faintly surprised." },
+    { id = "n_dr_travel", cat = "form", when = { form = "travel" },
+      text = "The stag is for the long roads, young one, not for the Enclave's ramps. Change back before you knock over one of my students." },
     { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
       text = "You carry the smell of Felwood on you, the sick green rot that soaked into its roots, and it is in your skin as well as your clothes. Do not walk barefoot on this branch, because Teldrassil is young and remembers everything." },
   },
@@ -1735,6 +1786,8 @@ P:NPC {
           text = "You will hear talk that the Circle is divided, but do not believe it. Fandral leads us well, and his vision built the very tree you stand on." },
         { id = "h_bear", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You move differently since you met the Great Bear, heavier on your feet and lighter in your head, which is exactly how it should be." },
         { id = "h_questions", when = { metBefore = true, class = "DRUID" }, text = "Every druid who passes through the Enclave leaves something behind, usually a question. Yours are good ones, so keep asking them." },
+        { id = "dr_h_road", when = { class = "DRUID", minLevel = 10, maxLevel = 19 }, text = "You have come into the years when the Circle begins to ask things of you: the bear, the poison and the sea. Ask me about the road ahead, and I will tell you which stretch of it comes next." },
+        { id = "dr_h_forty", when = { class = "DRUID", minLevel = 40, maxLevel = 59 }, text = "At your strength most druids begin to choose between the great bear, the moonkin and the healer's quiet. I have walked the Claw's way, but I will not pretend it is the only good one." },
         { id = "h_cat", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Cat Spirit") },
           text = "The Great Cat Spirit sets each generation its own trial. I can't tell you what yours will be, only that it plays before it bites." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You smell of the arcane, {class}, like smoke caught in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
@@ -1754,6 +1807,9 @@ P:NPC {
         { text = "Oben asked me to destroy his own body. It wasn't easy.", next = "dd_oben", when = { questDone = TODO_QUEST("Druid of the Claw") } },
         { text = "What would you do about the logging in Ashenvale?", next = "op_ask" },
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
+        { text = "Walk me through the druid's road, Mathrengyl.", next = "d_road", when = { class = "DRUID" } },
+        { text = "Will I sleep in the Dream as the old druids did?", next = "d_sleep", when = { class = "DRUID", race = "NightElf" } },
+        { text = "My people's druids honour the winds before Elune.", next = "d_sky", when = { class = "DRUID", race = "Skyborne" } },
         { text = "What is a Druid of the Claw?", next = "claw" },
         { text = "You serve the Archdruid?", next = "second" },
         { text = "Which parts of this world are mine, Mathrengyl? I can't tell yet.", next = "xwoke", when = { origin = "nightelf_druid_initiate" } },
@@ -1778,6 +1834,202 @@ P:NPC {
         { text = "What do you make of humans, Mathrengyl?", next = "hu_view" },
         { text = "You speak of my people as if we were the Highborne, Mathrengyl.", next = "hu_x", when = { race = "Human", ["not"] = { npcFlagBefore = "mathrengyl_human_soft" } } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_road", text = "Every druid's road is the same road walked at a different pace, and I have watched a great many walk it. Ask about any stretch you like, and I will tell you what I tell my students." },
+        { id = "dr_road_hi", when = { minLevel = 40 }, text = "You have walked most of the road already, so ask me about what lies behind you or what still remains. Either way I expect to learn something from your answer." },
+      },
+      again = {
+        { id = "dr_road_again", text = "Another stretch of the road? Ask, and take your time over it." },
+        { id = "dr_road_again2", text = "Go on, young one. The Enclave is in no hurry, and neither am I." },
+      },
+      choices = {
+        { text = "Wrath, Moonfire and Rejuvenation. Which matters most?", next = "d_basics", when = { maxLevel = 19 } },
+        { text = "Tell me about the bear's trial.", next = "d_bear", when = { minLevel = 10, maxLevel = 29 } },
+        { text = "Why must I learn a spell to reach Moonglade?", next = "d_glade", when = { minLevel = 10 } },
+        { text = "Auberdine's poison. What will it teach me?", next = "d_poison", when = { minLevel = 14, maxLevel = 39 } },
+        { text = "The sea lion's shape. Is it truly a trial?", next = "d_sea", when = { minLevel = 16, maxLevel = 39 } },
+        { text = "I'm ready for the cat, Mathrengyl.", next = "d_cat", when = { minLevel = 20, maxLevel = 39 } },
+        { text = "Rebirth. Should a druid call back the dead?", next = "d_rebirth", when = { minLevel = 20 } },
+        { text = "The stag's shape at last. Have you any counsel?", next = "d_travel", when = { minLevel = 30 } },
+        { text = "The dire bear, Innervate or the moonkin. Which way?", next = "d_forty", when = { minLevel = 40 } },
+        { text = "Barkskin. Why teach a druid to become wood?", next = "d_bark", when = { minLevel = 44 } },
+        { text = "I've learned all you teach. What remains?", next = "d_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road, Mathrengyl.", next = "BACK" },
+      },
+    },
+    d_basics = {
+      big = true,
+      lines = { { id = "dr_basics", text = "Wrath is the forest's anger and Moonfire is Elune's, and both will keep you alive for a season, but Rejuvenation is the one I would have you love. A druid who only strikes forgets that the forest heals far more often than it bites." } },
+      choices = {
+        { text = "Then I'll heal first and strike when I must.", next = "d_road", reply = "Good, and the Sentinels you travel with will bless you for it, even if they never say so aloud.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The forest's anger serves me better than its patience.", next = "d_road", reply = "Then use it, but listen for the moment it stops being the forest's anger and becomes only yours.", fx = { align = { light = -1 } } },
+        { text = "Why does Moonfire belong to Elune and not Cenarius?", next = "d_basics2" },
+      },
+    },
+    d_basics2 = {
+      lines = { { id = "dr_basics2", text = "Because Malfurion learned at Cenarius's feet and prayed at Elune's altar, like every kaldorei of his age, and he never saw any reason to choose between them. The priestesses grumble that we borrow their goddess's light, and we let them grumble, because it is true." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_bear = {
+      big = true,
+      lines = {
+        { id = "dr_bear", text = "Heeding the Call sends you to Moonglade, where the Great Bear Spirit will ask you what strength is for before it gives you any. Then I send you to the Moonkin Stone in the caves east of Auberdine with Cenarion moondust, and Lunaclaw will test whether your heart can carry what your body has learned." },
+        { id = "dr_bear_done", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You have already stood before the Great Bear Spirit and faced Lunaclaw at the stone, so you know more of this trial than my words can tell you. I only ask whether you understood what it was testing." },
+      },
+      choices = {
+        { text = "Strength is for standing between the weak and harm.", next = "d_road", reply = "That is the Claw's own answer, and the Great Bear will be glad to hear it from you.", fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "guardians" } } },
+        { text = "Strength is for winning. The bear never asks why.", next = "d_road", reply = "The bear never asks, which is exactly why a druid must ask for it. Remember Oben Rageclaw, if you ever forget.", fx = { align = { honor = -1 } } },
+        { text = "Who is Lunaclaw, and why must I fight him?", next = "d_bear2" },
+      },
+    },
+    d_bear2 = {
+      lines = { { id = "dr_bear2", text = "An old and proud spirit of the moonkin, and he has tested young druids since the Circle first came to that shore. You will not truly kill him, for he rises again each time the moondust calls him, and I have long suspected that he enjoys it." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_glade = {
+      lines = { { id = "dr_glade", text = "Because Moonglade is the Circle's heart, and a druid should always be able to go home, wherever the road has taken him. The spell does not care where you start, and Dendrite Starblaze will be waiting at Nighthaven when you arrive, usually with something for you to do.", fx = { learn = { "cenarion_circle" } } } },
+      choices = {
+        { text = "Is Moonglade truly neutral ground?", next = "d_glade2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_glade2 = {
+      big = true,
+      lines = { { id = "dr_glade2", text = "Truly, and Keeper Remulos sees to it, though it sits ill with some in this Enclave to share a fire with tauren. Hamuul Runetotem's druids learned from Malfurion just as we did, and the Arch Druid has never quite forgiven him for teaching them." } },
+      choices = {
+        { text = "Then the tauren druids are our kin in the Circle.", next = "d_road", reply = "In Moonglade they are, and I have shared bread with several of them. Do not say it too loudly on these terraces.", fx = { align = { order = -1 }, opinion = { druids = "one_circle" } } },
+        { text = "The Circle's secrets were ours. Malfurion erred.", next = "d_road", reply = "Fandral would embrace you for that, and I will not quarrel with you, only remind you that Cenarius taught Malfurion first.", fx = { align = { order = 1 }, opinion = { druids = "kaldorei_only" } } },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_poison = {
+      lines = {
+        { id = "dr_poison", text = "Lessons Anew, the Circle calls it, and the lesson is that no druid may draw out a poison he does not understand. Dendrite will send you on to Alanndarian Nightsong in Auberdine, who has been doctoring sick deer with earthroot and stubbornness, and I would listen to her as closely as you listen to me." },
+        { id = "dr_poison_done", when = { questDone = TODO_QUEST("Power over Poison") }, text = "You cured the deer of Darkshore, and now you can draw a poison from the blood with a word. Remember that Alanndarian learned it first with a pestle and her own two hands." },
+      },
+      choices = {
+        { text = "A cook knows more of poison than a druid?", next = "d_poison2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_poison2 = {
+      lines = { { id = "dr_poison2", text = "A cook knows what goes into a body, and that is most of what a poison is. We druids are apt to think the forest will tell us everything, and the forest is very poor at mentioning naga in the falls." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_sea = {
+      big = true,
+      lines = {
+        { id = "dr_sea", text = "A Lesson to Learn, and then the Trial of the Lake in Moonglade and the Trial of the Sea Lion after it, which means a bauble from the bottom of Lake Elune'ara and two halves of an old pendant hidden in deeper water. The sea teaches that a druid can be at home where he cannot breathe, which is a stranger lesson than it sounds." },
+        { id = "dr_sea_done", when = { questDone = TODO_QUEST("Aquatic Form") }, text = "You wear the sea lion's shape now, and you brought the Pendant of the Sea Lion back whole. I am impressed, and I do not say so lightly, because half my students come back with only one half and a cold." },
+      },
+      choices = {
+        { text = "I'll keep to the forest and use the sea only at need.", next = "d_road", reply = "A sound choice, and most of the Circle makes it. The coast will still be glad of you when you come.", fx = { align = { order = 1 } } },
+        { text = "I'll go where no one else can follow, and gladly.", next = "d_road", reply = "Then the sea has found a friend, and the Circle a druid who will bring back stories. Mind the currents off Darkshore.", fx = { align = { order = -1 } } },
+        { text = "Where is the second half of the pendant hidden?", next = "d_sea2" },
+      },
+    },
+    d_sea2 = {
+      lines = { { id = "dr_sea2", text = "That is for Dendrite to tell you, because the trial is in the finding as much as in the swimming. I will say only that the sea keeps what it is given, and that you should not dive in your heaviest armour." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_cat = {
+      big = true,
+      lines = {
+        { id = "dr_cat", text = "Then go to Moonglade again, for the Great Cat Spirit waits in the south of the vale, and it does not teach as the Great Bear does. The bear asks what your strength is for, and the cat asks whether you can be patient enough to strike only once." },
+        { id = "dr_cat_done", when = { questDone = TODO_QUEST("The Great Cat Spirit") }, text = "You have run with the Great Cat Spirit and come home with its shape, which most druids find harder to put down than the bear's. Tell me which of the two feels more like you." },
+      },
+      choices = {
+        { text = "The bear. I'd rather stand than stalk.", next = "d_road", reply = "Then the Claw has another friend, though do not scorn the cat, because it will save you when the bear cannot.", fx = { align = { honor = 1 } } },
+        { text = "The cat. A swift end is the kinder one.", next = "d_road", reply = "A swift end can be kind, I grant you, but keep the bear's patience under the cat's claws.", fx = { align = { honor = -1 } } },
+        { text = "Why does the cat spirit play before it bites?", next = "d_cat2" },
+      },
+    },
+    d_cat2 = {
+      lines = { { id = "dr_cat2", text = "Because a hunter who is never patient starves, and a hunter who is never playful goes mad in the long waiting. I think the Great Cat Spirit remembers the first nightsabers of Kalimdor, and it still laughs at us a little for walking on two legs." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_rebirth = {
+      big = true,
+      lines = { { id = "dr_rebirth", text = "Rebirth calls a fallen friend back while the spirit still lingers, and it costs a maple seed and something of yourself besides. The Circle teaches it, but we argue about it, because death is part of the balance too, and a druid who forgets that becomes something other than a druid." } },
+      choices = {
+        { text = "Some deaths should be left alone. I'll choose carefully.", next = "d_road", reply = "That is the harder answer, and I have rarely managed it myself. The forest will respect you for it.", fx = { align = { order = 1 } } },
+        { text = "If a friend falls beside me, I'll call them back.", next = "d_road", reply = "So would I, and so I have. Only grieve a little for the death you undid, as the Claw does.", fx = { align = { order = -1 } } },
+        { text = "Why a maple seed, of all things?", next = "d_rebirth2" },
+      },
+    },
+    d_rebirth2 = {
+      lines = { { id = "dr_rebirth2", text = "Because the maple lets its seeds spin away on the wind and root wherever they land, and every one is a small promise that what falls will rise. It is an old symbol and a stubborn one, and Rebirth seems to like it." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_travel = {
+      lines = { { id = "dr_travel", text = "The stag's shape is for the long roads between groves, and you will find you can run from Astranaar to the Zoram Strand without stopping for breath. Only remember to stop sometimes anyway, because a druid who runs everywhere sees nothing on the way." } },
+      choices = {
+        { text = "Do the Sentinels mind a stag on their roads?", next = "d_travel2" },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_travel2 = {
+      lines = { { id = "dr_travel2", text = "They mind a stag that runs hard at a watchtower, because from the top of it that looks very much like trouble. Slow down and greet them by name, and they will learn your shape quickly enough." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_forty = {
+      big = true,
+      lines = { { id = "dr_forty", text = "The Claw would have you take the dire bear and hold the line for every Sentinel in Ashenvale, and the healers would have you pour your strength into others with Innervate and never be thanked for it. A few druids go deeper into Elune's light and take the moonkin's shape, which is a strange and beautiful thing, and the moonkin of Darkshore will look at you very oddly afterwards." } },
+      choices = {
+        { text = "The dire bear. Someone must stand in front.", next = "d_road", reply = "Then welcome to the Claw in all but name, and come and sit with the old bears of the Enclave sometimes.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The moonkin. Elune's light suits me better than claws.", next = "d_road", reply = "Then let the old druids grumble that a moonkin cannot hold a line, because they always do, and then they ask you to stand with them anyway.", fx = { align = { order = -1 } } },
+        { text = "Why do so few choose the healer's way?", next = "d_forty2" },
+      },
+    },
+    d_forty2 = {
+      lines = { { id = "dr_forty2", text = "Because no song was ever made about the druid who kept everyone else alive, and young druids want songs. The ones who heal anyway are the ones I trust most, and I would not tell them so, because it would spoil them." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_bark = {
+      lines = { { id = "dr_bark", text = "Because there are blows you cannot step away from, and the oldest trees on Hyjal stood through the whole of the Legion's war by being harder than what struck them. Wear it when the fight comes to you, and take it off before you forget that you are softer than you look." } },
+      choices = {
+        { text = "I'd rather bend like grass than stand like oak.", next = "d_road", reply = "Grass survives the storm and oak survives the axe, and a druid should learn both. Barkskin is only the second half of the lesson." },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_sixty = {
+      big = true,
+      narr = "He folds both hands over his staff and is quiet for a long moment.",
+      lines = { { id = "dr_sixty", text = "Nothing that I can teach, and a great deal that the world will. The elders speak of a raiment of the Cenarion Circle still being woven for druids who have not yet been found, and of Malfurion sleeping in the barrow dens of Moonglade until the Dream needs him less, and some druids go looking for the first while others keep watch over the second." } },
+      choices = {
+        { text = "I'll keep watch over Malfurion's sleep.", next = "d_road", reply = "Then you will be lonely sometimes, and you will be right. Keeper Remulos will be glad of another watcher.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "watchers" } } },
+        { text = "I'll go looking for what's still being woven.", next = "d_road", reply = "Then go, and bring the Circle back a story. The young ones need to see that the road leads somewhere.", fx = { align = { order = -1 } } },
+        { text = "Will Malfurion ever wake, Mathrengyl?", next = "d_sixty2" },
+      },
+    },
+    d_sixty2 = {
+      lines = { { id = "dr_sixty2", text = "He woke for Hyjal, when the world needed him more than the Dream did, so I believe he will wake again when he must. I only hope we are worthy of him when he does, and on some days I am not certain that we are." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_sleep = {
+      big = true,
+      lines = { { id = "dr_sleep", text = "Perhaps, one day, if the Circle calls you and you are willing. The old druids slept ten thousand years in the barrow dens and walked the Dream while the waking world went on without them, and some of us came back to find that our sisters had fought every war alone. I will not tell you it was right, only that it was done for love of the world." } },
+      choices = {
+        { text = "I'd sleep, if the Dream needed me.", next = "BACK", reply = "Then you have a druid's heart, and I hope the Dream asks gently when it asks.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
+        { text = "I'd rather stay awake beside the Sentinels.", next = "BACK", reply = "Then the Sisterhood will be glad of you, and I will not blame you, because we owe them that much.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "Do the sleepers hear the waking world?", next = "d_sleep2" },
+      },
+    },
+    d_sleep2 = {
+      lines = { { id = "dr_sleep2", text = "Some say they hear it like rain on a roof far above them, and some say they hear nothing at all. Oben Rageclaw heard enough to cry out when the Gnarlpine took his body from the Ban'ethil den, so I know the walls are thinner than we used to think." } },
+      choices = { { text = "Something else, Mathrengyl.", next = "BACK" } },
+    },
+    d_sky = {
+      big = true,
+      lines = { { id = "dr_sky", text = "So I am told, and the Circle has learned that the elements and the wild are not so far apart as our oldest druids liked to think. Your people's druids greet one another with 'Winds be with you', I hear, and I confess I have started saying it to the students who are late." } },
+      choices = {
+        { text = "The winds taught us before Cenarius did.", next = "BACK", reply = "Then we shall each learn from the other's teacher. Cenarius never objected to a good wind.", fx = { align = { order = -1 } } },
+        { text = "I'll learn Cenarius's ways as your students do.", next = "BACK", reply = "Then you will be welcome in the Enclave, whatever the Arch Druid says of it on his worse days.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Mathrengyl.", next = "BACK" },
       },
     },
     restraint = {

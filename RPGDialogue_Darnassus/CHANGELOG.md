@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-20)
+- Mathrengyl Bearwalker walks druids down the whole road to 60; Fandral Staghelm, Denatharion and Fylerian Nightwing deepened for druids.
+
 ## 1.30.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 

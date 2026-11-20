@@ -129,6 +129,10 @@ P:NPC {
           text = "The Den Mother is the heart of it, for she bears the sick cubs and the sick cubs grow into sick bears. End her, and Darkshore's bears may have a generation that is born whole." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, and welcome. You will feel it when you take the bear's shape near them, a sour note under the skin, and I would like to know if it feels the same to you as to me." },
+        { id = "dr_h_luna", tags = { "news" }, when = { class = "DRUID", questActive = TODO_QUEST("Body and Heart") },
+          text = "Moondust on your sleeves, young druid, so Mathrengyl has sent you to the Moonkin Stone. Go straight to it through the caves east of the village, and don't stop to admire the fungus, because the moonkin have been short-tempered all season." },
+        { id = "dr_h_luna_done", when = { class = "DRUID", questDone = TODO_QUEST("Body and Heart"), maxLevel = 20 },
+          text = "You faced Lunaclaw, I hear, and the moonkin in the caves have been strutting about ever since as if they had won. Never mind them, and come and tell me how the bear sits on you now." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The thistle bears will come at you foaming, and I'd ask you to remember that they're sick, not savage." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then you may understand that a sick bear is still a patient, even if it is a patient that wants to tear your arm off." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I hope your order spares creatures as readily as it spares people, because the bears here never chose their madness." },
@@ -150,6 +154,8 @@ P:NPC {
         { text = "Why take a bear alive?", next = "alive" },
         { text = "Is anyone else in Auberdine chasing this sickness?", next = "terenthis_t" },
         { text = "I've felt that sour note in bear form myself.", next = "druid_th", when = { class = "DRUID" } },
+        { text = "What waits for me at the Moonkin Stone?", next = "d_luna", when = { class = "DRUID", minLevel = 10, maxLevel = 20 } },
+        { text = "Could Abolish Poison help your bears?", next = "d_abolish", when = { class = "DRUID", minLevel = 26 } },
         { text = "Could my companion catch the sickness?", next = "hunter_th", when = { class = "HUNTER", pet = { named = true } } },
         { text = "I caught you a bear. What did you learn?", next = "caught", when = { questDone = TODO_QUEST("Plagued Lands") } },
         { text = "I've poisons that could put a mad bear down quietly.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -163,6 +169,26 @@ P:NPC {
         { text = "Would a tamed thistle bear carry the sickness?", next = "hnt_tame", when = { class = "HUNTER" } },
         { text = "I've trapped beasts alive before. Show me your cage.", next = "hnt_trap", when = { class = "HUNTER", questBefore = TODO_QUEST("Plagued Lands") } },
         { text = "I'll see what I can do.", next = "END", fx = { affinity = 1, standing = { auberdine = 1 } } },
+      },
+    },
+    d_luna = {
+      lines = { { id = "dr_luna", text = "Lunaclaw, an old spirit of the moonkin, proud and quick, and he will knock you down at least once. He is not trying to kill you, only to see whether you will stand up again, which is the whole of the Druids of the Claw in a single fight." } },
+      choices = {
+        { text = "And if I don't stand up?", next = "d_luna2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_luna2 = {
+      lines = { { id = "dr_luna2", text = "Then you will wake in the cave with a sore head and a moonkin looking down at you, and you will try again, as I did. Mathrengyl does not tell the students that part, and I think he enjoys their faces when they come back." } },
+      choices = { { text = "I'll stand up the first time. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    d_abolish = {
+      big = true,
+      lines = { { id = "dr_abolish", text = "It would ease the poison in one bear for a while, and I have tried it, but this sickness is more than poison. It is in the water and the moss and in something deeper that I cannot name yet, and a spell cannot mend a whole shore one bear at a time." } },
+      choices = {
+        { text = "Then I'll cure every bear I meet, one by one.", next = "BACK", reply = "Then you are as stubborn as I am, and the bears are lucky in both of us. Come and tell me which ones you reach.", fx = { affinity = 1, align = { light = 1 }, opinion = { druids = "healers" } } },
+        { text = "Then the sickest should be put down quickly.", next = "BACK", reply = "I have said the same, on the bad nights, and it shames me every time. Do it cleanly, if you must.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cause = {

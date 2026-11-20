@@ -1119,6 +1119,7 @@ P:NPC {
         { text = "Who is Liladris?", next = "liladris" },
         { text = "Is the road to Auberdine safe?", next = "road" },
         { text = "I've felt the Dream's pull, too.", next = "druidk", when = { class = "DRUID" } },
+        { text = "Will I sleep for centuries too, Kerlonian?", next = "d_sleep", when = { class = "DRUID", race = "NightElf" } },
         { text = "I could carry you home without waking you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Couldn't a spell keep you awake?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "So I'm to stand guard while you sleep, Kerlonian.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1128,6 +1129,15 @@ P:NPC {
         { text = "Does my companion trouble your dreams, Kerlonian?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What is it like to fall into the Dream, Kerlonian?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay awake, Kerlonian.", next = "END" },
+      },
+    },
+    d_sleep = {
+      big = true,
+      lines = { { id = "dr_sleep", text = "Oh, I hope not, or at least I hope you'll have someone to shake you awake the way Liladris shakes me. The old druids slept ten thousand years for the sake of the Dream, and I think it was noble, and I also think I've slept quite enough for one lifetime." } },
+      choices = {
+        { text = "The long sleep was noble. I'd take it on.", next = "BACK", reply = "Then tie a bell to your ankle first, as Liladris once tied one to mine. It helped, a little.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
+        { text = "Druids should wake and stay woken.", next = "BACK", reply = "Spoken like Liladris, and she's usually right, which is very annoying to someone as drowsy as I am.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "Something else, Kerlonian.", next = "BACK" },
       },
     },
     sleep = {

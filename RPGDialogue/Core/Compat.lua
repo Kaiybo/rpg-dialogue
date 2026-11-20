@@ -684,6 +684,20 @@ function C.PvPFlagged()
 end
 
 -- honorable kills, dishonorable kills (lifetime), or nil when the client has no honor system.
+-- Talent trees (0.97.0): { {name=, points=}, ... } in tab order. Classic's
+-- GetTalentTabInfo returns name, icon, pointsSpent; later clients put an id first
+-- (id, name, desc, icon, pointsSpent). Both are handled.
+function C.Talents()
+  local n = call("GetNumTalentTabs") or 0
+  local out = {}
+  for i = 1, n do
+    local a, b, c, d, e = call("GetTalentTabInfo", i)
+    if type(a) == "string" then out[i] = { name = a, points = tonumber(c) or 0 }
+    else out[i] = { name = b, points = tonumber(e) or 0 } end
+  end
+  return out
+end
+
 function C.PvPLifetime()
   local hk, dk = call("GetPVPLifetimeStats")
   return tonumber(hk), tonumber(dk)

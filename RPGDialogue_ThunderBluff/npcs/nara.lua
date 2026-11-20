@@ -40,6 +40,8 @@ P:NPC {
           text = "The Druids of the Fang in the Wailing Caverns were once a noble order that meant to heal the Barrens. Now they want to remake that land to match their own twisted dreams, and I see the faces of their four leaders every time I close my eyes." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Leaders of the Fang"), days = 3 } },
           text = "You did it, {name}. My dreams are free of their faces, and you've helped save the Barrens from a cursed future, so I thank you for myself, for the druids of Thunder Bluff, and for the land." },
+        { id = "h_dr_fang", when = { class = "DRUID", minLevel = 15, maxLevel = 24, ["not"] = { questDone = TODO_QUEST("Leaders of the Fang") } },
+          text = "You're a druid, and old enough now to feel the Dream when you sleep, so listen to me before you go near the Barrens oases. The Druids of the Fang were druids just like us once, and the nightmare that took them is still looking for more." },
         { id = "h_cleared", tags = { "news" }, when = { cleared = "Wailing Caverns" }, text = "You've been to the depths of the Wailing Caverns. Did you see Naralex? Did he look peaceful, or was he still trapped in the dream?" },
         { id = "h_dd_serpent", tags = { "news" }, when = { questDone = TODO_QUEST("Serpentbloom") }, text = "Apothecary Zamah told me you brought her serpentbloom out of the caverns, which means you've walked through the place in my dreams. I hope you came out with your sleep unspoiled, because not everyone does." },
       },
@@ -52,6 +54,7 @@ P:NPC {
         { text = "What are your dreams like?", next = "dreams" },
         { text = "What's it like studying under Hamuul?", next = "hamuul" },
         { text = "I walk the dream too, sometimes.", next = "druid", when = { class = "DRUID" } },
+        { text = "How do I keep the nightmare out of my own sleep?", next = "d_sleep", when = { class = "DRUID", minLevel = 15 } },
         { text = "I've seen the caverns. Naralex still sleeps.", next = "naralex", when = { cleared = "Wailing Caverns" } },
         { text = "What can I do?", next = "BUSINESS" },
         { text = "Sleep well, Nara.", next = "END" },
@@ -98,6 +101,26 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "Then be careful in the Barrens. The Dream there is sick, and it'll follow you home if you let it, so wake up somewhere green, where the Earth Mother is still well." } },
       choices = { { text = "I'll be careful.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" } } } },
+    },
+    d_sleep = {
+      big = true,
+      lines = {
+        { id = "dr_ns_default", text = "Wake somewhere green, the way I told you, and never lie down near the Lushwater or the Stagnant Oasis with your mind open. Hamuul taught me to sing a little herding song to myself before sleep, the kind calves hear, and it sounds foolish, but the nightmare doesn't like simple things." },
+        { id = "dr_ns_elf", when = { race = "NightElf" }, text = "Your people have walked the Dream for ten thousand years, so you'll know more tricks than I do. Still, never lie down near the Barrens oases with your mind open, because Naralex was a kaldorei too, and wiser than either of us." },
+      },
+      choices = {
+        { text = "A druid should face the nightmare, not hide from it.", next = "d_sleep2",
+          reply = "That's what the Druids of the Fang said, every one of them, before they went down into the caverns.",
+          fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Then I'll sing the herding song, foolish or not.", next = "BACK",
+          reply = "Good! Hamuul will be delighted, and so will I, because it means I'm not the only grown druid humming to herself at night.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "balance" } } },
+        { text = "Something else, Nara.", next = "BACK" },
+      },
+    },
+    d_sleep2 = {
+      lines = { { id = "dr_ns2_default", text = "I'm not saying never face it, only face it awake, with your feet on the ground and friends at your side. The Dream is a door, and the nightmare is patient, and a druid who walks through that door alone and angry is exactly what it's waiting for." } },
+      choices = { { text = "Awake, then, and not alone.", next = "BACK", fx = { affinity = 1 } } },
     },
     naralex = {
       lines = { { id = "n_default", text = "Still sleeping, after everything? Then the nightmare isn't finished with him yet, and I'll keep dreaming about those caverns until Mu'sha shows me otherwise." } },

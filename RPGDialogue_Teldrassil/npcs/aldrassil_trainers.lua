@@ -23,6 +23,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, young one. The tree remembers you, and so do I." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Verdant Sigil") },
       text = "Ah, you carry the Verdant Sigil. Then Ilthalaine has sent you to me, and your training begins." },
+    { id = "dr_g_ten", when = { class = "DRUID", minLevel = 10 }, text = "You've outgrown Shadowglen, young one, and the bear is close behind your eyes now. Kal will tell you where to go, but come back and tell me when you've met it." },
   },
 
   notice = {
@@ -52,10 +53,34 @@ P:NPC {
         { text = "What do the spirits tell you?", next = "spirits" },
         { text = "What's wrong with the creatures of Shadowglen?", next = "wrong" },
         { text = "What comes after Shadowglen, for a druid?", next = "after", when = { class = "DRUID" } },
+        { text = "Wrath or Healing Touch. Which should I learn first?", next = "d_wrath", when = { class = "DRUID", maxLevel = 10 } },
+        { text = "Will I sleep in the Dream one day, as your teacher did?", next = "d_dream", when = { class = "DRUID", race = "NightElf" } },
         { text = "Who taught you?", next = "taught" },
         { text = "You speak as slowly as a tree grows.", next = "slow" },
         { text = "Could someone like me ever become a druid?", next = "outsiders", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Thank you, Mardant.", next = "END" },
+      },
+    },
+    d_wrath = {
+      big = true,
+      lines = { { id = "dr_wrath", text = "Healing Touch, because Wrath you'll learn whether I teach it or not, the first time a grell steals your supper. The forest is angry often enough without our help, and a druid who reaches for anger first will reach for it last as well." } },
+      choices = {
+        { text = "Healing first, then. I'll keep my anger for need.", next = "BACK", reply = "Then you'll be a druid people are glad to see coming up the path.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wrath first. The grells won't wait on my patience.", next = "BACK", reply = "No, they won't, and I'll not pretend otherwise. Only learn the healing before the grells learn your name.", fx = { align = { light = -1 } } },
+        { text = "Where does Moonfire come from, then?", next = "d_wrath2" },
+      },
+    },
+    d_wrath2 = {
+      lines = { { id = "dr_wrath2", text = "From Elune, through us, a little of the moon's light called down onto whatever needs it most, though it burns when it lands. You'll learn it soon, and Rejuvenation beside it, and you'll find they're two halves of one lesson." } },
+      choices = { { text = "Two halves of one lesson. Something else.", next = "BACK" } },
+    },
+    d_dream = {
+      big = true,
+      lines = { { id = "dr_dream", text = "Perhaps, if the Circle calls you, though it calls fewer now than it did. My teacher slept through ten thousand years and woke to a world he didn't know, and he told me the hardest part was not the sleeping, but learning to be needed again." } },
+      choices = {
+        { text = "I'd sleep, if the forest asked it of me.", next = "BACK", reply = "Then you'll make a good druid, and perhaps a lonely one. The forest asks slowly, so you've time to be sure.", fx = { align = { order = 1 } } },
+        { text = "I'd rather stay awake and be useful.", next = "BACK", reply = "The Sentinels would cheer you for that, and I'll not argue. Teldrassil needs waking druids just now.", fx = { align = { order = -1 } } },
+        { text = "Something else, Mardant.", next = "BACK" },
       },
     },
     spirits = {

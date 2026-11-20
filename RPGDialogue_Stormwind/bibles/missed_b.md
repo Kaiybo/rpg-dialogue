@@ -1,7 +1,7 @@
 # Stormwind, missed folk B  (npcs/missed_b.lua, missed_b2.lua, missed_b3.lua)
 
 Keys: justine_demalier, karlee_chaddis, paige_chaddis, lieutenant_jackspring, master_sergeant_biggins, sergeant_major_clate,
-sergeant_major_skyshadow, lisan_pierce, suzanne_mage, maldryn, theridran, sylista (missed_b.lua);
+sergeant_major_skyshadow, lisan_pierce, suzanne_mage, sylista (missed_b.lua);
 maria_lumere, owen_vaughn, steven_lohan, thurman_schneider, master_wood, mayda_thane, randal_worth, reese_langston,
 seoman_griffith, wilhelm_strang, officer_brady (missed_b2.lua);
 miss_danna, mikey_sw, pat_sw, steven_sw, twain_sw, roman_sw, william_sw, morgg_stormshot, thorfin_stoneshield,
@@ -39,8 +39,7 @@ ulfir_ironbeard, wilder_thistlenettle (missed_b3.lua).
 - Sergeant Major Skyshadow · night elf woman · Sentinel, reserved; Ashenvale and Warsong Gulch.
 - Lisan Pierce · human woman · earnest note-keeper; it is a spell. (Wiki gives no gender; written as a woman.)
 - Suzanne · human woman · wry peacemaker; it is a potion.
-- Maldryn · night elf man · serene; balance can be found inside stone walls.
-- Theridran · night elf man · grave; sends the young to Moonglade.
+- Maldryn, Theridran: moved to more_folk.md / npcs/more_folk3.lua (deduped, druid patch; the grove/balance, call/ignore/two and stirring nodes merged there).
 - Sylista · night elf woman · gentle with beasts; speaks softly.
 - Maria Lumere · human woman · practical; the one human at Alchemy Needs, does the haggling.
 - Owen Vaughn · human man · dry; guesses the spell from the shopping list.

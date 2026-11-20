@@ -907,6 +907,10 @@ P:NPC {
           text = "A druid of the herd! Come, sit by me, and let us see how far you have walked on the path since Thunder Bluff." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "You are of the Alliance, and I cannot teach you. Still, the forest belongs to neither of us, so speak if you must." },
+        { id = "h_dr_forty", when = { class = "DRUID", faction = "Horde", minLevel = 40, maxLevel = 49 },
+          text = "You have reached the season when a druid begins to give away what she has, as well as use it. Sit under the tree with me, and we will talk about Innervate, and about what the old forest asks of those who come this far." },
+        { id = "h_dr_fifty", when = { class = "DRUID", faction = "Horde", minLevel = 50 },
+          text = "You walk like a druid who has been to the Dream and back, and Feralas can feel it too; the leaves turned as you came up the path. There is not much left I can teach you, but I can listen, if you have something to tell." },
       },
       again = {
         { id = "h_again", text = "There is more? The forest is in no hurry, and nor am I." },
@@ -921,7 +925,64 @@ P:NPC {
         { text = "You teach under a tree rather than a tent.", next = "tree" },
         { text = "Do many of the herd come this far to learn?", next = "students" },
         { text = "Have you walked in Moonglade?", next = "moonglade", when = { class = "DRUID" } },
+        { text = "Where does a druid's road lead from Feralas, Jannos?", next = "d_road", when = { class = "DRUID", faction = "Horde", minLevel = 40 } },
+        { text = "The Grimtotem here are tauren. Does that trouble you?", next = "d_grimtotem", when = { race = "Tauren", class = "DRUID" } },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    d_road = {
+      hub = true,
+      lines = { { id = "dr_jr_default", text = "Deeper, mostly, and slower, which young druids never want to hear. Ask me what is in front of you, and I will tell you what the forest has told me about it." } },
+      again = {
+        { id = "dr_jr_again", text = "More? Good; the rain has not stopped, so neither shall we." },
+        { id = "dr_jr_again2", text = "Ask again. A druid's road has many bends, and I have walked most of them twice." },
+      },
+      choices = {
+        { text = "Innervate. Why give my strength to someone else?", next = "d_innervate" },
+        { text = "Is the Dream really close to the ground here?", next = "d_dreambough" },
+        { text = "Frenzied Regeneration frightens me. Is that wrong?", next = "d_frenzy" },
+        { text = "That's enough of the road, Jannos.", next = "BACK" },
+      },
+    },
+    d_innervate = {
+      big = true,
+      lines = { { id = "dr_ji_default", text = "Because the forest does it every day. An old oak gives its shade to the saplings beneath it and asks nothing back, and Innervate is the same gift, your own strength poured into a healer or a shaman who has run dry, so that the fight goes on without you having to win it alone." } },
+      choices = {
+        { text = "Then I'll give it freely, to whoever needs it most.", next = "d_road",
+          reply = "The oak would approve, and so do I. Watch your companions closely, and you will learn to see a healer running dry before she knows it herself.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep it for myself, unless the fight is lost.", next = "d_road",
+          reply = "That is the weaker tree's way, and it is not always wrong. But the forest that hoards its rain grows thin, little one.",
+          fx = { align = { light = -1 } } },
+        { text = "Back to the road, Jannos.", next = "d_road" },
+      },
+    },
+    d_dreambough = {
+      lines = { { id = "dr_jd_default", text = "In the east, by Jademir Lake, there is a great bough that the kaldorei call a door into the Dream, and green dragons sleep near it. I have stood at the edge of that lake and felt the Dream breathing, and lately its breath is not as sweet as it was." } },
+      choices = {
+        { text = "Not as sweet? What's wrong with it?", next = "d_dreambough2" },
+        { text = "Back to the road, Jannos.", next = "d_road" },
+      },
+    },
+    d_dreambough2 = {
+      lines = { { id = "dr_jd2_default", text = "I do not know, and that is what frightens me. The Arch Druid says the Dream has turned grey at its edges, and Nara Wildmane says the same with fewer words and more nightmares, and the dragons by the lake sleep more restlessly every season." } },
+      choices = { { text = "Back to the road, Jannos.", next = "d_road", fx = { learn = { "emerald_dream" } } } },
+    },
+    d_frenzy = {
+      lines = { { id = "dr_jf_default", text = "No, it is right, and I would worry about you if it did not. The bear's frenzy turns rage into healing, and a druid who enjoys it too much can forget to come back out of it, so a little fear is a fine thing to carry into the den." } },
+      choices = { { text = "Back to the road, Jannos.", next = "d_road", fx = { trait = { cautious = 1 } } } },
+    },
+    d_grimtotem = {
+      big = true,
+      lines = { { id = "dr_jg_default", text = "It troubles me every morning. The Grimtotem cage the creatures of this forest and call it the tauren's right, and they wear the same horns as you and me, so when the kaldorei of Feathermoon look at us, they see the Grimtotem first, and I cannot blame them." } },
+      choices = {
+        { text = "Then we must stop the Grimtotem ourselves.", next = "BACK",
+          reply = "Yes, and let the kaldorei see tauren doing it. Shame is a heavy thing to carry, but it can be set down by the right hands.",
+          fx = { align = { honor = 1 }, opinion = { druids = "guard" } } },
+        { text = "What the Grimtotem do is no shame of mine.", next = "BACK",
+          reply = "No, not yours, and I would not lay it on you. Only remember that the forest does not ask which tribe set the cage, only who opened it.",
+          fx = { align = { honor = -1 } } },
+        { text = "Something else, Jannos.", next = "BACK" },
       },
     },
     teach = {

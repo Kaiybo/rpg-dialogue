@@ -30,6 +30,65 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_ghr_default", text = "Ask, then. I've had the moonwell for company too long, and a druid's questions are a better sound than the river." },
+        { id = "dr_ghr_young", when = { maxLevel = 47 }, text = "You're young for Felwood, and I'll say so once and then answer whatever you ask, because the young who come anyway are usually the ones worth teaching." },
+      },
+      again = { { id = "dr_ghr_again", text = "What else? The well's quiet tonight, and so am I, mostly." } },
+      choices = {
+        { text = "Why does the Emerald Circle hold the south while you keep the north?", next = "d_emerald" },
+        { text = "I saw corrupted bears out there. They looked like me.", next = "d_bears" },
+        { text = "Moonglade is just north of here. Why not teach there?", next = "d_moon" },
+        { text = "You remember this forest as Ashenvale. Did you fight here?", next = "d_old", when = { race = "NightElf" } },
+        { text = "Enough, Golhine. Thank you.", next = "BACK" },
+      },
+    },
+    d_emerald = {
+      big = true,
+      lines = { { id = "dr_ghe_default", text = "Because there aren't enough of us to hold all of it, and the Emerald Circle is braver than I am. They sit in the middle of the sickness and cleanse it a pool at a time, and I keep this one well clean so the druids who come north have somewhere to rest before they go and help them." } },
+      choices = {
+        { text = "Then I'll go south and help them cleanse it.", next = "d_road", reply = "Then take some of the well's water with you, in your heart if not your flask. You'll need to remember what clean tastes like out there.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "One clean well held is wiser than chasing a whole forest.", next = "d_road", reply = "It's my choice, so I'll not call it foolish. But I'll tell you honestly that it doesn't feel wise on the nights the wind comes up from Jaedenar.", fx = { align = { light = -1 } } },
+        { text = "Do the Emerald Circle answer to Moonglade?", next = "d_emerald2" },
+        { text = "Back to your questions.", next = "d_road" },
+      },
+    },
+    d_emerald2 = {
+      lines = { { id = "dr_ghe2_default", text = "To the Keeper, loosely, as all of us do, and to nobody in Darnassus, which is why they get so little help from there. They take tauren and kaldorei alike at the Sanctuary, and the Arch Druid's people find that easier to ignore than to praise." } },
+      choices = { { text = "Back to your questions.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_bears = {
+      big = true,
+      lines = { { id = "dr_ghb_default", text = "They were bears once, and some of them still are, under the rot, and that's the worst of it. A druid who wears the bear in Felwood has to decide whether the thing in front of them is an enemy or kin who can't be reached any more, and you'll have to decide it quickly, because they won't wait for you." } },
+      choices = {
+        { text = "I'll face them as kin, cleanly, and end it quickly.", next = "d_road", reply = "That's the only mercy left to most of them, and it's no small one. Say something to them when you do; I always have.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They're beasts now. I'll do whatever keeps me alive.", next = "d_road", reply = "That will keep you alive, I don't doubt. Only don't let Felwood teach you to stop seeing what they were.", fx = { align = { honor = -1 } } },
+        { text = "Has a corrupted bear ever been healed?", next = "d_bears2" },
+        { text = "Back to your questions.", next = "d_road" },
+      },
+    },
+    d_bears2 = {
+      lines = { { id = "dr_ghb2_default", text = "Once that I know of, a young one near the Emerald Sanctuary, with a cleansed pool and a month of patience. It never let anyone touch it afterwards, and it left in the spring, and I like to think it's somewhere green now." } },
+      choices = { { text = "Back to your questions.", next = "d_road", fx = { trait = { kind = 1 } } } },
+    },
+    d_moon = {
+      big = true,
+      lines = { { id = "dr_ghm_default", text = "Because Moonglade has teachers already, and the Keeper, and quiet, which is what a tired druid needs and exactly what a young one doesn't. The ones who come to me want to know what the craft is for, and Felwood answers that faster than any glade." } },
+      choices = {
+        { text = "Then I'll come here whenever I need reminding.", next = "d_road", reply = "The well will be here, and so will I, though I'd rather the reminding weren't needed. It usually is.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'd rather learn in peace and fight afterwards.", next = "d_road", reply = "Many do, and they're not wrong. Only don't be surprised when the first sick forest you meet doesn't care what you learned in peace.", fx = { align = { order = 1 } } },
+        { text = "Back to your questions.", next = "d_road" },
+      },
+    },
+    d_old = {
+      lines = { { id = "dr_gho_default", text = "I was a young druid when this was all one forest from the sea to Hyjal, and I fought here when the demons came, and I've stayed since. I don't speak of the fighting, but I'll tell you the river ran clean the morning before, and I have been waiting ever since to see it run clean again." } },
+      choices = {
+        { text = "I hope you see it.", next = "d_road", fx = { affinity = 2 } },
+        { text = "Back to your questions.", next = "d_road" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "We both listen first, and that is most of it. Felwood is screaming, and anyone who can hear it is welcome at this moonwell." } },
@@ -129,6 +188,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_gh_far", when = { class = "DRUID", minLevel = 40 },
+          text = "Moonglade is a spell away for you, and still you walked through Felwood to train at my well. I'll teach you the same as any trainer would, but I'd like to know why you came the hard way." },
         { id = "h_dd_purified", tags = { "news" }, when = { questDone = TODO_QUEST("Purified!") }, text = "Eridan Bluewind sent word from the Sanctuary that you helped him cleanse the Jadefire's corruption, and that something green has begun to grow where it fell. I have waited a long time to hear that, so forgive an old druid for being moved by it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue, by the moonwell. You came in quietly, which I approve of, since this forest is full of things that listen." },
@@ -175,6 +236,7 @@ P:NPC {
         { text = "Why teach druids in a sick forest, Golhine?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Something always seems to be listening in Felwood, Golhine.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do druids and shamans heal the land the same way?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Tell me what Felwood teaches a druid, Golhine.", next = "d_road", when = { class = "DRUID" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -328,6 +390,7 @@ P:NPC {
   },
 
   topics = {
+    druids = { { id = "tp_dr_druids", text = "The ones who come this far north are the ones I'd trust with a forest. The rest stay in Moonglade, and I don't blame them, but I don't send for them either." } },
     background = { { id = "tp_ba", text = "I'm a teacher of druids, and the rest is under the hood, where it stays." } },
     advice = { { id = "tp_ad", text = "Learn the sick places as well as the healthy ones. A healer who only knows health is no healer." } },
     cenarion_circle = { { id = "tp_circle", text = "The Emerald Circle heals the south of the forest and we hold the north, but the middle belongs to the demons, for now." } },
