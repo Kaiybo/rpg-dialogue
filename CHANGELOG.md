@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.98.0 (2026-11-20): Watchers of the Hollow
+No new files; a /reload is enough.
+- **Typing a report no longer moves the conversation**: while the "This line is wrong" note box is open, Enter sends the note and Escape closes the box, and number keys type instead of picking replies (gamepad A/B too).
+- **Named Sentinels speak as guards**: Sentinels whose name starts with "Sentinel" now get the guard's conversation instead of a townsperson's.
+- **New in Teldrassil**: Sentinel Lynessa Duskblossom, who escorts travelers to Ban'ethil Hollow.
+- Townsfolk's goodbye no longer has you say "Light keep you too" when they never said it first; it's now "I'll let you get on with your day."
+- Not seen in game yet.
+
 ## 0.97.1 (2026-11-20): Many Paths to Mending
 Hotfix. No new files; a /reload is enough.
 - Healers no longer all claim the Light: the healer's question to Byancie (Dolanaar) and to the Theramore first aid trainer now reads "I can heal with magic," so druids and shamans don't say they heal by the Light.

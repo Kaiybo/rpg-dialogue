@@ -167,7 +167,7 @@ W.INTERACTION_ROLES = {
 -- Unnamed NPC name patterns -> role (lower case).
 W.NAME_ROLES = {
   { "guard$", "guard" }, { "guardian$", "guard" }, { "^northshire guard", "guard" },
-  { "deathguard", "guard" }, { "sentinel$", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
+  { "deathguard", "guard" }, { "sentinel$", "guard" }, { "^sentinel ", "guard" }, { "grunt$", "guard" }, { "brave$", "guard" },
   { "protector$", "guard" }, { "defender$", "guard" }, { "watcher$", "guard" },
   { "peon$", "peon" }, { "militia", "militia" }, { "peacekeeper", "guard" }, { "empyrean blade", "guard" }, { "^watcher ", "guard" },
   { "bruiser$", "guard" }, { "mountaineer$", "guard" }, { "^mountaineer ", "guard" }, { "warden$", "guard" }, { "^brave ", "guard" }, { "sentry$", "guard" }, { "^sentry ", "guard" }, { "lookout$", "guard" },
