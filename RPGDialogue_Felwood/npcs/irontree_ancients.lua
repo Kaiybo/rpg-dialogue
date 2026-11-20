@@ -15,19 +15,19 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_kind_resolved", when = { class = "HUNTER", thread = { id = "hun_rhokdelar", state = "resolved" } }, text = "The one who carries the truth along with my wood. Have they forgiven you yet, small one?" },
-    { id = "g_kind_soured", when = { class = "HUNTER", thread = { id = "hun_rhokdelar", state = "soured" } }, text = "You return, and Winterspring still grieves its kind neighbour. I hope no one new has smiled at it." },
-    { id = "g_default", text = "Stand still, small one, and let me look at you. I have not seen many living things today that were not rotting." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter walks among the dead trees. Good. The forest has need of one." },
-    { id = "g_stave", when = { questActive = TODO_QUEST("Stave of the Ancients") }, text = "The bark will guide you to the corrupters. Face them alone, as I told you, or they will not face you at all." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Stave of the Ancients") }, text = "The corrupters are dead, and the woods are quieter for it. I have not heard such quiet in a long age." },
+    { id = "g_kind_resolved", when = { class = "HUNTER", thread = { id = "hun_rhokdelar", state = "resolved" } }, text = "Hmmm. The one who carries the truth along with my wood. Have they forgiven you yet, small one? Forgiveness grows slowly, like oak." },
+    { id = "g_kind_soured", when = { class = "HUNTER", thread = { id = "hun_rhokdelar", state = "soured" } }, text = "Hrrm. You return, and Winterspring still grieves its kind neighbour. I hope no one new has smiled at it, small one. I hope so, very much." },
+    { id = "g_default", text = "Hmmm. Stand still, small one, stand still, and let me look at you. I have not seen many living things today that were not rotting." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Hmmm. A hunter walks among the dead trees. Good, good. The forest has need of one." },
+    { id = "g_stave", when = { questActive = TODO_QUEST("Stave of the Ancients") }, text = "Hrrm. The bark will guide you to the corrupters, small one. Face them alone, as I told you, or they will not face you at all." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Stave of the Ancients") }, text = "The corrupters are dead, and the woods are quieter for it. Hmmm. I have not heard such quiet since these dead trees were acorns." },
   },
 
   notice = {
     { id = "n_hunter", cat = "hunter", when = { class = "HUNTER" },
-      text = "You carry a bow as my brothers once carried branches, as part of yourself. That is how I knew you before you spoke." },
+      text = "You carry a bow as my brothers once carried branches, as part of yourself. Hmmm. I knew you by it before you spoke, the way I know rain before it falls." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Your companion is unafraid of me. Beasts remember the Ancients longer than your kind do." },
+      text = "Your companion is unafraid of me. Hmmm, good. Beasts remember the Ancients longer than your kind do, for they still sleep beneath our boughs." },
   },
 
   start = "hello",
@@ -36,8 +36,8 @@ P:NPC {
       big = true,
       narr = "The leaves of the dead trees stir, though there is no wind.",
       lines = { { id = "kind_end_default", key = true,
-        text = "They will, and they will grieve him, because a demon who wishes to be loved is very good at it. So I ask you before you go, hunter: when it is done, what will you tell the people who loved him?" } },
-      again = { { id = "kind_end_again", text = "You have given me your answer, and the trees heard it." } },
+        text = "Hmmm. They will, and they will grieve him, because a demon who wishes to be loved is very good at it. So I ask you before you go, hunter, slowly, as a tree asks: when it is done, what will you tell the people who loved him?" } },
+      again = { { id = "kind_end_again", text = "You have given me your answer, and the trees heard it. Hmmm. Trees do not forget." } },
       choices = {
         { text = "The truth, even if they hate me for it.", next = "kind_truth",
           fx = { thread = { id = "hun_rhokdelar", state = "resolved" }, align = { honor = 1 }, affinity = 1 },
@@ -50,28 +50,28 @@ P:NPC {
     },
     kind_truth = {
       lines = { { id = "kind_truth_default",
-        text = "Good. A hunter who carries my wood should carry the truth as well, for the two are heavier together, but they will not break." } },
+        text = "Hmmm, good. A hunter who carries my wood should carry the truth as well. The two are heavier together, but heartwood does not break." } },
       choices = { { text = "I'll carry both, Ancient.", next = "END" } },
     },
     kind_silence = {
       lines = { { id = "kind_silence_default",
-        text = "Then they will keep their kind neighbour, and the next demon who smiles at them will find them just as trusting. Go carefully, small one." } },
+        text = "Hrrm. Then they will keep their kind neighbour, and the next demon who smiles at them will find them just as trusting. Go carefully, small one, go carefully." } },
       choices = { { text = "I will.", next = "END" } },
     },
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Vartrus, an Ancient of Lore, and these were once my woods. My body was destroyed when Archimonde and the Burning Legion marched upon Hyjal, ten thousand years ago, but my spirit remains, as do the spirits of my brothers, Stoma and Hastat." },
+          text = "Hmmm. I am Vartrus, an Ancient of Lore, and these were once my woods, root and branch. My body burned when Archimonde and the Burning Legion marched upon Hyjal, ten thousand winters ago, but my spirit remains, as do the spirits of my brothers, Stoma and Hastat." },
         { id = "h_hunter_before", when = { class = "HUNTER", questBefore = TODO_QUEST("An Introduction") },
-          text = "Your diligence has been noted, hunter. We are the Ancients, protectors of this once great forest, and there are tasks that we can offer to one such as you, tasks that will open the way to a weapon this world has not seen in ten thousand years." },
+          text = "Hmmm. Your diligence has been noted, hunter, noted slowly and well. We are the Ancients, protectors of this once great forest, and we have tasks for one such as you, tasks that will open the way to a weapon this world has not seen in ten thousand years." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Stave of the Ancients"), days = 3 } },
-          text = "Simone, Klinfran, Solenor and Artorius are dead, and you brought me their heads. Take the stave, and bring it to Stoma for its string, for together they will make a weapon worthy of what you have done." },
+          text = "Hrrm. Simone, Klinfran, Solenor and Artorius are dead, and you brought me their heads. Take the stave, small one, and bring it to Stoma for its string, for together they will make a weapon worthy of what you have done." },
         { id = "h_nonhunter", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "WARLOCK", "DRUID" } },
-          text = "I am Vartrus, an Ancient of Lore, or what remains of one. I have nothing to ask of you, small one, for my tasks are for those who hunt, but I will speak with you, because I have been a long time without speaking." },
+          text = "Hmmm. I am Vartrus, an Ancient of Lore, or what remains of one. My tasks are for those who hunt, small one, but I will speak with you, for I have stood a long time without speaking, and my words have grown moss." },
       },
       again = {
-        { id = "h_again", text = "Ask, small one. I have had ten thousand years to think of answers." },
-        { id = "h_again2", text = "What else? The wind has time, and so do I." },
+        { id = "h_again", text = "Ask, small one. Hmmm. I have had ten thousand winters to think of answers, and I have thought of a few." },
+        { id = "h_again2", text = "Hmmm. What else? The wind has time, and so do I, and so do the roots." },
       },
       choices = {
         { text = "Everlook loves Artorius. They'll think I murdered a friend.", next = "kind_end",
@@ -92,7 +92,7 @@ P:NPC {
     },
 
     hyjal = {
-      lines = { { id = "hy_default", text = "We stood at the foot of the mountain with the demigods and the night elves, and we held the line while the World Tree was saved. The fel fire took our bodies, root and branch, but we did not let the demons pass, and that is enough to rest on." } },
+      lines = { { id = "hy_default", text = "Hmmm. We stood at the foot of the mountain with the demigods and the night elves, and we held the line while the World Tree was saved. The fel fire took our bodies, root and branch and leaf, but we did not let the demons pass, and that is enough to rest on." } },
       choices = {
         { text = "And yet you didn't rest.", next = "hyjal_stay" },
         { text = "Something else.", next = "BACK" },
@@ -100,7 +100,7 @@ P:NPC {
     },
     hyjal_stay = {
       big = true,
-      lines = { { id = "hys_default", text = "No. The forest we died for is dying now, poisoned by demons who came back after we were gone. Some say the dead should leave the living to their own wars, but I could not leave while the Legion's filth still crawled through my roots." } },
+      lines = { { id = "hys_default", text = "No. Hrrm, no. The forest we died for is dying now, poisoned by demons who came back after we were gone. Some say the dead should leave the living to their own wars, but I could not leave while the Legion's filth still crawled through my roots." } },
       choices = {
         { text = "The dead have done enough. You've earned your rest.", next = "hyjal_end", fx = { align = { order = 1 } } },
         { text = "A guardian guards. You were right to stay.", next = "hyjal_end", fx = { align = { order = -1 } } },
@@ -108,27 +108,27 @@ P:NPC {
       },
     },
     hyjal_end = {
-      lines = { { id = "hye_default", text = "When the last corrupter is gone, perhaps, or when the forest no longer needs me. I do not expect it soon, but an Ancient measures time in centuries, and I am patient." } },
+      lines = { { id = "hye_default", text = "When the last corrupter is gone, perhaps, or when the forest no longer needs me. Hmmm. I do not expect it soon, but an Ancient counts time in rings, not days, and I am patient." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
     brothers = {
-      lines = { { id = "br_default", text = "Ancients of Lore, like me, who fell beside me and remain beside me. Stoma knows the binding of strings, and Hastat holds knowledge of a quiver lost since our deaths. Each of us waits for a hunter worthy of what we can give." } },
+      lines = { { id = "br_default", text = "Hmmm. Ancients of Lore, like me, who fell beside me and remain beside me, as we grew once, root tangled in root. Stoma knows the binding of strings, and Hastat holds knowledge of a quiver lost since our deaths, and each of us waits for a hunter worthy of what we can give." } },
       choices = {
         { text = "What do they ask for?", next = "brothers_ask" },
         { text = "Something else.", next = "BACK" },
       },
     },
     brothers_ask = {
-      lines = { { id = "bra_default", text = "Things that are hard to come by, as all true gifts should be. Hastat will want the sinew of a grown blue dragon, for instance, and you will not find one sleeping by the road." } },
+      lines = { { id = "bra_default", text = "Things that are hard to come by, as all true gifts should be. Hrrm. Hastat will want the sinew of a grown blue dragon, for instance, and you will not find one sleeping by the road." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
 
     tasks = {
       lines = {
-        { id = "ta_default", text = "First you must bring me a leaf, an ancient leaf, which has fallen far from here into fire. Then I will set you against the agents of the Legion who still walk this world, and if you destroy them, I will give you a stave cut from my own bark." },
+        { id = "ta_default", text = "Hmmm. First you must bring me a leaf, an ancient leaf, which has fallen far from here into fire. Then I will set you against the agents of the Legion who still walk this world, and if you destroy them, I will give you a stave cut from my own bark." },
         { id = "ta_done", when = { questDone = TODO_QUEST("Stave of the Ancients") },
-          text = "You have done all I asked, hunter. Go to my brothers now, for what I gave you is only part of the weapon, and they hold the rest." },
+          text = "Hmmm. You have done all I asked, hunter, all of it. Go to my brothers now, for what I gave you is only part of the weapon, and they hold the rest." },
       },
       choices = {
         { text = "A leaf, fallen into fire?", next = "tasks_leaf" },
@@ -136,28 +136,28 @@ P:NPC {
       },
     },
     tasks_leaf = {
-      lines = { { id = "tl_default", text = "Into the deepest fire there is, beneath a mountain, where the Firelord keeps his treasures. I cannot tell you more, because I do not know how it came there, only that it is mine and that it calls to me." } },
+      lines = { { id = "tl_default", text = "Into the deepest fire there is, beneath a mountain, where the Firelord keeps his treasures. Hrrm. I do not know how it came there, only that it is mine, and that it calls to me the way the sap calls to spring." } },
       choices = { { text = "I'll find it.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     corrupters = {
-      lines = { { id = "co_default", text = "Simone the Seductress, Klinfran the Crazed, Solenor the Slayer and Artorius the Doombringer. They wear other faces now and walk among your kind, and nature wilts and weeps wherever they pass." } },
+      lines = { { id = "co_default", text = "Hrrm. Simone the Seductress, Klinfran the Crazed, Solenor the Slayer and Artorius the Doombringer. They wear other faces now and walk among your kind, and the grass wilts and the bark weeps wherever they pass. I feel each step of theirs, small one, like a beetle under the bark." } },
       choices = {
         { text = "How do I fight them?", next = "corrupters_how" },
         { text = "Something else.", next = "BACK" },
       },
     },
     corrupters_how = {
-      lines = { { id = "coh_default", text = "Alone, hunter. They are arrogant, and if you come to them by yourself they will try to destroy you, but if you bring allies, they will flee. Turn their arrogance into their misery, and bring me their heads." } },
+      lines = { { id = "coh_default", text = "Alone, hunter, alone. They are arrogant, and if you come to them by yourself they will try to destroy you, but if you bring allies, they will flee. Hmmm. Turn their arrogance into their misery, and bring me their heads." } },
       choices = { { text = "Alone, then.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     why_hunters = {
-      lines = { { id = "wh_default", text = "Because a hunter walks with the beasts and listens to the forest, as we did. Your path is a good one, small one, but it is not ours, and our gifts would not sit easily in your hands." } },
+      lines = { { id = "wh_default", text = "Hmmm. Because a hunter walks with the beasts and listens to the forest, as we did. Your path is a good one, small one, but it is not ours, and our gifts would not sit easily in your hands." } },
       choices = { { text = "I understand.", next = "BACK" } },
     },
     druid = {
-      lines = { { id = "dr_default", text = "Then you know what it is to love a forest and watch it sicken. Go gently in the Dream while you are in Felwood, druid, for my grief is not the only thing you will hear there." } },
+      lines = { { id = "dr_default", text = "Hmmm. Then you know what it is to love a forest and watch it sicken, leaf by leaf. Go gently in the Dream while you are in Felwood, druid, for my grief is not the only thing you will hear there." } },
       choices = { { text = "I'll be careful, Vartrus.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     kal_blame = {
@@ -170,12 +170,12 @@ P:NPC {
       },
     },
     kal_before = {
-      lines = { { id = "kbe_d", text = "The northern reach of Ashenvale, the same forest unbroken from the sea to the mountain, and the oldest oaks in the world grew in these woods. When the Legion came back, the demons fouled every root and stream they passed, and the forest your elders called beautiful became the forest your young ones call Felwood." } },
+      lines = { { id = "kbe_d", text = "Hmmm. The northern reach of Ashenvale, the same forest unbroken from the sea to the mountain, and the oldest oaks in the world grew in these woods. When the Legion came back, the demons fouled every root and stream they passed, and the forest your elders called beautiful became the forest your young ones call Felwood." } },
       choices = { { text = "Then it can be Ashenvale again, someday.", next = "BACK", reply = "The Emerald Circle believes so, and I would like to live long enough to be wrong about doubting them.", fx = { learn = { "cenarion_circle" } } } },
     },
     hnt_rhok = {
       big = true,
-      lines = { { id = "hrh_d", text = "A longbow of the Ancient Keepers, the first in ten thousand years, and the kaldorei long ago called such a weapon Rhok'delar. My stave is its body, Stoma's string is its voice, and the arm that draws it must have proved, alone, that it can stand against the Legion's agents without flinching or calling for help." } },
+      lines = { { id = "hrh_d", text = "Hmmm. A longbow of the Ancient Keepers, the first in ten thousand years, and the kaldorei long ago called such a weapon Rhok'delar. My stave is its body, Stoma's string is its voice, and the arm that draws it must have proved, alone, that it can stand against the Legion's agents without flinching or calling for help." } },
       choices = {
         { text = "Why must I face them alone?", next = "corrupters_how" },
         { text = "I will be worthy of it.", next = "BACK", reply = "You will be, or you will not be anything at all. That is how the Ancients test.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
@@ -183,21 +183,21 @@ P:NPC {
       },
     },
     hnt_leaf = {
-      lines = { { id = "hle_d", text = "Then you have walked in the Firelord's own house and come out with my leaf, and I can feel it from here, warm as a summer morning. Give it to me, small one, and I will set you on the hardest hunt of your life, for there is no more testing left after this but the real thing." } },
+      lines = { { id = "hle_d", text = "Hmmm, yes. Then you have walked in the Firelord's own house and come out with my leaf, and I can feel it from here, warm as a summer morning. Give it to me, small one, and I will set you on the hardest hunt of your life, for there is no more testing left after this but the real thing." } },
       choices = { { text = "I am ready for the real thing.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     hnt_artorius = {
-      lines = { { id = "har_d", text = "Artorius, who calls himself the Amiable, and smiles at travellers on the snow road, and has never been amiable in all his long and evil life. He is a doomguard under that face, and when you show him you know it, he will burn you with a doom that clings, so stay beyond his reach and let your arrows do the walking." } },
+      lines = { { id = "har_d", text = "Hrrm. Artorius, who calls himself the Amiable, and smiles at travellers on the snow road, and has never been amiable in all his long and evil life. He is a doomguard under that face, and when you show him you know it, he will burn you with a doom that clings, so stay beyond his reach and let your arrows do the walking." } },
       choices = { { text = "Beyond his reach. I understand.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know these woods, the war at Hyjal, and the demons who came back." } },
+    knows = { { id = "tp_knows", text = "Hmmm. I know these woods, every root of them, and the war at Hyjal, and the demons who came back." } },
     background = { { id = "tp_bg", text = "An Ancient of Lore, who died at Hyjal and stayed.", next = "hyjal" } },
     burning_legion = { { id = "tp_legion", text = "They burned us once. They will not find us so easy to burn twice." } },
     malfurion = { { id = "tp_malf", text = "Cenarius's student. I remember him young, and very certain." } },
-    _none = { { id = "tp_none", text = "That is a thing of your age, small one, not of mine." } },
+    _none = { { id = "tp_none", text = "Hmmm. That is a thing of your age, small one, not of mine. My age had fewer words and more trees." } },
   },
 }
 
@@ -215,30 +215,30 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another small one among the dead trees. Vartrus will want to speak to you first, I expect, for my brother likes to be first." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and you count your arrows before you sleep, I can tell. Good. Then we will understand each other." },
-    { id = "g_lamina", when = { questActive = TODO_QUEST("Ancient Sinew Wrapped Lamina") }, text = "The sinew of a grown blue dragon, small one, and not a whelp's, for a whelp's would snap in the first winter." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Ancient Sinew Wrapped Lamina") }, text = "The quiver suits you. Do not hang it on a nail, for it was made to be carried." },
+    { id = "g_default", text = "Hm, hm. Another small one among the dead trees. Vartrus will want to speak to you first, I expect, for my brother likes to be first, and he is very slow about it." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Hm. A hunter, and you count your arrows before you sleep, I can tell. Good, good. Then we will understand each other." },
+    { id = "g_lamina", when = { questActive = TODO_QUEST("Ancient Sinew Wrapped Lamina") }, text = "The sinew of a grown blue dragon, small one, and not a whelp's. Hm. A whelp's would snap in the first winter, like a green twig." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Ancient Sinew Wrapped Lamina") }, text = "Hm, hm. The quiver suits you. Do not hang it on a nail, for it was made to be carried, as a seed is made to be carried." },
   },
 
   notice = {
     { id = "n_quiver", cat = "hunter", when = { class = "HUNTER" },
-      text = "Your quiver rattles when you walk, which means it is either half empty or badly made, and I can help with only one of those." },
+      text = "Hm. Your quiver rattles when you walk, which means it is either half empty or badly made, and I can help with only one of those." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Your companion sniffs at my roots as if it remembers a living tree. Perhaps it does, in its blood." },
+      text = "Your companion sniffs at my roots as if it remembers a living tree. Hm. Perhaps it does, in its blood." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Hastat, an Ancient of Lore, and like my brothers I left my body at Hyjal and did not leave the forest. Vartrus gives the stave and Stoma the string, and I give the quiver that carries what the bow will loose, for an archer with nothing to shoot is only a person holding a stick." },
-        { id = "h_hunter_hi", when = { class = "HUNTER", minLevel = 58 }, text = "You have the look of one who has walked in fire and come back, hunter. If Vartrus has set you on the path, then hear me too, for I can wrap a quiver in the sinew of a blue dragon that will carry arrows faster than your hand can want them." },
-        { id = "h_nonhunter", when = { ["not"] = { class = "HUNTER" } }, text = "I am Hastat, an Ancient of Lore, or the shade of one. My craft is for hunters, small one, but I will talk with anyone who stands still long enough, which most of the living do not." },
+        { id = "h_default", key = true, text = "Hm, hm. I am Hastat, an Ancient of Lore, and like my brothers I left my body at Hyjal and did not leave the forest. Vartrus gives the stave and Stoma the string, and I give the quiver, for an archer with nothing to shoot is only a person holding a stick, and I have been a very large stick for a very long time." },
+        { id = "h_hunter_hi", when = { class = "HUNTER", minLevel = 58 }, text = "Hm. You have the look of one who has walked in fire and come back, hunter. If Vartrus has set you on the path, then hear me too, for I can wrap a quiver in the sinew of a blue dragon that will carry arrows faster than your hand can want them." },
+        { id = "h_nonhunter", when = { ["not"] = { class = "HUNTER" } }, text = "Hm. I am Hastat, an Ancient of Lore, or the shade of one. My craft is for hunters, small one, but I will talk with anyone who stands still long enough, which most of the living do not. You are all so quick, like squirrels." },
       },
       again = {
-        { id = "h_again", text = "Ask on. The quiver will not make itself while we talk, but neither will it make itself if we do not." },
-        { id = "h_again2", text = "What else, small one? I have time, and a great deal of it." },
+        { id = "h_again", text = "Hm. Ask on. The quiver will not make itself while we talk, but neither will it make itself if we do not." },
+        { id = "h_again2", text = "What else, small one? Hm, hm. I have time, a great deal of it, more rings than you could count." },
       },
       choices = {
         { text = "What is the quiver you speak of?", next = "quiver" },
@@ -250,21 +250,21 @@ P:NPC {
       },
     },
     quiver = {
-      lines = { { id = "q_d", text = "A lamina, a quiver of old kaldorei make, wrapped and bound so that the arrows sit ready and do not tangle. The Sentinels' greatest archers carried them before the Sundering, and the art was lost with the Ancients who made them, all but me." } },
+      lines = { { id = "q_d", text = "Hm, a lamina. A quiver of old kaldorei make, wrapped and bound so that the arrows sit ready and do not tangle. The Sentinels' greatest archers carried them before the Sundering, and the art was lost with the Ancients who made them, all but me." } },
       choices = {
         { text = "Why give it to a stranger?", next = "quiver2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     quiver2 = {
-      lines = { { id = "q2_d", text = "Because the forest is dying and the Legion's agents are not, and because a gift kept by a ghost is no gift at all. I would rather it go to a hunter of any people who has earned it than rot in my memory for another ten thousand years." } },
+      lines = { { id = "q2_d", text = "Hm. Because the forest is dying and the Legion's agents are not, and because a gift kept by a ghost is no gift at all. I would rather it go to a hunter of any people who has earned it than rot in my memory for another ten thousand years." } },
       choices = {
         { text = "Then I'll earn it.", next = "BACK", reply = "Good. Earning is the part I enjoy watching.", fx = { align = { honor = 1 } } },
         { text = "I'll take it however it comes to me.", next = "BACK", reply = "Then you will take nothing, because it does not come any way but one.", fx = { align = { honor = -1 } } },
       },
     },
     sinew = {
-      lines = { { id = "s_d", text = "Because blue dragonflight sinew remembers magic, and holds its shape through fire and frost both. There is a great blue dragon who walks the ruins of Azshara, and he will not give it gladly, so you will need friends for that hunt, and that is the one hunt where I would not ask you to go alone." } },
+      lines = { { id = "s_d", text = "Hm. Because blue dragonflight sinew remembers magic, and holds its shape through fire and frost both. There is a great blue dragon who walks the ruins of Azshara, and he will not give it gladly, so you will need friends for that hunt, and that is the one hunt where I would not ask you to go alone." } },
       choices = {
         { text = "A dragon. You don't ask small things.", next = "BACK", reply = "No, small one. Small things make small quivers.", fx = { trait = { brave = 1 } } },
         { text = "Must the dragon die for it?", next = "sinew2" },
@@ -275,16 +275,16 @@ P:NPC {
       choices = { { text = "I'll tell you, if I do. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     brothers = {
-      lines = { { id = "b_d", text = "Vartrus speaks as though every word were a gift, Stoma speaks as though every word were a cost, and I speak because I like to. We were three trees side by side for longer than your oldest city has stood, and three ghosts side by side since, so we have had time to grow tired of each other's voices." } },
+      lines = { { id = "b_d", text = "Hm, hm. Vartrus speaks as though every word were a gift, Stoma speaks as though every word were a cost, and I speak because I like to. We were three trees side by side for longer than your oldest city has stood, and three ghosts side by side since, so we have had time to grow tired of each other's voices." } },
       choices = { { text = "And yet you stay together.", next = "BACK", reply = "Where else would we go? The forest is here, and so are they.", fx = { affinity = 1 } } },
     },
     hyjal = {
-      lines = { { id = "hy_d", text = "Fire, mostly, and the sound of Archimonde laughing as he climbed. I remember that the kaldorei archers on the slopes never stopped loosing, not once, even as the trees around them burned, and I remember thinking that I had never seen anything so brave or so foolish." } },
+      lines = { { id = "hy_d", text = "Fire, mostly. Hm. Fire, and the sound of Archimonde laughing as he climbed. I remember that the kaldorei archers on the slopes never stopped loosing, not once, even as the trees around them burned, and I remember thinking that I had never seen anything so brave or so foolish." } },
       choices = { { text = "Brave and foolish often walk together.", next = "BACK", reply = "They do. That is why I like hunters.", fx = { learn = { "burning_legion" } } } },
     },
     kal = {
       big = true,
-      lines = { { id = "k_d", text = "Some of you do. Many of your young ones in Darnassus think the Ancients are statues that walk, and the Archdruid's people talk of the new tree as though it were the first, but the oldest Sentinels still bow when they pass our grove, and that is enough for an old ghost." } },
+      lines = { { id = "k_d", text = "Hm. Some of you do. Many of your young ones in Darnassus think the Ancients are statues that walk, and the Archdruid's people talk of the new tree as though it were the first, but the oldest Sentinels still bow when they pass our grove, and that is enough for an old ghost." } },
       choices = {
         { text = "I'll bow too, then, and teach the young to.", next = "BACK", reply = "Do not teach them to bow. Teach them why, and they will find their own way of showing it.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Our people must look forward, not only back.", next = "BACK", reply = "True, small one, so long as you remember that the road behind you is how you got here.", fx = { align = { order = -1 } } },
@@ -296,7 +296,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know quivers and sinew and the Irontree Woods, and my two brothers, of whom I know far too much." } },
     background = { { id = "tp_bg", text = "I am an Ancient of Lore who died at Hyjal and stayed, though Vartrus tells it better and at greater length." } },
     burning_legion = { { id = "tp_legion", text = "They burned my body. They will not get my craft, and that pleases me more than it should." } },
-    _none = { { id = "tp_none", text = "That is beyond an old tree's roots, small one. Ask the living." } },
+    _none = { { id = "tp_none", text = "Hm. That is beyond an old tree's roots, small one. Ask the living, for they grow faster." } },
   },
 }
 
@@ -314,27 +314,27 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "You are standing on my roots, small one, and they still feel it, though they are only memory now." },
-    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Show me your bowstring, and I will tell you what kind of hunter." },
-    { id = "g_string", when = { questActive = TODO_QUEST("A Proper String") }, text = "The sinew of a grown black dragon, small one. Only that will hold the stave's strength without snapping." },
-    { id = "g_done", when = { questDone = TODO_QUEST("A Proper String") }, text = "The bow sings in your hand. I can hear it from here, and it is a good song." },
+    { id = "g_default", text = "Hrm. You are standing on my roots, small one. They still feel it, though they are only memory now." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Hrm. A hunter. Show me your bowstring, and I will tell you what kind of hunter." },
+    { id = "g_string", when = { questActive = TODO_QUEST("A Proper String") }, text = "Hrm. The sinew of a grown black dragon, small one. Nothing less will hold the stave's strength." },
+    { id = "g_done", when = { questDone = TODO_QUEST("A Proper String") }, text = "Hrrrm. The bow sings in your hand. I can hear it through the roots, and it is a good song." },
   },
 
   notice = {
     { id = "n_string", cat = "hunter", when = { class = "HUNTER" },
-      text = "Your string is frayed near the nock, and you have not noticed. Mend it tonight, before it mends you." },
+      text = "Hrm. Your string is frayed near the nock, and you have not noticed. Mend it tonight, before it mends you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Stoma, an Ancient of Lore, dead at Hyjal with my brothers. Vartrus carves, Hastat talks, and I bind the string, and a bow without a proper string is only a bent stick and a hope." },
+        { id = "h_default", key = true, text = "Hrm. I am Stoma, an Ancient of Lore, dead at Hyjal with my brothers. Vartrus carves, Hastat talks, and I bind the string. A bow without a proper string is only a bent branch and a hope." },
         { id = "h_stave", when = { class = "HUNTER", questDone = TODO_QUEST("Stave of the Ancients") }, text = "You carry my brother's stave, and you carry the heads of four of the Legion's servants behind you, though you do not see them. Now it needs a voice, hunter, and a voice that strong must come from a black dragon's sinew, for nothing gentler will hold." },
       },
       again = {
-        { id = "h_again", text = "Ask, then, and ask it plainly." },
-        { id = "h_again2", text = "What else, small one? The forest is quiet enough to hear you." },
+        { id = "h_again", text = "Hrm. Ask, then, and ask it plainly." },
+        { id = "h_again2", text = "What else, small one? The forest is quiet enough to hear you, and so am I." },
       },
       choices = {
         { text = "Why a black dragon's sinew?", next = "sinew", when = { class = "HUNTER" } },
@@ -353,15 +353,15 @@ P:NPC {
       },
     },
     quiet = {
-      lines = { { id = "q_d", text = "Hastat talks enough for three of us, so someone must listen to the forest, and it does not speak loudly any more." } },
+      lines = { { id = "q_d", text = "Hrm. Hastat talks enough for three of us, so someone must listen to the forest, and it does not speak loudly any more." } },
       choices = { { text = "Then I'll listen too. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     proper = {
-      lines = { { id = "p_d", text = "It must be stronger than the arm and weaker than the stave, so that when the bow fails, it fails safely, in the string, and not in your face. Most bowyers forget the second half, and most hunters have the scars to show it." } },
+      lines = { { id = "p_d", text = "Hrm. It must be stronger than the arm and weaker than the stave, so that when the bow fails, it fails safely, in the string, and not in your face. Most bowyers forget the second half, and most hunters have the scars to show it." } },
       choices = { { text = "Stronger than the arm, weaker than the stave.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     outsider = {
-      lines = { { id = "o_d", text = "The Legion did not ask whom it burned at Hyjal, so we do not ask whom we arm against it." } },
+      lines = { { id = "o_d", text = "Hrm. The Legion did not ask whom it burned at Hyjal, so we do not ask whom we arm against it." } },
       choices = { { text = "That's a generous answer.", next = "BACK", reply = "It is a true one. Generous is Hastat's work.", fx = { affinity = 1 } } },
     },
   },
@@ -369,6 +369,6 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know strings and sinew, and I know when to be silent." } },
     background = { { id = "tp_bg", text = "I am an Ancient of Lore who died at Hyjal, and that is all of it worth telling." } },
-    _none = { { id = "tp_none", text = "I do not know. Ask Hastat, who will tell you at length." } },
+    _none = { { id = "tp_none", text = "Hrm. I do not know. Ask Hastat, who will tell you at length, and then at greater length." } },
   },
 }
