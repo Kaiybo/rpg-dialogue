@@ -375,14 +375,8 @@ local function create()
   frame.flagBox:SetAutoFocus(false)
   frame.flagBox:SetMaxLetters(140)
   frame.flagBox:Hide()
-  frame.flagBox:SetScript("OnEnterPressed", function(self)
-    ns.Conversation.Flag(self:GetText())
-    self:SetText("")
-    self:ClearFocus()
-    self:Hide()
-    D.Layout()
-  end)
-  frame.flagBox:SetScript("OnEscapePressed", function(self) self:ClearFocus(); self:Hide(); D.Layout() end)
+  frame.flagBox:SetScript("OnEnterPressed", function() D.SubmitFlag() end)
+  frame.flagBox:SetScript("OnEscapePressed", function() D.CancelFlag() end)
   frame.flagHint = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
 
   -- Keys and gamepad buttons go to a listener above everything else (TOOLTIP strata, high
@@ -1054,6 +1048,24 @@ function D.ToggleFlagBox()
   D.Layout()
 end
 
+-- Enter in the note box sends the report; it never also takes a reply.
+function D.SubmitFlag()
+  if not frame.flagBox:IsShown() then return end
+  local note = frame.flagBox:GetText()
+  frame.flagBox:SetText("")
+  frame.flagBox:ClearFocus()
+  frame.flagBox:Hide()
+  ns.Conversation.Flag(note)
+  D.Layout()
+end
+
+function D.CancelFlag()
+  frame.flagBox:SetText("")
+  frame.flagBox:ClearFocus()
+  frame.flagBox:Hide()
+  D.Layout()
+end
+
 function D.FlagSaved()
   if frame then frame.flagHint:SetText(L.FLAG_SAVED) end
 end
@@ -1077,6 +1089,21 @@ for n = 0, 9 do OURS_WHILE_OVER[tostring(n)] = true; OURS_WHILE_OVER["NUMPAD" ..
 
 function D.OnKey(self, key)
   if C.InCombat() then return end
+  -- While the report note box is open, keys are for it: Enter sends the report, Escape
+  -- closes the box, and everything else (numbers too) is typing, not a reply.
+  if frame.flagBox:IsShown() then
+    if key == "ENTER" or key == "NUMPADENTER" then
+      self:SetPropagateKeyboardInput(false)
+      D.SubmitFlag()
+    elseif key == "ESCAPE" then
+      self:SetPropagateKeyboardInput(false)
+      D.CancelFlag()
+    else
+      self:SetPropagateKeyboardInput(true)
+      if not frame.flagBox:HasFocus() then frame.flagBox:SetFocus() end
+    end
+    return
+  end
   local handled = false
   local ask = UI.AskAbout
   if ask.IsShown() and (key == "UP" or key == "DOWN" or key == "ENTER" or key == "NUMPADENTER") then
@@ -1109,6 +1136,10 @@ end
 
 function D.OnPad(_, button)
   if C.InCombat() then return end
+  if frame.flagBox:IsShown() then
+    if button == "PAD1" then D.SubmitFlag() elseif button == "PAD2" then D.CancelFlag() end
+    return
+  end
   local ask = UI.AskAbout
   if ask.IsShown() then
     if button == "PADDUP" then ask.Move(-1)
