@@ -584,7 +584,7 @@ P:NPC {
         { text = "What's triage?", next = "triage", when = { any = { { profession = "First Aid" }, { questActive = TODO_QUEST("Triage") }, { questDone = TODO_QUEST("Triage") } } } },
         { text = "Where do your wounded come from?", next = "wounded" },
         { text = "You seem very calm for a surgeon here.", next = "calm" },
-        { text = "I heal with the Light. Why bother with bandages?", next = "x_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
+        { text = "I can heal with magic. Why bother with bandages?", next = "x_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "Do you treat the dead who walk, Doctor?", next = "x_scourge", when = { race = "Scourge" } },
         { text = "You must see a lot of poisoned wounds, Doctor.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have you treated wounds that keep burning after the fire's out, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
@@ -653,7 +653,7 @@ P:NPC {
     },
     x_healer = {
       lines = {
-        { id = "xh_default", text = "Because the Light is generous, but you are not endless, and on a bad day you'll run dry before the wounded do. A bandage asks nothing of your spirit, so learn both and use the cheaper one first." },
+        { id = "xh_default", text = "Because your healing is a gift, but you are not endless, and on a bad day you'll run dry before the wounded do. A bandage asks nothing of your spirit, so learn both and use the cheaper one first." },
       },
       choices = {
         { text = "Wise advice, Doctor.", next = "BACK", fx = { affinity = 1 } },
