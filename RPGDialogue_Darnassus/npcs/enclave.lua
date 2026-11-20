@@ -859,6 +859,8 @@ P:NPC {
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "I've watched you come and go, and no grove has blackened behind you yet. Cenarius bless you, then, and I'll try to mean it." },
     { id = "g_cenarius", text = "The blessings of Cenarius be yours, {class}." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Back again, young druid? Good; the forest has been waiting for you to grow into it." },
+    { id = "dr_g_bear", when = { class = "DRUID", minLevel = 10, maxLevel = 13 }, text = "Cenarius bless you, young druid, and I think the bear is very near now. Mathrengyl has been asking after you, so climb up to him when we are done." },
+    { id = "dr_g_old", when = { class = "DRUID", minLevel = 40 }, text = "Cenarius bless you, and look at you, taller in every shape than when you first sat on my bench. Sit anyway; the bench has forgiven you." },
   },
 
   notice = {
@@ -1011,6 +1013,8 @@ P:NPC {
           text = "Mathrengyl Bearwalker has asked for you by name, young druid. He's on the second floor of the Arch Druid's tree, and you'll find no wiser teacher in all of Teldrassil." },
         { id = "h_bear_done", when = { questDone = TODO_QUEST("Body and Heart") },
           text = "You've met the Great Bear, I can tell; you stand differently. Mathrengyl chose well." },
+        { id = "dr_h_young", when = { class = "DRUID", maxLevel = 9 },
+          text = "You've come up from Dolanaar with Wrath and a little Rejuvenation, I expect, and a great many questions. Ask them, because the questions are what I'm here for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage in the Enclave, studying us studying the land. I suppose that's fair, since we spend enough time wondering about you." },
         { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "I spend my years healing the scars the Legion left on this world, and you trade with its servants. You'll forgive me if I don't bless you." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You again. I still don't like what you carry, but you've kept it leashed longer than I expected. What is it you need?" },
@@ -1031,6 +1035,11 @@ P:NPC {
         { text = "A young druid must have much to learn.", next = "first" },
         { text = "How is the Circle under Fandral?", next = "circle" },
         { text = "Which shape is truest to a druid?", next = "forms", when = { class = "DRUID" } },
+        { text = "Why give the Mark of the Wild to strangers?", next = "d_mark", when = { class = "DRUID", maxLevel = 29 } },
+        { text = "Entangling Roots and Hibernate. Aren't they cruel?", next = "d_roots", when = { class = "DRUID", minLevel = 8 } },
+        { text = "I've met the Great Bear and Lunaclaw, Denatharion.", next = "d_bearback", when = { class = "DRUID", questDone = TODO_QUEST("Body and Heart") } },
+        { text = "The Sentinels say the druids slept while they bled.", next = "d_sentinels", when = { race = "NightElf" } },
+        { text = "Why do you bless everyone, even those who aren't druids?", next = "d_bless", when = { ["not"] = { class = "DRUID" } } },
         { text = "What do druids wonder about mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do druids think of warriors, Denatharion?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your young druids envy a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1043,6 +1052,55 @@ P:NPC {
         { text = "Hunters and druids both live with beasts. Are we rivals?", next = "hunt_d", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
+    },
+    d_mark = {
+      big = true,
+      lines = { { id = "dr_mark", text = "Because it is a blessing, and I bless everyone, as you may have noticed. The Mark of the Wild is the forest saying that a creature belongs to it, and I have never met a creature the forest would turn away, not even a gnome." } },
+      choices = {
+        { text = "Then I'll mark every traveller I pass.", next = "BACK", reply = "Cenarius bless you for it, and so will a great many confused travellers.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep it for those who've earned it.", next = "BACK", reply = "That is your choice to make, young druid, though the forest has never once asked me to earn the rain.", fx = { align = { light = -1 } } },
+        { text = "And Thorns? Is that a blessing too?", next = "d_mark2" },
+      },
+    },
+    d_mark2 = {
+      lines = { { id = "dr_mark2", text = "Thorns is a blessing with an edge to it, like a wild rose, which is the forest's favourite sort of joke. Put it on whoever stands in front, and let the wolves learn some manners." } },
+      choices = { { text = "Something else, Denatharion.", next = "BACK" } },
+    },
+    d_roots = {
+      big = true,
+      lines = { { id = "dr_roots", text = "No crueller than a bramble, and kinder than a blade, though my students think otherwise once they've watched a boar fight the roots. Hibernate comes later, and that one I like better, because a sleeping bear harms nobody and wakes no worse for it." } },
+      choices = {
+        { text = "Better to bind a foe than kill it.", next = "BACK", reply = "Not always, but more often than the young believe. Cenarius bless the patient hand.", fx = { align = { honor = 1 } } },
+        { text = "The roots only hold it still for the killing blow.", next = "BACK", reply = "That is how most use them, and I won't pretend otherwise. Only remember that you chose the blow.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Denatharion.", next = "BACK" },
+      },
+    },
+    d_bearback = {
+      lines = { { id = "dr_bearback", text = "Then tell me honestly whether you were dazed afterwards. Every druid is, and the ones who say they weren't are lying to their teacher." } },
+      choices = {
+        { text = "I was. It took a day to remember my name.", next = "BACK", reply = "Good, then it took properly. Mine took three days, and Mathrengyl brought me soup.", fx = { affinity = 1 } },
+        { text = "Not at all. I knew the bear at once.", next = "BACK", reply = "Then you were either lucky or proud, and I'll find out which in a year or two.", fx = { trait = { proud = 1 } } },
+      },
+    },
+    d_sentinels = {
+      big = true,
+      lines = {
+        { id = "dr_sentinels", text = "They do say it, and they're right to, because the Sisterhood held our people together for ten thousand years while we walked the Dream. I have never once argued with a Sentinel about it, and I've been glad of their arrows every day since we woke." },
+        { id = "dr_sentinels_dr", when = { class = "DRUID" }, text = "They do say it, young druid, and you'll hear it more now that you wear the Circle's colours. The Sisterhood held our people together for ten thousand years while we walked the Dream, and I have never once argued with a Sentinel about it." },
+      },
+      choices = {
+        { text = "The druids' sleep kept the world whole. It mattered.", next = "BACK", reply = "I believe it did, though I'd rather a Sentinel said so than a druid. Bless you for saying it.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
+        { text = "The Sisterhood paid for the Circle's dreaming.", next = "BACK", reply = "They did, and the Circle has a long debt to pay. I try to pay a little of it every day.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "Something else, Denatharion.", next = "BACK" },
+      },
+    },
+    d_bless = {
+      lines = {
+        { id = "dr_bless", text = "Because rain falls on the warrior and the druid alike, and I've never seen why I should be stingier than rain. Besides, a blessing given freely is one you never have to explain." },
+        { id = "dr_bless_war", when = { class = "WARRIOR" }, text = "Because rain falls on the warrior and the druid alike, and I've never seen why I should be stingier than rain. You'll stand in front of some young druid one day, and I'd like the blessing to be there already when you do." },
+        { id = "dr_bless_mage", when = { class = "MAGE" }, text = "Because rain falls on the mage and the druid alike, and the forest never asked who drank from the Well. A blessing given freely is one you never have to explain, even to the Arch Druid." },
+      },
+      choices = { { text = "Then I'll take it gladly. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     cenarius = {
       big = true,

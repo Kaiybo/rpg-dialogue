@@ -31,6 +31,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_circle = {
+      big = true,
+      lines = { { id = "dr_kk_default", text = "Patience, mostly, and a strong stomach, and a willingness to sit with a furbolg who'd rather bite you than talk. The Emerald Circle doesn't care whether you came from Darnassus or Thunder Bluff, only whether you'll stay when the Deadwood come howling over the ridge." } },
+      choices = {
+        { text = "I'll stay. This forest needs druids who stay.", next = "BACK", reply = "Then you'll be the third this year who said so, and I'm hoping you'll be the first who means it. There's a bedroll by the east wall.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll help, but I won't die for a lost forest.", next = "BACK", reply = "Honest, at least, and honesty's in short supply out here. Help, then, and leave when you must; the forest won't hold it against you, and neither will I.", fx = { align = { honor = -1 } } },
+        { text = "Why do the Circle's cities send so few?", next = "d_circle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_circle2 = {
+      lines = { { id = "dr_kk2_default", text = "Darnassus sends Sentinels to Talonbranch and calls that help, and Thunder Bluff is a long way off with troubles of its own. The Keeper sends what he can spare, which is mostly young druids like you and old scholars like me, and we make do." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +67,7 @@ P:NPC {
         { text = "What's in the log I brought you?", next = "log", when = { questDone = TODO_QUEST("Words of the High Chief") } },
         { text = "The Timbermaw call me friend now.", next = "friend", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
         { text = "Furbolgs were Cenarius's children?", next = "cenarius", when = { race = "NightElf" } },
+        { text = "What does the Emerald Circle ask of a druid?", next = "d_circle", when = { class = "DRUID" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },

@@ -50,6 +50,8 @@ P:NPC {
           text = "This is enough for ten good doses of salve, at least to start. Imagine a cure that could undo any poison at all without knowing what it was! I can dream, can't I?" },
         { id = "h_sick_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Curing the Sick"), days = 5 } },
           text = "The deer by the river are standing straight again, and one ate from my hand this morning. Thank you, {name}, and tell Dendrite that Auberdine thanks the Circle too." },
+        { id = "dr_h_lessons", tags = { "news" }, when = { class = "DRUID", questActive = TODO_QUEST("Lessons Anew") },
+          text = "Dendrite's letter said a druid would come to learn the cure from a cook, and I laughed so hard I burned the stew. Sit down and pay attention, then, because I only explain it twice." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren in Auberdine! Are you here for the Circle too? You must be, because nobody comes this far for the weather." },
       },
@@ -63,11 +65,33 @@ P:NPC {
         { text = "I'm surprised the Cenarion Circle took an interest here.", next = "circle" },
         { text = "Something seems to be fouling Cliffspring Falls.", next = "falls", when = { questDone = TODO_QUEST("The Principal Source") } },
         { text = "Could I heal the deer myself?", next = "heal_a", when = { class = { "DRUID", "PRIEST", "SHAMAN", "PALADIN" } } },
+        { text = "Dendrite sent me to learn your cure, Alanndarian.", next = "d_cure", when = { class = "DRUID", minLevel = 14 } },
+        { text = "Mathrengyl taught me to draw out poison with a word.", next = "d_power", when = { class = "DRUID", questDone = TODO_QUEST("Power over Poison") } },
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Goodbye, Alanndarian.", next = "END" },
       },
     },
 
+    d_cure = {
+      lines = { { id = "dr_cure", text = "Earthroot from the hills and lunar fungus from the moonkin caves, ground fine and mixed with clean water, and the clean water is the hard part, because the water here isn't. You druids want to draw poison out with a word, and I don't blame you, but a word won't help if you don't know what you're drawing." } },
+      choices = {
+        { text = "Teach me the salve properly, then.", next = "BACK", reply = "Good! Bring me earthroot and fungus, and we'll make a cook of you yet.", fx = { affinity = 1 } },
+        { text = "Why lunar fungus? Does the moon matter?", next = "d_cure2" },
+      },
+    },
+    d_cure2 = {
+      lines = { { id = "dr_cure2", text = "The moonkin say it does, and I've stopped arguing with moonkin, because they're bigger than me and short-tempered lately. It grows only in their caves east of the village, near that old stone where Mathrengyl's young druids go to be knocked over by Lunaclaw, and it cools the blood better than anything I know." } },
+      choices = { { text = "Something else, Alanndarian.", next = "BACK" } },
+    },
+    d_power = {
+      big = true,
+      lines = { { id = "dr_power", text = "With a word! I spent a month learning it with a pestle and a great deal of swearing, and you do it with a word. I'm glad for the deer, truly, but you'll forgive a cook for being a little jealous." } },
+      choices = {
+        { text = "Your salve came first. I'll remember who taught it.", next = "BACK", reply = "Oh, now you'll make me cry into the stew, and it's salty enough already. Thank you, {name}.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "A word is quicker than a salve. Times change.", next = "BACK", reply = "They do, and the deer don't care how they're cured. I'll keep my pestle all the same, for the days your word runs out.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Alanndarian.", next = "BACK" },
+      },
+    },
     deer = {
       lines = {
         { id = "de_default", text = "They stagger and grow thin, and their eyes go dull, and then they lie down by the water and don't get up. It started by the river north of here, and now they're sick as far south as the Ashenvale border." },

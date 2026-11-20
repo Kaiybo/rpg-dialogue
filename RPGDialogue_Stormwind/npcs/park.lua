@@ -21,6 +21,8 @@ P:NPC {
     { id = "g_balance", text = "Even within stone walls, there is peace, if you look for it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Ishnu-alah, young druid. Sit beneath the leaves a moment." },
     { id = "g_moonglade", when = { questActive = TODO_QUEST("Moonglade") }, text = "Moonglade waits for you. It is patient; be less so." },
+    { id = "dr_g_cat", when = { class = "DRUID", minLevel = 20, maxLevel = 29 }, text = "You've taken the cat's shape, I hear. Please don't wear it near the Cathedral fountain, because the pigeons have suffered enough already." },
+    { id = "dr_g_old", when = { class = "DRUID", minLevel = 50 }, text = "Ishnu-alah. You carry the Circle's strength into this city like a whole forest folded small, and the trees in the Park lean toward you." },
   },
 
   notice = {
@@ -162,6 +164,9 @@ P:NPC {
         { text = "Is there a sacred place for druids, Sheldras?", next = "moonglade" },
         { text = "Your Elune must differ from our Light.", next = "light", when = { class = "PRIEST" } },
         { text = "What should I practise hardest, Sheldras?", next = "practise", when = { class = "DRUID" } },
+        { text = "Show me the road ahead, Sheldras.", next = "d_road", when = { class = "DRUID" } },
+        { text = "I trained here, not in Darnassus. Does that matter?", next = "d_stone", when = { class = "DRUID" } },
+        { text = "Could anyone of my people learn the druid's way?", next = "d_human", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Should druids take sides in the Alliance's wars?", next = "war", when = { class = "DRUID" } },
         { text = "My people honour the winds more than Elune.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
@@ -176,6 +181,73 @@ P:NPC {
         { text = "Does a night elf feel at home in a company of humans?", next = "xpt_sheldras", when = { party = { race = "NightElf" } } },
         { text = "Peace be with you.", next = "END" },
       },
+    },
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_road", text = "The road runs the same for a druid raised in Stormwind as for one raised under Teldrassil, only with more boats in it. Ask about whichever stretch you like." },
+        { id = "dr_road_hi", when = { minLevel = 40 }, text = "You've walked most of the road already, and you still come back to sit in a human park. Ask what you like, and I'll tell you what the trees and I have noticed." },
+      },
+      again = {
+        { id = "dr_road_again", text = "Another stretch of the road? The bell won't ring for a while yet." },
+        { id = "dr_road_again2", text = "Go on. The trees and I are still listening." },
+      },
+      choices = {
+        { text = "Can I really step from this Park to Moonglade?", next = "d_glade", when = { minLevel = 10 } },
+        { text = "Lessons Anew. Must I sail all the way to Darkshore?", next = "d_poison", when = { minLevel = 14, maxLevel = 39 } },
+        { text = "The cat's shape, in a city full of guards.", next = "d_cat", when = { minLevel = 20, maxLevel = 39 } },
+        { text = "The stag runs well on Elwynn's roads.", next = "d_travel", when = { minLevel = 30 } },
+        { text = "The dire bear or the moonkin. Which suits a city druid?", next = "d_forty", when = { minLevel = 40 } },
+        { text = "What does the Circle ask of me at full strength?", next = "d_sixty", when = { minLevel = 60 } },
+        { text = "Enough of the road, Sheldras.", next = "BACK" },
+      },
+    },
+    d_glade = {
+      lines = { { id = "dr_glade", text = "From anywhere at all, which still astonishes me after all these years. I've stood in this Park at dusk and been in Nighthaven before the Cathedral bell finished ringing, and I've never quite decided whether that is a gift or a temptation.", fx = { learn = { "cenarion_circle" } } } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_poison = {
+      lines = { { id = "dr_poison", text = "You must, because the poison is there, and so is a cook in Auberdine who has learned more about it than any druid. Take the boat from Menethil Harbor, and don't eat the fish they sell on board." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_cat = {
+      lines = { { id = "dr_cat", text = "Wear it in the Park and the guards will ask whether your cat bites, which is a question I've been answering for years. Wear it in the Trade District and they'll stop asking and draw their swords, so I'd keep to the trees." } },
+      choices = { { text = "Back to the road.", next = "d_road", fx = { trait = { witty = 1 } } } },
+    },
+    d_travel = {
+      lines = { { id = "dr_travel", text = "Elwynn's roads are kind to a stag and Westfall's are kinder, but the guards on the bridges are not. Slow down before the gates, or you'll spend an afternoon explaining to a sergeant that you are not a deer." } },
+      choices = { { text = "Back to the road.", next = "d_road" } },
+    },
+    d_forty = {
+      big = true,
+      lines = { { id = "dr_forty", text = "The humans understand a bear, because a bear is only a soldier with fur, and they're baffled by the moonkin, which they take for an owl that ate too much. I'd choose for the forest and not for them, but I'd choose knowing they'll stare." } },
+      choices = {
+        { text = "The bear. They'll understand what I'm defending.", next = "d_road", reply = "Then stand in front of them, and they'll come to love you for it, though they'll still ask if you bite.", fx = { align = { order = 1 } } },
+        { text = "The moonkin. Let them stare and learn something.", next = "d_road", reply = "Good. A city that has never seen Elune's light walking about could do with seeing it.", fx = { align = { order = -1 } } },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_sixty = {
+      big = true,
+      lines = { { id = "dr_sixty", text = "In the north the plague is sinking into the soil of Lordaeron, and the Circle has sent druids there to learn what it does to roots and rivers. A tauren of the Circle named Mulgris Deepriver went into the Western Plaguelands, I'm told, and I've heard nothing of him since." } },
+      choices = {
+        { text = "Then I'll go north and look for him.", next = "d_road", reply = "Go carefully, and take something green with you. The soil up there forgets what it is.", fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "plaguelands" } } },
+        { text = "The plague is the Light's fight. The forest needs me here.", next = "d_road", reply = "Perhaps it does, and the Park would be glad to keep you. Only remember that plague does not stay where it starts.", fx = { align = { honor = -1 } } },
+        { text = "Back to the road.", next = "d_road" },
+      },
+    },
+    d_stone = {
+      big = true,
+      lines = { { id = "dr_stone", text = "Not to the forest, though it matters to some in the Enclave, who think a druid taught among stones has learned the lessons backwards. I think a druid raised among walls learns that nature is everywhere, and a druid raised among trees sometimes forgets it." } },
+      choices = {
+        { text = "Stone or tree, the balance is the same.", next = "BACK", reply = "It is, and you'll find that the old druids in Moonglade agree with you, even if the young ones in Darnassus don't.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll go to Darnassus and learn it properly.", next = "BACK", reply = "Go, and give Mathrengyl my greetings. Come back and tell me if the Enclave taught you anything I didn't.", fx = { align = { order = 1 } } },
+        { text = "Something else, Sheldras.", next = "BACK" },
+      },
+    },
+    d_human = {
+      lines = { { id = "dr_human", text = "Not as we do, because the shapes came from Cenarius to Malfurion and from him to our people, and lately to the tauren. But the best gardeners in this city know more about these trees than half my students, and none of them has ever once turned into a bear." } },
+      choices = { { text = "I'll settle for gardening. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     city = {
       lines = { { id = "c_default", text = "Because the Alliance is a long word for a short friendship, and someone must stand in it and listen. The humans need to see that we're not ghosts in the trees, and I need to remember that walls aren't only prisons." } },

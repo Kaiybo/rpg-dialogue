@@ -1105,11 +1105,14 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Sit beneath the tree, if you wish. It was here before the walls, and it does not mind them." },
     { id = "g_2", when = { metBefore = true }, text = "You return. The Park is quieter for it, or perhaps I only listen better when you are here." },
-    { id = "g_3", when = { class = "DRUID" }, text = "Welcome, young druid. If you have come to learn, I shall be glad to teach you." },
+    { id = "g_3", when = { class = "DRUID" }, text = "Welcome, young druid. If you have come to learn, sit, and we will begin with your breathing before we begin with anything else." },
+    { id = "dr_g_old", when = { class = "DRUID", minLevel = 40 }, text = "Ishnu-alah. You have come a long way down the road, and you still remember the way back to this tree, which is the lesson I care most about." },
   },
   notice = {
     { id = "n_1", cat = "form", when = { class = "DRUID" },
       text = "You carry the bear close beneath your skin today. Be easy. Nothing in this garden needs frightening." },
+    { id = "n_form40", cat = "form", when = { class = "DRUID", minLevel = 40 },
+      text = "You wear your forms easily now, and the bear no longer drags at your shoulders when you walk as yourself. That is well learned." },
     { id = "n_2", cat = "kaldorei", when = { race = "NightElf" },
       text = "Far from the boughs, {g:brother|sister}, and yet you walk as though they were overhead. Keep that." },
     { id = "n_3", cat = "class", when = { class = "MAGE" },
@@ -1136,7 +1139,58 @@ P:NPC {
         { text = "What do you make of Stormwind?", next = "city" },
         { text = "Have you walked the Dream yourself?", next = "walked", when = { class = "DRUID" } },
         { text = "Do you miss Teldrassil?", next = "teldrassil", when = { race = "NightElf" } },
+        { text = "What do you teach that the others don't?", next = "teach" },
+        { text = "These trees look tired to me.", next = "trees" },
+        { text = "Tranquility. Is it really only stillness?", next = "d_tranq", when = { class = "DRUID", minLevel = 30 } },
+        { text = "Will the Dream call me, as you said it would?", next = "d_call", when = { class = "DRUID", minLevel = 40 } },
         { text = "Elune light your path, Maldryn.", next = "END" },
+      },
+    },
+    teach = {
+      lines = { { id = "teach_1", text = "Patience, chiefly. Theridran sends the young ones out on the road to answer the call of Moonglade, and when they return full of new shapes and new strength, I teach them to sit still inside all of it." } },
+      choices = {
+        { text = "Can a druid find balance inside a city?", next = "balance" },
+        { text = "I'd learn that from you, Maldryn.", next = "pupil", when = { class = "DRUID" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    balance = {
+      lines = { { id = "balance_1", text = "One may find it anywhere, for it was never in the forest to begin with. The forest only makes it easier to hear, as a quiet room makes it easier to hear your own heart." } },
+      choices = {
+        { text = "Then why keep a grove at all?", next = "grove" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grove = {
+      lines = { { id = "grove_1", text = "Because students are young, and the young need the quiet room before they can manage without it. I was a great many years older than this city before I could keep my peace in a crowd." } },
+      choices = { { text = "That gives me some hope. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    trees = {
+      lines = { { id = "trees_1", text = "They are, and you have good eyes to see it. Their roots lie in soil laid over cut stone and they drink from a canal, but they grow all the same, and I count that a lesson worth more than most of mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pupil = {
+      lines = { { id = "pupil_1", text = "Then you shall, and gladly. Show me what you already know, without haste, and I will show you where your grip on it is too tight." } },
+      choices = { { text = "Thank you, shan'do. Something else.", next = "BACK" } },
+    },
+    d_tranq = {
+      lines = { { id = "dr_tranq", text = "It is stillness shared, which is much harder than stillness kept. You stand in the middle of the fight and make yourself the quietest thing in it, and everyone around you heals for it, and it is the spell I am proudest to teach and the one my students most often cast too late." } },
+      choices = {
+        { text = "Too late? How do I know when?", next = "d_tranq2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_tranq2 = {
+      lines = { { id = "dr_tranq2", text = "Cast it when you first think you might need it, and not when you are certain, because by then someone is already lying in the grass. Patience is not the same as waiting, and Tranquility is where most druids learn the difference." } },
+      choices = { { text = "Patience isn't waiting. Something else.", next = "BACK", fx = { trait = { patient = 1 } } } },
+    },
+    d_call = {
+      big = true,
+      lines = { { id = "dr_call", text = "It may, when you have grown strong enough that the waking world can spare you for a while, and the Circle will tell you before the Dream does. Until then, learn to wake every morning as if it mattered, because one day it will matter more than you can know." } },
+      choices = {
+        { text = "If the Dream calls, I'll answer it.", next = "BACK", reply = "Then you will sleep well and wake well, which is all I have ever wished for my students.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
+        { text = "I'll choose for myself when to sleep.", next = "BACK", reply = "Then choose wisely, and choose late. The world has had enough of druids who slept through it.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     peace = {
@@ -1229,7 +1283,7 @@ P:NPC {
 -- Theridran: night elf druid trainer in the Park; watches for the newly called and sends them on to Moonglade.
 P:NPC {
   key = "theridran", id = TODO_NPC("Theridran"), name = "Theridran", title = "Druid Trainer", gender = "male",
-  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "quest",
   communities = { "stormwind" }, temper = { "watchful", "kindly" }, values = { "duty", "renewal" },
   notices = { "form", "kaldorei", "pet" },
   impression = {
@@ -1241,6 +1295,7 @@ P:NPC {
     { id = "g_2", when = { metBefore = true }, text = "You have come back, and you are changed a little. The wild does that, between visits." },
     { id = "g_3", when = { class = "DRUID" }, text = "Greetings, young druid. Let me look at you, for I can usually tell how far along the path one has come." },
     { id = "g_4", when = { questActive = TODO_QUEST("Heeding the Call") }, text = "You have heard it, then. Good. Moonglade is expecting you, and Dendrite Starblaze does not like to be kept waiting, though he will never say so." },
+    { id = "dr_g_young", when = { class = "DRUID", maxLevel = 9 }, text = "Ishnu-alah, young one. There is wildness in you already, though it has no shape yet, so come to me again when it begins to press against your skin." },
   },
   notice = {
     { id = "n_1", cat = "form", when = { class = "DRUID" },
@@ -1255,6 +1310,8 @@ P:NPC {
     hello = {
       lines = {
         { id = "hello_1", text = "I am Theridran. Sheldras and Maldryn teach here as I do, but it falls to me to watch for those who are ready to be sent on. When a young druid begins to feel the great bear stir, I point them to Moonglade, where the Circle may meet them." },
+        { id = "hello_done", when = { questDone = TODO_QUEST("Heeding the Call") }, text = "You have stood in Moonglade and come back, and I see it in how you carry yourself. Ask what you wish, for you have earned plainer answers now." },
+        { id = "dr_hello_forty", when = { class = "DRUID", minLevel = 40 }, text = "I sent you north once with nothing but a restlessness in your shoulders, and you have come back carrying the great bear. I remember every pupil I have pointed to Moonglade, and I am glad to remember you." },
       },
       again = {
         { id = "hello_again1", text = "What else would you know?" },
@@ -1269,6 +1326,9 @@ P:NPC {
         { text = "The Circle keeps its secrets too close.", next = "secrets" },
         { text = "What are the maple seeds for?", next = "seeds" },
         { text = "What will the bear ask of me?", next = "bear", when = { class = "DRUID" } },
+        { text = "I feel the bear stirring, Theridran.", next = "stirring", when = { class = "DRUID", minLevel = 10 } },
+        { text = "What is this call you speak of?", next = "call" },
+        { text = "Do you remember every pupil you sent north?", next = "d_pupils", when = { class = "DRUID", minLevel = 20 } },
         { text = "Were you at Hyjal?", next = "hyjal", when = { race = "NightElf" } },
         { text = "Walk in peace, Theridran.", next = "END" },
       },
@@ -1287,6 +1347,40 @@ P:NPC {
         { id = "meet_1", text = "Dendrite Starblaze, who will speak to you of the Great Bear Spirit and will not hurry. The tauren come there too, and you will sit at one fire with them. Some of my pupils find that harder than the trial." },
       },
       choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    call = {
+      lines = { { id = "call_1", text = "Every druid hears it in time, as a restlessness that no amount of walking will settle. It is the Cenarion Circle making itself known, and it means the student is ready to be taught by greater teachers than I." } },
+      choices = {
+        { text = "And if a druid ignores it?", next = "ignore" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ignore = {
+      lines = { { id = "ignore_1", text = "Then the wildness grows with no one to shape it, and that ends badly for the druid and worse for those nearby. I have seen it only twice in all my years, and I do not mean to see it a third time among my own students." } },
+      choices = {
+        { text = "What became of those two?", next = "two" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    two = {
+      lines = { { id = "two_1", text = "One was found and brought to Moonglade late, and learned at great cost what he might have learned gently. Of the other I will say only that the forest keeps her now, and that she no longer answers to her name." } },
+      choices = { { text = "I'm sorry to have asked. Something else.", next = "BACK" } },
+    },
+    stirring = {
+      lines = {
+        { id = "stirring_1", text = "Then it is time. Go to Dendrite Starblaze in Nighthaven, the village of Moonglade, and tell him that Theridran judged you ready, and he will show you the rest." },
+        { id = "stirring_done", when = { questDone = TODO_QUEST("Heeding the Call") }, text = "It stirred, and you answered it, and that part of your road is behind you. Whatever stirs in you now is for the Circle's elders to name, and not for me." },
+      },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+    d_pupils = {
+      big = true,
+      lines = { { id = "dr_pupils", text = "Every one, and most of them still write, though not as often as I would like. A few went to Ashenvale and did not come back, and those I remember best, because the Circle sent them where the Warsong cut and I was the one who said they were ready." } },
+      choices = {
+        { text = "You sent them where they were needed. That was right.", next = "BACK", reply = "So the Arch Druid tells me, and so I tell myself. On most nights it is enough.", fx = { align = { honor = 1 } } },
+        { text = "Then judge the next ones more slowly.", next = "BACK", reply = "Perhaps I should, and perhaps they would hate me for it. I have not found the answer in four hundred years of asking.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

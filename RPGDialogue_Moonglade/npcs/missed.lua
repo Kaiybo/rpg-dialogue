@@ -25,6 +25,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d_soil = {
+      big = true,
+      lines = {
+        { id = "dr_ce_default", text = "Slowness, {class}, which no trainer can teach because no student will sit still for it. A trainer gives you the bear and the cat and the swift shape, and the soil asks what you mean to do with all that speed, and waits a hundred years for the answer." },
+        { id = "dr_ce_tauren", when = { race = "Tauren" }, text = "Slowness, which your people knew before mine troubled to teach you anything. You walked the plains a thousand generations, child of the Bluff, and I suspect the soil has less to teach you than it has to teach my own impatient young." },
+      },
+      choices = {
+        { text = "Then I'll learn to wait, as the seeds do.", next = "BACK", reply = "It will be the hardest shape you ever learn, and the one nobody will praise you for. I think you will wear it well.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The world can't wait a hundred years for anything.", next = "BACK", reply = "No, and that is the world's sorrow, not the soil's. Go quickly, then, but come back and sit with me when you are tired of it.", fx = { align = { order = -1 } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Celes Earthborne, of the Cenarion Circle. My study is the soil of this glade and what sleeps in it, which is slow work, and I am told I have grown slow in the doing of it." } },
       again = {
@@ -35,6 +47,7 @@ P:NPC {
         { text = "What sleeps in the soil?", next = "soil" },
         { text = "Why is Moonglade so peaceful?", next = "peace" },
         { text = "Horde and Alliance both walk here.", next = "both" },
+        { text = "What can the soil teach a druid that a trainer can't?", next = "d_soil", when = { class = "DRUID" } },
         { text = "Elune be with you.", next = "END" },
       },
     },
@@ -86,6 +99,19 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d_kin = {
+      big = true,
+      lines = {
+        { id = "dr_mr_default", text = "Then you know the glade a little, and you will know it better each time you come home. I came north to learn from those who kept the old ways longest, and I have found that they learn from us as well, though some of them would rather not say so aloud." },
+        { id = "dr_mr_tauren", when = { race = "Tauren" }, text = "Then we are kin twice over, by the Bluff and by the Circle. Hamuul sends his students up the long road knowing some of the elves will look at them sideways, and he sends them anyway, because the Earth Mother's children must learn to share the grass." },
+        { id = "dr_mr_elf", when = { race = "NightElf" }, text = "Then you are one of those who kept the old ways, and I am one of those who came late to them. Some of your elders still look at my people sideways on the benches, and I have never once held it against them, for ten thousand years is a long time to be alone." },
+      },
+      choices = {
+        { text = "The Circle is stronger with tauren in it. I'm sure of it.", next = "BACK", reply = "I hope so, and I try each day to make it true. The Keeper believed it first, and I would not like to prove him wrong.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Each people learns best among its own kind.", next = "BACK", reply = "Perhaps, as calves learn best from their own herd. But a herd that never meets another forgets there is more than one way to cross a river.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Moren Riverbend. I came north from Mulgore to learn the old ways of the druids from those who have kept them longest, and I have stayed because there is more to learn here than one life will hold." } },
       again = {
@@ -96,6 +122,7 @@ P:NPC {
         { text = "What have the night elves taught you?", next = "taught" },
         { text = "Do you miss Mulgore?", next = "mulgore" },
         { text = "Mylentha is your kin?", next = "mylentha" },
+        { text = "I walk the druid's path too, Moren.", next = "d_kin", when = { class = "DRUID" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },

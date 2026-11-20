@@ -539,6 +539,8 @@ P:NPC {
     { id = "g_hello", text = "Ishnu-alah. The Enclave is open to all who come in peace, though I teach only those the forest has called." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome, young druid. Come and sit; your training continues today." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. The forest has been patient with you; I'll try to be the same." },
+    { id = "dr_g_ten", when = { class = "DRUID", minLevel = 10, maxLevel = 19 }, text = "Welcome, young druid. The shapes are beginning to come to you, I think, so sit and let us talk about which of them to trust." },
+    { id = "dr_g_forty", when = { class = "DRUID", minLevel = 40 }, text = "Ishnu-alah. You have walked further than most of the students I taught, and you still come back to sit with me, which pleases me more than I will admit." },
   },
 
   notice = {
@@ -606,11 +608,83 @@ P:NPC {
         { text = "You teach beneath Staghelm's own tree.", next = "staghelm" },
         { text = "Fewer druids are waking than once did.", next = "fewer" },
         { text = "I have been to Moonglade, shan'do.", next = "xmoonglade", when = { class = "DRUID" } },
+        { text = "Which shape should I master first, shan'do?", next = "d_shapes", when = { class = "DRUID", minLevel = 10, maxLevel = 29 } },
+        { text = "The cat's shape is hard to put down, shan'do.", next = "d_cat", when = { class = "DRUID", minLevel = 20 } },
+        { text = "The stag makes every road feel short.", next = "d_travel", when = { class = "DRUID", minLevel = 30 } },
+        { text = "Innervate. Why give my strength away to others?", next = "d_innervate", when = { class = "DRUID", minLevel = 40 } },
+        { text = "Do you remember waking from the Dream, shan'do?", next = "d_woke", when = { race = "NightElf" } },
+        { text = "What does a druid see when he looks at me?", next = "d_glance", when = { ["not"] = { class = "DRUID" } } },
         { text = "My people hear the Earth Mother. Is it so different?", next = "xtauren", when = { race = "Tauren" } },
         { text = "Farewell.", next = "END" },
       },
     },
 
+    d_shapes = {
+      big = true,
+      lines = { { id = "dr_shapes", text = "The bear first, because it teaches you to stay, and staying is the root of every other shape. Then the sea lion for the water and the cat for the hunt, and the stag only when you have learned that roads are not the point." } },
+      choices = {
+        { text = "The bear first, then. I'll learn to stay.", next = "BACK", reply = "Good. The rest will come more easily for it, I promise you.", fx = { align = { order = 1 } } },
+        { text = "I'll take whichever shape the moment needs.", next = "BACK", reply = "That is where you will end, young one, though few who begin there stay whole long enough to arrive.", fx = { align = { order = -1 } } },
+        { text = "Why does staying matter so much?", next = "d_shapes2" },
+      },
+    },
+    d_shapes2 = {
+      lines = { { id = "dr_shapes2", text = "Because every shape pulls you toward its own wants, the bear toward sleep and the cat toward the chase, and the druid must be the one who stays the same underneath. Learn to stay yourself inside the bear, and you will know how to stay yourself inside all the others." } },
+      choices = { { text = "I'll remember. Something else, shan'do.", next = "BACK" } },
+    },
+    d_cat = {
+      lines = { { id = "dr_cat", text = "It is, and that is why I asked you to learn the bear first. The cat wants only the next hunt, and a druid who stays in it too long begins to find conversation tiresome and meat very interesting." } },
+      choices = {
+        { text = "I'll change back each evening, as you taught.", next = "BACK", reply = "Then you will keep both, the cat and yourself. That is the whole of the lesson.", fx = { affinity = 1 } },
+        { text = "Perhaps the cat has the right of it.", next = "BACK", reply = "Perhaps it does, about meat. Come back and tell me so in your own shape, and I will consider it.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    d_travel = {
+      lines = { { id = "dr_travel", text = "They are short, and that is the danger, because a druid in the stag's shape passes a sick grove in the time it takes to notice it. Run when you must, but walk through the places you are meant to be tending." } },
+      choices = { { text = "I'll walk more often. Something else.", next = "BACK" } },
+    },
+    d_innervate = {
+      big = true,
+      lines = { { id = "dr_innervate", text = "Because a druid's strength is the forest's gift, and the forest never asked to be hoarded. I have given Innervate to priests who never learned my name, and I count those among my better days." } },
+      choices = {
+        { text = "Then I'll give it freely, to whoever needs it.", next = "BACK", reply = "Then you will be thanked rarely and needed often, which is the druid's lot and not a bad one.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep it for myself unless a friend is failing.", next = "BACK", reply = "A careful answer, and I cannot fault it in a long fight. Only watch that careful does not become stingy.", fx = { align = { light = -1 } } },
+        { text = "Do the priests ever thank you for it?", next = "d_innervate2" },
+      },
+    },
+    d_innervate2 = {
+      lines = { { id = "dr_innervate2", text = "Rarely, and only the old ones, who remember that the Temple and the Enclave were once a single house. I have stopped minding, mostly." } },
+      choices = { { text = "Something else, shan'do.", next = "BACK" } },
+    },
+    d_woke = {
+      lines = { { id = "dr_woke", text = "I remember the smell of smoke, and Malfurion's voice calling us out of the barrow dens to stand at Hyjal, and how very loud the world had become. I slept again for a while after the battle, and when I woke the second time, Teldrassil was already growing." } },
+      choices = {
+        { text = "Did you want to wake?", next = "d_woke2" },
+        { text = "Something else, shan'do.", next = "BACK" },
+      },
+    },
+    d_woke2 = {
+      big = true,
+      lines = { { id = "dr_woke2", text = "Not at first, and I am not ashamed to say it, because the Dream is the world as it should have been. Then I saw the young Sentinels on the slopes of Hyjal, and I understood what our sleeping had cost them." } },
+      choices = {
+        { text = "The Dream's watch was worth the cost.", next = "BACK", reply = "I hope so, and I tell my students so, though I tell them more quietly than I once did.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
+        { text = "The Circle should never have slept so long.", next = "BACK", reply = "You may be right, and the Sentinels would agree with you. I try to be awake for both of us now.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "Something else, shan'do.", next = "BACK" },
+      },
+    },
+    d_glance = {
+      lines = {
+        { id = "dr_glance", text = "Not what you are, only how you stand, and that tells most of it. A druid learns to read the forest's creatures before he learns to read a page, and you are one of them whether you like it or not." },
+        { id = "dr_glance_war", when = { class = "WARRIOR" }, text = "You stand with your weight forward, like a boar that has already decided to charge. That is no insult, warrior, because a boar is a very hard thing to stop." },
+        { id = "dr_glance_mage", when = { class = "MAGE" }, text = "You hold your hands a little away from your body, as if they might still be hot. Every mage does it, and every druid notices." },
+        { id = "dr_glance_rogue", when = { class = "ROGUE" }, text = "You stood where the shadow of the bough falls before you spoke to me. A lynx does the same, and I have always respected a lynx." },
+        { id = "dr_glance_priest", when = { class = "PRIEST" }, text = "You look at people's faces before their hands, which is how a healer looks. The druids do the same, so we are not so different as the Temple likes to think." },
+        { id = "dr_glance_hunter", when = { class = "HUNTER" }, text = "You looked at the ways out, then at me, then at your companion. That is a hunter's order of things, and a sound one." },
+        { id = "dr_glance_lock", when = { class = "WARLOCK" }, text = "You keep your back to the trunk, and the moss near your feet has drawn back a little. I will not say more than that, and I will not need to." },
+        { id = "dr_glance_pala", when = { class = "PALADIN" }, text = "You stand as if someone behind you needs protecting, even here among the students. The bear stands that way too, and I mean it kindly." },
+      },
+      choices = { { text = "You read me well. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     learn = {
       lines = {
         { id = "le_default", text = "To walk as the bear, to strike as the cat, to heal as the forest heals, and to know when each is right. The shapes are the easy part, though the young never believe me when I say so." },

@@ -284,6 +284,7 @@ P:NPC {
     { id = "g_druid", when = { class = "DRUID" }, text = "Excuse me, friend. Word has come for you from Darnassus." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; there's more to learn." },
     { id = "g_done", when = { questDone = TODO_QUEST("Heeding the Call") }, text = "You've met Mathrengyl, and the bear walks with you now. I can see it in your shoulders." },
+    { id = "dr_g_hi", when = { class = "DRUID", minLevel = 20 }, text = "You've come back to Dolanaar, and you walk like a cat now as well as a bear. I'm glad you remember where you started." },
   },
 
   notice = {
@@ -315,10 +316,30 @@ P:NPC {
         { text = "What does a druid learn in Dolanaar?", next = "learn" },
         { text = "Dolanaar seems peaceful.", next = "peace" },
         { text = "Will I ever join the Claw or the Talon?", next = "ne_orders", when = { race = "NightElf", class = "DRUID" } },
+        { text = "The Gnarlpine just tear through my Entangling Roots.", next = "d_roots", when = { class = "DRUID", minLevel = 8, maxLevel = 14 } },
+        { text = "What comes after the bear, Kal?", next = "d_after", when = { class = "DRUID", minLevel = 10 } },
+        { text = "The Gnarlpine were friends to the druids once.", next = "d_gnarl", when = { race = "NightElf" } },
         { text = "Farewell, Kal.", next = "END" },
       },
     },
 
+    d_roots = {
+      lines = { { id = "dr_roots", text = "They do, because the Gnarlpine are strong and the roots of this young tree don't yet run deep. Hold them long enough to step back and think, and you've used the spell as it was meant to be used." } },
+      choices = { { text = "Step back and think. Something else.", next = "BACK" } },
+    },
+    d_after = {
+      lines = { { id = "dr_after", text = "After the bear comes the poison, then the sea, then the cat, each by a trial the Circle sets, and each sends you somewhere new: Auberdine, Moonglade, the lake and the coast. You'll be tired of boats before you're done, and you'll come to love the spell that takes you home to Moonglade.", fx = { learn = { "cenarion_circle" } } } },
+      choices = { { text = "I'll pack for the boats. Something else.", next = "BACK" } },
+    },
+    d_gnarl = {
+      big = true,
+      lines = { { id = "dr_gnarl", text = "They were, and they guarded these woods beside us until something in the young tree's roots sickened them. Some in Dolanaar say we must put them down like rabid wolves and some say we must heal them, and the druids are as divided on it as everyone else." } },
+      choices = {
+        { text = "Heal them, if it can be done.", next = "BACK", reply = "Then you're on the side I take on most days. It may not be possible, but someone should try.", fx = { align = { light = 1 } } },
+        { text = "Put them down before they kill more.", next = "BACK", reply = "The Sentinels would agree, and they bury the dead, so I don't argue with them lightly.", fx = { align = { light = -1 } } },
+        { text = "Something else, Kal.", next = "BACK" },
+      },
+    },
     mathrengyl = {
       lines = { { id = "ma_default", text = "The direct assistant to Arch Druid Fandral Staghelm himself, and one of the most sage and august druids on Teldrassil. When he sends for a student, the student goes." } },
       choices = {

@@ -34,8 +34,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_sea = {
+      big = true,
+      lines = { { id = "dr_tjs_default", text = "The shrine marks nothing; I do. Every druid who joins the pendant here is a druid I have watched struggle in that lake, and I remember each of them, because the water shows a person's patience more honestly than any trial on land." } },
+      choices = {
+        { text = "Then I'll honour the lake by swimming it gently.", next = "BACK", reply = "Good. The lake has drowned the careless before, druid or not, and it will again, so stay gentle.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The trial's done. The sea is mine to roam now.", next = "BACK", reply = "It is, and the sea is wider and far less forgiving than Elune'ara. Roam it, then, but remember who watched you learn.", fx = { align = { order = -1 } } },
+        { text = "I'll leave the shrine in peace.", next = "END" },
+      },
+    },
     hello = {
       lines = {
+        { id = "dr_tj_sea", when = { questDone = TODO_QUEST("Aquatic Form") },
+          text = "You passed the lake and joined the pendant at this shrine, and now the seal's shape is yours. I watched you dive, and I will say you hurried less than most, which is the highest praise I give." },
         { id = "h_default", key = true, text = "I am Tajarri, sworn protector of the Shrine of Remulos, and I serve the Keeper. Visitors may look and may pray, but the shrine is not a market or a camp, and my scimitar has opinions about anyone who forgets that." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "You've come for your trials, I think, as every young druid of the Circle does. The lake will teach you to move through water as the sea lion does, and I'll be here to see whether you've learned it." },
@@ -57,6 +68,7 @@ P:NPC {
         { text = "Would you really use that scimitar here?", next = "scimitar" },
         { text = "I'm a druid. What should I know before the lake?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I serve the Light. May I pray here?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I swim as a sea lion now. Does the shrine mark it?", next = "d_sea", when = { class = "DRUID", minLevel = 16 } },
         { text = "I'll leave the shrine in peace.", next = "END" },
       },
     },

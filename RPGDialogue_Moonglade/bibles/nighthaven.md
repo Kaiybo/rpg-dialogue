@@ -1,4 +1,4 @@
-# Nighthaven  (keys: remulos, rabine, dendrite, loganaar, great_bear, silva, bunthen)
+# Nighthaven  (keys: remulos, rabine, dendrite, loganaar, great_bear, great_cat, silva, bunthen)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Nighthaven (roster; Cenarion Circle village; Rabine Saturna is Remulos's majordomo; Loganaar trains druids; druid-only flight masters; Nighthaven Defenders in Classic)
@@ -58,3 +58,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 
 ## Kaldorei factions (Loganaar)
 Would sooner share a bench with a tauren druid than a human envoy: the tauren came asking to learn, humans hurry (node `kin`). Concedes when pushed that his own people's Highborne did worse than any human (`kin_harsh`); answers Narianna with "seeds in the Horde" (`kin_narianna`).
+
+## Druid patch (authored, not canon)
+- Great Cat Spirit (`great_cat`): Forever's cat quest (The Great Cat Spirit, from Dendrite; Skyborne go to the Great Windborne Cat). Nightsaber spirit in the south of the glade; playful where the Bear is patient ("little claw"); its lesson is when the waiting ends; steals fish from the Bear's river to see if he'll chase.
+- Druid road hubs `d_road` on Loganaar (bear, cat, Rebirth, travel, dire bear/Innervate, moonkin, the split Circle, the barrow dens at 60, NightElf/Tauren/Skyborne) and Remulos (the split, the Emerald Circle, Cenarion Hold and the sealed thing beneath the sands, the Dream souring at the four great trees, Malfurion in the Stormrage Barrow Dens). Great Bear `d_test` asks the mother-bear question (body and heart). Rabine keeps Horde and Alliance druids on the same ledger pages; more sleepers "not yet woken" lately. Loganaar once let an old Sentinel go rather than Rebirth her.
