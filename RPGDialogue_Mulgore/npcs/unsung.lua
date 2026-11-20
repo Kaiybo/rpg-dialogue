@@ -559,6 +559,12 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The creatures of Mulgore have gone very quiet around you, and I am curious why." },
         { id = "h_default", key = true, text = "I am Gart Mistrunner, and I teach the young druids of Narache. We learn to take the shapes of the beasts and to heal the land, as the Earth Mother wishes." },
         { id = "h_druid", when = { class = "DRUID" }, text = "Each time you come back, I can see more of the wild in you. What will you learn this time?" },
+        { id = "h_dr_first", when = { class = "DRUID", maxLevel = 4 },
+          text = "Your first days on the path, and the mesa is a kind place to spend them. Learn Wrath until the plainstriders stop laughing at you, and then I'll show you how to mend what you've hurt." },
+        { id = "h_dr_bloodhoof", when = { class = "DRUID", minLevel = 6, maxLevel = 9 },
+          text = "You've learned most of what Narache can teach, young druid. Gennia Runetotem in Bloodhoof Village will take you further, and when your tenth season comes, the bear will come looking for you." },
+        { id = "h_dr_grown", when = { class = "DRUID", minLevel = 10 },
+          text = "You've come back to the mesa, and you've the bear in you now; I can see it in your shoulders. Turak has done well by you, and I'm proud to have taught you your first Wrath." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The creatures of Mulgore grow calmer when one of your kind walks among them, and I wonder if you've noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You remind me of the young druids when they first take the bear's form, all strength and no stillness." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who trusts you. That trust is the first step on the druid's path as well as yours." },
@@ -574,6 +580,10 @@ P:NPC {
         { text = "Who taught the tauren to be druids?", next = "history" },
         { text = "What does a druid do for Mulgore?", next = "land" },
         { text = "I'm a night elf druid as well.", next = "elf", when = { race = "NightElf", class = "DRUID" } },
+        { text = "Why does Wrath come before healing, Gart?", next = "d_wrath", when = { class = "DRUID", maxLevel = 12 } },
+        { text = "Moonfire burns. Isn't fire the forest's enemy?", next = "d_moonfire", when = { class = "DRUID", minLevel = 4, maxLevel = 14 } },
+        { text = "Rejuvenation is so slow. Why not heal all at once?", next = "d_rejuv", when = { class = "DRUID", minLevel = 4, maxLevel = 14 } },
+        { text = "When I cast, is it the Earth Mother who answers?", next = "d_mother", when = { race = "Tauren", class = "DRUID" } },
         { text = "The elements and the beasts must share the same spirits.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would the creatures here make of a priest, Gart?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a rogue learn from the creatures, Gart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -585,6 +595,57 @@ P:NPC {
       again = {
         { id = "h_again", text = "Ask what you will, and I will answer as well as I can, Earth Mother willing." },
       },
+    },
+    d_wrath = {
+      big = true,
+      lines = { { id = "dr_gw_default", text = "Because the wild must be able to defend itself before it can afford to be gentle. Wrath is the land's own anger, the sting of the nettle and the crack of the falling branch, and a druid who can't call it will never last long enough to heal anyone." } },
+      choices = {
+        { text = "Then I'll call it only when the land is threatened.", next = "BACK",
+          reply = "That's the nettle's way, and it's a good one. The nettle never stings anything that leaves it alone.",
+          fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Anger is anger. I'll use it on whatever's in my way.", next = "BACK",
+          reply = "Then you'll wear it out, young one, the way a brave wears out a spear by throwing it at every shadow. The land lends Wrath; it doesn't give it.",
+          fx = { align = { light = -1 } } },
+        { text = "Does the land feel it when I cast it?", next = "d_wrath2" },
+      },
+    },
+    d_wrath2 = {
+      lines = { { id = "dr_gw2_default", text = "I think so, the way you feel your own fist close. Stand barefoot on the grass next time you cast it, and you'll notice it's just a little warmer afterwards, as though something nearby had been holding its breath." } },
+      choices = { { text = "Something else, Gart.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    d_moonfire = {
+      lines = {
+        { id = "dr_gm_default", text = "It isn't fire at all, though it burns. Moonfire is Mu'sha's light brought down hard, the Earth Mother's left eye looking very closely at something she doesn't like, and it won't catch the grass the way a torch would." },
+        { id = "dr_gm_elf", when = { race = "NightElf" }, text = "It isn't fire at all, though it burns, as your own priestesses would tell you. You'd call it Elune's light, and we say Mu'sha's, and either way it won't catch the grass the way a torch would." },
+      },
+      choices = {
+        { text = "Mu'sha's light. I like that better than fire.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    d_rejuv = {
+      big = true,
+      lines = { { id = "dr_gr_default", text = "Because a body heals the way grass grows back after the herd has passed, a little at a time and from the roots up. Rejuvenation asks the wound to remember being whole, and that takes a few breaths; the quick healing comes later, and it costs you far more." } },
+      choices = {
+        { text = "Patience, then. I'll let it work.", next = "BACK",
+          reply = "Good, and cast it before the blow lands, not after, and you'll find it's never too slow at all.",
+          fx = { affinity = 1, align = { order = 1 } } },
+        { text = "In a real fight, slow healing gets people killed.", next = "BACK",
+          reply = "Sometimes, and then you'll want Healing Touch, and you'll pay for it in sweat. But most fights are won by the druid who started healing early.",
+          fx = { align = { order = -1 } } },
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    d_mother = {
+      lines = { { id = "dr_gmo_default", text = "I believe so, though the night elves who taught Hamuul would say it's Cenarius, or Elune, or the wild itself. I've stood in this grass every morning for thirty years, and I've never once felt it was anyone but the Earth Mother listening." } },
+      choices = {
+        { text = "Then why did we need the elves at all?", next = "d_mother2" },
+        { text = "Something else, Gart.", next = "BACK" },
+      },
+    },
+    d_mother2 = {
+      lines = { { id = "dr_gmo2_default", text = "Because we'd forgotten how to ask, young one, and they hadn't. A tauren can hear the Earth Mother all day and still not know how to become a bear; the elves kept the words for ten thousand years, and Hamuul brought them home." } },
+      choices = { { text = "Something else, Gart.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
     history = {
       lines = { { id = "h2_default", text = "The night elves did, when Hamuul Runetotem studied with Malfurion Stormrage, though our oldest stories say Cenarius walked with our ancestors long before. Today the Cenarion Circle still welcomes tauren in Moonglade, though not every elf is pleased about it." } },

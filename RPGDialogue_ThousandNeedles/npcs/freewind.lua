@@ -550,6 +550,8 @@ P:NPC {
           text = "A hunter! You'll have seen the centaur's game trails in the canyons, and I'd love to know if any of them lead near the Cloven Hoof." },
         { id = "h_default", key = true,
           text = "Rau Cliffrunner. The centaur keep a relic in their hold, the Cloven Hoof, behind a flame that never goes out. I'd very much like to know why." },
+        { id = "h_dr_travel", when = { class = "DRUID", minLevel = 30, maxLevel = 40 },
+          text = "You came across the mesas in the cheetah's shape, didn't you? I saw a spotted blur on the bridges and thought it was a very lost cat, and then I remembered what Kym Wildmane is like when she teaches." },
         { id = "h_flame", tags = { "news" }, when = { questActive = TODO_QUEST("The Sacred Flame") },
           text = "Moonwell water is the key. The dryads and the centaur share an ancestry, so water from the night elves' wells can breach that eternal flame for a little while, if whoever carries it is quick." },
         { id = "h_hoof_done", when = { questDone = TODO_QUEST("The Sacred Flame") },
@@ -572,6 +574,7 @@ P:NPC {
         { text = "How do you get moonwell water in Thousand Needles?", next = "moonwell" },
         { text = "What have you learned from the Hoof?", next = "study", when = { questDone = TODO_QUEST("The Sacred Flame") } },
         { text = "I'm a druid too. What does the Hoof feel like to you?", next = "druid", when = { class = "DRUID" } },
+        { text = "Did you learn your craft under Hamuul too, Rau?", next = "d_rau", when = { class = "DRUID" } },
         { text = "Do the spirits speak through the Cloven Hoof?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "A flame without fuel must be magic, Rau.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You think something darker answers the centaur?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -636,6 +639,19 @@ P:NPC {
       choices = {
         { text = "Tell me when you do.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    d_rau = {
+      big = true,
+      lines = { { id = "dr_rc_default", text = "I did, on Elder Rise, and I learned the bear like everyone else, though I was never much good in it. Hamuul saw that I'd rather sit with an old carving than run with the herds, and he told me the Circle needs druids who read the past as much as ones who guard the present, and I've been reading ever since." } },
+      choices = {
+        { text = "The past matters. Someone has to read it.", next = "BACK",
+          reply = "That's kind, and it's what Hamuul told me when I doubted it. The centaur carvings out here are older than Freewind, and nobody else is going to sit with them.",
+          fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A druid belongs in the wild, not with old carvings.", next = "BACK",
+          reply = "Sheal said much the same, and I've wondered it on long nights up here. But the land remembers things too, and somebody ought to listen to that part of it.",
+          fx = { align = { order = -1 } } },
+        { text = "Something else, Rau.", next = "BACK" },
       },
     },
     druid = {

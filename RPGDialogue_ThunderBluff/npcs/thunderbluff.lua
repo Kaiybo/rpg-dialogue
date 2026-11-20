@@ -970,6 +970,14 @@ P:NPC {
         { id = "h_mulgris", when = { heardLine = "mulgris.h_default" },
           text = "You met Mulgris Deepriver, in the Plaguelands. He went east to mend what the plague had broken, so tell me plainly how he was, and do not spare my feelings." },
         { id = "h_young", when = { metBefore = true }, text = "Every young druid who comes up the lift reminds me how few of us there were. I count you all, you know, and I'm not ashamed of it." },
+        { id = "h_dr_claw", when = { class = "DRUID", minLevel = 10, maxLevel = 15 },
+          text = "Turak tells me you're near the bear's shape now, or already wearing it. The first night you sleep as a bear and wake as yourself, come and tell me, because I still remember mine." },
+        { id = "h_dr_forty", when = { class = "DRUID", minLevel = 40, maxLevel = 50 },
+          text = "You've walked far enough now that the Circle will start asking things of you, and some of them will be hard. Sit with me first, because an old druid can at least tell you which of their questions to fear." },
+        { id = "h_dr_sixty", when = { class = "DRUID", minLevel = 58 },
+          text = "Look at you, standing on Elder Rise with the whole wild in your bearing. When I came home from Hyjal there were no tauren druids at all, and now the Circle in Moonglade asks after you by name." },
+        { id = "h_dr_tauren", when = { race = "Tauren", class = "DRUID", maxLevel = 9 },
+          text = "A child of the Earth Mother on the druid's path, and so young! Twenty generations of our people never heard the wild the way you are about to, so listen hard, and don't let anyone tell you it was never ours." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Malfurion once told me that the fiercest warriors he knew were the most patient, and I've found that true of the tauren as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Mulgore are the Earth Mother's children, and you walk among them closer than most." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Forgive an old druid's curiosity, but I have learned the night elves' ways and never quite understood yours, whether you pray to the loa or to the shadow." },
@@ -985,6 +993,8 @@ P:NPC {
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "DRUID" }, { heardLine = "fandral.h_default" } } } },
           fail = { next = "fandral_polite", fx = { affinity = -1 } } },
         { text = "I studied under you, Arch Druid. Am I ready for Moonglade?", next = "pupil", when = { origin = "tauren_hamuul_pupil" } },
+        { text = "Walk the druid's road with me a while, Arch Druid.", next = "d_road", when = { class = "DRUID" } },
+        { text = "Could an orc or a troll ever learn your path?", next = "d_others", when = { race = { "Orc", "Troll" } } },
         { text = "I'm a druid of the sky isles. Will the Circle have me?", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The elements speak to me. Is that so different from the wild?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Does the wild have any place for my kind?", next = "forsaken", when = { race = "Scourge" } },
@@ -1002,6 +1012,127 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Ask, ask; I'm too old to be in a hurry." },
         { id = "h_again2", text = "Go on. The old ones on the Rise won't mind a little more talk, and the grass grows whether we hurry or not." },
+      },
+    },
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_hr_default", text = "Gladly, though an old druid walks slowly, so you'll forgive me if I stop to look at things. Ask me what's on your mind, and I'll tell you what Malfurion told me, and what I've learned since that he didn't." },
+        { id = "dr_hr_tauren", when = { race = "Tauren" }, text = "Gladly, child of the plains, and it does my heart good to walk it with one of our own. Ask me what's on your mind, and I'll tell you what Malfurion taught me and what the Earth Mother taught me before him." },
+      },
+      again = {
+        { id = "dr_hr_again", text = "Another question? Ask, ask; the road is long and I've nowhere else to be." },
+        { id = "dr_hr_again2", text = "Go on, young one. Every question you bring me is one I once had to carry alone." },
+      },
+      choices = {
+        { text = "Is Mu'sha the same as the elves' Elune?", next = "d_musha" },
+        { text = "The tauren knew Cenarius before any elf taught us.", next = "d_cenarius" },
+        { text = "Why did you go to Malfurion at all?", next = "d_why" },
+        { text = "The moonkin's shape is open to me. Should a tauren take it?", next = "d_moonkin", when = { minLevel = 40 } },
+        { text = "Where is Malfurion now, Arch Druid?", next = "d_stormrage", when = { minLevel = 50 } },
+        { text = "What's left for a druid who has learned everything?", next = "d_sixty", when = { minLevel = 58 } },
+        { text = "That's enough walking for now, Arch Druid.", next = "BACK" },
+      },
+    },
+    d_musha = {
+      big = true,
+      lines = { { id = "dr_mu_default", text = "The night elves say Elune is a goddess, and we say Mu'sha is the Earth Mother's left eye, the one that watches us while we sleep. I've stood in the Temple of the Moon and in the Hall of Elders and felt the same light on my face in both, so I think we're two herds grazing the same field under different names." } },
+      choices = {
+        { text = "One light, two names. That's good enough for me.", next = "d_road",
+          reply = "And for me, though there are priestesses in Darnassus who'd turn pale to hear it. Keep it gently, and it'll keep you.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "Mu'sha is the Earth Mother's eye. The elves have it wrong.", next = "d_road",
+          reply = "Perhaps, and perhaps they'd say the same of us, and we'd both go to bed cross. Our elders taught it that way for a thousand years, and I'll not tell you to stop believing them.",
+          fx = { align = { order = 1 }, opinion = { druids = "tauren_first" } } },
+        { text = "Do the elves know what we call her?", next = "d_musha2" },
+      },
+    },
+    d_musha2 = {
+      lines = { { id = "dr_mu2_default", text = "The wise ones do, and Malfurion once asked me to tell him the whole story of An'she and Mu'sha, and he listened like a calf at the fire. The younger ones mostly think we've borrowed their goddess and given her a funny name, and I let them think it, because arguing about the moon is a poor use of the night." } },
+      choices = { { text = "Back to the road, Arch Druid.", next = "d_road", fx = { learn = { "elune" } } } },
+    },
+    d_cenarius = {
+      lines = { { id = "dr_ce_default", text = "We did, in our way. The oldest songs of the tribes tell of the white stag who walked with our ancestors in the days before the world broke, and the night elves tell of the same demigod as their first teacher. When Malfurion said the name to me, I wept, because I'd heard it from my grandmother's lips long before." } },
+      choices = {
+        { text = "Then the druid's path was always partly ours.", next = "d_cenarius2" },
+        { text = "Back to the road, Arch Druid.", next = "d_road" },
+      },
+    },
+    d_cenarius2 = {
+      lines = { { id = "dr_ce2_default", text = "Partly, yes, and I say so in Moonglade, which makes Fandral's students purse their lips. Cenarius has many children, the dryads and the keepers and, they say, the centaur too, and I think he'd have been glad to count the tauren among his students, whatever his elves decided." } },
+      choices = { { text = "Back to the road, Arch Druid.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_why = {
+      lines = { { id = "dr_wy_default", text = "Because I watched the demigods and the druids stand on Hyjal against the Legion, and I saw the bear and the storm crow fight beside our braves, and I thought: our people once heard the wild like that, and we've forgotten. So I went to Malfurion when the smoke cleared and asked him to teach me, and I kept asking until he said yes." } },
+      choices = {
+        { text = "And you brought it home to the Runetotem.", next = "d_why2" },
+        { text = "Back to the road, Arch Druid.", next = "d_road" },
+      },
+    },
+    d_why2 = {
+      lines = { { id = "dr_wy2_default", text = "To all the tribes, though the Runetotem took to it first, so now you'll find a Runetotem teaching druids in every corner of Mulgore. Turak and Sheal here on the Rise, Gennia in Bloodhoof, and Tonga out at the Crossroads trying to heal the Barrens, which is more than any one tauren can do but which he insists on doing anyway." } },
+      choices = { { text = "Back to the road, Arch Druid.", next = "d_road" } },
+    },
+    d_moonkin = {
+      big = true,
+      lines = {
+        { id = "dr_mk_default", text = "The moonkin are Elune's own creatures, and the Circle teaches their shape only to druids who have given themselves wholly to the moon and the stars. Some of the elves say a tauren in that shape is a kodo wearing an owl's feathers, and I say a druid in any shape is a druid, so take it if it calls you." },
+        { id = "dr_mk_skyborne", when = { race = "Skyborne" }, text = "The moonkin are Elune's own creatures, and the Circle teaches their shape only to druids who have given themselves wholly to the moon and the stars. Your people know the high sky better than any of us, so I suspect the moonkin will feel less strange to you than it did to me." },
+      },
+      choices = {
+        { text = "Then I'll take it, and let the elves stare.", next = "d_road",
+          reply = "Good, and wear it calmly, because the staring stops sooner when it gets nothing back. The first tauren moonkin I saw in Nighthaven made a priestess drop her lantern, and I've never laughed so hard.",
+          fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The bear and the cat are ours. I'll leave the moon to the elves.", next = "d_road",
+          reply = "That's a choice, and a respectful one, and nobody in Moonglade will think less of you for it. Innervate and the old storms are still yours, whichever shape you keep.",
+          fx = { align = { order = 1 } } },
+        { text = "Did you ever take the moonkin's shape?", next = "d_moonkin2" },
+      },
+    },
+    d_moonkin2 = {
+      lines = { { id = "dr_mk2_default", text = "Once, in Moonglade, at Malfurion's suggestion, and I spent the whole night staring at the stars like a calf at its first storm. It wasn't my shape in the end, because my heart's in the bear, but I understood the elves a great deal better the next morning." } },
+      choices = { { text = "Back to the road, Arch Druid.", next = "d_road" } },
+    },
+    d_stormrage = {
+      lines = { { id = "dr_st_default", text = "Asleep in the Emerald Dream, as he has been for a very long time, while his body rests in the barrow dens beneath Moonglade. The elves say he walks the Dream on the Circle's business, and I believe them, but lately the Dream has turned grey at its edges, and I wonder whether he can still find his way home." } },
+      choices = {
+        { text = "Then someone should go into the Dream and find him.", next = "d_stormrage2" },
+        { text = "Back to the road, Arch Druid.", next = "d_road" },
+      },
+    },
+    d_stormrage2 = {
+      big = true,
+      lines = { { id = "dr_st2_default", text = "Someone should, and I've asked Remulos who, and he gives me the patient look the keepers give everyone. A druid who goes into the Dream to fetch Malfurion may not come back as themselves; you've only to ask Nara about the Druids of the Fang to know that." } },
+      choices = {
+        { text = "Then I'd go, if the Circle asked. Someone must.", next = "d_road",
+          reply = "I know you would, and that's precisely why I'll argue against it for as long as I can. Be brave in the waking world first, young one.",
+          fx = { affinity = 1, align = { light = 1 }, trait = { brave = 1 } } },
+        { text = "Malfurion chose his sleep. Let him find his own way back.", next = "d_road",
+          reply = "That's colder than I'd like, and truer than I'd like, both at once. He did choose it, and I've no right to resent him for it, though some nights I do.",
+          fx = { align = { light = -1 } } },
+      },
+    },
+    d_sixty = {
+      lines = { { id = "dr_sx_default", text = "Everything? Ha! There's a raiment the Circle still speaks of, woven in Cenarius's name for the druids who first served him, and it was scattered in the deep places of the world long ago. Remulos would dearly love to see it on a druid's shoulders again, and I'd love it to be a tauren's, though I'd never say so in Moonglade." } },
+      choices = {
+        { text = "Then I'll go looking for it.", next = "d_road", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "Back to the road, Arch Druid.", next = "d_road" },
+      },
+    },
+    d_others = {
+      big = true,
+      lines = {
+        { id = "dr_ot_default", text = "No orc has ever asked me, and I've wondered why, because your shamans hear the elements as clearly as ours do. Perhaps the orcs had druids once, on the world you came from, and lost them with everything else, and perhaps the Circle would teach one of you if you came with Thrall's blessing and a great deal of patience. I truly don't know." },
+        { id = "dr_ot_troll", when = { race = "Troll" }, text = "I've asked myself that, because your witch doctors know the roots and the beasts better than half my students. But the kaldorei remember the old troll empires as the enemy who burned their first forests, and the Circle is their circle before it's ours, so I fear they'd sooner teach a quilboar." },
+      },
+      choices = {
+        { text = "Then speak for us in Moonglade, as Malfurion spoke for you.", next = "BACK",
+          reply = "I may, someday, when I've spent less of my credit speaking for my own. Remind me, if I seem to forget, because I'd like to be the one who says yes.",
+          fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "closed" } } },
+        { text = "My people need no elven teachers. We have our own ways.", next = "BACK",
+          reply = "You do, and they're strong ones, and the Earth Mother hears them too. I only meant that the door would be open if you ever wanted it.",
+          fx = { align = { order = 1 }, opinion = { druids = "respect" } } },
+        { text = "Something else, Arch Druid.", next = "BACK" },
       },
     },
     pupil = {
@@ -1234,6 +1365,16 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I teach the steps of balance, and you, I think, are a very strange step." },
         { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
+        { id = "h_dr_young", when = { class = "DRUID", maxLevel = 9 },
+          text = "You're early to Elder Rise, cub, and welcome all the same. Learn your Wrath and your Rejuvenation from Gart or Gennia until they come as easily as breathing, and then come back to me, because the bear is waiting at the end of that road." },
+        { id = "h_dr_call", when = { class = "DRUID", minLevel = 10, maxLevel = 13 },
+          text = "You've reached your tenth season on the path, and I can see the bear stirring behind your eyes. The Great Bear Spirit is waiting for you in Moonglade, so sit a moment, and I'll tell you how to get there." },
+        { id = "h_dr_body", when = { questActive = TODO_QUEST("Body and Heart") },
+          text = "You've the lunardust in your pack, so go west of Taurajo to the Moonkin Stone, where the Barrens give way to Mulgore. If Lunaclaw sends you home bruised, come back for more dust and don't be ashamed, because I needed two tries myself." },
+        { id = "h_dr_sealion", when = { class = "DRUID", minLevel = 16, maxLevel = 19 },
+          text = "You're ready for the water, I think, though you'll argue with me about it, because every tauren does. Ask me about the sea lion when you've the patience to hear it." },
+        { id = "h_dr_cat", when = { class = "DRUID", minLevel = 20, maxLevel = 25 },
+          text = "The cat's shape is close now; I can see it in the way you've started watching the lifts instead of riding them. Kym will be insufferable about it, so let her." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Horde" }, text = "You've been down to the bottom of Maraudon, where Princess Theradras sits in her poisoned grotto. The Circle will want to hear of it, and I'd like to hear it first, if you'll humour me." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "The call reached you, then, and good. Sit, for before you can be more than one creature, you must understand the one you are." },
@@ -1260,6 +1401,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What is the Great Balance?", next = "balance" },
         { text = "Which form should I learn to trust first?", next = "forms", when = { class = "DRUID" } },
+        { text = "Where does the druid's road take me next, Turak?", next = "d_road", when = { class = "DRUID", minLevel = 10 } },
+        { text = "Was the bear ours before the night elves ever came?", next = "d_tbear", when = { race = "Tauren", class = "DRUID" } },
+        { text = "My people have no druids. Why only the tauren?", next = "d_nodruid", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "I hunted before I heard the call, Turak.", next = "hunter", when = { class = "DRUID", origin = { "tauren_narache_hunter", "tauren_plains_runner" } } },
         { text = "The sky isles never taught me the Earth Mother.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "I'm a hunter. Is there anything you'd teach me?", next = "hunterclass", when = { class = "HUNTER" } },
@@ -1277,6 +1421,162 @@ P:NPC {
       again = {
         { id = "h_again", text = "Another question? Good; a druid who asks is a druid who's learning." },
         { id = "h_again2", text = "Sit a while longer. The Balance can wait for one more question." },
+      },
+    },
+    d_road = {
+      hub = true,
+      lines = {
+        { id = "dr_rd_default", text = "The road, then. I teach it in steps, the way a calf learns the lift, one rope at a time and never looking down, so tell me which step is in front of you." },
+        { id = "dr_rd_call", when = { questActive = TODO_QUEST("Heeding the Call") }, text = "You've heard the call, so the first step is Moonglade and the Great Bear Spirit. The rest of the road will keep until you've sat with it." },
+      },
+      again = {
+        { id = "dr_rd_again", text = "Another step? Good, because I'd rather you asked twice than fell once." },
+        { id = "dr_rd_again2", text = "Go on. The Great Balance has many steps, and I know most of them by the bruises they left me." },
+      },
+      choices = {
+        { text = "The Great Bear Spirit. What will it ask of me?", next = "d_bearspirit", when = { minLevel = 10 } },
+        { text = "Why would I want a spell to Moonglade?", next = "d_moonglade", when = { minLevel = 10 } },
+        { text = "What is a moonkin doing on the edge of Mulgore?", next = "d_lunaclaw", when = { minLevel = 10 } },
+        { text = "Why cure poison by hand before you teach me the spell?", next = "d_poison", when = { minLevel = 14 } },
+        { text = "The sea lion. Tauren don't swim, Turak.", next = "d_aquatic", when = { minLevel = 16 } },
+        { text = "The cat's shape. What will that ask of me?", next = "d_cat", when = { minLevel = 20 } },
+        { text = "That's enough of the road for now, Turak.", next = "BACK" },
+      },
+    },
+    d_bearspirit = {
+      big = true,
+      lines = { { id = "dr_bs_default", text = "It will ask you nothing at all, which is what frightens the young ones. The Great Bear Spirit sits in the woods of Moonglade, older than the tauren and older than the elves, and it simply looks at you until you understand what strength is for." } },
+      choices = {
+        { text = "Strength is for guarding others. I'll show it that.", next = "d_road",
+          reply = "It'll know before you open your mouth, but that's the answer it hopes to find in you. You'll come home lighter for having found it yourself first.",
+          fx = { affinity = 1, align = { light = 1 }, opinion = { druids = "guard" } } },
+        { text = "Strength is for winning. Any bear knows that.", next = "d_road",
+          reply = "The bear wins, yes, and then it goes back to sleep. Sit with the Spirit long enough, and you may find it cares more for the sleeping than the winning.",
+          fx = { align = { light = -1 } } },
+        { text = "What did you feel, when you met it?", next = "d_bearspirit2" },
+      },
+    },
+    d_bearspirit2 = {
+      lines = { { id = "dr_bs2_default", text = "Bewildered, if I'm honest, because I'd expected thunder and got a great old bear watching me as though I were a cub who'd wandered from the den. It was only on the road home that the weight of it settled on me, and I sat by the Moonkin Stone half a day before I could walk on." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road" } },
+    },
+    d_moonglade = {
+      lines = {
+        { id = "dr_mg_default", text = "Because a druid who knows only Mulgore knows only one corner of the Earth Mother's house. The spell to Moonglade is the first gift I give every druid at their tenth season, and it carries you to the Circle's glade in a breath, so you've no excuse not to go and listen." },
+        { id = "dr_mg_tauren", when = { race = "Tauren" }, text = "Because a druid who knows only Mulgore knows only one corner of the Earth Mother's house, and because the elves of Nighthaven should grow used to the sight of tauren hooves on their bridges. The spell carries you there in a breath, so go often, and go calmly." },
+      },
+      choices = {
+        { text = "Who will I meet in Nighthaven?", next = "d_dendrite" },
+        { text = "Back to the road, Turak.", next = "d_road" },
+      },
+    },
+    d_dendrite = {
+      lines = { { id = "dr_de_default", text = "Dendrite Starblaze, a night elf of the Circle, who has trained more young druids than I ever will. He'll look at your hooves as if he can't think how you climbed his stairs, but he's kind under it, and he sends every one of my students home knowing something I couldn't teach them." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_lunaclaw = {
+      big = true,
+      lines = {
+        { id = "dr_lc_default", text = "Moonkin aren't native to these plains, and the one that guards the stone west of Taurajo, where the Barrens give way to Mulgore, is there to test us. Scatter Cenarion Lunardust on the Moonkin Stone and Lunaclaw will come, and you'll have to earn the strength of body and heart it carries before I'll give you the bear's shape." },
+        { id = "dr_lc_done", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You've faced Lunaclaw already and come home with its strength, so you know the answer better than I could tell it. I still like to hear how my students did it, because no two of them do it the same way." },
+      },
+      choices = {
+        { text = "I'll face it squarely and win it fairly.", next = "d_road",
+          reply = "That's the heart part of the lesson, and it's the half most cubs forget. Root it before it reaches you, and keep your feet under you.",
+          fx = { align = { honor = 1 } } },
+        { text = "Roots and running. Fairness won't beat a moonkin.", next = "d_road",
+          reply = "Ha! That's the body part, and I won't pretend I didn't do exactly the same. Win it however the balance allows, but thank its spirit afterwards.",
+          fx = { align = { honor = -1 } } },
+        { text = "Why put an elven beast on tauren land?", next = "d_lunaclaw2" },
+      },
+    },
+    d_lunaclaw2 = {
+      lines = { { id = "dr_lc2_default", text = "Because the Circle wants every druid of the Claw, kaldorei or tauren, to meet one of the moon's creatures before the bear is given. A few of my people grumble that it's an elven test on our grass, and I tell them the grass doesn't mind at all, though Lunaclaw minds a great deal." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road" } },
+    },
+    d_poison = {
+      big = true,
+      lines = {
+        { id = "dr_po_default", text = "Because Cenarius gave us the gift of purging poison with a word, and a gift like that makes a druid careless of what everyone else must suffer. So Dendrite will send you to Tonga Runetotem at the Crossroads, where the gazelles are sickening, and you'll cure them the slow way, with salve and earthroot, before I teach you the quick one." },
+        { id = "dr_po_done", when = { questDone = TODO_QUEST("Power over Poison") }, text = "You've learned it already, the slow way and then the quick, and I'll confess the trouble at the Crossroads surprised me. Poison in the water is no accident, and I've asked Tonga to keep watching Dreadmist Peak." },
+      },
+      choices = {
+        { text = "Fair. A healer should know the hard way first.", next = "d_road",
+          reply = "That's the whole of the lesson, and you've said it before you've learned it, which pleases me more than I'll admit to the Arch Druid.",
+          fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A waste of days, when one word would do.", next = "d_road",
+          reply = "One word will do, soon enough, and you'll be glad of it. But the gazelle doesn't care how clever you are, only whether you came.",
+          fx = { align = { order = -1 } } },
+        { text = "Who is poisoning the water at the Crossroads?", next = "d_poison2" },
+      },
+    },
+    d_poison2 = {
+      lines = { { id = "dr_po2_default", text = "Tonga believes the Burning Blade have fouled the pools on Dreadmist Peak, northwest of the Crossroads, and that the sickness runs down with the rain. I'd believe it of them, because a cult that bows to demons has no reason to care what the gazelles drink." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road", fx = { learn = { "burning_blade" } } } },
+    },
+    d_aquatic = {
+      lines = {
+        { id = "dr_aq_default", text = "Most of us don't, and I've watched big bulls go down in the pools below the bluffs like stones. That's why Dendrite sets the Trial of the Sea Lion: one half of the pendant lies in the Sludge Fen of the northern Barrens, where the Venture Company has fouled the water, and the other on the sea floor off Silverpine, where the cold will try to crush the breath out of you." },
+        { id = "dr_aq_done", when = { questDone = TODO_QUEST("Aquatic Form") }, text = "And yet here you are with the water in you, a tauren who swims, which my grandmother would never have believed. You'll be a strange sight in the rivers, so enjoy it, and mind the crocolisks." },
+      },
+      choices = {
+        { text = "Why does a tauren need to swim at all?", next = "d_aquatic2" },
+        { text = "Back to the road, Turak.", next = "d_road" },
+      },
+    },
+    d_aquatic2 = {
+      lines = { { id = "dr_aq2_default", text = "Because the land the Earth Mother made doesn't stop at the shore, and neither does the balance. There are wrongs under the water as surely as on the plains, and somebody ought to look at them who doesn't have scales and a grudge." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road", fx = { trait = { curious = 1 } } } },
+    },
+    d_cat = {
+      big = true,
+      lines = { { id = "dr_ct_default", text = "There's a Great Cat Spirit in Moonglade as there's a Great Bear, and the cat is the one you should sit with when its shape comes to you. The bear taught you to stand, and the cat will teach you to move unseen and strike only once, which is a harder lesson for a tauren than it sounds." } },
+      choices = {
+        { text = "I'll strike once and cleanly, as the cat does.", next = "d_road",
+          reply = "Good, because the cat wastes nothing, not even its anger. Remember that when a fight runs long and you're tempted to show off.",
+          fx = { align = { honor = 1 } } },
+        { text = "I'll strike from the shadows as often as I like.", next = "d_road",
+          reply = "The cat does strike from the shadows, I'll grant you, but it's never cruel about it. Hunt, cub, and don't torment.",
+          fx = { align = { honor = -1 } } },
+        { text = "A tauren, quiet? Is that even possible?", next = "d_cat2" },
+      },
+    },
+    d_cat2 = {
+      lines = { { id = "dr_ct2_default", text = "Kym Wildmane manages it, and she's the loudest tauren I know on two legs. Ask her to take you out onto the plains at dusk and watch how the lions move, because she learned it from them and not from me." } },
+      choices = { { text = "Back to the road, Turak.", next = "d_road" } },
+    },
+    d_tbear = {
+      big = true,
+      lines = { { id = "dr_tb_default", text = "Some of the elders say so, and they point to the old stories of tauren who ran with the Earth Mother's beasts long before any of us had seen a night elf. I think they're half right: the Earth Mother gave us the hearing, Malfurion gave Hamuul the words to make sense of it, and a druid who forgets either half walks crooked." } },
+      choices = {
+        { text = "Both halves, then. I'll honor the Circle and the Earth Mother.", next = "BACK",
+          reply = "Then you'll walk straight, which is rarer than you'd think on these bluffs. Hamuul would be glad to hear you say it.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "balance" } } },
+        { text = "The Earth Mother's half is the one that matters.", next = "BACK",
+          reply = "It's the older half, I'll give you that, and the one closer to home. Just don't say it in Moonglade with your chin up, because the elves have long memories and short patience.",
+          fx = { align = { order = -1 }, opinion = { druids = "tauren_first" } } },
+        { text = "Which elders say so?", next = "d_tbear2" },
+      },
+    },
+    d_tbear2 = {
+      lines = { { id = "dr_tb2_default", text = "Magatha loudest of all, though she says it to wound Hamuul rather than to honor the old ways. A few of the Wildmane and the Ragetotem say it gently, over the fire, and those are the ones I listen to." } },
+      choices = { { text = "Something else, Turak.", next = "BACK" } },
+    },
+    d_nodruid = {
+      big = true,
+      lines = {
+        { id = "dr_nd_default", text = "The orcs came to this world with shamans and warriors, and I've never heard of an orc who walked our path. I'd not say the door is shut forever, only that the Circle is slow to open doors, and it took Malfurion's own word to open one for us." },
+        { id = "dr_nd_troll", when = { race = "Troll" }, text = "Your people have their loa, and some of your witch doctors know more about roots and beasts than they let on. But the Circle is a kaldorei thing first, and the kaldorei remember the old troll empires as their enemies, so I'd not hold my breath for them to teach a Darkspear the bear." },
+        { id = "dr_nd_scourge", when = { race = "Scourge" }, text = "The druid's path is a circle of growing and dying, and you stand outside it through no fault of your own. Hamuul believes the Forsaken can be brought back into that circle someday, but the forms are given by living spirits, and I don't think the bear would know what to make of you." },
+      },
+      choices = {
+        { text = "The Circle should open its door to all the Horde.", next = "BACK",
+          reply = "Perhaps it should, and Hamuul would agree with you over tea. The elves in Moonglade would not, and they've kept that door ten thousand years.",
+          fx = { align = { order = -1 }, opinion = { druids = "closed" } } },
+        { text = "Every people has its own path. This one's yours.", next = "BACK",
+          reply = "That's a generous thing to say, and I'll take it as it's meant. Walk your own path well, friend, and the Earth Mother will see it.",
+          fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "respect" } } },
+        { text = "Something else, Turak.", next = "BACK" },
       },
     },
     ne_turak = {
