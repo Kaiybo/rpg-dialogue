@@ -266,6 +266,7 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Deeds & deaths | `deed` id · `deaths` {min,max} · `deathCause` "falling"/"drowning"/… · `killed` {name (word or list, in the creature's name, any case), min, max} (kills by you or your party, `char.kills`; no name = every kill; 0.54.0) · `cleared` "Uldaman" / {places} / {name, not = true} (the last boss of a dungeon or raid killed, names in `World.DUNGEON_BOSSES`; deed `cleared:<place>`; 0.58.0) | 40 | hinge |
 | Origin | `origin` id | 35 | hinge |
 | Who you are | `race` · `class` (`race`+`class` together score 50) | 25 each | hinge |
+| Talent spec | `spec` = "Fire" (31+ points) / {tree = name or 1-3 or list, min, max} (unreleased; `Conditions.SPEC_TREES` English names; ctx `spec`, `talentPoints`; spoof `spec=Fire:31`) | 30 | hinge |
 | Character | `alignment` {axis, min, max} · `title` · `trait` · `opinion` {topic, stance} · `pvpRank` N (minimum) / {min,max} / true / false (honor rank 1-14, Private/Scout to Grand Marshal/High Warlord; 0.54.0) | 30 | hinge |
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
