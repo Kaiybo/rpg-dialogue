@@ -38,6 +38,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_moonbear = {
+      lines = { { id = "dr_ub_default", text = "The old one on the mountain by the lake, yes, and I know of him the way one cloud knows another, from far off and by the shadow he casts. He teaches the heart before the body, I am told, and I teach the storm within before the storm without, and I suspect we are saying the same thing in two different winds." } },
+      choices = { { text = "Something else, great spirit.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
+    },
+    d_dire = {
+      big = true,
+      lines = { { id = "dr_ud_default", text = "The spirit looks you over slowly, from your paws to your shoulders. It grew because the storms you face grew, child, and the bear grows to meet them; that is all. Do not mistake the size of the shape for the size of the heart inside it." } },
+      choices = {
+        { text = "Then I'll keep the heart larger than the shape.", next = "BACK", reply = "Good. That is the whole of my teaching, child, and it took you only a lifetime to arrive at it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The storms are bigger. The shape is what matters now.", next = "BACK", reply = "The storms are bigger, yes, and the bear must be large to meet them. Only do not forget that a large bear can still be lost.", fx = { align = { light = -1 } } },
+        { text = "Something else, great spirit.", next = "BACK" },
+      },
+    },
+    d_circle = {
+      big = true,
+      lines = { { id = "dr_uc_default", text = "That is for the shen'dorei to decide, child, not for an old bear. The druids below the clouds are many and wise and would teach you much, but they would also teach you to look at the moon, and I have watched the winds fade from this isle, and I do not know who would remember them if you all looked away." } },
+      choices = {
+        { text = "We should join them, and carry the winds with us.", next = "BACK", reply = "Then carry them carefully, child, for the winds are lighter than they used to be. Tell the old bear by the lake I said so.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Our druids should keep the winds' ways, apart from theirs.", next = "BACK", reply = "Then someone will remember the winds, at least. Learn what the Circle offers, but bring it home to this sky.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "Something else, great spirit.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Urs'endris. For more generations than your elders can count, the druids of the shen'dorei have come to this place to learn my shape. The strength I teach is not only in the arms and the back; it is in standing firm against what troubles you from outside and what troubles you from within, and that is what it is to wear my shape." },
@@ -60,6 +82,9 @@ P:NPC {
         { text = "Teach me your shape, Urs'endris.", next = "xlearn", when = { class = "DRUID" } },
         { text = "The Nightclaw kept to themselves. Why did they stop coming?", next = "xnightclaw", when = { origin = "skyborne_nightclaw" } },
         { text = "I've learned the cat's shape too.", next = "xcat", when = { class = "DRUID", form = "cat" } },
+        { text = "In Moonglade, another great bear taught me too.", next = "d_moonbear", when = { class = "DRUID", minLevel = 10 } },
+        { text = "My bear's shape has grown, Urs'endris. It's heavier now.", next = "d_dire", when = { class = "DRUID", minLevel = 40 } },
+        { text = "Should the shen'dorei druids join the Cenarion Circle?", next = "d_circle", when = { class = "DRUID" } },
         { text = "I'll leave you in peace, great spirit.", next = "END" },
       },
     },

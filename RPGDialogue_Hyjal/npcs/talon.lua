@@ -51,6 +51,49 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d_road = {
+      hub = true,
+      lines = { { id = "dr_thr_default", text = "Ask, then, and be quick about it, because a druid of the Circle on Hyjal is a druid I mean to put to work as soon as you've finished talking." } },
+      again = { { id = "dr_thr_again", text = "What else? I've a ridge to fly, but for a druid I'll make it two questions." } },
+      choices = {
+        { text = "Why don't the Talon teach your shape to the rest of us?", next = "d_shape" },
+        { text = "You don't think much of Nighthaven, do you?", next = "d_moon" },
+        { text = "Does the Arch Druid's new tree slow Nordrassil's healing?", next = "d_tree", when = { race = "NightElf" } },
+        { text = "Would the Talon ever take a tauren druid?", next = "d_tauren", when = { race = "Tauren" } },
+        { text = "That's enough about the Circle.", next = "BACK" },
+      },
+    },
+    d_shape = {
+      big = true,
+      lines = { { id = "dr_ths_default", text = "Because Aviana gives it, not us, and she gives it to very few, and the ones who get it spend the rest of their lives looking after her birds. Nighthaven would have every druid learn every shape like recipes in a book, and some shapes aren't recipes." } },
+      choices = {
+        { text = "Then it should stay with the Talon. Some gifts must be earned.", next = "d_road", reply = "Thank you! Finally somebody from Moonglade who understands that, and you can tell Loganaar I said so.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every druid ought to be able to learn every shape.", next = "d_road", reply = "Spoken like somebody who's never been bitten by an owl. Ask Aviana yourself, if you can find her shrine; I'd love to watch.", fx = { align = { order = -1 } } },
+        { text = "Back to the Circle.", next = "d_road" },
+      },
+    },
+    d_moon = {
+      big = true,
+      lines = { { id = "dr_thm_default", text = "I think Nighthaven's a lovely meadow full of druids who'd rather talk about balance than climb a mountain and do some. The Keeper's wise, I'll give him that, but wisdom doesn't pull up thornbushes or carry wounded owls down a slope." } },
+      choices = {
+        { text = "Somebody has to keep the glade. I'll defend Nighthaven.", next = "d_road", reply = "Defend it all you like; I'm not saying it should burn. I'm saying it should send me twelve more druids, and it never does.", fx = { align = { order = 1 } } },
+        { text = "You're right. The work is up here, not in a meadow.", next = "d_road", reply = "There, you see? I knew I liked you. Go and find Thylaen, and tell him I said you're useful.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Back to the Circle.", next = "d_road" },
+      },
+    },
+    d_tree = {
+      big = true,
+      lines = { { id = "dr_tht_default", text = "It heals slowly because a tree that size takes a long time to heal, and quickly would be worse, because we'd be tempted to think we'd got our long lives back. I don't mind the Arch Druid's tree half as much as the Keeper does; I mind that he thought we needed a new one more than we needed this one mended." } },
+      choices = {
+        { text = "Teldrassil was right. Our people needed a new home.", next = "d_road", reply = "Maybe they did, and maybe I'm only cross because I'm the one up here with a shovel. Go and look at the crown, though, and tell me it doesn't need us.", fx = { align = { order = 1 } } },
+        { text = "Every druid we have should be here, mending Nordrassil.", next = "d_road", reply = "Now you're talking like a Druid of the Talon! I'll find you a shovel and an owl, and you can start with whichever bites less.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Back to the Circle.", next = "d_road" },
+      },
+    },
+    d_tauren = {
+      lines = { { id = "dr_thta_default", text = "Not yet, but I'd take one in a heartbeat if you could keep up on the slopes. Hamuul's druids are patient and strong, and the owls like the way you smell, which is more than I can say for half the Circle." } },
+      choices = { { text = "Back to the Circle.", next = "d_road", fx = { affinity = 2 } } },
+    },
     op_ask = {
       big = true,
       lines = {
@@ -82,6 +125,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "dr_th_full", when = { class = "DRUID", minLevel = 58 },
+          text = "A druid who's actually finished training, up on my mountain! You've no idea how rare that is, because most of the Circle's strong ones end up in Silithus or asleep in a barrow den." },
         { id = "h_default", key = true,
           text = "I am Thisalee Crow, of the Druids of the Talon. If you came up through Darkwhisper Gorge, you've already had the worst welcome this mountain offers, so you may as well tell me what you're after." },
         { id = "h_young", when = { maxLevel = 55 },
@@ -124,6 +169,7 @@ P:NPC {
         { text = "What hunts on these slopes?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Does the Horde have friends up here?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Archimonde fell on this mountain. Were you here?", next = "kal_arch", when = { race = "NightElf" } },
+        { text = "Tell me how the Talon sits with the rest of the Circle.", next = "d_road", when = { class = "DRUID" } },
         { text = "Fair winds, Thisalee.", next = "END" },
       },
     },
@@ -463,6 +509,7 @@ P:NPC {
   },
 
   topics = {
+    druids = { { id = "tp_dr_druids", text = "Too many sit in meadows and too few climb mountains, and you can tell the Keeper I said so. The ones who climb are the best people I know." } },
     _gated = {
       { id = "gt1", text = "I'm not telling you that, not yet. I talk too much as it is, and I've learned to save some of it for people I trust." },
       { id = "gt2", text = "No, that one's not for strangers. Do something for the mountain first, and then we'll see." },
