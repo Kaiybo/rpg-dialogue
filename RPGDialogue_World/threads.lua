@@ -1576,3 +1576,292 @@ P:Thread {
     },
   },
 }
+
+-- The druid who stayed a bear (Alliance druids, 10-45). Aelthas Leafwhisper (original), Mardant's
+-- best student in Shadowglen, went into the bear to drive the maddened Gnarlpine back from
+-- Dolanaar and never quite came out of it. Mathrengyl sent him to Moonglade; the Great Bear
+-- Spirit let him go; Tharnariun has seen him among the sick bears of Darkshore, and the dryad
+-- Shael'dryn says he guards Ashenvale's groves from the loggers. Dendrite Starblaze must decide
+-- whether the Circle fetches him home or lets him find his own way back; the ending follows
+-- the player's opinion of druids (views on `druids` in views_5.lua).
+P:Thread {
+  id = "dru_alliance",
+  theme = "A young night elf druid went into the bear to save his village and has not come back out, and the Circle must decide whether to fetch him home or let the wild keep him.",
+  title = "The one who stayed a bear",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Mardant's best student, Aelthas Leafwhisper, took the bear's shape to drive the maddened Gnarlpine away from Dolanaar. That was two winters ago, and nobody has seen him on two feet since.",
+      third = "{name} heard of Aelthas Leafwhisper, a young druid of Shadowglen who took the bear's shape to save Dolanaar and never took it off." },
+    unfolding = { first = "Aelthas has gone from Teldrassil to Moonglade to Darkshore's sick bears and on into Ashenvale, and he guards the groves there now, as a bear, from anyone with an axe. Dendrite Starblaze in Moonglade has to decide whether the Circle should go and bring him home.",
+      third = "{name} followed Aelthas Leafwhisper's tracks from Teldrassil to Ashenvale, where he guards the groves as a bear, and learned that Dendrite Starblaze must decide whether to fetch him home." },
+    resolved = { first = "Dendrite heard what I'd said of druids, that we keep a balance and can be trusted to find it, and she sent Aelthas an invitation instead of a hunting party. He walked into Moonglade on two feet a week later, and he hasn't said much, but he's sleeping indoors.",
+      third = "{name} spoke up for the druids' balance, and Dendrite Starblaze let Aelthas Leafwhisper find his own way back to Moonglade, which he did, on two feet." },
+    soured = { first = "Dendrite heard me say that druids who live as beasts forget they were ever people, and she sent the Circle to fetch Aelthas home in roots. He's back in Darnassus, and he speaks when spoken to, and he looks out of the window at the trees all day.",
+      third = "{name} said that shapeshifters forget themselves, and Dendrite Starblaze had Aelthas Leafwhisper brought home from Ashenvale by force." },
+  },
+  npcs = { "mardant", "kal", "mathrengyl", "great_bear", "tharnariun", "shaeldryn", "dendrite" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player spoke for the druids' balance, and Dendrite let Aelthas Leafwhisper find his own way out of the bear and home to Moonglade.",
+    soured = "The player said shapeshifters forget themselves, and Dendrite had Aelthas Leafwhisper brought home from Ashenvale by force.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Mardant taught him the bear, the Spirit let him keep it, and the sick bears of Darkshore and the groves of Ashenvale gave him reasons to stay in it. Every druid I've met keeps one ear on the way back.",
+    third = "{name} had followed Aelthas Leafwhisper's tracks from Shadowglen to Ashenvale, and found that every druid keeps one ear on the way back to their own shape.",
+  },
+  beats = {
+    {
+      id = "b1_mardant", npc = "mardant",
+      when = { class = "DRUID", faction = "Alliance", minLevel = 8, thread = { id = "dru_alliance", notBeat = "b1_mardant" }, ["not"] = { thread = { id = "dru_alliance", beat = "b1_kal" } } },
+      text = "Every young druid who comes through Aldrassil reminds me of Aelthas Leafwhisper, and you more than most. When the Gnarlpine went mad and came down on Dolanaar, he took the bear's shape before he'd ever been to Moonglade and drove them back into the hills alone. He never came back out of it, and when the Enclave sent for him, he went to Darnassus on four feet.",
+      fx = { thread = { id = "dru_alliance", beat = "b1_mardant", state = "stirring" }, learn = { "furbolgs" } },
+    },
+    {
+      id = "b1_kal", npc = "kal",
+      when = { class = "DRUID", faction = "Alliance", minLevel = 8, thread = { id = "dru_alliance", notBeat = "b1_kal" }, ["not"] = { thread = { id = "dru_alliance", beat = "b1_mardant" } } },
+      text = "Do you see the claw marks on the moonwell's rim? A young druid called Aelthas made those, the night the Gnarlpine came down the hill at Dolanaar. He held them back as a bear until dawn, and when the sun came up he was still a bear, and he has been one ever since.",
+      fx = { thread = { id = "dru_alliance", beat = "b1_kal", state = "stirring" }, learn = { "furbolgs" } },
+    },
+    {
+      id = "b2_mathrengyl", npc = "mathrengyl",
+      when = { class = "DRUID", any = { { thread = { id = "dru_alliance", beat = "b1_mardant" } }, { thread = { id = "dru_alliance", beat = "b1_kal" } } },
+               ["not"] = { thread = { id = "dru_alliance", beat = "b2_mathrengyl" } } },
+      text = "Aelthas, yes. He came into the Enclave on four feet and lay down in front of my bench, and I spoke to him for an hour and he listened to every word without being able to answer one. I sent him to Moonglade, to the Great Bear Spirit, because if anything can talk a druid back out of the bear, it will be the bear itself.",
+      fx = { thread = { id = "dru_alliance", beat = "b2_mathrengyl", state = "unfolding" }, learn = { "cenarion_circle" } },
+    },
+    {
+      id = "b3_great_bear", npc = "great_bear",
+      when = { class = "DRUID", minLevel = 10, thread = { id = "dru_alliance", beat = "b2_mathrengyl" }, ["not"] = { thread = { id = "dru_alliance", beat = "b3_great_bear" } } },
+      text = "The young one from the tree came to me, and he was more bear than most bears I have known. I did not drive him out of the shape, because a shape is not a prison unless the one inside it calls it one. He went south across the water to where the bears are sick, and I let him go.",
+      fx = { thread = { id = "dru_alliance", beat = "b3_great_bear" } },
+    },
+    {
+      id = "b4_tharnariun", npc = "tharnariun",
+      when = { class = "DRUID", minLevel = 14, thread = { id = "dru_alliance", beat = "b3_great_bear" }, ["not"] = { thread = { id = "dru_alliance", beat = "b4_tharnariun" } } },
+      text = "There's a bear that comes down to my pens at night and lies beside the sick ones, and it lets me work, which no wild bear of Darkshore has done in a year. It wears a druid's mark under the fur, and when I called it Aelthas, it looked at me for a long moment and then went back into the trees. It went south, towards Ashenvale, and I haven't seen it since.",
+      fx = { thread = { id = "dru_alliance", beat = "b4_tharnariun" } },
+    },
+    {
+      id = "b5_shaeldryn", npc = "shaeldryn",
+      when = { class = "DRUID", minLevel = 20, thread = { id = "dru_alliance", beat = "b4_tharnariun" }, ["not"] = { thread = { id = "dru_alliance", beat = "b5_shaeldryn" } } },
+      text = "The bear with the druid's eyes? He guards the groves east of here now, and any orc who brings an axe near them comes home without it. I am a daughter of Cenarius and I should be glad of him, and I am, but he no longer answers to his name. Dendrite Starblaze in Moonglade has been asking after him, and I think she means to decide something.",
+      fx = { thread = { id = "dru_alliance", beat = "b5_shaeldryn" }, learn = { "ashenvale", "warsong" } },
+    },
+    {
+      id = "b6_dendrite", npc = "dendrite",
+      when = { class = "DRUID", minLevel = 20, thread = { id = "dru_alliance", beat = "b5_shaeldryn" }, ["not"] = { thread = { id = "dru_alliance", beat = "b6_dendrite" } } },
+      text = "Aelthas has been in the bear for two winters now, and Shael'dryn says he guards Ashenvale better than a company of Sentinels. Half the Circle wants him fetched home in roots before he forgets his own name for good, and the other half says a druid who finds the balance in a bear's shape has found it all the same. Moonglade is a small place, so whatever you think of druids, I'll hear it soon enough.",
+      fx = { thread = { id = "dru_alliance", beat = "b6_dendrite" }, learn = { "druids" } },
+    },
+    {
+      id = "b7_dendrite_trust", npc = "dendrite",
+      when = { class = "DRUID", thread = { id = "dru_alliance", beat = "b6_dendrite" },
+               opinion = { topic = "druids", stance = { "balance", "kin", "admire", "guard" } },
+               ["not"] = { any = { { thread = { id = "dru_alliance", beat = "b7_dendrite_trust" } }, { thread = { id = "dru_alliance", beat = "b7_dendrite_fetch" } } } } },
+      text = "I heard what you've been saying of druids, that we keep the balance and can be trusted to find it, and I sent Aelthas an invitation instead of a hunting party. He walked into the glade on two feet a week later, thin and quiet, and asked for a blanket. He hasn't said much since, but he's sleeping indoors.",
+      fx = { thread = { id = "dru_alliance", beat = "b7_dendrite_trust", state = "resolved" }, standing = { nighthaven = 3 } },
+    },
+    {
+      id = "b7_dendrite_fetch", npc = "dendrite",
+      when = { class = "DRUID", thread = { id = "dru_alliance", beat = "b6_dendrite" },
+               opinion = { topic = "druids", stance = { "savage", "wary" } },
+               ["not"] = { any = { { thread = { id = "dru_alliance", beat = "b7_dendrite_trust" } }, { thread = { id = "dru_alliance", beat = "b7_dendrite_fetch" } } } } },
+      text = "I hear you've been saying that a druid who lives as a beast forgets he was ever a person, and the elders who wanted him fetched took heart from it. They brought Aelthas home in roots, and he's in Darnassus now, back in his own shape. He answers when he's spoken to, and the rest of the time he looks out of the window at the trees.",
+      fx = { thread = { id = "dru_alliance", beat = "b7_dendrite_fetch", state = "soured" } },
+    },
+  },
+}
+
+-- The druid and the Fang (Horde druids, 10-45). Mahka Dawnhoof (original), a young tauren
+-- druid from Camp Narache, heard in Moonglade what became of Naralex's disciples, the Druids of
+-- the Fang, and went to the Barrens to see for herself. The Crossroads' orcs have distrusted
+-- druids ever since the Fang, and Mahka now plants saplings in the Venture Company's stump
+-- fields at Sun Rock. Hamuul must decide whether to send her to sit at the Circle's fire in
+-- Moonglade or keep her on the Elder Rise where the Horde can see her; the ending follows the
+-- player's opinion of druids (views on `druids`).
+P:Thread {
+  id = "dru_horde",
+  theme = "A young tauren druid went looking for what turned the Druids of the Fang, and the Horde, who remember the Fang, must decide whether to trust her.",
+  title = "The druid and the Fang",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "A young druid of Camp Narache called Mahka Dawnhoof came back from Moonglade with a question nobody would answer: how Naralex's disciples, druids like her, became the Druids of the Fang. She went down to the Barrens to find out.",
+      third = "{name} heard of Mahka Dawnhoof, a young tauren druid who went to the Barrens to learn how the Druids of the Fang went wrong." },
+    unfolding = { first = "Mahka sat by the poisoned oases with Naralex's last disciple, and the orcs at the Crossroads watched her as if she might grow fangs herself. Now she plants saplings in the goblins' stump fields in Stonetalon, and Hamuul Runetotem has to decide where she belongs.",
+      third = "{name} followed Mahka Dawnhoof from the Barrens' oases to Stonetalon's stump fields, and learned that Hamuul Runetotem must decide where she belongs." },
+    resolved = { first = "Hamuul heard what I'd been saying of druids, that we are kin to the land and keep its balance, and he sent Mahka to Moonglade to sit at the Circle's fire for our people. The orcs at the Crossroads grumbled, and then they asked her to look at their well.",
+      third = "{name} spoke for druids as keepers of the balance, and Hamuul Runetotem sent Mahka Dawnhoof to sit at the Circle's fire in Moonglade." },
+    soured = { first = "Hamuul heard me say that druids who walk as beasts are only a step from the Fang, and he called Mahka home to the Elder Rise, where the Horde can see her. She plants nothing now, and she studies, and she does not argue.",
+      third = "{name} said druids walk too close to the Fang's road, and Hamuul Runetotem called Mahka Dawnhoof home to the Elder Rise." },
+  },
+  npcs = { "gart", "gennia", "turak", "great_bear", "tonga", "tsunaman", "hamuul" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player spoke for druids as keepers of the balance, and Hamuul sent Mahka Dawnhoof to sit at the Circle's fire in Moonglade.",
+    soured = "The player said druids walk too close to the Fang's road, and Hamuul called Mahka Dawnhoof home to the Elder Rise.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Gart taught her the bear, Turak sent her north, Tonga let her taste the poisoned water, and the stumps at Sun Rock showed her what a druid is for. The Horde will be a long time forgiving the Fang, and every druid of the plains carries a little of that debt.",
+    third = "{name} had followed Mahka Dawnhoof from Camp Narache to Sun Rock, and found that every Horde druid carries a little of the Fang's debt.",
+  },
+  beats = {
+    {
+      id = "b1_gart", npc = "gart",
+      when = { class = "DRUID", faction = "Horde", minLevel = 6, thread = { id = "dru_horde", notBeat = "b1_gart" }, ["not"] = { thread = { id = "dru_horde", beat = "b1_gennia" } } },
+      text = "The last young druid I sent down from Narache was Mahka Dawnhoof, and she listened to the plains better than I do. She went to Thunder Bluff and then to Moonglade, and she came back with a question in her eyes that I could not answer, about the druids who went into the caves of the Barrens and came out as something else.",
+      fx = { thread = { id = "dru_horde", beat = "b1_gart", state = "stirring" }, learn = { "wailing_caverns" } },
+    },
+    {
+      id = "b1_gennia", npc = "gennia",
+      when = { class = "DRUID", faction = "Horde", minLevel = 6, thread = { id = "dru_horde", notBeat = "b1_gennia" }, ["not"] = { thread = { id = "dru_horde", beat = "b1_gart" } } },
+      text = "Mahka Dawnhoof trained here, under this very roof, and she was the quickest to the bear's shape I have seen in many seasons. When she came home from Moonglade she asked me how a druid becomes one of the Fang, and I told her I did not know, and she went to the Barrens to find someone who did.",
+      fx = { thread = { id = "dru_horde", beat = "b1_gennia", state = "stirring" }, learn = { "wailing_caverns" } },
+    },
+    {
+      id = "b2_turak", npc = "turak",
+      when = { class = "DRUID", any = { { thread = { id = "dru_horde", beat = "b1_gart" } }, { thread = { id = "dru_horde", beat = "b1_gennia" } } },
+               ["not"] = { thread = { id = "dru_horde", beat = "b2_turak" } } },
+      text = "I sent Mahka to Moonglade, as I sent you, and the kaldorei there told her about Naralex and his disciples, who went into the earth to heal the Barrens and came out mad. She asked me whether the same thing could happen to her, and I said no, and I am not as sure as I sounded. The Earth Mother gives us these shapes, little one, but she does not promise that we will always know ourselves inside them.",
+      fx = { thread = { id = "dru_horde", beat = "b2_turak", state = "unfolding" }, learn = { "cenarion_circle" } },
+    },
+    {
+      id = "b3_great_bear", npc = "great_bear",
+      when = { class = "DRUID", faction = "Horde", minLevel = 10, thread = { id = "dru_horde", beat = "b2_turak" }, ["not"] = { thread = { id = "dru_horde", beat = "b3_great_bear" } } },
+      text = "The young one of the plains asked me whether the bear could go mad, as the ones of the Fang went mad. I told her the bear is never mad; it is the dreamer who loses the way, when the dream itself is sick. She thanked me, and went south to see the sick dream for herself, which was brave or foolish or both.",
+      fx = { thread = { id = "dru_horde", beat = "b3_great_bear" }, learn = { "emerald_dream" } },
+    },
+    {
+      id = "b4_tonga", npc = "tonga",
+      when = { class = "DRUID", minLevel = 14, thread = { id = "dru_horde", beat = "b3_great_bear" }, ["not"] = { thread = { id = "dru_horde", beat = "b4_tonga" } } },
+      text = "Mahka sat by the poisoned oases with Naralex's last disciple for a month, tasting the water and writing down what the plants did. The grunts at the Crossroads watched her as though she might grow fangs over supper, because they remember what came out of those caves. She left for Stonetalon in the end, saying a druid should mend something before she studies what's broken.",
+      fx = { thread = { id = "dru_horde", beat = "b4_tonga" } },
+    },
+    {
+      id = "b5_tsunaman", npc = "tsunaman",
+      when = { class = "DRUID", minLevel = 20, thread = { id = "dru_horde", beat = "b4_tonga" }, ["not"] = { thread = { id = "dru_horde", beat = "b5_tsunaman" } } },
+      text = "The young druid from Mulgore? She plants saplings in the stumps the goblins leave behind, one at a time, and sings to them, and some of them have taken. A few of the orcs who pass through call it witchery and spit when she isn't looking. Hamuul has written asking after her, and I think the Arch Druid means to decide what's to be done with her.",
+      fx = { thread = { id = "dru_horde", beat = "b5_tsunaman" }, learn = { "venture_company" } },
+    },
+    {
+      id = "b6_hamuul", npc = "hamuul",
+      when = { class = "DRUID", minLevel = 20, thread = { id = "dru_horde", beat = "b5_tsunaman" }, ["not"] = { thread = { id = "dru_horde", beat = "b6_hamuul" } } },
+      text = "Mahka has done more good in a season at Sun Rock than some of our elders in a lifetime, and the Keeper has asked me to send her to sit at the Circle's fire in Moonglade. The Warchief's people remember the Fang, though, and they ask whether a tauren who walks as a beast should be kept close to home, where the Horde can see her. Thunder Bluff hears everything on the wind, so whatever you think of druids, it will reach me.",
+      fx = { thread = { id = "dru_horde", beat = "b6_hamuul" }, learn = { "druids" } },
+    },
+    {
+      id = "b7_hamuul_send", npc = "hamuul",
+      when = { class = "DRUID", thread = { id = "dru_horde", beat = "b6_hamuul" },
+               opinion = { topic = "druids", stance = { "balance", "kin", "admire", "guard" } },
+               ["not"] = { any = { { thread = { id = "dru_horde", beat = "b7_hamuul_send" } }, { thread = { id = "dru_horde", beat = "b7_hamuul_keep" } } } } },
+      text = "The wind brought me what you've been saying of druids, that we are kin to the land and keepers of its balance, and I found I agreed with every word. Mahka sits at the Circle's fire in Moonglade now, for our people, and the orcs at the Crossroads grumbled about it for a week and then asked her to look at their well.",
+      fx = { thread = { id = "dru_horde", beat = "b7_hamuul_send", state = "resolved" }, standing = { thunder_bluff = 3 } },
+    },
+    {
+      id = "b7_hamuul_keep", npc = "hamuul",
+      when = { class = "DRUID", thread = { id = "dru_horde", beat = "b6_hamuul" },
+               opinion = { topic = "druids", stance = { "savage", "wary" } },
+               ["not"] = { any = { { thread = { id = "dru_horde", beat = "b7_hamuul_send" } }, { thread = { id = "dru_horde", beat = "b7_hamuul_keep" } } } } },
+      text = "I hear you've been saying that druids who walk as beasts are only a step from the Fang, and the Warchief's people repeat it to me as though it were wisdom. I have called Mahka home to the Elder Rise, where the Horde can see her, and she studies and does not argue. The saplings at Sun Rock are dying without her, and I try not to think about it.",
+      fx = { thread = { id = "dru_horde", beat = "b7_hamuul_keep", state = "soured" } },
+    },
+  },
+}
+
+-- Two at the same fire (druids of either faction, 30-60). Ilaren Shadebough (original, kaldorei)
+-- and Tavi Plainsong (original, tauren) cleansed Felwood's soil together at the Emerald
+-- Sanctuary, then went to Cenarion Hold when the Circle called for druids in Silithus. Now
+-- Darnassus wants Ilaren home for the Ashenvale war and Thunder Bluff wants Tavi beside the
+-- Horde, and Keeper Remulos must decide whether the Circle claims them both or lets the banners
+-- take them back. The ending follows the player's opinion of the Cenarion Circle (views on
+-- `cenarion_circle` in views_2.lua and views_5.lua).
+P:Thread {
+  id = "dru_circle",
+  theme = "A kaldorei druid and a tauren druid have mended the Circle's worst places side by side, and their peoples want them back on opposite sides of a war.",
+  title = "Two at the same fire",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Two druids of the Circle, Ilaren Shadebough of the kaldorei and Tavi Plainsong of the tauren, have worked side by side for three years, wherever the land is sickest. Moonglade speaks of them the way it speaks of weather it approves of.",
+      third = "{name} heard of Ilaren Shadebough and Tavi Plainsong, a kaldorei and a tauren druid who mend the land's worst places side by side." },
+    unfolding = { first = "Ilaren and Tavi cleansed Felwood's soil at the Emerald Sanctuary and then went to Cenarion Hold in Silithus, where the Sentinels and the Horde's soldiers barely speak. Now Darnassus wants Ilaren home for the Ashenvale war and Thunder Bluff wants Tavi beside the Horde, and Keeper Remulos has to choose.",
+      third = "{name} followed Ilaren Shadebough and Tavi Plainsong from Felwood to Silithus, and learned that Keeper Remulos must decide whether the Circle or the banners keep them." },
+    resolved = { first = "Remulos heard what I'd been saying of the Circle, that it stands above banners, and he wrote to Darnassus and Thunder Bluff both that Ilaren and Tavi belong to the wild. They are back at Cenarion Hold, arguing about soil, and neither banner has come to fetch them.",
+      third = "{name} spoke up for the Cenarion Circle, and Keeper Remulos kept Ilaren Shadebough and Tavi Plainsong together at Cenarion Hold." },
+    soured = { first = "Remulos heard me say the Circle cares more for weeds than for people, and he said that if the world's druids think so, he cannot hold two of them against their peoples. Ilaren went home to Ashenvale and Tavi to the Barrens, and they write to each other, I'm told, across the front.",
+      third = "{name} said the Circle cares more for groves than for people, and Keeper Remulos let Ilaren Shadebough and Tavi Plainsong go back to their banners." },
+  },
+  npcs = { "rabine", "loganaar", "arathandris", "greta", "bor_wildmane", "proudhorn", "remulos" },
+  states = { "dormant", "stirring", "unfolding", "resolved", "soured" },
+  endings = {
+    resolved = "The player spoke for the Circle above banners, and Remulos kept Ilaren Shadebough and Tavi Plainsong together at Cenarion Hold.",
+    soured = "The player said the Circle cares more for groves than people, and Remulos let Ilaren and Tavi go back to their banners.",
+  },
+  pacing = { minConversations = 3, minSeconds = 1500 },
+  reflection = {
+    first = "Felwood's soil, Silithus's sand and the Keeper's glade: wherever the land was sickest, an elf and a tauren were kneeling in it together. The banners never once asked what the land wanted.",
+    third = "{name} had followed two druids of the Circle from Felwood to Silithus, and found that the banners never asked what the land wanted.",
+  },
+  beats = {
+    {
+      id = "b1_rabine", npc = "rabine",
+      when = { class = "DRUID", minLevel = 30, thread = { id = "dru_circle", notBeat = "b1_rabine" }, ["not"] = { thread = { id = "dru_circle", beat = "b1_loganaar" } } },
+      text = "If you mean to be of use to the Circle, you could do worse than to follow Ilaren Shadebough and Tavi Plainsong, though you'll have trouble keeping up. A kaldorei and a tauren, and they've worked side by side for three years wherever the land is sickest. They were at the Emerald Sanctuary in Felwood last I heard, up to their elbows in poisoned soil.",
+      fx = { thread = { id = "dru_circle", beat = "b1_rabine", state = "stirring" }, learn = { "cenarion_circle" } },
+    },
+    {
+      id = "b1_loganaar", npc = "loganaar",
+      when = { class = "DRUID", minLevel = 30, thread = { id = "dru_circle", notBeat = "b1_loganaar" }, ["not"] = { thread = { id = "dru_circle", beat = "b1_rabine" } } },
+      text = "You've heard of Ilaren and Tavi? An elf and a tauren who came through this glade together three years ago and haven't been apart since, which some of the elders find touching and some find suspicious. They went to Felwood, to the Emerald Sanctuary, and Moonglade has had good news from that forest for the first time in a long while.",
+      fx = { thread = { id = "dru_circle", beat = "b1_loganaar", state = "stirring" }, learn = { "cenarion_circle" } },
+    },
+    {
+      id = "b2_arathandris", npc = "arathandris",
+      when = { class = "DRUID", minLevel = 45, any = { { thread = { id = "dru_circle", beat = "b1_rabine" } }, { thread = { id = "dru_circle", beat = "b1_loganaar" } } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b2_arathandris" } }, { thread = { id = "dru_circle", beat = "b2_greta" } } } } },
+      text = "Ilaren and Tavi cleansed the ground behind the sanctuary, a patch no bigger than a cottage, and it took them a whole season. The tauren sang to it and the elf argued with it, and between them something green came up. Then the Circle sent word from Silithus that the Hold needed every druid it could get, and they went the same week.",
+      fx = { thread = { id = "dru_circle", beat = "b2_arathandris", state = "unfolding" }, learn = { "fel_moss" } },
+    },
+    {
+      id = "b2_greta", npc = "greta",
+      when = { class = "DRUID", minLevel = 45, any = { { thread = { id = "dru_circle", beat = "b1_rabine" } }, { thread = { id = "dru_circle", beat = "b1_loganaar" } } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b2_arathandris" } }, { thread = { id = "dru_circle", beat = "b2_greta" } } } } },
+      text = "Tavi Plainsong was here, yes, with her kaldorei friend, and they planted the first living seedlings this sanctuary has seen. The Sentinels at Talonbranch frowned at her and the orcs at Bloodvenom frowned at him, and the two of them frowned at nobody, because they were busy. They've gone to Silithus now, where I hear the frowning is worse.",
+      fx = { thread = { id = "dru_circle", beat = "b2_greta", state = "unfolding" }, learn = { "fel_moss" } },
+    },
+    {
+      id = "b3_bor", npc = "bor_wildmane",
+      when = { class = "DRUID", minLevel = 52, any = { { thread = { id = "dru_circle", beat = "b2_arathandris" } }, { thread = { id = "dru_circle", beat = "b2_greta" } } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b3_bor" } }, { thread = { id = "dru_circle", beat = "b3_proudhorn" } } } } },
+      text = "Ilaren and Tavi are the best two druids I have at the Hold, and they are about to be taken from me. A letter came from Darnassus calling Ilaren home to fight in Ashenvale, and another from Thunder Bluff asking why Tavi keeps company with the night elves while the Horde bleeds. The Keeper alone can say whether the Circle keeps them, and he has not said.",
+      fx = { thread = { id = "dru_circle", beat = "b3_bor" }, learn = { "silithid" } },
+    },
+    {
+      id = "b3_proudhorn", npc = "proudhorn",
+      when = { class = "DRUID", minLevel = 52, any = { { thread = { id = "dru_circle", beat = "b2_arathandris" } }, { thread = { id = "dru_circle", beat = "b2_greta" } } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b3_bor" } }, { thread = { id = "dru_circle", beat = "b3_proudhorn" } } } } },
+      text = "The wind brings me two letters for every one I send, and lately they are all about Tavi Plainsong and her elf. The kaldorei want theirs back for the war in Ashenvale, and the Horde wants ours back for the same war from the other side. I have sent both letters to Moonglade, to the Keeper, because I will not be the one who parts them.",
+      fx = { thread = { id = "dru_circle", beat = "b3_proudhorn" }, learn = { "silithid" } },
+    },
+    {
+      id = "b4_remulos", npc = "remulos",
+      when = { class = "DRUID", minLevel = 55, any = { { thread = { id = "dru_circle", beat = "b3_bor" } }, { thread = { id = "dru_circle", beat = "b3_proudhorn" } } },
+               ["not"] = { thread = { id = "dru_circle", beat = "b4_remulos" } } },
+      text = "I have letters from Darnassus and from Thunder Bluff on my table, and both ask for the same two druids back. The Circle has always stood above banners, or said it did, but I cannot hold a druid against the will of their own people if the world's druids no longer believe the Circle is worth it. Tell the glade what you think of us, druid; I will hear it from the wind before you are halfway home.",
+      fx = { thread = { id = "dru_circle", beat = "b4_remulos" }, learn = { "emerald_dream" } },
+    },
+    {
+      id = "b5_remulos_keep", npc = "remulos",
+      when = { class = "DRUID", thread = { id = "dru_circle", beat = "b4_remulos" },
+               opinion = { topic = "cenarion_circle", stance = { "admire", "trust" } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b5_remulos_keep" } }, { thread = { id = "dru_circle", beat = "b5_remulos_release" } } } } },
+      text = "The wind carried your words to me, that the Circle is worth more than a banner, and I wrote to Darnassus and Thunder Bluff both that Ilaren and Tavi belong to the wild. Neither has answered, which I take for consent. The two of them are back at the Hold, arguing about soil, and I have rarely been gladder of an argument.",
+      fx = { thread = { id = "dru_circle", beat = "b5_remulos_keep", state = "resolved" }, standing = { nighthaven = 3 } },
+    },
+    {
+      id = "b5_remulos_release", npc = "remulos",
+      when = { class = "DRUID", thread = { id = "dru_circle", beat = "b4_remulos" },
+               opinion = { topic = "cenarion_circle", stance = { "distrust" } },
+               ["not"] = { any = { { thread = { id = "dru_circle", beat = "b5_remulos_keep" } }, { thread = { id = "dru_circle", beat = "b5_remulos_release" } } } } },
+      text = "I hear you think the Circle cares more for groves than for people, and if the world's own druids say so, I cannot hold two of them against their peoples. Ilaren has gone home to Ashenvale and Tavi to the Barrens. They write to each other across the front, I am told, and I have asked the wind to carry the letters gently.",
+      fx = { thread = { id = "dru_circle", beat = "b5_remulos_release", state = "soured" } },
+    },
+  },
+}

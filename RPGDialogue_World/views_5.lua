@@ -698,3 +698,72 @@ P:Views { topic = "mages", views = {
     { id = "b", text = "And a fair few were stopped by one too, so it cuts both ways. Ask anyone who stood at Hyjal with Lady Jaina." },
   } },
 } }
+
+-- Druid patch: what the player says back about druids and shapeshifters. The druid Stories in
+-- threads.lua end on these stances: balance, kin, admire or guard on one side, savage or wary
+-- on the other.
+P:Views { topic = "druids", views = {
+  { id = "kin", when = { race = "NightElf" }, text = "The druids are our fathers and brothers. They woke to save us all.", fx = { opinion = { druids = "kin" }, trait = { pious = 1 } }, replies = {
+    { id = "a", text = "Woke from a very long sleep, aye, and just in time for Hyjal. I'll grant them that much and gladly.", fx = { affinity = 1 } },
+    { id = "b", text = "And slept through a good few centuries before that, while your Sentinels kept the watch. Your sisters must have had a word or two to say about it." },
+    { id = "c", when = { zone = { "Darnassus", "Teldrassil" } }, text = "Elune-adore. Every family in Darnassus has a son in the Dream or a daughter on the walls, and we owe them both.", fx = { affinity = 1 } },
+  } },
+  { id = "earth", when = { race = "Tauren" }, text = "Hamuul brought the old ways home. Our druids are the Earth Mother's hands.", fx = { opinion = { druids = "kin" }, trait = { pious = 1 } }, replies = {
+    { id = "a", text = "So the tauren say, and I've seen one of your druids bring a dying kodo to its feet, so I'll not argue.", fx = { affinity = 1 } },
+    { id = "b", text = "The night elves taught them, mind. Ask in Moonglade who the Earth Mother's hands belong to, and you'll get a long answer." },
+  } },
+  { id = "winds", when = { race = "Skyborne" }, text = "Our druids hear the winds first. The Circle's moon is a cousin to them.", fx = { opinion = { druids = "kin" }, trait = { curious = 1 } }, replies = {
+    { id = "a", text = "A cousin, is it? Then I hope the family gets along better than most families I know.", fx = { affinity = 1 } },
+    { id = "b", text = "The Circle might put it differently, though they're too polite to say so in front of you." },
+  } },
+  { id = "balance", when = { class = "DRUID" }, text = "We keep the balance, because someone has to and nobody else will.", fx = { opinion = { druids = "balance" }, trait = { proud = 1 } }, replies = {
+    { id = "a", text = "Someone has to, true enough, and I'd sooner it were you than the goblins. Keep at it, {class}.", fx = { affinity = 1 } },
+    { id = "b", text = "Balance, you call it. The loggers I know call it standing in the way of an honest day's work." },
+    { id = "c", when = { disposition = { max = 34 } }, text = "That's what every druid says, right before he turns into something with teeth." },
+  } },
+  { id = "healers", text = "A druid kept me breathing once. I'll hear nothing said against them.", fx = { opinion = { druids = "admire" }, trait = { kind = 1 } }, replies = {
+    { id = "a", text = "They're good at that, I'll grant. A priest prays over you, but a druid just gets on with it.", fx = { affinity = 1 } },
+    { id = "b", text = "Kept you breathing, and then went off to sleep under a tree for a week. They're strange folk, even the good ones." },
+  } },
+  { id = "guard", text = "The druids are right to guard the wild, even against kings.", fx = { opinion = { druids = "guard" }, trait = { brave = 1 }, align = { order = -1 } }, replies = {
+    { id = "a", text = "Somebody ought to, I suppose. The kings would cut down every tree on Azeroth if there were a tax on stumps.", fx = { affinity = 1 } },
+    { id = "b", text = "Even against kings? That's a dangerous thing to say aloud, {class}, and the druids aren't the ones who'll pay for it." },
+  } },
+  { id = "progress", text = "Forests can't stand in the way of farms and cities forever.", fx = { opinion = { druids = "wary" }, trait = { practical = 1 }, align = { order = 1 } }, replies = {
+    { id = "a", text = "Aye, people have to eat, and you can't eat a grove. The druids would do well to remember who feeds them.", fx = { affinity = 1 } },
+    { id = "b", text = "The forests were here first, and they'll be here after the farms are dust. The druids are only taking the long view." },
+    { id = "c", when = { class = "DRUID" }, text = "That's a hard thing to hear from a druid. Does your Circle know you think that?", fx = { affinity = -1 } },
+  } },
+  { id = "savage", text = "Folk who turn into beasts forget they were ever folk.", fx = { opinion = { druids = "savage" }, trait = { skeptical = 1 } }, replies = {
+    { id = "a", text = "I've thought the same. You look into a bear's eyes and wonder who's in charge in there, the druid or the bear.", fx = { affinity = 1 } },
+    { id = "b", text = "Some of them, maybe, like those mad druids in the Barrens caves. Most I've met remember their manners better than I do." },
+  } },
+  { id = "fang", when = { faction = "Horde" }, text = "The Druids of the Fang were druids too. I remember that.", fx = { opinion = { druids = "wary" }, trait = { cautious = 1 } }, replies = {
+    { id = "a", text = "Nobody at the Crossroads has forgotten it. They went into the earth to heal the land and came out as monsters.", fx = { affinity = 1 } },
+    { id = "b", text = "And Hamuul's druids are druids too, and they've done the Barrens nothing but good. One cave doesn't damn the lot." },
+  } },
+  { id = "cenarius", when = { race = "Orc" }, text = "Grom slew their forest god. I'd not expect the druids to love us.", fx = { opinion = { druids = "wary" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "Nor would I, and I'd watch my back in Ashenvale. The Circle forgives, they say, but the trees remember.", fx = { affinity = 1 } },
+    { id = "b", text = "And yet the tauren druids heal orc wounds in the Barrens every day. Perhaps they're better at forgiving than you think." },
+  } },
+  { id = "blight", when = { race = "Scourge" }, text = "Nothing grows where my people walk. The druids look at us like blight.", fx = { opinion = { druids = "wary" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "They do, and they're not shy about it either. I'd not take it personally; they look at goblins the same way.", fx = { affinity = 1 } },
+    { id = "b", text = "Perhaps they're only waiting to see whether you'll plant something. You never know with druids." },
+  } },
+  { id = "sleepers", text = "Slept for centuries while the world burned? Some guardians.", fx = { opinion = { druids = "wary" }, trait = { skeptical = 1 } }, replies = {
+    { id = "a", text = "That's what I've always said. The elves call it the Dream, and I call it a very long lie-in.", fx = { affinity = 1 } },
+    { id = "b", text = "They woke when it mattered, and they stood at Hyjal. I'd not sneer at anyone who did that." },
+  } },
+} }
+
+-- The Circle seen from the outside, for anyone who has heard of it (adds to views_2.lua).
+P:Views { topic = "cenarion_circle", views = {
+  { id = "above", when = { class = "DRUID" }, text = "The Circle stands above banners. That's the only reason it still works.", fx = { opinion = { cenarion_circle = "admire" }, trait = { proud = 1 } }, replies = {
+    { id = "a", text = "So the Keeper says, and Nighthaven's the proof of it. I hope the banners keep letting you.", fx = { affinity = 1 } },
+    { id = "b", text = "Above banners, until the war comes to their own glade. Then we'll see who stands where." },
+  } },
+  { id = "shelter", text = "A Circle that shelters both sides is sheltering my enemies.", fx = { opinion = { cenarion_circle = "distrust" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "I've heard soldiers say the same, and I can't call them wrong. A druid who heals your foe isn't your friend.", fx = { affinity = 1 } },
+    { id = "b", text = "And yours too, if you ever need it. The Circle doesn't ask a wounded man which banner he bled under." },
+  } },
+} }

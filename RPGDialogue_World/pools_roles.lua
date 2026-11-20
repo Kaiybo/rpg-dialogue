@@ -3480,6 +3480,12 @@ P:Pool {
     { id = "g_vet", when = { class = "DRUID", minLevel = 40 }, text = "Back in your own shape, I see. Sit, and tell me what the wild has been saying." },
     { id = "g_away", when = { away = 7 }, text = "You have been away {away}, and the wild has marked you. Sit, and let me see how." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You have grown much since our last lesson, as a sapling grows between seasons. Let us see what more you can learn." },
+    { id = "g_d_ten", when = { class = "DRUID", minLevel = 10, maxLevel = 11 }, text = "Ten summers on the road, by the look of you, and the Great Bear Spirit is waiting in Moonglade. Have you heard the Circle's call yet, or shall I repeat it?" },
+    { id = "g_d_sixteen", when = { class = "DRUID", minLevel = 16, maxLevel = 17 }, text = "You have the look of someone who would like to breathe underwater. Come in, and ask me about the trials of the lake and the sea." },
+    { id = "g_d_twenty", when = { class = "DRUID", minLevel = 20, maxLevel = 21 }, text = "There is a cat in your walk now, or there should be. If the Great Cat Spirit has not seen you yet, Moonglade is only a word away." },
+    { id = "g_d_thirty", when = { class = "DRUID", minLevel = 30, maxLevel = 31 }, text = "Thirty, and the cheetah's shape is ready for you. Come in on two feet, at least, while you still remember how." },
+    { id = "g_d_forty", when = { class = "DRUID", minLevel = 40, maxLevel = 41 }, text = "Forty, and the dire bear is within reach. Come in, and mind the doorframe once you have learned it." },
+    { id = "g_d_sixty", when = { class = "DRUID", minLevel = 60 }, text = "The Circle speaks your name in Moonglade now, I hear. Sit a while; there is not much left that I can teach you, but there is still a good deal I would like to hear." },
   },
   notice = {
     { id = "n_skyborne", cat = "class", when = { race = "Skyborne", class = "DRUID" },
@@ -3536,6 +3542,7 @@ P:Pool {
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "What should I be practising?", next = "practise", when = { class = "DRUID" } },
+        { text = "What comes next for me?", next = "d_path", when = { class = "DRUID" } },
         { text = "Should the wild be kept from people, or shared with them?", next = "wild", when = { class = "DRUID", minLevel = 10 } },
         { text = "Elune or the Earth Mother: whom do druids serve?", next = "elune", when = { class = "DRUID" } },
         { text = "Do you ever want to stay in a shape?", next = "stay" },
@@ -3648,6 +3655,176 @@ P:Pool {
         { text = "Then I'll prove I listen.", next = "BACK", fx = { trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    -- The druid's road (druid patch): the class journey, level by level.
+    d_path = {
+      hub = true,
+      lines = {
+        { id = "dp_default", text = "A druid's road goes round in circles, like the seasons, and every time you come back to Moonglade you are a little less the person who left it. Nobody walks it quickly, and the wild has never once thanked anyone for hurrying." },
+        { id = "dp_start", when = { maxLevel = 9 }, text = "Wrath and the Healing Touch are where it starts, and Mark of the Wild besides, so wear the Mark every hour you're awake. At ten the Circle will call you to Moonglade, and you'll come back with the bear in you, so learn to heal yourself well before then." },
+        { id = "dp_ten", when = { minLevel = 10, maxLevel = 15 }, text = "You've the bear now, or you will soon, and the step to Moonglade with a word. Use the bear when the fight comes to you and your own shape when it doesn't, and you'll be ready for poison's lesson and the water's trials after." },
+        { id = "dp_sixteen", when = { minLevel = 16, maxLevel = 19 }, text = "The seal's shape is yours, or close, and you can follow fish into places the rest of the world can only drown in. The cat comes next, and with it a gift heavier than any claw, so ask me about it when you're ready." },
+        { id = "dp_twenty", when = { minLevel = 20, maxLevel = 29 }, text = "Twenty, and you've the cat in you as well as the bear, and Rebirth in your hands with a seed to plant it. You are a druid now and not a student, so it's time you thought about what kind of druid you mean to be." },
+        { id = "dp_thirty", when = { minLevel = 30, maxLevel = 39 }, text = "You can run like the cheetah now, and you'll cross half of Kalimdor on your own four feet before you need anyone's bird. Tranquility is yours too, so learn when to kneel in the middle of a fight and trust your friends to cover you." },
+        { id = "dp_forty", when = { minLevel = 40, maxLevel = 49 }, text = "The great bear is in reach, the dire one, and Innervate, which is a gift you give away. Those who walked the moon's path deep enough will feel the moonkin stirring in them as well, and Barkskin follows close behind." },
+        { id = "dp_fifty", when = { minLevel = 50, maxLevel = 59 }, text = "You can bless a whole company at once now, with a handful of wild berries and a word, and there's little left in my teaching you couldn't work out alone. The Circle will start asking things of you soon, in Felwood and Silithus and places I'd rather not name." },
+        { id = "dp_sixty", when = { minLevel = 60 }, text = "You've learned every shape and every word I have, and a good many I don't. What remains is out in the world, in places that have forgotten what green looks like, and the Circle will be glad of you there." },
+      },
+      again = {
+        { id = "dpa_again", text = "What else about the road ahead? The grove has time, even if you don't." },
+        { id = "dpa_again2", text = "Go on, then; there's more of the circle than I've walked you round." },
+      },
+      choices = {
+        { text = "Why must I go all the way to Moonglade?", next = "d_moonglade", when = { minLevel = 8 } },
+        { text = "What is the Great Bear Spirit?", next = "d_bear", when = { minLevel = 10 } },
+        { text = "Bear, cat, or healer: which should I be?", next = "d_roles", when = { minLevel = 10 } },
+        { text = "Tell me about the water's shape.", next = "d_aquatic", when = { minLevel = 14, maxLevel = 30 } },
+        { text = "When will the cat come to me?", next = "d_cat", when = { minLevel = 18, maxLevel = 30 } },
+        { text = "Rebirth sounds like a heavy gift.", next = "d_rebirth", when = { minLevel = 20 } },
+        { text = "Tell me about running as the cheetah.", next = "d_travel", when = { minLevel = 26, maxLevel = 40 } },
+        { text = "What waits for a druid past forty?", next = "d_forty", when = { minLevel = 36 } },
+        { text = "What's left once your teaching runs out?", next = "d_end", when = { minLevel = 50 } },
+        { text = "Back to the other lessons.", next = "hello" },
+      },
+    },
+    d_moonglade = {
+      lines = {
+        { id = "dmg_default", text = "Because Moonglade is the one place where the Circle sits together, elf and tauren, under the same moon, and every druid is called there once to be seen. At ten you'll learn to step there with a word, and you'll be glad of it, because the walk through Felwood is no place for a young druid." },
+        { id = "dmg_alliance", when = { faction = "Alliance" }, text = "Because Moonglade is where the Circle sits together, and every young druid is called there once to be seen. At ten the Enclave in Darnassus will send you, Mathrengyl Bearwalker most likely, and you'll learn to step there with a word, which is a mercy, because the road through Felwood is no place for a young druid." },
+        { id = "dmg_horde", when = { faction = "Horde" }, text = "Because Moonglade is where the Circle sits together, tauren and kaldorei under the same moon, and every young druid is called there once to be seen. At ten Turak Runetotem on the Elder Rise will send you, and you'll learn to step there with a word, which is a mercy, because the road through Felwood is no place for a young druid." },
+      },
+      choices = {
+        { text = "Horde and Alliance druids, at the same fire?", next = "d_moonglade2" },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_moonglade2 = {
+      lines = {
+        { id = "dmg2_default", text = "At the same fire, and no blades drawn, because the Keeper allows none. You'll hear tauren and kaldorei argue there about Ashenvale and the logging camps until the moon sets, and then they'll all go out together to heal the same sick grove." },
+      },
+      choices = {
+        { text = "A druid's first loyalty is to the wild, not a banner.", next = "d_path", reply = "The Keeper would say so, and so would Hamuul and Malfurion both. Your own people may not thank you for it, so say it in Moonglade first, where it's safe.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "My people come first, even in Moonglade.", next = "d_path", reply = "Plenty of the Circle feel the same and never say it aloud. Keep the peace in the glade, though, because it's the only peace the two of them have.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_bear = {
+      lines = {
+        { id = "dbr_default", text = "A spirit that lives in Moonglade and wears the bear's shape, as old as the glade and maybe older. It teaches that the bear's strength is for standing between the weak and what would harm them, and when it is satisfied you understand that, it lets you take its shape." },
+      },
+      choices = {
+        { text = "Is the spirit truly a bear, or something older?", next = "d_bear2" },
+        { text = "It spoke to me as though it knew me.", next = "d_path", when = { minLevel = 11 }, reply = "It knows every druid who comes to it, and it remembers you longer than you'll remember it. Go back and sit with it when the bear in you grows restless." },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_bear2 = {
+      lines = {
+        { id = "dbr2_default", text = "The furbolgs say it is an echo of Ursoc and Ursol, the great bears who fought beside the demigods in the War of the Ancients. The Circle only says it is a spirit of the wild, and leaves the rest to the furbolgs, who are not in much of a state to argue these days." },
+      },
+      choices = { { text = "Something else about the road.", next = "d_path", fx = { trait = { curious = 1 }, learn = { "furbolgs" } } } },
+    },
+    d_roles = {
+      hub = true,
+      lines = {
+        { id = "drl_default", text = "The bear stands in front and takes the blows, the cat strikes from the shadows and is gone again, and the healer keeps everyone else alive while they do it. Every druid can be all three, which is our gift, and most druids try to be all three at once, which is our folly." },
+        { id = "drl_forty", when = { minLevel = 40 }, text = "The bear stands in front, the cat strikes from the shadows, and the healer keeps everyone breathing, and those who walk the moon's path call down starfire as the moonkin. You can be any of them in a heartbeat, so the question is never what you can be, only what you'll be when it matters." },
+      },
+      again = { { id = "drla_again", text = "Another answer? Choose carefully; the wild remembers what you say you are." } },
+      choices = {
+        { text = "I'll be the bear. Someone has to stand in front.", next = "d_roles", reply = "Then stand there, and don't flinch, because everyone behind you is trusting that you won't. The Great Bear Spirit would approve, and so would I.", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
+        { text = "The cat. Strike fast, end it, and go home.", next = "d_roles", reply = "A good cat ends a fight before the other side knows it started. The warriors may call it sneaking, but the dead don't argue about manners.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "A healer. Keeping my friends alive matters most.", next = "d_roles", reply = "Then you'll be loved and blamed in equal measure, as every healer is, and you'll learn to bear both. Keep your mana for the moment that counts.", fx = { trait = { kind = 1 } } },
+        { text = "Tell me about the moonkin.", next = "d_moonkin", when = { minLevel = 30 } },
+        { text = "Whatever the moment needs. That's balance.", next = "d_path", reply = "Spoken like a druid, and a hard thing to do well. Most who try end up a poor bear and a poorer healer, so practise until you're neither.", fx = { trait = { patient = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_moonkin = {
+      lines = {
+        { id = "dmk_default", text = "The moonkin are wild owl-beasts of Moonglade and the north, and a druid who studies the moon's light long enough can take their shape and call down starfire. The older druids are of two minds about it, because some of that light comes very close to the arcane, and the kaldorei remember what the arcane did to them." },
+      },
+      choices = {
+        { text = "Starlight is Elune's gift, whatever it resembles.", next = "d_roles", reply = "That is what its students say, and Elune has not struck any of them down for it yet. Still, walk it carefully, and listen when the elders grumble.", fx = { trait = { pious = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_aquatic = {
+      lines = {
+        { id = "daq_default", text = "Around sixteen your trainer will send you back to Moonglade, to Dendrite Starblaze, who sets young druids the Trial of the Lake in the waters of Elune'ara. Pass it, and she sends you to the sea for the second trial, and you'll come home with the seal's shape and lungs that no longer care whether there's air above them." },
+        { id = "daq_alliance", when = { faction = "Alliance" }, text = "Around sixteen you'll be sent back to Moonglade, to Dendrite Starblaze, who sets the Trial of the Lake in the waters of Elune'ara. After that comes the Trial of the Sea Lion, along the Darkshore coast, and you'll come home with the seal's shape and lungs that no longer care whether there's air above them." },
+        { id = "daq_horde", when = { faction = "Horde" }, text = "Around sixteen you'll be sent back to Moonglade, to Dendrite Starblaze, who sets the Trial of the Lake in the waters of Elune'ara. After that comes the Trial of the Sea Lion, on the Barrens coast below Ratchet, and you'll come home with the seal's shape and lungs that no longer care whether there's air above them." },
+      },
+      choices = {
+        { text = "I can barely swim as it is.", next = "d_path", reply = "Then you'll be the most grateful seal the Circle has ever made. Nobody fails the trial for swimming badly, only for giving up." },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_cat = {
+      lines = {
+        { id = "dct_default", text = "At twenty, and you'll earn it as you earned the bear, from a spirit in Moonglade. The Great Cat Spirit keeps to the south of the glade, and it teaches the cat's way, which is patience first and then a single moment when patience is spent." },
+      },
+      choices = {
+        { text = "There's no shame in fighting from the shadows.", next = "d_path", reply = "None at all, to a cat, and the cat will tell you so at length. The Sentinels would agree, for they've been hunting that way since before the Sundering.", fx = { align = { honor = -1 }, trait = { practical = 1 } } },
+        { text = "Striking from hiding sits ill with me.", next = "d_path", reply = "Then use the cat to run and the bear to fight, and nobody will think less of you for it. Just don't think less of the druids who choose otherwise.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_rebirth = {
+      lines = {
+        { id = "drb_default", text = "It is the heaviest we have. At twenty you can plant a seed in a fallen friend and call them back up out of death, in the middle of the fight, and the seed costs a few coppers while the choice costs a great deal more. You'll be asked to use it more often than you'd think, and you'll have to decide each time." },
+      },
+      choices = {
+        { text = "Death is part of the wild's balance. I'll use it rarely.", next = "d_path", reply = "The Keeper would nod at that, and so would the oldest of the Circle. Just be sure that rarely doesn't become too late.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "If I can bring a friend back, balance can wait.", next = "d_path", reply = "Spoken from the heart, and most druids feel the same in the moment. The balance has a long memory, though, so don't be surprised when it asks for something back.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Where do I find these seeds?", next = "d_path", reply = "Any reagent seller worth the name keeps them, maple first and harder woods as you grow. Buy them before you need them, because nobody waits for a druid to go shopping." },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_travel = {
+      lines = {
+        { id = "dtv_default", text = "At thirty the cheetah's shape is yours, and the roads will never feel long again. You'll cross the Barrens or Ashenvale in an afternoon, and you'll stop paying for birds except where there's water in the way." },
+      },
+      choices = {
+        { text = "Then I'll never pay a flight master again.", next = "d_path", reply = "You'll pay them every time there's an ocean, which is more often than you'd like. Still, the flight masters grumble about druids, so you're in good company." },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_forty = {
+      lines = {
+        { id = "dft_default", text = "At forty you'll learn the dire bear's shape, which is the bear grown into what the furbolgs' old tales feared, and Innervate, which pours your own spirit into a friend who's run dry. Barkskin follows, to turn your skin to oak when the blows come thick, and the moon's students take the moonkin's shape around then as well." },
+      },
+      choices = {
+        { text = "Who should I give Innervate to?", next = "d_forty2" },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_forty2 = {
+      lines = {
+        { id = "dft2_default", text = "That is the whole question, and every druid answers it differently. Some give it to the healer who's keeping everyone alive, some to the mage who's ending the fight, and some keep it for themselves, because a druid who runs dry can heal nobody." },
+      },
+      choices = {
+        { text = "Whoever's keeping the rest of us alive gets it.", next = "d_path", reply = "A generous answer, and the healers will love you for it. Just watch your own well, because you'll need some of it back.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "I'll keep it. A dry druid helps no one.", next = "d_path", reply = "Practical, and not wrong, though the priests will glare at you across the camp. Be sure you mean it for the party and not only for yourself.", fx = { align = { light = -1 }, trait = { practical = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_end = {
+      lines = {
+        { id = "den_default", text = "At fifty you'll learn to bless a whole company at once, with wild berries and later thornroot, and after that the teaching is in the world, not in my grove. The Circle has druids at the Emerald Sanctuary in Felwood and at Cenarion Hold in Silithus, and they need every one of us who can stand the work." },
+      },
+      choices = {
+        { text = "I've heard of raiment made for the Circle's own.", next = "d_end2" },
+        { text = "I'll go where the Circle sends me.", next = "d_path", reply = "Then you'll go to some terrible places, and the Circle will be grateful in its quiet way. Ask the Keeper where he needs you most.", fx = { align = { order = 1 }, trait = { patient = 1 } } },
+        { text = "I'll go where the wild needs me, whatever the Circle says.", next = "d_path", reply = "The Circle is the wild's servant, or means to be, so I hope the two of you agree more often than not. When you don't, at least be sure it's the wild you're hearing.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
+        { text = "Something else about the road.", next = "d_path" },
+      },
+    },
+    d_end2 = {
+      lines = {
+        { id = "den2_default", text = "Rumours, mostly. They say the old druids' robes turn up in Scholomance and the Spire and the broken halls of Eldre'Thalas, taken from the dead who wore them, and there's stranger talk of leaves woven in fire deep under the Blackrock, where no druid should ever have to go." },
+      },
+      choices = { { text = "Something else about the road.", next = "d_path", fx = { trait = { curious = 1 } } } },
     },
   },
   topics = {

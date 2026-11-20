@@ -87,6 +87,7 @@ warlock_notice.lua
 warrior_notice.lua
 hunter_notice.lua
 mage_notice.lua
+druid_notice.lua
 asks.lua
 arrivals.lua
 wanderers\spoogledorf.lua

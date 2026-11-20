@@ -247,3 +247,6 @@ P:Topic { id = "kaldorei", keywords = { "kaldorei" }, name = "The night elves", 
 
 -- Mage patch: what people think of mages and the arcane.
 P:Topic { id = "mages", linkName = false, keywords = { "mages", "magi", "the arcane" }, name = "Mages and the arcane", category = "people", learned = "anyone with an opinion of mages, and everyone has been singed by one" }
+
+-- Druid patch: what people think of druids and shapeshifters.
+P:Topic { id = "druids", linkName = false, keywords = { "druids", "shapeshifters" }, name = "Druids and the wild", category = "people", learned = "anyone who has met a druid, or a bear that turned out to be one" }
