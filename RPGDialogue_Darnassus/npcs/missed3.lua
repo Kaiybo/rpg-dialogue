@@ -632,3 +632,91 @@ P:NPC {
     _none = { { id = "tp_none", text = "I have no word of that, {class}. If you learn something, bring it to me." } },
   },
 }
+
+-- Darnassian Protector: the treants who walk the Cenarion Enclave. Not Sentinels; servants of the
+-- forest who answer to the druids. Slow, patient, speaks of seasons and roots. Without this entry the
+-- name match ("protector$") put them on the Sentinel guard tree.
+P:NPC {
+  key = "dar_protector", id = TODO_NPC("Darnassian Protector"), name = "Darnassian Protector", title = "Treant",
+  bible = "bibles/missed.md", role = "guard", tier = "service",
+  communities = { "darnassus" }, temper = { "patient", "slow" }, values = { "growth", "the forest" },
+  notices = { "class", "race" },
+  impression = {
+    first = "A treant of the Enclave, who takes a long while to answer and seems to think that is quite fast.",
+    third = "{name} spoke with a Darnassian Protector, one of the treants who walk the Cenarion Enclave.",
+  },
+  greetings = {
+    { id = "g_hello", text = "Hmm. A small one, walking quickly. Hello, little sapling." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. You have grown a little, I think, though it is hard to tell with your kind." },
+  },
+  notice = {
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "You smell of moss and moonlight, druid. The Enclave is glad of you, and so am I." },
+    { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
+      text = "There is fel on you. My roots draw back from it, little one, and they are rarely wrong." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "You carry an axe, dwarf. I will not ask what you use it for, and you will not use it here." },
+  },
+  react = { { id = "r_stealth", on = "stealth", text = "Hiding among the trees? Little one, I am the trees." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I am a protector of this grove, as my kind have been since the forests were young. The druids of the Enclave tend Teldrassil, and I tend the druids. Speak slowly, please, and I will listen." },
+        { id = "h_night", when = { timeOfDay = "night" },
+          text = "The moon is high, and the sap runs quiet in the branches. It is a good hour for talking, if you do not hurry it." },
+      },
+      again = {
+        { id = "a_more", text = "Something more? Take your time. I have a great deal of it." },
+      },
+      choices = {
+        { text = "What are you, exactly?", next = "what" },
+        { text = "Who do you answer to?", next = "master" },
+        { text = "How does Teldrassil fare?", next = "tree" },
+        { text = "Are you a Sentinel too?", next = "sentinel" },
+        { text = "I'll leave you to your grove.", next = "END" },
+      },
+    },
+    what = {
+      lines = { { id = "wh_default", text = "A treant, little one. The druids call us up from the old wood and ask us to keep watch, and we do, for as long as the wood needs us. Some say we are children of Cenarius. I only know that I woke here, and that this grove is mine to guard." } },
+      choices = {
+        { text = "That sounds like a lonely life.", next = "lonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lonely = {
+      lines = { { id = "lo_default", text = "Lonely? No. There are the birds, and the druids, and the roots of every tree around us talking softly underground. It is only that your kind talk very fast, and leave very soon." } },
+      choices = {
+        { text = "Then I'll stay and talk a while longer.", next = "BACK", reply = "Hmm. Kind of you. Few saplings do.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some of us have places to be.", next = "BACK", reply = "Yes. You always do. The trees will still be here when you come back.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    master = {
+      lines = { { id = "ma_default", text = "To the Cenarion Circle, and to the Archdruid who leads it from this Enclave. Fandral Staghelm planted Teldrassil himself, and asks a great deal of her. I do not always understand his hurry, but it is not a tree's place to question the gardener." } },
+      choices = {
+        { text = "Perhaps it should be. Gardeners make mistakes.", next = "BACK", reply = "Hmm. You say a thing I have thought, and not said. Speak it softly here.", fx = { align = { order = -1 } } },
+        { text = "He made a whole World Tree. Trust him.", next = "BACK", reply = "Yes. Trust, and patience. Those are a tree's virtues, after all.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tree = {
+      lines = { { id = "tr_default", text = "She is young, and she grew too fast, and some of her roots ache. There is a sickness in the lower woods that the druids do not like to name. I feel it most at night, like a cold wind that does not move the leaves." } },
+      choices = {
+        { text = "Something should be done about it.", next = "BACK", reply = "Then you are a sapling with good roots. Tell the druids what you see in the lower woods.", fx = { align = { order = 1 } } },
+        { text = "Trees get sick. She'll heal on her own.", next = "BACK", reply = "Perhaps. Most do. But I am a tree, and I am worried.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sentinel = {
+      lines = { { id = "se_default", text = "Hmm, no. The Sentinels are the daughters of the Temple, with their glaives and their great cats. I have no glaive. If something harms this grove, I simply stand on it, and that tends to be enough." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    cenarius = { { id = "tp_cen", text = "The Lord of the Forest. I have never seen him, but every leaf in this grove knows his name." } },
+    fandral = { { id = "tp_fan", text = "The Archdruid. He walks quickly, for one so old, and he is always looking up at the branches, never down at the roots." } },
+    _none = { { id = "tp_none", text = "Hmm. I do not know that. Ask a druid; they read books, and I read only rain." } },
+  },
+}
