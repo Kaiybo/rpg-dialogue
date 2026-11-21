@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.1 (2026-11-21)
+- Dark Strand: human cultists led by a Highborne night elf (Balthule, Elissa Starbreeze).
+
 ## 1.29.0 (2026-11-21)
 - Asterion rewritten as the bound Highborne spirit of Bashal'Aran.
 - Gubber Blump's greeting names his fishing training and pole and bait sales; NPC id 10216.
