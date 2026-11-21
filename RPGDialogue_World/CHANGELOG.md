@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.50.1 (2026-11-21)
+- Alliance citizen line `l2` no longer assumes a human speaker ("we've still got the dwarves" from a gnome).
+
 ## 1.50.0 (2026-11-20)
 - Citizen pool: the goodbye reply is now "I'll let you get on with your day." (no unanswered "Light keep you too").
 

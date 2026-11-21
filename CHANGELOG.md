@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.99.2 (2026-11-21): Every Voice Its Own
+Hotfix (user report). No new files; a /reload is enough.
+- **Alliance townsfolk of any race can say their piece about the Alliance**: the uncle who thinks the Alliance isn't what it was now hears that Ironforge and Darnassus still stand with us, instead of "we've still got the dwarves", which sounded wrong from a gnome like Ozwin Ironsprocket.
+
 ## 0.99.1 (2026-11-21): The Hand Behind the Strand
 Hotfix (user report). No new files; a /reload is enough.
 - **The Dark Strand are who the Tower of Althalaxx chain says they are**: human cultists in robes, led from the top of the tower by a Highborne night elf. Balthule Shadowstrike and Sentinel Elissa Starbreeze no longer call the whole cult kaldorei. Balthule has glimpsed their leader, and you can ask him about it.
