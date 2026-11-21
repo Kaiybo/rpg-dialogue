@@ -1,6 +1,7 @@
 -- Cenarion Hold's tradesfolk (0.39.0): the enchanting supplier upstairs at the inn, the reagent and poison
 -- seller, and the stable master. Voice: bibles/silithus.md ("Hold tradesfolk")
 local P = RPGDialogueAPI:Pack("rpgd.silithus")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

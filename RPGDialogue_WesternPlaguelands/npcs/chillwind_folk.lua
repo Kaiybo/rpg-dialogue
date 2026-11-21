@@ -1,6 +1,7 @@
 -- Chillwind Camp's quiet hands (0.39.0): the Argent Dawn's quartermaster and the leather merchant.
 -- Voice: bibles/westernplaguelands.md ("Chillwind Camp's quiet hands")
 local P = RPGDialogueAPI:Pack("rpgd.westernplaguelands")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

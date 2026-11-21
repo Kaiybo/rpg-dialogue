@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.1 (2026-11-21)
+- Fixed a load error at Feathermoon; Shandris's hunter and night elf talks restored.
+
 ## 1.33.0 (2026-11-20)
 - Jannos Lighthoof deepened for druids of 40 and up: Innervate, the Dream Bough, the Grimtotem.
 

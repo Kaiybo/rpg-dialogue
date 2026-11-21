@@ -464,6 +464,14 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kal_arch = {
+      big = true,
+      lines = { { id = "kar_d", text = "I flew as a storm crow over the slopes that day, carrying word between the Sentinels' lines, and I saw the wisps rise out of the forest like snow falling upward. When the World Tree gave its strength and the demon came apart, the whole mountain went quiet, and I forgot how to be anything but a bird for three days." } },
+      choices = {
+        { text = "The tree's sacrifice cost us our immortality.", next = "BACK", reply = "It did, and I would make the trade again tomorrow. A long life under the Legion is not a life.", fx = { align = { order = 1 } } },
+        { text = "We should have found another way to stop him.", next = "BACK", reply = "Tell me what it was, and I will fly it to Malfurion myself. Until then, I will honour the way we had.", fx = { align = { order = -1 } } },
+      },
+    },
   },
 
   persuade = {
@@ -496,14 +504,6 @@ P:NPC {
       fail = {
         { id = "f1", text = "I carried messages over the lines when the Legion was on this mountain, so you'll forgive me if I don't fall over. Try scaring the demons instead, because they've earned it." },
         { id = "f2", text = "Really? On my mountain, in front of my birds? Back off, before I forget the Skylord told me to be polite to visitors." },
-      },
-    },
-    kal_arch = {
-      big = true,
-      lines = { { id = "kar_d", text = "I flew as a storm crow over the slopes that day, carrying word between the Sentinels' lines, and I saw the wisps rise out of the forest like snow falling upward. When the World Tree gave its strength and the demon came apart, the whole mountain went quiet, and I forgot how to be anything but a bird for three days." } },
-      choices = {
-        { text = "The tree's sacrifice cost us our immortality.", next = "BACK", reply = "It did, and I would make the trade again tomorrow. A long life under the Legion is not a life.", fx = { align = { order = 1 } } },
-        { text = "We should have found another way to stop him.", next = "BACK", reply = "Tell me what it was, and I will fly it to Malfurion myself. Until then, I will honour the way we had.", fx = { align = { order = -1 } } },
       },
     },
   },

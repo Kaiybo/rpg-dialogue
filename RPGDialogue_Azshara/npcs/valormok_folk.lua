@@ -1,6 +1,7 @@
 -- Valormok's camp hands (0.39.0): the food and drink seller and the weaponsmith.
 -- Voice: bibles/azshara.md ("Valormok camp hands")
 local P = RPGDialogueAPI:Pack("rpgd.azshara")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

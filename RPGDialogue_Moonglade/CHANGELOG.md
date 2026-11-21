@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.1 (2026-11-21)
+- Fixed a load error in Nighthaven; Remulos's night elf and hunter talks restored.
+
 ## 1.25.0 (2026-11-20)
 - The druid's home: Loganaar, Dendrite Starblaze, the Great Bear Spirit (a real test now), Keeper Remulos, Rabine, Silva, Bunthen, Tajarri and others deepened for druids. New: the Great Cat Spirit in southern Moonglade.
 

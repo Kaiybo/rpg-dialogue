@@ -1,6 +1,7 @@
 -- The Undercity's quarters: Michael Garrett the bat handler, Anastasia Hartwell in the Magic Quarter, Apothecary Zinge in the Apothecarium. Voice: bibles/undercity.md
 -- Zinge's own quests are not referenced (unsure of them); she speaks only of the Apothecarium's work in general.
 local P = RPGDialogueAPI:Pack("rpgd.undercity")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

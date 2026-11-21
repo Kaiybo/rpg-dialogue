@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.2 (2026-11-21)
+- Fixed a load error (a missing quest reference) that dropped the NPCs after it in one file to generic lines.
+
 ## 1.27.1 (2026-11-20)
 - Vartrus, Hastat and Stoma speak more like ancient trees.
 

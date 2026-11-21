@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.1 (2026-11-21)
+- Fixed a load error in Astranaar; Raene's night elf and hunter talks restored.
+
 ## 1.31.0 (2026-11-20)
 - Ruul Snowhoof talks with tauren and Skyborne druids about Turak's teaching and the Circle.
 

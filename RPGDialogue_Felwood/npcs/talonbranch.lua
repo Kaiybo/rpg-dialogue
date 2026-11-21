@@ -1,5 +1,6 @@
 -- Talonbranch Glade: the Alliance's only post in Felwood, around its moonwell. Voice: bibles/felwood.md
 local P = RPGDialogueAPI:Pack("rpgd.felwood")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {
