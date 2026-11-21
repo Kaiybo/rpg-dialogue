@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.99.1 (2026-11-21): The Hand Behind the Strand
+Hotfix (user report). No new files; a /reload is enough.
+- **The Dark Strand are who the Tower of Althalaxx chain says they are**: human cultists in robes, led from the top of the tower by a Highborne night elf. Balthule Shadowstrike and Sentinel Elissa Starbreeze no longer call the whole cult kaldorei. Balthule has glimpsed their leader, and you can ask him about it.
+- **Balthule Shadowstrike is halfway to the Light**: ask what it means to him and he'll tell you what Delgren taught him, the night he prayed over a wounded Sentinel and felt the bleeding slow, whether he'd ask to take vows, and how he keeps Elune's prayers at moonrise and Delgren's at moonset.
+- Not seen in game yet.
+
 ## 0.99.0 (2026-11-21): The Shade of Bashal'Aran
 No new files; a /reload is enough.
 - **Asterion (Darkshore) is who his quests say he is**: a Highborne mage's spirit bound to the pillars of Bashal'Aran, not a druid keeping watch. His greetings, his history and his talks with each class now come from a prisoner who watched his own order fall to the satyrs' whispers.

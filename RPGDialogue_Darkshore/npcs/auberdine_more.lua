@@ -446,10 +446,10 @@ P:NPC {
     },
     dd_strand = {
       lines = {
-        { id = "dds_default", text = "Fewer, but not gone, and they are not common bandits. They whisper of old powers at the Tower of Althalaxx, and some among them are our own kind, kaldorei who have turned their backs on Elune for promises in the dark." },
+        { id = "dds_default", text = "Fewer, but not gone, and they are not common bandits. They whisper of old powers at the Tower of Althalaxx, and most of them are humans who came over the sea. But the one they follow is our own kind, a Highborne who never let go of the old magic." },
       },
       choices = {
-        { text = "Kaldorei among them? That's a bitter thing.", next = "BACK", reply = "Bitter, and shameful. The Highborne made the same choice once, and the whole world paid for it. Keep your blade ready." },
+        { text = "A night elf leading them? That's a bitter thing.", next = "BACK", reply = "Bitter, and shameful. The Highborne made the same choice once, and the whole world paid for it. Keep your blade ready." },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
