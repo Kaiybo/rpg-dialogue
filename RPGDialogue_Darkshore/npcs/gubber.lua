@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.darkshore")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "gubber", id = TODO_NPC("Gubber Blump"), name = "Gubber Blump",
+  key = "gubber", id = 10216, name = "Gubber Blump",
   bible = "bibles/gubber.md", role = "trainer", tier = "quest",
   communities = { "auberdine" }, temper = { "simple", "cheerful" }, values = { "family", "fishing" },
   notices = { "craft", "race" },
@@ -44,7 +44,7 @@ P:NPC {
       lines = {
         { id = "h_dd_murk", tags = { "news" }, when = { questDone = TODO_QUEST("WANTED: Murkdeep!") }, text = "They say you're the one who did for Murkdeep! I been fishin' off that dock with one eye on the water all season, and now I can use both eyes on my line again." },
         { id = "h_default", key = true,
-          text = "Hi there, I'm Gubber Blump, and I love fishing. The Blump family is known for fishing, so I guess it runs in the blood, like gills, except we don't have gills. Only nobody takes the boats out no more, not since them murlocs moved in." },
+          text = "Hi there, I'm Gubber Blump, and I love fishing, like every Blump does. If you wanna learn, I can teach you, and I got spare poles and bait too, if you pay me back what I paid for 'em." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Family and the Fishing Pole") },
           text = "I like to catch Darkshore grouper, but no boats go out for 'em since them mean old murlocs moved in. Say, you wanna help me catch some? I'd give you a real good Blump Family Fishing Pole for it." },
         { id = "h_grouper_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Family and the Fishing Pole"), days = 3 } },
