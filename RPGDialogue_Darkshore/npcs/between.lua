@@ -753,10 +753,21 @@ P:NPC {
     },
     glaive = {
       lines = {
-        { id = "glaive_default", text = "A great blade that fell from the sky in the war against the Legion, and it lies in the earth still, far to the south of here. Now men in dark robes gather around it, the Twilight's Hammer, and they whisper to things that should stay sleeping." },
+        { id = "glaive_default", text = "An old blade, taller than any tree in this grove, driven point-first into the hills just south of here. Even I do not know whose hand let it fall, only that it was already old when I was a sapling. Now cultists in dark robes have made a camp around it, the Twilight's Hammer, and they whisper into the earth to things that should stay sleeping.", fx = { learn = { "twilights_hammer" } } },
+      },
+      choices = {
+        { text = "Who are the Twilight's Hammer?", next = "glaive_cult" },
+        { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    glaive_cult = {
+      lines = {
+        { id = "glaive_cult_default", text = "Mortals of many races who have given up their own names to serve something older than the Legion, something they believe sleeps beneath the world. They do not want land or gold, little one. They want the world to end, and they think that blade will help them hear the ones who would end it." },
       },
       choices = {
         { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     glaive2 = {
