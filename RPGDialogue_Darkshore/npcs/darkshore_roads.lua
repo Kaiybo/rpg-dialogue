@@ -60,14 +60,14 @@ P:NPC {
     },
 
     cult = {
-      lines = { { id = "cu_default", text = "They call themselves the Dark Strand, and most of them are humans, come across the sea with the boats and robed like scholars, far too fond of fel fire. The tower was a Highborne place once, so perhaps they think its old secrets are theirs for the taking." } },
+      lines = { { id = "cu_default", text = "They call themselves the Dark Strand, and most of them are humans, come across the sea with the boats and robed like scholars, far too fond of fel fire. But the one they answer to keeps to the top of the tower, and the one time I glimpsed him, he was kaldorei, robed like the Highborne of old." } },
       choices = {
-        { text = "Humans? Why would they come so far for that?", next = "cult_kal" },
+        { text = "A night elf leads them?", next = "cult_kal" },
         { text = "Something else.", next = "BACK" },
       },
     },
     cult_kal = {
-      lines = { { id = "ck_default", text = "For the tower, I think, and whatever the Highborne left in it. We swore off that magic ten thousand years ago because of what it did to us, and now strangers walk a day from Auberdine to light the old fires again." } },
+      lines = { { id = "ck_default", text = "So it seems, and that's what frightens me most. We swore off that magic ten thousand years ago because of what it did to us, and one of our own has gathered strangers a day from Auberdine to light the old fires again." } },
       choices = {
         { text = "Then they must be stopped, whatever it costs.", next = "BACK", reply = "It may cost a great deal, {class}, and I would rather it cost them than us. Still, I hope it does not come to blades.", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
         { text = "They chose their path. Watch them, but don't start a war.", next = "BACK", reply = "That is wise, and probably what Delgren would say too. I will keep watching, and you keep listening.", fx = { align = { order = -1 }, learn = { "dark_strand" } } },

@@ -446,10 +446,10 @@ P:NPC {
     },
     dd_strand = {
       lines = {
-        { id = "dds_default", text = "Fewer, but not gone, and they are not common bandits. They whisper of old powers at the Tower of Althalaxx, and most of them are humans who came over the sea seeking secrets my people buried long ago." },
+        { id = "dds_default", text = "Fewer, but not gone, and they are not common bandits. They whisper of old powers at the Tower of Althalaxx, and most of them are humans who came over the sea. But the one they follow is our own kind, a Highborne who never let go of the old magic." },
       },
       choices = {
-        { text = "Humans, digging up Highborne magic? That can't end well.", next = "BACK", reply = "It cannot. The Highborne made the same choice once, and the whole world paid for it. Keep your blade ready." },
+        { text = "A night elf leading them? That's a bitter thing.", next = "BACK", reply = "Bitter, and shameful. The Highborne made the same choice once, and the whole world paid for it. Keep your blade ready." },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -457,7 +457,7 @@ P:NPC {
       lines = {
         { id = "h_dd_strand", tags = { "news" }, when = { killed = { name = "Dark Strand", min = 30 } }, text = "My scouts say the Dark Strand cultists along the coast have lost a great many of their number, and that the bodies all fell to the same blade. I would rather that blade stayed in Darkshore a while longer, {class}." },
         { id = "h_default", key = true,
-          text = "I am Sentinel Elissa Starbreeze. I keep Auberdine's stores, and I keep our accounts with Maestra's Post in Ashenvale, where Delgren the Purifier and his paladins hunt the Dark Strand, those human fools chasing Highborne secrets." },
+          text = "I am Sentinel Elissa Starbreeze. I keep Auberdine's stores, and I keep our accounts with Maestra's Post in Ashenvale, where Delgren the Purifier and his paladins hunt the Dark Strand, those Highborne-hearted fools." },
         { id = "h_supplies", tags = { "news" }, when = { questActive = TODO_QUEST("Supplies to Auberdine") },
           text = "Supplies from Maestra's Post? Delgren is generous, and Auberdine is grateful. A human paladin sending aid to elves across a forest is something my grandmother would never have believed." },
         { id = "h_after", when = { questDone = TODO_QUEST("Supplies to Auberdine") },
