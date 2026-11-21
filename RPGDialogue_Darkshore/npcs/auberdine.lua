@@ -377,39 +377,6 @@ P:NPC {
         { text = "Another evening, then.", next = "BACK" },
       },
     },
-  },
-
-  persuade = {
-    admire = {
-      success = {
-        { id = "s1", text = "You are gracious to an old elf, and I thank you for it. Auberdine hears so little kindness from the road these days that I had almost forgotten the sound." },
-        { id = "s2", text = "That was well spoken, traveller. I can tell honest regard when I hear it, and it gladdens me that the village has made a friend." },
-      },
-      fail = {
-        { id = "f1", text = "You are generous with your words, but an elder hears many fair speeches from those who want a favor. I would sooner you spoke to me plainly." },
-        { id = "f2", text = "Kind words do not mend the troubles on this coast, I fear. Set them aside, and tell me what you actually came for." },
-      },
-    },
-    taunt = {
-      success = {
-        { id = "s1", text = "Ha, you have a sharp wit under that road dust! It does an old elf good to be prodded, for the villagers are much too respectful to try it." },
-        { id = "s2", text = "You are bolder than the tide, and I cannot say I mind. Very well, you have had your sport with me, and I am smiling in spite of myself." },
-      },
-      fail = {
-        { id = "f1", text = "I have given you welcome and a place to rest, and that is how you answer it. Auberdine deserves better manners from its guests." },
-        { id = "f2", text = "I am too old to be stung by that, though I am not too old to remember who said it. Mind how you speak to the folk here, for they have lost a great deal." },
-      },
-    },
-    intimidate = {
-      success = {
-        { id = "s1", text = "There is no call for that, traveller. I am an elder and not a Sentinel, and I will not quarrel with you over it, so let it be as you say." },
-        { id = "s2", text = "You have unsettled me, and I admit it freely. I see you are not one to be put off, so speak your need and I will do what I fairly can." },
-      },
-      fail = {
-        { id = "f1", text = "I have stood on this shore through storms that tore the docks from their pilings. A raised voice will not move me, and it will not win you a single friend in Auberdine." },
-        { id = "f2", text = "Threats are for the naga and the Twilight's Hammer, and we have quite enough of those already. If you mean to behave as they do, the Sentinels will treat you as they do." },
-      },
-    },
     kal_war = {
       big = true,
       lines = { { id = "kw_d", text = "I remember the night the sky burned, as every elder does, though I was no hero of it. I was a keeper of boats on the Well's eastern shore, and I watched the Queen's palace drink the light out of the stars until there was nothing left above us but green fire." } },
@@ -461,6 +428,39 @@ P:NPC {
       choices = {
         { text = "The thread runs north, toward Felwood.", next = "BACK", reply = "So I fear, and the Cliffspring River carries it down to us. Bring me proof and I will take it to Darnassus myself.", fx = { trait = { curious = 1 } } },
         { text = "I'll walk the coast again and look closer.", next = "BACK", fx = { affinity = 1, standing = { auberdine = 1 } } },
+      },
+    },
+  },
+
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You are gracious to an old elf, and I thank you for it. Auberdine hears so little kindness from the road these days that I had almost forgotten the sound." },
+        { id = "s2", text = "That was well spoken, traveller. I can tell honest regard when I hear it, and it gladdens me that the village has made a friend." },
+      },
+      fail = {
+        { id = "f1", text = "You are generous with your words, but an elder hears many fair speeches from those who want a favor. I would sooner you spoke to me plainly." },
+        { id = "f2", text = "Kind words do not mend the troubles on this coast, I fear. Set them aside, and tell me what you actually came for." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you have a sharp wit under that road dust! It does an old elf good to be prodded, for the villagers are much too respectful to try it." },
+        { id = "s2", text = "You are bolder than the tide, and I cannot say I mind. Very well, you have had your sport with me, and I am smiling in spite of myself." },
+      },
+      fail = {
+        { id = "f1", text = "I have given you welcome and a place to rest, and that is how you answer it. Auberdine deserves better manners from its guests." },
+        { id = "f2", text = "I am too old to be stung by that, though I am not too old to remember who said it. Mind how you speak to the folk here, for they have lost a great deal." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is no call for that, traveller. I am an elder and not a Sentinel, and I will not quarrel with you over it, so let it be as you say." },
+        { id = "s2", text = "You have unsettled me, and I admit it freely. I see you are not one to be put off, so speak your need and I will do what I fairly can." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood on this shore through storms that tore the docks from their pilings. A raised voice will not move me, and it will not win you a single friend in Auberdine." },
+        { id = "f2", text = "Threats are for the naga and the Twilight's Hammer, and we have quite enough of those already. If you mean to behave as they do, the Sentinels will treat you as they do." },
       },
     },
   },

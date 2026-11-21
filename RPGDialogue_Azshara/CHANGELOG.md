@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.1 (2026-11-21)
+- Fixed load errors (a missing quest reference) that dropped some Valormok and Talrendis NPCs; Lohatu's hunter talk restored.
+
 ## 1.23.0 (2026-11-19)
 - Mage patch: mage trainers, portal trainers and wizards here have mage-only branches and more depth; clipped lines rewritten; doubled NPCs removed where found.
 

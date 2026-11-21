@@ -3,6 +3,7 @@
 -- Madame Eva's house, Hogan Ference at the Town Hall, and Kzixx by the Darkened Bank road.
 -- Voice: bibles/darkshire_shops.md
 local P = RPGDialogueAPI:Pack("rpgd.duskwood")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 -- Mabel Solaj: general goods in the Scarlet Raven Tavern.

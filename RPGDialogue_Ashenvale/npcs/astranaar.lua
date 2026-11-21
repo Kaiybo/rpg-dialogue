@@ -430,39 +430,6 @@ P:NPC {
         { text = "Right. Something useful, then.", next = "BACK" },
       },
     },
-  },
-
-  persuade = {
-    admire = {
-      success = {
-        { id = "s1", text = "That's good to hear, and I don't hear it often out here. I'll take it back to the Sentinels on the wall, because they've earned a share of it." },
-        { id = "s2", text = "You've a kind tongue, and you sound as if you mean it. Thank you, because the forest wears on a hunter, and a word like that helps." },
-      },
-      fail = {
-        { id = "f1", text = "Don't waste flattery on me, because I can't make arrows out of it. If you think well of Astranaar, pick up a blade and show me." },
-        { id = "f2", text = "I've tracked enough game to know when I'm being led down a trail. Whatever you're after, ask for it straight." },
-      },
-    },
-    taunt = {
-      success = {
-        { id = "s1", text = "Ha! You've got a wolf's cheek, and I like it. The Sentinels are so grim these days that I'd forgotten what it was to be needled." },
-        { id = "s2", text = "Careful, or I'll start to enjoy your company. You've a quick tongue, and I'd wager a quick blade to go with it." },
-      },
-      fail = {
-        { id = "f1", text = "I've buried friends this season, so I've no patience for that. Say it again and you can find another village to rest in." },
-        { id = "f2", text = "That's the kind of talk I'd expect from someone who has never stood a night watch on the Ashenvale border. Go and stand one, and then come and mock me." },
-      },
-    },
-    intimidate = {
-      success = {
-        { id = "s1", text = "All right, you've made yourself clear, and I'm not fool enough to pick a fight inside my own walls while the orcs are outside them. Have it your way." },
-        { id = "s2", text = "You've a look in your eye I've seen on cornered nightsabers, and I respect it enough to step back. Tell me what you want." },
-      },
-      fail = {
-        { id = "f1", narr = "Her hand drops to the bow at her side.", text = "I hunt things in the dark that would turn your stomach, so that glare is wasted on me. Stand down before I decide you're a threat to Astranaar." },
-        { id = "f2", text = "Try to frighten me again and I'll have the Sentinels walk you to the bridge. I have real enemies in this forest, and I haven't time for a pretend one." },
-      },
-    },
     kal_first = {
       big = true,
       lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me, which is a nearer thing for all of us now. They came out of the south with axes and red eyes, and they cut until Cenarius himself came to stop them, and Grom Hellscream killed him in the glade the orcs now call Demon Fall, with the Legion's blood still burning in him." } },
@@ -503,6 +470,39 @@ P:NPC {
       choices = {
         { text = "A hunter who wastes a kill has lost the way.", next = "BACK", reply = "That is what Danlaar teaches at Silverwind, and you will hear no argument from me.", fx = { trait = { kind = 1 } } },
         { text = "I'll track the ones who did it.", next = "BACK", fx = { trait = { stern = 1 }, standing = { astranaar = 1 } } },
+      },
+    },
+  },
+
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good to hear, and I don't hear it often out here. I'll take it back to the Sentinels on the wall, because they've earned a share of it." },
+        { id = "s2", text = "You've a kind tongue, and you sound as if you mean it. Thank you, because the forest wears on a hunter, and a word like that helps." },
+      },
+      fail = {
+        { id = "f1", text = "Don't waste flattery on me, because I can't make arrows out of it. If you think well of Astranaar, pick up a blade and show me." },
+        { id = "f2", text = "I've tracked enough game to know when I'm being led down a trail. Whatever you're after, ask for it straight." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a wolf's cheek, and I like it. The Sentinels are so grim these days that I'd forgotten what it was to be needled." },
+        { id = "s2", text = "Careful, or I'll start to enjoy your company. You've a quick tongue, and I'd wager a quick blade to go with it." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried friends this season, so I've no patience for that. Say it again and you can find another village to rest in." },
+        { id = "f2", text = "That's the kind of talk I'd expect from someone who has never stood a night watch on the Ashenvale border. Go and stand one, and then come and mock me." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, you've made yourself clear, and I'm not fool enough to pick a fight inside my own walls while the orcs are outside them. Have it your way." },
+        { id = "s2", text = "You've a look in your eye I've seen on cornered nightsabers, and I respect it enough to step back. Tell me what you want." },
+      },
+      fail = {
+        { id = "f1", narr = "Her hand drops to the bow at her side.", text = "I hunt things in the dark that would turn your stomach, so that glare is wasted on me. Stand down before I decide you're a threat to Astranaar." },
+        { id = "f2", text = "Try to frighten me again and I'll have the Sentinels walk you to the bridge. I have real enemies in this forest, and I haven't time for a pretend one." },
       },
     },
   },

@@ -1,6 +1,7 @@
 -- Light's Hope Chapel's working folk (0.39.0): the two flight masters, the innkeeper and the trade goods seller.
 -- Voice: bibles/easternplaguelands.md ("Light's Hope working folk")
 local P = RPGDialogueAPI:Pack("rpgd.easternplaguelands")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

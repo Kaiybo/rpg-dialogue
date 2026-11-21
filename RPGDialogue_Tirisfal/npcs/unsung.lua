@@ -2,6 +2,7 @@
 -- trainers and its shopkeeper, and Brill's warlock trainer, alchemist, nurse and horse
 -- merchant. Voices: bibles/unsung.md
 local P = RPGDialogueAPI:Pack("rpgd.tirisfal")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 ---------------------------------------------------------------------------

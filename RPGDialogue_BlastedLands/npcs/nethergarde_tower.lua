@@ -1,6 +1,7 @@
 -- Nethergarde's alchemist (0.39.0): Nina Lightbrew, at the top of the keep's tower.
 -- Voice: bibles/blastedlands.md ("Nina Lightbrew")
 local P = RPGDialogueAPI:Pack("rpgd.blastedlands")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.1 (2026-11-21)
+- Fixed a load error at the Talon camp; Thisalee's talk about the Archdruid restored.
+
 ## 1.11.0 (2026-11-20)
 - Thisalee Crow talks with druids about Aviana's gift, Nighthaven and Nordrassil.
 

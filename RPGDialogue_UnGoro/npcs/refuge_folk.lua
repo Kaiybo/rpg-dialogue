@@ -1,6 +1,7 @@
 -- Marshal's Refuge's quiet hands (0.39.0): the supply seller and the flight master.
 -- Voice: bibles/ungoro.md ("Refuge hands")
 local P = RPGDialogueAPI:Pack("rpgd.ungoro")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

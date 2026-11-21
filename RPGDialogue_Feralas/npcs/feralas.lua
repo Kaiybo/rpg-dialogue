@@ -470,39 +470,6 @@ P:NPC {
         { text = "As you say, General.", next = "BACK" },
       },
     },
-  },
-
-  persuade = {
-    admire = {
-      success = {
-        { id = "s1", text = "The Sentinels don't serve for praise, but I won't pretend it's unwelcome after a long watch. I'll pass it on to the sisters on the wall, who have earned it more than I have." },
-        { id = "s2", text = "That's well said, and I thank you for it. The High Priestess taught me to accept an honest word plainly, so I do." },
-      },
-      fail = {
-        { id = "f1", text = "I've commanded Sentinels for longer than you would believe, and I know when I'm being softened. If you want something of Feathermoon, ask me straight." },
-        { id = "f2", text = "Save the fine words for Darnassus, where they have time for them. Out here I measure people by what they do when the naga come ashore." },
-      },
-    },
-    taunt = {
-      success = {
-        { id = "s1", text = "You've a bold mouth, and you kept your feet while you used it. I've made officers out of less, so I'll take it as spirit and not as insolence." },
-        { id = "s2", text = "Ha. My own recruits used to try me like that, and the ones who did it best are captains now. Bring that nerve to the Gordunni, and we'll get along." },
-      },
-      fail = {
-        { id = "f1", text = "I am General of the Sentinels, and you're standing in my stronghold. Speak to me like that once more, and you'll finish this conversation from the dock." },
-        { id = "f2", text = "I've no time for sparring with words while there are naga on my shore. Mind your tongue, or find another island." },
-      },
-    },
-    intimidate = {
-      success = {
-        { id = "s1", text = "I've faced worse than you and didn't step back, but I know a dangerous thing when I see one. You have my attention, and I give that only to what I take seriously." },
-        { id = "s2", text = "There's weight behind that, and I'd be a poor general if I ignored it. I won't yield my post to anyone, but I'll hear you out, and carefully." },
-      },
-      fail = {
-        { id = "f1", text = "I was a child when the Legion burned Kalimdor, and nothing has frightened me as much since. You're a long way short of that, and every bow on this isle is strung." },
-        { id = "f2", text = "Threaten me again on Sardor Isle and my sisters will settle it before I've raised a hand. Stand down, and I'll forget that you tried." },
-      },
-    },
     hnt_finest = {
       big = true,
       lines = { { id = "hfi_d", text = "They say a great many things in Darnassus, and most of them are said by people who have never stood a watch. I have had ten thousand years to practise, which is not talent, only time, and I would trade every arrow I ever loosed straight for the ones I loosed too late." } },
@@ -555,6 +522,39 @@ P:NPC {
     kal_age = {
       lines = { { id = "kag_d", text = "Frighten me? No, but it changes the arithmetic. I had all the time in the world to watch over Tyrande, and now I do not, so every watch I stand matters more, and I find I like the weight of it more than I expected." } },
       choices = { { text = "Every watch matters more. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "The Sentinels don't serve for praise, but I won't pretend it's unwelcome after a long watch. I'll pass it on to the sisters on the wall, who have earned it more than I have." },
+        { id = "s2", text = "That's well said, and I thank you for it. The High Priestess taught me to accept an honest word plainly, so I do." },
+      },
+      fail = {
+        { id = "f1", text = "I've commanded Sentinels for longer than you would believe, and I know when I'm being softened. If you want something of Feathermoon, ask me straight." },
+        { id = "f2", text = "Save the fine words for Darnassus, where they have time for them. Out here I measure people by what they do when the naga come ashore." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a bold mouth, and you kept your feet while you used it. I've made officers out of less, so I'll take it as spirit and not as insolence." },
+        { id = "s2", text = "Ha. My own recruits used to try me like that, and the ones who did it best are captains now. Bring that nerve to the Gordunni, and we'll get along." },
+      },
+      fail = {
+        { id = "f1", text = "I am General of the Sentinels, and you're standing in my stronghold. Speak to me like that once more, and you'll finish this conversation from the dock." },
+        { id = "f2", text = "I've no time for sparring with words while there are naga on my shore. Mind your tongue, or find another island." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've faced worse than you and didn't step back, but I know a dangerous thing when I see one. You have my attention, and I give that only to what I take seriously." },
+        { id = "s2", text = "There's weight behind that, and I'd be a poor general if I ignored it. I won't yield my post to anyone, but I'll hear you out, and carefully." },
+      },
+      fail = {
+        { id = "f1", text = "I was a child when the Legion burned Kalimdor, and nothing has frightened me as much since. You're a long way short of that, and every bow on this isle is strung." },
+        { id = "f2", text = "Threaten me again on Sardor Isle and my sisters will settle it before I've raised a hand. Stand down, and I'll forget that you tried." },
+      },
     },
   },
 

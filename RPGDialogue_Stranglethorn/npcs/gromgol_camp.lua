@@ -2,6 +2,7 @@
 -- Vharr (weaponsmith), Mudduk (cook) and Nerrist (trade goods).
 -- Voice: bibles/gromgol_camp.md
 local P = RPGDialogueAPI:Pack("rpgd.stranglethorn")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 ---------------------------------------------------------------------------

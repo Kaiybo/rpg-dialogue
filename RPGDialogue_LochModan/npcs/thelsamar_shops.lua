@@ -1,6 +1,7 @@
 -- Thelsamar's trades: the gryphon master, the metalsmith, the Stoutlager Inn's baker and the mining supplier.
 -- Voices: bibles/thelsamar_shops.md
 local P = RPGDialogueAPI:Pack("rpgd.lochmodan")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 -- Thorgrum Borrelson: gryphon master of Thelsamar.

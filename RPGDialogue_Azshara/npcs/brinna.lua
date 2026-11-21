@@ -1,6 +1,7 @@
 -- Brinna Valanaar, bowyer at Talrendis Point (0.72.0). Voice: bibles/brinna.md
 -- Makes bows for the Sentinels on a cursed border; judges a person by how they hold one.
 local P = RPGDialogueAPI:Pack("rpgd.azshara")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

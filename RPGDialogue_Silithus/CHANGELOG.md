@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.1 (2026-11-21)
+- Fixed a load error (a missing quest reference) that dropped the NPCs after it in one file to generic lines.
+
 ## 1.25.0 (2026-11-20)
 - Mar'alith and Proudhorn at Cenarion Hold talk with druids about the old war and the Circle sharing the Hold.
 

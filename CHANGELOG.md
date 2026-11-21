@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.98.2 (2026-11-21): Lost Voices Found
+Hotfix (user report). No new files; a /reload is enough.
+- **Twenty zone packs had a file that stopped loading partway**, so everyone written after the break fell back to generic townsfolk lines. In Auberdine that was the whole village (Gwennyth Bly'Leggonde, Terenthis and the rest spoke as passing citizens). All of them are back.
+- Thundris Windweaver, Sentinel Raene, Shandris Feathermoon, Thisalee Crow, Magni Bronzebeard, Barin Redstone, Lohatu and Keeper Remulos get back the night elf, hunter, dwarf and human conversations they lost in earlier releases.
+- Also restored: NPCs in Azshara, the Blasted Lands, Durotar, Duskwood, the Eastern and Western Plaguelands, Felwood, Loch Modan, Silithus, Stranglethorn, Tirisfal, Un'Goro, the Undercity and Winterspring that sat after a broken quest reference in their file.
+
 ## 0.98.1 (2026-11-20): Bark and Root
 Hotfix. No new files; a /reload is enough.
 - The Darnassian Protectors of the Cenarion Enclave are treants, and now they talk like it: slow, patient, and loyal to the druids, with nothing more to say about the Sentinels than that they aren't one.

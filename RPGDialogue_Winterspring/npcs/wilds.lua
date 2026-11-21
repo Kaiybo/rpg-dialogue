@@ -1,5 +1,6 @@
 -- Winterspring between Everlook and the hold (0.38.0): the saber trainers, the Timbermaw at the tunnel, an Altar priestess, a blue dragon, a repentant satyr, and Everlook's cook. Voice: bibles/winterspring.md
 local P = RPGDialogueAPI:Pack("rpgd.winterspring")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {

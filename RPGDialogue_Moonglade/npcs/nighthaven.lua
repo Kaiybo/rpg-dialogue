@@ -638,40 +638,6 @@ P:NPC {
         { text = "Of course, Keeper.", next = "BACK" },
       },
     },
-  },
-
-  persuade = {
-    admire = {
-      success = {
-        { id = "s1", text = "You speak gently, little one, and the glade hears it as I do. It is a rare gift to give kindness to one who asks nothing, and I thank you for it." },
-        { id = "s2", text = "My father held that praise freely given was a kind of blessing, and he would have smiled to hear you. I receive your words in his name, and gladly." },
-        { id = "s3", when = { class = "DRUID" }, text = "It gladdens me to hear that from a child of the Circle, for you know what the keeping of this place asks. Walk here as often as you wish, and the glade will always have room for you." },
-      },
-      fail = {
-        { id = "f1", text = "The trees do not grow taller for being praised, little one, and I am much the same. Tell me what weighs on you instead, for I think that is why you speak so sweetly." },
-        { id = "f2", text = "I have heard the courtesies of ten thousand years, and I have learned to love plain speech best. Let us set the fine words aside and talk as friends do." },
-      },
-    },
-    taunt = {
-      success = {
-        { id = "s1", text = "You are bold, to tease a keeper in his own grove, and I find there is no malice in it. The young of every forest test the old ones so, and I would not have it otherwise." },
-        { id = "s2", text = "Ha. It has been long since anyone dared to speak to me so lightly, little one, and the glade is not offended. There is good spirit in you, and it does an old keeper good to meet it." },
-      },
-      fail = {
-        { id = "f1", text = "Moonglade is a place of peace, little one, and that peace is kept in words as well as in deeds. I ask you to speak more gently while you stand beneath these boughs." },
-        { id = "f2", text = "I will not answer mockery in kind, for nothing grows from it. But the glade has heard you, and it remembers longer than you might wish." },
-      },
-    },
-    intimidate = {
-      success = {
-        { id = "s1", narr = "Remulos regards you gravely, and the grove around him grows very still.", text = "There is strength in you that even the trees have marked, little one. I am not moved to fear, yet I will own that few mortals have made me weigh my words as you have just done." },
-        { id = "s2", text = "You press hard, and with more force than I had looked for in a mortal. I will give you the answer you seek, for I see you will not be turned, and I do not wish this glade troubled." },
-      },
-      fail = {
-        { id = "f1", text = "I am a son of Cenarius, and I have stood before the Legion in its strength. Put aside your threats, little one, for they have no place here and no power over me." },
-        { id = "f2", text = "No blade is drawn in Moonglade and no hand is raised, and that law binds you as it binds every creature here. Remember it, or the glade's wardens will remind you." },
-      },
-    },
     kal_malf = {
       big = true,
       lines = { { id = "kma_d", text = "Walking the Dream, as he has walked it since the War of the Ancients, though the druids who sleep beside him say his footsteps have grown harder to follow. He woke for Hyjal when Tyrande called him, and then he went back, and I do not know whether he is lost or only very far away." } },
@@ -707,6 +673,40 @@ P:NPC {
     hnt_truce = {
       lines = { { id = "htr_d", text = "By leaving the war at the edge of the hills, as everyone does. The hunters of both banners come here to be still for a while, and their beasts lie down together by the lake with less fuss than their masters, which I have always found instructive." } },
       choices = { { text = "Beasts make better neighbours. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+  },
+
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak gently, little one, and the glade hears it as I do. It is a rare gift to give kindness to one who asks nothing, and I thank you for it." },
+        { id = "s2", text = "My father held that praise freely given was a kind of blessing, and he would have smiled to hear you. I receive your words in his name, and gladly." },
+        { id = "s3", when = { class = "DRUID" }, text = "It gladdens me to hear that from a child of the Circle, for you know what the keeping of this place asks. Walk here as often as you wish, and the glade will always have room for you." },
+      },
+      fail = {
+        { id = "f1", text = "The trees do not grow taller for being praised, little one, and I am much the same. Tell me what weighs on you instead, for I think that is why you speak so sweetly." },
+        { id = "f2", text = "I have heard the courtesies of ten thousand years, and I have learned to love plain speech best. Let us set the fine words aside and talk as friends do." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You are bold, to tease a keeper in his own grove, and I find there is no malice in it. The young of every forest test the old ones so, and I would not have it otherwise." },
+        { id = "s2", text = "Ha. It has been long since anyone dared to speak to me so lightly, little one, and the glade is not offended. There is good spirit in you, and it does an old keeper good to meet it." },
+      },
+      fail = {
+        { id = "f1", text = "Moonglade is a place of peace, little one, and that peace is kept in words as well as in deeds. I ask you to speak more gently while you stand beneath these boughs." },
+        { id = "f2", text = "I will not answer mockery in kind, for nothing grows from it. But the glade has heard you, and it remembers longer than you might wish." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "Remulos regards you gravely, and the grove around him grows very still.", text = "There is strength in you that even the trees have marked, little one. I am not moved to fear, yet I will own that few mortals have made me weigh my words as you have just done." },
+        { id = "s2", text = "You press hard, and with more force than I had looked for in a mortal. I will give you the answer you seek, for I see you will not be turned, and I do not wish this glade troubled." },
+      },
+      fail = {
+        { id = "f1", text = "I am a son of Cenarius, and I have stood before the Legion in its strength. Put aside your threats, little one, for they have no place here and no power over me." },
+        { id = "f2", text = "No blade is drawn in Moonglade and no hand is raised, and that law binds you as it binds every creature here. Remember it, or the glade's wardens will remind you." },
+      },
     },
   },
 

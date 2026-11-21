@@ -1,6 +1,7 @@
 -- Durotar's working people with no quests of their own: the Den's trainers and shopkeeper,
 -- Razor Hill's weaponsmith and trainers, and Sen'jin's mage teacher. Voices: bibles/unsung.md
 local P = RPGDialogueAPI:Pack("rpgd.durotar")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 ---------------------------------------------------------------------------

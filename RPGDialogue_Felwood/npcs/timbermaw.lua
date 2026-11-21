@@ -1,5 +1,6 @@
 -- Felwood's north and the Irontree woods (0.38.0): the Timbermaw at their hold, and a warlock's imp out in the wilds. Voice: bibles/felwood.md
 local P = RPGDialogueAPI:Pack("rpgd.felwood")
+local TODO_QUEST = P.TODO_QUEST
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {
