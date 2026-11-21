@@ -774,7 +774,7 @@ P:NPC {
     },
     xnelf = {
       lines = {
-        { id = "xnelf_default", text = "I know, and I do understand, truly. I've moved it twelve paces and padded the casing. It only listens, I promise you, it doesn't take anything from the well. If Thundris wants it gone I'll fetch it tonight, though I'd lose my best reading." },
+        { id = "xnelf_default", text = "I know, I know, and I do understand, truly! I've moved it twelve paces back, padded the casing with two of my socks, and the hum is down to a polite whisper. It only listens, I promise, it doesn't take a drop from the well. If Thundris wants it gone I'll fetch it tonight, though it's my best reading by a clear fourteen percent." },
       },
       choices = {
         { text = "I'll tell them it only listens. Something else.", next = "BACK" },
@@ -784,7 +784,7 @@ P:NPC {
     xnelf_well = {
       narr = "He takes off his goggles, which seems to cost him something.",
       lines = {
-        { id = "xnw_default", text = "Ah. There it is, the look! The elders give me that exact look, eyebrows at roughly forty degrees, as if I'd lit a fuse to see whether it was a candle. Now, your people have watched this coast for ten thousand years, which is a marvelous sample size! You could tell me the tide heights, the water clarity, the glow per fathom before the sickness came, and instead I get a proverb about balance. Not one number. I counted!" },
+        { id = "xnw_default", text = "Ah. There it is, the look! The elders give me that exact look, eyebrows at roughly forty degrees, as if I'd lit a fuse to see whether it was a candle. Now, your people have watched this coast for ten thousand years, which is a marvellous sample size! You could tell me the tide heights, the water clarity, the glow per fathom before the sickness came, and instead I get a proverb about balance. Not one number. I counted!" },
       },
       choices = {
         { text = "We've seen what clever hands do with power. Forgive our caution.", next = "BACK",
@@ -815,7 +815,7 @@ P:NPC {
     },
     ne_help = {
       lines = {
-        { id = "neh_default", text = "In their way, which is to say they'll tell you the answer and never how they got it. The druids know exactly which streams have turned and which bears have gone wrong, and when I ask for their records, they tell me the land remembers, which is very poetic and absolutely useless for a graph." },
+        { id = "neh_default", text = "In their way, which is to say they'll tell you the answer and never how they got it. The druids know exactly which streams have turned and which bears have gone wrong, and when I ask for their records, they tell me the land remembers, which is very poetic and absolutely useless on a graph. I've tried plotting it. The line just goes wistful." },
       },
       choices = {
         { text = "What would you ask them, if they'd answer?", next = "ne_ask" },
@@ -824,7 +824,7 @@ P:NPC {
     },
     ne_ask = {
       lines = {
-        { id = "nea_default", text = "How the shore looked a hundred years ago, before the sickness, because without a baseline every reading I take is a number floating in the dark! They've lived through it, they remember it, and they won't write a word of it down for a gnome, and if that isn't the most maddening thing on this continent, I'd like to see what is." },
+        { id = "nea_default", text = "How the shore looked a hundred years ago, before the sickness, because without a baseline every reading I take is a number floating in the dark! They've lived through it, they remember it, and they won't write a word of it down for a gnome, and if that isn't the most maddening thing on this continent, I'll eat my goggles, lenses and all." },
       },
       choices = {
         { text = "Maybe they don't think in numbers.", next = "BACK", reply = "Then I'll learn to think in whatever they think in, if I have to, though I suspect it involves a great deal of sitting very still." },
@@ -835,7 +835,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_background", text = "I'm a gnome naturalist, working out of the inn at Auberdine. I've four buzzboxes across Darkshore, and one of them works perfectly." } },
-    gnomeregan = { { id = "tp_gnomeregan", text = "Lost, for now. I got out with my notebooks. I'd rather talk about crabs, if it's all the same to you." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Lost, for now. I got out with my notebooks and one boot. I'd much rather talk about crabs, if it's all the same to you. Crabs have very interesting joints." } },
     furbolgs = { { id = "tp_furbolgs", text = "Every reading I take gets worse toward their dens. I don't know what they've got up there, but it's in the water." } },
     advice = { { id = "tp_advice", text = "The green stud, never the red. I really can't stress that enough." } },
     _none = { { id = "tp_none", text = "No data, I'm afraid! Ask Shaussiy downstairs. She collects information the old-fashioned way, by listening." } },
