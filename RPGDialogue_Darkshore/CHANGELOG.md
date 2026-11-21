@@ -4,6 +4,7 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.28.1 (2026-11-21)
 - Fixed a load error that dropped every Auberdine NPC to generic lines (Gwennyth, Terenthis and the rest); Thundris's night elf talks restored.
+- Wizbang Cranktoggle's moonwell line rewritten in a gnomier voice.
 
 ## 1.28.0 (2026-11-20)
 - Tharnariun Treetender, Alanndarian Nightsong and Kerlonian Evershade deepened for druids (Body and Heart, the Cure Poison salve, the long sleep).
