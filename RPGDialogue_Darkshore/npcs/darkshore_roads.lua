@@ -60,14 +60,14 @@ P:NPC {
     },
 
     cult = {
-      lines = { { id = "cu_default", text = "They call themselves the Dark Strand, and they've the look of Highborne leftovers about them, robed and proud and far too fond of fel fire. The tower was a Highborne place once, so perhaps they think it owes them something." } },
+      lines = { { id = "cu_default", text = "They call themselves the Dark Strand, and most of them are humans, come across the sea with the boats and robed like scholars, far too fond of fel fire. The tower was a Highborne place once, so perhaps they think its old secrets are theirs for the taking." } },
       choices = {
-        { text = "Kaldorei, practising fel magic again?", next = "cult_kal" },
+        { text = "Humans? Why would they come so far for that?", next = "cult_kal" },
         { text = "Something else.", next = "BACK" },
       },
     },
     cult_kal = {
-      lines = { { id = "ck_default", text = "Some of them, yes, and that's what frightens me most. We swore off the arcane ten thousand years ago because of what it did to us, and here they are, a day's walk from Auberdine, lighting the old fires again." } },
+      lines = { { id = "ck_default", text = "For the tower, I think, and whatever the Highborne left in it. We swore off that magic ten thousand years ago because of what it did to us, and now strangers walk a day from Auberdine to light the old fires again." } },
       choices = {
         { text = "Then they must be stopped, whatever it costs.", next = "BACK", reply = "It may cost a great deal, {class}, and I would rather it cost them than us. Still, I hope it does not come to blades.", fx = { align = { order = 1 }, learn = { "dark_strand" } } },
         { text = "They chose their path. Watch them, but don't start a war.", next = "BACK", reply = "That is wise, and probably what Delgren would say too. I will keep watching, and you keep listening.", fx = { align = { order = -1 }, learn = { "dark_strand" } } },
