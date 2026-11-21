@@ -101,9 +101,52 @@ P:NPC {
     },
 
     light = {
-      lines = { { id = "li_default", text = "That there's something in us that can stand against the dark without needing the moon to be up. Delgren says the Light and Elune may be two faces of the same thing, and I've no idea if that's true, but I like that he wonders about it." } },
+      big = true,
+      lines = {
+        { id = "li_default", text = "That there's something in us that can stand against the dark without needing the moon to be up. Delgren says the Light and Elune may be two faces of the same thing, and I've no idea if that's true, but I like that he wonders about it." },
+        { id = "li_pala", when = { class = "PALADIN" }, text = "You'd know better than I would, {class}. To me it's still new, like a road I've only walked by night. But it's there when the moon isn't, and every night I'm surer of that." },
+        { id = "li_nelf", when = { race = "NightElf" }, text = "You'll think it strange, coming from one of our own. But it's something in us that stands against the dark without waiting for the moon, and I can't stop listening for it now that Delgren's shown me where to listen." },
+      },
       choices = {
-        { text = "Faith is faith. The name matters less.", next = "BACK", fx = { trait = { pious = 1 } } },
+        { text = "What has Delgren taught you of it?", next = "light_learn" },
+        { text = "Have you ever called on it yourself?", next = "light_try" },
+        { text = "Are you giving up Elune for it?", next = "light_elune" },
+        { text = "Faith is faith. The name matters less.", next = "BACK", reply = "That's very nearly what Delgren says, and I'm glad to hear it from someone else. It makes me feel less like a traitor.", fx = { align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "A kaldorei should keep to Elune. That's where you belong.", next = "BACK", reply = "Perhaps I should, and my elders would thank you for saying it. But I can't unlearn what I've seen him do, and I won't pretend I didn't see it.", fx = { align = { order = 1 } } },
+        { text = "Faith in anything is a crutch. Trust your bow.", next = "BACK", reply = "I trust my bow every day, {class}. It's the nights my bow can't help with that I've been praying through.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_learn = {
+      lines = { { id = "ll_default", text = "Not spells, if that's what you're thinking, because he says the Light isn't a trick you learn. He taught me to pray the way his order does, to ask for strength and not for victory, and to face the thing I'm afraid of because the Light walks there too. When I keep watch on the tower at night now, I say his words under my breath, and the dark doesn't press as close." } },
+      choices = {
+        { text = "Strength, not victory. That's a soldier's prayer.", next = "BACK", reply = "It is, and I've been a soldier long enough to know how rare it is. Most of us pray to win, and then blame the goddess when we don't.", fx = { align = { light = 1, honor = 1 } } },
+        { text = "Victory is the only prayer worth answering.", next = "BACK", reply = "Then we'd be praying to different things, {class}, and I suspect yours answers less often. Delgren says the Light never promised anyone a win.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_try = {
+      lines = { { id = "lt_default", text = "Once, and I've told no one but Delgren. A Sentinel took a fel bolt in the shoulder near the tower, and I had nothing left to give her but his prayer, so I said it with my hands on the wound. There was warmth, and the bleeding slowed. Perhaps it was the Light, or perhaps it was Elune answering in a voice I didn't know. Either way, I haven't stopped thinking about it." } },
+      choices = {
+        { text = "Then it answered you. Don't doubt it.", next = "BACK", reply = "Delgren said the same, and then he made me eat something, because I'd gone white as a moonstone. I'm trying not to doubt it, {class}.", fx = { align = { light = 1 } } },
+        { text = "Wounds close on their own. Don't read too much into it.", next = "BACK", reply = "Maybe you're right, and I'm a lonely scout seeing signs in the dark. But they don't close that fast, and I was there.", fx = { align = { light = -1 } } },
+        { text = "Did Delgren say what it meant?", next = "light_delgren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_delgren = {
+      lines = { { id = "ld_default", text = "He said the Light doesn't ask what race you are, only what you're willing to stand for. Then he laughed and said his order would have to write a new rule, because they've never had a night elf come asking before. I think he was only half joking, and I think I was only half listening, because I was already wondering if I'd ask." } },
+      choices = {
+        { text = "Then ask him. You've earned the right.", next = "BACK", reply = "Perhaps I will, once the tower is quiet. I'd want to be worth his trouble before I put it to him.", fx = { align = { light = 1, order = -1 } } },
+        { text = "Take it slowly. A vow like that is forever.", next = "BACK", reply = "It is, and our forever is longer than his. That's the part that keeps me awake, more than the warlocks do.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_elune = {
+      lines = { { id = "le_default", text = "No, and I won't. Elune watched over me long before Delgren came, and I still say her prayers when the moon rises. But I've started saying his when it sets, and some nights I can't tell where one prayer ends and the other begins. If that makes me half a convert, then I'm half a convert, and I'm not ashamed of it." } },
+      choices = {
+        { text = "Two lights are better than one in the dark.", next = "BACK", reply = "That's how it feels, most nights. When the tower's fires burn, I'll take every light I can find.", fx = { align = { light = 1 } } },
+        { text = "A divided heart serves neither well.", next = "BACK", reply = "My elders say exactly that, and perhaps they're right. But my heart was never so whole that the Light had to break it open.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
