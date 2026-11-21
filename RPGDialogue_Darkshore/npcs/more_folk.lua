@@ -1031,7 +1031,7 @@ P:NPC {
     },
     glaive = {
       lines = {
-        { id = "glaive_default", text = "Look up. Those are bones, the bones of something that died here before our people had a name, with a blade the size of a tower still standing in its skull. My people have always kept away from this valley. The trees will not grow in it, and that is warning enough." },
+        { id = "glaive_default", text = "Look up. Those are bones, the bones of something that died here before our people had a name, with a blade the size of a tower still standing in its skull. This valley was holy to my people once. Now the trees will not grow in it, and that is warning enough." },
       },
       choices = {
         { text = "What was it?", next = "glaive2" },
@@ -1040,7 +1040,7 @@ P:NPC {
     },
     glaive2 = {
       lines = {
-        { id = "glaive2_default", text = "A servant of something older than the world's keepers, if the oldest tales are to be believed, slain by a master greater than itself. I do not know. I know that the cultists kneel to the bones and whisper to them, and that at night I have thought the bones whispered back." },
+        { id = "glaive2_default", text = "Soggoth the Slitherer, the cultists call it, a servant of the powers beneath the world, slain by a stone giant named Kronn whom the titans sent. They mean to raise it, and they kneel to the bones and whisper to them, and at night I have thought the bones whispered back." },
       },
       choices = {
         { text = "Then the sooner we leave, the better.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
