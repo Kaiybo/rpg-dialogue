@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.99.0 (2026-11-21): The Shade of Bashal'Aran
+No new files; a /reload is enough.
+- **Asterion (Darkshore) is who his quests say he is**: a Highborne mage's spirit bound to the pillars of Bashal'Aran, not a druid keeping watch. His greetings, his history and his talks with each class now come from a prisoner who watched his own order fall to the satyrs' whispers.
+- **Gubber Blump (Auberdine)** now opens by saying he teaches fishing and sells spare poles and bait, and he's matched by his NPC id.
+- Not seen in game yet.
+
 ## 0.98.2 (2026-11-21): Lost Voices Found
 Hotfix (user report). No new files; a /reload is enough.
 - **Twenty zone packs had a file that stopped loading partway**, so everyone written after the break fell back to generic townsfolk lines. In Auberdine that was the whole village (Gwennyth Bly'Leggonde, Terenthis and the rest spoke as passing citizens). All of them are back.

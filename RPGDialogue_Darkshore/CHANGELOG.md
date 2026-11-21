@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-21)
+- Asterion rewritten as the bound Highborne spirit of Bashal'Aran.
+- Gubber Blump's greeting names his fishing training and pole and bait sales; NPC id 10216.
+
 ## 1.28.1 (2026-11-21)
 - Fixed a load error that dropped every Auberdine NPC to generic lines (Gwennyth, Terenthis and the rest); Thundris's night elf talks restored.
 - Wizbang Cranktoggle's moonwell line rewritten in a gnomier voice.

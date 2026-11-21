@@ -5,20 +5,20 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 P:NPC {
   key = "asterion", id = TODO_NPC("Asterion"), name = "Asterion", title = "",
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
-  communities = { "bashal_aran" }, temper = { "weary" }, values = { "dutiful", "wise" },
+  communities = { "bashal_aran" }, temper = { "weary" }, values = { "wise", "proud" },
   impression = {
-    first = "He talks about the old city as if he still hears it.",
-    third = "{name} met Asterion, the druid who watches over the ruins of Bashal'Aran.",
+    first = "A pale Highborne spirit who cannot step past the pillars of his shrine.",
+    third = "{name} met Asterion, a Highborne spirit imprisoned in the ruins of Bashal'Aran.",
   },
 
   greetings = {
-    { id = "g_default", text = "Walk softly here, traveller, for Bashal'Aran was a city once, and the satyrs have not left it in peace." },
-    { id = "g_back", when = { metBefore = true }, text = "You've come back to the ruins, which few people choose to do. Sit a while, if the satyrs allow it." },
+    { id = "g_default", text = "Do not be afraid, traveller, though I know how I must look to you. I am only a shade, and these pillars hold me as surely as any cell." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back to me, which no one has done in longer than I care to count. I am still here, as you see; I am always here." },
   },
 
   notice = {
     { id = "n_lock_shadow", cat = "lock_shadow", when = { class = "WARLOCK" },
-      text = "The satyrs in the ruins went quiet the moment you came near, which they never do, and I think they have caught your scent. They know their own, or near enough, and I would sooner they did not mistake you for a friend." },
+      text = "The satyrs in the ruins went quiet the moment you came near, which they never do, and I think they have caught your scent. I knew that scent once, among my own kind, and I watched it ruin them." },
   },
 
   start = "hello",
@@ -27,7 +27,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I believe I can, faintly, and it is mourning. Your spirits might hear it more clearly than I do." } },
       choices = {
-        { text = "Then we should honour it, Asterion.", next = "BACK", reply = "Then honour it we shall, shaman, and the stones may sleep a little easier. You are the first visitor in a long age to think of the city's grief.", fx = { align = { light = 1 } } },
+        { text = "Then we should honour it, Asterion.", next = "BACK", reply = "Then I thank you, shaman, for I can do nothing for it myself. You are the first visitor in an age to think of the city's grief.", fx = { align = { light = 1 } } },
         { text = "Ruins are ruins. Let them be.", next = "BACK", reply = "They are ruins to you, but they were homes to my people. The satyrs would be glad to hear you say it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -36,16 +36,16 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You can, by breaking every satyr you find among the stones and taking back whatever they have dug up. They are cowards in the open and vicious in the dark, so fight them where the moon can see them." } },
       choices = {
-        { text = "I'll drive them out and leave the stones in peace.", next = "BACK", reply = "That is all I ask, warrior, and more care than most blades show. I watched these halls built, and I would rather not watch them broken twice.", fx = { align = { honor = 1 } } },
-        { text = "Whatever they dug up is mine. Spoils of war.", next = "BACK", reply = "Then you are no better than the satyrs, warrior, and I will thank you to leave it with me. Some spoils curse their keepers.", fx = { align = { honor = -1 } } },
+        { text = "I'll drive them out and leave the stones in peace.", next = "BACK", reply = "That is all I ask, warrior, and more care than most blades show. I watched these halls raised, and I would rather not watch them broken twice.", fx = { align = { honor = 1 } } },
+        { text = "Whatever they dug up is mine. Spoils of war.", next = "BACK", reply = "Then you are no better than the satyrs, warrior. Some spoils curse their keepers, and I would know; one of them keeps me.", fx = { align = { honor = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "In the cellars of the old houses and among the fallen pillars on the eastern side, where they think I cannot see. Follow the hoof marks in the soft ground at dusk, because that is when they come out to dig." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In the cellars of the old houses and among the fallen pillars on the eastern side, where they think I cannot see. Your {pet} will smell them before you see them, so let it lead. Satyrs hate beasts that hunt them, which is the best reason I know to bring one." },
+        { id = "xhuntcl_default", text = "In the cellars of the old houses and among the fallen pillars on the eastern side, beyond where I can follow. Follow the hoof marks in the soft ground at dusk, because that is when they come out to dig." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In the cellars of the old houses and among the fallen pillars on the eastern side, beyond where I can follow. Your {pet} will smell them before you see them, so let it lead. Satyrs hate beasts that hunt them, which is the best reason I know to bring one." },
       },
       choices = {
         { text = "I'll root them out of the cellars, face to face.", next = "BACK", reply = "Then go, and may Elune guide your blade in the dark. Mind the stairs in the cellars; they were old even when I was alive.", fx = { align = { honor = 1 } } },
@@ -58,7 +58,7 @@ P:NPC {
         { id = "xma_default", text = "Too much, and not nearly enough to tempt a mortal like you, I hope. The Highborne who lived here poured their arcane into every stone, and the Deth'ryll satyrs are what comes of that hunger, given a few thousand years." },
       },
       choices = {
-        { text = "Then I'll help you see it sealed away.", next = "BACK", reply = "Thank you, mage, and I am glad to hear it from one of your craft. I was a mage once, and I know how the wanting feels.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll help you see it sealed away.", next = "BACK", reply = "Thank you, mage, and I am glad to hear it from one of your craft. I was a mage of Bashal'Aran, and the wanting is how I came to these pillars.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Knowledge shouldn't be left to satyrs.", next = "BACK", reply = "No, it should not, and nor should it be left to you. Help me seal it, and we will both be safer.", fx = { align = { order = -1 } } },
         { text = "What was the city like?", next = "city" },
       },
@@ -69,7 +69,7 @@ P:NPC {
         { id = "xwl_demon", when = { pet = { type = "Demon" } }, text = "Deal with them by the blade, or deal with them by bargain? Your servant tilts its head toward the forest as if it hears the satyrs already, and I have watched them whisper to every traveler who comes too close, so I would not trust either of you not to listen." },
       },
       choices = {
-        { text = "I'll kill them, and listen to nothing.", next = "BACK", reply = "Good, for their whispers have undone better minds than yours. I know, because I once lent them my ear.", fx = { align = { light = 1 } } },
+        { text = "I'll kill them, and listen to nothing.", next = "BACK", reply = "Good, for their whispers have undone better minds than yours. I watched my whole order lend them its ear.", fx = { align = { light = 1 } } },
         { text = "There's knowledge in their whispers, if you're careful.", next = "BACK", reply = "That is exactly what the Highborne said, and look where they are now. Careful is never careful enough.", fx = { align = { light = -1 } } },
         { text = "What do the satyrs want?", next = "satyrs" },
       },
@@ -105,24 +105,25 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Asterion, and I watch over what is left of Bashal'Aran. The Deth'ryll satyrs crawl through these stones looking for old magic, and I mean to see that they find none of it." },
-        { id = "h_cond", when = { race = "NightElf" }, text = "You're one of the Kaldorei, so you'll feel it too, I think, the old sorrow in these stones. Our people built this place before the sea took so much of the shore." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Deth'ryll satyrs would scatter if enough of your kind came to Bashal'Aran, and I would be glad to see it." },
+        { id = "h_default", text = "I am Asterion, once a mage of Bashal'Aran, and now its prisoner. A seal binds my spirit to this shrine, and I have stared at these pillars for longer than your kingdoms have stood." },
+        { id = "h_cond", when = { race = "NightElf" }, text = "One of the Kaldorei, and how strange that your face should comfort me. I was Highborne, and your people have little cause to love mine, yet you have not run from my shade." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I cannot lift a blade against the Deth'ryll from inside these pillars, but you could, and I would be glad to watch." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The satyrs of Bashal'Aran leave tracks like goats and a stink like the Legion, and you will know them when you find them." },
-        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Then perhaps you can feel what still haunts Bashal'Aran, for I have felt it every night since the satyrs came." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order among our ruins, but I will not refuse the help." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up through the ruins without stirring a single satyr, which is more than I can manage. Bashal'Aran could use someone who walks as quietly as you." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I watch Bashal'Aran's ruins while the satyrs pick at what my people left behind, so tell me, can your spirits still hear the old city?" },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, come to a ghost. Then perhaps you can feel what still haunts Bashal'Aran, besides myself." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here at Bashal'Aran. I did not think to see one of your order speak kindly to a Highborne shade, but I will not refuse the help." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up through the ruins without stirring a single satyr, and I did not hear you until you stood beside me. Bashal'Aran could use someone who walks as quietly as you." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, who speaks with spirits. I am one of them now, I suppose, so tell me, can your spirits still hear the old city?" },
       },
       again = {
-        { id = "h_again1", text = "What else would you know about the ruins? They have stood since before the Sundering, and they will wait for your question." },
-        { id = "h_again2", text = "Ask, then, while the satyrs are quiet." },
+        { id = "h_again1", text = "What else would you know? I have nothing but time, and I would rather spend it talking than staring at these pillars." },
+        { id = "h_again2", text = "Ask, then, while the satyrs are quiet. I am not going anywhere." },
       },
       choices = {
         { text = "What do the satyrs want here?", next = "satyrs" },
         { text = "Bashal'Aran must have been something, once.", next = "city" },
-        { text = "Do you send word to Auberdine?", next = "neighbors" },
-        { text = "You're a druid, as I am. How do you bear it here?", next = "druid", when = { class = "DRUID" } },
+        { text = "Why can't you leave this place?", next = "seal" },
+        { text = "Do the people of Auberdine know you're here?", next = "neighbors" },
+        { text = "Did you know any druids, in your day?", next = "druid", when = { class = "DRUID" } },
         { text = "What magic is left in Bashal'Aran?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I help you drive the satyrs from Bashal'Aran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Where do the satyrs hide in the ruins, Asterion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -136,7 +137,7 @@ P:NPC {
     },
     satyrs = {
       lines = {
-        { id = "satyrs_default", text = "They want whatever magic the Highborne left behind, for they were Highborne once themselves, before the Legion twisted them. I've asked travellers to take the horns from the Deth'ryll and bring me the old relics they steal." },
+        { id = "satyrs_default", text = "They want whatever magic the Highborne left behind, for they were Highborne once themselves, before the Legion twisted them. I suspect one of them carries the very seal that binds me, though they have never dared come near this shrine." },
       },
       choices = {
         { text = "Why do they keep coming back?", next = "satyrs2" },
@@ -147,22 +148,32 @@ P:NPC {
         { id = "satyrs2_default", text = "Because the old magic calls to them, and I think it always will, the way a drunkard hears a tavern door. Some say we should forgive them their shape, and some say we should finish what the war began." },
       },
       choices = {
-        { text = "Whatever they were, they chose this. Drive them out.", next = "BACK", reply = "They did, and I cannot forgive them for it. Drive them out, and I will help.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "Whatever they were, they chose this. Drive them out.", next = "BACK", reply = "They did, and I cannot forgive them for it. Drive them out, and I will help however a shade can.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
         { text = "They were our people once. Pity them, at least.", next = "BACK", reply = "They were, and some nights I pity them. Then I hear their picks in the cellars, and the pity goes.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Let them dig. Dead cities are no one's business.", next = "BACK", reply = "It is my business, and it was my people's home. I will not let them dig.", fx = { align = { order = -1 } } },
       },
     },
     city = {
       lines = {
-        { id = "city_default", text = "A city of the Kaldorei, from the days before the Sundering, and later a quiet place where my people kept their histories. Now it is broken stones and old moonlight, and I am all that's left to mind it." },
+        { id = "city_default", text = "It was, and the Queen herself had a hand in it. She sent her favoured servants to these twin towns by the lake, Bashal'Aran and Ameth'Aran, and I walked between them as freely as you walk now. Now it is broken stones and old moonlight, and I am all that is left of it." },
       },
       choices = {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    seal = {
+      lines = {
+        { id = "seal_default", text = "A seal holds me, made by one of the mightiest of the Highborne, though why he chose to bind me I will not burden you with. When my body died I hoped to be free of it, and found to my horror that even a ghost can be kept in a cage." },
+      },
+      choices = {
+        { text = "Then I'll find the seal and set you free.", next = "BACK", reply = "You would bring me so close to the end of my prison that tears would come to my eyes, if a shade can still weep. Find the seal, and I will tell you how it can be broken.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Perhaps you were caged for good reason.", next = "BACK", reply = "Perhaps I was, and I will not swear to my innocence after so long. But no crime deserves an eternity of staring at the same stones.", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     neighbors = {
       lines = {
-        { id = "neighbors_default", text = "When I can, yes, though Auberdine has troubles enough with the bears and the furbolgs. Tharnariun and I were students together once, and he still sends me a bottle of something on the boat days." },
+        { id = "neighbors_default", text = "I doubt it, and I cannot walk there to tell them, for the pillars of this shrine are the edge of my world. Now and then a traveller from the village passes by and hurries off again, and I cannot say I blame them." },
       },
       choices = {
         { text = "Let's talk of something else.", next = "BACK" },
@@ -170,7 +181,7 @@ P:NPC {
     },
     druid = {
       lines = {
-        { id = "druid_default", text = "By listening to the trees instead of the stones, mostly. The ruins grieve, but the forest around them is still young and stubborn, and a druid can lean on that when the nights are long." },
+        { id = "druid_default", text = "A few, and we Highborne thought them rustics who talked to deer. They were right about the Well and we were wrong, and I have had a long time to admit it." },
       },
       choices = {
         { text = "Thank you.", next = "BACK" },
@@ -179,11 +190,11 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I am a druid who stayed where others left, and I watch the old city because someone should." } },
-    highborne = { { id = "tp_highborne", text = "I watch the old Highborne city because the Highborne never stay dead the way they ought to. They loved their magic more than their lives, and some of them still do." } },
-    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the first tree, and it holds our people's life on Hyjal. I'd rather watch over it than this, but somebody has to watch the dead." } },
-    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows the land as it should be, and I have seen this shore there, green and quiet. It is hard to come back from that and look at the ruins." } },
-    _none = { { id = "tp_none", text = "I've no answer for that, I'm afraid; the ruins keep their own counsel and so do I." } },
+    background = { { id = "tp_bg", text = "I was a mage of Bashal'Aran, in the days when Highborne ruled these shores. Now I am a shade bound to one small shrine, and that is all my story you would care to hear." } },
+    highborne = { { id = "tp_highborne", text = "I was one of them, and I will not pretend otherwise. We loved our magic more than our lives, and I am proof that some of us never stopped paying for it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The druids raised a great tree on Hyjal after the war, so travellers tell me. I never saw it, for I have not seen anything beyond these pillars in a very long time." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream was the druids' craft, never mine, and I confess I scorned it once. A shade has a great deal of time to regret what it scorned." } },
+    _none = { { id = "tp_none", text = "I have no answer for that, I am afraid. The world I knew is long gone, and most of yours never reaches this shrine." } },
   },
 }
 
