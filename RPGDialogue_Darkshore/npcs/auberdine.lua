@@ -321,14 +321,14 @@ P:NPC {
       choices = { { text = "I'll keep that in mind.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     glaive = {
-      lines = { { id = "gl_default", text = "South, past the Grove of the Ancients, a great glaive stands in the bones of something very old. Onu, the Ancient at the grove, says it fell there in the war against the Legion, and now Twilight's Hammer cultists dig around it." } },
+      lines = { { id = "gl_default", text = "South, past the Grove of the Ancients, a great sword stands in the skull of something very old. Remtravel's dwarves found tablets that say a titan-sent giant named Kronn slew a horror called Soggoth there, and now Twilight's Hammer cultists dig around the bones." } },
       choices = {
         { text = "What are they digging for?", next = "glaive2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     glaive2 = {
-      lines = { { id = "gl2_default", text = "I do not know, and that troubles me more than any furbolg. Cultists who worship old things buried in the earth should not be allowed to finish their digging." } },
+      lines = { { id = "gl2_default", text = "For Soggoth itself, they say, to raise it from those bones. That troubles me more than any furbolg, and cultists who worship old things buried in the earth should not be allowed to finish their digging." } },
       choices = {
         { text = "Then they won't.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, learn = { "twilights_hammer" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },

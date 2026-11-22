@@ -753,10 +753,44 @@ P:NPC {
     },
     glaive = {
       lines = {
-        { id = "glaive_default", text = "A great blade that fell from the sky in the war against the Legion, and it lies in the earth still, far to the south of here. Now men in dark robes gather around it, the Twilight's Hammer, and they whisper to things that should stay sleeping." },
+        { id = "glaive_default", text = "A sword, little one, taller than any tree in this grove, standing in the skull of a dead thing in the valley just south of here. My people once called that valley holy. Now the Twilight's Hammer have made a camp in it, and they dig at the bones and whisper into the earth to things that should stay sleeping.", fx = { learn = { "twilights_hammer" } } },
+      },
+      choices = {
+        { text = "Whose sword was it?", next = "glaive_kronn" },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+        { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    glaive_kronn = {
+      big = true,
+      lines = {
+        { id = "glaive_kronn_default", text = "For ages none of us knew, not even the Ancients. Then the dwarves of the Explorers' League dug up tablets at their excavation on the coast, and word of what they said reached even my roots. The titans sent twenty stone giants against a horror called Soggoth the Slitherer, and only the greatest of them, Kronn, lived through the battle." },
+        { id = "glaive_kronn_dwarf", when = { race = "Dwarf" }, text = "For ages none of us knew, not even the Ancients. Then your own Explorers' League dug up tablets at Remtravel's excavation, and I will grant your people this much: they read stone better than we do. The titans sent twenty stone giants against a horror called Soggoth the Slitherer, and only the greatest of them, Kronn, lived through the battle." },
+      },
+      choices = {
+        { text = "How did one giant kill it?", next = "glaive_kronn2" },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    glaive_kronn2 = {
+      lines = {
+        { id = "glaive_kronn2_default", text = "He let Soggoth take him in its tendrils, and held still while it lifted him up, until he was close enough to its skull to strike. That one blow is the sword you see standing there now. I would like to think I would have the courage to be caught on purpose, but I am glad I was never asked." },
+      },
+      choices = {
+        { text = "That took more courage than most have.", next = "BACK", reply = "It did, and the stone remembers him for it, even if the world forgot. Honour him by finishing what he began.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Courage, or he had nothing left to lose.", next = "BACK", reply = "Perhaps both. The last of twenty has very little left to lose, and still he chose to spend it well.", fx = { align = { honor = -1 } } },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+      },
+    },
+    glaive_cult = {
+      lines = {
+        { id = "glaive_cult_default", text = "Soggoth's bones, little one. The Twilight's Hammer are mortals of many races who serve the things that sleep beneath the world, and they mean to dig the Slitherer out and make it live again. Kronn gave his sword to end that creature, and they would undo it with shovels." },
       },
       choices = {
         { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     glaive2 = {
