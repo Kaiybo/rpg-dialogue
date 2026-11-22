@@ -432,15 +432,34 @@ P:NPC {
     },
     kal_first = {
       big = true,
-      lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me, which is a nearer thing for all of us now. They came out of the south with axes and red eyes, and they cut until Cenarius himself came to stop them, and Grom Hellscream killed him in the glade the orcs now call Demon Fall, with the Legion's blood still burning in him." } },
+      lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me, which is a nearer thing for all of us now. They came out of the south with axes and red eyes, and they cut until Cenarius himself came out of the deep woods to stop them. Hellscream drank the demon Mannoroth's blood a second time to win that fight, and he won it, and the Lord of the Forest died among his own trees." } },
       choices = {
         { text = "Hellscream is dead. His people say he died free.", next = "kal_first2" },
+        { text = "How could one orc kill a demigod?", next = "kal_how" },
         { text = "Then every orc in Ashenvale carries that debt.", next = "BACK", reply = "Every orc with an axe in my forest, at least. I am not so sure of the others, but I do not have to be sure, because I only have to hold the line.", fx = { align = { honor = -1 } } },
         { text = "The orc who killed Cenarius is gone. The debt died with him.", next = "BACK", reply = "Tell that to the trees the Warsong cut this morning. I'll grant you the debt is his, but the axes are theirs.", fx = { align = { honor = 1 } } },
+        { text = "Cenarius chose to fight. Warriors die in war, even gods.", next = "BACK", reply = "He came to stop a slaughter, not to win a war, and you would do well to remember the difference in his forest.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "I'm sorry, Raene. I know what he was to us.", next = "BACK", reply = "Thank you. Most of the young ones only know him from the songs, and the songs make it sound like it happened to someone else.", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    kal_how = {
+      lines = { { id = "kho_d", text = "He didn't, not truly. No orc could have stood against Cenarius in his own wood, so Hellscream went back to the pit lord and drank again, and what swung that axe had the Legion's fire where its heart should have been. Cenarius had walked these woods since before the Sundering, and he fell all the same, and the forest has not sounded the same since." } },
+      choices = {
+        { text = "And Hellscream? What became of him?", next = "kal_first2" },
+        { text = "Something else, Raene.", next = "BACK" },
       },
     },
     kal_first2 = {
-      lines = { { id = "kfi2_d", text = "So I've heard, that he killed the demon who corrupted them and died doing it, and the orcs sing about it at Splintertree. I will not sing with them, but I will admit that the Warsong of today are not the beasts that came with him, only stubborn, and stubborn I can fight without hatred." } },
+      lines = { { id = "kfi2_d", text = "Free, yes, and I have heard the story enough to tell it myself. His warchief broke the hold on him, and he hunted Mannoroth down in the canyon east of here, the one the orcs now call Demon Fall, and killed the pit lord and died beside him. I will give him that much: he walked into that canyon knowing he would not walk out. But Cenarius never chose his death, and dying well does not unmake a murder." } },
+      choices = {
+        { text = "He killed the demon who ruined his people. That's atonement.", next = "BACK", reply = "Perhaps it is, for the orcs. The trees around Demon Fall have stayed dead all the same, and I have stopped waiting for them to forgive anyone.", fx = { align = { honor = 1 } } },
+        { text = "Dying well doesn't wash out murder. You're right.", next = "BACK", reply = "I know I am, and I take no comfort in it. Being right has never grown back a single tree.", fx = { align = { honor = -1 } } },
+        { text = "He was a slave to that blood. Blame Mannoroth.", next = "BACK", reply = "I do, every night. But he drank it twice, and the second time he knew exactly what it was.", fx = { align = { order = -1 } } },
+        { text = "And the Warsong who cut here today?", next = "kal_first3" },
+      },
+    },
+    kal_first3 = {
+      lines = { { id = "kfi3_d", text = "They sing about him at Splintertree, and I will not sing with them. But I will admit that the Warsong of today are not the beasts that came with him, only stubborn, and stubborn I can fight without hatred." } },
       choices = { { text = "Stubborn is still dangerous. Something else.", next = "BACK", fx = { learn = { "warsong" } } } },
     },
     kal_silverwing = {
