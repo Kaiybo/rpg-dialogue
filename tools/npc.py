@@ -7,8 +7,8 @@
     python3 tools/npc.py --local "McNabb"         # only our packs (no network)
     python3 tools/npc.py --zone "Booty Bay"       # NPCs the wiki lists for a place
 
-Sources: warcraft.wiki.gg (the only lore source the brief allows; wowhead is blocked in
-the cloud sessions), the local capture registry (tools/registry/ids.json, if imported),
+Sources: warcraft.wiki.gg (wowpedia.fandom.com is also permitted for manual research;
+wowhead is blocked in the cloud sessions), the local capture registry (tools/registry/ids.json, if imported),
 and the content packs. Wiki pages describe original WoW unless a section or page says
 Forever: treat quest names and IDs as unconfirmed for Forever (CLAUDE.md, LORE_NOTES.md).
 Pages are cached in tools/out/wiki_cache/. Python 3, standard library only.
