@@ -112,7 +112,7 @@ P:Pool {
     { id = "l_mg_bread", when = { class = "MAGE" }, text = "Could you not conjure me a bit of bread, since you're one of the magi? I only ask because everyone says your sort can, and I've never once seen it done." },
     { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
-    { id = "l2", text = "My uncle says the Alliance isn't what it was, with Gilneas walled off and Lordaeron gone to the dead. I tell him we've still got the dwarves, and he can't argue with that." },
+    { id = "l2", text = "My uncle says the Alliance isn't what it was, with Gilneas walled off and Lordaeron gone to the dead. I tell him Ironforge and Darnassus still stand with us, and he can't argue with that." },
     { id = "l3", text = "Night elves, now, on our side! A few years ago nobody'd heard of them, and now they're selling arrows in the market." },
     { id = "l4", text = "They say the orcs have a city of their own across the sea now. I don't know how I feel about it, except that I'd rather they stayed over there." },
     { id = "l5", text = "Every family I know has someone out in the field: Westfall, Redridge, Ashenvale, somewhere. We light a candle and hope the letters keep coming." },

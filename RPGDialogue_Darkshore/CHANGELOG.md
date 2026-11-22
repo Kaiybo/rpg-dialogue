@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.30.0 (2026-11-22)
+- New: Arbal, the Ancient of War at the Grove of the Ancients.
+- Master's Glaive lore: Kronn's sword in Soggoth's skull, and the Twilight's Hammer digging to raise it (Onu, Auberdine, Therylune).
+
 ## 1.29.1 (2026-11-21)
 - Dark Strand: human cultists led by a Highborne night elf (Balthule, Elissa Starbreeze).
 - Balthule's Light talk deepened into a branch: Delgren's teaching, the prayer that healed, vows, Elune and the Light together.
