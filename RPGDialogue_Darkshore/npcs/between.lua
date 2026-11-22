@@ -753,10 +753,44 @@ P:NPC {
     },
     glaive = {
       lines = {
-        { id = "glaive_default", text = "A great blade that fell from the sky in the war against the Legion, and it lies in the earth still, far to the south of here. Now men in dark robes gather around it, the Twilight's Hammer, and they whisper to things that should stay sleeping." },
+        { id = "glaive_default", text = "A sword, little one, taller than any tree in this grove, standing in the skull of a dead thing in the valley just south of here. My people once called that valley holy. Now the Twilight's Hammer have made a camp in it, and they dig at the bones and whisper into the earth to things that should stay sleeping.", fx = { learn = { "twilights_hammer" } } },
+      },
+      choices = {
+        { text = "Whose sword was it?", next = "glaive_kronn" },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+        { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    glaive_kronn = {
+      big = true,
+      lines = {
+        { id = "glaive_kronn_default", text = "For ages none of us knew, not even the Ancients. Then the dwarves of the Explorers' League dug up tablets at their excavation on the coast, and word of what they said reached even my roots. The titans sent twenty stone giants against a horror called Soggoth the Slitherer, and only the greatest of them, Kronn, lived through the battle." },
+        { id = "glaive_kronn_dwarf", when = { race = "Dwarf" }, text = "For ages none of us knew, not even the Ancients. Then your own Explorers' League dug up tablets at Remtravel's excavation, and I will grant your people this much: they read stone better than we do. The titans sent twenty stone giants against a horror called Soggoth the Slitherer, and only the greatest of them, Kronn, lived through the battle." },
+      },
+      choices = {
+        { text = "How did one giant kill it?", next = "glaive_kronn2" },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    glaive_kronn2 = {
+      lines = {
+        { id = "glaive_kronn2_default", text = "He let Soggoth take him in its tendrils, and held still while it lifted him up, until he was close enough to its skull to strike. That one blow is the sword you see standing there now. I would like to think I would have the courage to be caught on purpose, but I am glad I was never asked." },
+      },
+      choices = {
+        { text = "That took more courage than most have.", next = "BACK", reply = "It did, and the stone remembers him for it, even if the world forgot. Honour him by finishing what he began.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Courage, or he had nothing left to lose.", next = "BACK", reply = "Perhaps both. The last of twenty has very little left to lose, and still he chose to spend it well.", fx = { align = { honor = -1 } } },
+        { text = "What is the cult digging for?", next = "glaive_cult" },
+      },
+    },
+    glaive_cult = {
+      lines = {
+        { id = "glaive_cult_default", text = "Soggoth's bones, little one. The Twilight's Hammer are mortals of many races who serve the things that sleep beneath the world, and they mean to dig the Slitherer out and make it live again. Kronn gave his sword to end that creature, and they would undo it with shovels." },
       },
       choices = {
         { text = "What would you have done about them?", next = "glaive2" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     glaive2 = {
@@ -1200,5 +1234,199 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Liladris and I mean to be married under Elune's moon at Auberdine. If I can get there without falling asleep, that is." } },
     nordrassil = { { id = "tp_nordrassil", text = "I studied under the roots of Nordrassil, and I slept through most of my study there. The Circle wasn't surprised." } },
     _none = { { id = "tp_none", text = "I'm not sure, and I think I may have dreamed the answer once and forgotten it." } },
+  },
+}
+
+-- Arbal (user report, 1.29.2): the Ancient of War who stands beside Onu at the Grove of the Ancients. Not on the wiki (Forever NPC).
+-- Voice: a treant soldier. Slow, heavy, plain; "Hrm." and "Hroom." tics; remembers Hyjal and the War of the Ancients as a wall of bark.
+P:NPC {
+  key = "arbal", id = TODO_NPC("Arbal"), name = "Arbal", title = "",
+  bible = "bibles/auberdine.md", role = "questgiver", tier = "quest", gender = "male",
+  communities = { "grove_of_ancients" }, temper = { "slow", "stern" }, values = { "protective", "duty" },
+  impression = {
+    first = "A tree that stands like a soldier, bark scarred in old, healed lines.",
+    third = "{name} met Arbal, the Ancient of War who guards the Grove of the Ancients in Darkshore.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hrm. Halt there, small one, and let me see your hands. Good. Empty hands are welcome in this grove." },
+    { id = "g_back", when = { metBefore = true }, text = "Hroom. You again. You walked in by the road this time, and not through the brush, so you are learning." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Hrm. You are far from your own lands, small one, and these roots have long memories of axes. Keep yours on your back and we will have no quarrel." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "Hroom. A druid. Onu will want to speak with you, and I will only want to know that your claws are sharp." },
+  },
+
+  notice = {
+    { id = "n_axe", cat = "class", when = { class = "WARRIOR" },
+      text = "Hrm. You carry that blade like you have used it, which is more than I can say for most who walk up this road. Do not use it on my trees." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Arbal, and I stand guard so that Onu may think. He listens to the forest, and I listen for what comes to cut it down. Between the two of us, the grove still stands." },
+        { id = "h_nelf", when = { race = "NightElf" }, text = "I am Arbal. I stood with your mothers' mothers when the demons came up the mountain, child of the stars, and I will stand with you if it comes to that again. Hrm. Let us hope it does not." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Hroom. A dwarf, short and solid, like a good stump. I am Arbal, and I keep this grove. Your kind dig too much, but you hold a line well, and I respect that." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "Hrm. You are very small, even for a small one. I am Arbal. Stay on the path, little one, for I would not like to step on you by accident." },
+        { id = "h_human", when = { race = "Human" }, text = "I am Arbal. Your people are new to these shores, and new to these trees. Hrm. Cut nothing here, and we will be friends a long time, as your kind counts it." },
+      },
+      again = {
+        { id = "h_again1", text = "Hrm. Speak, small one. I am not going anywhere." },
+        { id = "h_again2", text = "Hroom. Ask, then. A guard can listen and watch at once." },
+      },
+      choices = {
+        { text = "What are you guarding the grove against?", next = "threats" },
+        { text = "What is an Ancient of War?", next = "what" },
+        { text = "Did you fight at Mount Hyjal?", next = "hyjal" },
+        { text = "How do you and Onu get along?", next = "onu" },
+        { text = "What do you think of the Alliance?", next = "alliance" },
+        { text = "Teach me to hold a line, Ancient.", next = "w_line", when = { class = "WARRIOR" } },
+        { text = "Do the Ancients still answer the Circle's call?", next = "d_circle", when = { class = "DRUID" } },
+        { text = "Your bark is scarred. Does it still pain you?", next = "scars" },
+        { text = "I will leave you to your watch.", next = "END" },
+      },
+    },
+
+    threats = {
+      lines = {
+        { id = "th_default", text = "The Blackwood furbolgs, first. They were good neighbours once, and now they drink something foul and come at the trees with fire. Hrm. South, the cultists at the Master's Glaive. And north, on the hill, the drowned city keeps giving up its ghosts." },
+      },
+      choices = {
+        { text = "The furbolgs should be cured, not killed.", next = "BACK", reply = "Hroom. Onu says the same, and he is wiser than I am. Bring them a cure and I will lower my branches gladly.", fx = { align = { light = 1 } } },
+        { text = "If they burn trees, put them down.", next = "BACK", reply = "Hrm. That is a soldier's answer, and I have given it myself. It does not taste better for being old.", fx = { align = { light = -1 } } },
+        { text = "Tell me about the cultists at the Glaive.", next = "glaive" },
+      },
+    },
+
+    glaive = {
+      lines = {
+        { id = "gl_default", text = "The Twilight's Hammer. They dig around the old blade and chant at it as if it could hear them. Hrm. I would walk down there and step on them, but if I leave this grove, there is no one to hold it." },
+      },
+      choices = {
+        { text = "Then I'll go in your place.", next = "BACK", reply = "Hroom. Good. Go carefully, small one, and come back to tell me how many you stepped on.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your place is here. Hold the grove.", next = "BACK", reply = "Hrm. Yes. A wall that walks off to fight is only a pile of wood. Thank you for saying it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    what = {
+      lines = {
+        { id = "wh_default", text = "Onu is an Ancient of Lore. He remembers. There are Ancients of Wind, who carry, and Ancients of Wonder, who heal. Hrm. I am an Ancient of War. When the forest needs a wall, I am the wall." },
+      },
+      choices = {
+        { text = "Were you ever just a tree?", next = "sapling" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    sapling = {
+      lines = {
+        { id = "sa_default", text = "Hroom. Once. I remember sun and rain and nothing else, for a very long time. Then Cenarius woke me, because the world was at war, and I have not been able to sleep properly since." },
+      },
+      choices = {
+        { text = "That sounds lonely.", next = "BACK", reply = "Hrm. A little. But I have Onu, and he talks enough for two trees." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    hyjal = {
+      big = true,
+      lines = {
+        { id = "hy_default", text = "Hrm. I did. We held the slopes while the fire came up the mountain, and when Archimonde reached for the World Tree, the wisps took him. Many of my brothers did not walk down again. I did, and I still do not know why I was chosen to." },
+        { id = "hy_nelf", when = { race = "NightElf" }, text = "Hrm. I did, beside your Sentinels. Tyrande held the lower slopes and we held the line above her, and when Archimonde reached for the World Tree, the wisps took him. Many of my brothers did not walk down again, child of the stars." },
+      },
+      choices = {
+        { text = "The war is over. You can rest now.", next = "BACK", reply = "Hroom. Wars are never over, small one. They only go quiet, like a fire in the roots.", fx = { align = { order = 1 } } },
+        { text = "Then the next war needs you awake.", next = "BACK", reply = "Hrm. Yes. That is what I tell myself on the long nights. It is good to hear it said by someone else.", fx = { align = { order = -1 } } },
+        { text = "Was it before Hyjal, too? The first war?", next = "first_war" },
+      },
+    },
+
+    first_war = {
+      lines = {
+        { id = "fw_default", text = "Hroom. The first war was very long ago, and I was very young. I remember the sky burning green over the Well, and the queen's soldiers marching against their own people. That is all I wish to remember of it." },
+      },
+      choices = {
+        { text = "I won't ask again.", next = "BACK", reply = "Hrm. Thank you. You are a kinder small one than you look." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    onu = {
+      lines = {
+        { id = "onu_default", text = "Hroom. He thinks a thing for a season before he says it. I say a thing and then think about it for a season. We have argued about the same question for six hundred years, and neither of us is finished." },
+      },
+      choices = {
+        { text = "What's the question?", next = "onu2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    onu2 = {
+      big = true,
+      lines = {
+        { id = "onu2_default", text = "Whether the grove should be hidden or defended. Onu says hide it, let the world forget it, and nothing will come. I say the world never forgets a forest, and what comes will come with fire. Hrm. Which of us is right, small one?" },
+      },
+      choices = {
+        { text = "Onu's right. Hidden things stay safe.", next = "BACK", reply = "Hroom. You sound like him. Perhaps he is right, and I am only a soldier looking for a war.", fx = { align = { order = 1 } } },
+        { text = "You're right. A grove needs a wall.", next = "BACK", reply = "Hrm. Good. Do not tell Onu I was pleased, or he will think for another century about why.", fx = { align = { order = -1 } } },
+        { text = "I'd rather not take sides between Ancients.", next = "BACK", reply = "Hroom. Wise. The last one who did was a squirrel, and it has not stopped running since." },
+      },
+    },
+
+    alliance = {
+      big = true,
+      lines = {
+        { id = "al_default", text = "Hrm. The Alliance sends young ones with swords, and some of them help. Others cut wood for their boats in Ashenvale and call it trade. I do not know yet whether the Alliance is a friend, or only a hungrier neighbour." },
+        { id = "al_horde", when = { faction = "Horde" }, text = "Hrm. The Alliance is not mine to love or hate. But your Horde cut Ashenvale for its lumber camps, and every tree in this grove can hear those axes. You understand why I watch you." },
+      },
+      choices = {
+        { text = "They're friends. They bled for Darkshore.", next = "BACK", reply = "Hroom. Some did. I remember the ones who did. I hope the rest are like them.", fx = { align = { light = 1 } } },
+        { text = "Trust no one who wants your wood.", next = "BACK", reply = "Hrm. That is a hard rule, but it has kept me standing. I will keep it a while longer.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    scars = {
+      lines = {
+        { id = "sc_default", text = "Hroom. These on my side are from Hyjal, and they ache when it rains. These on my arm are from a furbolg's torch, last spring. Those ache all the time. New wounds are always worse, small one, because you remember the hand that made them." },
+      },
+      choices = {
+        { text = "I'm sorry the furbolgs did that.", next = "BACK", reply = "Hrm. So am I. They used to bring me honey." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w_line = {
+      big = true,
+      lines = {
+        { id = "wl_default", text = "Hroom. Plant your feet like roots. Do not step back, not even once, because the ones behind you will think you are running. And when you cannot hold any longer, hold a little longer, because that is the only part that matters." },
+      },
+      choices = {
+        { text = "Never step back. I'll remember that.", next = "BACK", reply = "Hrm. Good. Most die young that way, but the ones who live are worth knowing.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sometimes stepping back wins the fight.", next = "BACK", reply = "Hroom. For a small one who can run, perhaps. A tree has only one choice. I envy you a little.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    d_circle = {
+      big = true,
+      lines = {
+        { id = "dc_default", text = "Hrm. We answer Cenarius, and the Circle speaks for him while he is away in the Dream. But the Circle sits in Moonglade, and I sit here, and the furbolgs come at me, not at them. Sometimes I answer, and sometimes I simply stand." },
+      },
+      choices = {
+        { text = "The Circle must lead, or we're scattered.", next = "BACK", reply = "Hroom. Scattered trees still make a forest. But I hear you, druid. Tell them Arbal still answers.", fx = { align = { order = 1 } } },
+        { text = "Then guard your grove as you see fit.", next = "BACK", reply = "Hrm. I will. I have been doing it a very long time without permission, and it has not failed me yet.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "Hrm. I am Arbal, an Ancient of War. I fought at Hyjal, and now I guard this grove so that Onu does not have to." } },
+    burning_legion = { { id = "tp_legion", text = "Hroom. They burn, and they laugh while they burn. If they come back, I will be here." } },
+    furbolgs = { { id = "tp_furbolg", text = "Hrm. The Blackwood were friends once. Something poisons them now. Onu says a cure may be found, and I hope he is right." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Circle speaks for Cenarius. I am glad of them, mostly. They do not come here often." } },
+    _none = { { id = "tp_none", text = "Hrm. I do not know, small one. I know trees, and wars, and Onu. Ask him; he knows everything else." } },
   },
 }

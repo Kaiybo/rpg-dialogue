@@ -812,6 +812,7 @@ P:Pool {
   id = "vendor_drink", role = "vendor", subtitle = { "drink", "wine", "brew", "ale", "spirits" },
   greetings = {
     { id = "g_pour", text = "Something to wash the road down?" },
+    { id = "g_camp", when = { resting = false }, text = "Thirsty? It's a long walk to the nearest inn, so you'd best drink while you can." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, so I'd say you're owed a drink. You'll be paying for it, mind." },
   },
   -- Narrowed by title, so it may notice what someone behind a bar would.
@@ -839,17 +840,20 @@ P:Pool {
   nodes = {
     hello = {
       lines = {
-        { id = "l_default", text = "Every bottle's honest. Some are honest about being terrible." },
+        { id = "l_default", when = { resting = true }, text = "Every bottle's honest. Some are honest about being terrible." },
+        { id = "l_camp", text = "There's no counter out here and no fire to sit by, but the water's clean and the wine travelled well enough. What can I get you?" },
         { id = "l_drunk", when = { drunk = { min = 2 } }, text = "You've had a few. I'll sell you one more, and then I'll sell you water." },
       },
       again = {
         { id = "a_again", text = "Anything else, or are we pouring?" },
-        { id = "a_again2", text = "Ask what you like; I'll keep polishing while you think." },
+        { id = "a_again2", when = { resting = true }, text = "Ask what you like; I'll keep polishing while you think." },
+        { id = "a_camp", when = { resting = false }, text = "Take your time. Nobody's queueing behind you out here." },
       },
       choices = {
         { text = "Pour me something.", next = "BUSINESS" },
         { text = "What's actually worth drinking?", next = "best" },
-        { text = "You must hear a lot over the bar.", next = "gossip" },
+        { text = "You must hear a lot over the bar.", next = "gossip", when = { resting = true } },
+        { text = "You must hear a lot from travellers passing through.", next = "gossip", when = { resting = false } },
         { text = "Do you ever stop pouring for someone?", next = "cutoff" },
         { text = "Got any proper dwarven stout?", next = "stout", when = { race = "Dwarf" } },
         { text = "Can I still get drunk, do you think?", next = "race_numb", when = { race = "Scourge" } },
@@ -926,6 +930,7 @@ P:Pool {
     },
     gossip = {
       lines = {
+        { id = "g_camp", when = { resting = false }, text = "Every traveller stops for water, and most of them talk while they drink. I hear which roads are bad and which camps are nervous, and nobody minds me listening, because I'm only the one with the bottles." },
         { id = "g_default", text = "Mostly who owes whom, whose cart lost a wheel, and which guard sleeps through the night watch. Folk don't tell a bartender secrets, they just forget I'm standing here, which comes to the same thing." },
         { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say King Varian still hasn't come home, and Lord Bolvar is ruling as regent in his place. Folk are uneasy, and uneasy folk drink." },
         { id = "g_horde", when = { faction = "Horde" }, text = "The caravan drivers say the centaur are bolder on the Barrens roads than they've been in years, and nobody's riding out alone. Good for my trade, I suppose, since frightened folk drink." },
@@ -938,6 +943,7 @@ P:Pool {
     gossip_me = {
       lines = {
         { id = "gm_default", text = "Nothing yet, which means you're either very careful or very dull. I'll let you know which once somebody's had a few and starts talking." },
+        { id = "gm_helped_camp", when = { word = "helped", resting = false }, text = "That you lent a hand when nobody asked you to, and didn't wait about to be thanked. Travellers carry that sort of talk from camp to camp, and I'm glad to hear it." },
         { id = "gm_helped", when = { word = "helped" }, text = "That you lent a hand when nobody asked you to, and that you didn't stand about afterwards waiting to be thanked. That's the kind of talk I like hearing over my bar." },
       },
       choices = {
@@ -948,6 +954,7 @@ P:Pool {
     cutoff = {
       big = true,
       lines = {
+        { id = "c_camp", when = { resting = false }, text = "Out here, sooner than I would in a tavern. A drunk who wanders off into the dark doesn't come back, and I'd rather lose the sale than find him in the morning." },
         { id = "c_default", text = "When they start crying into the cup or offering to fight the furniture, yes. A drunk who falls down the stairs is bad for trade, and a drunk who burns the place down is worse." },
       },
       choices = {
@@ -967,7 +974,10 @@ P:Pool {
     knows = {
       { id = "t_kn1", text = "Nobody tells a bartender anything on the first drink, but by the third I'm hearing all of it. Here's the best of what's been poured out lately." },
     },
-    _none = { { id = "t_none", text = "I hear a lot over the bar, but not that." } },
+    _none = {
+      { id = "t_none", when = { resting = true }, text = "I hear a lot over the bar, but not that." },
+      { id = "t_none_camp", when = { resting = false }, text = "I hear a lot from folk passing through, but not that." },
+    },
   },
 }
 

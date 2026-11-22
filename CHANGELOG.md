@@ -2,6 +2,17 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.100.0 (2026-11-22): Old Wood, Old Wounds
+No new files; a /reload is enough.
+- **Sentinel Raene Wolfrunner gets Demon Fall right** (user report): Grom Hellscream killed Cenarius in the forest after drinking Mannoroth's blood a second time, and later died killing Mannoroth in Demon Fall Canyon. She no longer says Cenarius died there.
+- **Her memory of the Warsong's coming goes deeper** (night elf players): ask how one orc could kill a demigod, tell her you're sorry, or argue that Cenarius chose to fight. She has her own view of Hellscream: she respects how he died, but he drank the blood twice and she won't forgive him. You can call his death atonement, agree it washes nothing out, or blame Mannoroth.
+- **Arbal (Darkshore)**, the Ancient of War who stands guard beside Onu at the Grove of the Ancients, now has his own conversation.
+- **The Master's Glaive** (Darkshore): Onu, the Auberdine folk and Therylune now tell its real story. Kronn, the last of the titans' stone giants, drove his sword into Soggoth the Slitherer's skull, and the Twilight's Hammer are digging to raise Soggoth again.
+- **Drink vendors outside an inn** (like Tiyani at the Grove of the Ancients) no longer talk about their bar.
+- **Alliance townsfolk of any race can say their piece about the Alliance** (user report): the uncle who thinks the Alliance isn't what it was now hears that Ironforge and Darnassus still stand with us, instead of "we've still got the dwarves", which sounded wrong from a gnome like Ozwin Ironsprocket.
+- Not seen in game yet.
+
+
 ## 0.99.1 (2026-11-21): The Hand Behind the Strand
 Hotfix (user report). No new files; a /reload is enough.
 - **The Dark Strand are who the Tower of Althalaxx chain says they are**: human cultists in robes, led from the top of the tower by a Highborne night elf. Balthule Shadowstrike and Sentinel Elissa Starbreeze no longer call the whole cult kaldorei. Balthule has glimpsed their leader, and you can ask him about it.
