@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.99.2 (2026-11-22): Where the Pit Lord Fell
+Hotfix (user report). No new files; a /reload is enough.
+- **Sentinel Raene Wolfrunner gets Demon Fall right**: Grom Hellscream killed Cenarius in the forest after drinking Mannoroth's blood a second time, and later died killing Mannoroth in Demon Fall Canyon. She no longer says Cenarius died there.
+- **Her memory of the Warsong's coming goes deeper** (night elf players): ask how one orc could kill a demigod, tell her you're sorry, or argue that Cenarius chose to fight. She has her own view of Hellscream: she respects how he died, but he drank the blood twice and she won't forgive him. You can call his death atonement, agree it washes nothing out, or blame Mannoroth.
+- Not seen in game yet.
+
 ## 0.99.1 (2026-11-21): The Hand Behind the Strand
 Hotfix (user report). No new files; a /reload is enough.
 - **The Dark Strand are who the Tower of Althalaxx chain says they are**: human cultists in robes, led from the top of the tower by a Highborne night elf. Balthule Shadowstrike and Sentinel Elissa Starbreeze no longer call the whole cult kaldorei. Balthule has glimpsed their leader, and you can ask him about it.
