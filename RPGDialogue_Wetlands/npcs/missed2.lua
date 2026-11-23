@@ -389,6 +389,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_rifle = {
+      lines = { { id = "gt_rifle_l", text = "A Bronzebeard long-barrel, an' she's older than some o' the lads I served wi'. Keep yer powder dry in this swamp, hunter, for damp powder's killed more dwarves than any Dark Iron." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_kin = {
+      lines = { { id = "gt_kin_l", text = "Aye, a good many, an' I carved their names on a stone below the Span when the Dark Irons werenae lookin'. When ye're back in Ironforge, raise a mug for them, for I cannae go home yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Roggo Harlbarrow, rifleman. I was on the Span when the Dark Irons came, an' I tried tae get word tae our forces an' couldnae, an' good dwarves died waitin' for help that never knew tae come." },
@@ -403,6 +411,8 @@ P:NPC {
         { text = "Why couldn't you send word?", next = "word" },
         { text = "What are the Dark Irons doing in Dun Modr?", next = "darkiron" },
         { text = "You speak of a fire spirit.", next = "spirit" },
+        { text = "I'm a hunter too. What rifle do you carry?", next = "gt_rifle", when = { class = "HUNTER" } },
+        { text = "Did any of my kin from the mountain fall here?", next = "gt_kin", when = { race = "Dwarf" } },
         { text = "Shoot straight, Roggo.", next = "END" },
       },
     },

@@ -26,6 +26,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_forsaken = {
+      lines = { { id = "gt_forsaken_l", text = "I do not. You were freed to choose your own ends, and I am bound to a single duty I cannot set down. Perhaps that is a mercy, for I am spared the choosing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_rest = {
+      lines = { { id = "gt_rest_l", text = "Not while Frostwhisper still walks, priest. A judge who leaves the bench before the sentence is passed has failed his office, and I will not fail it twice." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I was the magistrate of Caer Darrow when it was a town and not a graveyard. The Barovs sold this island to the Cult of the Damned, the school beneath their keep swallowed everyone I was sworn to protect, and I alone seem to have been left the memory of it." },
@@ -40,6 +48,8 @@ P:NPC {
         { text = "Tell me about the Cult of the Damned.", next = "cult" },
         { text = "Who is Ras Frostwhisper?", next = "ras" },
         { text = "You speak of justice, but you sound like a man who wants revenge.", next = "revenge" },
+        { text = "I was once dead too. Do you envy the Forsaken?", next = "gt_forsaken", when = { race = "Scourge" } },
+        { text = "As a priest, I could try to lay you to rest.", next = "gt_rest", when = { class = "PRIEST" } },
         { text = "I must go, Magistrate.", next = "END" },
       },
     },
