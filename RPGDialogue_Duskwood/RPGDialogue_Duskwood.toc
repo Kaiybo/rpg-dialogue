@@ -32,3 +32,4 @@ npcs\darkshire_edges.lua
 npcs\lars.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua
