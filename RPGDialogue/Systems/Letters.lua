@@ -195,6 +195,68 @@ function Letters.Read(id)
   ns.Fire("LETTERS_CHANGED")
 end
 
+-- Replies (0.107.0). A letter may carry replies = { { id, text, fx, when }, ... }: the
+-- player's answer (15 words or fewer), fx applied as if said to the writer (affinity, npcFlag,
+-- opinion, and letter = "id" to send a follow-up). Letters without their own get a generic
+-- set: warm/brief/cold for someone you've met, warm/brief for a stranger, nothing for junk.
+-- noReply = true turns replies off. One reply per letter, kept in rec.reply/rec.replyText.
+local function generic(def)
+  if def.noReply or def.junk then return nil end
+  if def.npc and not def.stranger then
+    return {
+      { id = "warm", text = L.LETTER_REPLY_WARM, fx = { affinity = 1 } },
+      { id = "brief", text = L.LETTER_REPLY_BRIEF },
+      { id = "cold", text = L.LETTER_REPLY_COLD, fx = { affinity = -1 } },
+    }
+  end
+  return {
+    { id = "warm", text = L.LETTER_REPLY_WARM_STRANGER },
+    { id = "brief", text = L.LETTER_REPLY_BRIEF },
+  }
+end
+
+function Letters.Replies(id)
+  local def = Letters.Def(id)
+  if not def then return nil end
+  if not def.replies then return generic(def) end
+  local out, ctx, env = {}, nil, nil
+  for i, r in ipairs(def.replies) do
+    local ok = true
+    if r.when then
+      ctx = ctx or ns.Context.New({ spoof = {} })
+      env = env or envFor(def, C.Now())
+      ok = ns.Conditions.Eval(r.when, ctx, env)
+    end
+    if ok then out[#out + 1] = { id = r.id or tostring(i), text = r.text, fx = r.fx } end
+  end
+  return #out > 0 and out or nil
+end
+
+function Letters.CanReply(id)
+  local r = store()[id]
+  return r ~= nil and r.arrived ~= nil and not r.reply and not r.burned and Letters.Replies(id) ~= nil
+end
+
+function Letters.Reply(id, index)
+  local rec, def = store()[id], Letters.Def(id)
+  local list = Letters.Replies(id)
+  local pick = list and list[index]
+  if not rec or not def or not pick or rec.reply then return end
+  local now = C.Now()
+  rec.reply, rec.replyText, rec.replied = pick.id, pick.text, now
+  local ctx = ns.Context.New({ spoof = {} })
+  local env = envFor(def, now)
+  local text = ns.Tokens.Render(pick.text or "", ctx, env)
+  rec.replyText = text
+  local to = Letters.From(def)
+  ns.Effects.Journal({
+    first = L.LETTER_REPLY_JOURNAL:format(to, text),
+    third = L.LETTER_REPLY_JOURNAL_3:format(to, text),
+  }, ctx, env)
+  if pick.fx then ns.Effects.Apply(pick.fx, env) end
+  ns.Fire("LETTERS_CHANGED")
+end
+
 function Letters.Burn(id)
   local r = store()[id]
   if r then r.burned = C.Now(); r.read = r.read or r.burned end

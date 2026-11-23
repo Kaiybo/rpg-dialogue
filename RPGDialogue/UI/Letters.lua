@@ -1,6 +1,7 @@
 -- Letters in the game's own mail window (0.106.0): a third tab, "Letters", beside Inbox and
 -- Send Mail. Letters from RPG Dialogue (Systems/Letters.lua) are listed like the inbox, newest
--- first; click one to read it on letter paper, Back to the list, Burn to throw it away.
+-- first; click one to read it on letter paper, Back to the list, Burn to throw it away,
+-- Reply to pick an answer (0.107.0; Systems/Letters.lua Letters.Replies).
 -- The mail window can also be dragged, and opens where it was left.
 local _, ns = ...
 
@@ -19,7 +20,8 @@ local INK = {
 }
 
 local tab, panel, tabID
-local reading, pageNo = nil, 1
+local reading, pageNo, replying = nil, 1, false
+local MAX_OPTS = 5
 
 local function ink(fs, key) local c = INK[key]; fs:SetTextColor(c[1], c[2], c[3]); fs:SetShadowOffset(0, 0) end
 local function font(fs, objects)
@@ -196,12 +198,44 @@ local function create()
 
   panel.back = button(panel, L.LETTER_BACK, 90)
   panel.back:SetPoint("BOTTOMLEFT", 6, 7)
-  panel.back:SetScript("OnClick", function() reading = nil; P.Render() end)
+  panel.back:SetScript("OnClick", function() reading = nil; replying = false; P.Render() end)
+  panel.reply = button(panel, L.LETTER_REPLY, 100)
+  panel.reply:SetPoint("BOTTOM", 0, 7)
+  panel.reply:SetScript("OnClick", function() replying = not replying; P.Render() end)
+
+  -- Reply choices, under the letter.
+  panel.opts = CreateFrame("Frame", nil, panel)
+  panel.opts:SetPoint("BOTTOMLEFT", 10, 34)
+  panel.opts:SetPoint("BOTTOMRIGHT", -8, 34)
+  panel.opts:SetHeight(10)
+  panel.opts.rule = panel.opts:CreateTexture(nil, "ARTWORK")
+  panel.opts.rule:SetHeight(1)
+  panel.opts.rule:SetPoint("TOPLEFT", 0, 0)
+  panel.opts.rule:SetPoint("TOPRIGHT", -4, 0)
+  panel.opts.rule:SetColorTexture(0.32, 0.20, 0.08, 0.45)
+  panel.opts.buttons = {}
+  for i = 1, MAX_OPTS do
+    local b = CreateFrame("Button", nil, panel.opts)
+    b:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+    b.text = b:CreateFontString(nil, "OVERLAY")
+    font(b.text, { "QuestFont", "GameFontHighlight" })
+    b.text:SetPoint("TOPLEFT", 4, -3)
+    b.text:SetPoint("RIGHT", -4, 0)
+    b.text:SetJustifyH("LEFT")
+    ink(b.text, "name")
+    b.index = i
+    b:SetScript("OnClick", function(self)
+      if reading then ns.Letters.Reply(reading, self.index) end
+      replying = false
+      P.Render()
+    end)
+    panel.opts.buttons[i] = b
+  end
   panel.burn = button(panel, L.LETTER_BURN, 90)
   panel.burn:SetPoint("BOTTOMRIGHT", -6, 7)
   panel.burn:SetScript("OnClick", function()
     if reading then ns.Letters.Burn(reading) end
-    reading = nil
+    reading, replying = nil, false
     P.Render()
   end)
 end
@@ -233,7 +267,7 @@ end
 local function pages(n) return math.max(1, math.ceil(n / ROWS)) end
 
 local function showList()
-  panel.letter:Hide(); panel.back:Hide(); panel.burn:Hide()
+  panel.letter:Hide(); panel.back:Hide(); panel.burn:Hide(); panel.reply:Hide(); panel.opts:Hide()
   panel.list:Show(); panel.prev:Show(); panel.next:Show(); panel.pageText:Show()
   local inbox = ns.Letters.Inbox()
   local n = #inbox
@@ -279,6 +313,35 @@ local function showLetter()
   if not def or not rec or rec.burned then reading = nil; return showList() end
   panel.list:Hide(); panel.prev:Hide(); panel.next:Hide(); panel.pageText:Hide(); panel.burnJunk:Hide()
   panel.letter:Show(); panel.back:Show(); panel.burn:Show()
+  local canReply = ns.Letters.CanReply(reading)
+  if not canReply then replying = false end
+  panel.reply:SetShown(canReply)
+  panel.reply:SetText(replying and L.LETTER_REPLY_CANCEL or L.LETTER_REPLY)
+  local optsH = 0
+  if replying then
+    local list = ns.Letters.Replies(reading) or {}
+    local w = math.max(100, (panel.opts:GetWidth() or 280) - 8)
+    for i, b in ipairs(panel.opts.buttons) do
+      local r = list[i]
+      if r then
+        b.text:SetWidth(w)
+        b.text:SetText(i .. ". " .. (r.text or ""))
+        local h = math.max(18, b.text:GetStringHeight() + 6)
+        b:ClearAllPoints()
+        b:SetPoint("TOPLEFT", 0, -(optsH + 4))
+        b:SetPoint("RIGHT", panel.opts, "RIGHT", 0, 0)
+        b:SetHeight(h)
+        b:Show()
+        optsH = optsH + h
+      else
+        b:Hide()
+      end
+    end
+    optsH = optsH + 8
+    panel.opts:SetHeight(optsH)
+  end
+  panel.opts:SetShown(replying)
+  panel.letter:SetPoint("BOTTOMRIGHT", -8, 34 + optsH)
   panel.subject:SetText(def.subject or "")
   local when = ago(rec.arrived)
   panel.from:SetText(L.LETTER_FROM:format(ns.Letters.From(def)) .. (when ~= "" and ("  ·  " .. when) or ""))
@@ -286,7 +349,9 @@ local function showLetter()
   panel.body:SetWidth(w + 4)
   panel.text:SetWidth(w)
   panel.text:SetSpacing(ns.db.settings.lineSpacing or 3)
-  panel.text:SetText(ns.Letters.Body(def))
+  local body = ns.Letters.Body(def)
+  if rec.replyText then body = body .. "\n\n" .. L.LETTER_REPLIED .. "\n\"" .. rec.replyText .. "\"" end
+  panel.text:SetText(body)
   panel.body:SetHeight(math.max(10, panel.text:GetStringHeight() + 8))
 end
 
@@ -303,7 +368,7 @@ function P.Page(d)
 end
 
 function P.Open(id)
-  reading = id
+  reading, replying = id, false
   ns.Letters.Read(id)
   P.Render()
   panel.scroll:SetVerticalScroll(0)
