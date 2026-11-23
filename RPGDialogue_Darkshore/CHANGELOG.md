@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.30.0 (2026-11-22)
 - New: Arbal, the Ancient of War at the Grove of the Ancients.
 - Master's Glaive lore: Kronn's sword in Soggoth's skull, and the Twilight's Hammer digging to raise it (Onu, Auberdine, Therylune).

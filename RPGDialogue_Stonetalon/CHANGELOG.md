@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-23)
+- Lore fixes. No new files.
+
 ## 1.30.0 (2026-11-20)
 - Tammra Windfield argues Rebirth with druids.
 
