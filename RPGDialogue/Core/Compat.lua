@@ -559,6 +559,8 @@ function C.Exists(unit) return call("UnitExists", unit) == true end
 function C.IsPlayer(unit) return call("UnitIsPlayer", unit) == true end
 function C.IsGhost() return call("UnitIsGhost", "player") == true end
 function C.IsDead() return call("UnitIsDeadOrGhost", "player") == true end
+-- A dead NPC (a corpse lying in the world, like the Night Elf Courier) has nothing to say.
+function C.UnitDead(unit) return call("UnitIsDead", unit) == true end
 function C.Classification(unit) return clean(call("UnitClassification", unit)) end
 function C.Reaction(unit, other) return clean(call("UnitReaction", unit, other or "player")) end
 function C.Family(unit) return clean(call("UnitCreatureFamily", unit)) end
