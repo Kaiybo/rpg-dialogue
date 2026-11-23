@@ -577,7 +577,7 @@ function D.Layout()
     if b:IsShown() then
       -- A little space before the game's own options, with a faint rule across it so
       -- the addon's replies and the game's options read as two lists.
-      local sep = b.gap and b.game and not b.isGetOn
+      local sep = b.gap and b.game and not b.isGetOn and settings().gameDivider ~= false
       if sep then
         y = y - 6
         b.sep:ClearAllPoints()
