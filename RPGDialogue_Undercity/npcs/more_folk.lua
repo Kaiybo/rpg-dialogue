@@ -2470,7 +2470,7 @@ P:NPC {
       narr = "She runs a thumb along a row of spines without looking at them, the way someone counts sheep in a pen.",
       lines = {
         { id = "h_default", key = true, text = "Martha Strain, demon trainer. The masters down the hall teach the warlock, and I teach the demon, by way of a book the warlock reads aloud, which is the more honest half of the trade, since the demon at least knows what it is." },
-        { id = "h_mount", when = { class = "WARLOCK", minLevel = 60, questBefore = TODO_QUEST("Mor'zul Bloodbringer") }, text = "Martha Strain. You've come as far as this hall can take you, so I'll tell you what I tell very few. There's a man named Mor'zul Bloodbringer in the Burning Steppes, near the Altar of Storms, and he knows a working that will put a dreadsteed under you." },
+        { id = "h_mount", when = { class = "WARLOCK", minLevel = 60, questBefore = TODO_QUEST("Mor'zul Bloodbringer") }, text = "Martha Strain. You've come as far as this hall can take you, so I'll tell you what I tell very few. There's a human named Mor'zul Bloodbringer in the Burning Steppes, near the Altar of Storms, and he knows a working that will put a dreadsteed under you." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the voidwalker in the corner, he's sulking." },

@@ -272,7 +272,7 @@ P:NPC {
 -- Nalesette Wildbringer (Talonbranch Glade, pet trainer)
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "nalesette", id = TODO_NPC("Nalesette Wildbringer"), name = "Nalesette Wildbringer", title = "Pet Trainer",
+  key = "nalesette", id = TODO_NPC("Nalesette Wildbringer"), name = "Nalesette Wildbringer", title = "Stable Master",
   bible = "bibles/missed_folk.md", role = "trainer", tier = "service",
   communities = { "talonbranch" }, temper = { "gentle", "firm" }, values = { "nature", "patient" },
   notices = { "pet", "class" },
@@ -294,7 +294,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "hello_default", key = true, text = "I am Nalesette Wildbringer. I teach the hunters' companions what they need to know, and I mend what Felwood does to them, which is the larger part of my work in these days." },
+        { id = "hello_default", key = true, text = "I am Nalesette Wildbringer. I keep the hunters' companions while their masters are away, and I mend what Felwood does to them, which is the larger part of my work in these days." },
         { id = "hello_2", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then your beast comes first and you second, as is proper. Bring it here, and let us see what it has learned and what it has suffered." },
       },
       again = {
