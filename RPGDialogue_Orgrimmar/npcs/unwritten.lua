@@ -2047,6 +2047,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Peace to you, child. Even in a city of iron and smoke, the ancestors find a place to stand." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "You return to me. Good. A spirit is only as strong as those who remember her." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Darkhorn the Elder") }, text = "You seek the elders this year. Come, and take the blessing I have to give." },
   },
@@ -2122,6 +2123,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Hail, friend! The Lunar Festival has come, and all are welcome to celebrate it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival is here at last! The elders have returned, and the Valley of Wisdom is full of light." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Have you visited the Valley of Wisdom yet?" },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Off to the Valley of Wisdom with you! The festival harbinger waits there." },
   },
@@ -2185,6 +2187,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, an audience! Gather close, friend, the fire is warm and my tales are warmer." },
+    { id = "g_festival", when = { holiday = "midsummer" }, text = "The Midsummer fires burn high tonight, friend. Even a dead man feels their warmth, and that is a tale in itself." },
     { id = "g_back", when = { metBefore = true }, text = "You return for another tale? You flatter a dead man's vanity." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Stealing Stormwind's Flame") }, text = "Have you the Alliance's flame yet? Oh, the tale we will tell when you bring it home." },
   },
@@ -2250,6 +2253,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Happy Winter Veil! Smokywood Pastures wishes you joy, cheer, and reasonable prices!" },
+    { id = "g_festival", when = { holiday = "winterveil" }, text = "Winter Veil is here at last! Great-father Winter is in fine spirits, and so is Smokywood Pastures." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Are you on the nice list? Don't answer that; it's above my pay grade." },
   },
   start = "hello",

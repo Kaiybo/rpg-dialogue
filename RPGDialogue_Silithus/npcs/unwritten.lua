@@ -708,7 +708,7 @@ P:NPC {
   },
 }
 
--- Senior Sergeant Kai'jin: jungle troll who gathers the Horde's war supplies for the fight at Ahn'Qiraj.
+-- Senior Sergeant Kai'jin: jungle troll who gathers the Horde's war supplies for Ahn'Qiraj. In Classic 1.9-1.12 she stands in Orgrimmar's Valley of Strength during the War Effort (the file sits in the Silithus pack).
 P:NPC {
   key = "sil_kaijin", id = 15704, name = "Senior Sergeant Kai'jin", gender = "female",
   role = "questgiver", tier = "quest",
@@ -758,11 +758,11 @@ P:NPC {
       choices = { { text = "Then we stop them. Something else.", next = "BACK" } },
     },
     gorchuk = {
-      lines = { { id = "g_default", text = "Da warlord who leads us here. A hard orc and a fair one, and he remember every name dat bring supplies." } },
+      lines = { { id = "g_default", text = "Da warlord who leads da war effort here in Orgrimmar. A hard orc and a fair one, and he remember every name dat bring supplies." } },
       choices = { { text = "I'll speak to him. Something else.", next = "BACK" } },
     },
     task = {
-      lines = { { id = "t_default", text = "Den gather what I ask and bring it here. Every crate be one more soldier fed when da gates open.", fx = { offer = TODO_QUEST("The Horde Needs Your Help!") } } },
+      lines = { { id = "t_default", text = "Den gather what I ask and bring it here to Orgrimmar. Every crate be one more soldier fed when da gates open.", fx = { offer = TODO_QUEST("The Horde Needs Your Help!") } } },
       choices = { { text = "I'll bring what you need.", next = "BACK" } },
     },
   },
@@ -771,24 +771,25 @@ P:NPC {
   },
 }
 
--- Warlord Gorchuk: orc warlord who leads the Horde's war effort against Ahn'Qiraj.
+-- Warlord Gorchuk: orc warlord who leads the Horde's war effort against Ahn'Qiraj. In Classic 1.9-1.12 he stands in Orgrimmar during the War Effort (the file sits in the Silithus pack).
 P:NPC {
   key = "sil_gorchuk", id = 15700, name = "Warlord Gorchuk", gender = "male",
   role = "soldier", tier = "service",
   communities = { "horde_war_effort" }, temper = { "grim", "proud" }, values = { "strength", "honor" },
   notices = { "faction" },
   impression = {
-    first = "A scarred orc warlord who looks at the walls of Ahn'Qiraj as if he means to tear them down by hand.",
+    first = "A scarred orc warlord surrounded by war-effort crates, who talks of Ahn'Qiraj as if he means to tear its walls down by hand.",
     third = "{name} met Warlord Gorchuk, who leads the Horde's war effort against Ahn'Qiraj.",
   },
   greetings = {
     { id = "g_default", text = "Lok'tar ogar. Have you come to fight, or only to look?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Alliance. The bugs are a common enemy, so I'll not draw on you. Don't push me." },
+    { id = "g_done", when = { questDone = TODO_QUEST("The Horde Needs Your Help!") }, text = "Kai'jin sent you, and you answered. The Horde remembers those who carried its crates." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I am Gorchuk, warlord of the Horde's army at the gates. Every crate, every blade and every warrior that goes into this war goes through me." } },
+      lines = { { id = "h_default", text = "I am Gorchuk, warlord of the Horde's war effort. Every crate, every blade and every warrior that leaves Orgrimmar for Silithus goes through me." } },
       again = { { id = "h_again", text = "Speak, then." } },
       choices = {
         { text = "How goes the war?", next = "war" },

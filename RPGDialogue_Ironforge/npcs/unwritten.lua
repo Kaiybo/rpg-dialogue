@@ -2002,6 +2002,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Welcome, welcome, {g:lad|lass}! The bonfires are lit and the summer's at its height, so pull up a stone and hear some old lore." },
+    { id = "g_festival", when = { holiday = "midsummer" }, text = "Midsummer's here, {g:lad|lass}, and the fires burn in every city! There's nae a better night for a good tale." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more tales, are ye? Good, I've a cartload of them and nae enough ears." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Stealing Orgrimmar's Flame") }, text = "Orgrimmar's flame, {g:lad|lass}! Have ye touched it yet, or are the grunts still glaring at ye?" },
   },
@@ -2075,6 +2076,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Happy Winter Veil, pal! Step right up, the big fella's taking requests and I'm handling the paperwork." },
+    { id = "g_festival", when = { holiday = "winterveil" }, text = "Happy Winter Veil! Greatfather Winter's handing out gifts, and Smokywood Pastures has everything else you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, ya valued customer? Greatfather Winter never forgets a face, and I never forget a ledger." },
   },
   notice = {

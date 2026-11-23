@@ -68,6 +68,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Be welcome, traveller, though this is no glad place to meet. The forest weeps around us." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to this blighted wood. That takes courage, or foolishness." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Nightwind the Elder") }, text = "You seek the elders' blessing, even here. Then you shall have mine." },
   },

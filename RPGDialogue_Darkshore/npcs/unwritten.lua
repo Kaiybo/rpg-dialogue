@@ -187,6 +187,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. The festival moon has brought you to me." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Elune smiles on those who remember." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Starweave the Elder") }, text = "You seek the blessing of the elders. Come, and receive mine." },
   },

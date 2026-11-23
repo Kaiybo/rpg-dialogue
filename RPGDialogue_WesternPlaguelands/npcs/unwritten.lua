@@ -403,14 +403,14 @@ P:NPC {
   },
 }
 
--- Elder Meadowrun: a tauren elder honoured in the Western Plaguelands during the Lunar Festival.
+-- Elder Meadowrun: a night elf elder honoured near the Weeping Cave, Western Plaguelands, during the Lunar Festival.
 P:NPC {
-  key = "wpl_elder_meadowrun", id = 15602, name = "Elder Meadowrun", gender = "male",
+  key = "wpl_elder_meadowrun", id = 15602, name = "Elder Meadowrun", gender = "female",
   role = "elder", tier = "quest",
   temper = { "calm", "sorrowful" }, values = { "ancestors", "tradition" },
   notices = { "race", "season" },
   impression = {
-    first = "A tauren elder glowing softly in a land of plague and ash.",
+    first = "A night elf elder glowing softly in a land of plague and ash.",
     third = "{name} paid respects to Elder Meadowrun in the Western Plaguelands during the Lunar Festival.",
   },
   greetings = {
@@ -418,7 +418,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("Meadowrun the Elder") }, text = "You honoured me already, and walked through the plague to do it. The ancestors saw." },
   },
   notice = {
-    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A child of Mulgore in these sick lands. Keep your spirit close; this place hungers for it." },
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" }, text = "A child of Teldrassil in these sick lands. Keep your spirit close; this place hungers for it." },
     { id = "n_lunar", cat = "season", when = { holiday = "lunar" }, text = "The Lunar Festival brings elders to every corner of the world, even the dark ones." },
   },
   start = "hello",
@@ -430,7 +430,7 @@ P:NPC {
         { text = "Why stand in such a cursed place?", next = "why" },
         { text = "I come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Meadowrun the Elder") } },
         { text = "Can this land ever heal?", next = "heal" },
-        { text = "Earth Mother keep you, elder.", next = "END" },
+        { text = "Elune keep you, elder.", next = "END" },
       },
     },
     why = {
@@ -452,12 +452,12 @@ P:NPC {
       choices = { { text = "Thank you, elder.", next = "BACK", fx = { affinity = 1 } } },
     },
     heal = {
-      lines = { { id = "he_default", text = "The Earth Mother is patient, and she has healed deeper wounds than this. But it will take many lifetimes, and those who fight the Scourge must win first." } },
+      lines = { { id = "he_default", text = "Elune is patient, and the land has healed deeper wounds than this. But it will take many lifetimes, and those who fight the Scourge must win first." } },
       choices = { { text = "Then I'll fight. Something else.", next = "BACK" } },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "An elder of the tauren, sent where the ancestors willed. This year, they willed here." } },
+    background = { { id = "tp_bg", text = "An elder of the Kaldorei, sent where the ancestors willed. This year, they willed here." } },
     _none = { { id = "tp_none", text = "The ancestors have not told me that, child, and I would not guess." } },
   },
 }

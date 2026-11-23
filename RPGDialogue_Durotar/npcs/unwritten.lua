@@ -152,7 +152,7 @@ P:NPC {
   },
 }
 
--- Deathguard Elite: a Forsaken guard the Dark Lady posts with her people when they travel among the Horde.
+-- Deathguard Elite: a Forsaken elite guard at the ruins of Lordaeron in Tirisfal Glades (Classic 1.12 spawns are in Tirisfal only; the file sits in the Durotar pack).
 P:NPC {
   key = "dur_deathguard_elite", id = 7980, name = "Deathguard Elite", gender = "male",
   role = "guard", tier = "quest",
@@ -160,36 +160,36 @@ P:NPC {
   notices = { "race", "kit" },
   impression = {
     first = "He stands too still for a living guard, and he knows it unsettles people.",
-    third = "{name} spoke with a Deathguard Elite, one of the Forsaken guards posted in Durotar.",
+    third = "{name} spoke with a Deathguard Elite, one of the Forsaken guards at the ruins of Lordaeron.",
   },
   greetings = {
-    { id = "g_default", text = "Keep walking, or state your business. The sun out here does nothing for my complexion, so I would prefer you were brief." },
+    { id = "g_default", text = "Keep walking, or state your business. The Dark Lady's gate is no place to loiter, so I would prefer you were brief." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I remember faces, living one, and yours has not rotted yet." },
-    { id = "g_undead", when = { race = "Scourge" }, text = "Ah, one of our own, and still in one piece under this dreadful sun. The Dark Lady's blessing upon you, cousin." },
+    { id = "g_undead", when = { race = "Scourge" }, text = "Ah, one of our own, and still in one piece. The Dark Lady's blessing upon you, cousin." },
   },
   notice = {
-    { id = "n_orc", cat = "race", when = { race = "Orc" }, text = "The grunts at the gate still watch me as if I might bite. I have told them I only bite the Scarlet Crusade, but they do not laugh." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" }, text = "Your kind still watch me as if I might bite. I have told them I only bite the Scarlet Crusade, but they never laugh." },
     { id = "n_hurt", cat = "kit", when = { health = { max = 0.5 } }, text = "You are bleeding, living one. It is a habit we Forsaken gave up, and I cannot say I miss it." },
   },
   start = "hello",
   nodes = {
     hello = {
       narr = "His armour is clean, but the hand on his halberd shows bone at the knuckles.",
-      lines = { { id = "h_default", text = "I am of the Deathguard, sent from the Undercity so that the Dark Lady's people in Durotar have one of their own at their back. The orcs are allies, but an ally is not the same as a friend." } },
+      lines = { { id = "h_default", text = "I am of the Deathguard's elite, and I keep the ruins of Lordaeron so that nothing reaches the Undercity unseen. The orcs are allies, but an ally is not the same as a friend." } },
       again = {
         { id = "h_again", text = "Something more? I have nowhere to be, and all the time in the world." },
         { id = "h_again2", text = "Speak. Standing still is the one thing I am never tired of." },
       },
       choices = {
-        { text = "Why does the Undercity send guards so far from home?", next = "why" },
-        { text = "You don't seem fond of the heat.", next = "heat" },
-        { text = "How do the orcs treat you here?", next = "orcs" },
-        { text = "Any word from Tirisfal for one of our own?", next = "home", when = { race = "Scourge" } },
+        { text = "What are you guarding against?", next = "why" },
+        { text = "Do you miss the living city that stood here?", next = "heat" },
+        { text = "How do the orcs treat your people?", next = "orcs" },
+        { text = "Any word from Brill for one of our own?", next = "home", when = { race = "Scourge" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
     why = {
-      lines = { { id = "w_default", text = "Because the Forsaken who come to Orgrimmar come as envoys and traders, and envoys have a way of vanishing when nobody is watching. The Dark Lady does not trust easily, and she trusts the living least of all." } },
+      lines = { { id = "w_default", text = "The Scourge, the Scarlet Crusade, and spies from Stormwind who would love a look at our sewers. The Dark Lady does not trust easily, and she trusts the living least of all." } },
       choices = {
         { text = "Does she trust Thrall?", next = "thrall" },
         { text = "Something else.", next = "BACK" },
@@ -199,22 +199,22 @@ P:NPC {
       lines = { { id = "t_default", text = "She trusts that Thrall needs us, and that we need the Horde's axes against the Scourge and the Crusade. That is a sturdier thing than trust, I think, because it does not depend on anyone's good nature." } },
       choices = {
         { text = "The Horde is stronger with the Forsaken in it.", next = "BACK", reply = "Then say so to the grunts at the gate, living one, because they have not yet worked it out.", fx = { align = { order = 1 } } },
-        { text = "A bargain like that breaks the day it stops paying.", next = "BACK", reply = "Very likely, and every Forsaken in Durotar knows it. That is why I keep my halberd sharp.", fx = { align = { order = -1 } } },
+        { text = "A bargain like that breaks the day it stops paying.", next = "BACK", reply = "Very likely, and every Forsaken in the Undercity knows it. That is why I keep my halberd sharp.", fx = { align = { order = -1 } } },
       },
     },
     heat = {
-      lines = { { id = "he_default", text = "Dead flesh does not sweat, but it does dry, and Durotar would dry a fish on the hook. I keep to the shade where I can and remind myself that Tirisfal's rain was no kinder." } },
-      choices = { { text = "Tirisfal's rain at least kept you damp. Something else.", next = "BACK" } },
+      lines = { { id = "he_default", text = "I stood guard on these walls when Terenas still held court above us, and I watched the prince come home. Missing it does no good, so I keep the gate instead." } },
+      choices = { { text = "Then keep it well. Something else.", next = "BACK" } },
     },
     orcs = {
-      lines = { { id = "o_default", text = "Correctly, which is more than I expected. They look at me the way a soldier looks at a sword someone else forged, wondering whether it will turn in the hand, but they give me my post and my rations." } },
+      lines = { { id = "o_default", text = "Correctly, which is more than I expected. They look at us the way a soldier looks at a sword someone else forged, wondering whether it will turn in the hand, but they keep their bargain and our rations come." } },
       choices = {
-        { text = "Rations? You eat?", next = "rations" },
+        { text = "Rations? The dead eat?", next = "rations" },
         { text = "Something else.", next = "BACK" },
       },
     },
     rations = {
-      lines = { { id = "r_default", text = "Not as you do, and not anything I would describe to you on an empty stomach. The quartermaster in Razor Hill has stopped asking what I want with the scraps, which is a kindness of a sort." } },
+      lines = { { id = "r_default", text = "Not as you do, and not anything I would describe to you on an empty stomach. The quartermasters below have stopped asking what I want with the scraps, which is a kindness of a sort." } },
       choices = { { text = "I'll not ask either. Something else.", next = "BACK" } },
     },
     home = {
@@ -230,7 +230,7 @@ P:NPC {
 
 -- Elder Runetotem: a tauren elder honoured at Razor Hill during the Lunar Festival.
 P:NPC {
-  key = "dur_elder_runetotem", id = 15572, name = "Elder Runetotem", gender = "male",
+  key = "dur_elder_runetotem", id = 15572, name = "Elder Runetotem", gender = "female",
   role = "elder", tier = "quest",
   temper = { "calm", "gentle" }, values = { "ancestors", "tradition" },
   notices = { "race", "season" },
@@ -250,7 +250,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
-      narr = "Pale light gathers about his horns, and he waits a long moment before speaking.",
+      narr = "Pale light gathers about her horns, and she waits a long moment before speaking.",
       lines = { { id = "h_default", text = "I am Runetotem, an elder of my tribe, and while the Lunar Festival lasts I stand here as the ancestors ask. Those who come to me carry the year's honour from one elder to the next." } },
       again = {
         { id = "h_again", text = "Ask what you will. The moon is in no hurry, and neither am I." },
@@ -290,7 +290,7 @@ P:NPC {
       choices = { { text = "Then the herd is wise. Something else.", next = "BACK" } },
     },
     honour = {
-      narr = "He lays a broad hand on your shoulder, and the touch is warm as summer earth.",
+      narr = "She lays a broad hand on your shoulder, and the touch is warm as summer earth.",
       lines = { { id = "ho_default", text = "Then take my blessing, and with it a coin of the ancestors, as the elders give to all who seek them. Go on to the next of us, for there are many elders standing across Kalimdor and the Eastern Kingdoms tonight." } },
       choices = { { text = "I will seek them all, elder.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -496,6 +496,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The living still remember us. That is the only feast the dead truly need." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival moon has risen, and I am called back to remember and be remembered. Stand with me, child of the Horde." },
     { id = "g_back", when = { metBefore = true }, text = "You return to stand with us again, child of the Horde. It warms what little of me remains." },
   },
   start = "hello",

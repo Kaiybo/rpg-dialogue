@@ -499,67 +499,67 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Falrin Treeshaper: an old friend of Anthion Harmon, aiding the hunt for the 0.5 set's makers.
+-- Falrin Treeshaper: a bitter enchanter in the Dire Maul library, an old acquaintance of Anthion Harmon, who hates the ogres that killed his brother.
 ---------------------------------------------------------------------------
 P:NPC {
   key = "dg_falrin", id = 16032, name = "Falrin Treeshaper", role = "questgiver", tier = "quest",
-  temper = { "wry", "earnest" }, values = { "loyal", "justice" },
+  temper = { "surly", "bitter" }, values = { "vengeance", "craft" },
   notices = { "quest" },
   greetings = {
-    { id = "g_default", text = "A visitor in the library who isn't trying to kill me? That's a welcome change, friend." },
-    { id = "g_anthion", when = { questActive = TODO_QUEST("Anthion's Old Friend") }, text = "Anthion sent you? Then he must still be wandering Stratholme, poor soul. Come, sit, and tell me what he said." },
+    { id = "g_default", text = "Speak up, stranger. Can't you see I'm busy?" },
+    { id = "g_anthion", when = { questActive = TODO_QUEST("Anthion's Old Friend") }, text = "Anthion sent you, you say? I thought he was dead. Well, I've heard stranger things in my life." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", key = true, text = "I'm Falrin Treeshaper, and I came to these ruins to study the Highborne's lore long before the ogres moved in. Now I stay because the work isn't done, and because I owe a debt to an old friend." } },
+      lines = { { id = "h_default", key = true, text = "I'm Falrin Treeshaper, and I know a charm or two that most folk have long forgotten. I keep to this library because the books are here, and because the ogres who killed my brother are close enough to hate." } },
       again = {
         { id = "h_again", text = "What else would you like to know?" },
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
         { text = "Who is your old friend?", next = "anthion" },
-        { text = "What is your vendetta?", next = "vendetta" },
+        { text = "Why do you hate the ogres?", next = "vendetta" },
         { text = "What is this challenge you speak of?", next = "challenge" },
-        { text = "You're a druid, studying Highborne magic?", next = "druid", when = { class = "DRUID" } },
+        { text = "Treeshaper sounds like a druid's name.", next = "druid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
     anthion = {
-      lines = { { id = "a_default", text = "Anthion Harmon, who died in Stratholme searching for his wife, Ysida. His spirit still walks those streets, and if he sent you to me, then he still trusts me to finish what we started together." } },
+      lines = { { id = "a_default", text = "Anthion Harmon, an old acquaintance of mine. Last I heard he'd gone into Stratholme after his wife Ysida and never come out, so if he's sending folk to me, he hasn't stopped being stubborn." } },
       choices = {
-        { text = "What did you start together?", next = "anthion2" },
+        { text = "Why would he send me to you?", next = "anthion2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     anthion2 = {
-      lines = { { id = "a2_default", text = "We meant to make armour worthy of the heroes who'd face the Scourge and the Dark Irons both. He gathered the craftsmen, and I gathered the lore, and then the plague came and took him." } },
+      lines = { { id = "a2_default", text = "Because I have a particular way of aggravating people, and his banner needs exactly that. Even so, I don't give out favours freely, not even to an old friend's errand runner." } },
       choices = {
-        { text = "Then I'll finish his work.", next = "BACK", reply = "Good. He would have liked you, I think." },
+        { text = "Name your price, then.", next = "vendetta" },
         { text = "Something else.", next = "BACK" },
       },
     },
     vendetta = {
-      lines = { { id = "v_default", text = "There are those in these ruins who did my friends a great wrong, and I'm too old and too slow to settle it myself. You aren't, and that makes you the answer to a long prayer." } },
+      lines = { { id = "v_default", text = "Ogres killed my brother, and I hate every brute of them, Gordok's lot here and Omokk's followers in Blackrock Spire alike. Kill them, lots of them, and bring me the beads they wear around their necks." } },
       choices = {
-        { text = "Revenge won't bring your friends back.", next = "BACK", reply = "No, but it will let me sleep, and that's something.", fx = { align = { light = 1 } } },
+        { text = "Revenge won't bring your friends back.", next = "BACK", reply = "No, and I doubt I'll feel any better. Bring me the beads anyway.", fx = { align = { light = 1 } } },
         { text = "Some debts are only paid in blood.", next = "BACK", reply = "Aye, and I'll be glad to see this one settled.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     challenge = {
-      lines = { { id = "c_default", text = "In Blackrock Depths there's a Ring of Law, where the Dark Irons pit prisoners against their champions. Plant a banner of provocation there and you'll draw out Theldren and his band, who have something you'll need." } },
+      lines = { { id = "c_default", text = "Anthion's banner bears Theldren's family colours, and I can charm it so he can't resist it. Bring me an Eldreth ghost's essence, Scholomance dark runes and large brilliant shards, then plant it in the Ring of Law." } },
       choices = {
         { text = "Who is Theldren?", next = "theldren" },
         { text = "Something else.", next = "BACK" },
       },
     },
     theldren = {
-      lines = { { id = "t_default", text = "A champion who fights for coin and glory, and he's very good at both. Don't underestimate him, friend, because the Dark Irons certainly don't." } },
+      lines = { { id = "t_default", text = "A champion who never willingly fights fair. Let High Justice Grimstone sentence you, plant the banner in defiance, and Theldren will charge in to fight you. Take what you need from him and go back to Anthion." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     druid = {
-      lines = { { id = "d_default", text = "Treeshaper is a druid's name, aye, and the Highborne were druids' enemies once. But you can't guard against a danger you refuse to understand, and the Cenarion Circle has never liked that argument." } },
+      lines = { { id = "d_default", text = "Treeshaper is an old family name, nothing more. My craft is enchantment, and my business is my own." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -575,6 +575,7 @@ P:NPC {
   notices = { "race", "quest" },
   greetings = {
     { id = "g_default", text = "Welcome, traveller. You have come a long and dangerous way to honour an old spirit, and that is no small thing." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
     { id = "g_done", when = { questDone = TODO_QUEST("Mistwalker the Elder") }, text = "Your coin of ancestry carries my blessing now. Go with it, and remember the elders who came before you." },
   },
   start = "hello",

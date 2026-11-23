@@ -10,6 +10,7 @@ No new files; a /reload is enough.
 - **Dungeons:** Mistress Nagmara and the Blackrock Depths prisoners, the Shen'dralar of Dire Maul, the Gnomeregan holdouts, Vorrel Sengutz, Annora. Blastmaster Emi Shortfuse now matches her in-game name.
 - **Plaguelands:** Eligor Dawnbringer, Angela Dosantos, Omarion (with a leatherworker reply), Packmaster Stonebruiser and both tower emissaries.
 - **Elsewhere:** Holgar Stormaxe, Prospector Gunstan, Rumsen Fizzlebrack, Duke Foehammer, Grand Admiral Jes-Tereth, Deathguards Bartholomew and Morris, Cannoneer Smythe, the Dabyries, Keeper Ordanus and more.
+- **Lore checked** against classicdb and the vanilla wiki: Alterac Valley mine troops on their right sides, bounty hunters' real targets, Lunar elders' genders and spots, Nuzrak back at Kargath, Falrin's quests, Foehammer at Cenarion Hold. Festival characters greet you differently during their holiday.
 - **Kul Tiran grudges:** ten Kul Tirans in Theramore and Menethil now have a view of Jaina, from bitter to torn to loyal.
 
 ## 0.104.0 (2026-11-23): Deeper Voices

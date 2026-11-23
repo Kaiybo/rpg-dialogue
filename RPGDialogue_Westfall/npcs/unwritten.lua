@@ -241,6 +241,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, a visitor. You climbed a long way, little one, and I am glad of it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the tower. The wind is kinder up here than down among the fields." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Skychaser the Elder") }, text = "You seek the elders, I see. Come, the Earth Mother's blessing is yours." },
   },

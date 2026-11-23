@@ -55,9 +55,9 @@ P:NPC {
   },
 }
 
--- Elder Dawnstrider: an ancestor spirit honoured during the Lunar Festival. He stands, improbably, in the ash of the Burning Steppes.
+-- Elder Dawnstrider: an ancestor spirit honoured during the Lunar Festival. She stands, improbably, at Flame Crest in the ash of the Burning Steppes.
 P:NPC {
-  key = "bs_elder_dawnstrider", id = 15585, name = "Elder Dawnstrider", gender = "male",
+  key = "bs_elder_dawnstrider", id = 15585, name = "Elder Dawnstrider", gender = "female",
   role = "questgiver", tier = "quest",
   temper = { "serene", "patient" }, values = { "ancestors", "tradition" },
   notices = { "race", "travel" },
@@ -67,6 +67,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Even here, in all this smoke, the new year comes. Welcome, {class}, to an old walker's strange resting place." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the ash and the old walker. The Earth Mother is patient, and so am I." },
     { id = "g_done", when = { questDone = TODO_QUEST("Dawnstrider the Elder") }, text = "You have my coin already. Carry it out of this burnt land and somewhere green." },
   },
@@ -76,7 +77,7 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
-      narr = "He looks out over the blackened Steppes, and the ash does not settle on him.",
+      narr = "She looks out over the blackened Steppes, and the ash does not settle on her.",
       lines = { { id = "h_default", text = "I am Elder Dawnstrider, and in life I walked every road a tauren could find, from the Barrens to the far mountains. The Lunar Festival honours me, and it seems my wandering did not stop when my heart did." } },
       again = { { id = "h_again", text = "Ask, {class}. A walker always has time to talk." } },
       choices = {

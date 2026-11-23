@@ -706,7 +706,7 @@ P:NPC {
 
 -- Arch Druid Renferal: summons Ivus the Forest Lord from Storm Crystals the Guard gathers.
 P:NPC {
-  key = "bg_renferal", id = 13442, name = "Arch Druid Renferal",
+  key = "bg_renferal", id = 13442, name = "Arch Druid Renferal", gender = "female",
   bible = "bibles/alterac_valley.md", role = "questgiver", tier = "quest",
   communities = { "stormpike", "cenarion" }, temper = { "calm", "stern" }, values = { "balance", "wise" },
   notices = { "class", "race" },
@@ -2366,7 +2366,7 @@ P:NPC {
 -- MORE OF THE VALLEY: officers, vendors, mine troops and spirit guides of both sides
 ---------------------------------------------------------------------------------------------------------------
 
--- Athramanis: night elf bounty hunter in Dun Baldar, paid in Darnassus's name for trophies of the Horde.
+-- Athramanis: night elf bounty hunter in Dun Baldar; Staghelm's Requiem, troll mojo for Darnassus.
 P:NPC {
   key = "bg_athramanis", id = 14187, name = "Athramanis", gender = "female",
   bible = "bibles/alterac_valley.md", role = "questgiver", tier = "quest",
@@ -2394,7 +2394,7 @@ P:NPC {
         { id = "h_again2", text = "What else?" },
       },
       choices = {
-        { text = "Why would Darnassus pay for trophies?", next = "b1" },
+        { text = "Why would Darnassus pay for troll trophies?", next = "b1" },
         { text = "Why is a night elf fighting with dwarves?", next = "b2" },
         { text = "Where do the best hunts lie?", next = "b3" },
         { text = "I am Kaldorei too, sister. Elune guide your arrows.", next = "b4", when = { race = "NightElf" } },
@@ -2402,7 +2402,7 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Because the trolls of the Darkspear and the tauren of the plains have walked into lands my people once guarded. The Sentinels cannot be everywhere, so the priestesses reward those who fight in their stead." } },
+      lines = { { id = "b1_d", text = "Because Fandral Staghelm has given the order. Every troll on this field is to be cut down, and their foolish claim that they birthed the Kaldorei answered with force. Bring me their mojo, and Darnassus will know your name." } },
       choices = {
         { text = "Isn't collecting trophies a cruel business?", next = "b1_1" },
         { text = "The Horde earned this. Collect every trophy.", next = "BACK", reply = "Then bring me what you take, and I will see it counted.", fx = { align = { light = -1 } } },
@@ -2418,7 +2418,7 @@ P:NPC {
       },
     },
     b1_1_1 = {
-      lines = { { id = "b111_d", text = "I trust what I can hold in my hand, and I have learned to tell a true trophy from a merchant's trick. Do not try to fool me, for others have." } },
+      lines = { { id = "b111_d", text = "I trust what I can hold in my hand, and troll mojo has a stink no merchant can fake. Even now I can still smell them." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -2465,7 +2465,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The trails of the valley, the habits of the Horde, and the price of a head in Darnassus." } },
+    knows = { { id = "tp_knows", text = "The trails of the valley, the habits of the Horde, and the price of troll mojo in Darnassus." } },
     _none = { { id = "tp_none", text = "That is not something a hunter needs to know." } },
   },
 }
@@ -2506,7 +2506,7 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I do, and I log every one with a number and a date. Ironforge likes a tidy ledger, and the tauren keep marching up this valley as if they owned the snow." } },
+      lines = { { id = "b1_d", text = "I do! Word is the tauren single out gnomes here and cut tufts of our glorious hair from the fallen. So we reciprocate: I want them de-hoofed, and I log every hoof." } },
       choices = {
         { text = "What happens to the hooves?", next = "b1_1" },
         { text = "The tauren chose their side. Pay me well.", next = "BACK", reply = "Now you sound like a proper partner! Bring the goods and I bring the coin.", fx = { align = { honor = -1 } } },
@@ -2541,7 +2541,7 @@ P:NPC {
       },
     },
     b3 = {
-      lines = { { id = "b3_d", text = "Gnomeregan is lost, my friend, and a gnome without a city must find work wherever the dwarves will have him. The Stormpike pay well, and I am very good with numbers." } },
+      lines = { { id = "b3_d", text = "The High Tinkerer himself sent me to defend my gnomish brothers and sisters on this field. Gnomeregan is lost for now, but its people still have friends." } },
       choices = {
         { text = "Do you hope to go home someday?", next = "b3_1" },
         { text = "Something else.", next = "BACK" },
@@ -2736,7 +2736,7 @@ P:NPC {
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "The apothecaries of the Undercity have uses for them, and the Stormpike's humans are generous with their dead. Bring me what you find on the field." } },
+      lines = { { id = "b2_d", text = "I do extra work on the side for the Dark Apothecaries of the Undercity. They want human bone chips for their cure for the human condition, and the Stormpike field plenty of humans." } },
       choices = {
         { text = "Isn't that a grim request?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
@@ -3450,7 +3450,7 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Dey hunt us in Ashenvale, dey chase us from da forests, an' dey think dey better den everybody. Da Darkspear got long memories, mon." } },
+      lines = { { id = "b11_d", text = "Before da night elves, dere was troll, mon. Dey came from us, an' now Staghelm want to wipe us out so nobody remember. It will not happen." } },
       choices = {
         { text = "Is that reason enough?", next = "b1_1_1" },
         { text = "Something else.", next = "BACK" },
@@ -3567,14 +3567,14 @@ P:NPC {
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Proof of fallen Alliance soldiers, and I pay well. Each piece tells me something about the races of the Alliance." } },
+      lines = { { id = "b2_d", text = "Gnome samples. Bring me tufts of gnome hair, and the tauren will know you as an ally. Magatha wants to know why such small creatures endure so well." } },
       choices = {
         { text = "What have you learned?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "That the dwarves are stubborn, the humans are brave, and the gnomes are surprisingly hard to catch." } },
+      lines = { { id = "b21_d", text = "That the gnomes are pitifully weak and tiny, yet they survive far more than they should. That resilience is what Magatha wants." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -4561,7 +4561,7 @@ P:NPC {
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Aye, he's my brother, an' he sells trade goods across the way. We argue about prices every night." } },
+      lines = { { id = "b2_d", text = "Aye, we're both Farmountains, an' he sells trade goods across the way. We argue about prices every night." } },
       choices = {
         { text = "Do you ever fight?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
@@ -4630,7 +4630,7 @@ P:NPC {
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "She's my sister, an' she thinks she's the clever one. She's wrong, but dinnae tell her I said so." } },
+      lines = { { id = "b2_d", text = "Aye, she's Farmountain kin, an' she thinks she's the clever one. She's wrong, but dinnae tell her I said so." } },
       choices = {
         { text = "Do you ever fight?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
@@ -4768,7 +4768,7 @@ P:NPC {
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "He's my cousin, an' he got the family's brewin' talent. I got the family's temper an' a hammer." } },
+      lines = { { id = "b2_d", text = "The Thunderbrews are a big clan, an' Brogus got the brewin' talent. I got the temper an' a hammer." } },
       choices = {
         { text = "Do you ever fight?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
@@ -6582,28 +6582,28 @@ P:NPC {
   },
 }
 
--- Seasoned Coldmine Invader: a seasoned Frostwolf invader sent to seize Coldtooth Mine.
+-- Seasoned Coldmine Invader: a seasoned Stormpike invader sent to seize Coldtooth Mine.
 P:NPC {
   key = "bg_seasoned_coldmine_invader", id = 13549, name = "Seasoned Coldmine Invader", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Seasoned Coldmine Invader of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Seasoned Coldmine Invader of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf invader, and a seasoned one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
+        { id = "h_default", key = true, text = "Stormpike invader, and a seasoned one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -6616,17 +6616,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the clan's banner before the dwarves can answer." } },
+      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the Stormpike banner before the orcs can answer." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, it does not matter. Anything that stands in the tunnels falls." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6651,28 +6651,28 @@ P:NPC {
   },
 }
 
--- Veteran Coldmine Invader: a veteran Frostwolf invader sent to seize Coldtooth Mine.
+-- Veteran Coldmine Invader: a veteran Stormpike invader sent to seize Coldtooth Mine.
 P:NPC {
   key = "bg_veteran_coldmine_invader", id = 13550, name = "Veteran Coldmine Invader", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Veteran Coldmine Invader of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Veteran Coldmine Invader of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf invader, and a veteran one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
+        { id = "h_default", key = true, text = "Stormpike invader, and a veteran one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -6685,17 +6685,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the clan's banner before the dwarves can answer." } },
+      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the Stormpike banner before the orcs can answer." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, it does not matter. Anything that stands in the tunnels falls." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6720,28 +6720,28 @@ P:NPC {
   },
 }
 
--- Champion Coldmine Invader: a champion Frostwolf invader sent to seize Coldtooth Mine.
+-- Champion Coldmine Invader: a champion Stormpike invader sent to seize Coldtooth Mine.
 P:NPC {
   key = "bg_champion_coldmine_invader", id = 13551, name = "Champion Coldmine Invader", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Champion Coldmine Invader of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Champion Coldmine Invader of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf invader, and a champion one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
+        { id = "h_default", key = true, text = "Stormpike invader, and a champion one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -6754,17 +6754,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the clan's banner before the dwarves can answer." } },
+      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the Stormpike banner before the orcs can answer." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, it does not matter. Anything that stands in the tunnels falls." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7203,28 +7203,28 @@ P:NPC {
   },
 }
 
--- Seasoned Irondeep Surveyor: a seasoned Frostwolf surveyor who scouts Irondeep Mine for the clan's forges.
+-- Seasoned Irondeep Surveyor: a seasoned Stormpike surveyor who scouts Irondeep Mine for the Guard's forges.
 P:NPC {
   key = "bg_seasoned_irondeep_surveyor", id = 13555, name = "Seasoned Irondeep Surveyor", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Seasoned Irondeep Surveyor of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Seasoned Irondeep Surveyor of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf surveyor, and a seasoned one. I read the rock of Irondeep Mine and tell the clan where the ore runs and where the enemy waits." },
+        { id = "h_default", key = true, text = "Stormpike surveyor, and a seasoned one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -7237,17 +7237,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the peons where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the miners where the ore is richest. A mine without a surveyor is just a hole." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7272,28 +7272,28 @@ P:NPC {
   },
 }
 
--- Veteran Irondeep Surveyor: a veteran Frostwolf surveyor who scouts Irondeep Mine for the clan's forges.
+-- Veteran Irondeep Surveyor: a veteran Stormpike surveyor who scouts Irondeep Mine for the Guard's forges.
 P:NPC {
   key = "bg_veteran_irondeep_surveyor", id = 13556, name = "Veteran Irondeep Surveyor", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Veteran Irondeep Surveyor of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Veteran Irondeep Surveyor of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf surveyor, and a veteran one. I read the rock of Irondeep Mine and tell the clan where the ore runs and where the enemy waits." },
+        { id = "h_default", key = true, text = "Stormpike surveyor, and a veteran one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -7306,17 +7306,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the peons where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the miners where the ore is richest. A mine without a surveyor is just a hole." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7341,28 +7341,28 @@ P:NPC {
   },
 }
 
--- Champion Irondeep Surveyor: a champion Frostwolf surveyor who scouts Irondeep Mine for the clan's forges.
+-- Champion Irondeep Surveyor: a champion Stormpike surveyor who scouts Irondeep Mine for the Guard's forges.
 P:NPC {
   key = "bg_champion_irondeep_surveyor", id = 13557, name = "Champion Irondeep Surveyor", gender = "male",
   bible = "bibles/alterac_valley.md", role = "soldier", tier = "service",
-  communities = { "frostwolf" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
+  communities = { "stormpike" }, temper = { "gruff", "fierce" }, values = { "dutiful", "loyal" },
 
   impression = {
-    first = "A hard-bitten orc with the dust of the mines on his armor.",
-    third = "{name} spoke with a Champion Irondeep Surveyor of the Frostwolves.",
+    first = "A hard-bitten dwarf with the dust of the mines on his armor.",
+    third = "{name} spoke with a Champion Irondeep Surveyor of the Stormpike Guard.",
   },
 
   greetings = {
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
+    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frostwolf surveyor, and a champion one. I read the rock of Irondeep Mine and tell the clan where the ore runs and where the enemy waits." },
+        { id = "h_default", key = true, text = "Stormpike surveyor, and a champion one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
@@ -7375,17 +7375,17 @@ P:NPC {
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the peons where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the miners where the ore is richest. A mine without a surveyor is just a hole." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
       choices = {
         { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

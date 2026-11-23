@@ -618,6 +618,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Elune-adore, traveller. You find me in an odd place this year, among the dust and the engines." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the salt flats are no quieter. Still, I am glad of the company." },
     { id = "g_done", when = { questDone = TODO_QUEST("Morningdew the Elder") }, text = "You have paid your respects, and my coin travels with you now. Ishnu-alah." },
   },

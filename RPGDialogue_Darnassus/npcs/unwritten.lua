@@ -361,18 +361,19 @@ P:NPC {
   },
 }
 
--- Elder Bladeswift: an ancestor spirit honoured during the Lunar Festival. She stands in Darnassus, near the Cenarion Enclave.
+-- Elder Bladeswift: an ancestor spirit honoured during the Lunar Festival. He stands in Darnassus, near the Cenarion Enclave.
 P:NPC {
-  key = "darn_elder_bladeswift", id = 15598, name = "Elder Bladeswift", gender = "female",
+  key = "darn_elder_bladeswift", id = 15598, name = "Elder Bladeswift", gender = "male",
   role = "questgiver", tier = "quest",
   temper = { "serene", "patient" }, values = { "ancestors", "tradition" },
   notices = { "race", "travel" },
   impression = {
-    first = "A spirit in old Sentinel armour, standing as if still on watch.",
+    first = "A spirit in old Kaldorei war-harness, standing as if still on watch.",
     third = "{name} paid respects to Elder Bladeswift, an elder spirit honoured at the Lunar Festival.",
   },
   greetings = {
-    { id = "g_default", text = "Ishnu-alah, {class}. The moon is full and the year has turned, and an old Sentinel walks again among her people." },
+    { id = "g_default", text = "Ishnu-alah, {class}. The moon is full and the year has turned, and an old warden walks again among his people." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has called me home again. Walk with me a moment, and honour the Sentinels who kept this land." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and I am still at my post. Old habits outlast even death." },
     { id = "g_done", when = { questDone = TODO_QUEST("Bladeswift the Elder") }, text = "My coin is yours already. Guard it as you would guard the borders of Ashenvale." },
   },
@@ -382,9 +383,9 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
-      narr = "Her hand drifts to a glaive that is no longer there.",
-      lines = { { id = "h_default", text = "I am Elder Bladeswift, and I served among the Sentinels long before Teldrassil was planted. Each year at the Lunar Festival my people honour me, and I come back to see that Darnassus is well watched." } },
-      again = { { id = "h_again", text = "Speak, {class}. A Sentinel listens even while she watches." } },
+      narr = "His hand drifts to a glaive that is no longer there.",
+      lines = { { id = "h_default", text = "I am Elder Bladeswift, and I stood watch beside the Sentinels long before Teldrassil was planted. Each year at the Lunar Festival my people honour me, and I come back to see that Darnassus is well watched." } },
+      again = { { id = "h_again", text = "Speak, {class}. An old warden listens even while he watches." } },
       choices = {
         { text = "Who were you, in life?", next = "life" },
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
@@ -447,6 +448,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The year turns, friend, and the moon is full over Teldrassil. Have you heard the call of the Lunar Festival?" },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has begun! The lanterns are lit in Moonglade, and the elders are waiting to be honoured." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Valadar Starsong waits for you in Moonglade. Go when you are ready, and go with a light heart." },
   },
   notice = {

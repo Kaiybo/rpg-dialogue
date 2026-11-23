@@ -395,9 +395,9 @@ P:NPC {
   topics = { _none = { { id = "tp_none", text = "That inquiry is outside this record's parameters." } } },
 }
 
--- Elder Ragetotem: a tauren elder honoured in Tanaris during the Lunar Festival.
+-- Elder Ragetotem: a tauren elder honoured in the Valley of the Watchers, Tanaris, during the Lunar Festival.
 P:NPC {
-  key = "tan_elder_ragetotem", id = 15573, name = "Elder Ragetotem", gender = "male",
+  key = "tan_elder_ragetotem", id = 15573, name = "Elder Ragetotem", gender = "female",
   role = "elder", tier = "quest",
   temper = { "calm", "dry" }, values = { "ancestors", "tradition" },
   notices = { "race", "season" },

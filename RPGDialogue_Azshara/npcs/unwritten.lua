@@ -153,16 +153,17 @@ P:NPC {
 -- Elder Skygleam: a kaldorei elder honoured at the Lunar Festival, among Azshara's ruins.
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "az_elder_skygleam", id = 15600, name = "Elder Skygleam", gender = "female",
+  key = "az_elder_skygleam", id = 15600, name = "Elder Skygleam", gender = "male",
   role = "questgiver", tier = "quest",
   temper = { "calm" }, values = { "tradition", "memory" },
   notices = { "race", "faction" },
   impression = {
-    first = "An ancient night elf woman stands among the fallen pillars of Azshara, her gaze fixed on the stars. The ruins around her seem to hold their breath.",
+    first = "An ancient night elf stands among the fallen pillars near the Ravencrest Monument, his gaze fixed on the stars. The ruins around him seem to hold their breath.",
     third = "{name} paid respects to Elder Skygleam of the Lunar Festival.",
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah. You have travelled far to find an old elf among old stones, and I thank you for it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "The stars bring you back to me. Come, look up with me a while." },
   },
   start = "hello",

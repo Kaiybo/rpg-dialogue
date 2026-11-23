@@ -810,7 +810,7 @@ P:NPC {
   },
 }
 
--- Duke August Foehammer: a dwarven duke and veteran warrior who stands with the Alliance's commanders in Stormwind.
+-- Duke August Foehammer: a dwarven duke of the Might of Kalimdor, stationed at Cenarion Hold in Silithus (Classic 1.9 Ahn'Qiraj war; the file sits in the Stormwind pack).
 P:NPC {
   key = "sw_duke_foehammer", id = 15870, name = "Duke August Foehammer", gender = "male",
   role = "noble", tier = "quest",
@@ -818,7 +818,7 @@ P:NPC {
   notices = { "race", "class" },
   impression = {
     first = "A broad dwarven warrior in fine plate, who carries a duke's title like a hammer.",
-    third = "{name} met Duke August Foehammer, a dwarven warrior of the Alliance, in Stormwind.",
+    third = "{name} met Duke August Foehammer, a dwarven warrior of the Might of Kalimdor, at Cenarion Hold.",
   },
   greetings = {
     { id = "g_default", text = "Ho there, {class}! Stand up straight; ye're in the presence o' the Alliance's finest, an' I mean meself." },
@@ -831,11 +831,11 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "Duke August Foehammer, warrior o' Ironforge an' friend o' Stormwind. I've come to the city to remind these humans that the dwarves bled for this Alliance too, an' we expect to be heard." } },
+      lines = { { id = "h_default", text = "Duke August Foehammer, warrior o' Ironforge an' commander in the Might o' Kalimdor. I've come to Cenarion Hold because the Qiraji are stirrin' behind that wall, an' somebody has to be ready when it opens." } },
       again = { { id = "h_again", text = "Anythin' else? Out with it, then." }, { id = "h_again2", text = "Speak up, {g:lad|lass}. Me ears are full o' war drums." } },
       choices = {
         { text = "How did a dwarf become a duke?", next = "duke" },
-        { text = "What brings you to Stormwind?", next = "why" },
+        { text = "What brings you to Silithus?", next = "why" },
         { text = "What news from Ironforge?", next = "ironforge", when = { race = "Dwarf" } },
         { text = "The Alliance seems divided these days.", next = "divided" },
         { text = "Farewell, Duke.", next = "END" },
@@ -846,17 +846,17 @@ P:NPC {
       choices = { { text = "A title well earned. Something else.", next = "BACK" } },
     },
     why = {
-      lines = { { id = "w_default", text = "Council business, an' the regent's council talks more than it fights. I'm here to see that Ironforge's soldiers get the respect, an' the supplies, they're owed." } },
+      lines = { { id = "w_default", text = "The war at Ahn'Qiraj, an' nothin' less. Horde an' Alliance both are sendin' soldiers to stand with the Cenarion Circle, an' I'm here to see they're fit to fight when the gates open." } },
       choices = {
-        { text = "Have they been treating you poorly?", next = "poor" },
+        { text = "You fight beside the Horde here?", next = "poor" },
         { text = "Something else.", next = "BACK" },
       },
     },
     poor = {
-      lines = { { id = "p_default", text = "Not poorly, just forgetfully. Stormwind remembers the dwarves when there's a war on an' forgets us between, an' I'll not stand for it." } },
+      lines = { { id = "p_default", text = "Aye, an' it sticks in me craw. But the Qiraji'll eat orc an' dwarf alike, so for now we stand shoulder to shoulder an' settle our quarrels after." } },
       choices = {
-        { text = "The Alliance needs Stormwind's lead.", next = "BACK", reply = "It needs Stormwind's gold, aye, but leadership's earned, not inherited.", fx = { align = { order = 1 } } },
-        { text = "Then Ironforge should stand on its own.", next = "BACK", reply = "Careful, {g:lad|lass}. That's the kind o' talk that broke the old Alliance.", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. We fight where we're sent.", next = "BACK", reply = "That's a soldier's answer, an' a good one. Ye'll do fine out here.", fx = { align = { order = 1 } } },
+        { text = "I'll not fight beside orcs, whatever the generals say.", next = "BACK", reply = "Then stay clear o' Silithus, {g:lad|lass}, because the bugs won't wait on yer feelings.", fx = { align = { order = -1 } } },
       },
     },
     ironforge = {

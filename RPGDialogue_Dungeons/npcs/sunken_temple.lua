@@ -13,6 +13,7 @@ P:NPC {
   notices = { "race", "quest" },
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. You have walked through the Atal'ai's dark halls to reach me, and the ancestors see your courage." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
     { id = "g_done", when = { questDone = TODO_QUEST("Starsong the Elder") }, text = "Your coin carries my blessing now. Go gently, and may Elune light your way out of this sunken place." },
   },
   start = "hello",

@@ -229,6 +229,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The moon is full on the new year, young one, and the old ones walk among the tents again. Come, stand with me a while." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "You return to an old bull's fire. The Earth Mother smiles on those who remember twice." },
     { id = "g_done", when = { questDone = TODO_QUEST("Bloodhoof the Elder") }, text = "You have honoured me already, and the coin of my line goes with you. Carry it gently." },
   },
@@ -291,7 +292,7 @@ P:NPC {
   },
 }
 
--- Elder Dreamseer: an ancestor spirit honoured during the Lunar Festival. He waits by the high places of Thunder Bluff, where the winds are loudest.
+-- Elder Dreamseer: an ancestor spirit honoured during the Lunar Festival. In Classic he keeps his vigil in Gadgetzan, Tanaris, far from the plains.
 P:NPC {
   key = "mul_elder_dreamseer", id = 15586, name = "Elder Dreamseer", gender = "male",
   role = "questgiver", tier = "quest",
@@ -303,6 +304,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, a dreamer comes to the dreamer. Sit, if the wind allows it, and tell me what you have seen." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, which I dreamed you might. The dreams are not always wrong." },
     { id = "g_done", when = { questDone = TODO_QUEST("Dreamseer the Elder") }, text = "You have given your respect, and my coin rests with you. May your sleep be kind tonight." },
   },
@@ -365,7 +367,7 @@ P:NPC {
   },
 }
 
--- Elder Skyseer: an ancestor spirit honoured during the Lunar Festival. He stands on the plains of Mulgore under the open sky.
+-- Elder Skyseer: an ancestor spirit honoured during the Lunar Festival. In Classic he stands at Freewind Post, high on the mesas of Thousand Needles.
 P:NPC {
   key = "mul_elder_skyseer", id = 15584, name = "Elder Skyseer", gender = "male",
   role = "questgiver", tier = "quest",
@@ -377,11 +379,12 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The sky is wide tonight, and every star in it is an old friend. Come, look up with me, {class}." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
     { id = "g_back", when = { metBefore = true }, text = "Back again under the same sky. It changes less than the living, which is a comfort." },
     { id = "g_done", when = { questDone = TODO_QUEST("Skyseer the Elder") }, text = "You have honoured me already, and my coin is yours. Look up when you are lost." },
   },
   notice = {
-    { id = "n_race", cat = "race", when = { race = "NightElf" }, text = "A child of the moon on the plains of Mulgore? The festival makes strange and welcome neighbours." },
+    { id = "n_race", cat = "race", when = { race = "NightElf" }, text = "A child of the moon atop the mesas of Freewind Post? The festival makes strange and welcome neighbours." },
   },
   start = "hello",
   nodes = {
@@ -439,18 +442,19 @@ P:NPC {
   },
 }
 
--- Elder Stonespire: an ancestor spirit honoured during the Lunar Festival. She keeps to the rocky heights of Mulgore, near the old stones.
+-- Elder Stonespire: an ancestor spirit honoured during the Lunar Festival. In Classic he waits in Everlook, Winterspring, far from his old stones.
 P:NPC {
-  key = "mul_elder_stonespire", id = 15574, name = "Elder Stonespire", gender = "female",
+  key = "mul_elder_stonespire", id = 15574, name = "Elder Stonespire", gender = "male",
   role = "questgiver", tier = "quest",
   temper = { "serene", "patient" }, values = { "ancestors", "tradition" },
   notices = { "race", "travel" },
   impression = {
-    first = "She stands as still as the stone she was named for.",
+    first = "He stands as still as the stone he was named for, untroubled by the snow.",
     third = "{name} paid respects to Elder Stonespire, an elder spirit honoured at the Lunar Festival.",
   },
   greetings = {
     { id = "g_default", text = "Welcome, young one. The stones remember everything, and so do I, at least for tonight." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the stones, and they are glad of it, in their slow way." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stonespire the Elder") }, text = "My coin is already in your keeping. Let it be as steady as the stone." },
   },
@@ -460,14 +464,14 @@ P:NPC {
   start = "hello",
   nodes = {
     hello = {
-      narr = "She sets one broad hand against the rock beside her, as if feeling for a heartbeat.",
-      lines = { { id = "h_default", text = "I am Elder Stonespire, and I raised the standing stones my people still gather around. I am honoured each Lunar Festival, and I come back to see that they still stand straight." } },
+      narr = "He sets one broad hand against the frozen ground, as if feeling for a heartbeat.",
+      lines = { { id = "h_default", text = "I am Elder Stonespire, and I raised the standing stones my people still gather around. I am honoured each Lunar Festival, and this year it has carried me to the snows of Everlook, far from my stones." } },
       again = { { id = "h_again", text = "Speak, child. I have all the patience of rock." } },
       choices = {
         { text = "Who were you, in life?", next = "life" },
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
-        { text = "My people are new to Mulgore, Elder.", next = "kin", when = { race = { "Orc", "Troll", "Scourge" } } },
+        { text = "My people are new to Kalimdor, Elder.", next = "kin", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "Rest well, Elder.", next = "END" },
       },
     },

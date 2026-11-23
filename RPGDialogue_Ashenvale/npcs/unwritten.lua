@@ -373,16 +373,17 @@ P:NPC {
 -- Elder Riversong: a kaldorei elder honoured at the Lunar Festival.
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "ash_elder_riversong", id = 15605, name = "Elder Riversong", gender = "male",
+  key = "ash_elder_riversong", id = 15605, name = "Elder Riversong", gender = "female",
   role = "questgiver", tier = "quest",
   temper = { "calm" }, values = { "tradition", "memory" },
   notices = { "race", "faction" },
   impression = {
-    first = "An ancient night elf sits among the ferns of Ashenvale, his hair silver as moonlight on water. He hums a melody that seems older than the trees.",
+    first = "An ancient night elf sits among the ferns of Astranaar, her hair silver as moonlight on water. She hums a melody that seems older than the trees.",
     third = "{name} paid respects to Elder Riversong of the Lunar Festival.",
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. The festival has drawn you to an old elf's resting place, and you are welcome here." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
     { id = "g_back", when = { metBefore = true }, text = "Elune brings you back to me. Sit, and listen to the water with me a while." },
   },
   start = "hello",

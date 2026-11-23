@@ -449,6 +449,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Be welcome, traveller. Few come to these gates with peace in their hearts, so I am glad of the company." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
     { id = "g_back", when = { metBefore = true }, text = "You return to an old spirit's vigil. The moon remembers you, and so do I." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Starglade the Elder") }, text = "You carry the festival's blessing with you. Come, and I will give you what the ancestors give." },
   },
@@ -527,6 +528,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ho, you found me. Not many think to climb up here, and fewer manage it without falling into the bay." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
     { id = "g_back", when = { metBefore = true }, text = "Back on my roof again, little one? Mind the gulls; they think it belongs to them." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Winterhoof the Elder") }, text = "You have come seeking the elders. Sit a moment, and receive the blessing of the Earth Mother." },
   },
@@ -607,7 +609,7 @@ P:NPC {
   },
   notice = {
     { id = "n_lw", cat = "profession", when = { profession = "Leatherworking" }, text = "Your fingers be stained and scarred. You work leather, eh? Then we speak the same tongue already." },
-    { id = "n_alliance", cat = "faction", when = { faction = "Alliance" }, text = "You come from the Alliance side. Se'Jib does not care so long as you keep your blade sheathed in his camp." },
+    { id = "n_alliance", cat = "faction", when = { faction = "Alliance" }, text = "Alliance in Se'Jib's camp? Se'Jib trains for the Horde, and you be lucky his hands are busy with hides." },
   },
   start = "hello",
   nodes = {

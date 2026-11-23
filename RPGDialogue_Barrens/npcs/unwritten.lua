@@ -709,6 +709,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Sit a while, young one. The festival brings many feet to an old bull's door, and I am glad of every one." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the moon has not even turned yet. Sit, sit." },
   },
   start = "hello",
@@ -777,11 +778,12 @@ P:NPC {
   temper = { "calm" }, values = { "tradition", "faith" },
   notices = { "race", "class" },
   impression = {
-    first = "A tauren elder stands with his face tipped up to the pale moon. Small offerings of grain and feathers lie scattered around his hooves.",
+    first = "A night elf elder stands at the Crossroads with his face tipped up to the pale moon. Small offerings of grain and feathers lie scattered around his feet.",
     third = "{name} paid respects to Elder Moonwarden, one of the elders of the Lunar Festival.",
   },
   greetings = {
-    { id = "g_default", text = "Mu'sha watches us tonight, friend, and so I watch her back. Come and stand in her light." },
+    { id = "g_default", text = "Elune watches us tonight, friend, and so I watch her back. Come and stand in her light." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the moon brings you back to me. That is a good sign." },
   },
   start = "hello",
@@ -789,7 +791,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I am Moonwarden, so named because my grandmother said I was born with the moon in my eyes. During the festival the people come to honour their elders, and I am happy to stand for them." },
-        { id = "h_q", when = { questActive = TODO_QUEST("Moonwarden the Elder") }, text = "You have walked a long way to honour an old bull. Take this coin, and may Mu'sha guide your path home." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Moonwarden the Elder") }, text = "You have walked a long way to honour an old watcher. Take this coin, and may Elune guide your path home." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind beneath this moon?" },
@@ -799,19 +801,19 @@ P:NPC {
         { text = "Why do you watch the moon?", next = "moon" },
         { text = "What does an elder do at the festival?", next = "duty" },
         { text = "You seem very at peace out here.", next = "peace" },
-        { text = "Elune and Mu'sha. Are they the same?", next = "elune", when = { class = "DRUID" } },
+        { text = "The tauren call the moon Mu'sha. Is she Elune?", next = "elune", when = { class = "DRUID" } },
         { text = "Farewell, Elder.", next = "END" },
       },
     },
     moon = {
-      lines = { { id = "m_default", text = "The Earth Mother has two eyes, An'she the sun and Mu'sha the moon. By day she watches the hunt, and by night she watches over the sleeping herds, and I would keep her company." } },
+      lines = { { id = "m_default", text = "The moon is Elune's light, and my people have watched it since before the Sundering. By night she watches over the sleeping and the lost, and I would keep her company." } },
       choices = {
         { text = "Does she ever answer?", next = "answer" },
         { text = "Something else.", next = "BACK" },
       },
     },
     answer = {
-      lines = { { id = "a_default", text = "Not in words, but the rain comes when the land needs it, and the calves grow strong. That is answer enough for an old bull who does not need to be spoken to." } },
+      lines = { { id = "a_default", text = "Not in words, but the rain comes when the land needs it, and the calves grow strong. That is answer enough for an old elf who does not need to be spoken to." } },
       choices = {
         { text = "Faith like that is a strength.", next = "BACK", fx = { align = { faith = 1 } } },
         { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { faith = -1 } } },
@@ -834,7 +836,7 @@ P:NPC {
       choices = { { text = "I'll leave you to your night, then.", next = "BACK" } },
     },
     elune = {
-      lines = { { id = "el_default", text = "The night elves call her Elune and say she is a goddess. We call her the Earth Mother's eye, and I suspect she does not mind what name we use as long as we look up." } },
+      lines = { { id = "el_default", text = "The tauren call her Mu'sha, the Earth Mother's eye, and my people call her Elune. I suspect she does not mind what name we use as long as we look up." } },
       choices = { { text = "A wise answer. Something else.", next = "BACK" } },
     },
   },
@@ -844,23 +846,24 @@ P:NPC {
 }
 
 P:NPC {
-  key = "bar_elder_windtotem", id = 15582, name = "Elder Windtotem", gender = "male",
+  key = "bar_elder_windtotem", id = 15582, name = "Elder Windtotem", gender = "female",
   role = "questgiver", tier = "quest",
   temper = { "warm" }, values = { "tradition", "freedom" },
   notices = { "race", "faction" },
   impression = {
-    first = "A weathered tauren leans on a tall totem hung with feathers that lift and whisper in the wind off the plains. He chuckles before you even speak.",
+    first = "A weathered tauren leans on a tall totem near the Ratchet road, its feathers lifting and whispering in the sea wind. She chuckles before you even speak.",
     third = "{name} visited Elder Windtotem, honoured during the Lunar Festival.",
   },
   greetings = {
     { id = "g_default", text = "The wind told me someone was coming, though it did not say who. Welcome, traveller." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the wind still at your back. Good, good." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "I am Windtotem, and the festival has made me a very popular old bull this season. Everyone wants to honour an elder, and I am the elder nearest the road." },
+        { id = "h_default", text = "I am Windtotem, and the festival has made me a very popular old grandmother this season. Everyone wants to honour an elder, and I am the elder nearest the road." },
         { id = "h_q", when = { questActive = TODO_QUEST("Windtotem the Elder") }, text = "You have come to pay respects, and I accept them gladly. Here is your coin, and may the winds carry your ancestors' voices to you." },
         { id = "h_alliance", when = { faction = "Alliance" }, text = "Even the Alliance comes to honour the elders, which tells me the festival is stronger than any war. Be welcome, stranger." },
       },
@@ -958,7 +961,7 @@ P:NPC {
       },
     },
     dead = {
-      lines = { { id = "d_default", text = "There's a high elf at the Crossroads who'd pay for my head, or so the prisoners say. He'll have to climb this tower first, and the tower has a cannon on it." } },
+      lines = { { id = "d_default", text = "There's a high elf privateer in Ratchet, Brightsun, who'd pay the Horde for my head because we fired on his ships. He'll have to climb this tower first, and the tower has a cannon on it." } },
       choices = { { text = "Then keep it loaded.", next = "BACK" } },
     },
   },
