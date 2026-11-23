@@ -65,6 +65,9 @@ letters\orc.lua
 letters\troll.lua
 letters\tauren.lua
 letters\forsaken.lua
+letters\met_alliance.lua
+letters\met_horde.lua
+letters\strangers_neutral.lua
 generic.lua
 pools.lua
 spirithealer.lua

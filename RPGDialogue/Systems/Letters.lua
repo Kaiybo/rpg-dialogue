@@ -5,7 +5,7 @@
 -- A pack registers a letter with P:Letter { id, npc, from, subject, body, when, delay,
 -- journal, fx }. It is sent either by a dialogue effect (fx = { letter = "id" }) or on its
 -- own once `when` holds (checked every minute). It arrives `delay` seconds later (default
--- 30 minutes), and the chat says so when it does.
+-- 30 minutes), and the chat says so when it does. No more than one arrives per SPACING.
 -- Random letters (random = true, optional `when`, `weight`): now and then, at most one per
 -- RANDOM_GAP, one may turn up unasked. junk = true marks junk mail (rarer, by weight).
 -- Setting: settings.letters (off: nothing new is sent or delivered, the panel stays shut).
@@ -18,8 +18,9 @@ ns.Letters = Letters
 
 Letters.DEFAULT_DELAY = 1800
 Letters.KEEP = 40          -- most letters kept in the mailbox; the oldest read ones go first
-Letters.RANDOM_GAP = 4 * 3600   -- at least this long between random letters
-Letters.RANDOM_CHANCE = 1 / 120 -- per minute once the gap has passed (about two hours on average)
+Letters.SPACING = 3600          -- at most one letter reaches the mailbox per hour; the rest wait their turn
+Letters.RANDOM_GAP = 6 * 3600   -- at least this long between random letters (and since any letter arrived)
+Letters.RANDOM_CHANCE = 1 / 180 -- per minute once the gap has passed (about three hours on average)
 Letters.JUNK_WEIGHT = 0.3       -- junk mail's default weight against a normal random letter's 1
 
 function Letters.Enabled()
@@ -88,6 +89,8 @@ function Letters.RollRandom(now, force)
   local c = ns.char
   if not force then
     if now - (c.lettersRandomAt or 0) < Letters.RANDOM_GAP then return nil end
+    if now - (c.lettersLastAt or 0) < Letters.RANDOM_GAP / 2 then return nil end
+    for _, r in pairs(store()) do if not r.arrived then return nil end end -- one is still on its way
     if math.random() >= Letters.RANDOM_CHANCE then return nil end
   end
   local s, pool, total = store(), {}, 0
@@ -111,25 +114,31 @@ function Letters.RollRandom(now, force)
   end
 end
 
--- Due letters reach the mailbox. Returns how many arrived.
-function Letters.Deliver(now)
-  local s, arrived, last = store(), 0, nil
-  for id, r in pairs(s) do
+-- Due letters reach the mailbox one at a time, at most one per SPACING; the earliest due
+-- goes first and the others wait. forceId (testing) delivers that one now regardless.
+-- Returns how many arrived (0 or 1).
+function Letters.Deliver(now, forceId)
+  local c = ns.char
+  local s, pick, pickId = store(), nil, nil
+  if forceId then
+    pick, pickId = s[forceId], forceId
+    if not pick or pick.arrived or not Letters.Def(forceId) then return 0 end
+  elseif now - (c.lettersLastAt or 0) < Letters.SPACING then return 0 end
+  if not forceId then for id, r in pairs(s) do
     if not r.arrived and r.due and r.due <= now and Letters.Def(id) then
-      r.arrived = now
-      arrived = arrived + 1
-      last = Letters.Def(id)
+      if not pick or r.due < pick.due or (r.due == pick.due and id < pickId) then pick, pickId = r, id end
     end
-  end
-  if arrived > 0 then
-    if arrived == 1 and last.junk then ns.Print(L.LETTER_ARRIVED_JUNK)
-    elseif arrived == 1 then ns.Print(L.LETTER_ARRIVED:format(Letters.From(last)))
-    else ns.Print(L.LETTERS_ARRIVED:format(arrived)) end
-    if ns.db.settings.sounds ~= false then C.PlaySound("TELL_MESSAGE") end
-    Letters.Trim()
-    ns.Fire("LETTERS_CHANGED")
-  end
-  return arrived
+  end end
+  if not pick then return 0 end
+  pick.arrived = now
+  c.lettersLastAt = now
+  local def = Letters.Def(pickId)
+  if def.junk then ns.Print(L.LETTER_ARRIVED_JUNK)
+  else ns.Print(L.LETTER_ARRIVED:format(Letters.From(def))) end
+  if ns.db.settings.sounds ~= false then C.PlaySound("TELL_MESSAGE") end
+  Letters.Trim()
+  ns.Fire("LETTERS_CHANGED")
+  return 1
 end
 
 function Letters.Tick()
@@ -183,6 +192,68 @@ function Letters.Read(id)
     third = L.LETTER_JOURNAL_3:format(from, subject),
   }, ctx, env) end
   if def.fx then ns.Effects.Apply(def.fx, env) end
+  ns.Fire("LETTERS_CHANGED")
+end
+
+-- Replies (0.107.0). A letter may carry replies = { { id, text, fx, when }, ... }: the
+-- player's answer (15 words or fewer), fx applied as if said to the writer (affinity, npcFlag,
+-- opinion, and letter = "id" to send a follow-up). Letters without their own get a generic
+-- set: warm/brief/cold for someone you've met, warm/brief for a stranger, nothing for junk.
+-- noReply = true turns replies off. One reply per letter, kept in rec.reply/rec.replyText.
+local function generic(def)
+  if def.noReply or def.junk then return nil end
+  if def.npc and not def.stranger then
+    return {
+      { id = "warm", text = L.LETTER_REPLY_WARM, fx = { affinity = 1 } },
+      { id = "brief", text = L.LETTER_REPLY_BRIEF },
+      { id = "cold", text = L.LETTER_REPLY_COLD, fx = { affinity = -1 } },
+    }
+  end
+  return {
+    { id = "warm", text = L.LETTER_REPLY_WARM_STRANGER },
+    { id = "brief", text = L.LETTER_REPLY_BRIEF },
+  }
+end
+
+function Letters.Replies(id)
+  local def = Letters.Def(id)
+  if not def then return nil end
+  if not def.replies then return generic(def) end
+  local out, ctx, env = {}, nil, nil
+  for i, r in ipairs(def.replies) do
+    local ok = true
+    if r.when then
+      ctx = ctx or ns.Context.New({ spoof = {} })
+      env = env or envFor(def, C.Now())
+      ok = ns.Conditions.Eval(r.when, ctx, env)
+    end
+    if ok then out[#out + 1] = { id = r.id or tostring(i), text = r.text, fx = r.fx } end
+  end
+  return #out > 0 and out or nil
+end
+
+function Letters.CanReply(id)
+  local r = store()[id]
+  return r ~= nil and r.arrived ~= nil and not r.reply and not r.burned and Letters.Replies(id) ~= nil
+end
+
+function Letters.Reply(id, index)
+  local rec, def = store()[id], Letters.Def(id)
+  local list = Letters.Replies(id)
+  local pick = list and list[index]
+  if not rec or not def or not pick or rec.reply then return end
+  local now = C.Now()
+  rec.reply, rec.replyText, rec.replied = pick.id, pick.text, now
+  local ctx = ns.Context.New({ spoof = {} })
+  local env = envFor(def, now)
+  local text = ns.Tokens.Render(pick.text or "", ctx, env)
+  rec.replyText = text
+  local to = Letters.From(def)
+  ns.Effects.Journal({
+    first = L.LETTER_REPLY_JOURNAL:format(to, text),
+    third = L.LETTER_REPLY_JOURNAL_3:format(to, text),
+  }, ctx, env)
+  if pick.fx then ns.Effects.Apply(pick.fx, env) end
   ns.Fire("LETTERS_CHANGED")
 end
 
