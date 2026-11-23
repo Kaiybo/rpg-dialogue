@@ -602,7 +602,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a soldier until a spear ended my marching. Now I am the Warchief's voice in these streets, and I am heard." } },
     warsong = { { id = "tp_ws", text = "Hellscream's clan, in Ashenvale. They fell the trees that built this city, and the elves hate them for it." } },
-    scourge = { { id = "tp_sc", text = "The Lich King's dead, in the north of the eastern lands. The Forsaken hold them at the Bulwark." } },
+    scourge = { { id = "tp_sc", text = "The Lich King's dead walk in the north of the eastern lands. The Forsaken hold them at the Bulwark." } },
     _none = { { id = "tp_none", text = "I carry word of war, {class}, and nothing else. Ask in Grommash Hold if it is not a battle." } },
   },
 }
