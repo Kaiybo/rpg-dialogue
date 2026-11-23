@@ -108,7 +108,7 @@ P:Pool {
     { id = "l_dr_ask", when = { class = "DRUID" }, text = "Is it true you can turn into a cat, a proper big one? Only my youngest has asked me every night for a week, and I promised I'd find out." },
     -- Mage patch: what people make of mages and the arcane.
     { id = "l_mg_sheep", text = "My cousin called a mage a charlatan in a tavern in Lakeshire, and he spent the rest of the evening as a sheep. He says the worst of it wasn't the wool, it was how much he enjoyed the grass." },
-    { id = "l_mg_dome", text = "Dalaran shut its gates and hid under a violet dome while the rest of Lordaeron burned. I don't hold it against the mages exactly, but I notice they were the ones with the dome." },
+    { id = "l_mg_dome", text = "Dalaran fell to the demons, and now its mages hide under a violet dome while the rest of Lordaeron rots. I don't hold it against them exactly, but I notice they were the ones who got a dome." },
     { id = "l_mg_bread", when = { class = "MAGE" }, text = "Could you not conjure me a bit of bread, since you're one of the magi? I only ask because everyone says your sort can, and I've never once seen it done." },
     { id = "l_ask", when = { ["not"] = { npcFlag = "op_told" } }, text = "Everyone's got a view on the regent and the war these days, and I've heard them all twice. What's yours, if you don't mind my asking?" },
     { id = "l1", text = "Everything costs more since the war. Bread, boots, lamp oil, the lot of it, and nobody's wages have kept up." },
