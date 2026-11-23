@@ -24,3 +24,4 @@ npcs\everlook_shops.lua
 npcs\winterspring_strangers.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua

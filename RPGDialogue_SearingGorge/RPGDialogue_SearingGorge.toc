@@ -22,3 +22,4 @@ npcs\nilith.lua
 npcs\dying_archaeologist.lua
 npcs\maltrake.lua
 npcs\tanner_camp.lua
+npcs\unwritten.lua

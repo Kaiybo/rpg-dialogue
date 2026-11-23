@@ -22,3 +22,4 @@ npcs\zherin.lua
 npcs\lakota.lua
 npcs\needles_more.lua
 npcs\more_folk.lua
+npcs\unwritten.lua

@@ -32,3 +32,4 @@ npcs\brill_market.lua
 npcs\deathknell_trainers.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua

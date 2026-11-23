@@ -24,3 +24,4 @@ npcs\gelkak.lua
 npcs\gubber.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua

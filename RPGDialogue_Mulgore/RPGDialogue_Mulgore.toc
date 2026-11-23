@@ -28,3 +28,4 @@ npcs\more_folk.lua
 npcs\missed.lua
 npcs\missed2.lua
 npcs\missed3.lua
+npcs\unwritten.lua

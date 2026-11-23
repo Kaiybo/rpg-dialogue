@@ -26,3 +26,4 @@ npcs\war_camps.lua
 npcs\demitrian.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua

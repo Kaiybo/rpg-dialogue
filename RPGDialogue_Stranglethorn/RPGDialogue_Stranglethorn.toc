@@ -37,3 +37,4 @@ npcs\booty_bay_flora.lua
 npcs\yojamba.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua

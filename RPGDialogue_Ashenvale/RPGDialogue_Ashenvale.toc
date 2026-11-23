@@ -25,3 +25,4 @@ npcs\torek.lua
 npcs\more_folk.lua
 npcs\missed.lua
 npcs\missed2.lua
+npcs\unwritten.lua
