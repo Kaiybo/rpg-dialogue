@@ -186,7 +186,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a treasury of lore, guarded by a great many things that would rather I didn't, not least the drake Morphaz." },
         { id = "h_dust", when = { questActive = TODO_QUEST("Magic Dust") },
-          text = "The elves on the northern cliffs grind their relics to a glittering dust, and they killed the apprentice I sent to buy some. We'll take it the other way, then; violence is only a less polite kind of trade." },
+          text = "The elves on the northern cliffs grind their relics to a glittering dust, and they killed the courier I paid to go and buy some. We'll take it the other way, then; violence is only a less polite kind of trade." },
         { id = "h_coral", when = { questActive = TODO_QUEST("The Siren's Coral") },
           text = "The Spitelash sirens have stripped the bay of enchanted coral, and I need it more than they do. They cast rather well for fish-folk, so don't underestimate them." },
         { id = "h_morphaz", tags = { "news" }, when = { questActive = TODO_QUEST("Destroy Morphaz") },

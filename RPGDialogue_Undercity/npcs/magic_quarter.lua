@@ -455,7 +455,6 @@ P:NPC {
         { text = "Soulreaper can't have been your name in life.", next = "name" },
         { text = "What are soul shards for, really?", next = "shards" },
         { text = "Teach me what the others won't, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
-        { text = "Murdered by a king, you said?", next = "arthas" },
         { text = "Tell me about the felsteed.", next = "felsteed", when = { class = "WARLOCK", minLevel = 38 } },
         { text = "Our people drank the demon blood once. Isn't this the same?", next = "blood", when = { race = "Orc" } },
         { text = "An orc, teaching in the Undercity?", next = "why" },
