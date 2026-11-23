@@ -37,19 +37,63 @@ P:NPC {
       choices = {
         { text = "Kernobee, Gnomeregan was evacuated.", next = "evac" },
         { text = "Do you remember the troggs coming?", next = "troggs" },
+        { text = "Your hair is glowing, Kernobee.", next = "hair" },
+        { text = "What were you working on, before?", next = "work" },
+        { text = "I'm from Tinker Town. Do you remember me?", next = "tinker", when = { race = "Gnome" } },
         { text = "Come with me. I'll get you out.", next = "escort" },
         { text = "Stay safe. I'll be back.", next = "END" },
       },
     },
     evac = {
-      lines = { { id = "e_default", text = "Evacuated? Oh, that explains the quiet. I thought it was a holiday. Did everyone get out? Mekkatorque, the whole lot of them?" } },
+      lines = { { id = "e_default", text = "Evacuated? Oh, that explains the quiet, because I thought it was a holiday. Did everyone get out, Mekkatorque and the whole lot of them?" } },
       choices = {
         { text = "Many didn't. I'm sorry.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Mekkatorque got out. He's in Ironforge now.", next = "mekkatorque" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    mekkatorque = {
+      lines = { { id = "mk_default", text = "Ironforge! With the dwarves and their enormous beards? Well, good for him, though I do hope somebody's told him the coffee pot on level three needs replacing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     troggs = {
-      lines = { { id = "t_default", text = "I remember a lot of shouting, and a green fog, and somebody saying the radiation would fix everything. I don't think it fixed anything. I feel a bit funny, honestly." } },
+      lines = { { id = "t_default", text = "I remember a lot of shouting, and a green fog, and somebody saying the radiation would fix everything. I don't think it fixed anything, and I've been feeling a bit funny, honestly." } },
+      choices = {
+        { text = "Who said the radiation would fix things?", next = "thermaplugg" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thermaplugg = {
+      lines = { { id = "th_default", text = "Oh, that was Mekgineer Thermaplugg, he's very senior, and he said it with such confidence that we all believed him. I saw him go down toward the core afterwards, and I don't think he came back up, which is odd for a man so keen on fixing things." } },
+      choices = {
+        { text = "Thermaplugg betrayed you all.", next = "BACK", reply = "Did he? Oh dear, and he always remembered my birthday, or somebody's birthday, anyway." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hair = {
+      lines = { { id = "hr_default", text = "Is it? Oh, how lovely, I always wanted to be distinguished. I did wonder why I could read my notes in the dark, and I thought perhaps I'd simply become very good at reading." } },
+      choices = {
+        { text = "That's the radiation. You need a healer.", next = "BACK", reply = "A healer! Splendid idea, I'll pencil that in for after my shift.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work = {
+      lines = { { id = "wk_default", text = "Pressure valves, mostly, and one very promising little steam regulator that only exploded twice. It's somewhere on my bench, unless the troggs ate it, and they do eat the strangest things." } },
+      choices = {
+        { text = "Was it worth staying behind for?", next = "stay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stay = {
+      lines = { { id = "sy_default", text = "Staying behind? I don't think I meant to stay, I just went back for my notes and then everybody was gone. It's funny how a person can miss an entire evacuation by being thorough." } },
+      choices = {
+        { text = "Your notes aren't worth your life.", next = "BACK", reply = "No, I suppose not, though they were very good notes, with diagrams.", fx = { align = { order = 1 } } },
+        { text = "Good work is worth a few risks.", next = "BACK", reply = "That's what I always say! Well, I think I do. It sounds like me.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tinker = {
+      lines = { { id = "tk_default", text = "Tinker Town, is that a new department? You do look awfully familiar, now that I squint, so perhaps we shared a lift once, or a lunch, or possibly an explosion." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     escort = {
@@ -95,18 +139,55 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Emi Shortfuse, demolitions. The troggs keep pouring through those tunnels, and I've got enough charges to seal them, if someone can keep them off me while I set them." },
+        { id = "h_default", key = true, text = "I'm Emi Shortfuse, and demolitions are my specialty. The troggs keep pouring through those tunnels, and I've got enough charges to seal them, if someone can keep them off me while I set them." },
       },
       again = { { id = "h_again", text = "Talk faster, they're coming!" } },
       choices = {
         { text = "What's your plan exactly?", next = "plan" },
         { text = "Where did all these troggs come from?", next = "troggs" },
         { text = "Why stay down here alone?", next = "stay" },
+        { text = "Those charges look homemade.", next = "charges" },
+        { text = "I'm from Gnomeregan too. What's left of it?", next = "home", when = { race = "Gnome" } },
+        { text = "I know a little about explosives myself.", next = "engineer", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Let's do it.", next = "END" },
       },
     },
     plan = {
       lines = { { id = "p_default", text = "I set a charge on each tunnel mouth, you keep the troggs off me, and when I say run, you run. Ideally, nobody we like gets blown up." } },
+      choices = {
+        { text = "How many tunnels are we talking about?", next = "plan_tunnels" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plan_tunnels = {
+      lines = { { id = "pt_default", text = "Two big ones that matter, the east and the west, though they branch like a root system underneath. If both mouths collapse, I calculate an eighty-percent drop in trogg traffic, give or take a cave-in." } },
+      choices = {
+        { text = "What happens to the other twenty percent?", next = "plan_rest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plan_rest = {
+      lines = { { id = "pr_default", text = "They come out of the cracks in ones and twos, and that's what you're for. Honestly, a trickle of troggs is a vast improvement on a flood, and I'll take it gladly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    charges = {
+      lines = { { id = "ch_default", text = "Homemade, field-tested and only slightly unstable, which for Gnomeregan these days is practically a certificate of quality. I scavenged the powder from a dead mechano-tank, so be grateful it went to a good cause." } },
+      choices = {
+        { text = "As long as they blow the right way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      narr = "She pushes her goggles up and looks at you for the first time without squinting.",
+      lines = { { id = "ho_default", text = "Not much, I'm afraid, just leper gnomes and troggs and Thermaplugg's machines rattling around the workshops. But every tunnel I seal is one less door they have into our city, and one day we'll walk back in." } },
+      choices = {
+        { text = "We'll take it back. Mekkatorque swore it.", next = "BACK", reply = "He did, and I'm holding him to it, preferably with a parade.", fx = { align = { order = 1 } } },
+        { text = "Forget the High Tinker. We'll do it ourselves.", next = "BACK", reply = "Ha! That's the spirit, though maybe don't say it that loudly in Ironforge.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    engineer = {
+      lines = { { id = "en_default", text = "Then you know to keep your fingers away from the blue wire, and the red one, and frankly most of the wires. Watch my back, and if I go down, finish setting the last charge." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     troggs = {

@@ -36,6 +36,9 @@ P:NPC {
         { text = "Who is Princess Theradras?", next = "theradras" },
         { text = "What is the Scepter of Celebras?", next = "scepter" },
         { text = "What became of your kin here?", next = "kin" },
+        { text = "You said you lost yourself. What was the curse?", next = "curse" },
+        { text = "I walk with Cenarius too. What do you remember of him?", next = "cenarius", when = { class = "DRUID" } },
+        { text = "My people still speak of the centaur's cruelty.", next = "tauren", when = { race = "Tauren" } },
         { text = "Rest now. I'll go on.", next = "END" },
       },
     },
@@ -58,8 +61,73 @@ P:NPC {
       lines = { { id = "s_default", text = "A staff made from the rod of Celebras and the Celebrian Diamond, given to those who would reach my father's resting place without crawling the long way through Theradras' halls. With it, you can open the portal at the cavern's mouth." } },
       choices = {
         { text = "Then I'll bring you the pieces.", next = "BUSINESS" },
+        { text = "Where would I find the rod and the diamond?", next = "scepter_parts" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    scepter_parts = {
+      lines = { { id = "sp_default", text = "The rod lies with my own remains, in the place where the curse first took me, and the diamond was carried off by the Khans of the Gelkis and Magram long ago. Veng and the other Khans guard my father's spirit-gems as if they were trophies." } },
+      choices = {
+        { text = "Why make a shortcut at all, if the way is known?", next = "scepter_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scepter_why = {
+      lines = { { id = "sw_default", text = "Because the long way runs through rot and spore and Theradras' children, and every friend who walks it alone comes back less than they went in. My father would not want his tomb to cost so much to visit." } },
+      choices = {
+        { text = "That's a gift few would think to give.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    curse = {
+      narr = "He looks down at his own hands as though they still belonged to someone else.",
+      lines = { { id = "cu_default", text = "When Theradras' rage came down on my father's line, it found me grieving and filled the space where my grief had been. I wandered these halls as a shade with no name, and I struck at anyone who came near the grave." } },
+      choices = {
+        { text = "How did breaking it free you?", next = "curse_free" },
+        { text = "You weren't to blame for what the curse made you do.", next = "curse_blame", fx = { align = { light = 1 } } },
+        { text = "Grief or not, you still struck those people down.", next = "curse_blame_hard", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    curse_free = {
+      lines = { { id = "cf_default", text = "The curse lived in the shape it gave me, and when that shape was cut down, there was nothing left for it to hold. What remains is only me, and the memory of everything I did while I was not." } },
+      choices = {
+        { text = "Can you leave this place now?", next = "curse_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    curse_leave = {
+      lines = { { id = "cl_default", text = "I could, I think, but my father is still down there in Theradras' grip, and a son does not walk away from that. I will stay until the earth gives him back, or until someone ends her." } },
+      choices = {
+        { text = "Then I'll see that it ends.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    curse_blame = {
+      lines = { { id = "cb_default", text = "You are generous, and I will try to believe you. But the ones I struck down do not get to forgive me, and so I carry it for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    curse_blame_hard = {
+      lines = { { id = "ch_default", text = "I did, and I will not argue with you. Saying it plainly is a kind of honesty, and I have had little enough of that from myself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cenarius = {
+      lines = { { id = "ce_default", text = "I remember antlers against the moon and a voice like wind through old oaks. He came to Maraudon once, when it was still green, and he wept over my father's grave, though he would not go below to face Theradras." } },
+      choices = {
+        { text = "Why wouldn't he face her?", next = "cenarius_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cenarius_why = {
+      lines = { { id = "cw_default", text = "Because she was grieving too, and a demigod who wars on grief only makes more of it. He chose to mourn instead of strike, and I have never decided whether that was wisdom or weakness." } },
+      choices = {
+        { text = "Wisdom, I think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "They have reason to. The centaur drove your herds off the plains for generations, and every raid was my father's blood turned against a people who never wronged him. I am sorry for it, though my sorrow mends nothing." } },
+      choices = { { text = "It isn't yours to carry.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     kin = {
       lines = { { id = "k_default", text = "The Khans who carry my father's spirit-gems roam the caverns, and the keepers of the grove sleep in green rot. Noxxion and the others were born of the poison here. They are not kin, only scars." } },

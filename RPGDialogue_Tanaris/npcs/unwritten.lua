@@ -96,6 +96,8 @@ P:NPC {
         { text = "What do you want done?", next = "job" },
         { text = "Show me your tally.", next = "tally" },
         { text = "Why not leave it to the Bruisers?", next = "bruisers" },
+        { text = "How do you find Gadgetzan?", next = "gadgetzan" },
+        { text = "Gnomeregan taught us plenty about brutes too.", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Good luck with the ogres.", next = "END" },
       },
     },
@@ -115,7 +117,10 @@ P:NPC {
     },
     tally = {
       lines = { { id = "t_default", text = "Four caravans, eleven crates of gears, one prized goggles and two good friends. The friends I count separately, in red ink, because I'm not ready to cross them out." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Your friends might still be alive.", next = "friends" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     bruisers = {
       lines = { { id = "b_default", text = "The Bruisers guard the town, not the road, and they say the ogres are outside their contract. I say that's a fine way of saying they're scared." } },
@@ -123,6 +128,29 @@ P:NPC {
         { text = "They're right to keep the walls.", next = "BACK", reply = "Hmph. Perhaps. But walls don't bring back cargo.", fx = { align = { order = 1 } } },
         { text = "Contracts won't stop the ogres. Fighting will.", next = "BACK", reply = "Exactly what I've been saying!", fx = { affinity = 1, align = { order = -1 } } },
       },
+    },
+    friends = {
+      narr = "She runs a fingertip down the red ink without looking at it.",
+      lines = { { id = "fr_default", text = "That's what the red ink is for, you see, because red can still be scratched out and written over. Ogres take prisoners when they're feeling clever, which isn't often, but I've built my hopes on smaller odds." } },
+      choices = {
+        { text = "Then hope. I'll look for them in the compound.", next = "BACK", reply = "You will? Oh, thank you, I'll keep the ink wet.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to grieve now than hope for nothing.", next = "BACK", reply = "Maybe, but I'm a gnome, and gnomes don't do things in the sensible order.", fx = { align = { light = -1 } } },
+      },
+    },
+    gadgetzan = {
+      lines = { { id = "ga_default", text = "Hot, loud and full of goblins who'd sell you your own shadow, but the workshops are good and nobody minds a small explosion. It's the nearest thing to Tinker Town I've found in Kalimdor." } },
+      choices = {
+        { text = "Do the goblins treat you fairly?", next = "goblins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins = {
+      lines = { { id = "go_default", text = "Fairly by goblin standards, which means they cheat everyone equally and they're honest about it. I'll take that over an ogre's club any day of the week." } },
+      choices = { { text = "A low bar, but fair. Something else.", next = "BACK" } },
+    },
+    gnomeregan = {
+      lines = { { id = "gn_default", text = "It did, didn't it, and we didn't even get to choose our brutes, they just came up from below with Thermaplugg's blessing. At least the Dunemaul are honest about wanting to smash things, which I suppose is something." } },
+      choices = { { text = "Small mercies. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "Don't know, don't care. Ask me about ogres." } } },
@@ -187,6 +215,8 @@ P:NPC {
         { text = "Narain? Soothfancy?", next = "narain" },
         { text = "A naga and a gnome?", next = "odd" },
         { text = "Can I take him a message?", next = "message", when = { questActive = TODO_QUEST("Love Song for Narain") } },
+        { text = "Where do you live, Meridith?", next = "bay" },
+        { text = "Narain's a gnome, like me. He's quite a catch.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to the sea.", next = "END" },
       },
     },
@@ -206,11 +236,34 @@ P:NPC {
     },
     odd = {
       lines = { { id = "o_default", text = "Love does not care what shape you are. My sisters laugh at me, but my sisters have never been rescued by a gnome who smelled of oil and dreams." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do your sisters say about him?", next = "sisters" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     message = {
       lines = { { id = "m_default", text = "Take him my song, and sing it to him, even if you sing badly. He will understand the words, even if the tune is lost." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sisters = {
+      lines = { { id = "si_default", text = "That he is small and dry and talks to an owl, which is all true, and that I should find someone with fins. They don't understand that I've had fins all my life, and I'm quite tired of them." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    bay = {
+      lines = { { id = "ba_default", text = "In the warm water off the coast, where the sand is soft and the land-walkers' boats rarely come. From there I can see the dunes where Narain lives, if I swim up very high and squint." } },
+      choices = {
+        { text = "Isn't it lonely out there?", next = "lonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lonely = {
+      narr = "She trails her fingers through the water and watches the ripples go.",
+      lines = { { id = "lo_default", text = "Only when the tide is low and the gulls are quiet, and then I sing until it's better. Songs are how the sea remembers things, and I want it to remember him." } },
+      choices = { { text = "It will. Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "He is, isn't he? You must know, then, how clever your people are and how lovely their little hands are with tools. Tell him a gnome agrees with me, and perhaps he'll listen." } },
+      choices = { { text = "I'll put in a word. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I know only the sea and my heart. Ask Narain, he knows everything." } } },

@@ -163,6 +163,8 @@ P:NPC {
         { text = { normal = "What are the Forsaken celebrating?", polite = "What is it the Forsaken celebrate, Sergeant?", blunt = "What do the Forsaken celebrate?" }, next = "celebrate" },
         { text = "How do I spoil it?", next = "spoil" },
         { text = "What's this about pine?", next = "pine", when = { questActive = TODO_QUEST("The Power of Pine") } },
+        { text = "How does the garrison fare these days?", next = "garrison" },
+        { text = "My family fled Lordaeron too. I understand you.", next = "refugee", when = { race = "Human" } },
         { text = "I'll think on it.", next = "END" },
       },
     },
@@ -187,6 +189,25 @@ P:NPC {
     pine = {
       lines = { { id = "p_default", text = "Wickerman ash gets everywhere, and it carries a stink that isn't natural. Pine resin cuts through it, so bring me what I asked for, and I'll see you're properly cleaned." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    garrison = {
+      lines = { { id = "ga_default", text = "Stretched thin, if I'm honest, with Tarren Mill's dead to the north and the Syndicate creeping down out of Alterac. We hold Southshore, and we hold it well, but holding is all we've managed since the plague." } },
+      choices = {
+        { text = "What happened at Tarren Mill?", next = "tarren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tarren = {
+      narr = "He turns his head north and is quiet for a moment.",
+      lines = { { id = "ta_default", text = "It was a living town once, with a mill and a smithy and a fair every harvest, and now it's the Forsaken's, every stone of it. Some of the folk walking its streets were neighbours of ours, and that's the part none of us can talk about for long." } },
+      choices = {
+        { text = "Then we take it back, one day.", next = "BACK", reply = "One day, aye, when Stormwind sends us more than letters.", fx = { align = { order = 1 } } },
+        { text = "Let the dead keep it. Look after the living.", next = "BACK", reply = "Spoken like someone who never lived there, but you may be right.", fx = { align = { order = -1 } } },
+      },
+    },
+    refugee = {
+      lines = { { id = "re_default", text = "Then you know what it is to watch home burn and still find yourself setting a table for the people you lost. Hallow's End was ours before it was theirs, and I'll keep it that way while I've breath." } },
+      choices = { { text = "Then I'll douse their fire for you. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -291,6 +312,8 @@ P:NPC {
       choices = {
         { text = "Business must be hard here.", next = "hard" },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Who buys your shirts these days?", next = "buyers" },
+        { text = "I'm a tailor myself. Your stitching is fine work.", next = "craft", when = { profession = "Tailoring" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -304,6 +327,14 @@ P:NPC {
     move = {
       lines = { { id = "m_default", text = "Because my grandmother sewed in this barn, and her mother before her. If the dead want it, they'll have to take it from me needle by needle." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "The farmhands, when they're paid, and the Southshore militia, who tear through sleeves faster than I can mend them. A few adventurers too, though most of you want silk and I've only linen and wool." } },
+      choices = { { text = "Linen will do. Something else.", next = "BACK" } },
+    },
+    craft = {
+      lines = { { id = "cr_default", text = "Kind of you to say, and rarer than you'd think out here, where folk only notice a seam when it splits. My grandmother taught me a double stitch for work shirts, and it hasn't failed me yet." } },
+      choices = { { text = "I'll try it. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -409,12 +440,15 @@ P:NPC {
         { text = { normal = "Why do the Frostwolves need help?", polite = "How may I help the Frostwolves, elder?", blunt = "What's the trouble?" }, next = "help" },
         { text = "Tell me about Drek'Thar.", next = "drekthar" },
         { text = "I'm loyal to the Frostwolves.", next = "loyalty", when = { questActive = TODO_QUEST("Matters of Loyalty") } },
+        { text = "The spirits are loud in these mountains.", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "I was born in an internment camp, not these hills.", next = "camps", when = { race = "Orc" } },
         { text = "I'll return when I'm ready.", next = "END" },
       },
     },
     help = {
       lines = { { id = "he_default", text = "The Stormpike dwarves dig in our valley, and they guard their diggings with a fortress. They want the iron and the relics; we want only our home back." } },
       choices = {
+        { text = "Who are these Stormpike?", next = "stormpike" },
         { text = "What should I do first?", next = "first" },
         { text = "Something else.", next = "BACK" },
       },
@@ -428,11 +462,34 @@ P:NPC {
     },
     drekthar = {
       lines = { { id = "d_default", text = "Our elder shaman, blind and wise, who sheltered Thrall when he was a boy. Drek'Thar sees more with his spirit than most see with two eyes." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Thrall came here as a runaway?", next = "thrall" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     loyalty = {
       lines = { { id = "l_default", text = "Then show it. Loyalty is spoken in deeds among the Frostwolves, and I will remember yours." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    stormpike = {
+      lines = { { id = "sp_default", text = "Dwarves of Ironforge who call themselves an expedition and dig like they mean to stay. They raised Dun Baldar in our valley and they hunt our wolves for sport, and the clan will not forget either." } },
+      choices = { { text = "Then they'll answer for it. Something else.", next = "BACK" } },
+    },
+    thrall = {
+      narr = "Voggah touches the wolf-tooth hanging at his throat.",
+      lines = { { id = "th_default", text = "He came through the snow half dead, a slave's boy with a human's manners, and Drek'Thar saw his father's blood in him. Durotan's son learned the old ways here before he ever led the Horde, and that is why this valley is sacred to us." } },
+      choices = {
+        { text = "Then it's worth any price to hold.", next = "BACK", reply = "Any price the clan can pay with honour, yes.", fx = { align = { honor = -1 } } },
+        { text = "Then it must be held with honour.", next = "BACK", reply = "That is what Durotan would have said. Good.", fx = { align = { honor = 1 } } },
+      },
+    },
+    spirits = {
+      lines = { { id = "sh_default", text = "They are, shaman, because these peaks remember the old clan and the wolves who ran with it. Drek'Thar listens to them every night, and lately they speak of iron and digging." } },
+      choices = { { text = "I'll listen too. Something else.", next = "BACK" } },
+    },
+    camps = {
+      lines = { { id = "ca_default", text = "Many were, brother, and no shame in it, because the shame belongs to the humans who built the camps. Thrall freed you, and Thrall learned freedom here, so in a way you were born in Frostwolf country after all." } },
+      choices = { { text = "Lok'tar. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {
@@ -573,6 +630,8 @@ P:NPC {
         { text = { normal = "What buried you?", polite = "What buried you, if you don't mind me asking?", blunt = "What did this?" }, next = "greench" },
         { text = "What shipment?", next = "shipment" },
         { text = "I've dealt with the Greench.", next = "done", when = { questDone = TODO_QUEST("You're a Mean One...") } },
+        { text = "That is the worst disguise I've ever seen.", next = "disguise", when = { class = "ROGUE" } },
+        { text = "Dwarves don't hate dry kegs. We mourn them.", next = "keg", when = { race = "Dwarf" } },
         { text = "Good luck with that.", next = "END" },
       },
     },
@@ -592,11 +651,33 @@ P:NPC {
     },
     shipment = {
       lines = { { id = "s_default", text = "Cookies, cocoa, gift wrap, the works, all bound for Smokywood's stalls across the cities. The whole season's margin was in those crates, and I ain't goin' home without it." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who's Smokywood Pastures, then?", next = "smokywood" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     done = {
       lines = { { id = "d_default", text = "You did? Sparks and sprockets, you're a hero! Now dig me out of here, 'cause I've been a snowman so long I'm startin' to like carrots." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    smokywood = {
+      lines = { { id = "sm_default", text = "Only the finest seasonal goods outfit from here to Booty Bay, pal, sellin' to the Alliance and the Horde both, because cocoa don't care whose army you march in. Wulmort in Ironforge runs the show, and if I come back empty-handed he'll dock it from my wages till next Veil." } },
+      choices = {
+        { text = "Would he really dock a frozen goblin's pay?", next = "docked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    docked = {
+      lines = { { id = "dk_default", text = "Would he? Buddy, he docked my cousin for the eyebrows he lost when a firework went off in the warehouse, on account of the eyebrows bein' company time. Lovely fella, Wulmort, but he reads the small print in his sleep." } },
+      choices = { { text = "Then let's get you paid. Something else.", next = "BACK" } },
+    },
+    disguise = {
+      lines = { { id = "di_default", text = "Hey, it fooled the Greench, didn't it, and he lives in a cave full of snow, so he's practically an expert. You sneaky types are hard to please, I'll tell ya that for free." } },
+      choices = { { text = "Fair point. Something else.", next = "BACK" } },
+    },
+    keg = {
+      lines = { { id = "kg_default", text = "Mourn 'em, huh? Well, put that on the list of things the Greench'll answer for, pal, because I'm pretty sure he drank the whole crate of Winter Veil brew we had bound for Ironforge." } },
+      choices = { { text = "Now it's personal. Something else.", next = "BACK" } },
     },
   },
   topics = {

@@ -33,12 +33,16 @@ P:NPC {
         { text = "How do I bring it back?", next = "how" },
         { text = "What do you offer in return?", next = "offer" },
         { text = "I've brought silithyst in before.", next = "offer", when = { questDone = TODO_QUEST("Dust to Dust") } },
+        { text = "Three gnomes? Who are the other two?", next = "count", when = { race = "Gnome" } },
         { text = "Farewell, Enkles.", next = "END" },
       },
     },
     silithyst = {
       lines = { { id = "s_default", text = "It's a crystal dust that bubbles up from the geysers, and it does wonders for our troops' spirits and strength. Exactly why is above my clearance, but the results are in the ledger." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Does the Cenarion Circle mind you taking it?", next = "circle" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     how = {
       lines = { { id = "h2_default", text = "Pick it up at a geyser and carry it back here, to the Brigade's camp. The Horde will try to take it off you on the way, so carry it quickly and carry it carefully." } },
@@ -56,7 +60,30 @@ P:NPC {
     },
     offer = {
       lines = { { id = "o_default", text = "Supplies, recipes and the Brigade's gratitude, the last of which costs us nothing and the first two of which cost me a great deal of paperwork." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "How much paperwork, exactly?", next = "forms" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle = {
+      lines = { { id = "ci_default", text = "The druids at Cenarion Hold tolerate us, which I've entered in the ledger as a qualified yes. They're far more worried about the Twilight's Hammer cultists out in the dunes than about a few soldiers scooping up dust." } },
+      choices = {
+        { text = "Who are the Twilight's Hammer?", next = "twilight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    twilight = {
+      narr = "He lowers his clipboard and glances toward the southern dunes.",
+      lines = { { id = "tw_default", text = "Robed fanatics who camp among the rocks and chant at things in the sand, and the druids won't say what they're chanting to. I've requested a full report three times, and three times I've been told I'm happier not knowing." } },
+      choices = { { text = "The druids may be right. Something else.", next = "BACK" } },
+    },
+    forms = {
+      lines = { { id = "fo_default", text = "Form twelve for the receipt, form twelve-B for the reward, and form nine in triplicate if the silithyst arrived slightly scorched. I designed most of them myself, and I'm prouder of them than I probably should be." } },
+      choices = { { text = "A gnome after my own heart. Something else.", next = "BACK" } },
+    },
+    count = {
+      lines = { { id = "cu_default", text = "A tinker at Cenarion Hold who won't tell me his name and a fellow I'm fairly sure is a gnome under all that sand. Now you, which makes three, and I've updated the census accordingly." } },
+      choices = { { text = "Glad to be counted. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "That's not in my inventory, I'm afraid. Try another department." } } },
@@ -90,6 +117,8 @@ P:NPC {
         { text = "How do I bring you silithyst?", next = "how" },
         { text = "What do you offer?", next = "offer" },
         { text = "Your samples are safe with me, apothecary.", next = "study", when = { race = "Scourge" } },
+        { text = "The desert must suit the dead better than the living.", next = "desert" },
+        { text = "Silithyst. A warlock could find uses for that.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Farewell, apothecary.", next = "END" },
       },
     },
@@ -109,11 +138,36 @@ P:NPC {
     },
     how = {
       lines = { { id = "h2_default", text = "Take it from the geysers and carry it here to the Legion's camp. The Alliance will try to steal it, as is their custom, so be quick." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "And if I meet Alliance carriers?", next = "carriers" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     offer = {
       lines = { { id = "o_default", text = "Supplies and recipes from the Legion's stores. The orcs call it gratitude, but I call it a fair price." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    carriers = {
+      lines = { { id = "ca_default", text = "Then their silithyst becomes our silithyst, which is the only chemistry the orcs here truly understand. How you go about it is your affair, but do try not to bleed on the samples." } },
+      choices = {
+        { text = "I'll ambush them. Dust is dust.", next = "BACK", reply = "Efficient. I approve of efficiency.", fx = { align = { honor = -1 } } },
+        { text = "I'll meet them face to face, fairly.", next = "BACK", reply = "How very orcish of you. Do try to survive it.", fx = { align = { honor = 1 } } },
+      },
+    },
+    desert = {
+      lines = { { id = "de_default", text = "It does, in a way, because the heat can't make me sweat and the scorpids find me unappetising. The sand, however, gets into every joint I have left, and I have fewer than I'd like." } },
+      choices = {
+        { text = "What else lives out here?", next = "hive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hive = {
+      lines = { { id = "hi_default", text = "Insects the size of kodo in hives that hum all night, and cultists who chant at the sand as though it might answer. I would dearly love a specimen of either, preferably one that has stopped moving." } },
+      choices = { { text = "I'll keep an eye out. Something else.", next = "BACK" } },
+    },
+    warlock = {
+      lines = { { id = "wa_default", text = "It could, and that is precisely why the Society would prefer to learn its uses before your sort does. No offence intended, warlock, though I suspect you're accustomed to taking it." } },
+      choices = { { text = "None taken. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I don't concern myself with that. Ask an orc; they enjoy talking." } } },

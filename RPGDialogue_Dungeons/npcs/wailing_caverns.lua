@@ -48,6 +48,10 @@ P:NPC {
         { text = "Your disciples became the Druids of the Fang.", next = "fang" },
         { text = "Why did you come to the Barrens?", next = "barrens" },
         { text = "What happens now that you're awake?", next = "now" },
+        { text = "Something huge burst out of the water as you woke.", next = "mutanus" },
+        { text = "Your disciple waited at the entrance all this time.", next = "disciple" },
+        { text = "How does a druid tell the Dream is turning?", next = "druid_warn", when = { class = "DRUID" } },
+        { text = "Does Malfurion know what happened to you?", next = "malfurion", when = { race = "NightElf" } },
         { text = "Rest, Naralex. I'll go.", next = "END" },
       },
     },
@@ -83,6 +87,54 @@ P:NPC {
     },
     heal = {
       lines = { { id = "hl_default", text = "I believe so, but slowly, and not by one druid dreaming alone in the dark. It will need tauren and night elves and anyone else willing to plant and wait. That's a lesson I learned too late." } },
+      choices = {
+        { text = "Tauren and night elves, working together?", next = "heal_together" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heal_together = {
+      lines = { { id = "ht_default", text = "Why not? The tauren have walked with Cenarius' teachings longer than many of my own people would admit, and the land doesn't care whose banner the planter carries. It's only our wars that care." } },
+      choices = {
+        { text = "The land should come before any war.", next = "BACK", reply = "Then you'd make a better druid than I did, friend. Hold to that when someone hands you a reason to forget it.", fx = { align = { order = -1 } } },
+        { text = "The Alliance and Horde have their reasons for war.", next = "BACK", reply = "They do, and I won't pretend those reasons are empty. I only wish the springs didn't have to pay for them.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mutanus = {
+      narr = "He shudders and pulls his robe tighter about his shoulders.",
+      lines = { { id = "mu_default", text = "Mutanus the Devourer. I think the nightmare shaped him out of everything I feared down here, and when I began to wake, he came to keep me sleeping. If he's dead, then something in me is quieter for it." } },
+      choices = {
+        { text = "Was he real, or only part of the dream?", next = "mutanus_real" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mutanus_real = {
+      lines = { { id = "mr_default", text = "Real enough to bleed, you saw that yourself. That's what frightens me most, that a dream can leak out and take on flesh and teeth. I don't know what that means for the rest of the world's sleepers." } },
+      choices = {
+        { text = "Then other sleepers may be in danger.", next = "mutanus_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mutanus_others = {
+      lines = { { id = "mo_default", text = "Many of my order dream for years at a time, and some of them have not woken on schedule. I pray I'm wrong, but I'll be saying so to the Circle all the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    disciple = {
+      lines = { { id = "di_default", text = "He did? Faithful soul, he must have sat by that mouth of stone and listened to me scream in my sleep for months. I'll thank him on my knees when I see him." } },
+      choices = {
+        { text = "He needed strangers to do what he couldn't.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid_warn = {
+      lines = { { id = "dw_default", text = "The colours go too bright, and the animals stop looking at you as a friend. If you feel the Dream holding on when you try to leave, don't push deeper to find the cause. Come back at once, and tell someone." } },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    malfurion = {
+      lines = { { id = "ml_default", text = "My shan'do sleeps in the barrow dens with the eldest of the Circle and walks the Dream far deeper than I ever dared. If anyone has felt this sickness, he has, and that thought gives me no comfort at all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     now = {

@@ -42,6 +42,10 @@ P:NPC {
         { text = "Who is your master?", next = "master" },
         { text = "Why serve Ragnaros at all?", next = "serve" },
         { text = "Summon your master, Executus.", next = "summon" },
+        { text = "Your lieutenants all lie dead in the halls behind us.", next = "lieutenants" },
+        { text = "The Hydraxian Waterlords sent us here.", next = "hydraxian" },
+        { text = "My people know the elements. Fire should not rule them all.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Thaurissan's folly cursed my kin as much as yours.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "We'll be back when we're ready.", next = "END" },
       },
     },
@@ -55,8 +59,51 @@ P:NPC {
     trapped = {
       lines = { { id = "t_default", text = "Not trapped, mortal, only waiting. He grows stronger every year beneath Blackrock, and he is at war with the black dragonflight above for the mountain itself." } },
       choices = {
+        { text = "What happens if he grows strong enough?", next = "trapped_free", fx = { learn = { "ragnaros" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "ragnaros" } } },
       },
+    },
+    trapped_free = {
+      lines = { { id = "tf_default", text = "Then the mountain will not hold him, and the fire beneath it will spill across your kingdoms like a river over a broken dam. Ironforge will be first, I think, and then whatever lies beyond." } },
+      choices = {
+        { text = "Then he dies here, before that day.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lieutenants = {
+      lines = { { id = "li_default", text = "Lucifron, Magmadar, Gehennas, Garr and the rest, yes, I felt each one go out like a guttered candle. They were servants, and servants can be replaced, though not quickly, and the Firelord will not be pleased with me." } },
+      choices = {
+        { text = "You sound afraid of your own master.", next = "lieutenants_fear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lieutenants_fear = {
+      narr = "The flames along his shoulders flicker low for a moment before they flare again.",
+      lines = { { id = "lf_default", text = "Every servant of Ragnaros fears him, mortal, and the ones who do not are already ash. He does not punish failure so much as consume it." } },
+      choices = {
+        { text = "Then turn on him, and be free.", next = "BACK", reply = "Free? There is no freedom for a creature of fire apart from its flame. You understand nothing.", fx = { align = { order = -1 } } },
+        { text = "A servant keeps his oath, whatever it costs.", next = "BACK", reply = "At last, words a majordomo can respect. It changes nothing between us, of course.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hydraxian = {
+      lines = { { id = "hy_default", text = "Duke Hydraxis and his drowned courtiers, playing at war from their little island. Water and fire have warred since the world was young, and the Waterlords would gladly see this hall drowned and cold." } },
+      choices = {
+        { text = "Their runes doused your master's fires.", next = "hydraxian_runes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hydraxian_runes = {
+      lines = { { id = "hr_default", text = "Yes, and I felt every one of them go cold like a wound in my own side. Without them I could not call the Firelord at all, so perhaps your watery masters have done my work for me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "A shaman, who begs favours of the elements and calls it balance. The Firelord does not bargain, little spirit-talker, and the fire you pray to answers to him in the end." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Your kin and his were the same clan once, all of you grubbing in the same stone. Thaurissan's folly gave my master a door into this world, and for that the Firelord has never thanked the Dark Irons." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     serve = {
       lines = { { id = "s_default", text = "Because fire is the end of all things, and it is better to serve the end than to be consumed by it. You may call that cowardice, but you have not stood before him." } },

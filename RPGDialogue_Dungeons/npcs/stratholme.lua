@@ -46,6 +46,8 @@ P:NPC {
         { text = "What is the Medallion of Faith?", next = "medallion" },
         { text = "What was Stratholme like before?", next = "before" },
         { text = "Why come back alone?", next = "alone" },
+        { text = "I'm of the Light too. Ride with me against him.", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "I was one of this city's dead once.", next = "forsaken", when = { race = "Scourge" } },
         { text = "What do you need done?", next = "BUSINESS" },
         { text = "Stay safe, paladin.", next = "END" },
       },
@@ -77,7 +79,34 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     before = {
-      lines = { { id = "b_default", text = "Bright, crowded, loud. Merchants hawking grain on every corner. I bought my first sword two streets from here, from a smith whose name I cannot bear to remember." } },
+      lines = { { id = "b_default", text = "It was bright and crowded and loud, with merchants hawking grain on every corner. I bought my first sword two streets from here, from a smith whose name I cannot bear to remember." } },
+      choices = {
+        { text = "What happened the day it fell?", next = "culling" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    culling = {
+      narr = "His hand tightens on the hilt of his sword until the leather creaks.",
+      lines = { { id = "cu_default", text = "The grain was plagued, and Arthas would not wait to learn who had eaten it. He put every soul in the city to the sword, and Uther and Jaina rode away rather than help him. I was not here, and I have never decided whether that was mercy or cowardice." } },
+      choices = {
+        { text = "Arthas did what had to be done.", next = "culling_side", reply = "Did he? Then look at what came of it, and tell me again.", fx = { align = { light = -1 } } },
+        { text = "Nothing justifies murdering a city.", next = "culling_side", reply = "No, and the Light will not let me forget that the man who did it was one of ours.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    culling_side = {
+      lines = { { id = "cs_default", text = "Whatever we believe about that day, the dead still walk these streets, and the Baron keeps them walking. That much we can end." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "Gladly, for the Silver Hand was never meant to fight alone. When we reach his hall, stand where I can see you, and if I falter, take the Medallion and press on without me." } },
+      choices = {
+        { text = "Neither of us will falter.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "Then you know better than I what this city suffered. I will not pretend to trust your Dark Lady, but tonight we want the same thing, and the Light can sort the rest out later." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     alone = {
@@ -106,7 +135,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "You're alive. Please tell me you're real, and not another of his tricks." },
-    { id = "g_plea", when = { questActive = TODO_QUEST("Dead Man's Plea") }, text = "Anthion sent you? He's alive? Light bless him, I thought I'd never hear his name again." },
+    { id = "g_plea", when = { questActive = TODO_QUEST("Dead Man's Plea") }, text = "Anthion sent you? Then some part of him is still out there looking for me. Light bless him, I thought I'd never hear his name again." },
   },
 
   notice = {
@@ -128,6 +157,9 @@ P:NPC {
         { text = "Anthion is waiting for you.", next = "anthion" },
         { text = "How were you captured?", next = "captured" },
         { text = "Did you see anything we should know?", next = "saw" },
+        { text = "What was Stratholme like, before?", next = "before" },
+        { text = "I was of Lordaeron once, like you.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "May the Light give you strength, Ysida.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let's get you out of here.", next = "END" },
       },
     },
@@ -152,6 +184,29 @@ P:NPC {
     },
     saw = {
       lines = { { id = "s_default", text = "The acolytes in the ziggurats chant at night, and the Baron grows stronger when they do. And there was a slaughterhouse. I don't want to talk about the slaughterhouse." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "Beautiful, if you can believe it, with bells in the morning and bakers shouting on every street. Anthion and I used to walk by the King's Square on market days, and I'd pretend not to notice him buying flowers." } },
+      choices = {
+        { text = "What happened to the city?", next = "purge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purge = {
+      lines = { { id = "pg_default", text = "The grain came first, and the sickness, and then Prince Arthas came with his soldiers and put the whole city to the sword. Some say he did it to spare us from the plague, and some say he only did it sooner." } },
+      choices = {
+        { text = "He did what had to be done.", next = "BACK", reply = "Maybe so. But it was my street, and my sister, and I can't forgive it.", fx = { align = { order = 1 } } },
+        { text = "Nothing excuses a massacre of the living.", next = "BACK", reply = "Thank you. Nobody ever says it plainly, and it needs to be said.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fk_default", text = "Then you know what this city was, and what it became. I don't understand what you are now, but you opened the cage when the dead I knew only ever locked it, and I'll remember that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    light = {
+      lines = { { id = "lt_default", text = "I stopped praying in the cage, because I didn't think anyone was listening. Maybe someone was, after all, and maybe it was you they sent." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

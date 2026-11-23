@@ -38,6 +38,8 @@ P:NPC {
         { text = "What does the idol do?", next = "idol" },
         { text = "Who are you, really?", next = "who" },
         { text = "Why would the quilboar side with the dead?", next = "quilboar" },
+        { text = "My elders say Agamaggan's blood made these thorns.", next = "agamaggan", when = { race = "Tauren" } },
+        { text = "There's something unnatural about you, Belnistrasz.", next = "sense", when = { class = { "MAGE", "DRUID", "PRIEST" } } },
         { text = "I'll help you destroy the idol.", next = "BUSINESS" },
         { text = "Not today.", next = "END" },
       },
@@ -59,7 +61,17 @@ P:NPC {
     },
     defend = {
       lines = { { id = "d_default", text = "They will come in waves the moment I start, and I can't defend myself and work the ritual at once. That is where you come in, friend." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "How long does the ritual take?", next = "ritual" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ritual = {
+      lines = { { id = "ri_default", text = "Longer than you'll like, and the brazier fights back the whole while. When the flames finally gutter out, a great beast of bone may rise to avenge the idol, so keep something in reserve for the end." } },
+      choices = {
+        { text = "We'll hold, however long it takes.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     who = {
       lines = { { id = "w_default", text = "A traveler who has seen this kind of evil before, and who learned that waiting for someone else to stop it rarely works. The rest is a long story, and we haven't the time." } },
@@ -70,6 +82,26 @@ P:NPC {
     },
     quilboar = {
       lines = { { id = "q_default", text = "Fear, mostly, and the promise that they'll never have to die. The Coldbringer told them their thorns would last forever, and they believed him because they wanted to." } },
+      choices = {
+        { text = "Are they all willing, or are some forced?", next = "quilboar_forced" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quilboar_forced = {
+      lines = { { id = "qf_default", text = "Some went gladly, and some were simply too afraid to say no to a lich. The rest are lying cold in the barrows, and the Coldbringer has a use for those as well." } },
+      choices = {
+        { text = "Then the willing ones die with him.", next = "BACK", reply = "I won't stop you, though I'd not waste your strength on them before the idol is out.", fx = { align = { light = -1 } } },
+        { text = "Spare those who were frightened into it.", next = "BACK", reply = "If you can tell them apart in the thick of it, you're a better judge than I am. But it's well meant.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    agamaggan = {
+      lines = { { id = "ag_default", text = "Your elders speak truly. The great boar fell here in the War of the Ancients, and his blood raised the thorns, and the quilboar have called them sacred ever since. Now the dead are using that holy ground to grow their plague." } },
+      choices = { { text = "Then we cleanse it for Agamaggan's sake.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    sense = {
+      narr = "He meets your eyes for a long moment, and his own seem older than his face.",
+      lines = { { id = "se_default", text = "You have a keen eye. I am not what I appear, and that is all I'll say while the Coldbringer's ears are so close. Help me with the idol, and judge me by that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -111,6 +143,9 @@ P:NPC {
         { text = "What recipes do you know?", next = "recipes" },
         { text = "Why come into the Downs at all?", next = "why" },
         { text = "What have you seen down here?", next = "seen" },
+        { text = "You don't look like a herbalist, Henry.", next = "herbalist" },
+        { text = "I've brewed a few things with Darkspear herbs myself.", next = "darkspear", when = { race = "Troll" } },
+        { text = "A shaman knows a good root when he sees one.", next = "darkspear", when = { class = "SHAMAN" } },
         { text = "Can you teach me something?", next = "BUSINESS" },
         { text = "Stay safe, Henry.", next = "END" },
       },
@@ -124,7 +159,42 @@ P:NPC {
     },
     why = {
       lines = { { id = "w_default", text = "Goldthorn grows thickest where the thorns are oldest, and the Downs are very old indeed. I thought the quilboar would be the worst of it, and I've never been so wrong about anything in my life." } },
+      choices = {
+        { text = "Was any herb worth this much trouble?", next = "goldthorn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goldthorn = {
+      lines = { { id = "gt_default", text = "Not when you put it that way, no. But a pot of goldthorn tea fetches a fine price in Ratchet, and I'd promised a batch to a sailor there who swears it's the only thing that settles his stomach." } },
+      choices = {
+        { text = "A man ought to keep his promises.", next = "promise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    promise = {
+      lines = { { id = "pr_default", text = "That's what my mother always said, and look where it got me, tied to a post among dead pigs. Still, if I get out, that sailor gets his tea, and he'll never know what it cost me." } },
+      choices = {
+        { text = "That's stubbornness, and I admire it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbalist = {
+      lines = { { id = "hb_default", text = "No, I look like a cook, and that's what I am first. But a cook who doesn't know his herbs is just a man boiling things, and I learned early that the best flavours grow where nobody sensible goes." } },
+      choices = {
+        { text = "Where did you learn to cook?", next = "learned" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learned = {
+      lines = { { id = "le_default", text = "In a ship's galley out of Booty Bay, feeding sailors who'd complain about anything that wasn't salt pork. When I came ashore in Kalimdor I swore I'd never cook salt pork again, and I've kept that oath better than most." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    darkspear = {
+      lines = { { id = "ds_default", text = "Have you now! Then you'll know the trick with the blood potion is to bruise the root and never cut it, which took me three ruined batches and one very patient Darkspear woman in Sen'jin to learn." } },
+      choices = {
+        { text = "Every trade has its little secrets.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     seen = {
       lines = { { id = "s_default", text = "Quilboar that don't breathe, and a cold that comes up from below even at noon. The guards talk about a master in the deep tunnels, and they go very quiet when they do." } },

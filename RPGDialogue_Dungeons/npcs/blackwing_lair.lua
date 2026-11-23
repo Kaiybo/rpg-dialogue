@@ -43,14 +43,35 @@ P:NPC {
         { text = "What is Nefarian making here?", next = "work" },
         { text = "Is there no way to save you?", next = "save" },
         { text = "Why should we trust a dragon?", next = "trust" },
+        { text = "Let me try to ease your pain.", next = "mend", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "What would you have us do?", next = "fight" },
       },
     },
     work = {
       lines = { { id = "w_default", text = "Chromatic dragons, bred from the blood of every flight, to make an army no single flight can stand against. He wants to finish what his father Deathwing began, and he is closer than you know." } },
       choices = {
+        { text = "How does he make them?", next = "chromatic" },
         { text = "Something else.", next = "BACK", fx = { learn = { "nefarian" } } },
       },
+    },
+    chromatic = {
+      lines = { { id = "ch_default", text = "With stolen eggs and spilled blood, and with magic that should never have been worked. He took my own kin from the red flight to feed it, and I came here to stop him and became one of his tools instead." } },
+      choices = {
+        { text = "Then we finish what you started.", next = "ending" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "nefarian" } } },
+      },
+    },
+    ending = {
+      lines = { { id = "en_default", text = "Then hear me, mortals, because I may not speak clearly again. Beyond my hall wait his drakes and his flayers and the chromatic one he loves best, and above them all the black son himself, who will laugh until the moment he falls." } },
+      choices = {
+        { text = "Nefarian's line ends here.", next = "BACK", reply = "Let it be so, and let Alexstrasza hear that it was you who ended it.", fx = { align = { order = 1 }, learn = { "nefarian" } } },
+        { text = "I'm here for his hoard, not his line.", next = "BACK", reply = "Take his hoard, then, but take his head first, or it will be your bones on that gold.", fx = { align = { order = -1 }, learn = { "nefarian" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "nefarian" } } },
+      },
+    },
+    mend = {
+      lines = { { id = "md_default", text = "Your kindness touches me more than your spell can, healer, because the fire in my blood is his now and it burns whatever you send into it. Save your strength for the ones who stand beside you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     save = {
       lines = { { id = "s_default", text = "None. The corruption is in my heart's fire now, and soon I will be his creature and nothing else. But I can give you a gift before then, the last of my strength burning in your veins." } },
@@ -126,6 +147,9 @@ P:NPC {
         { text = "Your sister plays at being a noble too.", next = "onyxia" },
         { text = "Your war with Ragnaros is lost.", next = "ragnaros" },
         { text = "Why let us get this far?", next = "why" },
+        { text = "Rend Blackhand betrayed the Horde for you.", next = "rend", when = { race = { "Orc", "Troll" } } },
+        { text = "Bolvar will see through Lady Prestor in time.", next = "prestor", when = { faction = "Alliance" } },
+        { text = "What spellwork binds a dragon's blood?", next = "mage_blood", when = { class = "MAGE" } },
         { text = "Enough talk. Face us.", next = "end_fight" },
       },
     },
@@ -163,8 +187,44 @@ P:NPC {
     chromaggus = {
       lines = { { id = "cg_default", text = "My finest hound, and my proudest early failure, because he is beautiful and quite insane. He waits in the halls ahead, and he is always hungry." } },
       choices = {
+        { text = "Why call him a failure if he's so strong?", next = "chromaggus_fail" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    chromaggus_fail = {
+      lines = { { id = "cf_default", text = "Because he cannot be taught, only aimed. Each flight's blood fights the others inside him, and his breath changes with his moods. A weapon that chooses its own edge is a curiosity, not an army." } },
+      choices = {
+        { text = "Then the true chromatic flight isn't finished.", next = "chromaggus_flight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chromaggus_flight = {
+      narr = "He smiles, and for a moment his teeth look far too long.",
+      lines = { { id = "cfl_default", text = "Not yet, but very nearly, and every guest who visits my laboratory brings me a step closer. You yourselves may contribute something before the evening is through." } },
+      choices = {
+        { text = "We'll burn your laboratory to the ground.", next = "BACK", reply = "Many have promised as much. The ashes are always mine to sift afterward.", fx = { align = { order = -1 } } },
+        { text = "Power like that would need firm control.", next = "BACK", reply = "Precisely, and control is what my father lacked. You understand more than you let on.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rend = {
+      lines = { { id = "re_default", text = "Rend saw what Thrall never will, that a warchief who begs for peace is only a slave with a larger cage. I offered him a mountain and a title, and he accepted both before I finished asking." } },
+      choices = {
+        { text = "He's a puppet, and he'll die like one.", next = "BACK", reply = "Every servant dies eventually. The clever ones are useful first, and Rend has been very useful.", fx = { align = { light = 1 } } },
+        { text = "Thrall's peace is weakness. Rend saw that.", next = "BACK", reply = "Careful, little orc, or I may offer you a title of your own.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    prestor = {
+      lines = { { id = "pr_default", text = "Bolvar Fordragon is an honest man, which is exactly why he will never think to look for a dragon in a ball gown. Honest men are the easiest to fool, and Stormwind is full of them." } },
+      choices = {
+        { text = "Someone always notices. Lies like hers don't last.", next = "BACK", fx = { learn = { "onyxia" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage_blood = {
+      lines = { { id = "mb_default", text = "Nothing so crude as spellwork, my dear scholar. Dragon blood remembers the Titans who first shaped it, and one need only persuade it to forget the details. Your Kirin Tor would faint to watch it done." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     onyxia = {
       lines = { { id = "o_default", text = "My dear sister enjoys her games with Stormwind's nobles, and she plays them well. While she whispers in their ears, I build an army they will never see coming." } },

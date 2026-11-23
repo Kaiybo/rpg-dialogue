@@ -577,6 +577,10 @@ P:NPC {
         { text = "Who are you hiding from?", next = "hiding" },
         { text = "What happened to the human spy?", next = "spy", when = { faction = "Horde" } },
         { text = "You don't trust the orcs, do you?", next = "orcs" },
+        { text = "What is the Society brewing down here?", next = "society" },
+        { text = "The Dark Lady's work. I'll keep quiet, cousin.", next = "kin", when = { race = "Scourge" } },
+        { text = "Good sightlines. Nobody sees this camp from the road.", next = "watchpost", when = { class = "ROGUE" } },
+        { text = "I've no quarrel with you, Forsaken.", next = "truce", when = { faction = "Alliance" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -600,7 +604,46 @@ P:NPC {
     },
     orcs = {
       lines = { { id = "o_default", text = "I trust them to be orcs, which is to say loud, proud and useful in a fight. Whether I trust them with the Society's work is another matter, and one I'll keep to myself." } },
-      choices = { { text = "Spoken like a true deathstalker. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Stonard isn't far. Do the orcs come calling?", next = "stonard" },
+        { text = "Spoken like a true deathstalker. Something else.", next = "BACK" },
+      },
+    },
+    society = {
+      lines = { { id = "so_default", text = "Faustin brews for the Royal Apothecary Society, and Duskwood is generous with what he needs: grave dust, worg blood and the odd piece of something that used to walk. I keep the curious away from his cauldron, and his cauldron away from Darkshire's noses." } },
+      choices = {
+        { text = "Faustin seems to enjoy his work rather too much.", next = "faustin" },
+        { text = "I'd rather not know more. Something else.", next = "BACK" },
+      },
+    },
+    faustin = {
+      narr = "He glances toward the bubbling cauldron, then back at you, without moving his head.",
+      lines = { { id = "fa_default", text = "He was a physician in Lordaeron and he still thinks like one, which is to say he looks at a body and wonders what is inside it. I don't share his enthusiasm, but I share his loyalty, and that will have to be enough." } },
+      choices = {
+        { text = "Brewing poisons in a haunted wood is foul work.", next = "BACK", reply = "Foul, perhaps, but the Scourge brewed fouler things in our veins, and nobody stopped them.", fx = { align = { light = 1 } } },
+        { text = "Necessary work is never foul. Let him brew.", next = "BACK", reply = "A practical answer. Faustin would like you, which is not entirely a compliment.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stonard = {
+      lines = { { id = "st_default", text = "Now and then a grunt wanders over from Stonard, across the Swamp of Sorrows, and asks what we are brewing. I tell him it is medicine, which is true enough if you are generous with the word." } },
+      choices = { { text = "Generous indeed. Something else.", next = "BACK" } },
+    },
+    kin = {
+      lines = { { id = "k_default", text = "Then you know what we owe her and what we would do for her. Keep your hood up when you pass Darkshire, cousin, because the Night Watch burns whatever it doesn't understand." } },
+      choices = { { text = "I'll mind the Watch. Something else.", next = "BACK" } },
+    },
+    watchpost = {
+      lines = { { id = "wp_default", text = "You have an eye for it. The road below shows me everything that comes up from Raven Hill, and the trees show nothing of us, which is exactly how a deathstalker likes a camp." } },
+      choices = { { text = "I'll remember the spot. Something else.", next = "BACK" } },
+    },
+    truce = {
+      narr = "His hand rests on the hilt at his belt and stays there.",
+      lines = { { id = "tr_default", text = "Quarrels are not yours to decline, living one. Still, if you say nothing in Darkshire of what you saw here, I will forget your face as quickly as I can." } },
+      choices = {
+        { text = "My word is good. I'll say nothing.", next = "BACK", reply = "Words are cheap among the living, but I'll take yours, for now.", fx = { align = { honor = 1 } } },
+        { text = "I'll tell the Night Watch whatever I please.", next = "BACK", reply = "Then I will remember your face after all, and so will Faustin.", fx = { align = { honor = -1 } } },
+      },
     },
   },
   topics = {

@@ -43,6 +43,9 @@ P:NPC {
         { text = "What is down there that they worship?", next = "akumai" },
         { text = "What was this place before?", next = "temple" },
         { text = "The Argent Dawn reaches a long way.", next = "dawn" },
+        { text = "I've seen what the Scourge do in the north.", next = "north", when = { faction = "Horde" } },
+        { text = "Elune has not forgotten this place, sister.", next = "elune", when = { race = "NightElf" } },
+        { text = "I can feel that cold you mean.", next = "elune", when = { class = "PRIEST" } },
         { text = "What do you need from me?", next = "BUSINESS" },
         { text = "I'll go on.", next = "END" },
       },
@@ -82,6 +85,25 @@ P:NPC {
     },
     dawn = {
       lines = { { id = "dw_default", text = "It does, though most of its strength is with the Plaguelands far to the north. The Dawn believes any darkness left to grow will one day join the rest, so we watch even the quiet corners." } },
+      choices = {
+        { text = "Why would a Sentinel join the Dawn?", next = "joined" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    joined = {
+      lines = { { id = "jn_default", text = "Because the Dawn asks no one which banner they were born under, only whether they will stand against the dark. My sisters in Ashenvale thought me foolish to take a human order's oath, and some of them still do." } },
+      choices = {
+        { text = "Every race should answer the Dawn's call.", next = "BACK", reply = "That is the Dawn's hope as well, though hope is slow work.", fx = { align = { order = -1 } } },
+        { text = "Your first duty is to your own people.", next = "BACK", reply = "Perhaps, and yet the dark does not care whose people it takes.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    north = {
+      lines = { { id = "no_default", text = "Then you know why I watch this water so closely, whatever colours you wear. The Dawn takes help from orc and troll and Forsaken alike, so long as their blades are pointed at the right enemy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elune = {
+      lines = { { id = "el_default", text = "I pray you're right. The priestesses who served here are long gone, but I light a small candle to the Mother Moon each night in the dry hall above, and I like to think the old stones notice." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
