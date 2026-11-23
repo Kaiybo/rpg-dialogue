@@ -2,7 +2,7 @@ RPGDialogueAPI:RegisterPack {
   id = "rpgd.tanaris",
   name = "Tanaris",
   author = "RPG Dialogue",
-  version = "1.33.0",            -- this pack's own version: see CHANGELOG.md here
+  version = "1.34.0",            -- this pack's own version: see CHANGELOG.md here
   format = 1,
   priority = 0,
   requires = { "rpgd.world" },

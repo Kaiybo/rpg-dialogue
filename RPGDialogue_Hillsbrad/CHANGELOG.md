@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.39.0 (2026-11-23)
+- Sergeant Hartman, the Strange Snowman, Voggah Deathgrip and the Hillsbrad tailor deepened.
+
 ## 1.38.0 (2026-11-23)
 - Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
 

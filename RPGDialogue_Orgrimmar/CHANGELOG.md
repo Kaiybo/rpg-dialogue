@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.38.0 (2026-11-23)
+- 21 quest and service characters deepened.
+
 ## 1.37.0 (2026-11-23)
 - Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
 

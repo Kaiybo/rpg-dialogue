@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.103.1)
+## State (0.104.0)
+- 0.104.0 "Deeper Voices" (user: "deepen all of them with parallel agents"): 73 NPCs below the coverage.py depth standard deepened (hostile bosses skipped by user rule: hostile NPCs need no dialogue). Dungeon dragon broods fixed. Only `luac -p` run; nothing seen in game. Unsure: Franclorn's statue/Shadowforge Key, Vaelan's drake-blood wording, Karl Philips at Hearthglen. Next: in-game test; rerun coverage.py to confirm.
 - 0.103.1 "The True Name of a Quest": all 34 Dungeons quest titles checked on classicdb; 'The Bloodfire' replaced by 'Signets of the Zandalar' (PR #215). Givers not checked. Only `luac -p` run.
 - 0.103.0 "Voices in the Deep" (user: "make a dungeons pack for all instances"): NEW PACK `RPGDialogue_Dungeons` (full restart), one file per instance, 59 NPCs keyed `dg_*`, written from memory by parallel agents. Unsure: quest titles (all TODO_QUEST), roles `boss`/`escort`/`event` unchecked against the schema, zone names in the TOC (several variants listed). Only `luac -p` run. Next: in-game test inside an instance (`/rpgd packs`), then check the quest titles on classicdb.
 - 0.102.0 "The Unwritten Ones" (user: "build a release"): PRs #207-#212 (lore pass, spirit healer class/race talks, NEW pack Battlegrounds, NEW `npcs/unwritten.lua` in ~40 packs, ~280 NPCs). Core 0.102.0, changed packs minor-bumped. Full restart needed. Only `luac -p` run; nothing seen in game. Next: in-game check of the new files; dedupe TODO_NPC doubles.
