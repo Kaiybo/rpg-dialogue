@@ -163,14 +163,55 @@ end)
 -- Classic clients report kills through the combat log (subevent PARTY_KILL); Midnight
 -- closed the combat log and added a PARTY_KILL event instead (no name).
 local getCombatInfo = _G.CombatLogGetCurrentEventInfo
+
+-- Who struck the last blow on an NPC (0.105.2), so a corpse can show how they died. Session
+-- only, never saved: bodies don't outlast a logout. lastHit holds the latest damage to each
+-- creature; slain keeps it when they die. Both are trimmed so a long session stays small.
+T.lastHit, T.slain = {}, {}
+local hitCount, slainCount = 0, 0
+local band = _G.bit and _G.bit.band
+local MINE, PARTY_OR_RAID, IS_PLAYER = 0x1, 0x6, 0x400
+local function whoStruck(sourceGUID, sourceFlags)
+  if sourceGUID and sourceGUID == C.GUID("player") then return "you" end
+  if band and type(sourceFlags) == "number" then
+    if band(sourceFlags, MINE) ~= 0 then return "you" end
+    if band(sourceFlags, PARTY_OR_RAID) ~= 0 then return "party" end
+    if band(sourceFlags, IS_PLAYER) ~= 0 then return "player" end
+  end
+  return "npc"
+end
+local function noteHit(sub, sourceGUID, sourceName, sourceFlags, destGUID, spellName)
+  if type(destGUID) ~= "string" or not destGUID:find("^Creature") then return end
+  local blow
+  if sub == "SWING_DAMAGE" then blow = false
+  elseif sub == "ENVIRONMENTAL_DAMAGE" then blow = false; sourceName = nil
+  else blow = type(spellName) == "string" and spellName or false end
+  if not T.lastHit[destGUID] then
+    hitCount = hitCount + 1
+    if hitCount > 300 then T.lastHit, hitCount = {}, 1 end
+  end
+  T.lastHit[destGUID] = { by = whoStruck(sourceGUID, sourceFlags), name = sourceName or false, blow = blow }
+end
+local DAMAGE = { SWING_DAMAGE = true, RANGE_DAMAGE = true, SPELL_DAMAGE = true, SPELL_PERIODIC_DAMAGE = true,
+  DAMAGE_SHIELD = true, ENVIRONMENTAL_DAMAGE = true }
+
 local function onCombatLog(_, ...)
-  local sub, destGUID, destName
+  local sub, destGUID, destName, sourceGUID, sourceName, sourceFlags, spellName
   if getCombatInfo then
-    local _, s, _, _, _, _, _, dg, dn = getCombatInfo()
-    sub, destGUID, destName = s, dg, dn
+    local _, s, _, sg, sn, sf, _, dg, dn, _, _, _, spn = getCombatInfo()
+    sub, destGUID, destName, sourceGUID, sourceName, sourceFlags, spellName = s, dg, dn, sg, sn, sf, spn
   else
-    local _, s, _, _, _, _, _, dg, dn = ...
-    sub, destGUID, destName = s, dg, dn
+    local _, s, _, sg, sn, sf, _, dg, dn, _, _, _, spn = ...
+    sub, destGUID, destName, sourceGUID, sourceName, sourceFlags, spellName = s, dg, dn, sg, sn, sf, spn
+  end
+  if DAMAGE[sub] then
+    noteHit(sub, sourceGUID, sourceName, sourceFlags, destGUID, spellName)
+  elseif (sub == "UNIT_DIED" or sub == "PARTY_KILL") and type(destGUID) == "string" and T.lastHit[destGUID] then
+    if not T.slain[destGUID] then
+      slainCount = slainCount + 1
+      if slainCount > 200 then T.slain, slainCount = {}, 1 end
+    end
+    T.slain[destGUID] = T.lastHit[destGUID]
   end
   if sub == "PARTY_KILL" then
     T.Kill(destGUID, destName)

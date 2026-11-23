@@ -92,6 +92,15 @@ B.npcMine = function(ctx)
   return g ~= nil and g == C.GUID("pet")
 end
 B.npcGender = function(ctx) return ctx.unit and C.Sex(ctx.unit) end
+-- 0.105.2: how a dead NPC died, if you saw it in the combat log: slain = "you" (you or your
+-- pet), "party", "player" or "npc"; slayer = their name; blow = the spell (false for a swing).
+local function slainRec(ctx)
+  local g = ctx.npcGUID
+  return g and ns.Trackers and ns.Trackers.slain and ns.Trackers.slain[g] or nil
+end
+B.slain = function(ctx) local r = slainRec(ctx); return r and r.by or false end
+B.slayer = function(ctx) local r = slainRec(ctx); return r and r.name or false end
+B.blow = function(ctx) local r = slainRec(ctx); return r and r.blow or false end
 B.npcElite = function(ctx)
   local c = ctx.unit and C.Classification(ctx.unit)
   return c == "elite" or c == "rareelite" or c == "worldboss"

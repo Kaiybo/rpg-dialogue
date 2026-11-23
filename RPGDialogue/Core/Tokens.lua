@@ -64,6 +64,9 @@ local simple = {
     local last = env and env.mem and env.mem.last
     return T.AwayWords(last and ((ns.Compat.Now() - last) / 86400) or nil)
   end,
+  -- A corpse's killer and killing blow (0.105.2; see ctx.slain).
+  slayer = function(ctx) return (type(ctx.slayer) == "string" and ctx.slayer) or "something" end,
+  blow = function(ctx) return (type(ctx.blow) == "string" and ctx.blow) or "blow" end,
   killer = function()
     local d = ns.char and ns.char.deaths[#ns.char.deaths]
     return (d and d.killer and d.killer.name) or "something"
@@ -107,5 +110,5 @@ function Tokens.Render(text, ctx, env, when)
 end
 
 Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
-  "deaths", "deathplace", "killer", "rank", "guild", "companion", "away", "source",
+  "deaths", "deathplace", "killer", "slayer", "blow", "rank", "guild", "companion", "away", "source",
   "alt", "altrace", "altclass" }
