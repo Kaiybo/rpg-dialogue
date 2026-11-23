@@ -244,6 +244,9 @@ P:NPC {
       choices = {
         { text = "What happened to the other two?", next = "lost" },
         { text = "Why are the Gnarlpine gathering here?", next = "why" },
+        { text = "You're bleeding worse than you're letting on.", next = "wound" },
+        { text = "The Gnarlpine were friends of the Circle once.", next = "druid", when = { class = "DRUID" } },
+        { text = "Your people don't often trust outsiders this far in.", next = "outsider", when = { ["not"] = { race = "NightElf" } } },
         { text = "I'll get you out of here.", next = "BUSINESS" },
         { text = "Hold on a little longer.", next = "END" },
       },
@@ -253,12 +256,53 @@ P:NPC {
       choices = {
         { text = "Then we make them pay for it on the way out.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Getting you home alive is what they'd want.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Faeryn might still be alive down there.", next = "faeryn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    faeryn = {
+      lines = { { id = "fa_default", text = "She might, and I've told myself so every hour since. But that tunnel runs deep into the den, and I can't go after her with one good leg and half a quiver." } },
+      choices = {
+        { text = "Once you're safe, I'll look for her.", next = "BACK", reply = "Then look carefully, and don't make me mourn two of you.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     why = {
       lines = { { id = "wy_default", text = "They've been carrying green moss in from the Fel Rock and chewing it like it's bread. Whatever's in it, it's made them strong and stupid and very, very angry." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Where does a moss like that come from?", next = "moss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moss = {
+      lines = { { id = "ms_default", text = "From the Fel Rock, west of Dolanaar, where the ground has a sick glow and the little sprites go mad. Something old and foul was buried in that stone, and Teldrassil's roots grew right through it." } },
+      choices = {
+        { text = "Then the tree itself is touched by it?", next = "tree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tree = {
+      lines = { { id = "tr_default", text = "Hush, the priestesses would say, and Fandral would say it louder. But I've walked these roads for years, and the shadows on Teldrassil are darker than they were when it was planted." } },
+      choices = {
+        { text = "The Archdruid knows what he's doing.", next = "BACK", reply = "I hope so, because none of the rest of us do.", fx = { align = { order = 1 } } },
+        { text = "Someone should make the Archdruid answer for this.", next = "BACK", reply = "Say that quietly in Darnassus, and say it to no one in Dolanaar.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wound = {
+      lines = { { id = "wd_default", text = "A Gnarlpine axe in the thigh, and I've bound it twice. If I sit down I won't get up again, so I'm leaning on this root and pretending it's a choice." } },
+      choices = { { text = "Lean on me when we move, then.", next = "BACK", reply = "I'll lean on my bow, thank you, and on you only if I fall.", fx = { affinity = 1 } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "They were, and some of them still hold a bit of the old courtesy before the moss takes them. If the Circle can cure them, I'd be glad, but tonight I need you to get me past them, not to save them." } },
+      choices = {
+        { text = "They're victims, and I'll spare who I can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they come at us, they fall like any foe.", next = "BACK", fx = { align = { honor = -1 } } },
+      },
+    },
+    outsider = {
+      lines = { { id = "ou_default", text = "We don't, and you'll hear plenty of grumbling in Dolanaar about it. But I'm in a hole full of angry furbolgs, so I'm not choosing my rescuers by the shape of their ears." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
   },
 
