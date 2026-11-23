@@ -1101,7 +1101,7 @@ P:NPC {
         { text = "He's alive somewhere, and he'll come home.", next = "opn_varian_r_alive", fx = { affinity = 2, align = { light = 1 }, opinion = { varian = "alive" } } },
         { text = "He's gone, Lieutenant. Stormwind needs to accept it.", next = "opn_varian_r_dead", fx = { affinity = -1, align = { light = -1 }, opinion = { varian = "dead" } } },
         { text = "Someone wanted him gone. I'd ask who.", next = "opn_varian_r_betrayed", fx = { trait = { skeptical = 1 }, opinion = { varian = "betrayed" } } },
-        { text = "Prince Anduin needs his father. I hope he's found.", next = "opn_varian_r_alive", when = { race = "Human" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { varian = "alive" } } },
+        { text = "The boy king needs his father. I hope he's found.", next = "opn_varian_r_alive", when = { race = "Human" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { varian = "alive" } } },
         { text = "I couldn't say.", next = "BACK" },
       },
     },

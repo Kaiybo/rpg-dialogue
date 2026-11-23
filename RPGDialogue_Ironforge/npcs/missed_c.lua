@@ -26,6 +26,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ej_druid = {
+      lines = { { id = "ejd_default", text = "Then you know Nighthaven, and you know how slow the Circle's councils are to move. In Silithus they cannot afford to be slow, and a druid who can fight would be worth ten who can only listen." } },
+      choices = { { text = "Then I'll go south. Something else.", next = "BACK" } },
+    },
+    ej_elf = {
+      lines = { { id = "eje_default", text = "Many of our people say so, and I once said it too. But Cenarius taught them as he taught us, and in the desert the silithid do not ask which of us has hooves." } },
+      choices = {
+        { text = "Then I'll stand beside them.", next = "BACK", reply = "Good, for they will stand beside you.", fx = { align = { order = 1 } } },
+        { text = "Our forests are ours, whatever Cenarius taught.", next = "BACK", reply = "Then keep them, but do not ask the desert to wait for your pride.", fx = { align = { order = -1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druid", when = { class = "DRUID" }, text = "I am Jademoon, emissary of the Cenarion Circle. You answer to the same teachers as I, so I will be plain with you: the Circle is stretched thin in Silithus, and I have been sent to ask the Alliance for aid." },
@@ -41,6 +52,8 @@ P:NPC {
         { text = "How can I help the Circle?", next = "BUSINESS" },
         { text = "A forge is a strange place for a druid.", next = "forge" },
         { text = "Why bring this to the dwarves?", next = "dwarves" },
+        { text = "I have walked the paths of Moonglade.", next = "ej_druid", when = { class = "DRUID" } },
+        { text = "I've never trusted the Circle's tauren.", next = "ej_elf", when = { race = "NightElf" } },
         { text = "Elune light your path, Emissary.", next = "END" },
       },
     },

@@ -296,6 +296,7 @@ P:NPC {
         { text = "What is Yelmak like to work beside?", next = "yelmak" },
         { text = "It's strange to see an orc selling glass.", next = "glass" },
         { text = "What do alchemists run out of first?", next = "runout" },
+        { text = "I'm a warrior. Which potion should never leave my belt?", next = "warbelt", when = { class = "WARRIOR" } },
         { text = "Farewell, Kor'geld.", next = "END" },
       },
     },
@@ -316,6 +317,10 @@ P:NPC {
     hurt = {
       lines = { { id = "hu_default", text = "Not since I began selling the leaded vials for anything that fumes. A young troll lost his eyebrows last season and was proud of it for a week, which tells you what sort of orcs and trolls take up this craft." } },
       choices = { { text = "Another matter.", next = "BACK" } },
+    },
+    warbelt = {
+      lines = { { id = "wb_default", text = "A healing potion, warrior, and a second one behind it, because the first always goes sooner than you planned. Rage will carry you into a fight, but it will not stitch you closed once you are out of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     glass = {
       lines = { { id = "g_default2", text = "My father said the same, and he said it louder. But I was a clumsy whelp, and an old alchemist put a crate of empty vials in my arms and told me to carry it a mile, and by the end of that mile I had learned how to be careful." } },

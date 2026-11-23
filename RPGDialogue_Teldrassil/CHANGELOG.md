@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-23): Truths from the Old Books
+- Lore fixes and deeper quest-givers (core 0.101.0).
+
 ## 1.27.0 (2026-11-20)
 - New: Sentinel Lynessa Duskblossom, the Ban'ethil Hollow escort (`missed2.lua`).
 

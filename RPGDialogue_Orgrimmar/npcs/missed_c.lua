@@ -116,6 +116,7 @@ P:NPC {
         { text = "What do the dwarves want in your valley?", next = "dwarves" },
         { text = "I will fight for the Frostwolf.", next = "BUSINESS" },
         { text = "Those furs must be a torment in this heat.", next = "furs" },
+        { text = "I was born in the internment camps. Would the Frostwolves have me?", next = "camps", when = { race = "Orc" } },
         { text = "Not today, Ambassador.", next = "END" },
       },
     },
@@ -160,6 +161,10 @@ P:NPC {
     dug = {
       lines = { { id = "dg_default", text = "Then let them learn what lives under the snow there. A wolf does not argue with whatever crawls into its den, {class}, and the Frostwolves have never been slow to bite." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    camps = {
+      lines = { { id = "cp_default", text = "The Warchief himself was raised in human chains, and the clan took him in without asking where he had been. Come north and stand your watch in the snow, and no Frostwolf will care what pen you were born in." } },
+      choices = { { text = "Something else, Ambassador.", next = "BACK" } },
     },
     furs = {
       lines = { { id = "f_default", text = "They are, and I will not take them off. I wear what my clan wears so that every orc who walks through this valley of merchants remembers there is a harder place, and kin who are fighting in it." } },

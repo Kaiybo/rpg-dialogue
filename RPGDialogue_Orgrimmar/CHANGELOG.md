@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-23): Truths from the Old Books
+- Lore fixes and deeper quest-givers (core 0.101.0).
+
 ## 1.35.0 (2026-11-20)
 - Cenarion Emissary Blackhoof talks about Cenarion Hold and Malfurion with druids of 50 and up.
 

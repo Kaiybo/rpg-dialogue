@@ -307,6 +307,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_price = {
+      lines = { { id = "gt_price_l", text = "Fair coin for five, and no haggling on contest day, because I've got a line of anglers behind you. Bring 'em fresh, though, since the boss can smell a two-day fish from the docks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_goblin = {
+      lines = { { id = "gt_goblin_l", text = "Not often, pal, because our kind are too busy sellin' bait to the people fishin'. You and I both know where the money in this bay is, and it ain't in the trophy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "Jang, Fishmaster's apprentice. The boss does the shoutin' and hands out the glory, and I buy up every tastyfish that didn't win, which is where the actual margin is." } },
       again = {
@@ -318,6 +326,8 @@ P:NPC {
         { text = "What's it like working for Riggle?", next = "boss" },
         { text = "You sound like you want his job.", next = "job" },
         { text = "Who cheats worst on contest day?", next = "cheats" },
+        { text = "I've hauled a few tastyfish myself. What do you pay?", next = "gt_price", when = { profession = "Fishing" } },
+        { text = "Do goblins ever win the contest?", next = "gt_goblin", when = { race = "Goblin" } },
         { text = "Keep counting, Jang.", next = "END" },
       },
     },

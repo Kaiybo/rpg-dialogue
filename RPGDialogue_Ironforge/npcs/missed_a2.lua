@@ -90,6 +90,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hf_paladin = {
+      lines = { { id = "hfp_default", text = "Then the Light needs ye in the Plaguelands more than anywhere, for the dead walk there by the thousand. Commander Ashlam Valorfist at Chillwind would be glad of a {g:brother|sister} of the Light who doesnae flinch at a ghoul." } },
+      choices = { { text = "I won't flinch. Something else.", next = "BACK" } },
+    },
+    hf_dwarf = {
+      lines = { { id = "hfd_default", text = "Ha! A Bronzebeard askin' for the Wildhammer, and there's many in this city who'd frown at that. Still, Aerie Peak's always short of hands against the Witherbark trolls, and Falstad's folk respect a dwarf who'll climb." } },
+      choices = { { text = "Then I'll climb. Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -104,6 +112,8 @@ P:NPC {
         { text = "What's happening in Kalimdor?", next = "kalimdor" },
         { text = "It sounds as though the Alliance is losing.", next = "losing" },
         { text = "Do you never rest?", next = "rest" },
+        { text = "A paladin goes where the Light is needed.", next = "hf_paladin", when = { class = "PALADIN" } },
+        { text = "Send me to the Hinterlands, among the Wildhammer.", next = "hf_dwarf", when = { race = "Dwarf" } },
         { text = "I'll let you get on.", next = "END" },
       },
     },

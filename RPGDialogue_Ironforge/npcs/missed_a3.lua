@@ -92,6 +92,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gk_dwarf = {
+      lines = { { id = "gkd_default", text = "Aye, and so did mine, wi' his beard full of snow and a sack of gifts on his back. Hold on to that tale, for it's worth more than every parcel at Smokywood Pastures put together." } },
+      choices = { { text = "I'll tell it to my own children someday.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gk_gnome = {
+      lines = { { id = "gkg_default", text = "Then ye ken how it feels to lose a thing ye loved, for ye lost a whole city. Keep the feast here wi' us, and ye'll find dwarves remember for those who cannae go home." } },
+      choices = { { text = "Thank you, Goli. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Goli Krumn. I've kept the Feast of Winter Veil under this mountain all my life, and I never thought I'd see the day a goblin company told dwarves how to do it." },
@@ -104,6 +112,8 @@ P:NPC {
         { text = "What have the goblins done wrong?", next = "goblins" },
         { text = "What is the feast truly about?", next = "reason" },
         { text = "Presents and sweets seem harmless enough.", next = "harmless" },
+        { text = "My grandmother told of Greatfather Winter walking the peaks.", next = "gk_dwarf", when = { race = "Dwarf" } },
+        { text = "We gnomes lost our own feasts with Gnomeregan.", next = "gk_gnome", when = { race = "Gnome" } },
         { text = "A merry Winter Veil to you.", next = "END" },
       },
     },

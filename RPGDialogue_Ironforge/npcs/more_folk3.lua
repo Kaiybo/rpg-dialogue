@@ -34,6 +34,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    lr_gnome = {
+      lines = { { id = "lrg_default", text = "Bought? They bought half my stock every season, an' paid on time, which is more than I can say for dwarves. Since the city fell, the ones in Tinker Town buy scrap an' fuses an' talk about goin' home, an' I sell it tae them cheap an' dinnae argue." } },
+      choices = {
+        { text = "We'll take Gnomeregan back one day.", next = "BACK", reply = "Aye, an' when ye do, I'll be first in line tae sell ye the powder for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lr_hunter = {
+      lines = { { id = "lrh_default", text = "Then ye've fired my shot, for Hegnar loads nae other. Keep yer barrel clean an' yer powder dry, an' if it ever misfires, blame the gun an' no' the shot, for I weigh every one." } },
+      choices = { { text = "I'll blame Hegnar, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Loslor Rudge. I sell engineerin' supplies tae the Depot, an' I send shot up the hill tae Hegnar Rumbleshot, who sells guns out past Kharanos. Or I did, till my courier decided he kent a quicker road." },
@@ -51,6 +62,8 @@ P:NPC {
         { text = "Wendigo are no small thing to send someone into.", next = "wendigo" },
         { text = "Tell me about Hegnar Rumbleshot.", next = "hegnar" },
         { text = "What goes into a crate for Hegnar?", next = "crate" },
+        { text = "Gnomeregan's engineers must have bought from you once.", next = "lr_gnome", when = { race = "Gnome" } },
+        { text = "I shoot one of Hegnar's guns myself.", next = "lr_hunter", when = { class = "HUNTER" } },
         { text = "Good day, Loslor.", next = "END" },
       },
     },
