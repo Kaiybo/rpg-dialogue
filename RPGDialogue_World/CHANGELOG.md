@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.53.0 (2026-11-23)
+- Lore fixes. No new files.
+
 ## 1.52.0 (2026-11-23): Truths from the Old Books
 - Lore fixes and deeper quest-givers (core 0.101.0).
 

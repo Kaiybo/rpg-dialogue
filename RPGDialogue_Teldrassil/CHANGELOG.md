@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-23)
+- Lore fixes. No new files.
+
 ## 1.28.1 (2026-11-23): Ghosts Set Right
 - Lore fix: Valstann Staghelm died in Silithus, not at Ahn'Qiraj's gates.
 

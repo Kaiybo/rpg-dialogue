@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.102.0 (2026-11-23): The Unwritten Ones
+**New files and a new addon: needs a full game restart, not a /reload.**
+- **New Battlegrounds pack**: NPCs inside Alterac Valley, Warsong Gulch and Arathi Basin now talk.
+- **About 280 NPCs who had no dialogue now speak**, across nearly every zone (new `npcs/unwritten.lua` in each pack).
+- **Spirit healer**: talk branches for every class and race, with stances to take.
+- **Lore pass across many packs**: wrong races, titles and histories fixed (Taronn Redfeather is a tauren of the Emerald Circle; Stonetalon's Tsunaman, Jeeda, Tharm and Gereck rewritten to match lore).
+- Not seen in game yet.
+
 ## 0.101.1 (2026-11-23): Ghosts Set Right
 No new files; a /reload is enough.
 - **Lore fixes** (checked against wowpedia): Arthas, not Archimonde, killed Antonidas; Valstann Staghelm was Fandral's son, a warrior slain by the qiraji in Silithus; a Lich King line in Orgrimmar no longer sounds like he is dead.

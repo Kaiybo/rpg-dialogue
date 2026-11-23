@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.24.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.23.1 (2026-11-21)
 - Fixed load errors (a missing quest reference) that dropped some Valormok and Talrendis NPCs; Lohatu's hunter talk restored.
 

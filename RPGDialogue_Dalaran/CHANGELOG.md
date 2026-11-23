@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.15.0 (2026-11-23)
+- Lore fixes. No new files.
+
 ## 1.14.1 (2026-11-23): Ghosts Set Right
 - Lore fix: Antonidas was killed by Arthas, not Archimonde.
 

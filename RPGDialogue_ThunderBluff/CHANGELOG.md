@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.35.0 (2026-11-20)
 - Turak Runetotem walks Horde druids down the road (the bear, Moonglade, Lunaclaw, the sea lion, the cat); Hamuul Runetotem, Sheal Runetotem, Kym Wildmane and Nara Wildmane deepened for druids.
 
