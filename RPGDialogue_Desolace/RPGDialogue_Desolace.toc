@@ -28,3 +28,4 @@ npcs\cavindra.lua
 npcs\shadowprey.lua
 npcs\more_folk.lua
 npcs\missed.lua
+npcs\unwritten.lua
