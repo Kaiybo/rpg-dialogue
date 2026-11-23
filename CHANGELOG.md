@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.105.1 (2026-11-23): Let the Dead Lie
+No new files; a /reload is enough.
+- **The dead no longer talk.** Corpses in the world (like the Night Elf Courier at Mirkfallon Lake) won't open a conversation: right-click does nothing, and the talk key says "They're past talking now."
+
 ## 0.105.0 (2026-11-23): The Overlooked
 No new files; a /reload is enough.
 - **About 190 characters who had no conversation now have one**, found by checking every zone's wiki NPC list against classicdb (Classic only).
