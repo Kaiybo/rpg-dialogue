@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.103.1 (2026-11-23): The True Name of a Quest
+No new files; a /reload is enough.
+- **Dungeons:** Hakkar's greeting now waits on a real quest, Signets of the Zandalar (it pointed at one that doesn't exist). Every other dungeon quest title checked against classicdb.
+
 ## 0.103.0 (2026-11-23): Voices in the Deep
 **New pack and new files: needs a full game restart, not /reload.**
 - **New pack: RPG Dialogue: Dungeons.** 59 people inside every Classic dungeon and raid, from Ragefire Chasm to Naxxramas, now talk: prisoners and captives (Kam Deepfury, Marshal Windsor, Commander Gor'shak), allies and escorts (Belnistrasz, Weegli, Celebras), dealers (Lokhtos, Finkle Einhorn), the dreaming Naralex, and villains who speak before the killing starts (VanCleef, Whitemane, Nefarius, Majordomo Executus).
