@@ -45,6 +45,25 @@ P:Pool {
 }
 
 ---------------------------------------------------------------------------
+-- Quiet ones (0.105.2): nameless folk out past the towns, with nothing to say.
+---------------------------------------------------------------------------
+P:Pool {
+  id = "quiet", role = "quiet",
+  greetings = {
+    { id = "g1", text = "Hm?" },
+    { id = "g2", text = "Yes?" },
+    { id = "g3", text = "Mm." },
+  },
+  lines = {
+    { id = "l1", text = "I've nothing to say to you, traveler." },
+    { id = "l2", text = "I have nothing for you. Go on your way." },
+    { id = "l3", text = "There's nothing I can tell you." },
+  },
+  choices = { { text = "Never mind.", next = "END" } },
+  topics = { _none = { { id = "t_none", text = "I couldn't tell you." } } },
+}
+
+---------------------------------------------------------------------------
 -- Faction pools: ordinary folk of the Alliance and of the Horde.
 ---------------------------------------------------------------------------
 P:Pool {

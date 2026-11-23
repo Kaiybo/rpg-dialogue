@@ -116,6 +116,9 @@ function Conv.Identify(unit, ctx, interactionName)
     info.tier = "pooled"
     local comm = ns.Data.CommunityForPlace(ctx.zone, ctx.subzone)
     info.communities = comm and { comm } or {}
+    -- A nameless someone out past the towns (a Son of Cenarius on a mountaintop) has nothing
+    -- to say: townsfolk talk of streets and bread would be wrong in their mouths (0.105.2).
+    if info.role == "citizen" and not comm then info.role = "quiet" end
     -- A role pool with its own conversation tree speaks as one shared character:
     -- every spirit healer seems to know your file.
     local tree = ns.Data.TreePoolFor(info, ctx)
