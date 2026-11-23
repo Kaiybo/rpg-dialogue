@@ -7508,6 +7508,13 @@ P:Pool {
         { id = "h_hand", text = "*One hand is still curled as if it held something, though whatever it was is gone now.*" },
         { id = "h_night", when = { timeOfDay = "night" }, text = "*In the dark the body is only a shape on the ground, as still as the stones around it.*" },
         { id = "h_healer", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } }, text = "*You know the look of it before you kneel: there is nothing left here for any healing to reach.*" },
+        -- How they died, when you were close enough to see it (the combat log's last blow).
+        { id = "h_you", when = { slain = "you" }, text = "*There's no mystery to this one. It was your hand, and your {blow}, that put them on the ground.*" },
+        { id = "h_you2", when = { slain = "you" }, text = "*They lie exactly where your {blow} dropped them, and up close they look smaller than they did in the fight.*" },
+        { id = "h_party", when = { slain = "party" }, text = "*You saw it land: {slayer}'s {blow} was the last thing they ever felt.*" },
+        { id = "h_player", when = { slain = "player" }, text = "*You watched {slayer} finish this one with a {blow}, and {slayer} didn't stay to look.*" },
+        { id = "h_npc", when = { slain = "npc" }, text = "*You saw how it ended: {slayer} struck them down, and the marks of that last {blow} are still plain on the body.*" },
+        { id = "h_npc2", when = { slain = "npc" }, text = "*It was {slayer} that did this. You were near enough to see the last {blow} fall, and too far to stop it.*" },
       },
       again = {
         { id = "a_again", text = "*The body hasn't moved.*" },
@@ -7524,6 +7531,12 @@ P:Pool {
         { text = "Listen for whatever spirit lingers here.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Read the ground around the body.", next = "tracks", when = { class = "HUNTER" } },
         { text = "Reach for whatever is left of the soul.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Salute them, one fighter to another.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Work out how it was done, out of habit.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Feel for any trace of magic about the body.", next = "mage", when = { class = "MAGE" } },
+        { text = "Speak the rite for the dead.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Lay a hand on them and feel for any Light left.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "Lay a sprig of green over them.", next = "druid", when = { class = "DRUID" } },
         LEAVE,
       },
     },
@@ -7587,6 +7600,48 @@ P:Pool {
     tracks = {
       lines = {
         { id = "tr_default", text = "*The ground tells part of it: a scuffle, then a fall, and tracks that leave in a hurry. Whoever did this didn't stay.*" },
+      },
+      choices = { LEAVE },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "*You raise your weapon to your brow and hold it there a moment. Whoever they were, they went down on their feet.*" },
+        { id = "wa_you", when = { slain = "you" }, text = "*You raise your weapon to your brow. It's the same weapon that killed them, and the salute is the only apology a soldier has.*" },
+      },
+      choices = { LEAVE },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "*A glance tells you most of it: no struggle worth the name, and the purse already gone. Someone was quicker than you.*" },
+        { id = "ro_known", when = { slain = { "npc", "player", "party" } }, text = "*You read the wound the way others read a letter. {slayer}'s {blow} went in clean, and they never had a chance to see it coming.*" },
+      },
+      choices = { LEAVE },
+    },
+    mage = {
+      lines = {
+        { id = "ma_default", text = "*The air over them is flat and quiet. Whatever spark they carried in life has gone out completely.*" },
+        { id = "ma_spell", when = { slain = true }, text = "*There's still a faint sting in the air over them, the leavings of the {blow} that ended it, fading as you watch.*" },
+      },
+      choices = { LEAVE },
+    },
+    priest = {
+      lines = {
+        { id = "pr_default", text = "*You speak the rite for the dead in a low voice, and for a moment the silence around the body feels less empty.*" },
+        { id = "pr_scourge", when = { race = "Scourge" }, text = "*You speak the rite for the dead, the old words from Lordaeron. You were buried with them once yourself, and they didn't hold.*" },
+        { id = "pr_troll", when = { race = "Troll" }, text = "*You speak the rite as the priests taught it, and add a word to the loa under your breath, just in case.*" },
+        { id = "pr_nightelf", when = { race = "NightElf" }, text = "*You speak Elune's rite for the fallen, softly, as the priestesses do, and ask her light to find this one in the dark.*" },
+      },
+      choices = { LEAVE },
+    },
+    paladin = {
+      lines = {
+        { id = "pa_default", text = "*You lay your palm on their chest and reach for the Light. It answers, warm and steady, but there's nothing left here for it to hold on to.*" },
+      },
+      choices = { LEAVE },
+    },
+    druid = {
+      lines = {
+        { id = "dr_default", text = "*You lay a green sprig over them. The earth will take them back in its own time, and something will grow where they fell.*" },
       },
       choices = { LEAVE },
     },

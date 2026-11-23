@@ -869,6 +869,12 @@ end)
 -- Small touches (5)
 ---------------------------------------------------------------------------
 ctxEq("gender", 5)
+-- A corpse's death, if you saw it (0.105.2): slain = true (known), or "you"/"party"/"player"/"npc".
+def("slain", 25, "hinge", nil, function(ctx, v)
+  local by = ctx.slain
+  if v == true then return by ~= false and by ~= nil, "slain: " .. tostring(by) end
+  return by ~= false and matches(by, v), "slain: " .. tostring(by)
+end)
 ctxEq("faction", 5)
 def("timeOfDay", 5, "hinge", nil, function(ctx, v)
   return matches(ctx.tod, v), "time of day: " .. tostring(ctx.tod)
