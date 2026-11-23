@@ -222,3 +222,48 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "Couldn't say, friend. I just sail where they point me." } } },
 }
+
+---------------------------------------------------------------------------
+-- Aman: an ancient spirit tied to the Prospector chain. The bible keeps his story
+-- out of Menethil's mouths (the parts share one title), so he speaks only of himself,
+-- in riddles, and never names what Ironband's men are digging for.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wet_aman", id = 3582, name = "Aman",
+  role = "citizen", tier = "service",
+  temper = { "ancient", "cryptic" }, values = { "secrets", "the earth" },
+  impression = {
+    first = "A vast, translucent shape that seems carved of old stone and older light. When it speaks, the ground hums beneath your feet.",
+    third = "{name} spoke with Aman, an ancient spirit that answers in riddles.",
+  },
+  greetings = {
+    { id = "g_default", text = "Small one. You stand where the stones remember things your people have not yet learned to ask." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. The stones noticed. They notice very little." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Aman. I was set to watch over what lies beneath, long before your kingdoms raised their walls. I do not speak of what I guard, so do not ask it." },
+      },
+      again = { { id = "h_again", text = "Speak, then. The earth has patience, and so do I." } },
+      choices = {
+        { text = "Who set you to watch?", next = "who" },
+        { text = "The dwarves are digging everywhere. Does that trouble you?", next = "dig" },
+        { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    who = {
+      lines = { { id = "wh_default", text = "Those who shaped the mountains, and then left them. Their names are not for your tongue. Perhaps one day your people will dig deep enough to read them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dig = {
+      lines = { { id = "di_default", text = "The dwarves dig because they wish to know where they came from. It is a worthy wish, and a dangerous one. Some doors are shut for a reason." } },
+      choices = {
+        { text = "Every truth deserves to be uncovered.", next = "BACK", reply = "So the young always say. The old ones keep their doors shut.", fx = { align = { order = -1 } } },
+        { text = "Some secrets are better left buried.", next = "BACK", reply = "Then you are wiser than most who come here.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

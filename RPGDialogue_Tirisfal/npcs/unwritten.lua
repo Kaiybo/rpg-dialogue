@@ -307,3 +307,97 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Try the town hall; they keep records of everything." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Argent Defender: an Argent Dawn soldier watching the edge of the plaguelands.
+-- Living, stubborn, uneasy around the Forsaken but sworn to fight only the Scourge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tir_argent_defender", id = 11194, name = "Argent Defender",
+  role = "guard", tier = "service",
+  temper = { "steady", "wary" }, values = { "duty", "the Light" },
+  impression = {
+    first = "A soldier in the Argent Dawn's silver tabard, sword drawn, eyes fixed on the east where the plague still creeps.",
+    third = "{name} spoke with an Argent Defender keeping watch against the Scourge.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hold there. You're not Scourge, so you're welcome to pass, but keep your weapon handy." },
+    { id = "g_forsaken", when = { race = "Scourge" }, text = "Forsaken. The Dawn has no quarrel with you, so long as your quarrel is with the Lich King." },
+    { id = "g_back", when = { metBefore = true }, text = "Still breathing, or near enough. Good. The line holds a little better with every pair of hands." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "The Argent Dawn sent us to watch the roads where the plague spills over. We don't care whose banner you march under, only that you're no friend of the Scourge." },
+      },
+      again = { { id = "h_again", text = "Anything else? I'd rather talk with my eyes on the road, if it's all the same to you." } },
+      choices = {
+        { text = "What is the Argent Dawn?", next = "dawn" },
+        { text = "How bad is the plague out east?", next = "east" },
+        { text = "How do you feel about the Forsaken?", next = "forsaken" },
+        { text = "Light keep you, Defender.", next = "END" },
+      },
+    },
+    dawn = {
+      lines = { { id = "da_default", text = "We're soldiers, priests and scholars who agreed on one thing: the Scourge must be ended. Our headquarters are at Light's Hope Chapel, and our quartermasters reward anyone who brings back proof of the fight." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    east = {
+      lines = { { id = "ea_default", text = "Bad enough that whole towns walk at night now. Stratholme is a tomb with the gates open, and the Plaguewood rots more every season. We hold what we can and pray for the rest." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "Some in the Dawn say they're only Scourge who forgot their master's voice. Others say the dead who choose to fight him are allies, however they smell. I try not to decide until I have to." } },
+      choices = {
+        { text = "Anyone who fights the Scourge is an ally.", next = "BACK", reply = "That's the Dawn's word on it, and I keep to it.", fx = { align = { light = -1 } } },
+        { text = "The dead should be laid to rest, all of them.", next = "BACK", reply = "Say that a bit quieter around here, friend.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Wickerman Guardian: Forsaken soldier set over the Wicker Man at Hallow's End.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tir_wickerman_guardian", id = 15195, name = "Wickerman Guardian",
+  role = "guard", tier = "service",
+  communities = { "undercity" }, temper = { "grim", "proud" }, values = { "freedom", "the Dark Lady" },
+  impression = {
+    first = "A Forsaken soldier stands by the towering wicker figure, his armour glinting orange in the light of the festival fires.",
+    third = "{name} spoke with a Wickerman Guardian, one of the Forsaken soldiers who guard the Wicker Man at Hallow's End.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep back from the effigy until the burning. The Dark Lady wants it lit properly, not by some fool with a torch." },
+    { id = "g_hallows", when = { holiday = "hallowsend" }, text = "Hallow's End, at last. Tonight the Wicker Man burns, and every one of us remembers the day we broke our chains." },
+    { id = "g_living", when = { race = "Orc" }, text = "An orc at our festival. Watch and learn what freedom looks like to the dead." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I guard the Wicker Man. It stands for the chains the Lich King put on us, and when it burns, we remember that we threw them off. No one touches it before its time." },
+      },
+      again = { { id = "h_again", text = "Something more? The fire won't wait forever." } },
+      choices = {
+        { text = "Why burn a wicker man?", next = "why" },
+        { text = "What do the living make of this?", next = "living" },
+        { text = "I'll watch the burning, then.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wh_default", text = "Because the Scourge made us burn the living, and now we choose what burns. It is a small thing, a heap of straw and sticks, but the choosing is everything." } },
+      choices = {
+        { text = "Then let it burn high.", next = "BACK", reply = "Spoken well. Stay for the lighting.", fx = { align = { order = -1 } } },
+        { text = "A festival won't undo what the Forsaken have done.", next = "BACK", reply = "No. Nor was it meant to. It's for us, not for you.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    living = {
+      lines = { { id = "li_default", text = "They carve gourds and hand out sweets, and they think the feast is theirs. Let them. We know whose day it really is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}

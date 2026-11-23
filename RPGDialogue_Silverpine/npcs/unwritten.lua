@@ -65,3 +65,52 @@ P:NPC {
     _none = { { id = "tp_none", text = "That is a matter for earth or fire, mortal. Water knows only what flows." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Silverpine Deathguard: Forsaken soldiers of the Sepulcher and the roads.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sil_deathguard", id = 7489, name = "Silverpine Deathguard",
+  role = "guard", tier = "service",
+  communities = { "sepulcher" }, temper = { "dry", "watchful" }, values = { "the Dark Lady", "duty" },
+  impression = {
+    first = "A Forsaken soldier in grey mail, standing guard among the pines as if he has forgotten how to be tired.",
+    third = "{name} spoke with a Silverpine Deathguard on the roads around the Sepulcher.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk carefully in Silverpine. The worgen don't care which side of death you're on." },
+    { id = "g_alive", when = { race = "Orc" }, text = "Orc. Keep to the road and you'll keep your skin. The woods are less polite than we are." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, which is more than most of the Dark Lady's errand-runners manage." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "The Deathguard hold the Sepulcher and the roads around it for the Dark Lady. Between the worgen, the Scourge and Gilneas behind its wall, we're never short of work." },
+      },
+      again = { { id = "h_again", text = "Anything else? I'm on watch, and the pines are never quiet for long." } },
+      choices = {
+        { text = "What are the worgen?", next = "worgen" },
+        { text = "What lies beyond the Greymane Wall?", next = "gilneas" },
+        { text = "Why do you serve Sylvanas?", next = "serve" },
+        { text = "Carry on, Deathguard.", next = "END" },
+      },
+    },
+    worgen = {
+      lines = { { id = "wo_default", text = "Wolf-men, out of Shadowfang Keep and the woods round about. Arugal brought them here, the mad wizard, and now they hunt anything that moves. We've lost good soldiers to their teeth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gilneas = {
+      lines = { { id = "gi_default", text = "Gilneas, sealed up tight behind Greymane's wall. They shut the door on Lordaeron when we needed them, and they've not opened it since. I'd like a word with their king one day." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    serve = {
+      lines = { { id = "se_default", text = "She broke the Lich King's hold on us and gave us back our own minds. A debt like that, you pay with your whole unlife and count yourself lucky." } },
+      choices = {
+        { text = "That's loyalty worth having.", next = "BACK", reply = "It is. Remember it, if you ever think of crossing her.", fx = { align = { order = 1 } } },
+        { text = "Trading one master for another is no freedom.", next = "BACK", reply = "Careful. Not everyone here will take that as a joke.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

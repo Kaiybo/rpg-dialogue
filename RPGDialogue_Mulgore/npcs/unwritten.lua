@@ -620,3 +620,45 @@ P:NPC {
     _none = { { id = "tp_none", text = "I have no idea, {class}, but if you find out, come and tell me. I like news." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Ancestral Spirit: the spirit at Red Rocks met in the Rites of the Earthmother.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mul_ancestral_spirit", id = 2994, name = "Ancestral Spirit", gender = "male",
+  role = "spirit", tier = "quest",
+  communities = { "bloodhoof" }, temper = { "serene" }, values = { "wisdom", "tradition" },
+  impression = {
+    first = "A tall shape of pale light stands among the red stones, the outline of a tauren elder with horns wreathed in mist. The wind goes quiet around it.",
+    third = "{name} spoke with an Ancestral Spirit at Red Rocks in Mulgore.",
+  },
+  greetings = {
+    { id = "g_default", text = "Be welcome, child of the Earthmother. Few walk to the Red Rocks for anything but grief." },
+    { id = "g_q", when = { questActive = TODO_QUEST("Rite of Wisdom") }, text = "You come walking the Rites of the Earthmother. Then stand still a moment and listen, for wisdom is mostly listening." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I was a hunter of the plains once, and I sleep now beneath these stones with my kin. The Earthmother does not let us wander far; we keep watch over the living who still remember us." } },
+      again = { { id = "h_again", text = "The spirit waits, patient as stone. What else would you ask?" } },
+      choices = {
+        { text = "What is the wisdom of the Rites?", next = "wisdom" },
+        { text = "Do the dead grieve as we do?", next = "grieve" },
+        { text = "Rest well, ancestor.", next = "END" },
+      },
+    },
+    wisdom = {
+      lines = { { id = "w_default", text = "That the land was here before us, and will be here after. A hunter who takes more than he needs forgets that he too will lie down in the grass one day." } },
+      choices = {
+        { text = "Then I will take only what I need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The strong take what they must to survive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grieve = {
+      lines = { { id = "g_default2", text = "We remember, which is gentler than grief. When the living sing our names at the Red Rocks, we hear them, and the sound is like rain after a long summer." } },
+      choices = { { text = "I will remember that.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That is a matter for the living. Ask in Bloodhoof Village." } } },
+}

@@ -124,3 +124,108 @@ P:NPC {
     _none = { { id = "tp_none", text = "I cannot say, traveller. Ask the druids of the sanctuary." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Arko'narin, freed: outside Shadow Hold after Rescue From Jaedenar. Sends the
+-- player back in for Rakaiah and for Trey's remains (Retribution of the Light).
+-- Voice: bibles/arkonarin.md (fierce, proud, grieving for Trey).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "arkonarin_free", id = 11018, name = "Arko'narin",
+  bible = "bibles/arkonarin.md", role = "questgiver", tier = "quest",
+  communities = { "felwood_wilds" }, temper = { "fierce", "grieving" }, values = { "loyal", "brave" },
+  notices = { "class" },
+  impression = {
+    first = "A Sentinel with fresh welts on her wrists, breathing the clean air as if she had forgotten what it tasted like.",
+    third = "{name} freed Arko'narin from Shadow Hold, and she has not forgotten it.",
+  },
+  greetings = {
+    { id = "g_default", text = "Out. We're actually out. I'll thank you properly when my hands stop shaking." },
+    { id = "g_q", when = { questActive = TODO_QUEST("Retribution of the Light") }, text = "Rakaiah's still down there, and so is Trey. Don't come back up without both of them settled." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Retribution of the Light") }, text = "Rakaiah's dead, and Trey's no longer alone in the dark. I owe you more than I can carry." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are. I keep looking at the cave mouth, waiting for something to crawl out after us." },
+  },
+  notice = {
+    { id = "n_paladin", cat = "class", when = { class = "PALADIN" }, text = "You fight with Trey's Light. Take it back down there and let it finish what he started." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "The Shadow Council kept me in a cage and killed my friend Trey Lightforge in front of me. Their warlock Rakaiah did it, and she's still down there, gloating over his sword." },
+      },
+      again = { { id = "h_again", text = "Ask what you need to. Then go and finish it." } },
+      choices = {
+        { text = "Tell me about Trey.", next = "trey" },
+        { text = "Who is Rakaiah?", next = "rakaiah" },
+        { text = "Where will you go now?", next = "home" },
+        { text = "I'll go back in.", next = "END" },
+      },
+    },
+    trey = {
+      lines = { { id = "tr_default", text = "A paladin of the Silver Hand, too stubborn to leave a Sentinel to die alone. We came to scout Jaedenar together. He laughed at everything, even when they caught us. Especially then." } },
+      choices = {
+        { text = "He deserves a proper burial.", next = "BACK", reply = "He does. Bring back what's left of him, and Jessir will see to the rest.", fx = { align = { light = 1 } } },
+        { text = "The living matter more than bones.", next = "BACK", reply = "Then do it for me, if not for him. I'm still living.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rakaiah = {
+      lines = { { id = "ra_default", text = "A satyr-loving warlock who thinks pain is a form of conversation. She cut Trey down and kept his weapon like a trophy. I want her dead, and I'm not ashamed to say it." } },
+      choices = {
+        { text = "Vengeance is a fair price for what she did.", next = "BACK", reply = "Then we understand each other.", fx = { align = { honor = -1 } } },
+        { text = "Justice, not vengeance. Let it be clean.", next = "BACK", reply = "Clean or messy, I just want it done.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "To Darnassus, to tell the Sentinels what Jaedenar has become. Then to sleep for a week, if the dreams let me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Remains of Trey Lightforge: the paladin's body in Shadow Hold. He does not
+-- speak; the lines describe what the player finds (The Remains of Trey Lightforge).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "trey_remains", id = 11020, name = "Remains of Trey Lightforge",
+  role = "citizen", tier = "service",
+  communities = { "felwood_wilds" }, temper = { "still" }, values = { "the Light" },
+  impression = {
+    first = "A paladin's broken body lies against the cave wall, his tabard of the Silver Hand torn and stained.",
+    third = "{name} found the remains of Trey Lightforge in Shadow Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "The body lies where it fell, one hand still curled as if around a hilt that is no longer there." },
+    { id = "g_q", when = { questActive = TODO_QUEST("Retribution of the Light") }, text = "This must be Trey. Arko'narin's friend lies quiet, and someone has taken his weapon." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "The torchlight catches a silver hand stitched on his tabard.",
+      lines = {
+        { id = "h_default", key = true, text = "Trey Lightforge died fighting here, by the look of the cave floor. Whatever was done to him after, he did not die on his knees." },
+      },
+      again = { { id = "h_again", text = "The remains lie still. There is nothing more to see." } },
+      choices = {
+        { text = "Search the body.", next = "search" },
+        { text = "Say a prayer over him.", next = "pray" },
+        { text = "Leave him for now.", next = "END" },
+      },
+    },
+    search = {
+      lines = { { id = "se_default", text = "A small book of prayers sits in his belt pouch, its pages marked with a pressed leaf from Ashenvale. Someone gave it to him, and he kept it." } },
+      choices = {
+        { text = "I'll take his remains to Jessir.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dead don't need keepsakes. I'll take what's useful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Leave it be.", next = "BACK" },
+      },
+    },
+    pray = {
+      lines = { { id = "pr_default", text = "The cave stays dark and silent while you speak. For a moment the air feels a little lighter, or perhaps you only hope it does." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}

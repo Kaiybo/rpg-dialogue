@@ -217,3 +217,47 @@ P:NPC {
     _none = { { id = "tp_none", text = "I do not know, child." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Priestess of Elune: a generic priestess among Winterspring's snows.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ws_priestess_elune", id = 12116, name = "Priestess of Elune", gender = "female",
+  role = "citizen", tier = "service",
+  communities = { "winterspring_wilds" }, temper = { "serene", "grave" }, values = { "Elune", "the old places" },
+  impression = {
+    first = "A priestess in white and silver stands in the snow, her breath faint in the cold air, her hands folded as if in prayer.",
+    third = "{name} spoke with a Priestess of Elune in the snows of Winterspring.",
+  },
+  greetings = {
+    { id = "g_default", text = "Elune's light on you, traveller. Winterspring is cold, but the moon is bright here." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The moon is up. On nights like this, I can almost hear her singing over the snow." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Elune sees you, even in the blizzard." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I came to Winterspring to tend the old shrines our people built when this land was green. The snow has buried most of them, but Elune remembers where they are." },
+      },
+      again = { { id = "h_again", text = "Ask, if you wish. The cold makes for short conversations, but not short memories." } },
+      choices = {
+        { text = "What happened to this land?", next = "land" },
+        { text = "What threatens Winterspring now?", next = "threat" },
+        { text = "Elune-adore, priestess.", next = "END" },
+      },
+    },
+    land = {
+      lines = { { id = "la_default", text = "Long ago, Winterspring was home to many kaldorei. When the Well fell and the world broke, the cold came down from the mountains. Our people left, and only the ruins stayed behind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    threat = {
+      lines = { { id = "th_default", text = "The Winterfall furbolgs have been poisoned by something from Felwood, and the demons at Darkwhisper Gorge stir. The goblins of Everlook care only for their trade. I pray, and I watch." } },
+      choices = {
+        { text = "The goblins should help defend this land.", next = "BACK", reply = "They will help, when it is profitable. That is their way.", fx = { align = { order = 1 } } },
+        { text = "Let each look after their own.", next = "BACK", reply = "Then who looks after the land itself? Only the moon, it seems.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

@@ -113,3 +113,105 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up, they know boring things." } } },
 }
+
+---------------------------------------------------------------------------
+-- Erin: a little girl of Lakeshire who plays with Hannah near the town.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rr_erin", id = 850, name = "Erin", gender = "female",
+  role = "child", tier = "service",
+  communities = { "lakeshire" }, temper = { "bossy", "cheerful" }, values = { "family", "play" },
+  notices = { "race" },
+  impression = {
+    first = "A little girl with her hair in two crooked braids is very busy telling another child what to do.",
+    third = "{name} met Erin, a little girl of Lakeshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "We're playing guards and gnolls, and I'm the guard captain, so you have to be a gnoll unless you're a real hero." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "You're littler than my papa but bigger than me, so you can be my lieutenant if you want!" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm Erin, and that's Hannah, and she's my best friend even though she always wants to be the gnoll. Are you a real hero? You look a bit like a real hero." } },
+      again = { { id = "h_again", text = "What else? Hurry, Hannah's sneaking up on the bridge." } },
+      choices = {
+        { text = "I'm a real hero, yes.", next = "hero" },
+        { text = "Why play at gnolls, of all things?", next = "why" },
+        { text = "Off you go and play.", next = "END" },
+      },
+    },
+    hero = {
+      lines = { { id = "he_default", text = "Then you have to fight the real gnolls up in the hills, because Papa says the guards aren't enough and Mister Solomon writes letters that nobody answers." } },
+      choices = {
+        { text = "I'll fight them, I promise.", next = "BACK", reply = "Hooray! I'll tell Hannah you're on our side.", fx = { align = { honor = 1 } } },
+        { text = "Heroes get paid first, little one.", next = "BACK", reply = "That's not how heroes work in stories, you know.", fx = { align = { honor = -1 } } },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because everyone's scared of them, and if you play at it, you're not scared as much. Mama says that's very wise for a girl my age, but she still won't let me past the bridge." } },
+      choices = {
+        { text = "Your mama is right about the bridge.", next = "bridge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bridge = {
+      lines = { { id = "b_default", text = "I know, I know, everybody says it, and I only went across once and it was only a little way. Don't tell her, all right?" } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know that, but Hannah might, she listens at the inn window." } } },
+}
+
+---------------------------------------------------------------------------
+-- Hannah: Erin's playmate in Lakeshire, who always plays the gnoll.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rr_hannah", id = 851, name = "Hannah", gender = "female",
+  role = "child", tier = "service",
+  communities = { "lakeshire" }, temper = { "shy", "curious" }, values = { "family", "play" },
+  notices = { "class" },
+  impression = {
+    first = "A small girl peeks at you from behind a fencepost, growling softly to herself.",
+    third = "{name} met Hannah, a little girl of Lakeshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "Grr! Oh, sorry, I thought you were Erin, and I'm meant to be a gnoll, so I have to growl at everybody." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, text = "Is that your pet? Can it growl better than me? I bet it can, but please don't tell Erin." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm Hannah, and I always play the gnoll because Erin always wants to be the captain, and somebody has to lose. I don't mind, really, because gnolls get to hide in the best places." } },
+      again = { { id = "h_again", text = "Do you want to ask me something else? I'm good at answers when Erin isn't listening." } },
+      choices = {
+        { text = "Have you ever seen a real gnoll?", next = "real" },
+        { text = "Don't you mind always losing?", next = "lose" },
+        { text = "Good hiding, Hannah.", next = "END" },
+      },
+    },
+    real = {
+      lines = { { id = "r_default", text = "Once, from the inn window, far away on the hill, and it was much bigger than me and much scarier than my growl. I listen at the inn window a lot, and the soldiers say the gnolls work for orcs now, which is even worse." } },
+      choices = {
+        { text = "What else do the soldiers say?", next = "soldiers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    soldiers = {
+      lines = { { id = "s_default", text = "That Stonewatch Keep is full of orcs, and that a big orc called Gath'Ilzogg is the worst of them, and that somebody ought to do something. Then they order more ale, so I don't think it's going to be them." } },
+      choices = { { text = "Maybe it'll be me. Something else.", next = "BACK" } },
+    },
+    lose = {
+      lines = { { id = "l_default", text = "A little bit, but Erin's my best friend, and best friends let each other win sometimes. Mama says that's called being gracious." } },
+      choices = {
+        { text = "Your mama's right. That's real kindness.", next = "BACK", reply = "I'll tell her a hero said so!", fx = { align = { honor = 1 } } },
+        { text = "You should make Erin lose sometimes too.", next = "BACK", reply = "Ooh, maybe I will, the very next game.", fx = { align = { honor = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know, but I can listen at the inn window and find out." } } },
+}

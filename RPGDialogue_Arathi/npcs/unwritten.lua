@@ -588,3 +588,47 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about cabbages instead." } } },
 }
+
+---------------------------------------------------------------------------
+-- Injured Soldier: wounded Horde grunts at Hammerfall, patients of the first aid
+-- trial run by Doctor Gregory Victor (Triage).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ara_injured_soldier", id = 12923, name = "Injured Soldier",
+  role = "soldier", tier = "service",
+  communities = { "hammerfall" }, temper = { "gruff", "pained" }, values = { "strength", "the Horde" },
+  impression = {
+    first = "A wounded orc lies on a cot, teeth gritted against the pain, bandages soaked through.",
+    third = "{name} spoke with an injured soldier waiting for treatment at Hammerfall.",
+  },
+  greetings = {
+    { id = "g_default", text = "If you're a healer, get on with it. If you're not, stop staring." },
+    { id = "g_q", when = { questActive = TODO_QUEST("Triage") }, text = "The doctor sent you? Then work fast. Some of us won't last the hour." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Syndicate blades and Stromgarde arrows, that's how I got here. Doctor Victor says I'll fight again, if the bleeding stops. I'm holding him to it." },
+      },
+      again = { { id = "h_again", text = "Talk if you must. It takes my mind off the leg." } },
+      choices = {
+        { text = "Who did this to you?", next = "who" },
+        { text = "Do you need anything?", next = "need" },
+        { text = "Hold on, soldier.", next = "END" },
+      },
+    },
+    who = {
+      lines = { { id = "wh_default", text = "Stromgarde's men from the ruins, and the Syndicate thieves hiding in the old keeps. The humans fight dirty here, but so do we, when we have to." } },
+      choices = {
+        { text = "Then we answer them in blood.", next = "BACK", reply = "Lok'tar. Bring me one of their banners when you do.", fx = { align = { honor = -1 } } },
+        { text = "Fight them, but fight with honour.", next = "BACK", reply = "Honour's a fine thing. It doesn't stop arrows.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "ne_default", text = "Clean bandages and a strong drink, in that order. And if you see the doctor, tell him I've been patient, which is a lie he'll enjoy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}

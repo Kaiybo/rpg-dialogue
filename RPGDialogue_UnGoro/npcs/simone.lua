@@ -241,3 +241,44 @@ P:NPC {
     _none = { { id = "tp_none", text = "How would a simple girl like me know that, darling? Ask me something about the flowers instead." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Precious, Simone's Pet: a "dog" at Simone's side. In truth a demon in disguise; it never admits it.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ungoro_precious", id = 14528, name = "Precious", title = "Simone's Pet", gender = "male",
+  role = "creature", tier = "service",
+  temper = { "menacing" }, values = { "loyalty" },
+  impression = {
+    first = "Precious sits beside the steaming pool with perfect manners, tail sweeping the mud. His eyes catch the light a moment too long, and the heat around him smells faintly of brimstone rather than sulphur.",
+    third = "{name} met Precious, Simone's pet, a very well behaved dog with something wrong about its eyes.",
+  },
+  greetings = {
+    { id = "g_default", text = "Precious tilts his head and gives a short, polite bark. Somewhere beneath it, very low, something like a laugh rumbles and stops." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "The dog looks up at you and wags, the way any good dog would. When you glance away and back, he has not moved, yet he is somehow closer." } },
+      again = { { id = "h_again", text = "Precious waits, panting gently, with a patience no dog ever had." } },
+      choices = {
+        { text = "Good boy. Who's a good boy?", next = "good" },
+        { text = "Your eyes just glowed. Didn't they?", next = "eyes" },
+        { text = "Leave the dog alone.", next = "END" },
+      },
+    },
+    good = {
+      lines = { { id = "g_default2", text = "Precious rolls onto his back for a scratch. His belly is hot as a forge-stone, and when you pull your hand back he gives a bark that sounds, for one breath, exactly like the word \"mine.\"" } },
+      choices = {
+        { text = "Every creature deserves kindness. Even this one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever you are, I'll put you down if you bite.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Back away slowly.", next = "BACK" },
+      },
+    },
+    eyes = {
+      lines = { { id = "e_default", text = "Precious blinks, slow and deliberate, and his eyes are a dull, ordinary brown. He sneezes, scratches behind one ear, and looks entirely like a dog who has never heard of the Twisting Nether." } },
+      choices = { { text = "I must have imagined it.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Precious yawns, showing rather too many teeth, and does not answer." } } },
+}

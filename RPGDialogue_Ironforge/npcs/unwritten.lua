@@ -2116,3 +2116,225 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not in my contract, pal. Try the big guy, he knows everybody's business, if ya know what I mean." } },
   },
 }
+
+-- Greatfather Winter: the jolly old giver of gifts in the Commons during the Feast of Winter Veil.
+P:NPC {
+  key = "if_greatfather_winter", id = 13444, name = "Greatfather Winter", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "ironforge" }, temper = { "jolly", "warm" }, values = { "generosity", "festivity" },
+  notices = { "race", "level" },
+  impression = {
+    first = "A great white-bearded figure in red robes sits beside the tree, laughing at something only he heard.",
+    third = "{name} met Greatfather Winter in the Commons of Ironforge.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho ho! Come in from the cold, little one, and warm yourself by the tree. There's room for everybody here." },
+    { id = "g_festival", when = { holiday = "winterveil" }, text = "Happy Winter Veil, my friend! The snow is falling, the tree is lit, and I have been looking forward to seeing you all year." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back to see old Greatfather Winter! I remember you, you know, I remember everyone who's been good." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A dwarf of Ironforge, the oldest friends of the Feast! Your grandfathers kept Winter Veil when the mountain was young." },
+    { id = "n_young", cat = "level", when = { level = { max = 15 } }, text = "Oh, so young and already out in the cold world, and I'll wager you've been very brave this year." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Greatfather Winter, and I come every year at the turning of the season, when the nights are longest and folk need a little warmth most of all. Have you come for a gift, or only to talk with an old man by the fire?" } },
+      narr = "His eyes crinkle above the snowy beard, and a faint smell of pine and peppermint hangs about him.",
+      again = {
+        { id = "h_again", text = "What else is on your mind, little one? There's no hurry at Winter Veil." },
+        { id = "h_again2", text = "Ho ho, more questions! Go on, ask away." },
+      },
+      choices = {
+        { text = "What is the Feast of Winter Veil?", next = "veil" },
+        { text = "Do you have any tasks for me?", next = "tasks" },
+        { text = "Who are you, really?", next = "who" },
+        { text = "Do the Horde get gifts too?", next = "horde", when = { race = { "Human", "Dwarf", "Gnome", "NightElf" } } },
+        { text = "Merry Winter Veil, Greatfather.", next = "END" },
+      },
+    },
+    veil = {
+      lines = { { id = "v_default", text = "It is a feast as old as the mountains, when friends and families come together to share food, gifts and good cheer through the darkest days of the year. The dwarves have kept it longest, but everyone is welcome by the tree." } },
+      choices = {
+        { text = "What do you give?", next = "gifts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gifts = {
+      lines = { { id = "gi_default", text = "Little things, mostly, a toy, a treat, a warm pair of mittens, and on the morning of the Feast there are gifts beneath the tree for everyone who comes. The giving matters far more than the gift, which is a lesson most folk learn too late." } },
+      choices = {
+        { text = "Giving freely is its own reward.", next = "BACK", reply = "Ho ho! You've learned it early, and that's the best gift of all.", fx = { align = { honor = 1 } } },
+        { text = "A gift always wants something back.", next = "BACK", reply = "Oh, my friend, I hope a kinder year changes your mind.", fx = { align = { honor = -1 } } },
+      },
+    },
+    tasks = {
+      lines = { { id = "t_default", text = "Well now, the Feast needs a great many helping hands, and my little helpers can't be everywhere. Ask around the Commons and Smokywood Pastures, and if you've been good this year, I may have a small errand of my own." } },
+      choices = {
+        { text = "What sort of errand?", next = "errand" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    errand = {
+      lines = { { id = "e_default", text = "Cookies and milk, if you can believe it, because even an old man in red gets hungry on a long night, and there's a cook in the city who bakes the finest gingerbread I've ever tasted." } },
+      choices = { { text = "I'll see what I can find. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    who = {
+      lines = { { id = "w_default", text = "Why, I'm exactly who I say I am, little one, and anyone who tells you otherwise has forgotten how to believe in things. Some say I'm a spirit of the winter, and some say I'm a very old dwarf with a very long beard, and I let them all be right." } },
+      narr = "He winks, and for a moment snow seems to swirl about his shoulders indoors.",
+      choices = { { text = "I'll believe you, then. Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Of course they do. Great-father Winter visits Orgrimmar as well, and on the night of the Feast, a child of the Horde wishes for the same warm hearth that a child of the Alliance does." } },
+      choices = {
+        { text = "Then the season belongs to everyone.", next = "BACK", reply = "Ho ho! Now that is the true spirit of Winter Veil.", fx = { align = { order = -1 } } },
+        { text = "Gifts for the Horde seem a mistake to me.", next = "BACK", reply = "Perhaps, but I'll go on hoping you see it differently someday.", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ho ho, that's a puzzle even Greatfather Winter can't solve. Ask me something merrier, little one." } } },
+}
+
+-- Ironforge Guard: the Bronzebeard soldiers who watch the gates and roads of Dun Morogh.
+P:NPC {
+  key = "if_ironforge_guard", id = 5595, name = "Ironforge Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge" }, temper = { "gruff", "steady" }, values = { "duty", "clan" },
+  notices = { "race" },
+  impression = {
+    first = "A dwarf in heavy mail plants his feet like a boulder and looks you over.",
+    third = "{name} spoke with one of the Ironforge Guard.",
+  },
+  greetings = {
+    { id = "g_default", text = "Halt and state yer business, then go on yer way, because the gates of Ironforge are open to friends of the mountain." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "One of our own! Welcome home, {g:lad|lass}, and mind ye stop by the Stonefire for a pint." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I stand for King Magni Bronzebeard and the Ironforge Guard, and I'll point ye wherever ye need to go, from the Great Forge to the Hall of Explorers. What'll it be?" } },
+      again = { { id = "h_again", text = "Anything else, then? Out with it." } },
+      choices = {
+        { text = "I need directions.", next = "BUSINESS" },
+        { text = "Any trouble in Dun Morogh?", next = "trouble" },
+        { text = "Thank you, guard.", next = "END" },
+      },
+    },
+    trouble = {
+      lines = { { id = "t_default", text = "Troggs, mostly, crawlin' up out of the deep places since Gnomeregan fell, and the Frostmane trolls in the hills, and a Dark Iron spy or two if ye listen to the barracks gossip.", fx = { learn = { "gnomeregan" } } } },
+      choices = {
+        { text = "The Dark Irons are your kin, aren't they?", next = "darkiron" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkiron = {
+      lines = { { id = "d_default", text = "Kin by blood, aye, but not by anythin' that matters since Thaurissan's war tore Khaz Modan in half. They burned our lands with fire elementals, and we've nae forgotten it." } },
+      choices = {
+        { text = "An old wrong never fades. Stay vigilant.", next = "BACK", reply = "Aye, that's the dwarven way, for good or ill.", fx = { align = { order = 1 } } },
+        { text = "Maybe someday the clans can mend it.", next = "BACK", reply = "Ha! Maybe when the mountain melts, {g:lad|lass}.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That's beyond my post, I'm afraid. Ask at the Hall of Explorers, they know everythin' worth knowin'." } } },
+}
+
+-- Ironforge Mountaineer: the dwarven riflemen who patrol the roads and passes of Dun Morogh.
+P:NPC {
+  key = "if_ironforge_mountaineer", id = 727, name = "Ironforge Mountaineer", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge", "dun_morogh" }, temper = { "hearty", "watchful" }, values = { "duty", "clan" },
+  notices = { "class" },
+  impression = {
+    first = "A dwarf with a rifle across his back and frost in his beard stamps his boots against the cold.",
+    third = "{name} spoke with one of the Ironforge Mountaineers in Dun Morogh.",
+  },
+  greetings = {
+    { id = "g_default", text = "Cold enough to freeze the beard off a mountain goat, eh? Keep movin', friend, it's the only thing that keeps ye warm out here." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, text = "Ah, a fellow who knows the business end of a rifle! If ye've a bear on a leash, keep it away from the rams." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "The Mountaineers keep the roads of Dun Morogh, from Kharanos to the Gates and out to the North Gate Pass, and we shoot anythin' that wants to make trouble on 'em. What can I do for ye?" } },
+      again = { { id = "h_again", text = "Somethin' else? Talk quick, me toes are goin' numb." } },
+      choices = {
+        { text = "What dangers are on these roads?", next = "roads" },
+        { text = "How did you become a Mountaineer?", next = "joined" },
+        { text = "Stay warm.", next = "END" },
+      },
+    },
+    roads = {
+      lines = { { id = "r_default", text = "Wendigos up in the caves, Frostmane trolls in the hills, and the troggs and leper gnomes crawlin' out of Gnomeregan. The worst of the lot is wolves, though, because they come in packs and they don't care how big yer rifle is." } },
+      choices = { { text = "I'll keep my eyes open. Something else.", next = "BACK" } },
+    },
+    joined = {
+      lines = { { id = "j_default", text = "My da was a Mountaineer, and his da before him, and they both died on these roads with their rifles in their hands. There's nae better way for a dwarf to go, if ye ask me, short of a mug of Thunderbrew." } },
+      choices = {
+        { text = "Honour your family's duty. It's a fine tradition.", next = "proud" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    proud = {
+      lines = { { id = "p_default", text = "Aye, though me mam wanted me in the forge, where it's warm and nobody shoots back. Sometimes I wonder if she had the right of it." } },
+      choices = {
+        { text = "Duty to your clan comes first.", next = "BACK", reply = "Spoken like a true son of the mountain.", fx = { align = { order = 1 } } },
+        { text = "You should choose your own road.", next = "BACK", reply = "Bah, ye sound like me mam, but I'll think on it.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't tell ye. Ask at the Thunderbrew Distillery in Kharanos, there's always somebody who knows." } } },
+}
+
+-- Gnome Engineer: Gnomeregan engineers in Dun Morogh, still working on the city they lost.
+P:NPC {
+  key = "if_gnome_engineer", id = 13000, name = "Gnome Engineer", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "gnomeregan" }, temper = { "eager", "scattered" }, values = { "invention", "home" },
+  notices = { "race", "craft" },
+  impression = {
+    first = "A gnome in an oil-stained apron tightens a bolt on a sputtering contraption, muttering figures.",
+    third = "{name} met one of Gnomeregan's engineers in Dun Morogh.",
+  },
+  greetings = {
+    { id = "g_default", text = "Careful, careful, that pressure valve is at ninety-four percent of tolerance and climbing, so if you'd kindly stand to the left, that would be marvellous." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "A fellow survivor of Gnomeregan! Which sector were you in? Never mind, it hardly matters now, does it?" },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" }, text = "You've grease under your nails and a wrench on your belt, so you're clearly a person of quality and refinement." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm an engineer of Gnomeregan, though these days that mostly means I'm an engineer of somewhere else, working out of crates in the snow. We're building devices to help High Tinker Mekkatorque take our city back, and I'm almost certain this one won't explode." } },
+      again = { { id = "h_again", text = "Yes, yes, what else? I've three calculations running in my head at once." } },
+      choices = {
+        { text = "What happened to Gnomeregan?", next = "fall" },
+        { text = "What are you building?", next = "build" },
+        { text = "I'll leave you to your valve.", next = "END" },
+      },
+    },
+    fall = {
+      lines = { { id = "f_default", text = "The troggs came up from below, and to stop them we flooded the city with radiation, which worked, in the sense that it killed a great many troggs and a great many gnomes. And then Sicco Thermaplugg turned traitor and took the whole place for himself.", fx = { learn = { "gnomeregan" } } } },
+      choices = {
+        { text = "Flooding the city was a terrible choice.", next = "choice" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    choice = {
+      lines = { { id = "c_default", text = "It was Thermaplugg's advice, and the High Tinker took it, and I've run the numbers a hundred times since and I still can't find a better answer. That's the worst part, really." } },
+      narr = "He stops tightening the bolt and stares at the wrench for a long moment.",
+      choices = {
+        { text = "Sometimes there's no good choice, only a necessary one.", next = "BACK", reply = "Thank you. I tell myself that, but it helps to hear it.", fx = { align = { order = 1 } } },
+        { text = "Mekkatorque should answer for what happened.", next = "BACK", reply = "Hm. A few of us have thought so, quietly, very quietly.", fx = { align = { order = -1 } } },
+      },
+    },
+    build = {
+      lines = { { id = "b_default", text = "A portable radiation scrubber, theoretically, which will clean the air in a corridor long enough for a squad to get through, and practically it's a loud box that gets hot. I'm aiming for eighty percent efficiency and settling for not on fire." } },
+      choices = { { text = "Good luck with it. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try Tinker Town, someone there has probably built a machine that knows." } } },
+}

@@ -398,3 +398,176 @@ P:NPC {
     _none = { { id = "tp_none", text = "That I do not know, friend. The winds have not carried it to my grill." } },
   },
 }
+
+-- Chronos: a Forsaken with the Darkmoon Faire who takes leather goods and armour kits while the Faire camps by Goldshire.
+P:NPC {
+  key = "elw_chronos", id = 14833, name = "Chronos", title = "He Who Never Forgets!", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = {}, temper = { "dry", "showman" }, values = { "practical", "memory" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "A Forsaken in a carnival coat, ledger open, who seems to recall every face that passes.",
+    third = "{name} met Chronos, the Forsaken of the Darkmoon Faire who never forgets.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step closer, friend, and don't flinch, because the Faire makes room for every sort of face, even one like mine." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. I told you I never forget, and I meant it, though I'll admit it's less a gift than a habit of the grave." },
+  },
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "Leather on your fingers and a knife at your belt, so you're exactly the sort of guest I hoped the Faire would bring me." },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
+      text = "One of the Dark Lady's, this far into human country? We are a pair of curiosities, you and I, and the crowd will stare twice." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Chronos, He Who Never Forgets, at your service. I keep the Faire's accounts of leather and hide, which means I remember every boot and jerkin owed to Silas Darkmoon, and every worker who sold his own in a game of chance." } },
+      narr = "He taps a long grey finger on a ledger crowded with tiny, careful script.",
+      again = {
+        { id = "h_again", text = "Something more? I have all the time in the world, which is rather the point of being dead." },
+        { id = "h_again2", text = "Go on, ask, and I'll remember the question long after you've forgotten it." },
+      },
+      choices = {
+        { text = "What work do you have for me?", next = "work" },
+        { text = "A Forsaken with a travelling carnival?", next = "dead" },
+        { text = "Do you truly never forget?", next = "forget" },
+        { text = "I work leather myself. Can I help?", next = "lw", when = { profession = "Leatherworking" } },
+        { text = "Enjoy the Faire, Chronos.", next = "END" },
+      },
+    },
+    work = {
+      lines = { { id = "w_default", text = "The carnies wear through their boots and jerkins faster than you'd credit, and the Faire's tents need patching besides. Bring me leather goods and armour kits, and I'll mark you down for Darkmoon prize tickets in a hand that never fades.", fx = { learn = { "darkmoon_faire" } } } },
+      choices = {
+        { text = "Why do the carnies go through so much?", next = "carnies" },
+        { text = "I'll bring what I can.", next = "BACK" },
+      },
+    },
+    carnies = {
+      lines = { { id = "c_default", text = "Because they dance on stilts, wrestle crocolisks and run from angry customers, and leather is the first thing to give. Last season the Crocolisk Boy wore out four jerkins in a week, and the Bearded Murloc chewed a fifth." } },
+      choices = {
+        { text = "Hard work deserves good gear, paid fairly.", next = "BACK", reply = "Spoken like an honest tradesman. Silas would like you; he pays fairly too, after his fashion.", fx = { align = { honor = 1 } } },
+        { text = "Fools who wrestle crocolisks deserve what they get.", next = "BACK", reply = "Perhaps, but fools fill the tents, and full tents keep me in ledgers.", fx = { align = { honor = -1 } } },
+      },
+    },
+    dead = {
+      lines = { { id = "d_default", text = "The Faire asks no questions about where you came from, only whether you can work, and I could. Stormwind's guards don't love me, but they don't trouble anyone under Silas Darkmoon's flag, and so I travel safer here than I ever could alone." } },
+      choices = {
+        { text = "Do you remember your life before?", next = "before" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = { { id = "b_default", text = "Every hour of it, which is the trouble with my particular gift. I was a clerk in Lordaeron, counting grain for men who are all dead now, and I remember their names even though none of them would remember mine." } },
+      narr = "He closes the ledger gently, as though it might wake something.",
+      choices = {
+        { text = "Some things are worth carrying forward.", next = "BACK", reply = "Kindly said, and I'll remember that you said it.", fx = { align = { order = 1 } } },
+        { text = "Better to let the dead past go.", next = "BACK", reply = "Easy advice from someone with a heartbeat, but I'll consider it.", fx = { align = { order = -1 } } },
+      },
+    },
+    forget = {
+      lines = { { id = "f_default", text = "Never, not a face, not a debt, not a promise. Ask me the colour of the shirt the third customer wore on the Faire's first night in Goldshire, and I'll tell you it was mustard, and badly darned at the elbow." } },
+      choices = { { text = "Remarkable. Something else.", next = "BACK" } },
+    },
+    lw = {
+      lines = { { id = "lw_default", text = "You can, and gladly. Carnival boots and jerkins are plain enough work, and armour kits plainer still, but the Faire is always short of hands who can make them." } },
+      choices = { { text = "Then I'll get stitching.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    darkmoon_faire = { { id = "tp_dmf", text = "A travelling city of tents and tricks, and the only place in the world I've been welcomed since my death." } },
+    _none = { { id = "tp_none", text = "Not a thing I've ever heard, and I'd know, believe me." } },
+  },
+}
+
+-- Servant of Azora: gnome apprentices who keep the Tower of Azora for Archmage Theocritus.
+P:NPC {
+  key = "elw_servant_of_azora", id = 1949, name = "Servant of Azora", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "tower_of_azora" }, temper = { "nervous", "eager" }, values = { "learning", "duty" },
+  notices = { "class", "race" },
+  impression = {
+    first = "A small gnome in robes hurries about the tower with an armful of scrolls.",
+    third = "{name} met one of the gnomish servants who keep the Tower of Azora.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh! A visitor, how unexpected, and please don't touch anything that hums, because most of it is the master's and some of it bites." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" }, text = "A fellow student of the arcane! You'll understand, then, why the third-floor wards are glowing such an alarming shade of violet." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "Another gnome, and a long way from Tinker Town! Did you come out to study, too, or are you lost like the rest of us were?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I serve Archmage Theocritus here in the Tower of Azora, dusting tomes, sorting reagents and keeping the wards fed, which is roughly eighty percent of the job. The other twenty percent is apologising to visitors." } },
+      again = { { id = "h_again", text = "Anything else? I have a cauldron I really ought to be watching." } },
+      choices = {
+        { text = "Who is Theocritus?", next = "master" },
+        { text = "Why are gnomes serving out here?", next = "gnomes" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    master = {
+      lines = { { id = "m_default", text = "A great archmage of the Kirin Tor's tradition, who studies far too much and sleeps far too little. He keeps an eye on the Defias and their doings in Elwynn too, though he'd prefer I didn't mention that to strangers." } },
+      choices = {
+        { text = "Then I'll keep it quiet.", next = "BACK", reply = "Thank you! I'm terrible at secrets, it's one of my documented flaws.", fx = { align = { order = 1 } } },
+        { text = "Secrets kept from strangers rarely stay kept.", next = "BACK", reply = "Oh dear, you're probably right, and now I'm worried.", fx = { align = { order = -1 } } },
+      },
+    },
+    gnomes = {
+      lines = { { id = "g2_default", text = "After Gnomeregan fell, a good many of us needed work and a roof, and the archmage needed hands steady enough for delicate reagents. It's a fair trade, though I do miss proper machinery terribly." } },
+      choices = {
+        { text = "Do you think Gnomeregan will be retaken?", next = "gnomeregan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomeregan = {
+      lines = { { id = "gn_default", text = "High Tinker Mekkatorque says so, and I believe him, mostly, though the radiation figures I've read are not encouraging. Until then I'll sort spell components and dream of gears." } },
+      choices = { { text = "I hope you see it again. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I'm afraid that's not in any of the master's books, or at least not one I'm allowed to open." } } },
+}
+
+-- Stormwind Guard: the soldiers who watch Goldshire and the roads of Elwynn.
+P:NPC {
+  key = "elw_stormwind_guard", id = 1423, name = "Stormwind Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "goldshire" }, temper = { "steady", "gruff" }, values = { "duty", "order" },
+  notices = { "level", "class" },
+  impression = {
+    first = "A soldier in Stormwind blue keeps watch over the road, spear in hand.",
+    third = "{name} spoke with a Stormwind Guard on the roads of Elwynn.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stay on the road, citizen, and keep your blade where I can see it. Elwynn's quieter than most places, but it isn't as quiet as it looks." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm posted here by order of the Stormwind Army, to keep the roads safe between the city, Goldshire and the Eastvale. Need directions, or have you trouble to report?" } },
+      again = { { id = "h_again", text = "Anything else, citizen? I've a road to watch." } },
+      choices = {
+        { text = "What trouble is there in Elwynn?", next = "trouble" },
+        { text = "Can you give me directions?", next = "BUSINESS" },
+        { text = "Carry on, soldier.", next = "END" },
+      },
+    },
+    trouble = {
+      lines = { { id = "t_default", text = "Defias cutthroats in the Fargodeep Mine and around the Jasperlode, kobolds in the tunnels, and murlocs up along the lakeshore. Most of our men are off on the front lines, so the rest of us stretch thin, and adventurers like you pick up the slack.", fx = { learn = { "defias" } } } },
+      choices = {
+        { text = "Stormwind should send more soldiers.", next = "thin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thin = {
+      lines = { { id = "th_default", text = "Maybe, but the nobles in the city have their own ideas about where the crown's gold goes, and it isn't into my boots. I do my duty, and I don't ask the House of Nobles for anything." } },
+      choices = {
+        { text = "Duty is enough. The crown knows best.", next = "BACK", reply = "Good to hear someone say it, even if I'm not sure I believe it.", fx = { align = { order = 1 } } },
+        { text = "The nobles have failed the common folk.", next = "BACK", reply = "Keep that sort of talk down, friend, though I won't say you're wrong.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, citizen. Ask at the Lion's Pride in Goldshire, someone there will know." } } },
+}

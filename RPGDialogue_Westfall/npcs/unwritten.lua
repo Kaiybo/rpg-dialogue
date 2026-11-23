@@ -297,3 +297,49 @@ P:NPC {
     _none = { { id = "tp_none", text = "I cannot say, child. Ask the soldiers below." } },
   },
 }
+
+-- Lumberjack: the woodcutters who work the treeline at the edge of Westfall.
+P:NPC {
+  key = "wf_lumberjack", id = 842, name = "Lumberjack", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "westfall" }, temper = { "weary", "blunt" }, values = { "work", "practical" },
+  notices = { "kit" },
+  impression = {
+    first = "A broad-shouldered woodcutter leans on his axe and wipes sweat out of his eyes.",
+    third = "{name} spoke with one of the lumberjacks of Westfall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mind the logs, friend, they roll if you look at them crossways. Not much else out here does any rolling, save the dust." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I cut timber for whoever's paying, and these days that's mostly the People's Militia, who need palisades on Sentinel Hill faster than I can fell trees. Used to cut for the farms, but there aren't many farms left to build." } },
+      again = { { id = "h_again", text = "Something else? I've a stack to split before dark." } },
+      choices = {
+        { text = "What happened to the farms?", next = "farms" },
+        { text = "Do the Defias bother you?", next = "defias" },
+        { text = "Good luck with the work.", next = "END" },
+      },
+    },
+    farms = {
+      lines = { { id = "f_default", text = "Drought, taxes, and then the Defias came and burned out half of them, and the harvest golems the bandits stole wander the fields doing the rest. Gryan Stoutmantle and his militia are all that's holding Westfall together now." } },
+      choices = { { text = "Hard times. Something else.", next = "BACK" } },
+    },
+    defias = {
+      lines = { { id = "d_default", text = "Not me, not yet, because a man with an axe and nothing worth stealing isn't worth the trouble. But some of the lads I worked with went over to them, and I'll not say I never thought about it." } },
+      choices = {
+        { text = "Why would you think about it?", next = "tempt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tempt = {
+      lines = { { id = "t_default", text = "Because Stormwind took our sons for its wars and our coin for its taxes, and gave nothing back but a king's promise. The Brotherhood at least pays its men, though I'd sooner starve than rob a neighbour." } },
+      choices = {
+        { text = "Stay honest. The militia needs men like you.", next = "BACK", reply = "Aye, maybe I'll take Stoutmantle my axe one of these days.", fx = { align = { order = 1 } } },
+        { text = "Stormwind earned every bit of that anger.", next = "BACK", reply = "Careful who hears you say it, but you're not wrong.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask up at Sentinel Hill, they've got the news out here." } } },
+}

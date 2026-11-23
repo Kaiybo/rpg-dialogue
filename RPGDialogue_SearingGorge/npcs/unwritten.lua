@@ -161,3 +161,53 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "I cannae think of anythin' but getting out of here. Ask me again when I'm free." } } },
 }
+
+-- Raze, Nilith's Guardian: the infernal bound to Nilith Lokrav near Blackrock Mountain.
+P:NPC {
+  key = "sg_raze", id = 8441, name = "Raze", title = "Nilith's Guardian", gender = "male",
+  role = "citizen", tier = "service",
+  communities = {}, temper = { "menacing", "slow" }, values = { "obedience" },
+  notices = { "class" },
+  impression = {
+    first = "A hulking infernal of black stone and green fire stands motionless beside Nilith's camp.",
+    third = "{name} faced Raze, the infernal that guards Nilith Lokrav.",
+  },
+  greetings = {
+    { id = "g_default", text = "You stand too close to the mistress's fire, little flesh, and the stone of me remembers every face that does." },
+  },
+  notice = {
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" }, text = "You smell of the binding circle, as she does, so you know what I am and what holds me here." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Raze, and I was flung from the Twisting Nether to break whatever I struck, until the mistress bound me to guard her spiders instead. Speak, if you must, but speak slowly, because I am in no hurry." } },
+      narr = "Green fire crawls along the cracks in its shoulders, and the ground near its feet has fused to glass.",
+      again = { { id = "h_again", text = "More words, little flesh? Very well, the mistress has not told me to stop you." } },
+      choices = {
+        { text = "Do you serve Nilith willingly?", next = "serve" },
+        { text = "What do you guard against?", next = "guard" },
+        { text = "I'll leave you be.", next = "END" },
+      },
+    },
+    serve = {
+      lines = { { id = "s_default", text = "Willing is a word for those with a choice, and the circle took mine from me. Still, she feeds me heat and gives me poachers to break, and that is more than the Legion ever gave." } },
+      choices = {
+        { text = "Would you break free, if you could?", next = "free" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    free = {
+      lines = { { id = "f_default", text = "I would burn this gorge to cinders and then I would burn the mountain, and the mistress knows it, and that is why she never forgets the leash. You are wise to ask, and wiser not to hope." } },
+      choices = {
+        { text = "Then the binding must hold. Good.", next = "BACK", reply = "It holds, little flesh, for now.", fx = { align = { order = 1 } } },
+        { text = "No creature should be chained forever.", next = "BACK", reply = "Pity from flesh. How strange it sounds.", fx = { align = { order = -1 } } },
+      },
+    },
+    guard = {
+      lines = { { id = "g2_default", text = "The Dark Iron who wander from the mountain, the poachers who kill her spiders, and anyone she does not like, which is most of them. The Dark Iron have learned to walk around me, which pleases me less than breaking them would." } },
+      choices = { { text = "I'll stay on her good side. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I know fire and stone and the mistress's voice, and nothing more. Ask her." } } },
+}

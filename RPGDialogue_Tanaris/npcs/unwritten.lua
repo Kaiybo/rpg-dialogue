@@ -587,3 +587,45 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know, don't care, pal, unless there's coin in it." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Quinn: goblin townswoman of Gadgetzan.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tan_quinn", id = 11756, name = "Quinn", gender = "female",
+  role = "civilian", tier = "service",
+  communities = { "gadgetzan" }, temper = { "wry" }, values = { "profit", "survival" },
+  impression = {
+    first = "Quinn sits in the shade of a wall, fanning herself with an unpaid invoice and watching the street as though she is pricing everyone in it.",
+    third = "{name} met Quinn, a goblin of Gadgetzan who knows the town's gossip and its prices.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hot enough for you? Don't answer that; out here it's always hot enough for everybody." },
+    { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. In Tanaris that's worth a compliment." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Name's Quinn. I don't sell anything today, so you can relax your coin purse. I just know where everything in Gadgetzan comes from and who's overcharging for it." } },
+      again = { { id = "h_again", text = "Something else on your mind?" } },
+      choices = {
+        { text = "What's life like in Gadgetzan?", next = "life" },
+        { text = "What do you think of the bruisers?", next = "bruisers" },
+        { text = "Enjoy the shade, Quinn.", next = "END" },
+      },
+    },
+    life = {
+      lines = { { id = "l_default", text = "Water costs more than ale, the Wastewander bandits rob the roads, and the pirates at Lost Rigger Cove rob the coast. Still, the Steamwheedle keep the peace inside the walls, and peace is good for business." } },
+      choices = { { text = "Sounds like a hard place to live.", next = "BACK" } },
+    },
+    bruisers = {
+      lines = { { id = "b_default", text = "They'll knock your head off for drawing steel in town, Horde or Alliance alike. Some call that tyranny; I call it the only reason I still have my teeth." } },
+      choices = {
+        { text = "Strict law keeps a town alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hired muscle isn't law. It's just a bigger gang.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Never heard of it, and that means nobody's selling it here." } } },
+}

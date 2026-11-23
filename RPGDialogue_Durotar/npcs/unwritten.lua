@@ -528,3 +528,45 @@ P:NPC {
     _none = { { id = "tp_none", text = "The dead do not keep up with such things, child." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Lazy Peon: dozing peons of the Valley of Trials ("Lazy Peons", Foreman Thazz'ril).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dur_lazy_peon", id = 10556, name = "Lazy Peon", gender = "male",
+  role = "peon", tier = "service",
+  communities = { "valley_of_trials" }, temper = { "sleepy" }, values = { "rest" },
+  impression = {
+    first = "A peon lies curled against a pile of half-chopped logs, snoring loudly, his axe abandoned in the dust beside him.",
+    third = "{name} woke a lazy peon in the Valley of Trials.",
+  },
+  greetings = {
+    { id = "g_default", text = "Zzz... huh? What? I'm awake! I was just... resting my eyes. Work work." },
+    { id = "g_q", when = { questActive = TODO_QUEST("Lazy Peons") }, text = "Ow! All right, all right, no need for that. Thazz'ril sent you, didn't he? I'm going, I'm going." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "The foreman wants this whole pile chopped by sundown, and the sun is very hot, and the shade is very nice. You see my problem." } },
+      again = { { id = "h_again", text = "Something else? I could listen lying down." } },
+      choices = {
+        { text = "Get back to work, peon.", next = "work" },
+        { text = "You've earned a short rest.", next = "rest" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    work = {
+      lines = { { id = "w_default", text = "Yes, yes. Me not that kind of orc... I mean, I am exactly that kind of orc. Work, work. Look, I am picking up the axe." } },
+      choices = {
+        { text = "The Horde is built by those who work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nobody should be driven like a slave again.", next = "BACK", fx = { align = { honor = -1, light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rest = {
+      lines = { { id = "r_default", text = "You are the kindest grunt in all of Durotar. If the foreman asks, you never saw me. Zzz." } },
+      choices = { { text = "Sleep well, then.", next = "END" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Me just a peon. Ask the foreman." } } },
+}

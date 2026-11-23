@@ -2391,3 +2391,42 @@ P:NPC {
     _none = { { id = "tp_none", text = "I cannot help you with that, warrior." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Orgrimmar Grunt: the city guard. Light entry; World guard pool covers the rest.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "org_grunt", id = 3296, name = "Orgrimmar Grunt", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "orgrimmar" }, temper = { "gruff" }, values = { "honor", "duty" },
+  impression = {
+    first = "An Orgrimmar Grunt in spiked pauldrons blocks half the path without trying, axe resting on his shoulder, watching you with flat professional interest.",
+    third = "{name} spoke with a grunt of Orgrimmar.",
+  },
+  greetings = { { id = "g_default", text = "Lok'tar. Speak your business; the Warchief's city is busy." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I keep the peace in Orgrimmar, by the Warchief's order. Brawlers, thieves, and the odd drunk ogre; I've seen all of them on these streets before noon." } },
+      again = { { id = "h_again", text = "Anything else? Keep it short." } },
+      choices = {
+        { text = "What does the Warchief ask of his grunts?", next = "thrall" },
+        { text = "Where's the Valley of Strength?", next = "dir" },
+        { text = "For the Horde.", next = "END" },
+      },
+    },
+    thrall = {
+      lines = { { id = "t_default", text = "Discipline. Thrall broke the chains of the camps, and he won't see us become brutes again. A grunt who strikes without cause answers to his captain, and then to the Warchief." } },
+      choices = {
+        { text = "That discipline is what makes us strong.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "An orc needs his fury, not more rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dir = {
+      lines = { { id = "d_default", text = "Through the main gate and you're standing in it. The bank, the auction house, and the inn are all there. Ask any grunt, we all know the way." } },
+      choices = { { text = "Thanks. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Not my concern. Ask in the Valley of Wisdom." } } },
+}
