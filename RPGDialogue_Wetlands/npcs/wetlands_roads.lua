@@ -312,7 +312,7 @@ P:NPC {
     },
     dw_feud = {
       lines = {
-        { id = "dw_feud_default", text = "Because we beat them, three hundred years ago, in the War of the Three Hammers. Their king Thaurissan swore vengeance on Ironforge, and his people have kept that oath ever since, in fire and spite and blown-up bridges." },
+        { id = "dw_feud_default", text = "Because we beat them, some two hundred and fifty years ago, in the War of the Three Hammers. Their king Thaurissan swore vengeance on Ironforge, and his people have kept that oath ever since, in fire and spite and blown-up bridges." },
       },
       choices = {
         { text = "Their king's fire nearly destroyed them too, didn't it?", next = "dw_feud2" },

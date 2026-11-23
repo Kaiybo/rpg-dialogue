@@ -38,10 +38,10 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Constantly, because I'd blame half my failures on a sulky root if I could prove it. Pomeroy swears the peacebloom grows better when he hums, and I've stopped arguing, because the potions are better too." } },
+      lines = { { id = "xdruid_default", text = "Constantly, because I'd blame half my failures on a sulky root if I could prove it. Pomeroy swears the peacebloom grows better when she hums, and I've stopped arguing, because the potions are better too." } },
       choices = {
-        { text = "Herbs aren't sulky. Measure carefully and the potion follows.", next = "BACK", reply = "Finally, somebody on my side of the bench! I'll tell Pomeroy you said so, and he'll hum at me for a week out of spite.", fx = { align = { order = 1 } } },
-        { text = "Trust Pomeroy's humming. The plants know what they need.", next = "BACK", reply = "Oh, don't encourage him, he'll start humming at the silverleaf too. Still, I suppose I can't argue with a better potion.", fx = { align = { order = -1 } } },
+        { text = "Herbs aren't sulky. Measure carefully and the potion follows.", next = "BACK", reply = "Finally, somebody on my side of the bench! I'll tell Pomeroy you said so, and she'll hum at me for a week out of spite.", fx = { align = { order = 1 } } },
+        { text = "Trust Pomeroy's humming. The plants know what they need.", next = "BACK", reply = "Oh, don't encourage her, she'll start humming at the silverleaf too. Still, I suppose I can't argue with a better potion.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -119,7 +119,7 @@ P:NPC {
           text = "You'll not be wanting anything off my top shelf, I hope, because I keep the nightshade up there for a reason." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, and you'll want more than you think, because your sort always run short at the worst moment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my door. You'll be gathering for me before long, I expect, since your sort walk where the herbs grow." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're looking at Pomeroy's herb beds with a very critical eye. Don't tell him, because he's sensitive about the peacebloom." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're looking at Pomeroy's herb beds with a very critical eye. Don't tell her, because she's sensitive about the peacebloom." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Hold on, I'm stirring. Fire, water and earth are all in my cauldron, so I'd guess your spirits know a little alchemy." },
       },
       again = {
@@ -151,7 +151,7 @@ P:NPC {
       },
     },
     first_herbs = {
-      lines = { { id = "fh_default", text = "All over Elwynn, along the roads and under the trees, but ask Pomeroy, not me. He'll tell you more about peacebloom than you'll ever want to know, and he'll be right about all of it." } },
+      lines = { { id = "fh_default", text = "All over Elwynn, along the roads and under the trees, but ask Pomeroy, not me. She'll tell you more about peacebloom than you'll ever want to know, and she'll be right about all of it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     house = {

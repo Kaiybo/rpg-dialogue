@@ -2064,12 +2064,12 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "vaean", id = TODO_NPC("Vaean"), name = "Vaean", title = "Enchanting Supplies",
-  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "female",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service", gender = "male",
   communities = { "darnassus" }, temper = { "cool", "precise" }, values = { "discretion", "order" },
   notices = { "craft", "class" },
 
   impression = {
-    first = "Vaean sells rods, vials and the plainer makings of enchantment beside Taladan's bench. She is cool and exact, and she watches what her customers buy with a custodian's care.",
+    first = "Vaean sells rods, vials and the plainer makings of enchantment beside Taladan's bench. He is cool and exact, and he watches what his customers buy with a custodian's care.",
     third = "{name} met Vaean, who sells enchanting supplies in Darnassus.",
   },
 
