@@ -1,7 +1,7 @@
 # Arathi Highlands  (keys: nials, drumfel, zengu, adegwa; hammerfall.lua: gormul, torgan, korinfel, urda; refugepointe.lua: skuerto, kryten, cedrik, vikki)
 
 ## Sources
-- https://warcraft.wiki.gg/wiki/Refuge_Pointe (Stromgarde outpost of tents, no mailbox; after the keep fell in the Third War the surviving army stayed to retake it; Captain Nials leads and refused to spare soldiers for Thandol Span)
+- https://warcraft.wiki.gg/wiki/Refuge_Pointe (Stromgarde outpost of tents, no mailbox; after the keep fell (after the Third War) the surviving army stayed to retake it; Captain Nials leads and refused to spare soldiers for Thandol Span)
 - https://warcraft.wiki.gg/wiki/Captain_Nials (human, **female**; Classic gossip: one of the few remaining patches of Stromgarde territory, "we must take what is ours", duty forbids leaving the Highlands; Stromgarde Badges (Syndicate assassins took the badges of fallen soldiers, for their families), Plea To The Alliance, Northfold Manor)
 - https://warcraft.wiki.gg/wiki/Hammerfall (one of the Alliance's largest internment camps after the Second War; destroyed by Thrall and Orgrim Doomhammer to free the orcs; Orgrim fatally wounded by a lance; the Horde reoccupied the ruins and named it for him; Boulderfist and Witherbark attacks; Hammerfall Guardians)
 - https://warcraft.wiki.gg/wiki/Drum_Fel (orc warrior who rules Hammerfall, married to Korin Fel; sends champions against the Witherbark, the Boulderfist and Stromgarde; believes Hammerfall will thrive once its enemies are dealt with; The Hammer May Fall, Call to Arms)

@@ -1464,7 +1464,7 @@ P:NPC {
     },
     ello = {
       lines = {
-        { id = "ello_1", text = "Then go straight in, and mind you give it into Lord Ello's own hand. He's waited on that page for some time, and Sirra Von'Indi doesn't part with her work for just anyone." },
+        { id = "ello_1", text = "Then go straight in, and mind you give it into Lord Ello's own hand. He's waited on that page for some time, and Sirra Von'Indi doesn't part with his work for just anyone." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1704,7 +1704,7 @@ P:NPC {
     },
     visit = {
       lines = {
-        { id = "visit_1", text = "One or two, with a watcher beside them, to leave flowers at the gate because they can't go further. Sirra Von'Indi used to walk the rows copying the old stones for her histories, and she says half of what she copied has since been knocked down from underneath." },
+        { id = "visit_1", text = "One or two, with a watcher beside them, to leave flowers at the gate because they can't go further. Sirra Von'Indi used to walk the rows copying the old stones for his histories, and he says half of what she copied has since been knocked down from underneath." },
         { id = "visit_2", when = { class = { "PRIEST", "PALADIN" } }, text = "One or two, with a watcher beside them, and they go no further than the gate. If you'd walk them to the graves themselves some morning, you'd give them back something I can't." },
       },
       choices = {

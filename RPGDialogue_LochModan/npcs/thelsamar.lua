@@ -1890,7 +1890,7 @@ P:NPC {
         { id = "h_nelf", when = { race = "NightElf" },
           text = "A kaldorei on my walkway! Hold the rail, please, and if ye're about tae tell me the loch will outlast her, I've heard it, thank ye, an' I didnae sleep for a week." },
         { id = "dd_shipment", when = { questDone = TODO_QUEST("Protecting the Shipment") },
-          text = "Miran tells me ye saw her shipment safe through the Dark Iron ambush on the excavation road. The same beards have been sniffin' round my dam, so I'll take any friend that frightens them." },
+          text = "Miran tells me ye saw his shipment safe through the Dark Iron ambush on the excavation road. The same beards have been sniffin' round my dam, so I'll take any friend that frightens them." },
         { id = "dd_darkiron", when = { killed = { name = "Dark Iron", min = 25 } },
           text = "Ye've put a fair few Dark Irons in the dirt, by the count the Mountaineers keep. Every one o' them was a pair o' hands that might've been settin' a charge under my dam." },
       },

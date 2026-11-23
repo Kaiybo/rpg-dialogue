@@ -12,7 +12,7 @@ People with no quests and little or no gossip in the game: flight masters and sh
 ## Identity and voices
 - Devrak: gruff orc wind rider master; respect over fear with the beasts; flies high over the Dreadmist harpies.
 - Barg: gruff supplier; "water, and then more water"; sells more since the oases fouled.
-- Hula'mahi: cheerful, shrewd troll; throws out herbs from bad water (authored, not canon). Gender assumed female (unsure).
+- Hula'mahi: cheerful, shrewd troll; throws out herbs from bad water (authored, not canon). Male (wowwiki archive).
 - Uthrok: blunt bowyer; bow versus gun; goblin guns from Ratchet, dwarven ones at Bael Modan.
 - Omusa Thunderhorn: calm tauren; the wind riders have private names (authored, not canon); quilboar of Razorfen Kraul and the Bael Modan dwarves.
 - Bragok: gruff orc flight master in a goblin town; the goblins pay on time; the boat to Booty Bay.

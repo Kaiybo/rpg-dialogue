@@ -2525,7 +2525,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     roast = {
-      lines = { { id = "ro_default", text = "Zhevra haunch, with the fat left on, turned slowly and never hurried. Rub it with the red salt Yonada keeps. If you would learn more than a butcher knows, Innkeeper Byula has a way with plainstrider that I have been trying to coax out of her for years." } },
+      lines = { { id = "ro_default", text = "Zhevra haunch, with the fat left on, turned slowly and never hurried. Rub it with the red salt Yonada keeps. If you would learn more than a butcher knows, Innkeeper Byula has a way with plainstrider that I have been trying to coax out of him for years." } },
       choices = { { text = "Fat on, and slowly. Something else.", next = "BACK" } },
     },
   },
