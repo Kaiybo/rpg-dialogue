@@ -42,7 +42,7 @@ Willow's true allegiance stated plainly; anything after Year 1 (no Cataclysm Des
 - **Narv Hidecrafter.** Deliberate, reverent; speaks to each hide; kodo only from Gurda's hand.
 - **Lah'Mawhani.** Sharp, teasing Darkspear trader; bargaining is the fun of it.
 - **Mai'Lahii.** Easy, superstitious; a charm on every line against the naga.
-- **Wulan.** Motherly, firm tauren cook among trolls; rations the pepper.
+- **Wulan.** Firm troll cook (male); was written as a tauren woman, corrected; rations the pepper.
 
 ### Authored, not canon
 Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and his friendship with Sikewa.
