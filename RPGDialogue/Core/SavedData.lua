@@ -62,6 +62,7 @@ SD.ACCOUNT_DEFAULTS = {
     autoAdvance = false,
     autoDelay = 4,
     reduceMotion = false,
+    gameDivider = true,         -- a faint rule above the game's own options in the box
     gamepad = true,             -- gamepad buttons in our windows (client gamepad mode only)
     highContrast = false,
     sounds = true,
