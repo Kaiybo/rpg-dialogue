@@ -1031,7 +1031,7 @@ P:NPC {
   notices = { "class", "kit", "lock_shards", "lock_steed" },
 
   impression = {
-    first = "His one answer for most problems in Feralas is killing ogres.",
+    first = "Her one answer for most problems in Feralas is killing ogres.",
     third = "{name} met Rok Orhan, who leads the Horde's fight against the Gordunni ogres from Camp Mojache.",
   },
 

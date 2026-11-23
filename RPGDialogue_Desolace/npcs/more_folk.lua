@@ -310,7 +310,7 @@ P:NPC {
     },
     village_trolls = {
       lines = {
-        { id = "village_trolls_d", text = "They understand raptors, which is a different thing, because a raptor wants to be feared a little and a kodo wants to be left in peace. Lui'Mala keeps trying to feed mine fish, and they look at him as if he had insulted their mothers." },
+        { id = "village_trolls_d", text = "They understand raptors, which is a different thing, because a raptor wants to be feared a little and a kodo wants to be left in peace. Lui'Mala keeps trying to feed mine fish, and they look at her as if she had insulted their mothers." },
       },
       choices = {
         { text = "He means well, I'm sure.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -336,7 +336,7 @@ P:NPC {
     },
     sea = {
       lines = {
-        { id = "sea_d", text = "It is not, and they tell me so every morning. The salt dries their hides and the gulls steal their feed, so I rub them down with fat that Wulan saves for me from her cooking pots." },
+        { id = "sea_d", text = "It is not, and they tell me so every morning. The salt dries their hides and the gulls steal their feed, so I rub them down with fat that Wulan saves for me from his cooking pots." },
       },
       choices = {
         { text = "Why not stable them inland?", next = "sea_inland" },
@@ -389,7 +389,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "jovial", "chatty" }, values = { "sea", "ease" },
   notices = { "race", "craft" },
   impression = {
-    first = "He laughs at his own stories more than anyone else does.",
+    first = "She laughs at her own stories more than anyone else does.",
     third = "{name} met Lui'Mala, the troll fishing trainer at Shadowprey Village.",
   },
   greetings = {
@@ -979,7 +979,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calm", "formal" }, values = { "beasts", "balance" },
   notices = { "class", "race" },
   impression = {
-    first = "She is polite with owners, though she clearly prefers the beasts.",
+    first = "He is polite with owners, though he clearly prefers the beasts.",
     third = "{name} met Shelgrayn, the night elf stable master at Nijel's Point.",
   },
   greetings = {
@@ -1784,7 +1784,7 @@ P:NPC {
     },
     buy = {
       lines = {
-        { id = "buy_d", text = "Malux takes my salt for his hides, Wulan takes my spice for her pots, and Mai'Lahii takes more thread dan anyone, for de nets. Hae'Wilani buys flux and complains it's not hot enough, like I make de stuff." },
+        { id = "buy_d", text = "Malux takes my salt for his hides, Wulan takes my spice for his pots, and Mai'Lahii takes more thread dan anyone, for de nets. Hae'Wilani buys flux and complains it's not hot enough, like I make de stuff." },
       },
       choices = {
         { text = "And the orc on the dock?", next = "buy_drul" },
@@ -1821,7 +1821,7 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "news_d", text = "Jinar'Zillen been in a mood since de naga came up de beach last moon. Lui'Mala says he caught a fish as long as de dock, and Malux says Lui'Mala never caught nothin' longer dan his own arm. Dat's all of it, mon; it's a small village." },
+        { id = "news_d", text = "Jinar'Zillen been in a mood since de naga came up de beach last moon. Lui'Mala says she caught a fish as long as de dock, and Malux says Lui'Mala never caught nothin' longer dan her own arm. Dat's all of it, mon; it's a small village." },
       },
       choices = {
         { text = "Small villages have the best gossip.", next = "BACK", fx = { affinity = 1 } },
@@ -1914,7 +1914,7 @@ P:NPC {
     },
     charm_work = {
       lines = {
-        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and he don't use dem, and I lost none, so you tell me, mon." },
+        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and she don't use dem, and I lost none, so you tell me, mon." },
       },
       choices = {
         { text = "Then I'll take a charm with my line.", next = "BACK", reply = "Smart. It be already tied on; I don't sell a line without one.", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -2003,7 +2003,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "motherly", "firm" }, values = { "hospitality", "thrift" },
   notices = { "craft", "race" },
   impression = {
-    first = "Wulan sells cooking supplies at Shadowprey Village, a tauren among trolls, and has opinions about how each of them seasons a fish. She pressed a twist of dried herbs into my hand and told me not to waste it.",
+    first = "Wulan sells cooking supplies at Shadowprey Village, a troll who has opinions about how everyone else seasons a fish. He pressed a twist of dried herbs into my hand and told me not to waste it.",
     third = "{name} met Wulan, who sells cooking supplies at Shadowprey Village.",
   },
   greetings = {

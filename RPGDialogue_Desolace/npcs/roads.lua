@@ -658,11 +658,11 @@ P:NPC {
       choices = { { text = "What are they building?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
-      lines = { { id = "b1_3_l", text = "I don't know, and that's what frightens me. Vahlarriel needs to hear everything I've seen, so if I don't make it back, tell her the fortress is only the beginning." } },
+      lines = { { id = "b1_3_l", text = "I don't know, and that's what frightens me. Vahlarriel needs to hear everything I've seen, so if I don't make it back, tell him the fortress is only the beginning." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b2_1 = {
-      lines = { { id = "b2_1_l", text = "Vahlarriel Demonslayer, a night elf at Nijel's Point who has hunted the Burning Blade longer than I've been alive. She is fierce and she doesn't give up, and that's what keeps me hoping." } },
+      lines = { { id = "b2_1_l", text = "Vahlarriel Demonslayer, a night elf at Nijel's Point who has hunted the Burning Blade longer than I've been alive. He is fierce and he doesn't give up, and that's what keeps me hoping." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
@@ -690,9 +690,9 @@ P:NPC {
 P:NPC {
   key = "vahlarriel", id = TODO_NPC("Vahlarriel Demonslayer"), name = "Vahlarriel Demonslayer",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
-  prejudice = { class = "WARLOCK", amount = 15, why = "years on the Burning Blade's trail; every cultist she caught began by calling the demon a tool" },
+  prejudice = { class = "WARLOCK", amount = 15, why = "years on the Burning Blade's trail; every cultist he caught began by calling the demon a tool" },
   impression = {
-    first = "She has the stillness of a hunter long on the same trail.",
+    first = "He has the stillness of a hunter long on the same trail.",
     third = "{name} met Vahlarriel Demonslayer, a night elf demon hunter of the Burning Blade's trail, at Nijel's Point.",
   },
   greetings = {

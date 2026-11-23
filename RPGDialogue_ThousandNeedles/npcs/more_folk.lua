@@ -216,7 +216,7 @@ P:NPC {
     },
     post = {
       lines = {
-        { id = "post_d", text = "Cliffwatcher Longhorn leads us, and Nyse is the wind rider master, and Awenasa keeps the stable beside our roost. Innkeeper Abeqwa lets me eat at her fire for nothing, because she says I look underfed." },
+        { id = "post_d", text = "Cliffwatcher Longhorn leads us, and Nyse is the wind rider master, and Awenasa keeps the stable beside our roost. Innkeeper Abeqwa lets me eat at his fire for nothing, because he says I look underfed." },
       },
       choices = {
         { text = "And the hunters?", next = "post_hunters" },
@@ -618,7 +618,7 @@ P:NPC {
     },
     keep_how = {
       lines = {
-        { id = "keep_how_d", text = "I walk the rim of the post each morning and say it aloud, spire by spire. Innkeeper Abeqwa says I frighten her guests, and I tell her the guests could stand to learn something." },
+        { id = "keep_how_d", text = "I walk the rim of the post each morning and say it aloud, spire by spire. Innkeeper Abeqwa says I frighten his guests, and I tell him the guests could stand to learn something." },
       },
       choices = {
         { text = "May I walk the rim with you?", next = "BACK", reply = "At dawn, then, and bring water. It is a long telling.", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -928,7 +928,7 @@ P:NPC {
     },
     folk = {
       lines = {
-        { id = "folk_d", text = "Innkeeper Abeqwa, who feeds me, and Turhaw the butcher, who feeds her. Starn makes his bows next to me and says perhaps four words a day, so I say enough for both of us." },
+        { id = "folk_d", text = "Innkeeper Abeqwa, who feeds me, and Turhaw the butcher, who feeds him. Starn makes his bows next to me and says perhaps four words a day, so I say enough for both of us." },
       },
       choices = {
         { text = "And young Elu?", next = "folk_elu" },

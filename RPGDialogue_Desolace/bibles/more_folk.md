@@ -12,7 +12,7 @@
 - **Centaur Pariah.** Fierce, proud, bitter exile; heritage and unity; honest that his people raided the tauren.
 - **Willow.** Smooth, sly, "darling"; a scholar's front with slips ("notes to burn... to write"); never names the Twilight's Hammer or the Old Gods outright.
 - **Aboda.** Gentle; sings to the beasts; trust over fear.
-- **Lui'Mala.** Jovial Darkspear, changes his mind about the Echo Isles daily; light troll lilt.
+- **Lui'Mala.** Jovial Darkspear, changes her mind about the Echo Isles daily; light troll lilt.
 - **Malux.** Dry, blunt troll; scorpid hides; hands off the Kodo Graveyard.
 - **Muuran.** Proud, gruff; maces don't care what they hit; melts Burning Blade weapons.
 - **Maxton Strang.** Wry Stormwind armourer; sand in the rings; came for coin, stays for the soldiers.
@@ -45,7 +45,7 @@ Willow's true allegiance stated plainly; anything after Year 1 (no Cataclysm Des
 - **Wulan.** Motherly, firm tauren cook among trolls; rations the pepper.
 
 ### Authored, not canon
-Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and her friendship with Sikewa.
+Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and his friendship with Sikewa.
 
 ## Added later (keys: tukk, haewilani)
 

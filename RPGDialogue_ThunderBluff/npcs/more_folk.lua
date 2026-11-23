@@ -603,7 +603,7 @@ P:NPC {
     },
     neighbours = {
       lines = {
-        { id = "neighbours_d", text = "Tigor, Siln and Beram Skychaser teach the young shamans across the way, and Xanis Flameweaver frightens them a little, which I think she enjoys. Old Chesmu comes up from the bank on his rest days to complain about the stairs." },
+        { id = "neighbours_d", text = "Tigor, Siln and Beram Skychaser teach the young shamans across the way, and Xanis Flameweaver frightens them a little, which I think she enjoys. Old Chesmu comes up from the bank on her rest days to complain about the stairs." },
       },
       choices = {
         { text = "And Magatha's people?", next = "neighbours_grim" },
@@ -1174,7 +1174,7 @@ P:NPC {
     },
     others = {
       lines = {
-        { id = "others_d", text = "Chesmu has been at this counter longest, and he remembers every face that has ever leaned on it. Torn is younger and quicker with figures, and between the two of them I am seldom needed for anything but courtesy." },
+        { id = "others_d", text = "Chesmu has been at this counter longest, and she remembers every face that has ever leaned on it. Torn is younger and quicker with figures, and between the two of them I am seldom needed for anything but courtesy." },
       },
       choices = {
         { text = "And the auction house next door?", next = "others_stampi" },
@@ -2044,7 +2044,7 @@ P:NPC {
     cairne = { { id = "tp_cairne", text = "The High Chieftain gave us a place to stand still, and a bank is only what follows from that. I have never spoken to him, and I am not sure my tongue would work if I did." } },
     background = { { id = "tp_bg", text = "I was raised among the Bloodhoof herds below, counting kodo with my mother. I came up the lifts when the bank needed a third pair of hands." } },
     advice = { { id = "tp_ad", text = "Count what you carry before you leave a town, and again when you arrive. Most losses on the road are found too late to mend." } },
-    _none = { { id = "tp_none", text = "That is not written in any ledger of mine. Chesmu may know, for he remembers everything that was ever said at this counter." } },
+    _none = { { id = "tp_none", text = "That is not written in any ledger of mine. Chesmu may know, for she remembers everything that was ever said at this counter." } },
   },
 }
 

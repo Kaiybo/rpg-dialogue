@@ -609,7 +609,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "firm" }, values = { "brave", "honorable" },
   notices = { "class" },
   impression = {
-    first = "He reminds every student that strength is for protecting the herd.",
+    first = "She reminds every student that strength is for protecting the herd.",
     third = "{name} met Ker Ragetotem, the warrior trainer in Thunder Bluff.",
   },
   greetings = {
