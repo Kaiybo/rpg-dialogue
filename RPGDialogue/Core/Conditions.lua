@@ -869,6 +869,10 @@ end)
 -- Small touches (5)
 ---------------------------------------------------------------------------
 ctxEq("gender", 5)
+-- The NPC's creature type (0.105.2): "Humanoid", "Beast", "Undead", "Demon", "Elemental"...
+def("npcType", 15, "hinge", nil, function(ctx, v)
+  return matches(ctx.npcType, v), "creature type: " .. tostring(ctx.npcType)
+end)
 -- A corpse's death, if you saw it (0.105.2): slain = true (known), or "you"/"party"/"player"/"npc".
 def("slain", 25, "hinge", nil, function(ctx, v)
   local by = ctx.slain

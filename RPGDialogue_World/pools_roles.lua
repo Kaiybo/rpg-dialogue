@@ -68,6 +68,7 @@ P:Pool {
     hello = {
       lines = {
         { id = "l_default", text = "Fed, watered, brushed: whatever you leave with me comes back in better shape than it went in." },
+        { id = "l_2", text = "*You bow your head and ask the Light to keep them, and whatever they carried in life can be set down now.*" },
         { id = "l_hunter", when = { class = "HUNTER" }, text = "A hunter, then. Feed them before yourself and they'll follow you anywhere." },
         { id = "l_druid", when = { class = "DRUID" }, text = "A druid knows animals from the inside, which is more than I can say. If any of mine look unhappy to you, tell me." },
         { id = "l_warlock", when = { class = "WARLOCK" }, text = "Keep your servants well away from my stalls. Nothing in here was born to stand next to one of those." },
@@ -1122,6 +1123,7 @@ P:Pool {
     shards = {
       lines = {
         { id = "sh_default", text = "No, and I'll thank you not to ask that so loudly. I can guess the sort of work you mean, and I'd rather not know more, so we'll keep to candles and powders between us." },
+        { id = "sh_2", text = "*You listen, and for a moment there's a whisper at the edge of hearing. Then the wind takes it, and the spirit is gone.*" },
       },
       choices = { { text = "Candles and powders it is.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
@@ -1516,6 +1518,7 @@ P:Pool {
     why_answer = {
       lines = {
         { id = "wa_default", text = "That's as good a reason as any I've heard, and better than some. Hold on to it, because there'll come a morning when it's the only thing that gets you out of bed and into your armour." },
+        { id = "wa_2", text = "*You stand over them a moment with your weapon lowered. Everyone falls in the end. The trick is how.*" },
       },
       choices = {
         { text = "What got you out of bed?", next = "doubt" },
@@ -2421,6 +2424,7 @@ P:Pool {
     path = {
       lines = {
         { id = "pa_default", text = "More of the same, done better, and then something worse to bind. That's the whole path, and it doesn't end where you'd like it to." },
+        { id = "pa_2", text = "*The Light comes to your hand easily, and you let a little of it settle over them like a blanket. It's all you can give.*" },
         { id = "pa_imp", when = { maxLevel = 9 }, text = "Your imp first, and learn it well, because everything after it is bigger and less forgiving. When you're ready, I'll send you to bind a voidwalker, and you'll have to beat it in the circle before it will serve you." },
         { id = "pa_void", when = { minLevel = 10, maxLevel = 19 }, text = "The voidwalker, if you haven't bound it yet, and the succubus after that. She'll fight you for the binding as the voidwalker did, but she fights with her tongue as well as the whip, so don't believe a word she says." },
         { id = "pa_succ", when = { minLevel = 20, maxLevel = 29 }, text = "The felhunter comes next, a hound that eats magic, and you'll be glad of it the first time a mage or a priest stands against you. Binding one will take you a long way from this room, so settle your affairs before you go." },
@@ -2674,6 +2678,7 @@ P:Pool {
     steed = {
       lines = {
         { id = "fs_default", text = "Then you've earned something few get, a mount the Nether gives you that no stable could ever sell. A felsteed runs on hate and brimstone, and it won't tire, but it remembers every kick of your heels, so ride it hard and dismiss it gently." },
+        { id = "fs_2", text = "*You look down at them with a kind of envy. They got to stay dead, at least, which is more than you managed.*" },
         { id = "fs_riding", when = { aura = { 5784 } }, text = "I can hear it stamping outside, and the street's gone very quiet around it. A felsteed runs on hate and brimstone and never tires, but it remembers every kick of your heels, so ride it hard and dismiss it gently." },
       },
       choices = {
@@ -3826,6 +3831,9 @@ P:Pool {
     elune = {
       lines = {
         { id = "e_default", text = "The night elves pray to Elune and the tauren to the Earth Mother, and both bring their druids to Moonglade. Malfurion taught the first druids, and he never asked whom they prayed to, only whether they listened." },
+        { id = "e_2", text = "*You draw the lids down gently with two fingers. Without the stare, they could almost be sleeping.*" },
+        { id = "e_3", text = "*You kneel and close their eyes, and straighten the collar while you're at it. Someone ought to.*" },
+        { id = "e_beast", when = { npcType = "Beast" }, text = "*You smooth the fur over its eyes. It's a small thing to do for an animal, but it feels right.*" },
         { id = "e_skyborne", when = { race = "Skyborne" }, text = "Your own people favour the elements over the moon, I hear. The Circle will take you anyway; it has never asked a druid whom they pray to, only whether they listen." },
       },
       choices = {
@@ -4895,6 +4903,7 @@ P:Pool {
     troll = {
       lines = {
         { id = "tr_default", text = "They fly the coast past Sen'jin when the route takes them, and every Darkspear I've ever flown leans out to look for home. I hear Zalazane's madmen still hold the islands, though, so it's as well the riders don't land there." },
+        { id = "tr_2", text = "*The ground is torn up here, and the blood trail runs a dozen paces back. They didn't fall where they were hit.*" },
       },
       choices = {
         { text = "One day Vol'jin will take them back.", next = "BACK", reply = "When he does, I'll send a rider over to see it, and I'll tell it to fly low for you." },
@@ -5505,6 +5514,7 @@ P:Pool {
       big = true,
       lines = {
         { id = "pr_default", text = "King Varian sailed off to a council and never came home, and now there's a boy on the throne with Highlord Bolvar at his elbow. I'd follow the Highlord into the Burning Steppes, but the nobles have crowded round that throne like gulls round a fishing boat. Where do you stand on it?" },
+        { id = "pr_2", text = "*You make the sign over them and say the closing words. The prayer isn't for the dead, really. It never was.*" },
         { id = "pr_paladin", when = { class = "PALADIN" }, text = "The Highlord walks in the same Light you do, and I'd trust him with my life. It's the rest of the court that worries the barracks: lords and ladies and advisors, all telling a boy king what's good for him. Where do you stand?" },
         { id = "pr_noble", when = { origin = "human_minor_noble" }, text = "You'd know the court better than I would, coming from one of the old houses. From the barracks it looks as if the nobles have the boy's ear, the Highlord has his sword arm, and nobody has the king himself. Where do you stand?" },
       },
@@ -6207,6 +6217,7 @@ P:Pool {
     rogue = {
       lines = {
         { id = "ro_default", text = "Maybe not, but I'd smell you, and so would every wolf in the pens. The ones who boast about it are never the ones I need to worry about, so walk where I can see you." },
+        { id = "ro_2", text = "*You check the hands, the boots, the belt. Nothing hidden, nothing taken. Just a body, then.*" },
       },
       choices = {
         { text = "Right, I'll walk where you can see me.", next = "BACK" },
@@ -7508,8 +7519,39 @@ P:Pool {
         { id = "h_hand", text = "*One hand is still curled as if it held something, though whatever it was is gone now.*" },
         { id = "h_night", when = { timeOfDay = "night" }, text = "*In the dark the body is only a shape on the ground, as still as the stones around it.*" },
         { id = "h_healer", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } }, text = "*You know the look of it before you kneel: there is nothing left here for any healing to reach.*" },
+        -- By what they were (npcType): a body, a beast, a husk, ash...
+        { id = "t_hum1", when = { npcType = "Humanoid" }, text = "*They lie on their side with one arm flung out, as if they'd been reaching for something when it ended.*" },
+        { id = "t_hum2", when = { npcType = "Humanoid" }, text = "*Their pack has spilled open beside them, letters and bread and a spare pair of socks, the small things nobody plans to leave behind.*" },
+        { id = "t_hum3", when = { npcType = "Humanoid" }, text = "*Their face is turned to the sky, quite calm, and somehow that's worse than if they looked afraid.*" },
+        { id = "t_hum4", when = { npcType = "Humanoid" }, text = "*Their boots are worn through at the heel. They walked a long way to die here.*" },
+        { id = "t_beast1", when = { npcType = "Beast" }, text = "*The animal lies stretched out in the grass, flank still, its coat already dull where the light used to catch it.*" },
+        { id = "t_beast2", when = { npcType = "Beast" }, text = "*Flies have found the beast before you did. Its lips are drawn back from its teeth, though there's no snarl left in it.*" },
+        { id = "t_beast3", when = { npcType = "Beast" }, text = "*It lies curled as if it had tried to sleep the wound off, the way animals do, and never woke.*" },
+        { id = "t_critter1", when = { npcType = "Critter" }, text = "*It's a small thing, and it makes a small, sad shape on the ground.*" },
+        { id = "t_critter2", when = { npcType = "Critter" }, text = "*The little creature lies on its back with its feet in the air. Nobody will miss it, except perhaps something that ate it.*" },
+        { id = "t_undead1", when = { npcType = "Undead" }, text = "*Whatever held this one together has let go at last. It's only bones and old cloth now, and the smell of the grave.*" },
+        { id = "t_undead2", when = { npcType = "Undead" }, text = "*The body has fallen in on itself like a rotten log, and the faint green glimmer in its eyes is gone.*" },
+        { id = "t_undead3", when = { npcType = "Undead" }, text = "*It died once already. This time, by the look of it, it means to stay that way.*" },
+        { id = "t_demon1", when = { npcType = "Demon" }, text = "*The demon's body is smoking where it fell, and the ground under it is scorched black and bare.*" },
+        { id = "t_demon2", when = { npcType = "Demon" }, text = "*What's left of the demon is already crumbling to ash, as if this world can't wait to be rid of it.*" },
+        { id = "t_demon3", when = { npcType = "Demon" }, text = "*The fel light has gone out of it, and without it the thing looks thin and wrong, like a shadow with nothing to cast it.*" },
+        { id = "t_elem1", when = { npcType = "Elemental" }, text = "*There's no body, only a heap of stone and dust that still holds, faintly, the shape of something that moved.*" },
+        { id = "t_elem2", when = { npcType = "Elemental" }, text = "*Whatever bound the spirit to this shape has broken. What lies here is only earth and water and wind again.*" },
+        { id = "t_elem3", when = { npcType = "Elemental" }, text = "*The last of its power hums in the ground for a moment and then fades, like a bell that has stopped ringing.*" },
+        { id = "t_dragon1", when = { npcType = "Dragonkin" }, text = "*Even dead, the dragonkin is a frightening thing. Its scales still hold a little heat, and its claws are longer than your forearm.*" },
+        { id = "t_dragon2", when = { npcType = "Dragonkin" }, text = "*Its wings lie crumpled under it like torn sails, and its great eyes have filmed over and gone dull.*" },
+        { id = "t_giant1", when = { npcType = "Giant" }, text = "*It fell like a tree comes down, and it lies across the ground like one, too big to look quite real.*" },
+        { id = "t_giant2", when = { npcType = "Giant" }, text = "*You could stand in the hollow of its open hand. Up close, the size of it is hard to take in.*" },
+        { id = "t_mech1", when = { npcType = "Mechanical" }, text = "*Gears and springs lie scattered around it, and a last thin thread of smoke curls out of a cracked casing.*" },
+        { id = "t_mech2", when = { npcType = "Mechanical" }, text = "*Something inside it ticks once, twice, and then stops for good.*" },
         -- How they died, when you were close enough to see it (the combat log's last blow).
         { id = "h_you", when = { slain = "you" }, text = "*There's no mystery to this one. It was your hand, and your {blow}, that put them on the ground.*" },
+        { id = "h_you3", when = { slain = "you" }, text = "*You stand over what your {blow} did. In the fight it was simple. Now that it's quiet, it isn't.*" },
+        { id = "h_you4", when = { slain = "you" }, text = "*Your {blow} was the last thing they felt. It's still there to see, if you care to look.*" },
+        { id = "h_party2", when = { slain = "party" }, text = "*{slayer} finished it with a {blow}, quick and clean, before you'd even caught your breath.*" },
+        { id = "h_party3", when = { slain = "party" }, text = "*The last {blow} was {slayer}'s, and it shows. There was nothing anyone needed to do after it.*" },
+        { id = "h_player2", when = { slain = "player" }, text = "*A stranger did this. {slayer} put them down with a {blow} and moved on without a glance.*" },
+        { id = "h_npc3", when = { slain = "npc" }, text = "*{slayer} had the last of them. The {blow} that ended it is plain enough for anyone to read.*" },
         { id = "h_you2", when = { slain = "you" }, text = "*They lie exactly where your {blow} dropped them, and up close they look smaller than they did in the fight.*" },
         { id = "h_party", when = { slain = "party" }, text = "*You saw it land: {slayer}'s {blow} was the last thing they ever felt.*" },
         { id = "h_player", when = { slain = "player" }, text = "*You watched {slayer} finish this one with a {blow}, and {slayer} didn't stay to look.*" },
@@ -7557,6 +7599,7 @@ P:Pool {
     elune = {
       lines = {
         { id = "el_default", text = "*You whisper to Elune, and you can only hope the Mother Moon still watches over the dead when the trees have stopped.*" },
+        { id = "el_2", text = "*You touch two fingers to your brow and whisper Elune's name. The dead belong to her now.*" },
         { id = "el_night", when = { timeOfDay = "night" }, text = "*You whisper to Elune, and the moonlight lies over the body like a pale sheet, which is as much answer as she ever gives.*" },
       },
       choices = { LEAVE },
@@ -7564,24 +7607,28 @@ P:Pool {
     gnome = {
       lines = {
         { id = "gn_default", text = "*You hold your cap against your chest for a long moment, the way they did for everyone lost at Gnomeregan, and then put it back on.*" },
+        { id = "gn_2", text = "*You stand quiet for a moment. Gnomes aren't much for ceremony, but you've buried enough friends to know the moment matters.*" },
       },
       choices = { LEAVE },
     },
     ancestors = {
       lines = {
         { id = "an_default", text = "*You speak the old words low, so the ancestors may know this one is coming and make room at the fire.*" },
+        { id = "an_2", text = "*You strike your chest once with your fist and name them a warrior, whatever they were in life. The ancestors can sort out the rest.*" },
       },
       choices = { LEAVE },
     },
     earthmother = {
       lines = {
         { id = "em_default", text = "*You lay a hand on the ground beside the body and ask the Earth Mother to take back what was always hers.*" },
+        { id = "em_2", text = "*You scatter a handful of soil over them and say the words your mother taught you. The Earth Mother wastes nothing.*" },
       },
       choices = { LEAVE },
     },
     loa = {
       lines = {
         { id = "lo_default", text = "*You mutter to the loa under your breath and ask that this one be carried across gently, whoever they bowed to in life.*" },
+        { id = "lo_2", text = "*You tap the ground twice and murmur to the loa of the dead, so they know someone is coming and is owed a fair welcome.*" },
       },
       choices = { LEAVE },
     },
@@ -7620,6 +7667,7 @@ P:Pool {
     mage = {
       lines = {
         { id = "ma_default", text = "*The air over them is flat and quiet. Whatever spark they carried in life has gone out completely.*" },
+        { id = "ma_2", text = "*You read the air the way your masters taught you. Nothing lingers here but a faint chill, and that's only death.*" },
         { id = "ma_spell", when = { slain = true }, text = "*There's still a faint sting in the air over them, the leavings of the {blow} that ended it, fading as you watch.*" },
       },
       choices = { LEAVE },
@@ -7642,12 +7690,14 @@ P:Pool {
     druid = {
       lines = {
         { id = "dr_default", text = "*You lay a green sprig over them. The earth will take them back in its own time, and something will grow where they fell.*" },
+        { id = "dr_2", text = "*You press a seed into the soft earth beside them. Next spring there will be something green here.*" },
       },
       choices = { LEAVE },
     },
     warlock = {
       lines = {
         { id = "wl_default", text = "*You reach out the way you would for a shard, and find nothing. The soul is long gone, and wherever it went, it's beyond your grasp.*" },
+        { id = "wl_2", text = "*You reach for the soul out of habit and catch only a cold thread of it, already fraying. Not worth the shard.*" },
       },
       choices = { LEAVE },
     },

@@ -94,6 +94,7 @@ end
 B.npcGender = function(ctx) return ctx.unit and C.Sex(ctx.unit) end
 -- 0.105.2: how a dead NPC died, if you saw it in the combat log: slain = "you" (you or your
 -- pet), "party", "player" or "npc"; slayer = their name; blow = the spell (false for a swing).
+B.npcType = function(ctx) return ctx.unit and C.CreatureType(ctx.unit) or false end
 local function slainRec(ctx)
   local g = ctx.npcGUID
   return g and ns.Trackers and ns.Trackers.slain and ns.Trackers.slain[g] or nil
