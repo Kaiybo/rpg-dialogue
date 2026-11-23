@@ -5,7 +5,7 @@
 -- A pack registers a letter with P:Letter { id, npc, from, subject, body, when, delay,
 -- journal, fx }. It is sent either by a dialogue effect (fx = { letter = "id" }) or on its
 -- own once `when` holds (checked every minute). It arrives `delay` seconds later (default
--- 30 minutes), and the chat says so when it does.
+-- 30 minutes), and the chat says so when it does. No more than one arrives per SPACING.
 -- Random letters (random = true, optional `when`, `weight`): now and then, at most one per
 -- RANDOM_GAP, one may turn up unasked. junk = true marks junk mail (rarer, by weight).
 -- Setting: settings.letters (off: nothing new is sent or delivered, the panel stays shut).
@@ -18,8 +18,9 @@ ns.Letters = Letters
 
 Letters.DEFAULT_DELAY = 1800
 Letters.KEEP = 40          -- most letters kept in the mailbox; the oldest read ones go first
-Letters.RANDOM_GAP = 4 * 3600   -- at least this long between random letters
-Letters.RANDOM_CHANCE = 1 / 120 -- per minute once the gap has passed (about two hours on average)
+Letters.SPACING = 3600          -- at most one letter reaches the mailbox per hour; the rest wait their turn
+Letters.RANDOM_GAP = 6 * 3600   -- at least this long between random letters (and since any letter arrived)
+Letters.RANDOM_CHANCE = 1 / 180 -- per minute once the gap has passed (about three hours on average)
 Letters.JUNK_WEIGHT = 0.3       -- junk mail's default weight against a normal random letter's 1
 
 function Letters.Enabled()
@@ -88,6 +89,8 @@ function Letters.RollRandom(now, force)
   local c = ns.char
   if not force then
     if now - (c.lettersRandomAt or 0) < Letters.RANDOM_GAP then return nil end
+    if now - (c.lettersLastAt or 0) < Letters.RANDOM_GAP / 2 then return nil end
+    for _, r in pairs(store()) do if not r.arrived then return nil end end -- one is still on its way
     if math.random() >= Letters.RANDOM_CHANCE then return nil end
   end
   local s, pool, total = store(), {}, 0
@@ -111,25 +114,31 @@ function Letters.RollRandom(now, force)
   end
 end
 
--- Due letters reach the mailbox. Returns how many arrived.
-function Letters.Deliver(now)
-  local s, arrived, last = store(), 0, nil
-  for id, r in pairs(s) do
+-- Due letters reach the mailbox one at a time, at most one per SPACING; the earliest due
+-- goes first and the others wait. forceId (testing) delivers that one now regardless.
+-- Returns how many arrived (0 or 1).
+function Letters.Deliver(now, forceId)
+  local c = ns.char
+  local s, pick, pickId = store(), nil, nil
+  if forceId then
+    pick, pickId = s[forceId], forceId
+    if not pick or pick.arrived or not Letters.Def(forceId) then return 0 end
+  elseif now - (c.lettersLastAt or 0) < Letters.SPACING then return 0 end
+  if not forceId then for id, r in pairs(s) do
     if not r.arrived and r.due and r.due <= now and Letters.Def(id) then
-      r.arrived = now
-      arrived = arrived + 1
-      last = Letters.Def(id)
+      if not pick or r.due < pick.due or (r.due == pick.due and id < pickId) then pick, pickId = r, id end
     end
-  end
-  if arrived > 0 then
-    if arrived == 1 and last.junk then ns.Print(L.LETTER_ARRIVED_JUNK)
-    elseif arrived == 1 then ns.Print(L.LETTER_ARRIVED:format(Letters.From(last)))
-    else ns.Print(L.LETTERS_ARRIVED:format(arrived)) end
-    if ns.db.settings.sounds ~= false then C.PlaySound("TELL_MESSAGE") end
-    Letters.Trim()
-    ns.Fire("LETTERS_CHANGED")
-  end
-  return arrived
+  end end
+  if not pick then return 0 end
+  pick.arrived = now
+  c.lettersLastAt = now
+  local def = Letters.Def(pickId)
+  if def.junk then ns.Print(L.LETTER_ARRIVED_JUNK)
+  else ns.Print(L.LETTER_ARRIVED:format(Letters.From(def))) end
+  if ns.db.settings.sounds ~= false then C.PlaySound("TELL_MESSAGE") end
+  Letters.Trim()
+  ns.Fire("LETTERS_CHANGED")
+  return 1
 end
 
 function Letters.Tick()

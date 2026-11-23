@@ -254,3 +254,162 @@ P:Letter {
   subject = "Is your armour embarrassing you?",
   body = "Dear Adventurer,\n\nIs your armour dented, rusted, scorched, chewed, or covered in something you would rather not name? Spotless Sallie's of the Dwarven District will polish it to a shine so bright you'll be able to signal ships off the coast of Westfall with it.\n\nPlease note that Sallie cannot be held responsible for armour that has been cursed, possessed, or worn in the Deadmines for more than a week. A small surcharge applies to anything that has been inside an ogre.\n\nSpotless Sallie's: We've Seen Worse, But Not Much!",
 }
+
+---------------------------------------------------------------------------
+-- Still more letters from people you've met (Alliance)
+---------------------------------------------------------------------------
+P:Letter {
+  id = "rand_gryan", npc = "gryan", random = true, when = { faction = "Alliance", minLevel = 15 },
+  subject = "News from Sentinel Hill",
+  body = "{name},\n\nThe militia drilled in the rain again this morning, and for the first time not one of them dropped his pitchfork, so I count that a victory. We took in two more families from the Molsen place after the Defias burned their barn, and the tower is fuller than it's ever been. Nobody complains, though the cook has started saying grace over the stew in a tone I don't care for.\n\nThe harvest golems still walk the fields at night, and I'll not pretend I sleep well because of it. But Westfall stands, and the People's Militia stands with it, and some of that is your doing.\n\nWhen you're next on the Gold Coast Road, stop at the hill. There's always a cup of something hot for a friend of Westfall.\n\nGryan Stoutmantle, Sentinel Hill",
+}
+
+P:Letter {
+  id = "rand_solomon", npc = "solomon", random = true, when = { faction = "Alliance", minLevel = 20 },
+  subject = "From the Magistrate of Lakeshire",
+  body = "{name},\n\nI write to thank you once again for your service to Redridge, and also, I confess, to complain, because there is nobody left in Lakeshire who will listen. I have sent four letters to Stormwind asking for soldiers, and the fourth came back with a note asking me to stop sending letters.\n\nThe bridge is mended at last, after the masons argued for a month about which side to start from. The Blackrock are still in the hills, and the gnolls still raid the farms along the lake, but the town is holding, and the inn has had its roof done.\n\nIf you ever find yourself with an afternoon and an axe, Lakeshire would be glad of both.\n\nMagistrate Solomon, Lakeshire Town Hall",
+}
+
+P:Letter {
+  id = "rand_hearthstove", npc = "hearthstove", random = true, when = { faction = "Alliance", minLevel = 12 },
+  subject = "A word from the Stoutlager",
+  body = "Hello there, {name},\n\nI'm writing from behind the bar at the Stoutlager Inn, so forgive the stain on the corner of this page, it's only ale. Thelsamar's been busy since the troggs were driven back from the dam, and every dwarf in Loch Modan seems to think he deserves a drink for it, whether he was there or not.\n\nMy Vidra has been baking her boar pies again and swears she's improved the recipe, though as far as I can tell she's only added more boar. If you come by, I'll save you one, and you can tell her it's lovely. That's an order.\n\nInnkeeper Hearthstove, Thelsamar",
+}
+
+P:Letter {
+  id = "rand_verna", npc = "verna", random = true, when = { faction = "Alliance", minLevel = 10 },
+  subject = "Old Blanchy says hello",
+  body = "Dear {name},\n\nI hope this finds you well and eating properly, which I doubt, given the life you lead. Old Blanchy is still with us, bless her, and still turning her nose up at anything but the best oats, which is why I keep asking travellers to bring me some, as you'll remember.\n\nTheodore sits on the step of the Jansen place most evenings and tells me the Defias will be gone by spring. He's said that for three springs now, but I let him say it, because a man needs something to believe in when he's lost his farm. We've a little patch of pumpkins going behind the wagon, and they're doing better than they've any right to.\n\nTake care of yourself, dear. You've a kind face, and kind faces don't last long out there unless somebody's praying for them.\n\nVerna Furlbrow",
+}
+
+P:Letter {
+  id = "rand_shaussiy", npc = "shaussiy", random = true, when = { faction = "Alliance", minLevel = 12 },
+  subject = "From the inn at Auberdine",
+  body = "Ishnu-alah, {name},\n\nThe boats from Menethil came in heavy this week, and the inn is full of dwarves who complain that our beds are too long and our wine too thin. I have told them that the beds are not too long, they are too short, and they have accepted this with less grace than I hoped.\n\nThe sea has been grey and restless, and the sentinels say the furbolgs in the north are not themselves. I do not know what that means, but I have learned to listen when the sentinels are worried.\n\nThere is a room by the window for you, whenever the tide brings you back to Darkshore. The moon is very beautiful from it.\n\nInnkeeper Shaussiy, Auberdine",
+}
+
+---------------------------------------------------------------------------
+-- Still more letters from people you've met (Horde)
+---------------------------------------------------------------------------
+P:Letter {
+  id = "rand_gornek", npc = "gornek", random = true, when = { faction = "Horde" },
+  subject = "From the Den",
+  body = "{name},\n\nThe Valley of Trials has a new crop of young ones, and they are as green and foolish as you were. One of them asked me whether a boar can be tamed if you shout at it loudly enough. I told him to try, and he is still in the Den with his arm bound up, learning.\n\nThe Burning Blade still skulk in the caves, and the scorpids still sting, and I still tell every new arrival the same thing I told you: earn your place, and the Horde will remember it.\n\nYou earned yours. Do not let them forget it in Orgrimmar.\n\nGornek, the Den",
+}
+
+P:Letter {
+  id = "rand_thork", npc = "thork", random = true, when = { faction = "Horde", minLevel = 12 },
+  subject = "The Crossroads holds",
+  body = "{name},\n\nThe Kolkar came at the north wall again three nights past. They broke on the palisade, as they always do, and left their spears behind, which I have had the grunts gather up and sell to a goblin from Ratchet. He did not ask where they came from, and I did not tell him.\n\nThe Barrens are hard ground, and the Crossroads is harder. Supplies come late, the water tastes of iron, and the wind never stops. But the Warchief asked us to hold this place, and we hold it.\n\nIf you pass through, report to me. I will have work for you, and the cook will have something that is probably meat.\n\nThork, the Crossroads",
+}
+
+P:Letter {
+  id = "rand_kauth", npc = "kauth", random = true, when = { faction = "Horde" },
+  subject = "Bloodhoof Village",
+  body = "{name},\n\nThe rains have come to Mulgore, and the grass is high enough to hide a kodo calf, which is exactly what happened yesterday, and half the village spent the afternoon calling for it. It was found asleep behind my lodge, eating the thatch.\n\nThe Venture Company still cut at the trees to the south, and the gnolls of the Palemane still raid the farms, but the elders say the land will remember who tended it and who wounded it. I believe them.\n\nCome and rest when you are weary, {name}. The fire is warm, the bread is fresh, and the thatch, for now, is mostly where it belongs.\n\nInnkeeper Kauth, Bloodhoof Village",
+}
+
+P:Letter {
+  id = "rand_renee", npc = "renee", random = true, when = { faction = "Horde" },
+  subject = "From the Gallows' End",
+  body = "{name},\n\nThe tavern is as lively as a tavern full of dead men can be. Somebody left a game of dice half finished on the corner table a week ago, and nobody has moved it, because they're all waiting to see if he comes back for it. I suspect he won't, since the last I heard, he went to argue with the Scarlet Crusade.\n\nThe Royal Apothecaries have been buying up every rat in Brill, and I don't ask why. I've learned that not asking is the best thing you can do in the Undercity, and the second best is having a strong drink ready for anyone who did.\n\nThe bed upstairs is still yours, if you want it. It doesn't matter much to us, but the living seem to like them.\n\nInnkeeper Renee, Gallows' End Tavern, Brill",
+}
+
+P:Letter {
+  id = "rand_zygand", npc = "zygand", random = true, when = { faction = "Horde", minLevel = 10 },
+  subject = "By order of the Executor",
+  body = "{name},\n\nThe Dark Lady's will is carried out in Brill, as it is everywhere in her lands, and I write to remind you that you have been noted. Your work against the Scarlet Crusade in Tirisfal was useful, and the Forsaken do not forget a useful ally.\n\nThe Crusade has fortified the monastery and grows bolder on the roads. If your travels take you near the Scarlet watchtowers, I would hear what you see there. Report to me in person, and do not trust the message to anyone else, not even the bats.\n\nExecutor Zygand, Brill",
+}
+
+---------------------------------------------------------------------------
+-- Still more letters from people you've met (neutral)
+---------------------------------------------------------------------------
+P:Letter {
+  id = "rand_krazek", npc = "krazek", random = true, when = { minLevel = 30 },
+  subject = "A business opportunity, pal",
+  body = "Hey there, {name}, old pal!\n\nKrazek here, from the Baron's office, writing on the Baron's paper, which I'll be billing to you later. I've been thinking about you, and I've been thinking about money, and I'm starting to think those two thoughts belong together.\n\nThe Baron needs someone to look into a little matter at the Wild Shore, where a Bloodsail boat put in last week, and I put your name forward because you're reliable, you're tough, and you haven't tried to sell me anything yet. There's coin in it, pal, real coin, minus a finder's fee for me, minus a writing fee for this letter.\n\nCome up to the office when you're in Booty Bay. Bring a weapon. Bring a purse, too, because the chair still costs extra.\n\nKrazek, Secretary to Baron Revilgaz",
+}
+
+P:Letter {
+  id = "rand_vizzie", npc = "vizzie", random = true, when = { minLevel = 50 },
+  subject = "Snowed in at Everlook",
+  body = "{name}!\n\nIt snowed for nine days straight, and Everlook is buried up to the second floor. The Yetis came down from the hills to look at us, and we looked back at them, and everyone agreed it was too cold to fight. I've never seen anything like it.\n\nThe inn's full of Horde and Alliance both, all of them stuck here, all of them sitting on opposite sides of the room glaring at each other over the same pot of soup. The bruisers had to stop a fistfight over who got the bread heel, and now I cut the loaf from the middle.\n\nIf you're coming north, wrap up, bring a spare pair of boots, and don't fall asleep in the snow, because the frostsabers out here aren't shy.\n\nInnkeeper Vizzie, Everlook",
+}
+
+P:Letter {
+  id = "rand_betina", npc = "betina", random = true, when = { minLevel = 55 },
+  subject = "A note from Light's Hope",
+  body = "{name},\n\nI'm writing from the chapel at Light's Hope, where the candles burn day and night and the smell of the plague is never quite gone from the wind. The Argent Dawn has had good news and bad. We pushed the Scourge back from the crossroads east of Tyr's Hand, and we lost three good people doing it.\n\nThe Scourgestones keep coming in, and I keep writing down every one, because each of them is one less of the dead walking out there. It's dreary work, but someone has to do the counting, and I'd rather it was someone who cares.\n\nCome by the chapel when you're in the Plaguelands. I'll make you tea, and you can tell me something cheerful. Anything at all will do.\n\nBetina Bigglezink, the Argent Dawn",
+}
+
+P:Letter {
+  id = "rand_rabine", npc = "rabine", random = true, when = { minLevel = 50 },
+  subject = "From Nighthaven",
+  body = "{name},\n\nThe Keeper asked after you this morning, in that way he has of asking without asking. I told him you were well, which I believe to be true, and that you would come again when it was time, which I know to be true, because I do not believe in chance.\n\nThe Moonglade is quiet. The druids come and go, the lake is still, and the wardens walk the paths as they always have. But the reports from Felwood grow worse, and the Cenarion Circle is troubled by what the Emerald Dream will not show us.\n\nWhen your road turns north, Nighthaven will be ready for you. I will see to it.\n\nRabine Saturna, Majordomo to Keeper Remulos",
+}
+
+---------------------------------------------------------------------------
+-- More letters from strangers
+---------------------------------------------------------------------------
+P:Letter {
+  id = "rand_sparring", from = "Gerta Ironjaw", stranger = true, random = true, when = { class = "WARRIOR", minLevel = 15 },
+  subject = "A challenge, properly made",
+  body = "{class},\n\nWe've not met, but I've heard you swing a weapon like you mean it, and I've a problem: everyone in my village is either too old to fight me or too scared to, and the ones in between have started hiding in the barn when they see me coming.\n\nSo I am challenging you, honourably, to a bout of your choosing, at a time and place of your choosing, with real weapons or practice ones, though I'll warn you now I don't hold back with either.\n\nIf you win, I'll buy the drinks. If I win, you buy them. Either way, somebody's drinking, and I've been looking forward to that part most of all.\n\nGerta Ironjaw",
+}
+
+P:Letter {
+  id = "rand_gnome_cousin", from = "Bixie Sprocketwhistle", stranger = true, random = true, when = { race = "Gnome" },
+  subject = "Are we related?",
+  body = "Dear {name},\n\nI am writing to every gnome whose name I can find on a mailbox in Ironforge, because since we left Gnomeregan I have lost track of my second cousin Nibbin, and someone in Tinker Town said a gnome who looks a bit like him has been seen wandering about with a weapon and a very determined expression.\n\nIf you are Nibbin, please write back, because Aunt Wizzle has kept your workbench exactly as you left it, including the thing that hums. If you are not Nibbin, please write back anyway and let me know, so I can cross you off. I have a list, and it is very long.\n\nWith hope and slightly ink-stained fingers,\n\nBixie Sprocketwhistle, Tinker Town",
+}
+
+P:Letter {
+  id = "rand_troll_cousin", from = "Ze'mok", stranger = true, random = true, when = { race = "Troll" },
+  subject = "From Sen'jin Village",
+  body = "{name},\n\nYou don't know me, but my mother know your mother, or maybe it be your aunt, she can't remember and she won't stop talking about it. She say any Darkspear who go out and make a name for demself should get a letter, so here be your letter.\n\nThings be the same as ever in Sen'jin. The Echo Isles still be in Zalazane's hands, and every night we look out across de water and see his fires burning. The young ones want to swim over and fight him. The old ones tell dem to wait. I be somewhere in de middle, and mostly I fish.\n\nIf you come back to Durotar, come to my hut by the shore. My mother will want to look at you, and you should let her, because she won't let you leave until she has.\n\nZe'mok, Sen'jin Village",
+}
+
+P:Letter {
+  id = "rand_sheep", from = "Dorran Pike", stranger = true, random = true, when = { class = "MAGE", minLevel = 20 },
+  subject = "About the sheep",
+  body = "To the {class} who passed through our village,\n\nI'm told it was you, because nobody else around here has the sort of training that turns a man into a sheep, and I'd like to know, politely, when he's going to turn back. It's been some days now, and my brother-in-law is still eating the grass by the well and refusing to come inside.\n\nMy wife says he's better company as he is, and I'll not argue with her about that, but he owes me two silver and I'd like it back before he forgets he ever had it.\n\nIf you can't undo it, could you at least write and tell me how long a sheep lives?\n\nDorran Pike",
+}
+
+P:Letter {
+  id = "rand_hunter_pies", from = "Mabel Hargrove", stranger = true, random = true, when = { class = "HUNTER", minLevel = 10 },
+  subject = "Regarding your animal",
+  body = "To the {class} with the animal,\n\nWhile you were in the village last week buying arrows, your animal came round the back of my cottage and ate four pies from the windowsill, one blackberry and three meat, and then it lay down in my vegetable patch and went to sleep on the cabbages.\n\nI don't blame the animal. Animals will be animals. I blame you, because you were standing right there talking to the fletcher about feathers and didn't once look round.\n\nI'll accept six silver for the pies, and the cabbages can be forgiven, since it was very sweet asleep. Please pass on my regards to the animal, but not to you.\n\nMabel Hargrove",
+}
+
+P:Letter {
+  id = "rand_forsaken_neighbour", from = "Wilfred Ashby", stranger = true, random = true, when = { race = "Scourge" },
+  subject = "Have we met before?",
+  body = "{name},\n\nForgive me for writing out of nowhere. I was standing by the canals in the Undercity last week when you passed, and I could swear I knew your face, or what is left of it. I think we may have lived on the same street in Lordaeron, before. I kept a little bookshop with a green door, three houses down from the baker.\n\nI don't remember much from then. None of us do, I suppose. But I remember the green door, and I remember the smell of the bread in the mornings, and I thought, if it was you, you might remember something too.\n\nIf you do, write back. If you don't, I understand. There's very little in this life that can't be forgotten, and that's both the mercy and the curse of it.\n\nWilfred Ashby, the Magic Quarter, Undercity",
+}
+
+---------------------------------------------------------------------------
+-- More junk mail
+---------------------------------------------------------------------------
+P:Letter {
+  id = "junk_apothecary", from = "Royal Apothecary Society Volunteer Office", stranger = true, random = true, junk = true, when = { faction = "Horde", minLevel = 15 },
+  subject = "Volunteers wanted, generous terms",
+  body = "Greetings, loyal servant of the Dark Lady!\n\nThe Royal Apothecary Society is seeking healthy volunteers to assist in the testing of new tonics, salves, and experimental preparations. Volunteers will receive a meal, a blanket, and the gratitude of science.\n\nPrevious volunteers report symptoms including mild glowing, temporary loss of fingers, and a strong urge to climb things. Most symptoms pass. The Society regrets that it cannot accept volunteers who are already dead, as the results are confusing.\n\nPlease report to the Apothecarium. Do not touch anything green on the way in.",
+}
+
+P:Letter {
+  id = "junk_tram", from = "Deeprun Tram Authority", stranger = true, random = true, junk = true, when = { faction = "Alliance" },
+  subject = "Ride the Deeprun Tram in comfort!",
+  body = "Dear traveller,\n\nWhy walk the long way between Stormwind and Ironforge when you can ride the Deeprun Tram, the wonder of gnomish engineering? The journey is swift, safe, and only occasionally underwater, which is perfectly normal and nothing to worry about.\n\nPassengers are reminded not to feed the fish, not to lean against the windows, and not to ask the operator what that dripping sound is. The operator does not know either.\n\nThe Deeprun Tram Authority: Trust Us, It's Fine!",
+}
+
+P:Letter {
+  id = "junk_fishing_hat", from = "Lucky Lenny's Bait and Tackle", stranger = true, random = true, junk = true, when = { minLevel = 25 },
+  subject = "The hat every angler needs!",
+  body = "Hey, friend!\n\nYou fish? Of course you fish, everybody fishes! And every serious angler in Booty Bay knows that the secret to a good catch isn't the rod, it isn't the bait, it's the hat. That's why Lucky Lenny is offering you, and only you, the Genuine Lucky Fishing Hat.\n\nThis hat has caught fish in every sea in Azeroth, mostly because it fell in each of them. It's slightly damp, smells a little, and once had a crab living in it, but that's the luck, friend, that's the luck soaking in.\n\nOnly nine gold! Ask for Lenny on the lower docks, or wherever the smell is strongest.",
+}
+
+P:Letter {
+  id = "junk_faire", from = "A Friend of the Darkmoon Faire", stranger = true, random = true, junk = true, when = { minLevel = 10 },
+  subject = "Step right up!",
+  body = "Wonders! Marvels! Games of chance, games of skill, and games where nobody is quite sure of the rules!\n\nThe Darkmoon Faire is coming, and you won't want to miss it. See the strongest gnome in the world! Ride the steam tonk! Win a prize in the shooting gallery, or at least win the right to try again for another copper!\n\nThe Faire will be pitched outside Goldshire or near Mulgore, depending on the season and on where the wagons get stuck. Look for the tents, follow the music, and keep an eye on your purse, which is advice, not a threat.\n\nSilas Darkmoon sends his warmest welcome, and his carnies send their warmest, slightly sticky handshakes.",
+}

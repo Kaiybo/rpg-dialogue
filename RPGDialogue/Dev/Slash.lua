@@ -174,13 +174,12 @@ commands.letters = function(args)
     local r = ns.char.letters and ns.char.letters[args[2]]
     if r then ns.char.letters[args[2]] = nil end
     ns.Letters.Queue(args[2], C.Now())
-    ns.char.letters[args[2]].due = C.Now()
-    ns.Letters.Deliver(C.Now())
+    ns.Letters.Deliver(C.Now(), args[2])
     return
   end
   if args[1] == "random" then
     local id = ns.Letters.RollRandom(C.Now(), true)
-    if id then ns.char.letters[id].due = C.Now(); ns.Letters.Deliver(C.Now()) else ns.Print(L.LETTER_NO_RANDOM) end
+    if id then ns.Letters.Deliver(C.Now(), id) else ns.Print(L.LETTER_NO_RANDOM) end
     return
   end
   ns.UI.Letters.Toggle()
