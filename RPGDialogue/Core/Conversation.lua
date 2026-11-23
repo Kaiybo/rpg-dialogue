@@ -417,6 +417,25 @@ function Conv.OnOtherWindowShown(frame)
 end
 ns.OnLogin(function()
   C.OnDialogueUIShow(function(frame) Conv.OnOtherWindowShown(frame) end)
+  -- The game's own gossip/quest window, picked from the box: fade it the moment it shows.
+  -- The box itself moves to the new page a frame later (deferStart), and without this the
+  -- quest window could be drawn for that one frame (a flash beside the box).
+  for _, name in ipairs({ "QuestFrame", "GossipFrame" }) do
+    local f = _G[name]
+    if type(f) == "table" and type(f.HookScript) == "function" then
+      f:HookScript("OnShow", function(frame)
+        local s = Conv.session
+        if not s or s.ended or s.mode ~= "full" or s.view == "dui" or not ns.db.settings.fadeDefault then return end
+        if not ns.UI.Dialogue.IsShown() then return end
+        if s.faded and s.blizz == frame then return end
+        if s.faded and s.blizz and s.blizz ~= frame then C.SetFaded(s.blizz, false) end
+        s.blizz = frame
+        C.SetFaded(frame, true)
+        s.faded = true
+        ns.UI.Blocker.Cover(frame)
+      end)
+    end
+  end
 end)
 
 -- Is the box up over DialogueUI's waiting window?
