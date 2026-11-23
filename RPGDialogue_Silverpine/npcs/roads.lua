@@ -233,7 +233,7 @@ P:NPC {
   topics = {
     worgen = { { id = "tp_worgen", text = "Wolves that walk like men. Keep your fire bright and your back to a wall." } },
     shadowfang = { { id = "tp_shadowfang", text = "Arugal's worgen pour out of that keep like water out of a broken dam. I've no wish to go anywhere near it, and I'll admit it freely." } },
-    gilneas = { { id = "tp_gilneas", text = "The Gilneans built a wall to keep the world out, and now they've got worgen inside it, I hear. Serves them right, though I wouldn't say so near the woods at night." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans built a wall to keep the world out, and left the rest of us to face the worgen in these woods alone. I wouldn't say that too loud after dark, mind." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken are meant to be fearless, and mostly we are. Silverpine at night is the exception, and you'll understand once you've heard the howling." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady wants her enemies dead and her roads safe. I'm working on the roads, and I'd appreciate a little company while I do it." } },
     _none = { { id = "tp_none", text = "Ask Rane Yorick; she knows the woods, and I know the road." } },
