@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.42.0 (2026-11-23)
+- Master Sergeant MacLure and Reginald Windsor deepened.
+
 ## 1.41.0 (2026-11-23)
 - Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
 

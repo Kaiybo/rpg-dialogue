@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.104.0 (2026-11-23): Deeper Voices
+No new files; a /reload is enough.
+- **73 characters deepened** to the depth standard: more branches, longer talks, and replies only some races and classes get.
+- **Dungeons:** 27 friendly characters, among them Celebras, Naralex, Nefarius and Andorgos. The three dragons at the Ahn'Qiraj gate are now Brood of Malygos, Ysera and Alexstrasza; Ysida no longer calls Anthion alive.
+- **Orgrimmar:** 21 quest and service characters. **Alterac Valley:** all nine commanders and quest-givers.
+- **Elsewhere:** 16 characters in Duskwood, Feralas, Hillsbrad, Ironforge, Silithus, Stormwind and Tanaris.
+
 ## 0.103.1 (2026-11-23): The True Name of a Quest
 No new files; a /reload is enough.
 - **Dungeons:** Hakkar's greeting now waits on a real quest, Signets of the Zandalar (it pointed at one that doesn't exist). Every other dungeon quest title checked against classicdb.
