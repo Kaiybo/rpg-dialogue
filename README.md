@@ -16,6 +16,7 @@ Or, from a copy of this repository, copy these folders into `World of Warcraft/<
 - `RPGDialogue_Westfall`: Sentinel Hill and the farms of Westfall
 - `RPGDialogue_Stormwind`: the Keep, the Cathedral, City Hall, the Library, SI:7, Old Town, the Stockade
 - `RPGDialogue_Zephras`: Zephras Isle, home of the Skyborne
+- `RPGDialogue_Dungeons`: the people inside every Classic dungeon and raid
 - `RPGDialogue_Redridge`: Lakeshire and the Redridge Mountains
 - `RPGDialogue_Duskwood`: Darkshire, Raven Hill and the woods
 - `RPGDialogue_BurningSteppes`: Morgan's Vigil (Alliance), Flame Crest (neutral, with the Horde's wind riders) and a dragonspawn at Slither Rock

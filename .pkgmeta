@@ -12,6 +12,7 @@ move-folders:
   RPGDialogue/RPGDialogue_Westfall: RPGDialogue_Westfall
   RPGDialogue/RPGDialogue_Stormwind: RPGDialogue_Stormwind
   RPGDialogue/RPGDialogue_Zephras: RPGDialogue_Zephras
+  RPGDialogue/RPGDialogue_Dungeons: RPGDialogue_Dungeons
   RPGDialogue/RPGDialogue_Redridge: RPGDialogue_Redridge
   RPGDialogue/RPGDialogue_Duskwood: RPGDialogue_Duskwood
   RPGDialogue/RPGDialogue_Ironforge: RPGDialogue_Ironforge
