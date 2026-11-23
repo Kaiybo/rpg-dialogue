@@ -26,3 +26,4 @@ npcs\pelluk.lua
 npcs\swamp_west.lua
 npcs\stonard_market.lua
 npcs\missed.lua
+npcs\unwritten.lua

@@ -16,3 +16,4 @@ npcs\nethergarde.lua
 npcs\nethergarde_tower.lua
 npcs\wastes.lua
 npcs\kirith.lua
+npcs\unwritten.lua
