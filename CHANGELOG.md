@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.102.0 (2026-11-23): Voices in the Deep
+**New pack and new files: needs a full game restart, not /reload.**
+- **New pack: RPG Dialogue: Dungeons.** 59 people inside every Classic dungeon and raid, from Ragefire Chasm to Naxxramas, now talk: prisoners and captives (Kam Deepfury, Marshal Windsor, Commander Gor'shak), allies and escorts (Belnistrasz, Weegli, Celebras), dealers (Lokhtos, Finkle Einhorn), the dreaming Naralex, and villains who speak before the killing starts (VanCleef, Whitemane, Nefarius, Majordomo Executus).
+
 ## 0.101.1 (2026-11-23): Ghosts Set Right
 No new files; a /reload is enough.
 - **Lore fixes** (checked against wowpedia): Arthas, not Archimonde, killed Antonidas; Valstann Staghelm was Fandral's son, a warrior slain by the qiraji in Silithus; a Lich King line in Orgrimmar no longer sounds like he is dead.
