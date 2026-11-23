@@ -126,7 +126,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "PRIDE HERALDS THE END OF YOUR WORLD. Come, mortal, and let me taste what runs in your veins." },
-    { id = "g_bloodfire", when = { questActive = TODO_QUEST("The Bloodfire") }, text = "You smell of Zandalari charms and borrowed courage. They will not protect you here." },
+    { id = "g_signets", when = { questActive = TODO_QUEST("Signets of the Zandalar") }, text = "You smell of Zandalari charms and borrowed courage. They will not protect you here." },
   },
 
   notice = {

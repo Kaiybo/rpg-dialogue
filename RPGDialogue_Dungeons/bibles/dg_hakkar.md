@@ -4,7 +4,7 @@
 - warcraft.wiki.gg / classicdb.ch (vanilla). Not confirmed for Forever.
 
 ## Their quests
-- None (boss); The Bloodfire relates
+- None (boss); Signets of the Zandalar relates
 
 ## Identity
 The Soulflayer, Blood God, Zul'Gurub altar
