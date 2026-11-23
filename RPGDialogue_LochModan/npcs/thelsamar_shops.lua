@@ -184,7 +184,7 @@ P:NPC {
 
     danger = {
       lines = {
-        { id = "da_default", text = "Sometimes, over the Wetlands, for the Dragonmaw have been seen wi' red dragons near Grim Batol. My birds know tae fly high an' fast there, an' so far they've always come home." },
+        { id = "da_default", text = "Sometimes, over the Wetlands, for red dragons have been seen near Grim Batol, where the Dragonmaw once chained them. My birds know tae fly high an' fast there, an' so far they've always come home." },
       },
       choices = {
         { text = "Someone should deal with the Dragonmaw.", next = "BACK", reply = "Someone should, an' I'd lend them my best bird for it. Until then, we fly high an' fast.", fx = { align = { order = 1 }, trait = { brave = 1 }, learn = { "dragonmaw" } } },

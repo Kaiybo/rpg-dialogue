@@ -8,9 +8,9 @@
 - Necklace Recovery (gives; Uldaman necklace, rivalry with Jarkal Mossmeld in Kargath); wants ripple (Hinterlands chain with Gilveradin, A Sticky Situation).
 
 ## Identity
-TODO_NPC · Dran Droffers · Droffers and Son Salvage, the Drag, Orgrimmar · Horde · Goblin · Salvage merchant, questgiver
+TODO_NPC · Dran Droffers · Droffers and Son Salvage, the Drag, Orgrimmar · Horde · Orc · Salvage merchant, questgiver
 Personality: abrasive, fast, greedy
-Speech: goblin voice: dropped g's, 'pal', prices and overhead
+Speech: haggler's voice (an orc who talks like a trader): dropped g's, 'pal', prices and overhead
 Knows and cares about: salvage, the necklace, ripple, his son
 Relationships: Malton (son), Jarkal Mossmeld (rival buyer), Gilveradin Shindigger
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
