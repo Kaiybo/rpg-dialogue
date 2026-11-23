@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.2 (2026-11-23): Ghosts Set Right
+- Lore fix: Fandral now speaks of Valstann as his son, a warrior slain by the qiraji in Silithus.
+
 ## 1.31.1 (2026-11-20)
 - The Darnassian Protector treants have their own conversation instead of the Sentinel guard tree.
 
