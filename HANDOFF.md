@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.102.0)
+## State (0.103.0)
+- 0.103.0 "Voices in the Deep" (user: "make a dungeons pack for all instances"): NEW PACK `RPGDialogue_Dungeons` (full restart), one file per instance, 59 NPCs keyed `dg_*`, written from memory by parallel agents. Unsure: quest titles (all TODO_QUEST), roles `boss`/`escort`/`event` unchecked against the schema, zone names in the TOC (several variants listed). Only `luac -p` run. Next: in-game test inside an instance (`/rpgd packs`), then check the quest titles on classicdb.
 - 0.102.0 "The Unwritten Ones" (user: "build a release"): PRs #207-#212 (lore pass, spirit healer class/race talks, NEW pack Battlegrounds, NEW `npcs/unwritten.lua` in ~40 packs, ~280 NPCs). Core 0.102.0, changed packs minor-bumped. Full restart needed. Only `luac -p` run; nothing seen in game. Next: in-game check of the new files; dedupe TODO_NPC doubles.
 - 0.101.1 "Ghosts Set Right" (user: "do a lore check" then "build a release"): wowpedia spot-check of all packs (keyword pass, not a full read); fixes in Dalaran, Darnassus, Orgrimmar, Teldrassil (PR #206). No new files. Only `luac -p` run. Next: deeper per-pack lore passes if wanted.
 - 0.101.0 "Truths from the Old Books" (user: "build a release. fix conflicts"): open PRs #199-#203 merged (lore fixes; 22 quest-givers deepened). #200, #201, #202 were three versions of the Mor'zul fix; conflicts resolved line by line. Core 0.101.0, 15 packs minor-bumped. No new files. Only `luac -p` run.

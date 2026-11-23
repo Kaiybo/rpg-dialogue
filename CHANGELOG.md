@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.103.0 (2026-11-23): Voices in the Deep
+**New pack and new files: needs a full game restart, not /reload.**
+- **New pack: RPG Dialogue: Dungeons.** 59 people inside every Classic dungeon and raid, from Ragefire Chasm to Naxxramas, now talk: prisoners and captives (Kam Deepfury, Marshal Windsor, Commander Gor'shak), allies and escorts (Belnistrasz, Weegli, Celebras), dealers (Lokhtos, Finkle Einhorn), the dreaming Naralex, and villains who speak before the killing starts (VanCleef, Whitemane, Nefarius, Majordomo Executus).
+
 ## 0.102.0 (2026-11-23): The Unwritten Ones
 **New files and a new addon: needs a full game restart, not a /reload.**
 - **New Battlegrounds pack**: NPCs inside Alterac Valley, Warsong Gulch and Arathi Basin now talk.

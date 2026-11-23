@@ -1,0 +1,39 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Dungeons |cff8a8a8a1.0.0|r
+## Notes: The people you meet inside dungeons and raids: prisoners, allies, captives and the few who will talk before the killing starts.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.dungeons
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Ragefire_Chasm,Wailing_Caverns,The_Deadmines,The_Stockade,Stormwind_Stockade,Gnomeregan,Shadowfang_Keep,Blackfathom_Deeps,Razorfen_Kraul,Razorfen_Downs,Scarlet_Monastery,Uldaman,Zul'Farrak,Maraudon,The_Temple_of_Atal'Hakkar,Sunken_Temple,Blackrock_Depths,Blackrock_Spire,Molten_Core,Blackwing_Lair,Onyxia's_Lair,Dire_Maul,Scholomance,Stratholme,Naxxramas,Zul'Gurub,Ruins_of_Ahn'Qiraj,Ahn'Qiraj,Temple_of_Ahn'Qiraj
+
+pack.lua
+npcs\ragefire.lua
+npcs\wailing_caverns.lua
+npcs\deadmines.lua
+npcs\stockade.lua
+npcs\gnomeregan.lua
+npcs\shadowfang.lua
+npcs\blackfathom.lua
+npcs\razorfen_kraul.lua
+npcs\razorfen_downs.lua
+npcs\scarlet_monastery.lua
+npcs\uldaman.lua
+npcs\zulfarrak.lua
+npcs\maraudon.lua
+npcs\sunken_temple.lua
+npcs\blackrock_depths.lua
+npcs\blackrock_spire.lua
+npcs\molten_core.lua
+npcs\blackwing_lair.lua
+npcs\onyxia.lua
+npcs\dire_maul.lua
+npcs\scholomance.lua
+npcs\stratholme.lua
+npcs\naxxramas.lua
+npcs\zulgurub.lua
+npcs\ruins_aq.lua
+npcs\temple_aq.lua
