@@ -1,0 +1,16 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Battlegrounds |cff8a8a8a1.0.0|r
+## Notes: Alterac Valley, Warsong Gulch and Arathi Basin: the people who hold the line between fights.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.battlegrounds
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Alterac_Valley,Warsong_Gulch,Arathi_Basin
+
+pack.lua
+npcs\alterac_valley.lua
+npcs\warsong_gulch.lua
+npcs\arathi_basin.lua
