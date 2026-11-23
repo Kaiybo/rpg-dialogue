@@ -677,7 +677,7 @@ P:NPC {
       { id = "tp_arthas", text = "Arthas killed me on the road to Silvermoon and then made me his servant, and I will not rest until I have repaid him in full. He went north to his master, and one day I will follow him there." },
       { id = "tp_arthas2", when = { disposition = { min = 65 } }, text = "He took everything I had, my people, my death and my peace, and he did it smiling. I will be there when he falls, and he will know my face." },
     },
-    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad holds the east from Naxxramas and sends his Cult to teach the living to die. He served Arthas before Arthas served anyone, and his death is on my list, though not at the top." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad holds the east from Naxxramas and sends his Cult to teach the living to die. He served the Lich King before Arthas ever did, and his death is on my list, though not at the top." } },
     thrall = {
       { id = "tp_thrall", text = "The orcish Warchief offered us a place in his Horde, and I accepted, because enemies on every side is a poor position even for the dead. He is an honorable sort, which is useful, and I intend to keep him that way." },
       { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your Warchief is an honorable sort, and I trust him further than I trust most of the living. That is not very far." },

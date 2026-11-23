@@ -1623,7 +1623,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_background", text = "I sell cloth armor on the Tradesmen's Terrace, which is to say everything that goes with a robe." } },
     sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "Half the Temple wears my quilted gloves. Priestess Alathea asked for them after wearing through three pairs in a year." } },
-    highborne = { { id = "tp_highborne", text = "Some of my pieces carry a small working from Taladan's journeymen. Vaean writes down every one, and I am glad that she does." } },
+    highborne = { { id = "tp_highborne", text = "Some of my pieces carry a small working from Taladan's journeymen. Vaean writes down every one, and I am glad that he does." } },
     advice = { { id = "tp_advice", text = "Dress for whoever must decide quickly whether to trust you. On the road, that is everybody." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the bank, where the talk is better informed than it is here." } },
   },

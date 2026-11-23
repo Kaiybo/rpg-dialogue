@@ -1,5 +1,5 @@
--- Jeeda, Jin'Zil's apprentice at Malaka'jin, the troll camp where the Barrens road climbs into Stonetalon. Voice: bibles/jeeda.md
--- Classic roster name from memory (TODO_NPC until captured); her character is authored from her place beside Jin'Zil.
+-- Jeeda, orc Apprentice Witch Doctor selling reagents upstairs in the Sun Rock Retreat inn; she hopes Jin'Zil at Malaka'jin will take her on. Voice: bibles/jeeda.md
+-- Classic: female orc reagent vendor, upstairs in the inn (TODO_NPC until captured).
 local P = RPGDialogueAPI:Pack("rpgd.stonetalon")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -9,21 +9,21 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "wry", "sharp" }, values = { "curious", "ambitious" },
   notices = { "race", "class" },
   impression = {
-    first = "She is far more ambitious than she lets her master see.",
-    third = "{name} met Jeeda, the young troll apprentice to Witch Doctor Jin'Zil at Malaka'jin.",
+    first = "She is far more ambitious than a room above an inn can hold.",
+    third = "{name} met Jeeda, a young orc apprentice witch doctor selling reagents upstairs in the Sun Rock inn.",
   },
 
   greetings = {
-    { id = "g_default", text = "Mind da pots, mon, because dat green one bites if you lean too close. You want somethin' from Jeeda, or you just lost?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again, mon. Jin'Zil been askin' about you, which is never a good sign for anybody." },
-    { id = "g_jinzil", when = { questActive = TODO_QUEST("Jin'Zil's Forest Magic") }, text = "You doin' an errand for da old man? Good, because if you don't bring it, he gonna send me, and I got stirrin' to do." },
+    { id = "g_default", text = "Mind the jars, {class}, because the green one bites if you lean too close. You want something from Jeeda, or did you just climb the wrong stairs?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Jayka says you ask a lot of questions downstairs, which means you'll fit right in up here." },
+    { id = "g_jinzil", when = { questActive = TODO_QUEST("Jin'Zil's Forest Magic") }, text = "You're running an errand for Jin'Zil? Then tell him Jeeda of Sun Rock is still waiting for an answer to her letters, and mean it." },
   },
 
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear, all da way out here! You still got da salt of da Echo Isles on you, mon, and I miss dat smell more than I tell anybody." },
+      text = "A Darkspear! Sit down, and tell me everything your witch doctors taught you, because I've been learning from books and guesswork up here." },
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
-      text = "Ah, a shaman. You talk to da spirits polite and ask nicely, and we witch doctors just tell dem what to do, so we never gonna agree, you and me." },
+      text = "A shaman. You ask the spirits politely and wait for an answer, and a witch doctor makes them a bargain instead, so we'll never quite agree, you and I." },
   },
 
   start = "hello",
@@ -31,51 +31,51 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I be Jeeda, apprentice to Witch Doctor Jin'Zil, and I keep da camp at Malaka'jin while he be busy in his cave. I got a few things for sale, if you need dem, and a lot of opinions, if you don't." },
+          text = "I'm Jeeda, apprentice witch doctor, and I keep the reagents up here above the inn. I'm an apprentice with no master yet, which is a sore point, so buy something before you ask about it." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "Hey, cousin! I be Jeeda, Jin'Zil's apprentice, and you da first Darkspear face I seen this week that ain't his. Sit a while, if you don't mind da smoke." },
+          text = "Throm-ka, Darkspear! I'm Jeeda, and I've wanted to be a witch doctor since your people came to Durotar, so you're the most interesting thing to climb these stairs all week." },
         { id = "h_tauren", when = { race = "Tauren" },
-          text = "A tauren, come down from da rock to see da trolls! I be Jeeda, Jin'Zil's apprentice, and don't you worry, none of da pots got kodo in dem." },
+          text = "Welcome, friend of the rock. I'm Jeeda, and I sell reagents up here, and don't you worry, there's no kodo in any of these jars." },
       },
       again = {
-        { id = "h_again", text = "What else, mon? Ask quick, before da green pot boils over." },
-        { id = "h_again2", text = "Go on, I'm listenin'. Da pots can stir demselves for a breath." },
+        { id = "h_again", text = "What else? Ask quickly, before the green jar starts bubbling again." },
+        { id = "h_again2", text = "Go on, I'm listening. The jars can sit still for a moment." },
       },
       choices = {
         { text = "Let me see what you sell.", next = "BUSINESS" },
-        { text = "What's it like apprenticing for Jin'Zil?", next = "master" },
-        { text = "Why do trolls camp out here?", next = "camp" },
-        { text = "What's in all those pots?", next = "pots" },
+        { text = "Who are you hoping will teach you?", next = "master" },
+        { text = "Why sell reagents up here at Sun Rock?", next = "camp" },
+        { text = "What's in all those jars?", next = "pots" },
         { text = "You don't think much of shaman, then?", next = "shaman", when = { class = "SHAMAN" } },
-        { text = "How did a Darkspear end up this far inland?", next = "home", when = { race = "Troll" } },
-        { text = "I'll leave you to your stirring.", next = "END" },
+        { text = "Where did an orc learn troll magic?", next = "home", when = { race = "Troll" } },
+        { text = "I'll leave you to your jars.", next = "END" },
       },
     },
 
     master = {
       lines = {
-        { id = "ma_default", text = "Loud, mostly, and it smell like boiled spider. He brag all day dat he be better than Darsok, and he keep cages in dat cave dat I don't look in, and still he know more about da loa than anybody I ever met." },
+        { id = "ma_default", text = "Witch Doctor Jin'Zil, down at Malaka'jin where the Barrens road climbs into the mountains. I've written to him three times asking to be his apprentice, and the only answer I ever got was a frog in a box, and I still can't decide whether that was a yes." },
       },
       choices = {
-        { text = "What's in the cages?", next = "cages" },
-        { text = "Who's Darsok?", next = "darsok" },
+        { text = "What do people say goes on in his cave?", next = "cages" },
+        { text = "Does Jin'Zil have rivals?", next = "darsok" },
         { text = "Something else.", next = "BACK" },
       },
     },
     cages = {
       big = true,
       lines = {
-        { id = "cg_default", text = "Sometimes a forest spirit, sometimes a beast, and once somethin' with pointed ears dat cried all night. Jin'Zil say a witch doctor must know a thing from da inside before da loa will let him use it, and I ain't sure yet if I believe him." },
+        { id = "cg_default", text = "I've only heard things, mind, but the traders say he keeps cages, and that something in one of them cried all night. A witch doctor has to know a thing from the inside before the loa let him use it, or so the books say, and I don't know yet if I believe them." },
       },
       choices = {
-        { text = "Some things shouldn't be caged, Jeeda. Remember that.", next = "BACK", reply = "I remember it every night, mon, when dat elf was crying. Maybe you be right, and maybe I'll tell Jin'Zil so, one day when I'm braver.", fx = { align = { light = 1 } } },
-        { text = "Power is learned the hard way. Your master's right.", next = "BACK", reply = "Dat be what he say too, mon, and he been doin' this longer than me. I'll keep learnin', and try not to listen to the cages at night.", fx = { align = { light = -1 } } },
+        { text = "Some things shouldn't be caged, Jeeda. Remember that.", next = "BACK", reply = "I'll remember it, and if he ever takes me on, I'll tell him so to his face. An orc knows what a cage is better than anyone.", fx = { align = { light = 1 } } },
+        { text = "Power is learned the hard way. He's right.", next = "BACK", reply = "That's what I tell myself when I can't sleep. I'll learn it the hard way, then, and try not to think about the crying.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     darsok = {
       lines = {
-        { id = "da_default", text = "Another Darkspear, off fightin' da night elves in Ashenvale, and he and Jin'Zil been rivals since before I was born. Nobody remember what started it, and I think dat's da whole reason it never end." },
+        { id = "da_default", text = "Darsok, another Darkspear, off fighting the night elves in Ashenvale, and the traders say he and Jin'Zil have been rivals for years. Nobody remembers how it started, and I think that's why it never ends." },
       },
       choices = {
         { text = "Rivals keep each other sharp.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -85,28 +85,28 @@ P:NPC {
 
     camp = {
       lines = {
-        { id = "cp_default", text = "Because da road from da Barrens come up right past here, and somebody got to watch it for da Horde. Da tauren on Sun Rock be good folk, but dey sleep heavy, and trolls hear everything dat walk by in da night." },
+        { id = "cp_default", text = "Because everyone who goes into these mountains needs something, and the rock is the only safe roof for miles. Jayka lets me have the upstairs room, so long as nothing I mix explodes again, which happened only the once." },
       },
       choices = {
-        { text = "What walks by in the night?", next = "camp2" },
+        { text = "What exploded?", next = "camp2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     camp2 = {
       lines = {
-        { id = "cp2_default", text = "Venture goblins with dere lamps, goin' up to Windshear to cut more trees, and night elf scouts from da peak watchin' da goblins. Sometimes I think I should tell da elves where da goblins sleep, and den I remember dey'd shoot me too." },
+        { id = "cp2_default", text = "A small jar, and most of Jayka's eyebrows, and I've been paying her back in sleeping draughts ever since. At night I hear angry voices off the Charred Vale too, but those aren't my doing, whatever she says." },
       },
       choices = {
-        { text = "The enemy of your enemy is still your enemy.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then keep your mixing away from the stairs.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     pots = {
       lines = {
-        { id = "po_default", text = "Dis one be spider venom for a curse, dat one be harpy feather for a charm, and da green one be my own work, so don't ask what it is, because I ain't sure yet either. Jin'Zil say every witch doctor ruin a hundred pots before one come out right." },
+        { id = "po_default", text = "Herbs, powders and the plain reagents every caster burns through, and the green one is my own work, so don't ask what it does, because I'm not sure yet either. The books say a witch doctor ruins a hundred jars before one comes out right." },
         { id = "po_mage", when = { class = "MAGE" },
-          text = "Not your kind of magic, mon, nothin' in a book here. Da green one be my own work, and I can't tell you what it does yet, but I'm workin' on it." },
+          text = "Your powders are on the shelf, mage, but none of the magic up here comes from a book you'd recognize. The green one is mine, and I can't tell you what it does yet, but I'm working on it." },
       },
       choices = {
         { text = "You want to be a witch doctor in your own right?", next = "pots2" },
@@ -116,18 +116,18 @@ P:NPC {
     pots2 = {
       big = true,
       lines = {
-        { id = "pt2_default", text = "Course I do, mon, and one day I'll have my own cave and my own apprentice to stir for me. Jin'Zil think I'll wait ten more years for it, but I been watchin' him, and I think I'll be ready sooner." },
+        { id = "pt2_default", text = "Of course I do, and one day I'll have a hut of my own and an apprentice to grind the roots. If Jin'Zil won't have me, I'll learn it alone up here, because an orc who waits for permission waits forever." },
       },
       choices = {
-        { text = "Learn everything first. Rushing gets apprentices killed.", next = "BACK", reply = "Ya, mon, I know, and I seen apprentices who rushed. Their pots be still sittin' in the cave, and they ain't.", fx = { align = { order = 1 } } },
-        { text = "Don't wait for his blessing. Take your chance when it comes.", next = "BACK", reply = "Ha! Dat be my kind of talk, mon, but don't you tell Jin'Zil I agreed. When my chance come, I'll be ready for it.", fx = { align = { order = -1 } } },
+        { text = "Find a real master first. Rushing gets apprentices killed.", next = "BACK", reply = "I know, and I've the scorch marks to prove it. I'll keep writing to Jin'Zil, then, and keep my hands on the safe jars.", fx = { align = { order = 1 } } },
+        { text = "Don't wait for anyone's blessing. Teach yourself.", next = "BACK", reply = "Ha! That's the orc in you talking, and the orc in me agrees. When my chance comes, I'll take it with both hands.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     shaman = {
       lines = {
-        { id = "sh_default", text = "Oh, I think plenty of shaman, mon, only you ask da elements for help and wait for an answer. A witch doctor bargain with da loa, and sometimes we bargain hard, and Jin'Zil say dat's why we sleep worse than you do." },
+        { id = "sh_default", text = "I think plenty of shaman, and Thrall is one, so I'd better. You ask the elements for help and wait for an answer, but a witch doctor bargains with the loa, and the trolls say that's why witch doctors sleep worse than you do." },
       },
       choices = {
         { text = "Asking keeps the spirits willing. That matters.", next = "BACK", fx = { affinity = 1 } },
@@ -136,19 +136,19 @@ P:NPC {
     },
     home = {
       lines = {
-        { id = "hm_default", text = "Da Warchief need trolls everywhere da Horde reach, and Jin'Zil need somebody to stir. My mother cried when I left Sen'jin, and I didn't, but some nights out here I wish I'd cried a little too." },
+        { id = "hm_default", text = "In Razor Hill, watching the Darkspear who came through with their charms and masks, and I never wanted anything else after that. My mother wanted me to be a grunt like her, and some nights up here I wonder if she was right." },
       },
       choices = {
-        { text = "The Echo Isles will still be there when you go back.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The Darkspear will respect an orc who earns it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Born in Sen'jin Village, apprenticed to Jin'Zil, and stirrin' his pots ever since." } },
-    advice = { { id = "tp_ad", text = "Never eat anything from a witch doctor's pot, mon, not even mine." } },
-    _none = { { id = "tp_none", text = "Dat ain't somethin' I know, mon. Ask Jin'Zil, if you want an hour of bragging with your answer." } },
+    background = { { id = "tp_bg", text = "Born in Razor Hill, raised on Darkspear stories, and selling reagents above the Sun Rock inn until a witch doctor takes me on." } },
+    advice = { { id = "tp_ad", text = "Never drink anything from a witch doctor's jar, not even mine." } },
+    _none = { { id = "tp_none", text = "That's not something I know. Ask Jayka downstairs, because everybody tells her everything sooner or later." } },
   },
 }
 -- Malaka'jin, the Darkspear camp at the foot of the Stonetalon Mountains: Xen'Zilla (Blood Feeders) and

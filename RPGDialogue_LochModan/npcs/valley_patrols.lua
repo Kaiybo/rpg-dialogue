@@ -329,15 +329,15 @@ P:NPC {
   },
 }
 
--- Mountaineer Gwarth: young, keen, new to the valley.
+-- Mountaineer Gwarth: young, keen, new to the valley (female, per the wiki).
 P:NPC {
-  key = "lm_gwarth", id = TODO_NPC("Mountaineer Gwarth"), name = "Mountaineer Gwarth",
+  key = "lm_gwarth", id = TODO_NPC("Mountaineer Gwarth"), name = "Mountaineer Gwarth", gender = "female",
   bible = "bibles/valley_patrols.md", role = "soldier", tier = "service",
   communities = { "thelsamar" }, temper = { "eager", "earnest" }, values = { "brave", "dutiful" },
   notices = { "greenness", "race" },
 
   impression = {
-    first = "He still polishes his buttons, and he's braver than he is careful.",
+    first = "She still polishes her buttons, and she's braver than she is careful.",
     third = "{name} met Mountaineer Gwarth, the youngest Mountaineer on the Valley of Kings patrol.",
   },
 
@@ -370,7 +370,7 @@ P:NPC {
         { text = "What's the valley like for a new recruit?", next = "valley" },
         { text = "What do you make of Wallbang and Langarr?", next = "elders" },
         { text = "You're holding that rifle like it might bite.", next = "rifle" },
-        { text = "Ye remind me of myself at your age, lad.", next = "dwarf", when = { race = "Dwarf", minLevel = 20 } },
+        { text = "Ye remind me of myself at your age, lass.", next = "dwarf", when = { race = "Dwarf", minLevel = 20 } },
         { text = "I could use a strong arm. Ever fought beside a paladin?", next = "paladin", when = { class = "PALADIN" } },
         { text = "Good luck on your patrol, Gwarth.", next = "END" },
       },
@@ -393,7 +393,7 @@ P:NPC {
       },
       choices = {
         { text = "The Captain's right. Holding home matters most.", next = "BACK", reply = "I think so too, most days, though it's good tae hear somebody else say it. Somebody has tae mind the gate while the brave ones go chargin' off.", fx = { align = { honor = 1 }, affinity = 1 } },
-        { text = "Go where the glory is, lad. Life's short.", next = "BACK", reply = "It is short, aye, an' I've thought about it every night. But the Captain needs me here, an' I'd no' let him down.", fx = { align = { honor = -1 } } },
+        { text = "Go where the glory is, lass. Life's short.", next = "BACK", reply = "It is short, aye, an' I've thought about it every night. But the Captain needs me here, an' I'd no' let him down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

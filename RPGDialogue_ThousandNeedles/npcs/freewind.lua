@@ -1198,7 +1198,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "The wind sings over her inn at night, and she loves it.",
+    first = "The wind sings over his inn at night, and he loves it.",
     third = "{name} met Innkeeper Abeqwa, who keeps the inn atop the mesas at Freewind Post.",
   },
 

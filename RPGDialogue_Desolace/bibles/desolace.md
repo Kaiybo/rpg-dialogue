@@ -49,7 +49,7 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Pentigast (Persuade, arithmetic): he calls it arithmetic (forty soldiers against three clans), but doesn't sleep the night after he breaks faith with a clan; the men aren't to know.
 
 ## Prejudices (0.80.0, authored, not canon)
-- Vahlarriel Demonslayer counts every warlock a step from the Burning Blade (`prejudice` WARLOCK 15): the cultists she questioned could never say when they crossed the line.
+- Vahlarriel Demonslayer counts every warlock a step from the Burning Blade (`prejudice` WARLOCK 15): the cultists he questioned could never say when they crossed the line.
 
 ## Horde views of the kaldorei (authored framing of Classic lore)
 - Takata: the elves call orcs demon-tainted, and they're half right, but every satyr in Desolace was a Highborne night elf once, so the kaldorei can sweep their own house first. A shared enemy bought a truce at Hyjal; it hasn't bought one since.

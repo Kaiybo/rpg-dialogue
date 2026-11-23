@@ -1,13 +1,13 @@
 # Reggifuz  (key: reggifuz)
 
 ## Sources
-- Memory of Crossroads stable master; verify
+- wowwiki archive: goblin stable master of Ratchet, outside the Broken Keel Tavern (not the Crossroads; Sikwa keeps that stable)
 
 ## Their quests
 - None.
 
 ## Identity
-Reggifuz · the Crossroads · Steamwheedle neutral · Goblin · stable master
+Reggifuz · Ratchet · Steamwheedle neutral · Goblin · stable master
 Personality: pushy, cheerful, mercenary
 Speech: Goblin standard (CONTENT_GUIDE §2): prices everything, 'pal', dropped g's
 Relationships: His cousin (invoiced him for eyebrows), Steamwheedle Cartel

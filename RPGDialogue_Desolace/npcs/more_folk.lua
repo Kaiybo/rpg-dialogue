@@ -310,7 +310,7 @@ P:NPC {
     },
     village_trolls = {
       lines = {
-        { id = "village_trolls_d", text = "They understand raptors, which is a different thing, because a raptor wants to be feared a little and a kodo wants to be left in peace. Lui'Mala keeps trying to feed mine fish, and they look at him as if he had insulted their mothers." },
+        { id = "village_trolls_d", text = "They understand raptors, which is a different thing, because a raptor wants to be feared a little and a kodo wants to be left in peace. Lui'Mala keeps trying to feed mine fish, and they look at her as if she had insulted their mothers." },
       },
       choices = {
         { text = "He means well, I'm sure.", next = "BACK", fx = { trait = { kind = 1 } } },
@@ -336,7 +336,7 @@ P:NPC {
     },
     sea = {
       lines = {
-        { id = "sea_d", text = "It is not, and they tell me so every morning. The salt dries their hides and the gulls steal their feed, so I rub them down with fat that Wulan saves for me from her cooking pots." },
+        { id = "sea_d", text = "It is not, and they tell me so every morning. The salt dries their hides and the gulls steal their feed, so I rub them down with fat that Wulan saves for me from his cooking pots." },
       },
       choices = {
         { text = "Why not stable them inland?", next = "sea_inland" },
@@ -389,7 +389,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "jovial", "chatty" }, values = { "sea", "ease" },
   notices = { "race", "craft" },
   impression = {
-    first = "He laughs at his own stories more than anyone else does.",
+    first = "She laughs at her own stories more than anyone else does.",
     third = "{name} met Lui'Mala, the troll fishing trainer at Shadowprey Village.",
   },
   greetings = {
@@ -979,7 +979,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calm", "formal" }, values = { "beasts", "balance" },
   notices = { "class", "race" },
   impression = {
-    first = "She is polite with owners, though she clearly prefers the beasts.",
+    first = "He is polite with owners, though he clearly prefers the beasts.",
     third = "{name} met Shelgrayn, the night elf stable master at Nijel's Point.",
   },
   greetings = {
@@ -1784,7 +1784,7 @@ P:NPC {
     },
     buy = {
       lines = {
-        { id = "buy_d", text = "Malux takes my salt for his hides, Wulan takes my spice for her pots, and Mai'Lahii takes more thread dan anyone, for de nets. Hae'Wilani buys flux and complains it's not hot enough, like I make de stuff." },
+        { id = "buy_d", text = "Malux takes my salt for his hides, Wulan takes my spice for his pots, and Mai'Lahii takes more thread dan anyone, for de nets. Hae'Wilani buys flux and complains it's not hot enough, like I make de stuff." },
       },
       choices = {
         { text = "And the orc on the dock?", next = "buy_drul" },
@@ -1821,7 +1821,7 @@ P:NPC {
     },
     news = {
       lines = {
-        { id = "news_d", text = "Jinar'Zillen been in a mood since de naga came up de beach last moon. Lui'Mala says he caught a fish as long as de dock, and Malux says Lui'Mala never caught nothin' longer dan his own arm. Dat's all of it, mon; it's a small village." },
+        { id = "news_d", text = "Jinar'Zillen been in a mood since de naga came up de beach last moon. Lui'Mala says she caught a fish as long as de dock, and Malux says Lui'Mala never caught nothin' longer dan her own arm. Dat's all of it, mon; it's a small village." },
       },
       choices = {
         { text = "Small villages have the best gossip.", next = "BACK", fx = { affinity = 1 } },
@@ -1914,7 +1914,7 @@ P:NPC {
     },
     charm_work = {
       lines = {
-        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and he don't use dem, and I lost none, so you tell me, mon." },
+        { id = "charm_work_d", text = "Lui'Mala lost three lines last moon and she don't use dem, and I lost none, so you tell me, mon." },
       },
       choices = {
         { text = "Then I'll take a charm with my line.", next = "BACK", reply = "Smart. It be already tied on; I don't sell a line without one.", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -2003,7 +2003,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "motherly", "firm" }, values = { "hospitality", "thrift" },
   notices = { "craft", "race" },
   impression = {
-    first = "Wulan sells cooking supplies at Shadowprey Village, a tauren among trolls, and has opinions about how each of them seasons a fish. She pressed a twist of dried herbs into my hand and told me not to waste it.",
+    first = "Wulan sells cooking supplies at Shadowprey Village, a troll who has opinions about how everyone else seasons a fish. He pressed a twist of dried herbs into my hand and told me not to waste it.",
     third = "{name} met Wulan, who sells cooking supplies at Shadowprey Village.",
   },
   greetings = {
@@ -2015,9 +2015,9 @@ P:NPC {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You carry a pan that has been properly blackened. I am glad to see somebody on this coast knows how to treat one." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "One of the tribes! It has been too long since I heard a proper Mulgore greeting. Say something, child, anything at all." },
+      text = "One of the tribes! Sikewa at the inn has gone too long without a proper Mulgore greeting, so go and say something to her, child." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear. I love your people dearly, and I will say again that not everything needs that much pepper." },
+      text = "Darkspear, like me. I love our people dearly, and I will say again that not everything needs that much pepper." },
   },
   start = "hello",
   nodes = {
@@ -2025,7 +2025,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I am Wulan. Spices, salt, flour and oil, carried a long way and sold to people who mostly put them on fish. I have made my peace with the fish." },
         { id = "h_cook", when = { profession = "Cooking" }, text = "I am Wulan, and you are a cook, so we shall get along. I keep the good spices under the mat, away from the damp, for those who will know the difference." },
-        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Wulan. You are far from the plains, child, as I am, and I will tell you what I tell myself: the sea is only a very flat prairie, and you grow used to it." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Wulan. You are far from the plains, child, and Sikewa will tell you what she tells herself: the sea is only a very flat prairie, and you grow used to it." },
       },
       again = {
         { id = "h_again", text = "What else, child? I am only sorting salt." },
@@ -2034,21 +2034,21 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
-        { text = "How did a tauren come to cook for trolls?", next = "came" },
+        { text = "How did you come to cook on this coast?", next = "came" },
         { text = "What does Shadowprey eat?", next = "eat" },
         { text = "Everything here comes a long way, I think.", next = "far" },
         { text = "What would you do with Desolace's game?", next = "game", when = { profession = "Cooking" } },
-        { text = "Do you miss Mulgore's cooking fires?", next = "miss", when = { race = "Tauren" } },
+        { text = "Does Sikewa miss Mulgore's cooking fires?", next = "miss", when = { race = "Tauren" } },
         { text = "Tell me about Innkeeper Sikewa.", next = "sikewa" },
         { text = "Thank you, Wulan.", next = "END" },
       },
     },
     came = {
       lines = {
-        { id = "came_d", text = "I followed Sikewa, who keeps the inn, because she is my oldest friend and could not be trusted to feed herself. I meant to stay a season, and that was a good many seasons ago." },
+        { id = "came_d", text = "I came with the boats from the Echo Isles, and Sikewa, who keeps the inn, became my oldest friend here, because she could not be trusted to feed herself. I meant to stay a season, and that was a good many seasons ago." },
       },
       choices = {
-        { text = "And the trolls took to you?", next = "came_trolls" },
+        { text = "And the village took to your cooking?", next = "came_trolls" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2072,7 +2072,7 @@ P:NPC {
     },
     eat_pepper = {
       lines = {
-        { id = "eat_pepper_d", text = "The Darkspear would put it in their water if I let them. I ration it, child, for their own good and because the caravan brings one sack a season, and they call me a tyrant to my face." },
+        { id = "eat_pepper_d", text = "My own people would put it in their water if I let them. I ration it, child, for their own good and because the caravan brings one sack a season, and they call me a tyrant to my face." },
       },
       choices = {
         { text = "A tyrant with the only pepper wins.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -2101,7 +2101,7 @@ P:NPC {
     },
     game = {
       lines = {
-        { id = "game_d", text = "Scorpid tail, split and roasted in its own shell, which is better than it has any right to be. Hyena I would not feed to a hyena. And never the kodo, child, not here, not ever." },
+        { id = "game_d", text = "Scorpid tail, split and roasted in its own shell, which is better than it has any right to be. Hyena I would not feed to a hyena. And never the kodo, child, not where Sikewa can smell it, not ever." },
       },
       choices = {
         { text = "Never the kodo. I understand.", next = "BACK", fx = { affinity = 1 } },
@@ -2110,7 +2110,7 @@ P:NPC {
     },
     miss = {
       lines = {
-        { id = "miss_d", text = "I miss the smell of sweetgrass smoke more than I can say. Aboda brings me a twist of it when the riders come from Thunder Bluff, and I burn a little under the pot and tell the trolls it is a spice." },
+        { id = "miss_d", text = "She misses the smell of sweetgrass smoke more than she will say. Aboda brings me a twist of it when the riders come from Thunder Bluff, and I burn a little under the pot so the inn smells of home for her." },
       },
       choices = {
         { text = "That's a secret worth keeping.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -2129,7 +2129,7 @@ P:NPC {
   },
   topics = {
     centaur = { { id = "tp_cen", text = "The Kolkar take one wagon in three from the caravan, child, and every one they take is a month of plain eating for this village. I have no kind word for them." } },
-    background = { { id = "tp_bg", text = "I am a Mulgore cook on a troll dock at the edge of a dead land. I did not plan it, and I would not undo it." } },
+    background = { { id = "tp_bg", text = "I am an Echo Isles cook on a dock at the edge of a dead land. I did not plan it, and I would not undo it." } },
     advice = { { id = "tp_ad", text = "Dry your fish before you carry it inland, child. Nothing turns faster than a wet fish in Desolace heat." } },
     _none = { { id = "tp_none", text = "I could not tell you. Ask Sikewa at the inn; travellers tell her everything." } },
   },

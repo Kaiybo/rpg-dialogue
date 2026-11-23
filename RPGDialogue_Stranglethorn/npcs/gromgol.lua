@@ -479,7 +479,7 @@ P:NPC {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear blood. Then you understand why I be here, so far from Durotar." },
     { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
-      text = "Somebody bind your soul in a stone, mon, so you can come back if the jungle take you. Nimboya would give much for her son to carry one of those, but the spirits say that kind of luck always be owing somebody." },
+      text = "Somebody bind your soul in a stone, mon, so you can come back if the jungle take you. Nimboya would give much for the chief's son to carry one of those, but the spirits say that kind of luck always be owing somebody." },
   },
 
   start = "hello",

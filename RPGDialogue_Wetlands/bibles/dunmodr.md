@@ -15,7 +15,7 @@
 TODO_NPC("Rhag Garmason") · Dun Modr, Wetlands · Alliance (Ironforge) · dwarf · soldier under Longbraid
 Personality: earnest, grieving, steadfast, courteous, a little old-fashioned ("'Tis", "Heavens").
 Speech: Khaz Modan burr; plain soldier's words.
-Relationships: Longbraid (trusts utterly), Rustlocke (mourns), Motley (shares his anger), Nials (understands his refusal).
+Relationships: Longbraid (trusts utterly), Rustlocke (mourns), Motley (shares his anger), Nials (understands her refusal).
 Default attitudes: grateful to any Alliance soldier; terse but non-hostile to the Horde.
 Never says: anything about Kam Deepfury after his capture (not in his knowledge).
 

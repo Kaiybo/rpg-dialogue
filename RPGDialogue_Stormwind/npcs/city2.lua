@@ -93,7 +93,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "We need scouts, and a hunter makes the best scout there is. Before the Second War, half of Uther's victories began with a ranger's report from the forests of Lordaeron, and I've never forgotten it." },
+        { id = "xhuntcl_default", text = "We need scouts, and a hunter makes the best scout there is. In the Second War, half of Uther's victories began with a ranger's report from the forests of Lordaeron, and I've never forgotten it." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We need scouts, and a hunter makes the best scout there is. That {pet} of yours stands like a well-trained charger. You've cared for it properly, and I respect that in anyone." },
       },
       choices = {

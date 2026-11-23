@@ -92,4 +92,4 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 
 
 ## Humans (human patch)
-- helendis: Torn: lives among humans at Morgan's Vigil, has stopped learning recruits' names; bites her tongue when they treat Kalimdor as empty and magic as Dalaran's. Softens if a human asks to learn what came before. Flag `helendis_human_soft`.
+- helendis: Torn: lives among humans at Morgan's Vigil, has stopped learning recruits' names; bites his tongue when they treat Kalimdor as empty and magic as Dalaran's. Softens if a human asks to learn what came before. Flag `helendis_human_soft`.

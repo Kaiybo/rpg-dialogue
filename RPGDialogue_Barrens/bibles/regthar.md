@@ -17,7 +17,7 @@ Regthar Deathgate · fortified burrow west of the Crossroads · Horde · Orc · 
 Personality: gruff, dutiful, blunt, a little bloodthirsty
 Speech: short soldier talk, 'duties to the Horde'
 Knows and cares about: Kolkar leaders, oasis scouts, bunkers
-Relationships: Lanti'gah (troll at his camp), Thork
+Relationships: Lanti'gah (orc peon at his camp), Thork
 Default attitudes: respects warriors
 Lore anchors: Directs Horde operations against centaur in the northern Barrens (wiki)
 Never says: anything after Year 1 (no Burning Crusade or Cataclysm events)

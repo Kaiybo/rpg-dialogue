@@ -324,7 +324,7 @@ P:NPC {
         { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the Kaldorei, here in the Highlands? Stromgarde could use anyone who knows wild country, because the Witherbark know these hills far better than my soldiers do." },
         { id = "h_default", key = true,
-          text = "Captain Nials. Stromgarde's keep fell in the Third War, and these tents are most of what our kingdom still holds. We're here to win the rest back." },
+          text = "Captain Nials. Stromgarde's keep fell after the Third War, and these tents are most of what our kingdom still holds. We're here to win the rest back." },
         { id = "h_badges", tags = { "news" }, when = { questActive = TODO_QUEST("Stromgarde Badges") },
           text = "The Syndicate's assassins took the badges off our dead, so bring them back; their families deserve that much." },
         { id = "h_plea", when = { questActive = TODO_QUEST("Plea To The Alliance") },

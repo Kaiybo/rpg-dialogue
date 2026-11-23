@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "curious", "careful", "loyal" },
   notices = { "race", "dungeon", "lore" },
   impression = {
-    first = "She trusts Cairne completely and the Forsaken not at all.",
+    first = "He trusts Cairne completely and the Forsaken not at all.",
     third = "{name} met Sage Truthseeker, a scholar of Thunder Bluff who gathers knowledge to advise the High Chieftain.",
   },
 

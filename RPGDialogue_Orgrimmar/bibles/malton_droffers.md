@@ -8,9 +8,9 @@
 - None.
 
 ## Identity
-TODO_NPC · Malton Droffers · Droffers and Son Salvage, the Drag, Orgrimmar · Horde · Goblin · Salvage merchant
+TODO_NPC · Malton Droffers · Droffers and Son Salvage, the Drag, Orgrimmar · Horde · Orc · Salvage merchant
 Personality: charming, generous, quietly ambitious
-Speech: goblin voice, warm: 'buddy', 'friend'
+Speech: haggler's voice, warm: 'buddy', 'friend'
 Knows and cares about: the shop, his father
 Relationships: Dran (father)
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance

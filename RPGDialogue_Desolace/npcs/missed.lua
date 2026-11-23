@@ -314,7 +314,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I be Mai'Lahii, and I sell everything you need to take a fish out of dis sea. De one thing I can't keep on de shelf is good bait, and for dat I could use a hand from somebody who doesn't mind getting wet." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Clam Bait") }, text = "How goes de clamming, mon? I need de soft-shelled meat, de kind from de big clams along de strand, and de fish here won't look at anything else." },
-        { id = "h_done", when = { questDone = TODO_QUEST("Clam Bait") }, text = "My clam-digger returns! De whole village been catching better since you filled my bait barrel, and Lui'Mala even said thank you, which he never does." },
+        { id = "h_done", when = { questDone = TODO_QUEST("Clam Bait") }, text = "My clam-digger returns! De whole village been catching better since you filled my bait barrel, and Lui'Mala even said thank you, which she never does." },
       },
       again = {
         { id = "h_again", text = "What else, mon? De tide's in no hurry." },

@@ -565,31 +565,31 @@ P:NPC {
   },
 }
 
--- Lanti'gah: keeps Regthar Deathgate's bunker west of the Crossroads. (Our regthar.lua calls him a troll.)
+-- Lanti'gah: keeps Regthar Deathgate's bunker west of the Crossroads. (Orc peon per the wiki and the vanilla archive.)
 P:NPC {
   key = "lantigah", id = TODO_NPC("Lanti'gah"), name = "Lanti'gah", gender = "male",
   bible = "bibles/missed.md", role = "soldier", tier = "service",
   communities = { "crossroads" }, temper = { "sharp", "grumbling" }, values = { "watchfulness", "mercy" },
   notices = { "soldier" },
   impression = {
-    first = "Lanti'gah keeps Regthar Deathgate's bunker in order, a lean troll with a sharp tongue who walks the perimeter and complains about the pigs. No centaur has ever reached the door on his watch, and he will tell you so.",
-    third = "{name} met Lanti'gah, the troll who keeps Regthar Deathgate's bunker and watches the Kolkar.",
+    first = "Lanti'gah keeps Regthar Deathgate's bunker in order, a lean orc peon with a sharp tongue who walks the perimeter and complains about the pigs. No centaur has ever reached the door on his watch, and he will tell you so.",
+    third = "{name} met Lanti'gah, the orc peon who keeps Regthar Deathgate's bunker and watches the Kolkar.",
   },
   greetings = {
-    { id = "g_default", text = "Wipe your feet, {class}. Dis be a bunker, I know, but somebody got to sweep it, and dat somebody be me." },
-    { id = "g_counter", when = { questActive = TODO_QUEST("Counterattack!") }, text = "Keep counting, mon, you're only halfway there. The Kolkar got plenty more where those came from." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Regthar's in a mood, so nothing has changed since ya left." },
+    { id = "g_default", text = "Wipe your feet, {class}. This is a bunker, I know, but somebody has to sweep it, and that somebody is me." },
+    { id = "g_counter", when = { questActive = TODO_QUEST("Counterattack!") }, text = "Keep counting, {class}, you're only halfway there. The Kolkar got plenty more where those came from." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Regthar's in a mood, so nothing has changed since you left." },
   },
   notice = {
     { id = "n_troll", cat = "soldier", when = { race = "Troll" },
-      text = "Another Darkspear, praise the loa. Maybe now somebody here will understand a joke when I make one." },
+      text = "A Darkspear, good. You lot laugh at my jokes, which is more than Regthar's grunts ever do." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I be Lanti'gah, and I keep this hole in the ground standing while Regthar goes out and shouts at centaur. I mind the stores, I walk the line at night, and I feed those pigs, which nobody thanks me for." } },
+      lines = { { id = "h_default", text = "I'm Lanti'gah, and I keep this hole in the ground standing while Regthar goes out and shouts at centaur. I mind the stores, I walk the line at night, and I feed those pigs, which nobody thanks me for." } },
       again = {
-        { id = "h_again", text = "What else, mon? I got a perimeter to walk." },
+        { id = "h_again", text = "What else? I've a perimeter to walk." },
         { id = "h_again2", text = "Go on, I'm listening with one ear." },
       },
       choices = {
@@ -600,29 +600,29 @@ P:NPC {
       },
     },
     pigs = {
-      lines = { { id = "p_default", text = "Dey scream at dawn, dey eat the stores if I turn my back, and one of them has learned to open the gate. Regthar says they feed his scouts, and dat's true, but he don't have to sleep downwind." } },
+      lines = { { id = "p_default", text = "They scream at dawn, they eat the stores if I turn my back, and one of them has learned to open the gate. Regthar says they feed his scouts, and that's true, but he don't have to sleep downwind." } },
       choices = { { text = "A pig that opens gates? Something else.", next = "BACK" } },
     },
     kolkar = {
-      lines = { { id = "k_default", text = "Close enough that I hear their hooves when the wind be from the west. They come in out of the Forgotten Pools and down from the hills, and their khans keep sending them because a centaur would sooner die than be called slow.", fx = { learn = { "centaur" } } } },
+      lines = { { id = "k_default", text = "Close enough that I hear their hooves when the wind is from the west. They come in out of the Forgotten Pools and down from the hills, and their khans keep sending them because a centaur would sooner die than be called slow.", fx = { learn = { "centaur" } } } },
       choices = {
         { text = "And none has reached the bunker?", next = "kolkar2" },
         { text = "Something else.", next = "BACK" },
       },
     },
     kolkar2 = {
-      lines = { { id = "k2_default", text = "Not one, mon, and I'd like dat written down somewhere. Regthar gets the songs because he kills them in daylight, but it's the night watch dat keeps his bed from being trampled." } },
+      lines = { { id = "k2_default", text = "Not one, and I'd like that written down somewhere. Regthar gets the songs because he kills them in daylight, but it's the night watch that keeps his bed from being trampled." } },
       choices = { { text = "I'll remember who keeps the night. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     spare = {
-      lines = { { id = "s_default", text = "I said a beaten enemy who runs home tells the others what it cost, and a dead one tells nobody. Regthar calls dat soft, but my people been hunted to the edge more than once, and I know what it teaches you." } },
+      lines = { { id = "s_default", text = "I said a beaten enemy who runs home tells the others what it cost, and a dead one tells nobody. Regthar calls that soft, but I spent my youth in a human camp, and I know what being beaten teaches you." } },
       choices = { { text = "It's a hard-won sort of soft. Something else.", next = "BACK" } },
     },
   },
   topics = {
-    background = { { id = "tp_bg", text = "I came over the sea with Vol'jin's people and ended up keeping house for an orc in a burrow. The loa got a strange sense of humor." } },
-    centaur = { { id = "tp_ce", text = "Kolkar, mon, all hooves and pride. They hate us for being here, and they'd hate each other if we left." } },
-    _none = { { id = "tp_none", text = "Dat's not come past my door, mon, and everything comes past my door. Ask Regthar, if you like being shouted at." } },
+    background = { { id = "tp_bg", text = "I hauled stone in a human camp for years, and now I haul it for Regthar in a burrow. The work is the same, but at least the master is my own." } },
+    centaur = { { id = "tp_ce", text = "Kolkar, all hooves and pride. They hate us for being here, and they'd hate each other if we left." } },
+    _none = { { id = "tp_none", text = "That hasn't come past my door, and everything comes past my door. Ask Regthar, if you like being shouted at." } },
   },
 }
 

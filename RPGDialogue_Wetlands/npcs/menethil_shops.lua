@@ -163,7 +163,7 @@ P:NPC {
 
     danger = {
       lines = {
-        { id = "dg_default", text = "Over Grim Batol it is, for the Dragonmaw keep red dragons there, so my birds go well around it. The Thandol Span is no picnic either, with Dark Iron raiders on the bridge, but the gryphons fly high and fast and don't stop to look." },
+        { id = "dg_default", text = "Over Grim Batol it is, for red dragons still haunt that mountain, so my birds go well around it. The Thandol Span is no picnic either, with Dark Iron raiders on the bridge, but the gryphons fly high and fast and don't stop to look." },
       },
       choices = {
         { text = "Someone should drive the Dragonmaw out.", next = "BACK", reply = "Someone should, and the dwarves at Algaz have been saying so for months. Until they manage it, my birds fly the long way round.", fx = { align = { order = 1 }, trait = { brave = 1 }, learn = { "dragonmaw" } } },

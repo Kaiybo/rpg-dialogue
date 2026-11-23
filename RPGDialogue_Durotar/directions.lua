@@ -5,7 +5,7 @@ P:Directions {
   town = "razor_hill", mapID = 1411,
   entries = {
     { id = "inn", name = "The inn", kind = "inn", text = "The inn is the big hut on the north side of the road, with smoke always rising from it. Innkeeper Grosk will find you a bed and something hot.", x = 51.5, y = 41.6 },
-    { id = "bank", name = "The bank", kind = "bank", text = "Razor Hill keeps no bank. Take the road north to Orgrimmar, and the goblins who hold your gold are in the Valley of Strength." },
+    { id = "bank", name = "The bank", kind = "bank", text = "Razor Hill keeps no bank. Take the road north to Orgrimmar, and the bankers who hold your gold are in the Valley of Strength." },
     { id = "auction", name = "The auction house", kind = "auction", text = "There's no auction house here, so you'll have to go to Orgrimmar. Walk north up the road to the gates, and the auctioneers are in the Valley of Strength." },
     { id = "flight", name = "Wind rider master", kind = "flight", text = "Razor Hill has no wind riders of its own. Go north to Orgrimmar and climb the tower in the Valley of Strength, and Doras will put you on a beast." },
     { id = "mail", name = "Mailbox", kind = "mail", text = "The mailbox stands outside the inn, by the road. You'd have to try hard to miss it.", x = 51.9, y = 41.9 }, -- coords unsure

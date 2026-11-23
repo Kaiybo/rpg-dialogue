@@ -158,7 +158,7 @@ P:NPC {
         { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" }, faction = "Horde" },
           text = "You travel with {companion}, a Darkspear by the tusks, and the Revantusk are glad of it, mon. There be few enough trolls in this Horde who remember what it means to keep faith with the orcs." },
         { id = "h_default", key = true,
-          text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood, startin' with my guard captain Malkhor, who they cut down where he stood." },
+          text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood, startin' with my guard captain Malkhor, who they dragged up there with him and killed." },
         { id = "h_kidnap", tags = { "news" }, when = { questActive = TODO_QUEST("Kidnapped Elder Torntusk!") },
           text = "My spies say he still breathes, up on the top of Jintha'Alor, and the Vile Priestess Hexx be readyin' him for her altar. Go quick, before she finishes her preparations." },
         { id = "h_hills_resolved", tags = { "news" }, when = { faction = "Horde", thread = { id = "hinterlands_trolls", state = "resolved" } },
@@ -249,7 +249,7 @@ P:NPC {
     raid = {
       big = true,
       lines = {
-        { id = "ra_default", text = "They came up from the south in the dark, quiet as fog, and they knew where every hut stood. Malkhor met them at the gate with a spear, and they cut him down there, and they took my mate up the hill." },
+        { id = "ra_default", text = "They came up from the south in the dark, quiet as fog, and they knew where every hut stood. Malkhor met them at the gate with a spear, and they dragged him up the hill with my mate and killed him there." },
       },
       choices = {
         { text = "How did they know the village so well?", next = "raid_spies" },

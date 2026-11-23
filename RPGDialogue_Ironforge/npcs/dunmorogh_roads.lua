@@ -437,7 +437,7 @@ P:NPC {
 
   impression = {
     first = "He talks fast about fuelling and feeding his flying machine.",
-    third = "{name} met Pilot Bellowfiz at Steelgrill's Depot, a gnome pilot hungry for his next flight.",
+    third = "{name} met Pilot Bellowfiz at Steelgrill's Depot, a dwarf pilot hungry for his next flight.",
   },
 
   greetings = {
@@ -454,7 +454,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Want it? I'd seat you in the cockpit right next to the altimeter! Though I should warn you, every gnome who's flown with a dwarf passenger says they go a bit green over the peaks, so you might have to talk to the wind with your head in a bucket." } },
+      lines = { { id = "xdsham_default", text = "Want it? I'd seat you in the cockpit right next to the altimeter! Though I should warn you, every pilot who's flown a dwarf over the peaks says his passengers go a bit green over the peaks, so you might have to talk to the wind with your head in a bucket." } },
       choices = {
         { text = "The wind isn't a tool. I'd ask it, never command it.", next = "BACK", reply = "Oh, that's very poetic, and I respect it, though I'll keep my hand on the throttle in case the wind decides it doesn't want to be asked.", fx = { align = { honor = 1 } } },
         { text = "I'll tell it to blow eastward. Save me a seat.", next = "BACK", reply = "Splendid, I'll save you the seat by the altimeter, and if it blows west instead, we'll just call it a very scenic detour.", fx = { affinity = 1, align = { honor = -1 } } },
@@ -465,7 +465,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Constantly, because the gryphons sulk for an hour whenever I start the engine. I keep telling them it isn't a contest, but they've decided it is, and frankly they're winning." } },
       choices = {
-        { text = "The sky is the birds' home. Fly gently in it.", next = "BACK", reply = "I'll try, I really will, though I suspect the gryphons will still sulk, because they've decided I'm competition and gnomes always win eventually.", fx = { align = { honor = 1 } } },
+        { text = "The sky is the birds' home. Fly gently in it.", next = "BACK", reply = "I'll try, I really will, though I suspect the gryphons will still sulk, because they've decided I'm competition and machines always win eventually.", fx = { align = { honor = 1 } } },
         { text = "The sky belongs to whoever can reach it.", next = "BACK", reply = "That's exactly what I tell the gryphons, and they never listen, so maybe you could tell them, because they might take it better from you.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -502,16 +502,16 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "In theory, yes, and in practice, the last gnome who tried it ended up on the roof of Steelgrill's Depot. Gnomeregan was full of magic and machinery working together, and I miss that more than I miss my workshop." } },
+      lines = { { id = "xmage_default", text = "In theory, yes, and in practice, the last gnome who tried it ended up on the roof of Steelgrill's Depot. Gnomeregan was full of magic and machinery working together, and I miss the visits I made there more than I'd admit to Stonegear." } },
       choices = {
-        { text = "Then we'll build it carefully, with safety measures first.", next = "BACK", reply = "Safety first, yes, and I'll be glad of the help, because I'd rather not be the next gnome to see the depot from its roof.", fx = { align = { order = 1 } } },
+        { text = "Then we'll build it carefully, with safety measures first.", next = "BACK", reply = "Safety first, yes, and I'll be glad of the help, because I'd rather not be the next pilot to see the depot from its roof.", fx = { align = { order = 1 } } },
         { text = "Let's test it right now. Theory is for cowards.", next = "BACK", reply = "Oh no, not right now, not here, because the depot roof is very slippery, and I've already been up there once this week.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "I'm a gnome, so I trust gears and grease first, but I've crashed four times and walked away from every one, and I've started to wonder if somebody up there likes me. It can't hurt, and if it does, I'll write a very strongly worded report." } },
+      lines = { { id = "xapriest_default", text = "I fly with gnome engines, so I trust gears and grease first, but I've crashed four times and walked away from every one, and I've started to wonder if somebody up there likes me. It can't hurt, and if it does, I'll write a very strongly worded report." } },
       choices = {
         { text = "Then I'll say a blessing. Faith and gears can fly together.", next = "BACK", reply = "Thank you, and I'll keep it in my top pocket, right next to the spare bolts, because I need all the luck I can carry up there.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Trust your gears, pilot. Prayers don't hold a wing on.", next = "BACK", reply = "Fair point, and my gears are very good, but four crashes is a lot to walk away from, so I'll keep wondering if you don't mind.", fx = { align = { light = -1 } } },
@@ -569,7 +569,7 @@ P:NPC {
         { text = "What's Jetsteam?", next = "jet" },
         { text = "What is this depot for?", next = "depot" },
         { text = "You can't be the only one working out here.", next = "people" },
-        { text = "A fellow gnome! Where are you flying?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Spoken as a gnome, that is a fine flier. Where to?", next = "gnome", when = { race = "Gnome" } },
         { text = "Have you had stowaways on your flier before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could arcane magic really power a flying machine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's keeping the depot's larder so empty, Pilot?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -610,13 +610,13 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {
-      lines = { { id = "gn_default", text = "Wherever the wind wants, cousin! After Gnomeregan, I'd rather be up in the sky than under a mountain, and I don't think I'm the only one." } },
+      lines = { { id = "gn_default", text = "Wherever the wind wants, friend! After what happened to Gnomeregan, your folk would rather be up in the sky than under a mountain, and I can't say I blame them." } },
       choices = { { text = "I understand that. Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
   topics = {
-    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan built the best flying machines in the world, and I'd fly one back in there if I didn't think the troggs would eat it. Someday, someday, and I'll be at the controls." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan built the best flying machines in the world, and I'd fly one back in there with the gnomes if I didn't think the troggs would eat it. Someday, someday, and I'll be at the controls." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "The goblins in Gadgetzan fly their machines on whatever they can find in the desert, and they crash more than they land. I've a cousin there who flies one, and he's lost three eyebrows and most of a moustache." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a zeppelin tower, they say, though I've never been, and I'd love to look at it and tut. Goblins never use enough rivets." } },
     _none = { { id = "tp_none", text = "Hmm, not my field. My field is the sky, roughly four thousand feet of it, and that's not in it." } },

@@ -24,14 +24,14 @@
 - Brine · orc woman · still, searching; asks why you came; water as the quiet power.
 - Takar the Seer · human man · serene, odd; has heard the conversation already; won't describe the future.
 - Vrang Wildgore · orc man · proud, sore about asking for help; keeps his word.
-- Lanti'gah · troll man · sharp-tongued, grumbling camp-keeper; hates the pigs; would let beaten Kolkar run.
+- Lanti'gah · orc man (peon) · sharp-tongued, grumbling camp-keeper; hates the pigs; would let beaten Kolkar run.
 - Jorb · ogre man · slow, placid; third person, simple whole sentences; "little boss".
 - Pilot Wizzlecrank · goblin man · jumpy, fast; everything is a ledger line.
 - Gruk · orc boy · eager, polite ("sir"). Karu · orc girl · bossy, caring. Okla · orc girl · dreamy. Trok · orc boy · frantic, sheepish.
 - Captain Gerogg Hammertoe · dwarf man · stern, weary, half sorry for the tauren. Digger Flameforge · dwarf man · keen, single-minded. Heggin Stonewhisker · dwarf man · harried, proud. Malgin Barleybrew · dwarf man · jolly, shrewd listener.
 
 ## Authored, not canon
-- Lanti'gah is written as a troll to match regthar.lua (the wiki infobox says orc peon).
+- Lanti'gah is an orc peon (wiki and vanilla archive); written as one.
 - Gahroot's words before the knife; the bones going to Byula's pot; hides to Sanuye.
 - Kelsuwa's raptor in the third pen, waiting on a troll gone to the Razorfen.
 - Sanuye and Arch Druid Hamuul's counsel; smoking hides for many days.

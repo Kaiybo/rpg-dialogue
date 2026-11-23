@@ -187,7 +187,7 @@ P:NPC {
     },
     why_demons = {
       lines = {
-        { id = "wd_default", text = "Orcs who never gave up their old ways, holed up in Thunder Axe Fortress to the southwest and calling themselves the Burning Blade. Vahlarriel Demonslayer, the night elf who hunts them, can tell you more, if you can find her, and if you'd rather not sleep tonight." },
+        { id = "wd_default", text = "Orcs who never gave up their old ways, holed up in Thunder Axe Fortress to the southwest and calling themselves the Burning Blade. Vahlarriel Demonslayer, the night elf who hunts them, can tell you more, if you can find him, and if you'd rather not sleep tonight." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

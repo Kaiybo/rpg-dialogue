@@ -1,7 +1,7 @@
 # Arathi Highlands  (keys: nials, drumfel, zengu, adegwa; hammerfall.lua: gormul, torgan, korinfel, urda; refugepointe.lua: skuerto, kryten, cedrik, vikki)
 
 ## Sources
-- https://warcraft.wiki.gg/wiki/Refuge_Pointe (Stromgarde outpost of tents, no mailbox; after the keep fell in the Third War the surviving army stayed to retake it; Captain Nials leads and refused to spare soldiers for Thandol Span)
+- https://warcraft.wiki.gg/wiki/Refuge_Pointe (Stromgarde outpost of tents, no mailbox; after the keep fell (after the Third War) the surviving army stayed to retake it; Captain Nials leads and refused to spare soldiers for Thandol Span)
 - https://warcraft.wiki.gg/wiki/Captain_Nials (human, **female**; Classic gossip: one of the few remaining patches of Stromgarde territory, "we must take what is ours", duty forbids leaving the Highlands; Stromgarde Badges (Syndicate assassins took the badges of fallen soldiers, for their families), Plea To The Alliance, Northfold Manor)
 - https://warcraft.wiki.gg/wiki/Hammerfall (one of the Alliance's largest internment camps after the Second War; destroyed by Thrall and Orgrim Doomhammer to free the orcs; Orgrim fatally wounded by a lance; the Horde reoccupied the ruins and named it for him; Boulderfist and Witherbark attacks; Hammerfall Guardians)
 - https://warcraft.wiki.gg/wiki/Drum_Fel (orc warrior who rules Hammerfall, married to Korin Fel; sends champions against the Witherbark, the Boulderfist and Stromgarde; believes Hammerfall will thrive once its enemies are dealt with; The Hammer May Fall, Call to Arms)
@@ -51,7 +51,7 @@ Never (this pass): Field Marshal Oslight, Sergeant Maclear, Deathmaster Dwire, R
 Authored, not canon: Gor'mul's view of Drum and of Thrall, the camp-born advice; Tor'gan coming to Hammerfall because Drum needed a shaman, his raptor lesson; Korin's porridge and crows; Urda's lost rider and wide routes; Skuerto scouting troggs as a lad, his ale wager; Kryten's notes on the shadow hunter knife, Malin's tea; Cedrik carrying the badges south; Vikki's tallies and that she sold goods in Stromgarde before the fall.
 
 ## Authored, not canon (prejudices, 0.80.0)
-- Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of his lookouts this season; he "reads boots".
+- Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of her lookouts this season; she "reads boots".
 - Gor'mul: can't look at the Forsaken without wondering which of them kept the Hammerfall camp (`prejudice`, race Scourge); the guards talking over the prisoners like cattle is what he still hears.
 
 ## Night elves (prejudice pass)

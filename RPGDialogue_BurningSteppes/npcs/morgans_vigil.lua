@@ -176,7 +176,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You'll find nothing growing on this ridge but stubbornness, I'm afraid, and we've plenty of that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at the Vigil. Stormwind won't send me soldiers, so I'll take whatever help Ironforge sends, and I won't ask how it works." },
         { id = "dd_dragonkin", when = { questDone = TODO_QUEST("Dragonkin Menace") },
-          text = "Helendis put your name in her report on the dragonkin, and she doesn't name anyone lightly. Whatever is gathering those beasts in the Steppes, you've thinned its ranks." },
+          text = "Helendis put your name in his report on the dragonkin, and he doesn't name anyone lightly. Whatever is gathering those beasts in the Steppes, you've thinned its ranks." },
         { id = "dd_rank", when = { pvpRank = 6, faction = "Alliance" },
           text = "A Knight's rank, I see. Stormwind's been handing those out to the ones who hold the line in the valleys, and I'd sooner have a few of them up here than all the paperwork the capital sends." },
       },

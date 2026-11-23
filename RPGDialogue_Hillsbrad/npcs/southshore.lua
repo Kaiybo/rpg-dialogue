@@ -304,7 +304,7 @@ P:NPC {
         { id = "h_hu", when = { race = "Human" },
           text = "Southshore took in Stormwind's people when their city burned, and then it took in Lordaeron's when the plague came, and I'd like to think the next lot of refugees will be someone else's turn." },
         { id = "h_nelf", when = { race = "NightElf" },
-          text = "We had elves beside us once, kaldorei, the rangers of Quel'Thalas, and they bled for Lordaeron in the Second War. Your people I only heard of after Lordaeron was already ash." },
+          text = "We had elves beside us once, quel'dorei, the rangers of Quel'Thalas, and they bled for Lordaeron in the Second War. Your people I only heard of after Lordaeron was already ash." },
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "Five of you, armed and fed and walking in step, and you've no idea how good that looks from my wall. If you're heading up toward Tarren Mill, I'd ask you to come back the same number you left with." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on the storm, the guards tell me. Dun Garok's lot pray to their stone and their forefathers, {class}, and I never heard of one talking to the wind before today." },

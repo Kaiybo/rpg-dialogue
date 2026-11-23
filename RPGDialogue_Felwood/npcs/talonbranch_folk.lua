@@ -1,81 +1,81 @@
--- Talonbranch Glade: Taronn Redfeather, who studies the wildkin, and Malygen, the glade's reagent seller. Voice: bibles/talonbranch_folk.md
+-- Taronn Redfeather, tauren druid of the Emerald Circle at the Emerald Sanctuary; and Talonbranch Glade's keepers below. Voice: bibles/talonbranch_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.felwood")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "taronn", id = TODO_NPC("Taronn Redfeather"), name = "Taronn Redfeather",
+  key = "taronn", id = TODO_NPC("Taronn Redfeather"), name = "Taronn Redfeather", title = "Emerald Circle",
   bible = "bibles/talonbranch_folk.md", role = "questgiver", tier = "quest",
-  communities = { "talonbranch" }, temper = { "curious", "earnest" }, values = { "wise", "devout" },
+  communities = { "emerald_sanctuary" }, temper = { "patient", "earnest" }, values = { "wise", "devout" },
   notices = { "class", "race" },
 
   impression = {
-    first = "He fears the wildkin have gone mad from what they guard.",
-    third = "{name} met Taronn Redfeather, a night elf at Talonbranch Glade who studies the wildkin.",
+    first = "He fears the forest's sickness runs deeper than any single water.",
+    third = "{name} met Taronn Redfeather, a tauren druid of the Emerald Circle at the Emerald Sanctuary.",
   },
 
   greetings = {
-    { id = "g_default", text = "Ishnu-alah, and welcome to Talonbranch. If you're bound north toward Winterspring, I'd like a word before you go." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "You're back from the north already? Tell me what you saw of the owlbeasts, and leave nothing out." },
-    { id = "g_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") }, text = "Have you found what they were guarding? I've hardly slept since you left, wondering." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "There you are, the one who found what the wildkin were guarding. I still turn it over in my mind every evening." },
-    { id = "g_back", when = { metBefore = true }, text = "Back by the moonwell again. Sit, if you like; the wildkin can wait a moment." },
+    { id = "g_default", text = "Peace to you, traveler, and welcome to the Sanctuary. Sit a while; the Earth Mother is patient, and so am I." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Verifying the Corruption") }, text = "You have come back from Shatter Scar Vale. Tell me what the craters showed you, and leave nothing out, even the small things." },
+    { id = "g_secrets", when = { questActive = TODO_QUEST("Culling the Corrupted") }, text = "The corrupted beasts still walk, I think. I do not ask this lightly, and I will not hurry you." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Culling the Corrupted") }, text = "There you are, the one who gave the sick beasts their rest. I spoke their names to Mu'sha that night, as many as I knew." },
+    { id = "g_back", when = { metBefore = true }, text = "You walk this path again, friend. Come, the fire is warm and the forest can wait a little longer." },
   },
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid, and I'd wager you've worn feathers yourself, or wished to. Then the wildkin of Talonbranch will speak to something in you." },
-    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf of Ironforge, in Felwood. Your scholars dig for the past and I watch birds for it, so perhaps we're in the same trade." },
+      text = "A druid, and so a walker in the Dream. Be careful when you sleep in Felwood, for the sickness reaches even there." },
+    { id = "n_dwarf", cat = "race", when = { race = "Tauren" },
+      text = "One of the People, this far from the grass of Mulgore. It is good to see a tauren face among all these tall elves." },
   },
 
   start = "hello",
   nodes = {
     dd_deadwood = {
       lines = {
-        { id = "ddd_default", text = "I know, and I know why. The Deadwood ate and drank what Felwood gave them, and the fel took them from the inside, and now they attack the Timbermaw and us alike. The owlbeasts I study are going the same way, and I fear the furbolgs are only the first." },
+        { id = "ddd_default", text = "I know, and I know why it had to be. The Deadwood ate and drank what this land gave them, and the fel took them from the inside, so now they turn on the Timbermaw and on us alike. I grieve for them as I would for a herd lost to bad water." },
       },
       choices = {
-        { text = "Then the corrupted should be put down before it spreads.", next = "BACK", reply = "That is the Sentinels' view, and I cannot argue with it today. I only hope we are still able to tell the sick from the lost.", fx = { align = { light = -1 } } },
-        { text = "If they were poisoned, maybe they can be cured.", next = "BACK", reply = "The Emerald Circle believes so, and I hope they are right. Speak to them at the Sanctuary, and tell them Taronn sent you.", fx = { align = { light = 1 } } },
+        { text = "Then the corrupted should be put down before it spreads.", next = "BACK", reply = "That is the hunter's answer, and some days I cannot argue with it. I only pray we can still tell the sick from the lost.", fx = { align = { light = -1 } } },
+        { text = "If they were poisoned, maybe they can be cured.", next = "BACK", reply = "The Circle believes so, and I hold to that hope as well. Speak with Kelek Skykeeper here; he knows the furbolgs better than anyone.", fx = { align = { light = 1 } } },
         { text = "Something else, Taronn.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_dd_deadwood", tags = { "news" }, when = { killed = { name = "Deadwood", min = 30 } }, text = "The Deadwood camps south of the glade are thinner than they were, and the Sentinels say it was your work. I take no pleasure in it, for the furbolgs were wise once, but the glade sleeps easier." },
-        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir tells me you brought her friend Arko'narin out of Jaedenar alive. That is the kind of news Talonbranch hears too rarely, and I was glad to carry it to the Sentinels myself." },
-        { id = "h_default", key = true, text = "I am Taronn Redfeather, and I study the wildkin, the great owlbeasts who roost in Winterspring and the old places of our people. Something has gone wrong with them, and I mean to learn what before the Sentinels decide the only answer is arrows." },
-        { id = "h_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "The moontouched ones are north of the Timbermaw tunnels, and the berserk ones keep near the small caves further south. Look at their eyes before you fight them, if you can manage it, and tell me what you see there." },
+        { id = "h_dd_deadwood", tags = { "news" }, when = { killed = { name = "Deadwood", min = 30 } }, text = "The Deadwood camps are thinner than they were, and the Sentinels say it was your doing. I take no joy in it, for the furbolgs were wise once, but the Sanctuary sleeps easier." },
+        { id = "h_dd_rescue", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Jessir tells me you brought Arko'narin out of Jaedenar alive. Such news comes to the Sanctuary too rarely, and I gave thanks to An'she for it at dawn." },
+        { id = "h_default", key = true, text = "I am Taronn Redfeather, of the Emerald Circle. I came north from Mulgore to see whether any part of this forest can still be healed, and I am trying very hard not to lose hope." },
+        { id = "h_active", when = { questActive = TODO_QUEST("Verifying the Corruption") }, text = "The craters lie in Shatter Scar Vale, to the north, where the infernals fell. Look at the water and at the beasts near it, and tell me if even one spring there runs clean." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? I can talk about wildkin until the moon sets." },
-        { id = "h_again2", text = "Ask, friend. I've had no one to talk to but the hippogryphs." },
+        { id = "h_again", text = "What else would you know? I have time, and the fire is warm." },
+        { id = "h_again2", text = "Ask, friend. The elves here are kind, but they do not often sit and talk." },
       },
       choices = {
         { text = "I've had to kill a lot of Deadwood furbolgs.", next = "dd_deadwood", when = { killed = { name = "Deadwood", min = 30 } } },
-        { text = "What are the wildkin?", next = "wildkin" },
-        { text = "What's gone wrong with them?", next = "mad" },
+        { text = "What is Shatter Scar Vale?", next = "wildkin" },
+        { text = "What's gone wrong with the beasts here?", next = "mad" },
         { text = "How do I reach Winterspring from here?", next = "road" },
-        { text = "Why study them from Felwood?", next = "felwood" },
-        { text = "Elune made them, didn't she?", next = "xpriest", when = { class = "PRIEST", race = "NightElf" } },
+        { text = "Why would a tauren come to Felwood?", next = "felwood" },
+        { text = "Does Elune have any power left in this forest?", next = "xpriest", when = { class = "PRIEST", race = "NightElf" } },
         { text = "I've worn feathers in moonkin form, Taronn.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I've seen what sick beasts do. Some can't be helped.", next = "xhunter", when = { class = "HUNTER" } },
-        { text = "The wildkin were Cenarius's gift to us. Who sours them?", next = "kal_wildkin", when = { race = "NightElf" } },
+        { text = "This was our forest once. What can a tauren do here?", next = "kal_wildkin", when = { race = "NightElf" } },
         { text = "Farewell, Taronn.", next = "END" },
       },
     },
     wildkin = {
       lines = {
-        { id = "w_default", text = "They are older than our cities, and some of the old songs say they were placed to watch over Elune's sacred places when the Kaldorei were young. You'll find them wherever something holy was left behind and forgotten, which in Kalimdor is a great many places." },
+        { id = "w_default", text = "It is a valley north of here where the Legion's infernals fell from the sky like burning stones. They broke the earth open, and the craters they left still smoke, and nothing that grows near them grows well." },
       },
       choices = {
-        { text = "What sort of holy places?", next = "wildkin_places" },
+        { text = "Does anything live near the craters?", next = "wildkin_places" },
         { text = "Something else.", next = "BACK" },
       },
     },
     wildkin_places = {
       lines = {
-        { id = "wp_default", text = "Shrines, mostly, and barrow-groves, and the odd ruin that even our histories have lost the name of. The wildkin don't care whether anyone remembers what they guard; they guard it anyway, which I find more moving than any statue in Darnassus." },
+        { id = "wp_default", text = "Beasts live there still, though the Circle calls them entropic now, because the land has twisted them out of their own nature. The Earth Mother made them whole, and it hurts my heart to see what the fel has made of them." },
       },
       choices = {
         { text = "What happens if someone comes near?", next = "wildkin_guard" },
@@ -85,28 +85,28 @@ P:NPC {
     wildkin_guard = {
       big = true,
       lines = {
-        { id = "wg_default", text = "They drive them off, and lately they kill them, Kaldorei or not. I believe the old secrets should stay where Elune put them, but the Sentinels say a guardian that kills our own people has failed in its charge." },
+        { id = "wg_default", text = "They attack, and they do not stop until one of you is dead. Some in the Circle say we should leave the Vale to burn itself out, and others say we must go in and cleanse it, whatever the cost." },
       },
       choices = {
-        { text = "Then leave the secrets buried. The guardians are doing their duty.", next = "BACK", reply = "That's my belief too, and it comforts me to hear it from someone else. Elune hid those secrets for a reason, and the wildkin guard them for her.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Secrets hidden from us aren't worth killing for. Uncover them.", next = "BACK", reply = "The Sentinels would agree with you, and perhaps you're both right. I only hope whatever's uncovered is worth what it costs.", fx = { align = { order = -1 } } },
+        { text = "Leave the Vale alone. Some wounds must close on their own.", next = "BACK", reply = "That is the patient way, and the Earth Mother often favors it. Still, I fear this wound will spread before it closes.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Go in and cleanse it. Waiting only lets the rot grow.", next = "BACK", reply = "You speak like a young bull, and perhaps the forest needs one now. I only hope we do not trample what we came to save.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     mad = {
       lines = {
-        { id = "m_default", text = "Some are ragged and raging, and some are berserk, and the ones in the north have a strange light in them that I call moontouched for want of a better word. A wildkin is fierce but never mad, so whatever they guard up there has done something to them." },
-        { id = "m_done", when = { questDone = TODO_QUEST("Wild Guardians") }, text = "You've seen them now, so you know what I mean. They fight like creatures who've forgotten everything but the fighting, and that isn't the wildkin I read about as a boy." },
+        { id = "m_default", text = "The waters are poisoned, and every creature that drinks from them takes the poison into its blood. I hoped to find even one clean source in the craters, a place to begin the healing, but I fear there may be none." },
+        { id = "m_done", when = { questDone = TODO_QUEST("Verifying the Corruption") }, text = "You have seen the craters now, so you know there is no clean water left in them. I had hoped otherwise, and I am still learning how to set that hope down." },
       },
       choices = {
-        { text = "Could it be Felwood's corruption reaching north?", next = "mad_fel" },
+        { text = "Could the corruption reach beyond Felwood?", next = "mad_fel" },
         { text = "What do you want done about them?", next = "mad_task" },
         { text = "Something else.", next = "BACK" },
       },
     },
     mad_fel = {
       lines = {
-        { id = "mf_default", text = "I thought so at first, and it would have been the easy answer. But the Winterspring wildkin have no fel in them that the druids can find, so I think it is something older, something in what they guard, and that frightens me more than the demons do." },
+        { id = "mf_default", text = "It already has, I think, for the waters run downhill and the winds carry what they carry. The Horde at Bloodvenom Post drink from those falls, and they laugh when I warn them, but the land does not care who laughs." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -115,17 +115,17 @@ P:NPC {
     mad_task = {
       big = true,
       lines = {
-        { id = "mt_default", text = "Thin the worst of them, and bring me whatever they wear or carry, because a wildkin doesn't carry trinkets without a reason. I hate to ask it, but a dead guardian can still tell me what a living one would not." },
+        { id = "mt_default", text = "If we cannot heal the land yet, then at least we can end the suffering of the creatures it has twisted. I hate to ask it, but a quick death is a kinder thing than what Felwood gives them." },
       },
       choices = {
-        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, and Elune bless you for the mercy in it. Say her name when you do it, if you can bear to.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Mad beasts are mad beasts. I'll cut through them.", next = "BACK", reply = "I won't stop you, but I wish you'd think of them as they were. They guarded these woods long before any of us came.", fx = { align = { light = -1 } } },
+        { text = "I'll do it, and I'll make it quick for them.", next = "BACK", reply = "Thank you, friend. Their spirits will return to the Earth Mother, and she will make them whole again.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Twisted beasts are just monsters now. I'll cut through them.", next = "BACK", reply = "I will not stop you, but I wish you would remember what they were. The forest was their home long before it was a battlefield.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     road = {
       lines = {
-        { id = "r_default", text = "North through Felwood to the Timbermaw tunnels, and through the furbolgs' hold to the snow beyond. The Timbermaw will let you pass if they don't hate you, so be careful which furbolgs you kill on the way." },
+        { id = "r_default", text = "North through Felwood to the Timbermaw tunnels, then through the furbolgs' hold to the snow beyond. The Timbermaw will let you pass if they do not hate you, so be careful which furbolgs you kill along the way." },
       },
       choices = {
         { text = "Which furbolgs are safe to fight?", next = "road_furbolgs" },
@@ -134,7 +134,7 @@ P:NPC {
     },
     road_furbolgs = {
       lines = {
-        { id = "rf_default", text = "The Deadwood, who live in the corrupted camps along the road, and nobody at the hold will mourn them aloud. Don't lift a hand against anyone wearing Timbermaw colours, or you'll be walking to Winterspring the long way, through Azshara and the mountains." },
+        { id = "rf_default", text = "The Deadwood, who live in the corrupted camps along the road, and no one at the hold will mourn them aloud. Do not lift a hand against anyone wearing Timbermaw colors, or you will walk to Winterspring the long way, through Azshara and the mountains." },
       },
       choices = {
         { text = "Thanks for the warning.", next = "BACK", fx = { affinity = 1, learn = { "furbolgs" } } },
@@ -143,7 +143,7 @@ P:NPC {
     },
     felwood = {
       lines = {
-        { id = "f_default", text = "Because Talonbranch is the last place in the north with a moonwell and a Sentinel's bow between me and the forest. Mishellena's birds can have me in Winterspring by nightfall, and I can be back before the satyrs notice I've gone." },
+        { id = "f_default", text = "The Cenarion Circle does not ask whether a druid has hooves or long ears, only whether he will do the work. Mulgore is green and safe, and so it needs me less than this place does." },
       },
       choices = {
         { text = "You don't like it here.", next = "felwood_dislike" },
@@ -152,7 +152,7 @@ P:NPC {
     },
     felwood_dislike = {
       lines = {
-        { id = "fd_default", text = "I grew up hearing how beautiful this forest was, and now the streams burn your hands and the trees whisper at night. Golhine tells the young druids they must learn the sick places, and he's right, but I'd rather learn them from far away." },
+        { id = "fd_default", text = "I miss the wind across the plains and the sound of kodo at dusk, and here the streams burn your hands and the trees whisper at night. Still, I plant what I can, for the ones who will come after me, even if I never see it grow." },
       },
       choices = {
         { text = "Somebody has to stay and fight for it.", next = "BACK", fx = { trait = { brave = 1 } } },
@@ -161,7 +161,7 @@ P:NPC {
     },
     xpriest = {
       lines = {
-        { id = "xp_default", text = "So the old songs say, priest, and I believe them. If Elune set them to watch, then whatever is driving them mad is something she would want found, and that is the only reason I can ask anyone to raise a blade against her guardians." },
+        { id = "xp_default", text = "I do not know your goddess as you do, priest, but my people call the moon Mu'sha, the Earth Mother's left eye. She still watches over this forest, I believe, even if her light has a long way to reach through the fel." },
       },
       choices = {
         { text = "Then I'll go with her blessing.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
@@ -170,7 +170,7 @@ P:NPC {
     },
     xdruid = {
       lines = {
-        { id = "xd_default", text = "Then you've felt a little of what they feel, and I envy you for it. Tell me, when you wear that shape, does the moon seem nearer, or is that only a story the young druids tell each other?" },
+        { id = "xd_default", text = "So have I, though I am still clumsy in that shape and the elves laugh to see it. Tell me, when you wear it, does Mu'sha seem nearer, or is that only a story the young druids tell each other?" },
       },
       choices = {
         { text = "It's nearer. It hums in the bones.", next = "BACK", fx = { affinity = 2 } },
@@ -180,29 +180,29 @@ P:NPC {
     xhunter = {
       big = true,
       lines = {
-        { id = "xh_default", text = "I've heard hunters say so, and I've heard druids say the opposite, and I've never been sure which of you to believe. The wildkin aren't ordinary beasts, though, and I'd ask you to remember that before you loose an arrow at one." },
+        { id = "xh_default", text = "Every hunter of my tribe learns that, and learns to give thanks for the life he takes. The beasts here are sick, not wicked, and I would ask you to remember that before you loose an arrow." },
       },
       choices = {
-        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I'll feel easier knowing you will. I've raised two wildkin from the egg, and I'd hate to hear of either at the end of a blade.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but the wildkin are not wolves. I'd ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
+        { text = "I'll remember. Some creatures deserve more care than others.", next = "BACK", reply = "Thank you, and I will rest easier knowing it. The Earth Mother sees how a hunter kills, and not only what.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast that kills is a beast that dies. That's all.", next = "BACK", reply = "Perhaps it is, out in the wider world, but these were not born killers. I would ask you to remember that when you meet one.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     kal_wildkin = {
       big = true,
-      lines = { { id = "kwi_d", text = "That is the question that keeps me in Felwood, {g:kinsman|kinswoman}. The Winterfall furbolgs carry something in their totems that turns whatever drinks near them savage, and the wildkin roost too close to their dens, so I fear the same hand that poisoned the Deadwood is reaching for the owlbeasts now." } },
+      lines = { { id = "kwi_d", text = "It was your forest, and it is still, and I am only a guest who carries water and plants seeds. But the sickness here does not care whose land it is, and it will take all the hands we have, hooves included, to turn it back." } },
       choices = {
-        { text = "Then we strike the Winterfall before it spreads.", next = "BACK", reply = "Donova Snowden at the hot springs in Winterspring watches them closely, so start with her, and do not let your anger choose the targets.", fx = { align = { order = -1 } } },
+        { text = "Then we strike at the source before it spreads.", next = "BACK", reply = "Strike if you must, but do not let your anger choose the targets. The land remembers how it was healed.", fx = { align = { order = -1 } } },
         { text = "We should study the poison first, then act.", next = "BACK", reply = "My heart agrees with you. If we only kill, we will be killing forever.", fx = { align = { order = 1 }, trait = { curious = 1 } } },
       },
     },
   },
 
   topics = {
-    furbolgs = { { id = "tp_furb", text = "The Timbermaw are the only sane furbolgs left in the north, and they guard the only good road to Winterspring. Be polite to them." } },
-    cenarion_circle = { { id = "tp_circ", text = "The druids of the Emerald Circle are working in the south of the forest. They're braver than I am, and I've told them so." } },
-    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it's a monster. Most of the time it will be one, but not always." } },
-    _none = { { id = "tp_none", text = "I'm afraid I know about owlbeasts and very little else. Ask Golhine, who knows a little about everything and says almost none of it." } },
+    furbolgs = { { id = "tp_furb", text = "The Timbermaw are the only sane furbolgs left in the north, and they guard the only good road to Winterspring. Be polite to them, as you would be to any proud host." } },
+    cenarion_circle = { { id = "tp_circ", text = "The Circle gathers druids of the People and of the elves alike, and here at the Sanctuary we are the Emerald Circle. Greta Mosshoof and I are the only tauren among us, so we keep each other company." } },
+    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it is a monster. Most of the time it will be one, but not always." } },
+    _none = { { id = "tp_none", text = "I know the land and the beasts and very little else, I am afraid. Ask Kelek; he reads more books than I ever will." } },
   },
 }
 

@@ -54,3 +54,7 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ## Humans (human patch)
 Authored, not canon. Each NPC has a "What do you make of humans?" branch (`hu_view` then `hu_stance`), with Forsaken ("you were one of them"), orc or troll variants.
 - Jin'Zil: curiosity. Never had a human in a cage and wonders what they dream; calls caging one 'fair turnabout' for the Kul Tiran chains, but would feed it better.
+
+## Tsunaman (key: tsunaman)
+- Source: wowwiki-archive (vanilla) and warcraft.wiki.gg: water elemental quest giver at Sun Rock Retreat, on the path to the Charred Vale; agent of Duke Hydraxis; despises fire elementals and punches nearby campfires. Quests: Trouble in the Deeps, Elemental War.
+- Voice: an elemental, not a mortal. Slow, tidal, formal ("mortal"); images of tide, rain, flood and still water; open hatred of fire and the servants of Ragnaros. Tolerates the tauren and their cookfires with strained patience.

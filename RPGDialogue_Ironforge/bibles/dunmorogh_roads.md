@@ -16,4 +16,4 @@
 - Anything Cataclysm or later. Bellowfiz's crashes and Tundra's fishing are authored, not canon.
 
 ## Voices
-- Rudra: gruff rancher, counts her rams. Tundra: jovial hermit. Bellowfiz: fast-talking gnome pilot. Hegnar: proud gunsmith.
+- Rudra: gruff rancher, counts her rams. Tundra: jovial hermit. Bellowfiz: fast-talking dwarf pilot (dwarf per wiki; flies gnome-built machines). Hegnar: proud gunsmith.

@@ -858,7 +858,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kaja = {
-      lines = { { id = "ka_default", text = "Every time that goblin tests a new gun, every beast in the valley jumps out of its fur, and Kildar's wolves howl for an hour after. Jin'sora the bowyer complains about the noise for the sake of the bows, but I complain for the beasts, and mine be the better reason." } },
+      lines = { { id = "ka_default", text = "Every time Kaja tests a new gun down in the Valley of Strength, every beast in the valley jumps out of its fur, and Kildar's wolves howl for an hour after. Jin'sora the bowyer complains about the noise for the sake of the bows, but I complain for the beasts, and mine be the better reason." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     prefer = {
@@ -905,26 +905,26 @@ P:NPC {
   notices = { "purse", "class" },
   impression = {
     first = "The prices change depending on how interested you look.",
-    third = "{name} met Kaja, the goblin who sells guns and ammunition in Orgrimmar's Valley of Honor.",
+    third = "{name} met Kaja, the tauren who sells guns and ammunition at Boomstick Imports in Orgrimmar's Valley of Strength.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome to Kaja's Boomstick Imports, pal, where everything goes bang and almost nothing goes bang in the wrong direction." },
-    { id = "g_back", when = { metBefore = true }, text = "A returning customer! Listen, listen, I've got new stock in, and some of it's barely singed." },
+    { id = "g_hi", text = "Welcome to Boomstick Imports, friend, where everything goes bang and almost nothing goes bang in the wrong direction." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, and the Earth Mother smiles on that. I have new stock in from the coast, and some of it is barely singed." },
   },
   notice = {
     { id = "n_rich", cat = "purse", when = { money = { min = 500000 } },
-      text = "Whoa, now, that purse is jinglin' like a valued customer's purse. Let me show you the good shelf." },
+      text = "That purse rings like a full one, friend. Come, let me show you the good shelf." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
-      text = "A hunter! Sweetheart, you're my favorite kind of customer, because you buy ammo by the crate and you never stop shooting." },
+      text = "A hunter! You are my favorite kind of customer, because you buy ammo by the crate and you never stop shooting." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Kaja, owner and proprietor and chief boom officer of Kaja's Boomstick Imports. I've got guns for every budget and ammo by the bag, and I'll even throw in my professional opinion, which normally costs extra." },
-        { id = "h_hunter", when = { class = "HUNTER" }, text = "Kaja, at your service, and you're a hunter, so you need ammo, and lots of it, because a hunter without ammo is just a pet owner with a stick. Let's talk numbers." },
+        { id = "h_default", key = true, text = "Kaja, keeper of Boomstick Imports. Most of my people trust a spear or a bow, but I learned the thunder-stick from the goblins of Ratchet, and now I sell guns for every purse and shot by the bag." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "Kaja, at your service, and you are a hunter, so you need shot, and lots of it, because a hunter without shot is only a pet owner with a stick. Let us talk numbers." },
       },
-      again = { { id = "h_again", text = "What else, chum? Time is money, and you're spending both of ours." } },
+      again = { { id = "h_again", text = "What else, friend? The plains are wide, but my afternoon is not." } },
       choices = {
         { text = "Where do your guns come from?", next = "where" },
         { text = "Orcs don't seem to like guns much.", next = "orcs" },
@@ -934,7 +934,7 @@ P:NPC {
       },
     },
     where = {
-      lines = { { id = "wh_default", text = "Ratchet, Booty Bay, Undermine, and a few places I can't name without paying a fee to the people who'd find out. The good stuff comes by boat, and the cheap stuff comes from my cousin, who's missing two fingers but still swears by his designs." } },
+      lines = { { id = "wh_default", text = "Ratchet, Booty Bay, and goblin workshops I will not name, because the goblins who run them would raise my prices. The good guns come by boat, and the cheap ones come from a tinker in Ratchet who is missing two fingers but still swears by his designs." } },
       choices = {
         { text = "Two fingers lost to the guns, then.", next = "where_cousin" },
         { text = "Something else.", next = "BACK" },
@@ -952,7 +952,7 @@ P:NPC {
       },
     },
     goblins_op = {
-      lines = { { id = "go_default", text = "Like it? Pal, the Horde pays in gold and doesn't haggle, which is my favorite kind of customer. But I hear what the grunts mutter when I walk by, so go on, honest opinion, free of charge: what do you think of us goblins?" } },
+      lines = { { id = "go_default", text = "I do, friend, though the grunts mutter that a tauren should not traffic with goblins. My suppliers are all goblins, so tell me honestly: what do you think of them?" } },
       choices = {
         { text = "You make the best machines in Kalimdor. I respect that.", next = "go_respect", fx = { affinity = 2, opinion = { goblins = "respect" } } },
         { text = "You'd sell the Horde's guns to the Alliance tomorrow.", next = "go_distrust", fx = { affinity = -1, opinion = { goblins = "distrust" } } },
@@ -962,15 +962,15 @@ P:NPC {
       },
     },
     go_respect = {
-      lines = { { id = "gor_default", text = "Whoa, a compliment, and from a customer! Sparks and sprockets, I'm gonna write that down and hang it behind the counter where the grunts can read it." } },
+      lines = { { id = "gor_default", text = "A kind word for my suppliers! I will tell the next goblin who brings a crate, and he will charge me more for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     go_distrust = {
-      lines = { { id = "god_default", text = "Tomorrow? Pal, please, the Alliance pays slow and haggles hard, so it'd be next week at the earliest. I'm kidding, I'm kidding, mostly." } },
+      lines = { { id = "god_default", text = "Tomorrow? No, the Alliance pays slowly and haggles hard, so it would be next week at the earliest. That is why I count every crate they bring me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     go_useful = {
-      lines = { { id = "gou_default", text = "Useful! Now that's a word I can put on a sign, and it flows both ways, friend, because your gold is very useful to me too." } },
+      lines = { { id = "gou_default", text = "Useful is the word I would choose too, friend, and it flows both ways, because your gold is very useful to me as well." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     go_fond = {
@@ -979,17 +979,17 @@ P:NPC {
     },
     dwarves = {
       big = true,
-      lines = { { id = "dw_default", text = "Officially, no, pal, because this is the Horde's city and I'm a loyal guest in it. Unofficially, a gun doesn't care who's holding it, and the Steamwheedle Cartel doesn't care who's paying, so let's just say business is business." } },
+      lines = { { id = "dw_default", text = "I am a daughter of Mulgore and I sell to the Horde, friend. But a gun does not care who holds it, and the Steamwheedle goblins who sell to me sell to the dwarves as well, so the same rifle may end up on both sides of a fight." } },
       choices = {
-        { text = "Selling to both sides is smart business.", next = "BACK", reply = "That's what I keep sayin', pal, and the orcs just glare at me. Profit doesn't wear a tabard.", fx = { align = { honor = -1 } } },
-        { text = "A guest of the Horde should choose a side.", next = "BACK", reply = "I did choose, pal, I chose the side that pays. Don't tell the Warchief.", fx = { align = { honor = 1 } } },
+        { text = "Selling to both sides is smart business.", next = "BACK", reply = "The goblins would agree with you, friend, but I will not. My guns stay in Horde hands.", fx = { align = { honor = -1 } } },
+        { text = "A guest of the Horde should choose a side.", next = "BACK", reply = "I did choose, friend, when I followed Cairne to this land. My guns stay with the Horde.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
     trade = { { id = "tp_trade", text = "Buy low, sell high, and never sell a gun to a customer who looks angry at you. That's my whole philosophy, and it's free." } },
-    _none = { { id = "tp_none", text = "I don't know, pal, and if I did, I'd be charging for it. Buy a gun and ask me again." } },
+    _none = { { id = "tp_none", text = "I do not know, friend, and if I did, the goblins would have taught me to charge for it. Buy some shot and ask me again." } },
   },
 }
 
@@ -999,12 +999,12 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "proud", "practical" },
   notices = { "class" },
   impression = {
-    first = "Jin'sora thinks little of the goblin selling noisy guns nearby.",
+    first = "Jin'sora thinks little of Kaja and her noisy guns.",
     third = "{name} met Jin'sora, the Darkspear bowyer of Orgrimmar's Valley of Honor.",
   },
   greetings = {
-    { id = "g_hi", text = "A good bow be quiet, mon. Not like that goblin's noisy sticks across the way." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for a better bow, I hope, and not for that goblin's thunder." },
+    { id = "g_hi", text = "A good bow be quiet, mon. Not like Kaja's noisy sticks down in the Valley of Strength." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for a better bow, I hope, and not for Kaja's thunder." },
     { id = "g_flinch", text = "Did you hear that bang just now? That be the third one this morning, and every bird in the valley flown off to the Barrens because of it." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear, good! You'll know a proper bow when you hold one, not like these orcs who think louder be better." },
   },
@@ -1021,7 +1021,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, mon? I got strings to wax." },
-        { id = "h_again2", text = "Ask quick, before that goblin fires off another one and I forget what I was saying." },
+        { id = "h_again2", text = "Ask quick, before Kaja fires off another one and I forget what I was saying." },
       },
       choices = {
         { text = "Most hunters I've met seem to favor guns.", next = "guns" },
@@ -1061,7 +1061,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kaja = {
-      lines = { { id = "ka_default", text = "Hate be a strong word, mon. We trade insults across the path every morning, Kaja about my sticks and me about that goblin's thunder, and the grunts stop to listen like it be a show." } },
+      lines = { { id = "ka_default", text = "Hate be a strong word, mon. We trade insults whenever she comes up the valley, Kaja about my sticks and me about her thunder, and the grunts stop to listen like it be a show." } },
       choices = {
         { text = "So you'd miss Kaja if the stall closed?", next = "kaja_miss" },
         { text = "Something else.", next = "BACK" },
@@ -1088,7 +1088,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fi_brows = {
-      lines = { { id = "fb_default", text = "Ha! Then you've learned the lesson cheaper than most. Kaja's cousins lose their eyebrows every season, and Kaja calls it the cost of doing business." } },
+      lines = { { id = "fb_default", text = "Ha! Then you've learned the lesson cheaper than most. Kaja's goblin suppliers lose their eyebrows every season, and Kaja calls it the cost of doing business." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hunter = {
@@ -1110,6 +1110,6 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't know that, mon, and I can't hear myself think over that goblin's banging. Ask me about bows instead." } },
+    _none = { { id = "tp_none", text = "I don't know that, mon, and I can't hear myself think over Kaja's banging. Ask me about bows instead." } },
   },
 }
