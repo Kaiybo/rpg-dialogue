@@ -229,6 +229,7 @@ P:NPC {
         { text = "The men at Lost Point threw you out.", next = "lost_point" },
         { text = "How did your badge end up at the inn?", next = "badge", when = { any = { { questActive = TODO_QUEST("Lieutenant Paval Reethe") }, { questDone = TODO_QUEST("Lieutenant Paval Reethe") } } } },
         { text = "You can't hide out here forever.", next = "forever" },
+        { text = "What do you think of Lady Proudmoore now?", next = "kt_jaina" },
         { text = "I never saw you, Reethe.", next = "END" },
       },
     },
@@ -262,8 +263,18 @@ P:NPC {
       lines = { { id = "f_default", text = "No, I can't, and I know it better than you do. Theramore would hang me, Lost Point won't have me, and the ogres would do worse than either, so I'm open to suggestions, friend." } },
       choices = { { text = "I've none to give. Something else.", next = "BACK" } },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "I think she's the reason I'm sleeping in a bog. Her father crossed an ocean to avenge Lordaeron, and she let the Warchief's orcs butcher him at the gates of her own city, and then she shook hands with the beasts over his body. Every Kul Tiras marine who stayed in her colors is either a saint or a fool, and I never met a saint." } },
+      choices = {
+        { text = "She betrayed her father and her people.", next = "BACK", reply = "There, you see it too, and you never even wore the tabard. Say that in Theramore and see how long you keep your post.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "You deserted. Don't blame her for your choices.", next = "BACK", reply = "Easy for you to say with dry boots. Maybe you're right, but it changes nothing out here.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "She sold her father to the orcs, and she calls it peace. Don't ask me again." } },
     background = { { id = "tp_bg", text = "Kul Tiras born, a marine at sixteen and a lieutenant under the Lady. You can see for yourself what I am now." } },
     _none = { { id = "tp_none", text = "I don't know, and out here I don't hear much. Ask someone who still has a roof." } },
   },

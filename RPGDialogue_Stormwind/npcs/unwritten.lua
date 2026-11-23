@@ -809,3 +809,180 @@ P:NPC {
     _none = { { id = "tp_none", text = "The Light has not revealed that to me, citizen." } },
   },
 }
+
+-- Duke August Foehammer: a dwarven duke of the Might of Kalimdor, stationed at Cenarion Hold in Silithus (Classic 1.9 Ahn'Qiraj war; the file sits in the Stormwind pack).
+P:NPC {
+  key = "sw_duke_foehammer", id = 15870, name = "Duke August Foehammer", gender = "male",
+  role = "noble", tier = "quest",
+  temper = { "loud", "proud" }, values = { "honor", "alliance" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A broad dwarven warrior in fine plate, who carries a duke's title like a hammer.",
+    third = "{name} met Duke August Foehammer, a dwarven warrior of the Might of Kalimdor, at Cenarion Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho there, {class}! Stand up straight; ye're in the presence o' the Alliance's finest, an' I mean meself." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I like a face that doesnae run from a duke." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A fellow son o' Khaz Modan! Tell me ye've brought a decent ale, because the humans' stuff is watered swill." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" }, text = "A warrior, an' by the look o' that grip, a proper one. We'll get on fine." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Duke August Foehammer, warrior o' Ironforge an' commander in the Might o' Kalimdor. I've come to Cenarion Hold because the Qiraji are stirrin' behind that wall, an' somebody has to be ready when it opens." } },
+      again = { { id = "h_again", text = "Anythin' else? Out with it, then." }, { id = "h_again2", text = "Speak up, {g:lad|lass}. Me ears are full o' war drums." } },
+      choices = {
+        { text = "How did a dwarf become a duke?", next = "duke" },
+        { text = "What brings you to Silithus?", next = "why" },
+        { text = "What news from Ironforge?", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "The Alliance seems divided these days.", next = "divided" },
+        { text = "Farewell, Duke.", next = "END" },
+      },
+    },
+    duke = {
+      lines = { { id = "d_default", text = "By fightin' harder than anyone else in the Second War, an' by bein' too stubborn to die. King Magni gave me the title, an' I've been earnin' it ever since." } },
+      choices = { { text = "A title well earned. Something else.", next = "BACK" } },
+    },
+    why = {
+      lines = { { id = "w_default", text = "The war at Ahn'Qiraj, an' nothin' less. Horde an' Alliance both are sendin' soldiers to stand with the Cenarion Circle, an' I'm here to see they're fit to fight when the gates open." } },
+      choices = {
+        { text = "You fight beside the Horde here?", next = "poor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    poor = {
+      lines = { { id = "p_default", text = "Aye, an' it sticks in me craw. But the Qiraji'll eat orc an' dwarf alike, so for now we stand shoulder to shoulder an' settle our quarrels after." } },
+      choices = {
+        { text = "Orders are orders. We fight where we're sent.", next = "BACK", reply = "That's a soldier's answer, an' a good one. Ye'll do fine out here.", fx = { align = { order = 1 } } },
+        { text = "I'll not fight beside orcs, whatever the generals say.", next = "BACK", reply = "Then stay clear o' Silithus, {g:lad|lass}, because the bugs won't wait on yer feelings.", fx = { align = { order = -1 } } },
+      },
+    },
+    ironforge = {
+      lines = { { id = "i_default", text = "The forges still burn, an' Magni's keen on his digging at Uldaman an' all the titan business. The Dark Irons are stirrin' in the mountains, though, an' I don't like it." } },
+      choices = { { text = "I'll keep an eye on the Dark Irons. Something else.", next = "BACK" } },
+    },
+    divided = {
+      lines = { { id = "dv_default", text = "Aye, it is. Gilneas behind its wall, the elves gone home, Lordaeron dead. What's left o' us has to hold together, or the Horde'll pick us apart one at a time." } },
+      choices = { { text = "Then we must hold. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Dwarf, warrior, duke, an' veteran o' more wars than I care to count." } },
+    _none = { { id = "tp_none", text = "How should I know? Ask a human; they love talkin'." } },
+  },
+}
+
+-- Grand Admiral Jes-Tereth: commander of Stormwind's fleet, who keeps her counsel in the keep.
+P:NPC {
+  key = "sw_grand_admiral_jes_tereth", id = 1750, name = "Grand Admiral Jes-Tereth", gender = "female",
+  role = "officer", tier = "quest",
+  communities = { "stormwind" }, temper = { "crisp", "proud" }, values = { "duty", "order" },
+  notices = { "class", "race" },
+  impression = {
+    first = "A sharp-eyed admiral in naval blue, who looks at you as if you were a ship that needed refitting.",
+    third = "{name} met Grand Admiral Jes-Tereth, who commands Stormwind's fleet, in Stormwind Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "You have the admiral's attention, {class}, which is not a thing I hand out lightly. Be brief." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Have you any reports, or are you merely sightseeing in the keep?" },
+  },
+  notice = {
+    { id = "n_human", cat = "race", when = { race = "Human" }, text = "A Stormwind face. Good; the fleet always needs citizens who know which end of a ship floats." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Grand Admiral Jes-Tereth, and I command Stormwind's fleet. Since Lordaeron fell and Kul Tiras withdrew, the Alliance's seas are largely ours to guard." } },
+      again = { { id = "h_again", text = "Anything further? The harbour reports are waiting." }, { id = "h_again2", text = "Proceed. My time is the fleet's, so make it count." } },
+      choices = {
+        { text = "What threatens the seas?", next = "threats" },
+        { text = "What happened to Kul Tiras?", next = "kultiras" },
+        { text = "I'd like to serve in the fleet.", next = "serve", when = { class = "WARRIOR" } },
+        { text = "Commanding from a keep seems odd.", next = "keep" },
+        { text = "I'll take my leave, admiral.", next = "END" },
+      },
+    },
+    threats = {
+      lines = { { id = "t_default", text = "The Bloodsail Buccaneers prey on every merchant from here to Booty Bay, and the Defias have friends in the docks. The Horde has ships of its own now, too, which is new and unwelcome." } },
+      choices = {
+        { text = "Pirates should hang, every one.", next = "BACK", reply = "The admiralty agrees, and we hang them when we can catch them.", fx = { align = { order = 1 } } },
+        { text = "Some pirates are just hungry sailors.", next = "BACK", reply = "Hungry sailors do not sink merchantmen for sport. Do not romanticise them.", fx = { align = { order = -1 } } },
+      },
+    },
+    kultiras = {
+      lines = { { id = "k_default", text = "Admiral Proudmoore sailed to Kalimdor to destroy the Horde and died at Theramore, at his own daughter's doing, some say. Kul Tiras has drawn into itself since, mourning, and left the rest of us to guard the seas." } },
+      choices = {
+        { text = "Did Jaina betray her father?", next = "jaina" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jaina = {
+      lines = { { id = "j_default", text = "That is a question I will not answer in the king's keep. She chose peace with the orcs, and her father chose war, and only one of them is still alive." } },
+      choices = { { text = "Understood. Something else.", next = "BACK" } },
+    },
+    serve = {
+      lines = { { id = "s_default", text = "The fleet always needs strong arms, but it needs sailors more than warriors. Speak to the harbour masters, learn to tie a knot, and come back when you can tell port from starboard." } },
+      choices = { { text = "I'll learn. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    keep = {
+      lines = { { id = "kp_default", text = "The fleet is commanded from where the decisions are made, and decisions are made here. I would rather be on a deck, believe me, but the regent's council does not convene at sea." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A sailor since childhood, an admiral by merit, and a reluctant courtier by necessity." } },
+    _none = { { id = "tp_none", text = "That is outside my jurisdiction. Ask the harbour master." } },
+  },
+}
+
+-- Captain Dirgehammer: the dwarven officer in the Champions' Hall who outfits the Alliance's ranked soldiers.
+P:NPC {
+  key = "sw_captain_dirgehammer", id = 12777, name = "Captain Dirgehammer", gender = "male",
+  role = "quartermaster", tier = "service",
+  temper = { "gruff", "proud" }, values = { "honor", "alliance" },
+  notices = { "class" },
+  impression = {
+    first = "A grizzled dwarven captain who judges a soldier by the dents in their armour.",
+    third = "{name} spoke with Captain Dirgehammer in Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to the Champions' Hall, {class}. Only those who've earned rank against the Horde trade with me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Earned a few more ranks, have ye?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Captain Dirgehammer, quartermaster o' the Alliance's best armour. I hand it out to those who've proven themselves in the battlegrounds, an' nobody else." } },
+      again = { { id = "h_again", text = "Anythin' else? I've armour to polish." } },
+      choices = {
+        { text = "How do I earn your armour?", next = "earn" },
+        { text = "Why a dwarf, in Stormwind's hall?", next = "dwarf" },
+        { text = "Farewell, captain.", next = "END" },
+      },
+    },
+    earn = {
+      lines = { { id = "e_default", text = "Fight the Horde in Warsong Gulch, Arathi Basin an' Alterac Valley, an' climb the ranks. The higher ye climb, the finer the gear I'll let ye wear." } },
+      choices = {
+        { text = "The Horde must be fought at every turn.", next = "BACK", reply = "Aye, that's the spirit! The battlegrounds are waitin'.", fx = { align = { order = 1 } } },
+        { text = "I'd rather we had peace with them.", next = "BACK", reply = "Peace, is it? Tell that to the Horde when they're at yer throat.", fx = { align = { order = -1 } } },
+      },
+    },
+    dwarf = {
+      lines = { { id = "d_default", text = "Because dwarves make the best armour, an' the best soldiers, an' the humans know it. Besides, somebody has to keep this hall in order." } },
+      choices = {
+        { text = "The humans might disagree.", next = "humans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans = {
+      lines = { { id = "hu_default", text = "Let 'em! They can argue with me after they've stood in Alterac's snow as long as I have." } },
+      choices = { { text = "Fair point. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A soldier o' Ironforge an' quartermaster o' the Alliance. Simple as that." } },
+    _none = { { id = "tp_none", text = "Not my business, {g:lad|lass}. Mine's armour." } },
+  },
+}

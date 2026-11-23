@@ -66,3 +66,45 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know leather and dragons, stranger. Ask someone in Kargath about the rest." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- High Executioner Nuzrak: Kargath's headsman, who keeps the Horde's grudge against the Dark Irons.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bad_nuzrak", id = 9538, name = "High Executioner Nuzrak", role = "guard", tier = "service",
+  temper = { "grim", "stern" }, values = { "honor", "duty" },
+  notices = { "faction" },
+  greetings = {
+    { id = "g_default", text = "You stand before the executioner of Kargath. Speak plainly, for I have little patience for wasted words." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "An Alliance face, this close to my axe. Speak your business and pray it is a good one." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I am Nuzrak, and when the Horde judges a traitor in the Badlands, it is my axe that carries out the sentence. Kargath watches the Blackrock and the Dark Irons both, and my work is never finished." } },
+      again = { { id = "h_again", text = "What else, {class}?" } },
+      choices = {
+        { text = "Whom have you executed?", next = "traitors" },
+        { text = "What do you know of the Dark Irons below?", next = "darkiron" },
+        { text = "Lok'tar.", next = "END", when = { faction = "Horde" } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    traitors = {
+      lines = { { id = "t_default", text = "Orcs who forgot their blood and sold themselves to the Blackrock clan, mostly. Grark Lorkrub was one. He sold our plans to the Blackrock, and when he was dragged to the Searing Gorge in chains, my axe was waiting." } },
+      choices = {
+        { text = "Traitors deserve the axe.", next = "BACK", reply = "They do. A Horde that forgives betrayal will not be a Horde for long.", fx = { align = { order = 1 } } },
+        { text = "Perhaps they had their reasons.", next = "BACK", reply = "Every traitor has reasons. That is why we do not listen to them.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkiron = {
+      lines = { { id = "d_default", text = "They build their city beneath the mountain and bow to a fire lord, and the Blackrock orcs above them bow to a dragon. If there is a nest of serpents in all of Azeroth, it is that peak." } },
+      choices = {
+        { text = "Then it should be cleansed.", next = "BACK", reply = "Yes. Go down there, and come back with the proof, and I will remember your name." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I am an executioner, not a scholar. Ask someone with softer hands." } } },
+}

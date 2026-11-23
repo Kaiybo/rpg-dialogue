@@ -148,3 +148,71 @@ P:NPC {
     },
   },
 }
+
+---------------------------------------------------------------------------
+-- Elder Skygleam: a kaldorei elder honoured at the Lunar Festival, among Azshara's ruins.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "az_elder_skygleam", id = 15600, name = "Elder Skygleam", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "calm" }, values = { "tradition", "memory" },
+  notices = { "race", "faction" },
+  impression = {
+    first = "An ancient night elf stands among the fallen pillars near the Ravencrest Monument, his gaze fixed on the stars. The ruins around him seem to hold their breath.",
+    third = "{name} paid respects to Elder Skygleam of the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. You have travelled far to find an old elf among old stones, and I thank you for it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_back", when = { metBefore = true }, text = "The stars bring you back to me. Come, look up with me a while." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Skygleam, and in this season the people honour the elders who carry their memories. I carry a great many of them, and some are heavier than others." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Skygleam the Elder") }, text = "You have come to honour the elders, and your journey has been seen. Take this coin of ancestry, and carry the past gently." },
+        { id = "h_ne", when = { race = "NightElf" }, text = "A child of the kaldorei, come to these ruins. Do you feel it, little one, the weight of what was lost here?" },
+      },
+      again = {
+        { id = "h_again", text = "The stars are patient. What else would you ask?" },
+        { id = "h_again2", text = "Speak, child. The night is long." },
+      },
+      choices = {
+        { text = "Why stand here, among these ruins?", next = "ruins" },
+        { text = "What does the festival mean to you?", next = "festival" },
+        { text = "You watch the stars very closely.", next = "stars" },
+        { text = "Are these the ruins of Queen Azshara's realm?", next = "queen", when = { race = "NightElf" } },
+        { text = "Elune-adore, Elder.", next = "END" },
+      },
+    },
+    ruins = {
+      lines = { { id = "r_default", text = "Because these stones were once a city, and I walked its streets when I was young. Most who come to Azshara see only ruins and satyrs, but I still see the lanterns." } },
+      choices = {
+        { text = "What happened to it?", next = "happened" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    happened = {
+      lines = { { id = "h2_default", text = "The Highborne's pride called the Burning Legion into the world, and the Well of Eternity tore itself apart. The sea took the heart of our empire, and what remains is what you see." } },
+      choices = {
+        { text = "Pride like that must never return.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Their ambition built wonders, though.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is the one night when the living and the remembered sit together. The druids light the sky at Moonglade, and the elders tell the young what the young have forgotten." } },
+      choices = { { text = "Then tell me something I've forgotten.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    stars = {
+      lines = { { id = "s_default", text = "Elune's light is in every star, and I have counted them for more years than I can number. I find the counting comforting, though I always lose my place." } },
+      choices = { { text = "That's a lovely way to pass the night.", next = "BACK" } },
+    },
+    queen = {
+      lines = { { id = "q_default", text = "They are, and her name still sits on this land like a curse. We do not speak it lightly, child, and you would do well not to either." } },
+      choices = { { text = "I'll remember.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That is not among my memories. Ask the druids of Moonglade, child." } } },
+}

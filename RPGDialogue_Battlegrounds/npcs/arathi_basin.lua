@@ -464,3 +464,144 @@ P:NPC {
     },
   },
 }
+
+-- Arathi Blacksmith: League smith working the forge at the Blacksmith node.
+P:NPC {
+  key = "bg_ab_arathi_blacksmith", id = 15063, name = "Arathi Blacksmith", role = "smith", tier = "service",
+  communities = { "league_of_arathor" }, temper = { "gruff", "steady" }, values = { "craft", "loyal" },
+  greetings = {
+    { id = "g_default", text = "Mind the sparks, {class}. This forge has gone cold three times today, and I'll not let it go cold again." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Get away from my anvil, Horde, before I find out how your skull rings." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I keep the basin's forge burning for the League, and every blade and horseshoe that goes out to the fight comes off this anvil. Hold the Blacksmith and we hold the steel, it's that simple." } },
+      again = { { id = "h_again", text = "Anything else? The iron's cooling." } },
+      choices = {
+        { text = "Why does the forge matter so much?", next = "forge" },
+        { text = "The Defilers keep taking it from you.", next = "defilers" },
+        { text = "Keep the fire hot.", next = "END" },
+      },
+    },
+    forge = {
+      lines = { { id = "f_default", text = "Without the forge, the mine's iron is just rock and the lumber's just firewood. Stromgarde's going to need arms to take back its walls, and this is where they'll be made." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    defilers = {
+      lines = { { id = "d_default", text = "Aye, they do, and every time they do they foul the quench barrel, the filthy corpses. I'd like to see one of them hammer out a decent blade without its fingers falling off." } },
+      choices = {
+        { text = "We'll take it back and keep it.", next = "BACK", reply = "Good. I'll have a fresh blade waiting for you when you do.", fx = { align = { order = 1 } } },
+        { text = "Let them have it. Hit their stables instead.", next = "BACK", reply = "Clever, maybe, but I'm not leaving my forge to the dead for anything.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I hammer metal, friend. Ask a sergeant about anything else." } } },
+}
+
+-- Arathi Stablehand: League groom caring for the horses at the Stables node.
+P:NPC {
+  key = "bg_ab_arathi_stablehand", id = 15086, name = "Arathi Stablehand", role = "worker", tier = "service",
+  communities = { "league_of_arathor" }, temper = { "nervous", "earnest" }, values = { "duty" },
+  greetings = {
+    { id = "g_default", text = "Easy, easy, you'll spook the mares. They've had a hard enough day with all the shouting." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Stay back from the horses! I'll... I'll call the guard, I swear it!" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I look after the horses here at the Stables, and the League rides them out to every corner of the basin. It's not glorious work, but a knight without a horse is just a man in very heavy boots." } },
+      again = { { id = "h_again", text = "Anything else? The bay mare needs her feed." } },
+      choices = {
+        { text = "Why fight for a stable?", next = "why" },
+        { text = "Are you a soldier?", next = "soldier" },
+        { text = "Take care of them.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because horses win wars, my father always said, and he rode with Trollbane's cavalry. Whoever holds the Stables holds the fastest way to every other point in the basin." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    soldier = {
+      lines = { { id = "s_default", text = "Not really, no, though they gave me a sword and told me to stand by the gate. I'd rather the horses didn't see me use it, if it's all the same to you." } },
+      choices = {
+        { text = "Everyone fights when their home is threatened.", next = "BACK", reply = "I suppose that's true, though I wish it weren't.", fx = { align = { order = 1 } } },
+        { text = "Leave the fighting to soldiers. Tend the horses.", next = "BACK", reply = "Thank you. That's what I'd rather do anyway.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I only know horses, I'm afraid. Ask someone with a helmet." } } },
+}
+
+-- Forsaken Blacksmith: Defiler smith holding the forge for the Dark Lady.
+P:NPC {
+  key = "bg_ab_forsaken_blacksmith", id = 15064, name = "Forsaken Blacksmith", role = "smith", tier = "service",
+  communities = { "defilers" }, temper = { "cold", "sardonic" }, values = { "craft", "loyal" },
+  greetings = {
+    { id = "g_default", text = "The forge is warm and I am not. Speak, if you have business with the Defilers' steel." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "A living thing at my anvil. How quaint. You'll make a fine quenching, I imagine." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I was a smith in Lordaeron before the Plague, and I am a smith in Arathi now, for the Dark Lady and the Defilers. The fire doesn't care whether my hands are warm, and neither does the iron." } },
+      again = { { id = "h_again", text = "What else? I've blades to finish." } },
+      choices = {
+        { text = "You remember your old life?", next = "past" },
+        { text = "Why do the Defilers want the basin?", next = "basin" },
+        { text = "For the Dark Lady.", next = "END", when = { faction = "Horde" } },
+        { text = "I'll go.", next = "END" },
+      },
+    },
+    past = {
+      lines = { { id = "p_default", text = "I remember a shop in Andorhal and a wife who sang off-key. I don't remember what her face looked like, and I find I don't much care to." } },
+      choices = {
+        { text = "That's a sad thing to lose.", next = "BACK", reply = "Sad is for the living. I have work to do.", fx = { align = { light = 1 } } },
+        { text = "The past is dead. Like you.", next = "BACK", reply = "Exactly so. You learn quickly.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basin = {
+      lines = { { id = "b_default", text = "The Dark Lady wants the resources, and she wants the humans of Stromgarde to know their old kingdom belongs to the dead now. I'm happy to help with both." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know and I don't care. Ask an apothecary." } } },
+}
+
+-- Forsaken Stablehand: Defiler groom keeping the skeletal horses at the Stables.
+P:NPC {
+  key = "bg_ab_forsaken_stablehand", id = 15087, name = "Forsaken Stablehand", role = "worker", tier = "service",
+  communities = { "defilers" }, temper = { "dry", "morbid" }, values = { "duty" },
+  greetings = {
+    { id = "g_default", text = "Don't stand behind that one, it kicks, and it doesn't feel the need to stop." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "The horses are dead and so am I, but you're not. Shall we fix that?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I tend the horses at the Stables for the Defilers, and most of them are as dead as I am. They don't need feeding, which saves a great deal of trouble, though they do have a habit of losing pieces." } },
+      again = { { id = "h_again", text = "Something else? The roan's lost a hoof again." } },
+      choices = {
+        { text = "Dead horses?", next = "horses" },
+        { text = "Do you miss the living ones?", next = "miss" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    horses = {
+      lines = { { id = "h2_default", text = "The Royal Apothecary Society sees to their keeping, and I see to their stitching. They don't tire, don't spook and don't mind the smell, which makes them better mounts than most living ones." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    miss = {
+      lines = { { id = "m_default", text = "I kept horses for a lord in Hillsbrad, once, and the living ones loved me. These ones don't, but they don't hate me either, which is more than I can say for the living." } },
+      choices = {
+        { text = "There's still some warmth in you.", next = "BACK", reply = "Don't tell the apothecaries. They'd want to cut it out and study it.", fx = { align = { light = 1 } } },
+        { text = "The living never deserved your loyalty.", next = "BACK", reply = "No, they didn't. The Dark Lady does.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I only know dead horses and where to find their missing parts." } } },
+}

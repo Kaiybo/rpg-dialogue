@@ -266,3 +266,55 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't say, friend. I only see the inside of a mine." } },
   },
 }
+
+-- Nethergarde Engineer: one of the gnome engineers working the mines and armoury of Nethergarde Keep.
+P:NPC {
+  key = "bla_nethergarde_engineer", id = 5997, name = "Nethergarde Engineer", gender = "male",
+  role = "engineer", tier = "service",
+  temper = { "busy", "nervous" }, values = { "work", "safety" },
+  notices = { "race" },
+  impression = {
+    first = "A soot-smudged gnome engineer fiddles with a drill and glances often towards the Portal.",
+    third = "{name} spoke with a Nethergarde Engineer in the mines of Nethergarde Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh! Careful there, that's a live boiler. Nethergarde Keep, engineering division, at your service." },
+    { id = "g_back", when = { metBefore = true }, text = "Hello again! Still in one piece? Good, good. That's always nice to see out here." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "A fellow gnome! Wonderful. Nobody else here understands a pressure valve." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We keep the drills turning in the mines and the machines running in the armoury. The keep needs ore for weapons, and weapons for whatever comes out of the Dark Portal." } },
+      again = { { id = "h_again", text = "Anything else? This valve won't tighten itself." } },
+      choices = {
+        { text = "What comes through the Dark Portal?", next = "portal" },
+        { text = "Why gnomes, so far from Ironforge?", next = "gnomes" },
+        { text = "Good luck with the boiler.", next = "END" },
+      },
+    },
+    portal = {
+      lines = { { id = "p_default", text = "Nothing, for now, but the Kirin Tor sent mages here to watch it all the same. The demons in the south of the Blasted Lands are proof enough that something stirs." } },
+      choices = {
+        { text = "Then the keep must be held at all costs.", next = "BACK", reply = "Quite! That's why we work double shifts.", fx = { align = { valor = 1 } } },
+        { text = "Sounds like a good place to leave quickly.", next = "BACK", reply = "Ha! I've thought the same, believe me.", fx = { align = { valor = -1 } } },
+      },
+    },
+    gnomes = {
+      lines = { { id = "gn_default", text = "Since Gnomeregan fell, plenty of us took work wherever our skills were needed. Nethergarde pays well and the machines are interesting, even if the scenery is dreadful." } },
+      choices = {
+        { text = "Do you miss Gnomeregan?", next = "miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miss = {
+      lines = { { id = "m_default", text = "Every day. But we'll take it back one day, and until then, I'll build things here that keep people safe." } },
+      choices = { { text = "That's a good way to think. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try one of the advisors." } },
+  },
+}

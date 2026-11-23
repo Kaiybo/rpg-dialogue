@@ -1,7 +1,7 @@
 -- Western Plaguelands: Caer Darrow's nameless ghosts a roster scan found with no conversation yet: a guardsman,
 -- a cannoneer, a horseman and a citizen, all seen only with the Spectral Essence. Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.westernplaguelands")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 -- Caer Darrow Guardsman: a ghostly guard still walking his rounds.
 P:NPC {
@@ -212,5 +212,252 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've lived in Caer Darrow all my life, and I'll not leave it now." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, stranger. Ask the guardsman." } },
+  },
+}
+
+-- Deathguard Bartholomew: a Forsaken guard of Brill who gives directions and keeps watch on the road.
+P:NPC {
+  key = "wpl_deathguard_bartholomew", id = 1742, name = "Deathguard Bartholomew", gender = "male",
+  role = "guard", tier = "quest",
+  communities = { "brill" }, temper = { "dry", "dutiful" }, values = { "duty", "forsaken" },
+  notices = { "race", "level" },
+  impression = {
+    first = "A Forsaken guard with a dry voice and a soldier's habit of pointing out the road.",
+    third = "{name} met Deathguard Bartholomew, who guards Brill in Tirisfal Glades.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Brill, such as it is. If you are lost, I can point the way, and if you are Scarlet, I can point my blade." },
+    { id = "g_back", when = { metBefore = true }, text = "Back in Brill, are you? The town hasn't improved, but it hasn't burned either, so we count that a good week." },
+  },
+  notice = {
+    { id = "n_low", cat = "level", when = { maxLevel = 10 }, text = "Fresh from Deathknell, by the look of you. Stay on the road and away from the Scarlet camps, and you might last the month." },
+    { id = "n_living", cat = "race", when = { race = "Orc" }, text = "An orc in Brill. The Dark Lady's allies are welcome, though the townsfolk may stare; they've not seen many faces with skin on lately." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Bartholomew, of the Deathguard. I keep the peace in Brill and tell newcomers where things are, since nobody else here has the patience for it." } },
+      again = { { id = "h_again", text = "What else? I've nothing but time, and a great deal of road to watch." }, { id = "h_again2", text = "Ask away. The dead are better listeners than the living." } },
+      choices = {
+        { text = "Where should I go, around here?", next = "directions" },
+        { text = "What threatens Brill?", next = "threats" },
+        { text = "Do you remember your life before?", next = "before", when = { race = "Scourge" } },
+        { text = "This town feels like a graveyard.", next = "graveyard" },
+        { text = "Farewell, Deathguard.", next = "END" },
+      },
+    },
+    directions = {
+      lines = { { id = "d_default", text = "The inn is the Gallows' End, where Innkeeper Renee will rent you a bed you don't need. The Undercity lies east through the ruins of Lordaeron, and the Apothecaries in the cellar of the town hall always want errands run." } },
+      choices = {
+        { text = "What do the Apothecaries want?", next = "apothecary" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apothecary = {
+      lines = { { id = "a_default", text = "Ingredients, mostly, and they are not particular about where those ingredients were walking yesterday. Master Apothecary Faranell's people are working on something for the Dark Lady, and they'll tell you as much as they think you need." } },
+      choices = {
+        { text = "Whatever they brew, the Scourge deserve it.", next = "BACK", reply = "Spoken like one of us. The Society will like you.", fx = { align = { order = -1 } } },
+        { text = "Secret brews make me uneasy.", next = "BACK", reply = "They make me uneasy too, but I keep that between myself and the road.", fx = { align = { order = 1 } } },
+      },
+    },
+    threats = {
+      lines = { { id = "t_default", text = "The Scarlet Crusade, chiefly, who think every Forsaken is a ghoul to be burned. The Scourge still wander out of the north fields, and there are wolves and worse in the woods toward Agamand Mills." } },
+      choices = {
+        { text = "Why does the Crusade hate you so?", next = "crusade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crusade = {
+      lines = { { id = "c_default", text = "Because we remind them of what they lost, and because hating the dead is easier than mourning them. Some of them were our neighbours, once, which makes it all the more tiresome." } },
+      choices = { { text = "Then the fault is theirs. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "b_default", text = "I was a guardsman here when Brill was a living town, and I died in the same uniform. The Dark Lady gave me my will back, and I find I chose the same work twice." } },
+      choices = { { text = "Some habits outlast death. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    graveyard = {
+      lines = { { id = "g_default", text = "It is, and a busy one, which is more than most villages in Lordaeron can say now. The dead here keep shop, brew potions and pour ale, so you may judge for yourself whether that is better or worse." } },
+      choices = { { text = "Better, I think. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Guard of Brill in life, guard of Brill in death. I'm nothing if not consistent." } },
+    _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask at the Gallows' End; somebody there will pretend to know." } },
+  },
+}
+
+-- Deathguard Morris: a Forsaken guard of Brill who worries over the town's supplies.
+P:NPC {
+  key = "wpl_deathguard_morris", id = 1745, name = "Deathguard Morris", gender = "male",
+  role = "guard", tier = "quest",
+  communities = { "brill" }, temper = { "grim", "practical" }, values = { "duty", "forsaken" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A grim Forsaken guard who looks at every traveller as a possible pair of hands.",
+    third = "{name} met Deathguard Morris, who guards Brill in Tirisfal Glades.",
+  },
+  greetings = {
+    { id = "g_default", text = "Another traveller in Brill. If you're able-bodied, and that's no small thing around here, the town could use you." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back. That's two more times than most people manage." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" }, text = "A mage. Good; the Scarlet Crusade burns easily, and you look like you'd enjoy it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Morris, Deathguard of Brill. I watch the road and count the supplies, and lately the second job worries me more than the first." } },
+      again = { { id = "h_again", text = "More? Fine, but be quick; the carts don't count themselves." }, { id = "h_again2", text = "Ask, then. I'll keep one eye on the road." } },
+      choices = {
+        { text = "What's wrong with the supplies?", next = "supplies" },
+        { text = "How do the Deathguard keep discipline?", next = "discipline" },
+        { text = "Do you still feel the Lich King's call?", next = "call", when = { race = "Scourge" } },
+        { text = "You seem tired, for a corpse.", next = "tired" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    supplies = {
+      lines = { { id = "s_default", text = "Everything comes from the Undercity or the fields, and the fields are crawling with Scourge and Scarlet scouts. Carts go missing, crates arrive half-empty, and a town of dead folk still needs cloth, tools and reagents." } },
+      choices = {
+        { text = "Who's taking it, do you think?", next = "who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who = {
+      lines = { { id = "w_default", text = "Gnolls in the hills, Scarlet raiders on the north road, and I'd not swear to every Forsaken in the supply line, either. Hunger doesn't end with death; it only changes what you're hungry for." } },
+      choices = {
+        { text = "Hang the thieves, whoever they are.", next = "BACK", reply = "That's the Deathguard's way. I'll pass your opinion on.", fx = { align = { order = 1 } } },
+        { text = "Hungry people steal. Feed them first.", next = "BACK", reply = "Kind thought. Strange one, for Brill, but kind.", fx = { align = { order = -1 } } },
+      },
+    },
+    discipline = {
+      lines = { { id = "d_default", text = "Strictly, because a Forsaken who stops caring is a ghoul with better manners. We drill, we stand watch, and we remember that we chose this, which the Scourge never could." } },
+      choices = { { text = "Choice is what separates you. Something else.", next = "BACK" } },
+    },
+    call = {
+      narr = "He goes still, and for a moment he seems to be listening to something far away.",
+      lines = { { id = "c_default", text = "Sometimes, on quiet nights, a whisper at the back of the skull. I answer it the way the Dark Lady taught us, by ignoring it and finding something to kill." } },
+      choices = { { text = "Good advice. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    tired = {
+      lines = { { id = "t_default", text = "The body doesn't tire, but the mind does, and mine has stood this post a long while. Still, it beats lying in a field with crows for company." } },
+      choices = { { text = "That it does. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A Deathguard of Brill. Before that, I'd rather not say." } },
+    _none = { { id = "tp_none", text = "No idea. I count crates, not rumours." } },
+  },
+}
+
+-- Lysta Bancroft: a Forsaken of the Undercity's War Quarter who brings out captives for the warriors to fight.
+P:NPC {
+  key = "wpl_lysta_bancroft", id = 5679, name = "Lysta Bancroft", gender = "female",
+  role = "citizen", tier = "service",
+  temper = { "cold", "wry" }, values = { "forsaken" },
+  notices = { "class" },
+  impression = {
+    first = "A thin Forsaken woman with a ring of keys and an unpleasant smile.",
+    third = "{name} met Lysta Bancroft in the War Quarter of the Undercity.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come to watch the sparring, have you? Brother Malach's students need something to hit, and I keep the somethings." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. You do enjoy a show, don't you?" },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" }, text = "A warrior. I could bring you out something with teeth, if you've a mind to practise." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Lysta Bancroft, and I tend the captives of the War Quarter: humans, ghouls, the odd abomination. When Brother Malach calls, I bring one out for his pupils to fight." } },
+      again = { { id = "h_again", text = "Anything else? My charges get restless if I leave them." } },
+      choices = {
+        { text = "Where do the captives come from?", next = "captives" },
+        { text = "Isn't that cruel?", next = "cruel" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    captives = {
+      lines = { { id = "c_default", text = "The Scourge ones are dragged in from the Plaguelands, and the living ones are Scarlet scouts and other trespassers. The Deathguard sends them down, and I keep them fed enough to put up a fight." } },
+      choices = {
+        { text = "And when they can't fight anymore?", next = "after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    after = {
+      lines = { { id = "a_default", text = "Then the Apothecaries have a use for them, and I don't ask what. Nothing in the Undercity goes to waste, you'll find." } },
+      choices = { { text = "Grim, but practical. Something else.", next = "BACK" } },
+    },
+    cruel = {
+      lines = { { id = "cr_default", text = "The living burned my family in their beds and called it mercy. You'll forgive me if I don't lose sleep, since I no longer sleep at all." } },
+      choices = {
+        { text = "They earned it. Let them bleed.", next = "BACK", reply = "Finally, someone who understands.", fx = { align = { order = -1 } } },
+        { text = "Cruelty makes us no better than them.", next = "BACK", reply = "We were never better than them, dear. Only more honest.", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A Lordaeron girl once, and now the keeper of the War Quarter's cages. A promotion, of sorts." } },
+    _none = { { id = "tp_none", text = "I keep cages, not secrets. Ask Brother Malach." } },
+  },
+}
+
+-- Elder Meadowrun: a night elf elder honoured near the Weeping Cave, Western Plaguelands, during the Lunar Festival.
+P:NPC {
+  key = "wpl_elder_meadowrun", id = 15602, name = "Elder Meadowrun", gender = "female",
+  role = "elder", tier = "quest",
+  temper = { "calm", "sorrowful" }, values = { "ancestors", "tradition" },
+  notices = { "race", "season" },
+  impression = {
+    first = "A night elf elder glowing softly in a land of plague and ash.",
+    third = "{name} paid respects to Elder Meadowrun in the Western Plaguelands during the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Even here, where the land weeps, the ancestors come at the turning of the year. Welcome, traveller." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Meadowrun the Elder") }, text = "You honoured me already, and walked through the plague to do it. The ancestors saw." },
+  },
+  notice = {
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" }, text = "A child of Teldrassil in these sick lands. Keep your spirit close; this place hungers for it." },
+    { id = "n_lunar", cat = "season", when = { holiday = "lunar" }, text = "The Lunar Festival brings elders to every corner of the world, even the dark ones." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Meadowrun, an elder, and I stand here because the ancestors wished someone to bear witness to this broken land. Seekers who come to me carry honour from elder to elder through the festival." } },
+      again = { { id = "h_again", text = "Ask, child. The dark does not hurry me." }, { id = "h_again2", text = "Speak your mind. The ancestors are listening as well." } },
+      choices = {
+        { text = "Why stand in such a cursed place?", next = "why" },
+        { text = "I come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Meadowrun the Elder") } },
+        { text = "Can this land ever heal?", next = "heal" },
+        { text = "Elune keep you, elder.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because the dead here were never honoured, only raised and made to walk. Someone must remember them as they were, farmers and children and soldiers, and not as the Scourge made them." } },
+      choices = {
+        { text = "Do the ancestors of the humans come too?", next = "humans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans = {
+      lines = { { id = "hu_default", text = "I feel them at the edges, confused and grieving, unsure whether they are welcome. I tell them every spirit is welcome at the festival, whatever banner it marched under." } },
+      choices = {
+        { text = "That's generous of you, elder.", next = "BACK", reply = "It is only right. Grief knows no faction.", fx = { align = { order = -1 } } },
+        { text = "Their kingdom brought this on itself.", next = "BACK", reply = "Perhaps, but their children did not choose it.", fx = { align = { order = 1 } } },
+      },
+    },
+    honour = {
+      lines = { { id = "ho_default", text = "Then take my blessing and a coin of the ancestors, and go on to the next elder. Walk carefully; the plague does not respect the festival." } },
+      choices = { { text = "Thank you, elder.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    heal = {
+      lines = { { id = "he_default", text = "Elune is patient, and the land has healed deeper wounds than this. But it will take many lifetimes, and those who fight the Scourge must win first." } },
+      choices = { { text = "Then I'll fight. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "An elder of the Kaldorei, sent where the ancestors willed. This year, they willed here." } },
+    _none = { { id = "tp_none", text = "The ancestors have not told me that, child, and I would not guess." } },
   },
 }

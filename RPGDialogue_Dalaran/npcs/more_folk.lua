@@ -712,3 +712,76 @@ P:NPC {
     _none = { { id = "tp_none", text = "That is not in my ledgers, and what is not in my ledgers I do not vouch for." } },
   },
 }
+
+-- Wonderform Operator: a Smokywood Pastures goblin running a Winter Wondervolt machine during the Feast of Winter Veil.
+P:NPC {
+  key = "dal_wonderform_operator", id = 15732, name = "Wonderform Operator", gender = "male",
+  role = "operator", tier = "quest",
+  temper = { "brisk", "salesy" }, values = { "coin", "machinery" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A goblin in a Smokywood apron tends a humming, crackling machine strung with lights.",
+    third = "{name} met a Wonderform Operator and his Winter Wondervolt during the Feast of Winter Veil.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step right up to the Winter Wondervolt! One zap and you're a Little Helper, courtesy of Smokywood Pastures." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for another zap? Your hair's still standing up from the last one, pal." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "A gnome! Don't touch the coils, all right? Last gnome I let near it tried to improve it." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" }, text = "A mage, eh? Don't go telling the Kirin Tor about this thing. It's perfectly safe, and fully licensed." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "This beauty is the PX-238 Winter Wondervolt, finest holiday machine Smokywood money can buy. Step on the pad, and you'll be dressed for the season in a flash." } },
+      again = {
+        { id = "h_again", text = "What else? The line's getting long behind you." },
+        { id = "h_again2", text = "Make it quick, pal. The coils need to cool." },
+      },
+      choices = {
+        { text = "What does the machine actually do?", next = "machine" },
+        { text = "Who runs Smokywood Pastures?", next = "smokywood" },
+        { text = "That thing looks dangerous.", next = "danger" },
+        { text = "I'm an engineer. How is it powered?", next = "power", when = { profession = "Engineering" } },
+        { text = "Maybe later.", next = "END" },
+      },
+    },
+    machine = {
+      lines = { { id = "m_default", text = "It turns you into a Little Helper for a while, red or green, our choice not yours. Then you wear off and go back to being whatever you were." } },
+      choices = {
+        { text = "Why would anyone want that?", next = "why" },
+        { text = "Sounds fun. Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Holiday cheer, pal! Folk like to look festive, and Smokywood likes folk walking about in our colours. Everybody wins." } },
+      choices = {
+        { text = "That's just walking advertising.", next = "BACK", reply = "Shh! Don't say it so loud.", fx = { align = { balance = 1 } } },
+        { text = "Clever marketing. I'll take a zap.", next = "BACK", reply = "That's the spirit! Hold still.", fx = { align = { balance = -1 } } },
+      },
+    },
+    smokywood = {
+      lines = { { id = "s_default", text = "A goblin outfit that sells treats, trees and trimmings for the Winter Veil. They hire folks like me to keep the cheer flowing and the coin with it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    danger = {
+      lines = { { id = "d_default", text = "Dangerous? Nah. Hardly anybody's been turned into a sheep, and that was only the one time." } },
+      choices = {
+        { text = "That's not reassuring.", next = "sheep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sheep = {
+      lines = { { id = "sh_default", text = "Fine, fine. It was a mage nearby practising polymorph, not the machine. The machine's perfectly safe, mostly." } },
+      choices = { { text = "Mostly safe. Got it. Something else.", next = "BACK" } },
+    },
+    power = {
+      lines = { { id = "p_default", text = "Trade secret, pal, but I'll say this much: it's a lot of copper coil and a little bit of something sparkly. Don't open the panel." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't tell you, pal. I just work the machine." } },
+  },
+}

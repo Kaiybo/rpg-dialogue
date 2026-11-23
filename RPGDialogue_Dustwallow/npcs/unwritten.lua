@@ -470,3 +470,107 @@ P:NPC {
     _none = { { id = "tp_none", text = "I do not answer the questions of insects. Ask something worth my breath." } },
   },
 }
+
+-- Falgran Hastil: a Theramore tracker sent to follow the hoofprints after "Suspicious Hoofprints".
+P:NPC {
+  key = "dw_falgran_hastil", id = 5088, name = "Falgran Hastil", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "theramore" }, temper = { "dutiful", "terse" }, values = { "duty", "order" },
+  notices = { "class", "travel" },
+  impression = {
+    first = "A lean tracker with mud to his knees and a map he keeps folding.",
+    third = "{name} met Falgran Hastil, a tracker of the Theramore Guard.",
+  },
+  greetings = {
+    { id = "g_default", text = "Falgran Hastil, Theramore Guard. If you've come about the hoofprints, I'm the one they're sending after them." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? I've not found where those tracks end yet, but I will." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, text = "A hunter, good. You'll know a fresh print from an old one, which is more than half the Guard can say." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Somebody left hoofprints by the burnt-out inn on the Barrens road, and the Lady Jaina wants to know whose they were. I'm to follow them wherever they go and report back to the citadel." } },
+      again = { { id = "h_again", text = "Make it quick, friend. Tracks don't wait for anyone, least of all in a swamp." } },
+      choices = {
+        { text = "Whose hoofprints do you think they are?", next = "whose" },
+        { text = "How do you track anything in this mud?", next = "mud" },
+        { text = "Good hunting, Falgran.", next = "END" },
+      },
+    },
+    whose = {
+      lines = { { id = "w_default", text = "Tauren, by the size of them, which is what has the Guard worried. Some say it's the Horde stirring up trouble, and others say someone wants it to look that way, so we can't afford to guess wrong." } },
+      choices = {
+        { text = "It's the Horde. Treat it as an attack.", next = "BACK", reply = "Plenty in the barracks would agree, but Lady Proudmoore wants proof before she wants war. I'll bring her proof.", fx = { align = { order = -1 } } },
+        { text = "Find the truth before anyone draws a sword.", next = "BACK", reply = "That's exactly my orders, and I mean to keep them. A wrong guess here costs lives on both sides.", fx = { align = { order = 1 } } },
+      },
+    },
+    mud = {
+      lines = { { id = "m_default", text = "Patience, mostly, and a good eye for broken reeds. The marsh swallows a print within a day, so you follow what the creature brushed past rather than what it stepped on." } },
+      choices = {
+        { text = "Have you seen anything strange out there?", next = "strange" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange = {
+      lines = { { id = "s_default", text = "Plenty, and none of it friendly. Black dragonspawn in the Wyrmbog, the Grimtotem moving through the reeds, and things in the water I'd rather not describe before supper." } },
+      choices = { { text = "Then watch your back. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Not my concern, friend. Ask someone at the citadel who sits behind a desk." } },
+  },
+}
+
+-- Medic Tamberlyn: a neophyte First Aid medic on Theramore Isle, still learning the trade.
+P:NPC {
+  key = "dw_medic_tamberlyn", id = 5199, name = "Medic Tamberlyn", gender = "female",
+  role = "citizen", tier = "service",
+  communities = { "theramore" }, temper = { "earnest", "nervous" }, values = { "compassion", "duty" },
+  notices = { "kit" },
+  impression = {
+    first = "A young medic with bandage rolls tucked into every pocket.",
+    third = "{name} met Medic Tamberlyn, a young First Aid medic on Theramore Isle.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh, hello! You're not bleeding, are you? I mean, I could help if you were, I've been practising all week." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back, and still in one piece, which is the best kind of patient there is." },
+  },
+  notice = {
+    { id = "n_hurt", cat = "kit", when = { health = { max = 0.5 } }, text = "Light above, you're hurt! Sit down, keep the pressure on it, and please don't faint until I've found my scissors." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm Tamberlyn, and I'm learning field medicine here at Theramore, though I'm still a neophyte, so mostly I roll bandages and fetch water. My teacher says every medic starts that way, and I hope he's right." } },
+      again = { { id = "h_again", text = "Anything else? I've a basket of linen to cut, but I can talk while I do it." } },
+      choices = {
+        { text = "Why become a medic?", next = "why" },
+        { text = "What's the hardest part of the work?", next = "hard" },
+        { text = "Keep up the good work.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "My brother came home from the Barrens road with a wound nobody knew how to dress, and he very nearly didn't recover. I decided then that I'd never stand by and watch somebody bleed again because I didn't know what to do." } },
+      choices = {
+        { text = "Do you tend Horde wounded too?", next = "horde" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Lady Jaina wants peace with Thrall's people, and I think a medic ought to treat whoever's in front of her. Some of the soldiers say I'm soft for thinking it, but blood looks the same on everyone." } },
+      choices = {
+        { text = "A wound is a wound. You're right.", next = "BACK", reply = "Thank you! I'll tell the sergeant someone agreed with me, though he won't care.", fx = { align = { light = 1 } } },
+        { text = "Our own soldiers come first, always.", next = "BACK", reply = "Well, yes, of course they would, if it came to choosing. I just hope it never does.", fx = { align = { light = -1 } } },
+      },
+    },
+    hard = {
+      lines = { { id = "h2_default", text = "Keeping my hands steady when someone is screaming, honestly. The bandaging I can do in my sleep now, but the noise and the blood still make my stomach turn over." } },
+      choices = { { text = "That gets easier with time. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask my teacher at the infirmary; he knows everything, or at least he sounds like he does." } },
+  },
+}

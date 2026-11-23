@@ -3366,3 +3366,78 @@ P:NPC {
     _none = { { id = "tp_none", text = "I am afraid I do not know. Tenaron Stormgrip will, if you do not mind the climb." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Forest Wisp: a wisp near the road to Darnassus who carries word of Eranikus's fall to Tyrande and Remulos.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tel_forest_wisp", id = 15624, name = "Forest Wisp", gender = "neutral",
+  role = "questgiver", tier = "quest",
+  temper = { "gentle" }, values = { "nature" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A small wisp drifts among the roots near the road to Darnassus, pulsing with a soft green light. When you come near, its glow brightens, and a voice like rustling leaves speaks inside your mind.",
+    third = "{name} met a Forest Wisp near the gates of Darnassus.",
+  },
+  greetings = {
+    { id = "g_default", text = "You hear me, then. Few walking ones do, and fewer stop to listen." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am a spirit of this forest, as my kin are spirits of every forest the kaldorei have tended. I listen to the trees and carry what they say to those who need to hear it." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Eranikus, Tyrant of the Dream") }, text = "You carry news of the Tyrant of the Dream, I can feel it on you like frost. Tell me, and I will see that it reaches those who must know." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "A walker of the Dream comes to me. The trees speak of you, little druid, and they speak kindly." },
+      },
+      again = {
+        { id = "h_again", text = "The trees are listening. What else?" },
+        { id = "h_again2", text = "Ask, and I will answer if the forest knows." },
+      },
+      choices = {
+        { text = "What are you, exactly?", next = "what" },
+        { text = "What do the trees tell you?", next = "trees" },
+        { text = "Who is the Tyrant of the Dream?", next = "eranikus" },
+        { text = "Do the wisps remember the Battle of Mount Hyjal?", next = "hyjal", when = { race = "NightElf" } },
+        { text = "Farewell, little spirit.", next = "END" },
+      },
+    },
+    what = {
+      lines = { { id = "w_default", text = "When a kaldorei passes, sometimes a part of them lingers in the forest as a light. I do not remember who I was, but I remember that I loved these woods." } },
+      choices = {
+        { text = "That's a sad thing to forget.", next = "BACK" },
+        { text = "That sounds like a peaceful end.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    trees = {
+      lines = { { id = "t_default", text = "They tell me Teldrassil is young and uneasy, and that something in its roots does not sleep well. The Gnarlpine furbolgs were the first to feel it, and they went mad before anyone else noticed." } },
+      choices = {
+        { text = "Should we be worried?", next = "worried" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worried = {
+      lines = { { id = "wr_default", text = "Worry does not heal a tree, but care does. Tend the forest, kill what is corrupted, and leave the rest to grow, and Teldrassil may yet become what Nordrassil was." } },
+      choices = {
+        { text = "The kaldorei should never have planted it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fandral knows what he is doing.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+    eranikus = {
+      lines = { { id = "e_default", text = "A green dragon, once a consort of Ysera, who fell to the nightmare beneath the Sunken Temple. If he is ever cleansed, Tyrande and Remulos must be told at once.", fx = { learn = { "eranikus" } } } },
+      choices = {
+        { text = "Why Tyrande and Remulos?", next = "why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Tyrande speaks for Elune and Remulos speaks for the Dream, and both have grieved for Eranikus's fall. Carry the word to them, and the forest will be grateful." } },
+      choices = { { text = "I will, if I can.", next = "BACK" } },
+    },
+    hyjal = {
+      lines = { { id = "h2_default", text = "My kin flew in their thousands against Archimonde at the World Tree, and their light undid him. I was not among them, or if I was, I do not remember it, but the forest does." } },
+      choices = { { text = "Thank you, spirit.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "The trees do not know that. Ask the Sentinels, walking one." } } },
+}

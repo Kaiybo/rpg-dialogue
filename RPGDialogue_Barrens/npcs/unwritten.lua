@@ -694,3 +694,605 @@ P:NPC {
     },
   },
 }
+
+---------------------------------------------------------------------------
+-- Lunar Festival elders of the Barrens: High Mountain, Moonwarden and Windtotem.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_elder_high_mountain", id = 15588, name = "Elder High Mountain", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "calm" }, values = { "tradition", "family" },
+  notices = { "race", "faction" },
+  impression = {
+    first = "An old tauren sits with his hooves folded beneath him, a string of carved totems across his knees. He watches the sky as though waiting for an old friend.",
+    third = "{name} paid a visit to Elder High Mountain, one of the elders honoured at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Sit a while, young one. The festival brings many feet to an old bull's door, and I am glad of every one." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and the moon has not even turned yet. Sit, sit." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am High Mountain, and in this season the people come to honour the elders of their past. I sit here so they have someone to honour, which is a strange duty, but a gentle one." },
+        { id = "h_q", when = { questActive = TODO_QUEST("High Mountain the Elder") }, text = "You have come to pay your respects, and so you have. Take this coin of the ancestors, and carry it with a light heart." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "A child of the herds comes to the old bull. The Earth Mother smiles on this, and so do I." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask of an old bull?" },
+        { id = "h_again2", text = "The night is long, young one. Ask what you like." },
+      },
+      choices = {
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "Why are you called an elder?", next = "elder" },
+        { text = "You keep looking at the sky.", next = "sky" },
+        { text = "My own ancestors walked these plains, Elder.", next = "herd", when = { race = "Tauren" } },
+        { text = "I should go. Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "Long ago, when the moon was new in the sky, a great beast called Omen was cast into the waters of Elune. Each year we remember that night, and the druids of Moonglade light the sky, and we remember our ancestors too.", fx = { learn = { "lunar_festival" } } } },
+      choices = {
+        { text = "Who was Omen?", next = "omen" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    omen = {
+      lines = { { id = "o_default", text = "A demon-beast of the old wars, and the stories say he wakes when the festival fires burn near his lake. I have never seen him, and I hope my old eyes never do." } },
+      choices = {
+        { text = "Old monsters should stay buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If he wakes, I'd like to see him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elder = {
+      lines = { { id = "e_default", text = "Because I have lived long enough to remember the old camps before the orcs ever came to Kalimdor. The young ones bring me coins and tell me I am wise, and I let them believe it." } },
+      choices = {
+        { text = "What were the plains like then?", next = "oldtimes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oldtimes = {
+      lines = { { id = "t_default", text = "Quieter, and harder, with the centaur at every waterhole and no Thunder Bluff to run to. Cairne gave us a home, and the Horde gave us friends, and I do not miss the old days as much as old bulls are meant to." } },
+      choices = { { text = "Thank you for telling me.", next = "BACK" } },
+    },
+    sky = {
+      lines = { { id = "s_default", text = "The festival lights come from Moonglade, far to the north, and on a clear night I fancy I can see them. My mother told me the ancestors gather there to look down on us." } },
+      choices = { { text = "Then they are looking at you tonight.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    herd = {
+      lines = { { id = "hd_default", text = "Then they are watching you now, and they are proud. Honour them by living well, young one, because that is the only coin the ancestors truly spend." } },
+      choices = { { text = "I will try.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That is beyond what an old bull knows. Ask the druids of Moonglade, for they know the festival's deeper secrets." } },
+  },
+}
+
+P:NPC {
+  key = "bar_elder_moonwarden", id = 15597, name = "Elder Moonwarden", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "calm" }, values = { "tradition", "faith" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A night elf elder stands at the Crossroads with his face tipped up to the pale moon. Small offerings of grain and feathers lie scattered around his feet.",
+    third = "{name} paid respects to Elder Moonwarden, one of the elders of the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Elune watches us tonight, friend, and so I watch her back. Come and stand in her light." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, the moon brings you back to me. That is a good sign." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Moonwarden, so named because my grandmother said I was born with the moon in my eyes. During the festival the people come to honour their elders, and I am happy to stand for them." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Moonwarden the Elder") }, text = "You have walked a long way to honour an old watcher. Take this coin, and may Elune guide your path home." },
+      },
+      again = {
+        { id = "h_again", text = "What else is on your mind beneath this moon?" },
+        { id = "h_again2", text = "The moon is patient, and so am I. Speak." },
+      },
+      choices = {
+        { text = "Why do you watch the moon?", next = "moon" },
+        { text = "What does an elder do at the festival?", next = "duty" },
+        { text = "You seem very at peace out here.", next = "peace" },
+        { text = "The tauren call the moon Mu'sha. Is she Elune?", next = "elune", when = { class = "DRUID" } },
+        { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    moon = {
+      lines = { { id = "m_default", text = "The moon is Elune's light, and my people have watched it since before the Sundering. By night she watches over the sleeping and the lost, and I would keep her company." } },
+      choices = {
+        { text = "Does she ever answer?", next = "answer" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    answer = {
+      lines = { { id = "a_default", text = "Not in words, but the rain comes when the land needs it, and the calves grow strong. That is answer enough for an old elf who does not need to be spoken to." } },
+      choices = {
+        { text = "Faith like that is a strength.", next = "BACK", fx = { align = { faith = 1 } } },
+        { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { faith = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    duty = {
+      lines = { { id = "d_default", text = "We listen, mostly. The young come with their coins and their questions, and they tell us about their families, and we remind them that the dead do not leave us as long as we remember them." } },
+      choices = {
+        { text = "Who do you remember?", next = "remember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remember = {
+      lines = { { id = "r_default", text = "My grandmother first of all, who sang to the moon every night until her voice was gone. When I stand out here, I sing a little for her, though I am not half the singer she was." } },
+      choices = { { text = "She'd be glad you keep singing.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    peace = {
+      lines = { { id = "p_default", text = "The Barrens is a hard land, and the war never quite leaves it, but the moon shines on all of it the same. Out here, under her light, I can forget the quilboar and the centaur for one night." } },
+      choices = { { text = "I'll leave you to your night, then.", next = "BACK" } },
+    },
+    elune = {
+      lines = { { id = "el_default", text = "The tauren call her Mu'sha, the Earth Mother's eye, and my people call her Elune. I suspect she does not mind what name we use as long as we look up." } },
+      choices = { { text = "A wise answer. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That I cannot tell you, but the moon may know. Ask her quietly, and listen longer." } },
+  },
+}
+
+P:NPC {
+  key = "bar_elder_windtotem", id = 15582, name = "Elder Windtotem", gender = "female",
+  role = "questgiver", tier = "quest",
+  temper = { "warm" }, values = { "tradition", "freedom" },
+  notices = { "race", "faction" },
+  impression = {
+    first = "A weathered tauren leans on a tall totem near the Ratchet road, its feathers lifting and whispering in the sea wind. She chuckles before you even speak.",
+    third = "{name} visited Elder Windtotem, honoured during the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "The wind told me someone was coming, though it did not say who. Welcome, traveller." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and the wind still at your back. Good, good." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Windtotem, and the festival has made me a very popular old grandmother this season. Everyone wants to honour an elder, and I am the elder nearest the road." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Windtotem the Elder") }, text = "You have come to pay respects, and I accept them gladly. Here is your coin, and may the winds carry your ancestors' voices to you." },
+        { id = "h_alliance", when = { faction = "Alliance" }, text = "Even the Alliance comes to honour the elders, which tells me the festival is stronger than any war. Be welcome, stranger." },
+      },
+      again = {
+        { id = "h_again", text = "The wind is still blowing, so ask away." },
+        { id = "h_again2", text = "What else, traveller?" },
+      },
+      choices = {
+        { text = "What do the winds tell you?", next = "winds" },
+        { text = "Why does the festival matter to you?", next = "matters" },
+        { text = "You seem amused by all this.", next = "amused" },
+        { text = "Our peoples are at war, yet you greet me kindly.", next = "war", when = { faction = "Alliance" } },
+        { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    winds = {
+      lines = { { id = "w_default", text = "The winds carry the voices of everyone who has gone before us, if you listen. Mostly they tell me the rains are late and the zhevra are restless, which is less mystical than people hope." } },
+      choices = {
+        { text = "Can you teach me to listen?", next = "listen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    listen = {
+      lines = { { id = "l_default", text = "Stand still on the plain at dusk and say nothing for as long as you can bear it. Most young ones cannot last a minute, which is why the winds have so little to say to them." } },
+      choices = {
+        { text = "Patience has never been my strength.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I can be patient when it matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    matters = {
+      lines = { { id = "m_default", text = "Because the dead deserve one night a year where we say their names aloud. My brother fell to the centaur long ago, and this is the night I tell everyone about him." } },
+      choices = {
+        { text = "Tell me about your brother.", next = "brother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother = {
+      lines = { { id = "b_default", text = "He was louder than me and braver than me, and he laughed at everything, including the centaur who killed him. I like to think I laugh so much because I am carrying his share as well." } },
+      choices = { { text = "Then I'll remember him too.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    amused = {
+      lines = { { id = "a_default", text = "At my age, traveller, everything is either funny or sad, and funny is easier on the knees. You should try it." } },
+      choices = { { text = "I'll keep that in mind.", next = "BACK" } },
+    },
+    war = {
+      lines = { { id = "wr_default", text = "The war is between chieftains and kings, and tonight is about grandmothers and brothers. Your ancestors and mine are both up there, and I doubt they are fighting." } },
+      choices = { { text = "I hope you're right.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "The wind has nothing to say about that, and neither do I. Try asking it again tomorrow." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Northwatch Hold's cannoneers, Theramore men on the walls. Alliance-friendly; the Horde wants them dead.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_cannoneer_smythe", id = 3454, name = "Cannoneer Smythe", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "theramore" }, temper = { "gruff" }, values = { "duty" },
+  notices = { "faction" },
+  impression = {
+    first = "A soot-streaked Theramore soldier tends a cannon on the tower of Northwatch Hold. He keeps one ear on you and one eye on the road from Ratchet.",
+    third = "{name} spoke with Cannoneer Smythe at Northwatch Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mind the powder kegs, and don't stand in front of the barrel. We've lost enough good boots that way." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde on the tower! Somebody sound the bell, and somebody else hand me a fuse!" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Smythe, cannoneer of Northwatch, by order of Lady Proudmoore. We keep the guns trained on the coast road, and the Horde knows it, which is why they keep sending people to kill us." } },
+      again = { { id = "h_again", text = "Anything else? I've a gun to clean." } },
+      choices = {
+        { text = "Why is Northwatch here at all?", next = "why" },
+        { text = "The Horde wants you dead?", next = "dead" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "To watch the orcs, mostly, and Ratchet too, since the goblins trade with anybody. Captain Fairmount says Theramore needs eyes in the Barrens, and I'm one of the eyes with a cannon attached." } },
+      choices = {
+        { text = "It seems a lonely post.", next = "lonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lonely = {
+      lines = { { id = "l_default", text = "Lonely and hot, with nothing to drink but brackish water. Whessan and I take turns telling the same three stories, and neither of us laughs any more." } },
+      choices = {
+        { text = "Keep the faith. Theramore needs you here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd have deserted months ago.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    dead = {
+      lines = { { id = "d_default", text = "There's a high elf privateer in Ratchet, Brightsun, who'd pay the Horde for my head because we fired on his ships. He'll have to climb this tower first, and the tower has a cannon on it." } },
+      choices = { { text = "Then keep it loaded.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask the captain. I aim where I'm told, and I don't ask much else." } } },
+}
+
+P:NPC {
+  key = "bar_cannoneer_whessan", id = 3455, name = "Cannoneer Whessan", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "theramore" }, temper = { "cheerful" }, values = { "duty" },
+  notices = { "faction", "race" },
+  impression = {
+    first = "A young Theramore gunner sits on a crate beside his cannon, polishing the brass and whistling badly. He snaps to attention a moment too late.",
+    third = "{name} met Cannoneer Whessan, a gunner at Northwatch Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh! At ease, at ease, I mean, good day to you. We don't get many visitors who aren't trying to kill us." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Whessan, second gun on the Northwatch wall. Smythe has the better cannon, but I have the better view of the sea, so I think I came out ahead." } },
+      again = { { id = "h_again", text = "Something else? I'm not going anywhere, believe me." } },
+      choices = {
+        { text = "What can you see from here?", next = "view" },
+        { text = "How did you end up in the Barrens?", next = "how" },
+        { text = "Good day, cannoneer.", next = "END" },
+      },
+    },
+    view = {
+      lines = { { id = "v_default", text = "Ships out of Ratchet, the odd pirate sail from the south, and on a clear day the smoke from the Crossroads. I log every one of them for the captain, though nobody seems to read the logs." } },
+      choices = {
+        { text = "Pirates? This close?", next = "pirates" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirates = {
+      lines = { { id = "p_default", text = "Southsea pirates, down by the Merchant Coast and the old wrecks. They raid anybody, and they don't fly anybody's colours but their own." } },
+      choices = { { text = "I'll watch for them.", next = "BACK" } },
+    },
+    how = {
+      lines = { { id = "h2_default", text = "I followed Lady Proudmoore over from Lordaeron like half of Theramore did, and somebody found out I could count to three while holding a lit fuse. That made me a gunner." } },
+      choices = {
+        { text = "Lordaeron? Do you miss it?", next = "miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miss = {
+      lines = { { id = "m_default", text = "Every day, but there's nothing left there to miss, from what I hear. Better a hot tower in the Barrens than a grave in the plaguelands." } },
+      choices = { { text = "That's a fair trade.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "No idea, friend, but if you find out, come and tell me. It's dreadfully dull up here." } } },
+}
+
+---------------------------------------------------------------------------
+-- Bael'dun Keep: Ironforge dwarves digging in southern Barrens. Friendly to the Alliance only.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_baeldun_excavator", id = 3374, name = "Bael'dun Excavator", gender = "male",
+  role = "worker", tier = "service",
+  communities = { "ironforge" }, temper = { "gruff" }, values = { "work" },
+  notices = { "race" },
+  impression = {
+    first = "A dusty dwarf leans on a pick beside a fresh trench, wiping his brow with a filthy sleeve.",
+    third = "{name} spoke with an excavator at Bael'dun Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Watch yer step, {g:lad|lass}, the trench is deeper than it looks and I'm in nae mood to haul ye out." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "We're diggin' for the Bael'dun works, under the old keep. The foreman says there's somethin' worth findin' down there, and I say he'd better be right, for my back's near broken." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A fellow mountain-born, out here in the dust! Pull up a rock, {g:lad|lass}, and tell me how Ironforge fares." },
+      },
+      again = { { id = "h_again", text = "Aye? Somethin' else?" } },
+      choices = {
+        { text = "What are you digging for?", next = "dig" },
+        { text = "The tauren don't seem happy you're here.", next = "tauren" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    dig = {
+      lines = { { id = "d_default", text = "Old dwarven works, from back when Bael'dun was a proper keep. Nobody tells a digger more than that, mind, so I just dig where the foreman points." } },
+      choices = {
+        { text = "Doesn't that bother you?", next = "bother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bother = {
+      lines = { { id = "b_default", text = "It bothers me less than an empty purse. Ironforge pays, the beer comes up from Theramore now and again, and that's enough for a simple digger." } },
+      choices = { { text = "Fair enough.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "t_default", text = "Nae, they're not, and they've the right of it in a way, for this was their land first. But we're under orders, and orders don't care whose grass we're turnin'." } },
+      choices = {
+        { text = "Then leave their land alone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. Keep digging.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask the foreman, he's the one with the maps. I've only got a shovel." } } },
+}
+
+P:NPC {
+  key = "bar_baeldun_foreman", id = 3375, name = "Bael'dun Foreman", gender = "male",
+  role = "worker", tier = "service",
+  communities = { "ironforge" }, temper = { "stern" }, values = { "work", "duty" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A broad dwarf in a leather apron studies a map pinned to a board with four nails and a dagger. He barks at a digger before he looks up at you.",
+    third = "{name} met the foreman at Bael'dun Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ye're no digger, so ye must be a visitor, and I've nae time for visitors. Be quick about it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I run the dig at Bael'dun, which means I take the blame when it floods and the credit goes to someone in Ironforge. What d'ye want?" } },
+      again = { { id = "h_again", text = "Still here? Out with it, then." } },
+      choices = {
+        { text = "What's down there that's worth all this?", next = "worth" },
+        { text = "Are the Horde a threat to the dig?", next = "horde" },
+        { text = "Nothing. Good day.", next = "END" },
+      },
+    },
+    worth = {
+      lines = { { id = "w_default", text = "The old keep had vaults, and vaults have things in them. That's all a foreman is told, and it's all a visitor is gettin' told as well." } },
+      choices = {
+        { text = "You don't know, do you?", next = "know" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    know = {
+      lines = { { id = "k_default", text = "I know it's important enough to send a hundred dwarves to the far side of the sea. Somebody in Ironforge knows more, and I'm content to let it stay their worry." } },
+      choices = { { text = "Fair enough.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "h2_default", text = "The tauren and their friends hit our patrols every week now, and the riflemen are stretched thin. If ye've got a sword arm, the officer would take ye on gladly." } },
+      choices = {
+        { text = "I'll help defend the dig.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're the ones trespassing here.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I've a dig to run. Ask somebody with less on their plate." } } },
+}
+
+P:NPC {
+  key = "bar_baeldun_officer", id = 3378, name = "Bael'dun Officer", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge" }, temper = { "stern" }, values = { "duty" },
+  notices = { "class", "faction" },
+  impression = {
+    first = "A dwarf officer in polished mail walks the keep's wall with his hands clasped behind him, glaring out at the plains.",
+    third = "{name} spoke with an officer at Bael'dun Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "State yer business, and quickly. This is a military post, not an inn." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I command the guard here at Bael'dun, such as it is. My orders are to keep the diggers alive and the Horde out, and I'm managin' one of those better than the other." } },
+      again = { { id = "h_again", text = "Anythin' else, soldier?" } },
+      choices = {
+        { text = "Which one are you managing?", next = "which" },
+        { text = "Who sent you to the Barrens?", next = "sent" },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    which = {
+      lines = { { id = "w_default", text = "The diggers are alive, mostly, but the Horde comes and goes as it likes. Camp Taurajo is too close for comfort, and the tauren have long memories about their land." } },
+      choices = {
+        { text = "Could you make peace with them?", next = "peace" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace = {
+      lines = { { id = "p_default", text = "Peace isnae my department, and it's no theirs either, by the look of the arrows. Talk to Theramore if ye want peace, and talk to me if ye want a crossbow." } },
+      choices = {
+        { text = "Then give me a crossbow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Someone should try talking first.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    sent = {
+      lines = { { id = "s_default", text = "Ironforge, by way of a ship to Theramore and a long march. The king's men wanted this dig guarded, and I was the lucky dwarf who drew the short straw." } },
+      choices = { { text = "Lucky indeed.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That's no my concern. Ask the foreman, or better yet, don't." } } },
+}
+
+P:NPC {
+  key = "bar_baeldun_rifleman", id = 3377, name = "Bael'dun Rifleman", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge" }, temper = { "gruff" }, values = { "duty" },
+  notices = { "race" },
+  impression = {
+    first = "A dwarf rifleman squints down the barrel of his long gun at the grassland, his beard braided out of the way of the stock.",
+    third = "{name} talked with a rifleman guarding Bael'dun Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Dinnae stand in my line, {g:lad|lass}. I've a twitchy finger and a long day behind me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I watch the grass for tauren and quilboar, and I shoot at whichever comes first. It's no glamorous, but the pay comes regular." } },
+      again = { { id = "h_again", text = "Aye? Make it quick, I'm watchin'." } },
+      choices = {
+        { text = "Seen much trouble?", next = "trouble" },
+        { text = "That's a fine rifle.", next = "rifle" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    trouble = {
+      lines = { { id = "t_default", text = "More than I'd like and less than the officer claims. The tauren come at dusk, as a rule, so I sleep in the afternoons and pray to the forge that they keep to it." } },
+      choices = { { text = "Stay sharp, then.", next = "BACK" } },
+    },
+    rifle = {
+      lines = { { id = "r_default", text = "Made in Ironforge, and it's been with me since Dun Morogh. I call her Bessie, for my mother, who had much the same temper." } },
+      choices = {
+        { text = "Does Bessie ever miss?", next = "miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miss = {
+      lines = { { id = "m_default", text = "Bessie never misses, but I do, now and then, and she never lets me forget it. A rifle's only as good as the dwarf behind it." } },
+      choices = { { text = "Wise words.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldnae tell ye. I just watch the grass." } } },
+}
+
+---------------------------------------------------------------------------
+-- Horde Axe Thrower: Darkspear guard at the Far Watch Post.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_horde_axe_thrower", id = 9458, name = "Horde Axe Thrower", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "darkspear" }, temper = { "cheerful" }, values = { "duty" },
+  notices = { "race" },
+  impression = {
+    first = "A Darkspear troll lounges at the Far Watch Post with a bundle of throwing axes slung over his back, watching the road to the Wetlands crossing.",
+    third = "{name} talked with a Darkspear axe thrower at the Far Watch Post.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hey, mon, you be keepin' your head low on dis road. Alliance scouts like to sneak down from the north." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I be watchin' de north for Thrall, and for me own chief too. Dis post sees everyt'ing comin' out of Ashenvale before it reach de Crossroads." },
+        { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear brother on de road! Sen'jin be smilin' on us both today, mon." },
+      },
+      again = { { id = "h_again", text = "What else you be wantin', mon?" } },
+      choices = {
+        { text = "What comes out of Ashenvale?", next = "north" },
+        { text = "How good is your aim?", next = "aim" },
+        { text = "Stay sharp. I'm moving on.", next = "END" },
+      },
+    },
+    north = {
+      lines = { { id = "n_default", text = "Night elf scouts, mostly, and sometimes dem dwarves from Bael'dun, though dey usually come from de south. De elves be angry about de lumber camps, and dey have every right, but dat don't mean I let dem past." } },
+      choices = {
+        { text = "The Horde needs that wood.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maybe we should leave the forest be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aim = {
+      lines = { { id = "a_default", text = "I can split a kodo's tail hair at twenty paces, and I can do it twice before de kodo notice. De Echo Isles taught me, back when de Darkspear had nothin' but axes and each other." } },
+      choices = {
+        { text = "Tell me about the Echo Isles.", next = "isles" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    isles = {
+      lines = { { id = "i_default", text = "Beautiful islands, mon, and now dey belong to dat witch doctor Zalazane. One day de Darkspear go home, and I be first off de boat." } },
+      choices = { { text = "I hope you do.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Dat be beyond me, mon. Ask somebody at de Crossroads." } } },
+}
+
+---------------------------------------------------------------------------
+-- Koiter: a gentle spirit hovering over the Shrine of the Fallen Warrior.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_koiter", id = 12034, name = "Koiter", gender = "female",
+  role = "spirit", tier = "service",
+  temper = { "calm" }, values = { "memory" },
+  notices = { "race" },
+  impression = {
+    first = "A pale, winged spirit hovers above the Shrine of the Fallen Warrior, glowing softly in the dust of the Barrens. She seems to be keeping vigil.",
+    third = "{name} met Koiter, the spirit who watches over the Shrine of the Fallen Warrior.",
+  },
+  greetings = {
+    { id = "g_default", text = "Be still a moment, traveller. This is a place of remembering, and every visitor makes it a little warmer." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I watch over this shrine, and the warrior who rests beneath it. Few stop here, but those who do are always welcome." } },
+      again = { { id = "h_again", text = "Is there more you would ask of me?" } },
+      choices = {
+        { text = "Who was the fallen warrior?", next = "warrior" },
+        { text = "Why do you stay here?", next = "stay" },
+        { text = "I'll leave you in peace.", next = "END" },
+      },
+    },
+    warrior = {
+      lines = { { id = "w_default", text = "One who was loved, and who left too soon. The stone does not need to say more than that, and neither do I." } },
+      choices = {
+        { text = "Every grave deserves to be remembered.", next = "remember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remember = {
+      lines = { { id = "r_default", text = "Then remember them as you walk on, and the plains will feel a little less empty. That is all any shrine asks." } },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    stay = {
+      lines = { { id = "s_default", text = "Because someone must, and because I am not yet ready to leave. The winds of the Barrens are lonely, but they are kind to those who wait." } },
+      choices = { { text = "Thank you for keeping watch.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I know only this place, and the quiet. Ask the living." } } },
+}

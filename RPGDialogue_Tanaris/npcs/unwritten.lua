@@ -394,3 +394,196 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "That inquiry is outside this record's parameters." } } },
 }
+
+-- Elder Ragetotem: a tauren elder honoured in the Valley of the Watchers, Tanaris, during the Lunar Festival.
+P:NPC {
+  key = "tan_elder_ragetotem", id = 15573, name = "Elder Ragetotem", gender = "female",
+  role = "elder", tier = "quest",
+  temper = { "calm", "dry" }, values = { "ancestors", "tradition" },
+  notices = { "race", "season" },
+  impression = {
+    first = "A tauren elder glowing softly in the desert heat, unbothered by the sand.",
+    third = "{name} paid respects to Elder Ragetotem in Tanaris during the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome, traveller. The sand is hot and the ancestors are near, so we will both bear it together." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Ragetotem the Elder") }, text = "You honoured me already. The desert remembers footprints a short while, but the ancestors remember longer." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "Kin from the grasslands, far from home. You must miss the rain as much as I do." },
+    { id = "n_lunar", cat = "season", when = { holiday = "lunar" }, text = "The festival lanterns burn even in Tanaris. The ancestors do not mind the heat." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Ragetotem, an elder of my people, and for the Lunar Festival I stand in this desert as the ancestors ask. Those who seek the elders carry honour from one to the next." } },
+      again = { { id = "h_again", text = "Ask, child. There is no hurry in the desert, only heat." } },
+      choices = {
+        { text = "Why would the ancestors send you to the desert?", next = "desert" },
+        { text = "I've come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Ragetotem the Elder") } },
+        { text = "Your name sounds fierce for an elder.", next = "name" },
+        { text = "May the eternal sun shine on you.", next = "END" },
+      },
+    },
+    desert = {
+      lines = { { id = "d_default", text = "There are spirits here older than any tauren, buried with the cities beneath the sand. The ancestors wish them to know that they are not forgotten, even by strangers." } },
+      choices = {
+        { text = "Old cities, like the troll ruins at Zul'Farrak?", next = "cities" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cities = {
+      lines = { { id = "c_default", text = "Zul'Farrak, and older places still, far to the south behind gates the goblins cannot open. Some things are buried for a reason, child, and the wise leave them be." } },
+      choices = {
+        { text = "Ancient secrets should be uncovered.", next = "BACK", reply = "Then go carefully, for the desert keeps its secrets jealously.", fx = { align = { order = -1 } } },
+        { text = "I agree. Let the dead keep their cities.", next = "BACK", reply = "A wise answer from one so young.", fx = { align = { order = 1 } } },
+      },
+    },
+    honour = {
+      lines = { { id = "ho_default", text = "Then take my blessing and a coin of the ancestors. Drink deeply before your next road; the elders are many, and the desert is wide." } },
+      choices = { { text = "I will, elder.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    name = {
+      lines = { { id = "n_default", text = "I earned it young, when my temper was hotter than this sand. Age has cooled me, but the name stayed, as names do." } },
+      choices = { { text = "Names outlast us all. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "An old tauren with a fierce name and a quiet heart. Nothing more." } },
+    _none = { { id = "tp_none", text = "Ask the goblins, child. They sell answers, I am told." } },
+  },
+}
+
+-- Prospector Gunstan: an Explorers' League dwarf keeping a lonely watch over the sealed gates in the Valley of the Watchers.
+P:NPC {
+  key = "tan_prospector_gunstan", id = 5389, name = "Prospector Gunstan", gender = "male",
+  role = "explorer", tier = "quest",
+  temper = { "stubborn", "hearty" }, values = { "discovery", "titans" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A sunburnt dwarf prospector who hasn't seen a friendly face in weeks and is glad of yours.",
+    third = "{name} met Prospector Gunstan of the Explorers' League in the Valley of the Watchers.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well, I'll be! A visitor, out here in the Valley of the Watchers! Come in out o' the sun, {g:lad|lass}." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! I'm still here, and the gates are still shut, if ye were wonderin'." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Easy now, I'm just a dwarf with a pick an' a notebook. Nothin' here worth fightin' over." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A fellow son o' the mountain! Tell me, how's the ale in Ironforge these days?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Prospector Gunstan, o' the Explorers' League. I've been watchin' these great gates for months, waitin' for some way to open 'em, an' writin' down every scratch on these statues." } },
+      again = { { id = "h_again", text = "What else, then? I've nothin' but time an' sand." }, { id = "h_again2", text = "Go on, ask! It's grand to hear a voice that isn't mine." } },
+      choices = {
+        { text = "What lies behind the gates?", next = "gates" },
+        { text = "Why does the League care about this place?", next = "league" },
+        { text = "Do you know Magni's interest in the titans?", next = "magni", when = { race = "Dwarf" } },
+        { text = "You've been alone out here a long while.", next = "lonely" },
+        { text = "Good luck with your digging.", next = "END" },
+      },
+    },
+    gates = {
+      lines = { { id = "g_default", text = "That's the question, isn't it? The goblins say a lost city, the trolls say a curse, an' the statues say nothin' at all, the stony beggars. I'd wager it's titan work, an' old as the world." } },
+      choices = {
+        { text = "Titan work? How can you tell?", next = "titans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    titans = {
+      lines = { { id = "t_default", text = "The same marks as on the old stonework at Uldaman in the Badlands, the very same! Whoever built that built this, I'd stake me beard on it." } },
+      choices = {
+        { text = "Some doors are better left shut.", next = "BACK", reply = "Bah, that's what the cowards said about Uldaman, an' look what we found there.", fx = { align = { order = 1 } } },
+        { text = "Then we have to find a way in.", next = "BACK", reply = "That's the spirit! Ye'd make a fine Explorer, {g:lad|lass}.", fx = { align = { order = -1 } } },
+      },
+    },
+    league = {
+      lines = { { id = "l_default", text = "The League wants to know where we came from, an' who made the world the way it is. Every ruin's a page in that book, an' this one's a whole chapter." } },
+      choices = { { text = "A noble cause. Something else.", next = "BACK" } },
+    },
+    magni = {
+      lines = { { id = "m_default", text = "Aye, the king's keen on it, an' Brann Bronzebeard more so. If I find anythin' here, it'll go straight to Ironforge, an' maybe they'll let me come home." } },
+      choices = { { text = "May it be soon. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    lonely = {
+      lines = { { id = "lo_default", text = "Aye, an' the sun's cooked half me wits by now. I talk to the statues of an evening, an' I swear one o' them's started listenin'." } },
+      choices = { { text = "That's worrying. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Ironforge born, Explorers' League by trade, an' sunburnt by bad luck." } },
+    _none = { { id = "tp_none", text = "No idea, {g:lad|lass}, but if ye find out, write it down for me!" } },
+  },
+}
+
+-- Rumsen Fizzlebrack: a Steamwheedle goblin outside Gadgetzan who lets fallen-out adventurers buy their way back into the Cartel's good books.
+P:NPC {
+  key = "tan_rumsen_fizzlebrack", id = 16417, name = "Rumsen Fizzlebrack", gender = "male",
+  role = "merchant", tier = "quest",
+  temper = { "pushy", "shrewd" }, values = { "profit", "cartel" },
+  notices = { "reputation", "class" },
+  impression = {
+    first = "A goblin with a ledger in one hand, already counting what you owe him.",
+    third = "{name} met Rumsen Fizzlebrack, who sells forgiveness on the Cartel's behalf outside Gadgetzan.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hey there, pal! Somebody upset the bruisers, did they? Don't worry, Rumsen fixes everything, for a reasonable fee." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite repeat customer! Still owe the Cartel a favour or two? Let's talk." },
+  },
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" }, text = "A rogue! I bet you're the type who's always needin' my services, ain't ya?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Rumsen Fizzlebrack, Steamwheedle Cartel, Department of Second Chances. Anybody who's made the goblins of Tanaris mad can come to me and work it off, see, because grudges are bad for business and so's an empty warehouse." } },
+      again = { { id = "h_again", text = "What else, buddy? Time is money, and you're spendin' mine." }, { id = "h_again2", text = "Talk to me, pal. I'm listening, and I'm billing." } },
+      choices = {
+        { text = "How do I get back in the Cartel's good books?", next = "how" },
+        { text = "Why do you need mageweave and flux?", next = "materials" },
+        { text = "What happens if I stay on their bad side?", next = "bad" },
+        { text = "I'm on the war at sea, as you asked.", next = "war", when = { questActive = TODO_QUEST("War at Sea") } },
+        { text = "I'll pass for now.", next = "END" },
+      },
+    },
+    how = {
+      lines = { { id = "h2_default", text = "Easy, you bring me mageweave and strong flux, I put in a good word, and the bruisers stop tryin' to break your knees. Do it enough times and you're a valued customer again, no hard feelings, only paperwork." } },
+      choices = {
+        { text = "That sounds like extortion.", next = "extortion" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    extortion = {
+      lines = { { id = "e_default", text = "Extortion's an ugly word, friend; I prefer reconciliation services. You broke something, you pay for it, and everybody walks away happy and nobody walks away limpin'." } },
+      choices = {
+        { text = "Fair's fair. I'll pay what I owe.", next = "BACK", reply = "Now that's what I like to hear! A customer with integrity, rare as hen's teeth.", fx = { align = { order = 1 } } },
+        { text = "I'll take my chances with the bruisers.", next = "BACK", reply = "Your funeral, pal, and I mean that literally, so the offer stands.", fx = { align = { order = -1 } } },
+      },
+    },
+    materials = {
+      lines = { { id = "m_default", text = "Sails and guns, pal, sails and guns. The Bloodsail Buccaneers have been raiding our ships off the coast, and you don't fight pirates with harsh language." } },
+      choices = {
+        { text = "Tell me about these pirates.", next = "pirates" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pirates = {
+      lines = { { id = "p_default", text = "Bloodsail scum, the lot of 'em, down at Lost Rigger Cove and all along the south coast. They rob our cargo, sink our ships, and don't even leave a receipt." } },
+      choices = { { text = "Sounds like they need stopping. Something else.", next = "BACK" } },
+    },
+    bad = {
+      lines = { { id = "b_default", text = "Then every goblin town from Booty Bay to Ratchet gets real unfriendly, real fast. No trading, no bank, and the guards develop a sudden interest in your face." } },
+      choices = { { text = "Point taken. Something else.", next = "BACK" } },
+    },
+    war = {
+      lines = { { id = "w_default", text = "That's what I like to see! Every bolt of cloth is another sail, every bit of flux is another cannon, and every cannon is one less pirate. Keep it coming!" } },
+      choices = { { text = "I'll keep at it.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A Steamwheedle man through and through. Born in a ledger, I like to say." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care, pal, unless there's coin in it." } },
+  },
+}

@@ -727,6 +727,7 @@ P:NPC {
         { text = "Do Kul Tiran sailors pray to the sea, Fitzsimmons?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Got a tale about the night elves?", next = "fz_nelf" },
         { text = "Your townsfolk stare at my people on the docks, Fitzsimmons.", next = "fz_xnelf", when = { race = "NightElf" } },
+        { text = "What do you think of Jaina Proudmoore, Fitzsimmons?", next = "kt_jaina" },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -840,6 +841,15 @@ P:NPC {
       choices = {
         { text = "Water's all the arcane gives, I'm afraid.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "You've had enough, Fitzsimmons.", next = "why" },
+      },
+    },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "The Admiral's daughter? I watched her grow up on the Boralus docks, a bright little thing always running off with her books, and every man in the fleet would have died for her. Then she went west and sided with the orcs, and her father died for her after all, though not the way any of us meant it. I drink to him, and I'll not drink to her." } },
+      choices = {
+        { text = "She turned traitor to her blood and her nation.", next = "BACK", reply = "That she did, and you'll hear the same from any Kul Tiran in this tavern. Pour one for the Admiral.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "He sailed to start a war. She ended one.", next = "BACK", reply = "Maybe she did, and maybe I'm too old to see it. I'll still not drink to her.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

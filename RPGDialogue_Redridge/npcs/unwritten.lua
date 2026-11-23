@@ -62,3 +62,54 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't say, friend. Ask in Lakeshire, they've time for gossip down there." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Madison: a little girl of Lakeshire, wandering from the fields behind Alma Jainrose's to the docks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rr_madison", id = 848, name = "Madison", gender = "female",
+  role = "child", tier = "service",
+  communities = { "lakeshire" }, temper = { "cheerful" }, values = { "family" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A little girl in a muddy dress skips along the path from the fields to the Lakeshire docks, a dandelion in one fist and a stick in the other.",
+    third = "{name} met Madison, a little girl of Lakeshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello! Are you an adventurer? You look like an adventurer, because you've got a sword and you're all dirty." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Madison, and I'm going to the docks to look at the fish, and then I'm going back to the fields to look at the flowers. Mama says I'm not allowed past the bridge because of the gnolls." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "You've got the biggest beard I ever saw! Can I touch it? Mama says I shouldn't ask, but I already did." },
+      },
+      again = { { id = "h_again", text = "Do you want to know anything else? I know lots of things." } },
+      choices = {
+        { text = "What do you know about the gnolls?", next = "gnolls" },
+        { text = "What do you like best about Lakeshire?", next = "lakeshire" },
+        { text = "Run along home, now.", next = "END" },
+      },
+    },
+    gnolls = {
+      lines = { { id = "g2_default", text = "They're big and smelly and they live in the hills, and they steal things and hurt people. Mister Solomon says the guards will chase them away, but they haven't yet, and I think they should hurry up." } },
+      choices = {
+        { text = "I'll chase them away for you.", next = "chase" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chase = {
+      lines = { { id = "c_default", text = "Really? Promise? If you do, I'll pick you the biggest flower in the whole field, even bigger than this one, and this one is very big." } },
+      choices = { { text = "That's a deal.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    lakeshire = {
+      lines = { { id = "l_default", text = "The lake, because you can see the fish and sometimes a big one jumps up and goes splash. Also Missus Jainrose's garden, but don't tell her I go in it." } },
+      choices = {
+        { text = "Your secret is safe with me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up, they know boring things." } } },
+}

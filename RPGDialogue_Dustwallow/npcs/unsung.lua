@@ -363,6 +363,7 @@ P:NPC {
         { text = "Can you keep a hunter's mail from rusting, Hans?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You won't forge a thing for someone like me, I hear.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could you make a shield fit for a shaman, Hans?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You're Kul Tiran. What do you make of Lady Proudmoore?", next = "kt_jaina" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -412,9 +413,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "I made shields for the Admiral's fleet, and I followed his daughter's ships here because she asked for smiths and I had none of my own to look after. When he came with his warships I mended the shields that stood against them, and that's a thing I'll carry to my grave. She was right, and I hate that she was right, and I'll not say more than that." } },
+      choices = {
+        { text = "She should never have taken the orcs' side.", next = "BACK", reply = "Maybe, and maybe there was no other side worth taking. Either way, the shields got made.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "She was right. That's what matters.", next = "BACK", reply = "It is, and it's cold comfort at night. Mind the rust on your way out.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "She was right about her father, and I'll never forgive her for it, nor stop working for her." } },
     background = { { id = "tp_bg", text = "I was a shieldsmith in Kul Tiras before I followed Lady Jaina's ships here. The work's the same, but the weather's worse." } },
     advice = { { id = "tp_ad", text = "Oil it every night, or don't bother buying it." } },
     theramore = { { id = "tp_theramore", text = "Theramore eats armor, plain and simple. The damp gets into every rivet and every strap, and I spend half my days scraping rust off soldiers." } },

@@ -55,3 +55,57 @@ P:NPC {
     },
   },
 }
+
+---------------------------------------------------------------------------
+-- Moonglade Warden: the night elf and tauren guards of Nighthaven who keep the Cenarion Circle's peace.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mg_moonglade_warden", id = 11822, name = "Moonglade Warden", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "nighthaven" }, temper = { "stern", "calm" }, values = { "balance", "peace" },
+  notices = { "faction" },
+  impression = {
+    first = "A warden of the Circle, watching both Horde and Alliance with the same even look.",
+    third = "{name} spoke with a Moonglade Warden in Nighthaven.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Moonglade, {class}. Here the Horde and the Alliance walk side by side, and the wardens see that it stays that way." },
+  },
+  notice = {
+    { id = "n_ally", cat = "faction", when = { faction = "Alliance" }, text = "You will see Horde in Nighthaven, Alliance traveller. Leave your quarrels at the edge of the glade." },
+    { id = "n_horde", cat = "faction", when = { faction = "Horde" }, text = "You will see Alliance in Nighthaven, Horde traveller. Leave your quarrels at the edge of the glade." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am a warden of the Cenarion Circle, and Moonglade is under the Circle's protection. Whoever draws a blade on a guest here answers to us, whatever banner they march under." } },
+      again = { { id = "h_again", text = "Something more? Speak; I am listening, and I am watching." } },
+      choices = {
+        { text = "Why keep the peace between enemies?", next = "peace" },
+        { text = "What is this place?", next = "place" },
+        { text = "I'll keep the peace.", next = "END" },
+      },
+    },
+    peace = {
+      lines = { { id = "p_default", text = "Because the land does not care which banner you follow, and neither does the Emerald Dream. The druids of both peoples study here, and a war in Moonglade would undo what Malfurion and the Circle have spent long years building." } },
+      choices = {
+        { text = "A neutral ground is wise. I respect it.", next = "BACK", reply = "Then you will find no trouble from the wardens, and perhaps a little welcome.", fx = { align = { order = 1 } } },
+        { text = "My enemies are my enemies, wherever they stand.", next = "BACK", reply = "Then keep them so outside the glade. Inside it, your enemy is whoever breaks the peace.", fx = { align = { order = -1 } } },
+      },
+    },
+    place = {
+      lines = { { id = "pl_default", text = "Moonglade is sacred to the druids, a place where the Emerald Dream lies close to the waking world. Nighthaven is its village, Lake Elune'ara its heart, and the Shrine of Remulos stands in the north." } },
+      choices = {
+        { text = "Who is Remulos?", next = "remulos" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remulos = {
+      lines = { { id = "r_default", text = "Keeper Remulos is the son of Cenarius and the guardian of this glade, and he taught Malfurion himself in ages long gone. Show his shrine respect, {class}, and do not trouble him without need." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Ask in Nighthaven, {class}. The wardens watch the paths, not the gossip." } },
+  },
+}

@@ -428,3 +428,161 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know, pal, and I can't afford to find out on Gerenzo's wages." } },
   },
 }
+
+-- Cenarion Botanist: a night elf druid of the Cenarion Circle tending the growth on Stonetalon Peak.
+P:NPC {
+  key = "stn_cenarion_botanist", id = 4051, name = "Cenarion Botanist", gender = "female",
+  role = "druid", tier = "service",
+  temper = { "measured", "earnest" }, values = { "nature", "balance" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A night elf druid with soil on her hands and seed pouches at her belt.",
+    third = "{name} spoke with a Cenarion Botanist on Stonetalon Peak.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah, traveller. Step lightly here, for the seedlings on the peak are younger than they look." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned to the peak. The saplings have grown a finger's width since you left, which is quick, for them." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "You walk far from your own people, stranger. Keep your axe sheathed among the trees, and we will have no quarrel." },
+  },
+  notice = {
+    { id = "n_druid", cat = "class", when = { class = "DRUID" }, text = "A fellow of the Circle, I think. Your help would be welcome in the soil, if not in the fighting." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I study what grows on the peak for the Cenarion Circle, and what has stopped growing in the valleys below. The goblins of the Venture Company are cutting Stonetalon to the bone, and someone must remember what it was." } },
+      again = { { id = "h_again", text = "Speak, if you wish. The roots will keep." }, { id = "h_again2", text = "What else would you know of the peak?" } },
+      choices = {
+        { text = "What are the goblins doing to the mountains?", next = "goblins" },
+        { text = "What grows up here that's so precious?", next = "growth" },
+        { text = "Elune keep you, botanist.", next = "END" },
+      },
+    },
+    goblins = {
+      narr = "She crumbles a dry clod of earth between her fingers and lets it fall.",
+      lines = { { id = "g1_default", text = "They fell the old trees of the Charred Vale and Windshear Crag for timber and burn what they cannot sell. The land is choking on their smoke, and the creatures of the forest grow sick and maddened from it." } },
+      choices = {
+        { text = "Then the Venture Company must be driven out.", next = "BACK", reply = "Many of the Circle would agree with you, and the Sentinels more so. Speak to them, if you mean it.", fx = { align = { order = -1 } } },
+        { text = "Their timber feeds people, too. There's a balance.", next = "BACK", reply = "Balance is not one side taking everything, stranger. Still, I take your meaning.", fx = { align = { order = 1 } } },
+      },
+    },
+    growth = {
+      lines = { { id = "gr_default", text = "Herbs and saplings grown from seed the Circle carried from Moonglade, kept safe here where the goblins cannot reach. When the felling stops, we will plant them again in the valleys below." } },
+      choices = {
+        { text = "You believe the felling will stop?", next = "hope" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hope = {
+      lines = { { id = "ho_default", text = "Everything stops in time, even goblins, and my people are very patient. Ten thousand years have taught us that a forest outlives those who cut it." } },
+      choices = { { text = "I hope you're right. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A druid of the Cenarion Circle, set to study the peak. It is quiet work, and I am glad of it." } },
+    _none = { { id = "tp_none", text = "I could not say, stranger. Ask the trees, and be patient for their answer." } },
+  },
+}
+
+-- Cenarion Caretaker: a night elf druid who tends the wounded animals of Stonetalon Peak.
+P:NPC {
+  key = "stn_cenarion_caretaker", id = 4050, name = "Cenarion Caretaker", gender = "male",
+  role = "druid", tier = "service",
+  temper = { "gentle", "weary" }, values = { "nature", "healing" },
+  notices = { "class" },
+  impression = {
+    first = "A tired night elf druid who speaks softly, as if to a frightened animal.",
+    third = "{name} spoke with a Cenarion Caretaker on Stonetalon Peak.",
+  },
+  greetings = {
+    { id = "g_default", text = "Quietly, please, traveller. Some of the creatures here are still frightened of strangers." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The young fawn you saw before is walking now, though she still limps." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" }, text = "Your companion is well cared for, I see. Not all who travel with beasts can say as much." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I care for the creatures driven up from the valleys by fire and felling. They come to the peak hurt and starving, and the Circle does what it can for them." } },
+      again = { { id = "h_again", text = "Is there something more, traveller?" } },
+      choices = {
+        { text = "What hurts them, down below?", next = "below" },
+        { text = "You look like you haven't slept.", next = "tired" },
+        { text = "I'll leave you to your work.", next = "END" },
+      },
+    },
+    below = {
+      lines = { { id = "b_default", text = "The Venture Company's fires and saws, and worse, the poisons they leave behind. Even the beasts that are not burned grow strange and wild, and those I cannot always help." } },
+      choices = {
+        { text = "What becomes of those you can't help?", next = "lost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lost = {
+      lines = { { id = "l_default", text = "I give them a gentle end and return them to the earth, as Cenarius would have it. It is the hardest part of the work, and the part I never grow used to." } },
+      choices = {
+        { text = "A merciful end is still a mercy.", next = "BACK", reply = "So I tell myself, and on most days I believe it.", fx = { align = { order = 1 } } },
+        { text = "You should fight the ones who did this instead.", next = "BACK", reply = "Others of the Circle fight. Someone must stay and mend.", fx = { align = { order = -1 } } },
+      },
+    },
+    tired = {
+      lines = { { id = "t_default", text = "Sleep comes to me rarely these days, and when it does I dream of smoke. When the valleys heal, perhaps I will rest, but not before." } },
+      choices = { { text = "Take care of yourself, too. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A druid of the Circle and a keeper of hurt things. There is no grander title for it." } },
+    _none = { { id = "tp_none", text = "I am sorry, traveller, but my mind is on my charges. Ask the botanists." } },
+  },
+}
+
+-- Mirkfallon Dryad: a daughter of Cenarius who guards the lake of Mirkfallon and its forest.
+P:NPC {
+  key = "stn_mirkfallon_dryad", id = 4061, name = "Mirkfallon Dryad", gender = "female",
+  role = "spirit", tier = "service",
+  temper = { "wild", "wary" }, values = { "nature" },
+  notices = { "race" },
+  impression = {
+    first = "A dryad with a deer's grace and a guardian's suspicion.",
+    third = "{name} spoke with a Mirkfallon Dryad in the forests of Stonetalon.",
+  },
+  greetings = {
+    { id = "g_default", text = "You walk the old forest of Mirkfallon, mortal. Do you come to tend it, or to cut it?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. You have not cut anything yet, so you may speak." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am a daughter of Cenarius, and these woods by the lake are in my keeping. They are among the last green places left in Stonetalon, and I mean to keep them so." } },
+      again = { { id = "h_again", text = "Say what you will, mortal, and quickly." } },
+      choices = {
+        { text = "Who threatens the forest here?", next = "threat" },
+        { text = "Tell me of Cenarius.", next = "cenarius" },
+        { text = "I'll go gently through your woods.", next = "END" },
+      },
+    },
+    threat = {
+      lines = { { id = "t_default", text = "The goblins' saws from the south and the harpies of the high crags, and the sickness that seeps from both. Every year the green shrinks, and every year my sisters and I stand closer together." } },
+      choices = {
+        { text = "I'll drive them back for you.", next = "BACK", reply = "Bold words, mortal. The forest will remember them, if you keep them.", fx = { align = { order = -1 } } },
+        { text = "The world changes. Perhaps it can't be stopped.", next = "BACK", reply = "Change is the forest's own nature, but this is a wound, not a season.", fx = { align = { order = 1 } } },
+      },
+    },
+    cenarius = {
+      lines = { { id = "c_default", text = "He was the lord of the forest and father of the dryads, who taught the kaldorei the ways of the druid long ago. The orcs' warchief Hellscream slew him in Ashenvale, and the forest still grieves for it." } },
+      choices = {
+        { text = "Does his spirit endure?", next = "seen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seen = {
+      lines = { { id = "s_default", text = "The druids say he walks the Emerald Dream still, though no dryad of these woods has felt him near. We keep faith with him all the same, as daughters do." } },
+      choices = { { text = "Then he is lucky in his daughters. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I am a dryad of Mirkfallon. The lake and the trees are all the history I need." } },
+    _none = { { id = "tp_none", text = "That is a mortal's concern, not a dryad's." } },
+  },
+}

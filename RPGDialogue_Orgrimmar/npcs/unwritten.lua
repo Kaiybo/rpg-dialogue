@@ -2034,3 +2034,360 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know! But I will find out when I'm a warrior!" } },
   },
 }
+
+-- Elder Darkhorn: a tauren ancestor-spirit in the Valley of Wisdom, outside Grommash Hold, at the Lunar Festival.
+P:NPC {
+  key = "og_elder_darkhorn", id = 15579, name = "Elder Darkhorn", gender = "female",
+  role = "elder", tier = "quest",
+  temper = { "stern", "kind" }, values = { "memory", "honour" },
+  notices = { "race" },
+  impression = {
+    first = "The spirit of an old tauren matron stands beside Grommash Hold, unbothered by the orcs hurrying past.",
+    third = "{name} honoured Elder Darkhorn, a tauren spirit who returns to Orgrimmar at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Peace to you, child. Even in a city of iron and smoke, the ancestors find a place to stand." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to me. Good. A spirit is only as strong as those who remember her." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Darkhorn the Elder") }, text = "You seek the elders this year. Come, and take the blessing I have to give." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A shu'halo of the plains. Walk tall in this orc city, child, for our people stood beside them by choice." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" }, text = "An orc who stops to speak with a tauren ghost. Thrall has taught his people well." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Darkhorn, and in life I led my clan's young through hard winters on the plains. Now the Lunar Festival calls me back, and I stand where the Horde's chieftains gather." } },
+      again = {
+        { id = "h_again", text = "What more would you ask, child?" },
+        { id = "h_again2", text = "Speak. The Warchief's guards will not mind an old ghost's chatter." },
+      },
+      choices = {
+        { text = "Why stand beside Grommash Hold?", next = "hold" },
+        { text = "What is the Lunar Festival for?", next = "festival" },
+        { text = "What were the plains like in your day?", next = "plains" },
+        { text = "I am of the Bloodhoof's people, Elder.", next = "kin", when = { race = "Tauren" } },
+        { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    hold = {
+      lines = { { id = "hd_default", text = "Because here the Horde decides its future, and the future should hear from the past now and then. Thrall listens to his elders, and that is rare in a young chieftain." } },
+      choices = {
+        { text = "What would you tell the Warchief?", next = "advice" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    advice = {
+      lines = { { id = "a_default", text = "That a home is harder to keep than to take. The orcs fought for this land, and now they must learn to grow old in it." } },
+      choices = {
+        { text = "The Horde must stay strong and ready for war.", next = "BACK", reply = "Strength, yes. But a spear held too long makes the arm ache.", fx = { align = { valor = 1 } } },
+        { text = "Peace is what the Horde needs now.", next = "BACK", reply = "Then guard that peace well, child. It breaks easier than bone.", fx = { align = { valor = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is the turning of the year, when the living remember the dead and the dead bless the living. Druids gather in Moonglade, and elders like me wander the world for any who seek us." } },
+      choices = {
+        { text = "How do I reach Moonglade?", next = "moonglade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "m_default", text = "Ask the festival's heralds in the Valley of Wisdom; the druids there will send you by the moon's own path. Look for my kin too, for many elders wait beside the old places of Kalimdor." } },
+      choices = { { text = "I'll seek them out. Something else.", next = "BACK" } },
+    },
+    plains = {
+      lines = { { id = "p_default", text = "Wide and gold, and hunted by centaur on every side. We moved with the kodo, and every winter we buried someone dear, and every spring we sang for them." } },
+      choices = { { text = "Mulgore is safer now, thanks to Cairne.", next = "BACK" } },
+    },
+    kin = {
+      lines = { { id = "k_default", text = "Then you carry the Earth Mother's blessing in your hooves already. Remember us at the festival fires, and tell the little ones our names." } },
+      choices = { { text = "I will, Elder. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A tauren elder of long ago, who returns each year at the Lunar Festival." } },
+    _none = { { id = "tp_none", text = "That is a matter for the living, child. Ask them." } },
+  },
+}
+
+-- Lunar Festival Herald: a tauren herald by the bank who sends Horde folk to the festival in the Valley of Wisdom.
+P:NPC {
+  key = "og_lunar_herald", id = 15891, name = "Lunar Festival Herald", gender = "male",
+  role = "herald", tier = "quest",
+  temper = { "cheerful", "earnest" }, values = { "tradition", "community" },
+  notices = { "race" },
+  impression = {
+    first = "A tauren in festival colours calls out to anyone passing the bank.",
+    third = "{name} heard the Lunar Festival Herald's call in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hail, friend! The Lunar Festival has come, and all are welcome to celebrate it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival is here at last! The elders have returned, and the Valley of Wisdom is full of light." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back! Have you visited the Valley of Wisdom yet?" },
+    { id = "g_quest", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Off to the Valley of Wisdom with you! The festival harbinger waits there." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A child of Mulgore! You know the elders' ways already; go and honour them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Each year at the new moon, the spirits of our elders return, and the druids of Moonglade open their glade to all. Go to the Valley of Wisdom and speak with the festival's harbinger there." } },
+      again = { { id = "h_again", text = "Anything else, friend? There are more to greet today." } },
+      choices = {
+        { text = "Who are these elders?", next = "elders" },
+        { text = "Moonglade is a night elf place, isn't it?", next = "moonglade" },
+        { text = "Do the orcs keep this festival too?", next = "orcs" },
+        { text = "My people have always honoured the ancestors.", next = "tauren", when = { race = "Tauren" } },
+        { text = "I'll go to the valley.", next = "END" },
+      },
+    },
+    elders = {
+      lines = { { id = "e_default", text = "The honoured dead of every people, who walk among us while the festival lasts. They wait in cities, ruins and lonely hills, and each will give a coin of blessing to one who seeks them." } },
+      choices = {
+        { text = "Where can I find them?", next = "where" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where = {
+      lines = { { id = "w_default", text = "One stands right here in Orgrimmar, Elder Darkhorn, beside Grommash Hold. Others wait in Thunder Bluff, the Undercity and across both continents." } },
+      choices = {
+        { text = "I'll find every one of them.", next = "BACK", reply = "That is the spirit! The ancestors will smile on you.", fx = { align = { tradition = 1 } } },
+        { text = "Chasing ghosts for coins seems pointless.", next = "BACK", reply = "Then go for the feasting, friend. The elders will forgive you.", fx = { align = { tradition = -1 } } },
+      },
+    },
+    moonglade = {
+      lines = { { id = "m_default", text = "It is a druid's place, and druids of every people share it, tauren and kaldorei alike. During the festival, the Cenarion Circle keeps the peace there for all." } },
+      choices = { { text = "Then I'll go in peace. Something else.", next = "BACK" } },
+    },
+    orcs = {
+      lines = { { id = "o_default", text = "Many do now, the ones who follow the shamans' path and honour their own ancestors. The orcs know better than most what it is to lose their elders." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "t_default", text = "So we have, and so this festival is ours as much as anyone's. Wear your best and greet the elders proudly." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I only know the festival, friend. Ask in the Valley of Wisdom." } },
+  },
+}
+
+-- Festival Talespinner: a Forsaken storyteller in Orgrimmar during the Midsummer Fire Festival.
+P:NPC {
+  key = "og_festival_talespinner", id = 16818, name = "Festival Talespinner", gender = "male",
+  role = "storyteller", tier = "quest",
+  temper = { "theatrical", "sly" }, values = { "stories", "the Horde" },
+  notices = { "race" },
+  impression = {
+    first = "A Forsaken storyteller in festival finery gestures grandly beside the bonfire.",
+    third = "{name} listened to the Festival Talespinner at Orgrimmar's Midsummer fires.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ah, an audience! Gather close, friend, the fire is warm and my tales are warmer." },
+    { id = "g_festival", when = { holiday = "midsummer" }, text = "The Midsummer fires burn high tonight, friend. Even a dead man feels their warmth, and that is a tale in itself." },
+    { id = "g_back", when = { metBefore = true }, text = "You return for another tale? You flatter a dead man's vanity." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Stealing Stormwind's Flame") }, text = "Have you the Alliance's flame yet? Oh, the tale we will tell when you bring it home." },
+  },
+  notice = {
+    { id = "n_undead", cat = "race", when = { race = "Scourge" }, text = "One of the Dark Lady's children, warm by an orc's fire. Isn't it strange how we still enjoy the heat?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "The Midsummer Fire Festival, friend, when every city lights its great flame against the dark. And I am here to tell the tales that go with it, the bolder the better." } },
+      again = {
+        { id = "h_again", text = "Another question? I live for them. Well, in a manner of speaking." },
+        { id = "h_again2", text = "Speak up. The fire crackles loud tonight." },
+      },
+      choices = {
+        { text = "Why does a Forsaken celebrate a fire festival?", next = "forsaken" },
+        { text = "Tell me a tale, then.", next = "tale" },
+        { text = "I hear the Alliance cities have flames too.", next = "flames" },
+        { text = "I'm Forsaken too. The fire troubles me.", next = "fear", when = { race = "Scourge" } },
+        { text = "Some other time.", next = "END" },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fs_default", text = "Because I remember summers, friend, and I see no reason death should take that too. The Horde lights its fires, and the Forsaken stand among them as allies." } },
+      choices = { { text = "A fair answer. Something else.", next = "BACK" } },
+    },
+    tale = {
+      lines = { { id = "t_default", text = "Here is a short one. Once a frost lord came down from the north to snuff the summer fires, and the people beat him back with nothing but torches and stubbornness. Every year since, they light the fires to remind him." } },
+      choices = {
+        { text = "Is any of that true?", next = "truth" },
+        { text = "A fine tale. Something else.", next = "BACK" },
+      },
+    },
+    truth = {
+      lines = { { id = "tr_default", text = "Every good tale is true somewhere, and this one is truer than most. Ask the shamans about the lords of fire and frost, and see how quickly they stop smiling." } },
+      choices = { { text = "Then I'll keep my torch lit.", next = "BACK" } },
+    },
+    flames = {
+      lines = { { id = "fl_default", text = "They do, burning proudly in Stormwind, Ironforge and Darnassus. A daring Horde hero might slip in and bring a little of that flame home to Orgrimmar." } },
+      choices = {
+        { text = "Stealing their flame would shame them. I'll do it.", next = "BACK", reply = "That's the spirit! Come back with fire in your hands.", fx = { align = { valor = 1 } } },
+        { text = "Let them keep their fire. It's a holiday.", next = "BACK", reply = "How generous of you. The Alliance would never return the favour.", fx = { align = { valor = -1 } } },
+      },
+    },
+    fear = {
+      lines = { { id = "fe_default", text = "It troubles us all, friend; fire was made to burn dead things. That is why I stand close to it. A tale is no good if the teller is afraid of it." } },
+      choices = { { text = "I'll try to stand a little closer.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I know no tale of that, friend, but give me an hour and I will make one up." } },
+  },
+}
+
+-- Great-father Winter's Helper: a goblin Little Helper beside Great-father Winter in the Valley of Strength.
+P:NPC {
+  key = "og_winter_helper", id = 15746, name = "Great-father Winter's Helper", gender = "male",
+  role = "helper", tier = "service",
+  temper = { "busy", "chipper" }, values = { "holiday", "coin" },
+  impression = {
+    first = "A goblin in a red and green suit, juggling ribbons and a long list.",
+    third = "{name} met Great-father Winter's Helper in the Valley of Strength during the Feast of Winter Veil.",
+  },
+  greetings = {
+    { id = "g_default", text = "Happy Winter Veil! Smokywood Pastures wishes you joy, cheer, and reasonable prices!" },
+    { id = "g_festival", when = { holiday = "winterveil" }, text = "Winter Veil is here at last! Great-father Winter is in fine spirits, and so is Smokywood Pastures." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Are you on the nice list? Don't answer that; it's above my pay grade." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I help Great-father Winter with the gifts and the crowds and the occasional angry grunt. It's a busy season, but the tips are good!" } },
+      again = { { id = "h_again", text = "What else? Quick, the Great-father is waving at me." } },
+      choices = {
+        { text = "Who is Great-father Winter?", next = "greatfather" },
+        { text = "What does Smokywood Pastures have to do with it?", next = "smokywood" },
+        { text = "Happy Winter Veil.", next = "END" },
+      },
+    },
+    greatfather = {
+      lines = { { id = "gf_default", text = "The jolly old fellow who brings gifts at the Winter Veil, of course! The Horde calls him Great-father, and the Alliance has some other name for him." } },
+      choices = {
+        { text = "Is he real?", next = "real" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    real = {
+      lines = { { id = "r_default", text = "Real enough to hand out presents, pal, and that's what counts. I don't ask questions while the gifts keep coming." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    smokywood = {
+      lines = { { id = "s_default", text = "Everything! They supply the treats, the trimmings and the trees, and they pay me to smile. Their stall's right over there, if you've coin to spend." } },
+      choices = {
+        { text = "So the holiday is just a goblin sales pitch.", next = "BACK", reply = "Hey, a goblin's gotta eat too! But the cheer's free.", fx = { align = { balance = 1 } } },
+        { text = "Good business is good cheer, I say.", next = "BACK", reply = "Now there's someone who understands the season!", fx = { align = { balance = -1 } } },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea! But I'll put it on the list for the Great-father." } },
+  },
+}
+
+-- Raider Bork: the orc war mount quartermaster outside the Hall of Legends.
+P:NPC {
+  key = "og_raider_bork", id = 12796, name = "Raider Bork", gender = "male",
+  role = "quartermaster", tier = "service",
+  temper = { "gruff", "proud" }, values = { "honour", "victory" },
+  notices = { "race" },
+  impression = {
+    first = "A scarred orc raider stands by the Hall of Legends with the look of a man who has ridden hard.",
+    third = "{name} spoke with Raider Bork, war mount quartermaster of the Hall of Legends.",
+  },
+  greetings = {
+    { id = "g_default", text = "You stand before the Hall of Legends, warrior. Only those who have proven themselves in battle may buy from me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Have you earned a better rank since we last spoke?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Raider Bork, and I keep the war mounts for the Horde's greatest champions. Wolves, kodo and raptors, all bred for battle against the Alliance." } },
+      again = { { id = "h_again", text = "What else, warrior? Speak quickly." } },
+      choices = {
+        { text = "How does one earn a war mount?", next = "earn" },
+        { text = "What is the Hall of Legends?", next = "hall" },
+        { text = "Lok'tar, Raider.", next = "END" },
+      },
+    },
+    earn = {
+      lines = { { id = "e_default", text = "Through blood and honour on the battlefield. Rise high enough in the Horde's ranks, and I will gladly sell you a steed fit for a legend." } },
+      choices = {
+        { text = "What makes a war mount better than a common one?", next = "mount" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mount = {
+      lines = { { id = "m_default", text = "Armour, training and temper. A war wolf will charge into a line of spears without flinching, and it will not run even when its rider falls." } },
+      choices = {
+        { text = "Glory in war is worth any cost.", next = "BACK", reply = "Spoken like a true raider. Go and earn it.", fx = { align = { valor = 1 } } },
+        { text = "I'd rather a mount that brings me home alive.", next = "BACK", reply = "Hmph. Wisdom, perhaps. But legends are not made that way.", fx = { align = { valor = -1 } } },
+      },
+    },
+    hall = {
+      lines = { { id = "h2_default", text = "It honours the Horde's finest in the war against the Alliance. Those of high rank may enter, and the rest may only look and hope." } },
+      choices = { { text = "I'll earn my place. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Not my concern, warrior. I deal in mounts and glory." } },
+  },
+}
+
+-- Sergeant Thunderhorn: a tauren quartermaster in the Hall of Legends who outfits the Horde's ranked warriors.
+P:NPC {
+  key = "og_sergeant_thunderhorn", id = 14581, name = "Sergeant Thunderhorn", gender = "male",
+  role = "quartermaster", tier = "service",
+  temper = { "steady", "dutiful" }, values = { "duty", "honour" },
+  notices = { "race" },
+  impression = {
+    first = "A broad tauren sergeant stands among racks of fine armour, calm and watchful.",
+    third = "{name} met Sergeant Thunderhorn, quartermaster in the Hall of Legends.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome, warrior. The Horde rewards those who fight for it, and I see that the rewards reach the right hands." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Your name grows on the battlefield, I hear." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A child of Mulgore among the Horde's champions. The Earth Mother is proud, I think." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Sergeant Thunderhorn, and I keep the arms and armour granted to the Horde's ranked warriors. Your rank decides what you may claim." } },
+      again = { { id = "h_again", text = "Anything else, warrior?" } },
+      choices = {
+        { text = "What kind of equipment do you keep?", next = "gear" },
+        { text = "A tauren in an orc hall. How did you end up here?", next = "tauren" },
+        { text = "Farewell, Sergeant.", next = "END" },
+      },
+    },
+    gear = {
+      lines = { { id = "gr_default", text = "Armour forged for each calling, from warrior's plate to shaman's mail, and weapons fit for a warlord. Each piece is earned in battle, not bought with gold." } },
+      choices = {
+        { text = "Why not sell it to any who can pay?", next = "pay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pay = {
+      lines = { { id = "p_default", text = "Because gold can be stolen, but honour must be won. A warrior who wears this armour has bled for the Horde." } },
+      choices = {
+        { text = "That's how it should be.", next = "BACK", reply = "Then go and earn it, warrior.", fx = { align = { order = 1 } } },
+        { text = "Seems like a waste of good steel.", next = "BACK", reply = "Perhaps to a merchant. Not to a soldier.", fx = { align = { order = -1 } } },
+      },
+    },
+    tauren = {
+      lines = { { id = "t_default", text = "The Thunderhorn have fought beside the orcs since Thrall came to Mulgore. Where the Horde fights, my people fight too." } },
+      choices = { { text = "The Horde is stronger for it. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I cannot help you with that, warrior." } },
+  },
+}

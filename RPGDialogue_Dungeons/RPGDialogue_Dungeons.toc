@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Dungeons |cff8a8a8a1.1.0|r
+## Title: RPG Dialogue: Dungeons |cff8a8a8a1.2.0|r
 ## Notes: The people you meet inside dungeons and raids: prisoners, allies, captives and the few who will talk before the killing starts.
 ## Author: RPG Dialogue
-## Version: 1.1.0
+## Version: 1.2.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.dungeons

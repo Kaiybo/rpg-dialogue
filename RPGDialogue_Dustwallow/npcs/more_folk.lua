@@ -160,6 +160,7 @@ P:NPC {
         { text = "Why did you leave the Guard?", next = "why" },
         { text = "You wear Theramore's tabard but you're Kul Tiran.", next = "kultiras" },
         { text = "Captain Vimes wants answers from you.", next = "vimes", when = { faction = "Alliance" } },
+        { text = "Do you blame Lady Proudmoore, like Reethe does?", next = "kt_jaina" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -214,8 +215,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "Not like Reethe, no, because Reethe blames everyone but himself. I loved the Admiral, though, and when I heard how he died I wanted to throw my tabard into the sea. I didn't, and I served her for years after, but I never once looked at her without seeing him." } },
+      choices = {
+        { text = "You were right to want to throw it.", next = "BACK", reply = "Maybe, but I kept it, and look where it got me anyway. That's the joke, friend.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "She was right to stop him. He'd have ruined Kalimdor.", next = "BACK", reply = "Aye, I know it in my head. It's the rest of me that never caught up.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "I served her for years, and every day I saw her father in her face." } },
     background = { { id = "tp_bg", text = "Sailor, soldier, deserter. That's the short of it, and the long of it isn't any prettier." } },
     advice = { { id = "tp_ad", text = "Never take a post nobody's coming to relieve." } },
     _none = { { id = "tp_none", text = "I've been in a tower in a swamp for months, friend. I know fog, and not much else." } },

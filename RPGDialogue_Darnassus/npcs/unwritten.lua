@@ -360,3 +360,148 @@ P:NPC {
     },
   },
 }
+
+-- Elder Bladeswift: an ancestor spirit honoured during the Lunar Festival. He stands in Darnassus, near the Cenarion Enclave.
+P:NPC {
+  key = "darn_elder_bladeswift", id = 15598, name = "Elder Bladeswift", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "serene", "patient" }, values = { "ancestors", "tradition" },
+  notices = { "race", "travel" },
+  impression = {
+    first = "A spirit in old Kaldorei war-harness, standing as if still on watch.",
+    third = "{name} paid respects to Elder Bladeswift, an elder spirit honoured at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah, {class}. The moon is full and the year has turned, and an old warden walks again among his people." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has called me home again. Walk with me a moment, and honour the Sentinels who kept this land." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and I am still at my post. Old habits outlast even death." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Bladeswift the Elder") }, text = "My coin is yours already. Guard it as you would guard the borders of Ashenvale." },
+  },
+  notice = {
+    { id = "n_race", cat = "race", when = { race = "NightElf" }, text = "A daughter or son of the Kaldorei. You stand straighter than most of the young ones I see." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "His hand drifts to a glaive that is no longer there.",
+      lines = { { id = "h_default", text = "I am Elder Bladeswift, and I stood watch beside the Sentinels long before Teldrassil was planted. Each year at the Lunar Festival my people honour me, and I come back to see that Darnassus is well watched." } },
+      again = { { id = "h_again", text = "Speak, {class}. An old warden listens even while he watches." } },
+      choices = {
+        { text = "Who were you, in life?", next = "life" },
+        { text = "What is the Lunar Festival, Elder?", next = "festival" },
+        { text = "I have come to pay my respects.", next = "respects" },
+        { text = "I fight with the blade too, Elder.", next = "kin", when = { class = "WARRIOR" } },
+        { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    life = {
+      lines = { { id = "l_default", text = "I fought in the War of the Ancients beside the Priestess, and I guarded the forests through ten thousand quiet years after. My blade was swift, my eyes were sharp, and my name came honestly." } },
+      choices = {
+        { text = "And what holds you here now?", next = "holds" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    holds = {
+      lines = { { id = "ho_default", text = "Duty holds me, and the people who remember what it cost. Every Sentinel on the walls of Darnassus carries a little of my watch with her." } },
+      choices = {
+        { text = "The old ways deserve honour. I'm glad they're kept.", next = "BACK", reply = "You speak like a Sentinel, {class}. The old vigil is what keeps the Kaldorei alive.", fx = { align = { order = 1 } } },
+        { text = "The dead should rest. The living make their own way.", next = "BACK", reply = "The living do make their own way, but they make it behind walls the dead once held. Do not forget that.", fx = { align = { order = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "The Lunar Festival is the turning of the year, when the Kaldorei and our allies honour the elders who came before. Elune smiles on it, and for a few nights her light lets us walk among our descendants." } },
+      choices = {
+        { text = "Why do the elders gather in Moonglade?", next = "moonglade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "m_default", text = "Moonglade is the sacred home of the druids, and Elune's light is strongest there when the year turns. Valadar Starsong keeps the festival there, and the elders are drawn to it like moths to a lantern." } },
+      choices = { { text = "Then I'll look for you there. Something else.", next = "BACK" } },
+    },
+    respects = {
+      lines = { { id = "r_default", text = "I accept your respect, {class}, and give you the coin of my line. Spend it at the festival, and stand your own watch well." } },
+      choices = {
+        { text = "Your memory will be kept, Elder.", next = "END", fx = { affinity = 1 } },
+        { text = "Something else first.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = { { id = "k_default", text = "Then fight as a Sentinel does: swift, silent, and only when you must. A blade drawn in anger is a blade drawn too soon." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That lies outside my watch, {class}. Ask the living about it." } },
+  },
+}
+
+-- Lunar Festival Harbinger: a tauren herald at the moonwell who sends travellers to Moonglade for the Lunar Festival.
+P:NPC {
+  key = "darn_lunar_festival_harbinger", id = 15895, name = "Lunar Festival Harbinger", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "darnassus" }, temper = { "serene", "welcoming" }, values = { "ancestors", "tradition" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A tauren in festival colours, oddly at home among the night elves.",
+    third = "{name} met a Lunar Festival Harbinger in Darnassus, who called the faithful to Moonglade.",
+  },
+  greetings = {
+    { id = "g_default", text = "The year turns, friend, and the moon is full over Teldrassil. Have you heard the call of the Lunar Festival?" },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has begun! The lanterns are lit in Moonglade, and the elders are waiting to be honoured." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Valadar Starsong waits for you in Moonglade. Go when you are ready, and go with a light heart." },
+  },
+  notice = {
+    { id = "n_druid", cat = "class", when = { class = "DRUID" }, text = "A druid! You need no directions to Moonglade, I think; your own wings will carry you there." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "The harbinger bows, horns low, and the lantern at his belt sways.",
+      lines = { { id = "h_default", text = "I am a harbinger of the Lunar Festival, and I come to the great cities to remind their people that the elders are waiting. The druids of the Cenarion Circle keep the festival in Moonglade, and all who come in peace are welcome there." } },
+      again = { { id = "h_again", text = "Ask, friend. The moon will not set while we talk." } },
+      choices = {
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "Why does a tauren herald serve in Darnassus?", next = "tauren" },
+        { text = "How do I reach Moonglade?", next = "travel" },
+        { text = "Moonlight on your path, harbinger.", next = "END" },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is the turning of the year beneath the full moon, when every people honours its ancestors. The spirits of the elders return to the places they loved, and those who seek them out receive the blessing of their line." } },
+      choices = {
+        { text = "Where can the elders be found?", next = "elders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elders = {
+      lines = { { id = "e_default", text = "Everywhere, friend: in the cities, on the plains, in the deep places under the mountains and even in the burnt lands. Elder Bladeswift stands here in Darnassus, and many more wait for those willing to walk far." } },
+      choices = {
+        { text = "Honouring the dead is a sacred duty.", next = "BACK", reply = "It is, and the elders feel it when it is done with a true heart.", fx = { align = { light = 1 } } },
+        { text = "I'll go for the coins and the fireworks.", next = "BACK", reply = "Ha! Then you will still go, and the elders are not proud. Perhaps you will find more than coins.", fx = { align = { light = -1 } } },
+      },
+    },
+    tauren = {
+      lines = { { id = "t_default", text = "The Cenarion Circle has tauren druids as well as Kaldorei, and in Moonglade we keep the peace together. The festival belongs to no single people, so its heralds come from many." } },
+      choices = {
+        { text = "The night elves don't mind?", next = "mind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mind = {
+      lines = { { id = "m_default", text = "Some do, and they watch my horns as if I might trample their gardens. But the Priestess allows the festival heralds in the city, and the moon shines on everyone alike, so I bear the looks gladly." } },
+      choices = { { text = "That's generous of you. Something else.", next = "BACK" } },
+    },
+    travel = {
+      lines = { { id = "tr_default", text = "Moonglade lies in the mountains between Felwood and Winterspring, and the road there is long and dangerous. During the festival, though, the moonwells carry those who stand in them and ask for Elune's blessing, so you need not walk at all." } },
+      choices = {
+        { text = "I'll go to Moonglade, then.", next = "END", reply = "Then seek out Valadar Starsong when you arrive. He will show you the way of the festival." },
+        { text = "I will take the druid's road myself.", next = "BACK", when = { class = "DRUID" }, reply = "Of course you will. Fly or teleport as you like; the festival waits." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That is not my message to carry, friend. Mine is only the moon and the festival." } },
+  },
+}

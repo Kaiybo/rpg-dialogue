@@ -106,3 +106,45 @@ P:NPC {
     _none = { { id = "tp_none", text = "Bzzt. Query not found in databanks." } },
   },
 }
+
+-- Revantusk Drummer: forest troll drummers who keep the rhythm of Revantusk Village.
+P:NPC {
+  key = "hin_revantusk_drummer", id = 14734, name = "Revantusk Drummer", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "revantusk" }, temper = { "lively", "proud" }, values = { "tradition", "kin" },
+  notices = { "faction" },
+  impression = {
+    first = "A forest troll beating a drum with a slow, steady rhythm that seems to follow the waves.",
+    third = "{name} listened to a Revantusk drummer in the village by the sea.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ya hear dat? Da drum be talkin', mon. Sit and listen a while." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "Da drum don't play for da Alliance. Move along." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I be a drummer of da Revantusk. Da drum keep da village's heart beatin', and it remind da Vilebranch we still be here." } },
+      again = { { id = "h_again", text = "Still here, mon. Still drummin'." } },
+      choices = {
+        { text = "What does the drum say?", next = "say" },
+        { text = "Why do the Vilebranch matter?", next = "vilebranch" },
+        { text = "Keep drumming.", next = "END" },
+      },
+    },
+    say = {
+      lines = { { id = "s_default", text = "Dat da loa be watchin', da sea be calm, and da Revantusk don't forget nothin'. And sometimes it just say dinner be ready." } },
+      choices = { { text = "Ha. Something else.", next = "BACK" } },
+    },
+    vilebranch = {
+      lines = { { id = "v_default", text = "Dey be our cousins once, and now dey sacrifice to dark loa in Jintha'Alor. Da Revantusk left dem, and dey ain't forgiven us." } },
+      choices = {
+        { text = "They should be wiped out.", next = "BACK", reply = "Plenty here agree. Da drum be beatin' for war soon enough.", fx = { align = { mercy = -1 } } },
+        { text = "Maybe some of them could still be saved.", next = "BACK", reply = "Maybe, mon. But I not be holdin' my breath.", fx = { align = { mercy = 1 } } },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Ask Primal Torntusk, mon. I just drum." } },
+  },
+}
