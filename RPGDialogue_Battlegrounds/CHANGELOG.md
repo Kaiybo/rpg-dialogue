@@ -1,5 +1,8 @@
 # RPG Dialogue: Battlegrounds
 
+## 1.2.0 (2026-11-23): The Overlooked
+- Characters who had no conversation now have one (core 0.105.0).
+
 ## 1.1.0 (2026-11-23)
 - All nine Alterac Valley commanders and quest-givers deepened.
 

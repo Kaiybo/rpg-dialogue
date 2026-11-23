@@ -1989,3 +1989,128 @@ P:NPC {
   },
 }
 
+
+-- Festival Loremaster: the Ironforge keeper of Midsummer lore, who sends the bold to steal the Horde capitals' flames.
+P:NPC {
+  key = "if_festival_loremaster", id = 16817, name = "Festival Loremaster", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "ironforge" }, temper = { "jovial", "learned" }, values = { "tradition", "story" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A white-bearded dwarf with a book under one arm and a torch in the other hand.",
+    third = "{name} met the Festival Loremaster, who keeps the old stories of the Midsummer Fire Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome, welcome, {g:lad|lass}! The bonfires are lit and the summer's at its height, so pull up a stone and hear some old lore." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more tales, are ye? Good, I've a cartload of them and nae enough ears." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Stealing Orgrimmar's Flame") }, text = "Orgrimmar's flame, {g:lad|lass}! Have ye touched it yet, or are the grunts still glaring at ye?" },
+  },
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" }, text = "Light fingers and soft boots, I'd wager. I may have a job that suits ye, all in the spirit of the festival." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm a loremaster of the Midsummer Fire Festival, and it's my duty to keep the old tales of the flame from being forgotten. Every people in this world lights fires on the longest day, ye know, even the Horde in their dusty cities." } },
+      again = { { id = "h_again", text = "What else would ye know? Ask away while the fire's hot." } },
+      choices = {
+        { text = "Why do people light fires at midsummer?", next = "why" },
+        { text = "You mentioned the Horde cities?", next = "horde" },
+        { text = "Tell me a festival tale.", next = "tale" },
+        { text = "A good festival to you.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "To honour the sun at its strongest, and to burn away the old troubles before the year turns cold. Dwarves light theirs to thank the forge-fire that warms the mountain, and the humans to keep the dark at bay a while longer." } },
+      choices = {
+        { text = "And what do the dwarves burn?", next = "burn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    burn = {
+      lines = { { id = "b_default", text = "Old grudges, if we're honest, written on scraps and tossed in the blaze. Mind, a dwarf has a great many grudges, so the bonfires at Ironforge burn longer than most." } },
+      choices = { { text = "That sounds healthy. Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Aye, Orgrimmar, Thunder Bluff and the Undercity all keep their own festival flames, guarded day and night. It's an old game for a brave soul to slip in and carry a piece of their fire home, and I'll reward anyone daft enough to manage it." } },
+      choices = {
+        { text = "I'll steal their flames. What do I do?", next = "steal" },
+        { text = "Isn't that just provoking a war?", next = "war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    steal = {
+      lines = { { id = "s_default", text = "Find the bonfire in the heart of their city, touch it, and come back with yer hands still on yer arms. Bring me proof of each, and the Alliance will drink to yer name till next summer." } },
+      choices = {
+        { text = "Showing up the Horde suits me fine.", next = "BACK", reply = "Ha! That's the spirit, {g:lad|lass}, though mind ye don't start a real war over a wee flame.", fx = { align = { honor = -1 } } },
+        { text = "I'll do it fairly. No needless blood.", next = "BACK", reply = "Good. It's a prank, not a raid, and the best thieves leave everyone alive to grumble about it.", fx = { align = { honor = 1 } } },
+      },
+    },
+    war = {
+      lines = { { id = "wa_default", text = "Nae more than a snowball provokes a blizzard, {g:lad|lass}. Their folk come sneaking for our flames just the same, and both sides laugh about it over a mug, or most of them do." } },
+      choices = { { text = "If you say so. Something else.", next = "BACK" } },
+    },
+    tale = {
+      lines = { { id = "t_default", text = "Here's one for ye: an old Bronzebeard smith once fell asleep beside the Midsummer bonfire, and woke with his beard singed clean off. He swore the fire was jealous of it, and he never lit another without a bucket of water beside him." } },
+      choices = {
+        { text = "A dwarf's beard is worth guarding.", next = "BACK", when = { race = "Dwarf" }, reply = "Spoken like a true son or daughter of Khaz Modan. Keep it away from the sparks tonight." },
+        { text = "Ha. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That's nae part of the festival lore, {g:lad|lass}. Try the Hall of Explorers; they've a book on everything." } },
+  },
+}
+
+-- Greatfather Winter's Helper: a goblin in festive colours standing beside Greatfather Winter in the Commons.
+P:NPC {
+  key = "if_greatfather_winters_helper", id = 15745, name = "Greatfather Winter's Helper", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "ironforge" }, temper = { "cheerful", "pushy" }, values = { "profit", "festivity" },
+  notices = { "race" },
+  impression = {
+    first = "A goblin in a red and green suit, grinning at everyone who passes.",
+    third = "{name} met Greatfather Winter's goblin helper in the Commons of Ironforge.",
+  },
+  greetings = {
+    { id = "g_default", text = "Happy Winter Veil, pal! Step right up, the big fella's taking requests and I'm handling the paperwork." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, ya valued customer? Greatfather Winter never forgets a face, and I never forget a ledger." },
+  },
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" }, text = "A gnome! Listen, if you know anything about toy springs, I've got a crate of them that keep going off sideways." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm one of Greatfather Winter's little helpers, contracted for the season through Smokywood Pastures, and let me tell ya, the hours are brutal. Toys, treats, wrapping, and every kid in Ironforge wantin' a mechanical squirrel." } },
+      again = { { id = "h_again", text = "Something else, chum? Make it quick, the queue's backin' up past the bank." } },
+      choices = {
+        { text = "A goblin helping Greatfather Winter? Truly?", next = "why" },
+        { text = "What's the Feast of Winter Veil about?", next = "veil" },
+        { text = "Merry Winter Veil.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Sure, why not? Smokywood runs the whole operation, so somebody's gotta count the gifts, and goblins count better than anybody. Plus the cocoa's free for staff, which is a perk I value very highly." } },
+      choices = {
+        { text = "So it's all a business to you?", next = "biz" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    biz = {
+      lines = { { id = "b_default", text = "Everything's a business, pal, but that don't mean it ain't nice too. A happy kid today is a payin' customer in twenty years, so I call that an investment in goodwill." } },
+      choices = {
+        { text = "Giving should be free of profit.", next = "BACK", reply = "Aw, that's sweet, and the big guy agrees with ya. I just keep the books so he can afford to be generous.", fx = { align = { order = 1 } } },
+        { text = "Fair enough. A deal's a deal.", next = "BACK", reply = "Now you're talkin' my language! Remind me to send you a catalogue next year.", fx = { align = { order = -1 } } },
+      },
+    },
+    veil = {
+      lines = { { id = "v_default", text = "Snow, presents, a big tree and a jolly old fella handing things out, that's the short version. The dwarves have been celebrating it since before anybody wrote it down, and they drink twice as much eggnog as everybody else, which is good for sales." } },
+      choices = { { text = "Sounds like a fine tradition. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Not in my contract, pal. Try the big guy, he knows everybody's business, if ya know what I mean." } },
+  },
+}

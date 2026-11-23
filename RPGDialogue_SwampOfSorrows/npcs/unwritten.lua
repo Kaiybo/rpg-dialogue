@@ -319,3 +319,53 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know paths, not that. Ask at the inn." } },
   },
 }
+
+-- Broken Exile: one of the broken survivors of Draenor who shelter at the Harborage in the swamp.
+P:NPC {
+  key = "sos_broken_exile", id = 11198, name = "Broken Exile", gender = "male",
+  role = "refugee", tier = "service",
+  temper = { "weary", "wary" }, values = { "survival" },
+  notices = { "race" },
+  impression = {
+    first = "A hunched, ashen-skinned exile who flinches at the sight of an orc's axe.",
+    third = "{name} met a Broken Exile at the Harborage in the Swamp of Sorrows.",
+  },
+  greetings = {
+    { id = "g_default", text = "You come to the Harborage, stranger. There is little here but mist and memory, but you may rest a while." },
+    { id = "g_orc", when = { race = "Orc" }, text = "An orc. Your people burned my world. Say your piece and go, before my courage fails." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We are the Broken, what remains of a proud people from a world called Draenor. We came through the Dark Portal long ago, and now we hide in this swamp and wait." } },
+      again = { { id = "h_again", text = "Is there more you would ask, stranger?" } },
+      choices = {
+        { text = "What happened to your people?", next = "people" },
+        { text = "What do you wait for?", next = "wait" },
+        { text = "I'll leave you in peace.", next = "END" },
+      },
+    },
+    people = {
+      lines = { { id = "p_default", text = "The orcs fell upon us, driven mad by demon blood, and slaughtered our cities. Those of us who lived were twisted by the fel magic, and so we are broken, in body and in spirit." } },
+      choices = {
+        { text = "The orcs have changed since then.", next = "changed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    changed = {
+      lines = { { id = "c_default", text = "So I hear, but the dead do not hear it, and neither do my nightmares. Perhaps one day I will believe it." } },
+      choices = {
+        { text = "Every people deserves a second chance.", next = "BACK", reply = "Perhaps. I am too tired to argue.", fx = { align = { order = -1 } } },
+        { text = "Some crimes should never be forgotten.", next = "BACK", reply = "Then we understand each other, stranger.", fx = { align = { order = 1 } } },
+      },
+    },
+    wait = {
+      lines = { { id = "w_default", text = "For the end of our exile, or the end of ourselves, whichever comes first. The swamp is quiet, at least, and the trolls of the temple do not trouble us here." } },
+      choices = { { text = "I hope it's the former. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I am of the Broken. Once, that meant something else." } },
+    _none = { { id = "tp_none", text = "I do not know, stranger. The mist keeps its own counsel, and so do I." } },
+  },
+}

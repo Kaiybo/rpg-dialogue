@@ -356,3 +356,235 @@ P:NPC {
   },
 }
 
+
+---------------------------------------------------------------------------
+-- Dabyrie's Farmstead: the Dabyrie brothers and the militia they keep. The Horde wants their heads.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ar_fardel_dabyrie", id = 4479, name = "Fardel Dabyrie", gender = "male",
+  role = "farmer", tier = "service",
+  communities = { "stromgarde" }, temper = { "sly" }, values = { "family", "profit" },
+  notices = { "faction", "class" },
+  impression = {
+    first = "A rangy farmer with a sly grin lounges against the Dabyrie barn, a pitchfork over one shoulder and a dagger in his boot that he doesn't bother to hide.",
+    third = "{name} met Fardel Dabyrie, one of the brothers at Dabyrie's Farmstead.",
+  },
+  greetings = {
+    { id = "g_default", text = "Afternoon, stranger. If you're here for the harvest, you're late, and if you're here for something else, you're very welcome to leave." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Fardel Dabyrie, and this is my mother's farm, and that lump over there is my brother Marcel. We keep our heads down and our fields planted, which is more than most can say in Arathi these days." } },
+      again = { { id = "h_again", text = "Something else on your mind, friend?" } },
+      choices = {
+        { text = "Why keep a militia on a farm?", next = "militia" },
+        { text = "Folk say your family has sticky fingers.", next = "thieves" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    militia = {
+      lines = { { id = "m_default", text = "Because the Syndicate rides out of Stromgarde's ruins, the trolls come down from the hills, and the Horde sits at Hammerfall licking its lips. Stromgarde can't guard every field, so we guard our own." } },
+      choices = {
+        { text = "Good on you for standing your ground.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Private armies make me nervous.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thieves = {
+      lines = { { id = "t_default", text = "Folk say a great many things, especially folk who've lost things. If somebody's missing a trinket, I suggest they look harder before they go accusing honest farmers." } },
+      choices = {
+        { text = "Honest farmers don't grin like that.", next = "grin" },
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
+    grin = {
+      lines = { { id = "g2_default", text = "My mother says I was born grinning, and she ought to know. Now, unless you're accusing me of something, I'd mind my own business, friend." } },
+      choices = { { text = "I'll take your word for it.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not. Ask Marcel, he knows less than me." } } },
+}
+
+P:NPC {
+  key = "ar_marcel_dabyrie", id = 4481, name = "Marcel Dabyrie", gender = "male",
+  role = "farmer", tier = "service",
+  communities = { "stromgarde" }, temper = { "gruff" }, values = { "family" },
+  notices = { "faction" },
+  impression = {
+    first = "A heavyset farmer leans on a fencepost at Dabyrie's Farmstead, chewing a stalk of grass and watching you the way he'd watch a fox near the henhouse.",
+    third = "{name} spoke with Marcel Dabyrie at the family farmstead.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hmph. Another traveller. Mind the chickens, and keep your hands where I can see them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm Marcel, the elder brother, though Fardel would tell you otherwise. Mother runs the farm, I run the fields, and Fardel runs his mouth." } },
+      again = { { id = "h_again", text = "What else? I've fences to mend." } },
+      choices = {
+        { text = "Hard times for farming here?", next = "hard" },
+        { text = "Tell me about your mother.", next = "mother" },
+        { text = "I'll leave you to your fences.", next = "END" },
+      },
+    },
+    hard = {
+      lines = { { id = "h2_default", text = "Hard as they've ever been since the trolls came back and the Horde set up at Hammerfall. Half our neighbours packed up for Refuge Pointe or gave up and went south, but the Dabyries stay." } },
+      choices = {
+        { text = "Why not leave too?", next = "leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave = {
+      lines = { { id = "l_default", text = "Because my father's buried under that oak, and I'll not leave him to the trolls. Besides, there's no farm in Stormwind going cheap for a family like ours." } },
+      choices = {
+        { text = "Family ties are worth fighting for.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mother = {
+      lines = { { id = "m_default", text = "Kenata's tougher than either of us, and she'd tell you so. She kept this farm going through the Second War with nothing but a hoe and her temper." } },
+      choices = { { text = "She sounds formidable.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Don't know, don't care. Ask at Refuge Pointe." } } },
+}
+
+P:NPC {
+  key = "ar_dabyrie_militia", id = 2581, name = "Dabyrie Militia", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "stromgarde" }, temper = { "nervous" }, values = { "duty" },
+  notices = { "faction" },
+  impression = {
+    first = "A farmhand in mismatched armour stands guard at the Dabyrie fence, gripping a spear as though it might run away from him.",
+    third = "{name} met one of the militia guarding Dabyrie's Farmstead.",
+  },
+  greetings = {
+    { id = "g_default", text = "Who goes there? Oh, you're not a troll. Good, good, carry on, then." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I guard the farm for the Dabyries, which mostly means standing here and hoping nothing comes over the hill. The pay's poor, but Kenata feeds us well." } },
+      again = { { id = "h_again", text = "Something else? I'm meant to be watching." } },
+      choices = {
+        { text = "What comes over the hill?", next = "hill" },
+        { text = "Were you a soldier before?", next = "before" },
+        { text = "I'll let you keep watch.", next = "END" },
+      },
+    },
+    hill = {
+      lines = { { id = "h2_default", text = "Witherbark trolls from the east, Syndicate thugs from the west, and Horde raiders from Hammerfall when they're feeling bold. Nobody comes to buy turnips, I'll tell you that." } },
+      choices = {
+        { text = "Hold the line. The farm needs you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd run if I were you.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    before = {
+      lines = { { id = "b_default", text = "A farmhand, same as now, only with fewer spears about. Lieutenant Valorcall's riders taught us which end to point, and that's the whole of my training." } },
+      choices = {
+        { text = "Who is Valorcall?", next = "valorcall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    valorcall = {
+      lines = { { id = "v_default", text = "He leads what's left of Stromgarde's cavalry, and he rides past every few days to show the flag. Seeing his banner on the road does wonders for a fellow's nerves." } },
+      choices = { { text = "Good to know.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Don't ask me, I just hold the spear. Ask Fardel." } } },
+}
+
+---------------------------------------------------------------------------
+-- Stromgarde Troll Hunter: torch-bearing soldiers clearing the keep of trolls.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ar_stromgarde_troll_hunter", id = 2583, name = "Stromgarde Troll Hunter", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "stromgarde" }, temper = { "grim" }, values = { "duty", "honor" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A Stromgarde soldier carries a burning torch in one hand and a notched sword in the other. His face is streaked with soot, and he smells of smoke and troll blood.",
+    third = "{name} spoke with a Stromgarde troll hunter in the keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep close to the walls, and if you see a troll, burn it. Steel alone won't keep them down." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We hunt the trolls in Stromgarde's ruins, so that one day the keep might be whole again. It's slow work, and the Syndicate doesn't make it easier." } },
+      again = { { id = "h_again", text = "What else? Make it quick." } },
+      choices = {
+        { text = "Why the torch?", next = "torch" },
+        { text = "Can Stromgarde be retaken?", next = "retake" },
+        { text = "Good hunting.", next = "END" },
+      },
+    },
+    torch = {
+      lines = { { id = "t_default", text = "A troll's wounds close up faster than you can make them, unless you burn them. Our grandfathers learned that fighting the Amani alongside Thoradin, and we learned it again the hard way." } },
+      choices = { { text = "I'll remember that.", next = "BACK" } },
+    },
+    retake = {
+      lines = { { id = "r_default", text = "If Stormwind sent us half the men it promised, aye, but we're on our own more often than not. Some days I think we're only holding it out of stubbornness." } },
+      choices = {
+        { text = "Stubbornness won Arathor once.", next = "stubborn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stubborn = {
+      lines = { { id = "s_default", text = "It did, and Stromgarde was the first city of men because of it. We'll hold it for Thoradin's line, or what's left of it, until we can't hold anything at all." } },
+      choices = {
+        { text = "Stromgarde deserves better from Stormwind.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Hold fast. The Alliance will come.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "No idea. Ask at Refuge Pointe, they've got the maps." } } },
+}
+
+---------------------------------------------------------------------------
+-- Dwarven Farmer: an Ironforge farmer working the isolated eastern fields.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ar_dwarven_farmer", id = 12998, name = "Dwarven Farmer", gender = "male",
+  role = "farmer", tier = "service",
+  communities = { "ironforge" }, temper = { "cheerful" }, values = { "work" },
+  notices = { "race" },
+  impression = {
+    first = "A stout dwarf in a straw hat works a patch of earth far from any road, whistling to himself and talking to his cabbages.",
+    third = "{name} met a dwarven farmer working the isolated fields of Arathi.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well, I'll be! A visitor, way out here? Ye must be lost, {g:lad|lass}, or very curious." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I farm, {g:lad|lass}, plain and simple. Ironforge cannae eat stone, so some of us come out where the soil's soft and grow what the mountain cannae." } },
+      again = { { id = "h_again", text = "Somethin' else? The cabbages willnae mind." } },
+      choices = {
+        { text = "Why so far from anyone?", next = "far" },
+        { text = "A dwarf farmer? That's unusual.", next = "unusual" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    far = {
+      lines = { { id = "f_default", text = "Because there's nobody out here to steal the crops, nor trample them, nor tax them. The trolls and orcs stay to the west, and I'm happy to let them." } },
+      choices = {
+        { text = "Don't you get lonely?", next = "lonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lonely = {
+      lines = { { id = "l_default", text = "Now and again, aye, but the cabbages are fine company, and they never argue. I go home to Ironforge for the winter, and that's enough noise to last me." } },
+      choices = { { text = "Sounds peaceful.", next = "BACK" } },
+    },
+    unusual = {
+      lines = { { id = "u_default", text = "Not as much as ye'd think! Plenty of us farm the lowlands round Dun Morogh, and there's a fine farm down in the Wetlands too. Every dwarf needs bread with his ale." } },
+      choices = { { text = "Fair point.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about cabbages instead." } } },
+}

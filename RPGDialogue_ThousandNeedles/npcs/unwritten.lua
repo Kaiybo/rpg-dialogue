@@ -605,3 +605,130 @@ P:NPC {
     },
   },
 }
+
+-- Elder Morningdew: an ancestor spirit honoured during the Lunar Festival. She appears in Thousand Needles, among the salt and the strange goblin racing.
+P:NPC {
+  key = "tn_elder_morningdew", id = 15604, name = "Elder Morningdew", gender = "female",
+  role = "questgiver", tier = "quest",
+  temper = { "serene", "patient" }, values = { "ancestors", "tradition" },
+  notices = { "race", "travel" },
+  impression = {
+    first = "A night elf spirit, looking out over the salt flats with mild disapproval.",
+    third = "{name} paid respects to Elder Morningdew, an elder spirit honoured at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Elune-adore, traveller. You find me in an odd place this year, among the dust and the engines." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and the salt flats are no quieter. Still, I am glad of the company." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Morningdew the Elder") }, text = "You have paid your respects, and my coin travels with you now. Ishnu-alah." },
+  },
+  notice = {
+    { id = "n_race", cat = "race", when = { race = "NightElf" }, text = "One of my own people, so far from the forests. The festival draws us all far afield, it seems." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "She wrinkles her nose as a goblin engine roars somewhere out on the flats.",
+      lines = { { id = "h_default", text = "I am Elder Morningdew, and I was a priestess of Elune when this desert was green and the sea had not yet left it. My spirit is honoured at the Lunar Festival, and this year it has brought me here, to the edge of the Shimmering Flats." } },
+      again = { { id = "h_again", text = "Ask what you wish, traveller. The goblins make enough noise for both of us." } },
+      choices = {
+        { text = "Who were you, in life?", next = "life" },
+        { text = "What is the Lunar Festival, Elder?", next = "festival" },
+        { text = "I have come to pay my respects.", next = "respects" },
+        { text = "Elune keep you, Elder. My family also served the Goddess.", next = "kin", when = { race = "NightElf" } },
+        { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    life = {
+      lines = { { id = "l_default", text = "I served the Moon Goddess in the old kingdom, before the Sundering broke the world and drew the waters away. I remember this land as a shore, and I remember the morning dew on the grass that gave my family its name." } },
+      choices = {
+        { text = "And what holds you here now?", next = "holds" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    holds = {
+      lines = { { id = "ho_default", text = "Memory holds me, and the moonlight. My people live a very long time, and so we remember a very long time, and the festival lets the remembered speak back once a year." } },
+      choices = {
+        { text = "The old ways deserve honour. I'm glad they're kept.", next = "BACK", reply = "Then you have a patient heart, and Elune favours patience. The young races often lack it.", fx = { align = { order = 1 } } },
+        { text = "The dead should rest. The living make their own way.", next = "BACK", reply = "Perhaps, though the living build their way on what the dead left them. Even these goblins race on an old seabed.", fx = { align = { order = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is the turning of the year beneath the moon, when the elders of every people are honoured. In Moonglade the druids keep the great celebration, and Elune lets the old spirits linger near their descendants for a while." } },
+      choices = {
+        { text = "Why do the elders gather in Moonglade?", next = "moonglade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "m_default", text = "Moonglade is sacred to the druids, and Elune's light gathers there when the year turns. Most of the elders go there in the end, but some of us like to wander first." } },
+      choices = { { text = "Then I'll look for you there. Something else.", next = "BACK" } },
+    },
+    respects = {
+      lines = { { id = "r_default", text = "Then I accept your respect, and I give you the coin of my line as the custom asks. Remember that this dust was once a shore, and that I saw it." } },
+      choices = {
+        { text = "Your memory will be kept, Elder.", next = "END", fx = { affinity = 1 } },
+        { text = "Something else first.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = { { id = "k_default", text = "Then we are sisters in the moonlight, whatever our years. Keep faith with her, and she will keep faith with you." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That is beyond my memory, traveller, which is a long way to go." } },
+  },
+}
+
+-- Freewind Brave: the tauren guards who keep the lifts and the ramp up to Freewind Post.
+P:NPC {
+  key = "tn_freewind_brave", id = 9525, name = "Freewind Brave", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "freewind" }, temper = { "steady", "watchful" }, values = { "duty", "tribe" },
+  notices = { "race", "travel" },
+  impression = {
+    first = "He leans on his spear and watches the canyon floor below.",
+    third = "{name} spoke with a Freewind Brave guarding the lifts of Freewind Post.",
+  },
+  greetings = {
+    { id = "g_default", text = "Peace, {class}. The lift is sound, and the post is above, if you have business there." },
+    { id = "g_alli", when = { faction = "Alliance" }, text = "Keep your weapons sheathed, stranger. Freewind Post does not welcome trouble, and I am the one who stops it." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "Earth Mother's blessing, {g:brother|sister}. It is good to see horns up here among the needles." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I guard the ramp and the lifts of Freewind Post, so that nothing climbs up here that we did not invite. The Grimtotem and the centaur would both like to try." },
+                { id = "h_alli", when = { faction = "Alliance" }, text = "I guard the lifts of Freewind Post for the Horde and for Thunder Bluff. Say what you need and be on your way." } },
+      again = { { id = "h_again", text = "Something more? My eyes stay on the canyon while we talk." } },
+      choices = {
+        { text = "Who troubles the post?", next = "threats" },
+        { text = "How do the lifts work?", next = "lifts" },
+        { text = "Farewell, brave.", next = "END" },
+      },
+    },
+    threats = {
+      lines = { { id = "t_default", text = "The Galak centaur raid from the west, and the Grimtotem keep camps among the needles and hate any tauren who follows Cairne. Below us the Venture Company goblins dig where they like, and nobody asked the land first." } },
+      choices = {
+        { text = "The Grimtotem are tauren too. Can't they be reasoned with?", next = "grimtotem" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grimtotem = {
+      lines = { { id = "g_default2", text = "Magatha Grimtotem's people want the tauren apart from the Horde, and they treat other races as enemies. Cairne has offered them peace more times than I can count, and they answer with spears." } },
+      choices = {
+        { text = "Then they should be driven from the needles.", next = "BACK", reply = "Many here agree with you, {class}. Bring their spears down, and the post will remember it.", fx = { align = { honor = 1 } } },
+        { text = "Cairne is right. Keep offering peace.", next = "BACK", reply = "The High Chieftain's patience is greater than mine, and perhaps that is why he leads. I will keep my spear ready all the same.", fx = { align = { honor = -1 } } },
+      },
+    },
+    lifts = {
+      lines = { { id = "l_default", text = "Ropes, counterweights and a good deal of trust, {class}. The platforms rise and fall between the mesas, and the brave at the bottom watches the brave at the top." } },
+      choices = { { text = "I'll trust them, then. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I keep the lifts, {class}, not the gossip. Ask at the inn above." } },
+  },
+}

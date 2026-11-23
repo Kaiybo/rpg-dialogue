@@ -642,3 +642,263 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "I cannot say, young one. Ask the winds." } } },
 }
+
+-- Elder Bladesing: a night elf ancestor honored at the Lunar Festival, at Cenarion Hold.
+P:NPC {
+  key = "sil_elder_bladesing", id = 15599, name = "Elder Bladesing", gender = "female",
+  role = "questgiver", tier = "quest",
+  communities = { "lunar_elders" }, temper = { "fierce", "warm" }, values = { "memory", "vigilance" },
+  notices = { "race" },
+  impression = {
+    first = "An elder spirit of the night elves, standing in the hot wind of Cenarion Hold as if guarding it still.",
+    third = "{name} honored Elder Bladesing, a night elf ancestor who keeps vigil at Cenarion Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well met, traveler. The sand is restless, but an elder does not flinch at sand." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come! You crossed the desert to honor an elder, and I am pleased." },
+    { id = "g_honored", when = { questDone = TODO_QUEST("Bladesing the Elder") }, text = "You have honored me already. Go, and keep your blade sharp in this land." },
+  },
+  notice = {
+    { id = "n_elf", cat = "race", when = { race = "NightElf" },
+      text = "A daughter or son of the Sentinels' people. I stood where you stand, once, ten thousand years ago." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Bladesing, an elder of the Kaldorei. In life I fought on these sands; at the festival, I return to remember it." } },
+      again = { { id = "h_again", text = "Ask, child. The desert wind has plenty of time." } },
+      choices = {
+        { text = "You fought here? Against whom?", next = "war" },
+        { text = "What does the festival mean to you?", next = "festival" },
+        { text = "I've come to honor you, Elder.", next = "honor" },
+        { text = "Were you a Sentinel, Elder?", next = "sentinel", when = { race = "NightElf" } },
+        { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    war = {
+      narr = "She looks south, toward the walls of Ahn'Qiraj shimmering in the heat.",
+      lines = { { id = "w_default", text = "The qiraji and their swarms, in the War of the Shifting Sands. We sealed them behind a great wall and thought it would last forever. Nothing does." } },
+      choices = {
+        { text = "Then they must be destroyed this time.", next = "BACK", reply = "Yes. Do not stop halfway as we did.", fx = { align = { mercy = -1 } } },
+        { text = "Sealing them saved many lives back then.", next = "BACK", reply = "It did, and cost many. Both are true.", fx = { align = { mercy = 1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "The year's turning, and the only time the living remember to look for us. I give a coin of ancestry to those who do, and a little luck with it." } },
+      choices = {
+        { text = "Who else should I seek out?", next = "others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = { { id = "o_default", text = "Elders stand all over the world, in deserts, in snow and in the old cities. Find as many as you can, and then go to the Moonglade, where the festival is kept." } },
+      choices = { { text = "I'll find them. Something else.", next = "BACK" } },
+    },
+    honor = {
+      lines = { { id = "h2_default", text = "I accept your honor, and gladly. Take this coin, and remember that even in the desert, the ancestors walk with you.", fx = { offer = TODO_QUEST("Bladesing the Elder") } } },
+      choices = { { text = "Thank you, Elder Bladesing.", next = "BACK" } },
+    },
+    sentinel = {
+      lines = { { id = "s_default", text = "Long before the Sentinels had that name. We were simply the ones who watched the night, and we watch it still." } },
+      choices = { { text = "I'll keep watch too.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I do not know, little one. Ask the Circle." } },
+  },
+}
+
+-- Senior Sergeant Kai'jin: jungle troll who gathers the Horde's war supplies for the fight at Ahn'Qiraj.
+P:NPC {
+  key = "sil_kaijin", id = 15704, name = "Senior Sergeant Kai'jin", gender = "female",
+  role = "questgiver", tier = "quest",
+  communities = { "horde_war_effort" }, temper = { "brisk", "proud" }, values = { "duty", "strength" },
+  notices = { "faction" },
+  impression = {
+    first = "A tall troll sergeant with a list as long as her arm and the patience of a coiled snake.",
+    third = "{name} met Senior Sergeant Kai'jin, who gathers supplies for the Horde's war against Ahn'Qiraj.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ya come to help the Horde, mon? Good. There be plenty of work." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "Alliance. Go find your own sergeant; dis one be busy." },
+  },
+  notice = {
+    { id = "n_troll", cat = "faction", when = { race = "Troll" },
+      text = "A Darkspear! Da loa be smilin' on us both today." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I be Kai'jin, senior sergeant of da Horde's war effort. Da gates of Ahn'Qiraj need an army, and armies need supplies." } },
+      again = { { id = "h_again", text = "What else, mon? Quick now." } },
+      choices = {
+        { text = "What does the Horde need?", next = "need" },
+        { text = "Why fight the qiraji at all?", next = "why" },
+        { text = "Who is Warlord Gorchuk?", next = "gorchuk" },
+        { text = "I want to help the Horde.", next = "task", when = { faction = "Horde" } },
+        { text = "Farewell, Sergeant.", next = "END" },
+      },
+    },
+    need = {
+      lines = { { id = "n_default", text = "Food, bandages, herbs, hides and metal. Everything a soldier eats, wears or bleeds on. Da Alliance gathering too, and we not be lettin' dem do it faster." } },
+      choices = {
+        { text = "A race against the Alliance?", next = "race" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race = {
+      lines = { { id = "r_default", text = "Ya, and a friendly one, for once. We both want da bugs dead. But I'd rather da Horde be first through da gates." } },
+      choices = {
+        { text = "Glory for the Horde, then!", next = "BACK", reply = "Dat be da spirit!", fx = { align = { honor = -1 } } },
+        { text = "Victory matters more than who's first.", next = "BACK", reply = "Wise words. Still, I be wantin' us first.", fx = { align = { honor = 1 } } },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Dey be swarmin' under da desert, and da Cenarion Circle say dey'll spill out over all of Kalimdor if nobody stops dem. Kalimdor be our home now." } },
+      choices = { { text = "Then we stop them. Something else.", next = "BACK" } },
+    },
+    gorchuk = {
+      lines = { { id = "g_default", text = "Da warlord who leads us here. A hard orc and a fair one, and he remember every name dat bring supplies." } },
+      choices = { { text = "I'll speak to him. Something else.", next = "BACK" } },
+    },
+    task = {
+      lines = { { id = "t_default", text = "Den gather what I ask and bring it here. Every crate be one more soldier fed when da gates open.", fx = { offer = TODO_QUEST("The Horde Needs Your Help!") } } },
+      choices = { { text = "I'll bring what you need.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Don't know, mon. Ask da warlord." } },
+  },
+}
+
+-- Warlord Gorchuk: orc warlord who leads the Horde's war effort against Ahn'Qiraj.
+P:NPC {
+  key = "sil_gorchuk", id = 15700, name = "Warlord Gorchuk", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "horde_war_effort" }, temper = { "grim", "proud" }, values = { "strength", "honor" },
+  notices = { "faction" },
+  impression = {
+    first = "A scarred orc warlord who looks at the walls of Ahn'Qiraj as if he means to tear them down by hand.",
+    third = "{name} met Warlord Gorchuk, who leads the Horde's war effort against Ahn'Qiraj.",
+  },
+  greetings = {
+    { id = "g_default", text = "Lok'tar ogar. Have you come to fight, or only to look?" },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "Alliance. The bugs are a common enemy, so I'll not draw on you. Don't push me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Gorchuk, warlord of the Horde's army at the gates. Every crate, every blade and every warrior that goes into this war goes through me." } },
+      again = { { id = "h_again", text = "Speak, then." } },
+      choices = {
+        { text = "How goes the war?", next = "war" },
+        { text = "Will the gates open?", next = "gates" },
+        { text = "I'll go.", next = "END" },
+      },
+    },
+    war = {
+      lines = { { id = "w_default", text = "The Horde has gathered more than anyone thought we could. Everyone gave something, and now we are ready to give blood too." } },
+      choices = {
+        { text = "The Horde will be first through the gates.", next = "BACK", reply = "That is what I want to hear.", fx = { align = { honor = -1 } } },
+        { text = "I'd fight alongside the Alliance if needed.", next = "BACK", reply = "Hmph. Perhaps it will come to that.", fx = { align = { honor = 1 } } },
+      },
+    },
+    gates = {
+      lines = { { id = "g_default", text = "They will, when someone strikes the gong with the scepter. Then the bugs come out, and we kill them. Simple." } },
+      choices = {
+        { text = "What scepter?", next = "scepter" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scepter = {
+      lines = { { id = "s_default", text = "The Scepter of the Shifting Sands. The bronze dragons know more of it than I do. Ask them, then bring it back and ring that gong." } },
+      choices = { { text = "I'll find out.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Ask Kai'jin. She knows the lists." } },
+  },
+}
+
+-- Cenarion Scout Jalia: night elf scout reporting from inside Hive'Ashi.
+P:NPC {
+  key = "sil_scout_jalia", id = 15611, name = "Cenarion Scout Jalia", gender = "female",
+  role = "soldier", tier = "service",
+  communities = { "cenarion_circle" }, temper = { "tense", "brave" }, values = { "duty", "vigilance" },
+  notices = { "kit" },
+  impression = {
+    first = "A night elf scout crouched low in the hive, her eyes on the tunnels.",
+    third = "{name} found Cenarion Scout Jalia inside Hive'Ashi, watching the silithid.",
+  },
+  greetings = {
+    { id = "g_default", text = "Quietly! The silithid hear more than you'd think." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Jalia, scout of the Cenarion Circle. I've been watching Hive'Ashi for days, and I've seen things Cenarion Hold needs to know." } },
+      again = { { id = "h_again", text = "Yes? Keep your voice down." } },
+      choices = {
+        { text = "What have you seen?", next = "seen" },
+        { text = "Should I take your report back?", next = "report" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    seen = {
+      lines = { { id = "s_default", text = "More of them than ever, and bigger. They're breeding, and something deeper in the hive is driving them." } },
+      choices = {
+        { text = "Then we should burn the hive.", next = "BACK", reply = "If only we could. The Circle wants it watched first.", fx = { align = { mercy = -1 } } },
+        { text = "Patience. Learn first, strike later.", next = "BACK", reply = "That's the Circle's wisdom, and mine too.", fx = { align = { mercy = 1 } } },
+      },
+    },
+    report = {
+      lines = { { id = "r_default", text = "Please. Tell Cenarion Hold what I've found, and say I'm still alive. That last part matters to me." } },
+      choices = { { text = "I'll tell them both.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know. Ask at Cenarion Hold." } },
+  },
+}
+
+-- Ironforge Brigade Rifleman: dwarven riflemen of the Alliance army at the Ahn'Qiraj front.
+P:NPC {
+  key = "sil_ironforge_rifleman", id = 15441, name = "Ironforge Brigade Rifleman", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "ironforge_brigade" }, temper = { "cheerful", "steady" }, values = { "duty", "loyalty" },
+  notices = { "faction" },
+  impression = {
+    first = "A dwarf rifleman cleaning his gun and humming a drinking song.",
+    third = "{name} spoke with a rifleman of the Ironforge Brigade.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho there! Stay behind me when the bugs come. I've good aim, but a short temper." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? Common enemy today. Just don't stand in me sights." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Rifleman of the Ironforge Brigade, at yer service. We're here to shoot bugs, and there's no shortage of bugs." } },
+      again = { { id = "h_again", text = "Aye? What is it?" } },
+      choices = {
+        { text = "How are the silithid to fight?", next = "fight" },
+        { text = "Do you miss Ironforge?", next = "home" },
+        { text = "Good hunting.", next = "END" },
+      },
+    },
+    fight = {
+      lines = { { id = "f_default", text = "Hard shells, and they come in swarms. Ye aim for the joints and pray ye've enough powder. The big ones, ye just run." } },
+      choices = {
+        { text = "A good soldier holds the line.", next = "BACK", reply = "Aye, and a live one fights tomorrow.", fx = { align = { order = 1 } } },
+        { text = "Running's wisdom when you're outnumbered.", next = "BACK", reply = "Now ye're talkin' sense.", fx = { align = { order = -1 } } },
+      },
+    },
+    home = {
+      lines = { { id = "h2_default", text = "Every day. Proper ale, proper stone, and snow instead of sand. When this is done I'm going straight to the Stonefire Tavern." } },
+      choices = { { text = "I'll buy you a round. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Ask the sergeant, lad." } },
+  },
+}

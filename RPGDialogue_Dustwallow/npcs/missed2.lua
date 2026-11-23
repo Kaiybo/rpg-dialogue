@@ -394,6 +394,7 @@ P:NPC {
       choices = {
         { text = "Does it work?", next = "work" },
         { text = "What have you worked out about the Blues?", next = "blues" },
+        { text = "Do you resent Lady Proudmoore, as some Kul Tirans do?", next = "kt_jaina" },
         { text = "I'll let you think.", next = "END" },
       },
     },
@@ -412,8 +413,18 @@ P:NPC {
       lines = { { id = "n_default", text = "I let Lana fight her, and I take Kahil. Knowing which bouts to leave to someone else is a kind of cleverness too, or so I tell the Captain." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "No, and I've had the argument with my own mother more times than I can count. She marched with the Admiral, and I was a babe on her hip, but I grew up behind these walls in a peace the Lady paid for with her own grief. Her father came to burn it all down, and she stood in his way, and I think that took more courage than anything he ever did." } },
+      choices = {
+        { text = "Your mother's right. Daelin died for his people.", next = "BACK", reply = "He died for his hatred, and he took good marines with him. I'll not change my mind, friend.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "She chose her people over her father. I respect that.", next = "BACK", reply = "So do I, and so would my mother if she'd ever say it aloud. Thank you for that.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "I'd follow the Lady into the sea if she asked. My mother would follow her too, though she'd grumble the whole way." } },
     background = { { id = "tp_bg", text = "I was apprenticed to a shipwright before I enlisted. You learn to look twice at how a thing is put together." } },
     _none = { { id = "tp_none", text = "I haven't worked that one out. Try the citadel." } },
   },
@@ -450,6 +461,7 @@ P:NPC {
       choices = {
         { text = "What's it like facing Jarad?", next = "jarad" },
         { text = "Why did you join the Guard?", next = "why" },
+        { text = "Do the Kul Tiras marines still follow Lady Proudmoore?", next = "kt_jaina" },
         { text = "Hold the middle, Edward.", next = "END" },
       },
     },
@@ -468,8 +480,18 @@ P:NPC {
       lines = { { id = "w_default", text = "My father was a guard, and he's buried on this island. It seemed to me that somebody ought to go on standing where he stood." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "Most of us do, though I won't pretend it's easy. I came over as one of the Admiral's marines, and I stood on the walls when his ships came to burn us out, and I've never decided whether I'm guarding the Lady or guarding against her father's ghost." } },
+      choices = {
+        { text = "Your oath was to the Admiral first.", next = "BACK", reply = "It was, and he's dead, and I've had to make my peace with that. Don't make it harder, friend.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "Your oath is to Theramore now. Hold it.", next = "BACK", reply = "I hold it every watch. Some nights I just hold it a little tighter than others.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "I came as one of the Admiral's marines, and I stayed as one of hers. I'm still not sure what that makes me." } },
     background = { { id = "tp_bg", text = "Theramore's the only home I remember. I mean to keep it as it is." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Captain Thomas would." } },
   },
@@ -562,6 +584,7 @@ P:NPC {
       choices = {
         { text = "Tark says he can't read you.", next = "tark" },
         { text = "What are you really training for?", next = "training" },
+        { text = "What do you think of Lady Proudmoore?", next = "kt_jaina" },
         { text = "I'll watch from the other side.", next = "END" },
       },
     },
@@ -583,8 +606,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kt_jaina = {
+      big = true,
+      lines = { { id = "ktj_default", text = "My brother sailed with the Admiral's fleet when it came for Durotar, and he didn't come back. The Lady could have stopped her father with a word and a ship, they tell me, and instead she stood beside the orcs while he fell. I serve her because I swore to, and I'll keep that oath, but don't ask me to like it." } },
+      choices = {
+        { text = "She chose orcs over her own blood.", next = "BACK", reply = "She did, and my brother's in the sea for it. I'm glad someone outside the Guard sees it.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "Your brother followed a man who wouldn't hear reason.", next = "BACK", reply = "Maybe he did. That doesn't bring him home, and it doesn't make me love her for it.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jaina = { { id = "tp_ktjaina", text = "I keep my oath to the Lady, but my brother sailed with the Admiral and never came home." } },
     background = { { id = "tp_bg", text = "I came across as a girl with the fleet. I enlisted the day I was old enough, and Lana enlisted the day after to spite me." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't guess. Ask at the citadel." } },
   },

@@ -540,3 +540,347 @@ P:NPC {
     _none = { { id = "tp_none", text = "The living world has moved on without me, mortal. I know only stone and fire and regret." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Mistress Nagmara: Dark Iron hostess of the Grim Guzzler, sweet on Private Rocknot.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_nagmara", id = 9500, name = "Mistress Nagmara", role = "questgiver", tier = "quest",
+  temper = { "sly", "flirtatious" }, values = { "pleasure", "practical" },
+  notices = { "race", "quest" },
+  impression = {
+    first = "A Dark Iron hostess with an eye on the bar's sullen guard and a plan for him.",
+    third = "{name} brewed a love potion for Mistress Nagmara in the Grim Guzzler.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Well now, a new face in the Guzzler, and not one of the Emperor's sour-mouthed guards. Sit a while, sweetling, I don't bite unless I'm asked." },
+    { id = "g_potion", when = { questActive = TODO_QUEST("The Love Potion") }, text = "Have ye got my ingredients, love? Rocknot isn't getting any sweeter on his own, and neither am I getting any younger." },
+    { id = "g_back", when = { questDone = TODO_QUEST("The Love Potion") }, text = "There's my favourite matchmaker! Rocknot and I have been getting on famously, thanks to you." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A surface dwarf with a proper beard on him. If ye weren't a Bronzebeard I might be tempted, but a girl has her standards." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Nagmara, and I keep the Grim Guzzler's guests happy, one way or another. Most nights it's easy work, but there's one guard by the taps who won't so much as look at me." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else on yer mind, sweetling?" },
+        { id = "h_again2", text = "Go on, I've time for a charming stranger." },
+      },
+      choices = {
+        { text = "Which guard won't look at you?", next = "rocknot" },
+        { text = "This is an odd place for romance.", next = "guzzler" },
+        { text = "What do you need from me?", next = "potion" },
+        { text = "A Dark Iron flirting with a Bronzebeard. Now I've seen everything.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    rocknot = {
+      lines = { { id = "r_default", text = "Private Rocknot, the big brute minding the kegs. He's got eyes only for Plugger's thunderbrew and never for me, and I'm sick of losing to a barrel." } },
+      choices = {
+        { text = "What does he see in the ale?", next = "rocknot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rocknot2 = {
+      lines = { { id = "r2_default", text = "Courage, I'd guess, and a reason not to think about who he serves. Every guard in this city drinks to forget the fire lord under their boots, and Rocknot just drinks more than most." } },
+      choices = {
+        { text = "Then maybe he needs kindness, not a potion.", next = "BACK", reply = "Kindness! Oh, aren't ye sweet. Kindness never got a Dark Iron anything but a knife in the back, love.", fx = { align = { light = 1 } } },
+        { text = "If he won't come willingly, make him.", next = "BACK", reply = "Now there's someone who understands how things are done in Shadowforge. I like ye already.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guzzler = {
+      lines = { { id = "gu_default", text = "Odd? This is the only warm place in the city that doesn't belong to the Emperor or his priests. Plugger Spazzring pours, the patrons drink, and nobody asks too many questions as long as the taps keep running." } },
+      choices = {
+        { text = "What happens if the taps stop?", next = "guzzler2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guzzler2 = {
+      lines = { { id = "gu2_default", text = "Then the whole room turns on whoever stopped them, and I'd not want to be that fool. Mind yerself around Plugger's kegs, sweetling, he counts every drop." } },
+      choices = {
+        { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    potion = {
+      lines = { { id = "p_default", text = "A love potion, brewed right. I need Gromsblood, silver from the big veins, and a vial of water from the hot springs in Un'Goro Crater, and none of that grows down here in the dark." } },
+      choices = {
+        { text = "Un'Goro is a long way to go for a crush.", next = "potion2" },
+        { text = "I'll fetch what you need.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    potion2 = {
+      lines = { { id = "p2_default", text = "It's a long way for me, love, but you're the one with the legs for it. Bring it all back and I'll make it worth yer while, and Rocknot will finally learn what he's been missing." } },
+      choices = {
+        { text = "Drugging a man is a low trick.", next = "BACK", reply = "Low? Darling, this is Blackrock Depths. Everything worth having down here is had by a low trick.", fx = { align = { order = 1 } } },
+        { text = "Love is a battle. Fight however you like.", next = "BACK", reply = "Spoken like someone who's won a few. Off with ye, then, and hurry back.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dwarf = {
+      lines = { { id = "d_default", text = "Ha! Don't flatter yerself, I was only looking. Yer folk and mine have three hundred years of blood between us, but a pretty face is a pretty face in any clan." } },
+      choices = {
+        { text = "Maybe our clans will make peace someday.", next = "BACK", reply = "Not while Thaurissan's line sits on the throne, love. But it's a sweet thought, I'll grant ye.", fx = { align = { light = 1 } } },
+        { text = "Your clan burned Ironforge's kin. No peace for that.", next = "BACK", reply = "Aye, and yer clan buried mine under a mountain. We'll call it even and order another round.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Gossip's for the bar, love, and I'm only interested in one man's business tonight." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Dughal Stormwing: a Wildhammer prisoner in the Detention Block, freed during Jail Break.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_dughal", id = 9022, name = "Dughal Stormwing", role = "prisoner", tier = "service",
+  temper = { "proud", "restless" }, values = { "free", "loyal" },
+  notices = { "race" },
+  greetings = {
+    { id = "g_default", text = "Ye've a key, or ye've an axe, and either one will do. Get me out of this cage before the jailers come back round!" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Dughal Stormwing, of the Wildhammer clan of Aerie Peak. The Dark Irons dragged me down here after a skirmish in the Hinterlands' south, and I've not seen the sky since." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A cousin from Ironforge! I'll not hold the beard trimming against ye today. Dughal Stormwing of Aerie Peak, and I'd kiss ye for that key." },
+      },
+      again = { { id = "h_again", text = "Aye? Ask quick, the jailers have ears." } },
+      choices = {
+        { text = "How did the Dark Irons catch a Wildhammer?", next = "caught" },
+        { text = "Marshal Windsor is in these cells too.", next = "windsor" },
+        { text = "Go. Find your way out.", next = "END" },
+      },
+    },
+    caught = {
+      lines = { { id = "c_default", text = "My gryphon took a bolt and we came down hard on the slopes, and before I'd my wits back there were a dozen of them on me. I'd sooner have been eaten by a wyvern than walked in chains through that great gate." } },
+      choices = {
+        { text = "Your gryphon may still live.", next = "BACK", reply = "Aye, I'll hold to that, for it's a hope that costs nothing. Thank ye for saying it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    windsor = {
+      lines = { { id = "w_default", text = "The Stormwind marshal? He's the one with the plan, and if he says we run, we run. I'd follow any man who can keep his head after what they've done to him in here." } },
+      choices = {
+        { text = "Stand with him, then. Every blade counts.", next = "BACK", reply = "I've no blade, but I've two fists and a grudge, and that'll do.", fx = { align = { order = 1 } } },
+        { text = "Forget Windsor. Save yourself.", next = "BACK", reply = "Spoken like a lowlander. A Wildhammer doesn't leave a friend in a cage, not even a Stormwind one.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask me again under the open sky, friend, and I'll tell ye anything ye like." } } },
+}
+
+---------------------------------------------------------------------------
+-- Tobias Seecher: one of Windsor's old band, a prisoner in the Halls of the Law.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_tobias", id = 9679, name = "Tobias Seecher", role = "prisoner", tier = "service",
+  temper = { "wry", "weary" }, values = { "loyal" },
+  greetings = {
+    { id = "g_default", text = "Easy, I'm not one of the dangerous ones, whatever the guards have told you. Is that a key, or are you just glad to see me?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "Tobias Seecher. I rode with Marshal Windsor's company when we came to look into this mountain, and the Dark Irons took the lot of us in one bad night." } },
+      again = { { id = "h_again", text = "Anything else, before they notice the door's open?" } },
+      choices = {
+        { text = "What happened to Windsor's company?", next = "company" },
+        { text = "Who are the others in these cells?", next = "cells" },
+        { text = "Get moving.", next = "END" },
+      },
+    },
+    company = {
+      lines = { { id = "co_default", text = "Some died on the road, some died in here, and the marshal they kept apart from the rest of us. He found out something about Onyxia and the court in Stormwind, and the Dark Irons wanted it out of him badly." } },
+      choices = {
+        { text = "Then Stormwind must hear what he knows.", next = "BACK", reply = "That's what I've been telling the walls for months. Glad someone finally answered.", fx = { align = { order = 1 } } },
+        { text = "Stormwind left you to rot. Why bother?", next = "BACK", reply = "Fair point, but I'd rather prove them wrong than prove them right.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cells = {
+      lines = { { id = "ce_default", text = "Murderers, mostly, and a Scarlet zealot who prays louder than the jailers shout. I'd leave most of those doors shut if I were you, because not everyone in here will thank you for opening them." } },
+      choices = {
+        { text = "I'll keep that in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I've been in a cell for longer than I care to count, friend, so I don't know much about anything lately." } } },
+}
+
+---------------------------------------------------------------------------
+-- Crest Killer: a dwarf convict in the Halls of the Law who won't thank anyone for his freedom.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_crest_killer", id = 9680, name = "Crest Killer", role = "prisoner", tier = "service",
+  temper = { "menacing", "sneering" }, values = { "self" },
+  greetings = {
+    { id = "g_default", text = "Well, look who's come to visit. Ye'd best have a good reason for standing so close to my door." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "They call me Crest Killer, and I earned the name with more noble houses than ye can count. The Dark Irons lock up their worst in these halls, so ye can guess how proud I am to be here." } },
+      again = { { id = "h_again", text = "Still here? Brave or daft, I can't tell which." } },
+      choices = {
+        { text = "What did you do to earn that name?", next = "name" },
+        { text = "Would you fight the jailers if I freed you?", next = "free" },
+        { text = "I'll leave your door shut.", next = "END" },
+      },
+    },
+    name = {
+      lines = { { id = "n_default", text = "I hunted the ones who wore crests, lords and their heirs, and I took their signet rings as proof. Gold buys a knife easier than it buys loyalty, and I was always for sale." } },
+      choices = {
+        { text = "You deserve the cell you're in.", next = "BACK", reply = "Aye, likely. Deserving never had much to do with where a dwarf ends up.", fx = { align = { light = 1 } } },
+        { text = "A killer for hire is still honest work.", next = "BACK", reply = "Ha! At last, someone who understands a trade when they see one.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    free = {
+      lines = { { id = "f_default", text = "Where I come from, ye get shanked for opening another inmate's cell door. Think on that a good long while before ye reach for the lock." } },
+      choices = {
+        { text = "Understood.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask the jailers, friend. I'm not in the habit of answering questions for free." } } },
+}
+
+---------------------------------------------------------------------------
+-- Ograbisi: an ogre prisoner sharing a cell with the orc Jaz.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_ograbisi", id = 9677, name = "Ograbisi", role = "prisoner", tier = "service",
+  temper = { "brutish", "hungry" }, values = { "self" },
+  greetings = {
+    { id = "g_default", text = "You smell like food that walks. Ograbisi is very hungry, and the little dwarfs only bring gruel." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "Ograbisi was a strong one in the mountain, and the dwarfs needed six chains to bring him in here. Now he sits with the orc and the orc talks too much." } },
+      again = { { id = "h_again", text = "Ograbisi is still hungry. You want something more?" } },
+      choices = {
+        { text = "The orc is your cellmate?", next = "jaz" },
+        { text = "Why did the dwarves lock you up?", next = "why" },
+        { text = "Enjoy your gruel.", next = "END" },
+      },
+    },
+    jaz = {
+      lines = { { id = "j_default", text = "Jaz, he is called, and he says the Horde will come for him one day. Ograbisi says the Horde does not come for anybody down here, and then Jaz is quiet for a while." } },
+      choices = {
+        { text = "The Horde never forgets its own.", next = "BACK", reply = "Then the Horde is very slow, little one. Ograbisi has counted many gruels.", fx = { align = { order = 1 } } },
+        { text = "Nobody's coming for either of you.", next = "BACK", reply = "Ograbisi knows. That is why Ograbisi is so hungry and so angry.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Ograbisi ate the Emperor's cattle, and then the Emperor's cattle man. The dwarfs did not think that was funny at all." } },
+      choices = {
+        { text = "I can't think why not.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ograbisi does not know that. Ograbisi knows hungry and Ograbisi knows chains." } } },
+}
+
+---------------------------------------------------------------------------
+-- Shill Dinger: a Scarlet Crusader imprisoned by the Dark Irons, still preaching.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_shill_dinger", id = 9678, name = "Shill Dinger", role = "prisoner", tier = "service",
+  temper = { "zealous", "suspicious" }, values = { "pious" },
+  notices = { "race" },
+  greetings = {
+    { id = "g_default", text = "Halt! Before you come one step nearer, tell me whether you are clean of the plague, stranger." },
+    { id = "g_undead", when = { race = "Scourge" }, text = "Abomination! Even in this pit the Light sends me trials, and you are the foulest of them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I am Shill Dinger, a soldier of the Scarlet Crusade. I came south hunting the taint of the Scourge, and these heathen dwarves threw me in chains for my trouble." } },
+      again = { { id = "h_again", text = "Speak, and be quick about it. My prayers are not finished." } },
+      choices = {
+        { text = "What brought a Crusader to Blackrock?", next = "why" },
+        { text = "The Crusade kills innocents in Lordaeron.", next = "crusade" },
+        { text = "Pray on, then.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Rumours of necromancy among the dark dwarves, and a fire that burns without the Light's blessing. I found the fire, and I found it far worse than any rumour." } },
+      choices = {
+        { text = "Your faith hasn't failed you here?", next = "BACK", reply = "Never. Every lash only proves the Light is testing me for something greater." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crusade = {
+      lines = { { id = "c_default", text = "There are no innocents in a plagued land, only the dead and those who have not yet died. If that sounds cruel to you, then you have never watched your neighbours rise from their graves." } },
+      choices = {
+        { text = "Cruelty in the Light's name is still cruelty.", next = "BACK", reply = "Spoken like someone who has never had to burn a village to save a kingdom.", fx = { align = { light = 1 } } },
+        { text = "Someone has to make the hard choices.", next = "BACK", reply = "At last, a voice of sense in this pit. The Crusade would welcome you, stranger.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I know only the Light and the evils it opposes. Ask me of those or ask me nothing." } } },
+}
+
+---------------------------------------------------------------------------
+-- High Executioner Nuzrak: Kargath's headsman, who keeps the Horde's grudge against the Dark Irons.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_nuzrak", id = 9538, name = "High Executioner Nuzrak", role = "guard", tier = "service",
+  temper = { "grim", "stern" }, values = { "honor", "duty" },
+  notices = { "faction" },
+  greetings = {
+    { id = "g_default", text = "You stand before the executioner of Kargath. Speak plainly, for I have little patience for wasted words." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "An Alliance face, this close to my axe. Speak your business and pray it is a good one." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I am Nuzrak, and when the Horde judges a traitor in the Badlands, it is my axe that carries out the sentence. Kargath watches the Blackrock and the Dark Irons both, and my work is never finished." } },
+      again = { { id = "h_again", text = "What else, {class}?" } },
+      choices = {
+        { text = "Whom have you executed?", next = "traitors" },
+        { text = "What do you know of the Dark Irons below?", next = "darkiron" },
+        { text = "Lok'tar.", next = "END", when = { faction = "Horde" } },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    traitors = {
+      lines = { { id = "t_default", text = "Orcs who forgot their blood and sold themselves to the Blackrock clan, mostly. Grark Lorkrub was one, and he begged before the end, which shamed him more than the axe did." } },
+      choices = {
+        { text = "Traitors deserve the axe.", next = "BACK", reply = "They do. A Horde that forgives betrayal will not be a Horde for long.", fx = { align = { order = 1 } } },
+        { text = "Perhaps they had their reasons.", next = "BACK", reply = "Every traitor has reasons. That is why we do not listen to them.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkiron = {
+      lines = { { id = "d_default", text = "They build their city beneath the mountain and bow to a fire lord, and the Blackrock orcs above them bow to a dragon. If there is a nest of serpents in all of Azeroth, it is that peak." } },
+      choices = {
+        { text = "Then it should be cleansed.", next = "BACK", reply = "Yes. Go down there, and come back with the proof, and I will remember your name." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I am an executioner, not a scholar. Ask someone with softer hands." } } },
+}

@@ -2,7 +2,7 @@
 -- The rest of the Zandalar camp on Yojamba Isle (kept consistent with yojamba.lua), Short John Mithril of the
 -- Gurubashi Arena, and "Sea Wolf" MacKinley and "Shaky" Phillipe of Booty Bay. Voice: bibles/yojamba.md, bibles/booty_bay_salty.md
 local P = RPGDialogueAPI:Pack("rpgd.stranglethorn")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 -- Al'tabim the All-Seeing: Zandalar seer on Yojamba Isle.
 P:NPC {
@@ -434,5 +434,467 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a sailor once, a brave one, believe it or not. Now I just try to get through each day." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, honest! Please don't tell anyone I said so." } },
+  },
+}
+
+-- Elder Starglade: a night elf ancestor-spirit who keeps the Lunar Festival watch outside Zul'Gurub.
+P:NPC {
+  key = "stv_elder_starglade", id = 15596, name = "Elder Starglade", gender = "male",
+  role = "elder", tier = "quest",
+  temper = { "calm", "solemn" }, values = { "memory", "vigilance" },
+  notices = { "race", "travel" },
+  impression = {
+    first = "A pale, silver spirit of a kaldorei elder, standing calm before the troll city's gates.",
+    third = "{name} honoured Elder Starglade, whose spirit keeps watch before Zul'Gurub at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Be welcome, traveller. Few come to these gates with peace in their hearts, so I am glad of the company." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to an old spirit's vigil. The moon remembers you, and so do I." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Starglade the Elder") }, text = "You carry the festival's blessing with you. Come, and I will give you what the ancestors give." },
+  },
+  notice = {
+    { id = "n_elf", cat = "race", when = { race = "NightElf" }, text = "A child of the kaldorei, so far from the boughs of Teldrassil. Elune's light finds you even under this jungle." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" }, text = "A troll at the gates of Zul'Gurub. I hope you came to mourn this place and not to serve what wakes inside it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Starglade, and once I walked these lands before there were jungles or troll empires to fill them. Now, each year at the turning of the moon, my spirit returns to honour those who honour the old ways." } },
+      again = {
+        { id = "h_again", text = "Ask what you will. The night is long, and I am in no hurry." },
+        { id = "h_again2", text = "Speak on, young one. Spirits have patience in plenty." },
+      },
+      choices = {
+        { text = "Why does your spirit stand here, of all places?", next = "place" },
+        { text = "Tell me about the Lunar Festival.", next = "festival" },
+        { text = "You must have seen the trolls at their height.", next = "trolls" },
+        { text = "Do the kaldorei still honour you, Elder?", next = "kin", when = { race = "NightElf" } },
+        { text = "I go in peace, Elder.", next = "END" },
+      },
+    },
+    place = {
+      lines = { { id = "p_default", text = "Because the Gurubashi wake their blood god in there, and something old must watch the door. I cannot raise a hand against Hakkar, but I can remember, and remembering is a kind of guard." } },
+      choices = {
+        { text = "Who is Hakkar?", next = "hakkar" },
+        { text = "Then I'll remember with you. Something else.", next = "BACK" },
+      },
+    },
+    hakkar = {
+      lines = { { id = "hk_default", text = "The Soulflayer, a god of blood the Gurubashi called into this world long ago. Their own priests once cast him out at great cost, and now the Atal'ai and others would bring him back. The Zandalar on their isle to the north watch it with grave faces.", fx = { learn = { "hakkar" } } } },
+      choices = {
+        { text = "Then someone should storm the city and end it.", next = "BACK", reply = "Bravely said. Bring many friends, for the Gurubashi do not die easily.", fx = { align = { valor = 1 } } },
+        { text = "Let the trolls clean up their own mess.", next = "BACK", reply = "A cold answer, but an honest one. Yet a god of blood does not keep to one people's lands.", fx = { align = { valor = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "At the new year the elders return, and the living seek us out to give thanks and take a coin of blessing. The heart of it lies in Moonglade, where the druids gather and Elune's light is strongest." } },
+      choices = {
+        { text = "What happens in Moonglade?", next = "moonglade" },
+        { text = "I'll come back with the festival's blessing.", next = "BACK" },
+      },
+    },
+    moonglade = {
+      lines = { { id = "m_default", text = "Feasting, fireworks and old friends, and on certain nights the ancient Omen stirs beneath the lake. They say it was Elune's light that drove him down long ago, and the rockets remind him of it still." } },
+      choices = {
+        { text = "Fireworks to fight a demigod? I'd like to see that.", next = "BACK" },
+        { text = "A festival for spirits is a gentle thing. Something else.", next = "BACK" },
+      },
+    },
+    trolls = {
+      lines = { { id = "t_default", text = "I saw them when they were mighty, and I saw them when they were cruel, and often it was the same day. The Gurubashi raised stone above these trees while my people were still learning their own magic." } },
+      choices = { { text = "And now their stone is falling apart.", next = "BACK" } },
+    },
+    kin = {
+      lines = { { id = "k_default", text = "Some do, in the old houses, and that is enough for me. Carry my name home to Darnassus, and tell the priestesses that Starglade still keeps watch in the south." } },
+      choices = { { text = "I will carry it, Elder. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "An elder of the kaldorei, long dead and still remembered. The moon brings me back each year." } },
+    _none = { { id = "tp_none", text = "That I do not know. The living keep their own news, and I keep only memory." } },
+  },
+}
+
+-- Elder Winterhoof: a tauren ancestor-spirit on the roof of the Booty Bay bank during the Lunar Festival.
+P:NPC {
+  key = "stv_elder_winterhoof", id = 15576, name = "Elder Winterhoof", gender = "male",
+  role = "elder", tier = "quest",
+  temper = { "warm", "wry" }, values = { "earth", "memory" },
+  notices = { "race" },
+  impression = {
+    first = "An old tauren spirit sits on the bank roof as if it were a hilltop, watching the harbour.",
+    third = "{name} climbed the roofs of Booty Bay to find Elder Winterhoof's spirit at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho, you found me. Not many think to climb up here, and fewer manage it without falling into the bay." },
+    { id = "g_back", when = { metBefore = true }, text = "Back on my roof again, little one? Mind the gulls; they think it belongs to them." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Winterhoof the Elder") }, text = "You have come seeking the elders. Sit a moment, and receive the blessing of the Earth Mother." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A shu'halo, this far from Mulgore. The Earth Mother walks with her children wherever the sea takes them." },
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" }, text = "A goblin come to visit a ghost. Do not look for coin up here, friend; I died with none." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Winterhoof, an elder of my tribe in the days when my people still wandered. When the new year turns, the Earth Mother lets my spirit come back and look upon the world a little while." } },
+      again = {
+        { id = "h_again", text = "What else, little one? The view is fine and I have nowhere to be." },
+        { id = "h_again2", text = "Ask away. The harbour will not mind us talking." },
+      },
+      choices = {
+        { text = "Why a goblin rooftop, Elder?", next = "roof" },
+        { text = "What does the Lunar Festival mean to the tauren?", next = "festival" },
+        { text = "You lived through the centaur wars, then?", next = "wander" },
+        { text = "The Winterhoof still dwell in Mulgore, Elder.", next = "tribe", when = { race = "Tauren" } },
+        { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    roof = {
+      lines = { { id = "r_default", text = "Because from here I can see the sea and the jungle both, and the sea is a thing I never saw in life. The goblins below make a great deal of noise, but even they cannot spoil the sunrise." } },
+      choices = {
+        { text = "What do you think of the goblins?", next = "goblins" },
+        { text = "It is a fine view. Something else.", next = "BACK" },
+      },
+    },
+    goblins = {
+      lines = { { id = "gb_default", text = "They build and they sell and they never sit still, and they would sell the sky if they could find a buyer. I do not hate them for it. The Earth Mother made the restless ones too." } },
+      choices = {
+        { text = "Their greed will burn the world one day.", next = "BACK", reply = "Perhaps, if no one keeps them honest. That is a task for the living.", fx = { align = { balance = 1 } } },
+        { text = "Trade makes the world turn. Good for them.", next = "BACK", reply = "Ha. Spoken like a goblin, though you do not look like one.", fx = { align = { balance = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is a time to remember those who walked before you. The druids of Moonglade call it a kaldorei feast, but every people honours its dead, and the shu'halo sing for theirs beneath the same moon." } },
+      choices = {
+        { text = "Who should I seek next?", next = "others" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = { { id = "o_default", text = "There are many of us scattered across the world. Look near the gates of Zul'Gurub in this very jungle; old Starglade keeps his vigil there, though he is a gloomy one." } },
+      choices = { { text = "I'll seek him out. Something else.", next = "BACK" } },
+    },
+    wander = {
+      lines = { { id = "w_default", text = "I lived through enough of them to grow tired of the word war. In my day we followed the herds and moved with the seasons, and the centaur followed us like wolves follow kodo." } },
+      choices = { { text = "Now Cairne has given your people a home.", next = "BACK" } },
+    },
+    tribe = {
+      lines = { { id = "t_default", text = "Then they have done well, and Cairne Bloodhoof with them. Tell my descendants that their elder sat on a goblin's roof and laughed, and that he was proud of them." } },
+      choices = { { text = "I will tell them, Elder. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A tauren elder of the Winterhoof, long gone to the Earth Mother. I come back at the festival to see what my people have made of the world." } },
+    _none = { { id = "tp_none", text = "The dead do not hear much gossip, little one. Ask the goblins; they hear everything." } },
+  },
+}
+
+-- Se'Jib: jungle troll leatherworking master who teaches the Tribal craft near the Mizjah Ruins.
+P:NPC {
+  key = "stv_sejib", id = 7871, name = "Se'Jib", gender = "male",
+  role = "trainer", tier = "quest",
+  temper = { "proud", "laconic" }, values = { "craft", "tradition" },
+  notices = { "profession", "race" },
+  impression = {
+    first = "A lean jungle troll works hides at a lonely camp, his knife never stopping.",
+    third = "{name} sought out Se'Jib, the troll who teaches Tribal Leatherworking in Stranglethorn.",
+  },
+  greetings = {
+    { id = "g_default", text = "You walk soft for a stranger, mon. Se'Jib is busy, but he can talk while he works." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back to Se'Jib. Good. Most who leave this camp do not." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Tribal Leatherworking") }, text = "Ah, you be the one who wants the tribal way. Show Se'Jib you are ready, and he will show you everything." },
+  },
+  notice = {
+    { id = "n_lw", cat = "profession", when = { profession = "Leatherworking" }, text = "Your fingers be stained and scarred. You work leather, eh? Then we speak the same tongue already." },
+    { id = "n_alliance", cat = "faction", when = { faction = "Alliance" }, text = "You come from the Alliance side. Se'Jib does not care so long as you keep your blade sheathed in his camp." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Se'Jib teaches the tribal way of leather, the way my fathers did it long before the Horde came to these shores. Hides, bone, feather and paint, and spirit in every stitch." } },
+      again = {
+        { id = "h_again", text = "What else you want, mon? The hide is drying." },
+        { id = "h_again2", text = "Speak quick. Se'Jib's knife be getting bored." },
+      },
+      choices = {
+        { text = "What makes tribal leather different?", next = "craft" },
+        { text = "Why work out here, so far from Grom'gol?", next = "camp" },
+        { text = "These jungles look dangerous for a lone craftsman.", next = "jungle" },
+        { text = "I work leather. Teach me the tribal way.", next = "teach", when = { profession = "Leatherworking" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    craft = {
+      lines = { { id = "c_default", text = "Elemental leather be cut for the storm, and dragonscale for the fight. Tribal leather be made for the hunt, so it bends with you and smells like the jungle and the beasts never know you coming." } },
+      choices = {
+        { text = "So it's about the hunter, not the hide.", next = "spirit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirit = {
+      lines = { { id = "s_default", text = "Now you start to understand. The beast gives its skin, so you honour it with good work and no waste. The old loa be watching, and they don't like wasted hides." } },
+      choices = {
+        { text = "Every part used. That is the right way.", next = "BACK", reply = "Yah. You have a good heart for this.", fx = { align = { tradition = 1 } } },
+        { text = "A hide is a hide. Spirits don't pay.", next = "BACK", reply = "Heh. Then you will make good armour and bad leather, mon.", fx = { align = { tradition = -1 } } },
+      },
+    },
+    camp = {
+      lines = { { id = "cp_default", text = "Grom'gol be full of orcs shouting and wyverns screaming. Out here Se'Jib can hear the river, and the tigers and raptors come right to me for skinning." } },
+      choices = { { text = "That's one way to find stock. Something else.", next = "BACK" } },
+    },
+    jungle = {
+      lines = { { id = "j_default", text = "Dangerous for the soft ones. The Bloodscalp and Skullsplitter fight each other in the ruins, and the Gurubashi in the east fight everybody. Se'Jib keeps his head down and his fire small." } },
+      choices = { { text = "Then I'll keep mine down too.", next = "BACK" } },
+    },
+    teach = {
+      lines = { { id = "t_default", text = "Se'Jib teaches only the ones who already know the basic cuts well. Master the craft, then come to Se'Jib, and he will teach you to make armour that moves like a panther." } },
+      choices = { { text = "I'll prove myself to you. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "Jungle troll, leatherworker, teacher of the tribal way. Nothing more you need to know." } },
+    _none = { { id = "tp_none", text = "Se'Jib knows leather and jungle, mon. Ask somebody else about that." } },
+  },
+}
+
+-- Drunken Bruiser: a goblin bruiser off duty during the festival nights, deep in his cups.
+P:NPC {
+  key = "stv_drunken_bruiser", id = 15724, name = "Drunken Bruiser", gender = "male",
+  role = "guard", tier = "service",
+  temper = { "loud", "maudlin" }, values = { "coin" },
+  impression = {
+    first = "A burly goblin sways on his feet, a bottle in one fist and his club in the other.",
+    third = "{name} met a Drunken Bruiser celebrating in Booty Bay.",
+  },
+  greetings = {
+    { id = "g_default", text = "Heyyy, friend! You look like a friend. Are you a friend? Because I got a club for the other kind." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! I remember you. I think. Did I owe you money?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Festival night, pal! The boss says we're off duty till the fireworks stop, so I'm making the most of it." } },
+      again = { { id = "h_again", text = "What? Oh, you're still here. Good, good. What was I saying?" } },
+      choices = {
+        { text = "Shouldn't a bruiser be keeping the peace?", next = "peace" },
+        { text = "What are you celebrating, exactly?", next = "celebrate" },
+        { text = "You've had enough. I'm leaving.", next = "END" },
+      },
+    },
+    peace = {
+      lines = { { id = "p_default", text = "I am keeping it! Look, nobody's fighting, are they? That's because they all know I'm here, and I'm very scary." } },
+      choices = {
+        { text = "You can barely stand up.", next = "stand" },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    stand = {
+      lines = { { id = "s_default", text = "I can stand fine, it's the dock that's moving. Don't tell Baron Revilgaz, all right? He docks our pay for leaning." } },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", reply = "You're a real pal. A real, real pal.", fx = { align = { order = -1 } } },
+        { text = "A guard who drinks on watch deserves the sack.", next = "BACK", reply = "Off watch! Off! Ugh, you sound like my foreman.", fx = { align = { order = 1 } } },
+      },
+    },
+    celebrate = {
+      lines = { { id = "c_default", text = "Everything! The fireworks, the free grog, the fact that nobody got eaten by a shark this week. In Booty Bay, that's a holiday all by itself." } },
+      choices = { { text = "I'll drink to the sharks going hungry.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Huh? No idea, pal. Ask me again when I'm sober, which is tomorrow. Maybe." } },
+  },
+}
+
+-- Gremnik Rizzlesprang: the ghost of a goblin wizard and smuggler who still haunts Booty Bay.
+P:NPC {
+  key = "stv_gremnik_rizzlesprang", id = 16123, name = "Gremnik Rizzlesprang", gender = "male",
+  role = "ghost", tier = "service",
+  temper = { "sly", "bitter" }, values = { "coin", "secrets" },
+  impression = {
+    first = "A pale goblin ghost drifts by the water, still counting coins he can no longer hold.",
+    third = "{name} met the ghost of Gremnik Rizzlesprang, a goblin wizard and smuggler of Booty Bay.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh, you can see me? Wonderful. Nobody's looked me in the eye in ages, and I've got so much to complain about." },
+    { id = "g_back", when = { metBefore = true }, text = "Back to visit old Gremnik? I'm touched. Well, I'd be touched if I had anything to touch with." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Gremnik Rizzlesprang, wizard, merchant and importer of goods the Baron didn't need to hear about. Late of Booty Bay, and I do mean late." } },
+      again = { { id = "h_again", text = "Still here? Me too. Forever, it seems." } },
+      choices = {
+        { text = "So you were a smuggler.", next = "smuggle" },
+        { text = "How does a wizard end up a ghost?", next = "death" },
+        { text = "Rest easy, Gremnik.", next = "END" },
+      },
+    },
+    smuggle = {
+      lines = { { id = "s_default", text = "Smuggler is such an ugly word. I moved goods quietly past people who wanted a cut, and the cut I saved went into my pocket. It's the goblin way, really." } },
+      choices = {
+        { text = "Sounds like theft with extra steps.", next = "BACK", reply = "Everything in this town is theft with extra steps, friend.", fx = { align = { order = 1 } } },
+        { text = "Clever work. I respect that.", next = "BACK", reply = "Finally, someone with taste.", fx = { align = { order = -1 } } },
+      },
+    },
+    death = {
+      lines = { { id = "d_default", text = "Badly, and with a great deal of money still owed to me. Some partners don't like to be cut out of a deal, and some spells don't work as well under water." } },
+      choices = {
+        { text = "Who killed you?", next = "who" },
+        { text = "That's grim. Something else.", next = "BACK" },
+      },
+    },
+    who = {
+      lines = { { id = "w_default", text = "Oh, I've a list, and none of them would thank me for saying. This is Booty Bay, friend. You keep your mouth shut, even after it stops breathing." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "If I knew, I'd sell it to you. Since I don't, go ask a living goblin." } },
+  },
+}
+
+-- Landro Longshot: a well-connected goblin broker in Booty Bay, flanked by hired muscle.
+P:NPC {
+  key = "stv_landro_longshot", id = 17249, name = "Landro Longshot", gender = "male",
+  role = "merchant", tier = "service",
+  temper = { "smooth", "guarded" }, values = { "coin", "connections" },
+  impression = {
+    first = "A sharply dressed goblin with two bodyguards who look bored and dangerous.",
+    third = "{name} did business with Landro Longshot, a goblin broker of Booty Bay.",
+  },
+  greetings = {
+    { id = "g_default", text = "Friend! Come in close, the boys won't bite. Landro Longshot, and I deal in the rare and the remarkable." },
+    { id = "g_back", when = { metBefore = true }, text = "A returning customer! You see, boys? Quality attracts quality." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "If it's unusual and someone wants it, I can find it, for a price. Fair prices, mind you, because Landro's reputation is worth more than any one deal." } },
+      again = { { id = "h_again", text = "What else can Landro do for you, friend?" } },
+      choices = {
+        { text = "What sort of rare goods?", next = "goods" },
+        { text = "Why the bodyguards?", next = "guards" },
+        { text = "Not today, Landro.", next = "END" },
+      },
+    },
+    goods = {
+      lines = { { id = "gd2_default", text = "Curios, trinkets, strange little things from all over the world. Some folk bring me a token and I turn it into something they can hold." } },
+      choices = {
+        { text = "Where do you get them?", next = "source" },
+        { text = "Interesting. Something else.", next = "BACK" },
+      },
+    },
+    source = {
+      lines = { { id = "s_default", text = "Here and there, and mostly from people who don't want their names on anything. That's the beauty of Booty Bay: the Cartel doesn't ask, and I don't tell." } },
+      choices = {
+        { text = "Honest dealing beats secrets every time.", next = "BACK", reply = "Sure, sure, and I'm honest about my secrets. That counts.", fx = { align = { order = 1 } } },
+        { text = "Sounds like my kind of town.", next = "BACK", reply = "Ha! Stick around, friend. You'll fit right in.", fx = { align = { order = -1 } } },
+      },
+    },
+    guards = {
+      lines = { { id = "gd_default", text = "Because the rare and remarkable attract the rude and the stabby. The boys keep conversations polite, and they've never lost me a customer yet." } },
+      choices = { { text = "They do look polite. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That's not my line, friend. But if you find something on it, bring it to Landro." } },
+  },
+}
+
+-- Rebel Watchman: one of the Stormwind deserters keeping watch over the Rebel Camp.
+P:NPC {
+  key = "stv_rebel_watchman", id = 754, name = "Rebel Watchman", gender = "male",
+  role = "guard", tier = "service",
+  temper = { "wary", "tired" }, values = { "loyalty", "honour" },
+  impression = {
+    first = "A weathered soldier in mismatched armour keeps his eyes on the jungle.",
+    third = "{name} met a Rebel Watchman guarding the Rebel Camp in northern Stranglethorn.",
+  },
+  greetings = {
+    { id = "g_default", text = "Halt there. You're not a troll and you're not a panther, so I suppose you can pass." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Lieutenant Doren's inside if you've business with him." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Keep your hands where I can see them. We've trouble enough from the jungle without the Horde at our gate." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We keep watch day and night here, because the Kurzen trolls and the jungle beasts both like a stray soldier for supper." } },
+      again = { { id = "h_again", text = "Anything else? Quick, I'm meant to be watching the tree line." } },
+      choices = {
+        { text = "Why do they call this the Rebel Camp?", next = "rebels" },
+        { text = "Who are the Kurzen?", next = "kurzen" },
+        { text = "Stay sharp, soldier.", next = "END" },
+      },
+    },
+    rebels = {
+      lines = { { id = "r_default", text = "We served under Colonel Kurzen, sent south by Stormwind to fight the trolls. When he turned his men into something foul with troll magic and madness, Lieutenant Doren and the rest of us walked away." } },
+      choices = {
+        { text = "Then Stormwind calls you deserters?", next = "deserters" },
+        { text = "That took courage. Something else.", next = "BACK" },
+      },
+    },
+    deserters = {
+      lines = { { id = "d_default", text = "Some in Stormwind do, aye, and it stings. We never left our duty; we left a madman, and we've been fighting his men ever since." } },
+      choices = {
+        { text = "Orders are orders. You broke your oath.", next = "BACK", reply = "Then you never had a commander like Kurzen. Pray you never do.", fx = { align = { order = 1 } } },
+        { text = "You did right to leave him.", next = "BACK", reply = "Thank you. We don't hear that often.", fx = { align = { order = -1 } } },
+      },
+    },
+    kurzen = {
+      lines = { { id = "k_default", text = "Kurzen's men, the ones who stayed, hold the compound east of here. They've gone half wild, and they've jungle trolls fighting at their side now." } },
+      choices = { { text = "I'll keep clear of the east. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't tell you. Ask Lieutenant Doren; he knows more than I do." } },
+  },
+}
+
+-- Ziggle Sparks: Booty Bay's holiday fireworks seller.
+P:NPC {
+  key = "stv_ziggle_sparks", id = 8116, name = "Ziggle Sparks", gender = "male",
+  role = "vendor", tier = "service",
+  temper = { "excitable", "singed" }, values = { "coin", "spectacle" },
+  impression = {
+    first = "A goblin with singed eyebrows and a cart of rockets that hums faintly.",
+    third = "{name} bought fireworks, or nearly did, from Ziggle Sparks in Booty Bay.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step right up! Rockets, crackers, sparklers, and nothing in my stock has exploded early in, oh, days!" },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more boom? Nice! Mind the cart, it's a little warm." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Ziggle Sparks, holiday fireworks, the finest in Booty Bay. When there's a festival, there's a sky to fill, and I fill it!" } },
+      again = { { id = "h_again", text = "Anything else? I've got a fuse burning somewhere, I'm sure of it." } },
+      choices = {
+        { text = "Are these things safe?", next = "safe" },
+        { text = "What happened to your eyebrows?", next = "brows" },
+        { text = "I'll pass for now.", next = "END" },
+      },
+    },
+    safe = {
+      lines = { { id = "s_default", text = "Safe is a relative word, pal. Point them up, stand back, and don't light them near the powder kegs on the docks, and you'll be fine." } },
+      choices = {
+        { text = "Fireworks in a wooden town? That's reckless.", next = "BACK", reply = "Reckless? It's tradition! Mostly reckless tradition.", fx = { align = { caution = 1 } } },
+        { text = "Give me the biggest one you've got.", next = "BACK", reply = "Now that's a customer! Just sign this waiver first.", fx = { align = { caution = -1 } } },
+      },
+    },
+    brows = {
+      lines = { { id = "b_default", text = "Product testing, pal! Every rocket I sell, I've lit one just like it, so you know it works." } },
+      choices = {
+        { text = "That's oddly reassuring.", next = "test" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test = {
+      lines = { { id = "t_default", text = "It should be! My cousin skipped the testing once, and now the Steamwheedle won't let him near anything sharper than a spoon." } },
+      choices = { { text = "Good to know. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea, pal! But I bet it'd look great with a rocket going off behind it." } },
   },
 }

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-23): The Overlooked
+- Characters who had no conversation now have one (core 0.105.0).
+
 ## 1.34.0 (2026-11-23)
 - Andi Lynn and Meridith deepened.
 

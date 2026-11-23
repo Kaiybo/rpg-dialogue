@@ -174,3 +174,71 @@ P:NPC {
     },
   },
 }
+
+-- Elder Starweave: a night elf ancestor-spirit in Auberdine during the Lunar Festival.
+P:NPC {
+  key = "ds_elder_starweave", id = 15601, name = "Elder Starweave", gender = "female",
+  role = "elder", tier = "quest",
+  temper = { "serene", "wise" }, values = { "memory", "Elune" },
+  notices = { "race" },
+  impression = {
+    first = "A silver kaldorei spirit stands by the shore of Auberdine, her gaze on the dark sea.",
+    third = "{name} honoured Elder Starweave in Auberdine at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah, traveller. The festival moon has brought you to me." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Elune smiles on those who remember." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Starweave the Elder") }, text = "You seek the blessing of the elders. Come, and receive mine." },
+  },
+  notice = {
+    { id = "n_elf", cat = "race", when = { race = "NightElf" }, text = "A daughter or son of the kaldorei. Your ancestors are glad of you." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A dwarf on our shores. Your people's ships have been good friends to Auberdine." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Starweave, and once I wove the starlight into songs for the Sisters of Elune. Now each year the moon lets me return to these shores I loved." } },
+      again = {
+        { id = "h_again", text = "Speak, child. The tide is patient, and so am I." },
+        { id = "h_again2", text = "What else would you know?" },
+      },
+      choices = {
+        { text = "Why return to Darkshore?", next = "shore" },
+        { text = "What is the Lunar Festival to the kaldorei?", next = "festival" },
+        { text = "Darkshore seems troubled these days.", next = "troubled" },
+        { text = "I serve Elune too, Elder.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Elune keep you, Elder.", next = "END" },
+      },
+    },
+    shore = {
+      lines = { { id = "s_default", text = "I walked these shores when the forests were young and the sea was gentle. The land has changed, but the moon on the water has not." } },
+      choices = { { text = "It is a beautiful sight. Something else.", next = "BACK" } },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "It is our oldest rite, the honouring of the elders. In Moonglade, the druids open their sanctuary, and we wake the ancient Omen with light." } },
+      choices = {
+        { text = "Who is Omen?", next = "omen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    omen = {
+      lines = { { id = "o_default", text = "A great beast of the old wars, cursed and driven beneath Moonglade's lake. Each festival the fireworks stir him, and brave souls drive him back down." } },
+      choices = {
+        { text = "I would fight him gladly.", next = "BACK", reply = "Then bring friends and bright rockets.", fx = { align = { valor = 1 } } },
+        { text = "Some sleeping beasts are best left sleeping.", next = "BACK", reply = "Wise, perhaps. Yet tradition is tradition.", fx = { align = { valor = -1 } } },
+      },
+    },
+    troubled = {
+      lines = { { id = "t_default", text = "Yes, the furbolgs have gone mad and the old ruins stir with the restless dead. The Sentinels of Auberdine need every hand they can find." } },
+      choices = { { text = "I'll lend mine. Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = { { id = "p_default", text = "Then you know her light does not fade, even for the dead. Carry it gently, and she will carry you." } },
+      choices = { { text = "Thank you, Elder. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "An elder of the kaldorei, a weaver of songs for the Sisters of Elune." } },
+    _none = { { id = "tp_none", text = "That I do not know, child. Ask the Sentinels." } },
+  },
+}

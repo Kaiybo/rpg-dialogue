@@ -570,3 +570,61 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "Miblon does not know. Miblon is hungry." } } },
 }
+
+-- Elder Grimtotem: a tauren ancestor honored at the Lunar Festival, at Lariss Pavilion.
+P:NPC {
+  key = "fer_elder_grimtotem", id = 15581, name = "Elder Grimtotem", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "lunar_elders" }, temper = { "solemn", "stern" }, values = { "memory", "tradition" },
+  notices = { "race" },
+  impression = {
+    first = "A tauren elder spirit who bears the Grimtotem name, yet speaks without their bitterness.",
+    third = "{name} honored Elder Grimtotem, a tauren ancestor who stands at Lariss Pavilion.",
+  },
+  greetings = {
+    { id = "g_default", text = "The Earth Mother sees you, traveler. You have walked a long way through these forests." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival brings me back once more. Come, honor an elder, and I will honor you in turn." },
+    { id = "g_honored", when = { questDone = TODO_QUEST("Grimtotem the Elder") }, text = "You have already honored me. Go now, and walk well." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A child of the Shu'halo. You look at my name and wonder, I think." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Grimtotem, an elder of the tauren. I lived long before my clan turned to hatred, and I mourn what they have become." } },
+      again = { { id = "h_again", text = "Speak, young one." } },
+      choices = {
+        { text = "What happened to the Grimtotem?", next = "clan" },
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "I've come to honor you, Elder.", next = "honor" },
+        { text = "Do you blame the clan, Elder?", next = "blame", when = { race = "Tauren" } },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    clan = {
+      lines = { { id = "c_default", text = "They follow Magatha now, and they hate all who are not tauren. Even the tauren of Thunder Bluff they call traitors." } },
+      choices = {
+        { text = "Then they must be stopped.", next = "BACK", reply = "Stopped, yes. I hope not destroyed.", fx = { align = { mercy = -1 } } },
+        { text = "Perhaps they can be called home again.", next = "BACK", reply = "That is my prayer, every year I return.", fx = { align = { mercy = 1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "The turning of the year, when the elders walk among the living again. Honor us, and we give you a coin of ancestry." } },
+      choices = { { text = "I see. Something else.", next = "BACK" } },
+    },
+    honor = {
+      lines = { { id = "h2_default", text = "Then take this coin, and my blessing. Carry the old ways with you, and do not let them turn to hatred as my kin did.", fx = { offer = TODO_QUEST("Grimtotem the Elder") } } },
+      choices = { { text = "Thank you, Elder Grimtotem.", next = "BACK" } },
+    },
+    blame = {
+      narr = "The spirit's shoulders sink for a moment.",
+      lines = { { id = "b_default", text = "I blame the fear that grew in them, and the whispers of their leaders. A clan is its people, and people can change in either direction." } },
+      choices = { { text = "Then there is hope.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That, I do not know." } },
+  },
+}

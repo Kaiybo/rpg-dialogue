@@ -159,3 +159,61 @@ P:NPC {
     },
   },
 }
+
+-- Elder Brightspear: a night elf ancestor honored at the Lunar Festival, at the Ruins of Kel'Theril.
+P:NPC {
+  key = "ws_elder_brightspear", id = 15606, name = "Elder Brightspear", gender = "female",
+  role = "questgiver", tier = "quest",
+  communities = { "lunar_elders" }, temper = { "gentle", "melancholy" }, values = { "memory", "faith" },
+  notices = { "race" },
+  impression = {
+    first = "A night elf elder spirit standing in the snow among the broken stones of Kel'Theril.",
+    third = "{name} honored Elder Brightspear, a night elf ancestor among the ruins of Kel'Theril.",
+  },
+  greetings = {
+    { id = "g_default", text = "Peace, traveler. The snow is cold, but the memory of this place is colder." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come, and you found me even here. That pleases me." },
+    { id = "g_honored", when = { questDone = TODO_QUEST("Brightspear the Elder") }, text = "You have honored me once. Carry it well, and keep warm." },
+  },
+  notice = {
+    { id = "n_elf", cat = "race", when = { race = "NightElf" },
+      text = "A Kaldorei walks among these ruins. Do you know what they once were?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Brightspear, an elder of the Kaldorei. I come to Kel'Theril each year at the festival, to remember what was lost here." } },
+      again = { { id = "h_again", text = "Ask what you wish." } },
+      choices = {
+        { text = "What happened at Kel'Theril?", next = "ruins" },
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "I've come to honor you, Elder.", next = "honor" },
+        { text = "What were these ruins, Elder?", next = "highborne", when = { race = "NightElf" } },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    ruins = {
+      lines = { { id = "r_default", text = "It was a city of the Highborne once, proud and full of magic. Their pride brought the Sundering, and the snow covered what was left." } },
+      choices = {
+        { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { mercy = -1 } } },
+        { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { mercy = 1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "The new year, when the elders walk among the living. Find us, honor us, and you carry a coin of ancestry as a token of our blessing." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+    },
+    honor = {
+      lines = { { id = "h2_default", text = "Then I accept, and I give you this coin. May the moon light your path through the snow.", fx = { offer = TODO_QUEST("Brightspear the Elder") } } },
+      choices = { { text = "Thank you, Elder Brightspear.", next = "BACK" } },
+    },
+    highborne = {
+      narr = "She looks at the frozen lake for a long while before answering.",
+      lines = { { id = "hb_default", text = "Homes and libraries of the Highborne, before Azshara's madness. Some of them still linger here as ghosts, weeping. Be kind to them if you can." } },
+      choices = { { text = "I will, Elder.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I do not know, child." } },
+  },
+}

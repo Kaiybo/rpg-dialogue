@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.40.0 (2026-11-23): The Overlooked
+- Characters who had no conversation now have one (core 0.105.0).
+
 ## 1.39.0 (2026-11-23)
 - Sergeant Hartman, the Strange Snowman, Voggah Deathgrip and the Hillsbrad tailor deepened.
 

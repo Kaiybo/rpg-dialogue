@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-23): The Overlooked
+- Characters who had no conversation now have one (core 0.105.0).
+
 ## 1.20.0 (2026-11-23)
 - Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
 

@@ -368,3 +368,314 @@ P:NPC {
     },
   },
 }
+
+---------------------------------------------------------------------------
+-- Elder Riversong: a kaldorei elder honoured at the Lunar Festival.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_elder_riversong", id = 15605, name = "Elder Riversong", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "calm" }, values = { "tradition", "memory" },
+  notices = { "race", "faction" },
+  impression = {
+    first = "An ancient night elf sits among the ferns of Ashenvale, his hair silver as moonlight on water. He hums a melody that seems older than the trees.",
+    third = "{name} paid respects to Elder Riversong of the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah, traveller. The festival has drawn you to an old elf's resting place, and you are welcome here." },
+    { id = "g_back", when = { metBefore = true }, text = "Elune brings you back to me. Sit, and listen to the water with me a while." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Riversong, and I have heard the waters of Ashenvale for longer than your kingdoms have had names. In this season the people honour their elders, and I am content to be honoured." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Riversong the Elder") }, text = "You have come to honour the elders, and so you have honoured me. Take this coin of ancestry, and remember those who came before you." },
+        { id = "h_horde", when = { faction = "Horde" }, text = "You come from the Horde, and yet you come in peace during the festival. Ashenvale does not see that often, so I will not waste it." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you hear, young one?" },
+        { id = "h_again2", text = "The river is patient, and so am I. Ask." },
+      },
+      choices = {
+        { text = "What does the festival mean to the kaldorei?", next = "festival" },
+        { text = "Why are you called Riversong?", next = "name" },
+        { text = "You must have seen a great deal.", next = "seen" },
+        { text = "The Horde takes this forest's trees. Does that grieve you?", next = "trees", when = { faction = "Horde" } },
+        { text = "Elune-adore, Elder.", next = "END" },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "We remember the night Omen was driven into Elune's waters at Moonglade, and we remember our ancestors who fought in the old wars. The druids keep the festival now, and they keep it well." } },
+      choices = {
+        { text = "Did you fight in those wars?", next = "wars" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wars = {
+      lines = { { id = "w_default", text = "I was young when the Legion first came, and I carried water for the Sentinels rather than a blade. I remember the Well's fall, though, and I remember the silence that came after it." } },
+      choices = {
+        { text = "The Highborne deserved what came to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Not every Highborne chose that folly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      lines = { { id = "n_default", text = "My mother named me for the sound the Falfarren makes in spring. I have lived beside rivers all my life, and they have never given me a reason to leave." } },
+      choices = { { text = "A gentle name for a gentle life.", next = "BACK" } },
+    },
+    seen = {
+      lines = { { id = "s_default", text = "Ten thousand years of seasons, and they blur together more than you might hope. What remains is a few faces and a few songs, and those I would not trade for anything." } },
+      choices = {
+        { text = "Sing me one of them.", next = "song" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    song = {
+      lines = { { id = "sg_default", text = "Riversong hums a few bars, low and sweet, and the ferns seem to lean in to listen. That one was my mother's, and I have sung it every festival since she went to Elune." } },
+      choices = { { text = "Thank you, Elder.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    trees = {
+      lines = { { id = "t_default", text = "It grieves me more than you can know, but I have learned that grief does not plant saplings. Take what you must, young one, and leave the old groves standing." } },
+      choices = { { text = "I'll remember that.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That is not a song I know. Ask the druids of Moonglade, for they know far more than an old elf by a river." } } },
+}
+
+---------------------------------------------------------------------------
+-- Raynewood Retreat: Keeper Ordanus and the guardians of his grove.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_keeper_ordanus", id = 4273, name = "Keeper Ordanus", gender = "male",
+  role = "keeper", tier = "service",
+  communities = { "cenarion" }, temper = { "stern" }, values = { "nature", "duty" },
+  notices = { "race", "class", "faction" },
+  impression = {
+    first = "A keeper of the grove, half elf and half stag, stands at the top of Raynewood Retreat. Vines curl about his antlers, and his eyes are full of old patience and new anger.",
+    third = "{name} stood before Keeper Ordanus, a son of Cenarius, at Raynewood Retreat.",
+  },
+  greetings = {
+    { id = "g_default", text = "You stand in the Raynewood, mortal, among the children of Cenarius. Speak gently here." },
+    { id = "g_druid", when = { class = "DRUID" }, text = "A druid climbs to my grove, and the Dream stirs to welcome you. Be at ease." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Ordanus, keeper of this grove and son of Cenarius. I guard Raynewood against those who would burn it, and of late there are a great many of those." } },
+      again = { { id = "h_again", text = "What else would you ask of a keeper?" } },
+      choices = {
+        { text = "Who threatens Raynewood?", next = "threat" },
+        { text = "You are a son of Cenarius?", next = "cenarius" },
+        { text = "I'll not disturb your grove.", next = "END" },
+      },
+    },
+    threat = {
+      lines = { { id = "t_default", text = "The orcs of Splintertree and the Warsong camps cut ever closer with their axes and their goblin machines. Worse, I hear the Horde has put a price on my own head, as though a keeper were a wolf in a pasture." } },
+      choices = {
+        { text = "The Horde will regret it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps you could make terms with them.", next = "terms" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    terms = {
+      lines = { { id = "tr_default", text = "Terms were made, once, and the orcs broke them when Grom Hellscream slew my father. The forest remembers that blood, even if the young chieftains would rather it did not." } },
+      choices = {
+        { text = "Then there can be no peace.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thrall's Horde isn't Hellscream's.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    cenarius = {
+      lines = { { id = "c_default", text = "I am, as are all the keepers of the grove. My father fell here in Ashenvale, and his sons have watched over these woods ever since, though we are fewer than we were." } },
+      choices = { { text = "I'm sorry for your loss.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That is a matter for others. The Raynewood is mine to guard, and I will not leave it." } } },
+}
+
+P:NPC {
+  key = "ash_cenarion_protector", id = 3797, name = "Cenarion Protector", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "cenarion" }, temper = { "stern" }, values = { "nature", "duty" },
+  notices = { "class", "race" },
+  impression = {
+    first = "A night elf druid in leaves and bark stands guard at the foot of Raynewood Retreat, his staff planted firmly in the moss.",
+    third = "{name} spoke with a Cenarion Protector guarding Keeper Ordanus.",
+  },
+  greetings = {
+    { id = "g_default", text = "Halt and be known. Keeper Ordanus rests above, and no one climbs to him without our leave." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We protect the keeper and his grove, alongside the laughing sisters and the faerie dragons. The Horde has grown bold in these woods, and so we have grown watchful." } },
+      again = { { id = "h_again", text = "Is there something more?" } },
+      choices = {
+        { text = "Laughing sisters and faerie dragons?", next = "sisters" },
+        { text = "How bold has the Horde grown?", next = "horde" },
+        { text = "I'll go in peace.", next = "END" },
+      },
+    },
+    sisters = {
+      lines = { { id = "s_default", text = "Dryads and blink dragons, spirits of the wild who love Ordanus as we do. They seem playful, but they will drive off any axe-wielder who climbs too far." } },
+      choices = { { text = "I'll keep my axe sheathed, then.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "h2_default", text = "Bold enough to cut within sight of the Retreat, and bold enough to send killers after the keeper himself. We drove off three of them this moon alone." } },
+      choices = {
+        { text = "The Horde should be driven from Ashenvale.", next = "drive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drive = {
+      lines = { { id = "d_default", text = "The Sentinels would agree with you, and Astranaar would welcome your blade. We are druids, though, and we would rather the forest healed than burned again." } },
+      choices = {
+        { text = "Healing is wiser than war.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Some wounds need a blade first.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask at Astranaar. We keep to the grove." } } },
+}
+
+P:NPC {
+  key = "ash_cenarion_vindicator", id = 3833, name = "Cenarion Vindicator", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "cenarion" }, temper = { "stern" }, values = { "nature", "duty" },
+  notices = { "class", "faction" },
+  impression = {
+    first = "A young keeper of the grove stands at the top of Raynewood Retreat, hooves planted and antlers lowered, guarding Ordanus with the stillness of an old oak.",
+    third = "{name} met one of the Cenarion Vindicators guarding Keeper Ordanus.",
+  },
+  greetings = {
+    { id = "g_default", text = "You have climbed far, little one. Speak your purpose before the keeper's guardians lose their patience." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am one of Ordanus's vindicators, and I stand at his side until the forest is safe again. That may be a very long time, and I do not mind." } },
+      again = { { id = "h_again", text = "What more do you seek?" } },
+      choices = {
+        { text = "Are you also a son of Cenarius?", next = "son" },
+        { text = "What do you vindicate?", next = "vindicate" },
+        { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    son = {
+      lines = { { id = "s_default", text = "All the keepers are kin, in one way or another, and Ordanus is an elder brother to me. I have sworn to him as he swore to our father." } },
+      choices = {
+        { text = "What happened to your father?", next = "father" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father = {
+      lines = { { id = "f_default", text = "Cenarius fell in Ashenvale to an orc's axe, when the orcs still carried the demons' blood in them. The forest has not forgotten, and neither have I." } },
+      choices = {
+        { text = "Hellscream paid for it with his life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Those orcs were enslaved to demons.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    vindicate = {
+      lines = { { id = "v_default", text = "The forest's right to live, and the keeper's right to keep it. We are not soldiers, but those who harm this grove learn quickly that we fight like them." } },
+      choices = { { text = "I understand.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I know only the grove. Ask the Sentinels for the rest." } } },
+}
+
+---------------------------------------------------------------------------
+-- Horde folk: a Forsaken herbalist at Bathran's Haunt and a Splintertree raider in Torek's band.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_forsaken_herbalist", id = 3733, name = "Forsaken Herbalist", gender = "male",
+  role = "worker", tier = "service",
+  communities = { "undercity" }, temper = { "cold" }, values = { "knowledge" },
+  notices = { "race", "faction" },
+  impression = {
+    first = "A Forsaken in a stained apron kneels among the ruins of Bathran's Haunt, pinching leaves into a satchel with bony fingers. The smell of rot and crushed herbs hangs about him.",
+    third = "{name} met a Forsaken herbalist working at Bathran's Haunt.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step carefully. That patch is mine, and it has taken weeks to find anything worth picking in this wretched forest." },
+    { id = "g_undead", when = { race = "Scourge" }, text = "Ah, one of our own. You'll forgive me if I don't get up; my knees are older than my grudges." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I gather for the Apothecarium, which means I spend my nights crawling through elven ruins in search of weeds. The Dark Lady's work is rarely dignified." } },
+      again = { { id = "h_again", text = "Anything else? The light is fading, and I work better without it." } },
+      choices = {
+        { text = "What does the Apothecarium want with these herbs?", next = "herbs" },
+        { text = "Isn't this ruin dangerous?", next = "ruin" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    herbs = {
+      lines = { { id = "hb_default", text = "Remedies, poisons and the odd experiment, depending on the apothecary's mood. Ashenvale grows things the Tirisfal soil forgot how to grow, and Undercity is very hungry for them." } },
+      choices = {
+        { text = "Poisons for the Scourge, I hope.", next = "poison" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    poison = {
+      lines = { { id = "p_default", text = "For the Scourge, certainly, and for whoever else Varimathras points at. You'll find the apothecaries are not picky about their customers." } },
+      choices = {
+        { text = "Whatever weakens our enemies is welcome.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That sounds like dangerous work to trust.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+    ruin = {
+      lines = { { id = "r_default", text = "The night elves come by now and then to kill us, and the ghosts here mutter in the dark. Neither bothers me much, since I have already been killed once and found it overrated." } },
+      choices = { { text = "That's one way to look at it.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know and I don't care. Ask someone with a heartbeat." } } },
+}
+
+P:NPC {
+  key = "ash_splintertree_raider", id = 12859, name = "Splintertree Raider", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "orgrimmar" }, temper = { "fierce" }, values = { "honor", "strength" },
+  notices = { "race", "class" },
+  impression = {
+    first = "An orc raider in Splintertree colours hefts his axe and stamps his feet, waiting for Torek's signal to march on the Silverwing Outpost.",
+    third = "{name} spoke with a Splintertree raider in Torek's war band.",
+  },
+  greetings = {
+    { id = "g_default", text = "You march with us, {class}? Good, for Torek wants every axe he can get when we hit the elves." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "We ride with Torek against the Silverwing Outpost. The elves have killed too many of our woodcutters, and today we answer them." },
+        { id = "h_orc", when = { race = "Orc" }, text = "A brother of the blood! Stand with me today, and we'll show the Silverwing how orcs fight." },
+      },
+      again = { { id = "h_again", text = "What is it? Speak quickly, the march is soon." } },
+      choices = {
+        { text = "Who is Torek?", next = "torek" },
+        { text = "Why attack the outpost?", next = "why" },
+        { text = "Lok'tar. I'll be ready.", next = "END" },
+      },
+    },
+    torek = {
+      lines = { { id = "t_default", text = "Torek leads the raids out of Splintertree Post, and he is the best of us. He fought at Mount Hyjal, and he does not waste warriors." } },
+      choices = { { text = "Then I'll follow him.", next = "BACK" } },
+    },
+    why = {
+      lines = { { id = "w_default", text = "The Silverwing Sentinels hunt our peons in the woods and leave them for the crows. We need this wood to build Orgrimmar, and we will not be frightened off it." } },
+      choices = {
+        { text = "Then we strike hard.", next = "strike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strike = {
+      lines = { { id = "s_default", text = "Hard and fast, before the elves can call their beasts. Some say we should leave the forest to them, but I have buried too many friends to hear that." } },
+      choices = {
+        { text = "The Horde takes what it needs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "There must be another way.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask Torek. I only swing the axe." } } },
+}

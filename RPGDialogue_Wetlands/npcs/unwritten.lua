@@ -77,3 +77,148 @@ P:NPC {
   },
 }
 
+
+---------------------------------------------------------------------------
+-- Dun Algaz mountaineers, Grugelm and Rharen, holding the pass at the southern end of the Wetlands.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wl_mountaineer_grugelm", id = 2466, name = "Mountaineer Grugelm", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge" }, temper = { "gruff" }, values = { "duty" },
+  notices = { "race" },
+  impression = {
+    first = "A thickset dwarf mountaineer stands at Dun Algaz with a rifle on his shoulder, glancing every so often at his partner as if they'd just been arguing.",
+    third = "{name} met Mountaineer Grugelm at Dun Algaz.",
+  },
+  greetings = {
+    { id = "g_default", text = "Halt there. Oh, ye're no orc, so ye can pass, but mind ye don't take Rharen's side in anything." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Grugelm, mountaineer of Ironforge, and I guard Dun Algaz with that great lump Rharen. The pass is the only road between Loch Modan and the Wetlands, and the Dragonmaw would dearly love to own it." } },
+      again = { { id = "h_again", text = "What else, {g:lad|lass}?" } },
+      choices = {
+        { text = "Tell me about the Dragonmaw.", next = "dragonmaw" },
+        { text = "You and Rharen don't get along?", next = "rharen" },
+        { text = "Hold the pass. Farewell.", next = "END" },
+      },
+    },
+    dragonmaw = {
+      lines = { { id = "d_default", text = "Orcs who rode red dragons in the Second War, and who haven't forgotten it. They hold Grim Batol and the ruins of Dun Modr, and they raid the road whenever they feel brave." } },
+      choices = {
+        { text = "They should be driven out entirely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then why not let them have the hills?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rharen = {
+      lines = { { id = "r_default", text = "We get along like a forge and a bucket of water, which is to say loudly. He's a good dwarf in a fight, mind, and I'd not trade him, though I'll deny I said so." } },
+      choices = {
+        { text = "What do you argue about?", next = "argue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    argue = {
+      lines = { { id = "a_default", text = "Whose turn it is on watch, whose turn it is to cook, and who drank the last of the stout. He'll tell ye it was me, and he'll be lying." } },
+      choices = { { text = "I'll keep out of it.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask in Menethil." } } },
+}
+
+P:NPC {
+  key = "wl_mountaineer_rharen", id = 2469, name = "Mountaineer Rharen", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "ironforge" }, temper = { "cheerful" }, values = { "duty" },
+  notices = { "race" },
+  impression = {
+    first = "A ruddy-cheeked dwarf mountaineer grins at you from the Dun Algaz gate. His beard has crumbs in it, and he doesn't seem to mind.",
+    third = "{name} met Mountaineer Rharen at Dun Algaz.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ho there, traveller! Don't mind Grugelm's scowl, he was born with it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Rharen's the name, and watchin' this pass is the game. Loch Modan's just through the tunnel, and the Wetlands spread out to the north, so we see everybody comin' and goin'." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Come in, come in, there's a fire and there's stout, though Grugelm will swear there isnae." },
+      },
+      again = { { id = "h_again", text = "Anythin' else, friend?" } },
+      choices = {
+        { text = "What's the road north like?", next = "north" },
+        { text = "Grugelm says you drank the last stout.", next = "stout" },
+        { text = "Take care, mountaineer.", next = "END" },
+      },
+    },
+    north = {
+      lines = { { id = "n_default", text = "Wet, which ye might have guessed from the name, and full of raptors, crocolisks and Dragonmaw. Stick to the road until Menethil and ye'll do fine." } },
+      choices = {
+        { text = "What's at Menethil?", next = "menethil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    menethil = {
+      lines = { { id = "m_default", text = "The harbour, and ships to Darkshore and Theramore. Half of it's sinkin' into the bog, but the keep's sturdy and the ale is passable." } },
+      choices = { { text = "Thanks for the advice.", next = "BACK" } },
+    },
+    stout = {
+      lines = { { id = "s_default", text = "He would say that, the old liar! I'll admit to the second-to-last, but the last one was his, and the bottom of his mug will testify to it." } },
+      choices = {
+        { text = "I believe you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Cannae help ye there, friend. Ask Grugelm, if ye dare." } } },
+}
+
+---------------------------------------------------------------------------
+-- Maiden's Virtue Crewman: sailors from the Theramore ship at Menethil's docks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wl_maidens_virtue_crewman", id = 2099, name = "Maiden's Virtue Crewman", gender = "male",
+  role = "sailor", tier = "service",
+  communities = { "menethil" }, temper = { "cheerful" }, values = { "work" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A sunburnt sailor coils rope on the Menethil docks, humming a shanty under his breath. The name Maiden's Virtue is stitched on his cap.",
+    third = "{name} talked with a crewman of the Maiden's Virtue at Menethil Harbor.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ahoy, friend! If you're for Theramore, you'll be waitin' on the tide like the rest of us." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I crew the Maiden's Virtue, between here and Theramore across the sea. It's a long haul, but the lady's a good ship, and the captain's fair." } },
+      again = { { id = "h_again", text = "Anything else? These ropes won't coil themselves." } },
+      choices = {
+        { text = "What's Theramore like?", next = "theramore" },
+        { text = "Is the crossing dangerous?", next = "danger" },
+        { text = "Fair winds.", next = "END" },
+      },
+    },
+    theramore = {
+      lines = { { id = "t_default", text = "Clean and white and full of folk from Lordaeron, all of them following Lady Proudmoore. It's the only Alliance port in southern Kalimdor, so we're never short of passengers." } },
+      choices = { { text = "Sounds worth the trip.", next = "BACK" } },
+    },
+    danger = {
+      lines = { { id = "d_default", text = "There's storms, and there's naga in the deep, and there's whatever sank the old fleet off the Wetlands coast. Most crossings we just get wet and bored, mind." } },
+      choices = {
+        { text = "Whatever sank the old fleet?", next = "fleet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fleet = {
+      lines = { { id = "f_default", text = "There's wrecks along the coast north of here, and sailors swear their crews still walk the decks at night. I don't go near them, and neither should you." } },
+      choices = {
+        { text = "Ghost stories don't frighten me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll heed the warning.", next = "BACK", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't say, friend. I just sail where they point me." } } },
+}

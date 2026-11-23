@@ -228,3 +228,71 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea, friend. I just watch the wood." } },
   },
 }
+
+-- Elder Skychaser: a tauren ancestor-spirit atop Sentinel Tower during the Lunar Festival.
+P:NPC {
+  key = "wfl_elder_skychaser", id = 15577, name = "Elder Skychaser", gender = "female",
+  role = "elder", tier = "quest",
+  temper = { "gentle", "curious" }, values = { "memory", "the land" },
+  notices = { "race" },
+  impression = {
+    first = "An old tauren spirit stands at the top of Sentinel Tower, gazing over the empty fields.",
+    third = "{name} climbed Sentinel Tower to honour Elder Skychaser at the Lunar Festival.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ah, a visitor. You climbed a long way, little one, and I am glad of it." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to the tower. The wind is kinder up here than down among the fields." },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Skychaser the Elder") }, text = "You seek the elders, I see. Come, the Earth Mother's blessing is yours." },
+  },
+  notice = {
+    { id = "n_human", cat = "race", when = { race = "Human" }, text = "A human, come to honour a tauren spirit. The festival makes strange friends, and good ones." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "A shu'halo in the heart of human lands! You walked a dangerous road to find me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Skychaser, and in life I watched the skies over the plains of Kalimdor. At the Lunar Festival my spirit wanders, and this year it brought me to a tower in a land I never knew." } },
+      again = {
+        { id = "h_again", text = "Ask on, little one. I have time enough." },
+        { id = "h_again2", text = "What else stirs in your heart?" },
+      },
+      choices = {
+        { text = "A tauren spirit in human lands is strange.", next = "strange" },
+        { text = "What do you see from up here?", next = "fields" },
+        { text = "Tell me of the Lunar Festival.", next = "festival" },
+        { text = "These are my people's farms, Elder.", next = "farms", when = { race = "Human" } },
+        { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    strange = {
+      lines = { { id = "s_default", text = "The dead are not bound by borders, child. The moon shines on Alliance and Horde alike, and the ancestors go where they are needed." } },
+      choices = { { text = "That's a kind way to see it. Something else.", next = "BACK" } },
+    },
+    fields = {
+      lines = { { id = "f_default", text = "Fields gone to weeds and farmhouses standing empty. The land is sad here, and it remembers when it was tended with love." } },
+      choices = {
+        { text = "What happened to the farmers?", next = "farmers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    farmers = {
+      lines = { { id = "fa_default", text = "The soldiers at the foot of this tower speak of thieves in red masks and hungry folk driven from their homes. The People's Militia tries to hold what remains." } },
+      choices = {
+        { text = "The Defias must be crushed.", next = "BACK", reply = "Perhaps. But remember why they grew so many.", fx = { align = { order = 1 } } },
+        { text = "Stormwind failed these people first.", next = "BACK", reply = "Hm. A hard truth, if it is true.", fx = { align = { order = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "fe_default", text = "It is when the living remember us and we bless them in turn. The heart of it lies in Moonglade, where the druids keep the old rites." } },
+      choices = { { text = "I'll seek the other elders too. Something else.", next = "BACK" } },
+    },
+    farms = {
+      lines = { { id = "fm_default", text = "Then I pray they bloom again. The land wants to give, child; it only needs hands willing to work it." } },
+      choices = { { text = "I'll do what I can. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A tauren elder who once watched the stars over Kalimdor, and now wanders at the festival." } },
+    _none = { { id = "tp_none", text = "I cannot say, child. Ask the soldiers below." } },
+  },
+}

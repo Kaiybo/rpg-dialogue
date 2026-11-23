@@ -78,3 +78,60 @@ P:NPC {
     _none = { { id = "tp_none", text = "Dat I couldn't tell you, mon. Ask up at the Refuge, they write everything down." } },
   },
 }
+
+-- Elder Thunderhorn: a tauren ancestor honored at the Lunar Festival, at the Slithering Scar.
+P:NPC {
+  key = "ung_elder_thunderhorn", id = 15583, name = "Elder Thunderhorn", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "lunar_elders" }, temper = { "booming", "kindly" }, values = { "memory", "nature" },
+  notices = { "race" },
+  impression = {
+    first = "A great tauren elder spirit standing among the steaming jungle, as calm as a mountain.",
+    third = "{name} honored Elder Thunderhorn, a tauren ancestor in Un'Goro Crater.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome, little one. The crater is loud with life, but I can still hear you." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival! It is good to walk among the living again, even in this wild place." },
+    { id = "g_honored", when = { questDone = TODO_QUEST("Thunderhorn the Elder") }, text = "You have honored me already. Go, and mind the devilsaurs." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "One of the Shu'halo, so far from Mulgore! The Earth Mother has led you well." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Thunderhorn, an elder of the tauren. I return each year at the festival, and I choose this crater because it reminds me of the world when it was young." } },
+      again = { { id = "h_again", text = "Ask, ask. I am in no hurry." } },
+      choices = {
+        { text = "Why does this crater remind you of the past?", next = "crater" },
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "I've come to honor you, Elder.", next = "honor" },
+        { text = "What did the Earth Mother teach you?", next = "earthmother", when = { race = "Tauren" } },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    crater = {
+      lines = { { id = "c_default", text = "The beasts here are old, older than the tauren, and the land is wild as it was when the titans shaped it. Few places remain so untouched." } },
+      choices = {
+        { text = "Then it should be protected.", next = "BACK", reply = "Yes. Let the gnomes and goblins tread lightly.", fx = { align = { order = 1 } } },
+        { text = "Wild places are meant to be explored.", next = "BACK", reply = "Explore, then. But listen while you walk.", fx = { align = { order = -1 } } },
+      },
+    },
+    festival = {
+      lines = { { id = "f_default", text = "The turning of the year, when the elders are remembered. Find us and honor us, and you carry our blessing in a coin of ancestry." } },
+      choices = { { text = "I'll find you all. Something else.", next = "BACK" } },
+    },
+    honor = {
+      lines = { { id = "h2_default", text = "I accept your honor gladly, little one. Take this coin, and walk with the strength of the ancestors.", fx = { offer = TODO_QUEST("Thunderhorn the Elder") } } },
+      choices = { { text = "Thank you, Elder Thunderhorn.", next = "BACK" } },
+    },
+    earthmother = {
+      lines = { { id = "e_default", text = "That all things are bound together, the hunter and the hunted, the river and the rain. Remember that, and you will never be truly lost." } },
+      choices = { { text = "I'll remember.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I do not know that, little one." } },
+  },
+}

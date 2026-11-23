@@ -115,7 +115,7 @@ P:NPC {
 -- Emi Shortfuse: a gnome engineer fighting to hold the workshop against the troggs.
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "dg_emi_shortfuse", id = TODO_NPC("Emi Shortfuse"), name = "Emi Shortfuse",
+  key = "dg_emi_shortfuse", id = 7998, name = "Blastmaster Emi Shortfuse",
   bible = "bibles/dg_emi_shortfuse.md", role = "event", tier = "quest",
   temper = { "brisk", "brave" }, values = { "practical", "dutiful" },
   notices = { "craft", "race" },
@@ -207,4 +207,114 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "Ask me again when we're not under attack!" } },
   },
+}
+
+---------------------------------------------------------------------------
+-- Tink Sprocketwhistle: engineering supplier in the Clean Zone, with business very slow.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_tink", id = 9676, name = "Tink Sprocketwhistle", title = "Engineering Supplies", role = "vendor", tier = "service",
+  temper = { "chipper", "harried" }, values = { "craft", "practical" },
+  notices = { "craft" },
+  greetings = {
+    { id = "g_default", text = "A customer! An actual, living, non-trogg customer! Come in, come in, mind the decontamination puddle." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
+      text = "An engineer, down here? Oh, you have no idea how long it's been since I talked torque ratios with someone who understood them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "Tink Sprocketwhistle, engineering supplies, at your service and very much open for business, though business has been down roughly ninety-seven percent since the troggs moved in. Still, the Clean Zone is clean, mostly, and my stock is excellent." } },
+      again = { { id = "h_again", text = "What else can I do for you? Anything at all, really, I'm not busy." } },
+      choices = {
+        { text = "Why stay in Gnomeregan at all?", next = "stay" },
+        { text = "What's the Clean Zone?", next = "clean" },
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Good luck, Tink.", next = "END" },
+      },
+    },
+    stay = {
+      lines = { { id = "s_default", text = "Because this is home, and somebody has to be here when we take it back! Besides, the rent in Ironforge is outrageous, and the dwarves keep asking me to stop testing things indoors." } },
+      choices = {
+        { text = "Gnomeregan will be yours again someday.", next = "BACK", reply = "That's the spirit! I've already drawn up the plans for the new storefront.", fx = { align = { order = 1 } } },
+        { text = "It's a tomb now. You should leave.", next = "BACK", reply = "A tomb with excellent ventilation, I'll have you know. Well, adequate ventilation.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clean = {
+      lines = { { id = "c_default", text = "It's the one stretch of the city we've scrubbed free of radiation, more or less, and the holdouts defend it from the troggs and Thermaplugg's leper gnomes. If you start glowing, please don't do it near the merchandise." } },
+      choices = { { text = "I'll try not to glow.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, friend, though if you need a wrench for it, I've got eleven kinds." } } },
+}
+
+---------------------------------------------------------------------------
+-- Holdout Medic: a gnome keeping the Clean Zone's defenders patched up.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_holdout_medic", id = 6392, name = "Holdout Medic", role = "soldier", tier = "service",
+  temper = { "frazzled", "kind" }, values = { "duty" },
+  greetings = { { id = "g_default", text = "Are you hurt? Irradiated? Both? Hold still and let me have a look at you." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I patch up the holdouts who defend the Clean Zone, and lately I've been patching faster than they can get hurt again, which is a terrible ratio. The troggs come in waves and the radiation never stops." } },
+      again = { { id = "h_again", text = "Anything else? I've got bandages boiling." } },
+      choices = {
+        { text = "How bad is the radiation?", next = "rad" },
+        { text = "Who are the holdouts?", next = "holdouts" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    rad = {
+      lines = { { id = "r_default", text = "Bad enough that the gnomes who stayed behind went mad and pale, and now they serve Thermaplugg. If you feel a tingle in your teeth, turn around and walk briskly toward the exit." } },
+      choices = {
+        { text = "Thermaplugg should hang for this.", next = "BACK", reply = "Hanging's too good for him, but I'd settle for it.", fx = { align = { light = -1 } } },
+        { text = "Those lepers were your people once. Pity them.", next = "BACK", reply = "I do, every time I have to fight one. That's what makes it so hard.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    holdouts = {
+      lines = { { id = "h2_default", text = "Gnomes who refused to leave when Mekkatorque ordered the retreat, or who came back afterward because they couldn't stand to watch from Ironforge. We're stubborn folk, and stubborn is all that's keeping this corner of the city ours." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I'm a medic, not a mechanic. Ask a technician, or better yet, ask Tink." } } },
+}
+
+---------------------------------------------------------------------------
+-- Holdout Technician: a gnome keeping the Clean Zone's machinery running.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dg_holdout_technician", id = 6407, name = "Holdout Technician", role = "soldier", tier = "service",
+  temper = { "busy", "precise" }, values = { "craft", "duty" },
+  greetings = { { id = "g_default", text = "Careful where you step, that cable carries enough current to curl your eyebrows permanently." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I keep the scrubbers, the lights and the turrets running so the Clean Zone stays clean. Every hour something breaks, and every hour I fix it, and the troggs chew through another cable just to spite me." } },
+      again = { { id = "h_again", text = "Make it quick, the third relay is sparking again." } },
+      choices = {
+        { text = "What happened to Gnomeregan?", next = "fall" },
+        { text = "Can the city be saved?", next = "save" },
+        { text = "Carry on.", next = "END" },
+      },
+    },
+    fall = {
+      lines = { { id = "f_default", text = "The troggs came up from below, and High Tinker Mekkatorque flooded the city with radiation to stop them, on Thermaplugg's advice. It didn't stop them, and it killed most of us instead." } },
+      choices = {
+        { text = "Mekkatorque made a terrible choice.", next = "BACK", reply = "He did, and he knows it better than anyone. That's why he wants the city back so badly.", fx = { align = { order = -1 } } },
+        { text = "He did what he had to. Thermaplugg betrayed him.", next = "BACK", reply = "Aye, that's how I see it too, though not everyone in the Zone agrees.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    save = {
+      lines = { { id = "s_default", text = "Not by fixing relays, sadly, though it keeps us alive while we wait. Thermaplugg sits in the heart of the city, and until someone brings him down, we're just holding the door." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Not my department. Unless it's wired, I don't know about it." } } },
 }

@@ -112,3 +112,52 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not my business. Ask Lokhtos, if you've got the gold to make it his." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Enslaved Archaeologist: dwarven diggers held by the Dark Iron in the Slag Pit.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sg_enslaved_archaeologist", id = 8402, name = "Enslaved Archaeologist", gender = "male",
+  role = "captive", tier = "service",
+  communities = { "ironforge" }, temper = { "weary" }, values = { "knowledge", "survival" },
+  notices = { "race" },
+  impression = {
+    first = "A gaunt dwarf in a torn Explorers' League coat chips at the rock deep in the Slag Pit, his ankles chained and his hands black with soot.",
+    third = "{name} spoke with an enslaved archaeologist in the Slag Pit.",
+  },
+  greetings = {
+    { id = "g_default", text = "Quiet, quiet! If the overseers see me talkin', they'll take it out of my hide." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I came to the Gorge with the Explorers' League, and the Dark Irons caught us before we'd dug a single trench. Now we dig for them instead, and they're not kind employers." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "One of our own, free and armed! By my beard, I thought I'd never see it again." },
+      },
+      again = { { id = "h_again", text = "Quickly, what else?" } },
+      choices = {
+        { text = "What are they making you dig for?", next = "dig" },
+        { text = "How did you get captured?", next = "captured" },
+        { text = "I'll find a way to help.", next = "END" },
+      },
+    },
+    dig = {
+      lines = { { id = "d_default", text = "Ore and old relics, both, though they care more for the ore. Thaurissan's folk need iron for their forges, and the Gorge is full of it if you don't mind dyin' for it." } },
+      choices = {
+        { text = "The Dark Irons will pay for this.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your head down and live. Revenge can wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "They're dwarves too. Why do this?", next = "why" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because they've hated us since the War of the Three Hammers, and Ragnaros has their ear now. Whatever's down in the mountain has turned them crueller than they ever were." } },
+      choices = { { text = "Then someone must stop them.", next = "BACK" } },
+    },
+    captured = {
+      lines = { { id = "c_default", text = "We were mapping the old tunnels west of the pit when they came out of the dark with chains ready. Two of my friends fought back, and they're not with us any more." } },
+      choices = { { text = "I'm sorry.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I cannae think of anythin' but getting out of here. Ask me again when I'm free." } } },
+}

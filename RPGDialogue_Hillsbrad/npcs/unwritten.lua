@@ -684,3 +684,105 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know, pal, I've been a snowman all week." } },
   },
 }
+
+-- Captain Armando Ossex: Stormpike Guard captain in the cave at the Alterac Valley entrance.
+P:NPC {
+  key = "hb_armando_ossex", id = 16392, name = "Captain Armando Ossex", gender = "male",
+  role = "soldier", tier = "service",
+  communities = { "stormpike" }, temper = { "watchful", "proud" }, values = { "duty", "order" },
+  notices = { "faction" },
+  impression = {
+    first = "A human captain in Stormpike colors, pacing the cave mouth like a man waiting for an order.",
+    third = "{name} met Captain Armando Ossex of the Stormpike Guard at the gates of Alterac Valley.",
+  },
+  greetings = {
+    { id = "g_default", text = "Halt and state your business. If it's the valley, Vanndar needs every blade he can get." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from the Frostwolves' side, and I'd advise you to keep walking." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "faction", when = { race = "Dwarf" },
+      text = "A dwarf. The Stormpike will be glad of you; they say a human can't hold a line in the snow." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Captain Armando Ossex, Stormpike Guard. I hold this cave so the Horde doesn't come through it, and so our reinforcements can." } },
+      again = { { id = "h_again", text = "Something else, soldier?" } },
+      choices = {
+        { text = "What's happening in the valley?", next = "valley" },
+        { text = "Why is a human with the Stormpike?", next = "human" },
+        { text = "Carry on, Captain.", next = "END" },
+      },
+    },
+    valley = {
+      lines = { { id = "v_default", text = "The Stormpike dig for iron and the Frostwolf orcs say the valley is theirs. Neither side will give an inch, and the snow is red enough to prove it." } },
+      choices = {
+        { text = "Has anyone tried a truce?", next = "truce" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    truce = {
+      lines = { { id = "t_default", text = "Not that I've heard of. Vanndar wants the mines and Drek'Thar wants his home, and both are stubborn as mules." } },
+      choices = {
+        { text = "The orcs were there first. They have a claim.", next = "BACK", reply = "Maybe so, but my orders don't mention claims.", fx = { align = { honor = 1 } } },
+        { text = "The Alliance needs that iron. Take it.", next = "BACK", reply = "That's how Vanndar sees it, and I serve Vanndar.", fx = { align = { honor = -1 } } },
+      },
+    },
+    human = {
+      lines = { { id = "h2_default", text = "The Stormpike pay well and fight hard, and I'd had enough of guarding Southshore against nothing. A soldier goes where there's a war." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't say. Ask in the valley." } },
+  },
+}
+
+-- Hillsbrad Foreman: overseers of the miners at Azurelode Mine.
+P:NPC {
+  key = "hb_hillsbrad_foreman", id = 2503, name = "Hillsbrad Foreman", gender = "male",
+  role = "worker", tier = "service",
+  communities = { "hillsbrad" }, temper = { "harried", "gruff" }, values = { "work", "practical" },
+  notices = { "faction" },
+  impression = {
+    first = "A soot-smeared foreman with a ledger under one arm and a pick under the other.",
+    third = "{name} spoke with a Hillsbrad foreman at the Azurelode Mine.",
+  },
+  greetings = {
+    { id = "g_default", text = "If you're not here to dig, you're in the way. Unless you're here to guard; then stand over there." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Forsaken! To arms, lads, the dead are at the mine again!" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I run the crews at Azurelode. Copper and tin, mostly, and the odd vein of something better when the Light smiles." } },
+      again = { { id = "h_again", text = "Make it quick; the lads slack off when I'm not looking." } },
+      choices = {
+        { text = "Is the mine safe?", next = "safe" },
+        { text = "How's the work going?", next = "work" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    safe = {
+      lines = { { id = "s_default", text = "Not since the Forsaken took Tarren Mill. They raid us when they please, and the militia's stretched thin as it is." } },
+      choices = {
+        { text = "Then arm your miners and fight back.", next = "fight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fight = {
+      lines = { { id = "f_default", text = "They've picks, haven't they? Half of them fought in the Second War. But a miner's no soldier." } },
+      choices = {
+        { text = "Every man should defend his own home.", next = "BACK", reply = "Aye, and they will, if it comes to that.", fx = { align = { order = -1 } } },
+        { text = "Southshore should send proper guards.", next = "BACK", reply = "Tell Magistrate Henry that. I've tried.", fx = { align = { order = 1 } } },
+      },
+    },
+    work = {
+      lines = { { id = "w_default", text = "Slow. Every load of ore goes to Southshore, and Southshore sends us back half what it's worth. But a wage is a wage." } },
+      choices = { { text = "That's the way of it. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Ask in Southshore. I only know rocks." } },
+  },
+}

@@ -256,3 +256,56 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know nothin' 'bout dat, mon. Ask somebody wit' more time ta think." } },
   },
 }
+
+-- Earthcaller Franzahl: a high elf scholar of the elements, studying above Darkwhisper Gorge.
+P:NPC {
+  key = "hyj_earthcaller_franzahl", id = 14348, name = "Earthcaller Franzahl", gender = "male",
+  role = "scholar", tier = "service",
+  temper = { "distracted", "precise" }, values = { "knowledge", "elements" },
+  notices = { "class" },
+  impression = {
+    first = "A high elf scholar who keeps glancing at the gorge as if something might answer him.",
+    third = "{name} met Earthcaller Franzahl, a high elf who studies the elements on Mount Hyjal.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ah, a visitor. Do mind the edge; the gorge is deeper than it looks, and noisier." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? I've made some progress since we last spoke, though I fear the elements have not." },
+  },
+  notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" }, text = "A shaman! Then you speak to the elements as I only study them. Fascinating." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I am Franzahl, called the Earthcaller by those who are generous, and I study the elements of this world, both the known and the less known. Hyjal is a remarkable place to listen to them." } },
+      again = { { id = "h_again", text = "What else would you know? I'm always pleased to be distracted." } },
+      choices = {
+        { text = "What do the elements tell you here?", next = "elements" },
+        { text = "Do you work alone?", next = "alone" },
+        { text = "Good luck with your studies.", next = "END" },
+      },
+    },
+    elements = {
+      lines = { { id = "e_default", text = "That they are restless, and that the scars of the war against the Legion run deep in the stone. The demons' corruption lingers in Darkwhisper Gorge, and the earth itself seems to remember it." } },
+      choices = {
+        { text = "Should the corruption be purged?", next = "purge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purge = {
+      lines = { { id = "p_default", text = "Ideally, yes, but purging and understanding are not the same thing. I would rather know what it is before I try to destroy it, lest I make things worse." } },
+      choices = {
+        { text = "Understanding first, then. A wise path.", next = "BACK", reply = "Thank you. Not everyone has the patience for scholarship.", fx = { align = { order = 1 } } },
+        { text = "Burn it out before it spreads.", next = "BACK", reply = "Perhaps, but fire is an element too, and it has its own opinions.", fx = { align = { order = -1 } } },
+      },
+    },
+    alone = {
+      lines = { { id = "a_default", text = "Now I do. I once had an apprentice, Krixix, a goblin with a remarkable head for metals, but he went off on some venture of his own. I fear he did not come back." } },
+      choices = { { text = "I'm sorry to hear that. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "A quel'dorei scholar far from home. The elements are my study, and my company." } },
+    _none = { { id = "tp_none", text = "Hmm? Oh, I wouldn't know. The elements haven't mentioned it." } },
+  },
+}
