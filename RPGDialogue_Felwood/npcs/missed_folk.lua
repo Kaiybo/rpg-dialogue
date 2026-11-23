@@ -272,12 +272,12 @@ P:NPC {
 -- Nalesette Wildbringer (Talonbranch Glade, pet trainer)
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "nalesette", id = TODO_NPC("Nalesette Wildbringer"), name = "Nalesette Wildbringer", title = "Pet Trainer",
+  key = "nalesette", id = TODO_NPC("Nalesette Wildbringer"), name = "Nalesette Wildbringer", title = "Stable Master",
   bible = "bibles/missed_folk.md", role = "trainer", tier = "service",
   communities = { "talonbranch" }, temper = { "gentle", "firm" }, values = { "nature", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Nalesette Wildbringer tends hunters' beasts at Talonbranch Glade and frets over each one that has walked through Felwood's poison. She trusts an animal's judgment of a person well before her own.",
+    first = "Nalesette Wildbringer keeps the stables at Talonbranch Glade and frets over each one that has walked through Felwood's poison. She trusts an animal's judgment of a person well before her own.",
     third = "{name} met Nalesette Wildbringer, who tends hunters' beasts at Talonbranch Glade.",
   },
   greetings = {
@@ -294,7 +294,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "hello_default", key = true, text = "I am Nalesette Wildbringer. I teach the hunters' companions what they need to know, and I mend what Felwood does to them, which is the larger part of my work in these days." },
+        { id = "hello_default", key = true, text = "I am Nalesette Wildbringer. I keep the stables here and look after the hunters' companions, and I mend what Felwood does to them, which is the larger part of my work in these days." },
         { id = "hello_2", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then your beast comes first and you second, as is proper. Bring it here, and let us see what it has learned and what it has suffered." },
       },
       again = {

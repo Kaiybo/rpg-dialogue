@@ -1735,7 +1735,7 @@ P:NPC {
         { id = "h_morzul", key = true, tags = { "news" }, when = { class = "WARLOCK", minLevel = 60 },
           text = "Your mastery over the denizens of other worlds has grown very strong, and I think you're ready to bind a dreadsteed. Speak to Mor'zul Bloodbringer, at the Altar of Storms in the Burning Steppes, and bring plenty of gold." },
         { id = "h_morzul_done", when = { questDone = TODO_QUEST("Mor'zul Bloodbringer") },
-          text = "Did you meet Mor'zul? Charming fellow, in an orcish sort of way. Whatever he asks of you, it'll cost blood, sweat and a purse that's heavier going in than coming out, and it's worth every bit." },
+          text = "Did you meet Mor'zul? Charming fellow, for a man who sold his soul by the ounce. Whatever he asks of you, it'll cost blood, sweat and a purse that's heavier going in than coming out, and it's worth every bit." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, a rogue! I had a rogue customer once who wanted a grimoire to teach his lockpicks to talk, and I had to tell him, very sadly, that no such book exists." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
