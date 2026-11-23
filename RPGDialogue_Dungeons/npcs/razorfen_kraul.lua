@@ -40,6 +40,8 @@ P:NPC {
         { text = "What were you importing?", next = "goods" },
         { text = "What do the quilboar want with you?", next = "quilboar" },
         { text = "You've got some nerve, trading out here.", next = "nerve" },
+        { text = "I could've just walked past, you know.", next = "past", when = { class = "ROGUE" } },
+        { text = "Ratchet's goblins say you owe them money.", next = "debts", when = { faction = "Horde" } },
         { text = "Let's get you out of here.", next = "BUSINESS" },
         { text = "Good luck, Willix.", next = "END" },
       },
@@ -72,6 +74,14 @@ P:NPC {
     },
     nerve = {
       lines = { { id = "n_default", text = "Nerve's free, and that's the only thing in the Barrens that is. Anyway, somebody's gotta bring rum to Ratchet, and if it ain't me, it's some Venture Company creep." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    past = {
+      lines = { { id = "ps_default", text = "Sure you could've, and I'd have hated you for it all the way to the altar. But you didn't, and that tells me you're the kind of operator who knows a good return when one's tied to a post." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    debts = {
+      lines = { { id = "db_default", text = "Owe? Owe is a strong word, pal. I prefer to call it a long-term arrangement with flexible terms, and the terms get a whole lot more flexible if I'm dead, so think of savin' me as protectin' their investment." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -271,6 +271,8 @@ P:NPC {
         { text = "What does the war effort need?", next = "need" },
         { text = "Maclure? Any kin to the Elwynn Maclures?", next = "kin" },
         { text = "Why should I give up my goods?", next = "why" },
+        { text = "I'd rather fight than haul crates, Sergeant.", next = "fight", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Ironforge collects and Stormwind recruits? Odd arrangement.", next = "ironforge", when = { race = "Dwarf" } },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -290,11 +292,30 @@ P:NPC {
     },
     kin = {
       lines = { { id = "k_default", text = "Distant, and I'll thank you not to bring up the Stonefields, because I've heard that feud argued at every wedding since I was four. I left the farm for the army, and it was the quietest choice I ever made." } },
-      choices = { { text = "Quieter than a Maclure supper? Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What started the feud with the Stonefields?", next = "feud" },
+        { text = "Quieter than a Maclure supper? Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     why = {
       lines = { { id = "y_default", text = "Because soldiers who go hungry don't come home, and the ones who do come home will remember who fed them. That's the whole of my sermon, and I don't preach it twice." } },
       choices = { { text = "A short sermon, and a fair one. Something else.", next = "BACK" } },
+    },
+    feud = {
+      lines = { { id = "fe_default", text = "Depends which side you ask, and both sides will talk your ear off. Ma Stonefield says it was a stolen pig, my uncle says it was a broken promise, and I say it was two families with too much time between harvests." } },
+      choices = {
+        { text = "Someone ought to make them shake hands.", next = "BACK", reply = "Someone's tried, and they ended up with pie on their tunic. Good luck to you.", fx = { align = { order = 1 } } },
+        { text = "Let them squabble. It's their business.", next = "BACK", reply = "That's what I tell myself every Harvest Festival, and it nearly works.", fx = { align = { order = -1 } } },
+      },
+    },
+    fight = {
+      narr = "She looks you up and down the way she'd count a wagonload.",
+      lines = { { id = "fi_default", text = "So would every recruit who walks through that gate, and every one of them learns that a sword without supper behind it is just a heavy stick. Haul the crates now, and you'll have your fight when the push comes, I promise you that much." } },
+      choices = { { text = "Crates first, then. Something else.", next = "BACK" } },
+    },
+    ironforge = {
+      lines = { { id = "ir_default", text = "Odd, maybe, but your king has the vaults and the forges, and we have the people with empty hands. Magni counts the bars and I count the volunteers, and between us we'll fill the wagons." } },
+      choices = { { text = "Fair division of labour. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -597,6 +618,8 @@ P:NPC {
         { text = "What did you find in Blackrock?", next = "proof" },
         { text = "What is Lady Prestor, then?", next = "prestor" },
         { text = "How did you come to be captured?", next = "captured" },
+        { text = "The Light will reveal her for what she is.", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "The Dark Irons held you? That's my people's shame too.", next = "darkiron", when = { race = "Dwarf" } },
         { text = "Lead on, Marshal.", next = "END" },
       },
     },
@@ -616,11 +639,34 @@ P:NPC {
     },
     prestor = {
       lines = { { id = "pr_default", text = "A dragon, of Deathwing's own black brood, wearing a woman's face like a mask at a ball. I know how it sounds, and I'd have laughed at it myself a year ago, before I saw the letters.", fx = { learn = { "onyxia" } } } },
-      choices = { { text = "Then the court is full of fools. Something else.", next = "BACK" } },
+      choices = {
+        { text = "How do you unmask a dragon in a throne room?", next = "unmask" },
+        { text = "Then the court is full of fools. Something else.", next = "BACK" },
+      },
     },
     captured = {
       lines = { { id = "c_default", text = "I rode for Blackrock to learn who was arming the orcs, and the Dark Irons took my men and me in a single night. They kept me alive because they thought I'd be useful, and they were right, though not the way they wanted." } },
-      choices = { { text = "Your squire never stopped waiting. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What became of your men?", next = "men" },
+        { text = "Your squire never stopped waiting. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    unmask = {
+      lines = { { id = "un_default", text = "With the truth, read aloud where she can't twist it, and with steel ready for when she stops pretending. Dragons are proud, and pride makes them careless when they're cornered." } },
+      choices = { { text = "Then I'll keep my steel ready. Something else.", next = "BACK" } },
+    },
+    men = {
+      narr = "His jaw tightens, and for a moment he says nothing at all.",
+      lines = { { id = "me_default", text = "Worked to death in the forges under the mountain, most of them, while I listened through the walls. I said their names every night so I wouldn't forget them, and I'll say them again to the king when this is done." } },
+      choices = { { text = "They'll be remembered. Something else.", next = "BACK" } },
+    },
+    light = {
+      lines = { { id = "li_default", text = "I pray it will, though the Light has stood beside that throne for years and she's never once flinched. We may need to give it a little help, and I'd be glad of yours." } },
+      choices = { { text = "You'll have it. Something else.", next = "BACK" } },
+    },
+    darkiron = {
+      lines = { { id = "da_default", text = "No, friend, the shame is Thaurissan's and his line's, and I'll hear no dwarf of Ironforge say otherwise. Your people have bled against Blackrock as long as mine, and today you'll help me finish what they started." } },
+      choices = { { text = "Then let's finish it. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
   topics = {

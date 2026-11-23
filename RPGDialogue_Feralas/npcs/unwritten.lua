@@ -36,6 +36,8 @@ P:NPC {
         { text = "Who are the Shen'dralar?", next = "shendralar" },
         { text = "What did the imp take?", next = "book" },
         { text = "I'll trust no Highborne.", next = "distrust" },
+        { text = "How do you live without the arcane?", next = "withdrawal", when = { class = "MAGE" } },
+        { text = "Elune forgives those who turn from the Well.", next = "forgive", when = { race = "NightElf" } },
         { text = "Farewell, elder.", next = "END" },
       },
     },
@@ -55,7 +57,10 @@ P:NPC {
     },
     shendralar = {
       lines = { { id = "s_default", text = "The last of the Highborne who stayed in Eldre'Thalas when the Well was lost. We kept our books and our pride, and the pride has outlasted almost everything else." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who rules them now?", next = "prince" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     book = {
       lines = { { id = "b_default", text = "My book of lore, which I carried out of the city, and the Crescent Key with it. The imp Pusillin stole them both and fled into Dire Maul, laughing, and imps do not give anything back unless you make them." } },
@@ -67,6 +72,29 @@ P:NPC {
     distrust = {
       lines = { { id = "di_default", text = "Wise, mostly. We nearly destroyed the world for our hunger, and the hunger is still in us. I ask only that you judge me by what I left behind, not by what I came from." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    prince = {
+      lines = { { id = "pr_default", text = "Prince Tortheldrin, last of the old line, who would sooner see every elf in the city drained than open the gates to the world. I served in his court for longer than your kingdoms have stood, and I never once heard him admit a mistake." } },
+      choices = {
+        { text = "Does he hunt you, now that you've left?", next = "hunted" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunted = {
+      narr = "He looks past you, toward the trees on the road from Dire Maul.",
+      lines = { { id = "hu_default", text = "He sends his hunters to the edge of the forest now and then, but I think he has decided I will die soon enough without his help. He is right, in his way, and I find that I mind it less than I expected." } },
+      choices = {
+        { text = "Then I'll keep an eye on that road.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    withdrawal = {
+      lines = { { id = "wd_default", text = "Badly, at first, with shaking hands and a thirst that no wine would answer. It fades, mage, though not quickly, and what is left afterwards is only an old elf who is surprised by his own reflection." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+    forgive = {
+      lines = { { id = "fo_default", text = "Your priestesses have been kinder to me than I deserve, child of Elune, and I will not argue theology with kindness. Whether the moon forgives us, I leave to the moon." } },
+      choices = { { text = "Something else, elder.", next = "BACK" } },
     },
   },
   topics = {
@@ -191,6 +219,8 @@ P:NPC {
         { text = "What do you need?", next = "need" },
         { text = "A human, out at Thalanaar?", next = "human" },
         { text = "Who are your sisters?", next = "sisters" },
+        { text = "Another human this far west! I've come from Stormwind.", next = "home", when = { race = "Human" } },
+        { text = "I skin. I can take those hyenas cleanly.", next = "skinner", when = { profession = "Skinning" } },
         { text = "Good trading.", next = "END" },
       },
     },
@@ -210,11 +240,36 @@ P:NPC {
     },
     human = {
       lines = { { id = "hu_default", text = "The elves were surprised too, but coin talks in any tongue. They're decent hosts as long as I don't cut down any trees, and I've no reason to." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The Sentinels don't trust traders much.", next = "sentinels" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     sisters = {
       lines = { { id = "s_default", text = "Kelly and Kimberly, and we're all in trade somewhere or other. We write when we can, and Kelly always writes the most and says the least." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What does Kelly write about?", next = "letters" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sentinels = {
+      lines = { { id = "se_default", text = "They don't, and I can't say I blame them, given what the Horde's lumber camps have done to Ashenvale. They watch my wagons like hawks, and I let them, because a trader with nothing to hide sleeps better." } },
+      choices = {
+        { text = "They're right to guard their forests closely.", next = "BACK", reply = "They are, and I'd guard mine the same way if I had any.", fx = { align = { order = 1 } } },
+        { text = "Trade shouldn't need a Sentinel's blessing.", next = "BACK", reply = "Maybe not, but out here it gets one anyway, love, so I smile and pay the toll.", fx = { align = { order = -1 } } },
+      },
+    },
+    letters = {
+      lines = { { id = "le_default", text = "Prices, weather, which caravan master owes her money, and not one word about whether she's well. I read between the lines like a ledger, and so far the sums add up." } },
+      choices = { { text = "Sisters are like that. Something else.", next = "BACK" } },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Stormwind! Then you'll know how far a hide has to travel to fetch a decent price there, and why I'm out here instead of in the Trade District. Give the canals my regards when you're home, would you?" } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
+    },
+    skinner = {
+      lines = { { id = "sk_default", text = "Then you're worth three of the hackers who usually turn up here, so long as your knife's sharp and your patience is longer. Take the belly whole and leave the back unmarked, and I'll know you did it right." } },
+      choices = { { text = "Belly whole, back unmarked. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "No idea, love. Ask me about hides." } } },
@@ -283,6 +338,9 @@ P:NPC {
         { text = "Who is Rockbiter?", next = "rockbiter" },
         { text = "These ruins aren't safe for you.", next = "safe" },
         { text = "Rockbiter is worried about you.", next = "worry", when = { questActive = TODO_QUEST("Wandering Shay") } },
+        { text = "What's your favourite flower?", next = "flowers" },
+        { text = "Ishnu-alah, little one. Does Elune watch over you?", next = "elune", when = { race = "NightElf" } },
+        { text = "I can turn into a cat, you know.", next = "druid", when = { class = "DRUID" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -295,7 +353,10 @@ P:NPC {
     },
     who = {
       lines = { { id = "w_default", text = "The grown-ups at Feathermoon, because my mother is busy. Rockbiter said yes very slowly, and I think he likes it, even if he pretends not to." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Busy with what?", next = "mother" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     safe = {
       lines = { { id = "s_default", text = "That's what everyone says. There are harpies and gnolls and things, I know, but I'm quick and I'm small and I hide very well." } },
@@ -307,6 +368,33 @@ P:NPC {
     worry = {
       lines = { { id = "wo_default", text = "He always worries, he's a giant and giants are very serious. All right, I'll go back, but you have to walk slowly so I can pick flowers." } },
       choices = { { text = "Deal. Something else first?", next = "BACK" } },
+    },
+    mother = {
+      lines = { { id = "mo_default", text = "Sentinel things, with bows and long faces and walking about at night. She says when I'm older I can come too, but I think I'd rather be a druid and turn into a bird and fly away from everyone." } },
+      choices = { { text = "A bird would be hard to catch. Something else.", next = "BACK" } },
+    },
+    flowers = {
+      lines = { { id = "fl_default", text = "The purple ones that grow in the cracks of the old stones, because nobody planted them and they grew anyway. Rockbiter says they're weeds, but Rockbiter thinks everything smaller than a boulder is a weed." } },
+      choices = {
+        { text = "Who built these ruins, Shay?", next = "ruins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ruins = {
+      lines = { { id = "ru_default", text = "Old elves, from a very long time ago, before the trees here were even seeds. The Sentinels say not to go in the dark parts, so I only go in the light parts, mostly." } },
+      choices = {
+        { text = "Mostly isn't good enough. Stay out of them.", next = "BACK", reply = "Fine, fine, I'll stay where Rockbiter can see me. Probably.", fx = { align = { order = 1 } } },
+        { text = "Old ruins are for exploring. Just be careful.", next = "BACK", reply = "I knew you'd understand! I'm always careful, almost.", fx = { affinity = 1, align = { order = -1 } } },
+      },
+    },
+    elune = {
+      lines = { { id = "el_default", text = "Elune-adore! My mother says Elune watches every child under the moon, so I only run away in the daytime, to be fair to her. That's a joke, but it's also true." } },
+      choices = { { text = "A clever rule. Something else.", next = "BACK" } },
+    },
+    druid = {
+      narr = "Her eyes go very wide and she drops half her flowers.",
+      lines = { { id = "dr_default", text = "You can? Will you do it? I won't tell anybody, except Rockbiter, and he won't believe me anyway, because he never believes anything I say about cats." } },
+      choices = { { text = "Maybe later. Something else.", next = "BACK" } },
     },
   },
   topics = { _none = { { id = "tp_none", text = "I don't know! Do you want to see a flower?" } } },

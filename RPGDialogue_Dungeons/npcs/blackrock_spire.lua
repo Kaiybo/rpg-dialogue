@@ -42,6 +42,8 @@ P:NPC {
         { text = "Who rules the upper Spire?", next = "drakkisath" },
         { text = "What is the Seal of Ascension?", next = "seal" },
         { text = "You're no ordinary traveller.", next = "who" },
+        { text = "The orcs here once followed Blackhand. Now they serve dragons.", next = "orcs", when = { race = "Orc" } },
+        { text = "I sense old magic about you, Vaelan.", next = "sense", when = { class = { "MAGE", "PRIEST", "DRUID" } } },
         { text = "What do you need from me?", next = "BUSINESS" },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -64,8 +66,32 @@ P:NPC {
     seal = {
       lines = { { id = "s_default", text = "A key forged from the gemstones of the Spire's lords and tempered in the blood of a black dragon. With it, the gates of Drakkisath's hall will open to you, and nothing else will open them." } },
       choices = {
+        { text = "Which lords carry the gemstones?", next = "gems" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    gems = {
+      lines = { { id = "gm_default", text = "The generals of the lower halls, Highlord Omokk, War Master Voone and Overlord Wyrmthalak among them, each keeping one as a mark of rank. They do not know what they carry, which is the only mercy in this business." } },
+      choices = {
+        { text = "And the dragon's blood?", next = "blood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blood = {
+      lines = { { id = "bl_default", text = "When you hold the unforged seal, take it to the ledge above the Spire where a black drake roosts, and let its blood do the rest. It will not give it willingly, and you should not ask it to." } },
+      choices = {
+        { text = "Then the drake dies. It has earned it.", next = "BACK", reply = "It has, many times over. Do not hesitate when the moment comes.", fx = { align = { light = -1 } } },
+        { text = "I take no joy in killing even a dragon.", next = "BACK", reply = "Good. Keep that, mortal. It is rarer up here than gold.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = { { id = "or_default", text = "So they do, and it should shame you more than it angers you. Rend calls himself warchief, but every order he gives comes down from Nefarian's table, and his warriors die guarding a dragon's hoard." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sense = {
+      lines = { { id = "se_default", text = "Then sense it quietly, and say nothing of it in these halls. The black flight has ears in every stone of this mountain, and I am not ready to be found." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     who = {
       lines = { { id = "w_default", text = "No, I am not, and it is better for both of us that you do not learn more today. Let it be enough that the black flight has wronged mine, and I have a long memory." } },
@@ -120,6 +146,8 @@ P:NPC {
         { text = "How long were you in there?", next = "inside" },
         { text = "Why hunt the Beast at all?", next = "why" },
         { text = "You smell absolutely dreadful.", next = "smell" },
+        { text = "What exactly is the Beast, anyway?", next = "beast" },
+        { text = "A hunter knows when prey's too big to take.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Can you teach me something?", next = "BUSINESS", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "Glad you're alive. Farewell.", next = "END" },
       },
@@ -127,8 +155,31 @@ P:NPC {
     inside = {
       lines = { { id = "i_default", text = "Days, I think, though it's hard to keep count in a stomach. I lived on what it ate, which was mostly orcs, and I'll never look at a stew the same way again." } },
       choices = {
+        { text = "How did you not get digested?", next = "inside_how" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    inside_how = {
+      lines = { { id = "ih_default", text = "Good leathers, my friend, and a lifetime of working with hides told me just how to wrap myself in them. The acid ate my boots and half my pack, but the jerkin held, and I'll swear by that tanner till my dying day." } },
+      choices = {
+        { text = "That's a fine advertisement for your craft.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beast = {
+      lines = { { id = "be_default", text = "Some great core hound or worse that the dragons dragged up and bred with fire and spite. It hasn't got a proper name, so the orcs just call it the Beast, and frankly that suits it." } },
+      choices = {
+        { text = "And you still want its hide?", next = "beast_hide" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beast_hide = {
+      lines = { { id = "bh_default", text = "Every skinner alive would want it, and now that you've brought it down, I can teach you to work hides like it. Call it payment for the rescue, and a professional courtesy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "Ha! Spoken like someone who's never been swallowed. You're right, of course, and I'll admit I'd have been wiser bringing a hunter and a pet along instead of just my knives." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     why = {
       lines = { { id = "w_default", text = "Because a hide like that only comes along once in a lifetime, and I meant to be the one who took it. The dragons breed things up here that no skinner has ever touched." } },

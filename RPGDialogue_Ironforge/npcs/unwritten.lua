@@ -698,6 +698,8 @@ P:NPC {
         { text = "Where is the Faire set up?", next = "where" },
         { text = "What can I win at the Faire?", next = "prizes" },
         { text = "You've got a voice for a barker.", next = "voice" },
+        { text = "A gnome running a faire? I've never heard of him.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Fortune tellers at a faire? I trust only the Light.", next = "fortune", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -726,13 +728,37 @@ P:NPC {
     prizes = {
       lines = { { id = "prizes_default", text = "Tickets for games and turn-ins, and tickets for prizes ye won't find in any shop in Ironforge. Bring the Faire some leather or some gears and ye'll walk away with a fistful." } },
       choices = {
+        { text = "What sort of games?", next = "games" },
         { text = "Something else.", next = "BACK" },
       },
     },
     voice = {
       lines = { { id = "voice_default", text = "Forty years of shoutin' down a mine shaft will do that, and I'm far happier shoutin' about prizes. The Faire took me on in Thelsamar and I never looked back." } },
       choices = {
+        { text = "Don't you miss the mines?", next = "mines" },
         { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    games = {
+      lines = { { id = "games_default", text = "Tonk battles for the tinkerers, a cannon that'll fire ye clear across the field if ye're brave enough, and a fortune teller who'll tell ye things ye didnae want to know. The cannon's my favourite, though I've never had the beard for it myself." } },
+      choices = {
+        { text = "A cannon? That's madness, and I'm in.", next = "BACK", reply = "Ha! That's the spirit, and bring a helmet!", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mines = {
+      lines = { { id = "mines_default", text = "I miss the lads, and the songs, and the smell of a fresh seam, but I don't miss the cave-ins or the troggs. A man can only shout 'Mind yer head!' so many times before he'd rather shout somethin' cheerful." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    gnome = {
+      lines = { { id = "gnome_default", text = "Never heard of him? He's the most famous gnome there is, after the High Tinker, though I'll grant ye he never seems to visit Tinker Town. Ask him about Gnomeregan sometime and watch him change the subject faster than a goblin counts coin." } },
+      choices = { { text = "I just might. Something else.", next = "BACK" } },
+    },
+    fortune = {
+      lines = { { id = "fortune_default", text = "And so ye should, but Sayge's only a fortune teller, and the Light won't mind a bit of fun on a holiday. Mind ye, he asks some strange questions, so answer them honest or not at all." } },
+      choices = {
+        { text = "Fortune telling is harmless fun.", next = "BACK", reply = "That's how I see it, aye.", fx = { align = { light = -1 } } },
+        { text = "Tampering with fate is no game.", next = "BACK", reply = "Hmph. Ye're no fun at all, but ye're probably right.", fx = { align = { light = 1 } } },
       },
     },
   },
@@ -888,6 +914,8 @@ P:NPC {
         { text = "Who is Greatfather Winter?", next = "winter" },
         { text = "What's a Goblin Resources Director?", next = "job" },
         { text = "You look tired.", next = "tired" },
+        { text = "Ironforge celebrates Winter Veil louder than anywhere.", next = "dwarves", when = { race = "Dwarf" } },
+        { text = "Do the Horde get Greatfather Winter too?", next = "horde", when = { faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -916,6 +944,7 @@ P:NPC {
     job = {
       lines = { { id = "job_default", text = "It means when the reindeer chew the inventory, it's my problem, and when Macey wants a raise, also my problem. I'm basically the company's whole complaint department." } },
       choices = {
+        { text = "What's the worst complaint you've had?", next = "complaint" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -924,6 +953,21 @@ P:NPC {
       choices = {
         { text = "Let me ask about something else.", next = "BACK" },
       },
+    },
+    complaint = {
+      lines = { { id = "complaint_default", text = "Some field agent of ours got himself buried in a snowdrift up in Alterac and filed a grievance from inside it, if you can believe that. I've got the paperwork right here, and it's very damp." } },
+      choices = {
+        { text = "You should send someone to dig him out.", next = "BACK", reply = "And pay for a shovel? Fine, fine, I'll think about it, Mister Generous.", fx = { align = { light = 1 } } },
+        { text = "He'll dig himself out. That's good business.", next = "BACK", reply = "See, you get it! Initiative, that's what I pay him for.", fx = { align = { light = -1 } } },
+      },
+    },
+    dwarves = {
+      lines = { { id = "dwarves_default", text = "Louder, thirstier and better at buyin', bless every beard in this city. I move more Winter Veil brew here in a week than I do in Orgrimmar all season, and don't tell my Orgrimmar guy I said so." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "horde_default", text = "Sure they do, pal, he's in Orgrimmar right now, same beard, same coat, same appetite for cookies. Smokywood don't pick sides, we just pick pockets, politely and with a receipt." } },
+      choices = { { text = "Very neutral of you. Something else.", next = "BACK" } },
     },
   },
   topics = {

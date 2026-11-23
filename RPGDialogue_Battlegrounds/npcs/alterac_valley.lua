@@ -274,6 +274,7 @@ P:NPC {
         { text = "Why the graveyards?", next = "graveyards" },
         { text = "You're not a dwarf, Commander.", next = "human" },
         { text = "These orders sound like a lot of dying.", next = "dying" },
+        { text = "I'm Lordaeron-born too, Commander. Where did you serve?", next = "lordaeron", when = { race = "Human" } },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -313,6 +314,7 @@ P:NPC {
         { id = "gy_default", text = "Because the Spirit Healers will raise our fallen wherever our banner flies, and a soldier who rises near the front is a soldier who's back in the fight. Stormpike Graveyard, Stonehearth, Snowfall, take them and hold them." },
       },
       choices = {
+        { text = "The Frostwolves have Spirit Healers too, I suppose.", next = "graveyards_horde" },
         { text = "Something else, Commander.", next = "BACK" },
       },
     },
@@ -340,6 +342,41 @@ P:NPC {
       choices = {
         { text = "Something else, Commander.", next = "BACK" },
         { text = "I've died a few times already.", next = "BACK", reply = "Then you've learned more than the ones who didn't. Back to the map.", when = { pvpRank = 3 } },
+        { text = "The Light lifts the fallen, Commander. I'm not afraid.", next = "BACK", reply = "Good, though I'd still rather you came back on your own two feet.", when = { class = "PALADIN" } },
+      },
+    },
+    graveyards_horde = {
+      lines = {
+        { id = "gh_default", text = "They do, and that's why a graveyard is worth fighting over twice: once to take it, and once to keep their dead from rising on it. Snowfall's changed hands more often than I can count, so don't trust a flag there for long." },
+      },
+      choices = {
+        { text = "How do you keep one, then?", next = "graveyards_hold" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    graveyards_hold = {
+      lines = {
+        { id = "gd_default", text = "Leave three good soldiers on the flag and let the heroes chase glory elsewhere. Nobody sings about the soldier who stood on a hill all day, but the General notices, and so do I." },
+      },
+      choices = {
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    lordaeron = {
+      lines = {
+        { id = "lo_default", text = "The garrison at Hearthglen, before the Scarlets turned it into their fortress, and then the long road south when the plague took everything else. Most of the men I served with are in the Plaguelands still, and not resting." },
+      },
+      choices = {
+        { text = "Do you ever think of going back?", next = "lordaeron_back" },
+        { text = "Let\'s talk of something else.", next = "BACK" },
+      },
+    },
+    lordaeron_back = {
+      lines = {
+        { id = "lb_default", text = "Every night, soldier, but there's nothing to go back to that the Forsaken or the Crusade haven't claimed. So I hold the Alterac line for Ironforge instead, and I tell myself it's the same war by another road." },
+      },
+      choices = {
+        { text = "Something else, Commander.", next = "BACK" },
       },
     },
   },
@@ -564,6 +601,7 @@ P:NPC {
         { text = "What's in those supply crates?", next = "crates" },
         { text = "You seem more interested in ore than war.", next = "ore" },
         { text = "Didn't I see you at the valley's gate?", next = "gate" },
+        { text = "A gnome could rig you a drill that triples your yield.", next = "gnome", when = { race = "Gnome" } },
         { text = "I'll get you your crates.", next = "END" },
       },
     },
@@ -602,14 +640,20 @@ P:NPC {
       lines = {
         { id = "cr_default", text = "Ore, tools, food, whatever the miners haul up an' pack away. Bring Coldtooth's crates back tae me an' it's theirs no more, it's ours." },
       },
-      choices = { { text = "Something else, Prospector.", next = "BACK" } },
+      choices = {
+        { text = "And who gets the crates once they're here?", next = "crates_who" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
     },
 
     ore = {
       lines = {
         { id = "or_default", text = "Course I am! The war's the General's business. Mine's what's under the snow, an' when the fightin's done, someone'll still need tae dig it out." },
       },
-      choices = { { text = "Something else, Prospector.", next = "BACK" } },
+      choices = {
+        { text = "You've already staked claims for after the war, haven't you?", next = "ore_claims" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
     },
 
     gate = {
@@ -617,6 +661,40 @@ P:NPC {
         { id = "ga_default", text = "Ye might have; I'm up an' down that road more than the supply wagons. The gate's for gettin' soldiers in, though, an' in here's where the ore is." },
       },
       choices = { { text = "Something else, Prospector.", next = "BACK" } },
+    },
+    crates_who = {
+      lines = {
+        { id = "cw_default", text = "The Stormpike Quartermaster takes the lot an' doles it out, an' Murgot Deepforge at the forge grumbles that he never sees enough iron. Between the two o' them, I'm the most popular dwarf in Dun Baldar, an' it's no' for my singin'." },
+      },
+      choices = {
+        { text = "Does the Guard pay you for them?", next = "crates_pay" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    crates_pay = {
+      lines = {
+        { id = "cp_default", text = "Pay? The General pays in thanks an' the odd slap on the back, {g:lad|lass}. My reward's the seam itself, once the orcs are gone an' the kobolds are cleared out o' Coldtooth." },
+      },
+      choices = {
+        { text = "Somethin' else, then.", next = "BACK" },
+      },
+    },
+    ore_claims = {
+      lines = {
+        { id = "oc_default", text = "Ha! Caught me. I've a map wi' every seam marked, an' my name's on half o' them in pencil, which is near as good as ink in this cold. Don't tell the General, for he thinks I'm here for king an' country." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", reply = "Good {g:lad|lass}! There'll be a crate in it for ye someday, or a kind word at least." },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = {
+        { id = "gn_default", text = "Triples it, does it? I've heard that afore, from a gnome who's still pickin' gears out o' his beard. Mind, if yer drill works, I'd split the first cart wi' ye, an' I've no' said that tae anyone since Gnomeregan went sour." },
+      },
+      choices = {
+        { text = "Let\'s talk of something else.", next = "BACK" },
+      },
     },
   },
 
@@ -863,6 +941,7 @@ P:NPC {
         { text = "How did you end up a prisoner?", next = "prisoner" },
         { text = "Why commanders' medals?", next = "medals" },
         { text = "What's it like, flying a gryphon?", next = "flying" },
+        { text = "I've tamed beasts of my own. How do you train a gryphon?", next = "gryphon_train", when = { class = "HUNTER" } },
         { text = "I'll bring your medals.", next = "END" },
       },
     },
@@ -901,14 +980,45 @@ P:NPC {
       lines = {
         { id = "me_default", text = "Proof that the Frostwolf commanders are fallin', an' that my riders aren't flyin' intae a full army. Enough medals, an' I'll know the way's clear." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "And when you have enough, what does the strike hit?", next = "medals_strike" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     flying = {
       lines = {
         { id = "fl_default", text = "Cold, loud an' the finest thing in the world! Ye've no' lived till ye've seen Frostwolf Keep from above, burnin'." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "You miss that gryphon of yours, coward or not.", next = "flying_miss" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    medals_strike = {
+      lines = {
+        { id = "ms_default", text = "The towers first, Tower Point an' the Iceblood, where their archers have been pluckin' my riders out o' the air all season. Once they're burnin', the way tae Frostwolf Keep is open for everyone below." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    flying_miss = {
+      lines = {
+        { id = "fm_default", text = "Aye, I do, an' don't ye tell him. He was hatched in the Hinterlands an' came tae me half-wild, an' he's never once flown away from a fight before that day, so I suppose he'd earned one." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    gryphon_train = {
+      lines = {
+        { id = "gt_default", text = "Ye don't train a gryphon, {class}, ye earn one, an' that takes a year o' raw meat an' bitten fingers. A hunter's beast follows ye because ye feed it; a gryphon follows ye because it's decided ye're worth followin'." },
+      },
+      choices = {
+        { text = "Then I hope mine decides the same of me.", next = "BACK", reply = "If it's stayed this long, it already has. Look after it." },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 
@@ -953,6 +1063,7 @@ P:NPC {
         { text = "How did you end up in a Frostwolf cell?", next = "capture" },
         { text = "Why lieutenants' medals?", next = "medals" },
         { text = "What do you think of the other commanders?", next = "others" },
+        { text = "I'll hold you to that flight, Wing Commander.", next = "gnome_flight", when = { race = "Gnome" } },
         { text = "I'll find you medals.", next = "END" },
       },
     },
@@ -991,14 +1102,53 @@ P:NPC {
       lines = {
         { id = "me_default", text = "Lieutenants lead the Frostwolf lines, an' when they're fallin', the lines are thinnin'. Enough medals, an' I'll know it's safe for my riders tae strike." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "You're very calm about going straight back out there.", next = "medals_calm" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     others = {
       lines = {
         { id = "ot_default", text = "Ichman's the best flier o' us an' knows it, an' Vipore's the cleverest an' never stops sayin' so. I'm the handsome one, obviously." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "And the Frostwolf wing commanders?", next = "others_horde" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    medals_calm = {
+      lines = {
+        { id = "mc_default", text = "Calm? I'm terrified, soldier, but a rider who shows it makes his gryphon nervous, an' a nervous gryphon's how ye end up in a cell. So I grin, an' the beast thinks it's all a lark." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    others_horde = {
+      lines = {
+        { id = "oh_default", text = "Guse, Jeztor an' Mulverick, an' our lads have had each o' them locked up at one time or another, same as they've had us. It's near a tradition by now, swappin' prisoners an' insults across the Field o' Strife." },
+      },
+      choices = {
+        { text = "Do you respect them?", next = "others_respect" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    others_respect = {
+      lines = {
+        { id = "or_default", text = "I'd no' say it in Vanndar's hearing, but aye, I do. Anyone who'll ride one o' those wyverns intae dwarven guns has more nerve than sense, an' I'd know." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    gnome_flight = {
+      lines = {
+        { id = "gf_default", text = "An' I'll keep it, {g:lad|lass}, though ye'll need tae strap yerself down, for the last gnome I flew went sailin' off over Ironforge an' landed in a forge. He said it was the best day o' his life, so I count it a success." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 
@@ -1043,6 +1193,7 @@ P:NPC {
         { text = "What's your plan, Wing Commander?", next = "plan" },
         { text = "Why soldiers' medals?", next = "medals" },
         { text = "The Wildhammer and the Stormpike fight together?", next = "wildhammer" },
+        { text = "Strike unseen and be gone before they turn. I know that work.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll gather your medals.", next = "END" },
       },
     },
@@ -1072,14 +1223,54 @@ P:NPC {
       lines = {
         { id = "me_default", text = "Soldiers are the many, and when enough of them fall, the few have no one to command. Count the medals and you count the gaps in their line." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "You count soldiers the way a merchant counts coin.", next = "medals_coin" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     wildhammer = {
       lines = {
         { id = "wi_default", text = "Some of my riders learned from the Wildhammer, and the clans have their quarrels, but a gryphon doesn't care whose beard is braided which way. Up here we fly together or not at all." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Does Aerie Peak send riders to this valley?", next = "wildhammer_aerie" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    medals_coin = {
+      lines = {
+        { id = "mc_default", text = "I do, and I'd sooner be called cold than careless. A merchant who loses count goes broke, and a wing commander who loses count sends his riders into arrows that weren't supposed to be there." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    wildhammer_aerie = {
+      lines = {
+        { id = "wa_default", text = "Not officially, for Thane Falstad has his own troubles with the trolls of the Hinterlands. But a few of his riders have found their way here for the fighting, and nobody at Dun Baldar has thought to ask them to leave." },
+      },
+      choices = {
+        { text = "And the Bronzebeards don't mind?", next = "wildhammer_mind" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    wildhammer_mind = {
+      lines = {
+        { id = "wm_default", text = "They mind a great deal over ale and not at all in a battle, which is the right way round. When the Frostwolves are gone they'll go back to arguing about the Three Hammers, and I'll be glad to hear it." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "ro_default", text = "Then you'll understand why I like having you on the ground, {class}. The Frostwolves watch the sky now that they know about us, and while they're watching it, they aren't watching the shadows behind their towers." },
+      },
+      choices = {
+        { text = "Point me at a tower, then.", next = "BACK", reply = "Tower Point. Light the flag while they're looking up, and I'll do the rest." },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 
@@ -1491,6 +1682,7 @@ P:NPC {
         { text = "Tell me about Irondeep Mine.", next = "mine" },
         { text = "Raiding seems like a thief's work.", next = "thief" },
         { text = "How did you get your name?", next = "name" },
+        { text = "My father raided too, before the humans caged him.", next = "camps", when = { race = "Orc" } },
         { text = "I'll bring you your crates.", next = "END" },
       },
     },
@@ -1529,14 +1721,54 @@ P:NPC {
       lines = {
         { id = "th_default", text = "Thief? The Stormpike came into our valley and dug up our mountains. I only take back what they stole." },
       },
-      choices = { { text = "Something else, Voggah.", next = "BACK" } },
+      choices = {
+        { text = "The Stormpike would say the mountain is theirs.", next = "thief_claim" },
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
     },
 
     name = {
       lines = {
         { id = "na_default", text = "I caught a Stormpike scout by the throat in the first winter and did not let go. The clan named me for it, and I wear the name proudly." },
       },
-      choices = { { text = "Something else, Voggah.", next = "BACK" } },
+      choices = {
+        { text = "And the scout? Did he live?", next = "name_scout" },
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
+    thief_claim = {
+      lines = {
+        { id = "tc_default", text = "They say a great deal, and they put flags on everything they say it about. The Frostwolves were here when the dwarves were still drinking in Ironforge, and the snow remembers that even if they do not." },
+      },
+      choices = {
+        { text = "Then their crates are fair game.", next = "BACK", reply = "Now you speak like a Frostwolf. Go and fill your arms." },
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
+    name_scout = {
+      lines = {
+        { id = "ns_default", text = "He lived, because I let go when Drek'Thar told me to, and the clan traded him back for three of ours. The dwarves call me Deathgrip as a curse now, and I like that even better." },
+      },
+      choices = {
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = {
+        { id = "cp_default", text = "Then he knew hunger and shame both, and so did mine. Thrall broke those camps, and the Frostwolves took him in when he had nothing, so every crate I take from the dwarves is a little of that debt repaid." },
+      },
+      choices = {
+        { text = "Where is your father now?", next = "camps_father" },
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
+    camps_father = {
+      lines = {
+        { id = "cf_default", text = "Dead, in the camps, before Thrall came. I raid in his name, and when I bring a dwarven crate across the bridge, I tell him about it at the fire." },
+      },
+      choices = {
+        { text = "Let\'s talk of something else.", next = "BACK" },
+      },
     },
   },
 
@@ -1790,6 +2022,7 @@ P:NPC {
         { text = "How were you captured?", next = "captured" },
         { text = "Why soldiers' flesh?", next = "flesh" },
         { text = "What are the war riders?", next = "riders" },
+        { text = "My clan fought on wolfback. Why take to the sky?", next = "orc_sky", when = { race = "Orc" } },
         { text = "I'll bring you flesh.", next = "END" },
       },
     },
@@ -1828,14 +2061,46 @@ P:NPC {
       lines = {
         { id = "fl_default", text = "The war riders need to be fed, and the Stormpike are fat on their beer and bread. Bring enough, and my riders will be strong enough to strike." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Feeding the dead to beasts is a grim errand.", next = "flesh_grim" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     riders = {
       lines = {
         { id = "ri_default", text = "Great beasts of the air, and orcs brave enough to ride them. When we strike, the dwarves learn to fear the sky." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Where did the Frostwolves find such beasts?", next = "riders_where" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    flesh_grim = {
+      lines = {
+        { id = "fg_default", text = "It is, and I do not ask you to enjoy it. But the dwarves fed my riders to their guns, so I feel no shame in feeding the dwarves to my riders." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    riders_where = {
+      lines = {
+        { id = "rw_default", text = "They are wind riders from Kalimdor, brought across the sea when the Warchief led the Horde to Durotar. Orgrimmar sent us a few for this war, and they hate the cold almost as much as they hate dwarves." },
+      },
+      choices = {
+        { text = "Then they suffer for the clan, like the rest of us.", next = "BACK", reply = "Yes, and they suffer it better than some orcs I know." },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    orc_sky = {
+      lines = {
+        { id = "os_default", text = "Because the dwarves taught us, {class}. Their gryphons hunted our wolf riders on every open field, and a wolf cannot bite what it cannot reach, so we learned to fly or we learned to die." },
+      },
+      choices = {
+        { text = "The wolves are still the clan's heart.", next = "BACK", reply = "They are, and I would never say otherwise in front of Drek'Thar." },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 
@@ -1880,6 +2145,7 @@ P:NPC {
         { text = "Why lieutenants?", next = "lieutenants" },
         { text = "What do you remember of your capture?", next = "capture" },
         { text = "You seem calmer than the other commanders.", next = "calm" },
+        { text = "Patience I have, mon. Tell me where to wait.", next = "troll_wait", when = { race = "Troll" } },
         { text = "I'll bring you what you need.", next = "END" },
       },
     },
@@ -1918,14 +2184,53 @@ P:NPC {
       lines = {
         { id = "ca_default", text = "Cold, and dark, and the dwarves singing their drinking songs all night. That was the worst part." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Dwarven songs can't be worse than a cell.", next = "capture_songs" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     calm = {
       lines = {
         { id = "ca2_default", text = "Guse is all fire, and Mulverick all thunder. Someone must think before we strike, and that is me." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Do the other two listen to you?", next = "calm_listen" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    capture_songs = {
+      lines = {
+        { id = "cs_default", text = "You have not heard forty dwarves sing about their beards until dawn. I counted every guard change between the verses, though, and if they take me again I will know the way out." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    calm_listen = {
+      lines = {
+        { id = "cl_default", text = "Guse listens after he has shouted, and Mulverick listens after he has crashed. Between the two of them I am always right eventually, which is the only kind of right a commander can expect." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    troll_wait = {
+      lines = {
+        { id = "tw_default", text = "At the edge of Stonehearth, where the bunker's archers cannot see the ridge. When their lieutenants ride out to meet our charge, they leave the bunker thin, and a patient hunter does not need a second chance." },
+      },
+      choices = {
+        { text = "And if they never ride out?", next = "troll_never" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    troll_never = {
+      lines = {
+        { id = "tn_default", text = "Then you wait longer than they do. The Darkspear hunted the jungle that way for a thousand years, so I think you will not find it hard." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 
@@ -1970,6 +2275,7 @@ P:NPC {
         { text = "Why commanders' flesh?", next = "commanders" },
         { text = "The dwarves held you in Dun Baldar?", next = "baldar" },
         { text = "You seem to enjoy this war.", next = "enjoy" },
+        { text = "I'll shout louder than you when we charge.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'll bring you what you need.", next = "END" },
       },
     },
@@ -1978,7 +2284,10 @@ P:NPC {
       lines = {
         { id = "co_default", text = "Kill the head, and the body falls! When the Stormpike commanders are dead, nothing stands between my riders and Vanndar's hall." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Which commander falls first?", next = "commanders_first" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
 
     baldar = {
@@ -2015,7 +2324,35 @@ P:NPC {
       lines = {
         { id = "en_default", text = "I enjoy flying, and I enjoy watching dwarves run! The war just gives me reasons to do both." },
       },
-      choices = { { text = "Something else, Wing Commander.", next = "BACK" } },
+      choices = {
+        { text = "Someone ought to worry about you, Wing Commander.", next = "enjoy_worry" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    commanders_first = {
+      lines = {
+        { id = "cf_default", text = "Balinda Stonehearth, the human mage in the bunker, because she has frozen more of our warriors than winter has! After her, whoever is foolish enough to stand in her place." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    enjoy_worry = {
+      lines = {
+        { id = "ew_default", text = "Jeztor worries enough for all three of us, and Guse broods about it, so there is no worrying left for me! When I die, I will die laughing over Dun Baldar, and the clan will sing that it was loud." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = {
+        { id = "wa_default", text = "Ha! Many have said that, {class}, and none of them have done it. Come to the Field of Strife when my riders strike, and we will see whose voice the dwarves remember." },
+      },
+      choices = {
+        { text = "Lok'tar ogar! They'll hear me in Ironforge.", next = "BACK", reply = "LOK'TAR! Ha, that was almost loud enough!" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
     },
   },
 

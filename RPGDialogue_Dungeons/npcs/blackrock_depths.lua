@@ -144,6 +144,8 @@ P:NPC {
         { text = "What happened to Princess Moira?", next = "moira" },
         { text = "How did you end up in this cell?", next = "cell" },
         { text = "The Dark Irons keep a good prison.", next = "prison" },
+        { text = "Ironforge still asks after you, Kharan.", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "Why would a Bronzebeard talk to the Horde?", next = "horde", when = { faction = "Horde" } },
         { text = "What do you need from me?", next = "BUSINESS" },
         { text = "Stay strong. I'll be back.", next = "END" },
       },
@@ -188,8 +190,25 @@ P:NPC {
     prison = {
       lines = { { id = "pr_default", text = "Good enough to keep a Mighthammer in it, and that's saying something. Still, every lock has a key, and Dark Iron jailers drink at the Grim Guzzler like everybody else." } },
       choices = {
+        { text = "So the keys are in a tavern?", next = "keys" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    keys = {
+      lines = { { id = "k_default", text = "The jailers carry them, and the jailers carry them to the Guzzler when their shift ends, so ye can work out the rest. Mind the bouncers, though, because Plugger Spazzring doesn't take kindly to brawls he hasn't started himself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ironforge = {
+      lines = { { id = "if_default", text = "Does it, now? I'd have thought they'd carved my name on a memorial stone and gone back to their ale. Tell me true, {g:lad|lass}, how's the king bearing up without his daughter?" } },
+      choices = {
+        { text = "He's grieving, but he's still our king.", next = "BACK", reply = "Aye, that's Magni. He'd stand at the forge with a broken heart and never let the hammer slip.", fx = { affinity = 1 } },
+        { text = "He's shut himself in the throne room.", next = "BACK", reply = "Then my tale will hit him all the harder. I'd almost rather stay in this cell than be the one to tell it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde = {
+      lines = { { id = "hd_default", text = "Because a cell's a poor place for old grudges, and ye didn't put me in it. The orc down the row, Gor'shak, has been the best company I've had in years, and I'll thank ye not to tell anyone in Ironforge I said so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -238,6 +257,8 @@ P:NPC {
         { text = "What did you learn?", next = "learned" },
         { text = "Who betrayed you?", next = "betrayed" },
         { text = "You look well for a prisoner.", next = "well" },
+        { text = "Morgan's Vigil sent word you were lost.", next = "vigil", when = { faction = "Alliance" } },
+        { text = "A paladin of the Light at your service, Marshal.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Let's get you out of here.", next = "BUSINESS" },
         { text = "Hold on a little longer.", next = "END" },
       },
@@ -260,6 +281,33 @@ P:NPC {
     betrayed = {
       lines = { { id = "b_default", text = "Nobody, which is the shame of it. I was careless on the road past the Burning Steppes, and a Dark Iron patrol was less careless than I." } },
       choices = {
+        { text = "What became of your notes?", next = "notes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    notes = {
+      lines = { { id = "n_default", text = "The Dark Irons took my papers, and my memory's no substitute for them. Some of it went to the warden, and some of it, I'd wager, went up the mountain to the Spire, where Rend's people can read it at their leisure." } },
+      choices = {
+        { text = "Then we'll take them back.", next = "notes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    notes2 = {
+      lines = { { id = "n2_default", text = "That's the spirit, but get me out first, because the papers mean little without the man who can explain them. Once I'm free, I'll know where to look, and Morgan's Vigil can do the rest." } },
+      choices = {
+        { text = "Duty first, then. I'll follow your lead.", next = "BACK", reply = "Good soldier. Stormwind needs more who listen before they charge.", fx = { align = { order = 1 } } },
+        { text = "I'll do it my own way, Marshal.", next = "BACK", reply = "Then do it well, because I'm in no position to give orders from in here.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vigil = {
+      lines = { { id = "v_default", text = "Lost, is it? I suppose that's kinder than dead, and closer to the truth. Tell whoever keeps the Vigil now that I haven't talked, and that I'll make my report in person." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    paladin = {
+      lines = { { id = "pa_default", text = "Then the Light hasn't given up on this pit entirely. I've prayed more in this cell than I did in twenty years of service, and I'll take a paladin's sword arm as the answer, if you'll lend it." } },
+      choices = {
+        { text = "The Light brought me here for a reason.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -315,6 +363,9 @@ P:NPC {
       choices = {
         { text = "Why does Thrall care about the Dark Irons?", next = "thrall" },
         { text = "You share a mountain with Rend Blackhand.", next = "rend" },
+        { text = "How did the Dark Irons take you?", next = "captured" },
+        { text = "For the Horde, commander. I'll get you out.", next = "horde", when = { faction = "Horde" } },
+        { text = "An Alliance soldier freeing a Horde commander. Strange times.", next = "alliance", when = { faction = "Alliance" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Be patient, commander.", next = "END" },
       },
@@ -331,6 +382,36 @@ P:NPC {
       lines = { { id = "r_default", text = "Rend and his brother Maim hold the Spire above us with the dragons as their masters. They call themselves the true Horde, yet they bow to a black wyrm, and there is no shame deeper than that." } },
       choices = {
         { text = "The Blackrock clan was always proud.", next = "proud" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    captured = {
+      lines = { { id = "ca_default", text = "I came through the Burning Steppes with three scouts, and the Dark Irons found us at the gate. My scouts died well, and I was dragged down here to rot until someone thought to ask me questions." } },
+      choices = {
+        { text = "Did they get anything out of you?", next = "captured_talk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    captured_talk = {
+      lines = { { id = "ct_default", text = "Nothing but curses. But there is another prisoner in these depths, a dwarf called Kharan Mighthammer, who knows far more of this mountain's secrets than I do. Find him, and you will learn what Thrall needs to hear." } },
+      choices = {
+        { text = "A dwarf will speak to a Horde agent?", next = "captured_kharan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    captured_kharan = {
+      lines = { { id = "ck_default", text = "In a Dark Iron cell, enemies learn to talk to one another. He hates Thaurissan more than he hates me, and that is enough common ground for now." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Lok'tar, {class}! The warchief chose well when he sent you after me. Break these chains and you will have my axe beside you until we reach the surface." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    alliance = {
+      lines = { { id = "al_default", text = "Strange indeed, though I will not refuse an open door because of the hand that holds it. Tell your king that Gor'shak of the Horde pays his debts, even to humans." } },
+      choices = {
+        { text = "Our peoples have common enemies in this mountain.", next = "BACK", reply = "They do. Perhaps that is how the old wars end, one cell at a time.", fx = { align = { order = 1 } } },
+        { text = "Don't mistake this for friendship, orc.", next = "BACK", reply = "I would never, human. An honest enemy is worth more to me than a false friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -387,6 +468,9 @@ P:NPC {
         { text = "You built this whole city?", next = "built" },
         { text = "What happened when Ragnaros woke?", next = "cataclysm" },
         { text = "Your own people keep this place now.", next = "people" },
+        { text = "What is this statue you lie beside?", next = "statue" },
+        { text = "I'm a Bronzebeard. We've not forgotten the War of the Three Hammers.", next = "bronzebeard", when = { race = "Dwarf" } },
+        { text = "Can't a priest's prayers let you rest?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "Rest easy, spirit.", next = "END" },
       },
@@ -416,8 +500,39 @@ P:NPC {
     people = {
       lines = { { id = "p_default", text = "They keep it as slaves keep a master's house. Some of them, the Thorium Brotherhood, have begun to remember they are smiths first, and that gives an old ghost hope." } },
       choices = {
+        { text = "Can the Brotherhood free them?", next = "people_free", fx = { learn = { "thorium_brotherhood" } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "thorium_brotherhood" } } },
       },
+    },
+    people_free = {
+      lines = { { id = "pf_default", text = "Not alone, for the Firelord's grip is in the very forges they work. But smiths remember what their hands were made for, and a smith who remembers can be turned against any master in time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    statue = {
+      lines = { { id = "st_default", text = "My own likeness, raised by the Emperor in a kinder year, when he still thought my genius belonged to him. Now my bones lie in its shadow, and the Dark Irons walk past it without knowing whose face it wears." } },
+      choices = {
+        { text = "Is that why you can't move on?", next = "statue_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    statue_why = {
+      lines = { { id = "sw_default", text = "Partly, and partly the Shadowforge Key, which I designed and which Thaurissan's heirs still covet. While that key opens doors it was never meant to, my work is not finished, and neither am I." } },
+      choices = {
+        { text = "Then I'll see the key used rightly.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bronzebeard = {
+      lines = { { id = "bz_default", text = "Nor have we, Bronzebeard, though I think we remember it differently. We lost that war and fled here to this mountain, and our grief made Thaurissan desperate enough to call up fire. Your king's grandfathers had a hand in this, whether you like to hear it or not." } },
+      choices = {
+        { text = "Your Emperor started that war.", next = "BACK", reply = "He did, and I drew the siege engines for it. Stubbornness is the one thing all our clans share.", fx = { align = { light = -1 } } },
+        { text = "Perhaps it's time the clans set it aside.", next = "BACK", reply = "From a Bronzebeard's mouth? Then perhaps there is hope for the stone after all.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Your Light is kind, but it does not reach a soul tied to unfinished work. Help me finish the work, and I will need no prayers at all." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 

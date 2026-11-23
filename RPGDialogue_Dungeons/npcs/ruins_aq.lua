@@ -49,6 +49,8 @@ P:NPC {
         { text = "Tell me about General Rajaxx.", next = "rajaxx" },
         { text = "What lies deeper in the Ruins?", next = "ossirian" },
         { text = "What did the War of the Shifting Sands cost you?", next = "war" },
+        { text = "The Sentinels still tell of the Scarab Wall in Darnassus.", next = "sentinels", when = { race = "NightElf" } },
+        { text = "Cenarion Hold watches Silithus now. Did you know?", next = "hold", when = { class = "DRUID" } },
         { text = "I'd like to see what you have to trade.", next = "BUSINESS" },
         { text = "I'll keep moving.", next = "END" },
       },
@@ -89,8 +91,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sentinels = {
+      lines = { { id = "se_default", text = "Do they? Then some of us are remembered, at least. Tell me, {g:brother|sister}, does Tyrande still lead them, or has a thousand years carried her off too?" } },
+      choices = {
+        { text = "Tyrande still leads, from Darnassus atop Teldrassil.", next = "sentinels_teld" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sentinels_teld = {
+      lines = { { id = "st_default", text = "A city in a tree, across the sea? Fandral's doing, I'd wager, for he always wanted a world-tree of his own. I'll see it when this war is over, if the sands let me go." } },
+      choices = {
+        { text = "You'll see it. I'll make sure of that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hold = {
+      lines = { { id = "ho_default", text = "Arch Druid Staghelm's Circle, keeping a camp at the edge of the desert? Good, for someone ought to have been watching the wall all this time. I only hope they watched it closer than they watched us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     war = {
-      lines = { { id = "w_default", text = "Everything. Friends, a name in the histories, my youth. We fought beside the bronze, red and green dragons and still could not win, only hold. You are fighting the war we could not finish." } },
+      lines = { { id = "w_default", text = "It cost me everything, my friends and my name in the histories and whatever youth I had left. We fought beside the bronze, red and green dragons and still could not win, only hold. You are fighting the war we could not finish." } },
       choices = {
         { text = "I'll finish it for them.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

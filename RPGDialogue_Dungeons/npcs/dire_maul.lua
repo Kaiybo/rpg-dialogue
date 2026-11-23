@@ -46,6 +46,8 @@ P:NPC {
         { text = "How did you become a ghost?", next = "ghost" },
         { text = "What happened to the rest of the city?", next = "city" },
         { text = "Tell me about Quel'Serrar.", next = "quelserrar" },
+        { text = "My people remember the Highborne's pride, Lorekeeper.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "I've felt the arcane hunger you speak of.", next = "hunger", when = { class = "MAGE" } },
         { text = "What do you need done?", next = "BUSINESS" },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
@@ -98,6 +100,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    kaldorei = {
+      lines = { { id = "kd_default", text = "As well they should, for we earned every word of it. Azshara's court thought itself above the world, and the world fell on our heads for it, so I will not quarrel with a kaldorei who keeps a long memory." } },
+      choices = {
+        { text = "Your people paid for their pride.", next = "BACK", reply = "We did, and we are paying still. Look around you; this library is the bill.", fx = { align = { order = 1 } } },
+        { text = "Exile was a harsh price for curiosity.", next = "BACK", reply = "Kind of you to call it curiosity. Most of your people would not, and they would be right.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunger = {
+      lines = { { id = "hu_default", text = "Then guard it closely. My prince felt it too, and when the Well was gone he could not bear to go without, so he chained a demon to the pylons and called it preservation." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     dragon = {
       lines = { { id = "d_default", text = "One whose fire is hot enough and whose temper is short enough, which is to say Onyxia. The blade must be bathed in her flame while she lives, and it must be held by someone who does not flinch." } },
       choices = {
@@ -146,6 +160,7 @@ P:NPC {
         { text = "Who is Zevrim Thornhoof?", next = "zevrim" },
         { text = "Can you open the way deeper in?", next = "door" },
         { text = "How old are you?", next = "age" },
+        { text = "Cenarius's children have not forgotten you, Ironbark.", next = "cenarius", when = { class = "DRUID" } },
         { text = "Rest well, old one.", next = "END" },
       },
     },
@@ -166,7 +181,28 @@ P:NPC {
     },
     zevrim = {
       lines = { { id = "z_default", text = "A satyr lord, cruel even for his kind. He chains the spirits of this place and laughs while they suffer. While he lives, my roots are bound, and I cannot move a single branch." } },
+      choices = {
+        { text = "Where does his power come from?", next = "power" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    power = {
+      lines = { { id = "p_default", text = "From the wild magic the elves left behind, and from the one who leads the satyrs here, Alzzin the Wildshaper. Zevrim is only his hound, small one, though a hound with very sharp teeth." } },
+      choices = {
+        { text = "Then Alzzin is the one to fear.", next = "alzzin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alzzin = {
+      lines = { { id = "al_default", text = "Hmm. Fear him, yes, but do not run from him. He wears many shapes and loves none of them, and he has made the Warpwood into a garden of things that should not grow." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cenarius = {
+      lines = { { id = "ce_default", text = "Hmm, that is good to hear. I have not felt the Moonglade's wind in a very long time, and I had begun to think the Cenarion Circle sang its songs without me." } },
+      choices = {
+        { text = "The Circle will hear of you, I promise.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     door = {
       lines = { { id = "d_default", text = "When Zevrim falls, I will be free enough to smash the gate that holds the way to Alzzin. It will be the first thing I have done quickly in a thousand years." } },
