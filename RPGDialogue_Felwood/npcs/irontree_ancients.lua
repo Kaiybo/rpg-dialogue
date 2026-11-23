@@ -341,6 +341,8 @@ P:NPC {
         { text = "You say little, for an Ancient.", next = "quiet" },
         { text = "What makes a string proper?", next = "proper" },
         { text = "Does it matter that I'm not kaldorei?", next = "outsider", when = { class = "HUNTER", ["not"] = { race = "NightElf" } } },
+        { text = "My people remember those who fell at Hyjal.", next = "hyjal_kin", when = { race = "NightElf" } },
+        { text = "The Circle in Moonglade would want word of you.", next = "druid_kin", when = { class = "DRUID" } },
         { text = "I'll leave you to your silence.", next = "END" },
       },
     },
@@ -354,7 +356,37 @@ P:NPC {
     },
     quiet = {
       lines = { { id = "q_d", text = "Hrm. Hastat talks enough for three of us, so someone must listen to the forest, and it does not speak loudly any more." } },
-      choices = { { text = "Then I'll listen too. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What does the forest tell you now?", next = "forest_says" },
+        { text = "Then I'll listen too. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    forest_says = {
+      lines = { { id = "fs_d", text = "Hrm. It tells me of poison, small one. The water in the streams runs green, the wolves have gone mad with it, and the roots of the old trees drink fel where once they drank rain." } },
+      choices = {
+        { text = "Who poisoned it?", next = "felrot" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    felrot = {
+      lines = { { id = "fr_d", text = "The satyrs of Jaedenar, and the demons who made them, and the Shadow Council that still squats in that hold to the south. The Legion left this wood a long time ago, but it left its filth behind, and filth does not leave on its own." } },
+      choices = {
+        { text = "Then it should be burned out, root and branch.", next = "BACK", reply = "Hrm. Burned out, yes, but not with fire, or you will finish their work for them.", fx = { align = { order = -1 } } },
+        { text = "The Cenarion Circle should be trusted to heal it.", next = "BACK", reply = "Hrm. The druids at Emerald Sanctuary try, and they are patient, which is right, though patience alone grows no trees.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hyjal_kin = {
+      lines = { { id = "hk_d", text = "Hrm. Your grandmother's grandmother may have stood behind my roots when the Legion came up the mountain, child of Elune. We held the line long enough for Malfurion to do what he did, and I do not regret the price." } },
+      choices = {
+        { text = "My people still owe you that debt.", next = "BACK", reply = "Then pay it to the forest, which needs it more than I do.", fx = { affinity = 1 } },
+      },
+    },
+    druid_kin = {
+      lines = { { id = "dk_d", text = "Hrm. You smell of Moonglade, little druid. Tell the Circle that the Irontree Woods still have three old spirits in them, and that we would rather be remembered than mourned." } },
+      choices = {
+        { text = "I'll carry your word to Nighthaven.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
     proper = {
       lines = { { id = "p_d", text = "Hrm. It must be stronger than the arm and weaker than the stave, so that when the bow fails, it fails safely, in the string, and not in your face. Most bowyers forget the second half, and most hunters have the scars to show it." } },

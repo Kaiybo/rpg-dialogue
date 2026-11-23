@@ -212,6 +212,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ba_dwarf = {
+      lines = { { id = "bad_default", text = "Do they now! Then ye'll ken the trick of a cold lake at dawn, and that's half the battle. Tell them from me that the Stranglethorn coast is warmer, and the fish bite back." } },
+      choices = { { text = "I'll pass it on. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ba_gnome = {
+      lines = { { id = "bag_default", text = "Ha! I've seen gnomish poles, {g:lad|lass}, and one of them took a fellow's eyebrows off in Thelsamar. The contest wants a steady hand and a good lure, though if yers cast farther I'll nae stop ye." } },
+      choices = { { text = "Mine probably won't explode. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Barrus is the name, and fishin' is the game. The goblins of Booty Bay are holdin' a grand contest along the Stranglethorn coast, and I'm here to see that Ironforge sends its best poles south." },
@@ -225,6 +233,8 @@ P:NPC {
         { text = "How does the contest work?", next = "contest" },
         { text = "A dwarf promoting a goblin contest?", next = "goblins" },
         { text = "Dwarves aren't known for fishing.", next = "dwarves" },
+        { text = "My kin fish Loch Modan every summer.", next = "ba_dwarf", when = { race = "Dwarf" } },
+        { text = "A gnome could build a better fishing pole.", next = "ba_gnome", when = { race = "Gnome" } },
         { text = "Not for me. Good day.", next = "END" },
       },
     },

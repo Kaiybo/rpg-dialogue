@@ -27,6 +27,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_arcane = {
+      lines = { { id = "gt_arcane_l", text = "I tried that first, naturally! The trouble is that the silithid tunnels drink up stray magic like sand drinks water, so a blast that would level a tower here barely scorches the walls. Powder doesn't care what the hive thinks of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_gnomer = {
+      lines = { { id = "gt_gnomer_l", text = "By way of Ironforge, like the rest of us who got out. I'd rather not dwell on it, if you don't mind, because I left a perfectly good workshop down there with the radiation and the troggs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Arcanist Nozzlespring, attached to the Ironforge Brigade for what the Captain calls demolitions and I call applied arcanodynamics. The silithid dig faster than we can kill them, so my task is to bring their tunnels down on top of them, which is far more efficient per bug." },
@@ -41,6 +49,8 @@ P:NPC {
         { text = "What does the Brigade need from me?", next = "need" },
         { text = "What do you make of the silithid?", next = "silithid" },
         { text = "How do you get on with the dwarves?", next = "dwarves" },
+        { text = "As a mage, I wonder whether arcane blasts would serve better.", next = "gt_arcane", when = { class = "MAGE" } },
+        { text = "Did you come here from Gnomeregan?", next = "gt_gnomer", when = { race = "Gnome" } },
         { text = "Mind the candles, Arcanist.", next = "END" },
       },
     },
@@ -112,6 +122,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_loa = {
+      lines = { { id = "gt_loa_l", text = "Bwonsamdi hears me best, mon, because this desert be feedin' him plenty. I whisper to him every night that he can wait a little longer for these orcs, and so far he be agreein'." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_dead = {
+      lines = { { id = "gt_dead_l", text = "Don't be so sure, dead one. Shai's mojo stitches flesh, and yours be needin' more stitchin' than most, so come back when the bugs be chewin' on you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be Shai, shadow priestess of the Darkspear, sent with the Orgrimmar Legion to keep its warriors on their feet. The orcs bring the axes and I bring the mojo, and out here it be the mojo dat runs short first." } },
       again = {
@@ -123,6 +141,8 @@ P:NPC {
         { text = "What do the spirits say about this desert?", next = "spirits" },
         { text = "How do you find serving under an orc general?", next = "kirika" },
         { text = "What wounds do the silithid leave?", next = "wounds" },
+        { text = "Which loa do you call on out here, sister?", next = "gt_loa", when = { race = "Troll" } },
+        { text = "Your mojo would never work on my dead flesh.", next = "gt_dead", when = { race = "Scourge" } },
         { text = "Spirits keep you, priestess.", next = "END" },
       },
     },

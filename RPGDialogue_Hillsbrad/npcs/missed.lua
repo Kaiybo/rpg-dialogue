@@ -177,6 +177,7 @@ P:NPC {
         { text = "That pendant you wear is unusual.", next = "pendant" },
         { text = "How did you come to be here?", next = "how" },
         { text = "What will you do now?", next = "now" },
+        { text = "Come with me now. I can get you past his guards.", next = "escape", when = { class = "ROGUE" } },
         { text = "I mean you no harm.", next = "END" },
       },
     },
@@ -207,6 +208,10 @@ P:NPC {
     },
     how = {
       lines = { { id = "ho_default", text = "My family had a holding near the lake, and the Syndicate came for its tithe. When there was no coin left, Lord Perenolde said that I would do, and nobody in that room was going to tell him otherwise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    escape = {
+      lines = { { id = "es_default", text = "You would, wouldn't you? But if I vanish tonight, he will send his men to my family's farm by morning, so I must wait until he can no longer send anyone anywhere." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     now = {
@@ -260,6 +265,7 @@ P:NPC {
         { text = "How did you come by that wound?", next = "wound" },
         { text = "Why does a man join the Syndicate?", next = "join" },
         { text = "Your friends left you here to die.", next = "left" },
+        { text = "Let me try to close that wound, Valik.", next = "mend", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "Rest, Valik.", next = "END" },
       },
     },
@@ -287,6 +293,10 @@ P:NPC {
     },
     orders = {
       lines = { { id = "o_default", text = "They come down from Lord Perenolde's people in sealed missives, and men like me aren't meant to read them. I carried one, and for a drink I'll forget that I was told to burn it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mend = {
+      lines = { { id = "md_default", text = "Kind of you, but save your prayers for somebody with a road ahead of him. Even if you stitched me shut, the first patrol out of Southshore would only open me up again, so I'd sooner have the stout." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     left = {

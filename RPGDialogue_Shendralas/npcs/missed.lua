@@ -28,6 +28,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_stitch = {
+      lines = { { id = "gt_stitch_l", text = "Good work? It's the finest disguise ever sewn in a dungeon, pal, and I did it with a rusty needle and one hand chained. The seams are ugly on purpose, because an ogre would never trust anything neat." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_cartel = {
+      lines = { { id = "gt_cartel_l", text = "Pay? They'd sooner write me off as a bad debt and sell my shop. That's why I'm doin' business with you instead, because a rescuer costs less than a ransom." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Knot Thimblejack, master tailor, currently between premises. I came here to sell the Gordok some formal wear, and it turns out ogres don't pay invoices, they just chain the supplier to the floor and call it a standing order." },
@@ -42,6 +50,8 @@ P:NPC {
         { text = "How do I get you out of those chains?", next = "chains" },
         { text = "What have you learned about the Gordok?", next = "gordok" },
         { text = "How did a tailor end up here?", next = "tailor" },
+        { text = "I'm a tailor myself. Is the ogre suit good work?", next = "gt_stitch", when = { profession = "Tailoring" } },
+        { text = "Will the Cartel even pay to get you back?", next = "gt_cartel", when = { race = "Goblin" } },
         { text = "Sit tight, Knot.", next = "END" },
       },
     },

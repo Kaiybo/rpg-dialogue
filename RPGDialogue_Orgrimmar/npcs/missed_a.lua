@@ -294,6 +294,7 @@ P:NPC {
         { text = "How does the contest work?", next = "contest" },
         { text = "Orcs don't seem keen on fish.", next = "orcs" },
         { text = "Who pays you to stand here?", next = "pays" },
+        { text = "I already fish. What does the winner actually take home?", next = "prize", when = { profession = "Fishing" } },
         { text = "Not today, goblin.", next = "END" },
       },
     },
@@ -326,6 +327,10 @@ P:NPC {
         { text = "So the fish are just bait for the anglers.", next = "bait" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    prize = {
+      lines = { { id = "pz_default", text = "Now that's a pro's question! The winner walks off with a fine pole and a purse of gold, and the honour of having every angler in Booty Bay buy them a drink. Between you and me, pal, the drinks are worth more than the purse." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     bait = {
       lines = { { id = "b_default", text = "Ha! Now you're thinking like a goblin, and I mean that as the highest praise I've got. The fish are real and the prize is real, friend, and so's the bar tab, and that's what I call an honest deal." } },
@@ -374,6 +379,7 @@ P:NPC {
         { text = "What is the season truly about?", next = "season" },
         { text = "Tell me what you'd have me do.", next = "BUSINESS" },
         { text = "The goblins are only feeding people.", next = "feeding" },
+        { text = "I am of Mulgore too. How did our elders keep the season?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Good Winter Veil, Furmund.", next = "END" },
       },
     },
@@ -407,6 +413,10 @@ P:NPC {
     },
     yourself = {
       lines = { { id = "y_default", text = "Because a story is best taken from the one who keeps it, as water is best taken from the spring. Sagorne is a shaman and a patient teacher, and the walk to the Hold will carry you clear of the noise besides." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mulgore = {
+      lines = { { id = "mu_default", text = "We kept it with fires on the high mesas and long tellings through the dark, and every hunter brought back a share for those who could not hunt. Nobody sold anything, little one, because nobody owned the winter." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     feeding = {

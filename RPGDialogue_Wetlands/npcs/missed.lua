@@ -94,6 +94,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_sailor = {
+      lines = { { id = "gt_sailor_l", text = "Did you now? Then you know a guardship is the dullest posting in the navy and the most needful, and you'll not laugh at her with the tavern crowd. If you ever want a berth, I've hammocks to spare." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_gunner = {
+      lines = { { id = "gt_gunner_l", text = "Two of my best gun crews are Ironforge men, and they treat my cannon as if they'd cast them themselves. They grumble at the swell, but they never miss when it counts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Captain Bart Tidewater, of the Maiden's Virtue. My orders are to hold this harbor for the Alliance, so hold it I do, and I'll thank the tavern wits to stop asking when she last put to sea." } },
       again = {
@@ -105,6 +113,8 @@ P:NPC {
         { text = "What are you guarding the harbor against?", next = "guard" },
         { text = "She looks as if she hasn't sailed in a long while.", next = "sailed" },
         { text = "Do you know First Mate Fitzsimmons?", next = "fitz" },
+        { text = "I served at sea myself, Captain.", next = "gt_sailor", when = { race = "Human" } },
+        { text = "Do you ever take dwarves aboard as gunners?", next = "gt_gunner", when = { race = "Dwarf" } },
         { text = "Hold your station, Captain.", next = "END" },
       },
     },
@@ -180,6 +190,14 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gt_calm = {
+      lines = { { id = "gt_calm_l", text = "That's kind of you, truly, but I've brewed calming draughts for half the harbor and I know exactly what's in them. I'd rather stay sharp and worried than sleep through the knock at the door." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gt_wives = {
+      lines = { { id = "gt_wives_l", text = "I keep my hands busy and I tell myself he's only lost track of the days again. Then I lie awake listening for his boots, which I expect you know all about." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Caitlin Grassman, and I make the potions this harbor runs on, from whatever my husband brings home. Ardin has a gift for finding plants, and no gift at all for coming back when he says he will." },
@@ -195,6 +213,8 @@ P:NPC {
         { text = "Where did your husband go?", next = "ardin" },
         { text = "What do you brew here?", next = "brew" },
         { text = "Who is Llana?", next = "llana" },
+        { text = "I could brew you something for your nerves.", next = "gt_calm", when = { profession = "Alchemy" } },
+        { text = "My husband wanders too. How do you bear it?", next = "gt_wives", when = { gender = "female" } },
         { text = "He'll come home, Caitlin.", next = "END" },
       },
     },
