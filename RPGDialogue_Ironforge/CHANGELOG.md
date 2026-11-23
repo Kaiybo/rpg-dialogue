@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-23): Truths from the Old Books
+- Lore fixes and deeper quest-givers (core 0.101.0).
+
 ## 1.33.1 (2026-11-21)
 - Fixed a load error in Magni's file; his dwarf and human talks and Barin Redstone's are restored.
 

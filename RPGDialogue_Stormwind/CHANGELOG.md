@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.40.0 (2026-11-23): Truths from the Old Books
+- Lore fixes and deeper quest-givers (core 0.101.0).
+
 ## 1.39.0 (2026-11-20)
 - Sheldras Moontree, Maldryn and Theridran deepened for druids; the doubled Maldryn and Theridran merged into one each.
 

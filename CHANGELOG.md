@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.101.0 (2026-11-23): Truths from the Old Books
+No new files; a /reload is enough.
+- **Lore fixes**: Mor'zul Bloodbringer is a human warlock, not an orc; Nalesette Wildbringer is Felwood's stable master; Anduin is Stormwind's boy king; Gilneas and Stromgarde left the Alliance after the Second War; Dalaran fell before its dome went up; Archimonde's march on Hyjal was the Third War; no hints of Gilnean worgen.
+- **22 quest-givers go deeper** (Ironforge, Wetlands, Silithus, Shen'dralar, Stranglethorn, Western Plaguelands, Orgrimmar, Undercity, Hillsbrad, Teldrassil, Felwood): more replies, some only for the right class or race.
+- Not seen in game yet.
+
 ## 0.100.0 (2026-11-22): Old Wood, Old Wounds
 No new files; a /reload is enough.
 - **Sentinel Raene Wolfrunner gets Demon Fall right** (user report): Grom Hellscream killed Cenarius in the forest after drinking Mannoroth's blood a second time, and later died killing Mannoroth in Demon Fall Canyon. She no longer says Cenarius died there.
