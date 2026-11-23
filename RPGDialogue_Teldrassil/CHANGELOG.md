@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.1 (2026-11-23): Ghosts Set Right
+- Lore fix: Valstann Staghelm died in Silithus, not at Ahn'Qiraj's gates.
+
 ## 1.28.0 (2026-11-23): Truths from the Old Books
 - Lore fixes and deeper quest-givers (core 0.101.0).
 

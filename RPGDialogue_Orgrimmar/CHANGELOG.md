@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.1 (2026-11-23): Ghosts Set Right
+- Lore fix: A Lich King line no longer reads as if he were dead.
+
 ## 1.36.0 (2026-11-23): Truths from the Old Books
 - Lore fixes and deeper quest-givers (core 0.101.0).
 

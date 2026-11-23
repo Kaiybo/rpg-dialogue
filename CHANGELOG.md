@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.101.1 (2026-11-23): Ghosts Set Right
+No new files; a /reload is enough.
+- **Lore fixes** (checked against wowpedia): Arthas, not Archimonde, killed Antonidas; Valstann Staghelm was Fandral's son, a warrior slain by the qiraji in Silithus; a Lich King line in Orgrimmar no longer sounds like he is dead.
+
 ## 0.101.0 (2026-11-23): Truths from the Old Books
 No new files; a /reload is enough.
 - **Lore fixes**: Mor'zul Bloodbringer is a human warlock, not an orc; Nalesette Wildbringer is Felwood's stable master; Anduin is Stormwind's boy king; Gilneas and Stromgarde left the Alliance after the Second War; Dalaran fell before its dome went up; Archimonde's march on Hyjal was the Third War; no hints of Gilnean worgen.

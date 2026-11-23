@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.1 (2026-11-23): Ghosts Set Right
+- Lore fix: Antonidas was killed by Arthas, not Archimonde.
+
 ## 1.14.0 (2026-11-20)
 - Alfina Nightgaze has druid lines for young and seasoned druids.
 
