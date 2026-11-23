@@ -733,3 +733,48 @@ P:NPC {
     _none = { { id = "tp_none", text = "I keep the lifts, {class}, not the gossip. Ask at the inn above." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- "Plucky" Johnson: Magus Tirth's apprentice, hiding at the Mirage Raceway as a chicken.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tn_plucky_johnson", id = 6626, name = "\"Plucky\" Johnson", gender = "male",
+  role = "vendor", tier = "quest",
+  communities = { "raceway" }, temper = { "nervous" }, values = { "survival", "freedom" },
+  impression = {
+    first = "A chicken pecks at the salt by the Raceway stands. When you look at it, it looks back, which chickens do not usually do, and then it clucks in a way that sounds almost like a sigh.",
+    third = "{name} met \"Plucky\" Johnson, a human apprentice who turned himself into a chicken to hide from his master.",
+  },
+  greetings = {
+    { id = "g_default", text = "Bawk. Bawk-bawk? ...Oh, all right, you've seen through it. Please keep your voice down." },
+    { id = "g_back", when = { metBefore = true }, text = "It's you again. You haven't told the Magus where I am, have you? Bawk." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Johnson's the name, though the racing crowd calls me Plucky, which I suppose I've earned. I was apprenticed to Magus Tirth, and I am hiding from him, and a chicken is the last place he would look." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Get the Scoop") }, text = "You're asking about the Magus's business? Bawk. Then you'd better hear the whole sorry tale from me first." },
+      },
+      again = { { id = "h_again", text = "Anything else? Quietly, please. Bawk." } },
+      choices = {
+        { text = "Why hide from your own master?", next = "tirth" },
+        { text = "Can you turn yourself back?", next = "back" },
+        { text = "Don't worry. Your secret is safe.", next = "END" },
+      },
+    },
+    tirth = {
+      lines = { { id = "t_default", text = "The Magus is a brilliant man with a short temper and a long list of chores. I broke one of his things, then another, and by the third I decided that an apprentice who runs away keeps more of his feathers." } },
+      choices = {
+        { text = "You owe him an apology and an honest day's work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No one should serve a master they fear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    back = {
+      lines = { { id = "b_default", text = "In theory, yes. In practice, I've grown rather good at being a chicken, and the goblins here feed me for free. Bawk. I may stay a little longer." } },
+      choices = { { text = "Mind the gnome racers' wheels.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Bawk. I'm a chicken; I don't know much. Ask the goblins." } } },
+}

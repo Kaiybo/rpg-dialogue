@@ -986,3 +986,54 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not my business, {g:lad|lass}. Mine's armour." } },
   },
 }
+
+-- Stormwind City Guard: the soldiers who patrol the city's districts and give directions.
+P:NPC {
+  key = "sw_stormwind_city_guard", id = 68, name = "Stormwind City Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "stormwind" }, temper = { "steady", "proud" }, values = { "duty", "order" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A city guard in polished plate and a blue tabard stands his post, eyes on the crowd.",
+    third = "{name} spoke with one of the Stormwind City Guard.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Stormwind, citizen. Mind the canals, keep the peace, and ask if you've lost your way." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "Good to see a son of Ironforge in the city. The tram to your folk runs from the Dwarven District, if you're homesick." },
+    { id = "n_pal", cat = "class", when = { class = "PALADIN" }, text = "Light be with you, {class}. The Cathedral of Light is in the square to the north, but I expect you know that better than I do." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm with the Stormwind City Guard, and we keep order from the Trade District to the keep. Need directions to a trainer, the bank or the auction house, or is there something else on your mind?" } },
+      again = { { id = "h_again", text = "Anything else? The square doesn't watch itself." } },
+      choices = {
+        { text = "I need directions.", next = "BUSINESS" },
+        { text = "How is the city holding up?", next = "city" },
+        { text = "Who rules Stormwind now?", next = "rule" },
+        { text = "Thank you, guard.", next = "END" },
+      },
+    },
+    city = {
+      lines = { { id = "c_default", text = "The walls are new and the streets are clean, but the Defias have hands in the city too, and the Stonemasons haven't forgotten they were never paid for rebuilding it. We keep the peace, but we hear the grumbling every day." } },
+      choices = {
+        { text = "The stonemasons were wronged.", next = "BACK", reply = "Maybe so, but murder on the roads doesn't put it right.", fx = { align = { order = -1 } } },
+        { text = "Outlaws are outlaws, whatever their grievance.", next = "BACK", reply = "That's how the law sees it, and so do I.", fx = { align = { order = 1 } } },
+      },
+    },
+    rule = {
+      lines = { { id = "r_default", text = "Young King Anduin sits the throne while his father is missing, with Highlord Bolvar Fordragon as regent and Lady Katrana Prestor at his side. Bolvar's a good man, and I'd follow him anywhere, though I hear things about the court that make me glad I'm on the street." } },
+      choices = {
+        { text = "What sort of things?", next = "court" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    court = {
+      lines = { { id = "co_default", text = "Nothing a guard should repeat, and nothing I could prove besides. Just that a good deal of what Lady Prestor wants, the House of Nobles seems to want too." } },
+      choices = { { text = "I'll keep my ears open. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't say, citizen. Try the Pig and Whistle, they gossip about everything there." } } },
+}

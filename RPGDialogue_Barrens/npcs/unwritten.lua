@@ -1296,3 +1296,138 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "I know only this place, and the quiet. Ask the living." } } },
 }
+
+---------------------------------------------------------------------------
+-- Grimble: goblin shipmaster on the Ratchet docks; the boat to Booty Bay.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_grimble", id = 9558, name = "Grimble", title = "Shipmaster", gender = "male",
+  role = "civilian", tier = "service",
+  communities = { "ratchet" }, temper = { "brisk" }, values = { "profit", "order" },
+  impression = {
+    first = "Grimble stands at the end of the pier with a tide chart in one hand and a pocket watch in the other, checking both as if they had personally let him down.",
+    third = "{name} met Grimble, the goblin shipmaster who keeps the Ratchet boat to Booty Bay running.",
+  },
+  greetings = {
+    { id = "g_default", text = "Boat to Booty Bay comes in when the sea says so, and not a minute before. Need something while you wait?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back on my dock again? The boat hasn't learned to come faster since you left." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "Grimble, shipmaster of Ratchet. Every crate, passenger and drowned rat that crosses to Stranglethorn goes past me first, and I keep a ledger of all of them." } },
+      again = { { id = "h_again", text = "Anything else, or are you just watching the water?" } },
+      choices = {
+        { text = "When does the boat to Booty Bay leave?", next = "boat" },
+        { text = "Who uses this crossing?", next = "who" },
+        { text = "Do you trust the Steamwheedle captains?", next = "captains" },
+        { text = "Safe sailing, shipmaster.", next = "END" },
+      },
+    },
+    boat = {
+      lines = { { id = "b_default", text = "She runs back and forth all day, so wait at the end of the pier and she'll find you. Just keep your feet off the edge; the sharks in this bay have learned to wait too." } },
+      choices = { { text = "I'll mind the sharks. Something else.", next = "BACK" } },
+    },
+    who = {
+      lines = { { id = "w_default", text = "Orcs, humans, trolls, dwarves, and everyone in between, all of them paying the same fare. The Cartel doesn't care whose flag you carry, so long as your coin is round and your temper stays ashore." } },
+      choices = {
+        { text = "Neutral ground is worth protecting.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Selling passage to both sides is just greed.", next = "BACK", fx = { align = { order = -1, light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    captains = {
+      lines = { { id = "c_default", text = "I trust them to want their pay, and that makes them the most reliable folk on the sea. A captain who drowns his passengers doesn't get paid twice." } },
+      choices = { { text = "A fair point. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "If it doesn't float, I don't track it. Ask someone on dry land." } } },
+}
+
+---------------------------------------------------------------------------
+-- Erk: orc child by the watch tower north of the Crossroads, with his wolf pup Fang.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_erk", id = 14857, name = "Erk", gender = "male",
+  role = "child", tier = "service",
+  communities = { "crossroads" }, temper = { "cheerful" }, values = { "family", "courage" },
+  impression = {
+    first = "A small orc boy sits by the watch tower with a string of fish over his shoulder, while a wolf pup chews hopefully at his boot.",
+    third = "{name} met Erk, an orc child who brings fish to the guards north of the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hey! Are you a real adventurer? Fang thinks you are. He growls at the ones who aren't." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back! Fang, look, it's our friend again." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm Erk, and this is Fang. I catch fish in the lake for the guards, because Guard Kurall says a grunt can't stand watch on an empty belly." } },
+      again = { { id = "h_again", text = "Do you want to hear more? I know lots of things." } },
+      choices = {
+        { text = "Fang is a fine wolf.", next = "fang" },
+        { text = "Isn't it dangerous out here for you?", next = "danger" },
+        { text = "What do you want to be when you're grown?", next = "grown" },
+        { text = "Take care of yourself, Erk.", next = "END" },
+      },
+    },
+    fang = {
+      lines = { { id = "f_default", text = "He's going to be the biggest wolf in the Barrens. Right now he's mostly teeth and feet, but my father says that's how all the good ones start." } },
+      choices = { { text = "I'm sure he'll grow into them.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    danger = {
+      lines = { { id = "d_default", text = "The guards are right here, and the centaur never come this close. Well, almost never. Fang would bite them anyway." } },
+      choices = {
+        { text = "A brave orc should learn danger early.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You should be home, safe behind the walls.", next = "BACK", fx = { align = { honor = -1, light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grown = {
+      lines = { { id = "gr_default", text = "A grunt in Orgrimmar, with a big axe and a helmet with horns on it. Or a fisherman. Fishermen eat better, but grunts get the horns." } },
+      choices = { { text = "Why not both?", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up. Not that one, though; he's grumpy." } } },
+}
+
+---------------------------------------------------------------------------
+-- Horde Guard: generic Horde guards on Barrens posts. Light entry; the World guard pool covers the rest.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "bar_horde_guard", id = 3501, name = "Horde Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "crossroads" }, temper = { "stern" }, values = { "duty", "honor" },
+  impression = {
+    first = "A Horde guard leans on his spear in the dry wind, eyes moving over the grass for anything that walks on two legs or four.",
+    third = "{name} spoke with a Horde guard posted in the Barrens.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep moving, traveller, or tell me what you need. Out here, standing still gets you noticed." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "The Barrens are wide and the Horde is spread thin across them. Quilboar to the south, centaur on every side, and Alliance scouts pushing in from Theramore. What do you need?" } },
+      again = { { id = "h_again", text = "Anything else? Make it quick." } },
+      choices = {
+        { text = "Where is the Crossroads?", next = "road" },
+        { text = "What's the greatest threat out here?", next = "threat" },
+        { text = "Lok'tar. Stay sharp.", next = "END" },
+      },
+    },
+    road = {
+      lines = { { id = "r_default", text = "Follow the road to where it meets itself. You'll see the walls and smell the wind riders long before you hear anyone." } },
+      choices = { { text = "Thanks. Something else.", next = "BACK" } },
+    },
+    threat = {
+      lines = { { id = "t_default", text = "The centaur, if you ask me. The Kolkar and the Magram remember when this land was theirs, and they hate us for being here at all." } },
+      choices = {
+        { text = "Then we drive them out for good.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Perhaps there's room to make peace with some.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask at the Crossroads. I just watch the road." } } },
+}

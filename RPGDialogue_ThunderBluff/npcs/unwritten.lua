@@ -305,3 +305,81 @@ P:NPC {
     },
   },
 }
+
+---------------------------------------------------------------------------
+-- Bluffwatcher: the city guard of Thunder Bluff. Light entry; World guard pool covers the rest.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tb_bluffwatcher", id = 3084, name = "Bluffwatcher", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "calm" }, values = { "duty", "tradition" },
+  impression = {
+    first = "A tauren Bluffwatcher stands at ease near the edge of the mesa, halberd planted, watching the plains below as if counting every blade of grass.",
+    third = "{name} spoke with a Bluffwatcher of Thunder Bluff.",
+  },
+  greetings = { { id = "g_default", text = "Peace be on your path, traveller. The bluffs are high; walk carefully near the edges." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We watch the bridges and the lifts, and we watch the plains for the Grimtotem and the Venture Company. Cairne Bloodhoof asks for vigilance, and we give it gladly." } },
+      again = { { id = "h_again", text = "Is there more you need?" } },
+      choices = {
+        { text = "Do you trust the Grimtotem on the bluffs?", next = "grim" },
+        { text = "Where can I find the elevators?", next = "lift" },
+        { text = "Walk with the Earthmother.", next = "END" },
+      },
+    },
+    grim = {
+      lines = { { id = "g_default2", text = "High Chieftain Cairne welcomes them, and I honour his word. But I keep my eyes open when they cross the bridges, as any watcher would." } },
+      choices = {
+        { text = "Cairne's word should be enough for you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust your own eyes before any chieftain's word.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lift = {
+      lines = { { id = "l_default", text = "The lifts rise from the plains on the north and south sides of the main bluff. Hold on, and do not lean out to look down." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I cannot say. The elders on Elder Rise may know." } } },
+}
+
+---------------------------------------------------------------------------
+-- Honor Guard: Cairne's ceremonial guard in Thunder Bluff. Light entry.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tb_honor_guard", id = 3083, name = "Honor Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "stern" }, values = { "honor", "duty" },
+  impression = {
+    first = "An Honor Guard of the Bloodhoof stands rigid beside the great lodge, painted in the colours of the chieftain, and does not blink when you approach.",
+    third = "{name} spoke with an Honor Guard of Thunder Bluff.",
+  },
+  greetings = { { id = "g_default", text = "You stand before the guard of the High Chieftain. Speak with respect." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We are sworn to Cairne Bloodhoof and to his house. Where he sits, we stand, and where he walks, we walk a step behind." } },
+      again = { { id = "h_again", text = "What more do you ask?" } },
+      choices = {
+        { text = "What does it mean to be an Honor Guard?", next = "honor" },
+        { text = "Where is the High Chieftain?", next = "cairne" },
+        { text = "I'll go in peace.", next = "END" },
+      },
+    },
+    honor = {
+      lines = { { id = "o_default", text = "It means our lives are not our own. We gave them to the chieftain freely, because he gave the tauren a home when we had only the road and the centaur at our backs." } },
+      choices = {
+        { text = "A life given in service is well spent.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No one should give away their whole life.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cairne = {
+      lines = { { id = "c_default", text = "The High Chieftain holds council in his lodge on the main bluff. If he will see you, he will see you there." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That is not mine to answer." } } },
+}

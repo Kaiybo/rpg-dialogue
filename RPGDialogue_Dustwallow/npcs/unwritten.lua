@@ -574,3 +574,53 @@ P:NPC {
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask my teacher at the infirmary; he knows everything, or at least he sounds like he does." } },
   },
 }
+
+-- Theramore Guard: Lady Jaina Proudmoore's soldiers who keep the walls and docks of Theramore Isle.
+P:NPC {
+  key = "dw_theramore_guard", id = 4979, name = "Theramore Guard", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "theramore" }, temper = { "steady", "polite" }, values = { "duty", "peace" },
+  notices = { "race" },
+  impression = {
+    first = "A guard in Theramore's blue and white stands at his post, damp from the marsh air.",
+    third = "{name} spoke with one of the Theramore Guard.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Theramore, traveller. Lady Proudmoore keeps the peace here, and we keep it for her, so please do the same." },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" }, text = "One of Thrall's people, and walking openly in Theramore. Lady Jaina says we're at peace, so keep your weapon sheathed and we'll stay that way." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm with the Theramore Guard, and I'll point you to the inn, the docks or the citadel, wherever you need. Is there something I can help with?" } },
+      again = { { id = "h_again", text = "Anything else? The marsh breeds trouble faster than flies." } },
+      choices = {
+        { text = "I need directions.", next = "BUSINESS" },
+        { text = "What's the trouble in the marsh?", next = "marsh" },
+        { text = "How do you feel about peace with the Horde?", next = "peace" },
+        { text = "Thank you.", next = "END" },
+      },
+    },
+    marsh = {
+      lines = { { id = "m_default", text = "Black dragons in the Wyrmbog, murlocs and crocolisks along the shore, and the Grimtotem and the Defias hiding out in the swamp. And now some of our own deserters are talking treason in the old shacks to the north." } },
+      choices = { { text = "I'll keep my eyes open. Something else.", next = "BACK" } },
+    },
+    peace = {
+      lines = { { id = "p_default", text = "Lady Jaina fought beside Thrall against the Burning Legion at Mount Hyjal, and she says the orcs have changed, and I believe her. Not everyone who came with her from Lordaeron does, though, and some of them would sooner see the Horde burn." } },
+      choices = {
+        { text = "Then who's against it?", next = "against" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    against = {
+      lines = { { id = "a_default", text = "Men who lost families in the Second War, mostly, and some who served under the Lady's father, Admiral Proudmoore, before the orcs killed him. I understand the anger, but I swore to serve her, and I'll keep her peace." } },
+      choices = {
+        { text = "Jaina is right. The peace is worth keeping.", next = "BACK", reply = "Glad to hear it from a traveller. Not everyone says so.", fx = { align = { order = 1 } } },
+        { text = "The orcs haven't earned forgiveness yet.", next = "BACK", reply = "Plenty here would agree, but keep it quiet near the citadel.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Couldn't say, traveller. Ask at the inn by the docks, someone there will know." } } },
+}

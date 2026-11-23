@@ -680,3 +680,120 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "Ask Torek. I only swing the axe." } } },
 }
+
+---------------------------------------------------------------------------
+-- Warsong Runner: messenger of the Warsong clan in northern Ashenvale.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_warsong_runner", id = 12863, name = "Warsong Runner", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "warsong" }, temper = { "restless" }, values = { "duty", "speed" },
+  impression = {
+    first = "A lean orc in light leathers, legs crusted in mud to the knee, shifts from foot to foot as though stopping is a kind of pain.",
+    third = "{name} met a Warsong runner carrying word through Ashenvale.",
+  },
+  greetings = { { id = "g_default", text = "Make it fast, friend. I've orders to carry, and the elves shoot at anything that stands still." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I run messages between the Warsong camps and the outposts. Lumber counts, sentinel sightings, who's dead and who's late. Mostly who's dead." } },
+      again = { { id = "h_again", text = "More? I'm already late." } },
+      choices = {
+        { text = "What news from the front?", next = "news" },
+        { text = "Why do the Warsong fight for this forest?", next = "why" },
+        { text = "Run on, then.", next = "END" },
+      },
+    },
+    news = {
+      lines = { { id = "n_default", text = "The Silverwing Sentinels hit another lumber team at dawn. They come out of the trees silent as owls, and they're gone before you can raise an axe." } },
+      choices = { { text = "Stay alive out there.", next = "BACK" } },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Orgrimmar needs timber, and the Barrens has none. Grom's clan was the first to come here, and we won't be driven off what he bled for." } },
+      choices = {
+        { text = "The Horde must take what it needs.", next = "BACK", fx = { align = { light = -1, honor = 1 } } },
+        { text = "This war over trees will cost us too much.", next = "BACK", fx = { align = { light = 1, honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask at Splintertree. I just carry the words." } } },
+}
+
+---------------------------------------------------------------------------
+-- Warsong Scout: watcher of the Warsong clan near the gulch in northern Ashenvale.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_warsong_scout", id = 12862, name = "Warsong Scout", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "warsong" }, temper = { "wary" }, values = { "duty", "honor" },
+  impression = {
+    first = "A Warsong scout crouches in the shade of a great tree, a hand on his bow, his eyes never leaving the shadows between the trunks.",
+    third = "{name} spoke with a Warsong scout in Ashenvale.",
+  },
+  greetings = { { id = "g_default", text = "Quiet. The forest has ears, and most of them are pointed." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I watch the gulch and the paths to it. The Silverwing Sentinels want our clan out of these woods, and the Warsong want every axe they own back in the trees." } },
+      again = { { id = "h_again", text = "Something else? Keep it low." } },
+      choices = {
+        { text = "What happens in the gulch?", next = "gulch" },
+        { text = "How do the night elves fight?", next = "elves" },
+        { text = "Good hunting.", next = "END" },
+      },
+    },
+    gulch = {
+      lines = { { id = "gu_default", text = "Our lumber road runs through it, and the Sentinels mean to close it for good. Every few days they come for our banners, and every few days we send them back with fewer sisters." } },
+      choices = {
+        { text = "Then we hold the gulch at any cost.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "No road of timber is worth that much blood.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves = {
+      lines = { { id = "e_default", text = "From the dark, with arrows and great cats and owls that see everything. They fight like the forest itself hates you, and maybe it does." } },
+      choices = { { text = "I'll keep my eyes open.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Don't know. Ask at the camp." } } },
+}
+
+---------------------------------------------------------------------------
+-- Astranaar Sentinel: night elf guard of Astranaar. Light entry; World guard pool covers the rest.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "ash_astranaar_sentinel", id = 6087, name = "Astranaar Sentinel", gender = "female",
+  role = "guard", tier = "service",
+  communities = { "astranaar" }, temper = { "watchful" }, values = { "duty", "nature" },
+  impression = {
+    first = "A night elf Sentinel stands on the bridge to Astranaar, glaive at rest, her silver eyes measuring you against every stranger who has come before.",
+    third = "{name} spoke with a Sentinel guarding Astranaar.",
+  },
+  greetings = { { id = "g_default", text = "Elune's light upon you, traveller. You stand in Astranaar; keep your weapons sheathed." } },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We guard this island and the road through the forest. The Warsong cut from the north, the satyrs creep from the south, and the furbolgs have gone mad between them." } },
+      again = { { id = "h_again", text = "What more would you ask?" } },
+      choices = {
+        { text = "How do the Sentinels answer the orcs?", next = "orcs" },
+        { text = "Where can I rest?", next = "inn" },
+        { text = "Elune keep you.", next = "END" },
+      },
+    },
+    orcs = {
+      lines = { { id = "o_default", text = "With arrows, when they cut too deep. Some of my sisters would burn every lumber camp to ash; others pray the orcs remember what their Grom did at the end." } },
+      choices = {
+        { text = "Drive them from the forest. Leave no camp standing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Mercy now might spare the forest a longer war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inn = {
+      lines = { { id = "i_default", text = "The inn is near the centre of the town. Innkeeper Kimlya will see that you are fed and rested." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I cannot say. Ask the Sentinel captain." } } },
+}

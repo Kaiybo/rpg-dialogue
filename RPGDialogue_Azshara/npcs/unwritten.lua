@@ -216,3 +216,48 @@ P:NPC {
   },
   topics = { _none = { { id = "tp_none", text = "That is not among my memories. Ask the druids of Moonglade, child." } } },
 }
+
+---------------------------------------------------------------------------
+-- Xiggs Fuselighter: Ironforge pilot whose flying machine sets down at a helipad in Azshara.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "az_xiggs_fuselighter", id = 8517, name = "Xiggs Fuselighter", gender = "male",
+  role = "questgiver", tier = "quest",
+  communities = { "ironforge" }, temper = { "gruff" }, values = { "craft", "duty" },
+  impression = {
+    first = "A dwarf in goggles and a scorched flying cap stands beside a battered gyrocopter, tightening bolts with the tender care other dwarves keep for their beards.",
+    third = "{name} met Xiggs Fuselighter, a dwarven pilot of Ironforge who flies into Azshara.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mind the rotor, friend! She stops slow, and she's not fussy about what she chops." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? She's still in one piece, and so am I. Mostly." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Xiggs Fuselighter, pilot out of Ironforge. I fly where the King's men can't walk, and Azshara has more such places than I'd like." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Xiggs Fuselighter") }, text = "You're the one I was told to expect, then. Good. Let's see what you've brought me, and quick, before the satyrs hear my engine cool." },
+      },
+      again = { { id = "h_again", text = "Anything else? I've a long flight home." } },
+      choices = {
+        { text = "What brings a dwarf pilot this far?", next = "why" },
+        { text = "Is flying that thing safe?", next = "safe" },
+        { text = "Safe flight, Xiggs.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Old ruins, old magic, and folk in Ironforge who want to know what's buried here before somebody else digs it up. Azshara was a kingdom once, and kingdoms leave a great deal behind." } },
+      choices = {
+        { text = "Better the Alliance study it than leave it to rot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some ruins should be left buried.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe = {
+      lines = { { id = "s_default", text = "Safer than walking through Azshara, lad, I'll promise you that much. The worst I've had is a fire in the engine and a soft landing in a lake." } },
+      choices = { { text = "That's not as reassuring as you think.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Can't help you there. Ask me about engines, or ask someone else." } } },
+}

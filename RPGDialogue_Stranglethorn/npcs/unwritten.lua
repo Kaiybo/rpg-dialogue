@@ -900,3 +900,52 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea, pal! But I bet it'd look great with a rocket going off behind it." } },
   },
 }
+
+-- Servant of the Hand: Zandalari warriors attending Molthor, the Hand of Rastakhan, on Yojamba Isle.
+P:NPC {
+  key = "stv_servant_of_the_hand", id = 15080, name = "Servant of the Hand", title = "Hand of Rastakhan", gender = "male",
+  role = "guard", tier = "service",
+  communities = { "zandalar" }, temper = { "stern", "solemn" }, values = { "duty", "tradition" },
+  notices = { "race" },
+  impression = {
+    first = "A towering Zandalari troll in ceremonial armour watches you from beside Molthor's fire.",
+    third = "{name} spoke with one of the Zandalari who serve the Hand of Rastakhan on Yojamba Isle.",
+  },
+  greetings = {
+    { id = "g_default", text = "De Zandalarian trolls have traveled far and suffered much to reach dis place, stranger, but to do nothing is to invite our doom." },
+  },
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" }, text = "Darkspear. You are far from de old ways, but de blood remembers, and so do we." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I serve Molthor, who is de Hand of King Rastakhan, and I guard his fire while he gathers blades against de Soulflayer. If you have come to help, speak to de Hand, and if you have come to stare, stare quickly." } },
+      again = { { id = "h_again", text = "You have more to say? Say it, and den let me return to my watch." } },
+      choices = {
+        { text = "What is the Soulflayer?", next = "hakkar" },
+        { text = "Why do the Zandalar fight other trolls?", next = "gurubashi" },
+        { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    hakkar = {
+      lines = { { id = "hk_default", text = "Hakkar, de blood god, who de Gurubashi once worshipped and once cast out, at de cost of their empire. Now his priests have called him back into Zul'Gurub, and if he walks free, he will drink dis whole world dry.", fx = { learn = { "hakkar" } } } },
+      choices = { { text = "Then he must be stopped. Something else.", next = "BACK" } },
+    },
+    gurubashi = {
+      lines = { { id = "gu_default", text = "De Zandalar are de first of all trolls, de priests and keepers of de oldest ways, and when our children go astray it falls to us to correct dem. We do not enjoy it, but we do not shirk it either." } },
+      choices = {
+        { text = "Do you trust outsiders to help you?", next = "outsiders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    outsiders = {
+      lines = { { id = "o_default", text = "Trust is a word for kin. We need blades, and you have one, and dat is enough for now, but de Hand will be watching what you do with it." } },
+      choices = {
+        { text = "Then I'll prove myself with deeds.", next = "BACK", reply = "Good. Deeds are de only words de Zandalar hear.", fx = { align = { honor = 1 } } },
+        { text = "I fight for the reward, not your trust.", next = "BACK", reply = "Den you will be paid, and nothing more.", fx = { align = { honor = -1 } } },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Dat is not for me to answer. Ask de Hand, if he will hear you." } } },
+}
