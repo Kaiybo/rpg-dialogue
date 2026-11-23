@@ -183,7 +183,10 @@ function Conv.FallbackToBox(v)
 end
 
 -- Show a page in the session's view; if DialogueUI can't take it after all, use the box.
+local adoptWindow -- defined with the game pages below
+
 local function present(s, v)
+  s.lastView = v
   if s.view == "dui" and ns.UI.DUIView.Show(v) == false then
     s.view = nil
     local frame = Conv.BlizzardFrame(s)
@@ -255,6 +258,20 @@ function Conv.Start(kind, unit, interactionName)
       end
       if s.nodeDef then View(s).SetChoices(Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))) end
     end
+    -- A quest was just accepted, declined or handed in from the box and the game reopened
+    -- the NPC's menu: back to the conversation where it was, with their options refreshed,
+    -- not a fresh greeting (the visit used to end, then start over, then close).
+    if s.questAnswered and kind == "gossip" and s.mode == "full" and not s.menuOnly and s.nodeDef and s.lastView then
+      s.questAnswered, s.page, s.following = nil, nil, nil
+      if Conv.KeepPages(s) then s.following = true end
+      adoptWindow(s)
+      local v = s.lastView
+      v.choices = Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))
+      v.said = nil
+      present(s, v)
+      return
+    end
+    s.questAnswered = nil
     -- An option picked in the box led to the game's next page: show it in the box too.
     -- A vendor, trainer, flight map or bank opens its own window as usual.
     if s.mode == "full" and s.following then
@@ -1019,6 +1036,8 @@ function Conv.Choose(index)
     if entry.action == "pick" then Conv.PickReward(entry.arg); return end
     if entry.action == "reward" and ns.db.settings.sounds then C.PlaySound("IG_QUEST_LIST_COMPLETE") end
     s.following = true
+    -- The quest window closes now; give the game a moment to send the NPC's menu back.
+    if entry.action ~= "continue" then s.questAnswered = C.Now() end
     C.QuestAnswer(entry.action, entry.arg)
     return
   end
@@ -1878,7 +1897,7 @@ end
 
 -- The window the game is showing now, faded under the box (and the previous one restored,
 -- so it isn't left invisible the next time the game opens it).
-local function adoptWindow(s)
+function adoptWindow(s)
   local frame = Conv.BlizzardFrame(s)
   if frame == s.blizz then return end
   if s.faded and s.blizz then C.SetFaded(s.blizz, false); s.faded = false end
@@ -1997,7 +2016,14 @@ end)
 function Conv.CheckClosed()
   local s = Conv.session
   if not s or s.kind == "talk" then return end
-  if not C.AnyInteractionFrameShown() then Conv.Finish() end
+  if C.AnyInteractionFrameShown() then return end
+  -- Right after a quest answer the game closes the quest window and may reopen the NPC's
+  -- menu a moment later (server round trip): wait for it before ending the visit.
+  if s.questAnswered and C.Now() - s.questAnswered < 1.5 then
+    C.After(0.25, Conv.CheckClosed)
+    return
+  end
+  Conv.Finish()
 end
 
 local function onClose() C.After(0.2, Conv.CheckClosed) end
