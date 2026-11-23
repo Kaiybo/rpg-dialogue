@@ -134,7 +134,7 @@ P:Letter {
   id = "origin_nightelf_feathermoon_raised_2", from = "Celwen Brightleaf", stranger = true, delay = 2400,
   when = { origin = "nightelf_feathermoon_raised", minLevel = 40 },
   subject = "Come and see the isle",
-  body = "{name},\n\nThe Sentinels say you are strong enough now to walk Feralas on your own, and that you might pass this way if anyone thought to ask you. So I am asking you, in my own hand, before Captain Shandris thinks of it and makes it an order.\n\nThe ogres burned one of the camps on the mainland in the autumn, and a hippogryph came home without its rider. We have been sad here this season, and a familiar face on the dock would do more for the isle than any supply boat.\n\nThe great trees on the coast are as tall as you remember them, and the sea is as cold. I have not changed at all, except that I now know how to sail, so you have no excuse not to come.\n\nCelwen, Sardor Isle",
+  body = "{name},\n\nThe Sentinels say you are strong enough now to walk Feralas on your own, and that you might pass this way if anyone thought to ask you. So I am asking you, in my own hand, before General Shandris thinks of it and makes it an order.\n\nThe ogres burned one of the camps on the mainland in the autumn, and a hippogryph came home without its rider. We have been sad here this season, and a familiar face on the dock would do more for the isle than any supply boat.\n\nThe great trees on the coast are as tall as you remember them, and the sea is as cold. I have not changed at all, except that I now know how to sail, so you have no excuse not to come.\n\nCelwen, Sardor Isle",
 }
 
 ---------------------------------------------------------------------------
