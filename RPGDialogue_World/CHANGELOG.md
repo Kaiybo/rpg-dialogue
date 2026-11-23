@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.54.0 (2026-11-23): Rites for the Fallen
+- New corpse pool (descriptions by creature type, how they died, respects for every class and many races) and a quiet pool for nameless citizens outside towns. No new files.
+
 ## 1.53.0 (2026-11-23)
 - Lore fixes. No new files.
 

@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.106.0 (2026-11-23): Rites for the Fallen
+No new files; a /reload is enough.
+- **The dead have a quiet scene of their own.** The talk key on a corpse opens the box with a short description of the body, written for its creature type (humanoid, beast, undead, demon, dragonkin and more), and, when the combat log saw it, how it died and who struck the last blow.
+- **Pay your respects.** Every class has something to offer the fallen, and many races too: close their eyes, a prayer to the Light or Elune, a word to the ancestors, and more. Or just leave them be.
+- **Looting comes first.** Right-clicking a body never opens the box. If a body gives a quest, its page shows in the box as usual.
+- **You can turn it off:** Settings > General > talk to the dead.
+- **Nameless passers-by outside towns** no longer recite town chatter; they have little to say.
+- **Letters live in the mailbox.** Letters are now a third tab, "Letters", on the game's own mail window beside Inbox and Send Mail, with pages, Burn Junk and a reading view.
+- **Move the mail window and the journal.** Both can be dragged and reopen where you left them.
+
 ## 0.105.1 (2026-11-23): Let the Dead Lie
 No new files; a /reload is enough.
 - **The dead no longer talk.** Corpses in the world (like the Night Elf Courier at Mirkfallon Lake) won't open a conversation: right-click does nothing, and the talk key says "They're past talking now."
