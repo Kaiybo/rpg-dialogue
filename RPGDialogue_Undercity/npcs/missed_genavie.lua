@@ -42,6 +42,7 @@ P:NPC {
         { text = "Who was your family?", next = "family" },
         { text = "Where do I find these Dabyries?", next = "farm" },
         { text = "You call yourself Forsaken as if it were an insult.", next = "forsaken" },
+        { text = "I woke in a grave too. Did anyone come back for you?", next = "nobody", when = { race = "Scourge" } },
         { text = "I've heard enough.", next = "END" },
       },
     },
@@ -69,6 +70,10 @@ P:NPC {
     },
     farm = {
       lines = { { id = "fa_default", text = "They keep a farmstead in the Arathi Highlands, northeast of Refuge Pointe, and I am told it is healthy and prospering. Stromgarde's riders pass that way, so do not linger over the work." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nobody = {
+      lines = { { id = "nb_default", text = "No one, and I waited longer than I care to admit. I clawed my way out of the family crypt alone, and the first living face I saw screamed and threw a lamp at me, so you will understand why I am done waiting on anyone's kindness." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     forsaken = {
