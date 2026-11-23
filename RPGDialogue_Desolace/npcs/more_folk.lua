@@ -2015,9 +2015,9 @@ P:NPC {
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You carry a pan that has been properly blackened. I am glad to see somebody on this coast knows how to treat one." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "One of the tribes! It has been too long since I heard a proper Mulgore greeting. Say something, child, anything at all." },
+      text = "One of the tribes! Sikewa at the inn has gone too long without a proper Mulgore greeting, so go and say something to her, child." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear. I love your people dearly, and I will say again that not everything needs that much pepper." },
+      text = "Darkspear, like me. I love our people dearly, and I will say again that not everything needs that much pepper." },
   },
   start = "hello",
   nodes = {
@@ -2025,7 +2025,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "I am Wulan. Spices, salt, flour and oil, carried a long way and sold to people who mostly put them on fish. I have made my peace with the fish." },
         { id = "h_cook", when = { profession = "Cooking" }, text = "I am Wulan, and you are a cook, so we shall get along. I keep the good spices under the mat, away from the damp, for those who will know the difference." },
-        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Wulan. You are far from the plains, child, as I am, and I will tell you what I tell myself: the sea is only a very flat prairie, and you grow used to it." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "I am Wulan. You are far from the plains, child, and Sikewa will tell you what she tells herself: the sea is only a very flat prairie, and you grow used to it." },
       },
       again = {
         { id = "h_again", text = "What else, child? I am only sorting salt." },
@@ -2034,21 +2034,21 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
-        { text = "How did a tauren come to cook for trolls?", next = "came" },
+        { text = "How did you come to cook on this coast?", next = "came" },
         { text = "What does Shadowprey eat?", next = "eat" },
         { text = "Everything here comes a long way, I think.", next = "far" },
         { text = "What would you do with Desolace's game?", next = "game", when = { profession = "Cooking" } },
-        { text = "Do you miss Mulgore's cooking fires?", next = "miss", when = { race = "Tauren" } },
+        { text = "Does Sikewa miss Mulgore's cooking fires?", next = "miss", when = { race = "Tauren" } },
         { text = "Tell me about Innkeeper Sikewa.", next = "sikewa" },
         { text = "Thank you, Wulan.", next = "END" },
       },
     },
     came = {
       lines = {
-        { id = "came_d", text = "I followed Sikewa, who keeps the inn, because she is my oldest friend and could not be trusted to feed herself. I meant to stay a season, and that was a good many seasons ago." },
+        { id = "came_d", text = "I came with the boats from the Echo Isles, and Sikewa, who keeps the inn, became my oldest friend here, because she could not be trusted to feed herself. I meant to stay a season, and that was a good many seasons ago." },
       },
       choices = {
-        { text = "And the trolls took to you?", next = "came_trolls" },
+        { text = "And the village took to your cooking?", next = "came_trolls" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2072,7 +2072,7 @@ P:NPC {
     },
     eat_pepper = {
       lines = {
-        { id = "eat_pepper_d", text = "The Darkspear would put it in their water if I let them. I ration it, child, for their own good and because the caravan brings one sack a season, and they call me a tyrant to my face." },
+        { id = "eat_pepper_d", text = "My own people would put it in their water if I let them. I ration it, child, for their own good and because the caravan brings one sack a season, and they call me a tyrant to my face." },
       },
       choices = {
         { text = "A tyrant with the only pepper wins.", next = "BACK", fx = { trait = { witty = 1 } } },
@@ -2101,7 +2101,7 @@ P:NPC {
     },
     game = {
       lines = {
-        { id = "game_d", text = "Scorpid tail, split and roasted in its own shell, which is better than it has any right to be. Hyena I would not feed to a hyena. And never the kodo, child, not here, not ever." },
+        { id = "game_d", text = "Scorpid tail, split and roasted in its own shell, which is better than it has any right to be. Hyena I would not feed to a hyena. And never the kodo, child, not where Sikewa can smell it, not ever." },
       },
       choices = {
         { text = "Never the kodo. I understand.", next = "BACK", fx = { affinity = 1 } },
@@ -2110,7 +2110,7 @@ P:NPC {
     },
     miss = {
       lines = {
-        { id = "miss_d", text = "I miss the smell of sweetgrass smoke more than I can say. Aboda brings me a twist of it when the riders come from Thunder Bluff, and I burn a little under the pot and tell the trolls it is a spice." },
+        { id = "miss_d", text = "She misses the smell of sweetgrass smoke more than she will say. Aboda brings me a twist of it when the riders come from Thunder Bluff, and I burn a little under the pot so the inn smells of home for her." },
       },
       choices = {
         { text = "That's a secret worth keeping.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -2129,7 +2129,7 @@ P:NPC {
   },
   topics = {
     centaur = { { id = "tp_cen", text = "The Kolkar take one wagon in three from the caravan, child, and every one they take is a month of plain eating for this village. I have no kind word for them." } },
-    background = { { id = "tp_bg", text = "I am a Mulgore cook on a troll dock at the edge of a dead land. I did not plan it, and I would not undo it." } },
+    background = { { id = "tp_bg", text = "I am an Echo Isles cook on a dock at the edge of a dead land. I did not plan it, and I would not undo it." } },
     advice = { { id = "tp_ad", text = "Dry your fish before you carry it inland, child. Nothing turns faster than a wet fish in Desolace heat." } },
     _none = { { id = "tp_none", text = "I could not tell you. Ask Sikewa at the inn; travellers tell her everything." } },
   },

@@ -53,7 +53,7 @@ P:NPC {
     },
     opn_stromgarde_r_retake = {
       lines = {
-        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Captain Nials that if ye pass Refuge Pointe; he'll like hearin' it from someone who isnae under his command." },
+        { id = "opn_stromgarde_r_retake", text = "Aye, an' I'll drink tae it, if I ever get leave tae drink. Tell Captain Nials that if ye pass Refuge Pointe; she'll like hearin' it from someone who isnae under her command." },
       },
       choices = {
         { text = "Something else, Rhag.", next = "BACK" },
@@ -86,7 +86,7 @@ P:NPC {
         { id = "h_plea", when = { questActive = TODO_QUEST("Plea To The Alliance") },
           text = "Refuge Pointe, north in the Highlands, an' ask for Captain Nials. Tell him Longbraid would take any soldiers he can spare, an' tell him we said please." },
         { id = "h_span_done", when = { questDone = TODO_QUEST("Plea To The Alliance") },
-          text = "Nials has his own fallen city tae weep over, an' I cannae blame him for it. So it's us an' the reserves o' Ironforge, whenever they come." },
+          text = "Nials has her own fallen city tae weep over, an' I cannae blame her for it. So it's us an' the reserves o' Ironforge, whenever they come." },
         { id = "h_dad_resolved", tags = { "news" }, when = { thread = { id = "dwarves_and_dark_iron", state = "resolved" } },
           text = "I told the lads what ye said the King told ye, an' one o' them's carved it intae the stone by the gate. It's no' an army, but they stand straighter on the wall for it." },
         { id = "h_dad_soured", when = { thread = { id = "dwarves_and_dark_iron", state = "soured" } },

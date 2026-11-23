@@ -760,7 +760,7 @@ P:NPC {
     },
     pointe_cliff = {
       lines = {
-        { id = "pc_default", text = "So Captain Nials says, and he chose the place. Nothing comes down on us from behind, and from the rise you can see the road from Hammerfall long before anything on it can see you." },
+        { id = "pc_default", text = "So Captain Nials says, and she chose the place. Nothing comes down on us from behind, and from the rise you can see the road from Hammerfall long before anything on it can see you." },
       },
       choices = {
         { text = "Then it was well chosen.", next = "BACK" },
@@ -1600,7 +1600,7 @@ P:NPC {
     },
     superior_title = {
       lines = {
-        { id = "st_default", text = "I painted it on the sign myself, and nobody in the camp has argued. Captain Nials read it, grunted, and bought a spool of thread for his tabard, which I took as a commission." },
+        { id = "st_default", text = "I painted it on the sign myself, and nobody in the camp has argued. Captain Nials read it, grunted, and bought a spool of thread for her tabard, which I took as a commission." },
       },
       choices = {
         { text = "A grunt from the Captain is high praise.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -1923,7 +1923,7 @@ P:NPC {
     },
   },
   topics = {
-    refuge_pointe = { { id = "tp_rp", text = "A cold camp wi' a warm heart, an' nae brewery. Captain Nials runs it well, an' I'd follow him further than I'd follow most humans." } },
+    refuge_pointe = { { id = "tp_rp", text = "A cold camp wi' a warm heart, an' nae brewery. Captain Nials runs it well, an' I'd follow her further than I'd follow most humans." } },
     _none = { { id = "tp_none", text = "Ye've got me there, {g:lad|lass}. Ask me about glass or about ale, an' I'm yer dwarf." } },
   },
 }

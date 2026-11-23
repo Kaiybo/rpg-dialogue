@@ -1782,7 +1782,7 @@ P:NPC {
         { id = "h_op_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "against" } },
           text = "The old grunts have been toasting you, did you know? Someone told them you think the humans are coming, and they've decided you're one of theirs now." },
         { id = "h_op_goblins", tags = { "news" }, when = { gossip = { topic = "goblins", stance = "distrust" } },
-          text = "I hear you told Kaja what you think of goblins. She's been sulking all week, and it's the quietest the Valley of Honor has been in years." },
+          text = "I hear you told Kaja what you think of goblins. She's been sulking all week, and it's the quietest the Valley of Strength has been in years." },
         { id = "h_op_humans", tags = { "news" }, when = { gossip = { topic = "humans", stance = "respect" } },
           text = "Runthak says you've a kind word for the humans. Say it at the corner table, not the long one, unless you want to see my benches break again." },
         { id = "h_zargh", when = { questActive = TODO_QUEST("Meats to Orgrimmar") },

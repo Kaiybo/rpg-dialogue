@@ -51,7 +51,7 @@ Never (this pass): Field Marshal Oslight, Sergeant Maclear, Deathmaster Dwire, R
 Authored, not canon: Gor'mul's view of Drum and of Thrall, the camp-born advice; Tor'gan coming to Hammerfall because Drum needed a shaman, his raptor lesson; Korin's porridge and crows; Urda's lost rider and wide routes; Skuerto scouting troggs as a lad, his ale wager; Kryten's notes on the shadow hunter knife, Malin's tea; Cedrik carrying the badges south; Vikki's tallies and that she sold goods in Stromgarde before the fall.
 
 ## Authored, not canon (prejudices, 0.80.0)
-- Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of his lookouts this season; he "reads boots".
+- Nials: distrusts rogues (`prejudice`, class ROGUE) because Syndicate scouts in the same leathers have killed three of her lookouts this season; she "reads boots".
 - Gor'mul: can't look at the Forsaken without wondering which of them kept the Hammerfall camp (`prejudice`, race Scourge); the guards talking over the prisoners like cattle is what he still hears.
 
 ## Night elves (prejudice pass)
