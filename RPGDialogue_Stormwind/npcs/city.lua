@@ -1200,7 +1200,6 @@ P:NPC {
       lines = { { id = "master_l", text = "Whoever forgets first. The demon never forgets what it is, so the work is all on your side: remember, every hour, that it hates you, and that it's yours." } },
       choices = {
         { text = "Then I'll never forget it hates me, or that it's mine.", next = "BACK", reply = "Good. Say it every morning, and you'll outlive most who come through that door.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A demon on a longer chain kills more usefully.", next = "master_free", fx = { align = { order = -1 } } },
         { text = "A little freedom makes a demon more useful.", next = "BACK", reply = "That's what Surena said. Go on, then, and when the Watch asks me who taught you, I'll say I never met you.", fx = { align = { order = -1 } } },
         { text = "It might stop hating me one day.", next = "master_hate" },
       },
