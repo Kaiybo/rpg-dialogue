@@ -225,6 +225,7 @@ function Conv.Start(kind, unit, interactionName)
   if mode == "off" then return end
   local guid = C.GUID(unit)
   if not guid then return end
+  if C.UnitDead(unit) then return end
   local s = Conv.session
   if s and s.guid == guid and not s.ended then
     -- Same NPC, interaction continuing (gossip -> vendor, gossip -> quest details).
@@ -1577,6 +1578,7 @@ function Conv.TalkToTarget(silent)
   if s and not s.ended and s.unit == "npc" then Conv.OpenFull("talk"); return end
   if not C.Exists("target") or C.IsPlayer("target") then say(L.TALK_NO_TARGET); return end
   if not C.IsFriendly("target") then say(L.TALK_HOSTILE); return end
+  if C.UnitDead("target") then say(L.TALK_DEAD); return end
   if C.InRange("target") == false then say(L.TALK_TOO_FAR); return end
   Conv.Start("talk", "target")
   s = Conv.session
@@ -1605,6 +1607,7 @@ function Conv.OnWorldMouseDown(button)
   pressed = nil
   if button ~= "RightButton" or not ns.db or not ns.db.settings.rightClickTalk or C.InCombat() then return end
   if not C.Exists("mouseover") or C.IsPlayer("mouseover") or not C.IsFriendly("mouseover") then return end
+  if C.UnitDead("mouseover") then return end
   local guid = C.GUID("mouseover")
   if guid then pressed = { guid = guid, t = C.Clock() } end
 end
