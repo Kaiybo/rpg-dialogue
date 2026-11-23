@@ -61,7 +61,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hmmm. I am Vartrus, an Ancient of Lore, and these were once my woods, root and branch. My body burned when Archimonde and the Burning Legion marched upon Hyjal, ten thousand winters ago, but my spirit remains, as do the spirits of my brothers, Stoma and Hastat." },
+          text = "Hmmm. I am Vartrus, an Ancient of Lore, and these were once my woods, root and branch. My body burned when Archimonde and the Burning Legion marched upon Hyjal in the last war, but my spirit remains, as do the spirits of my brothers, Stoma and Hastat." },
         { id = "h_hunter_before", when = { class = "HUNTER", questBefore = TODO_QUEST("An Introduction") },
           text = "Hmmm. Your diligence has been noted, hunter, noted slowly and well. We are the Ancients, protectors of this once great forest, and we have tasks for one such as you, tasks that will open the way to a weapon this world has not seen in ten thousand years." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Stave of the Ancients"), days = 3 } },
