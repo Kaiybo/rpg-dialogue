@@ -138,6 +138,9 @@ local function makeButton(i)
   b.icon:SetSize(16, 16)
   b.icon:SetPoint("TOPLEFT", 3, -2)
   b.icon:Hide()
+  -- A faint rule in the gap above this row where the game's own options begin.
+  b.sep = Theme.Divider(frame)
+  b.sep:Hide()
   b.label = b:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   b.label:SetPoint("TOPLEFT", 4, -3)
   b.label:SetJustifyH("LEFT")
@@ -488,6 +491,7 @@ function D.Style()
   frame.portraitInner:SetColorTexture(p.wood[1] * 0.6, p.wood[2] * 0.6, p.wood[3] * 0.6, 1)
   Theme.ColorDivider(frame.rule)
   Theme.ColorDivider(frame.replyRule)
+  for _, b in ipairs(frame.buttons or {}) do Theme.ColorDivider(b.sep) end
   Theme.StyleButton(frame.ask)
   Theme.StyleButton(frame.close, 12)
   if game then
@@ -571,7 +575,19 @@ function D.Layout()
   end
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
-      if b.gap then y = y - 8 end   -- a little space before the game's own options
+      -- A little space before the game's own options, with a faint rule across it so
+      -- the addon's replies and the game's options read as two lists.
+      local sep = b.gap and b.game and not b.isGetOn
+      if sep then
+        y = y - 6
+        b.sep:ClearAllPoints()
+        b.sep:SetPoint("TOPLEFT", frame, "TOPLEFT", rowLeft + 4, y)
+        b.sep:SetWidth(rowWidth * 0.6)
+        y = y - 7
+      elseif b.gap then
+        y = y - 8
+      end
+      b.sep:SetShown(sep and true or false)
       -- A big icon (a reward to choose) gets room beside it, with the text centered on it.
       local big = b.icon:IsShown() and (b.iconSize or 16) > 16
       local indent = big and (b.iconSize + 10) or (game and GAME_ROW_TEXT or (b.icon:IsShown() and 22 or 4))
@@ -743,6 +759,7 @@ function D.RenderChoices(choices)
     local b = frame.buttons[i]
     b.locked = c.locked
     b.gap = c.gap
+    b.game = c.game
     b.tooltip = c.tooltip
     local num = c.locked and ((i % 10) .. ". ") or (Theme.Hex("number") .. (i % 10) .. ".|r ")
     -- A branch explored in an earlier conversation is dimmed (it's also listed after the
@@ -759,12 +776,13 @@ function D.RenderChoices(choices)
   getOn.locked = false
   getOn.tooltip = nil
   getOn.gap = n > 0
+  getOn.game = nil
   getOn.label:SetText(((n + 1) % 10) .. ". " .. (frame.lastLabel or L.GET_ON_WITH_IT))
   D.SetRowIcon(getOn, isGame() and ICON_BULLET or nil, false)
   getOn:Show()
   for i = 1, MAX_BUTTONS do
     frame.buttons[i].isGetOn = (i == n + 1)
-    if i > n + 1 then frame.buttons[i]:Hide() end
+    if i > n + 1 then frame.buttons[i]:Hide(); frame.buttons[i].sep:Hide() end
   end
   -- Keyboard and gamepad users keep a selection from one node to the next.
   D.Select(nil)
