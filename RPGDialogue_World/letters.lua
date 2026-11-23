@@ -242,3 +242,187 @@ P:Letter {
   subject = "The elements speak",
   body = "{name},\n\nThe spirits of earth and air have spoken your name to me twice this season, and they rarely trouble themselves with a single shaman unless something is changing. You are learning to listen, I think, and they are learning that you are worth speaking to.\n\nThe orcs forgot the old ways once. We traded them for the warlocks' fire, and you have seen what that cost us. Thrall brought the elements back to our people, but it will be shamans like you who decide whether we keep them. Do not take more than they offer you, and always give thanks when you take it.\n\nThe Hold is noisy, but my fire is quiet. Come and sit by it.\n\nZor Lonetree, Elder Far Seer",
 }
+
+---------------------------------------------------------------------------
+-- Dungeons and raids, the other side of the road
+---------------------------------------------------------------------------
+P:Letter {
+  id = "naralex_disciple_wailing", npc = "naralex_disciple", delay = 1800,
+  when = { cleared = "Wailing Caverns", faction = "Alliance" },
+  subject = "He woke",
+  body = "{name},\n\nI am writing this by the light of a single candle at the mouth of the caverns, because I could not bear to go back inside to find a better one. Naralex woke. He opened his eyes after you struck down the beast that fed on his nightmare, and the first thing he asked for was water, and the second was the name of the one who had come for him.\n\nHe is weak, and the Dream he walked in has left marks on him that I do not know how to heal. The Fanglords are gone, but the green will not come back to the Barrens in a season, nor perhaps in our lifetimes. Still, the oasis water tastes cleaner this morning. I am almost sure of it.\n\nElune keep you, friend. You did what his own disciples could not.\n\nA Disciple of Naralex",
+}
+
+P:Letter {
+  id = "ashcrombe_shadowfang", npc = "ashcrombe", delay = 2400,
+  when = { cleared = "Shadowfang Keep", faction = "Alliance" },
+  subject = "My notes, and my thanks",
+  body = "{name},\n\nI have finally finished my notes on Shadowfang Keep, which is easy to do now that nobody in it is trying to eat me. I am told by a very nervous courier that Arugal is dead, and that his worgen are running loose and leaderless through Silverpine. That is not a perfect outcome, but it is a great deal better than the one I was facing in that cell.\n\nArugal was a brilliant man once. He was also a frightened one, and he called those creatures across from wherever they came from because he thought they would save Lordaeron. I want that written down somewhere, so that the next clever mage who is sure of himself might read it and stop.\n\nIf you ever need a spell explained or a door unlocked, you know where to find me. I owe you both, and several more besides.\n\nSorcerer Ashcrombe",
+}
+
+P:Letter {
+  id = "thaelrid_blackfathom", npc = "dg_thaelrid", delay = 1800,
+  when = { cleared = "Blackfathom Deeps", faction = "Alliance" },
+  subject = "From the shrine",
+  body = "{name},\n\nThe chanting has stopped. I sat by the water for most of the night waiting for it to start again, and it did not, and I find I do not entirely trust the silence. The Twilight's Hammer has lost its priests down there, and whatever they were feeding in the deep water has stopped answering them.\n\nThe Argent Dawn will want a report, and I will write one, but I wanted to write to you first. Those old shrines belonged to my people, and they were holy once, before the cult found them. You gave them back their quiet. In time, perhaps we can give them back the rest.\n\nIshnu-alah, and walk carefully. The Hammer has more than one temple.\n\nArgent Guard Thaelrid",
+}
+
+P:Letter {
+  id = "zygand_monastery", npc = "zygand", delay = 2400,
+  when = { cleared = "Scarlet Monastery", faction = "Horde" },
+  subject = "From Brill",
+  body = "{name},\n\nThe Deathguard at the Monastery road report that the Scarlet banners have come down from the cloisters, and that the zealots who are left are arguing with each other instead of hunting us. I am told you were the cause. I will not pretend that pleases me any less than it does.\n\nThe Crusade has burned more of my people than I care to count, and it calls that holy work. Their High Inquisitor raised her own dead and still called us abominations. You have shown them what the Light is worth when the Forsaken come to the door.\n\nThere will be more of them. There always are. But Brill sleeps easier tonight, and so, for once, do I.\n\nExecutor Zygand, Brill",
+}
+
+P:Letter {
+  id = "jarkal_uldaman", npc = "jarkal", delay = 2400,
+  when = { cleared = "Uldaman", faction = "Horde" },
+  subject = "Jarkal hear things",
+  body = "{name},\n\nJarkal hear from a goblin who hear from a dwarf, which mean it probably be true, dat you went all de way down into Uldaman and knocked over de big stone keeper at de bottom. De dwarves be very upset about it, and dat make Jarkal very happy.\n\nNow listen, mon. Dat place be full of old stone and old powder and things nobody ever put in a jar before. If you go back, and you bring Jarkal a pinch of anything dat glow, or hum, or tries to bite, Jarkal pay good silver and ask no questions. Well, maybe one question.\n\nKargath sends its thanks, and Jarkal sends his, and de green jar sends nothing because it still be thinking about exploding.\n\nJarkal Mossmeld",
+}
+
+P:Letter {
+  id = "shandris_diremaul", npc = "shandris", delay = 2400,
+  when = { cleared = "Dire Maul", faction = "Alliance" },
+  subject = "Eldre'Thalas",
+  body = "{name},\n\nMy scouts on the eastern ridge report that the ogres of Dire Maul are fighting over a crown again, and that the Highborne in the western halls have gone quiet. I am told you walked those ruins and came out the far side, which is more than most of my Sentinels have managed.\n\nEldre'Thalas was a jewel of the old empire, and the ones who stayed behind there fed on its magic until it hollowed them. I take no joy in what became of them. I take a great deal of joy in knowing they will not be feeding on anything for some time.\n\nThere is a bed in Feathermoon Stronghold for you, and a boat to carry you there. Do not keep my Sentinels waiting on the shore.\n\nShandris Feathermoon, General of the Sentinel Army",
+}
+
+P:Letter {
+  id = "rokorhan_diremaul", npc = "rokorhan", delay = 1800,
+  when = { cleared = "Dire Maul", faction = "Horde" },
+  subject = "Ogres",
+  body = "{name},\n\nI told you that the way to help the Horde in Feralas was to kill ogres. I did not tell you to go into Dire Maul and kill all of them, but I hear that is more or less what you did, and I am not complaining.\n\nThe Gordok are squabbling over who gets to be king now, which means they are too busy to raid Camp Mojache, which means my braves can sleep. The tauren here tell me the elves in the other halls are dealt with too, and they seem pleased about that, though tauren always seem pleased about something.\n\nCome back to camp. There is meat on the fire, and I owe you a cut of it.\n\nRok Orhan, Camp Mojache",
+}
+
+P:Letter {
+  id = "goretooth_lbrs", npc = "goretooth", delay = 1800,
+  when = { cleared = "Lower Blackrock Spire", faction = "Horde" },
+  subject = "From Kargath",
+  body = "{name},\n\nThe vultures over Kargath were circling lower than usual this morning, and I took that for an omen until a runner came up from the Steppes with the news. Wyrmthalak is dead, and the orcs of the Spire who still call themselves Blackrock are short a few warlords.\n\nI have stood on these walls for years watching that mountain and wondering when the Dark Horde would come down from it. You have bought us time, and you may have bought us more than that. Bring me any orders you took off those dogs, and I will see they reach Orgrimmar.\n\nTheodora sends her regards, and asks me to say that she was never worried about you. She was.\n\nWarlord Goretooth, Kargath",
+}
+
+P:Letter {
+  id = "maxwell_ubrs", npc = "maxwell", delay = 2400,
+  when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
+  subject = "Drakkisath",
+  body = "{name},\n\nMorgan's Vigil has been short of good news for so long that the lookouts did not believe the runner at first. General Drakkisath is dead, and the black dragonflight has lost the commander of its Spire. I have read the report three times, and I intend to read it a fourth before I sleep.\n\nMarshal Windsor gave a great deal to bring us word of what was happening in that mountain. I would like to think he would be satisfied with how it ended. I know I am.\n\nYour name is in my dispatch to Stormwind, deputy, and I have asked that it be read aloud. Whether anyone at court listens is another matter, but the Vigil will remember.\n\nMarshal Maxwell, Morgan's Vigil",
+}
+
+P:Letter {
+  id = "eitrigg_ubrs", npc = "eitrigg", delay = 2400,
+  when = { cleared = "Upper Blackrock Spire", faction = "Horde" },
+  subject = "The son of Blackhand",
+  body = "{name},\n\nI knew Rend Blackhand when he was young and loud and certain that the Horde belonged to his family by right of blood. He did not grow wiser. He only grew more dangerous, and he called himself Warchief from a throne the dragons let him sit on.\n\nThrall has spoken of you at the fire, and he did not need to raise his voice to do it. The old Horde ends a little more with every one of those false chieftains who falls, and you have struck down one of the last.\n\nI am an old orc, and I have seen a great many warriors. I do not write to many of them.\n\nEitrigg",
+}
+
+P:Letter {
+  id = "molthor_zulgurub", npc = "molthor", delay = 3600,
+  when = { cleared = "Zul'Gurub" },
+  subject = "De Soulflayer",
+  body = "{name},\n\nDe drums on Yojamba Isle have been playing since dawn, and dey will play until de drummers fall asleep on dem. Hakkar is cast out of dis world. His priests are broken, Jin'do is silent, and de Gurubashi who are left will have to decide what kind of trolls dey want to be now dat de blood god is gone.\n\nThe Zandalar have watched over our kin for longer than your kingdoms have stood, and we have seen many heroes come and go. Few of dem ever walked into dat temple, and fewer walked out. You did both.\n\nRastakhan will hear your name. For de Zandalar, dat is no small thing.\n\nMolthor, Hand of Rastakhan",
+}
+
+P:Letter {
+  id = "bolvar_blackwing", npc = "bolvar", delay = 1800,
+  when = { cleared = "Blackwing Lair", faction = "Alliance" },
+  subject = "The head at the gate",
+  body = "{name},\n\nThe head of Nefarian hangs at the gates of Stormwind this morning, and the crowd that came to see it has not thinned since sunrise. I have watched soldiers who lost brothers in the Burning Steppes stand beneath it for an hour without speaking. You have given this city something it has not had in a long time, and that is a reason to stand up straight.\n\nHis sister sat at our court for years, wearing a noble's face, and nearly turned the kingdom against itself. Her brother did his work in the dark of the mountain, and now he is finished as well. I do not believe in endings, but I will allow myself to call this one.\n\nThe Keep is open to you, as it always will be.\n\nHighlord Bolvar Fordragon, Regent of Stormwind",
+}
+
+P:Letter {
+  id = "thrall_blackwing", npc = "thrall", delay = 1800,
+  when = { cleared = "Blackwing Lair", faction = "Horde" },
+  subject = "Nefarian",
+  body = "{name},\n\nThe head of the black dragon's son hangs over the Valley of Strength, and the city has not been this loud since we raised its walls. I have walked beneath it twice today. I wanted to see the faces of the people looking up at it, and I saw orcs who have hated the Blackrock clan their whole lives smiling at one another.\n\nNefarian used my people as his tools and his toys. He bred monsters from the blood of dragons and wore our warriors down in his mountain for his own amusement. Those days are over because of you and the ones who went with you.\n\nThe Horde owes you more than a feast, but you will have a feast as well. I insist.\n\nThrall, Warchief of the Horde",
+}
+
+---------------------------------------------------------------------------
+-- More from the trainers and the masters of each calling
+---------------------------------------------------------------------------
+P:Letter {
+  id = "grezz_warrior", npc = "grezz", delay = 2400,
+  when = { minLevel = 40, class = "WARRIOR", faction = "Horde" },
+  subject = "From the Valley of Honor",
+  body = "{name},\n\nThe recruits in my yard keep asking about you, because some loudmouth told them you used to train here and now you're out cracking skulls the length of Kalimdor. I told them it was true, and that you were all elbows when you started, and they didn't believe the second part.\n\nHere's what I didn't teach you, because you weren't ready for it then. Anger is a fire, and a fool lets it burn him up in one fight. A real warrior banks it like a smith banks a forge, and keeps it hot for the long day. You've lived this long, so I reckon you've figured that out.\n\nCome back and show the pups how it's done. I'll even let you pick the sword.\n\nGrezz Ragefist, Valley of Honor",
+}
+
+P:Letter {
+  id = "wushen_warrior", npc = "wu_shen", delay = 2400,
+  when = { minLevel = 30, class = "WARRIOR", faction = "Alliance" },
+  subject = "A word about stance",
+  body = "{name},\n\nA guardsman who served with you in the Wetlands came through the hall last week and spoke of you with some respect. He also said you led with your shoulder when you charged, and that you nearly lost your footing on a wet stone. I believe both things, because they are the same mistake I corrected in you a dozen times.\n\nYou have grown strong, and strength forgives a great deal. It will not forgive everything. The enemies you face now are faster and cleverer than the kobolds of Elwynn, and they will find whatever you have been too proud to fix.\n\nFeet first, then the blade. You know the rest. Come to the hall when you have an afternoon, and we will see where you stand.\n\nWu Shen, Stormwind",
+}
+
+P:Letter {
+  id = "ravenholdt_rogue", npc = "ravenholdt", delay = 3000,
+  when = { minLevel = 30, class = "ROGUE" },
+  subject = "An observation",
+  body = "{name},\n\nYou will not know who delivered this letter, and that is rather the point. I have had you watched these past months, not because I distrust you, but because watching is what we do, and you have become interesting enough to be worth the effort.\n\nThe Syndicate is still crawling over the hills of Alterac like lice on an old dog, and they still believe that a nobleman's name is a licence to steal. They are wrong about many things, but chiefly about how quiet the rest of us can be. I suspect you understand that now.\n\nThe manor is always open to those who can find it. Do try not to be seen coming.\n\nLord Jorach Ravenholdt",
+}
+
+P:Letter {
+  id = "ormak_hunter", npc = "ormak", delay = 2400,
+  when = { minLevel = 40, class = "HUNTER", faction = "Horde" },
+  subject = "Tracks",
+  body = "{name},\n\nA tauren trader came through the Valley of Honor with a cured hide from a beast he said you brought down in Feralas, and I knew the cut before he told me the name. You still angle the knife the way I showed you. I'm glad to see it.\n\nYou're at the age, as hunters count it, when the prey starts being cleverer than the traps. You will lose a beast or two out there, and maybe a companion you care for. Grieve it properly, and then go back to the work. The wilds do not wait for anyone to finish crying.\n\nBring your beast by the Valley when you're in the city. I want to see if it's eating properly.\n\nOrmak Grimshot",
+}
+
+P:Letter {
+  id = "benedictus_priest", npc = "benedictus", delay = 2400,
+  when = { minLevel = 40, class = "PRIEST", faction = "Alliance" },
+  subject = "A letter from the Cathedral",
+  body = "{name},\n\nThe brothers and sisters of the Cathedral pray each evening for those of our order who walk far from Stormwind, and your name has been among them for some time. I wanted you to know that, because the road can make a priest feel very far from home.\n\nYou have seen terrible things by now, I expect, and you will see worse. There will be days when the Light feels thin and the shadows seem to answer more readily. Do not be ashamed of those days. Every priest who has ever done good in this world has had them, and the Light did not leave any of us for asking hard questions.\n\nCome home to us when you can. The candles are lit, and there is always a place at the altar.\n\nArchbishop Benedictus, Cathedral of Light",
+}
+
+P:Letter {
+  id = "zevrost_warlock", npc = "zevrost", delay = 2400,
+  when = { minLevel = 40, class = "WARLOCK", faction = "Horde" },
+  subject = "From the Cleft",
+  body = "{name},\n\nThe Cleft is quieter than usual. Two of my students have gone missing this season, and one of them came back with a voice in his head that does not belong to him. I mention this not to frighten you, but because you are still yourself, and that is a rarer achievement than you might think.\n\nThe Burning Blade still recruits in the dark places of this city, and they will promise you power without a price. You know better. Every bargain has a price, and the only question worth asking is who pays it. Make sure it is never you.\n\nCome down out of the light when you are next in Orgrimmar. Somebody here always notices when you are gone.\n\nZevrost, Cleft of Shadow",
+}
+
+P:Letter {
+  id = "gakin_warlock", npc = "gakin", delay = 2400,
+  when = { minLevel = 30, class = "WARLOCK", faction = "Alliance" },
+  subject = "Below the Slaughtered Lamb",
+  body = "{name},\n\nI'm told a Stormwind guard asked about you at the bar upstairs last week, and that the barman told him he'd never heard of you. That is the correct answer, and I hope you'll be generous with him the next time you pass through.\n\nYou are past the point where the imp is your strongest servant, which means you are past the point where your mistakes are small. The demons you bind now are patient. They remember every slip you make, and they wait. Keep your circles clean and your wards fresh, and never bargain with something while you are tired.\n\nWe are proud of you down here, in our way. We would simply rather nobody else knew it.\n\nGakin the Darkbinder",
+}
+
+P:Letter {
+  id = "bethor_mage", npc = "bethor", delay = 2400,
+  when = { minLevel = 40, class = "MAGE", faction = "Horde" },
+  subject = "From the Magic Quarter",
+  body = "{name},\n\nThe apprentices of the Magic Quarter have taken to repeating stories about you, and most of them are exaggerated beyond recognition. One or two of them, however, are true, and I have checked. You are becoming a mage of some consequence, which means you are becoming a mage whom others will try to use.\n\nI learned my craft among people who believed that knowledge was always its own justification. Some of them followed that belief all the way into the grave, and some of them did worse. A Forsaken mage cannot afford to be naive. Study everything, trust very little, and keep your own counsel.\n\nThe Quarter keeps its secrets, but it will keep a few for you as well.\n\nBethor Iceshard, Undercity",
+}
+
+P:Letter {
+  id = "mathrengyl_druid", npc = "mathrengyl", delay = 2400,
+  when = { minLevel = 30, class = "DRUID", faction = "Alliance" },
+  subject = "From the Enclave",
+  body = "{name},\n\nThe wisps of the Enclave are restless this season, and the older druids say it is the Dream stirring. Whatever the cause, I found myself thinking of the young druids who have passed through these halls, and of you in particular, because the sentinels at Astranaar spoke well of you.\n\nYou have learned to wear the bear and the cat now, and perhaps you have begun to understand that the shape is not the lesson. The lesson is balance. A druid who takes the claws and forgets the patience is only a beast with a good memory.\n\nWalk gently, and come home to Teldrassil when the roots call you. The Enclave will be glad of you.\n\nMathrengyl Bearwalker, Cenarion Enclave",
+}
+
+---------------------------------------------------------------------------
+-- As you grow, continued
+---------------------------------------------------------------------------
+P:Letter {
+  id = "magni_twenty", npc = "magni", delay = 3600,
+  when = { minLevel = 20, faction = "Alliance" },
+  subject = "From the High Seat",
+  body = "{name},\n\nMy brother Brann, wherever he's got to this month, always said you can judge a {race} by the dirt on their boots. I've had a look at the reports from the Wetlands and Loch Modan, and by that measure yours must be filthy, which I mean as the highest praise.\n\nIronforge has a long memory, lad, or lass, as the case may be, and it remembers the ones who stood with us when the troggs came up out of the earth and the Dark Irons came down from the mountains. Keep at it. There's a good deal more of this world that needs a firm hand and a steady axe.\n\nWhen you're in the city, come and drink with me in the Great Forge. Tell the guards I said so, and if they argue, tell them louder.\n\nMagni Bronzebeard, King of Ironforge",
+}
+
+P:Letter {
+  id = "cairne_fifty", npc = "cairne", delay = 3600,
+  when = { minLevel = 50, faction = "Horde" },
+  subject = "The long road",
+  body = "{name},\n\nThe elders tell me that the young {class} who once came to Thunder Bluff asking questions now has questions asked of them in turn. I have lived long enough to know that this is the moment when a warrior is most in danger, not from their enemies, but from their own pride.\n\nYou have walked from the Barrens to the edges of the world, and you have seen the wounds this land carries. Remember why you started walking. The Earth Mother does not ask us to be great. She asks us to be good, and to leave the land a little better than we found it.\n\nMy fire is still lit, and my pipe is still full. Come sit with an old bull before the winter.\n\nCairne Bloodhoof, High Chieftain of the Tauren",
+}
+
+P:Letter {
+  id = "tyrande_fifty", npc = "tyrande", delay = 3600,
+  when = { minLevel = 50, faction = "Alliance" },
+  subject = "Under Elune's light",
+  body = "{name},\n\nThe Sentinels who patrol Felwood and Winterspring send me word of the ones who fight beside them, and your name has reached me more than once. I wanted you to know that the Temple of the Moon has noticed, and that the priestesses have added you to their prayers.\n\nThe world is darker than it was when you first took up arms. The corruption in Felwood spreads, and things stir in the south that my people have not seen in ten thousand years. You will be asked to go where few others can. When that day comes, go knowing that Elune watches over those who protect the innocent, whatever their race.\n\nMay her light guide you, {name}, as it has guided me.\n\nTyrande Whisperwind, High Priestess of Elune",
+}
