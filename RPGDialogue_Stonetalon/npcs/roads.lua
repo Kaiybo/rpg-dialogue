@@ -185,111 +185,111 @@ P:NPC {
 P:NPC {
   key = "tsunaman", id = TODO_NPC("Tsunaman"), name = "Tsunaman", title = "",
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
-  communities = { "sun_rock" }, temper = { "gentle" }, values = { "hopeful", "nature" },
+  communities = { "sun_rock" }, temper = { "gentle" }, values = { "patient", "nature" },
   impression = {
-    first = "He plants slowly and means to outlast the machines.",
-    third = "{name} met Tsunaman, a tauren of Sun Rock Retreat replanting the scarred woods of Stonetalon.",
+    first = "He ripples like a held breath and glares at every campfire.",
+    third = "{name} met Tsunaman, a water elemental at Sun Rock Retreat who serves Duke Hydraxis in his war against fire.",
   },
 
   greetings = {
-    { id = "g_default", text = "Welcome to Sun Rock, traveller. Mind the seedlings by the path; they're younger than they look." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and the seedlings are taller than when you left. You see, it works." },
+    { id = "g_default", text = "Stand clear of that campfire, mortal, for I have a quarrel with it. The tide brings you to Sun Rock, and the tide brings nothing without purpose." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, as the tide returns, and the fires in the vale burn a little lower than when you left. The Duke will hear of it." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I don't know. The Earth Mother heals slowly, and the Venture Company cuts quickly, and I'll take any help that tips the balance. If your Light mends, come and mend beside me for a day, and we'll see what grows." } },
+      lines = { { id = "xfpala_default", text = "Your Light burns, and I distrust all things that burn, yet it does not hunger the way fire hungers. If it will stand against the flame spirits in the vale, then let it shine beside the rain for a while." } },
       choices = {
-        { text = "I'll mend beside you, Tsunaman. Gladly.", next = "BACK", reply = "Then come, and we'll plant together while the sun is high. The Earth Mother does not mind whose light warms the seedlings.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My Light's for the Venture Company, not seedlings.", next = "BACK", reply = "Then point it at the shredders, and I'll thank you all the same. One fewer saw is worth a row of seedlings.", fx = { align = { light = -1 } } },
+        { text = "My Light will stand beside the rain, Tsunaman.", next = "BACK", reply = "Then go into the vale and let the flames see you shining. Water and Light together may drown a fire neither could alone.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My Light serves me, not your Duke's war.", next = "BACK", reply = "Then serve yourself, but the fire spirits will not ask whom you serve before they burn you. Remember that in the vale.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "It can quicken them a little, but the earth must still do the real work, because a tree hurried into growing is a tree that breaks in the first hard wind. What the vale needs most from you is to keep the shredders away while the roots go deep." } },
+      lines = { { id = "xdruid_default", text = "Your roots and leaves drink from my kind, druid, so we are not strangers. Grow what you will in the Charred Vale, but grow it after the fire is quenched, or you only feed the flames a fresh meal." } },
       choices = {
-        { text = "The earth sets the pace. I'll guard the vale and let it grow.", next = "BACK", reply = "That is the wisest thing anyone has said to me this season. Most braves who come through want it green by morning.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Waiting is how the vale was lost. I'll push the growth.", next = "BACK", reply = "The vale was lost to haste, not to waiting, young one. Push the growth if you must, but the first storm will tell you who was right.", fx = { align = { order = -1 } } },
+        { text = "Quench the fire first, then let the vale grow slowly.", next = "BACK", reply = "Spoken like still water, which runs deep and is not easily stirred. The vale will thank you in its own long season.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll grow it now. Green wood resists fire.", next = "BACK", reply = "Green wood burns slower, that much is true, but it still burns. Plant if you must, and I will keep the flames from your saplings while I can.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Driven off, if the Earth Mother had her way, because she does not delight in blood. But the goblins will not leave while the trees still stand, and a warrior who breaks their machines may do more for the forest than any planting of mine." } },
+      lines = { { id = "xwarcl_default", text = "Fought, warrior, and fought until nothing in the vale still glows. Fire is not a foe that retreats or bargains; it only feeds, and the servants of Ragnaros would feed on this whole world if we let them." } },
       choices = {
-        { text = "I'll break the machines and spare the goblins where I can.", next = "BACK", reply = "Then the Earth Mother will smile on you, I think. Break the machines, and let the goblins run home to tell their masters.", fx = { align = { honor = 1 } } },
-        { text = "The goblins brought this on themselves. I'll show them no mercy.", next = "BACK", reply = "They did bring it on themselves, and I'll not weep for them. But blood in the soil does not help the seeds, so be quick about it.", fx = { align = { honor = -1 } } },
+        { text = "I'll fight them openly and give no quarter.", next = "BACK", reply = "Good, for fire gives none either. Strike like a breaking wave, and do not stop until there is only steam.", fx = { align = { honor = 1 } } },
+        { text = "I'll take them however I can, fair or not.", next = "BACK", reply = "Fairness means nothing to a flame, so I will not scold you. Use every trick you know and drown them where they stand.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tsunaman.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. The Pridewing wyverns have grown bolder too, because the forest no longer hides their prey." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up the slopes, and into each other's hunting grounds, which means they fight where they once lived side by side. Your {pet} walks lightly among my seedlings, {class}, and the earth is glad of it. Feed it well; the land will remember." },
+        { id = "xhuntcl_default", text = "Up the slopes and away from the burning, as all living things flee from fire. The beasts of Stonetalon know what my kind knows, that a flame spirit does not hunt to eat but only to consume." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up the slopes and away from the burning, as all living things flee from fire. Your {pet} shies from the campfire as I do, {class}, and I find I like it the better for that." },
       },
       choices = {
-        { text = "I'll hunt only what I need, and the rest can recover.", next = "BACK", reply = "That is the hunter's way. Give the slopes a few seasons, and the deer will come down from the peaks again.", fx = { align = { honor = 1 } } },
-        { text = "The balance is broken. I'll hunt what I can, while I can.", next = "BACK", reply = "I understand the hunger, but taking what you can only breaks it further. Hunt carefully, and leave the mothers.", fx = { align = { honor = -1 } } },
+        { text = "I'll hunt the flame spirits fairly, as I'd hunt any beast.", next = "BACK", reply = "Then hunt them with patience, as the tide wears down the cliff. They will tire before you do.", fx = { align = { honor = 1 } } },
+        { text = "I'll set traps and let them burn themselves out.", next = "BACK", reply = "Trap them, then, and I will not call it shameful. A fire caught in a snare is still a fire that will not reach the trees.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tsunaman.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light, here among the stumps. I plant what others cut down, and I wonder whether the Light can plant anything." },
-        { id = "h_default", text = "I am Tsunaman, and I plant what others cut down. The Venture Company has stripped the Charred Vale and the woods below, and the Earth Mother will heal them, but she's glad of a little help." },
-        { id = "h_cond", when = { race = "Tauren" }, text = "A shu'halo! Then you know the land is our mother, and a child does not stand by while his mother is hurt." },
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The earth here cries out under the Venture Company's saws, and I'm glad someone who can hear it has come." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You pray, I can see it in how you hold your hands. Then pray for the Charred Vale, whatever answers you, because it needs every voice it can get." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. I've seen what fire does to a forest, and I've spent years undoing a little of it, so I hope you'll forgive me for watching your hands." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is something in you that the earth draws away from, I can feel it. I will not send you off, because the Warchief does not, but please don't call anything among my seedlings." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk softly, and I like that, because the ground here has had enough heavy boots. If you're going down to the Venture camps, step lighter there than they ever did." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your strength is welcome here, though I ask you to remember the seedlings when you walk among them, because they can't move out of your way." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen the creatures fleeing the vale, then, and you'll know the forest is not only trees." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! The Earth Mother's own healers, here at last, and the Charred Vale has waited a long time for hands like yours." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light, here at the edge of the burning. I have seen the Light warm and I have seen it scorch, and I wonder which yours will do." },
+        { id = "h_default", text = "I am Tsunaman, servant of Duke Hydraxis, and I have come to Sun Rock to wage war on fire. The flame spirits have crept into the Charred Vale, and where they walk, nothing grows and nothing drinks." },
+        { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, your people call the rain a gift of the Earth Mother, and I do not argue with them. I only ask that you help the rain put out what burns." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, who speaks with water and with fire alike. Speak with me, then, and tell your fire totems that I am watching them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You pray, and your prayers do not smell of smoke, which is more than I can say for most mortals here. The vale needs every power that does not burn." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, and I see the spark at your fingertips. Keep your fire to yourself while you stand near me, and turn your frost on the vale instead." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is a fire in you that is not clean fire, warlock, and I like it even less than the ordinary kind. The Warchief trusts you, so I will tolerate you, but do not burn anything near me." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You move quietly, like water under ice, and I approve. Quiet hands can snuff a flame before it knows it is in danger." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, strong as a spring flood. The fire spirits in the vale respect nothing but force, so you and I may yet be of use to each other." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, who has surely seen the beasts fleeing the vale. They know what the fire is, even if most mortals here do not." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, who tends the green things that drink from my kind. The fire in the vale is your enemy as much as mine, and I am glad you have come." },
       },
       again = {
-        { id = "h_again1", text = "What else, friend? Speak freely; the seedlings like a gentle voice." },
-        { id = "h_again2", text = "Ask what you like while I sort these seeds by size." },
+        { id = "h_again1", text = "Speak, mortal; the tide is patient, though the fire is not." },
+        { id = "h_again2", text = "Ask what you will, while I keep one eye on that campfire." },
       },
       choices = {
-        { text = "What are you planting?", next = "seeds" },
+        { text = "What brings a water spirit to Sun Rock?", next = "seeds" },
         { text = "The Charred Vale looks like it burned for days.", next = "vale" },
-        { text = "How is Sun Rock holding?", next = "sunrock" },
-        { text = "I'll help heal her.", next = "tauren", when = { race = "Tauren" } },
+        { text = "How do the tauren of Sun Rock treat you?", next = "sunrock" },
+        { text = "Does the rain truly answer the Earth Mother?", next = "tauren", when = { race = "Tauren" } },
         { text = "How can the land here heal, Tsunaman?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Could magic help the land here heal faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
-        { text = "The Venture Company must keep their fuel and machines somewhere close.", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Should the Venture Company be fought or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Could magic help quench the fires faster?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Where do the fire spirits gather in the vale?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Should the fire spirits be fought or contained, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
-        { text = "Can a druid's magic help the seedlings take root, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Can the Light heal the forest, Tsunaman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
-        { text = "May the seeds take root.", next = "END" },
+        { text = "Can a druid's magic help the vale recover, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Can the Light help against the fire, Tsunaman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "May the tide favour you.", next = "END" },
       },
     },
     seeds = {
       lines = {
-        { id = "seeds_default", text = "Gaea seeds, which grow quickly where the earth is wounded, if they're planted in the right places. I need hands to carry them to the burned ground, where the Venture shredders still roam." },
+        { id = "seeds_default", text = "Duke Hydraxis sent me, for he wars against the servants of Ragnaros wherever they rise, and they have risen in the Charred Vale. I need mortal hands to strike at them, and mortal hands to go where I cannot, into the drowned halls of Blackfathom." },
       },
       choices = {
-        { text = "The goblins will only cut them down again.", next = "seeds2" },
+        { text = "The fire spirits only burn what's in reach.", next = "seeds2" },
       },
     },
     seeds2 = {
       lines = {
-        { id = "seeds2_default", text = "Perhaps, but then I'll plant more, and the forest is more patient than any goblin's purse. Some of my people would rather drive the Venture Company out first, and some say we should heal before we fight." },
+        { id = "seeds2_default", text = "And everything is in reach of fire, given time, which is why the Duke does not rest. Some say the vale should simply be left to burn out, and I say a fire never burns out while anything is left to feed it." },
       },
       choices = {
-        { text = "Heal first. Anger only burns more forest.", next = "BACK", reply = "That is my heart's answer too, and I'm glad to hear it from you. I've seen braves come back from Windshear so angry they trampled my rows.", fx = { align = { light = 1 }, trait = { patient = 1 } } },
-        { text = "Drive them out first, or the planting is wasted.", next = "BACK", reply = "Many of my people agree with you, and perhaps they're right. But I'll keep planting, whatever the braves decide.", fx = { align = { light = -1 }, trait = { fierce = 1 } } },
+        { text = "Patience, then. Wear them down like the tide wears stone.", next = "BACK", reply = "You understand water better than most who are made of meat. The tide never hurries, and the tide always wins.", fx = { align = { light = 1 }, trait = { patient = 1 } } },
+        { text = "Strike hard and fast, before the fire spreads.", next = "BACK", reply = "A flood rather than a tide, then, and a flood has its place too. Go, and do not let them rekindle behind you.", fx = { align = { light = -1 }, trait = { fierce = 1 } } },
       },
     },
     vale = {
       lines = {
-        { id = "vale_default", text = "Fire, and the Venture Company, and the Grimtotem who don't care either way. The vale was green when I was a calf, and I mean for it to be green again before I'm an elder." },
+        { id = "vale_default", text = "It burned, and it still burns, because something fed the flames until the flame spirits themselves woke there. I strike every campfire I pass, mortal, so you will understand that I take this personally." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -297,7 +297,7 @@ P:NPC {
     },
     sunrock = {
       lines = {
-        { id = "sunrock_default", text = "We are a small place, but the cliffs keep us safe and Maggran Earthbinder keeps us steady. The Grimtotem trouble us more than the goblins do, lately." },
+        { id = "sunrock_default", text = "Kindly enough, though they keep their cookfires lit, and I keep putting them out. Maggran Earthbinder tells me I frighten the braves, and I tell him the braves should be more frightened of fire." },
       },
       choices = {
         { text = "Something else, then.", next = "BACK" },
@@ -305,7 +305,7 @@ P:NPC {
     },
     tauren = {
       lines = {
-        { id = "tauren_default", text = "Then take a seed with you when you leave Stonetalon, and plant it somewhere that needs it. The Earth Mother keeps track, I think, of every one." },
+        { id = "tauren_default", text = "The rain answers many voices, shu'halo, and your Earth Mother's is an old and gentle one. Call to her when you walk into the vale, and I will call to the tide, and between us the fire will have no peace." },
       },
       choices = {
         { text = "I will.", next = "BACK" },
@@ -313,40 +313,40 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Perhaps, though I've never met a spell that grew a tree as well as rain and time do. What would help more is fewer shredders, and that is a task for any hand, magic or not." } },
+      lines = { { id = "xhcast_default", text = "Frost would help, and shadow would not hurt, but fire only makes the flame spirits stronger, for they drink it the way I drink rain. Whatever you cast, cast it at them and not near the trees." } },
       choices = {
-        { text = "Then I'll stop the shredders before I try any spell.", next = "BACK", reply = "Then you'll do more for the vale than any spell I know of. The shredders first, and then we'll see what grows.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the land wait. The Horde needs timber too.", next = "BACK", reply = "The Horde needs timber, yes, but not from a forest that's already bleeding. There are other hills, young one.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll fight them with frost and steel, not fire.", next = "BACK", reply = "Good, for a spark thrown at a flame spirit is only a gift to it. You learn quickly, mortal.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fire's what I know. I'll burn them anyway.", next = "BACK", reply = "Then you will feed them, and I will have to drown what you fed. Do not expect my thanks for that.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "In the camps below Windshear Crag, where the trees were thickest, because that is where the money was. I do not ask you to break their machines, but I would not weep if one of them stopped working." } },
+      lines = { { id = "xhrogue_default", text = "In the deepest part of the burned ground, where the ash is still warm underfoot. A flame spirit cannot hide its light, so it cannot hide from you, but it will feel you the moment your blade touches it." } },
       choices = {
-        { text = "I'll wreck their machines, quietly and thoroughly.", next = "BACK", reply = "I did not ask you to, and I will not thank you aloud. But the trees will be glad of the quiet.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "I'll leave that to the Horde's proper soldiers.", next = "BACK", reply = "That's a fair answer, and I won't press you. The braves of Sun Rock will be glad of the work.", fx = { align = { order = 1 } } },
+        { text = "I'll slip in and snuff them one by one.", next = "BACK", reply = "Like rain finding every crack in the stone. Go quietly, and let none of them warn the others.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll leave that to the Horde's proper soldiers.", next = "BACK", reply = "As you wish, though fire does not care whose soldiers come. I will find other hands.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Slowly, as it always does, with seeds in the ash and rain in its season. The earth spirits are angry and I don't blame them, but anger won't plant a single tree, so I ask them to let me work while they rage." } },
+      lines = { { id = "xhsham_default", text = "First the fire must be put out, and then the rain can do the rest in its own season. You know the elements are not all friends, shaman, and fire and water have been at war since before your kind first lit a torch." } },
       choices = {
-        { text = "Patience and planting. That's how we answer the machines.", next = "BACK", reply = "That is the answer, and I'm glad to hear it from someone so young. Come and plant a row with me before you go.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The machines should burn the way the forest burned.", next = "BACK", reply = "I feel that anger too, but burning machines makes more smoke, and the trees have breathed enough of it. Break them instead.", fx = { align = { light = -1 } } },
+        { text = "Balance and patience. That's how the land heals.", next = "BACK", reply = "Balance, yes, though I confess I would balance the world with a great deal less fire in it. Go well, shaman.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The fire spirits should be destroyed, not balanced.", next = "BACK", reply = "Now you speak like the Duke himself, and I will not argue. Drown every one of them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I'm a planter of seeds, and Sun Rock is my home." } },
-    venture_company = { { id = "tp_venture_company", text = "The Venture Company cuts the forest faster than I can plant it, but trees grow slowly and goblins grow old. I will outlast them, and so will the forest." } },
-    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us seeds to remind us that nothing ends for good. I plant her reminders where the goblins have been, and she does the rest." } },
-    cairne = { { id = "tp_cairne", text = "Cairne sent us here to heal the land, and he trusts me with the seeds. I would rather plant a hundred trees than fight one goblin, and he understands that." } },
-    centaur = { { id = "tp_centaur", text = "The Gelkis and Magram to the south fight each other, and the land in Desolace suffers for it. I worry that Stonetalon will become the same if no one plants anything here." } },
-    _none = { { id = "tp_none", text = "That I don't know, but the Earth Mother might, if you put your hand on the soil and listen long enough." } },
+    background = { { id = "tp_bg", text = "I am a servant of Duke Hydraxis, sent from the waters to fight fire wherever it rises." } },
+    venture_company = { { id = "tp_venture_company", text = "The goblins burn oil and wood in their machines, so I count them as fire's friends, whether they know it or not." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren tell me their Earth Mother weeps rain over the land. If that is so, then she and I want the same thing." } },
+    cairne = { { id = "tp_cairne", text = "The tauren chieftain lets me stand on his people's rock, and I am grateful. I only wish his people kept fewer fires." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of Desolace care nothing for the war of the elements, and that is their loss. Fire will come for them too, in time." } },
+    _none = { { id = "tp_none", text = "That is not a matter of water or fire, mortal, so it is not a matter for me." } },
   },
 }
 
