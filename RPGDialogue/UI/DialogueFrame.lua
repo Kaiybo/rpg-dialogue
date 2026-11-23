@@ -685,13 +685,21 @@ end
 ---------------------------------------------------------------------------
 -- Public
 ---------------------------------------------------------------------------
+-- "<Title>", or "" when the NPC has no title (nil, empty or whitespace).
+local function bracketed(s)
+  if type(s) ~= "string" then return "" end
+  s = s:match("^%s*(.-)%s*$")
+  if s == "" then return "" end
+  return "<" .. s .. ">"
+end
+
 -- v: { name, subtitle, unit, text, choices = { { text, locked } }, lineGid }
 function D.Show(v)
   if not frame then create(); D.Style() end
   view = v
   frame.lastLabel = v.lastLabel
   frame.name:SetText(v.name or "")
-  frame.subtitle:SetText(v.subtitle and ("<" .. v.subtitle .. ">") or "")
+  frame.subtitle:SetText(bracketed(v.subtitle))
   frame.reaction:SetText("")
   frame.reaction:Hide()
   D.SetSaid(v.said)
@@ -850,7 +858,7 @@ function D.ShowAnswer(text, topicName, linked, said)
   reveal.total = utf8Len(reveal.full)
   reveal.cuts = nil
   reveal.shown = 0
-  if topicName then frame.subtitle:SetText("<" .. topicName .. ">") end
+  if topicName then frame.subtitle:SetText(bracketed(topicName)) end
   D.Layout()
   finishReveal()
 end
