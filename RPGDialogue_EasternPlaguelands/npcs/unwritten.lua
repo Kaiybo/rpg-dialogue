@@ -816,3 +816,97 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know, friend. Ask one of the officers." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Darrowshire Spirit: the freed ghosts of Darrowshire's townsfolk, released when
+-- the ghouls that fed on them are slain (Hidden Enemies of Darrowshire / Sacred Ground).
+---------------------------------------------------------------------------
+P:NPC {
+  key = "epl_darrowshire_spirit", id = 11064, name = "Darrowshire Spirit",
+  role = "citizen", tier = "service",
+  temper = { "lost", "grateful" }, values = { "home", "rest" },
+  impression = {
+    first = "A faint, pale figure rises from the ground where the ghoul fell, blinking as if waking from a long and terrible dream.",
+    third = "{name} spoke with a freed spirit of Darrowshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "I'm free. Oh, Light, I'm free of it. Thank you, stranger, thank you." },
+    { id = "g_back", when = { metBefore = true }, text = "Another of us loosed from those things. Bless you for every one." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I lived in Darrowshire, before the Scourge came. When I died, those creatures kept a piece of me, and I couldn't leave. Now I think I can go home, wherever home is now." },
+      },
+      again = { { id = "h_again", text = "I can feel myself fading. Ask quickly, if you've something to ask." } },
+      choices = {
+        { text = "What happened at Darrowshire?", next = "battle" },
+        { text = "Where will you go now?", next = "go" },
+        { text = "Rest easy, friend.", next = "END" },
+      },
+    },
+    battle = {
+      lines = { { id = "ba_default", text = "The dead came out of the north, and we fought them in the square. Davil Lightfire led the defenders, and Captain Redpath stood beside him, until he didn't. I remember the bell ringing and ringing, and then I remember nothing." } },
+      choices = {
+        { text = "Redpath turned on you?", next = "redpath" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    redpath = {
+      lines = { { id = "re_default", text = "He fell, and he rose wrong. That's all I know. I hope someone gives him the peace you've given me, even after what he became." } },
+      choices = {
+        { text = "Even a traitor deserves peace in the end.", next = "BACK", reply = "Aye. He wasn't a traitor while he lived, and that's what I'll remember.", fx = { align = { light = 1 } } },
+        { text = "The risen deserve only the blade.", next = "BACK", reply = "Perhaps. You've seen more of them than I have, lately.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    go = {
+      lines = { { id = "go_default", text = "To my family, I hope, if they wait for me somewhere. If not, then just somewhere quiet, where nothing hungry can find me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Darrowshire Poltergeist: a restless ghost that follows a haunted adventurer.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "epl_darrowshire_poltergeist", id = 11296, name = "Darrowshire Poltergeist",
+  role = "citizen", tier = "service",
+  temper = { "restless", "insistent" }, values = { "justice", "memory" },
+  impression = {
+    first = "A cold, flickering shade hovers at your shoulder, muttering about a battle no one else remembers.",
+    third = "{name} was haunted for a time by a poltergeist of Darrowshire.",
+  },
+  greetings = {
+    { id = "g_default", text = "You can see me. Good. Then you'll listen, because no one else will." },
+    { id = "g_back", when = { metBefore = true }, text = "Still here, and so am I. You won't be rid of me that easily." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I died at Darrowshire, and I've not been allowed to stop dying since. I follow whoever disturbs me, and today that's you. Don't take it personally." },
+      },
+      again = { { id = "h_again", text = "Do you mean to help me, or just keep walking? I'll come either way." } },
+      choices = {
+        { text = "How do I lay you to rest?", next = "rest" },
+        { text = "How did you die?", next = "death" },
+        { text = "Leave me be, spirit.", next = "END" },
+      },
+    },
+    rest = {
+      lines = { { id = "re_default", text = "Kill the things that still feed on Darrowshire. Every ghoul you put down lets one of us go. I don't know if it will be me, but it might be." } },
+      choices = {
+        { text = "I'll avenge Darrowshire, then.", next = "BACK", reply = "Good. Swing hard. They deserve it.", fx = { align = { honor = 1 } } },
+        { text = "I'm not here to settle a ghost's grudges.", next = "BACK", reply = "Then I'll keep haunting you until you are.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    death = {
+      lines = { { id = "de_default", text = "A ghoul took my leg, and then the rest of me. I remember thinking of my little girl, and that she'd got out on the cart. I hope she got out on the cart." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}

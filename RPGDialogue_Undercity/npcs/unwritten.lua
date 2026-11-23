@@ -554,3 +554,119 @@ P:NPC {
     _none = { { id = "tp_none", text = "I design tabards, {class}, not opinions." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Theresa, Gerard's Mindslave: a living woman Gerard Abernathy cut and "improved".
+-- She carries parcels between Gerard and Father Lankester. Flat, obedient, with
+-- something of the old Theresa surfacing now and then.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_theresa", id = 5697, name = "Theresa", title = "Gerard's Mindslave",
+  role = "citizen", tier = "service",
+  communities = { "undercity" }, temper = { "flat", "obedient" }, values = { "the errand", "Gerard" },
+  impression = {
+    first = "A living woman with a scar along her scalp and eyes that look just past you. She waits, perfectly still, until she is spoken to.",
+    third = "{name} spoke with Theresa, the living woman Gerard Abernathy keeps as a mindslave in the War Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day. Master Gerard says I am to be polite to everyone who speaks to me, so I am being polite to you." },
+    { id = "g_back", when = { metBefore = true }, text = "I remember you. Master Gerard says remembering faces is one of the parts of me that still works." },
+    { id = "g_hallows", when = { holiday = "hallowsend" }, text = "The city is burning a wicker man this week. Master Gerard says I am not to stand too close to the fire." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Theresa. I carry things from Master Gerard to Father Lankester, and from Father Lankester back to Master Gerard. That is what I am for." },
+        { id = "h_living", when = { race = "Human" }, text = "You are warm, like me. There are not many warm people down here, and the cold ones look at us both the same way." },
+      },
+      again = {
+        { id = "h_again", text = "Is there something else? I must not keep the parcel waiting." },
+        { id = "h_again2", text = "I am still here. I am usually still here." },
+      },
+      choices = {
+        { text = "What did Gerard do to you?", next = "gerard" },
+        { text = "Do you remember your life before this?", next = "before" },
+        { text = "What do you carry for them?", next = "parcels" },
+        { text = "Go on with your errand, Theresa.", next = "END" },
+      },
+    },
+    gerard = {
+      lines = { { id = "ge_default", text = "He opened my head and took away the parts that were afraid. Then he woke up the parts that listen. He says I am his finest work, and I believe him, because I do not remember how to disbelieve him." } },
+      choices = {
+        { text = "That is monstrous. Someone should stop him.", next = "BACK", reply = "Stop him? Then who would tell me where to walk?", fx = { align = { light = 1 } } },
+        { text = "It's no crueler than what the Scourge does.", next = "BACK", reply = "Master Gerard says that too. He says it often.", fx = { align = { light = -1 } } },
+        { text = "Does it hurt?", next = "hurt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hurt = {
+      lines = { { id = "hu_default", text = "Sometimes there is a pain behind my eyes, like a word I cannot remember. Then a parcel comes, and I carry it, and the pain goes somewhere else for a while." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "be_default", text = "There was a kitchen, I think, with bread in it. There was someone who called me by a shorter name. I try to think of the name, and then I think of the parcel instead." } },
+      choices = {
+        { text = "I'm sorry, Theresa.", next = "BACK", reply = "Thank you. I do not know what for, but thank you.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    parcels = {
+      lines = { { id = "pa_default", text = "Bottles, mostly, and papers sealed with wax. Father Lankester says I must never open them, and I never have. I would not know how to want to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Spoops: a little Hallow's End ghost in the Undercity. Playful, a bit lonely,
+-- delighted by the festival that celebrates the Forsaken's freedom.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_spoops", id = 15309, name = "Spoops",
+  role = "citizen", tier = "service",
+  communities = { "undercity" }, temper = { "playful", "mischievous" }, values = { "fun", "the festival" },
+  impression = {
+    first = "A small, pale spirit bobs in the air and giggles, as if it has just pulled a prank on someone and is waiting for them to notice.",
+    third = "{name} met Spoops, a mischievous little ghost who haunts the Undercity at Hallow's End.",
+  },
+  greetings = {
+    { id = "g_default", text = "Boo! Oh, you didn't jump. Nobody down here ever jumps, and it isn't fair at all." },
+    { id = "g_hallows", when = { holiday = "hallowsend" }, text = "It's Hallow's End! Everybody's dressing up as something scary, and I'm already scary, so I win." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back! Did you bring sweets? Ghosts can't eat them, but I like to look at them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Spoops. I float about the city when the Wicker Man is burning, and I try to scare people. The Forsaken are terribly hard to scare, though; they've seen worse than me." },
+      },
+      again = { { id = "h_again", text = "Do you want to hear another secret? I know lots of them, mostly about rats." } },
+      choices = {
+        { text = "Who were you, before you were a ghost?", next = "before" },
+        { text = "What is Hallow's End to you?", next = "hallows" },
+        { text = "Want to try scaring me again?", next = "scare" },
+        { text = "Goodbye, Spoops.", next = "END" },
+      },
+    },
+    before = {
+      lines = { { id = "be_default", text = "I don't remember, really. I think there was a house and a dog. Now there's this, and it's quite a lot more interesting, so I try not to be sad about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hallows = {
+      lines = { { id = "ha_default", text = "The grown-up dead burn the Wicker Man to show they're free of the Lich King. I don't really understand that part. I just like the fire, and the masks, and the living people who come to stare." } },
+      choices = {
+        { text = "Freedom from the Scourge is worth a celebration.", next = "BACK", reply = "That's what the big ghosts say. Then they shout a lot.", fx = { align = { order = -1 } } },
+        { text = "The dead should rest, not throw parties.", next = "BACK", reply = "Rest is boring. I tried it once.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scare = {
+      lines = { { id = "sc_default", text = "All right, close your eyes. Now open them. Boo! Did that work? It didn't work, did it." } },
+      choices = {
+        { text = "Oh no, I'm terrified!", next = "BACK", reply = "Ha! I knew it! Wait until I tell the rats.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

@@ -505,3 +505,221 @@ P:NPC {
     _none = { { id = "tp_none", text = "That is not my message to carry, friend. Mine is only the moon and the festival." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Ancient of Lore: an ancient who keeps the old memories of the kaldorei.
+-- Treant voice like dar_protector: slow, Hmmm/Hroom, patient.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_ancient_lore", id = 3468, name = "Ancient of Lore",
+  role = "citizen", tier = "service",
+  communities = { "darnassus" }, temper = { "patient", "slow" }, values = { "memory", "knowledge" },
+  notices = { "race" },
+  impression = {
+    first = "A great ancient stands rooted among the trees, bark carved with runes so old the moss has grown into their grooves.",
+    third = "{name} listened to an Ancient of Lore speak of the kaldorei's long memory.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hroom. A visitor. Hmmm. Come closer, little one; my hearing is very old, and so is everything else about me." },
+    { id = "g_back", when = { metBefore = true }, text = "Hmmm. You again, and so soon. It feels like a heartbeat since you left. It was probably a season." },
+  },
+  notice = {
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" }, text = "Hroom. A child of the kaldorei. I remember your grandmother's grandmother, I think. Or a tree that looked like her." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Hroom. I am an Ancient of Lore. I keep the old stories, the ones the kaldorei wrote before they wrote in ink. Ask, and I will remember, slowly." },
+      },
+      again = { { id = "h_again", text = "Hmmm. Another question? Good. Questions are like rain; they keep an old tree from drying out." } },
+      choices = {
+        { text = "What do you remember of the Well of Eternity?", next = "well" },
+        { text = "What do you think of Teldrassil?", next = "teldrassil" },
+        { text = "Thank you, Ancient.", next = "END" },
+      },
+    },
+    well = {
+      lines = { { id = "we_default", text = "Hmmm. A lake of light, and the Highborne drinking from it until they were drunk on power. Then the Legion came through, and the lake swallowed the land. Hroom. A sad story, and an old one. The young ones should learn it better." } },
+      choices = {
+        { text = "The Highborne doomed everyone with their pride.", next = "BACK", reply = "Hmmm. Pride, yes. And hunger. Both grow quickly in the dark.", fx = { align = { order = 1 } } },
+        { text = "Magic itself wasn't to blame, only its misuse.", next = "BACK", reply = "Hroom. A dangerous thing to say near the druids. A true one, perhaps.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teldrassil = {
+      lines = { { id = "te_default", text = "Hroom. She is young, and she grew very fast. The Archdruid did not ask the dragons' blessing. I feel something in her roots that is not quite right. Hmmm. But I am old, and old trees worry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Darnassus Sentinel: the guards of the city.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_sentinel_guard", id = 4262, name = "Darnassus Sentinel",
+  role = "guard", tier = "service",
+  communities = { "darnassus" }, temper = { "cool", "watchful" }, values = { "duty", "Elune" },
+  impression = {
+    first = "A tall Sentinel in purple and silver, glaive at rest, watching the walkways with unhurried care.",
+    third = "{name} spoke with a Darnassus Sentinel on watch in the city.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. Walk in peace in Darnassus, and keep your voice low near the Temple." },
+    { id = "g_human", when = { race = "Human" }, text = "Welcome, human. The city is larger than it looks, so ask if you lose your way." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. The city treats you well, I hope." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am of the Sentinels, sworn to Priestess Tyrande Whisperwind. We keep the peace in Darnassus, and we keep it quietly." },
+      },
+      again = { { id = "h_again", text = "Anything more? I am on watch, but I can spare a moment." } },
+      choices = {
+        { text = "Who leads the kaldorei?", next = "leaders" },
+        { text = "Why are the Sentinels all women?", next = "women" },
+        { text = "Farewell, Sentinel.", next = "END" },
+      },
+    },
+    leaders = {
+      lines = { { id = "le_default", text = "High Priestess Tyrande leads us from the Temple of the Moon. Archdruid Fandral Staghelm leads the druids from the Cenarion Enclave. The two do not always agree, and the city feels it." } },
+      choices = {
+        { text = "The priestess should have the final word.", next = "BACK", reply = "Elune guides her. Most of us believe that.", fx = { align = { order = 1 } } },
+        { text = "Perhaps two voices are better than one.", next = "BACK", reply = "Perhaps. It certainly makes for long councils.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    women = {
+      lines = { { id = "wo_default", text = "For ten thousand years our men slept in the Dream as druids, and we kept watch while they did. Now the druids wake, but the watch is still ours." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Lunar Festival Emissary: sends folk to Moonglade during the Lunar Festival.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_lunar_emissary", id = 15892, name = "Lunar Festival Emissary",
+  role = "questgiver", tier = "service",
+  communities = { "darnassus" }, temper = { "warm", "festive" }, values = { "tradition", "the ancestors" },
+  impression = {
+    first = "A cheerful druid in festival red and gold, a lantern of moonlight hanging from her staff.",
+    third = "{name} met a Lunar Festival Emissary inviting travellers to Moonglade.",
+  },
+  greetings = {
+    { id = "g_default", text = "Greetings, friend. The moon is turning, and Moonglade is waiting for you." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival is upon us! Have you been to Moonglade yet? You must, you simply must." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am an emissary of the Cenarion Circle. Each year, at the Lunar Festival, we call all peoples to Moonglade to honour their elders and remember the defeat of Omen." },
+        { id = "h_q", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Go to the moonlight at the city's edge and it will carry you to Moonglade. Find Valadar Starsong there; he'll tell you the rest." },
+      },
+      again = { { id = "h_again", text = "Anything else about the festival? I could talk about it all night." } },
+      choices = {
+        { text = "Who was Omen?", next = "omen" },
+        { text = "Why honour the elders?", next = "elders" },
+        { text = "I'll go to Moonglade.", next = "END" },
+      },
+    },
+    omen = {
+      lines = { { id = "om_default", text = "A great demon beast who served the Legion in the War of the Ancients. He came to Moonglade, years later, and was driven into Elune's lake, where he sleeps still. Each year we light the sky so he does not wake." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    elders = {
+      lines = { { id = "el_default", text = "Because their wisdom kept our peoples alive. Their spirits wait in cities and wild places across Azeroth, and those who seek them out are given coins of ancestry." } },
+      choices = {
+        { text = "The old ways deserve honour.", next = "BACK", reply = "They do, and the elders will thank you.", fx = { align = { order = 1 } } },
+        { text = "The young should make their own way.", next = "BACK", reply = "They will. But no tree grows without roots.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Lunar Festival Vendor: sells fireworks, lanterns and festive goods.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_lunar_vendor", id = 15898, name = "Lunar Festival Vendor",
+  role = "vendor", tier = "service",
+  communities = { "darnassus" }, temper = { "bright", "chatty" }, values = { "celebration", "trade" },
+  impression = {
+    first = "A vendor surrounded by paper lanterns, firework rockets and little red envelopes, all smelling faintly of gunpowder.",
+    third = "{name} browsed the wares of a Lunar Festival Vendor.",
+  },
+  greetings = {
+    { id = "g_default", text = "Fireworks, lanterns and festive dress! Everything a soul needs to light the sky." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "It's the Lunar Festival! Buy a rocket, buy a lantern, and send the old year off with a bang." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I sell for the festival: rockets, clusters of fireworks, lanterns and festive clothing. You pay in coins of ancestry for the good things, and coin of the realm for the rest." },
+      },
+      again = { { id = "h_again", text = "See anything you like? The rockets are very popular this year." } },
+      choices = {
+        { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "Why fireworks, of all things?", next = "why" },
+        { text = "Goodbye.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wh_default", text = "The druids say the lights keep Omen asleep under the lake. Personally, I think people simply like explosions." } },
+      choices = {
+        { text = "It's a sacred tradition. Respect it.", next = "BACK", reply = "Of course, of course. Sacred explosions, then.", fx = { align = { order = 1 } } },
+        { text = "You're right. Explosions are the best part.", next = "BACK", reply = "Finally, someone who understands! Here, look at this one.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Treant Ally: a young treant called up to fight beside the kaldorei.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_treant_ally", id = 5806, name = "Treant Ally",
+  role = "soldier", tier = "service",
+  communities = { "darnassus" }, temper = { "young", "earnest" }, values = { "the forest", "loyalty" },
+  impression = {
+    first = "A small treant, its bark still green and soft, shuffles beside you with the eagerness of a sapling.",
+    third = "{name} walked for a time with a young Treant Ally.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hroom! Hello! I am here to help. Point me at something, and I will help it fall down." },
+    { id = "g_back", when = { metBefore = true }, text = "Hmmm! You again. I am pleased. I am still learning what pleased feels like, but I think this is it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Hmmm. I was called up from the wood not long ago. The druids say I am an ally, so I am being one. Hroom. It is my first job." },
+      },
+      again = { { id = "h_again", text = "Hmmm? Is there more to talk about? I like talking. It is like rustling, but with meaning." } },
+      choices = {
+        { text = "What is it like, being newly woken?", next = "woken" },
+        { text = "Who should we fight?", next = "fight" },
+        { text = "Come on, little friend.", next = "END" },
+      },
+    },
+    woken = {
+      lines = { { id = "wo_default", text = "Hroom. Everything is very loud and very fast. The birds are much bigger than I thought. The older trees tell me I will grow used to it in a few hundred years." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fight = {
+      lines = { { id = "fi_default", text = "Hmmm. The druids say anything that hurts the forest. The furbolgs who went mad, the creatures of the corruption, the ones with axes. I do not like the ones with axes." } },
+      choices = {
+        { text = "Then we'll protect every tree we can.", next = "BACK", reply = "Hroom! Yes! Every tree!", fx = { align = { light = 1 } } },
+        { text = "Some trees have to fall so people can live.", next = "BACK", reply = "Hmmm. I do not like that. I will think about it for a century.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

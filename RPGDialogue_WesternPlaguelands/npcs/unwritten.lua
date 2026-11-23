@@ -461,3 +461,62 @@ P:NPC {
     _none = { { id = "tp_none", text = "The ancestors have not told me that, child, and I would not guess." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Elder Moonstrike: a kaldorei ancestor honoured at the Lunar Festival, whose
+-- spirit waits at the doors of Scholomance.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wpl_elder_moonstrike", id = 15594, name = "Elder Moonstrike", gender = "female",
+  role = "questgiver", tier = "quest",
+  temper = { "calm", "sorrowful" }, values = { "tradition", "memory" },
+  notices = { "race", "class" },
+  impression = {
+    first = "The shade of an old night elf woman glows softly in the dark at Scholomance's doors, untouched by the foulness around her.",
+    third = "{name} paid respects to Elder Moonstrike of the Lunar Festival, at the gates of Scholomance.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah, traveller. Few come to this place with honour in their hearts, so I am glad of you." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come again, and you have found me even here. The ancestors are pleased." },
+    { id = "g_back", when = { metBefore = true }, text = "You return to an old spirit's vigil. Sit a while; the dark here does not touch us." },
+  },
+  notice = {
+    { id = "n_nelf", cat = "race", when = { race = "NightElf" }, text = "A child of my own people, so far from the forests. Elune walks with you even here, little one." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" }, text = "You carry light in your hands, priest. This school was built to snuff such light out, so hold yours close." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Moonstrike, and I am one of the elders the festival remembers. My spirit keeps watch at Scholomance, where the Cult of the Damned teaches its students to raise the dead." },
+        { id = "h_q", when = { questActive = TODO_QUEST("Moonstrike the Elder") }, text = "You have come to honour the elders, and you have come a long and dangerous way to do it. Take this coin of ancestry, and remember me kindly." },
+      },
+      again = { { id = "h_again", text = "What else would you know, young one?" } },
+      choices = {
+        { text = "Why does your spirit linger here, of all places?", next = "why" },
+        { text = "What is the Lunar Festival?", next = "festival" },
+        { text = "What happens inside Scholomance?", next = "school" },
+        { text = "Elune-adore, Elder.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wh_default", text = "Because someone must remember the dead properly in a place that only uses them. While I keep vigil, the necromancers cannot claim that every soul here belongs to them." } },
+      choices = {
+        { text = "That is a noble vigil.", next = "BACK", reply = "It is only a quiet one. But thank you.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    festival = {
+      lines = { { id = "fe_default", text = "The druids remember the night Omen was defeated at Moonglade, and all the peoples are asked to honour their elders. In the festival season, those who seek us out are given coins of ancestry, so the memory is passed on." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    school = {
+      lines = { { id = "sc_default", text = "The Barov family gave their own keep to the Cult, and the Cult made it a school of death. The students practise on the living and the dead alike. I hear them at night, and I grieve." } },
+      choices = {
+        { text = "It should be burned to the ground.", next = "BACK", reply = "Fire cleanses, but it does not remember. Take care what you burn.", fx = { align = { light = 1 } } },
+        { text = "Knowledge is knowledge, even dark knowledge.", next = "BACK", reply = "So said the Highborne, once. I remember how that ended.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}

@@ -243,3 +243,46 @@ P:NPC {
     _none = { { id = "tp_none", text = "That I do not know, child. Ask the Sentinels." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Auberdine Sentinel: guards of the village on the shore.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "aub_sentinel_guard", id = 6086, name = "Auberdine Sentinel",
+  role = "guard", tier = "service",
+  communities = { "auberdine" }, temper = { "calm", "alert" }, values = { "duty", "the shore" },
+  impression = {
+    first = "A Sentinel stands on the docks of Auberdine, the sea wind tugging at her cloak, watching the water and the woods by turns.",
+    third = "{name} spoke with an Auberdine Sentinel on watch over the village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. Welcome to Auberdine. Mind the docks; the boards are slick after rain." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The shore has been quiet, which only makes me more careful." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Auberdine is the last safe harbour on this coast. The boats sail to Teldrassil and to Menethil from here, and we keep watch so they keep sailing." },
+      },
+      again = { { id = "h_again", text = "Is there more? I can answer while I watch." } },
+      choices = {
+        { text = "What threatens Darkshore?", next = "threat" },
+        { text = "What do you think of the human visitors?", next = "humans" },
+        { text = "Farewell, Sentinel.", next = "END" },
+      },
+    },
+    threat = {
+      lines = { { id = "th_default", text = "The furbolgs have gone mad with something foul, the naga creep up the beaches, and the Twilight's Hammer haunt the ruins to the north. The forest itself feels sick in places. We do not yet know why." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    humans = {
+      lines = { { id = "hu_default", text = "They come off the Menethil boat loud and curious, and they ask a great many questions. They fought beside us at Hyjal, so I make allowances." } },
+      choices = {
+        { text = "The Alliance makes us all stronger.", next = "BACK", reply = "So the priestesses say. I hope they are right.", fx = { align = { order = 1 } } },
+        { text = "Kaldorei should look after kaldorei.", next = "BACK", reply = "Many here agree with you, though few say it aloud.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}
