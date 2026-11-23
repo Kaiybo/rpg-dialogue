@@ -430,6 +430,8 @@ L.IMPORT_DONE = "Story imported. The previous one was kept aside in saved data."
 -- Settings
 L.OPT_ENABLED = "Enable RPG Dialogue"
 L.OPT_OPEN_MODE = "When you talk to someone"
+L.OPT_TALK_DEAD = "Talk key on the dead lets you pay your respects"
+L.TALK_DEAD_OFF = "They're past talking now."
 L.OPT_RIGHT_CLICK = "Right-click people who have no menu of their own to talk to them"
 L.OPEN_COMPACT = "Short line; the box only when there's news"
 L.OPEN_SKIP = "Straight to business; the box only when there's news"

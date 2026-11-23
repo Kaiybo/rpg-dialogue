@@ -269,6 +269,7 @@ function Conv.Start(kind, unit, interactionName)
   -- A body with a window of its own (a quest left on a dead courier): their page in the box,
   -- never the corpse pool or anyone's lines. Only the talk key opens the corpse pool.
   if kind ~= "talk" and C.UnitDead(unit) then return Conv.StartMenuOnly(kind, unit, ctx, guid, mode) end
+  if C.UnitDead(unit) and ns.db.settings.talkToDead == false then return end
   local info = Conv.Identify(unit, ctx, interactionName)
   if not info or (info.pooled and kind ~= "talk" and #ns.Data.PoolsFor(info, ctx) == 0) then
     -- Nobody we have lines for: still show their menu in the box, not the game's.
@@ -1587,6 +1588,7 @@ function Conv.TalkToTarget(silent)
   if not C.Exists("target") or C.IsPlayer("target") then say(L.TALK_NO_TARGET); return end
   if not C.IsFriendly("target") then say(L.TALK_HOSTILE); return end
   if C.InRange("target") == false then say(L.TALK_TOO_FAR); return end
+  if C.UnitDead("target") and ns.db.settings.talkToDead == false then say(L.TALK_DEAD_OFF); return end
   Conv.Start("talk", "target")
   s = Conv.session
   if s and s.kind == "talk" then
