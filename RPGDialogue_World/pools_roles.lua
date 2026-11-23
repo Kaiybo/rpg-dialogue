@@ -7483,3 +7483,34 @@ P:Pool {
     _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you whether you asked or not, and then he'll tell you what it cost him." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- The dead (role "corpse", 0.105.2): any NPC lying dead in the world. They say nothing;
+-- the box only shows the body, and the one reply is to leave them be.
+---------------------------------------------------------------------------
+P:Pool {
+  id = "corpse", role = "corpse",
+  greetings = {
+    { id = "g_default", text = "*The body lies where it fell, still and cold, and no breath stirs it.*" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "*In the dark the body is only a shape on the ground, as still as the stones around it.*" },
+  },
+  tier = "service",
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*The body lies where it fell, still and cold, and no breath stirs it.*" },
+        { id = "h_eyes", text = "*The eyes are open and fixed on nothing, and a fly crawls along the collar unbothered.*" },
+        { id = "h_hand", text = "*One hand is still curled as if it held something, though whatever it was is gone now.*" },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "*In the dark the body is only a shape on the ground, as still as the stones around it.*" },
+        { id = "h_healer", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } }, text = "*You know the look of it before you kneel: there is nothing left here for any healing to reach.*" },
+      },
+      again = {
+        { id = "a_again", text = "*The body hasn't moved.*" },
+      },
+      choices = {
+        { text = "Leave them be.", next = "END" },
+      },
+    },
+  },
+}

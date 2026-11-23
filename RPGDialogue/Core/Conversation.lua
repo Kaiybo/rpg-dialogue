@@ -43,6 +43,8 @@ local function roleFromPatterns(text, patterns)
 end
 
 function Conv.DetectRole(ctx, interactionName)
+  -- The dead (0.105.2): a corpse in the world says nothing; the box shows them lying there.
+  if ctx.unit and C.UnitDead(ctx.unit) then return "corpse" end
   local cap = ns.db and ctx.npcID and ns.db.capture.npcs[ctx.npcID]
   local role = roleFromPatterns(cap and cap.subtitle, W.SUBTITLE_ROLES)
   role = role or roleFromPatterns(ctx.npcSubtitle or nil, W.SUBTITLE_ROLES)
@@ -100,7 +102,8 @@ function Conv.Identify(unit, ctx, interactionName)
   local name = ctx.npcName or nil
   if not npcID and not name then return nil end
   local info = { npcID = npcID, unitName = name, subtitle = ctx.npcSubtitle or nil }
-  local def = ns.Data.FindNPC(npcID, name)
+  -- A dead NPC never speaks their own lines, only the corpse pool (DetectRole).
+  local def = not C.UnitDead(unit) and ns.Data.FindNPC(npcID, name)
   if def then
     info.def = def
     info.key = def.key
@@ -225,7 +228,6 @@ function Conv.Start(kind, unit, interactionName)
   if mode == "off" then return end
   local guid = C.GUID(unit)
   if not guid then return end
-  if C.UnitDead(unit) then return end
   local s = Conv.session
   if s and s.guid == guid and not s.ended then
     -- Same NPC, interaction continuing (gossip -> vendor, gossip -> quest details).
@@ -1578,7 +1580,6 @@ function Conv.TalkToTarget(silent)
   if s and not s.ended and s.unit == "npc" then Conv.OpenFull("talk"); return end
   if not C.Exists("target") or C.IsPlayer("target") then say(L.TALK_NO_TARGET); return end
   if not C.IsFriendly("target") then say(L.TALK_HOSTILE); return end
-  if C.UnitDead("target") then say(L.TALK_DEAD); return end
   if C.InRange("target") == false then say(L.TALK_TOO_FAR); return end
   Conv.Start("talk", "target")
   s = Conv.session
@@ -1607,7 +1608,6 @@ function Conv.OnWorldMouseDown(button)
   pressed = nil
   if button ~= "RightButton" or not ns.db or not ns.db.settings.rightClickTalk or C.InCombat() then return end
   if not C.Exists("mouseover") or C.IsPlayer("mouseover") or not C.IsFriendly("mouseover") then return end
-  if C.UnitDead("mouseover") then return end
   local guid = C.GUID("mouseover")
   if guid then pressed = { guid = guid, t = C.Clock() } end
 end
