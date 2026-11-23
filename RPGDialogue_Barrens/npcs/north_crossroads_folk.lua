@@ -1,5 +1,5 @@
 -- The Crossroads' traders and keepers not written elsewhere: Nargal Deatheye's weapons, Jahan
--- Hawkwing's leathers, Wrahk's cloth, Moorane Hearthgrain's bread, Reggifuz's stables, Halga
+-- Hawkwing's leathers, Wrahk's cloth, Moorane Hearthgrain's bread, Reggifuz's stables (in Ratchet), Halga
 -- Bloodeye, and Lizzarik, the goblin who sells blades off the road between here and Ratchet.
 -- Voices: bibles/nargal.md, bibles/jahan.md, bibles/wrahk.md, bibles/moorane.md,
 -- bibles/reggifuz.md, bibles/halga.md, bibles/lizzarik.md
@@ -531,16 +531,16 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Reggifuz: the goblin stable master at the Crossroads.
+-- Reggifuz: the goblin stable master of Ratchet, outside the Broken Keel Tavern (wowwiki archive).
 ---------------------------------------------------------------------------
 P:NPC {
   key = "reggifuz", id = TODO_NPC("Reggifuz"), name = "Reggifuz", title = "Stable Master",
   bible = "bibles/reggifuz.md", role = "stablemaster", tier = "service",
-  communities = { "crossroads" }, temper = { "pushy" }, values = { "greedy", "practical" },
+  communities = { "ratchet" }, temper = { "pushy" }, values = { "greedy", "practical" },
   notices = { "pet", "class" },
   impression = {
     first = "He never stops selling, even while he's shoveling.",
-    third = "{name} met Reggifuz, the goblin who runs the Crossroads stables.",
+    third = "{name} met Reggifuz, the goblin who runs the Ratchet stables outside the Broken Keel.",
   },
   greetings = {
     { id = "g_default", text = "Pal! Got a beast that needs boardin', or a beast that needs sellin'? I do one of those and I'm open to discussin' the other." },
@@ -564,7 +564,7 @@ P:NPC {
         { text = "What's the hardest beast you've boarded?", next = "hardest" },
         { text = "Will you take good care of my {pet}?", next = "care", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "What does it cost to keep a beast out here?", next = "costs" },
-        { text = "Sikwa keeps the stables too, doesn't she?", next = "sikwa" },
+        { text = "Do you know Sikwa, at the Crossroads stable?", next = "sikwa" },
         { text = "What happens if I never come back for my pet?", next = "unclaimed", when = { class = "HUNTER" } },
         { text = "Goblins and kodo. I never thought I'd see it.", next = "kodo", when = { race = "Tauren" } },
         { text = "Later.", next = "END" },
@@ -600,7 +600,7 @@ P:NPC {
       },
     },
     costs = {
-      lines = { { id = "co_default", text = "Whoa, you want the breakdown? A kodo eats forty pounds of grass a day, a lion eats meat that Zargh charges me full price for, and a raptor eats whatever's nearest, which is why raptors pay the hazard rate. Then there's water, which out here costs more than ale, and straw, which costs more than water." } },
+      lines = { { id = "co_default", text = "Whoa, you want the breakdown? A kodo eats forty pounds of grass a day, a lion eats meat the caravans charge me full price for, and a raptor eats whatever's nearest, which is why raptors pay the hazard rate. Then there's water, which out here costs more than ale, and straw, which costs more than water." } },
       choices = {
         { text = "Grass is free. It's everywhere out there.", next = "costs_grass" },
         { text = "Something else.", next = "BACK" },
@@ -614,21 +614,21 @@ P:NPC {
       },
     },
     costs_cartel = {
-      lines = { { id = "cc_default", fx = { learn = { "steamwheedle" } }, text = "The Steamwheedle Cartel, same as every goblin on this side of the sea, so ten percent of every fee goes down to Ratchet and on to the trade princes. It buys me the Cartel's name on the door, and that name's why nobody burns the place down." } },
+      lines = { { id = "cc_default", fx = { learn = { "steamwheedle" } }, text = "The Steamwheedle Cartel, same as every goblin on this side of the sea, so ten percent of every fee goes to Gazlowe's office and on to the trade princes. It buys me the Cartel's name on the door, and that name's why nobody burns the place down." } },
       choices = {
         { text = "A protection racket, then, with paperwork.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     sikwa = {
-      lines = { { id = "si_default", text = "Sikwa does the beasts and I do the books, and between us the Crossroads has the best stable on the Barrens, not that she'd ever say so. She looks at a lion and sees a friend, and I look at a lion and see a feed bill, and we're both right." } },
+      lines = { { id = "si_default", text = "Sikwa keeps the Crossroads stable and I keep Ratchet's, and we trade beasts and gossip up and down the road. She'd never say mine's the better stable, but she sends me her overflow. She looks at a lion and sees a friend, and I look at a lion and see a feed bill, and we're both right." } },
       choices = {
         { text = "You two don't get along, I take it.", next = "sikwa_fence" },
         { text = "Something else.", next = "BACK" },
       },
     },
     sikwa_fence = {
-      lines = { { id = "sf_default", text = "Oh, we get along fine, right up until the centaur hit the walls and she opens every stall and lets the beasts run loose. Three fences, pal, three, and I've invoiced Sergra for every one, and she keeps sendin' the invoices back with spear holes in 'em." } },
+      lines = { { id = "sf_default", text = "Oh, we get along fine, right up until she tells me that when the centaur hit her walls, she opens every stall and lets the beasts run loose. Three fences, pal, I'd have lost three fences doin' that, and she calls it good husbandry." } },
       choices = {
         { text = "Some things matter more than fences.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Sikwa should follow the rules like everyone else.", next = "BACK", fx = { align = { order = 1 } } },

@@ -176,14 +176,14 @@ P:NPC {
       },
     },
     reggifuz = {
-      lines = { { id = "re_default", text = "He counts the feed and I count the beasts, and we argue over which number matters more. He is greedy, but he is not cruel, and he has never once let a beast go hungry to save a copper, which I did not expect of a goblin." } },
+      lines = { { id = "re_default", text = "He keeps the stable in Ratchet, and when we meet on the road we argue over whether a beast is a friend or a feed bill. He is greedy, but he is not cruel, and he has never once let a beast go hungry to save a copper, which I did not expect of a goblin." } },
       choices = {
-        { text = "He says you cost him three fences.", next = "reggifuz_fence" },
+        { text = "He says your loose beasts would cost him three fences.", next = "reggifuz_fence" },
         { text = "Something else.", next = "BACK" },
       },
     },
     reggifuz_fence = {
-      lines = { { id = "rf_default", text = "Four, if he's counting honestly, and he never is. Let him send his little papers to Sergra; the beasts I let loose have bitten more Kolkar than his ledger ever will." } },
+      lines = { { id = "rf_default", text = "Four, if he counted honestly, and he never does. Let him keep his fences in Ratchet; the beasts I let loose have bitten more Kolkar than his ledger ever will." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     road = {
