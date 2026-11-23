@@ -20,7 +20,7 @@ WoW (Forever, Classic-based client 1.60) addon: CRPG-style NPC conversations. Co
 2. Add `## x.y.z (date): Patch Name` to `CHANGELOG.md` (and each changed pack's own `CHANGELOG.md`): user-facing, short. **Every release gets a short, evocative name** (the user asked after 0.92.0), e.g. `## 0.93.0 (2026-11-20): Voices of the Barrens`. The name becomes the GitHub release title.
 3. Update `HANDOFF.md` (state + next step only; history lives in the changelog and git).
 4. `python3 tools/build_zip.py` (zip in `tools/out/`; send it to the user).
-5. Commit, push to the session branch, open a draft PR. Once merged to `claude/import`, `.github/workflows/github-release.yml` publishes the GitHub release (tag `v<version>`, zip, changelog notes) automatically, via `tools/gh_releases.py`, which also backfills any version without one.
+5. Commit, push to the session branch, open a PR (not draft). **Ask the user to confirm before merging a release PR**, then merge it. Once merged to `claude/import`, `.github/workflows/github-release.yml` publishes the GitHub release (tag `v<version>`, zip, changelog notes) automatically, via `tools/gh_releases.py`, which also backfills any version without one.
 
 ## Rules that always hold
 - Whole-sentence, natural Warcraft voice (no clipped fragments). Player replies 15 words or fewer.
@@ -28,3 +28,4 @@ WoW (Forever, Classic-based client 1.60) addon: CRPG-style NPC conversations. Co
 - Classic-era lore only; nothing later is foreshadowed. IDs not captured yet are `TODO_NPC`/`TODO_QUEST`.
 - New files need a full game restart (not /reload); say so in the changelog.
 - Don't put the model name in commits or files.
+- **Merge PRs yourself (user doesn't review them).** Non-release PRs: open (not draft) and merge into `claude/import` right away. Release PRs: ask the user first, since merging publishes the release.
