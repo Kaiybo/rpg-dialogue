@@ -17,6 +17,7 @@ SD.ACCOUNT_DEFAULTS = {
     autoCapture = false,
     captureText = true,
     rightClickTalk = true,      -- right-clicking someone with no menu opens the box
+    talkToDead = true,          -- the talk key on a corpse opens the box (pay respects; 0.105.2)
     openMode = "full",          -- talking to someone: "full" (the conversation box, every time)
                                 --   | "compact" (short line; the box only when there's news) | "skip"
     otherAddons = "auto",       -- with Immersion/DialogueUI: "auto" | "takeover" | "stepback" | "off"

@@ -280,6 +280,7 @@ local function build()
   checkbox(L.OPT_ENABLED, "enabled")
   cycle(L.OPT_OPEN_MODE, "openMode", { "full", "compact", "skip" }, { L.OPEN_FULL, L.OPEN_COMPACT, L.OPEN_SKIP })
   checkbox(L.OPT_RIGHT_CLICK, "rightClickTalk")
+  checkbox(L.OPT_TALK_DEAD, "talkToDead")
   checkbox(L.OPT_PAGES, "pagesInBox")
   checkbox(L.OPT_FADE, "fadeDefault")
 
